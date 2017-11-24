@@ -392,6 +392,68 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// [GL] glSamplerParameteriv: Binding for glSamplerParameteriv.
+		/// </summary>
+		/// <param name="sampler">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:SamplerParameterName"/>.
+		/// </param>
+		/// <param name="param">
+		/// A <see cref="T:Int32*"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
+		public static unsafe void SamplerParameter(UInt32 sampler, SamplerParameterName pname, Int32* param)
+		{
+			Debug.Assert(Delegates.pglSamplerParameteriv != null, "pglSamplerParameteriv not implemented");
+			Delegates.pglSamplerParameteriv(sampler, (Int32)pname, param);
+			LogCommand("glSamplerParameteriv", null, sampler, pname, new IntPtr(param).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL] glSamplerParameteriv: Binding for glSamplerParameteriv.
+		/// </summary>
+		/// <param name="sampler">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:SamplerParameterName"/>.
+		/// </param>
+		/// <param name="param">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
+		public static void SamplerParameteri<T>(UInt32 sampler, SamplerParameterName pname, ref T param) where T : struct
+		{
+			Debug.Assert(Delegates.pglSamplerParameteriv != null, "pglSamplerParameteriv not implemented");
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(param);
+			try {
+				unsafe {
+					Delegates.pglSamplerParameteriv(sampler, (Int32)pname, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refParam = __makeref(param);
+				IntPtr refParamPtr = *(IntPtr*)(&refParam);
+
+				Delegates.pglSamplerParameteriv(sampler, (Int32)pname, (Int32*)refParamPtr.ToPointer());
+			}
+			#endif
+			LogCommand("glSamplerParameteriv", null, sampler, pname, param			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// [GL] glSamplerParameterf: Binding for glSamplerParameterf.
 		/// </summary>
 		/// <param name="sampler">
@@ -443,6 +505,68 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// [GL] glSamplerParameterfv: Binding for glSamplerParameterfv.
+		/// </summary>
+		/// <param name="sampler">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:SamplerParameterName"/>.
+		/// </param>
+		/// <param name="param">
+		/// A <see cref="T:float*"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
+		public static unsafe void SamplerParameter(UInt32 sampler, SamplerParameterName pname, float* param)
+		{
+			Debug.Assert(Delegates.pglSamplerParameterfv != null, "pglSamplerParameterfv not implemented");
+			Delegates.pglSamplerParameterfv(sampler, (Int32)pname, param);
+			LogCommand("glSamplerParameterfv", null, sampler, pname, new IntPtr(param).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL] glSamplerParameterfv: Binding for glSamplerParameterfv.
+		/// </summary>
+		/// <param name="sampler">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:SamplerParameterName"/>.
+		/// </param>
+		/// <param name="param">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
+		public static void SamplerParameterf<T>(UInt32 sampler, SamplerParameterName pname, ref T param) where T : struct
+		{
+			Debug.Assert(Delegates.pglSamplerParameterfv != null, "pglSamplerParameterfv not implemented");
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(param);
+			try {
+				unsafe {
+					Delegates.pglSamplerParameterfv(sampler, (Int32)pname, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refParam = __makeref(param);
+				IntPtr refParamPtr = *(IntPtr*)(&refParam);
+
+				Delegates.pglSamplerParameterfv(sampler, (Int32)pname, (float*)refParamPtr.ToPointer());
+			}
+			#endif
+			LogCommand("glSamplerParameterfv", null, sampler, pname, param			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// [GL] glSamplerParameterIiv: Binding for glSamplerParameterIiv.
 		/// </summary>
 		/// <param name="sampler">
@@ -473,6 +597,72 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// [GL] glSamplerParameterIiv: Binding for glSamplerParameterIiv.
+		/// </summary>
+		/// <param name="sampler">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:SamplerParameterName"/>.
+		/// </param>
+		/// <param name="param">
+		/// A <see cref="T:Int32*"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
+		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
+		public static unsafe void SamplerParameterI(UInt32 sampler, SamplerParameterName pname, Int32* param)
+		{
+			Debug.Assert(Delegates.pglSamplerParameterIiv != null, "pglSamplerParameterIiv not implemented");
+			Delegates.pglSamplerParameterIiv(sampler, (Int32)pname, param);
+			LogCommand("glSamplerParameterIiv", null, sampler, pname, new IntPtr(param).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL] glSamplerParameterIiv: Binding for glSamplerParameterIiv.
+		/// </summary>
+		/// <param name="sampler">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:SamplerParameterName"/>.
+		/// </param>
+		/// <param name="param">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
+		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
+		public static void SamplerParameterIi<T>(UInt32 sampler, SamplerParameterName pname, ref T param) where T : struct
+		{
+			Debug.Assert(Delegates.pglSamplerParameterIiv != null, "pglSamplerParameterIiv not implemented");
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(param);
+			try {
+				unsafe {
+					Delegates.pglSamplerParameterIiv(sampler, (Int32)pname, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refParam = __makeref(param);
+				IntPtr refParamPtr = *(IntPtr*)(&refParam);
+
+				Delegates.pglSamplerParameterIiv(sampler, (Int32)pname, (Int32*)refParamPtr.ToPointer());
+			}
+			#endif
+			LogCommand("glSamplerParameterIiv", null, sampler, pname, param			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// [GL] glSamplerParameterIuiv: Binding for glSamplerParameterIuiv.
 		/// </summary>
 		/// <param name="sampler">
@@ -499,6 +689,72 @@ namespace OpenGL
 					LogCommand("glSamplerParameterIuiv", null, sampler, pname, param					);
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL] glSamplerParameterIuiv: Binding for glSamplerParameterIuiv.
+		/// </summary>
+		/// <param name="sampler">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:SamplerParameterName"/>.
+		/// </param>
+		/// <param name="param">
+		/// A <see cref="T:UInt32*"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
+		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
+		public static unsafe void SamplerParameterI(UInt32 sampler, SamplerParameterName pname, UInt32* param)
+		{
+			Debug.Assert(Delegates.pglSamplerParameterIuiv != null, "pglSamplerParameterIuiv not implemented");
+			Delegates.pglSamplerParameterIuiv(sampler, (Int32)pname, param);
+			LogCommand("glSamplerParameterIuiv", null, sampler, pname, new IntPtr(param).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL] glSamplerParameterIuiv: Binding for glSamplerParameterIuiv.
+		/// </summary>
+		/// <param name="sampler">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:SamplerParameterName"/>.
+		/// </param>
+		/// <param name="param">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
+		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
+		public static void SamplerParameterIui<T>(UInt32 sampler, SamplerParameterName pname, ref T param) where T : struct
+		{
+			Debug.Assert(Delegates.pglSamplerParameterIuiv != null, "pglSamplerParameterIuiv not implemented");
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(param);
+			try {
+				unsafe {
+					Delegates.pglSamplerParameterIuiv(sampler, (Int32)pname, (UInt32*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refParam = __makeref(param);
+				IntPtr refParamPtr = *(IntPtr*)(&refParam);
+
+				Delegates.pglSamplerParameterIuiv(sampler, (Int32)pname, (UInt32*)refParamPtr.ToPointer());
+			}
+			#endif
+			LogCommand("glSamplerParameterIuiv", null, sampler, pname, param			);
 			DebugCheckErrors(null);
 		}
 

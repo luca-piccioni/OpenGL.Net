@@ -496,6 +496,70 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// [GL] glTextureParameterfvEXT: Binding for glTextureParameterfvEXT.
+		/// </summary>
+		/// <param name="texture">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="target">
+		/// A <see cref="T:TextureTarget"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:TextureParameterName"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:float*"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		public static unsafe void TextureParameterEXT(UInt32 texture, TextureTarget target, TextureParameterName pname, float* @params)
+		{
+			Debug.Assert(Delegates.pglTextureParameterfvEXT != null, "pglTextureParameterfvEXT not implemented");
+			Delegates.pglTextureParameterfvEXT(texture, (Int32)target, (Int32)pname, @params);
+			LogCommand("glTextureParameterfvEXT", null, texture, target, pname, new IntPtr(@params).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL] glTextureParameterfvEXT: Binding for glTextureParameterfvEXT.
+		/// </summary>
+		/// <param name="texture">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="target">
+		/// A <see cref="T:TextureTarget"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:TextureParameterName"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		public static void TextureParameterfEXT<T>(UInt32 texture, TextureTarget target, TextureParameterName pname, ref T @params) where T : struct
+		{
+			Debug.Assert(Delegates.pglTextureParameterfvEXT != null, "pglTextureParameterfvEXT not implemented");
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(@params);
+			try {
+				unsafe {
+					Delegates.pglTextureParameterfvEXT(texture, (Int32)target, (Int32)pname, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refParams = __makeref(@params);
+				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
+
+				Delegates.pglTextureParameterfvEXT(texture, (Int32)target, (Int32)pname, (float*)refParamsPtr.ToPointer());
+			}
+			#endif
+			LogCommand("glTextureParameterfvEXT", null, texture, target, pname, @params			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// [GL] glTextureParameteriEXT: Binding for glTextureParameteriEXT.
 		/// </summary>
 		/// <param name="texture">
@@ -545,6 +609,70 @@ namespace OpenGL
 					LogCommand("glTextureParameterivEXT", null, texture, target, pname, @params					);
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL] glTextureParameterivEXT: Binding for glTextureParameterivEXT.
+		/// </summary>
+		/// <param name="texture">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="target">
+		/// A <see cref="T:TextureTarget"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:TextureParameterName"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:Int32*"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		public static unsafe void TextureParameterEXT(UInt32 texture, TextureTarget target, TextureParameterName pname, Int32* @params)
+		{
+			Debug.Assert(Delegates.pglTextureParameterivEXT != null, "pglTextureParameterivEXT not implemented");
+			Delegates.pglTextureParameterivEXT(texture, (Int32)target, (Int32)pname, @params);
+			LogCommand("glTextureParameterivEXT", null, texture, target, pname, new IntPtr(@params).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL] glTextureParameterivEXT: Binding for glTextureParameterivEXT.
+		/// </summary>
+		/// <param name="texture">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="target">
+		/// A <see cref="T:TextureTarget"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:TextureParameterName"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		public static void TextureParameteriEXT<T>(UInt32 texture, TextureTarget target, TextureParameterName pname, ref T @params) where T : struct
+		{
+			Debug.Assert(Delegates.pglTextureParameterivEXT != null, "pglTextureParameterivEXT not implemented");
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(@params);
+			try {
+				unsafe {
+					Delegates.pglTextureParameterivEXT(texture, (Int32)target, (Int32)pname, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refParams = __makeref(@params);
+				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
+
+				Delegates.pglTextureParameterivEXT(texture, (Int32)target, (Int32)pname, (Int32*)refParamsPtr.ToPointer());
+			}
+			#endif
+			LogCommand("glTextureParameterivEXT", null, texture, target, pname, @params			);
 			DebugCheckErrors(null);
 		}
 
@@ -4964,6 +5092,70 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// [GL] glTextureParameterIivEXT: Binding for glTextureParameterIivEXT.
+		/// </summary>
+		/// <param name="texture">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="target">
+		/// A <see cref="T:TextureTarget"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:TextureParameterName"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:Int32*"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		public static unsafe void TextureParameterIEXT(UInt32 texture, TextureTarget target, TextureParameterName pname, Int32* @params)
+		{
+			Debug.Assert(Delegates.pglTextureParameterIivEXT != null, "pglTextureParameterIivEXT not implemented");
+			Delegates.pglTextureParameterIivEXT(texture, (Int32)target, (Int32)pname, @params);
+			LogCommand("glTextureParameterIivEXT", null, texture, target, pname, new IntPtr(@params).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL] glTextureParameterIivEXT: Binding for glTextureParameterIivEXT.
+		/// </summary>
+		/// <param name="texture">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="target">
+		/// A <see cref="T:TextureTarget"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:TextureParameterName"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		public static void TextureParameterIiEXT<T>(UInt32 texture, TextureTarget target, TextureParameterName pname, ref T @params) where T : struct
+		{
+			Debug.Assert(Delegates.pglTextureParameterIivEXT != null, "pglTextureParameterIivEXT not implemented");
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(@params);
+			try {
+				unsafe {
+					Delegates.pglTextureParameterIivEXT(texture, (Int32)target, (Int32)pname, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refParams = __makeref(@params);
+				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
+
+				Delegates.pglTextureParameterIivEXT(texture, (Int32)target, (Int32)pname, (Int32*)refParamsPtr.ToPointer());
+			}
+			#endif
+			LogCommand("glTextureParameterIivEXT", null, texture, target, pname, @params			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// [GL] glTextureParameterIuivEXT: Binding for glTextureParameterIuivEXT.
 		/// </summary>
 		/// <param name="texture">
@@ -4989,6 +5181,70 @@ namespace OpenGL
 					LogCommand("glTextureParameterIuivEXT", null, texture, target, pname, @params					);
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL] glTextureParameterIuivEXT: Binding for glTextureParameterIuivEXT.
+		/// </summary>
+		/// <param name="texture">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="target">
+		/// A <see cref="T:TextureTarget"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:TextureParameterName"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:UInt32*"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		public static unsafe void TextureParameterIEXT(UInt32 texture, TextureTarget target, TextureParameterName pname, UInt32* @params)
+		{
+			Debug.Assert(Delegates.pglTextureParameterIuivEXT != null, "pglTextureParameterIuivEXT not implemented");
+			Delegates.pglTextureParameterIuivEXT(texture, (Int32)target, (Int32)pname, @params);
+			LogCommand("glTextureParameterIuivEXT", null, texture, target, pname, new IntPtr(@params).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL] glTextureParameterIuivEXT: Binding for glTextureParameterIuivEXT.
+		/// </summary>
+		/// <param name="texture">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="target">
+		/// A <see cref="T:TextureTarget"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:TextureParameterName"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		public static void TextureParameterIuiEXT<T>(UInt32 texture, TextureTarget target, TextureParameterName pname, ref T @params) where T : struct
+		{
+			Debug.Assert(Delegates.pglTextureParameterIuivEXT != null, "pglTextureParameterIuivEXT not implemented");
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(@params);
+			try {
+				unsafe {
+					Delegates.pglTextureParameterIuivEXT(texture, (Int32)target, (Int32)pname, (UInt32*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refParams = __makeref(@params);
+				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
+
+				Delegates.pglTextureParameterIuivEXT(texture, (Int32)target, (Int32)pname, (UInt32*)refParamsPtr.ToPointer());
+			}
+			#endif
+			LogCommand("glTextureParameterIuivEXT", null, texture, target, pname, @params			);
 			DebugCheckErrors(null);
 		}
 

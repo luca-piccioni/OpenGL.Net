@@ -2983,6 +2983,66 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// [GL] glTextureParameterfv: Binding for glTextureParameterfv.
+		/// </summary>
+		/// <param name="texture">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:TextureParameterName"/>.
+		/// </param>
+		/// <param name="param">
+		/// A <see cref="T:float*"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
+		public static unsafe void TextureParameter(UInt32 texture, TextureParameterName pname, float* param)
+		{
+			Debug.Assert(Delegates.pglTextureParameterfv != null, "pglTextureParameterfv not implemented");
+			Delegates.pglTextureParameterfv(texture, (Int32)pname, param);
+			LogCommand("glTextureParameterfv", null, texture, pname, new IntPtr(param).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL] glTextureParameterfv: Binding for glTextureParameterfv.
+		/// </summary>
+		/// <param name="texture">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:TextureParameterName"/>.
+		/// </param>
+		/// <param name="param">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
+		public static void TextureParameterf<T>(UInt32 texture, TextureParameterName pname, ref T param) where T : struct
+		{
+			Debug.Assert(Delegates.pglTextureParameterfv != null, "pglTextureParameterfv not implemented");
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(param);
+			try {
+				unsafe {
+					Delegates.pglTextureParameterfv(texture, (Int32)pname, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refParam = __makeref(param);
+				IntPtr refParamPtr = *(IntPtr*)(&refParam);
+
+				Delegates.pglTextureParameterfv(texture, (Int32)pname, (float*)refParamPtr.ToPointer());
+			}
+			#endif
+			LogCommand("glTextureParameterfv", null, texture, pname, param			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// [GL] glTextureParameteri: Binding for glTextureParameteri.
 		/// </summary>
 		/// <param name="texture">
@@ -3032,6 +3092,66 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// [GL] glTextureParameterIiv: Binding for glTextureParameterIiv.
+		/// </summary>
+		/// <param name="texture">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:TextureParameterName"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:Int32*"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
+		public static unsafe void TextureParameterI(UInt32 texture, TextureParameterName pname, Int32* @params)
+		{
+			Debug.Assert(Delegates.pglTextureParameterIiv != null, "pglTextureParameterIiv not implemented");
+			Delegates.pglTextureParameterIiv(texture, (Int32)pname, @params);
+			LogCommand("glTextureParameterIiv", null, texture, pname, new IntPtr(@params).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL] glTextureParameterIiv: Binding for glTextureParameterIiv.
+		/// </summary>
+		/// <param name="texture">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:TextureParameterName"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
+		public static void TextureParameterIi<T>(UInt32 texture, TextureParameterName pname, ref T @params) where T : struct
+		{
+			Debug.Assert(Delegates.pglTextureParameterIiv != null, "pglTextureParameterIiv not implemented");
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(@params);
+			try {
+				unsafe {
+					Delegates.pglTextureParameterIiv(texture, (Int32)pname, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refParams = __makeref(@params);
+				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
+
+				Delegates.pglTextureParameterIiv(texture, (Int32)pname, (Int32*)refParamsPtr.ToPointer());
+			}
+			#endif
+			LogCommand("glTextureParameterIiv", null, texture, pname, @params			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// [GL] glTextureParameterIuiv: Binding for glTextureParameterIuiv.
 		/// </summary>
 		/// <param name="texture">
@@ -3059,6 +3179,66 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// [GL] glTextureParameterIuiv: Binding for glTextureParameterIuiv.
+		/// </summary>
+		/// <param name="texture">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:TextureParameterName"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:UInt32*"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
+		public static unsafe void TextureParameterI(UInt32 texture, TextureParameterName pname, UInt32* @params)
+		{
+			Debug.Assert(Delegates.pglTextureParameterIuiv != null, "pglTextureParameterIuiv not implemented");
+			Delegates.pglTextureParameterIuiv(texture, (Int32)pname, @params);
+			LogCommand("glTextureParameterIuiv", null, texture, pname, new IntPtr(@params).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL] glTextureParameterIuiv: Binding for glTextureParameterIuiv.
+		/// </summary>
+		/// <param name="texture">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:TextureParameterName"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
+		public static void TextureParameterIui<T>(UInt32 texture, TextureParameterName pname, ref T @params) where T : struct
+		{
+			Debug.Assert(Delegates.pglTextureParameterIuiv != null, "pglTextureParameterIuiv not implemented");
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(@params);
+			try {
+				unsafe {
+					Delegates.pglTextureParameterIuiv(texture, (Int32)pname, (UInt32*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refParams = __makeref(@params);
+				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
+
+				Delegates.pglTextureParameterIuiv(texture, (Int32)pname, (UInt32*)refParamsPtr.ToPointer());
+			}
+			#endif
+			LogCommand("glTextureParameterIuiv", null, texture, pname, @params			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// [GL] glTextureParameteriv: Binding for glTextureParameteriv.
 		/// </summary>
 		/// <param name="texture">
@@ -3082,6 +3262,66 @@ namespace OpenGL
 					LogCommand("glTextureParameteriv", null, texture, pname, param					);
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL] glTextureParameteriv: Binding for glTextureParameteriv.
+		/// </summary>
+		/// <param name="texture">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:TextureParameterName"/>.
+		/// </param>
+		/// <param name="param">
+		/// A <see cref="T:Int32*"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
+		public static unsafe void TextureParameter(UInt32 texture, TextureParameterName pname, Int32* param)
+		{
+			Debug.Assert(Delegates.pglTextureParameteriv != null, "pglTextureParameteriv not implemented");
+			Delegates.pglTextureParameteriv(texture, (Int32)pname, param);
+			LogCommand("glTextureParameteriv", null, texture, pname, new IntPtr(param).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL] glTextureParameteriv: Binding for glTextureParameteriv.
+		/// </summary>
+		/// <param name="texture">
+		/// A <see cref="T:UInt32"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:TextureParameterName"/>.
+		/// </param>
+		/// <param name="param">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_5")]
+		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
+		public static void TextureParameteri<T>(UInt32 texture, TextureParameterName pname, ref T param) where T : struct
+		{
+			Debug.Assert(Delegates.pglTextureParameteriv != null, "pglTextureParameteriv not implemented");
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(param);
+			try {
+				unsafe {
+					Delegates.pglTextureParameteriv(texture, (Int32)pname, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refParam = __makeref(param);
+				IntPtr refParamPtr = *(IntPtr*)(&refParam);
+
+				Delegates.pglTextureParameteriv(texture, (Int32)pname, (Int32*)refParamPtr.ToPointer());
+			}
+			#endif
+			LogCommand("glTextureParameteriv", null, texture, pname, param			);
 			DebugCheckErrors(null);
 		}
 
