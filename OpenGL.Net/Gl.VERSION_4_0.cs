@@ -866,7 +866,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_draw_buffers_blend", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
 		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
-		public static void BlendFunci(UInt32 buf, BlendingFactor src, BlendingFactor dst)
+		public static void BlendFunc(UInt32 buf, BlendingFactor src, BlendingFactor dst)
 		{
 			Debug.Assert(Delegates.pglBlendFunci != null, "pglBlendFunci not implemented");
 			Delegates.pglBlendFunci(buf, (Int32)src, (Int32)dst);
