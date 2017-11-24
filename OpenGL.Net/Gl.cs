@@ -500,6 +500,17 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Flush GL errors queue.
+		/// </summary>
+		private static void ClearErrors()
+		{
+			ErrorCode error;
+
+			while ((error = GetError()) != ErrorCode.NoError)
+				;
+		}
+
+		/// <summary>
 		/// OpenGL error checking.
 		/// </summary>
 		/// <param name="returnValue">

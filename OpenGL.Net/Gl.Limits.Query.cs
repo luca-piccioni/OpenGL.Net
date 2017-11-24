@@ -130,24 +130,23 @@ namespace OpenGL
 								object[] @params = new object[] { graphicsLimitAttribute.EnumValue, obj };
 								getMethod.Invoke(null, @params);
 								field.SetValue(graphicsLimits, @params[1]);
-							} catch (GlException) {
-								
-							} catch (Exception) {
-								
+							} catch (TargetInvocationException exception) {
+								LogComment("Getting {0} (0x{1:X4}): {2}", field.Name, graphicsLimitAttribute.EnumValue, exception.InnerException.Message);
 							}
 						} else {
 							try {
 								string s = (string)getMethod.Invoke(null, new object[] { graphicsLimitAttribute.EnumValue });
 								field.SetValue(graphicsLimits, s);
-							} catch (GlException) {
-
-							} catch (Exception) {
-							
+							} catch (TargetInvocationException exception) {
+								LogComment("Getting {0} (0x{1}): {2}", field.Name, graphicsLimitAttribute.EnumValue, exception.InnerException.Message);
 							}
 						}
 					} else
 						throw new InvalidOperationException("GraphicsLimits field " + field.Name + " doesn't have a OpenGL compatible type");
 				}
+
+				// Note: in Release no error is checked, and there may be some error; do not let exit from here.
+				ClearErrors();
 
 				return (graphicsLimits);
 			}
