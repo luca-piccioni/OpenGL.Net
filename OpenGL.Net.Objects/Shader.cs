@@ -489,11 +489,7 @@ namespace OpenGL.Objects
 			int logLength;
 
 			// Obtain compilation log
-#if !MONODROID
-			Gl.GetInfoLogARB(ObjectName, MaxInfoLength - 1, out logLength, logInfo);
-#else
 			Gl.GetShaderInfoLog(ObjectName, MaxInfoLength - 1, out logLength, logInfo);
-#endif
 			StringBuilder sb = new StringBuilder(logInfo.Capacity);
 
 			string[] compilerLogLines = logInfo.ToString().Split(new char[] {'\n'}, StringSplitOptions.RemoveEmptyEntries);
@@ -664,11 +660,7 @@ namespace OpenGL.Objects
 			// Check for compilation errors
 			int compilationStatus;
 
-#if !MONODROID
-			Gl.GetObjectParameterARB(ObjectName, Gl.COMPILE_STATUS, out compilationStatus);
-#else
 			Gl.GetShader(ObjectName, ShaderParameterName.CompileStatus, out compilationStatus);
-#endif
 
 			if (compilationStatus != Gl.TRUE) {
 				StringBuilder sb = GetInfoLog();
