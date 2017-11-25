@@ -34,6 +34,8 @@ No graphical toolkit integration is included in this package. UI backends are su
             <group targetFramework="net35"/>
             <group targetFramework="net461" />
             <group targetFramework="monoandroid"/>
+            <group targetFramework="netcoreapp1.1"/>
+            <group targetFramework="netcoreapp2.0"/>
         </dependencies>
     </metadata>
     <files>
@@ -46,5 +48,11 @@ No graphical toolkit integration is included in this package. UI backends are su
         <file src="OpenGL.Net/bin/monodroid/Release/OpenGL.Net.dll" target="lib\monoandroid" />
         <file src="OpenGL.Net/bin/monodroid/Release/OpenGL.Net.xml" target="lib\monoandroid" />
         <file src="OpenGL.Net/bin/monodroid/Release/OpenGL.Net.pdb" target="lib\monoandroid" />
+        <file src="OpenGL.Net/bin/netcore/Release/netcoreapp1.1/OpenGL.Net.dll" target="lib\netcoreapp1.1" />
+        <file src="OpenGL.Net/bin/netcore/Release/netcoreapp1.1/OpenGL.Net.xml" target="lib\netcoreapp1.1" />
+        <file src="OpenGL.Net/bin/netcore/Release/netcoreapp1.1/OpenGL.Net.pdb" target="lib\netcoreapp1.1" />
+        <file src="OpenGL.Net/bin/netcore/Release/netcoreapp2.0/OpenGL.Net.dll" target="lib\netcoreapp2.0" />
+        <file src="OpenGL.Net/bin/netcore/Release/netcoreapp2.0/OpenGL.Net.xml" target="lib\netcoreapp2.0" />
+        <file src="OpenGL.Net/bin/netcore/Release/netcoreapp2.0/OpenGL.Net.pdb" target="lib\netcoreapp2.0" />
     </files>
 </package>
