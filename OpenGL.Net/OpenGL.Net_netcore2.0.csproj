@@ -59,10 +59,7 @@
     <None Remove="KhronosLogMapGl.xml" />
     <None Remove="KhronosLogMapGlx.xml" />
     <None Remove="KhronosLogMapWgl.xml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="KhronosLogMap.cs" />
+    <None Remove="LICENSE" />
   </ItemGroup>
 
   <Import Project="..\Khronos.Net\Khronos.Net.projitems" Label="Shared" />
