@@ -12,10 +12,10 @@ environment:
   matrix:
     - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
       SLN_PATH: OpenGL.Net_VC14.sln
-      PUBLISH_NUGET: true
+      PUBLISH_NUGET: false
     - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
       SLN_PATH: OpenGL.Net_VC15.sln
-      PUBLISH_NUGET: false
+      PUBLISH_NUGET: true
 
 pull_requests:
   do_not_increment_build_number: true
