@@ -221,7 +221,9 @@ namespace Khronos
 		public void AddLibraryDirectory(string libraryDirPath)
 		{
 #if NETSTANDARD1_1 || NETSTANDARD1_4 || NETCOREAPP1_1
-			// XXX
+			// Note: no support for library directories for the following targets:
+			// - .NET Standard 1.4 and below
+			// - .NET Core App 1.1
 #else
 			string path = Environment.GetEnvironmentVariable("PATH");
 
