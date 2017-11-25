@@ -15,28 +15,29 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
-    <OutputPath>bin\netcore\Release\netcoreapp2.0</OutputPath>
+    <OutputPath>bin\netcore\Release</OutputPath>
     <BaseIntermediateOutputPath>obj\netcoreapp2.0</BaseIntermediateOutputPath>
     <DefineConstants>TRACE;NETCORE;RELEASE;NETCOREAPP2_0</DefineConstants>
+    <DocumentationFile>bin\netcore\Release\netcoreapp2.0\OpenGL.Net.xml</DocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
-    <OutputPath>bin\netcore\x86\Release\netcoreapp2.0</OutputPath>
+    <OutputPath>bin\netcore\x86\Release</OutputPath>
     <BaseIntermediateOutputPath>obj\netcoreapp2.0</BaseIntermediateOutputPath>
     <DefineConstants>TRACE;NETCORE;RELEASE;NETCOREAPP2_0</DefineConstants>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
-    <OutputPath>bin\netcore\Debug\netcoreapp2.0</OutputPath>
+    <OutputPath>bin\netcore\Debug</OutputPath>
     <BaseIntermediateOutputPath>obj\netcoreapp2.0</BaseIntermediateOutputPath>
     <DefineConstants>TRACE;NETCORE;NETCOREAPP2_0</DefineConstants>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
-    <OutputPath>bin\netcore\x86\Debug\netcoreapp2.0</OutputPath>
+    <OutputPath>bin\netcore\x86\Debug</OutputPath>
     <BaseIntermediateOutputPath>obj\netcoreapp2.0</BaseIntermediateOutputPath>
     <DefineConstants>TRACE;NETCORE;NETCOREAPP2_0</DefineConstants>
   </PropertyGroup>
