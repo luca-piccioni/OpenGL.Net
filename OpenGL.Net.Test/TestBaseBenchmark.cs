@@ -30,7 +30,10 @@ namespace OpenGL.Test
 	/// <summary>
 	/// Abstract base test creating benchmarking methods.
 	/// </summary>
-	[TestFixture, RequiresSTA]
+	[TestFixture]
+//#if !NETCORE
+//	[Apartment(ApartmentState.STA)]
+//#endif
 	[Category("Benchmark")]
 	abstract class TestBaseBenchmark
 	{

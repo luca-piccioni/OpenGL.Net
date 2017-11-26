@@ -451,10 +451,9 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ub.Min(Vertex2ub[]) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2ub_TestMin_ArgumentNullException()
 		{
-			Vertex2ub.Min(null);
+			Assert.Throws<ArgumentNullException>(() => Vertex2ub.Min(null));
 		}
 
 		[Test(Description = "Test Vertex2ub.Min(Vertex2ub*)")]
@@ -481,11 +480,10 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ub.Min(Vertex2ub*) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2ub_TestMin_Unsafe_ArgumentNullException()
 		{
 			unsafe {
-				Vertex2ub.Min(null, 0);
+				Assert.Throws<ArgumentNullException>(() => Vertex2ub.Min(null, 0));
 			}
 		}
 
@@ -507,10 +505,9 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ub.Max(Vertex2ub[]) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2ub_TestMax_ArgumentNullException()
 		{
-			Vertex2ub.Max(null);
+			Assert.Throws<ArgumentNullException>(() => Vertex2ub.Max(null));
 		}
 
 		[Test(Description = "Test Vertex2ub.Max(Vertex2ub*)")]
@@ -537,11 +534,10 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ub.Max(Vertex2ub*) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2ub_TestMax_Unsafe_ArgumentNullException()
 		{
 			unsafe {
-				Vertex2ub.Max(null, 0);
+				Assert.Throws<ArgumentNullException>(() => Vertex2ub.Max(null, 0));
 			}
 		}
 
@@ -569,12 +565,11 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ub.Max(Vertex2ub[]) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2ub_TestMinMax_ArgumentNullException()
 		{
 			Vertex2ub min, max;
 
-			Vertex2ub.MinMax(null, out min, out max);
+			Assert.Throws<ArgumentNullException>(() => Vertex2ub.MinMax(null, out min, out max));
 		}
 
 		[Test(Description = "Test Vertex2ub.MinMax(Vertex2ub*)")]
@@ -605,13 +600,12 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ub.MinMax(Vertex2ub*) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2ub_TestMinMax_Unsafe_ArgumentNullException()
 		{
 			Vertex2ub min, max;
 
 			unsafe {
-				Vertex2ub.MinMax(null, 0, out min, out max);
+				Assert.Throws<ArgumentNullException>(() => Vertex2ub.MinMax(null, 0, out min, out max));
 			}
 		}
 
@@ -1095,10 +1089,9 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2b.Min(Vertex2b[]) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2b_TestMin_ArgumentNullException()
 		{
-			Vertex2b.Min(null);
+			Assert.Throws<ArgumentNullException>(() => Vertex2b.Min(null));
 		}
 
 		[Test(Description = "Test Vertex2b.Min(Vertex2b*)")]
@@ -1125,11 +1118,10 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2b.Min(Vertex2b*) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2b_TestMin_Unsafe_ArgumentNullException()
 		{
 			unsafe {
-				Vertex2b.Min(null, 0);
+				Assert.Throws<ArgumentNullException>(() => Vertex2b.Min(null, 0));
 			}
 		}
 
@@ -1151,10 +1143,9 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2b.Max(Vertex2b[]) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2b_TestMax_ArgumentNullException()
 		{
-			Vertex2b.Max(null);
+			Assert.Throws<ArgumentNullException>(() => Vertex2b.Max(null));
 		}
 
 		[Test(Description = "Test Vertex2b.Max(Vertex2b*)")]
@@ -1181,11 +1172,10 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2b.Max(Vertex2b*) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2b_TestMax_Unsafe_ArgumentNullException()
 		{
 			unsafe {
-				Vertex2b.Max(null, 0);
+				Assert.Throws<ArgumentNullException>(() => Vertex2b.Max(null, 0));
 			}
 		}
 
@@ -1213,12 +1203,11 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2b.Max(Vertex2b[]) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2b_TestMinMax_ArgumentNullException()
 		{
 			Vertex2b min, max;
 
-			Vertex2b.MinMax(null, out min, out max);
+			Assert.Throws<ArgumentNullException>(() => Vertex2b.MinMax(null, out min, out max));
 		}
 
 		[Test(Description = "Test Vertex2b.MinMax(Vertex2b*)")]
@@ -1249,13 +1238,12 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2b.MinMax(Vertex2b*) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2b_TestMinMax_Unsafe_ArgumentNullException()
 		{
 			Vertex2b min, max;
 
 			unsafe {
-				Vertex2b.MinMax(null, 0, out min, out max);
+				Assert.Throws<ArgumentNullException>(() => Vertex2b.MinMax(null, 0, out min, out max));
 			}
 		}
 
@@ -1725,10 +1713,9 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2us.Min(Vertex2us[]) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2us_TestMin_ArgumentNullException()
 		{
-			Vertex2us.Min(null);
+			Assert.Throws<ArgumentNullException>(() => Vertex2us.Min(null));
 		}
 
 		[Test(Description = "Test Vertex2us.Min(Vertex2us*)")]
@@ -1755,11 +1742,10 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2us.Min(Vertex2us*) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2us_TestMin_Unsafe_ArgumentNullException()
 		{
 			unsafe {
-				Vertex2us.Min(null, 0);
+				Assert.Throws<ArgumentNullException>(() => Vertex2us.Min(null, 0));
 			}
 		}
 
@@ -1781,10 +1767,9 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2us.Max(Vertex2us[]) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2us_TestMax_ArgumentNullException()
 		{
-			Vertex2us.Max(null);
+			Assert.Throws<ArgumentNullException>(() => Vertex2us.Max(null));
 		}
 
 		[Test(Description = "Test Vertex2us.Max(Vertex2us*)")]
@@ -1811,11 +1796,10 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2us.Max(Vertex2us*) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2us_TestMax_Unsafe_ArgumentNullException()
 		{
 			unsafe {
-				Vertex2us.Max(null, 0);
+				Assert.Throws<ArgumentNullException>(() => Vertex2us.Max(null, 0));
 			}
 		}
 
@@ -1843,12 +1827,11 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2us.Max(Vertex2us[]) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2us_TestMinMax_ArgumentNullException()
 		{
 			Vertex2us min, max;
 
-			Vertex2us.MinMax(null, out min, out max);
+			Assert.Throws<ArgumentNullException>(() => Vertex2us.MinMax(null, out min, out max));
 		}
 
 		[Test(Description = "Test Vertex2us.MinMax(Vertex2us*)")]
@@ -1879,13 +1862,12 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2us.MinMax(Vertex2us*) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2us_TestMinMax_Unsafe_ArgumentNullException()
 		{
 			Vertex2us min, max;
 
 			unsafe {
-				Vertex2us.MinMax(null, 0, out min, out max);
+				Assert.Throws<ArgumentNullException>(() => Vertex2us.MinMax(null, 0, out min, out max));
 			}
 		}
 
@@ -2369,10 +2351,9 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2s.Min(Vertex2s[]) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2s_TestMin_ArgumentNullException()
 		{
-			Vertex2s.Min(null);
+			Assert.Throws<ArgumentNullException>(() => Vertex2s.Min(null));
 		}
 
 		[Test(Description = "Test Vertex2s.Min(Vertex2s*)")]
@@ -2399,11 +2380,10 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2s.Min(Vertex2s*) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2s_TestMin_Unsafe_ArgumentNullException()
 		{
 			unsafe {
-				Vertex2s.Min(null, 0);
+				Assert.Throws<ArgumentNullException>(() => Vertex2s.Min(null, 0));
 			}
 		}
 
@@ -2425,10 +2405,9 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2s.Max(Vertex2s[]) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2s_TestMax_ArgumentNullException()
 		{
-			Vertex2s.Max(null);
+			Assert.Throws<ArgumentNullException>(() => Vertex2s.Max(null));
 		}
 
 		[Test(Description = "Test Vertex2s.Max(Vertex2s*)")]
@@ -2455,11 +2434,10 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2s.Max(Vertex2s*) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2s_TestMax_Unsafe_ArgumentNullException()
 		{
 			unsafe {
-				Vertex2s.Max(null, 0);
+				Assert.Throws<ArgumentNullException>(() => Vertex2s.Max(null, 0));
 			}
 		}
 
@@ -2487,12 +2465,11 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2s.Max(Vertex2s[]) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2s_TestMinMax_ArgumentNullException()
 		{
 			Vertex2s min, max;
 
-			Vertex2s.MinMax(null, out min, out max);
+			Assert.Throws<ArgumentNullException>(() => Vertex2s.MinMax(null, out min, out max));
 		}
 
 		[Test(Description = "Test Vertex2s.MinMax(Vertex2s*)")]
@@ -2523,13 +2500,12 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2s.MinMax(Vertex2s*) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2s_TestMinMax_Unsafe_ArgumentNullException()
 		{
 			Vertex2s min, max;
 
 			unsafe {
-				Vertex2s.MinMax(null, 0, out min, out max);
+				Assert.Throws<ArgumentNullException>(() => Vertex2s.MinMax(null, 0, out min, out max));
 			}
 		}
 
@@ -2999,10 +2975,9 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ui.Min(Vertex2ui[]) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2ui_TestMin_ArgumentNullException()
 		{
-			Vertex2ui.Min(null);
+			Assert.Throws<ArgumentNullException>(() => Vertex2ui.Min(null));
 		}
 
 		[Test(Description = "Test Vertex2ui.Min(Vertex2ui*)")]
@@ -3029,11 +3004,10 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ui.Min(Vertex2ui*) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2ui_TestMin_Unsafe_ArgumentNullException()
 		{
 			unsafe {
-				Vertex2ui.Min(null, 0);
+				Assert.Throws<ArgumentNullException>(() => Vertex2ui.Min(null, 0));
 			}
 		}
 
@@ -3055,10 +3029,9 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ui.Max(Vertex2ui[]) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2ui_TestMax_ArgumentNullException()
 		{
-			Vertex2ui.Max(null);
+			Assert.Throws<ArgumentNullException>(() => Vertex2ui.Max(null));
 		}
 
 		[Test(Description = "Test Vertex2ui.Max(Vertex2ui*)")]
@@ -3085,11 +3058,10 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ui.Max(Vertex2ui*) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2ui_TestMax_Unsafe_ArgumentNullException()
 		{
 			unsafe {
-				Vertex2ui.Max(null, 0);
+				Assert.Throws<ArgumentNullException>(() => Vertex2ui.Max(null, 0));
 			}
 		}
 
@@ -3117,12 +3089,11 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ui.Max(Vertex2ui[]) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2ui_TestMinMax_ArgumentNullException()
 		{
 			Vertex2ui min, max;
 
-			Vertex2ui.MinMax(null, out min, out max);
+			Assert.Throws<ArgumentNullException>(() => Vertex2ui.MinMax(null, out min, out max));
 		}
 
 		[Test(Description = "Test Vertex2ui.MinMax(Vertex2ui*)")]
@@ -3153,13 +3124,12 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ui.MinMax(Vertex2ui*) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2ui_TestMinMax_Unsafe_ArgumentNullException()
 		{
 			Vertex2ui min, max;
 
 			unsafe {
-				Vertex2ui.MinMax(null, 0, out min, out max);
+				Assert.Throws<ArgumentNullException>(() => Vertex2ui.MinMax(null, 0, out min, out max));
 			}
 		}
 
@@ -3643,10 +3613,9 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2i.Min(Vertex2i[]) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2i_TestMin_ArgumentNullException()
 		{
-			Vertex2i.Min(null);
+			Assert.Throws<ArgumentNullException>(() => Vertex2i.Min(null));
 		}
 
 		[Test(Description = "Test Vertex2i.Min(Vertex2i*)")]
@@ -3673,11 +3642,10 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2i.Min(Vertex2i*) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2i_TestMin_Unsafe_ArgumentNullException()
 		{
 			unsafe {
-				Vertex2i.Min(null, 0);
+				Assert.Throws<ArgumentNullException>(() => Vertex2i.Min(null, 0));
 			}
 		}
 
@@ -3699,10 +3667,9 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2i.Max(Vertex2i[]) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2i_TestMax_ArgumentNullException()
 		{
-			Vertex2i.Max(null);
+			Assert.Throws<ArgumentNullException>(() => Vertex2i.Max(null));
 		}
 
 		[Test(Description = "Test Vertex2i.Max(Vertex2i*)")]
@@ -3729,11 +3696,10 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2i.Max(Vertex2i*) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2i_TestMax_Unsafe_ArgumentNullException()
 		{
 			unsafe {
-				Vertex2i.Max(null, 0);
+				Assert.Throws<ArgumentNullException>(() => Vertex2i.Max(null, 0));
 			}
 		}
 
@@ -3761,12 +3727,11 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2i.Max(Vertex2i[]) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2i_TestMinMax_ArgumentNullException()
 		{
 			Vertex2i min, max;
 
-			Vertex2i.MinMax(null, out min, out max);
+			Assert.Throws<ArgumentNullException>(() => Vertex2i.MinMax(null, out min, out max));
 		}
 
 		[Test(Description = "Test Vertex2i.MinMax(Vertex2i*)")]
@@ -3797,13 +3762,12 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2i.MinMax(Vertex2i*) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2i_TestMinMax_Unsafe_ArgumentNullException()
 		{
 			Vertex2i min, max;
 
 			unsafe {
-				Vertex2i.MinMax(null, 0, out min, out max);
+				Assert.Throws<ArgumentNullException>(() => Vertex2i.MinMax(null, 0, out min, out max));
 			}
 		}
 
@@ -4254,10 +4218,9 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2f.Min(Vertex2f[]) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2f_TestMin_ArgumentNullException()
 		{
-			Vertex2f.Min(null);
+			Assert.Throws<ArgumentNullException>(() => Vertex2f.Min(null));
 		}
 
 		[Test(Description = "Test Vertex2f.Min(Vertex2f*)")]
@@ -4284,11 +4247,10 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2f.Min(Vertex2f*) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2f_TestMin_Unsafe_ArgumentNullException()
 		{
 			unsafe {
-				Vertex2f.Min(null, 0);
+				Assert.Throws<ArgumentNullException>(() => Vertex2f.Min(null, 0));
 			}
 		}
 
@@ -4310,10 +4272,9 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2f.Max(Vertex2f[]) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2f_TestMax_ArgumentNullException()
 		{
-			Vertex2f.Max(null);
+			Assert.Throws<ArgumentNullException>(() => Vertex2f.Max(null));
 		}
 
 		[Test(Description = "Test Vertex2f.Max(Vertex2f*)")]
@@ -4340,11 +4301,10 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2f.Max(Vertex2f*) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2f_TestMax_Unsafe_ArgumentNullException()
 		{
 			unsafe {
-				Vertex2f.Max(null, 0);
+				Assert.Throws<ArgumentNullException>(() => Vertex2f.Max(null, 0));
 			}
 		}
 
@@ -4372,12 +4332,11 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2f.Max(Vertex2f[]) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2f_TestMinMax_ArgumentNullException()
 		{
 			Vertex2f min, max;
 
-			Vertex2f.MinMax(null, out min, out max);
+			Assert.Throws<ArgumentNullException>(() => Vertex2f.MinMax(null, out min, out max));
 		}
 
 		[Test(Description = "Test Vertex2f.MinMax(Vertex2f*)")]
@@ -4408,13 +4367,12 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2f.MinMax(Vertex2f*) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2f_TestMinMax_Unsafe_ArgumentNullException()
 		{
 			Vertex2f min, max;
 
 			unsafe {
-				Vertex2f.MinMax(null, 0, out min, out max);
+				Assert.Throws<ArgumentNullException>(() => Vertex2f.MinMax(null, 0, out min, out max));
 			}
 		}
 
@@ -4865,10 +4823,9 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2d.Min(Vertex2d[]) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2d_TestMin_ArgumentNullException()
 		{
-			Vertex2d.Min(null);
+			Assert.Throws<ArgumentNullException>(() => Vertex2d.Min(null));
 		}
 
 		[Test(Description = "Test Vertex2d.Min(Vertex2d*)")]
@@ -4895,11 +4852,10 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2d.Min(Vertex2d*) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2d_TestMin_Unsafe_ArgumentNullException()
 		{
 			unsafe {
-				Vertex2d.Min(null, 0);
+				Assert.Throws<ArgumentNullException>(() => Vertex2d.Min(null, 0));
 			}
 		}
 
@@ -4921,10 +4877,9 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2d.Max(Vertex2d[]) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2d_TestMax_ArgumentNullException()
 		{
-			Vertex2d.Max(null);
+			Assert.Throws<ArgumentNullException>(() => Vertex2d.Max(null));
 		}
 
 		[Test(Description = "Test Vertex2d.Max(Vertex2d*)")]
@@ -4951,11 +4906,10 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2d.Max(Vertex2d*) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2d_TestMax_Unsafe_ArgumentNullException()
 		{
 			unsafe {
-				Vertex2d.Max(null, 0);
+				Assert.Throws<ArgumentNullException>(() => Vertex2d.Max(null, 0));
 			}
 		}
 
@@ -4983,12 +4937,11 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2d.Max(Vertex2d[]) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2d_TestMinMax_ArgumentNullException()
 		{
 			Vertex2d min, max;
 
-			Vertex2d.MinMax(null, out min, out max);
+			Assert.Throws<ArgumentNullException>(() => Vertex2d.MinMax(null, out min, out max));
 		}
 
 		[Test(Description = "Test Vertex2d.MinMax(Vertex2d*)")]
@@ -5019,13 +4972,12 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2d.MinMax(Vertex2d*) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2d_TestMinMax_Unsafe_ArgumentNullException()
 		{
 			Vertex2d min, max;
 
 			unsafe {
-				Vertex2d.MinMax(null, 0, out min, out max);
+				Assert.Throws<ArgumentNullException>(() => Vertex2d.MinMax(null, 0, out min, out max));
 			}
 		}
 
@@ -5462,10 +5414,9 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2hf.Min(Vertex2hf[]) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2hf_TestMin_ArgumentNullException()
 		{
-			Vertex2hf.Min(null);
+			Assert.Throws<ArgumentNullException>(() => Vertex2hf.Min(null));
 		}
 
 		[Test(Description = "Test Vertex2hf.Min(Vertex2hf*)")]
@@ -5492,11 +5443,10 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2hf.Min(Vertex2hf*) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2hf_TestMin_Unsafe_ArgumentNullException()
 		{
 			unsafe {
-				Vertex2hf.Min(null, 0);
+				Assert.Throws<ArgumentNullException>(() => Vertex2hf.Min(null, 0));
 			}
 		}
 
@@ -5518,10 +5468,9 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2hf.Max(Vertex2hf[]) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2hf_TestMax_ArgumentNullException()
 		{
-			Vertex2hf.Max(null);
+			Assert.Throws<ArgumentNullException>(() => Vertex2hf.Max(null));
 		}
 
 		[Test(Description = "Test Vertex2hf.Max(Vertex2hf*)")]
@@ -5548,11 +5497,10 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2hf.Max(Vertex2hf*) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2hf_TestMax_Unsafe_ArgumentNullException()
 		{
 			unsafe {
-				Vertex2hf.Max(null, 0);
+				Assert.Throws<ArgumentNullException>(() => Vertex2hf.Max(null, 0));
 			}
 		}
 
@@ -5580,12 +5528,11 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2hf.Max(Vertex2hf[]) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2hf_TestMinMax_ArgumentNullException()
 		{
 			Vertex2hf min, max;
 
-			Vertex2hf.MinMax(null, out min, out max);
+			Assert.Throws<ArgumentNullException>(() => Vertex2hf.MinMax(null, out min, out max));
 		}
 
 		[Test(Description = "Test Vertex2hf.MinMax(Vertex2hf*)")]
@@ -5616,13 +5563,12 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2hf.MinMax(Vertex2hf*) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TVertex2hf_TestMinMax_Unsafe_ArgumentNullException()
 		{
 			Vertex2hf min, max;
 
 			unsafe {
-				Vertex2hf.MinMax(null, 0, out min, out max);
+				Assert.Throws<ArgumentNullException>(() => Vertex2hf.MinMax(null, 0, out min, out max));
 			}
 		}
 

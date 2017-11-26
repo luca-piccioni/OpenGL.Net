@@ -559,10 +559,9 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test <#= className #>.Min(<#= className #>[]) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void T<#= className #>_TestMin_ArgumentNullException()
 		{
-			<#= className #>.Min(null);
+			Assert.Throws<ArgumentNullException>(() => <#= className #>.Min(null));
 		}
 
 		[Test(Description = "Test <#= className #>.Min(<#= className #>*)")]
@@ -589,11 +588,10 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test <#= className #>.Min(<#= className #>*) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void T<#= className #>_TestMin_Unsafe_ArgumentNullException()
 		{
 			unsafe {
-				<#= className #>.Min(null, 0);
+				Assert.Throws<ArgumentNullException>(() => <#= className #>.Min(null, 0));
 			}
 		}
 
@@ -615,10 +613,9 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test <#= className #>.Max(<#= className #>[]) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void T<#= className #>_TestMax_ArgumentNullException()
 		{
-			<#= className #>.Max(null);
+			Assert.Throws<ArgumentNullException>(() => <#= className #>.Max(null));
 		}
 
 		[Test(Description = "Test <#= className #>.Max(<#= className #>*)")]
@@ -645,11 +642,10 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test <#= className #>.Max(<#= className #>*) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void T<#= className #>_TestMax_Unsafe_ArgumentNullException()
 		{
 			unsafe {
-				<#= className #>.Max(null, 0);
+				Assert.Throws<ArgumentNullException>(() => <#= className #>.Max(null, 0));
 			}
 		}
 
@@ -677,12 +673,11 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test <#= className #>.Max(<#= className #>[]) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void T<#= className #>_TestMinMax_ArgumentNullException()
 		{
 			<#= className #> min, max;
 
-			<#= className #>.MinMax(null, out min, out max);
+			Assert.Throws<ArgumentNullException>(() => <#= className #>.MinMax(null, out min, out max));
 		}
 
 		[Test(Description = "Test <#= className #>.MinMax(<#= className #>*)")]
@@ -713,13 +708,12 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test <#= className #>.MinMax(<#= className #>*) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void T<#= className #>_TestMinMax_Unsafe_ArgumentNullException()
 		{
 			<#= className #> min, max;
 
 			unsafe {
-				<#= className #>.MinMax(null, 0, out min, out max);
+				Assert.Throws<ArgumentNullException>(() => <#= className #>.MinMax(null, 0, out min, out max));
 			}
 		}
 

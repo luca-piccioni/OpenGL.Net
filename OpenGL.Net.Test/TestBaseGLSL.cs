@@ -23,6 +23,7 @@ using System;
 using System.IO;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 
 using NUnit.Framework;
 
@@ -31,7 +32,10 @@ namespace OpenGL.Test
 	/// <summary>
 	/// Abstract base test creating an OpenGL context used for testing.
 	/// </summary>
-	[TestFixture, RequiresSTA]
+	[TestFixture]
+#if !NETCORE
+	[Apartment(ApartmentState.STA)]
+#endif
 	[Category("Graphics")]
 	abstract class TestBaseGLSL : TestBaseGL
 	{

@@ -71,21 +71,19 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test KhronosVersion(int major, int minor, int revision, string api, string profile) ArgumentException")]
-		[ExpectedException(typeof(ArgumentException))]
 		[TestCase(0, 1, 2)]
 		[TestCase(1, -1, 2)]
 		[TestCase(1, 1, -2)]
 		public void TestConstructor3_ArgumentException(int major, int minor, int revision)
 		{
-			new KhronosVersion(major, minor, revision, "api", "prof");
+			Assert.Throws<ArgumentException>(() => new KhronosVersion(major, minor, revision, "api", "prof"));
 		}
 
 		[Test(Description = "Test KhronosVersion(int major, int minor, int revision, string api, string profile) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		[TestCase(null, "prof")]
 		public void TestConstructor3_ArgumentNullException(string api, string profile)
 		{
-			new KhronosVersion(1, 1, 2, api, profile);
+			Assert.Throws<ArgumentNullException>(() => new KhronosVersion(1, 1, 2, api, profile));
 		}
 
 		[Test(Description = "Test KhronosVersion(KhronosVersion other, string profile)")]
@@ -105,10 +103,9 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test KhronosVersion(KhronosVersion other, string profile) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TestConstructor4_ArgumentNullException()
 		{
-			new KhronosVersion(null, "prof");
+			Assert.Throws<ArgumentNullException>(() => new KhronosVersion(null, "prof"));
 		}
 
 		[Test(Description = "Test KhronosVersion.operator==")]
@@ -246,19 +243,17 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Parse(string input) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TestParse1_ArgumentNullException()
 		{
-			KhronosVersion.Parse(null);
+			Assert.Throws<ArgumentNullException>(() => KhronosVersion.Parse(null));
 		}
 
 		[Test(Description = "Parse(string input) ArgumentException")]
-		[ExpectedException(typeof(ArgumentException))]
 		[TestCase("3")]
 		[TestCase("4a")]
 		public void TestParse1_ArgumentException(string pattern)
 		{
-			KhronosVersion.Parse(pattern);
+			Assert.Throws<ArgumentException>(() => KhronosVersion.Parse(pattern));
 		}
 
 		[Test(Description = "Parse(string input, string api)")]
@@ -284,10 +279,9 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Parse(string input, string api) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TestParse2_ArgumentNullException()
 		{
-			KhronosVersion.Parse(null, KhronosVersion.ApiEgl);
+			Assert.Throws<ArgumentNullException>(() => KhronosVersion.Parse(null, KhronosVersion.ApiEgl));
 		}
 
 		[Test(Description = "ToString()")]

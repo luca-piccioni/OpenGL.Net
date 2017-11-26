@@ -21,6 +21,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Threading;
 
 using Khronos;
 
@@ -31,7 +32,10 @@ namespace OpenGL.Test
 	/// <summary>
 	/// Abstract base test creating an OpenGL context used for testing.
 	/// </summary>
-	[TestFixture, RequiresSTA]
+	[TestFixture]
+#if !NETCORE
+	[Apartment(ApartmentState.STA)]
+#endif
 	[Category("Graphics")]
 	abstract class TestBaseGL : TestBase
 	{
@@ -40,7 +44,7 @@ namespace OpenGL.Test
 		/// <summary>
 		/// Create a an OpenGL context, and get the OpenGL extensions supported.
 		/// </summary>
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public new void FixtureSetUp()
 		{
 			try {
@@ -96,7 +100,7 @@ namespace OpenGL.Test
 		/// <summary>
 		/// Release resources allocated by <see cref="FixtureSetUp"/>.
 		/// </summary>
-		[TestFixtureTearDown]
+		[OneTimeTearDown]
 		public new void FixtureTearDown()
 		{
 			// Detroy context

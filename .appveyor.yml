@@ -13,9 +13,11 @@ environment:
     - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
       SLN_PATH: OpenGL.Net_VC14.sln
       PUBLISH_NUGET: false
+      HAS_NETCORE: false
     - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
       SLN_PATH: OpenGL.Net_VC15.sln
       PUBLISH_NUGET: true
+      HAS_NETCORE: true
 
 pull_requests:
   do_not_increment_build_number: true
@@ -62,10 +64,12 @@ test:
 
 after_test:
   - pip install codecov
-  - packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -target:"packages\NUnit.ConsoleRunner.3.7.0\tools\nunit3-console.exe" -targetargs:"/nologo /timeout=1000 /noshadow OpenGL.Net.Test\bin\net461\Release\OpenGL.Net.Test.dll" -excludebyfile:"*OpenGL.Net.Test*;*OpenGL.Net\DeviceContextGLX.cs;*OpenGL.Net\Glx.cs" -excludebyattribute:OpenGL.RequiredByFeatureAttribute -hideskipped:All -output:.\OpenGL.Net_net461.xml
-  - packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -target:"packages\NUnit.ConsoleRunner.3.7.0\tools\nunit3-console.exe" -targetargs:"/nologo /timeout=1000 /noshadow OpenGL.Net.Test\bin\net35\Release\OpenGL.Net.Test.dll" -excludebyfile:"*OpenGL.Net.Test*;*OpenGL.Net\DeviceContextGLX.cs;*OpenGL.Net\Glx.cs" -excludebyattribute:OpenGL.RequiredByFeatureAttribute -hideskipped:All -output:.\OpenGL.Net_net35.xml
+  - packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -target:"packages\NUnit.ConsoleRunner.3.7.0\tools\nunit3-console.exe" -targetargs:"/timeout=1000 OpenGL.Net.Test\bin\net461\Release\OpenGL.Net.Test.dll" -excludebyfile:"*OpenGL.Net.Test*;*OpenGL.Net\DeviceContextGLX.cs;*OpenGL.Net\Glx.cs" -excludebyattribute:OpenGL.RequiredByFeatureAttribute -hideskipped:All -output:.\OpenGL.Net_net461.xml
+  - packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -target:"packages\NUnit.ConsoleRunner.3.7.0\tools\nunit3-console.exe" -targetargs:"/timeout=1000 OpenGL.Net.Test\bin\net35\Release\OpenGL.Net.Test.dll" -excludebyfile:"*OpenGL.Net.Test*;*OpenGL.Net\DeviceContextGLX.cs;*OpenGL.Net\Glx.cs" -excludebyattribute:OpenGL.RequiredByFeatureAttribute -hideskipped:All -output:.\OpenGL.Net_net35.xml
+  - IF "%HAS_NETCORE%"=="true" packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -target:"dotnet" -targetargs:"test OpenGL.Net.Test\bin\netcore\Release\netcoreapp2.0\OpenGL.Net.Test.dll" -excludebyfile:"*OpenGL.Net.Test*;*OpenGL.Net\DeviceContextGLX.cs;*OpenGL.Net\Glx.cs" -excludebyattribute:OpenGL.RequiredByFeatureAttribute -hideskipped:All -output:.\OpenGL.Net_netcore2.0.xml
   - codecov -f "OpenGL.Net_net461.xml" -F net461
   - codecov -f "OpenGL.Net_net35.xml" -F net35
+  - IF "%HAS_NETCORE%"=="true" codecov -f "OpenGL.Net_netcore2.0.xml" -F netcore20
   - IF "%PUBLISH_NUGET%"=="true" nuget pack OpenGL.Net.nuspec -Version %APPVEYOR_BUILD_VERSION%
   - IF "%PUBLISH_NUGET%"=="true" nuget pack OpenGL.Net.Math.nuspec -Version %APPVEYOR_BUILD_VERSION%
   - IF "%PUBLISH_NUGET%"=="true" nuget pack OpenGL.Net.WinForms.nuspec -Version %APPVEYOR_BUILD_VERSION%

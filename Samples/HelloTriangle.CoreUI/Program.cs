@@ -31,6 +31,8 @@ namespace HelloTriangle.CoreUI
 {
 	static class Program
 	{
+		#region Application Entry Point
+
 		[STAThread()]
 		static void Main(string[] args)
 		{
@@ -44,6 +46,10 @@ namespace HelloTriangle.CoreUI
 				nativeWindow.Run();
 			}
 		}
+
+		#endregion
+
+		#region Event Handling
 
 		private static void NativeWindow_ContextCreated(object sender, NativeWindowEventArgs e)
 		{
@@ -107,6 +113,8 @@ namespace HelloTriangle.CoreUI
 				}
 			}
 		}
+
+		#endregion
 
 		#region Tesseract
 

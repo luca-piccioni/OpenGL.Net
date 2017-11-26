@@ -83,12 +83,11 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test RemovedByFeatureAttribute(string featureName) ArgumentException")]
-		[ExpectedException(typeof(ArgumentException))]
 		[TestCase(null)]
 		[TestCase("")]
 		public void TestConstructor1_ArgumentException(string feature)
 		{
-			new RemovedByFeatureAttribute(feature);
+			Assert.Throws<ArgumentException>(() => new RemovedByFeatureAttribute(feature));
 		}
 
 		[Test(Description = "Test IsRemoved(KhronosVersion version, KhronosApi.ExtensionsCollection extensions)")]
@@ -142,7 +141,6 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test IsSupported(KhronosVersion version, KhronosApi.ExtensionsCollection extensions) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TestIsSupported_ArgumentNullException()
 		{
 			RemovedByFeatureAttribute a = new RemovedByFeatureAttribute("GL_VERSION_1_0");
@@ -151,7 +149,7 @@ namespace OpenGL.Test
 			Assert.DoesNotThrow(() => a.IsRemoved(Gl.Version_100, extensions));
 			Assert.DoesNotThrow(() => a.IsRemoved(Gl.Version_100, null));
 
-			a.IsRemoved(null, extensions);
+			Assert.Throws<ArgumentNullException>(() => a.IsRemoved(null, extensions));
 		}
 	}
 }

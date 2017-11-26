@@ -83,12 +83,11 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test RequiredByFeatureAttribute(string featureName) ArgumentException")]
-		[ExpectedException(typeof(ArgumentException))]
 		[TestCase(null)]
 		[TestCase("")]
 		public void TestConstructor1_ArgumentException(string feature)
 		{
-			new RequiredByFeatureAttribute(feature);
+			Assert.Throws<ArgumentException>(() => new RequiredByFeatureAttribute(feature));
 		}
 
 		[Test(Description = "Test IsSupported(KhronosVersion version, KhronosApi.ExtensionsCollection extensions)")]
@@ -142,7 +141,6 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test IsSupported(KhronosVersion version, KhronosApi.ExtensionsCollection extensions) ArgumentNullException")]
-		[ExpectedException(typeof(ArgumentNullException))]
 		public void TestIsSupported_ArgumentNullException()
 		{
 			RequiredByFeatureAttribute a = new RequiredByFeatureAttribute("GL_VERSION_1_0");
@@ -151,7 +149,8 @@ namespace OpenGL.Test
 			Assert.DoesNotThrow(() => a.IsSupported(Gl.Version_100, extensions));
 			Assert.DoesNotThrow(() => a.IsSupported(Gl.Version_100, null));
 
-			a.IsSupported(null, extensions);
+			;
+			Assert.Throws<ArgumentNullException>(() => a.IsSupported(null, extensions));
 		}
 	}
 }

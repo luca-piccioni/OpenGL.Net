@@ -41,11 +41,13 @@ namespace OpenGL.Test
 		/// <summary>
 		/// Initialize resources for test.
 		/// </summary>
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public new void FixtureSetUp()
 		{
 			Initialize_GetDelegateForFunctionPointer();
+#if !NETCORE
 			Initialize_Emit();
+#endif
 		}
 
 		#endregion
@@ -159,6 +161,8 @@ namespace OpenGL.Test
 
 		#endregion
 
+#if !NETCORE
+
 		#region Emit
 
 		private static void Initialize_Emit()
@@ -211,6 +215,8 @@ namespace OpenGL.Test
 		internal static glEnableDelegate pglEnableEmit;
 
 		#endregion
+
+#endif
 
 		#region OpenGL.Net
 

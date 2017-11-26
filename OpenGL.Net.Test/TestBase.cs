@@ -21,6 +21,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Threading;
 
 using NUnit.Framework;
 
@@ -29,7 +30,10 @@ namespace OpenGL.Test
 	/// <summary>
 	/// Abstract base test creating a device context used for testing.
 	/// </summary>
-	[TestFixture, RequiresSTA]
+	[TestFixture]
+#if !NETCORE
+	[Apartment(ApartmentState.STA)]
+#endif
 	abstract class TestBase
 	{
 		#region Setup & Tear Down
@@ -37,7 +41,7 @@ namespace OpenGL.Test
 		/// <summary>
 		/// Create a window, create the device context and set a basic pixel format.
 		/// </summary>
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void FixtureSetUp()
 		{
 			try {
@@ -62,7 +66,7 @@ namespace OpenGL.Test
 		/// <summary>
 		/// Release resources allocated by <see cref="FixtureSetUp"/>.
 		/// </summary>
-		[TestFixtureTearDown]
+		[OneTimeTearDown]
 		public void FixtureTearDown()
 		{
 			// Dispose device context

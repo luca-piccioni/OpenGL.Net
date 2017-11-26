@@ -143,6 +143,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenGL.Net.Math_net35", "Op
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenGL.Net.Math_monodroid", "OpenGL.Net\OpenGL.Net.Math_monodroid.csproj", "{71558D65-3D8D-446F-A981-BEFB67BB4560}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenGL.Net.Test_netcore2.0", "OpenGL.Net.Test\OpenGL.Net.Test_netcore2.0.csproj", "{B98B46DA-EAF7-4F47-91C5-4A9133D97253}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Khronos.Net\Khronos.Net.projitems*{6981be72-a39a-4534-bd3f-132d813a461f}*SharedItemsImports = 4
@@ -628,6 +630,18 @@ Global
 		{71558D65-3D8D-446F-A981-BEFB67BB4560}.Release|Any CPU.Build.0 = Release|Any CPU
 		{71558D65-3D8D-446F-A981-BEFB67BB4560}.Release|x64.ActiveCfg = Release|Any CPU
 		{71558D65-3D8D-446F-A981-BEFB67BB4560}.Release|x86.ActiveCfg = Release|Any CPU
+		{B98B46DA-EAF7-4F47-91C5-4A9133D97253}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B98B46DA-EAF7-4F47-91C5-4A9133D97253}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B98B46DA-EAF7-4F47-91C5-4A9133D97253}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B98B46DA-EAF7-4F47-91C5-4A9133D97253}.Debug|x64.Build.0 = Debug|Any CPU
+		{B98B46DA-EAF7-4F47-91C5-4A9133D97253}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B98B46DA-EAF7-4F47-91C5-4A9133D97253}.Debug|x86.Build.0 = Debug|Any CPU
+		{B98B46DA-EAF7-4F47-91C5-4A9133D97253}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B98B46DA-EAF7-4F47-91C5-4A9133D97253}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B98B46DA-EAF7-4F47-91C5-4A9133D97253}.Release|x64.ActiveCfg = Release|Any CPU
+		{B98B46DA-EAF7-4F47-91C5-4A9133D97253}.Release|x64.Build.0 = Release|Any CPU
+		{B98B46DA-EAF7-4F47-91C5-4A9133D97253}.Release|x86.ActiveCfg = Release|Any CPU
+		{B98B46DA-EAF7-4F47-91C5-4A9133D97253}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -665,6 +679,7 @@ Global
 		{4981E3E9-2B94-4C3C-8A1D-8A5DEE831DAA} = {C45EA757-D80F-48B1-B42F-5755F6F9897B}
 		{F8ADB90D-C402-448D-A0E9-60F71883FFAC} = {C45EA757-D80F-48B1-B42F-5755F6F9897B}
 		{D8F154D2-9A16-47E1-BFEC-EF59B5D68D2F} = {C45EA757-D80F-48B1-B42F-5755F6F9897B}
+		{B98B46DA-EAF7-4F47-91C5-4A9133D97253} = {0250BB1C-FF02-4600-9E80-E7EF067C51B6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7A1302DF-7820-469A-9EB2-83CF7691A088}
