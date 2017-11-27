@@ -55,16 +55,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloTriangle.VideoCore", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenGL.Net.VideoCore", "OpenGL.Net.VideoCore\OpenGL.Net.VideoCore.csproj", "{53BDDF50-1755-4A72-935E-A052FC28BCBA}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WF", "WF", "{CA1B5E95-F2B3-4A2E-B3E8-9D2A86E20B7D}"
-	ProjectSection(SolutionItems) = preProject
-		GLSpecs\WF\wfc.h = GLSpecs\WF\wfc.h
-		GLSpecs\WF\wfcext.h = GLSpecs\WF\wfcext.h
-		GLSpecs\WF\wfcplatform.h = GLSpecs\WF\wfcplatform.h
-		GLSpecs\WF\wfd.h = GLSpecs\WF\wfd.h
-		GLSpecs\WF\wfdext.h = GLSpecs\WF\wfdext.h
-		GLSpecs\WF\wfdplatform.h = GLSpecs\WF\wfdplatform.h
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenWF.Net", "OpenWF.Net\OpenWF.Net.csproj", "{E8E7D5BA-D0A6-4A6C-A748-C1AAAF2C0473}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenGL.Net.OpenWF", "OpenGL.Net.OpenWF\OpenGL.Net.OpenWF.csproj", "{7D2E34E4-2173-4D6F-9A01-E661618F5C79}"
@@ -149,6 +139,55 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Math", "Math", "{F042B79B-88F3-49AA-9A6C-69D3DAB3E172}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenGL.Net.Test_netcore1.1", "OpenGL.Net.Test\OpenGL.Net.Test_netcore1.1.csproj", "{E781F7C6-EC46-4E79-B6E8-B5580C4444CD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OpenVX Specs", "OpenVX Specs", "{7E7224A8-F54D-40FC-BBE2-384B1D8AD0B5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OpenWF Specs", "OpenWF Specs", "{3E381E4C-E006-4F8A-8514-E7FFE7E9CFC5}"
+	ProjectSection(SolutionItems) = preProject
+		GLSpecs\WF\wfc.h = GLSpecs\WF\wfc.h
+		GLSpecs\WF\wfcext.h = GLSpecs\WF\wfcext.h
+		GLSpecs\WF\wfcplatform.h = GLSpecs\WF\wfcplatform.h
+		GLSpecs\WF\wfd.h = GLSpecs\WF\wfd.h
+		GLSpecs\WF\wfdext.h = GLSpecs\WF\wfdext.h
+		GLSpecs\WF\wfdplatform.h = GLSpecs\WF\wfdplatform.h
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.1", "1.1", "{01508441-CB01-47FD-9A29-04F2E349E08F}"
+	ProjectSection(SolutionItems) = preProject
+		VXSpecs\1.1\vx.h = VXSpecs\1.1\vx.h
+		VXSpecs\1.1\vx_api.h = VXSpecs\1.1\vx_api.h
+		VXSpecs\1.1\vx_compatibility.h = VXSpecs\1.1\vx_compatibility.h
+		VXSpecs\1.1\vx_import.h = VXSpecs\1.1\vx_import.h
+		VXSpecs\1.1\vx_kernels.h = VXSpecs\1.1\vx_kernels.h
+		VXSpecs\1.1\vx_khr_icd.h = VXSpecs\1.1\vx_khr_icd.h
+		VXSpecs\1.1\vx_khr_ix.h = VXSpecs\1.1\vx_khr_ix.h
+		VXSpecs\1.1\vx_khr_nn.h = VXSpecs\1.1\vx_khr_nn.h
+		VXSpecs\1.1\vx_khr_tiling.h = VXSpecs\1.1\vx_khr_tiling.h
+		VXSpecs\1.1\vx_khr_xml.h = VXSpecs\1.1\vx_khr_xml.h
+		VXSpecs\1.1\vx_nodes.h = VXSpecs\1.1\vx_nodes.h
+		VXSpecs\1.1\vx_types.h = VXSpecs\1.1\vx_types.h
+		VXSpecs\1.1\vx_vendors.h = VXSpecs\1.1\vx_vendors.h
+		VXSpecs\1.1\vxu.h = VXSpecs\1.1\vxu.h
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.2", "1.2", "{EFDAEE53-E38A-4A28-84BD-BFC9004096BA}"
+	ProjectSection(SolutionItems) = preProject
+		VXSpecs\1.2\vx.h = VXSpecs\1.2\vx.h
+		VXSpecs\1.2\vx_api.h = VXSpecs\1.2\vx_api.h
+		VXSpecs\1.2\vx_compatibility.h = VXSpecs\1.2\vx_compatibility.h
+		VXSpecs\1.2\vx_import.h = VXSpecs\1.2\vx_import.h
+		VXSpecs\1.2\vx_kernels.h = VXSpecs\1.2\vx_kernels.h
+		VXSpecs\1.2\vx_khr_class.h = VXSpecs\1.2\vx_khr_class.h
+		VXSpecs\1.2\vx_khr_icd.h = VXSpecs\1.2\vx_khr_icd.h
+		VXSpecs\1.2\vx_khr_ix.h = VXSpecs\1.2\vx_khr_ix.h
+		VXSpecs\1.2\vx_khr_nn.h = VXSpecs\1.2\vx_khr_nn.h
+		VXSpecs\1.2\vx_khr_tiling.h = VXSpecs\1.2\vx_khr_tiling.h
+		VXSpecs\1.2\vx_khr_xml.h = VXSpecs\1.2\vx_khr_xml.h
+		VXSpecs\1.2\vx_nodes.h = VXSpecs\1.2\vx_nodes.h
+		VXSpecs\1.2\vx_types.h = VXSpecs\1.2\vx_types.h
+		VXSpecs\1.2\vx_vendors.h = VXSpecs\1.2\vx_vendors.h
+		VXSpecs\1.2\vxu.h = VXSpecs\1.2\vxu.h
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
@@ -678,7 +717,6 @@ Global
 		{32492BB6-936E-4DDA-8086-21EC3B630CE2} = {C45EA757-D80F-48B1-B42F-5755F6F9897B}
 		{2125A880-2A7D-4122-988A-1075D0E1FB22} = {C45EA757-D80F-48B1-B42F-5755F6F9897B}
 		{53BDDF50-1755-4A72-935E-A052FC28BCBA} = {81BBBDCD-40F4-43F2-BAA6-AE8280C19105}
-		{CA1B5E95-F2B3-4A2E-B3E8-9D2A86E20B7D} = {74055295-3E82-45FF-8748-6130F534C8B0}
 		{7D2E34E4-2173-4D6F-9A01-E661618F5C79} = {81BBBDCD-40F4-43F2-BAA6-AE8280C19105}
 		{562101BC-C94F-4D6D-A06D-3C9A2CB5DB0A} = {C45EA757-D80F-48B1-B42F-5755F6F9897B}
 		{849A96E5-53A3-4D6C-AACA-7567F1A4AB46} = {C45EA757-D80F-48B1-B42F-5755F6F9897B}
@@ -701,6 +739,8 @@ Global
 		{71558D65-3D8D-446F-A981-BEFB67BB4560} = {F042B79B-88F3-49AA-9A6C-69D3DAB3E172}
 		{B98B46DA-EAF7-4F47-91C5-4A9133D97253} = {0250BB1C-FF02-4600-9E80-E7EF067C51B6}
 		{E781F7C6-EC46-4E79-B6E8-B5580C4444CD} = {0250BB1C-FF02-4600-9E80-E7EF067C51B6}
+		{01508441-CB01-47FD-9A29-04F2E349E08F} = {7E7224A8-F54D-40FC-BBE2-384B1D8AD0B5}
+		{EFDAEE53-E38A-4A28-84BD-BFC9004096BA} = {7E7224A8-F54D-40FC-BBE2-384B1D8AD0B5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7A1302DF-7820-469A-9EB2-83CF7691A088}
