@@ -1,0 +1,269 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <AssemblyName>OpenGL.Net.Math</AssemblyName>
+    <RootNamespace>OpenGL</RootNamespace>
+    <Authors>Luca Piccioni</Authors>
+    <Product>OpenGL.Net.Math</Product>
+    <Copyright>Copyright (C) Luca Piccioni 2015-2017</Copyright>
+    <Version>0.5.1</Version>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <Platforms>AnyCPU;x86</Platforms>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <OutputPath>bin\netcore\Release</OutputPath>
+    <BaseIntermediateOutputPath>obj\netcoreapp1.1</BaseIntermediateOutputPath>
+    <DefineConstants>TRACE;NETCORE;RELEASE;NETCOREAPP1_1</DefineConstants>
+    <DocumentationFile>bin\netcore\Release\netcoreapp1.1\OpenGL.Net.Math.xml</DocumentationFile>
+    <NoWarn>1701;1702;1705;1734</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <OutputPath>bin\netcore\x86\Release</OutputPath>
+    <BaseIntermediateOutputPath>obj\netcoreapp1.1</BaseIntermediateOutputPath>
+    <DefineConstants>TRACE;NETCORE;RELEASE;NETCOREAPP1_1</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <OutputPath>bin\netcore\Debug</OutputPath>
+    <BaseIntermediateOutputPath>obj\netcoreapp1.1</BaseIntermediateOutputPath>
+    <DefineConstants>TRACE;NETCORE;NETCOREAPP1_1</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <OutputPath>bin\netcore\x86\Debug</OutputPath>
+    <BaseIntermediateOutputPath>obj\netcoreapp1.1</BaseIntermediateOutputPath>
+    <DefineConstants>TRACE;NETCORE;NETCOREAPP1_1</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="3DFX\**" />
+    <Compile Remove="3DL\**" />
+    <Compile Remove="AMD\**" />
+    <Compile Remove="ANDROID\**" />
+    <Compile Remove="ANGLE\**" />
+    <Compile Remove="APPLE\**" />
+    <Compile Remove="ARB\**" />
+    <Compile Remove="ARM\**" />
+    <Compile Remove="ATI\**" />
+    <Compile Remove="DMP\**" />
+    <Compile Remove="EXT\**" />
+    <Compile Remove="FJ\**" />
+    <Compile Remove="GREMEDY\**" />
+    <Compile Remove="HI\**" />
+    <Compile Remove="HP\**" />
+    <Compile Remove="I3D\**" />
+    <Compile Remove="IBM\**" />
+    <Compile Remove="IMG\**" />
+    <Compile Remove="INGR\**" />
+    <Compile Remove="INTEL\**" />
+    <Compile Remove="KHR\**" />
+    <Compile Remove="MESAX\**" />
+    <Compile Remove="MESA\**" />
+    <Compile Remove="NOK\**" />
+    <Compile Remove="NVX\**" />
+    <Compile Remove="NV\**" />
+    <Compile Remove="obj\**" />
+    <Compile Remove="OES\**" />
+    <Compile Remove="OML\**" />
+    <Compile Remove="OVR\**" />
+    <Compile Remove="PGI\**" />
+    <Compile Remove="QCOM\**" />
+    <Compile Remove="REND\**" />
+    <Compile Remove="S3\**" />
+    <Compile Remove="SGIS\**" />
+    <Compile Remove="SGIX\**" />
+    <Compile Remove="SGI\**" />
+    <Compile Remove="SUNX\**" />
+    <Compile Remove="SUN\**" />
+    <Compile Remove="TIZEN\**" />
+    <Compile Remove="VIV\**" />
+    <Compile Remove="WIN\**" />
+    <EmbeddedResource Remove="3DFX\**" />
+    <EmbeddedResource Remove="3DL\**" />
+    <EmbeddedResource Remove="AMD\**" />
+    <EmbeddedResource Remove="ANDROID\**" />
+    <EmbeddedResource Remove="ANGLE\**" />
+    <EmbeddedResource Remove="APPLE\**" />
+    <EmbeddedResource Remove="ARB\**" />
+    <EmbeddedResource Remove="ARM\**" />
+    <EmbeddedResource Remove="ATI\**" />
+    <EmbeddedResource Remove="DMP\**" />
+    <EmbeddedResource Remove="EXT\**" />
+    <EmbeddedResource Remove="FJ\**" />
+    <EmbeddedResource Remove="GREMEDY\**" />
+    <EmbeddedResource Remove="HI\**" />
+    <EmbeddedResource Remove="HP\**" />
+    <EmbeddedResource Remove="I3D\**" />
+    <EmbeddedResource Remove="IBM\**" />
+    <EmbeddedResource Remove="IMG\**" />
+    <EmbeddedResource Remove="INGR\**" />
+    <EmbeddedResource Remove="INTEL\**" />
+    <EmbeddedResource Remove="KHR\**" />
+    <EmbeddedResource Remove="MESAX\**" />
+    <EmbeddedResource Remove="MESA\**" />
+    <EmbeddedResource Remove="NOK\**" />
+    <EmbeddedResource Remove="NVX\**" />
+    <EmbeddedResource Remove="NV\**" />
+    <EmbeddedResource Remove="obj\**" />
+    <EmbeddedResource Remove="OES\**" />
+    <EmbeddedResource Remove="OML\**" />
+    <EmbeddedResource Remove="OVR\**" />
+    <EmbeddedResource Remove="PGI\**" />
+    <EmbeddedResource Remove="QCOM\**" />
+    <EmbeddedResource Remove="REND\**" />
+    <EmbeddedResource Remove="S3\**" />
+    <EmbeddedResource Remove="SGIS\**" />
+    <EmbeddedResource Remove="SGIX\**" />
+    <EmbeddedResource Remove="SGI\**" />
+    <EmbeddedResource Remove="SUNX\**" />
+    <EmbeddedResource Remove="SUN\**" />
+    <EmbeddedResource Remove="TIZEN\**" />
+    <EmbeddedResource Remove="VIV\**" />
+    <EmbeddedResource Remove="WIN\**" />
+    <None Remove="3DFX\**" />
+    <None Remove="3DL\**" />
+    <None Remove="AMD\**" />
+    <None Remove="ANDROID\**" />
+    <None Remove="ANGLE\**" />
+    <None Remove="APPLE\**" />
+    <None Remove="ARB\**" />
+    <None Remove="ARM\**" />
+    <None Remove="ATI\**" />
+    <None Remove="DMP\**" />
+    <None Remove="EXT\**" />
+    <None Remove="FJ\**" />
+    <None Remove="GREMEDY\**" />
+    <None Remove="HI\**" />
+    <None Remove="HP\**" />
+    <None Remove="I3D\**" />
+    <None Remove="IBM\**" />
+    <None Remove="IMG\**" />
+    <None Remove="INGR\**" />
+    <None Remove="INTEL\**" />
+    <None Remove="KHR\**" />
+    <None Remove="MESAX\**" />
+    <None Remove="MESA\**" />
+    <None Remove="NOK\**" />
+    <None Remove="NVX\**" />
+    <None Remove="NV\**" />
+    <None Remove="obj\**" />
+    <None Remove="OES\**" />
+    <None Remove="OML\**" />
+    <None Remove="OVR\**" />
+    <None Remove="PGI\**" />
+    <None Remove="QCOM\**" />
+    <None Remove="REND\**" />
+    <None Remove="S3\**" />
+    <None Remove="SGIS\**" />
+    <None Remove="SGIX\**" />
+    <None Remove="SGI\**" />
+    <None Remove="SUNX\**" />
+    <None Remove="SUN\**" />
+    <None Remove="TIZEN\**" />
+    <None Remove="VIV\**" />
+    <None Remove="WIN\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Bcm.cs" />
+    <Compile Remove="DeviceContext.cs" />
+    <Compile Remove="DeviceContextEGL.cs" />
+    <Compile Remove="DeviceContextGLX.cs" />
+    <Compile Remove="DeviceContextWGL.cs" />
+    <Compile Remove="DevicePixelFormat.cs" />
+    <Compile Remove="DevicePixelFormatCollection.cs" />
+    <Compile Remove="Egl.cs" />
+    <Compile Remove="Egl.Extensions.cs" />
+    <Compile Remove="Egl.Extensions.Query.cs" />
+    <Compile Remove="Egl.Versions.cs" />
+    <Compile Remove="Egl.VERSION_1_0.cs" />
+    <Compile Remove="Egl.VERSION_1_1.cs" />
+    <Compile Remove="Egl.VERSION_1_2.cs" />
+    <Compile Remove="Egl.VERSION_1_3.cs" />
+    <Compile Remove="Egl.VERSION_1_4.cs" />
+    <Compile Remove="Egl.VERSION_1_5.cs" />
+    <Compile Remove="EglEventArgs.cs" />
+    <Compile Remove="EglException.cs" />
+    <Compile Remove="GetProcAddressGL.cs" />
+    <Compile Remove="Gl.cs" />
+    <Compile Remove="Gl.Enums.cs" />
+    <Compile Remove="Gl.ES_VERSION_2_0.cs" />
+    <Compile Remove="Gl.ES_VERSION_3_2.cs" />
+    <Compile Remove="Gl.Extensions.Core.cs" />
+    <Compile Remove="Gl.Extensions.cs" />
+    <Compile Remove="Gl.Extensions.Query.cs" />
+    <Compile Remove="Gl.Limits.cs" />
+    <Compile Remove="Gl.Limits.Query.cs" />
+    <Compile Remove="Gl.NvOptmimus.cs" />
+    <Compile Remove="Gl.PlatformExtensions.cs" />
+    <Compile Remove="Gl.SC_VERSION_2_0.cs" />
+    <Compile Remove="Gl.Vb.cs" />
+    <Compile Remove="Gl.Versions.cs" />
+    <Compile Remove="Gl.VERSION_1_0.cs" />
+    <Compile Remove="Gl.VERSION_1_1.cs" />
+    <Compile Remove="Gl.VERSION_1_2.cs" />
+    <Compile Remove="Gl.VERSION_1_3.cs" />
+    <Compile Remove="Gl.VERSION_1_4.cs" />
+    <Compile Remove="Gl.VERSION_1_5.cs" />
+    <Compile Remove="Gl.VERSION_2_0.cs" />
+    <Compile Remove="Gl.VERSION_2_0.Overloads.cs" />
+    <Compile Remove="Gl.VERSION_2_1.cs" />
+    <Compile Remove="Gl.VERSION_3_0.cs" />
+    <Compile Remove="Gl.VERSION_3_1.cs" />
+    <Compile Remove="Gl.VERSION_3_2.cs" />
+    <Compile Remove="Gl.VERSION_3_3.cs" />
+    <Compile Remove="Gl.VERSION_4_0.cs" />
+    <Compile Remove="Gl.VERSION_4_1.cs" />
+    <Compile Remove="Gl.VERSION_4_2.cs" />
+    <Compile Remove="Gl.VERSION_4_3.cs" />
+    <Compile Remove="Gl.VERSION_4_4.cs" />
+    <Compile Remove="Gl.VERSION_4_5.cs" />
+    <Compile Remove="Gl.VERSION_4_6.cs" />
+    <Compile Remove="Gl.VERSION_ES_CM_1_0.cs" />
+    <Compile Remove="GlException.cs" />
+    <Compile Remove="GlslVersion.cs" />
+    <Compile Remove="Glu.cs" />
+    <Compile Remove="Glx.cs" />
+    <Compile Remove="Glx.Extensions.cs" />
+    <Compile Remove="Glx.Extensions.Query.cs" />
+    <Compile Remove="Glx.Versions.cs" />
+    <Compile Remove="Glx.VERSION_1_0.cs" />
+    <Compile Remove="Glx.VERSION_1_1.cs" />
+    <Compile Remove="Glx.VERSION_1_2.cs" />
+    <Compile Remove="Glx.VERSION_1_3.cs" />
+    <Compile Remove="Glx.VERSION_1_4.cs" />
+    <Compile Remove="GlxException.cs" />
+    <Compile Remove="INativePBuffer.cs" />
+    <Compile Remove="INativeWindow.cs" />
+    <Compile Remove="KhronosApi.cs" />
+    <Compile Remove="LimitAttribute.cs" />
+    <Compile Remove="Memory.cs" />
+    <Compile Remove="MemoryLock.cs" />
+    <Compile Remove="SuppressUnmanagedCodeSecurityAttribute.cs" />
+    <Compile Remove="Wgl.cs" />
+    <Compile Remove="Wgl.Extensions.cs" />
+    <Compile Remove="Wgl.Extensions.Query.cs" />
+    <Compile Remove="Wgl.Versions.cs" />
+    <Compile Remove="Wgl.VERSION_1_0.cs" />
+    <Compile Remove="WglException.cs" />
+    <Compile Remove="Win32Exception.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="KhronosLogMapEgl.xml" />
+    <None Remove="KhronosLogMapGl.xml" />
+    <None Remove="KhronosLogMapGlx.xml" />
+    <None Remove="KhronosLogMapWgl.xml" />
+    <None Remove="LICENSE" />
+  </ItemGroup>
+
+  
+</Project>

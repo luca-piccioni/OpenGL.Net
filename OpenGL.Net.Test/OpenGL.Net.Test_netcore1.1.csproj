@@ -39,6 +39,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\OpenGL.Net\OpenGL.Net.Math_netcore1.1.csproj" />
     <ProjectReference Include="..\OpenGL.Net\OpenGL.Net_netcore1.1.csproj" />
   </ItemGroup>
 

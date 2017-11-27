@@ -20,6 +20,8 @@ It supports Windows and GNU/Linux.
         </description>
         <releaseNotes>
 * v0.7.1
+- Built with VS 2017 15.3.
+
 * v0.7.0
 - No changes from previous version.
         </releaseNotes>
