@@ -19,6 +19,15 @@ It supports OpenGL 4.6 and OpenGL ES 3.2 with relative extensions, OpenGL for Wi
 No graphical toolkit integration is included in this package. UI backends are supported in separated packages (Windows.Forms, Xamarin.Forms, Broadcom VideoCore IV (Raspberry PI 2)).
         </description>
         <releaseNotes>
+* v0.7.1
+- Built with VS 2017 15.3.
+- Generic overrides for many commands.
+- Include .NET Core targets (netcoreapp 1.1, netcoreapp 2.0).
+- Added generic overrides for gl*Parameter* commands.
+- Support more implicit parameters (support "count*x" pattern): count parameter of gl*Uniform* commands is removed.
+- Rename `Blend*i` renamed to `Blend*`; Gl.Limit fields renamed with uppercase extension postfix.
+- Fixed entry point loading for KHR_debug and GL_KHR_robustness aliased commands for ES2 API.
+
 * v0.7.0
 - Demerged math data structures to separate binary OpenGL.Net.Math.
 - Fixed stability issues.
