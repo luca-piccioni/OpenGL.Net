@@ -13,6 +13,9 @@
         <summary>Modern OpenGL bindings for C# - Math Data Structures.</summary>
         <description>
 Modern OpenGL bindings for C# - Math Data Structures.
+
+Implements most blittable data structures required for OpenGL interop. Vertices, matrices and colors.
+Implements most of basic old-school OpenGL matrix math, i.e. projections or transforms.
         </description>
         <releaseNotes>
 * v0.7.1
@@ -23,7 +26,7 @@ Modern OpenGL bindings for C# - Math Data Structures.
 - First release, data structures demerged from OpenGL.Net.
         </releaseNotes>
         <copyright>Copyright 2015-2017</copyright>
-        <tags>OpenGL OpenGL-ES GLSL GLES EGL WGL GLX C# .Net Mono Android Xamarin GPU Graphics 3D</tags>
+        <tags>OpenGL OpenGL-ES GLSL GLES EGL WGL GLX C# .Net .NetCORE Mono Android Xamarin GPU Graphics 3D</tags>
         <frameworkAssemblies>
             <frameworkAssembly assemblyName="System" />
             <frameworkAssembly assemblyName="System.Core" targetFramework="monoandroid" />

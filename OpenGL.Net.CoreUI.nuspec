@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+        <id>OpenGL.Net.CoreUI</id>
+        <version>$version$</version>
+        <title>OpenGL for .Net - Native Window</title>
+        <authors>Luca Piccioni</authors>
+        <owners>Luca Piccioni</owners>
+        <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+        <projectUrl>https://github.com/luca-piccioni/OpenGL.Net</projectUrl>
+        <iconUrl>http://github.com/luca-piccioni/OpenGL.Net/blob/master/OpenGL.Net-Logo.gif?raw=true</iconUrl>
+        <requireLicenseAcceptance>true</requireLicenseAcceptance>
+        <summary>Modern OpenGL bindings for C# - Native Window.</summary>
+        <description>
+Modern OpenGL bindings for C# - Native window utilities.
+
+Native window implementation for OpenGL.Net. The following platforms are supported:
+- Windows
+- Linux/X11 (not implemented yet)
+- Raspberry PI VC4 (not implemented yet)
+        </description>
+        <releaseNotes>
+* v0.7.1
+- First release
+- Built with VS 2017 15.3.
+        </releaseNotes>
+        <copyright>Copyright 2015-2017</copyright>
+        <tags>OpenGL OpenGL-ES GLSL GLES EGL WGL GLX C# .Net .NetCORE Mono Android Xamarin GPU Graphics 3D</tags>
+        <frameworkAssemblies>
+            <frameworkAssembly assemblyName="System" />
+            <frameworkAssembly assemblyName="System.Xml" />
+        </frameworkAssemblies>
+        <dependencies>
+            <group>
+                <dependency id="OpenGL.Net" version="$version$" />
+            </group>
+            <group targetFramework="net35"/>
+            <group targetFramework="net461" />
+            <group targetFramework="netcoreapp1.1"/>
+            <group targetFramework="netcoreapp2.0"/>
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="OpenGL.Net.CoreUI/bin/net35/Release/OpenGL.Net.CoreUI.dll" target="lib\net35" />
+        <file src="OpenGL.Net.CoreUI/bin/net35/Release/OpenGL.Net.CoreUI.xml" target="lib\net35" />
+        <file src="OpenGL.Net.CoreUI/bin/net35/Release/OpenGL.Net.CoreUI.pdb" target="lib\net35" />
+        <file src="OpenGL.Net.CoreUI/bin/net461/Release/OpenGL.Net.CoreUI.dll" target="lib\net461" />
+        <file src="OpenGL.Net.CoreUI/bin/net461/Release/OpenGL.Net.CoreUI.xml" target="lib\net461" />
+        <file src="OpenGL.Net.CoreUI/bin/net461/Release/OpenGL.Net.CoreUI.pdb" target="lib\net461" />
+        <file src="OpenGL.Net.CoreUI/bin/netcore/Release/netcoreapp1.1/OpenGL.Net.CoreUI.dll" target="lib\netcoreapp1.1" />
+        <file src="OpenGL.Net.CoreUI/bin/netcore/Release/netcoreapp1.1/OpenGL.Net.CoreUI.xml" target="lib\netcoreapp1.1" />
+        <file src="OpenGL.Net.CoreUI/bin/netcore/Release/netcoreapp1.1/OpenGL.Net.CoreUI.pdb" target="lib\netcoreapp1.1" />
+        <file src="OpenGL.Net.CoreUI/bin/netcore/Release/netcoreapp2.0/OpenGL.Net.CoreUI.dll" target="lib\netcoreapp2.0" />
+        <file src="OpenGL.Net.CoreUI/bin/netcore/Release/netcoreapp2.0/OpenGL.Net.CoreUI.xml" target="lib\netcoreapp2.0" />
+        <file src="OpenGL.Net.CoreUI/bin/netcore/Release/netcoreapp2.0/OpenGL.Net.CoreUI.pdb" target="lib\netcoreapp2.0" />
+    </files>
+</package>

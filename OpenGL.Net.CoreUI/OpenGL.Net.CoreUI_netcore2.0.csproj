@@ -18,6 +18,7 @@
     <OutputPath>bin\netcore\Release\</OutputPath>
     <BaseIntermediateOutputPath>obj\netcoreapp2.0</BaseIntermediateOutputPath>
     <DefineConstants>TRACE;NETCORE;RELEASE;NETCOREAPP2_0</DefineConstants>
+    <DocumentationFile>bin\netcore\Release\netcoreapp2.0\OpenGL.Net.CoreUI.xml</DocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

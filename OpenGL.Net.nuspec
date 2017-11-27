@@ -33,7 +33,7 @@ No graphical toolkit integration is included in this package. UI backends are su
 - Fixed stability issues.
         </releaseNotes>
         <copyright>Copyright 2015-2017</copyright>
-        <tags>OpenGL OpenGL-ES GLSL GLES EGL WGL GLX C# .Net Mono Android Xamarin GPU Graphics 3D</tags>
+        <tags>OpenGL OpenGL-ES GLSL GLES EGL WGL GLX C# .Net .NetCORE Mono Android Xamarin GPU Graphics 3D</tags>
         <frameworkAssemblies>
             <frameworkAssembly assemblyName="System" />
             <frameworkAssembly assemblyName="System.Core" targetFramework="monoandroid" />
