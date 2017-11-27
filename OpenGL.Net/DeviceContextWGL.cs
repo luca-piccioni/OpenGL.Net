@@ -592,7 +592,7 @@ namespace OpenGL
 		/// created, it returns IntPtr.Zero.
 		/// </returns>
 		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <see cref="attribsList"/> is null.
+		/// Exception thrown if <paramref name="attribsList"/> is null.
 		/// </exception>
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="attribsList"/> length is zero or if the last item of <paramref name="attribsList"/>
@@ -622,7 +622,7 @@ namespace OpenGL
 		/// created, it returns IntPtr.Zero.
 		/// </returns>
 		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <see cref="attribsList"/> is null.
+		/// Exception thrown if <paramref name="attribsList"/> is null.
 		/// </exception>
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="attribsList"/> length is zero or if the last item of <paramref name="attribsList"/>

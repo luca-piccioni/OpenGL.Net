@@ -102,7 +102,7 @@ namespace Khronos
 		/// The <see cref="KhronosVersion"/> that specifies the API version.
 		/// </param>
 		/// <param name="extensions">
-		/// The <see cref="ExtensionsCollection"/> that specifies the API extensions registry. It can be null.
+		/// The <see cref="KhronosApi.ExtensionsCollection"/> that specifies the API extensions registry. It can be null.
 		/// </param>
 		/// <returns>
 		/// It returns a <see cref="Boolean"/> that specifies whether this feature is supported by the

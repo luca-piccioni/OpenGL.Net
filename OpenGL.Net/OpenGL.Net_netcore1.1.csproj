@@ -19,6 +19,7 @@
     <BaseIntermediateOutputPath>obj\netcoreapp1.1</BaseIntermediateOutputPath>
     <DefineConstants>TRACE;NETCORE;RELEASE;NETCOREAPP1_1</DefineConstants>
     <DocumentationFile>bin\netcore\Release\netcoreapp1.1\OpenGL.Net.xml</DocumentationFile>
+    <NoWarn>1701;1702;1705;1734</NoWarn>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

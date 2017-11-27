@@ -432,6 +432,9 @@ namespace OpenGL
 			/// <summary>
 			/// Construct a NativePBuffer with a specific pixel format and size.
 			/// </summary>
+			/// <param name="pixelFormat">
+			/// A <see cref="DevicePixelFormat"/> that specifies the pixel format and the ancillary buffers required.
+			/// </param>
 			/// <param name="width">
 			/// A <see cref="UInt32"/> that specifies the width of the P-Buffer, in pixels.
 			/// </param>
@@ -447,6 +450,9 @@ namespace OpenGL
 			/// <summary>
 			/// Construct a NativePBuffer with a specific pixel format and size.
 			/// </summary>
+			/// <param name="display">
+			/// 
+			/// </param>
 			/// <param name="pixelFormat">
 			/// A <see cref="DevicePixelFormat"/> that specifies the pixel format and the ancillary buffers required.
 			/// </param>
@@ -726,7 +732,7 @@ namespace OpenGL
 		/// created, it returns IntPtr.Zero.
 		/// </returns>
 		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <see cref="attribsList"/> is null.
+		/// Exception thrown if <paramref name="attribsList"/> is null.
 		/// </exception>
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="attribsList"/> length is zero or if the last item of <paramref name="attribsList"/>

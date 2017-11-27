@@ -156,7 +156,7 @@ namespace OpenGL
 		#region Required External Declarations
 
 		[StructLayout(LayoutKind.Sequential)]
-		public struct XAnyEvent
+		internal struct XAnyEvent
 		{
 
 			public XEventName type;
@@ -167,7 +167,7 @@ namespace OpenGL
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public struct XKeyEvent
+		internal struct XKeyEvent
 		{
 			public XEventName type;
 			public IntPtr serial;
@@ -187,7 +187,7 @@ namespace OpenGL
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public struct XButtonEvent
+		internal struct XButtonEvent
 		{
 			public XEventName type;
 			public IntPtr serial;
@@ -207,7 +207,7 @@ namespace OpenGL
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public struct XMotionEvent
+		internal struct XMotionEvent
 		{
 			public XEventName type;
 			public IntPtr serial;
@@ -227,7 +227,7 @@ namespace OpenGL
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public struct XCrossingEvent
+		internal struct XCrossingEvent
 		{
 			public XEventName type;
 			public IntPtr serial;
@@ -249,7 +249,7 @@ namespace OpenGL
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public struct XFocusChangeEvent
+		internal struct XFocusChangeEvent
 		{
 			public XEventName type;
 			public IntPtr serial;
@@ -261,7 +261,7 @@ namespace OpenGL
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public struct XKeymapEvent
+		internal struct XKeymapEvent
 		{
 			public XEventName type;
 			public IntPtr serial;
@@ -303,7 +303,7 @@ namespace OpenGL
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public struct XExposeEvent
+		internal struct XExposeEvent
 		{
 			public XEventName type;
 			public IntPtr serial;
@@ -318,7 +318,7 @@ namespace OpenGL
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public struct XGraphicsExposeEvent
+		internal struct XGraphicsExposeEvent
 		{
 			public XEventName type;
 			public IntPtr serial;
@@ -335,7 +335,7 @@ namespace OpenGL
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public struct XNoExposeEvent
+		internal struct XNoExposeEvent
 		{
 			public XEventName type;
 			public IntPtr serial;
@@ -347,7 +347,7 @@ namespace OpenGL
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public struct XVisibilityEvent
+		internal struct XVisibilityEvent
 		{
 			public XEventName type;
 			public IntPtr serial;
@@ -358,7 +358,7 @@ namespace OpenGL
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public struct XCreateWindowEvent
+		internal struct XCreateWindowEvent
 		{
 			public XEventName type;
 			public IntPtr serial;
@@ -375,7 +375,7 @@ namespace OpenGL
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public struct XDestroyWindowEvent
+		internal struct XDestroyWindowEvent
 		{
 			public XEventName type;
 			public IntPtr serial;
@@ -386,7 +386,7 @@ namespace OpenGL
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public struct XUnmapEvent
+		internal struct XUnmapEvent
 		{
 			public XEventName type;
 			public IntPtr serial;
@@ -398,7 +398,7 @@ namespace OpenGL
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public struct XMapEvent
+		internal struct XMapEvent
 		{
 			public XEventName type;
 			public IntPtr serial;
@@ -410,7 +410,7 @@ namespace OpenGL
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public struct XMapRequestEvent
+		internal struct XMapRequestEvent
 		{
 			public XEventName type;
 			public IntPtr serial;
@@ -421,7 +421,7 @@ namespace OpenGL
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public struct XReparentEvent
+		internal struct XReparentEvent
 		{
 			public XEventName type;
 			public IntPtr serial;
@@ -436,7 +436,7 @@ namespace OpenGL
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public struct XConfigureEvent
+		internal struct XConfigureEvent
 		{
 			public XEventName type;
 			public IntPtr serial;
@@ -454,7 +454,7 @@ namespace OpenGL
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public struct XGravityEvent
+		internal struct XGravityEvent
 		{
 			public XEventName type;
 			public IntPtr serial;
@@ -467,7 +467,7 @@ namespace OpenGL
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public struct XResizeRequestEvent
+		internal struct XResizeRequestEvent
 		{
 			public XEventName type;
 			public IntPtr serial;
@@ -479,7 +479,7 @@ namespace OpenGL
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public struct XConfigureRequestEvent
+		internal struct XConfigureRequestEvent
 		{
 			public XEventName type;
 			public IntPtr serial;
@@ -498,7 +498,7 @@ namespace OpenGL
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public struct XCirculateEvent
+		internal struct XCirculateEvent
 		{
 			public XEventName type;
 			public IntPtr serial;
@@ -510,7 +510,7 @@ namespace OpenGL
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public struct XCirculateRequestEvent
+		internal struct XCirculateRequestEvent
 		{
 			public XEventName type;
 			public IntPtr serial;
@@ -522,7 +522,7 @@ namespace OpenGL
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public struct XPropertyEvent
+		internal struct XPropertyEvent
 		{
 			public XEventName type;
 			public IntPtr serial;
@@ -535,7 +535,7 @@ namespace OpenGL
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public struct XSelectionClearEvent
+		internal struct XSelectionClearEvent
 		{
 			public XEventName type;
 			public IntPtr serial;
@@ -547,7 +547,7 @@ namespace OpenGL
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public struct XSelectionRequestEvent
+		internal struct XSelectionRequestEvent
 		{
 			public XEventName type;
 			public IntPtr serial;
@@ -562,7 +562,7 @@ namespace OpenGL
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public struct XSelectionEvent
+		internal struct XSelectionEvent
 		{
 			public XEventName type;
 			public IntPtr serial;
@@ -576,7 +576,7 @@ namespace OpenGL
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public struct XColormapEvent
+		internal struct XColormapEvent
 		{
 			public XEventName type;
 			public IntPtr serial;
@@ -589,7 +589,7 @@ namespace OpenGL
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public struct XClientMessageEvent
+		internal struct XClientMessageEvent
 		{
 			public XEventName type;
 			public IntPtr serial;
@@ -606,7 +606,7 @@ namespace OpenGL
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public struct XMappingEvent
+		internal struct XMappingEvent
 		{
 			public XEventName type;
 			public IntPtr serial;
@@ -618,20 +618,50 @@ namespace OpenGL
 			public int count;
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[StructLayout(LayoutKind.Sequential)]
 		public struct XErrorEvent
 		{
+			/// <summary>
+			/// 
+			/// </summary>
 			public XEventName type;
+
+			/// <summary>
+			/// 
+			/// </summary>
 			public IntPtr display;
+
+			/// <summary>
+			/// 
+			/// </summary>
 			public IntPtr resourceid;
+
+			/// <summary>
+			/// 
+			/// </summary>
 			public IntPtr serial;
+
+			/// <summary>
+			/// 
+			/// </summary>
 			public byte error_code;
+
+			/// <summary>
+			/// 
+			/// </summary>
 			public XRequest request_code;
+
+			/// <summary>
+			/// 
+			/// </summary>
 			public byte minor_code;
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public struct XEventPad
+		internal struct XEventPad
 		{
 			public IntPtr pad0;
 			public IntPtr pad1;
@@ -660,7 +690,7 @@ namespace OpenGL
 		}
 
 		[StructLayout(LayoutKind.Explicit)]
-		public struct XEvent
+		internal struct XEvent
 		{
 			[FieldOffset(0)]
 			public XEventName type;
@@ -765,6 +795,9 @@ namespace OpenGL
 			}
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[StructLayout(LayoutKind.Sequential)]
 		public class XVisualInfo
 		{
@@ -772,38 +805,47 @@ namespace OpenGL
 			/// 
 			/// </summary>
 			public IntPtr visual;
+
 			/// <summary>
 			/// 
 			/// </summary>
 			public IntPtr visualid;
+
 			/// <summary>
 			/// 
 			/// </summary>
 			public int screen;
+
 			/// <summary>
 			/// 
 			/// </summary>
 			public int depth;
+
 			/// <summary>
 			/// 
 			/// </summary>
 			public XVisualClass @class;
+
 			/// <summary>
 			/// 
 			/// </summary>
 			public long redMask;
+
 			/// <summary>
 			/// 
 			/// </summary>
 			public long greenMask;
+
 			/// <summary>
 			/// 
 			/// </summary>
 			public long blueMask;
+
 			/// <summary>
 			/// 
 			/// </summary>
 			public int colormap_size;
+
 			/// <summary>
 			/// 
 			/// </summary>
@@ -833,23 +875,85 @@ namespace OpenGL
 			DirectColor = 5
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		[StructLayout(LayoutKind.Sequential)]
 		public struct XSetWindowAttributes
 		{
+			/// <summary>
+			/// 
+			/// </summary>
 			public IntPtr background_pixmap;
+
+			/// <summary>
+			/// 
+			/// </summary>
 			public IntPtr background_pixel;
+
+			/// <summary>
+			/// 
+			/// </summary>
 			public IntPtr border_pixmap;
+
+			/// <summary>
+			/// 
+			/// </summary>
 			public IntPtr border_pixel;
+
+			/// <summary>
+			/// 
+			/// </summary>
 			public Gravity bit_gravity;
+
+			/// <summary>
+			/// 
+			/// </summary>
 			public Gravity win_gravity;
+
+			/// <summary>
+			/// 
+			/// </summary>
 			public int backing_store;
+
+			/// <summary>
+			/// 
+			/// </summary>
 			public IntPtr backing_planes;
+
+			/// <summary>
+			/// 
+			/// </summary>
 			public IntPtr backing_pixel;
+
+			/// <summary>
+			/// 
+			/// </summary>
 			public bool save_under;
+
+			/// <summary>
+			/// 
+			/// </summary>
 			public IntPtr event_mask;
+
+			/// <summary>
+			/// 
+			/// </summary>
 			public IntPtr do_not_propagate_mask;
+
+			/// <summary>
+			/// 
+			/// </summary>
 			public bool override_redirect;
+
+			/// <summary>
+			/// 
+			/// </summary>
 			public IntPtr colormap;
+
+			/// <summary>
+			/// 
+			/// </summary>
 			public IntPtr cursor;
 
 			/// <summary>
@@ -892,7 +996,7 @@ namespace OpenGL
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public struct XWindowAttributes
+		internal struct XWindowAttributes
 		{
 			public int x;
 			public int y;
@@ -925,7 +1029,7 @@ namespace OpenGL
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public struct XTextProperty
+		internal struct XTextProperty
 		{
 			public string value;
 			public IntPtr encoding;
@@ -933,7 +1037,7 @@ namespace OpenGL
 			public IntPtr nitems;
 		}
 
-		public enum XWindowClass
+		internal enum XWindowClass
 		{
 			InputOutput = 1,
 			InputOnly = 2
@@ -979,7 +1083,7 @@ namespace OpenGL
 		}
 
 		[Flags]
-		public enum SetWindowValuemask
+		internal enum SetWindowValuemask
 		{
 			Nothing = 0,
 			BackPixmap = 1,
@@ -999,7 +1103,7 @@ namespace OpenGL
 			Cursor = 16384
 		}
 
-		public enum CreateWindowArgs
+		internal enum CreateWindowArgs
 		{
 			CopyFromParent = 0,
 			ParentRelative = 1,
@@ -1022,7 +1126,7 @@ namespace OpenGL
 			StaticGravity = 10
 		}
 
-		public enum XKeySym : uint
+		internal enum XKeySym : uint
 		{
 			XK_BackSpace = 0xFF08,
 			XK_Tab = 0xFF09,
@@ -1055,7 +1159,7 @@ namespace OpenGL
 		}
 
 		[Flags]
-		public enum EventMask
+		internal enum EventMask
 		{
 			NoEventMask = 0,
 			KeyPressMask = 1 << 0,
@@ -1085,14 +1189,14 @@ namespace OpenGL
 			OwnerGrabButtonMask = 1 << 24
 		}
 
-		public enum GrabMode
+		internal enum GrabMode
 		{
 			GrabModeSync = 0,
 			GrabModeAsync = 1
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public struct XStandardColormap
+		internal struct XStandardColormap
 		{
 			public IntPtr colormap;
 			public IntPtr red_max;
@@ -1107,7 +1211,7 @@ namespace OpenGL
 		}
 
 		[StructLayout(LayoutKind.Sequential, Pack = 2)]
-		public struct XColor
+		internal struct XColor
 		{
 			public IntPtr pixel;
 			public ushort red;
@@ -1117,7 +1221,7 @@ namespace OpenGL
 			public byte pad;
 		}
 
-		public enum Atom
+		internal enum Atom
 		{
 			AnyPropertyType = 0,
 			XA_PRIMARY = 1,
@@ -1193,7 +1297,7 @@ namespace OpenGL
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public struct XScreen
+		internal struct XScreen
 		{
 			public IntPtr ext_data;
 			public IntPtr display;
@@ -1218,7 +1322,7 @@ namespace OpenGL
 		}
 
 		[Flags]
-		public enum ChangeWindowFlags
+		internal enum ChangeWindowFlags
 		{
 			CWX = 1 << 0,
 			CWY = 1 << 1,
@@ -1229,7 +1333,7 @@ namespace OpenGL
 			CWStackMode = 1 << 6
 		}
 
-		public enum StackMode
+		internal enum StackMode
 		{
 			Above = 0,
 			Below = 1,
@@ -1239,7 +1343,7 @@ namespace OpenGL
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public struct XWindowChanges
+		internal struct XWindowChanges
 		{
 			public int x;
 			public int y;
@@ -1251,21 +1355,21 @@ namespace OpenGL
 		}
 
 		[Flags]
-		public enum ColorFlags
+		internal enum ColorFlags
 		{
 			DoRed = 1 << 0,
 			DoGreen = 1 << 1,
 			DoBlue = 1 << 2
 		}
 
-		public enum NotifyMode
+		internal enum NotifyMode
 		{
 			NotifyNormal = 0,
 			NotifyGrab = 1,
 			NotifyUngrab = 2
 		}
 
-		public enum NotifyDetail
+		internal enum NotifyDetail
 		{
 			NotifyAncestor = 0,
 			NotifyVirtual = 1,
@@ -1278,7 +1382,7 @@ namespace OpenGL
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public struct MotifWmHints
+		internal struct MotifWmHints
 		{
 			public IntPtr flags;
 			public IntPtr functions;
@@ -1293,7 +1397,7 @@ namespace OpenGL
 		}
 
 		[Flags]
-		public enum MotifFlags
+		internal enum MotifFlags
 		{
 			Functions = 1,
 			Decorations = 2,
@@ -1302,7 +1406,7 @@ namespace OpenGL
 		}
 
 		[Flags]
-		public enum MotifFunctions
+		internal enum MotifFunctions
 		{
 			All = 0x01,
 			Resize = 0x02,
@@ -1313,7 +1417,7 @@ namespace OpenGL
 		}
 
 		[Flags]
-		public enum MotifDecorations
+		internal enum MotifDecorations
 		{
 			All = 0x01,
 			Border = 0x02,
@@ -1326,7 +1430,7 @@ namespace OpenGL
 		}
 
 		[Flags]
-		public enum MotifInputMode
+		internal enum MotifInputMode
 		{
 			Modeless = 0,
 			ApplicationModal = 1,
@@ -1335,7 +1439,7 @@ namespace OpenGL
 		}
 
 		[Flags]
-		public enum KeyMasks
+		internal enum KeyMasks
 		{
 			ShiftMask = (1 << 0),
 			LockMask = (1 << 1),
@@ -1350,13 +1454,13 @@ namespace OpenGL
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public struct XModifierKeymap
+		internal struct XModifierKeymap
 		{
 			public int max_keypermod;
 			public IntPtr modifiermap;
 		}
 
-		public enum PropertyMode
+		internal enum PropertyMode
 		{
 			Replace = 0,
 			Prepend = 1,
@@ -1364,7 +1468,7 @@ namespace OpenGL
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public struct XKeyBoardState
+		internal struct XKeyBoardState
 		{
 			public int key_click_percent;
 			public int bell_percent;
@@ -1385,7 +1489,7 @@ namespace OpenGL
 		}
 
 		[Flags]
-		public enum GCFunction
+		internal enum GCFunction
 		{
 			GCFunction = 1 << 0,
 			GCPlaneMask = 1 << 1,
@@ -1412,21 +1516,21 @@ namespace OpenGL
 			GCArcMode = 1 << 22
 		}
 
-		public enum GCJoinStyle
+		internal enum GCJoinStyle
 		{
 			JoinMiter = 0,
 			JoinRound = 1,
 			JoinBevel = 2
 		}
 
-		public enum GCLineStyle
+		internal enum GCLineStyle
 		{
 			LineSolid = 0,
 			LineOnOffDash = 1,
 			LineDoubleDash = 2
 		}
 
-		public enum GCCapStyle
+		internal enum GCCapStyle
 		{
 			CapNotLast = 0,
 			CapButt = 1,
@@ -1434,7 +1538,7 @@ namespace OpenGL
 			CapProjecting = 3
 		}
 
-		public enum GCFillStyle
+		internal enum GCFillStyle
 		{
 			FillSolid = 0,
 			FillTiled = 1,
@@ -1442,26 +1546,26 @@ namespace OpenGL
 			FillOpaqueStppled = 3
 		}
 
-		public enum GCFillRule
+		internal enum GCFillRule
 		{
 			EvenOddRule = 0,
 			WindingRule = 1
 		}
 
-		public enum GCArcMode
+		internal enum GCArcMode
 		{
 			ArcChord = 0,
 			ArcPieSlice = 1
 		}
 
-		public enum GCSubwindowMode
+		internal enum GCSubwindowMode
 		{
 			ClipByChildren = 0,
 			IncludeInferiors = 1
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public struct XGCValues
+		internal struct XGCValues
 		{
 			public GXFunction function;
 			public IntPtr plane_mask;
@@ -1488,7 +1592,7 @@ namespace OpenGL
 			public byte dashes;
 		}
 
-		public enum GXFunction
+		internal enum GXFunction
 		{
 			GXclear = 0x0,		/* 0 */
 			GXand = 0x1,		/* src AND dst */
@@ -1508,28 +1612,28 @@ namespace OpenGL
 			GXset = 0xf		/* 1 */
 		}
 
-		public enum NetWindowManagerState
+		internal enum NetWindowManagerState
 		{
 			Remove = 0,
 			Add = 1,
 			Toggle = 2
 		}
 
-		public enum RevertTo
+		internal enum RevertTo
 		{
 			None = 0,
 			PointerRoot = 1,
 			Parent = 2
 		}
 
-		public enum MapState
+		internal enum MapState
 		{
 			IsUnmapped = 0,
 			IsUnviewable = 1,
 			IsViewable = 2
 		}
 
-		public enum CursorFontShape
+		internal enum CursorFontShape
 		{
 			XC_X_cursor = 0,
 			XC_arrow = 2,
@@ -1617,7 +1721,7 @@ namespace OpenGL
 			XC_num_glyphs = 154
 		}
 
-		public enum SystrayRequest
+		internal enum SystrayRequest
 		{
 			SYSTEM_TRAY_REQUEST_DOCK = 0,
 			SYSTEM_TRAY_BEGIN_MESSAGE = 1,
@@ -1625,7 +1729,7 @@ namespace OpenGL
 		}
 
 		[Flags]
-		public enum XSizeHintsFlags
+		internal enum XSizeHintsFlags
 		{
 			USPosition = (1 << 0),
 			USSize = (1 << 1),
@@ -1641,7 +1745,7 @@ namespace OpenGL
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public struct XSizeHints
+		internal struct XSizeHints
 		{
 			public IntPtr flags;
 			public int x;
@@ -1664,7 +1768,7 @@ namespace OpenGL
 		}
 
 		[Flags]
-		public enum XWMHintsFlags
+		internal enum XWMHintsFlags
 		{
 			InputHint = (1 << 0),
 			StateHint = (1 << 1),
@@ -1676,7 +1780,7 @@ namespace OpenGL
 			AllHints = (InputHint | StateHint | IconPixmapHint | IconWindowHint | IconPositionHint | IconMaskHint | WindowGroupHint)
 		}
 
-		public enum XInitialState
+		internal enum XInitialState
 		{
 			DontCareState = 0,
 			NormalState = 1,
@@ -1686,7 +1790,7 @@ namespace OpenGL
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public struct XWMHints
+		internal struct XWMHints
 		{
 			public IntPtr flags;
 			public bool input;
@@ -1700,7 +1804,7 @@ namespace OpenGL
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public struct XIconSize
+		internal struct XIconSize
 		{
 			public int min_width;
 			public int min_height;
@@ -1710,134 +1814,616 @@ namespace OpenGL
 			public int height_inc;
 		}
 
-		public delegate int XErrorHandler(IntPtr DisplayHandle, ref XErrorEvent error_event);
+		internal delegate int XErrorHandler(IntPtr DisplayHandle, ref XErrorEvent error_event);
 
+		/// <summary>
+		/// 
+		/// </summary>
 		public enum XRequest : byte
 		{
+			/// <summary>
+			/// 
+			/// </summary>
 			X_CreateWindow = 1,
+
+			/// <summary>
+			/// 
+			/// </summary>
 			X_ChangeWindowAttributes = 2,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_GetWindowAttributes = 3,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_DestroyWindow = 4,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_DestroySubwindows = 5,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_ChangeSaveSet = 6,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_ReparentWindow = 7,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_MapWindow = 8,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_MapSubwindows = 9,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_UnmapWindow = 10,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_UnmapSubwindows = 11,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_ConfigureWindow = 12,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_CirculateWindow = 13,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_GetGeometry = 14,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_QueryTree = 15,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_InternAtom = 16,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_GetAtomName = 17,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_ChangeProperty = 18,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_DeleteProperty = 19,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_GetProperty = 20,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_ListProperties = 21,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_SetSelectionOwner = 22,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_GetSelectionOwner = 23,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_ConvertSelection = 24,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_SendEvent = 25,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_GrabPointer = 26,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_UngrabPointer = 27,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_GrabButton = 28,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_UngrabButton = 29,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_ChangeActivePointerGrab = 30,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_GrabKeyboard = 31,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_UngrabKeyboard = 32,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_GrabKey = 33,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_UngrabKey = 34,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_AllowEvents = 35,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_GrabServer = 36,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_UngrabServer = 37,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_QueryPointer = 38,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_GetMotionEvents = 39,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_TranslateCoords = 40,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_WarpPointer = 41,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_SetInputFocus = 42,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_GetInputFocus = 43,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_QueryKeymap = 44,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_OpenFont = 45,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_CloseFont = 46,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_QueryFont = 47,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_QueryTextExtents = 48,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_ListFonts = 49,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_ListFontsWithInfo = 50,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_SetFontPath = 51,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_GetFontPath = 52,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_CreatePixmap = 53,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_FreePixmap = 54,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_CreateGC = 55,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_ChangeGC = 56,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_CopyGC = 57,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_SetDashes = 58,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_SetClipRectangles = 59,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_FreeGC = 60,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_ClearArea = 61,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_CopyArea = 62,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_CopyPlane = 63,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_PolyPoint = 64,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_PolyLine = 65,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_PolySegment = 66,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_PolyRectangle = 67,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_PolyArc = 68,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_FillPoly = 69,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_PolyFillRectangle = 70,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_PolyFillArc = 71,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_PutImage = 72,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_GetImage = 73,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_PolyText8 = 74,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_PolyText16 = 75,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_ImageText8 = 76,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_ImageText16 = 77,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_CreateColormap = 78,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_FreeColormap = 79,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_CopyColormapAndFree = 80,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_InstallColormap = 81,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_UninstallColormap = 82,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_ListInstalledColormaps = 83,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_AllocColor = 84,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_AllocNamedColor = 85,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_AllocColorCells = 86,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_AllocColorPlanes = 87,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_FreeColors = 88,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_StoreColors = 89,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_StoreNamedColor = 90,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_QueryColors = 91,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_LookupColor = 92,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_CreateCursor = 93,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_CreateGlyphCursor = 94,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_FreeCursor = 95,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_RecolorCursor = 96,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_QueryBestSize = 97,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_QueryExtension = 98,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_ListExtensions = 99,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_ChangeKeyboardMapping = 100,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_GetKeyboardMapping = 101,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_ChangeKeyboardControl = 102,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_GetKeyboardControl = 103,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_Bell = 104,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_ChangePointerControl = 105,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_GetPointerControl = 106,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_SetScreenSaver = 107,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_GetScreenSaver = 108,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_ChangeHosts = 109,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_ListHosts = 110,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_SetAccessControl = 111,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_SetCloseDownMode = 112,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_KillClient = 113,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_RotateProperties = 114,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_ForceScreenSaver = 115,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_SetPointerMapping = 116,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_GetPointerMapping = 117,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_SetModifierMapping = 118,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_GetModifierMapping = 119,
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			X_NoOperation = 127
 		}
 
 		[Flags]
-		public enum XIMProperties
+		internal enum XIMProperties
 		{
 			XIMPreeditArea = 0x0001,
 			XIMPreeditCallbacks = 0x0002,
@@ -1851,14 +2437,14 @@ namespace OpenGL
 		}
 
 		[Flags]
-		public enum WindowType
+		internal enum WindowType
 		{
 			Client = 1,
 			Whole = 2,
 			Both = 3
 		}
 
-		public enum XEmbedMessage
+		internal enum XEmbedMessage
 		{
 			EmbeddedNotify = 0,
 			WindowActivate = 1,
@@ -1879,10 +2465,10 @@ namespace OpenGL
 		/// <summary>
 		/// Utility class for locking X11 threaded server.
 		/// </summary>
-		public struct XLock : IDisposable
+		internal struct XLock : IDisposable
 		{
 			/// <summary>
-			/// Initializes a new instance of the <see cref="Derm.OpenGL.Glx.XLock"/> struct.
+			/// Initializes a new instance of the <see cref="XLock"/> struct.
 			/// </summary>
 			/// <param name='display'>
 			/// Display.
@@ -1901,13 +2487,13 @@ namespace OpenGL
 			}
 
 			/// <summary>
-			/// Releases all resource used by the <see cref="Derm.OpenGL.Glx.XLock"/> object.
+			/// Releases all resource used by the <see cref="XLock"/> object.
 			/// </summary>
 			/// <remarks>
-			/// Call <see cref="Dispose"/> when you are finished using the <see cref="Derm.OpenGL.Glx.XLock"/>. The
-			/// <see cref="Dispose"/> method leaves the <see cref="Derm.OpenGL.Glx.XLock"/> in an unusable state. After calling
-			/// <see cref="Dispose"/>, you must release all references to the <see cref="Derm.OpenGL.Glx.XLock"/> so the garbage
-			/// collector can reclaim the memory that the <see cref="Derm.OpenGL.Glx.XLock"/> was occupying.
+			/// Call <see cref="Dispose"/> when you are finished using the <see cref="XLock"/>. The
+			/// <see cref="Dispose"/> method leaves the <see cref="XLock"/> in an unusable state. After calling
+			/// <see cref="Dispose"/>, you must release all references to the <see cref="XLock"/> so the garbage
+			/// collector can reclaim the memory that the <see cref="XLock"/> was occupying.
 			/// </remarks>
 			public void Dispose()
 			{
@@ -1921,7 +2507,7 @@ namespace OpenGL
 			private readonly IntPtr _LockedDisplay;
 		}
 
-		public unsafe static partial class UnsafeNativeMethods
+		internal unsafe static partial class UnsafeNativeMethods
 		{
 			[DllImport("libX11", EntryPoint = "XOpenDisplay")]
 			public extern static IntPtr XOpenDisplay(IntPtr display);
