@@ -22,6 +22,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading;
+using System.Reflection;
 
 using Khronos;
 
@@ -122,7 +123,11 @@ namespace OpenGL.Test
 		{
 			IntPtr context;
 
+#if NETCOREAPP1_1
+			ContextAttribute contextAttribute = null;
+#else
 			ContextAttribute contextAttribute = (ContextAttribute)Attribute.GetCustomAttribute(GetType(), typeof(ContextAttribute));
+#endif
 
 			if (contextAttribute == null) {
 				// Create compatibility profile context

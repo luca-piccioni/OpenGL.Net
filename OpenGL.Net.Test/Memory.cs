@@ -92,7 +92,7 @@ namespace OpenGL.Test
 		[Benchmark("MemoryCopyFramework", Repetitions = MemoryCopyRepetitions)]
 		public static void BenchmarkMemoryCopy_Framework()
 		{
-			Array.Copy(_BenchmarkDataMemoryCopy, _BenchmarkDataMemoryCopyDst, MemoryCopySize);
+			Array.Copy(_BenchmarkDataMemoryCopy, _BenchmarkDataMemoryCopyDst, (int)MemoryCopySize);
 		}
 
 		/// <summary>

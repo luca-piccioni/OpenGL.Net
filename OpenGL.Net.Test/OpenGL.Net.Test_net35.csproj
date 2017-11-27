@@ -120,7 +120,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestBaseBenchmark.cs" />
     <Compile Include="TestBaseGL.cs" />
-    <Compile Include="TestBaseGLSL.cs" />
     <Compile Include="Vertex2.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

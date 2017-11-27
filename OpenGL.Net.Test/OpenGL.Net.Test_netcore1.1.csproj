@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
     <RootNamespace>OpenGL.Test</RootNamespace>
     <AssemblyName>OpenGL.Net.Test</AssemblyName>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
@@ -10,16 +10,22 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <OutputPath>bin\netcore\Release</OutputPath>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <BaseIntermediateOutputPath>obj\netcore2.0</BaseIntermediateOutputPath>
-    <DefineConstants>TRACE;RELEASE;NETCORE;NETCOREAPP2_0</DefineConstants>
+    <BaseIntermediateOutputPath>obj\netcore1.1</BaseIntermediateOutputPath>
+    <DefineConstants>TRACE;RELEASE;NETCORE;NETCOREAPP1_1</DefineConstants>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <OutputPath>bin\netcore\Debug</OutputPath>
-    <BaseIntermediateOutputPath>obj\netcore2.0</BaseIntermediateOutputPath>
-    <DefineConstants>NETCORE;NETCOREAPP2_0</DefineConstants>
+    <BaseIntermediateOutputPath>obj\netcore1.1</BaseIntermediateOutputPath>
+    <DefineConstants>NETCORE;NETCOREAPP1_1</DefineConstants>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="obj\**" />
+    <EmbeddedResource Remove="obj\**" />
+    <None Remove="obj\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <None Remove="OpenGL.Net.nunit" />
@@ -33,7 +39,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\OpenGL.Net\OpenGL.Net_netcore2.0.csproj" />
+    <ProjectReference Include="..\OpenGL.Net\OpenGL.Net_netcore1.1.csproj" />
   </ItemGroup>
 
 </Project>

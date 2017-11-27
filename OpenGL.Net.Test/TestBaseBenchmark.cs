@@ -20,6 +20,7 @@
 // SOFTWARE.
 
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Reflection;
 
@@ -43,8 +44,8 @@ namespace OpenGL.Test
 				if (prefix != null && method.Name.StartsWith(prefix) == false)
 					continue;
 
-				object[] benchmarkAttrs = method.GetCustomAttributes(typeof(BenchmarkAttribute), true);
-				if (benchmarkAttrs.Length == 0)
+				List<object> benchmarkAttrs = new List<object>(method.GetCustomAttributes(typeof(BenchmarkAttribute), true));
+				if (benchmarkAttrs.Count == 0)
 					continue;
 
 				Run((BenchmarkAttribute)benchmarkAttrs[0], method);
