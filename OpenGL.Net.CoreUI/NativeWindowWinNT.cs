@@ -2023,6 +2023,16 @@ namespace OpenGL.CoreUI
 		}
 
 		/// <summary>
+		/// Closes the NativeWindow.
+		/// </summary>
+		public override void Destroy()
+		{
+			UnsafeNativeMethods.PostMessage(_Handle, WM.DESTROY, IntPtr.Zero, IntPtr.Zero);
+
+			Stop();
+		}
+
+		/// <summary>
 		/// Default window styles.
 		/// </summary>
 		private const WindowStyles DefaultWindowStyleEx = WindowStyles.WS_EX_APPWINDOW | WindowStyles.WS_EX_WINDOWEDGE;
@@ -2122,6 +2132,7 @@ namespace OpenGL.CoreUI
 		public override void Show()
 		{
 			UnsafeNativeMethods.ShowWindow(_Handle, WindowShowStyle.Show);
+			Invalidate();
 		}
 
 		/// <summary>

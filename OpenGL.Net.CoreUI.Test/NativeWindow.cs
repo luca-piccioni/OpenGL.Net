@@ -60,7 +60,7 @@ namespace OpenGL.CoreUI.Test
 			Assert.IsTrue(contextDestroying);
 		}
 
-		[Test(Description = "Test NativeWindow.Run()"), Timeout(3000)]
+		[Test(Description = "Test NativeWindow.Run()"), Timeout(1000)]
 		public void TestRun()
 		{
 			NativeWindow nativeWindow;
@@ -72,20 +72,66 @@ namespace OpenGL.CoreUI.Test
 
 				nativeWindow.Create(0, 0, 640, 480);
 
-				using (Timer closeWindowTimer = new Timer(obj => ((NativeWindow)obj).Stop(), nativeWindow, 2000, Timeout.Infinite)) {
+				// Stop loop using Stop()
+				using (Timer closeWindowTimer = new Timer(obj => ((NativeWindow)obj).Stop(), nativeWindow, 100, Timeout.Infinite)) {
 					nativeWindow.Run();
 				}
 
-				// Stopping Run() do not causes GL context disposition
+				// Stopping Run() with Stop() do not cause GL context disposition
 				Assert.IsFalse(contextDestroying);
+				Assert.IsFalse(nativeWindow.IsDisposed);
+
+				// Stop loop using Destroy()
+				using (Timer closeWindowTimer = new Timer(obj => ((NativeWindow)obj).Destroy(), nativeWindow, 100, Timeout.Infinite)) {
+					nativeWindow.Run();
+				}
+
+				// Stopping Run() with Destroy() cause GL context disposition
+				Assert.IsTrue(contextDestroying);
 				Assert.IsFalse(nativeWindow.IsDisposed);
 			}
 
-			Assert.IsTrue(contextDestroying);
 			Assert.IsTrue(nativeWindow.IsDisposed);
 		}
 
-		private static void CloseWindowCallback(object state)
+		[Test(Description = "Test NativeWindow.Show()")]
+		public void TestVisibility()
+		{
+			int render = 0;
+
+			using (NativeWindow nativeWindow = NativeWindow.Create()) {
+				nativeWindow.Render += (obj, e) => render++;
+
+				nativeWindow.Create(0, 0, 640, 480);
+				nativeWindow.Show();
+
+				// Showing the window cause a Render
+				Assert.Greater(render, 0);
+			}
+		}
+
+		[Test(Description = "Test NativeWindow.Invalidate()")]
+		public void TestInvalidate()
+		{
+			int render = 0;
+
+			using (NativeWindow nativeWindow = NativeWindow.Create()) {
+				nativeWindow.Create(0, 0, 640, 480);
+				nativeWindow.Show();
+
+				nativeWindow.Render += (obj, e) => render++;
+				
+				// Invalidating the window cause a single Render
+				nativeWindow.Invalidate();
+				Assert.AreEqual(1, render);
+
+				// Invalidating the window cause a single Render
+				nativeWindow.Invalidate();
+				Assert.AreEqual(2, render);
+			}
+		}
+
+		private static void StopWindowCallback(object state)
 		{
 			((NativeWindow)state).Stop();
 		}

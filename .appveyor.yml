@@ -51,7 +51,9 @@ build_script:
 
 # Happy to have a GL 1.1 software driver ^^
 test: 
-  assemblies: OpenGL.Net.Test\bin\**\Release\OpenGL.Net.Test.dll
+  assemblies:
+    - OpenGL.Net.Test\bin\**\Release\OpenGL.Net.Test.dll
+	- OpenGL.Net.CoreUI.Test\bin\**\Release\OpenGL.Net.CoreUI.Test.dll
   categories:
     only:
       - GL_VERSION_1_0
@@ -61,18 +63,21 @@ test:
       - Framework_RemovedByFeatureAttribute
       - Framework_RequiredByFeatureAttribute
       - Framework_DeviceContext
+	  - Toolkit_CoreUI
 
 after_test:
   - pip install codecov
-  - packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -target:"packages\NUnit.ConsoleRunner.3.7.0\tools\nunit3-console.exe" -targetargs:"/timeout=1000 OpenGL.Net.Test\bin\net461\Release\OpenGL.Net.Test.dll" -excludebyfile:"*OpenGL.Net.Test*;*OpenGL.Net\DeviceContextGLX.cs;*OpenGL.Net\Glx.cs" -excludebyattribute:OpenGL.RequiredByFeatureAttribute -hideskipped:All -output:.\OpenGL.Net_net461.xml
-  - packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -target:"packages\NUnit.ConsoleRunner.3.7.0\tools\nunit3-console.exe" -targetargs:"/timeout=1000 OpenGL.Net.Test\bin\net35\Release\OpenGL.Net.Test.dll" -excludebyfile:"*OpenGL.Net.Test*;*OpenGL.Net\DeviceContextGLX.cs;*OpenGL.Net\Glx.cs" -excludebyattribute:OpenGL.RequiredByFeatureAttribute -hideskipped:All -output:.\OpenGL.Net_net35.xml
+  - packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -target:"packages\NUnit.ConsoleRunner.3.7.0\tools\nunit3-console.exe" -targetargs:"OpenGL.Net.Test\bin\net461\Release\OpenGL.Net.Test.dll" -excludebyfile:"*OpenGL.Net.Test*;*OpenGL.Net\DeviceContextGLX.cs;*OpenGL.Net\Glx.cs" -excludebyattribute:OpenGL.RequiredByFeatureAttribute -hideskipped:All -output:.\OpenGL.Net_net461.xml
+  - packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -target:"packages\NUnit.ConsoleRunner.3.7.0\tools\nunit3-console.exe" -targetargs:"OpenGL.Net.Test\bin\net35\Release\OpenGL.Net.Test.dll" -excludebyfile:"*OpenGL.Net.Test*;*OpenGL.Net\DeviceContextGLX.cs;*OpenGL.Net\Glx.cs" -excludebyattribute:OpenGL.RequiredByFeatureAttribute -hideskipped:All -output:.\OpenGL.Net_net35.xml
+  - packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -target:"packages\NUnit.ConsoleRunner.3.7.0\tools\nunit3-console.exe" -targetargs:"OpenGL.Net.CoreUI.Test\bin\net461\Release\OpenGL.Net.CoreUI.Test.dll" -hideskipped:All -output:.\OpenGL.Net.CoreUI_net461.xml
 # Note: ATM coverage for .NET Core is 0 %: do not run
 #  - IF "%HAS_NETCORE%"=="true" packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -target:"C:\Program Files\dotnet\dotnet.exe" -targetargs:"test OpenGL.Net.Test\OpenGL.Net.Test_netcore1.1.csproj" -excludebyfile:"*OpenGL.Net.Test*;*OpenGL.Net\DeviceContextGLX.cs;*OpenGL.Net\Glx.cs" -excludebyattribute:OpenGL.RequiredByFeatureAttribute -hideskipped:All -output:.\OpenGL.Net_netcore1.1.xml
 #  - IF "%HAS_NETCORE%"=="true" packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -target:"C:\Program Files\dotnet\dotnet.exe" -targetargs:"test OpenGL.Net.Test\OpenGL.Net.Test_netcore2.0.csproj" -excludebyfile:"*OpenGL.Net.Test*;*OpenGL.Net\DeviceContextGLX.cs;*OpenGL.Net\Glx.cs" -excludebyattribute:OpenGL.RequiredByFeatureAttribute -hideskipped:All -output:.\OpenGL.Net_netcore2.0.xml
   - codecov -f "OpenGL.Net_net461.xml" -F net461
   - codecov -f "OpenGL.Net_net35.xml" -F net35
+  - codecov -f "OpenGL.Net.CoreUI_net461.xml" -F CoreUI_net461
 #  - IF "%HAS_NETCORE%"=="true" codecov -f "OpenGL.Net_netcore2.0.xml" -F netcore20
-#  - IF "%PUBLISH_NUGET%"=="true" nuget pack OpenGL.Net.nuspec -Version %APPVEYOR_BUILD_VERSION%
+  - IF "%PUBLISH_NUGET%"=="true" nuget pack OpenGL.Net.nuspec -Version %APPVEYOR_BUILD_VERSION%
   - IF "%PUBLISH_NUGET%"=="true" nuget pack OpenGL.Net.Math.nuspec -Version %APPVEYOR_BUILD_VERSION%
   - IF "%PUBLISH_NUGET%"=="true" nuget pack OpenGL.Net.WinForms.nuspec -Version %APPVEYOR_BUILD_VERSION%
   - IF "%PUBLISH_NUGET%"=="true" nuget pack OpenGL.Net.Xamarin.Android.nuspec -Version %APPVEYOR_BUILD_VERSION%

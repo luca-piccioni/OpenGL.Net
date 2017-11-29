@@ -67,16 +67,6 @@ namespace OpenGL.CoreUI
 		/// </summary>
 		public abstract IntPtr Handle { get; }
 
-		/// <summary>
-		/// Run the event loop for this NativeWindow.
-		/// </summary>
-		public abstract void Run();
-
-		/// <summary>
-		/// Stops the event loop running for this NativeWindow.
-		/// </summary>
-		public abstract void Stop();
-
 		#endregion
 
 		#region Design Properties
@@ -718,7 +708,7 @@ namespace OpenGL.CoreUI
 
 		#endregion
 
-		#region Create
+		#region Create & Destroy
 
 		/// <summary>
 		/// Create the NativeWindow.
@@ -736,6 +726,25 @@ namespace OpenGL.CoreUI
 		/// A <see cref="UInt32"/> that specifies the window height, in pixels.
 		/// </param>
 		public abstract void Create(int x, int y, uint width, uint height);
+
+		/// <summary>
+		/// Closes the NativeWindow.
+		/// </summary>
+		public abstract void Destroy();
+
+		#endregion
+
+		#region Event Loop
+
+		/// <summary>
+		/// Run the event loop for this NativeWindow.
+		/// </summary>
+		public abstract void Run();
+
+		/// <summary>
+		/// Stops the event loop running for this NativeWindow.
+		/// </summary>
+		public abstract void Stop();
 
 		#endregion
 
