@@ -82,8 +82,13 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="KeyCode.cs" />
     <Compile Include="NativeWindow.cs" />
     <Compile Include="NativeWindowEventArgs.cs" />
+    <Compile Include="NativeWindowKeyEventArgs.cs" />
+    <Compile Include="NativeWindowMouseEventArgs.cs" />
+    <Compile Include="Point.cs" />
+    <Compile Include="Size.cs" />
     <Compile Include="NativeWindowWinNT.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

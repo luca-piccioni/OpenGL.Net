@@ -19,51 +19,16 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-using System;
-
 namespace OpenGL.CoreUI
 {
 	/// <summary>
-	/// Arguments for <see cref="NativeWindow"/> events.
+	/// Keyboard key code.
 	/// </summary>
-	public class NativeWindowEventArgs : EventArgs
+	public enum KeyCode
 	{
-		#region Constructors
-
 		/// <summary>
-		/// Construct a NativeWindowEventArgs.
+		/// Internal use: maximum number of keys recognized.
 		/// </summary>
-		/// <param name="deviceContext">
-		/// The <see cref="DeviceContext"/> used for the underlying <see cref="NativeWindow"/>.
-		/// </param>
-		/// <param name="renderContext">
-		/// The OpenGL context used for rendering.
-		/// </param>
-		internal NativeWindowEventArgs(DeviceContext deviceContext, IntPtr renderContext)
-		{
-			if (deviceContext == null)
-				throw new ArgumentNullException("deviceContext");
-			if (renderContext == IntPtr.Zero)
-				throw new ArgumentException("renderContext");
-
-			DeviceContext = deviceContext;
-			RenderContext = renderContext;
-		}
-
-		#endregion
-
-		#region Event Arguments
-
-		/// <summary>
-		/// The <see cref="DeviceContext"/> used for the underlying <see cref="NativeWindow"/>.
-		/// </summary>
-		public readonly DeviceContext DeviceContext;
-
-		/// <summary>
-		/// The OpenGL context used for rendering.
-		/// </summary>
-		public readonly IntPtr RenderContext;
-
-		#endregion
+		MaxKeycode,
 	}
 }

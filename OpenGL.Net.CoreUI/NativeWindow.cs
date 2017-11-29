@@ -32,6 +32,29 @@ namespace OpenGL.CoreUI
 	/// </summary>
 	public abstract class NativeWindow : IDisposable
 	{
+		#region Factory
+
+		/// <summary>
+		/// Create a <see cref="NativeWindow"/> for the current platform.
+		/// </summary>
+		/// <returns>
+		/// It returns a <see cref="NativeWindow"/> implementation for the current platform.
+		/// </returns>
+		/// <exception cref="NotSupportedException">
+		/// Exception thrown if the current platform is not supported (no native window backend implemented).
+		/// </exception>
+		public static NativeWindow Create()
+		{
+			switch (Platform.CurrentPlatformId) {
+				case Platform.Id.WindowsNT:
+					return (new NativeWindowWinNT());
+				default:
+					throw new NotSupportedException();
+			}
+		}
+
+		#endregion
+
 		#region Platform Handles
 
 		/// <summary>
@@ -50,6 +73,8 @@ namespace OpenGL.CoreUI
 		public abstract void Run();
 
 		#endregion
+
+		#region Design Properties
 
 		#region Context Attributes
 
@@ -328,6 +353,76 @@ namespace OpenGL.CoreUI
 
 		#endregion
 
+		#region Render Context Sharing
+
+		/// <summary>
+		/// Context sharing options.
+		/// </summary>
+		public enum ContextSharingOption
+		{
+			/// <summary>
+			/// Create its own context.
+			/// </summary>
+			OwnContext,
+
+			/// <summary>
+			/// Do not create its own context, but reuse the first one created by application.
+			/// </summary>
+			SingleContext,
+		}
+
+		/// <summary>
+		/// Get or set the context sharing option.
+		/// </summary>
+		public ContextSharingOption ContextSharing
+		{
+			get { return (_ContextSharing); }
+			set
+			{
+				if (_RenderContext != IntPtr.Zero)
+					throw new InvalidOperationException("read-only property");
+				_ContextSharing = value;
+			}
+		}
+
+		/// <summary>
+		/// The context sharing option.
+		/// </summary>
+		private ContextSharingOption _ContextSharing = ContextSharingOption.OwnContext;
+
+		/// <summary>
+		/// Get or set a tag for defining sharing groups.
+		/// </summary>
+		public string ContextSharingGroup
+		{
+			get { return (_ContextSharingGroup); }
+			set
+			{
+				if (_RenderContext != IntPtr.Zero)
+					throw new InvalidOperationException("read-only property");
+				_ContextSharingGroup = value;
+			}
+		}
+
+		/// <summary>
+		/// A tag for defining sharing groups.
+		/// </summary>
+		private string _ContextSharingGroup;
+
+		/// <summary>
+		/// Map group names with the contextes sharing resources.
+		/// </summary>
+		private static readonly Dictionary<string, List<IntPtr>> _SharingGroups = new Dictionary<string, List<IntPtr>>();
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private static readonly Dictionary<string, NativeWindow> _SharingWindows = new Dictionary<string, NativeWindow>();
+
+		#endregion
+
+		#endregion
+
 		#region Device Context
 
 		/// <summary>
@@ -414,7 +509,7 @@ namespace OpenGL.CoreUI
 			#endregion
 		}
 
-		// <summary>
+		/// <summary>
 		/// Destroy the device context.
 		/// </summary>
 		protected void DestroyDeviceContext()
@@ -614,75 +709,7 @@ namespace OpenGL.CoreUI
 
 		#endregion
 
-		#region Render Context Sharing
-
-		/// <summary>
-		/// Context sharing options.
-		/// </summary>
-		public enum ContextSharingOption
-		{
-			/// <summary>
-			/// Create its own context.
-			/// </summary>
-			OwnContext,
-
-			/// <summary>
-			/// Do not create its own context, but reuse the first one created by application.
-			/// </summary>
-			SingleContext,
-		}
-
-		/// <summary>
-		/// Get or set the context sharing option.
-		/// </summary>
-		public ContextSharingOption ContextSharing
-		{
-			get { return (_ContextSharing); }
-			set
-			{
-				if (_RenderContext != IntPtr.Zero)
-					throw new InvalidOperationException("read-only property");
-				_ContextSharing = value;
-			}
-		}
-
-		/// <summary>
-		/// The context sharing option.
-		/// </summary>
-		private ContextSharingOption _ContextSharing = ContextSharingOption.OwnContext;
-
-		/// <summary>
-		/// Get or set a tag for defining sharing groups.
-		/// </summary>
-		public string ContextSharingGroup
-		{
-			get { return (_ContextSharingGroup); }
-			set
-			{
-				if (_RenderContext != IntPtr.Zero)
-					throw new InvalidOperationException("read-only property");
-				_ContextSharingGroup = value;
-			}
-		}
-
-		/// <summary>
-		/// A tag for defining sharing groups.
-		/// </summary>
-		private string _ContextSharingGroup;
-
-		/// <summary>
-		/// Map group names with the contextes sharing resources.
-		/// </summary>
-		private static readonly Dictionary<string, List<IntPtr>> _SharingGroups = new Dictionary<string, List<IntPtr>>();
-
-		/// <summary>
-		/// 
-		/// </summary>
-		private static readonly Dictionary<string, NativeWindow> _SharingWindows = new Dictionary<string, NativeWindow>();
-
-		#endregion
-
-		#region Abstract Interface
+		#region Create
 
 		/// <summary>
 		/// Create the NativeWindow.
@@ -701,15 +728,49 @@ namespace OpenGL.CoreUI
 		/// </param>
 		public abstract void Create(int x, int y, uint width, uint height);
 
-		/// <summary>
-		/// The NativeWindow width of the client area, in pixels.
-		/// </summary>
-		public abstract uint Width { get; }
+		#endregion
+
+		#region Location
 
 		/// <summary>
-		/// The NativeWindow height of the client area, in pixels.
+		/// Get or set the NativeWindow location.
 		/// </summary>
-		public abstract uint Height { get; }
+		public abstract Point Location
+		{
+			get; set;
+		}
+
+		#endregion
+
+		#region Size
+
+		/// <summary>
+		/// Get the NativeWindow width of the client area, in pixels.
+		/// </summary>
+		public uint Width
+		{
+			get { return ((uint)Math.Max(0, ClientSize.Width)); }
+		}
+
+		/// <summary>
+		/// Get the NativeWindow height of the client area, in pixels.
+		/// </summary>
+		public uint Height
+		{
+			get { return ((uint)Math.Max(0, ClientSize.Height)); }
+		}
+
+		/// <summary>
+		/// Get or set the NativeWindow client area size.
+		/// </summary>
+		public abstract Size ClientSize
+		{
+			get; set;
+		}
+
+		#endregion
+
+		#region Visibility
 
 		/// <summary>
 		/// Show the native window.
@@ -721,6 +782,22 @@ namespace OpenGL.CoreUI
 		/// </summary>
 		public abstract void Hide();
 
+		#endregion
+
+		#region Fullscreen
+
+		/// <summary>
+		/// Get or set the NativeWindow fullscreen state.
+		/// </summary>
+		public abstract bool Fullscreen
+		{
+			get; set;
+		}
+
+		#endregion
+
+		#region Invalidation
+
 		/// <summary>
 		/// Invalidate the window.
 		/// </summary>
@@ -730,8 +807,10 @@ namespace OpenGL.CoreUI
 
 		#region Events
 
+		#region ContextCreated
+
 		/// <summary>
-		/// Event raised on control creation time, allow user to allocate resource on control.
+		/// Event raised on NativeWindow creation time, allow user to allocate resource on context created.
 		/// </summary>
 		public event EventHandler<NativeWindowEventArgs> ContextCreated;
 
@@ -749,6 +828,10 @@ namespace OpenGL.CoreUI
 		/// </summary>
 		private bool _IsContextCreated;
 
+		#endregion
+
+		#region ContextDestroying
+
 		/// <summary>
 		/// Event raised on control disposition time, allow user to dispose resources on control.
 		/// </summary>
@@ -763,6 +846,10 @@ namespace OpenGL.CoreUI
 			ContextDestroying?.Invoke(this, new NativeWindowEventArgs(_DeviceContext, _RenderContext));
 		}
 
+		#endregion
+
+		#region Render
+
 		/// <summary>
 		/// Event raised on control render time, allow user to draw on control.
 		/// </summary>
@@ -775,6 +862,10 @@ namespace OpenGL.CoreUI
 		{
 			Render?.Invoke(this, new NativeWindowEventArgs(_DeviceContext, _RenderContext));
 		}
+
+		#endregion
+
+		#region ContextUpdate
 
 		/// <summary>
 		/// Event raised on control render time, allow user to update resources. It is executed AFTER the <see cref="Render"/>
@@ -792,26 +883,68 @@ namespace OpenGL.CoreUI
 
 		#endregion
 
-		#region Factory
+		#region Window
 
 		/// <summary>
-		/// Create a <see cref="NativeWindow"/> for the current platform.
+		/// Event raised whenever the size of NativeWindow changes.
 		/// </summary>
-		/// <returns>
-		/// It returns a <see cref="NativeWindow"/> implementation for the current platform.
-		/// </returns>
-		/// <exception cref="NotSupportedException">
-		/// Exception thrown if the current platform is not supported (no native window backend implemented).
-		/// </exception>
-		public static NativeWindow Create()
+		public event EventHandler<EventArgs> Resize;
+
+		/// <summary>
+		/// Raise the event <see cref="Resize"/>.
+		/// </summary>
+		protected virtual void OnResize()
 		{
-			switch (Khronos.Platform.CurrentPlatformId) {
-				case Khronos.Platform.Id.WindowsNT:
-					return (new NativeWindowWinNT());
-				default:
-					throw new NotSupportedException();
-			}
+			Resize?.Invoke(this, EventArgs.Empty);
 		}
+
+		#endregion
+
+		#region Keyboard
+
+		/// <summary>
+		/// Event raised whenever a key is pressed when NativeWindow has focus.
+		/// </summary>
+		public event EventHandler<NativeWindowKeyEventArgs> KeyDown;
+
+		/// <summary>
+		/// Raise the event <see cref="KeyDown"/>.
+		/// </summary>
+		protected virtual void OnKeyDown(KeyCode key)
+		{
+			KeyDown?.Invoke(this, new NativeWindowKeyEventArgs(_DeviceContext, _RenderContext, key));
+		}
+
+		/// <summary>
+		/// Event raised whenever a key is unpressed when NativeWindow has focus.
+		/// </summary>
+		public event EventHandler<NativeWindowKeyEventArgs> KeyUp;
+
+		/// <summary>
+		/// Raise the event <see cref="KeyUp"/>.
+		/// </summary>
+		protected virtual void OnKeyUp(KeyCode key)
+		{
+			KeyUp?.Invoke(this, new NativeWindowKeyEventArgs(_DeviceContext, _RenderContext, key));
+		}
+
+		#endregion
+
+		#region Mouse
+
+		public event EventHandler<NativeWindowMouseEventArgs> MouseMove;
+
+		public event EventHandler<NativeWindowMouseEventArgs> MouseDown;
+
+		public event EventHandler<NativeWindowMouseEventArgs> MouseUp;
+
+		public event EventHandler<NativeWindowMouseEventArgs> MouseWheel;
+
+		public event EventHandler<NativeWindowMouseEventArgs> MouseClick;
+
+		public event EventHandler<NativeWindowMouseEventArgs> MouseDoubleClick;
+
+		#endregion
 
 		#endregion
 

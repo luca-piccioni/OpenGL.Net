@@ -24,14 +24,14 @@ using System;
 namespace OpenGL.CoreUI
 {
 	/// <summary>
-	/// Arguments for <see cref="NativeWindow"/> events.
+	/// Arguments for <see cref="NativeWindow"/> mouse events.
 	/// </summary>
-	public class NativeWindowEventArgs : EventArgs
+	public sealed class NativeWindowMouseEventArgs : NativeWindowEventArgs
 	{
 		#region Constructors
 
 		/// <summary>
-		/// Construct a NativeWindowEventArgs.
+		/// Construct a NativeWindowMouseEventArgs.
 		/// </summary>
 		/// <param name="deviceContext">
 		/// The <see cref="DeviceContext"/> used for the underlying <see cref="NativeWindow"/>.
@@ -39,15 +39,13 @@ namespace OpenGL.CoreUI
 		/// <param name="renderContext">
 		/// The OpenGL context used for rendering.
 		/// </param>
-		internal NativeWindowEventArgs(DeviceContext deviceContext, IntPtr renderContext)
+		/// <param name="location">
+		/// The <see cref="Point"/> representing the position relative to the event.
+		/// </param>
+		internal NativeWindowMouseEventArgs(DeviceContext deviceContext, IntPtr renderContext, Point location) :
+			base(deviceContext, renderContext)
 		{
-			if (deviceContext == null)
-				throw new ArgumentNullException("deviceContext");
-			if (renderContext == IntPtr.Zero)
-				throw new ArgumentException("renderContext");
-
-			DeviceContext = deviceContext;
-			RenderContext = renderContext;
+			
 		}
 
 		#endregion
@@ -55,14 +53,9 @@ namespace OpenGL.CoreUI
 		#region Event Arguments
 
 		/// <summary>
-		/// The <see cref="DeviceContext"/> used for the underlying <see cref="NativeWindow"/>.
+		/// Mouse location relative to the event.
 		/// </summary>
-		public readonly DeviceContext DeviceContext;
-
-		/// <summary>
-		/// The OpenGL context used for rendering.
-		/// </summary>
-		public readonly IntPtr RenderContext;
+		public readonly Point Location;
 
 		#endregion
 	}

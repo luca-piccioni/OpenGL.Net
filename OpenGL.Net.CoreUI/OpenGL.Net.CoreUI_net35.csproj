@@ -82,7 +82,9 @@
     <Compile Include="NativeWindow.cs" />
     <Compile Include="NativeWindowEventArgs.cs" />
     <Compile Include="NativeWindowWinNT.cs" />
+    <Compile Include="Point.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Size.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OpenGL.Net\OpenGL.Net_net35.csproj">

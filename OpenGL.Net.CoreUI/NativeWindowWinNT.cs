@@ -52,6 +52,14 @@ namespace OpenGL.CoreUI
 
 		#region Platform Resources
 
+		/// <summary>
+		/// Window message procedure.
+		/// </summary>
+		/// <param name="hWnd"></param>
+		/// <param name="msg"></param>
+		/// <param name="wParam"></param>
+		/// <param name="lParam"></param>
+		/// <returns></returns>
 		private IntPtr WindowsWndProc(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
 		{
 			switch ((WM)msg) {
@@ -77,9 +85,8 @@ namespace OpenGL.CoreUI
 					} catch (Exception exception) {
 						Debug.Fail(String.Format("OnDestroy: ({0})\n{1}", exception.Message, exception.ToString()));
 					}
+
 					return (IntPtr.Zero);
-				case WM.SIZE:
-					break;
 				case WM.PAINT:
 					try {
 						MakeCurrentContext();
@@ -101,6 +108,31 @@ namespace OpenGL.CoreUI
 					}
 
 					return (IntPtr.Zero);
+				case WM.SIZE:
+					break;
+
+				case WM.SYSCOMMAND:
+					break;
+
+				case WM.KEYDOWN:
+				case WM.KEYUP:
+					break;
+
+				case WM.MOUSEMOVE:
+				case WM.LBUTTONDOWN:
+				case WM.LBUTTONUP:
+				case WM.LBUTTONDBLCLK:
+				case WM.RBUTTONDOWN:
+				case WM.RBUTTONUP:
+				case WM.RBUTTONDBLCLK:
+				case WM.MBUTTONDOWN:
+				case WM.MBUTTONUP:
+				case WM.MBUTTONDBLCLK:
+				case WM.MOUSEWHEEL:
+				case WM.XBUTTONDOWN:
+				case WM.XBUTTONUP:
+				case WM.XBUTTONDBLCLK:
+					break;
 			}
 
 			// Callback default window procedure.
@@ -126,11 +158,6 @@ namespace OpenGL.CoreUI
 		/// Windows procedure.
 		/// </summary>
 		private readonly UnsafeNativeMethods.WndProc _WindowsWndProc;
-
-		/// <summary>
-		/// Exception caught while creating device context and render context.
-		/// </summary>
-		private Exception _FailureException;
 
 		#endregion
 
@@ -179,6 +206,127 @@ namespace OpenGL.CoreUI
 			public Int32 top;
 			public Int32 right;
 			public Int32 bottom;
+
+			public static explicit operator Point(RECT rect)
+			{
+				return (new Point(rect.left, rect.top));
+			}
+
+			public static explicit operator Size(RECT rect)
+			{
+				return (new Size(rect.right - rect.left, rect.bottom - rect.top));
+			}
+		}
+
+		/// <summary>
+		/// The MONITORINFO structure contains information about a display monitor.
+		/// The GetMonitorInfo function stores information into a MONITORINFOEX structure or a MONITORINFO structure.
+		/// The MONITORINFOEX structure is a superset of the MONITORINFO structure. The MONITORINFOEX structure adds a string member to contain a name 
+		/// for the display monitor.
+		/// </summary>
+		[StructLayout(LayoutKind.Sequential)]
+		public struct MONITORINFO
+		{
+			/// <summary>
+			/// 
+			/// </summary>
+			/// <param name="flags"></param>
+			public MONITORINFO(uint flags)
+			{
+				Size = Marshal.SizeOf(typeof(MONITORINFOEX));
+				Monitor = new RECT();
+				WorkArea = new RECT();
+				Flags = flags;
+			}
+
+			/// <summary>
+			/// The size, in bytes, of the structure. Set this member to sizeof(MONITORINFOEX) (72) before calling the GetMonitorInfo function. 
+			/// Doing so lets the function determine the type of structure you are passing to it.
+			/// </summary>
+			public int Size;
+
+			/// <summary>
+			/// A RECT structure that specifies the display monitor rectangle, expressed in virtual-screen coordinates. 
+			/// Note that if the monitor is not the primary display monitor, some of the rectangle's coordinates may be negative values.
+			/// </summary>
+			public RECT Monitor;
+
+			/// <summary>
+			/// A RECT structure that specifies the work area rectangle of the display monitor that can be used by applications, 
+			/// expressed in virtual-screen coordinates. Windows uses this rectangle to maximize an application on the monitor. 
+			/// The rest of the area in rcMonitor contains system windows such as the task bar and side bars. 
+			/// Note that if the monitor is not the primary display monitor, some of the rectangle's coordinates may be negative values.
+			/// </summary>
+			public RECT WorkArea;
+
+			/// <summary>
+			/// The attributes of the display monitor.
+			/// 
+			/// This member can be the following value:
+			///   1 : MONITORINFOF_PRIMARY
+			/// </summary>
+			public uint Flags;
+		}
+
+		/// <summary>
+		/// The MONITORINFOEX structure contains information about a display monitor.
+		/// The GetMonitorInfo function stores information into a MONITORINFOEX structure or a MONITORINFO structure.
+		/// The MONITORINFOEX structure is a superset of the MONITORINFO structure. The MONITORINFOEX structure adds a string member to contain a name 
+		/// for the display monitor.
+		/// </summary>
+		[StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
+		public struct MONITORINFOEX
+		{
+			/// <summary>
+			/// 
+			/// </summary>
+			/// <param name="deviceName"></param>
+			public MONITORINFOEX(string deviceName)
+			{
+				Size = Marshal.SizeOf(typeof(MONITORINFOEX));
+				Monitor = new RECT();
+				WorkArea = new RECT();
+				Flags = 0;
+				DeviceName = deviceName ?? String.Empty;
+			}
+
+			/// <summary>
+			/// The size, in bytes, of the structure. Set this member to sizeof(MONITORINFOEX) (72) before calling the GetMonitorInfo function. 
+			/// Doing so lets the function determine the type of structure you are passing to it.
+			/// </summary>
+			public int Size;
+
+			/// <summary>
+			/// A RECT structure that specifies the display monitor rectangle, expressed in virtual-screen coordinates. 
+			/// Note that if the monitor is not the primary display monitor, some of the rectangle's coordinates may be negative values.
+			/// </summary>
+			public RECT Monitor;
+
+			/// <summary>
+			/// A RECT structure that specifies the work area rectangle of the display monitor that can be used by applications, 
+			/// expressed in virtual-screen coordinates. Windows uses this rectangle to maximize an application on the monitor. 
+			/// The rest of the area in rcMonitor contains system windows such as the task bar and side bars. 
+			/// Note that if the monitor is not the primary display monitor, some of the rectangle's coordinates may be negative values.
+			/// </summary>
+			public RECT WorkArea;
+
+			/// <summary>
+			/// The attributes of the display monitor.
+			/// 
+			/// This member can be the following value:
+			///   1 : MONITORINFOF_PRIMARY
+			/// </summary>
+			public uint Flags;
+
+			// size of a device name string
+			private const int CCHDEVICENAME = 32;
+
+			/// <summary>
+			/// A string that specifies the device name of the monitor being used. Most applications have no use for a display monitor name, 
+			/// and so can save some bytes by using a MONITORINFO structure.
+			/// </summary>
+			[MarshalAs(UnmanagedType.ByValTStr, SizeConst = CCHDEVICENAME )]
+			public string DeviceName;
 		}
 
 		/// <summary>
@@ -267,6 +415,89 @@ namespace OpenGL.CoreUI
 			/// The WM_QUIT message indicates a request to terminate an application and is generated when the application calls the PostQuitMessage function. It causes the GetMessage function to return zero.
 			/// </summary>
 			QUIT = 0x0012,
+
+			/// <summary>
+			/// A window receives this message when the user chooses a command from the Window menu, clicks the maximize button, minimize button, restore button, close button, or moves the form. You can stop the form from moving by filtering this out.
+			/// </summary>
+			SYSCOMMAND = 0x0112,
+
+			/// <summary>
+			/// The WM_KEYDOWN message is posted to the window with the keyboard focus when a nonsystem key is pressed. A nonsystem key is a key that is pressed when the ALT key is not pressed. 
+			/// </summary>
+			KEYDOWN = 0x0100,
+			/// <summary>
+			/// The WM_KEYUP message is posted to the window with the keyboard focus when a nonsystem key is released. A nonsystem key is a key that is pressed when the ALT key is not pressed, or a keyboard key that is pressed when a window has the keyboard focus. 
+			/// </summary>
+			KEYUP = 0x0101,
+
+			/// <summary>
+			/// The WM_MOUSEMOVE message is posted to a window when the cursor moves. If the mouse is not captured, the message is posted to the window that contains the cursor. Otherwise, the message is posted to the window that has captured the mouse.
+			/// </summary>
+			MOUSEMOVE = 0x0200,
+			/// <summary>
+			/// The WM_LBUTTONDOWN message is posted when the user presses the left mouse button while the cursor is in the client area of a window. If the mouse is not captured, the message is posted to the window beneath the cursor. Otherwise, the message is posted to the window that has captured the mouse.
+			/// </summary>
+			LBUTTONDOWN = 0x0201,
+			/// <summary>
+			/// The WM_LBUTTONUP message is posted when the user releases the left mouse button while the cursor is in the client area of a window. If the mouse is not captured, the message is posted to the window beneath the cursor. Otherwise, the message is posted to the window that has captured the mouse.
+			/// </summary>
+			LBUTTONUP = 0x0202,
+			/// <summary>
+			/// The WM_LBUTTONDBLCLK message is posted when the user double-clicks the left mouse button while the cursor is in the client area of a window. If the mouse is not captured, the message is posted to the window beneath the cursor. Otherwise, the message is posted to the window that has captured the mouse.
+			/// </summary>
+			LBUTTONDBLCLK = 0x0203,
+			/// <summary>
+			/// The WM_RBUTTONDOWN message is posted when the user presses the right mouse button while the cursor is in the client area of a window. If the mouse is not captured, the message is posted to the window beneath the cursor. Otherwise, the message is posted to the window that has captured the mouse.
+			/// </summary>
+			RBUTTONDOWN = 0x0204,
+			/// <summary>
+			/// The WM_RBUTTONUP message is posted when the user releases the right mouse button while the cursor is in the client area of a window. If the mouse is not captured, the message is posted to the window beneath the cursor. Otherwise, the message is posted to the window that has captured the mouse.
+			/// </summary>
+			RBUTTONUP = 0x0205,
+			/// <summary>
+			/// The WM_RBUTTONDBLCLK message is posted when the user double-clicks the right mouse button while the cursor is in the client area of a window. If the mouse is not captured, the message is posted to the window beneath the cursor. Otherwise, the message is posted to the window that has captured the mouse.
+			/// </summary>
+			RBUTTONDBLCLK = 0x0206,
+			/// <summary>
+			/// The WM_MBUTTONDOWN message is posted when the user presses the middle mouse button while the cursor is in the client area of a window. If the mouse is not captured, the message is posted to the window beneath the cursor. Otherwise, the message is posted to the window that has captured the mouse.
+			/// </summary>
+			MBUTTONDOWN = 0x0207,
+			/// <summary>
+			/// The WM_MBUTTONUP message is posted when the user releases the middle mouse button while the cursor is in the client area of a window. If the mouse is not captured, the message is posted to the window beneath the cursor. Otherwise, the message is posted to the window that has captured the mouse.
+			/// </summary>
+			MBUTTONUP = 0x0208,
+			/// <summary>
+			/// The WM_MBUTTONDBLCLK message is posted when the user double-clicks the middle mouse button while the cursor is in the client area of a window. If the mouse is not captured, the message is posted to the window beneath the cursor. Otherwise, the message is posted to the window that has captured the mouse.
+			/// </summary>
+			MBUTTONDBLCLK = 0x0209,
+			/// <summary>
+			/// The WM_MOUSEWHEEL message is sent to the focus window when the mouse wheel is rotated. The DefWindowProc function propagates the message to the window's parent. There should be no internal forwarding of the message, since DefWindowProc propagates it up the parent chain until it finds a window that processes it.
+			/// </summary>
+			MOUSEWHEEL = 0x020A,
+			/// <summary>
+			/// The WM_XBUTTONDOWN message is posted when the user presses the first or second X button while the cursor is in the client area of a window. If the mouse is not captured, the message is posted to the window beneath the cursor. Otherwise, the message is posted to the window that has captured the mouse. 
+		   /// </summary>
+			XBUTTONDOWN = 0x020B,
+			/// <summary>
+			/// The WM_XBUTTONUP message is posted when the user releases the first or second X button while the cursor is in the client area of a window. If the mouse is not captured, the message is posted to the window beneath the cursor. Otherwise, the message is posted to the window that has captured the mouse.
+			/// </summary>
+			XBUTTONUP = 0x020C,
+			/// <summary>
+			/// The WM_XBUTTONDBLCLK message is posted when the user double-clicks the first or second X button while the cursor is in the client area of a window. If the mouse is not captured, the message is posted to the window beneath the cursor. Otherwise, the message is posted to the window that has captured the mouse.
+			/// </summary>
+			XBUTTONDBLCLK = 0x020D,
+			/// <summary>
+			/// The WM_MOUSEHWHEEL message is sent to the focus window when the mouse's horizontal scroll wheel is tilted or rotated. The DefWindowProc function propagates the message to the window's parent. There should be no internal forwarding of the message, since DefWindowProc propagates it up the parent chain until it finds a window that processes it.
+			/// </summary>
+			MOUSEHWHEEL = 0x020E,
+			/// <summary>
+			/// The WM_MOUSEHOVER message is posted to a window when the cursor hovers over the client area of the window for the period of time specified in a prior call to TrackMouseEvent.
+			/// </summary>
+			MOUSEHOVER = 0x02A1,
+			/// <summary>
+			/// The WM_MOUSELEAVE message is posted to a window when the cursor leaves the client area of the window specified in a prior call to TrackMouseEvent.
+			/// </summary>
+			MOUSELEAVE = 0x02A3,
 		}
 
 		/// <summary>
@@ -403,7 +634,7 @@ namespace OpenGL.CoreUI
 		/// ai_productions@verizon.net or osirisgothra@hotmail.com
 		/// Obtained on pinvoke.net, please contribute your code to support the wiki!
 		/// </summary>
-		public enum SystemMetric:int
+		public enum SystemMetric : int
 		{
 			/// <summary>
 			/// The flags that specify how the system arranged minimized windows. For more information, see the Remarks section in this topic.
@@ -942,21 +1173,203 @@ namespace OpenGL.CoreUI
 			YVirtualScreen = 77,
 		}
 
+		[Flags]
+		public enum SetWindowPosFlags : uint
+		{
+			// ReSharper disable InconsistentNaming
+
+			/// <summary>
+			///     If the calling thread and the thread that owns the window are attached to different input queues, the system posts the request to the thread that owns the window. This prevents the calling thread from blocking its execution while other threads process the request.
+			/// </summary>
+			SWP_ASYNCWINDOWPOS = 0x4000,
+
+			/// <summary>
+			///     Prevents generation of the WM_SYNCPAINT message.
+			/// </summary>
+			SWP_DEFERERASE = 0x2000,
+
+			/// <summary>
+			///     Draws a frame (defined in the window's class description) around the window.
+			/// </summary>
+			SWP_DRAWFRAME = 0x0020,
+
+			/// <summary>
+			///     Applies new frame styles set using the SetWindowLong function. Sends a WM_NCCALCSIZE message to the window, even if the window's size is not being changed. If this flag is not specified, WM_NCCALCSIZE is sent only when the window's size is being changed.
+			/// </summary>
+			SWP_FRAMECHANGED = 0x0020,
+
+			/// <summary>
+			///     Hides the window.
+			/// </summary>
+			SWP_HIDEWINDOW = 0x0080,
+
+			/// <summary>
+			///     Does not activate the window. If this flag is not set, the window is activated and moved to the top of either the topmost or non-topmost group (depending on the setting of the hWndInsertAfter parameter).
+			/// </summary>
+			SWP_NOACTIVATE = 0x0010,
+
+			/// <summary>
+			///     Discards the entire contents of the client area. If this flag is not specified, the valid contents of the client area are saved and copied back into the client area after the window is sized or repositioned.
+			/// </summary>
+			SWP_NOCOPYBITS = 0x0100,
+
+			/// <summary>
+			///     Retains the current position (ignores X and Y parameters).
+			/// </summary>
+			SWP_NOMOVE = 0x0002,
+
+			/// <summary>
+			///     Does not change the owner window's position in the Z order.
+			/// </summary>
+			SWP_NOOWNERZORDER = 0x0200,
+
+			/// <summary>
+			///     Does not redraw changes. If this flag is set, no repainting of any kind occurs. This applies to the client area, the nonclient area (including the title bar and scroll bars), and any part of the parent window uncovered as a result of the window being moved. When this flag is set, the application must explicitly invalidate or redraw any parts of the window and parent window that need redrawing.
+			/// </summary>
+			SWP_NOREDRAW = 0x0008,
+
+			/// <summary>
+			///     Same as the SWP_NOOWNERZORDER flag.
+			/// </summary>
+			SWP_NOREPOSITION = 0x0200,
+
+			/// <summary>
+			///     Prevents the window from receiving the WM_WINDOWPOSCHANGING message.
+			/// </summary>
+			SWP_NOSENDCHANGING = 0x0400,
+
+			/// <summary>
+			///     Retains the current size (ignores the cx and cy parameters).
+			/// </summary>
+			SWP_NOSIZE = 0x0001,
+
+			/// <summary>
+			///     Retains the current Z order (ignores the hWndInsertAfter parameter).
+			/// </summary>
+			SWP_NOZORDER = 0x0004,
+
+			/// <summary>
+			///     Displays the window.
+			/// </summary>
+			SWP_SHOWWINDOW = 0x0040,
+
+			/// <summary>
+			///     No flags.
+			/// </summary>
+			SWP_NONE = 0x0000,
+
+			// ReSharper restore InconsistentNaming
+		}
+
+		public enum SetWindowLongIndex
+		{
+			 GWL_WNDPROC =    (-4),
+			 GWL_HINSTANCE =  (-6),
+			 GWL_HWNDPARENT = (-8),
+			 GWL_STYLE =      (-16),
+			 GWL_EXSTYLE =    (-20),
+			 GWL_USERDATA =   (-21),
+			 GWL_ID =     (-12)
+		}
+
+		[Flags]
+		public enum WindowStyles : uint
+		{
+			WS_OVERLAPPED       = 0x00000000,
+			WS_POPUP        = 0x80000000,
+			WS_CHILD        = 0x40000000,
+			WS_MINIMIZE     = 0x20000000,
+			WS_VISIBLE      = 0x10000000,
+			WS_DISABLED     = 0x08000000,
+			WS_CLIPSIBLINGS     = 0x04000000,
+			WS_CLIPCHILDREN     = 0x02000000,
+			WS_MAXIMIZE     = 0x01000000,
+			WS_CAPTION      = 0x00C00000,     /* WS_BORDER | WS_DLGFRAME  */
+			WS_BORDER       = 0x00800000,
+			WS_DLGFRAME     = 0x00400000,
+			WS_VSCROLL      = 0x00200000,
+			WS_HSCROLL      = 0x00100000,
+			WS_SYSMENU      = 0x00080000,
+			WS_THICKFRAME       = 0x00040000,
+			WS_GROUP        = 0x00020000,
+			WS_TABSTOP      = 0x00010000,
+
+			WS_MINIMIZEBOX      = 0x00020000,
+			WS_MAXIMIZEBOX      = 0x00010000,
+
+			WS_TILED        = WS_OVERLAPPED,
+			WS_ICONIC       = WS_MINIMIZE,
+			WS_SIZEBOX      = WS_THICKFRAME,
+			WS_TILEDWINDOW      = WS_OVERLAPPEDWINDOW,
+
+			// Common Window Styles
+
+			WS_OVERLAPPEDWINDOW = 
+				( WS_OVERLAPPED  | 
+				  WS_CAPTION     | 
+				  WS_SYSMENU     | 
+				  WS_THICKFRAME  | 
+				  WS_MINIMIZEBOX | 
+				  WS_MAXIMIZEBOX ),
+
+			WS_POPUPWINDOW = 
+				( WS_POPUP   | 
+				  WS_BORDER  | 
+				  WS_SYSMENU ),
+
+			WS_CHILDWINDOW = WS_CHILD,
+
+			//Extended Window Styles
+
+			WS_EX_DLGMODALFRAME     = 0x00000001,
+			WS_EX_NOPARENTNOTIFY    = 0x00000004,
+			WS_EX_TOPMOST       = 0x00000008,
+			WS_EX_ACCEPTFILES       = 0x00000010,
+			WS_EX_TRANSPARENT       = 0x00000020,
+
+			//#if(WINVER >= 0x0400)
+			WS_EX_MDICHILD      = 0x00000040,
+			WS_EX_TOOLWINDOW    = 0x00000080,
+			WS_EX_WINDOWEDGE    = 0x00000100,
+			WS_EX_CLIENTEDGE    = 0x00000200,
+			WS_EX_CONTEXTHELP       = 0x00000400,
+
+			WS_EX_RIGHT         = 0x00001000,
+			WS_EX_LEFT          = 0x00000000,
+			WS_EX_RTLREADING    = 0x00002000,
+			WS_EX_LTRREADING    = 0x00000000,
+			WS_EX_LEFTSCROLLBAR     = 0x00004000,
+			WS_EX_RIGHTSCROLLBAR    = 0x00000000,
+
+			WS_EX_CONTROLPARENT     = 0x00010000,
+			WS_EX_STATICEDGE    = 0x00020000,
+			WS_EX_APPWINDOW     = 0x00040000,
+
+			WS_EX_OVERLAPPEDWINDOW  = (WS_EX_WINDOWEDGE | WS_EX_CLIENTEDGE),
+			WS_EX_PALETTEWINDOW     = (WS_EX_WINDOWEDGE | WS_EX_TOOLWINDOW | WS_EX_TOPMOST),
+			//#endif /* WINVER >= 0x0400 */
+
+			//#if(_WIN32_WINNT >= 0x0500)
+			WS_EX_LAYERED       = 0x00080000,
+			//#endif /* _WIN32_WINNT >= 0x0500 */
+
+			//#if(WINVER >= 0x0500)
+			WS_EX_NOINHERITLAYOUT   = 0x00100000, // Disable inheritence of mirroring by children
+			WS_EX_LAYOUTRTL     = 0x00400000, // Right to left mirroring
+			//#endif /* WINVER >= 0x0500 */
+
+			//#if(_WIN32_WINNT >= 0x0500)
+			WS_EX_COMPOSITED    = 0x02000000,
+			WS_EX_NOACTIVATE    = 0x08000000,
+			//#endif /* _WIN32_WINNT >= 0x0500 */
+		}
+
 		private unsafe static partial class UnsafeNativeMethods
 		{
 			// CLASS STYLE
 			public const UInt32 CS_VREDRAW =	0x0001;
 			public const UInt32 CS_HREDRAW =	0x0002;
 			public const UInt32 CS_OWNDC =		0x0020;
-
-			// WINDOWS STYLE
-			public const UInt32 WS_CLIPCHILDREN =			0x2000000;
-			public const UInt32 WS_CLIPSIBLINGS =			0x4000000;
-			public const UInt32 WS_OVERLAPPED =				0x0;
-
-			// WINDOWS STYLE EX
-			public const UInt32 WS_EX_APPWINDOW =			0x00040000;
-			public const UInt32 WS_EX_WINDOWEDGE =			0x00000100;
 
 			internal delegate IntPtr WndProc(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam);
 
@@ -1010,6 +1423,28 @@ namespace OpenGL.CoreUI
 
 			[DllImport("user32.dll")]
 			internal static extern bool AdjustWindowRectEx([In, Out] ref RECT lpRect, uint dwStyle, bool bMenu, uint dwExStyle);
+
+			[DllImport("user32.dll", SetLastError = true)]
+			internal static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, SetWindowPosFlags uFlags);
+
+			[DllImport("user32.dll", SetLastError = true)]
+			internal static extern int SetWindowLong(IntPtr hWnd, SetWindowLongIndex nIndex, UInt32 dwNewLong);
+
+			[DllImport("user32.dll", SetLastError = true)]
+			internal static extern int GetWindowLong(IntPtr hWnd, SetWindowLongIndex nIndex);
+
+			[DllImport("user32.dll", CharSet = CharSet.Auto)]
+			internal static extern bool GetMonitorInfo(IntPtr hMonitor, ref MONITORINFOEX lpmi);
+
+			[DllImport("user32.dll")]
+			internal static extern bool GetMonitorInfo(IntPtr hMonitor, ref MONITORINFO lpmi);
+
+			internal const int MONITOR_DEFAULTTONULL = 0;
+			internal const int MONITOR_DEFAULTTOPRIMARY = 1;
+			internal const int MONITOR_DEFAULTTONEAREST = 2;
+
+			[DllImport("user32.dll")]
+			internal static extern IntPtr MonitorFromWindow(IntPtr hwnd, uint dwFlags);
 		}
 
 		#endregion
@@ -1071,6 +1506,78 @@ namespace OpenGL.CoreUI
 
 			// Note: window size is meant as client area, but CreateWindowEx width/height specifies the external
 			// frame size: compute offset for frame borders
+			RECT clientSize = GetClientToFrameRect(x, y, width, height, DefaultWindowStyle | DefaultWindowStyleEx);
+			// Create window
+			_Handle = UnsafeNativeMethods.CreateWindowEx(
+				(uint)DefaultWindowStyleEx, windowClass.lpszClassName, String.Empty, (uint)DefaultWindowStyle,
+				clientSize.left, clientSize.top, clientSize.right - clientSize.left, clientSize.bottom - clientSize.top,
+				IntPtr.Zero, IntPtr.Zero, windowClass.hInstance, IntPtr.Zero
+			);
+
+			if (_Handle == IntPtr.Zero)
+				throw new Win32Exception(Marshal.GetLastWin32Error());
+		}
+
+		/// <summary>
+		/// Default window styles.
+		/// </summary>
+		private const WindowStyles DefaultWindowStyleEx = WindowStyles.WS_EX_APPWINDOW | WindowStyles.WS_EX_WINDOWEDGE;
+
+		/// <summary>
+		/// Default window extended styles.
+		/// </summary>
+		private const WindowStyles DefaultWindowStyle = WindowStyles.WS_OVERLAPPED | WindowStyles.WS_CLIPCHILDREN | WindowStyles.WS_CLIPSIBLINGS;
+
+		/// <summary>
+		/// Get or set the NativeWindow location.
+		/// </summary>
+		public override Point Location
+		{
+			get { return (Point.Empty); }
+			set
+			{
+				if (Fullscreen)
+					throw new InvalidOperationException("fullscreen");
+
+				const SetWindowPosFlags windowPosFlags =
+					SetWindowPosFlags.SWP_NOSIZE | SetWindowPosFlags.SWP_NOZORDER | SetWindowPosFlags.SWP_NOACTIVATE;
+
+				if (UnsafeNativeMethods.SetWindowPos(_Handle, IntPtr.Zero, value.X, value.Y, 0, 0, windowPosFlags))
+					throw new InvalidOperationException("unable to set location");
+			}
+		}
+
+		/// <summary>
+		/// Get or set the NativeWindow client area size.
+		/// </summary>
+		public override Size ClientSize
+		{
+			get
+			{
+				RECT clientSize = new RECT();
+
+				UnsafeNativeMethods.GetClientRect(_Handle, out clientSize);
+
+				return ((Size)clientSize);
+			}
+			set
+			{
+				if (Fullscreen)
+					throw new InvalidOperationException("fullscreen");
+
+				const SetWindowPosFlags windowPosFlags =
+					SetWindowPosFlags.SWP_NOMOVE | SetWindowPosFlags.SWP_NOZORDER | SetWindowPosFlags.SWP_NOACTIVATE |
+					SetWindowPosFlags.SWP_FRAMECHANGED;
+
+				Size frameSize = (Size)GetClientToFrameRect(0, 0, (uint)value.Width, (uint)value.Height);
+
+				if (UnsafeNativeMethods.SetWindowPos(_Handle, IntPtr.Zero, 0, 0, frameSize.Width, frameSize.Height, windowPosFlags) == false)
+					throw new InvalidOperationException("unable to set client size");
+			}
+		}
+
+		private static RECT GetClientToFrameRect(int x, int y, uint width, uint height, WindowStyles windowStyles)
+		{
 			RECT clientSize = new RECT();
 
 			clientSize.left = x;
@@ -1078,52 +1585,32 @@ namespace OpenGL.CoreUI
 			clientSize.top = y;
 			clientSize.bottom = y + (int)height;
 
-			int cxSizeFrame = UnsafeNativeMethods.GetSystemMetrics(SystemMetric.CXSizeFrame) * 2;
-			int cySizeFrame = UnsafeNativeMethods.GetSystemMetrics(SystemMetric.CYSizeFrame) * 2;
-			int cySizeCaption = UnsafeNativeMethods.GetSystemMetrics(SystemMetric.CYCaption);
+			if ((windowStyles & WindowStyles.WS_THICKFRAME) != 0) {
+				int cxSizeFrame = UnsafeNativeMethods.GetSystemMetrics(SystemMetric.CXSizeFrame) * 2;
+				int cySizeFrame = UnsafeNativeMethods.GetSystemMetrics(SystemMetric.CYSizeFrame) * 2;
 
-			clientSize.left   -= cxSizeFrame;
-			clientSize.right  += cxSizeFrame;
-			clientSize.top    -= cySizeFrame;
-			clientSize.bottom += cySizeFrame + cySizeCaption;
+				clientSize.left   -= cxSizeFrame;
+				clientSize.right  += cxSizeFrame;
+				clientSize.top    -= cySizeFrame;
+				clientSize.bottom += cySizeFrame;
+			}
 
-			// Create window
-			const uint DefaultWindowStyleEx = UnsafeNativeMethods.WS_EX_APPWINDOW | UnsafeNativeMethods.WS_EX_WINDOWEDGE;
-			const uint DefaultWindowStyle = UnsafeNativeMethods.WS_OVERLAPPED | UnsafeNativeMethods.WS_CLIPCHILDREN | UnsafeNativeMethods.WS_CLIPSIBLINGS;
+			if ((windowStyles & WindowStyles.WS_CAPTION) != 0) {
+				int cySizeCaption = UnsafeNativeMethods.GetSystemMetrics(SystemMetric.CYCaption);
 
-			_Handle = UnsafeNativeMethods.CreateWindowEx(
-				DefaultWindowStyleEx, windowClass.lpszClassName, String.Empty, DefaultWindowStyle,
-				clientSize.left, clientSize.top, clientSize.right - clientSize.left, clientSize.bottom - clientSize.top,
-				IntPtr.Zero, IntPtr.Zero, windowClass.hInstance, IntPtr.Zero
-			);
+				clientSize.bottom += cySizeCaption;
+			}
 
-			if (_Handle == IntPtr.Zero)
-				throw new Win32Exception(Marshal.GetLastWin32Error());
-
-			UnsafeNativeMethods.GetClientRect(_Handle, out clientSize);
-			_Width = (uint)clientSize.right;
-			_Height = (uint)clientSize.bottom;
+			return (clientSize);
 		}
 
-		/// <summary>
-		/// The NativeWindow width of the client area, in pixels.
-		/// </summary>
-		public override uint Width { get { return (_Width); } }
+		private RECT GetClientToFrameRect(int x, int y, uint width, uint height)
+		{
+			WindowStyles windowStyle = (WindowStyles)UnsafeNativeMethods.GetWindowLong(_Handle, SetWindowLongIndex.GWL_STYLE);
+			WindowStyles windowStyleEx = (WindowStyles)UnsafeNativeMethods.GetWindowLong(_Handle, SetWindowLongIndex.GWL_EXSTYLE);
 
-		/// <summary>
-		/// The NativeWindow width of the client area, in pixels.
-		/// </summary>
-		private uint _Width;
-
-		/// <summary>
-		/// The NativeWindow height of the client area, in pixels.
-		/// </summary>
-		public override uint Height { get { return (_Height); } }
-
-		/// <summary>
-		/// The NativeWindow height of the client area, in pixels.
-		/// </summary>
-		private uint _Height;
+			return (GetClientToFrameRect(x, y, width, height, windowStyle | windowStyleEx));
+		}
 
 		/// <summary>
 		/// Show the native window.
@@ -1140,6 +1627,76 @@ namespace OpenGL.CoreUI
 		{
 			UnsafeNativeMethods.ShowWindow(_Handle, WindowShowStyle.Hide);
 		}
+
+		/// <summary>
+		/// Get or set the NativeWindow fullscreen state.
+		/// </summary>
+		public override bool Fullscreen
+		{
+			get { return (_Fullscreen); }
+			set
+			{
+				if (_Fullscreen == value)
+					return;
+
+				if (value == true) {
+					// Get monitor size
+					MONITORINFO monitorInfo = new MONITORINFO(0);
+					IntPtr monitor = UnsafeNativeMethods.MonitorFromWindow(_Handle, UnsafeNativeMethods.MONITOR_DEFAULTTONEAREST);
+
+					UnsafeNativeMethods.GetMonitorInfo(monitor, ref monitorInfo);
+
+					// Store current location and size
+					_FullscreenRestoreLocation = Location;
+					_FullscreenRestoreSize = ClientSize;
+
+					// Set window styles
+					UnsafeNativeMethods.SetWindowLong(_Handle, SetWindowLongIndex.GWL_STYLE,
+						(uint)(DefaultWindowStyle & ~(WindowStyles.WS_CAPTION | WindowStyles.WS_THICKFRAME))
+					);
+					UnsafeNativeMethods.SetWindowLong(_Handle, SetWindowLongIndex.GWL_EXSTYLE,
+						(uint)(DefaultWindowStyleEx & ~(WindowStyles.WS_EX_DLGMODALFRAME | WindowStyles.WS_EX_WINDOWEDGE | WindowStyles.WS_EX_CLIENTEDGE | WindowStyles.WS_EX_STATICEDGE))
+					);
+
+					// Set position and size
+					Point location = (Point)monitorInfo.WorkArea;
+					Size size = (Size)monitorInfo.WorkArea;
+					const SetWindowPosFlags windowPosFlags = SetWindowPosFlags.SWP_NOZORDER | SetWindowPosFlags.SWP_NOACTIVATE | SetWindowPosFlags.SWP_FRAMECHANGED;
+
+					if (UnsafeNativeMethods.SetWindowPos(_Handle, IntPtr.Zero, location.X, location.Y, size.Width, size.Height, windowPosFlags) == false)
+						throw new InvalidOperationException("unable to set client size");
+				} else {
+					// Restore previous styles
+					UnsafeNativeMethods.SetWindowLong(_Handle, SetWindowLongIndex.GWL_STYLE, (uint)(DefaultWindowStyle));
+					UnsafeNativeMethods.SetWindowLong(_Handle, SetWindowLongIndex.GWL_EXSTYLE, (uint)(DefaultWindowStyleEx));
+
+					// Restore previous position and size
+					Point location = _FullscreenRestoreLocation;
+					Size size = _FullscreenRestoreSize;
+					const SetWindowPosFlags windowPosFlags = SetWindowPosFlags.SWP_NOZORDER | SetWindowPosFlags.SWP_NOACTIVATE | SetWindowPosFlags.SWP_FRAMECHANGED;
+
+					if (UnsafeNativeMethods.SetWindowPos(_Handle, IntPtr.Zero, location.X, location.Y, size.Width, size.Height, windowPosFlags) == false)
+						throw new InvalidOperationException("unable to set client size");
+				}
+
+				_Fullscreen = value;
+			}
+		}
+
+		/// <summary>
+		/// The NativeWindow fullscreen state.
+		/// </summary>
+		private bool _Fullscreen;
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private Point _FullscreenRestoreLocation;
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private Size _FullscreenRestoreSize;
 
 		/// <summary>
 		/// Invalidate the window.
