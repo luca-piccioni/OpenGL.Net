@@ -105,7 +105,7 @@ namespace HelloTriangle.CoreUI
 			// Save PNG frame
 			if (_FrameNo < 125) {
 				using (Bitmap bitmap = new Bitmap((int)nativeWindow.Width, (int)nativeWindow.Height, System.Drawing.Imaging.PixelFormat.Format24bppRgb)) {
-					BitmapData bitmapData = bitmap.LockBits(new Rectangle(Point.Empty, bitmap.Size), ImageLockMode.WriteOnly, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+					BitmapData bitmapData = bitmap.LockBits(new Rectangle(System.Drawing.Point.Empty, bitmap.Size), ImageLockMode.WriteOnly, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
 
 					Gl.ReadPixels(0, 0, (int)nativeWindow.Width, (int)nativeWindow.Height, OpenGL.PixelFormat.Bgr, PixelType.UnsignedByte, bitmapData.Scan0);
 

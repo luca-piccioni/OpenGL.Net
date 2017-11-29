@@ -4,51 +4,47 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{574716B9-F7D9-44C7-8E65-E5827EA031D0}</ProjectGuid>
+    <ProjectGuid>{B810F529-53F8-4D09-A8E2-36CF22CE6947}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OpenGL.CoreUI</RootNamespace>
-    <AssemblyName>OpenGL.Net.CoreUI</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <RootNamespace>OpenGL.CoreUI.Test</RootNamespace>
+    <AssemblyName>OpenGL.Net.CoreUI.Test</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <BaseIntermediateOutputPath>obj\net35</BaseIntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\net35\Debug\</OutputPath>
-    <BaseIntermediateOutputPath>obj\net35</BaseIntermediateOutputPath>
+    <OutputPath>bin\net461\Debug\</OutputPath>
+    <BaseIntermediateOutputPath>obj\net461</BaseIntermediateOutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\net35\Release\</OutputPath>
-    <BaseIntermediateOutputPath>obj\net35</BaseIntermediateOutputPath>
+    <OutputPath>bin\net461\Release\</OutputPath>
+    <BaseIntermediateOutputPath>obj\net461</BaseIntermediateOutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <DocumentationFile>bin\net35\Release\OpenGL.Net.CoreUI.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\x86\Debug\</OutputPath>
+    <OutputPath>bin\net461\x86\Debug\</OutputPath>
+    <BaseIntermediateOutputPath>obj\net461</BaseIntermediateOutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <DebugType>full</DebugType>
     <PlatformTarget>x86</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
-    <OutputPath>bin\x86\Release\</OutputPath>
+    <OutputPath>bin\net461\x86\Release\</OutputPath>
+    <BaseIntermediateOutputPath>obj\net461</BaseIntermediateOutputPath>
     <DefineConstants>TRACE</DefineConstants>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>x86</PlatformTarget>
@@ -57,18 +53,18 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\x64\Debug\</OutputPath>
+    <OutputPath>bin\net461\x64\Debug\</OutputPath>
+    <BaseIntermediateOutputPath>obj\net461</BaseIntermediateOutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <DebugType>full</DebugType>
     <PlatformTarget>x64</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
-    <OutputPath>bin\x64\Release\</OutputPath>
+    <OutputPath>bin\net461\x64\Release\</OutputPath>
+    <BaseIntermediateOutputPath>obj\net461</BaseIntermediateOutputPath>
     <DefineConstants>TRACE</DefineConstants>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>x64</PlatformTarget>
@@ -76,24 +72,32 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="nunit.framework, Version=3.9.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.9.0\lib\net45\nunit.framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="KeyCode.cs" />
     <Compile Include="NativeWindow.cs" />
-    <Compile Include="NativeWindowEventArgs.cs" />
-    <Compile Include="NativeWindowKeyEventArgs.cs" />
-    <Compile Include="NativeWindowMouseEventArgs.cs" />
-    <Compile Include="NativeWindowWinNT.cs" />
-    <Compile Include="Point.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Size.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OpenGL.Net\OpenGL.Net_net35.csproj">
-      <Project>{abb8dfa8-473a-4fc1-85c0-e21680772a58}</Project>
-      <Name>OpenGL.Net_net35</Name>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OpenGL.Net.CoreUI\OpenGL.Net.CoreUI_net461.csproj">
+      <Project>{8ba9350b-43fb-4dd7-8f53-90f508795ae8}</Project>
+      <Name>OpenGL.Net.CoreUI_net461</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OpenGL.Net\OpenGL.Net_net461.csproj">
+      <Project>{9e3018f3-770e-4cfd-87d0-baee66e9fe8f}</Project>
+      <Name>OpenGL.Net_net461</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -72,6 +72,11 @@ namespace OpenGL.CoreUI
 		/// </summary>
 		public abstract void Run();
 
+		/// <summary>
+		/// Stops the event loop running for this NativeWindow.
+		/// </summary>
+		public abstract void Stop();
+
 		#endregion
 
 		#region Design Properties
@@ -531,7 +536,7 @@ namespace OpenGL.CoreUI
 		/// <summary>
 		/// The device context.
 		/// </summary>
-		private DeviceContext _DeviceContext;
+		protected DeviceContext _DeviceContext;
 
 		#endregion
 
@@ -669,6 +674,12 @@ namespace OpenGL.CoreUI
 		/// </summary>
 		protected void DeleteContext()
 		{
+			if (_RenderContext == IntPtr.Zero)
+				return;
+
+			// Before deleting GL context
+			OnContextDestroying();
+
 			// Remove this context from the sharing group
 			if (ContextSharing == ContextSharingOption.OwnContext && ContextSharingGroup != null) {
 				List<IntPtr> sharingContextes;
@@ -681,10 +692,8 @@ namespace OpenGL.CoreUI
 			}
 
 			// Delete OpenGL context
-			if (_RenderContext != IntPtr.Zero) {
-				_DeviceContext.DeleteContext(_RenderContext);
-				_RenderContext = IntPtr.Zero;
-			}
+			_DeviceContext.DeleteContext(_RenderContext);
+			_RenderContext = IntPtr.Zero;
 		}
 
 		/// <summary>
