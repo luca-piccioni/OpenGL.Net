@@ -63,7 +63,7 @@ test:
       - Framework_RemovedByFeatureAttribute
       - Framework_RequiredByFeatureAttribute
       - Framework_DeviceContext
-	  - Toolkit_CoreUI
+      - Toolkit_CoreUI
 
 after_test:
   - pip install codecov
