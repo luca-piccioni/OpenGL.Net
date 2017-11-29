@@ -53,7 +53,7 @@ build_script:
 test: 
   assemblies:
     - OpenGL.Net.Test\bin\**\Release\OpenGL.Net.Test.dll
-	- OpenGL.Net.CoreUI.Test\bin\**\Release\OpenGL.Net.CoreUI.Test.dll
+    - OpenGL.Net.CoreUI.Test\bin\**\Release\OpenGL.Net.CoreUI.Test.dll
   categories:
     only:
       - GL_VERSION_1_0
