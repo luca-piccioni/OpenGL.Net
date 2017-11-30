@@ -327,7 +327,7 @@ namespace OpenGL.CoreUI
 		/// The MONITORINFOEX structure is a superset of the MONITORINFO structure. The MONITORINFOEX structure adds a string member to contain a name 
 		/// for the display monitor.
 		/// </summary>
-		[StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
+		[StructLayout(LayoutKind.Sequential)]
 		public struct MONITORINFOEX
 		{
 			/// <summary>
@@ -1891,7 +1891,7 @@ namespace OpenGL.CoreUI
 			[DllImport("user32.dll", SetLastError = true)]
 			internal static extern int GetWindowLong(IntPtr hWnd, SetWindowLongIndex nIndex);
 
-			[DllImport("user32.dll", CharSet = CharSet.Auto)]
+			[DllImport("user32.dll")]
 			internal static extern bool GetMonitorInfo(IntPtr hMonitor, ref MONITORINFOEX lpmi);
 
 			[DllImport("user32.dll")]
