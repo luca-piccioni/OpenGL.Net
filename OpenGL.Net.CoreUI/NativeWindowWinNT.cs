@@ -1835,6 +1835,62 @@ namespace OpenGL.CoreUI
 		public static KeyCode ToKeyCode(VirtualKeys key)
 		{
 			switch (key) {
+				case VirtualKeys.Tab:
+					return KeyCode.Tab;
+
+				case VirtualKeys.Return:
+					return KeyCode.Return;
+				case VirtualKeys.Shift:
+					return KeyCode.Shift;
+				case VirtualKeys.Control:
+					return KeyCode.Control;
+
+				case VirtualKeys.Escape:
+					return KeyCode.Escape;
+
+				case VirtualKeys.Space:
+					return KeyCode.Space;
+
+				case VirtualKeys.Next:
+					return KeyCode.Next;
+				case VirtualKeys.End:
+					return KeyCode.End;
+
+				case VirtualKeys.Left:
+					return KeyCode.Left;
+				case VirtualKeys.Up:
+					return KeyCode.Up;
+				case VirtualKeys.Right:
+					return KeyCode.Right;
+				case VirtualKeys.Down:
+					return KeyCode.Down;
+
+				case VirtualKeys.Insert:
+					return KeyCode.Insert;
+				case VirtualKeys.Delete:
+					return KeyCode.Delete;
+
+				case VirtualKeys.N0:
+					return KeyCode.N0;
+				case VirtualKeys.N1:
+					return KeyCode.N1;
+				case VirtualKeys.N2:
+					return KeyCode.N2;
+				case VirtualKeys.N3:
+					return KeyCode.N3;
+				case VirtualKeys.N4:
+					return KeyCode.N4;
+				case VirtualKeys.N5:
+					return KeyCode.N5;
+				case VirtualKeys.N6:
+					return KeyCode.N6;
+				case VirtualKeys.N7:
+					return KeyCode.N7;
+				case VirtualKeys.N8:
+					return KeyCode.N8;
+				case VirtualKeys.N9:
+					return KeyCode.N9;
+
 				case VirtualKeys.A:
 					return KeyCode.A;
 				case VirtualKeys.B:
@@ -1887,6 +1943,91 @@ namespace OpenGL.CoreUI
 					return KeyCode.Y;
 				case VirtualKeys.Z:
 					return KeyCode.Z;
+
+				case VirtualKeys.Numpad0:
+					return KeyCode.Numpad0;
+				case VirtualKeys.Numpad1:
+					return KeyCode.Numpad1;
+				case VirtualKeys.Numpad2:
+					return KeyCode.Numpad2;
+				case VirtualKeys.Numpad3:
+					return KeyCode.Numpad3;
+				case VirtualKeys.Numpad4:
+					return KeyCode.Numpad4;
+				case VirtualKeys.Numpad5:
+					return KeyCode.Numpad5;
+				case VirtualKeys.Numpad6:
+					return KeyCode.Numpad6;
+				case VirtualKeys.Numpad7:
+					return KeyCode.Numpad7;
+				case VirtualKeys.Numpad8:
+					return KeyCode.Numpad8;
+				case VirtualKeys.Numpad9:
+					return KeyCode.Numpad9;
+				case VirtualKeys.Multiply:
+					return KeyCode.Multiply;
+				case VirtualKeys.Add:
+					return KeyCode.Add;
+				case VirtualKeys.Separator:
+					return KeyCode.Separator;
+				case VirtualKeys.Subtract:
+					return KeyCode.Subtract;
+				case VirtualKeys.Decimal:
+					return KeyCode.Decimal;
+				case VirtualKeys.Divide:
+					return KeyCode.Divide;
+				case VirtualKeys.F1:
+					return KeyCode.F1;
+				case VirtualKeys.F2:
+					return KeyCode.F2;
+				case VirtualKeys.F3:
+					return KeyCode.F3;
+				case VirtualKeys.F4:
+					return KeyCode.F4;
+				case VirtualKeys.F5:
+					return KeyCode.F5;
+				case VirtualKeys.F6:
+					return KeyCode.F6;
+				case VirtualKeys.F7:
+					return KeyCode.F7;
+				case VirtualKeys.F8:
+					return KeyCode.F8;
+				case VirtualKeys.F9:
+					return KeyCode.F9;
+				case VirtualKeys.F10:
+					return KeyCode.F10;
+				case VirtualKeys.F11:
+					return KeyCode.F11;
+				case VirtualKeys.F12:
+					return KeyCode.F12;
+				case VirtualKeys.F13:
+					return KeyCode.F13;
+				case VirtualKeys.F14:
+					return KeyCode.F14;
+				case VirtualKeys.F15:
+					return KeyCode.F15;
+				case VirtualKeys.F16:
+					return KeyCode.F16;
+				case VirtualKeys.F17:
+					return KeyCode.F17;
+				case VirtualKeys.F18:
+					return KeyCode.F18;
+				case VirtualKeys.F19:
+					return KeyCode.F19;
+				case VirtualKeys.F20:
+					return KeyCode.F20;
+				case VirtualKeys.F21:
+					return KeyCode.F21;
+				case VirtualKeys.F22:
+					return KeyCode.F22;
+				case VirtualKeys.F23:
+					return KeyCode.F23;
+				case VirtualKeys.F24:
+					return KeyCode.F24;
+				case VirtualKeys.NumLock:
+					return KeyCode.NumLock;
+				case VirtualKeys.ScrollLock:
+					return KeyCode.ScrollLock;
 				default:
 					return KeyCode.None;
 			}
