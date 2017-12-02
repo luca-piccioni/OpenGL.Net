@@ -179,7 +179,7 @@ namespace OpenGL.CoreUI
 
 		private IntPtr WindowsWndProc_KEYDOWN(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
 		{
-			VirtualKeys virtualKeyDown = (VirtualKeys)(wParam.ToInt32() >> 16);
+			VirtualKeys virtualKeyDown = (VirtualKeys)(wParam.ToInt32());
 			// bool extendedKeyDown = ((lParam.ToInt64() >> 24) & 1) != 0);
 			KeyCode key = ToKeyCode(virtualKeyDown);
 
@@ -197,7 +197,7 @@ namespace OpenGL.CoreUI
 
 		private IntPtr WindowsWndProc_KEYUP(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
 		{
-			VirtualKeys virtualKeyUp = (VirtualKeys)(wParam.ToInt32() >> 16);
+			VirtualKeys virtualKeyUp = (VirtualKeys)(wParam.ToInt32());
 			// bool extendedKeyUp = ((lParam.ToInt64() >> 24) & 1) != 0);
 			KeyCode key = ToKeyCode(virtualKeyUp);
 

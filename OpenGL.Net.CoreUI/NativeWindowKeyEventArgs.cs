@@ -45,7 +45,7 @@ namespace OpenGL.CoreUI
 		internal NativeWindowKeyEventArgs(DeviceContext deviceContext, IntPtr renderContext, KeyCode key) :
 			base(deviceContext, renderContext)
 		{
-			
+			Key = key;
 		}
 
 		#endregion

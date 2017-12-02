@@ -39,6 +39,13 @@ namespace HelloTriangle.CoreUI
 			using (NativeWindow nativeWindow = NativeWindow.Create()) {
 				nativeWindow.ContextCreated += NativeWindow_ContextCreated;
 				nativeWindow.Render += NativeWindow_Render;
+				nativeWindow.KeyDown += (object obj, NativeWindowKeyEventArgs e) => {
+					switch (e.Key) {
+						case KeyCode.Escape:
+							nativeWindow.Stop();
+							break;
+					}
+				};
 				nativeWindow.Animation = true;
 
 				nativeWindow.Create(0, 0, 128, 128);
