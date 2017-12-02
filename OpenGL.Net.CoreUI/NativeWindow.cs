@@ -977,15 +977,63 @@ namespace OpenGL.CoreUI
 
 		public event EventHandler<NativeWindowMouseEventArgs> MouseMove;
 
+		/// <summary>
+		/// Raise the event <see cref="MouseMove"/>.
+		/// </summary>
+		protected virtual void OnMouseMove(Point location, MouseButton buttons)
+		{
+			MouseMove?.Invoke(this, new NativeWindowMouseEventArgs(_DeviceContext, _RenderContext, location, buttons));
+		}
+
 		public event EventHandler<NativeWindowMouseEventArgs> MouseDown;
+
+		/// <summary>
+		/// Raise the event <see cref="MouseDown"/>.
+		/// </summary>
+		protected virtual void OnMouseDown(Point location, MouseButton buttons)
+		{
+			MouseDown?.Invoke(this, new NativeWindowMouseEventArgs(_DeviceContext, _RenderContext, location, buttons));
+		}
 
 		public event EventHandler<NativeWindowMouseEventArgs> MouseUp;
 
+		/// <summary>
+		/// Raise the event <see cref="MouseUp"/>.
+		/// </summary>
+		protected virtual void OnMouseUp(Point location, MouseButton buttons)
+		{
+			MouseUp?.Invoke(this, new NativeWindowMouseEventArgs(_DeviceContext, _RenderContext, location, buttons));
+		}
+
 		public event EventHandler<NativeWindowMouseEventArgs> MouseWheel;
+
+		/// <summary>
+		/// Raise the event <see cref="MouseWheel"/>.
+		/// </summary>
+		protected virtual void OnMouseWheel(Point location, MouseButton buttons)
+		{
+			MouseWheel?.Invoke(this, new NativeWindowMouseEventArgs(_DeviceContext, _RenderContext, location, buttons));
+		}
 
 		public event EventHandler<NativeWindowMouseEventArgs> MouseClick;
 
+		/// <summary>
+		/// Raise the event <see cref="MouseClick"/>.
+		/// </summary>
+		protected virtual void OnMouseClick(Point location, MouseButton buttons)
+		{
+			MouseClick?.Invoke(this, new NativeWindowMouseEventArgs(_DeviceContext, _RenderContext, location, buttons));
+		}
+
 		public event EventHandler<NativeWindowMouseEventArgs> MouseDoubleClick;
+
+		/// <summary>
+		/// Raise the event <see cref="MouseDoubleClick"/>.
+		/// </summary>
+		protected virtual void OnMouseDoubleClick(Point location, MouseButton buttons)
+		{
+			MouseDoubleClick?.Invoke(this, new NativeWindowMouseEventArgs(_DeviceContext, _RenderContext, location, buttons));
+		}
 
 		#endregion
 

@@ -80,6 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="KeyCode.cs" />
+    <Compile Include="MouseButton.cs" />
     <Compile Include="NativeWindow.cs" />
     <Compile Include="NativeWindowEventArgs.cs" />
     <Compile Include="NativeWindowKeyEventArgs.cs" />

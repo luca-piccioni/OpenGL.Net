@@ -24,48 +24,39 @@ using System;
 namespace OpenGL.CoreUI
 {
 	/// <summary>
-	/// Arguments for <see cref="NativeWindow"/> mouse events.
+	/// Mouse buttons.
 	/// </summary>
-	public sealed class NativeWindowMouseEventArgs : NativeWindowEventArgs
+	[Flags]
+	public enum MouseButton
 	{
-		#region Constructors
+		/// <summary>
+		/// No buttons.
+		/// </summary>
+		None =		0x0000,
 
 		/// <summary>
-		/// Construct a NativeWindowMouseEventArgs.
+		/// Left button.
 		/// </summary>
-		/// <param name="deviceContext">
-		/// The <see cref="DeviceContext"/> used for the underlying <see cref="NativeWindow"/>.
-		/// </param>
-		/// <param name="renderContext">
-		/// The OpenGL context used for rendering.
-		/// </param>
-		/// <param name="location">
-		/// The <see cref="Point"/> representing the position relative to the event.
-		/// </param>
-		/// <param name="buttons">
-		/// The <see cref="MouseButton"/> pressed at the time of the event.
-		/// </param>
-		internal NativeWindowMouseEventArgs(DeviceContext deviceContext, IntPtr renderContext, Point location, MouseButton buttons) :
-			base(deviceContext, renderContext)
-		{
-			Location = location;
-			Buttons = buttons;
-		}
-
-		#endregion
-
-		#region Event Arguments
+		Left =		0x0001,
+		
+		/// <summary>
+		/// Right button.
+		/// </summary>
+		Right =		0x0002,
 
 		/// <summary>
-		/// Mouse location relative to the event. The position is relative to the lower-left corner of the client window area.
+		/// Middle button.
 		/// </summary>
-		public readonly Point Location;
+		Middle =	0x0004,
 
 		/// <summary>
-		/// Mouse buttons pressed at the time of the event.
+		/// Extended 1.
 		/// </summary>
-		public readonly MouseButton Buttons = MouseButton.None;
+		X1 =		0x0008,
 
-		#endregion
+		/// <summary>
+		/// Extended 2.
+		/// </summary>
+		X2 =		0x0010,
 	}
 }

@@ -81,20 +81,33 @@ namespace OpenGL.CoreUI
 					return (WindowsWndProc_KEYUP(hWnd, msg, wParam, lParam));
 
 				case WM.MOUSEMOVE:
+					return (WindowsWndProc_MOUSEMOVE(hWnd, msg, wParam, lParam));
 				case WM.LBUTTONDOWN:
+					return (WindowsWndProc_BUTTONDOWN(hWnd, msg, wParam, lParam));
 				case WM.LBUTTONUP:
+					return (WindowsWndProc_BUTTONUP(hWnd, msg, wParam, lParam));
 				case WM.LBUTTONDBLCLK:
+					return (WindowsWndProc_BUTTONDOUBLECLICK(hWnd, msg, wParam, lParam));
 				case WM.RBUTTONDOWN:
+					return (WindowsWndProc_BUTTONDOWN(hWnd, msg, wParam, lParam));
 				case WM.RBUTTONUP:
+					return (WindowsWndProc_BUTTONUP(hWnd, msg, wParam, lParam));
 				case WM.RBUTTONDBLCLK:
+					return (WindowsWndProc_BUTTONDOUBLECLICK(hWnd, msg, wParam, lParam));
 				case WM.MBUTTONDOWN:
+					return (WindowsWndProc_BUTTONDOWN(hWnd, msg, wParam, lParam));
 				case WM.MBUTTONUP:
+					return (WindowsWndProc_BUTTONUP(hWnd, msg, wParam, lParam));
 				case WM.MBUTTONDBLCLK:
+					return (WindowsWndProc_BUTTONDOUBLECLICK(hWnd, msg, wParam, lParam));
 				case WM.MOUSEWHEEL:
+					return (WindowsWndProc_MOUSEWHEEL(hWnd, msg, wParam, lParam));
 				case WM.XBUTTONDOWN:
+					return (WindowsWndProc_BUTTONDOWN(hWnd, msg, wParam, lParam));
 				case WM.XBUTTONUP:
+					return (WindowsWndProc_BUTTONUP(hWnd, msg, wParam, lParam));
 				case WM.XBUTTONDBLCLK:
-					break;
+					return (WindowsWndProc_BUTTONDOUBLECLICK(hWnd, msg, wParam, lParam));
 			}
 
 			// Callback default window procedure.
@@ -198,6 +211,89 @@ namespace OpenGL.CoreUI
 			}
 
 			return (IntPtr.Zero);
+		}
+
+		private IntPtr WindowsWndProc_MOUSEMOVE(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
+		{
+			try {
+				OnMouseMove(WindowsWndProc_GetMouseLocation(lParam), WindowsWndProc_GetMouseButtons(wParam));
+			} catch (Exception exception) {
+				Debug.Fail(String.Format("OnMouseMove: ({0})\n{1}", exception.Message, exception.ToString()));
+			}
+
+			return (IntPtr.Zero);
+		}
+
+		private IntPtr WindowsWndProc_BUTTONDOWN(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
+		{
+			try {
+				OnMouseDown(WindowsWndProc_GetMouseLocation(lParam), WindowsWndProc_GetMouseButtons(wParam));
+			} catch (Exception exception) {
+				Debug.Fail(String.Format("OnMouseDown: ({0})\n{1}", exception.Message, exception.ToString()));
+			}
+
+			return (IntPtr.Zero);
+		}
+
+		private IntPtr WindowsWndProc_BUTTONUP(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
+		{
+			try {
+				OnMouseUp(WindowsWndProc_GetMouseLocation(lParam), WindowsWndProc_GetMouseButtons(wParam));
+			} catch (Exception exception) {
+				Debug.Fail(String.Format("OnMouseUp: ({0})\n{1}", exception.Message, exception.ToString()));
+			}
+
+			return (IntPtr.Zero);
+		}
+
+		private IntPtr WindowsWndProc_BUTTONDOUBLECLICK(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
+		{
+			try {
+				OnMouseDoubleClick(WindowsWndProc_GetMouseLocation(lParam), WindowsWndProc_GetMouseButtons(wParam));
+			} catch (Exception exception) {
+				Debug.Fail(String.Format("OnMouseDoubleClick: ({0})\n{1}", exception.Message, exception.ToString()));
+			}
+
+			return (IntPtr.Zero);
+		}
+
+		private IntPtr WindowsWndProc_MOUSEWHEEL(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
+		{
+			try {
+				OnMouseWheel(WindowsWndProc_GetMouseLocation(lParam), WindowsWndProc_GetMouseButtons(wParam));
+			} catch (Exception exception) {
+				Debug.Fail(String.Format("OnMouseWheel: ({0})\n{1}", exception.Message, exception.ToString()));
+			}
+
+			return (IntPtr.Zero);
+		}
+
+		private Point WindowsWndProc_GetMouseLocation(IntPtr lParam)
+		{
+			int x = lParam.ToInt32() & 0xFFFF;
+			int y = (lParam.ToInt32() >> 16) & 0xFFFF;
+
+			return (new Point(x, (int)Height - y - 1));
+		}
+
+		private static MouseButton WindowsWndProc_GetMouseButtons(IntPtr wParam)
+		{
+			MouseButton buttons = MouseButton.None;
+			int wParamValue = wParam.ToInt32();
+
+			if ((wParamValue & 0x0001) != 0)
+				buttons |= MouseButton.Left;
+			if ((wParamValue & 0x0002) != 0)
+				buttons |= MouseButton.Right;
+			if ((wParamValue & 0x0010) != 0)
+				buttons |= MouseButton.Middle;
+			if ((wParamValue & 0x0020) != 0)
+				buttons |= MouseButton.X1;
+			if ((wParamValue & 0x0040) != 0)
+				buttons |= MouseButton.X2;
+
+
+			return (buttons);
 		}
 
 		/// <summary>
