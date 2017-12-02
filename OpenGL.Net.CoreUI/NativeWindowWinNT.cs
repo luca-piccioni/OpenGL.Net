@@ -22,7 +22,7 @@
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Reflection;				// Do not delete me! .NET Core include extension methods
+using System.Reflection;                // Do not delete me! .NET Core include extension methods
 using System.Runtime.InteropServices;
 
 namespace OpenGL.CoreUI
@@ -168,9 +168,13 @@ namespace OpenGL.CoreUI
 		{
 			VirtualKeys virtualKeyDown = (VirtualKeys)(wParam.ToInt32() >> 16);
 			// bool extendedKeyDown = ((lParam.ToInt64() >> 24) & 1) != 0);
+			KeyCode key = ToKeyCode(virtualKeyDown);
+
+			if (key == KeyCode.None)
+				return (IntPtr.Zero);
 
 			try {
-				OnKeyDown((KeyCode)virtualKeyDown);
+				OnKeyDown(key);
 			} catch (Exception exception) {
 				Debug.Fail(String.Format("OnKeyDown: ({0})\n{1}", exception.Message, exception.ToString()));
 			}
@@ -182,9 +186,13 @@ namespace OpenGL.CoreUI
 		{
 			VirtualKeys virtualKeyUp = (VirtualKeys)(wParam.ToInt32() >> 16);
 			// bool extendedKeyUp = ((lParam.ToInt64() >> 24) & 1) != 0);
+			KeyCode key = ToKeyCode(virtualKeyUp);
+
+			if (key == KeyCode.None)
+				return (IntPtr.Zero);
 
 			try {
-				OnKeyUp((KeyCode)virtualKeyUp);
+				OnKeyUp(key);
 			} catch (Exception exception) {
 				Debug.Fail(String.Format("OnPaint: ({0})\n{1}", exception.Message, exception.ToString()));
 			}
@@ -217,10 +225,11 @@ namespace OpenGL.CoreUI
 		#region P/Invoke
 
 		[StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-		private struct WNDCLASSEX {
+		private struct WNDCLASSEX
+		{
 			public int cbSize;
 			public int style;
-			public IntPtr lpfnWndProc; 
+			public IntPtr lpfnWndProc;
 			public int cbClsExtra;
 			public int cbWndExtra;
 			public IntPtr hInstance;
@@ -235,8 +244,8 @@ namespace OpenGL.CoreUI
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public struct MSG  
-		{  
+		public struct MSG
+		{
 			public IntPtr hwnd;
 			public UInt32 message;
 			public UIntPtr wParam;
@@ -247,14 +256,15 @@ namespace OpenGL.CoreUI
 
 		[StructLayout(LayoutKind.Sequential)]
 		public struct POINT
-		{  
+		{
 			public Int32 x;
 			public Int32 y;
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
+		[DebuggerDisplay("RECT: left={left} right={right} top={top} bottom={bottom}")]
 		public struct RECT
-		{  
+		{
 			public Int32 left;
 			public Int32 top;
 			public Int32 right;
@@ -378,7 +388,7 @@ namespace OpenGL.CoreUI
 			/// A string that specifies the device name of the monitor being used. Most applications have no use for a display monitor name, 
 			/// and so can save some bytes by using a MONITORINFO structure.
 			/// </summary>
-			[MarshalAs(UnmanagedType.ByValTStr, SizeConst = CCHDEVICENAME )]
+			[MarshalAs(UnmanagedType.ByValTStr, SizeConst = CCHDEVICENAME)]
 			public string DeviceName;
 		}
 
@@ -529,7 +539,7 @@ namespace OpenGL.CoreUI
 			MOUSEWHEEL = 0x020A,
 			/// <summary>
 			/// The WM_XBUTTONDOWN message is posted when the user presses the first or second X button while the cursor is in the client area of a window. If the mouse is not captured, the message is posted to the window beneath the cursor. Otherwise, the message is posted to the window that has captured the mouse. 
-		   /// </summary>
+			/// </summary>
 			XBUTTONDOWN = 0x020B,
 			/// <summary>
 			/// The WM_XBUTTONUP message is posted when the user releases the first or second X button while the cursor is in the client area of a window. If the mouse is not captured, the message is posted to the window beneath the cursor. Otherwise, the message is posted to the window that has captured the mouse.
@@ -595,8 +605,8 @@ namespace OpenGL.CoreUI
 			/// top-level window in the Z order.</summary>
 			/// <remarks>See SW_MINIMIZE</remarks>
 			Minimize = 6,
-			  /// <summary>Displays the window as a minimized window. This value is 
-			  /// similar to "ShowMinimized", except the window is not activated.</summary>
+			/// <summary>Displays the window as a minimized window. This value is 
+			/// similar to "ShowMinimized", except the window is not activated.</summary>
 			/// <remarks>See SW_SHOWMINNOACTIVE</remarks>
 			ShowMinNoActivate = 7,
 			/// <summary>Displays the window in its current size and position. This 
@@ -1322,104 +1332,104 @@ namespace OpenGL.CoreUI
 
 		public enum SetWindowLongIndex
 		{
-			 GWL_WNDPROC =    (-4),
-			 GWL_HINSTANCE =  (-6),
-			 GWL_HWNDPARENT = (-8),
-			 GWL_STYLE =      (-16),
-			 GWL_EXSTYLE =    (-20),
-			 GWL_USERDATA =   (-21),
-			 GWL_ID =     (-12)
+			GWL_WNDPROC = (-4),
+			GWL_HINSTANCE = (-6),
+			GWL_HWNDPARENT = (-8),
+			GWL_STYLE = (-16),
+			GWL_EXSTYLE = (-20),
+			GWL_USERDATA = (-21),
+			GWL_ID = (-12)
 		}
 
 		[Flags]
 		public enum WindowStyles : uint
 		{
-			WS_OVERLAPPED       = 0x00000000,
-			WS_POPUP        = 0x80000000,
-			WS_CHILD        = 0x40000000,
-			WS_MINIMIZE     = 0x20000000,
-			WS_VISIBLE      = 0x10000000,
-			WS_DISABLED     = 0x08000000,
-			WS_CLIPSIBLINGS     = 0x04000000,
-			WS_CLIPCHILDREN     = 0x02000000,
-			WS_MAXIMIZE     = 0x01000000,
-			WS_CAPTION      = 0x00C00000,     /* WS_BORDER | WS_DLGFRAME  */
-			WS_BORDER       = 0x00800000,
-			WS_DLGFRAME     = 0x00400000,
-			WS_VSCROLL      = 0x00200000,
-			WS_HSCROLL      = 0x00100000,
-			WS_SYSMENU      = 0x00080000,
-			WS_THICKFRAME       = 0x00040000,
-			WS_GROUP        = 0x00020000,
-			WS_TABSTOP      = 0x00010000,
+			WS_OVERLAPPED = 0x00000000,
+			WS_POPUP = 0x80000000,
+			WS_CHILD = 0x40000000,
+			WS_MINIMIZE = 0x20000000,
+			WS_VISIBLE = 0x10000000,
+			WS_DISABLED = 0x08000000,
+			WS_CLIPSIBLINGS = 0x04000000,
+			WS_CLIPCHILDREN = 0x02000000,
+			WS_MAXIMIZE = 0x01000000,
+			WS_CAPTION = 0x00C00000,     /* WS_BORDER | WS_DLGFRAME  */
+			WS_BORDER = 0x00800000,
+			WS_DLGFRAME = 0x00400000,
+			WS_VSCROLL = 0x00200000,
+			WS_HSCROLL = 0x00100000,
+			WS_SYSMENU = 0x00080000,
+			WS_THICKFRAME = 0x00040000,
+			WS_GROUP = 0x00020000,
+			WS_TABSTOP = 0x00010000,
 
-			WS_MINIMIZEBOX      = 0x00020000,
-			WS_MAXIMIZEBOX      = 0x00010000,
+			WS_MINIMIZEBOX = 0x00020000,
+			WS_MAXIMIZEBOX = 0x00010000,
 
-			WS_TILED        = WS_OVERLAPPED,
-			WS_ICONIC       = WS_MINIMIZE,
-			WS_SIZEBOX      = WS_THICKFRAME,
-			WS_TILEDWINDOW      = WS_OVERLAPPEDWINDOW,
+			WS_TILED = WS_OVERLAPPED,
+			WS_ICONIC = WS_MINIMIZE,
+			WS_SIZEBOX = WS_THICKFRAME,
+			WS_TILEDWINDOW = WS_OVERLAPPEDWINDOW,
 
 			// Common Window Styles
 
-			WS_OVERLAPPEDWINDOW = 
-				( WS_OVERLAPPED  | 
-				  WS_CAPTION     | 
-				  WS_SYSMENU     | 
-				  WS_THICKFRAME  | 
-				  WS_MINIMIZEBOX | 
-				  WS_MAXIMIZEBOX ),
+			WS_OVERLAPPEDWINDOW =
+				(WS_OVERLAPPED |
+				  WS_CAPTION |
+				  WS_SYSMENU |
+				  WS_THICKFRAME |
+				  WS_MINIMIZEBOX |
+				  WS_MAXIMIZEBOX),
 
-			WS_POPUPWINDOW = 
-				( WS_POPUP   | 
-				  WS_BORDER  | 
-				  WS_SYSMENU ),
+			WS_POPUPWINDOW =
+				(WS_POPUP |
+				  WS_BORDER |
+				  WS_SYSMENU),
 
 			WS_CHILDWINDOW = WS_CHILD,
 
 			//Extended Window Styles
 
-			WS_EX_DLGMODALFRAME     = 0x00000001,
-			WS_EX_NOPARENTNOTIFY    = 0x00000004,
-			WS_EX_TOPMOST       = 0x00000008,
-			WS_EX_ACCEPTFILES       = 0x00000010,
-			WS_EX_TRANSPARENT       = 0x00000020,
+			WS_EX_DLGMODALFRAME = 0x00000001,
+			WS_EX_NOPARENTNOTIFY = 0x00000004,
+			WS_EX_TOPMOST = 0x00000008,
+			WS_EX_ACCEPTFILES = 0x00000010,
+			WS_EX_TRANSPARENT = 0x00000020,
 
 			//#if(WINVER >= 0x0400)
-			WS_EX_MDICHILD      = 0x00000040,
-			WS_EX_TOOLWINDOW    = 0x00000080,
-			WS_EX_WINDOWEDGE    = 0x00000100,
-			WS_EX_CLIENTEDGE    = 0x00000200,
-			WS_EX_CONTEXTHELP       = 0x00000400,
+			WS_EX_MDICHILD = 0x00000040,
+			WS_EX_TOOLWINDOW = 0x00000080,
+			WS_EX_WINDOWEDGE = 0x00000100,
+			WS_EX_CLIENTEDGE = 0x00000200,
+			WS_EX_CONTEXTHELP = 0x00000400,
 
-			WS_EX_RIGHT         = 0x00001000,
-			WS_EX_LEFT          = 0x00000000,
-			WS_EX_RTLREADING    = 0x00002000,
-			WS_EX_LTRREADING    = 0x00000000,
-			WS_EX_LEFTSCROLLBAR     = 0x00004000,
-			WS_EX_RIGHTSCROLLBAR    = 0x00000000,
+			WS_EX_RIGHT = 0x00001000,
+			WS_EX_LEFT = 0x00000000,
+			WS_EX_RTLREADING = 0x00002000,
+			WS_EX_LTRREADING = 0x00000000,
+			WS_EX_LEFTSCROLLBAR = 0x00004000,
+			WS_EX_RIGHTSCROLLBAR = 0x00000000,
 
-			WS_EX_CONTROLPARENT     = 0x00010000,
-			WS_EX_STATICEDGE    = 0x00020000,
-			WS_EX_APPWINDOW     = 0x00040000,
+			WS_EX_CONTROLPARENT = 0x00010000,
+			WS_EX_STATICEDGE = 0x00020000,
+			WS_EX_APPWINDOW = 0x00040000,
 
-			WS_EX_OVERLAPPEDWINDOW  = (WS_EX_WINDOWEDGE | WS_EX_CLIENTEDGE),
-			WS_EX_PALETTEWINDOW     = (WS_EX_WINDOWEDGE | WS_EX_TOOLWINDOW | WS_EX_TOPMOST),
+			WS_EX_OVERLAPPEDWINDOW = (WS_EX_WINDOWEDGE | WS_EX_CLIENTEDGE),
+			WS_EX_PALETTEWINDOW = (WS_EX_WINDOWEDGE | WS_EX_TOOLWINDOW | WS_EX_TOPMOST),
 			//#endif /* WINVER >= 0x0400 */
 
 			//#if(_WIN32_WINNT >= 0x0500)
-			WS_EX_LAYERED       = 0x00080000,
+			WS_EX_LAYERED = 0x00080000,
 			//#endif /* _WIN32_WINNT >= 0x0500 */
 
 			//#if(WINVER >= 0x0500)
-			WS_EX_NOINHERITLAYOUT   = 0x00100000, // Disable inheritence of mirroring by children
-			WS_EX_LAYOUTRTL     = 0x00400000, // Right to left mirroring
-			//#endif /* WINVER >= 0x0500 */
+			WS_EX_NOINHERITLAYOUT = 0x00100000, // Disable inheritence of mirroring by children
+			WS_EX_LAYOUTRTL = 0x00400000, // Right to left mirroring
+										  //#endif /* WINVER >= 0x0500 */
 
 			//#if(_WIN32_WINNT >= 0x0500)
-			WS_EX_COMPOSITED    = 0x02000000,
-			WS_EX_NOACTIVATE    = 0x08000000,
+			WS_EX_COMPOSITED = 0x02000000,
+			WS_EX_NOACTIVATE = 0x08000000,
 			//#endif /* _WIN32_WINNT >= 0x0500 */
 		}
 
@@ -1822,12 +1832,72 @@ namespace OpenGL.CoreUI
 			OEMClear = 0xFE
 		}
 
+		public static KeyCode ToKeyCode(VirtualKeys key)
+		{
+			switch (key) {
+				case VirtualKeys.A:
+					return KeyCode.A;
+				case VirtualKeys.B:
+					return KeyCode.B;
+				case VirtualKeys.C:
+					return KeyCode.C;
+				case VirtualKeys.D:
+					return KeyCode.D;
+				case VirtualKeys.E:
+					return KeyCode.E;
+				case VirtualKeys.F:
+					return KeyCode.F;
+				case VirtualKeys.G:
+					return KeyCode.G;
+				case VirtualKeys.H:
+					return KeyCode.H;
+				case VirtualKeys.I:
+					return KeyCode.I;
+				case VirtualKeys.J:
+					return KeyCode.J;
+				case VirtualKeys.K:
+					return KeyCode.K;
+				case VirtualKeys.L:
+					return KeyCode.L;
+				case VirtualKeys.M:
+					return KeyCode.M;
+				case VirtualKeys.N:
+					return KeyCode.N;
+				case VirtualKeys.O:
+					return KeyCode.O;
+				case VirtualKeys.P:
+					return KeyCode.P;
+				case VirtualKeys.Q:
+					return KeyCode.Q;
+				case VirtualKeys.R:
+					return KeyCode.R;
+				case VirtualKeys.S:
+					return KeyCode.S;
+				case VirtualKeys.T:
+					return KeyCode.T;
+				case VirtualKeys.U:
+					return KeyCode.U;
+				case VirtualKeys.V:
+					return KeyCode.V;
+				case VirtualKeys.W:
+					return KeyCode.W;
+				case VirtualKeys.X:
+					return KeyCode.X;
+				case VirtualKeys.Y:
+					return KeyCode.Y;
+				case VirtualKeys.Z:
+					return KeyCode.Z;
+				default:
+					return KeyCode.None;
+			}
+		}
+
 		private unsafe static partial class UnsafeNativeMethods
 		{
 			// CLASS STYLE
-			public const UInt32 CS_VREDRAW =	0x0001;
-			public const UInt32 CS_HREDRAW =	0x0002;
-			public const UInt32 CS_OWNDC =		0x0020;
+			public const UInt32 CS_VREDRAW = 0x0001;
+			public const UInt32 CS_HREDRAW = 0x0002;
+			public const UInt32 CS_OWNDC = 0x0020;
 
 			internal delegate IntPtr WndProc(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam);
 
@@ -1855,7 +1925,7 @@ namespace OpenGL.CoreUI
 			[DllImport("user32.dll")]
 			internal static extern bool TranslateMessage(ref MSG lpMsg);
 
-			[DllImport("user32.dll")]  
+			[DllImport("user32.dll")]
 			internal static extern IntPtr DispatchMessage(ref MSG lpmsg);
 
 			[DllImport("user32.dll")]
@@ -1891,11 +1961,11 @@ namespace OpenGL.CoreUI
 			[DllImport("user32.dll", SetLastError = true)]
 			internal static extern int GetWindowLong(IntPtr hWnd, SetWindowLongIndex nIndex);
 
-			[DllImport("user32.dll")]
-			internal static extern bool GetMonitorInfo(IntPtr hMonitor, ref MONITORINFOEX lpmi);
+			//[DllImport("user32.dll")]
+			//internal static extern bool GetMonitorInfo(IntPtr hMonitor, ref MONITORINFOEX lpmi);
 
 			[DllImport("user32.dll")]
-			internal static extern bool GetMonitorInfo(IntPtr hMonitor, ref MONITORINFO lpmi);
+			internal static extern bool GetMonitorInfo(IntPtr hMonitor, ref MONITORINFOEX lpmi);
 
 			internal const int MONITOR_DEFAULTTONULL = 0;
 			internal const int MONITOR_DEFAULTTOPRIMARY = 1;
@@ -1921,62 +1991,22 @@ namespace OpenGL.CoreUI
 		/// <summary>
 		/// Get the display handle associated this instance.
 		/// </summary>
-		public override IntPtr Display { get { return (IntPtr.Zero); } }
-
-		/// <summary>
-		/// Get the native window handle.
-		/// </summary>
-		public override IntPtr Handle { get { return (_Handle); } }
-
-		/// <summary>
-		/// Run the event loop for this NativeWindow.
-		/// </summary>
-		public override void Run()
+		public override IntPtr Display
 		{
-			if (_LoopRunning == true)
-				throw new InvalidOperationException("loop running");
-
-			MSG msg;
-
-			_LoopRunning = true;
-
-			try {
-				int ret;
-
-				while ((ret = UnsafeNativeMethods.GetMessage(out msg, IntPtr.Zero, 0, 0)) != 0) {
-					if (ret < 0)
-						throw new Win32Exception(Marshal.GetLastWin32Error());
-
-					switch (msg.message) {
-						case (int)(WM.USER + 13):
-							// Terminate message loop
-							return;
-						default:
-							UnsafeNativeMethods.TranslateMessage(ref msg); 
-							UnsafeNativeMethods.DispatchMessage(ref msg); 
-							break;
-					}
-				}
-			} finally {
-				_LoopRunning = false;
+			get {
+				return (IntPtr.Zero);
 			}
 		}
 
 		/// <summary>
-		/// Stops the event loop running for this NativeWindow.
+		/// Get the native window handle.
 		/// </summary>
-		public override void Stop()
+		public override IntPtr Handle
 		{
-			if (_LoopRunning == false)
-				throw new InvalidOperationException("loop not running");
-
-			UnsafeNativeMethods.PostMessage(_Handle, WM.USER + 13, IntPtr.Zero, IntPtr.Zero);
+			get {
+				return (_Handle);
+			}
 		}
-
-		/// <summary>
-		/// The state of the message loop.
-		/// </summary>
-		private bool _LoopRunning;
 
 		/// <summary>
 		/// Create the NativeWindow.
@@ -2000,7 +2030,7 @@ namespace OpenGL.CoreUI
 			const string DefaultWindowClass = "OpenGL.CoreUI2";
 
 			windowClass.cbSize = Marshal.SizeOf(typeof(WNDCLASSEX));
-			windowClass.style =  (int)(UnsafeNativeMethods.CS_HREDRAW | UnsafeNativeMethods.CS_VREDRAW | UnsafeNativeMethods.CS_OWNDC);
+			windowClass.style = (int)(UnsafeNativeMethods.CS_HREDRAW | UnsafeNativeMethods.CS_VREDRAW | UnsafeNativeMethods.CS_OWNDC);
 			windowClass.lpfnWndProc = Marshal.GetFunctionPointerForDelegate(_WindowsWndProc);
 			windowClass.hInstance = _HInstance;
 			windowClass.lpszClassName = DefaultWindowClass;
@@ -2040,16 +2070,67 @@ namespace OpenGL.CoreUI
 		/// <summary>
 		/// Default window extended styles.
 		/// </summary>
-		private const WindowStyles DefaultWindowStyle = WindowStyles.WS_OVERLAPPED | WindowStyles.WS_CLIPCHILDREN | WindowStyles.WS_CLIPSIBLINGS;
+		private const WindowStyles DefaultWindowStyle = WindowStyles.WS_OVERLAPPED | WindowStyles.WS_CLIPCHILDREN | WindowStyles.WS_CLIPSIBLINGS | WindowStyles.WS_CAPTION | WindowStyles.WS_THICKFRAME;
+
+		/// <summary>
+		/// Run the event loop for this NativeWindow.
+		/// </summary>
+		public override void Run()
+		{
+			if (_LoopRunning == true)
+				throw new InvalidOperationException("loop running");
+
+			MSG msg;
+
+			_LoopRunning = true;
+
+			try {
+				int ret;
+
+				while ((ret = UnsafeNativeMethods.GetMessage(out msg, IntPtr.Zero, 0, 0)) != 0) {
+					if (ret < 0)
+						throw new Win32Exception(Marshal.GetLastWin32Error());
+
+					switch (msg.message) {
+						case (int)(WM.USER + 13):
+							// Terminate message loop
+							return;
+						default:
+							UnsafeNativeMethods.TranslateMessage(ref msg);
+							UnsafeNativeMethods.DispatchMessage(ref msg);
+							break;
+					}
+				}
+			} finally {
+				_LoopRunning = false;
+			}
+		}
+
+		/// <summary>
+		/// Stops the event loop running for this NativeWindow.
+		/// </summary>
+		public override void Stop()
+		{
+			if (_LoopRunning == false)
+				throw new InvalidOperationException("loop not running");
+
+			UnsafeNativeMethods.PostMessage(_Handle, WM.USER + 13, IntPtr.Zero, IntPtr.Zero);
+		}
+
+		/// <summary>
+		/// The state of the message loop.
+		/// </summary>
+		private bool _LoopRunning;
 
 		/// <summary>
 		/// Get or set the NativeWindow location.
 		/// </summary>
 		public override Point Location
 		{
-			get { return (Point.Empty); }
-			set
-			{
+			get {
+				return (Point.Empty);
+			}
+			set {
 				if (Fullscreen)
 					throw new InvalidOperationException("fullscreen");
 
@@ -2066,16 +2147,14 @@ namespace OpenGL.CoreUI
 		/// </summary>
 		public override Size ClientSize
 		{
-			get
-			{
+			get {
 				RECT clientSize = new RECT();
 
 				UnsafeNativeMethods.GetClientRect(_Handle, out clientSize);
 
 				return ((Size)clientSize);
 			}
-			set
-			{
+			set {
 				if (Fullscreen)
 					throw new InvalidOperationException("fullscreen");
 
@@ -2103,9 +2182,9 @@ namespace OpenGL.CoreUI
 				int cxSizeFrame = UnsafeNativeMethods.GetSystemMetrics(SystemMetric.CXSizeFrame) * 2;
 				int cySizeFrame = UnsafeNativeMethods.GetSystemMetrics(SystemMetric.CYSizeFrame) * 2;
 
-				clientSize.left   -= cxSizeFrame;
-				clientSize.right  += cxSizeFrame;
-				clientSize.top    -= cySizeFrame;
+				clientSize.left -= cxSizeFrame;
+				clientSize.right += cxSizeFrame;
+				clientSize.top -= cySizeFrame;
 				clientSize.bottom += cySizeFrame;
 			}
 
@@ -2148,18 +2227,20 @@ namespace OpenGL.CoreUI
 		/// </summary>
 		public override bool Fullscreen
 		{
-			get { return (_Fullscreen); }
-			set
-			{
+			get {
+				return (_Fullscreen);
+			}
+			set {
 				if (_Fullscreen == value)
 					return;
 
 				if (value == true) {
 					// Get monitor size
-					MONITORINFO monitorInfo = new MONITORINFO(0);
+					MONITORINFOEX monitorInfo = new MONITORINFOEX(String.Empty);
 					IntPtr monitor = UnsafeNativeMethods.MonitorFromWindow(_Handle, UnsafeNativeMethods.MONITOR_DEFAULTTONEAREST);
 
-					UnsafeNativeMethods.GetMonitorInfo(monitor, ref monitorInfo);
+					if (UnsafeNativeMethods.GetMonitorInfo(monitor, ref monitorInfo) == false)
+						throw new InvalidOperationException("unable to get monitor info");
 
 					// Store current location and size
 					_FullscreenRestoreLocation = Location;
@@ -2175,7 +2256,7 @@ namespace OpenGL.CoreUI
 
 					// Set position and size
 					Point location = (Point)monitorInfo.WorkArea;
-					Size size = (Size)monitorInfo.WorkArea;
+					Size size = (Size)monitorInfo.Monitor;
 					const SetWindowPosFlags windowPosFlags = SetWindowPosFlags.SWP_NOZORDER | SetWindowPosFlags.SWP_NOACTIVATE | SetWindowPosFlags.SWP_FRAMECHANGED;
 
 					if (UnsafeNativeMethods.SetWindowPos(_Handle, IntPtr.Zero, location.X, location.Y, size.Width, size.Height, windowPosFlags) == false)

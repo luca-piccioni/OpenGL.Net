@@ -24,8 +24,13 @@ namespace OpenGL.CoreUI
 	/// <summary>
 	/// Keyboard key code.
 	/// </summary>
-	public enum KeyCode
+	public enum KeyCode : ushort
 	{
+		/// <summary>
+		/// No key.
+		/// </summary>
+		None =		0x0000,
+
 		/// <summary></summary>
 		Tab = 0x09,
 		/// <summary></summary>

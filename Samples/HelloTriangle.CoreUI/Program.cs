@@ -42,6 +42,7 @@ namespace HelloTriangle.CoreUI
 				nativeWindow.Animation = true;
 
 				nativeWindow.Create(0, 0, 128, 128);
+
 				nativeWindow.Show();
 				nativeWindow.Run();
 			}

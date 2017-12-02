@@ -823,6 +823,29 @@ namespace OpenGL.CoreUI
 
 		#endregion
 
+		#region Keyboard Keys
+
+		/// <summary>
+		/// Test whether a specific key is pressed.
+		/// </summary>
+		/// <param name="key">
+		/// The <see cref="KeyCode"/> to be tested.
+		/// </param>
+		/// <returns>
+		/// It returns a boolean value indicating whether <paramref name="key"/> is currently pressed.
+		/// </returns>
+		public bool IsKeyPressed(KeyCode key)
+		{
+			return (_KeysPressed[(int)key]);
+		}
+
+		/// <summary>
+		/// Pressed state for each key.
+		/// </summary>
+		private readonly bool[] _KeysPressed = new bool[(int)KeyCode.MaxKeycode];
+
+		#endregion
+
 		#region Events
 
 		#region ContextCreated
@@ -930,6 +953,7 @@ namespace OpenGL.CoreUI
 		/// </summary>
 		protected virtual void OnKeyDown(KeyCode key)
 		{
+			_KeysPressed[(int)key] = true;
 			KeyDown?.Invoke(this, new NativeWindowKeyEventArgs(_DeviceContext, _RenderContext, key));
 		}
 
@@ -944,6 +968,7 @@ namespace OpenGL.CoreUI
 		protected virtual void OnKeyUp(KeyCode key)
 		{
 			KeyUp?.Invoke(this, new NativeWindowKeyEventArgs(_DeviceContext, _RenderContext, key));
+			_KeysPressed[(int)key] = false;
 		}
 
 		#endregion
