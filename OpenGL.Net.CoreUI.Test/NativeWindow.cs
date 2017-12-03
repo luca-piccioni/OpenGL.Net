@@ -49,7 +49,7 @@ namespace OpenGL.CoreUI.Test
 				nativeWindow.ContextCreated += (obj, e) => contextCreated = true;
 				nativeWindow.ContextDestroying += (obj, e) => contextDestroying = true;
 
-				nativeWindow.Create(0, 0, 640, 480);
+				nativeWindow.Create(0, 0, 640, 480, NativeWindowStyle.None);
 
 				// Create causes GL context creation
 				Assert.IsTrue(contextCreated);
@@ -70,7 +70,7 @@ namespace OpenGL.CoreUI.Test
 			using (nativeWindow = NativeWindow.Create()) {
 				nativeWindow.ContextDestroying += (obj, e) => contextDestroying = true;
 
-				nativeWindow.Create(0, 0, 640, 480);
+				nativeWindow.Create(0, 0, 640, 480, NativeWindowStyle.None);
 
 				// Stop loop using Stop()
 				using (Timer closeWindowTimer = new Timer(obj => ((NativeWindow)obj).Stop(), nativeWindow, 100, Timeout.Infinite)) {
@@ -102,12 +102,57 @@ namespace OpenGL.CoreUI.Test
 			using (NativeWindow nativeWindow = NativeWindow.Create()) {
 				nativeWindow.Render += (obj, e) => render++;
 
-				nativeWindow.Create(0, 0, 640, 480);
+				nativeWindow.Create(0, 0, 640, 480, NativeWindowStyle.None);
 				nativeWindow.Show();
 
 				// Showing the window cause a Render
 				Assert.Greater(render, 0);
 			}
+		}
+
+		[Test(Description = "Test NativeWindow.Styles (Caption)")]
+		public void TestStyles_Caption()
+		{
+			using (NativeWindow nativeWindow = NativeWindow.Create()) {
+				nativeWindow.Create(0, 0, 640, 480, NativeWindowStyle.None);
+
+				TestStyles_Generic(nativeWindow, NativeWindowStyle.Caption);
+			}
+		}
+
+		[Test(Description = "Test NativeWindow.Styles (Border)")]
+		public void TestStyles_Border()
+		{
+			using (NativeWindow nativeWindow = NativeWindow.Create()) {
+				nativeWindow.Create(0, 0, 640, 480, NativeWindowStyle.None);
+
+				TestStyles_Generic(nativeWindow, NativeWindowStyle.Border);
+			}
+		}
+
+		[Test(Description = "Test NativeWindow.Styles (Resizeable)")]
+		public void TestStyles_Resizeable()
+		{
+			using (NativeWindow nativeWindow = NativeWindow.Create()) {
+				nativeWindow.Create(0, 0, 640, 480, NativeWindowStyle.None);
+
+				TestStyles_Generic(nativeWindow, NativeWindowStyle.Resizeable);
+			}
+		}
+
+		private void TestStyles_Generic(NativeWindow window, NativeWindowStyle style)
+		{
+			if ((window.SupportedStyles & style) == 0)
+				Assert.Inconclusive(style + " style not supported");
+
+			window.Styles = NativeWindowStyle.None;
+			Assert.AreEqual(NativeWindowStyle.None, window.Styles & style, "window should not have style " + style);
+
+			window.Styles |= style;
+			Assert.AreNotEqual(NativeWindowStyle.None, window.Styles & style);
+
+			window.Styles = window.Styles & ~style;
+			Assert.AreEqual(NativeWindowStyle.None, window.Styles & style);
 		}
 
 		[Test(Description = "Test NativeWindow.Invalidate()")]
@@ -116,7 +161,7 @@ namespace OpenGL.CoreUI.Test
 			int render = 0;
 
 			using (NativeWindow nativeWindow = NativeWindow.Create()) {
-				nativeWindow.Create(0, 0, 640, 480);
+				nativeWindow.Create(0, 0, 640, 480, NativeWindowStyle.None);
 				nativeWindow.Show();
 
 				nativeWindow.Render += (obj, e) => render++;
@@ -129,11 +174,6 @@ namespace OpenGL.CoreUI.Test
 				nativeWindow.Invalidate();
 				Assert.AreEqual(2, render);
 			}
-		}
-
-		private static void StopWindowCallback(object state)
-		{
-			((NativeWindow)state).Stop();
 		}
 	}
 }

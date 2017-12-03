@@ -259,8 +259,10 @@ namespace OpenGL.CoreUI
 
 		private IntPtr WindowsWndProc_MOUSEWHEEL(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
 		{
+			short wheelTicks = (short)(((wParam.ToInt32() >> 16) & 0xFFFF) / /* WHEEL_DELTA */ 120);
+
 			try {
-				OnMouseWheel(WindowsWndProc_GetMouseLocation(lParam), WindowsWndProc_GetMouseButtons(wParam));
+				OnMouseWheel(WindowsWndProc_GetMouseLocation(lParam), WindowsWndProc_GetMouseButtons(wParam), wheelTicks);
 			} catch (Exception exception) {
 				Debug.Fail(String.Format("OnMouseWheel: ({0})\n{1}", exception.Message, exception.ToString()));
 			}
@@ -279,7 +281,7 @@ namespace OpenGL.CoreUI
 		private static MouseButton WindowsWndProc_GetMouseButtons(IntPtr wParam)
 		{
 			MouseButton buttons = MouseButton.None;
-			int wParamValue = wParam.ToInt32();
+			int wParamValue = wParam.ToInt32() & 0xFFFF;
 
 			if ((wParamValue & 0x0001) != 0)
 				buttons |= MouseButton.Left;
@@ -291,7 +293,6 @@ namespace OpenGL.CoreUI
 				buttons |= MouseButton.X1;
 			if ((wParamValue & 0x0040) != 0)
 				buttons |= MouseButton.X2;
-
 
 			return (buttons);
 		}
@@ -340,7 +341,7 @@ namespace OpenGL.CoreUI
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public struct MSG
+		private struct MSG
 		{
 			public IntPtr hwnd;
 			public UInt32 message;
@@ -351,7 +352,7 @@ namespace OpenGL.CoreUI
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
-		public struct POINT
+		private struct POINT
 		{
 			public Int32 x;
 			public Int32 y;
@@ -359,7 +360,7 @@ namespace OpenGL.CoreUI
 
 		[StructLayout(LayoutKind.Sequential)]
 		[DebuggerDisplay("RECT: left={left} right={right} top={top} bottom={bottom}")]
-		public struct RECT
+		private struct RECT
 		{
 			public Int32 left;
 			public Int32 top;
@@ -384,7 +385,7 @@ namespace OpenGL.CoreUI
 		/// for the display monitor.
 		/// </summary>
 		[StructLayout(LayoutKind.Sequential)]
-		public struct MONITORINFO
+		private struct MONITORINFO
 		{
 			/// <summary>
 			/// 
@@ -434,7 +435,7 @@ namespace OpenGL.CoreUI
 		/// for the display monitor.
 		/// </summary>
 		[StructLayout(LayoutKind.Sequential)]
-		public struct MONITORINFOEX
+		private struct MONITORINFOEX
 		{
 			/// <summary>
 			/// 
@@ -494,7 +495,7 @@ namespace OpenGL.CoreUI
 		/// Documentation pulled from MSDN.
 		/// http://www.pinvoke.net/default.aspx/Enums.WindowsMessages
 		/// </summary>
-		public enum WM : uint
+		private enum WM : uint
 		{
 			/// <summary>
 			/// The WM_NULL message performs no operation. An application sends the WM_NULL message if it wants to post a message that the recipient window will ignore.
@@ -799,7 +800,7 @@ namespace OpenGL.CoreUI
 		/// ai_productions@verizon.net or osirisgothra@hotmail.com
 		/// Obtained on pinvoke.net, please contribute your code to support the wiki!
 		/// </summary>
-		public enum SystemMetric : int
+		private enum SystemMetric : int
 		{
 			/// <summary>
 			/// The flags that specify how the system arranged minimized windows. For more information, see the Remarks section in this topic.
@@ -1339,7 +1340,7 @@ namespace OpenGL.CoreUI
 		}
 
 		[Flags]
-		public enum SetWindowPosFlags : uint
+		private enum SetWindowPosFlags : uint
 		{
 			// ReSharper disable InconsistentNaming
 
@@ -1426,7 +1427,7 @@ namespace OpenGL.CoreUI
 			// ReSharper restore InconsistentNaming
 		}
 
-		public enum SetWindowLongIndex
+		private enum SetWindowLongIndex
 		{
 			GWL_WNDPROC = (-4),
 			GWL_HINSTANCE = (-6),
@@ -1438,7 +1439,7 @@ namespace OpenGL.CoreUI
 		}
 
 		[Flags]
-		public enum WindowStyles : uint
+		private enum WindowStyles : uint
 		{
 			WS_OVERLAPPED = 0x00000000,
 			WS_POPUP = 0x80000000,
@@ -1529,10 +1530,38 @@ namespace OpenGL.CoreUI
 			//#endif /* _WIN32_WINNT >= 0x0500 */
 		}
 
+		private static NativeWindowStyle ToNativeWindowStyle(WindowStyles styles)
+		{
+			NativeWindowStyle windowStyles = NativeWindowStyle.None;
+
+			if ((styles & WindowStyles.WS_BORDER) != 0)
+				windowStyles |= NativeWindowStyle.Border;
+			if ((styles & WindowStyles.WS_CAPTION) != 0)
+				windowStyles |= NativeWindowStyle.Caption;
+			if ((styles & WindowStyles.WS_THICKFRAME) != 0)
+				windowStyles |= NativeWindowStyle.Resizeable;
+
+			return (windowStyles);
+		}
+
+		private static WindowStyles FromNativeWindowStyle(NativeWindowStyle styles)
+		{
+			WindowStyles windowStyles = 0;
+
+			if ((styles & NativeWindowStyle.Border) != 0)
+				windowStyles |= WindowStyles.WS_BORDER;
+			if ((styles & NativeWindowStyle.Caption) == NativeWindowStyle.Caption)
+				windowStyles |= WindowStyles.WS_CAPTION | WindowStyles.WS_BORDER;
+			if ((styles & NativeWindowStyle.Resizeable) == NativeWindowStyle.Resizeable)
+				windowStyles |= WindowStyles.WS_THICKFRAME;
+
+			return (windowStyles);
+		}
+
 		/// <summary>
 		/// Enumeration for virtual keys.
 		/// </summary>
-		public enum VirtualKeys : ushort
+		private enum VirtualKeys : ushort
 		{
 			/// <summary></summary>
 			LeftButton = 0x01,
@@ -1928,7 +1957,17 @@ namespace OpenGL.CoreUI
 			OEMClear = 0xFE
 		}
 
-		public static KeyCode ToKeyCode(VirtualKeys key)
+		/// <summary>
+		/// Convert a <see cref="VirtualKeys"/> to the corresponding <see cref="KeyCode"/>.
+		/// </summary>
+		/// <param name="key">
+		/// The <see cref="VirtualKeys"/> to be converted.
+		/// </param>
+		/// <returns>
+		/// The <see cref="KeyCode"/> corresponding to <paramref name="key"/>. In case the
+		/// conversion is not possible, returns <see cref="KeyCode.None"/>.
+		/// </returns>
+		private static KeyCode ToKeyCode(VirtualKeys key)
 		{
 			switch (key) {
 				case VirtualKeys.Tab:
@@ -2177,9 +2216,6 @@ namespace OpenGL.CoreUI
 			[DllImport("user32.dll")]
 			internal static extern bool UpdateWindow(IntPtr hWnd);
 
-			//[DllImport("user32.dll")]
-			//internal static extern bool RedrawWindow(IntPtr hWnd, [In] ref RECT lprcUpdate, IntPtr hrgnUpdate, RedrawWindowFlags flags);
-
 			[DllImport("user32.dll")]
 			internal static extern bool RedrawWindow(IntPtr hWnd, IntPtr lprcUpdate, IntPtr hrgnUpdate, RedrawWindowFlags flags);
 
@@ -2197,9 +2233,6 @@ namespace OpenGL.CoreUI
 
 			[DllImport("user32.dll", SetLastError = true)]
 			internal static extern int GetWindowLong(IntPtr hWnd, SetWindowLongIndex nIndex);
-
-			//[DllImport("user32.dll")]
-			//internal static extern bool GetMonitorInfo(IntPtr hMonitor, ref MONITORINFOEX lpmi);
 
 			[DllImport("user32.dll")]
 			internal static extern bool GetMonitorInfo(IntPtr hMonitor, ref MONITORINFOEX lpmi);
@@ -2219,6 +2252,22 @@ namespace OpenGL.CoreUI
 
 			[DllImport("user32.dll", SetLastError = false)]
 			public static extern void PostQuitMessage(int nExitCode);
+		}
+
+		#endregion
+
+		#region Error Checking
+
+		private void CheckHandle()
+		{
+			if (_Handle == IntPtr.Zero)
+				throw new InvalidOperationException("no handle");
+		}
+
+		private void CheckNotFullscreen()
+		{
+			if (Fullscreen)
+				throw new InvalidOperationException("fullscreen");
 		}
 
 		#endregion
@@ -2260,8 +2309,14 @@ namespace OpenGL.CoreUI
 		/// <param name="height">
 		/// A <see cref="UInt32"/> that specifies the window height, in pixels.
 		/// </param>
-		public override void Create(int x, int y, uint width, uint height)
+		/// <param name="style">
+		/// The initial <see cref="NativeWindowStyle"/> of the window.
+		/// </param>
+		public override void Create(int x, int y, uint width, uint height, NativeWindowStyle style)
 		{
+			if (_Handle != IntPtr.Zero)
+				throw new InvalidOperationException("already created");
+
 			// Register window class
 			WNDCLASSEX windowClass = new WNDCLASSEX();
 			const string DefaultWindowClass = "OpenGL.CoreUI2";
@@ -2275,12 +2330,14 @@ namespace OpenGL.CoreUI
 			if ((_ClassAtom = UnsafeNativeMethods.RegisterClassEx(ref windowClass)) == 0)
 				throw new Win32Exception(Marshal.GetLastWin32Error());
 
+			WindowStyles windowStyle = FromNativeWindowStyle(style);
+
 			// Note: window size is meant as client area, but CreateWindowEx width/height specifies the external
 			// frame size: compute offset for frame borders
-			RECT clientSize = GetClientToFrameRect(x, y, width, height, DefaultWindowStyle | DefaultWindowStyleEx);
+			RECT clientSize = GetClientToFrameRect(x, y, width, height, windowStyle);
 			// Create window
 			_Handle = UnsafeNativeMethods.CreateWindowEx(
-				(uint)DefaultWindowStyleEx, windowClass.lpszClassName, String.Empty, (uint)DefaultWindowStyle,
+				(uint)0, windowClass.lpszClassName, String.Empty, (uint)windowStyle,
 				clientSize.left, clientSize.top, clientSize.right - clientSize.left, clientSize.bottom - clientSize.top,
 				IntPtr.Zero, IntPtr.Zero, windowClass.hInstance, IntPtr.Zero
 			);
@@ -2294,20 +2351,12 @@ namespace OpenGL.CoreUI
 		/// </summary>
 		public override void Destroy()
 		{
+			CheckHandle();
+
 			UnsafeNativeMethods.PostMessage(_Handle, WM.DESTROY, IntPtr.Zero, IntPtr.Zero);
 
 			Stop();
 		}
-
-		/// <summary>
-		/// Default window styles.
-		/// </summary>
-		private const WindowStyles DefaultWindowStyleEx = WindowStyles.WS_EX_APPWINDOW | WindowStyles.WS_EX_WINDOWEDGE;
-
-		/// <summary>
-		/// Default window extended styles.
-		/// </summary>
-		private const WindowStyles DefaultWindowStyle = WindowStyles.WS_OVERLAPPED | WindowStyles.WS_CLIPCHILDREN | WindowStyles.WS_CLIPSIBLINGS | WindowStyles.WS_CAPTION | WindowStyles.WS_THICKFRAME;
 
 		/// <summary>
 		/// Run the event loop for this NativeWindow.
@@ -2365,11 +2414,13 @@ namespace OpenGL.CoreUI
 		public override Point Location
 		{
 			get {
+				CheckHandle();
+
 				return (Point.Empty);
 			}
 			set {
-				if (Fullscreen)
-					throw new InvalidOperationException("fullscreen");
+				CheckHandle();
+				CheckNotFullscreen();
 
 				const SetWindowPosFlags windowPosFlags =
 					SetWindowPosFlags.SWP_NOSIZE | SetWindowPosFlags.SWP_NOZORDER | SetWindowPosFlags.SWP_NOACTIVATE;
@@ -2385,6 +2436,8 @@ namespace OpenGL.CoreUI
 		public override Size ClientSize
 		{
 			get {
+				CheckHandle();
+
 				RECT clientSize = new RECT();
 
 				UnsafeNativeMethods.GetClientRect(_Handle, out clientSize);
@@ -2392,6 +2445,9 @@ namespace OpenGL.CoreUI
 				return ((Size)clientSize);
 			}
 			set {
+				CheckHandle();
+				CheckNotFullscreen();
+
 				if (Fullscreen)
 					throw new InvalidOperationException("fullscreen");
 
@@ -2447,6 +2503,8 @@ namespace OpenGL.CoreUI
 		/// </summary>
 		public override void Show()
 		{
+			CheckHandle();
+
 			UnsafeNativeMethods.ShowWindow(_Handle, WindowShowStyle.Show);
 			Invalidate();
 		}
@@ -2456,7 +2514,50 @@ namespace OpenGL.CoreUI
 		/// </summary>
 		public override void Hide()
 		{
+			CheckHandle();
+
 			UnsafeNativeMethods.ShowWindow(_Handle, WindowShowStyle.Hide);
+		}
+
+		/// <summary>
+		/// Get the implemented window styles by the underlying implementation.
+		/// </summary>
+		public override NativeWindowStyle SupportedStyles
+		{
+			get { return (NativeWindowStyle.Border | NativeWindowStyle.Caption | NativeWindowStyle.Resizeable); }
+		}
+
+		/// <summary>
+		/// The styles of this NativeWindow.
+		/// </summary>
+		public override NativeWindowStyle Styles
+		{
+			get
+			{
+				CheckHandle();
+
+				WindowStyles win32Style = (WindowStyles)UnsafeNativeMethods.GetWindowLong(_Handle, SetWindowLongIndex.GWL_STYLE);
+
+				return (ToNativeWindowStyle(win32Style));
+			}
+			set
+			{
+				CheckHandle();
+				CheckNotFullscreen();
+
+				NativeWindowStyle styles = value;
+
+				// No border? No caption!
+				if ((styles & NativeWindowStyle.Border) == 0)
+					styles &= (NativeWindowStyle)~(0x0001 | 0x0004);
+
+				WindowStyles supportedStyles = FromNativeWindowStyle(SupportedStyles);
+				WindowStyles win32Style = (WindowStyles)UnsafeNativeMethods.GetWindowLong(_Handle, SetWindowLongIndex.GWL_STYLE) & ~supportedStyles;
+				WindowStyles win32StyleValue = FromNativeWindowStyle(styles);
+
+				UnsafeNativeMethods.SetWindowLong(_Handle, SetWindowLongIndex.GWL_STYLE, (uint)(win32Style | win32StyleValue));
+				UnsafeNativeMethods.SetWindowPos(_Handle, IntPtr.Zero, 0, 0, 0, 0, SetWindowPosFlags.SWP_FRAMECHANGED | SetWindowPosFlags.SWP_NOACTIVATE | SetWindowPosFlags.SWP_NOZORDER | SetWindowPosFlags.SWP_NOMOVE | SetWindowPosFlags.SWP_NOSIZE);
+			}
 		}
 
 		/// <summary>
@@ -2464,10 +2565,15 @@ namespace OpenGL.CoreUI
 		/// </summary>
 		public override bool Fullscreen
 		{
-			get {
+			get
+			{
+				CheckHandle();
+
 				return (_Fullscreen);
 			}
 			set {
+				CheckHandle();
+
 				if (_Fullscreen == value)
 					return;
 
@@ -2482,14 +2588,14 @@ namespace OpenGL.CoreUI
 					// Store current location and size
 					_FullscreenRestoreLocation = Location;
 					_FullscreenRestoreSize = ClientSize;
+					// Store current styles
+					_FullscreenRestoreStyle = (WindowStyles)UnsafeNativeMethods.GetWindowLong(_Handle, SetWindowLongIndex.GWL_STYLE);
+					_FullscreenRestoreStyleEx = (WindowStyles)UnsafeNativeMethods.GetWindowLong(_Handle, SetWindowLongIndex.GWL_EXSTYLE);
 
 					// Set window styles
-					UnsafeNativeMethods.SetWindowLong(_Handle, SetWindowLongIndex.GWL_STYLE,
-						(uint)(DefaultWindowStyle & ~(WindowStyles.WS_CAPTION | WindowStyles.WS_THICKFRAME))
-					);
-					UnsafeNativeMethods.SetWindowLong(_Handle, SetWindowLongIndex.GWL_EXSTYLE,
-						(uint)(DefaultWindowStyleEx & ~(WindowStyles.WS_EX_DLGMODALFRAME | WindowStyles.WS_EX_WINDOWEDGE | WindowStyles.WS_EX_CLIENTEDGE | WindowStyles.WS_EX_STATICEDGE))
-					);
+					WindowStyles fullscreenStyle = _FullscreenRestoreStyle & ~(WindowStyles.WS_CAPTION | WindowStyles.WS_THICKFRAME);
+
+					UnsafeNativeMethods.SetWindowLong(_Handle, SetWindowLongIndex.GWL_STYLE, (uint)fullscreenStyle);
 
 					// Set position and size
 					Point location = (Point)monitorInfo.WorkArea;
@@ -2500,8 +2606,8 @@ namespace OpenGL.CoreUI
 						throw new InvalidOperationException("unable to set client size");
 				} else {
 					// Restore previous styles
-					UnsafeNativeMethods.SetWindowLong(_Handle, SetWindowLongIndex.GWL_STYLE, (uint)(DefaultWindowStyle));
-					UnsafeNativeMethods.SetWindowLong(_Handle, SetWindowLongIndex.GWL_EXSTYLE, (uint)(DefaultWindowStyleEx));
+					UnsafeNativeMethods.SetWindowLong(_Handle, SetWindowLongIndex.GWL_STYLE, (uint)_FullscreenRestoreStyle);
+					UnsafeNativeMethods.SetWindowLong(_Handle, SetWindowLongIndex.GWL_EXSTYLE, (uint)_FullscreenRestoreStyleEx);
 
 					// Restore previous position and size
 					Point location = _FullscreenRestoreLocation;
@@ -2532,13 +2638,39 @@ namespace OpenGL.CoreUI
 		private Size _FullscreenRestoreSize;
 
 		/// <summary>
+		/// 
+		/// </summary>
+		private WindowStyles _FullscreenRestoreStyle;
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private WindowStyles _FullscreenRestoreStyleEx;
+
+		/// <summary>
 		/// Invalidate the window.
 		/// </summary>
 		public override void Invalidate()
 		{
+			CheckHandle();
+
 			UnsafeNativeMethods.InvalidateRect(_Handle, IntPtr.Zero, true);
 			UnsafeNativeMethods.UpdateWindow(_Handle);
 		}
+
+		/// <summary>
+		/// Get or set the cursor visibility.
+		/// </summary>
+		public override bool CursorVisible
+		{
+			get { return (_CursorVisible); }
+			set { _CursorVisible = value; }
+		}
+
+		/// <summary>
+		/// Flag indicating the cursor visibility.
+		/// </summary>
+		private bool _CursorVisible;
 
 		/// <summary>
 		/// Performs application-defined tasks associated with freeing, releasing, or resetting managed/unmanaged resources.

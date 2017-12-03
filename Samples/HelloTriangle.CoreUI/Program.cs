@@ -44,11 +44,15 @@ namespace HelloTriangle.CoreUI
 						case KeyCode.Escape:
 							nativeWindow.Stop();
 							break;
+
+						case KeyCode.F:
+							nativeWindow.Fullscreen = !nativeWindow.Fullscreen;
+							break;
 					}
 				};
 				nativeWindow.Animation = true;
 
-				nativeWindow.Create(0, 0, 128, 128);
+				nativeWindow.Create(0, 0, 128, 128, NativeWindowStyle.Overlapped);
 
 				nativeWindow.Show();
 				nativeWindow.Run();
@@ -111,15 +115,15 @@ namespace HelloTriangle.CoreUI
 				_Zooom = 1.0f;
 
 			// Save PNG frame
-			if (_FrameNo < 125) {
-				using (Bitmap bitmap = new Bitmap((int)nativeWindow.Width, (int)nativeWindow.Height, System.Drawing.Imaging.PixelFormat.Format24bppRgb)) {
-					BitmapData bitmapData = bitmap.LockBits(new Rectangle(System.Drawing.Point.Empty, bitmap.Size), ImageLockMode.WriteOnly, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+			//if (_FrameNo < 125) {
+			//	using (Bitmap bitmap = new Bitmap((int)nativeWindow.Width, (int)nativeWindow.Height, System.Drawing.Imaging.PixelFormat.Format24bppRgb)) {
+			//		BitmapData bitmapData = bitmap.LockBits(new Rectangle(System.Drawing.Point.Empty, bitmap.Size), ImageLockMode.WriteOnly, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
 
-					Gl.ReadPixels(0, 0, (int)nativeWindow.Width, (int)nativeWindow.Height, OpenGL.PixelFormat.Bgr, PixelType.UnsignedByte, bitmapData.Scan0);
+			//		Gl.ReadPixels(0, 0, (int)nativeWindow.Width, (int)nativeWindow.Height, OpenGL.PixelFormat.Bgr, PixelType.UnsignedByte, bitmapData.Scan0);
 
-					bitmap.Save(String.Format("Frame_{0:D3}.png", _FrameNo++));
-				}
-			}
+			//		bitmap.Save(String.Format("Frame_{0:D3}.png", _FrameNo++));
+			//	}
+			//}
 		}
 
 		#endregion

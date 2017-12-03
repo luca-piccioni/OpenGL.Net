@@ -46,6 +46,30 @@ namespace OpenGL.CoreUI
 		/// The <see cref="MouseButton"/> pressed at the time of the event.
 		/// </param>
 		internal NativeWindowMouseEventArgs(DeviceContext deviceContext, IntPtr renderContext, Point location, MouseButton buttons) :
+			this(deviceContext, renderContext, location, buttons, 0)
+		{
+
+		}
+
+		/// <summary>
+		/// Construct a NativeWindowMouseEventArgs.
+		/// </summary>
+		/// <param name="deviceContext">
+		/// The <see cref="DeviceContext"/> used for the underlying <see cref="NativeWindow"/>.
+		/// </param>
+		/// <param name="renderContext">
+		/// The OpenGL context used for rendering.
+		/// </param>
+		/// <param name="location">
+		/// The <see cref="Point"/> representing the position relative to the event.
+		/// </param>
+		/// <param name="buttons">
+		/// The <see cref="MouseButton"/> pressed at the time of the event.
+		/// </param>
+		/// <param name="wheelTicks">
+		/// The <see cref="UInt16"/> indicating the wheel distance (meaninful only on MouseWheel event).
+		/// </param>
+		internal NativeWindowMouseEventArgs(DeviceContext deviceContext, IntPtr renderContext, Point location, MouseButton buttons, short wheelTicks) :
 			base(deviceContext, renderContext)
 		{
 			Location = location;
@@ -65,6 +89,12 @@ namespace OpenGL.CoreUI
 		/// Mouse buttons pressed at the time of the event.
 		/// </summary>
 		public readonly MouseButton Buttons = MouseButton.None;
+
+		/// <summary>
+		/// The distance the wheel is rotated. A positive value indicates that the wheel was rotated forward, away from the
+		/// user; a negative value indicates that the wheel was rotated backward, toward the user.
+		/// </summary>
+		public readonly short WheelTicks;
 
 		#endregion
 	}

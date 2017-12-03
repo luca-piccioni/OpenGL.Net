@@ -28,7 +28,7 @@ using Khronos;
 namespace OpenGL.CoreUI
 {
 	/// <summary>
-	/// Native window abstract implementation.
+	/// Abstract implementation of a native window.
 	/// </summary>
 	public abstract class NativeWindow : IDisposable
 	{
@@ -725,7 +725,10 @@ namespace OpenGL.CoreUI
 		/// <param name="height">
 		/// A <see cref="UInt32"/> that specifies the window height, in pixels.
 		/// </param>
-		public abstract void Create(int x, int y, uint width, uint height);
+		/// <param name="style">
+		/// The initial <see cref="NativeWindowStyle"/> of the window.
+		/// </param>
+		public abstract void Create(int x, int y, uint width, uint height, NativeWindowStyle style);
 
 		/// <summary>
 		/// Closes the NativeWindow.
@@ -802,6 +805,20 @@ namespace OpenGL.CoreUI
 
 		#endregion
 
+		#region Styles
+
+		/// <summary>
+		/// Get the implemented window styles by the underlying implementation.
+		/// </summary>
+		public abstract NativeWindowStyle SupportedStyles { get; }
+
+		/// <summary>
+		/// The styles of this NativeWindow.
+		/// </summary>
+		public abstract NativeWindowStyle Styles { get; set; }
+
+		#endregion
+
 		#region Fullscreen
 
 		/// <summary>
@@ -843,6 +860,15 @@ namespace OpenGL.CoreUI
 		/// Pressed state for each key.
 		/// </summary>
 		private readonly bool[] _KeysPressed = new bool[(int)KeyCode.MaxKeycode];
+
+		#endregion
+
+		#region Cursor
+
+		/// <summary>
+		/// Get or set the cursor visibility.
+		/// </summary>
+		public abstract bool CursorVisible { get; set; }
 
 		#endregion
 
@@ -975,6 +1001,9 @@ namespace OpenGL.CoreUI
 
 		#region Mouse
 
+		/// <summary>
+		/// Mouse has been moved over the window.
+		/// </summary>
 		public event EventHandler<NativeWindowMouseEventArgs> MouseMove;
 
 		/// <summary>
@@ -985,6 +1014,9 @@ namespace OpenGL.CoreUI
 			MouseMove?.Invoke(this, new NativeWindowMouseEventArgs(_DeviceContext, _RenderContext, location, buttons));
 		}
 
+		/// <summary>
+		/// A mouse button has been pressed over the window.
+		/// </summary>
 		public event EventHandler<NativeWindowMouseEventArgs> MouseDown;
 
 		/// <summary>
@@ -995,6 +1027,9 @@ namespace OpenGL.CoreUI
 			MouseDown?.Invoke(this, new NativeWindowMouseEventArgs(_DeviceContext, _RenderContext, location, buttons));
 		}
 
+		/// <summary>
+		/// A mouse button has been unpressed over the window.
+		/// </summary>
 		public event EventHandler<NativeWindowMouseEventArgs> MouseUp;
 
 		/// <summary>
@@ -1005,26 +1040,22 @@ namespace OpenGL.CoreUI
 			MouseUp?.Invoke(this, new NativeWindowMouseEventArgs(_DeviceContext, _RenderContext, location, buttons));
 		}
 
+		/// <summary>
+		/// The mouse wheel has been rotated over the window.
+		/// </summary>
 		public event EventHandler<NativeWindowMouseEventArgs> MouseWheel;
 
 		/// <summary>
 		/// Raise the event <see cref="MouseWheel"/>.
 		/// </summary>
-		protected virtual void OnMouseWheel(Point location, MouseButton buttons)
+		protected virtual void OnMouseWheel(Point location, MouseButton buttons, short ticks)
 		{
-			MouseWheel?.Invoke(this, new NativeWindowMouseEventArgs(_DeviceContext, _RenderContext, location, buttons));
+			MouseWheel?.Invoke(this, new NativeWindowMouseEventArgs(_DeviceContext, _RenderContext, location, buttons, ticks));
 		}
-
-		public event EventHandler<NativeWindowMouseEventArgs> MouseClick;
 
 		/// <summary>
-		/// Raise the event <see cref="MouseClick"/>.
+		/// A mouse button has been pressed twice over the window.
 		/// </summary>
-		protected virtual void OnMouseClick(Point location, MouseButton buttons)
-		{
-			MouseClick?.Invoke(this, new NativeWindowMouseEventArgs(_DeviceContext, _RenderContext, location, buttons));
-		}
-
 		public event EventHandler<NativeWindowMouseEventArgs> MouseDoubleClick;
 
 		/// <summary>

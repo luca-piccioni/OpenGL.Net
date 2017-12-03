@@ -85,6 +85,7 @@
     <Compile Include="NativeWindowEventArgs.cs" />
     <Compile Include="NativeWindowKeyEventArgs.cs" />
     <Compile Include="NativeWindowMouseEventArgs.cs" />
+    <Compile Include="NativeWindowStyle.cs" />
     <Compile Include="NativeWindowWinNT.cs" />
     <Compile Include="Point.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
