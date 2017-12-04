@@ -840,7 +840,7 @@ namespace OpenGL.CoreUI
 
 		#endregion
 
-		#region Keyboard Keys
+		#region Keyboard
 
 		/// <summary>
 		/// Test whether a specific key is pressed.
@@ -861,14 +861,78 @@ namespace OpenGL.CoreUI
 		/// </summary>
 		private readonly bool[] _KeysPressed = new bool[(int)KeyCode.MaxKeycode];
 
+		/// <summary>
+		/// Emulates the key pressed event.
+		/// </summary>
+		/// <param name="key">
+		/// The <see cref="KeyCode"/> indicating what key is emulated.
+		/// </param>
+		/// <remarks>
+		/// This method is mainly used for testing, but it may be useful for some application.
+		/// </remarks>
+		public abstract void EmulatesKeyPress(KeyCode key);
+
 		#endregion
 
-		#region Cursor
+		#region Mouse
 
 		/// <summary>
 		/// Get or set the cursor visibility.
 		/// </summary>
 		public abstract bool CursorVisible { get; set; }
+
+		/// <summary>
+		/// Emulates the mouse move event.
+		/// </summary>
+		/// <param name="location">
+		/// The <see cref="Point"/> indicating the location of the mouse at the event.
+		/// </param>
+		/// <remarks>
+		/// This method is mainly used for testing, but it may be useful for some application.
+		/// </remarks>
+		public abstract void EmulatesMouseMove(Point location);
+
+		/// <summary>
+		/// Emulates the mouse buttons pressed event.
+		/// </summary>
+		/// <param name="location">
+		/// The <see cref="Point"/> indicating the location of the mouse at the event.
+		/// </param>
+		/// <param name="buttons">
+		/// The <see cref="MouseButton"/> indicating the buttons pressed at the event.
+		/// </param>
+		/// <remarks>
+		/// This method is mainly used for testing, but it may be useful for some application.
+		/// </remarks>
+		public abstract void EmulatesMouseButtonClick(Point location, MouseButton buttons);
+
+		/// <summary>
+		/// Emulates the mouse buttons double-pressed event.
+		/// </summary>
+		/// <param name="location">
+		/// The <see cref="Point"/> indicating the location of the mouse at the event.
+		/// </param>
+		/// <param name="buttons">
+		/// The <see cref="MouseButton"/> indicating the buttons double-pressed at the event.
+		/// </param>
+		/// <remarks>
+		/// This method is mainly used for testing, but it may be useful for some application.
+		/// </remarks>
+		public abstract void EmulatesMouseButtonDoubleClick(Point location, MouseButton buttons);
+
+		/// <summary>
+		/// Emulates the mouse buttons wheel event.
+		/// </summary>
+		/// <param name="location">
+		/// The <see cref="Point"/> indicating the location of the mouse at the event.
+		/// </param>
+		/// <param name="ticks">
+		/// The <see cref="Int32"/> indicating the the wheel ticks.
+		/// </param>
+		/// <remarks>
+		/// This method is mainly used for testing, but it may be useful for some application.
+		/// </remarks>
+		public abstract void EmulatesMouseWheel(Point location, int ticks);
 
 		#endregion
 

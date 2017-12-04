@@ -32,215 +32,199 @@ namespace OpenGL.CoreUI
 		None =		0x0000,
 
 		/// <summary></summary>
-		Tab = 0x09,
+		Tab,
 		/// <summary></summary>
-		Clear = 0x0C,
+		Return,
 		/// <summary></summary>
-		Return = 0x0D,
+		Shift,
 		/// <summary></summary>
-		Shift = 0x10,
+		Control,
 		/// <summary></summary>
-		Control = 0x11,
+		Menu,
 		/// <summary></summary>
-		Menu = 0x12,
+		CapsLock,
 		/// <summary></summary>
-		Pause = 0x13,
+		Escape,
 		/// <summary></summary>
-		CapsLock = 0x14,
+		Space,
 		/// <summary></summary>
-		Escape = 0x1B,
+		End,
 		/// <summary></summary>
-		Space = 0x20,
+		Home,
 		/// <summary></summary>
-		Prior = 0x21,
+		Left,
 		/// <summary></summary>
-		Next = 0x22,
+		Up,
 		/// <summary></summary>
-		End = 0x23,
+		Right,
 		/// <summary></summary>
-		Home = 0x24,
+		Down,
 		/// <summary></summary>
-		Left = 0x25,
+		Insert,
 		/// <summary></summary>
-		Up = 0x26,
+		Delete,
 		/// <summary></summary>
-		Right = 0x27,
+		N0,
 		/// <summary></summary>
-		Down = 0x28,
+		N1,
 		/// <summary></summary>
-		Select = 0x29,
+		N2,
 		/// <summary></summary>
-		Print = 0x2A,
+		N3,
 		/// <summary></summary>
-		Execute = 0x2B,
+		N4,
 		/// <summary></summary>
-		Snapshot = 0x2C,
+		N5,
 		/// <summary></summary>
-		Insert = 0x2D,
+		N6,
 		/// <summary></summary>
-		Delete = 0x2E,
+		N7,
 		/// <summary></summary>
-		N0 = 0x30,
+		N8,
 		/// <summary></summary>
-		N1 = 0x31,
+		N9,
 		/// <summary></summary>
-		N2 = 0x32,
+		A,
 		/// <summary></summary>
-		N3 = 0x33,
+		B,
 		/// <summary></summary>
-		N4 = 0x34,
+		C,
 		/// <summary></summary>
-		N5 = 0x35,
+		D,
 		/// <summary></summary>
-		N6 = 0x36,
+		E,
 		/// <summary></summary>
-		N7 = 0x37,
+		F,
 		/// <summary></summary>
-		N8 = 0x38,
+		G,
 		/// <summary></summary>
-		N9 = 0x39,
+		H,
 		/// <summary></summary>
-		A = 0x41,
+		I,
 		/// <summary></summary>
-		B = 0x42,
+		J,
 		/// <summary></summary>
-		C = 0x43,
+		K,
 		/// <summary></summary>
-		D = 0x44,
+		L,
 		/// <summary></summary>
-		E = 0x45,
+		M,
 		/// <summary></summary>
-		F = 0x46,
+		N,
 		/// <summary></summary>
-		G = 0x47,
+		O,
 		/// <summary></summary>
-		H = 0x48,
+		P,
 		/// <summary></summary>
-		I = 0x49,
+		Q,
 		/// <summary></summary>
-		J = 0x4A,
+		R,
 		/// <summary></summary>
-		K = 0x4B,
+		S,
 		/// <summary></summary>
-		L = 0x4C,
+		T,
 		/// <summary></summary>
-		M = 0x4D,
+		U,
 		/// <summary></summary>
-		N = 0x4E,
+		V,
 		/// <summary></summary>
-		O = 0x4F,
+		W,
 		/// <summary></summary>
-		P = 0x50,
+		X,
 		/// <summary></summary>
-		Q = 0x51,
+		Y,
 		/// <summary></summary>
-		R = 0x52,
+		Z,
 		/// <summary></summary>
-		S = 0x53,
+		LeftWindows,
 		/// <summary></summary>
-		T = 0x54,
+		RightWindows,
 		/// <summary></summary>
-		U = 0x55,
+		Application,
 		/// <summary></summary>
-		V = 0x56,
+		Numpad0,
 		/// <summary></summary>
-		W = 0x57,
+		Numpad1,
 		/// <summary></summary>
-		X = 0x58,
+		Numpad2,
 		/// <summary></summary>
-		Y = 0x59,
+		Numpad3,
 		/// <summary></summary>
-		Z = 0x5A,
+		Numpad4,
 		/// <summary></summary>
-		LeftWindows = 0x5B,
+		Numpad5,
 		/// <summary></summary>
-		RightWindows = 0x5C,
+		Numpad6,
 		/// <summary></summary>
-		Application = 0x5D,
+		Numpad7,
 		/// <summary></summary>
-		Numpad0 = 0x60,
+		Numpad8,
 		/// <summary></summary>
-		Numpad1 = 0x61,
+		Numpad9,
 		/// <summary></summary>
-		Numpad2 = 0x62,
+		Multiply,
 		/// <summary></summary>
-		Numpad3 = 0x63,
+		Add,
 		/// <summary></summary>
-		Numpad4 = 0x64,
+		Separator,
 		/// <summary></summary>
-		Numpad5 = 0x65,
+		Subtract,
 		/// <summary></summary>
-		Numpad6 = 0x66,
+		Decimal,
 		/// <summary></summary>
-		Numpad7 = 0x67,
+		Divide,
 		/// <summary></summary>
-		Numpad8 = 0x68,
+		F1,
 		/// <summary></summary>
-		Numpad9 = 0x69,
+		F2,
 		/// <summary></summary>
-		Multiply = 0x6A,
+		F3,
 		/// <summary></summary>
-		Add = 0x6B,
+		F4,
 		/// <summary></summary>
-		Separator = 0x6C,
+		F5,
 		/// <summary></summary>
-		Subtract = 0x6D,
+		F6,
 		/// <summary></summary>
-		Decimal = 0x6E,
+		F7,
 		/// <summary></summary>
-		Divide = 0x6F,
+		F8,
 		/// <summary></summary>
-		F1 = 0x70,
+		F9,
 		/// <summary></summary>
-		F2 = 0x71,
+		F10,
 		/// <summary></summary>
-		F3 = 0x72,
+		F11,
 		/// <summary></summary>
-		F4 = 0x73,
+		F12,
 		/// <summary></summary>
-		F5 = 0x74,
+		F13,
 		/// <summary></summary>
-		F6 = 0x75,
+		F14,
 		/// <summary></summary>
-		F7 = 0x76,
+		F15,
 		/// <summary></summary>
-		F8 = 0x77,
+		F16,
 		/// <summary></summary>
-		F9 = 0x78,
+		F17,
 		/// <summary></summary>
-		F10 = 0x79,
+		F18,
 		/// <summary></summary>
-		F11 = 0x7A,
+		F19,
 		/// <summary></summary>
-		F12 = 0x7B,
+		F20,
 		/// <summary></summary>
-		F13 = 0x7C,
+		F21,
 		/// <summary></summary>
-		F14 = 0x7D,
+		F22,
 		/// <summary></summary>
-		F15 = 0x7E,
+		F23,
 		/// <summary></summary>
-		F16 = 0x7F,
+		F24,
 		/// <summary></summary>
-		F17 = 0x80,
+		NumLock,
 		/// <summary></summary>
-		F18 = 0x81,
-		/// <summary></summary>
-		F19 = 0x82,
-		/// <summary></summary>
-		F20 = 0x83,
-		/// <summary></summary>
-		F21 = 0x84,
-		/// <summary></summary>
-		F22 = 0x85,
-		/// <summary></summary>
-		F23 = 0x86,
-		/// <summary></summary>
-		F24 = 0x87,
-		/// <summary></summary>
-		NumLock = 0x90,
-		/// <summary></summary>
-		ScrollLock = 0x91,
+		ScrollLock,
 
 		/// <summary>
 		/// Internal use: maximum number of keys recognized.

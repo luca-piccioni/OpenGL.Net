@@ -32,6 +32,8 @@ namespace OpenGL.CoreUI.Test
 		public void TestFactory()
 		{
 			using (NativeWindow nativeWindow = NativeWindow.Create()) {
+				// Display not reference till instantiation
+				Assert.AreEqual(IntPtr.Zero, nativeWindow.Display);
 				// Handle is not created after instantiation
 				Assert.AreEqual(IntPtr.Zero, nativeWindow.Handle);
 
@@ -407,6 +409,10 @@ namespace OpenGL.CoreUI.Test
 				nativeWindow.Fullscreen = false;
 				Assert.IsFalse(nativeWindow.Fullscreen);
 
+				// Reset fullscreen to the actual value, should avoid unecessary operations
+				nativeWindow.Fullscreen = false;
+				Assert.IsFalse(nativeWindow.Fullscreen);
+
 			}
 		}
 
@@ -428,6 +434,44 @@ namespace OpenGL.CoreUI.Test
 				// Invalidating the window cause a single Render
 				nativeWindow.Invalidate();
 				Assert.AreEqual(2, render);
+			}
+		}
+
+		[Test(Description = "Test NativeWindow.IsKeyPressed()")]
+		public void TestIsKeyPressed()
+		{
+			using (NativeWindow nativeWindow = NativeWindow.Create()) {
+				KeyCode keyPress, keyUnpress;
+				int keyPressCount = 0, keyUnpressCount = 0;
+
+				nativeWindow.Create(0, 0, 640, 480, NativeWindowStyle.None);
+
+				nativeWindow.KeyDown += (object obj, NativeWindowKeyEventArgs e) => { keyPress = e.Key; keyPressCount++; };
+				nativeWindow.KeyUp += (object obj, NativeWindowKeyEventArgs e) => { keyUnpress = e.Key; keyUnpressCount++; };
+
+				// Note: test IsKeyPressed values during KeyDown and KeyUp events
+				nativeWindow.KeyDown += (object obj, NativeWindowKeyEventArgs e) => Assert.IsTrue(nativeWindow.IsKeyPressed(e.Key));
+				nativeWindow.KeyUp += (object obj, NativeWindowKeyEventArgs e) => Assert.IsFalse(nativeWindow.IsKeyPressed(e.Key));
+
+				foreach (KeyCode key in Enum.GetValues(typeof(KeyCode))) {
+					// None is not supported
+					if (key == KeyCode.None || key == KeyCode.MaxKeycode)
+						continue;
+
+					keyPress = keyUnpress = KeyCode.None;
+					keyPressCount = keyUnpressCount = 0;
+
+					// Emulates the key press
+					nativeWindow.EmulatesKeyPress(key);
+
+					// KeyDown event raised once
+					Assert.AreEqual(key, keyPress);
+					Assert.AreEqual(1, keyPressCount);
+
+					// KeyUp event raised once
+					Assert.AreEqual(key, keyUnpress);
+					Assert.AreEqual(1, keyUnpressCount);
+				}
 			}
 		}
 	}

@@ -52,14 +52,6 @@ namespace OpenGL.CoreUI
 
 		#region Platform Resources
 
-		/// <summary>
-		/// Window message procedure.
-		/// </summary>
-		/// <param name="hWnd"></param>
-		/// <param name="msg"></param>
-		/// <param name="wParam"></param>
-		/// <param name="lParam"></param>
-		/// <returns></returns>
 		private IntPtr WindowsWndProc(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
 		{
 			switch ((WM)msg) {
@@ -116,53 +108,41 @@ namespace OpenGL.CoreUI
 
 		private IntPtr WindowsWndProc_CREATE(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
 		{
-			try {
-				// Create device context
-				CreateDeviceContext(IntPtr.Zero, hWnd);
-				// Create OpenGL context
-				CreateDesktopContext();
-				// The context is made current unconditionally: event handlers allocate resources
-				MakeCurrentContext();
-				// Event handling
-				OnContextCreated();
-			} catch (Exception exception) {
-				Debug.Fail(String.Format("OnCreate: ({0})\n{1}", exception.Message, exception.ToString()));
-			}
+			// Create device context
+			CreateDeviceContext(IntPtr.Zero, hWnd);
+			// Create OpenGL context
+			CreateDesktopContext();
+			// The context is made current unconditionally: event handlers allocate resources
+			MakeCurrentContext();
+			// Event handling
+			OnContextCreated();
 
 			return (IntPtr.Zero);
 		}
 
 		private IntPtr WindowsWndProc_DESTROY(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
 		{
-			try {
-				DeleteContext();
-				DestroyDeviceContext();
-			} catch (Exception exception) {
-				Debug.Fail(String.Format("OnDestroy: ({0})\n{1}", exception.Message, exception.ToString()));
-			}
+			DeleteContext();
+			DestroyDeviceContext();
 
 			return (IntPtr.Zero);
 		}
 
 		private IntPtr WindowsWndProc_PAINT(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
 		{
-			try {
-				MakeCurrentContext();
-				OnRender();
-				OnContextUpdate();
-				SwapBuffers();
+			MakeCurrentContext();
+			OnRender();
+			OnContextUpdate();
+			SwapBuffers();
 
-				// Animation
-				if (Animation) {
-					if (AnimationTime > 0) {
-						throw new NotImplementedException();
-					} else {
-						// Invalidate continuosly
-						Invalidate();
-					}
+			// Animation
+			if (Animation) {
+				if (AnimationTime > 0) {
+					throw new NotImplementedException();
+				} else {
+					// Invalidate continuosly
+					Invalidate();
 				}
-			} catch (Exception exception) {
-				Debug.Fail(String.Format("OnPaint: ({0})\n{1}", exception.Message, exception.ToString()));
 			}
 
 			return (IntPtr.Zero);
@@ -186,11 +166,7 @@ namespace OpenGL.CoreUI
 			if (key == KeyCode.None)
 				return (IntPtr.Zero);
 
-			try {
-				OnKeyDown(key);
-			} catch (Exception exception) {
-				Debug.Fail(String.Format("OnKeyDown: ({0})\n{1}", exception.Message, exception.ToString()));
-			}
+			OnKeyDown(key);
 
 			return (IntPtr.Zero);
 		}
@@ -204,55 +180,35 @@ namespace OpenGL.CoreUI
 			if (key == KeyCode.None)
 				return (IntPtr.Zero);
 
-			try {
-				OnKeyUp(key);
-			} catch (Exception exception) {
-				Debug.Fail(String.Format("OnPaint: ({0})\n{1}", exception.Message, exception.ToString()));
-			}
+			OnKeyUp(key);
 
 			return (IntPtr.Zero);
 		}
 
 		private IntPtr WindowsWndProc_MOUSEMOVE(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
 		{
-			try {
-				OnMouseMove(WindowsWndProc_GetMouseLocation(lParam), WindowsWndProc_GetMouseButtons(wParam));
-			} catch (Exception exception) {
-				Debug.Fail(String.Format("OnMouseMove: ({0})\n{1}", exception.Message, exception.ToString()));
-			}
+			OnMouseMove(WindowsWndProc_GetMouseLocation(lParam), WindowsWndProc_GetMouseButtons(wParam));
 
 			return (IntPtr.Zero);
 		}
 
 		private IntPtr WindowsWndProc_BUTTONDOWN(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
 		{
-			try {
-				OnMouseDown(WindowsWndProc_GetMouseLocation(lParam), WindowsWndProc_GetMouseButtons(wParam));
-			} catch (Exception exception) {
-				Debug.Fail(String.Format("OnMouseDown: ({0})\n{1}", exception.Message, exception.ToString()));
-			}
+			OnMouseDown(WindowsWndProc_GetMouseLocation(lParam), WindowsWndProc_GetMouseButtons(wParam));
 
 			return (IntPtr.Zero);
 		}
 
 		private IntPtr WindowsWndProc_BUTTONUP(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
 		{
-			try {
-				OnMouseUp(WindowsWndProc_GetMouseLocation(lParam), WindowsWndProc_GetMouseButtons(wParam));
-			} catch (Exception exception) {
-				Debug.Fail(String.Format("OnMouseUp: ({0})\n{1}", exception.Message, exception.ToString()));
-			}
+			OnMouseUp(WindowsWndProc_GetMouseLocation(lParam), WindowsWndProc_GetMouseButtons(wParam));
 
 			return (IntPtr.Zero);
 		}
 
 		private IntPtr WindowsWndProc_BUTTONDOUBLECLICK(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
 		{
-			try {
-				OnMouseDoubleClick(WindowsWndProc_GetMouseLocation(lParam), WindowsWndProc_GetMouseButtons(wParam));
-			} catch (Exception exception) {
-				Debug.Fail(String.Format("OnMouseDoubleClick: ({0})\n{1}", exception.Message, exception.ToString()));
-			}
+			OnMouseDoubleClick(WindowsWndProc_GetMouseLocation(lParam), WindowsWndProc_GetMouseButtons(wParam));
 
 			return (IntPtr.Zero);
 		}
@@ -261,11 +217,7 @@ namespace OpenGL.CoreUI
 		{
 			short wheelTicks = (short)(((wParam.ToInt32() >> 16) & 0xFFFF) / /* WHEEL_DELTA */ 120);
 
-			try {
-				OnMouseWheel(WindowsWndProc_GetMouseLocation(lParam), WindowsWndProc_GetMouseButtons(wParam), wheelTicks);
-			} catch (Exception exception) {
-				Debug.Fail(String.Format("OnMouseWheel: ({0})\n{1}", exception.Message, exception.ToString()));
-			}
+			OnMouseWheel(WindowsWndProc_GetMouseLocation(lParam), WindowsWndProc_GetMouseButtons(wParam), wheelTicks);
 
 			return (IntPtr.Zero);
 		}
@@ -1979,17 +1931,20 @@ namespace OpenGL.CoreUI
 					return KeyCode.Shift;
 				case VirtualKeys.Control:
 					return KeyCode.Control;
-
+				case VirtualKeys.Menu:
+					return KeyCode.Menu;
+				case VirtualKeys.CapsLock:
+					return KeyCode.CapsLock;
 				case VirtualKeys.Escape:
 					return KeyCode.Escape;
 
 				case VirtualKeys.Space:
 					return KeyCode.Space;
 
-				case VirtualKeys.Next:
-					return KeyCode.Next;
 				case VirtualKeys.End:
 					return KeyCode.End;
+				case VirtualKeys.Home:
+					return KeyCode.Home;
 
 				case VirtualKeys.Left:
 					return KeyCode.Left;
@@ -2079,6 +2034,13 @@ namespace OpenGL.CoreUI
 				case VirtualKeys.Z:
 					return KeyCode.Z;
 
+				case VirtualKeys.LeftWindows:
+					return KeyCode.LeftWindows;
+				case VirtualKeys.RightWindows:
+					return KeyCode.RightWindows;
+				case VirtualKeys.Application:
+					return KeyCode.Application;
+
 				case VirtualKeys.Numpad0:
 					return KeyCode.Numpad0;
 				case VirtualKeys.Numpad1:
@@ -2165,6 +2127,217 @@ namespace OpenGL.CoreUI
 					return KeyCode.ScrollLock;
 				default:
 					return KeyCode.None;
+			}
+		}
+
+		private static VirtualKeys ToVirtualKeys(KeyCode key)
+		{
+			switch (key) {
+				case KeyCode.Tab:
+					return VirtualKeys.Tab;
+
+				case KeyCode.Return:
+					return VirtualKeys.Return;
+				case KeyCode.Shift:
+					return VirtualKeys.Shift;
+				case KeyCode.Control:
+					return VirtualKeys.Control;
+				case KeyCode.Menu:
+					return VirtualKeys.Menu;
+				case KeyCode.CapsLock:
+					return VirtualKeys.CapsLock;
+				case KeyCode.Escape:
+					return VirtualKeys.Escape;
+
+				case KeyCode.Space:
+					return VirtualKeys.Space;
+
+				case KeyCode.End:
+					return VirtualKeys.End;
+				case KeyCode.Home:
+					return VirtualKeys.Home;
+
+				case KeyCode.Left:
+					return VirtualKeys.Left;
+				case KeyCode.Up:
+					return VirtualKeys.Up;
+				case KeyCode.Right:
+					return VirtualKeys.Right;
+				case KeyCode.Down:
+					return VirtualKeys.Down;
+
+				case KeyCode.Insert:
+					return VirtualKeys.Insert;
+				case KeyCode.Delete:
+					return VirtualKeys.Delete;
+
+				case KeyCode.N0:
+					return VirtualKeys.N0;
+				case KeyCode.N1:
+					return VirtualKeys.N1;
+				case KeyCode.N2:
+					return VirtualKeys.N2;
+				case KeyCode.N3:
+					return VirtualKeys.N3;
+				case KeyCode.N4:
+					return VirtualKeys.N4;
+				case KeyCode.N5:
+					return VirtualKeys.N5;
+				case KeyCode.N6:
+					return VirtualKeys.N6;
+				case KeyCode.N7:
+					return VirtualKeys.N7;
+				case KeyCode.N8:
+					return VirtualKeys.N8;
+				case KeyCode.N9:
+					return VirtualKeys.N9;
+
+				case KeyCode.A:
+					return VirtualKeys.A;
+				case KeyCode.B:
+					return VirtualKeys.B;
+				case KeyCode.C:
+					return VirtualKeys.C;
+				case KeyCode.D:
+					return VirtualKeys.D;
+				case KeyCode.E:
+					return VirtualKeys.E;
+				case KeyCode.F:
+					return VirtualKeys.F;
+				case KeyCode.G:
+					return VirtualKeys.G;
+				case KeyCode.H:
+					return VirtualKeys.H;
+				case KeyCode.I:
+					return VirtualKeys.I;
+				case KeyCode.J:
+					return VirtualKeys.J;
+				case KeyCode.K:
+					return VirtualKeys.K;
+				case KeyCode.L:
+					return VirtualKeys.L;
+				case KeyCode.M:
+					return VirtualKeys.M;
+				case KeyCode.N:
+					return VirtualKeys.N;
+				case KeyCode.O:
+					return VirtualKeys.O;
+				case KeyCode.P:
+					return VirtualKeys.P;
+				case KeyCode.Q:
+					return VirtualKeys.Q;
+				case KeyCode.R:
+					return VirtualKeys.R;
+				case KeyCode.S:
+					return VirtualKeys.S;
+				case KeyCode.T:
+					return VirtualKeys.T;
+				case KeyCode.U:
+					return VirtualKeys.U;
+				case KeyCode.V:
+					return VirtualKeys.V;
+				case KeyCode.W:
+					return VirtualKeys.W;
+				case KeyCode.X:
+					return VirtualKeys.X;
+				case KeyCode.Y:
+					return VirtualKeys.Y;
+				case KeyCode.Z:
+					return VirtualKeys.Z;
+
+				case KeyCode.LeftWindows:
+					return VirtualKeys.LeftWindows;
+				case KeyCode.RightWindows:
+					return VirtualKeys.RightWindows;
+				case KeyCode.Application:
+					return VirtualKeys.Application;
+
+				case KeyCode.Numpad0:
+					return VirtualKeys.Numpad0;
+				case KeyCode.Numpad1:
+					return VirtualKeys.Numpad1;
+				case KeyCode.Numpad2:
+					return VirtualKeys.Numpad2;
+				case KeyCode.Numpad3:
+					return VirtualKeys.Numpad3;
+				case KeyCode.Numpad4:
+					return VirtualKeys.Numpad4;
+				case KeyCode.Numpad5:
+					return VirtualKeys.Numpad5;
+				case KeyCode.Numpad6:
+					return VirtualKeys.Numpad6;
+				case KeyCode.Numpad7:
+					return VirtualKeys.Numpad7;
+				case KeyCode.Numpad8:
+					return VirtualKeys.Numpad8;
+				case KeyCode.Numpad9:
+					return VirtualKeys.Numpad9;
+				case KeyCode.Multiply:
+					return VirtualKeys.Multiply;
+				case KeyCode.Add:
+					return VirtualKeys.Add;
+				case KeyCode.Separator:
+					return VirtualKeys.Separator;
+				case KeyCode.Subtract:
+					return VirtualKeys.Subtract;
+				case KeyCode.Decimal:
+					return VirtualKeys.Decimal;
+				case KeyCode.Divide:
+					return VirtualKeys.Divide;
+				case KeyCode.F1:
+					return VirtualKeys.F1;
+				case KeyCode.F2:
+					return VirtualKeys.F2;
+				case KeyCode.F3:
+					return VirtualKeys.F3;
+				case KeyCode.F4:
+					return VirtualKeys.F4;
+				case KeyCode.F5:
+					return VirtualKeys.F5;
+				case KeyCode.F6:
+					return VirtualKeys.F6;
+				case KeyCode.F7:
+					return VirtualKeys.F7;
+				case KeyCode.F8:
+					return VirtualKeys.F8;
+				case KeyCode.F9:
+					return VirtualKeys.F9;
+				case KeyCode.F10:
+					return VirtualKeys.F10;
+				case KeyCode.F11:
+					return VirtualKeys.F11;
+				case KeyCode.F12:
+					return VirtualKeys.F12;
+				case KeyCode.F13:
+					return VirtualKeys.F13;
+				case KeyCode.F14:
+					return VirtualKeys.F14;
+				case KeyCode.F15:
+					return VirtualKeys.F15;
+				case KeyCode.F16:
+					return VirtualKeys.F16;
+				case KeyCode.F17:
+					return VirtualKeys.F17;
+				case KeyCode.F18:
+					return VirtualKeys.F18;
+				case KeyCode.F19:
+					return VirtualKeys.F19;
+				case KeyCode.F20:
+					return VirtualKeys.F20;
+				case KeyCode.F21:
+					return VirtualKeys.F21;
+				case KeyCode.F22:
+					return VirtualKeys.F22;
+				case KeyCode.F23:
+					return VirtualKeys.F23;
+				case KeyCode.F24:
+					return VirtualKeys.F24;
+				case KeyCode.NumLock:
+					return VirtualKeys.NumLock;
+				case KeyCode.ScrollLock:
+					return VirtualKeys.ScrollLock;
+				default:
+					throw new NotSupportedException("unsupported key code " + key);
 			}
 		}
 
@@ -2691,6 +2864,27 @@ namespace OpenGL.CoreUI
 		}
 
 		/// <summary>
+		/// Emulates the key pressed event.
+		/// </summary>
+		/// <param name="key">
+		/// The <see cref="KeyCode"/> indicating what key is emulated.
+		/// </param>
+		/// <remarks>
+		/// This method is mainly used for testing, but it may be useful for some application.
+		/// </remarks>
+		public override void EmulatesKeyPress(KeyCode key)
+		{
+			CheckHandle();
+
+			// Determine arguments
+			VirtualKeys virtualKey = ToVirtualKeys(key);
+
+			// Event sequence
+			UnsafeNativeMethods.SendMessage(_Handle, WM.KEYDOWN, new IntPtr((uint)virtualKey), IntPtr.Zero);
+			UnsafeNativeMethods.SendMessage(_Handle, WM.KEYUP,   new IntPtr((uint)virtualKey), IntPtr.Zero);
+		}
+
+		/// <summary>
 		/// Get or set the cursor visibility.
 		/// </summary>
 		public override bool CursorVisible
@@ -2703,6 +2897,71 @@ namespace OpenGL.CoreUI
 		/// Flag indicating the cursor visibility.
 		/// </summary>
 		private bool _CursorVisible;
+
+		/// <summary>
+		/// Emulates the mouse move event.
+		/// </summary>
+		/// <param name="location">
+		/// The <see cref="Point"/> indicating the location of the mouse at the event.
+		/// </param>
+		/// <remarks>
+		/// This method is mainly used for testing, but it may be useful for some application.
+		/// </remarks>
+		public override void EmulatesMouseMove(Point location)
+		{
+
+		}
+
+		/// <summary>
+		/// Emulates the mouse buttons pressed event.
+		/// </summary>
+		/// <param name="location">
+		/// The <see cref="Point"/> indicating the location of the mouse at the event.
+		/// </param>
+		/// <param name="buttons">
+		/// The <see cref="MouseButton"/> indicating the buttons pressed at the event.
+		/// </param>
+		/// <remarks>
+		/// This method is mainly used for testing, but it may be useful for some application.
+		/// </remarks>
+		public override void EmulatesMouseButtonClick(Point location, MouseButton buttons)
+		{
+
+		}
+
+		/// <summary>
+		/// Emulates the mouse buttons double-pressed event.
+		/// </summary>
+		/// <param name="location">
+		/// The <see cref="Point"/> indicating the location of the mouse at the event.
+		/// </param>
+		/// <param name="buttons">
+		/// The <see cref="MouseButton"/> indicating the buttons double-pressed at the event.
+		/// </param>
+		/// <remarks>
+		/// This method is mainly used for testing, but it may be useful for some application.
+		/// </remarks>
+		public override void EmulatesMouseButtonDoubleClick(Point location, MouseButton buttons)
+		{
+
+		}
+
+		/// <summary>
+		/// Emulates the mouse buttons wheel event.
+		/// </summary>
+		/// <param name="location">
+		/// The <see cref="Point"/> indicating the location of the mouse at the event.
+		/// </param>
+		/// <param name="ticks">
+		/// The <see cref="Int32"/> indicating the the wheel ticks.
+		/// </param>
+		/// <remarks>
+		/// This method is mainly used for testing, but it may be useful for some application.
+		/// </remarks>
+		public override void EmulatesMouseWheel(Point location, int ticks)
+		{
+
+		}
 
 		/// <summary>
 		/// Performs application-defined tasks associated with freeing, releasing, or resetting managed/unmanaged resources.
