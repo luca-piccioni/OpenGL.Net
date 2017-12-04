@@ -19,6 +19,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+using System;
+
 namespace OpenGL.CoreUI
 {
 	/// <summary>
@@ -93,6 +95,101 @@ namespace OpenGL.CoreUI
 		/// Represents a Point that has X and Y values set to zero.
 		/// </summary>
 		public static readonly Point Empty = new Point(0, 0);
+
+		#endregion
+
+		#region Equality Operators
+
+		/// <summary>
+		/// Equality operator.
+		/// </summary>
+		/// <param name="v1"></param>
+		/// <param name="v2"></param>
+		/// <returns></returns>
+		public static bool operator ==(Point v1, Point v2)
+		{
+			return (v1.Equals(v2));
+		}
+
+		/// <summary>
+		/// Inequality operator.
+		/// </summary>
+		/// <param name="v1"></param>
+		/// <param name="v2"></param>
+		/// <returns></returns>
+		public static bool operator !=(Point v1, Point v2)
+		{
+			return (!v1.Equals(v2));
+		}
+
+		#endregion
+
+		#region IEquatable Implementation
+
+		/// <summary>
+		/// Indicates whether the this Point is equal to another Size.
+		/// </summary>
+		/// <param name="other">
+		/// The <see cref="Point"/> to compare with this Point.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this Point is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(Point other)
+		{
+			return (X == other.X && Y == other.Y);
+		}
+
+		/// <summary>
+		/// Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+		/// </summary>
+		/// <param name="obj">
+		/// The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>.
+		/// </param>
+		/// <returns>
+		/// It returns true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+		/// </returns>
+		public override bool Equals(object obj)
+		{
+			if (ReferenceEquals(null, obj))
+				return (false);
+			if (obj.GetType() != typeof(Point))
+				return (false);
+			
+			return (Equals((Point)obj));
+		}
+
+		/// <summary>
+		/// Serves as a hash function for a particular type. <see cref="M:System.Object.GetHashCode"/> is suitable for
+		/// use in hashing algorithms and data structures like a hash table.
+		/// </summary>
+		/// <returns>
+		/// A hash code for the current <see cref="T:System.Object"/>.
+		/// </returns>
+		public override int GetHashCode()
+		{
+			unchecked {
+				int result = X.GetHashCode();
+				result = (result * 397) ^ Y.GetHashCode();
+
+				return result;
+			}
+		}
+
+		#endregion
+
+		#region Object Overrides
+
+		/// <summary>
+		/// Stringify this Point.
+		/// </summary>
+		/// <returns>
+		/// Returns a <see cref="String"/> that represents this Point.
+		/// </returns>
+		public override string ToString()
+		{
+			return (String.Format("Point: {0}x{1}", X, Y));
+		}
 
 		#endregion
 	}
