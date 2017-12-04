@@ -2256,6 +2256,22 @@ namespace OpenGL.CoreUI
 
 		#endregion
 
+		#region Multithreading
+
+		/// <summary>
+		/// The ID of the thread that has created the window.
+		/// </summary>
+		private uint _OwnerThread;
+
+		/// <summary>
+		/// Get the current thread ID.
+		/// </summary>
+		/// <returns></returns>
+		[DllImport("kernel32.dll")]
+		private static extern uint GetCurrentThreadId();
+
+		#endregion
+
 		#region Error Checking
 
 		private void CheckHandle()
@@ -2268,6 +2284,12 @@ namespace OpenGL.CoreUI
 		{
 			if (Fullscreen)
 				throw new InvalidOperationException("fullscreen");
+		}
+
+		private void CheckThread()
+		{
+			if (GetCurrentThreadId() != _OwnerThread)
+				throw new InvalidOperationException("cross-thread operation not allowed");
 		}
 
 		#endregion
@@ -2344,6 +2366,8 @@ namespace OpenGL.CoreUI
 
 			if (_Handle == IntPtr.Zero)
 				throw new Win32Exception(Marshal.GetLastWin32Error());
+
+			_OwnerThread = GetCurrentThreadId();
 		}
 
 		/// <summary>
@@ -2420,6 +2444,7 @@ namespace OpenGL.CoreUI
 			}
 			set {
 				CheckHandle();
+				CheckThread();
 				CheckNotFullscreen();
 
 				const SetWindowPosFlags windowPosFlags =
@@ -2437,6 +2462,7 @@ namespace OpenGL.CoreUI
 		{
 			get {
 				CheckHandle();
+				CheckThread();
 
 				RECT clientSize = new RECT();
 
@@ -2446,10 +2472,8 @@ namespace OpenGL.CoreUI
 			}
 			set {
 				CheckHandle();
+				CheckThread();
 				CheckNotFullscreen();
-
-				if (Fullscreen)
-					throw new InvalidOperationException("fullscreen");
 
 				const SetWindowPosFlags windowPosFlags =
 					SetWindowPosFlags.SWP_NOMOVE | SetWindowPosFlags.SWP_NOZORDER | SetWindowPosFlags.SWP_NOACTIVATE |
@@ -2504,6 +2528,7 @@ namespace OpenGL.CoreUI
 		public override void Show()
 		{
 			CheckHandle();
+			CheckThread();
 
 			UnsafeNativeMethods.ShowWindow(_Handle, WindowShowStyle.Show);
 			Invalidate();
@@ -2515,6 +2540,7 @@ namespace OpenGL.CoreUI
 		public override void Hide()
 		{
 			CheckHandle();
+			CheckThread();
 
 			UnsafeNativeMethods.ShowWindow(_Handle, WindowShowStyle.Hide);
 		}
@@ -2535,6 +2561,7 @@ namespace OpenGL.CoreUI
 			get
 			{
 				CheckHandle();
+				CheckThread();
 
 				WindowStyles win32Style = (WindowStyles)UnsafeNativeMethods.GetWindowLong(_Handle, SetWindowLongIndex.GWL_STYLE);
 
@@ -2544,6 +2571,7 @@ namespace OpenGL.CoreUI
 			{
 				CheckHandle();
 				CheckNotFullscreen();
+				CheckThread();
 
 				NativeWindowStyle styles = value;
 
@@ -2567,12 +2595,15 @@ namespace OpenGL.CoreUI
 		{
 			get
 			{
+				// Not required, but keep API behavior
 				CheckHandle();
+				CheckThread();
 
 				return (_Fullscreen);
 			}
 			set {
 				CheckHandle();
+				CheckThread();
 
 				if (_Fullscreen == value)
 					return;
@@ -2653,6 +2684,7 @@ namespace OpenGL.CoreUI
 		public override void Invalidate()
 		{
 			CheckHandle();
+			CheckThread();
 
 			UnsafeNativeMethods.InvalidateRect(_Handle, IntPtr.Zero, true);
 			UnsafeNativeMethods.UpdateWindow(_Handle);
@@ -2680,18 +2712,22 @@ namespace OpenGL.CoreUI
 		/// </param>
 		protected override void Dispose(bool disposing)
 		{
-			// In case Run() wan't called
-			DeleteContext();
-			DestroyDeviceContext();
+			if (disposing) {
+				DeleteContext();
+				DestroyDeviceContext();
 
-			if (_Handle != IntPtr.Zero) {
-				UnsafeNativeMethods.DestroyWindow(_Handle);
-				_Handle = IntPtr.Zero;
-			}
+				if (_Handle != IntPtr.Zero) {
+					CheckThread();
 
-			if (_ClassAtom != 0) {
-				UnsafeNativeMethods.UnregisterClass(_ClassAtom, _HInstance);
-				_ClassAtom = 0;
+					UnsafeNativeMethods.DestroyWindow(_Handle);
+					_Handle = IntPtr.Zero;
+					_OwnerThread = 0;
+				}
+
+				if (_ClassAtom != 0) {
+					UnsafeNativeMethods.UnregisterClass(_ClassAtom, _HInstance);
+					_ClassAtom = 0;
+				}
 			}
 
 			// Base implementation
