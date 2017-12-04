@@ -34,10 +34,220 @@ namespace OpenGL.CoreUI.Test
 			using (NativeWindow nativeWindow = NativeWindow.Create()) {
 				// Handle is not created after instantiation
 				Assert.AreEqual(IntPtr.Zero, nativeWindow.Handle);
+
+				// Note: test Dispose() without Create()
 			}
 		}
 
-		[Test(Description = "Test NativeWindow.Create(int,int,uint,uint)")]
+		[Test(Description = "Test NativeWindow.Create(): no Dispose()")]
+		public void TestFactory_Leak()
+		{
+			NativeWindow nativeWindow = NativeWindow.Create();
+
+			Assert.AreEqual(IntPtr.Zero, nativeWindow.Handle);
+
+			// Do not dispose
+			nativeWindow = null;
+			GC.Collect();
+
+			// Note: no exception should be thrown by finalizer
+		}
+
+		[Test(Description = "Test NativeWindow.ContextVersion")]
+		public void TestContextVersion()
+		{
+			using (NativeWindow nativeWindow = NativeWindow.Create()) {
+				// By default, is it null
+				Assert.IsNull(nativeWindow.ContextVersion);
+
+				nativeWindow.ContextVersion = Gl.Version_100;
+				Assert.AreEqual(Gl.Version_100, nativeWindow.ContextVersion);
+
+				nativeWindow.ContextVersion = Gl.Version_460;
+				Assert.AreEqual(Gl.Version_460, nativeWindow.ContextVersion);
+
+				// Nullable
+				nativeWindow.ContextVersion = null;
+				Assert.IsNull(nativeWindow.ContextVersion);
+			}
+		}
+
+		[Test(Description = "Test NativeWindow.DebugContext")]
+		public void TestDebugContext()
+		{
+			using (NativeWindow nativeWindow = NativeWindow.Create()) {
+				// By default, is it EnabledInDebugger
+				Assert.AreEqual(NativeWindow.AttributePermission.EnabledInDebugger, nativeWindow.DebugContext);
+
+				nativeWindow.DebugContext = NativeWindow.AttributePermission.DonCare;
+				Assert.AreEqual(NativeWindow.AttributePermission.DonCare, nativeWindow.DebugContext);
+			}
+		}
+
+		[Test(Description = "Test NativeWindow.ForwardCompatibleContext")]
+		public void TestForwardCompatibleContext()
+		{
+			using (NativeWindow nativeWindow = NativeWindow.Create()) {
+				// By default, is it DonCare
+				Assert.AreEqual(NativeWindow.AttributePermission.DonCare, nativeWindow.ForwardCompatibleContext);
+
+				nativeWindow.ForwardCompatibleContext = NativeWindow.AttributePermission.Enabled;
+				Assert.AreEqual(NativeWindow.AttributePermission.Enabled, nativeWindow.ForwardCompatibleContext);
+			}
+		}
+
+		[Test(Description = "Test NativeWindow.RobustContext")]
+		public void TestForwardRobustContext()
+		{
+			using (NativeWindow nativeWindow = NativeWindow.Create()) {
+				// By default, is it DonCare
+				Assert.AreEqual(NativeWindow.AttributePermission.DonCare, nativeWindow.RobustContext);
+
+				nativeWindow.RobustContext = NativeWindow.AttributePermission.Enabled;
+				Assert.AreEqual(NativeWindow.AttributePermission.Enabled, nativeWindow.RobustContext);
+			}
+		}
+
+		[Test(Description = "Test NativeWindow.ColorBits")]
+		public void TestColorBits()
+		{
+			using (NativeWindow nativeWindow = NativeWindow.Create()) {
+				// By default, 24 bits as usual
+				Assert.AreEqual(24, nativeWindow.ColorBits);
+
+				nativeWindow.ColorBits = 16;
+				Assert.AreEqual(16, nativeWindow.ColorBits);
+
+				// Arbitrary values are accepted
+				nativeWindow.ColorBits = 64;
+				Assert.AreEqual(64, nativeWindow.ColorBits);
+
+				// Event zero is accepted
+				nativeWindow.ColorBits = 0;
+				Assert.AreEqual(0, nativeWindow.ColorBits);
+			}
+		}
+
+		[Test(Description = "Test NativeWindow.DepthBits")]
+		public void TestDepthBits()
+		{
+			using (NativeWindow nativeWindow = NativeWindow.Create()) {
+				// By default, no depth buffer
+				Assert.AreEqual(0, nativeWindow.DepthBits);
+
+				nativeWindow.DepthBits = 24;
+				Assert.AreEqual(24, nativeWindow.DepthBits);
+			}
+		}
+
+		[Test(Description = "Test NativeWindow.StencilBits")]
+		public void TestStencilBits()
+		{
+			using (NativeWindow nativeWindow = NativeWindow.Create()) {
+				// By default, no stencil buffer
+				Assert.AreEqual(0, nativeWindow.StencilBits);
+
+				nativeWindow.StencilBits = 24;
+				Assert.AreEqual(24, nativeWindow.StencilBits);
+			}
+		}
+
+		[Test(Description = "Test NativeWindow.MultisampleBits")]
+		public void TestMultisampleBits()
+		{
+			using (NativeWindow nativeWindow = NativeWindow.Create()) {
+				// By default, no multisample
+				Assert.AreEqual(0, nativeWindow.MultisampleBits);
+
+				nativeWindow.MultisampleBits = 8;
+				Assert.AreEqual(8, nativeWindow.MultisampleBits);
+			}
+		}
+
+		[Test(Description = "Test NativeWindow.DoubleBuffer")]
+		public void TestDoubleBuffer()
+		{
+			using (NativeWindow nativeWindow = NativeWindow.Create()) {
+				// By default, double buffering
+				Assert.AreEqual(true, nativeWindow.DoubleBuffer);
+
+				nativeWindow.DoubleBuffer = false;
+				Assert.AreEqual(false, nativeWindow.DoubleBuffer);
+			}
+		}
+
+		[Test(Description = "Test NativeWindow.SwapInterval")]
+		public void TestSwapInterval()
+		{
+			using (NativeWindow nativeWindow = NativeWindow.Create()) {
+				// By default, V-Sync enabled
+				Assert.AreEqual(1, nativeWindow.SwapInterval);
+
+				nativeWindow.SwapInterval = 0;
+				Assert.AreEqual(0, nativeWindow.SwapInterval);
+			}
+		}
+
+		[Test(Description = "Test NativeWindow.Animation"), Timeout(8000)]
+		public void TestAnimation()
+		{
+			using (NativeWindow nativeWindow = NativeWindow.Create()) {
+				// By default, no animation
+				Assert.AreEqual(false, nativeWindow.Animation);
+
+				// Runtime functionality
+				int render = 0;
+
+				nativeWindow.Animation = true;
+				Assert.AreEqual(true, nativeWindow.Animation);
+
+				nativeWindow.Create(0, 0, 128, 128, NativeWindowStyle.Overlapped);
+
+				// Must be visible
+				nativeWindow.Show();
+
+				nativeWindow.Render += (obj, e) => render++;
+				Assert.AreEqual(0, render);
+
+				// Run for 0.5 secs
+				using (Timer closeWindowTimer = new Timer(obj => ((NativeWindow)obj).Stop(), nativeWindow, 500, Timeout.Infinite)) {
+					render = 0;
+
+					nativeWindow.Run();
+				}
+
+				// More than 1 frame drawn
+				Assert.Greater(render, 1);
+
+				// Run for 1 sec, but at 0.5 secs starts animation
+				nativeWindow.Animation = false;
+
+				using (Timer closeWindowTimer = new Timer(obj => ((NativeWindow)obj).Stop(), nativeWindow, 1000, Timeout.Infinite)) {
+					using (Timer animationTimer = new Timer(obj => ((NativeWindow)obj).Animation = true, nativeWindow, 500, Timeout.Infinite)) {
+						render = 0;
+
+						nativeWindow.Run();
+					}
+				}
+
+				// More than 1 frame drawn
+				Assert.Greater(render, 1);
+			}
+		}
+
+		[Test(Description = "Test NativeWindow.AnimationTime")]
+		public void TestAnimationTime()
+		{
+			using (NativeWindow nativeWindow = NativeWindow.Create()) {
+				// By default, continuos animation
+				Assert.AreEqual(0, nativeWindow.AnimationTime);
+
+				nativeWindow.AnimationTime = 10;
+				Assert.AreEqual(10, nativeWindow.AnimationTime);
+			}
+		}
+
+		[Test(Description = "Test NativeWindow.Create(int,int,uint,uint,NativeWindowStyle)")]
 		public void TestCreate()
 		{
 			NativeWindow nativeWindow;
@@ -58,6 +268,20 @@ namespace OpenGL.CoreUI.Test
 
 			// Disposition causes GL context disposition
 			Assert.IsTrue(contextDestroying);
+		}
+
+		[Test(Description = "Test NativeWindow.CreateDeviceContext(): multisample fallback")]
+		public void TestCreateDeviceContext_MultisampleFallback()
+		{
+			const uint ImpossibleMultisampleBits = 2048;
+
+			using (NativeWindow nativeWindow = NativeWindow.Create()) {
+				// Requires too much multisampling...
+				nativeWindow.MultisampleBits = ImpossibleMultisampleBits;
+
+				Assert.DoesNotThrow(() => nativeWindow.Create(0, 0, 128, 128, NativeWindowStyle.Overlapped));
+				Assert.LessOrEqual(nativeWindow.MultisampleBits, ImpossibleMultisampleBits);
+			}
 		}
 
 		[Test(Description = "Test NativeWindow.Run()"), Timeout(1000)]
@@ -153,6 +377,37 @@ namespace OpenGL.CoreUI.Test
 
 			window.Styles = window.Styles & ~style;
 			Assert.AreEqual(NativeWindowStyle.None, window.Styles & style);
+		}
+
+		[Test(Description = "Test NativeWindow.Fullscreen")]
+		public void TestFullscreen()
+		{
+			using (NativeWindow nativeWindow = NativeWindow.Create()) {
+				nativeWindow.Create(0, 0, 640, 480, NativeWindowStyle.None);
+
+				Assert.IsFalse(nativeWindow.Fullscreen);
+
+				nativeWindow.Fullscreen = true;
+				Assert.IsTrue(nativeWindow.Fullscreen);
+
+				Point p;
+				Size s;
+				NativeWindowStyle styles;
+
+				// Getters are not affected by Fullscreen state
+				Assert.DoesNotThrow(() => p = nativeWindow.Location);
+				Assert.DoesNotThrow(() => s = nativeWindow.ClientSize);
+				Assert.DoesNotThrow(() => styles = nativeWindow.Styles);
+				// Setters throws InvalidOperationException
+				Assert.Throws<InvalidOperationException>(() => nativeWindow.Location = Point.Empty);
+				Assert.Throws<InvalidOperationException>(() => nativeWindow.ClientSize = new Size(256, 256));
+				Assert.Throws<InvalidOperationException>(() => nativeWindow.Styles = nativeWindow.Styles);
+				Assert.Throws<InvalidOperationException>(() => nativeWindow.Styles = NativeWindowStyle.Overlapped);
+
+				nativeWindow.Fullscreen = false;
+				Assert.IsFalse(nativeWindow.Fullscreen);
+
+			}
 		}
 
 		[Test(Description = "Test NativeWindow.Invalidate()")]
