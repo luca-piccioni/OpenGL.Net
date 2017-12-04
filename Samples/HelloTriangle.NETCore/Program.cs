@@ -10,7 +10,7 @@ namespace HelloTriangle.NETCore
 		static void Main(string[] args)
 		{
 			using (NativeWindow nativeWindow = NativeWindow.Create()) {
-				nativeWindow.Create(0, 0, 256, 256);
+				nativeWindow.Create(0, 0, 256, 256, NativeWindowStyle.Overlapped);
 				nativeWindow.Show();
 				nativeWindow.Run();
 			}
