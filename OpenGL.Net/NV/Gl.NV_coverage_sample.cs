@@ -111,10 +111,10 @@ namespace OpenGL
 		/// [GL] glCoverageOperationNV: Binding for glCoverageOperationNV.
 		/// </summary>
 		/// <param name="operation">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_coverage_sample", Api = "gles2")]
-		public static void CoverageOpNV(Int32 operation)
+		public static void CoverageOpNV(int operation)
 		{
 			Debug.Assert(Delegates.pglCoverageOperationNV != null, "pglCoverageOperationNV not implemented");
 			Delegates.pglCoverageOperationNV(operation);
@@ -134,7 +134,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_coverage_sample", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glCoverageOperationNV(Int32 operation);
+			internal delegate void glCoverageOperationNV(int operation);
 
 			[RequiredByFeature("GL_NV_coverage_sample", Api = "gles2")]
 			[ThreadStatic]

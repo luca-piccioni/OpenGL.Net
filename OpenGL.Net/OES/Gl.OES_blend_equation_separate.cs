@@ -50,7 +50,7 @@ namespace OpenGL
 		public static void BlendEquationSeparateOES(BlendEquationMode modeRGB, BlendEquationMode modeAlpha)
 		{
 			Debug.Assert(Delegates.pglBlendEquationSeparateOES != null, "pglBlendEquationSeparateOES not implemented");
-			Delegates.pglBlendEquationSeparateOES((Int32)modeRGB, (Int32)modeAlpha);
+			Delegates.pglBlendEquationSeparateOES((int)modeRGB, (int)modeAlpha);
 			LogCommand("glBlendEquationSeparateOES", null, modeRGB, modeAlpha			);
 			DebugCheckErrors(null);
 		}
@@ -59,7 +59,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_OES_blend_equation_separate", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glBlendEquationSeparateOES(Int32 modeRGB, Int32 modeAlpha);
+			internal delegate void glBlendEquationSeparateOES(int modeRGB, int modeAlpha);
 
 			[RequiredByFeature("GL_OES_blend_equation_separate", Api = "gles1")]
 			[ThreadStatic]

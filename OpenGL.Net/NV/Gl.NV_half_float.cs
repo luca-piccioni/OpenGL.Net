@@ -41,13 +41,13 @@ namespace OpenGL
 		/// [GL] glVertex2hNV: Binding for glVertex2hNV.
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void Vertex2hNV(UInt16 x, UInt16 y)
+		public static void Vertex2hNV(ushort x, ushort y)
 		{
 			Debug.Assert(Delegates.pglVertex2hNV != null, "pglVertex2hNV not implemented");
 			Delegates.pglVertex2hNV(x, y);
@@ -59,14 +59,14 @@ namespace OpenGL
 		/// [GL] glVertex2hvNV: Binding for glVertex2hvNV.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="T:UInt16[]"/>.
+		/// A <see cref="T:ushort[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void Vertex2hNV(UInt16[] v)
+		public static void Vertex2hNV(ushort[] v)
 		{
 			Debug.Assert(v.Length >= 2);
 			unsafe {
-				fixed (UInt16* p_v = v)
+				fixed (ushort* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertex2hvNV != null, "pglVertex2hvNV not implemented");
 					Delegates.pglVertex2hvNV(p_v);
@@ -80,16 +80,16 @@ namespace OpenGL
 		/// [GL] glVertex3hNV: Binding for glVertex3hNV.
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void Vertex3hNV(UInt16 x, UInt16 y, UInt16 z)
+		public static void Vertex3hNV(ushort x, ushort y, ushort z)
 		{
 			Debug.Assert(Delegates.pglVertex3hNV != null, "pglVertex3hNV not implemented");
 			Delegates.pglVertex3hNV(x, y, z);
@@ -101,14 +101,14 @@ namespace OpenGL
 		/// [GL] glVertex3hvNV: Binding for glVertex3hvNV.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="T:UInt16[]"/>.
+		/// A <see cref="T:ushort[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void Vertex3hNV(UInt16[] v)
+		public static void Vertex3hNV(ushort[] v)
 		{
 			Debug.Assert(v.Length >= 3);
 			unsafe {
-				fixed (UInt16* p_v = v)
+				fixed (ushort* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertex3hvNV != null, "pglVertex3hvNV not implemented");
 					Delegates.pglVertex3hvNV(p_v);
@@ -122,19 +122,19 @@ namespace OpenGL
 		/// [GL] glVertex4hNV: Binding for glVertex4hNV.
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		/// <param name="w">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void Vertex4hNV(UInt16 x, UInt16 y, UInt16 z, UInt16 w)
+		public static void Vertex4hNV(ushort x, ushort y, ushort z, ushort w)
 		{
 			Debug.Assert(Delegates.pglVertex4hNV != null, "pglVertex4hNV not implemented");
 			Delegates.pglVertex4hNV(x, y, z, w);
@@ -146,14 +146,14 @@ namespace OpenGL
 		/// [GL] glVertex4hvNV: Binding for glVertex4hvNV.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="T:UInt16[]"/>.
+		/// A <see cref="T:ushort[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void Vertex4hNV(UInt16[] v)
+		public static void Vertex4hNV(ushort[] v)
 		{
 			Debug.Assert(v.Length >= 4);
 			unsafe {
-				fixed (UInt16* p_v = v)
+				fixed (ushort* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertex4hvNV != null, "pglVertex4hvNV not implemented");
 					Delegates.pglVertex4hvNV(p_v);
@@ -167,16 +167,16 @@ namespace OpenGL
 		/// [GL] glNormal3hNV: Binding for glNormal3hNV.
 		/// </summary>
 		/// <param name="nx">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		/// <param name="ny">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		/// <param name="nz">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void Normal3hNV(UInt16 nx, UInt16 ny, UInt16 nz)
+		public static void Normal3hNV(ushort nx, ushort ny, ushort nz)
 		{
 			Debug.Assert(Delegates.pglNormal3hNV != null, "pglNormal3hNV not implemented");
 			Delegates.pglNormal3hNV(nx, ny, nz);
@@ -188,14 +188,14 @@ namespace OpenGL
 		/// [GL] glNormal3hvNV: Binding for glNormal3hvNV.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="T:UInt16[]"/>.
+		/// A <see cref="T:ushort[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void Normal3hNV(UInt16[] v)
+		public static void Normal3hNV(ushort[] v)
 		{
 			Debug.Assert(v.Length >= 3);
 			unsafe {
-				fixed (UInt16* p_v = v)
+				fixed (ushort* p_v = v)
 				{
 					Debug.Assert(Delegates.pglNormal3hvNV != null, "pglNormal3hvNV not implemented");
 					Delegates.pglNormal3hvNV(p_v);
@@ -209,16 +209,16 @@ namespace OpenGL
 		/// [GL] glColor3hNV: Binding for glColor3hNV.
 		/// </summary>
 		/// <param name="red">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		/// <param name="green">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		/// <param name="blue">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void Color3hNV(UInt16 red, UInt16 green, UInt16 blue)
+		public static void Color3hNV(ushort red, ushort green, ushort blue)
 		{
 			Debug.Assert(Delegates.pglColor3hNV != null, "pglColor3hNV not implemented");
 			Delegates.pglColor3hNV(red, green, blue);
@@ -230,14 +230,14 @@ namespace OpenGL
 		/// [GL] glColor3hvNV: Binding for glColor3hvNV.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="T:UInt16[]"/>.
+		/// A <see cref="T:ushort[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void Color3hNV(UInt16[] v)
+		public static void Color3hNV(ushort[] v)
 		{
 			Debug.Assert(v.Length >= 3);
 			unsafe {
-				fixed (UInt16* p_v = v)
+				fixed (ushort* p_v = v)
 				{
 					Debug.Assert(Delegates.pglColor3hvNV != null, "pglColor3hvNV not implemented");
 					Delegates.pglColor3hvNV(p_v);
@@ -251,19 +251,19 @@ namespace OpenGL
 		/// [GL] glColor4hNV: Binding for glColor4hNV.
 		/// </summary>
 		/// <param name="red">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		/// <param name="green">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		/// <param name="blue">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		/// <param name="alpha">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void Color4hNV(UInt16 red, UInt16 green, UInt16 blue, UInt16 alpha)
+		public static void Color4hNV(ushort red, ushort green, ushort blue, ushort alpha)
 		{
 			Debug.Assert(Delegates.pglColor4hNV != null, "pglColor4hNV not implemented");
 			Delegates.pglColor4hNV(red, green, blue, alpha);
@@ -275,14 +275,14 @@ namespace OpenGL
 		/// [GL] glColor4hvNV: Binding for glColor4hvNV.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="T:UInt16[]"/>.
+		/// A <see cref="T:ushort[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void Color4hNV(UInt16[] v)
+		public static void Color4hNV(ushort[] v)
 		{
 			Debug.Assert(v.Length >= 4);
 			unsafe {
-				fixed (UInt16* p_v = v)
+				fixed (ushort* p_v = v)
 				{
 					Debug.Assert(Delegates.pglColor4hvNV != null, "pglColor4hvNV not implemented");
 					Delegates.pglColor4hvNV(p_v);
@@ -296,10 +296,10 @@ namespace OpenGL
 		/// [GL] glTexCoord1hNV: Binding for glTexCoord1hNV.
 		/// </summary>
 		/// <param name="s">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void TexCoord1hNV(UInt16 s)
+		public static void TexCoord1hNV(ushort s)
 		{
 			Debug.Assert(Delegates.pglTexCoord1hNV != null, "pglTexCoord1hNV not implemented");
 			Delegates.pglTexCoord1hNV(s);
@@ -311,14 +311,14 @@ namespace OpenGL
 		/// [GL] glTexCoord1hvNV: Binding for glTexCoord1hvNV.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="T:UInt16[]"/>.
+		/// A <see cref="T:ushort[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void TexCoord1hNV(UInt16[] v)
+		public static void TexCoord1hNV(ushort[] v)
 		{
 			Debug.Assert(v.Length >= 1);
 			unsafe {
-				fixed (UInt16* p_v = v)
+				fixed (ushort* p_v = v)
 				{
 					Debug.Assert(Delegates.pglTexCoord1hvNV != null, "pglTexCoord1hvNV not implemented");
 					Delegates.pglTexCoord1hvNV(p_v);
@@ -332,13 +332,13 @@ namespace OpenGL
 		/// [GL] glTexCoord2hNV: Binding for glTexCoord2hNV.
 		/// </summary>
 		/// <param name="s">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		/// <param name="t">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void TexCoord2hNV(UInt16 s, UInt16 t)
+		public static void TexCoord2hNV(ushort s, ushort t)
 		{
 			Debug.Assert(Delegates.pglTexCoord2hNV != null, "pglTexCoord2hNV not implemented");
 			Delegates.pglTexCoord2hNV(s, t);
@@ -350,14 +350,14 @@ namespace OpenGL
 		/// [GL] glTexCoord2hvNV: Binding for glTexCoord2hvNV.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="T:UInt16[]"/>.
+		/// A <see cref="T:ushort[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void TexCoord2hNV(UInt16[] v)
+		public static void TexCoord2hNV(ushort[] v)
 		{
 			Debug.Assert(v.Length >= 2);
 			unsafe {
-				fixed (UInt16* p_v = v)
+				fixed (ushort* p_v = v)
 				{
 					Debug.Assert(Delegates.pglTexCoord2hvNV != null, "pglTexCoord2hvNV not implemented");
 					Delegates.pglTexCoord2hvNV(p_v);
@@ -371,16 +371,16 @@ namespace OpenGL
 		/// [GL] glTexCoord3hNV: Binding for glTexCoord3hNV.
 		/// </summary>
 		/// <param name="s">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		/// <param name="t">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		/// <param name="r">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void TexCoord3hNV(UInt16 s, UInt16 t, UInt16 r)
+		public static void TexCoord3hNV(ushort s, ushort t, ushort r)
 		{
 			Debug.Assert(Delegates.pglTexCoord3hNV != null, "pglTexCoord3hNV not implemented");
 			Delegates.pglTexCoord3hNV(s, t, r);
@@ -392,14 +392,14 @@ namespace OpenGL
 		/// [GL] glTexCoord3hvNV: Binding for glTexCoord3hvNV.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="T:UInt16[]"/>.
+		/// A <see cref="T:ushort[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void TexCoord3hNV(UInt16[] v)
+		public static void TexCoord3hNV(ushort[] v)
 		{
 			Debug.Assert(v.Length >= 3);
 			unsafe {
-				fixed (UInt16* p_v = v)
+				fixed (ushort* p_v = v)
 				{
 					Debug.Assert(Delegates.pglTexCoord3hvNV != null, "pglTexCoord3hvNV not implemented");
 					Delegates.pglTexCoord3hvNV(p_v);
@@ -413,19 +413,19 @@ namespace OpenGL
 		/// [GL] glTexCoord4hNV: Binding for glTexCoord4hNV.
 		/// </summary>
 		/// <param name="s">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		/// <param name="t">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		/// <param name="r">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		/// <param name="q">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void TexCoord4hNV(UInt16 s, UInt16 t, UInt16 r, UInt16 q)
+		public static void TexCoord4hNV(ushort s, ushort t, ushort r, ushort q)
 		{
 			Debug.Assert(Delegates.pglTexCoord4hNV != null, "pglTexCoord4hNV not implemented");
 			Delegates.pglTexCoord4hNV(s, t, r, q);
@@ -437,14 +437,14 @@ namespace OpenGL
 		/// [GL] glTexCoord4hvNV: Binding for glTexCoord4hvNV.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="T:UInt16[]"/>.
+		/// A <see cref="T:ushort[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void TexCoord4hNV(UInt16[] v)
+		public static void TexCoord4hNV(ushort[] v)
 		{
 			Debug.Assert(v.Length >= 4);
 			unsafe {
-				fixed (UInt16* p_v = v)
+				fixed (ushort* p_v = v)
 				{
 					Debug.Assert(Delegates.pglTexCoord4hvNV != null, "pglTexCoord4hvNV not implemented");
 					Delegates.pglTexCoord4hvNV(p_v);
@@ -461,13 +461,13 @@ namespace OpenGL
 		/// A <see cref="T:TextureUnit"/>.
 		/// </param>
 		/// <param name="s">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void MultiTexCoord1hNV(TextureUnit target, UInt16 s)
+		public static void MultiTexCoord1hNV(TextureUnit target, ushort s)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord1hNV != null, "pglMultiTexCoord1hNV not implemented");
-			Delegates.pglMultiTexCoord1hNV((Int32)target, s);
+			Delegates.pglMultiTexCoord1hNV((int)target, s);
 			LogCommand("glMultiTexCoord1hNV", null, target, s			);
 			DebugCheckErrors(null);
 		}
@@ -479,17 +479,17 @@ namespace OpenGL
 		/// A <see cref="T:TextureUnit"/>.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="T:UInt16[]"/>.
+		/// A <see cref="T:ushort[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void MultiTexCoord1hNV(TextureUnit target, UInt16[] v)
+		public static void MultiTexCoord1hNV(TextureUnit target, ushort[] v)
 		{
 			Debug.Assert(v.Length >= 1);
 			unsafe {
-				fixed (UInt16* p_v = v)
+				fixed (ushort* p_v = v)
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord1hvNV != null, "pglMultiTexCoord1hvNV not implemented");
-					Delegates.pglMultiTexCoord1hvNV((Int32)target, p_v);
+					Delegates.pglMultiTexCoord1hvNV((int)target, p_v);
 					LogCommand("glMultiTexCoord1hvNV", null, target, v					);
 				}
 			}
@@ -503,16 +503,16 @@ namespace OpenGL
 		/// A <see cref="T:TextureUnit"/>.
 		/// </param>
 		/// <param name="s">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		/// <param name="t">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void MultiTexCoord2hNV(TextureUnit target, UInt16 s, UInt16 t)
+		public static void MultiTexCoord2hNV(TextureUnit target, ushort s, ushort t)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord2hNV != null, "pglMultiTexCoord2hNV not implemented");
-			Delegates.pglMultiTexCoord2hNV((Int32)target, s, t);
+			Delegates.pglMultiTexCoord2hNV((int)target, s, t);
 			LogCommand("glMultiTexCoord2hNV", null, target, s, t			);
 			DebugCheckErrors(null);
 		}
@@ -524,17 +524,17 @@ namespace OpenGL
 		/// A <see cref="T:TextureUnit"/>.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="T:UInt16[]"/>.
+		/// A <see cref="T:ushort[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void MultiTexCoord2hNV(TextureUnit target, UInt16[] v)
+		public static void MultiTexCoord2hNV(TextureUnit target, ushort[] v)
 		{
 			Debug.Assert(v.Length >= 2);
 			unsafe {
-				fixed (UInt16* p_v = v)
+				fixed (ushort* p_v = v)
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord2hvNV != null, "pglMultiTexCoord2hvNV not implemented");
-					Delegates.pglMultiTexCoord2hvNV((Int32)target, p_v);
+					Delegates.pglMultiTexCoord2hvNV((int)target, p_v);
 					LogCommand("glMultiTexCoord2hvNV", null, target, v					);
 				}
 			}
@@ -548,19 +548,19 @@ namespace OpenGL
 		/// A <see cref="T:TextureUnit"/>.
 		/// </param>
 		/// <param name="s">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		/// <param name="t">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		/// <param name="r">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void MultiTexCoord3hNV(TextureUnit target, UInt16 s, UInt16 t, UInt16 r)
+		public static void MultiTexCoord3hNV(TextureUnit target, ushort s, ushort t, ushort r)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord3hNV != null, "pglMultiTexCoord3hNV not implemented");
-			Delegates.pglMultiTexCoord3hNV((Int32)target, s, t, r);
+			Delegates.pglMultiTexCoord3hNV((int)target, s, t, r);
 			LogCommand("glMultiTexCoord3hNV", null, target, s, t, r			);
 			DebugCheckErrors(null);
 		}
@@ -572,17 +572,17 @@ namespace OpenGL
 		/// A <see cref="T:TextureUnit"/>.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="T:UInt16[]"/>.
+		/// A <see cref="T:ushort[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void MultiTexCoord3hNV(TextureUnit target, UInt16[] v)
+		public static void MultiTexCoord3hNV(TextureUnit target, ushort[] v)
 		{
 			Debug.Assert(v.Length >= 3);
 			unsafe {
-				fixed (UInt16* p_v = v)
+				fixed (ushort* p_v = v)
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord3hvNV != null, "pglMultiTexCoord3hvNV not implemented");
-					Delegates.pglMultiTexCoord3hvNV((Int32)target, p_v);
+					Delegates.pglMultiTexCoord3hvNV((int)target, p_v);
 					LogCommand("glMultiTexCoord3hvNV", null, target, v					);
 				}
 			}
@@ -596,22 +596,22 @@ namespace OpenGL
 		/// A <see cref="T:TextureUnit"/>.
 		/// </param>
 		/// <param name="s">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		/// <param name="t">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		/// <param name="r">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		/// <param name="q">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void MultiTexCoord4hNV(TextureUnit target, UInt16 s, UInt16 t, UInt16 r, UInt16 q)
+		public static void MultiTexCoord4hNV(TextureUnit target, ushort s, ushort t, ushort r, ushort q)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord4hNV != null, "pglMultiTexCoord4hNV not implemented");
-			Delegates.pglMultiTexCoord4hNV((Int32)target, s, t, r, q);
+			Delegates.pglMultiTexCoord4hNV((int)target, s, t, r, q);
 			LogCommand("glMultiTexCoord4hNV", null, target, s, t, r, q			);
 			DebugCheckErrors(null);
 		}
@@ -623,17 +623,17 @@ namespace OpenGL
 		/// A <see cref="T:TextureUnit"/>.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="T:UInt16[]"/>.
+		/// A <see cref="T:ushort[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void MultiTexCoord4hNV(TextureUnit target, UInt16[] v)
+		public static void MultiTexCoord4hNV(TextureUnit target, ushort[] v)
 		{
 			Debug.Assert(v.Length >= 4);
 			unsafe {
-				fixed (UInt16* p_v = v)
+				fixed (ushort* p_v = v)
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord4hvNV != null, "pglMultiTexCoord4hvNV not implemented");
-					Delegates.pglMultiTexCoord4hvNV((Int32)target, p_v);
+					Delegates.pglMultiTexCoord4hvNV((int)target, p_v);
 					LogCommand("glMultiTexCoord4hvNV", null, target, v					);
 				}
 			}
@@ -644,10 +644,10 @@ namespace OpenGL
 		/// [GL] glFogCoordhNV: Binding for glFogCoordhNV.
 		/// </summary>
 		/// <param name="fog">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void FogCoordhNV(UInt16 fog)
+		public static void FogCoordhNV(ushort fog)
 		{
 			Debug.Assert(Delegates.pglFogCoordhNV != null, "pglFogCoordhNV not implemented");
 			Delegates.pglFogCoordhNV(fog);
@@ -659,14 +659,14 @@ namespace OpenGL
 		/// [GL] glFogCoordhvNV: Binding for glFogCoordhvNV.
 		/// </summary>
 		/// <param name="fog">
-		/// A <see cref="T:UInt16[]"/>.
+		/// A <see cref="T:ushort[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void FogCoordhNV(UInt16[] fog)
+		public static void FogCoordhNV(ushort[] fog)
 		{
 			Debug.Assert(fog.Length >= 1);
 			unsafe {
-				fixed (UInt16* p_fog = fog)
+				fixed (ushort* p_fog = fog)
 				{
 					Debug.Assert(Delegates.pglFogCoordhvNV != null, "pglFogCoordhvNV not implemented");
 					Delegates.pglFogCoordhvNV(p_fog);
@@ -680,16 +680,16 @@ namespace OpenGL
 		/// [GL] glSecondaryColor3hNV: Binding for glSecondaryColor3hNV.
 		/// </summary>
 		/// <param name="red">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		/// <param name="green">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		/// <param name="blue">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void SecondaryColor3hNV(UInt16 red, UInt16 green, UInt16 blue)
+		public static void SecondaryColor3hNV(ushort red, ushort green, ushort blue)
 		{
 			Debug.Assert(Delegates.pglSecondaryColor3hNV != null, "pglSecondaryColor3hNV not implemented");
 			Delegates.pglSecondaryColor3hNV(red, green, blue);
@@ -701,14 +701,14 @@ namespace OpenGL
 		/// [GL] glSecondaryColor3hvNV: Binding for glSecondaryColor3hvNV.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="T:UInt16[]"/>.
+		/// A <see cref="T:ushort[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void SecondaryColor3hNV(UInt16[] v)
+		public static void SecondaryColor3hNV(ushort[] v)
 		{
 			Debug.Assert(v.Length >= 3);
 			unsafe {
-				fixed (UInt16* p_v = v)
+				fixed (ushort* p_v = v)
 				{
 					Debug.Assert(Delegates.pglSecondaryColor3hvNV != null, "pglSecondaryColor3hvNV not implemented");
 					Delegates.pglSecondaryColor3hvNV(p_v);
@@ -722,10 +722,10 @@ namespace OpenGL
 		/// [GL] glVertexWeighthNV: Binding for glVertexWeighthNV.
 		/// </summary>
 		/// <param name="weight">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void VertexWeighthNV(UInt16 weight)
+		public static void VertexWeighthNV(ushort weight)
 		{
 			Debug.Assert(Delegates.pglVertexWeighthNV != null, "pglVertexWeighthNV not implemented");
 			Delegates.pglVertexWeighthNV(weight);
@@ -737,14 +737,14 @@ namespace OpenGL
 		/// [GL] glVertexWeighthvNV: Binding for glVertexWeighthvNV.
 		/// </summary>
 		/// <param name="weight">
-		/// A <see cref="T:UInt16[]"/>.
+		/// A <see cref="T:ushort[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void VertexWeighthNV(UInt16[] weight)
+		public static void VertexWeighthNV(ushort[] weight)
 		{
 			Debug.Assert(weight.Length >= 1);
 			unsafe {
-				fixed (UInt16* p_weight = weight)
+				fixed (ushort* p_weight = weight)
 				{
 					Debug.Assert(Delegates.pglVertexWeighthvNV != null, "pglVertexWeighthvNV not implemented");
 					Delegates.pglVertexWeighthvNV(p_weight);
@@ -758,13 +758,13 @@ namespace OpenGL
 		/// [GL] glVertexAttrib1hNV: Binding for glVertexAttrib1hNV.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void VertexAttrib1NV(UInt32 index, UInt16 x)
+		public static void VertexAttrib1NV(uint index, ushort x)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib1hNV != null, "pglVertexAttrib1hNV not implemented");
 			Delegates.pglVertexAttrib1hNV(index, x);
@@ -776,17 +776,17 @@ namespace OpenGL
 		/// [GL] glVertexAttrib1hvNV: Binding for glVertexAttrib1hvNV.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="T:UInt16[]"/>.
+		/// A <see cref="T:ushort[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void VertexAttrib1hvNV(UInt32 index, UInt16[] v)
+		public static void VertexAttrib1hvNV(uint index, ushort[] v)
 		{
 			Debug.Assert(v.Length >= 1);
 			unsafe {
-				fixed (UInt16* p_v = v)
+				fixed (ushort* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertexAttrib1hvNV != null, "pglVertexAttrib1hvNV not implemented");
 					Delegates.pglVertexAttrib1hvNV(index, p_v);
@@ -800,16 +800,16 @@ namespace OpenGL
 		/// [GL] glVertexAttrib2hNV: Binding for glVertexAttrib2hNV.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void VertexAttrib2NV(UInt32 index, UInt16 x, UInt16 y)
+		public static void VertexAttrib2NV(uint index, ushort x, ushort y)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib2hNV != null, "pglVertexAttrib2hNV not implemented");
 			Delegates.pglVertexAttrib2hNV(index, x, y);
@@ -821,17 +821,17 @@ namespace OpenGL
 		/// [GL] glVertexAttrib2hvNV: Binding for glVertexAttrib2hvNV.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="T:UInt16[]"/>.
+		/// A <see cref="T:ushort[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void VertexAttrib2hvNV(UInt32 index, UInt16[] v)
+		public static void VertexAttrib2hvNV(uint index, ushort[] v)
 		{
 			Debug.Assert(v.Length >= 2);
 			unsafe {
-				fixed (UInt16* p_v = v)
+				fixed (ushort* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertexAttrib2hvNV != null, "pglVertexAttrib2hvNV not implemented");
 					Delegates.pglVertexAttrib2hvNV(index, p_v);
@@ -845,19 +845,19 @@ namespace OpenGL
 		/// [GL] glVertexAttrib3hNV: Binding for glVertexAttrib3hNV.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void VertexAttrib3NV(UInt32 index, UInt16 x, UInt16 y, UInt16 z)
+		public static void VertexAttrib3NV(uint index, ushort x, ushort y, ushort z)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib3hNV != null, "pglVertexAttrib3hNV not implemented");
 			Delegates.pglVertexAttrib3hNV(index, x, y, z);
@@ -869,17 +869,17 @@ namespace OpenGL
 		/// [GL] glVertexAttrib3hvNV: Binding for glVertexAttrib3hvNV.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="T:UInt16[]"/>.
+		/// A <see cref="T:ushort[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void VertexAttrib3hvNV(UInt32 index, UInt16[] v)
+		public static void VertexAttrib3hvNV(uint index, ushort[] v)
 		{
 			Debug.Assert(v.Length >= 3);
 			unsafe {
-				fixed (UInt16* p_v = v)
+				fixed (ushort* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertexAttrib3hvNV != null, "pglVertexAttrib3hvNV not implemented");
 					Delegates.pglVertexAttrib3hvNV(index, p_v);
@@ -893,22 +893,22 @@ namespace OpenGL
 		/// [GL] glVertexAttrib4hNV: Binding for glVertexAttrib4hNV.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		/// <param name="w">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void VertexAttrib4NV(UInt32 index, UInt16 x, UInt16 y, UInt16 z, UInt16 w)
+		public static void VertexAttrib4NV(uint index, ushort x, ushort y, ushort z, ushort w)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4hNV != null, "pglVertexAttrib4hNV not implemented");
 			Delegates.pglVertexAttrib4hNV(index, x, y, z, w);
@@ -920,17 +920,17 @@ namespace OpenGL
 		/// [GL] glVertexAttrib4hvNV: Binding for glVertexAttrib4hvNV.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="T:UInt16[]"/>.
+		/// A <see cref="T:ushort[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void VertexAttrib4hvNV(UInt32 index, UInt16[] v)
+		public static void VertexAttrib4hvNV(uint index, ushort[] v)
 		{
 			Debug.Assert(v.Length >= 4);
 			unsafe {
-				fixed (UInt16* p_v = v)
+				fixed (ushort* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertexAttrib4hvNV != null, "pglVertexAttrib4hvNV not implemented");
 					Delegates.pglVertexAttrib4hvNV(index, p_v);
@@ -944,19 +944,19 @@ namespace OpenGL
 		/// [GL] glVertexAttribs1hvNV: Binding for glVertexAttribs1hvNV.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="T:UInt16[]"/>.
+		/// A <see cref="T:ushort[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void VertexAttribs1hvNV(UInt32 index, UInt16[] v)
+		public static void VertexAttribs1hvNV(uint index, ushort[] v)
 		{
 			unsafe {
-				fixed (UInt16* p_v = v)
+				fixed (ushort* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertexAttribs1hvNV != null, "pglVertexAttribs1hvNV not implemented");
-					Delegates.pglVertexAttribs1hvNV(index, (Int32)v.Length, p_v);
+					Delegates.pglVertexAttribs1hvNV(index, v.Length, p_v);
 					LogCommand("glVertexAttribs1hvNV", null, index, v.Length, v					);
 				}
 			}
@@ -967,19 +967,19 @@ namespace OpenGL
 		/// [GL] glVertexAttribs2hvNV: Binding for glVertexAttribs2hvNV.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="T:UInt16[]"/>.
+		/// A <see cref="T:ushort[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void VertexAttribs2hvNV(UInt32 index, UInt16[] v)
+		public static void VertexAttribs2hvNV(uint index, ushort[] v)
 		{
 			unsafe {
-				fixed (UInt16* p_v = v)
+				fixed (ushort* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertexAttribs2hvNV != null, "pglVertexAttribs2hvNV not implemented");
-					Delegates.pglVertexAttribs2hvNV(index, (Int32)v.Length, p_v);
+					Delegates.pglVertexAttribs2hvNV(index, v.Length, p_v);
 					LogCommand("glVertexAttribs2hvNV", null, index, v.Length, v					);
 				}
 			}
@@ -990,19 +990,19 @@ namespace OpenGL
 		/// [GL] glVertexAttribs3hvNV: Binding for glVertexAttribs3hvNV.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="T:UInt16[]"/>.
+		/// A <see cref="T:ushort[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void VertexAttribs3hvNV(UInt32 index, UInt16[] v)
+		public static void VertexAttribs3hvNV(uint index, ushort[] v)
 		{
 			unsafe {
-				fixed (UInt16* p_v = v)
+				fixed (ushort* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertexAttribs3hvNV != null, "pglVertexAttribs3hvNV not implemented");
-					Delegates.pglVertexAttribs3hvNV(index, (Int32)v.Length, p_v);
+					Delegates.pglVertexAttribs3hvNV(index, v.Length, p_v);
 					LogCommand("glVertexAttribs3hvNV", null, index, v.Length, v					);
 				}
 			}
@@ -1013,19 +1013,19 @@ namespace OpenGL
 		/// [GL] glVertexAttribs4hvNV: Binding for glVertexAttribs4hvNV.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="T:UInt16[]"/>.
+		/// A <see cref="T:ushort[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_half_float")]
-		public static void VertexAttribs4hvNV(UInt32 index, UInt16[] v)
+		public static void VertexAttribs4hvNV(uint index, ushort[] v)
 		{
 			unsafe {
-				fixed (UInt16* p_v = v)
+				fixed (ushort* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertexAttribs4hvNV != null, "pglVertexAttribs4hvNV not implemented");
-					Delegates.pglVertexAttribs4hvNV(index, (Int32)v.Length, p_v);
+					Delegates.pglVertexAttribs4hvNV(index, v.Length, p_v);
 					LogCommand("glVertexAttribs4hvNV", null, index, v.Length, v					);
 				}
 			}
@@ -1036,7 +1036,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glVertex2hNV(UInt16 x, UInt16 y);
+			internal delegate void glVertex2hNV(ushort x, ushort y);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1044,7 +1044,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertex2hvNV(UInt16* v);
+			internal unsafe delegate void glVertex2hvNV(ushort* v);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1052,7 +1052,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glVertex3hNV(UInt16 x, UInt16 y, UInt16 z);
+			internal delegate void glVertex3hNV(ushort x, ushort y, ushort z);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1060,7 +1060,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertex3hvNV(UInt16* v);
+			internal unsafe delegate void glVertex3hvNV(ushort* v);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1068,7 +1068,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glVertex4hNV(UInt16 x, UInt16 y, UInt16 z, UInt16 w);
+			internal delegate void glVertex4hNV(ushort x, ushort y, ushort z, ushort w);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1076,7 +1076,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertex4hvNV(UInt16* v);
+			internal unsafe delegate void glVertex4hvNV(ushort* v);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1084,7 +1084,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glNormal3hNV(UInt16 nx, UInt16 ny, UInt16 nz);
+			internal delegate void glNormal3hNV(ushort nx, ushort ny, ushort nz);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1092,7 +1092,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glNormal3hvNV(UInt16* v);
+			internal unsafe delegate void glNormal3hvNV(ushort* v);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1100,7 +1100,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glColor3hNV(UInt16 red, UInt16 green, UInt16 blue);
+			internal delegate void glColor3hNV(ushort red, ushort green, ushort blue);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1108,7 +1108,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glColor3hvNV(UInt16* v);
+			internal unsafe delegate void glColor3hvNV(ushort* v);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1116,7 +1116,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glColor4hNV(UInt16 red, UInt16 green, UInt16 blue, UInt16 alpha);
+			internal delegate void glColor4hNV(ushort red, ushort green, ushort blue, ushort alpha);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1124,7 +1124,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glColor4hvNV(UInt16* v);
+			internal unsafe delegate void glColor4hvNV(ushort* v);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1132,7 +1132,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTexCoord1hNV(UInt16 s);
+			internal delegate void glTexCoord1hNV(ushort s);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1140,7 +1140,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexCoord1hvNV(UInt16* v);
+			internal unsafe delegate void glTexCoord1hvNV(ushort* v);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1148,7 +1148,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTexCoord2hNV(UInt16 s, UInt16 t);
+			internal delegate void glTexCoord2hNV(ushort s, ushort t);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1156,7 +1156,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexCoord2hvNV(UInt16* v);
+			internal unsafe delegate void glTexCoord2hvNV(ushort* v);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1164,7 +1164,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTexCoord3hNV(UInt16 s, UInt16 t, UInt16 r);
+			internal delegate void glTexCoord3hNV(ushort s, ushort t, ushort r);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1172,7 +1172,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexCoord3hvNV(UInt16* v);
+			internal unsafe delegate void glTexCoord3hvNV(ushort* v);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1180,7 +1180,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTexCoord4hNV(UInt16 s, UInt16 t, UInt16 r, UInt16 q);
+			internal delegate void glTexCoord4hNV(ushort s, ushort t, ushort r, ushort q);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1188,7 +1188,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexCoord4hvNV(UInt16* v);
+			internal unsafe delegate void glTexCoord4hvNV(ushort* v);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1196,7 +1196,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMultiTexCoord1hNV(Int32 target, UInt16 s);
+			internal delegate void glMultiTexCoord1hNV(int target, ushort s);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1204,7 +1204,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexCoord1hvNV(Int32 target, UInt16* v);
+			internal unsafe delegate void glMultiTexCoord1hvNV(int target, ushort* v);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1212,7 +1212,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMultiTexCoord2hNV(Int32 target, UInt16 s, UInt16 t);
+			internal delegate void glMultiTexCoord2hNV(int target, ushort s, ushort t);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1220,7 +1220,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexCoord2hvNV(Int32 target, UInt16* v);
+			internal unsafe delegate void glMultiTexCoord2hvNV(int target, ushort* v);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1228,7 +1228,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMultiTexCoord3hNV(Int32 target, UInt16 s, UInt16 t, UInt16 r);
+			internal delegate void glMultiTexCoord3hNV(int target, ushort s, ushort t, ushort r);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1236,7 +1236,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexCoord3hvNV(Int32 target, UInt16* v);
+			internal unsafe delegate void glMultiTexCoord3hvNV(int target, ushort* v);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1244,7 +1244,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMultiTexCoord4hNV(Int32 target, UInt16 s, UInt16 t, UInt16 r, UInt16 q);
+			internal delegate void glMultiTexCoord4hNV(int target, ushort s, ushort t, ushort r, ushort q);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1252,7 +1252,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexCoord4hvNV(Int32 target, UInt16* v);
+			internal unsafe delegate void glMultiTexCoord4hvNV(int target, ushort* v);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1260,7 +1260,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glFogCoordhNV(UInt16 fog);
+			internal delegate void glFogCoordhNV(ushort fog);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1268,7 +1268,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glFogCoordhvNV(UInt16* fog);
+			internal unsafe delegate void glFogCoordhvNV(ushort* fog);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1276,7 +1276,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glSecondaryColor3hNV(UInt16 red, UInt16 green, UInt16 blue);
+			internal delegate void glSecondaryColor3hNV(ushort red, ushort green, ushort blue);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1284,7 +1284,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glSecondaryColor3hvNV(UInt16* v);
+			internal unsafe delegate void glSecondaryColor3hvNV(ushort* v);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1292,7 +1292,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glVertexWeighthNV(UInt16 weight);
+			internal delegate void glVertexWeighthNV(ushort weight);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1300,7 +1300,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexWeighthvNV(UInt16* weight);
+			internal unsafe delegate void glVertexWeighthvNV(ushort* weight);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1308,7 +1308,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glVertexAttrib1hNV(UInt32 index, UInt16 x);
+			internal delegate void glVertexAttrib1hNV(uint index, ushort x);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1316,7 +1316,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttrib1hvNV(UInt32 index, UInt16* v);
+			internal unsafe delegate void glVertexAttrib1hvNV(uint index, ushort* v);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1324,7 +1324,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glVertexAttrib2hNV(UInt32 index, UInt16 x, UInt16 y);
+			internal delegate void glVertexAttrib2hNV(uint index, ushort x, ushort y);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1332,7 +1332,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttrib2hvNV(UInt32 index, UInt16* v);
+			internal unsafe delegate void glVertexAttrib2hvNV(uint index, ushort* v);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1340,7 +1340,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glVertexAttrib3hNV(UInt32 index, UInt16 x, UInt16 y, UInt16 z);
+			internal delegate void glVertexAttrib3hNV(uint index, ushort x, ushort y, ushort z);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1348,7 +1348,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttrib3hvNV(UInt32 index, UInt16* v);
+			internal unsafe delegate void glVertexAttrib3hvNV(uint index, ushort* v);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1356,7 +1356,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glVertexAttrib4hNV(UInt32 index, UInt16 x, UInt16 y, UInt16 z, UInt16 w);
+			internal delegate void glVertexAttrib4hNV(uint index, ushort x, ushort y, ushort z, ushort w);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1364,7 +1364,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttrib4hvNV(UInt32 index, UInt16* v);
+			internal unsafe delegate void glVertexAttrib4hvNV(uint index, ushort* v);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1372,7 +1372,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttribs1hvNV(UInt32 index, Int32 n, UInt16* v);
+			internal unsafe delegate void glVertexAttribs1hvNV(uint index, int n, ushort* v);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1380,7 +1380,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttribs2hvNV(UInt32 index, Int32 n, UInt16* v);
+			internal unsafe delegate void glVertexAttribs2hvNV(uint index, int n, ushort* v);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1388,7 +1388,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttribs3hvNV(UInt32 index, Int32 n, UInt16* v);
+			internal unsafe delegate void glVertexAttribs3hvNV(uint index, int n, ushort* v);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1396,7 +1396,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttribs4hvNV(UInt32 index, Int32 n, UInt16* v);
+			internal unsafe delegate void glVertexAttribs4hvNV(uint index, int n, ushort* v);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]

@@ -68,20 +68,20 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="points">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIS_sharpen_texture")]
-		public static void SharpenTexFuncSGIS(TextureTarget target, Int32 n, float[] points)
+		public static void SharpenTexFuncSGIS(TextureTarget target, int n, float[] points)
 		{
 			Debug.Assert(points.Length > 0 && (points.Length % 2) == 0, "empty or not multiple of 2");
 			unsafe {
 				fixed (float* p_points = points)
 				{
 					Debug.Assert(Delegates.pglSharpenTexFuncSGIS != null, "pglSharpenTexFuncSGIS not implemented");
-					Delegates.pglSharpenTexFuncSGIS((Int32)target, n, p_points);
+					Delegates.pglSharpenTexFuncSGIS((int)target, n, p_points);
 					LogCommand("glSharpenTexFuncSGIS", null, target, n, points					);
 				}
 			}
@@ -105,7 +105,7 @@ namespace OpenGL
 				fixed (float* p_points = points)
 				{
 					Debug.Assert(Delegates.pglSharpenTexFuncSGIS != null, "pglSharpenTexFuncSGIS not implemented");
-					Delegates.pglSharpenTexFuncSGIS((Int32)target, (Int32)points.Length / 2, p_points);
+					Delegates.pglSharpenTexFuncSGIS((int)target, points.Length / 2, p_points);
 					LogCommand("glSharpenTexFuncSGIS", null, target, points.Length / 2, points					);
 				}
 			}
@@ -128,7 +128,7 @@ namespace OpenGL
 				fixed (float* p_points = points)
 				{
 					Debug.Assert(Delegates.pglGetSharpenTexFuncSGIS != null, "pglGetSharpenTexFuncSGIS not implemented");
-					Delegates.pglGetSharpenTexFuncSGIS((Int32)target, p_points);
+					Delegates.pglGetSharpenTexFuncSGIS((int)target, p_points);
 					LogCommand("glGetSharpenTexFuncSGIS", null, target, points					);
 				}
 			}
@@ -139,7 +139,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_SGIS_sharpen_texture")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glSharpenTexFuncSGIS(Int32 target, Int32 n, float* points);
+			internal unsafe delegate void glSharpenTexFuncSGIS(int target, int n, float* points);
 
 			[RequiredByFeature("GL_SGIS_sharpen_texture")]
 			[ThreadStatic]
@@ -147,7 +147,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SGIS_sharpen_texture")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetSharpenTexFuncSGIS(Int32 target, float* points);
+			internal unsafe delegate void glGetSharpenTexFuncSGIS(int target, float* points);
 
 			[RequiredByFeature("GL_SGIS_sharpen_texture")]
 			[ThreadStatic]

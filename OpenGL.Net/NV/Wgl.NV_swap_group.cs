@@ -44,10 +44,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="group">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("WGL_NV_swap_group")]
-		public static bool JoinSwapGroupNV(IntPtr hDC, UInt32 group)
+		public static bool JoinSwapGroupNV(IntPtr hDC, uint group)
 		{
 			bool retValue;
 
@@ -63,13 +63,13 @@ namespace OpenGL
 		/// [WGL] wglBindSwapBarrierNV: Binding for wglBindSwapBarrierNV.
 		/// </summary>
 		/// <param name="group">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="barrier">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("WGL_NV_swap_group")]
-		public static bool BindSwapBarrierNV(UInt32 group, UInt32 barrier)
+		public static bool BindSwapBarrierNV(uint group, uint barrier)
 		{
 			bool retValue;
 
@@ -88,19 +88,19 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="group">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		/// <param name="barrier">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("WGL_NV_swap_group")]
-		public static bool QuerySwapGroupNV(IntPtr hDC, UInt32[] group, UInt32[] barrier)
+		public static bool QuerySwapGroupNV(IntPtr hDC, uint[] group, uint[] barrier)
 		{
 			bool retValue;
 
 			unsafe {
-				fixed (UInt32* p_group = group)
-				fixed (UInt32* p_barrier = barrier)
+				fixed (uint* p_group = group)
+				fixed (uint* p_barrier = barrier)
 				{
 					Debug.Assert(Delegates.pwglQuerySwapGroupNV != null, "pwglQuerySwapGroupNV not implemented");
 					retValue = Delegates.pwglQuerySwapGroupNV(hDC, p_group, p_barrier);
@@ -119,19 +119,19 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="maxGroups">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		/// <param name="maxBarriers">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("WGL_NV_swap_group")]
-		public static bool QueryMaxSwapGroupsNV(IntPtr hDC, UInt32[] maxGroups, UInt32[] maxBarriers)
+		public static bool QueryMaxSwapGroupsNV(IntPtr hDC, uint[] maxGroups, uint[] maxBarriers)
 		{
 			bool retValue;
 
 			unsafe {
-				fixed (UInt32* p_maxGroups = maxGroups)
-				fixed (UInt32* p_maxBarriers = maxBarriers)
+				fixed (uint* p_maxGroups = maxGroups)
+				fixed (uint* p_maxBarriers = maxBarriers)
 				{
 					Debug.Assert(Delegates.pwglQueryMaxSwapGroupsNV != null, "pwglQueryMaxSwapGroupsNV not implemented");
 					retValue = Delegates.pwglQueryMaxSwapGroupsNV(hDC, p_maxGroups, p_maxBarriers);
@@ -150,15 +150,15 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="count">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("WGL_NV_swap_group")]
-		public static bool QueryFrameCountNV(IntPtr hDC, UInt32[] count)
+		public static bool QueryFrameCountNV(IntPtr hDC, uint[] count)
 		{
 			bool retValue;
 
 			unsafe {
-				fixed (UInt32* p_count = count)
+				fixed (uint* p_count = count)
 				{
 					Debug.Assert(Delegates.pwglQueryFrameCountNV != null, "pwglQueryFrameCountNV not implemented");
 					retValue = Delegates.pwglQueryFrameCountNV(hDC, p_count);
@@ -193,35 +193,35 @@ namespace OpenGL
 		{
 			[RequiredByFeature("WGL_NV_swap_group")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglJoinSwapGroupNV(IntPtr hDC, UInt32 group);
+			internal unsafe delegate bool wglJoinSwapGroupNV(IntPtr hDC, uint group);
 
 			[RequiredByFeature("WGL_NV_swap_group")]
 			internal static wglJoinSwapGroupNV pwglJoinSwapGroupNV;
 
 			[RequiredByFeature("WGL_NV_swap_group")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate bool wglBindSwapBarrierNV(UInt32 group, UInt32 barrier);
+			internal delegate bool wglBindSwapBarrierNV(uint group, uint barrier);
 
 			[RequiredByFeature("WGL_NV_swap_group")]
 			internal static wglBindSwapBarrierNV pwglBindSwapBarrierNV;
 
 			[RequiredByFeature("WGL_NV_swap_group")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglQuerySwapGroupNV(IntPtr hDC, UInt32* group, UInt32* barrier);
+			internal unsafe delegate bool wglQuerySwapGroupNV(IntPtr hDC, uint* group, uint* barrier);
 
 			[RequiredByFeature("WGL_NV_swap_group")]
 			internal static wglQuerySwapGroupNV pwglQuerySwapGroupNV;
 
 			[RequiredByFeature("WGL_NV_swap_group")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglQueryMaxSwapGroupsNV(IntPtr hDC, UInt32* maxGroups, UInt32* maxBarriers);
+			internal unsafe delegate bool wglQueryMaxSwapGroupsNV(IntPtr hDC, uint* maxGroups, uint* maxBarriers);
 
 			[RequiredByFeature("WGL_NV_swap_group")]
 			internal static wglQueryMaxSwapGroupsNV pwglQueryMaxSwapGroupsNV;
 
 			[RequiredByFeature("WGL_NV_swap_group")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglQueryFrameCountNV(IntPtr hDC, UInt32* count);
+			internal unsafe delegate bool wglQueryFrameCountNV(IntPtr hDC, uint* count);
 
 			[RequiredByFeature("WGL_NV_swap_group")]
 			internal static wglQueryFrameCountNV pwglQueryFrameCountNV;

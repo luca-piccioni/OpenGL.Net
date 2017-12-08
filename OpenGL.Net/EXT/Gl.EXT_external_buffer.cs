@@ -41,22 +41,22 @@ namespace OpenGL
 		/// [GL] glBufferStorageExternalEXT: Binding for glBufferStorageExternalEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="offset">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="size">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="clientBuffer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="flags">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_external_buffer", Api = "gl|gles2")]
-		public static void BufferStorageEXT(Int32 target, IntPtr offset, UInt32 size, IntPtr clientBuffer, UInt32 flags)
+		public static void BufferStorageEXT(int target, IntPtr offset, uint size, IntPtr clientBuffer, uint flags)
 		{
 			Debug.Assert(Delegates.pglBufferStorageExternalEXT != null, "pglBufferStorageExternalEXT not implemented");
 			Delegates.pglBufferStorageExternalEXT(target, offset, size, clientBuffer, flags);
@@ -68,22 +68,22 @@ namespace OpenGL
 		/// [GL] glNamedBufferStorageExternalEXT: Binding for glNamedBufferStorageExternalEXT.
 		/// </summary>
 		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="offset">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="size">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="clientBuffer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="flags">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_external_buffer", Api = "gl|gles2")]
-		public static void NamedBufferStorageEXT(UInt32 buffer, IntPtr offset, UInt32 size, IntPtr clientBuffer, UInt32 flags)
+		public static void NamedBufferStorageEXT(uint buffer, IntPtr offset, uint size, IntPtr clientBuffer, uint flags)
 		{
 			Debug.Assert(Delegates.pglNamedBufferStorageExternalEXT != null, "pglNamedBufferStorageExternalEXT not implemented");
 			Delegates.pglNamedBufferStorageExternalEXT(buffer, offset, size, clientBuffer, flags);
@@ -95,7 +95,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_EXT_external_buffer", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glBufferStorageExternalEXT(Int32 target, IntPtr offset, UInt32 size, IntPtr clientBuffer, UInt32 flags);
+			internal unsafe delegate void glBufferStorageExternalEXT(int target, IntPtr offset, uint size, IntPtr clientBuffer, uint flags);
 
 			[RequiredByFeature("GL_EXT_external_buffer", Api = "gl|gles2")]
 			[ThreadStatic]
@@ -103,7 +103,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_external_buffer", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glNamedBufferStorageExternalEXT(UInt32 buffer, IntPtr offset, UInt32 size, IntPtr clientBuffer, UInt32 flags);
+			internal unsafe delegate void glNamedBufferStorageExternalEXT(uint buffer, IntPtr offset, uint size, IntPtr clientBuffer, uint flags);
 
 			[RequiredByFeature("GL_EXT_external_buffer", Api = "gl|gles2")]
 			[ThreadStatic]

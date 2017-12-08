@@ -53,17 +53,17 @@ namespace OpenGL
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		/// <param name="modifiers">
-		/// A <see cref="T:UInt64[]"/>.
+		/// A <see cref="T:ulong[]"/>.
 		/// </param>
 		[RequiredByFeature("EGL_MESA_image_dma_buf_export")]
-		public static bool ExportDMABUFImageQueryMESA(IntPtr dpy, IntPtr image, int[] fourcc, int[] num_planes, UInt64[] modifiers)
+		public static bool ExportDMABUFImageQueryMESA(IntPtr dpy, IntPtr image, int[] fourcc, int[] num_planes, ulong[] modifiers)
 		{
 			bool retValue;
 
 			unsafe {
 				fixed (int* p_fourcc = fourcc)
 				fixed (int* p_num_planes = num_planes)
-				fixed (UInt64* p_modifiers = modifiers)
+				fixed (ulong* p_modifiers = modifiers)
 				{
 					Debug.Assert(Delegates.peglExportDMABUFImageQueryMESA != null, "peglExportDMABUFImageQueryMESA not implemented");
 					retValue = Delegates.peglExportDMABUFImageQueryMESA(dpy, image, p_fourcc, p_num_planes, p_modifiers);
@@ -117,7 +117,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("EGL_MESA_image_dma_buf_export")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool eglExportDMABUFImageQueryMESA(IntPtr dpy, IntPtr image, int* fourcc, int* num_planes, UInt64* modifiers);
+			internal unsafe delegate bool eglExportDMABUFImageQueryMESA(IntPtr dpy, IntPtr image, int* fourcc, int* num_planes, ulong* modifiers);
 
 			[RequiredByFeature("EGL_MESA_image_dma_buf_export")]
 			internal static eglExportDMABUFImageQueryMESA peglExportDMABUFImageQueryMESA;

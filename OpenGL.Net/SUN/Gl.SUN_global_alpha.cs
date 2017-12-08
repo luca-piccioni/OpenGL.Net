@@ -68,10 +68,10 @@ namespace OpenGL
 		/// [GL] glGlobalAlphaFactorsSUN: Binding for glGlobalAlphaFactorsSUN.
 		/// </summary>
 		/// <param name="factor">
-		/// A <see cref="T:Int16"/>.
+		/// A <see cref="T:short"/>.
 		/// </param>
 		[RequiredByFeature("GL_SUN_global_alpha")]
-		public static void GlobalAlphaFactorSUN(Int16 factor)
+		public static void GlobalAlphaFactorSUN(short factor)
 		{
 			Debug.Assert(Delegates.pglGlobalAlphaFactorsSUN != null, "pglGlobalAlphaFactorsSUN not implemented");
 			Delegates.pglGlobalAlphaFactorsSUN(factor);
@@ -83,10 +83,10 @@ namespace OpenGL
 		/// [GL] glGlobalAlphaFactoriSUN: Binding for glGlobalAlphaFactoriSUN.
 		/// </summary>
 		/// <param name="factor">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_SUN_global_alpha")]
-		public static void GlobalAlphaFactorSUN(Int32 factor)
+		public static void GlobalAlphaFactorSUN(int factor)
 		{
 			Debug.Assert(Delegates.pglGlobalAlphaFactoriSUN != null, "pglGlobalAlphaFactoriSUN not implemented");
 			Delegates.pglGlobalAlphaFactoriSUN(factor);
@@ -143,10 +143,10 @@ namespace OpenGL
 		/// [GL] glGlobalAlphaFactorusSUN: Binding for glGlobalAlphaFactorusSUN.
 		/// </summary>
 		/// <param name="factor">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		[RequiredByFeature("GL_SUN_global_alpha")]
-		public static void GlobalAlphaFactorusSUN(UInt16 factor)
+		public static void GlobalAlphaFactorusSUN(ushort factor)
 		{
 			Debug.Assert(Delegates.pglGlobalAlphaFactorusSUN != null, "pglGlobalAlphaFactorusSUN not implemented");
 			Delegates.pglGlobalAlphaFactorusSUN(factor);
@@ -158,10 +158,10 @@ namespace OpenGL
 		/// [GL] glGlobalAlphaFactoruiSUN: Binding for glGlobalAlphaFactoruiSUN.
 		/// </summary>
 		/// <param name="factor">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_SUN_global_alpha")]
-		public static void GlobalAlphaFactoruiSUN(UInt32 factor)
+		public static void GlobalAlphaFactoruiSUN(uint factor)
 		{
 			Debug.Assert(Delegates.pglGlobalAlphaFactoruiSUN != null, "pglGlobalAlphaFactoruiSUN not implemented");
 			Delegates.pglGlobalAlphaFactoruiSUN(factor);
@@ -181,7 +181,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SUN_global_alpha")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glGlobalAlphaFactorsSUN(Int16 factor);
+			internal delegate void glGlobalAlphaFactorsSUN(short factor);
 
 			[RequiredByFeature("GL_SUN_global_alpha")]
 			[ThreadStatic]
@@ -189,7 +189,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SUN_global_alpha")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glGlobalAlphaFactoriSUN(Int32 factor);
+			internal delegate void glGlobalAlphaFactoriSUN(int factor);
 
 			[RequiredByFeature("GL_SUN_global_alpha")]
 			[ThreadStatic]
@@ -221,7 +221,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SUN_global_alpha")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glGlobalAlphaFactorusSUN(UInt16 factor);
+			internal delegate void glGlobalAlphaFactorusSUN(ushort factor);
 
 			[RequiredByFeature("GL_SUN_global_alpha")]
 			[ThreadStatic]
@@ -229,7 +229,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SUN_global_alpha")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glGlobalAlphaFactoruiSUN(UInt32 factor);
+			internal delegate void glGlobalAlphaFactoruiSUN(uint factor);
 
 			[RequiredByFeature("GL_SUN_global_alpha")]
 			[ThreadStatic]

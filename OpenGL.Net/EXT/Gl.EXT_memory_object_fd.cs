@@ -41,22 +41,22 @@ namespace OpenGL
 		/// [GL] glImportMemoryFdEXT: Binding for glImportMemoryFdEXT.
 		/// </summary>
 		/// <param name="memory">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="size">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		/// <param name="handleType">
 		/// A <see cref="T:ExternalHandleType"/>.
 		/// </param>
 		/// <param name="fd">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_memory_object_fd", Api = "gl|gles2")]
-		public static void ImportMemoryEXT(UInt32 memory, UInt64 size, ExternalHandleType handleType, Int32 fd)
+		public static void ImportMemoryEXT(uint memory, ulong size, ExternalHandleType handleType, int fd)
 		{
 			Debug.Assert(Delegates.pglImportMemoryFdEXT != null, "pglImportMemoryFdEXT not implemented");
-			Delegates.pglImportMemoryFdEXT(memory, size, (Int32)handleType, fd);
+			Delegates.pglImportMemoryFdEXT(memory, size, (int)handleType, fd);
 			LogCommand("glImportMemoryFdEXT", null, memory, size, handleType, fd			);
 			DebugCheckErrors(null);
 		}
@@ -65,7 +65,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_EXT_memory_object_fd", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glImportMemoryFdEXT(UInt32 memory, UInt64 size, Int32 handleType, Int32 fd);
+			internal delegate void glImportMemoryFdEXT(uint memory, ulong size, int handleType, int fd);
 
 			[RequiredByFeature("GL_EXT_memory_object_fd", Api = "gl|gles2")]
 			[ThreadStatic]

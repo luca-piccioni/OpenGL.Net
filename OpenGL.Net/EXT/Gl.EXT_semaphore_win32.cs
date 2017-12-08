@@ -88,7 +88,7 @@ namespace OpenGL
 		/// [GL] glImportSemaphoreWin32HandleEXT: Binding for glImportSemaphoreWin32HandleEXT.
 		/// </summary>
 		/// <param name="semaphore">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="handleType">
 		/// A <see cref="T:ExternalHandleType"/>.
@@ -97,10 +97,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_semaphore_win32", Api = "gl|gles2")]
-		public static void ImportSemaphoreWin32HandleEXT(UInt32 semaphore, ExternalHandleType handleType, IntPtr handle)
+		public static void ImportSemaphoreWin32HandleEXT(uint semaphore, ExternalHandleType handleType, IntPtr handle)
 		{
 			Debug.Assert(Delegates.pglImportSemaphoreWin32HandleEXT != null, "pglImportSemaphoreWin32HandleEXT not implemented");
-			Delegates.pglImportSemaphoreWin32HandleEXT(semaphore, (Int32)handleType, handle);
+			Delegates.pglImportSemaphoreWin32HandleEXT(semaphore, (int)handleType, handle);
 			LogCommand("glImportSemaphoreWin32HandleEXT", null, semaphore, handleType, handle			);
 			DebugCheckErrors(null);
 		}
@@ -109,7 +109,7 @@ namespace OpenGL
 		/// [GL] glImportSemaphoreWin32NameEXT: Binding for glImportSemaphoreWin32NameEXT.
 		/// </summary>
 		/// <param name="semaphore">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="handleType">
 		/// A <see cref="T:ExternalHandleType"/>.
@@ -118,10 +118,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_semaphore_win32", Api = "gl|gles2")]
-		public static void ImportSemaphoreWin32NameEXT(UInt32 semaphore, ExternalHandleType handleType, IntPtr name)
+		public static void ImportSemaphoreWin32NameEXT(uint semaphore, ExternalHandleType handleType, IntPtr name)
 		{
 			Debug.Assert(Delegates.pglImportSemaphoreWin32NameEXT != null, "pglImportSemaphoreWin32NameEXT not implemented");
-			Delegates.pglImportSemaphoreWin32NameEXT(semaphore, (Int32)handleType, name);
+			Delegates.pglImportSemaphoreWin32NameEXT(semaphore, (int)handleType, name);
 			LogCommand("glImportSemaphoreWin32NameEXT", null, semaphore, handleType, name			);
 			DebugCheckErrors(null);
 		}
@@ -130,7 +130,7 @@ namespace OpenGL
 		/// [GL] glImportSemaphoreWin32NameEXT: Binding for glImportSemaphoreWin32NameEXT.
 		/// </summary>
 		/// <param name="semaphore">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="handleType">
 		/// A <see cref="T:ExternalHandleType"/>.
@@ -139,7 +139,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_semaphore_win32", Api = "gl|gles2")]
-		public static void ImportSemaphoreWin32NameEXT(UInt32 semaphore, ExternalHandleType handleType, Object name)
+		public static void ImportSemaphoreWin32NameEXT(uint semaphore, ExternalHandleType handleType, Object name)
 		{
 			GCHandle pin_name = GCHandle.Alloc(name, GCHandleType.Pinned);
 			try {
@@ -153,7 +153,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_EXT_semaphore_win32", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glImportSemaphoreWin32HandleEXT(UInt32 semaphore, Int32 handleType, IntPtr handle);
+			internal unsafe delegate void glImportSemaphoreWin32HandleEXT(uint semaphore, int handleType, IntPtr handle);
 
 			[RequiredByFeature("GL_EXT_semaphore_win32", Api = "gl|gles2")]
 			[ThreadStatic]
@@ -161,7 +161,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_semaphore_win32", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glImportSemaphoreWin32NameEXT(UInt32 semaphore, Int32 handleType, IntPtr name);
+			internal unsafe delegate void glImportSemaphoreWin32NameEXT(uint semaphore, int handleType, IntPtr name);
 
 			[RequiredByFeature("GL_EXT_semaphore_win32", Api = "gl|gles2")]
 			[ThreadStatic]

@@ -56,7 +56,7 @@ namespace OpenGL
 		public static void GetConvolutionFilterEXT(ConvolutionTarget target, PixelFormat format, PixelType type, IntPtr image)
 		{
 			Debug.Assert(Delegates.pglGetConvolutionFilterEXT != null, "pglGetConvolutionFilterEXT not implemented");
-			Delegates.pglGetConvolutionFilterEXT((Int32)target, (Int32)format, (Int32)type, image);
+			Delegates.pglGetConvolutionFilterEXT((int)target, (int)format, (int)type, image);
 			LogCommand("glGetConvolutionFilterEXT", null, target, format, type, image			);
 			DebugCheckErrors(null);
 		}
@@ -106,7 +106,7 @@ namespace OpenGL
 				fixed (float* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetConvolutionParameterfvEXT != null, "pglGetConvolutionParameterfvEXT not implemented");
-					Delegates.pglGetConvolutionParameterfvEXT((Int32)target, (Int32)pname, p_params);
+					Delegates.pglGetConvolutionParameterfvEXT((int)target, (int)pname, p_params);
 					LogCommand("glGetConvolutionParameterfvEXT", null, target, pname, @params					);
 				}
 			}
@@ -123,16 +123,16 @@ namespace OpenGL
 		/// A <see cref="T:ConvolutionParameterEXT"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_convolution")]
-		public static void GetConvolutionParameterEXT(ConvolutionTarget target, ConvolutionParameterEXT pname, [Out] Int32[] @params)
+		public static void GetConvolutionParameterEXT(ConvolutionTarget target, ConvolutionParameterEXT pname, [Out] int[] @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetConvolutionParameterivEXT != null, "pglGetConvolutionParameterivEXT not implemented");
-					Delegates.pglGetConvolutionParameterivEXT((Int32)target, (Int32)pname, p_params);
+					Delegates.pglGetConvolutionParameterivEXT((int)target, (int)pname, p_params);
 					LogCommand("glGetConvolutionParameterivEXT", null, target, pname, @params					);
 				}
 			}
@@ -164,7 +164,7 @@ namespace OpenGL
 		public static void GetSeparableFilterEXT(SeparableTarget target, PixelFormat format, PixelType type, IntPtr row, IntPtr column, IntPtr span)
 		{
 			Debug.Assert(Delegates.pglGetSeparableFilterEXT != null, "pglGetSeparableFilterEXT not implemented");
-			Delegates.pglGetSeparableFilterEXT((Int32)target, (Int32)format, (Int32)type, row, column, span);
+			Delegates.pglGetSeparableFilterEXT((int)target, (int)format, (int)type, row, column, span);
 			LogCommand("glGetSeparableFilterEXT", null, target, format, type, row, column, span			);
 			DebugCheckErrors(null);
 		}
@@ -209,7 +209,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_EXT_convolution")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetConvolutionFilterEXT(Int32 target, Int32 format, Int32 type, IntPtr image);
+			internal unsafe delegate void glGetConvolutionFilterEXT(int target, int format, int type, IntPtr image);
 
 			[RequiredByFeature("GL_EXT_convolution")]
 			[ThreadStatic]
@@ -217,7 +217,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_convolution")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetConvolutionParameterfvEXT(Int32 target, Int32 pname, float* @params);
+			internal unsafe delegate void glGetConvolutionParameterfvEXT(int target, int pname, float* @params);
 
 			[RequiredByFeature("GL_EXT_convolution")]
 			[ThreadStatic]
@@ -225,7 +225,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_convolution")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetConvolutionParameterivEXT(Int32 target, Int32 pname, Int32* @params);
+			internal unsafe delegate void glGetConvolutionParameterivEXT(int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_EXT_convolution")]
 			[ThreadStatic]
@@ -233,7 +233,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_convolution")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetSeparableFilterEXT(Int32 target, Int32 format, Int32 type, IntPtr row, IntPtr column, IntPtr span);
+			internal unsafe delegate void glGetSeparableFilterEXT(int target, int format, int type, IntPtr row, IntPtr column, IntPtr span);
 
 			[RequiredByFeature("GL_EXT_convolution")]
 			[ThreadStatic]

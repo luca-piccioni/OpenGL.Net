@@ -59,13 +59,13 @@ namespace OpenGL
 		/// [GL] glConservativeRasterParameterfNV: Binding for glConservativeRasterParameterfNV.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_conservative_raster_dilate", Api = "gl|glcore")]
-		public static void ConservativeRasterParameterfNV(Int32 pname, float value)
+		public static void ConservativeRasterParameterfNV(int pname, float value)
 		{
 			Debug.Assert(Delegates.pglConservativeRasterParameterfNV != null, "pglConservativeRasterParameterfNV not implemented");
 			Delegates.pglConservativeRasterParameterfNV(pname, value);
@@ -77,7 +77,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_NV_conservative_raster_dilate", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glConservativeRasterParameterfNV(Int32 pname, float value);
+			internal delegate void glConservativeRasterParameterfNV(int pname, float value);
 
 			[RequiredByFeature("GL_NV_conservative_raster_dilate", Api = "gl|glcore")]
 			[ThreadStatic]

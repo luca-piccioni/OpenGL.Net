@@ -41,10 +41,10 @@ namespace OpenGL
 		/// [GL] glMapObjectBufferATI: Binding for glMapObjectBufferATI.
 		/// </summary>
 		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_map_object_buffer")]
-		public static IntPtr MapObjectBufferATI(UInt32 buffer)
+		public static IntPtr MapObjectBufferATI(uint buffer)
 		{
 			IntPtr retValue;
 
@@ -60,10 +60,10 @@ namespace OpenGL
 		/// [GL] glUnmapObjectBufferATI: Binding for glUnmapObjectBufferATI.
 		/// </summary>
 		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_map_object_buffer")]
-		public static void UnmapObjectBufferATI(UInt32 buffer)
+		public static void UnmapObjectBufferATI(uint buffer)
 		{
 			Debug.Assert(Delegates.pglUnmapObjectBufferATI != null, "pglUnmapObjectBufferATI not implemented");
 			Delegates.pglUnmapObjectBufferATI(buffer);
@@ -75,7 +75,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_ATI_map_object_buffer")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate IntPtr glMapObjectBufferATI(UInt32 buffer);
+			internal delegate IntPtr glMapObjectBufferATI(uint buffer);
 
 			[RequiredByFeature("GL_ATI_map_object_buffer")]
 			[ThreadStatic]
@@ -83,7 +83,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ATI_map_object_buffer")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glUnmapObjectBufferATI(UInt32 buffer);
+			internal delegate void glUnmapObjectBufferATI(uint buffer);
 
 			[RequiredByFeature("GL_ATI_map_object_buffer")]
 			[ThreadStatic]

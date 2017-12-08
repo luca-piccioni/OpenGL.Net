@@ -77,40 +77,40 @@ namespace OpenGL
 		/// [GL] glPresentFrameKeyedNV: Binding for glPresentFrameKeyedNV.
 		/// </summary>
 		/// <param name="video_slot">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="minPresentTime">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		/// <param name="beginPresentTimeId">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="presentDurationId">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target0">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="fill0">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="key0">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target1">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="fill1">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="key1">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_present_video")]
-		public static void PresentFrameKeyedNV(UInt32 video_slot, UInt64 minPresentTime, UInt32 beginPresentTimeId, UInt32 presentDurationId, Int32 type, Int32 target0, UInt32 fill0, UInt32 key0, Int32 target1, UInt32 fill1, UInt32 key1)
+		public static void PresentFrameKeyedNV(uint video_slot, ulong minPresentTime, uint beginPresentTimeId, uint presentDurationId, int type, int target0, uint fill0, uint key0, int target1, uint fill1, uint key1)
 		{
 			Debug.Assert(Delegates.pglPresentFrameKeyedNV != null, "pglPresentFrameKeyedNV not implemented");
 			Delegates.pglPresentFrameKeyedNV(video_slot, minPresentTime, beginPresentTimeId, presentDurationId, type, target0, fill0, key0, target1, fill1, key1);
@@ -122,46 +122,46 @@ namespace OpenGL
 		/// [GL] glPresentFrameDualFillNV: Binding for glPresentFrameDualFillNV.
 		/// </summary>
 		/// <param name="video_slot">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="minPresentTime">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		/// <param name="beginPresentTimeId">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="presentDurationId">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target0">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="fill0">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target1">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="fill1">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target2">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="fill2">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target3">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="fill3">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_present_video")]
-		public static void PresentFrameDualFillNV(UInt32 video_slot, UInt64 minPresentTime, UInt32 beginPresentTimeId, UInt32 presentDurationId, Int32 type, Int32 target0, UInt32 fill0, Int32 target1, UInt32 fill1, Int32 target2, UInt32 fill2, Int32 target3, UInt32 fill3)
+		public static void PresentFrameDualFillNV(uint video_slot, ulong minPresentTime, uint beginPresentTimeId, uint presentDurationId, int type, int target0, uint fill0, int target1, uint fill1, int target2, uint fill2, int target3, uint fill3)
 		{
 			Debug.Assert(Delegates.pglPresentFrameDualFillNV != null, "pglPresentFrameDualFillNV not implemented");
 			Delegates.pglPresentFrameDualFillNV(video_slot, minPresentTime, beginPresentTimeId, presentDurationId, type, target0, fill0, target1, fill1, target2, fill2, target3, fill3);
@@ -173,19 +173,19 @@ namespace OpenGL
 		/// [GL] glGetVideoivNV: Binding for glGetVideoivNV.
 		/// </summary>
 		/// <param name="video_slot">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_present_video")]
-		public static void GetVideoNV(UInt32 video_slot, Int32 pname, [Out] Int32[] @params)
+		public static void GetVideoNV(uint video_slot, int pname, [Out] int[] @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetVideoivNV != null, "pglGetVideoivNV not implemented");
 					Delegates.pglGetVideoivNV(video_slot, pname, p_params);
@@ -199,19 +199,19 @@ namespace OpenGL
 		/// [GL] glGetVideouivNV: Binding for glGetVideouivNV.
 		/// </summary>
 		/// <param name="video_slot">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_present_video")]
-		public static void GetVideoNV(UInt32 video_slot, Int32 pname, [Out] UInt32[] @params)
+		public static void GetVideoNV(uint video_slot, int pname, [Out] uint[] @params)
 		{
 			unsafe {
-				fixed (UInt32* p_params = @params)
+				fixed (uint* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetVideouivNV != null, "pglGetVideouivNV not implemented");
 					Delegates.pglGetVideouivNV(video_slot, pname, p_params);
@@ -225,19 +225,19 @@ namespace OpenGL
 		/// [GL] glGetVideoi64vNV: Binding for glGetVideoi64vNV.
 		/// </summary>
 		/// <param name="video_slot">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int64[]"/>.
+		/// A <see cref="T:long[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_present_video")]
-		public static void GetVideoNV(UInt32 video_slot, Int32 pname, [Out] Int64[] @params)
+		public static void GetVideoNV(uint video_slot, int pname, [Out] long[] @params)
 		{
 			unsafe {
-				fixed (Int64* p_params = @params)
+				fixed (long* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetVideoi64vNV != null, "pglGetVideoi64vNV not implemented");
 					Delegates.pglGetVideoi64vNV(video_slot, pname, p_params);
@@ -251,19 +251,19 @@ namespace OpenGL
 		/// [GL] glGetVideoui64vNV: Binding for glGetVideoui64vNV.
 		/// </summary>
 		/// <param name="video_slot">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:UInt64[]"/>.
+		/// A <see cref="T:ulong[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_present_video")]
-		public static void GetVideoui64vNV(UInt32 video_slot, Int32 pname, [Out] UInt64[] @params)
+		public static void GetVideoui64vNV(uint video_slot, int pname, [Out] ulong[] @params)
 		{
 			unsafe {
-				fixed (UInt64* p_params = @params)
+				fixed (ulong* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetVideoui64vNV != null, "pglGetVideoui64vNV not implemented");
 					Delegates.pglGetVideoui64vNV(video_slot, pname, p_params);
@@ -277,7 +277,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_NV_present_video")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glPresentFrameKeyedNV(UInt32 video_slot, UInt64 minPresentTime, UInt32 beginPresentTimeId, UInt32 presentDurationId, Int32 type, Int32 target0, UInt32 fill0, UInt32 key0, Int32 target1, UInt32 fill1, UInt32 key1);
+			internal delegate void glPresentFrameKeyedNV(uint video_slot, ulong minPresentTime, uint beginPresentTimeId, uint presentDurationId, int type, int target0, uint fill0, uint key0, int target1, uint fill1, uint key1);
 
 			[RequiredByFeature("GL_NV_present_video")]
 			[ThreadStatic]
@@ -285,7 +285,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_present_video")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glPresentFrameDualFillNV(UInt32 video_slot, UInt64 minPresentTime, UInt32 beginPresentTimeId, UInt32 presentDurationId, Int32 type, Int32 target0, UInt32 fill0, Int32 target1, UInt32 fill1, Int32 target2, UInt32 fill2, Int32 target3, UInt32 fill3);
+			internal delegate void glPresentFrameDualFillNV(uint video_slot, ulong minPresentTime, uint beginPresentTimeId, uint presentDurationId, int type, int target0, uint fill0, int target1, uint fill1, int target2, uint fill2, int target3, uint fill3);
 
 			[RequiredByFeature("GL_NV_present_video")]
 			[ThreadStatic]
@@ -293,7 +293,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_present_video")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetVideoivNV(UInt32 video_slot, Int32 pname, Int32* @params);
+			internal unsafe delegate void glGetVideoivNV(uint video_slot, int pname, int* @params);
 
 			[RequiredByFeature("GL_NV_present_video")]
 			[ThreadStatic]
@@ -301,7 +301,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_present_video")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetVideouivNV(UInt32 video_slot, Int32 pname, UInt32* @params);
+			internal unsafe delegate void glGetVideouivNV(uint video_slot, int pname, uint* @params);
 
 			[RequiredByFeature("GL_NV_present_video")]
 			[ThreadStatic]
@@ -309,7 +309,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_present_video")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetVideoi64vNV(UInt32 video_slot, Int32 pname, Int64* @params);
+			internal unsafe delegate void glGetVideoi64vNV(uint video_slot, int pname, long* @params);
 
 			[RequiredByFeature("GL_NV_present_video")]
 			[ThreadStatic]
@@ -317,7 +317,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_present_video")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetVideoui64vNV(UInt32 video_slot, Int32 pname, UInt64* @params);
+			internal unsafe delegate void glGetVideoui64vNV(uint video_slot, int pname, ulong* @params);
 
 			[RequiredByFeature("GL_NV_present_video")]
 			[ThreadStatic]

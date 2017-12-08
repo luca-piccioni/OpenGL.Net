@@ -41,10 +41,10 @@ namespace OpenGL
 		/// [GL] glDrawVkImageNV: Binding for glDrawVkImageNV.
 		/// </summary>
 		/// <param name="vkImage">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		/// <param name="sampler">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="x0">
 		/// A <see cref="T:float"/>.
@@ -74,7 +74,7 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_draw_vulkan_image", Api = "gl|glcore|gles2")]
-		public static void DrawVkImageNV(UInt64 vkImage, UInt32 sampler, float x0, float y0, float x1, float y1, float z, float s0, float t0, float s1, float t1)
+		public static void DrawVkImageNV(ulong vkImage, uint sampler, float x0, float y0, float x1, float y1, float z, float s0, float t0, float s1, float t1)
 		{
 			Debug.Assert(Delegates.pglDrawVkImageNV != null, "pglDrawVkImageNV not implemented");
 			Delegates.pglDrawVkImageNV(vkImage, sampler, x0, y0, x1, y1, z, s0, t0, s1, t1);
@@ -105,10 +105,10 @@ namespace OpenGL
 		/// [GL] glWaitVkSemaphoreNV: Binding for glWaitVkSemaphoreNV.
 		/// </summary>
 		/// <param name="vkSemaphore">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_draw_vulkan_image", Api = "gl|glcore|gles2")]
-		public static void WaitVkSemaphoreNV(UInt64 vkSemaphore)
+		public static void WaitVkSemaphoreNV(ulong vkSemaphore)
 		{
 			Debug.Assert(Delegates.pglWaitVkSemaphoreNV != null, "pglWaitVkSemaphoreNV not implemented");
 			Delegates.pglWaitVkSemaphoreNV(vkSemaphore);
@@ -120,10 +120,10 @@ namespace OpenGL
 		/// [GL] glSignalVkSemaphoreNV: Binding for glSignalVkSemaphoreNV.
 		/// </summary>
 		/// <param name="vkSemaphore">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_draw_vulkan_image", Api = "gl|glcore|gles2")]
-		public static void SignalVkSemaphoreNV(UInt64 vkSemaphore)
+		public static void SignalVkSemaphoreNV(ulong vkSemaphore)
 		{
 			Debug.Assert(Delegates.pglSignalVkSemaphoreNV != null, "pglSignalVkSemaphoreNV not implemented");
 			Delegates.pglSignalVkSemaphoreNV(vkSemaphore);
@@ -135,10 +135,10 @@ namespace OpenGL
 		/// [GL] glSignalVkFenceNV: Binding for glSignalVkFenceNV.
 		/// </summary>
 		/// <param name="vkFence">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_draw_vulkan_image", Api = "gl|glcore|gles2")]
-		public static void SignalVkFenceNV(UInt64 vkFence)
+		public static void SignalVkFenceNV(ulong vkFence)
 		{
 			Debug.Assert(Delegates.pglSignalVkFenceNV != null, "pglSignalVkFenceNV not implemented");
 			Delegates.pglSignalVkFenceNV(vkFence);
@@ -150,7 +150,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_NV_draw_vulkan_image", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glDrawVkImageNV(UInt64 vkImage, UInt32 sampler, float x0, float y0, float x1, float y1, float z, float s0, float t0, float s1, float t1);
+			internal delegate void glDrawVkImageNV(ulong vkImage, uint sampler, float x0, float y0, float x1, float y1, float z, float s0, float t0, float s1, float t1);
 
 			[RequiredByFeature("GL_NV_draw_vulkan_image", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -166,7 +166,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_draw_vulkan_image", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glWaitVkSemaphoreNV(UInt64 vkSemaphore);
+			internal delegate void glWaitVkSemaphoreNV(ulong vkSemaphore);
 
 			[RequiredByFeature("GL_NV_draw_vulkan_image", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -174,7 +174,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_draw_vulkan_image", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glSignalVkSemaphoreNV(UInt64 vkSemaphore);
+			internal delegate void glSignalVkSemaphoreNV(ulong vkSemaphore);
 
 			[RequiredByFeature("GL_NV_draw_vulkan_image", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -182,7 +182,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_draw_vulkan_image", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glSignalVkFenceNV(UInt64 vkFence);
+			internal delegate void glSignalVkFenceNV(ulong vkFence);
 
 			[RequiredByFeature("GL_NV_draw_vulkan_image", Api = "gl|glcore|gles2")]
 			[ThreadStatic]

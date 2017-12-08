@@ -72,7 +72,7 @@ namespace OpenGL
 				fixed (float* p_m = m)
 				{
 					Debug.Assert(Delegates.pglMatrixLoadfEXT != null, "pglMatrixLoadfEXT not implemented");
-					Delegates.pglMatrixLoadfEXT((Int32)mode, p_m);
+					Delegates.pglMatrixLoadfEXT((int)mode, p_m);
 					LogCommand("glMatrixLoadfEXT", null, mode, m					);
 				}
 			}
@@ -96,7 +96,7 @@ namespace OpenGL
 				fixed (double* p_m = m)
 				{
 					Debug.Assert(Delegates.pglMatrixLoaddEXT != null, "pglMatrixLoaddEXT not implemented");
-					Delegates.pglMatrixLoaddEXT((Int32)mode, p_m);
+					Delegates.pglMatrixLoaddEXT((int)mode, p_m);
 					LogCommand("glMatrixLoaddEXT", null, mode, m					);
 				}
 			}
@@ -120,7 +120,7 @@ namespace OpenGL
 				fixed (float* p_m = m)
 				{
 					Debug.Assert(Delegates.pglMatrixMultfEXT != null, "pglMatrixMultfEXT not implemented");
-					Delegates.pglMatrixMultfEXT((Int32)mode, p_m);
+					Delegates.pglMatrixMultfEXT((int)mode, p_m);
 					LogCommand("glMatrixMultfEXT", null, mode, m					);
 				}
 			}
@@ -144,7 +144,7 @@ namespace OpenGL
 				fixed (double* p_m = m)
 				{
 					Debug.Assert(Delegates.pglMatrixMultdEXT != null, "pglMatrixMultdEXT not implemented");
-					Delegates.pglMatrixMultdEXT((Int32)mode, p_m);
+					Delegates.pglMatrixMultdEXT((int)mode, p_m);
 					LogCommand("glMatrixMultdEXT", null, mode, m					);
 				}
 			}
@@ -161,7 +161,7 @@ namespace OpenGL
 		public static void MatrixLoadIdentityEXT(MatrixMode mode)
 		{
 			Debug.Assert(Delegates.pglMatrixLoadIdentityEXT != null, "pglMatrixLoadIdentityEXT not implemented");
-			Delegates.pglMatrixLoadIdentityEXT((Int32)mode);
+			Delegates.pglMatrixLoadIdentityEXT((int)mode);
 			LogCommand("glMatrixLoadIdentityEXT", null, mode			);
 			DebugCheckErrors(null);
 		}
@@ -188,7 +188,7 @@ namespace OpenGL
 		public static void MatrixRotateEXT(MatrixMode mode, float angle, float x, float y, float z)
 		{
 			Debug.Assert(Delegates.pglMatrixRotatefEXT != null, "pglMatrixRotatefEXT not implemented");
-			Delegates.pglMatrixRotatefEXT((Int32)mode, angle, x, y, z);
+			Delegates.pglMatrixRotatefEXT((int)mode, angle, x, y, z);
 			LogCommand("glMatrixRotatefEXT", null, mode, angle, x, y, z			);
 			DebugCheckErrors(null);
 		}
@@ -215,7 +215,7 @@ namespace OpenGL
 		public static void MatrixRotateEXT(MatrixMode mode, double angle, double x, double y, double z)
 		{
 			Debug.Assert(Delegates.pglMatrixRotatedEXT != null, "pglMatrixRotatedEXT not implemented");
-			Delegates.pglMatrixRotatedEXT((Int32)mode, angle, x, y, z);
+			Delegates.pglMatrixRotatedEXT((int)mode, angle, x, y, z);
 			LogCommand("glMatrixRotatedEXT", null, mode, angle, x, y, z			);
 			DebugCheckErrors(null);
 		}
@@ -239,7 +239,7 @@ namespace OpenGL
 		public static void MatrixScaleEXT(MatrixMode mode, float x, float y, float z)
 		{
 			Debug.Assert(Delegates.pglMatrixScalefEXT != null, "pglMatrixScalefEXT not implemented");
-			Delegates.pglMatrixScalefEXT((Int32)mode, x, y, z);
+			Delegates.pglMatrixScalefEXT((int)mode, x, y, z);
 			LogCommand("glMatrixScalefEXT", null, mode, x, y, z			);
 			DebugCheckErrors(null);
 		}
@@ -263,7 +263,7 @@ namespace OpenGL
 		public static void MatrixScaleEXT(MatrixMode mode, double x, double y, double z)
 		{
 			Debug.Assert(Delegates.pglMatrixScaledEXT != null, "pglMatrixScaledEXT not implemented");
-			Delegates.pglMatrixScaledEXT((Int32)mode, x, y, z);
+			Delegates.pglMatrixScaledEXT((int)mode, x, y, z);
 			LogCommand("glMatrixScaledEXT", null, mode, x, y, z			);
 			DebugCheckErrors(null);
 		}
@@ -287,7 +287,7 @@ namespace OpenGL
 		public static void MatrixTranslateEXT(MatrixMode mode, float x, float y, float z)
 		{
 			Debug.Assert(Delegates.pglMatrixTranslatefEXT != null, "pglMatrixTranslatefEXT not implemented");
-			Delegates.pglMatrixTranslatefEXT((Int32)mode, x, y, z);
+			Delegates.pglMatrixTranslatefEXT((int)mode, x, y, z);
 			LogCommand("glMatrixTranslatefEXT", null, mode, x, y, z			);
 			DebugCheckErrors(null);
 		}
@@ -311,7 +311,7 @@ namespace OpenGL
 		public static void MatrixTranslateEXT(MatrixMode mode, double x, double y, double z)
 		{
 			Debug.Assert(Delegates.pglMatrixTranslatedEXT != null, "pglMatrixTranslatedEXT not implemented");
-			Delegates.pglMatrixTranslatedEXT((Int32)mode, x, y, z);
+			Delegates.pglMatrixTranslatedEXT((int)mode, x, y, z);
 			LogCommand("glMatrixTranslatedEXT", null, mode, x, y, z			);
 			DebugCheckErrors(null);
 		}
@@ -344,7 +344,7 @@ namespace OpenGL
 		public static void MatrixFrustumEXT(MatrixMode mode, double left, double right, double bottom, double top, double zNear, double zFar)
 		{
 			Debug.Assert(Delegates.pglMatrixFrustumEXT != null, "pglMatrixFrustumEXT not implemented");
-			Delegates.pglMatrixFrustumEXT((Int32)mode, left, right, bottom, top, zNear, zFar);
+			Delegates.pglMatrixFrustumEXT((int)mode, left, right, bottom, top, zNear, zFar);
 			LogCommand("glMatrixFrustumEXT", null, mode, left, right, bottom, top, zNear, zFar			);
 			DebugCheckErrors(null);
 		}
@@ -377,7 +377,7 @@ namespace OpenGL
 		public static void MatrixOrthoEXT(MatrixMode mode, double left, double right, double bottom, double top, double zNear, double zFar)
 		{
 			Debug.Assert(Delegates.pglMatrixOrthoEXT != null, "pglMatrixOrthoEXT not implemented");
-			Delegates.pglMatrixOrthoEXT((Int32)mode, left, right, bottom, top, zNear, zFar);
+			Delegates.pglMatrixOrthoEXT((int)mode, left, right, bottom, top, zNear, zFar);
 			LogCommand("glMatrixOrthoEXT", null, mode, left, right, bottom, top, zNear, zFar			);
 			DebugCheckErrors(null);
 		}
@@ -392,7 +392,7 @@ namespace OpenGL
 		public static void MatrixPopEXT(MatrixMode mode)
 		{
 			Debug.Assert(Delegates.pglMatrixPopEXT != null, "pglMatrixPopEXT not implemented");
-			Delegates.pglMatrixPopEXT((Int32)mode);
+			Delegates.pglMatrixPopEXT((int)mode);
 			LogCommand("glMatrixPopEXT", null, mode			);
 			DebugCheckErrors(null);
 		}
@@ -407,7 +407,7 @@ namespace OpenGL
 		public static void MatrixPushEXT(MatrixMode mode)
 		{
 			Debug.Assert(Delegates.pglMatrixPushEXT != null, "pglMatrixPushEXT not implemented");
-			Delegates.pglMatrixPushEXT((Int32)mode);
+			Delegates.pglMatrixPushEXT((int)mode);
 			LogCommand("glMatrixPushEXT", null, mode			);
 			DebugCheckErrors(null);
 		}
@@ -422,7 +422,7 @@ namespace OpenGL
 		public static void ClientAttribDefaultEXT(ClientAttribMask mask)
 		{
 			Debug.Assert(Delegates.pglClientAttribDefaultEXT != null, "pglClientAttribDefaultEXT not implemented");
-			Delegates.pglClientAttribDefaultEXT((UInt32)mask);
+			Delegates.pglClientAttribDefaultEXT((uint)mask);
 			LogCommand("glClientAttribDefaultEXT", null, mask			);
 			DebugCheckErrors(null);
 		}
@@ -437,7 +437,7 @@ namespace OpenGL
 		public static void PushClientAttribDefaultEXT(ClientAttribMask mask)
 		{
 			Debug.Assert(Delegates.pglPushClientAttribDefaultEXT != null, "pglPushClientAttribDefaultEXT not implemented");
-			Delegates.pglPushClientAttribDefaultEXT((UInt32)mask);
+			Delegates.pglPushClientAttribDefaultEXT((uint)mask);
 			LogCommand("glPushClientAttribDefaultEXT", null, mask			);
 			DebugCheckErrors(null);
 		}
@@ -446,7 +446,7 @@ namespace OpenGL
 		/// [GL] glTextureParameterfEXT: Binding for glTextureParameterfEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -458,10 +458,10 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void TextureParameterEXT(UInt32 texture, TextureTarget target, TextureParameterName pname, float param)
+		public static void TextureParameterEXT(uint texture, TextureTarget target, TextureParameterName pname, float param)
 		{
 			Debug.Assert(Delegates.pglTextureParameterfEXT != null, "pglTextureParameterfEXT not implemented");
-			Delegates.pglTextureParameterfEXT(texture, (Int32)target, (Int32)pname, param);
+			Delegates.pglTextureParameterfEXT(texture, (int)target, (int)pname, param);
 			LogCommand("glTextureParameterfEXT", null, texture, target, pname, param			);
 			DebugCheckErrors(null);
 		}
@@ -470,7 +470,7 @@ namespace OpenGL
 		/// [GL] glTextureParameterfvEXT: Binding for glTextureParameterfvEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -482,13 +482,13 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void TextureParameterEXT(UInt32 texture, TextureTarget target, TextureParameterName pname, float[] @params)
+		public static void TextureParameterEXT(uint texture, TextureTarget target, TextureParameterName pname, float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglTextureParameterfvEXT != null, "pglTextureParameterfvEXT not implemented");
-					Delegates.pglTextureParameterfvEXT(texture, (Int32)target, (Int32)pname, p_params);
+					Delegates.pglTextureParameterfvEXT(texture, (int)target, (int)pname, p_params);
 					LogCommand("glTextureParameterfvEXT", null, texture, target, pname, @params					);
 				}
 			}
@@ -499,7 +499,7 @@ namespace OpenGL
 		/// [GL] glTextureParameterfvEXT: Binding for glTextureParameterfvEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -511,10 +511,10 @@ namespace OpenGL
 		/// A <see cref="T:float*"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static unsafe void TextureParameterEXT(UInt32 texture, TextureTarget target, TextureParameterName pname, float* @params)
+		public static unsafe void TextureParameterEXT(uint texture, TextureTarget target, TextureParameterName pname, float* @params)
 		{
 			Debug.Assert(Delegates.pglTextureParameterfvEXT != null, "pglTextureParameterfvEXT not implemented");
-			Delegates.pglTextureParameterfvEXT(texture, (Int32)target, (Int32)pname, @params);
+			Delegates.pglTextureParameterfvEXT(texture, (int)target, (int)pname, @params);
 			LogCommand("glTextureParameterfvEXT", null, texture, target, pname, new IntPtr(@params).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
@@ -523,7 +523,7 @@ namespace OpenGL
 		/// [GL] glTextureParameterfvEXT: Binding for glTextureParameterfvEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -535,14 +535,14 @@ namespace OpenGL
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void TextureParameterfEXT<T>(UInt32 texture, TextureTarget target, TextureParameterName pname, ref T @params) where T : struct
+		public static void TextureParameterfEXT<T>(uint texture, TextureTarget target, TextureParameterName pname, ref T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglTextureParameterfvEXT != null, "pglTextureParameterfvEXT not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
 				unsafe {
-					Delegates.pglTextureParameterfvEXT(texture, (Int32)target, (Int32)pname, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglTextureParameterfvEXT(texture, (int)target, (int)pname, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -552,7 +552,7 @@ namespace OpenGL
 				TypedReference refParams = __makeref(@params);
 				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
 
-				Delegates.pglTextureParameterfvEXT(texture, (Int32)target, (Int32)pname, (float*)refParamsPtr.ToPointer());
+				Delegates.pglTextureParameterfvEXT(texture, (int)target, (int)pname, (float*)refParamsPtr.ToPointer());
 			}
 			#endif
 			LogCommand("glTextureParameterfvEXT", null, texture, target, pname, @params			);
@@ -563,7 +563,7 @@ namespace OpenGL
 		/// [GL] glTextureParameteriEXT: Binding for glTextureParameteriEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -572,13 +572,13 @@ namespace OpenGL
 		/// A <see cref="T:TextureParameterName"/>.
 		/// </param>
 		/// <param name="param">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void TextureParameterEXT(UInt32 texture, TextureTarget target, TextureParameterName pname, Int32 param)
+		public static void TextureParameterEXT(uint texture, TextureTarget target, TextureParameterName pname, int param)
 		{
 			Debug.Assert(Delegates.pglTextureParameteriEXT != null, "pglTextureParameteriEXT not implemented");
-			Delegates.pglTextureParameteriEXT(texture, (Int32)target, (Int32)pname, param);
+			Delegates.pglTextureParameteriEXT(texture, (int)target, (int)pname, param);
 			LogCommand("glTextureParameteriEXT", null, texture, target, pname, param			);
 			DebugCheckErrors(null);
 		}
@@ -587,7 +587,7 @@ namespace OpenGL
 		/// [GL] glTextureParameterivEXT: Binding for glTextureParameterivEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -596,16 +596,16 @@ namespace OpenGL
 		/// A <see cref="T:TextureParameterName"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void TextureParameterEXT(UInt32 texture, TextureTarget target, TextureParameterName pname, Int32[] @params)
+		public static void TextureParameterEXT(uint texture, TextureTarget target, TextureParameterName pname, int[] @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglTextureParameterivEXT != null, "pglTextureParameterivEXT not implemented");
-					Delegates.pglTextureParameterivEXT(texture, (Int32)target, (Int32)pname, p_params);
+					Delegates.pglTextureParameterivEXT(texture, (int)target, (int)pname, p_params);
 					LogCommand("glTextureParameterivEXT", null, texture, target, pname, @params					);
 				}
 			}
@@ -616,7 +616,7 @@ namespace OpenGL
 		/// [GL] glTextureParameterivEXT: Binding for glTextureParameterivEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -625,13 +625,13 @@ namespace OpenGL
 		/// A <see cref="T:TextureParameterName"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32*"/>.
+		/// A <see cref="T:int*"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static unsafe void TextureParameterEXT(UInt32 texture, TextureTarget target, TextureParameterName pname, Int32* @params)
+		public static unsafe void TextureParameterEXT(uint texture, TextureTarget target, TextureParameterName pname, int* @params)
 		{
 			Debug.Assert(Delegates.pglTextureParameterivEXT != null, "pglTextureParameterivEXT not implemented");
-			Delegates.pglTextureParameterivEXT(texture, (Int32)target, (Int32)pname, @params);
+			Delegates.pglTextureParameterivEXT(texture, (int)target, (int)pname, @params);
 			LogCommand("glTextureParameterivEXT", null, texture, target, pname, new IntPtr(@params).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
@@ -640,7 +640,7 @@ namespace OpenGL
 		/// [GL] glTextureParameterivEXT: Binding for glTextureParameterivEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -652,14 +652,14 @@ namespace OpenGL
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void TextureParameteriEXT<T>(UInt32 texture, TextureTarget target, TextureParameterName pname, ref T @params) where T : struct
+		public static void TextureParameteriEXT<T>(uint texture, TextureTarget target, TextureParameterName pname, ref T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglTextureParameterivEXT != null, "pglTextureParameterivEXT not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
 				unsafe {
-					Delegates.pglTextureParameterivEXT(texture, (Int32)target, (Int32)pname, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglTextureParameterivEXT(texture, (int)target, (int)pname, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -669,7 +669,7 @@ namespace OpenGL
 				TypedReference refParams = __makeref(@params);
 				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
 
-				Delegates.pglTextureParameterivEXT(texture, (Int32)target, (Int32)pname, (Int32*)refParamsPtr.ToPointer());
+				Delegates.pglTextureParameterivEXT(texture, (int)target, (int)pname, (int*)refParamsPtr.ToPointer());
 			}
 			#endif
 			LogCommand("glTextureParameterivEXT", null, texture, target, pname, @params			);
@@ -680,22 +680,22 @@ namespace OpenGL
 		/// [GL] glTextureImage1DEXT: Binding for glTextureImage1DEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="border">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
@@ -707,10 +707,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void TextureImage1DEXT(UInt32 texture, TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 border, PixelFormat format, PixelType type, IntPtr pixels)
+		public static void TextureImage1DEXT(uint texture, TextureTarget target, int level, InternalFormat internalformat, int width, int border, PixelFormat format, PixelType type, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglTextureImage1DEXT != null, "pglTextureImage1DEXT not implemented");
-			Delegates.pglTextureImage1DEXT(texture, (Int32)target, level, (Int32)internalformat, width, border, (Int32)format, (Int32)type, pixels);
+			Delegates.pglTextureImage1DEXT(texture, (int)target, level, (int)internalformat, width, border, (int)format, (int)type, pixels);
 			LogCommand("glTextureImage1DEXT", null, texture, target, level, internalformat, width, border, format, type, pixels			);
 			DebugCheckErrors(null);
 		}
@@ -719,22 +719,22 @@ namespace OpenGL
 		/// [GL] glTextureImage1DEXT: Binding for glTextureImage1DEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="border">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
@@ -746,7 +746,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void TextureImage1DEXT(UInt32 texture, TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 border, PixelFormat format, PixelType type, Object pixels)
+		public static void TextureImage1DEXT(uint texture, TextureTarget target, int level, InternalFormat internalformat, int width, int border, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -760,25 +760,25 @@ namespace OpenGL
 		/// [GL] glTextureImage2DEXT: Binding for glTextureImage2DEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="border">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
@@ -790,10 +790,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void TextureImage2DEXT(UInt32 texture, TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 height, Int32 border, PixelFormat format, PixelType type, IntPtr pixels)
+		public static void TextureImage2DEXT(uint texture, TextureTarget target, int level, InternalFormat internalformat, int width, int height, int border, PixelFormat format, PixelType type, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglTextureImage2DEXT != null, "pglTextureImage2DEXT not implemented");
-			Delegates.pglTextureImage2DEXT(texture, (Int32)target, level, (Int32)internalformat, width, height, border, (Int32)format, (Int32)type, pixels);
+			Delegates.pglTextureImage2DEXT(texture, (int)target, level, (int)internalformat, width, height, border, (int)format, (int)type, pixels);
 			LogCommand("glTextureImage2DEXT", null, texture, target, level, internalformat, width, height, border, format, type, pixels			);
 			DebugCheckErrors(null);
 		}
@@ -802,25 +802,25 @@ namespace OpenGL
 		/// [GL] glTextureImage2DEXT: Binding for glTextureImage2DEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="border">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
@@ -832,7 +832,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void TextureImage2DEXT(UInt32 texture, TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 height, Int32 border, PixelFormat format, PixelType type, Object pixels)
+		public static void TextureImage2DEXT(uint texture, TextureTarget target, int level, InternalFormat internalformat, int width, int height, int border, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -846,19 +846,19 @@ namespace OpenGL
 		/// [GL] glTextureSubImage1DEXT: Binding for glTextureSubImage1DEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="xoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
@@ -870,10 +870,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void TextureSubImage1DEXT(UInt32 texture, TextureTarget target, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, PixelType type, IntPtr pixels)
+		public static void TextureSubImage1DEXT(uint texture, TextureTarget target, int level, int xoffset, int width, PixelFormat format, PixelType type, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglTextureSubImage1DEXT != null, "pglTextureSubImage1DEXT not implemented");
-			Delegates.pglTextureSubImage1DEXT(texture, (Int32)target, level, xoffset, width, (Int32)format, (Int32)type, pixels);
+			Delegates.pglTextureSubImage1DEXT(texture, (int)target, level, xoffset, width, (int)format, (int)type, pixels);
 			LogCommand("glTextureSubImage1DEXT", null, texture, target, level, xoffset, width, format, type, pixels			);
 			DebugCheckErrors(null);
 		}
@@ -882,19 +882,19 @@ namespace OpenGL
 		/// [GL] glTextureSubImage1DEXT: Binding for glTextureSubImage1DEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="xoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
@@ -906,7 +906,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void TextureSubImage1DEXT(UInt32 texture, TextureTarget target, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, PixelType type, Object pixels)
+		public static void TextureSubImage1DEXT(uint texture, TextureTarget target, int level, int xoffset, int width, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -920,25 +920,25 @@ namespace OpenGL
 		/// [GL] glTextureSubImage2DEXT: Binding for glTextureSubImage2DEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="xoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="yoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
@@ -950,10 +950,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void TextureSubImage2DEXT(UInt32 texture, TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, PixelType type, IntPtr pixels)
+		public static void TextureSubImage2DEXT(uint texture, TextureTarget target, int level, int xoffset, int yoffset, int width, int height, PixelFormat format, PixelType type, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglTextureSubImage2DEXT != null, "pglTextureSubImage2DEXT not implemented");
-			Delegates.pglTextureSubImage2DEXT(texture, (Int32)target, level, xoffset, yoffset, width, height, (Int32)format, (Int32)type, pixels);
+			Delegates.pglTextureSubImage2DEXT(texture, (int)target, level, xoffset, yoffset, width, height, (int)format, (int)type, pixels);
 			LogCommand("glTextureSubImage2DEXT", null, texture, target, level, xoffset, yoffset, width, height, format, type, pixels			);
 			DebugCheckErrors(null);
 		}
@@ -962,25 +962,25 @@ namespace OpenGL
 		/// [GL] glTextureSubImage2DEXT: Binding for glTextureSubImage2DEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="xoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="yoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
@@ -992,7 +992,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void TextureSubImage2DEXT(UInt32 texture, TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, PixelType type, Object pixels)
+		public static void TextureSubImage2DEXT(uint texture, TextureTarget target, int level, int xoffset, int yoffset, int width, int height, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -1006,34 +1006,34 @@ namespace OpenGL
 		/// [GL] glCopyTextureImage1DEXT: Binding for glCopyTextureImage1DEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="border">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void CopyTextureImage1DEXT(UInt32 texture, TextureTarget target, Int32 level, InternalFormat internalformat, Int32 x, Int32 y, Int32 width, Int32 border)
+		public static void CopyTextureImage1DEXT(uint texture, TextureTarget target, int level, InternalFormat internalformat, int x, int y, int width, int border)
 		{
 			Debug.Assert(Delegates.pglCopyTextureImage1DEXT != null, "pglCopyTextureImage1DEXT not implemented");
-			Delegates.pglCopyTextureImage1DEXT(texture, (Int32)target, level, (Int32)internalformat, x, y, width, border);
+			Delegates.pglCopyTextureImage1DEXT(texture, (int)target, level, (int)internalformat, x, y, width, border);
 			LogCommand("glCopyTextureImage1DEXT", null, texture, target, level, internalformat, x, y, width, border			);
 			DebugCheckErrors(null);
 		}
@@ -1042,37 +1042,37 @@ namespace OpenGL
 		/// [GL] glCopyTextureImage2DEXT: Binding for glCopyTextureImage2DEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="border">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void CopyTextureImage2DEXT(UInt32 texture, TextureTarget target, Int32 level, InternalFormat internalformat, Int32 x, Int32 y, Int32 width, Int32 height, Int32 border)
+		public static void CopyTextureImage2DEXT(uint texture, TextureTarget target, int level, InternalFormat internalformat, int x, int y, int width, int height, int border)
 		{
 			Debug.Assert(Delegates.pglCopyTextureImage2DEXT != null, "pglCopyTextureImage2DEXT not implemented");
-			Delegates.pglCopyTextureImage2DEXT(texture, (Int32)target, level, (Int32)internalformat, x, y, width, height, border);
+			Delegates.pglCopyTextureImage2DEXT(texture, (int)target, level, (int)internalformat, x, y, width, height, border);
 			LogCommand("glCopyTextureImage2DEXT", null, texture, target, level, internalformat, x, y, width, height, border			);
 			DebugCheckErrors(null);
 		}
@@ -1081,31 +1081,31 @@ namespace OpenGL
 		/// [GL] glCopyTextureSubImage1DEXT: Binding for glCopyTextureSubImage1DEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="xoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void CopyTextureSubImage1DEXT(UInt32 texture, TextureTarget target, Int32 level, Int32 xoffset, Int32 x, Int32 y, Int32 width)
+		public static void CopyTextureSubImage1DEXT(uint texture, TextureTarget target, int level, int xoffset, int x, int y, int width)
 		{
 			Debug.Assert(Delegates.pglCopyTextureSubImage1DEXT != null, "pglCopyTextureSubImage1DEXT not implemented");
-			Delegates.pglCopyTextureSubImage1DEXT(texture, (Int32)target, level, xoffset, x, y, width);
+			Delegates.pglCopyTextureSubImage1DEXT(texture, (int)target, level, xoffset, x, y, width);
 			LogCommand("glCopyTextureSubImage1DEXT", null, texture, target, level, xoffset, x, y, width			);
 			DebugCheckErrors(null);
 		}
@@ -1114,37 +1114,37 @@ namespace OpenGL
 		/// [GL] glCopyTextureSubImage2DEXT: Binding for glCopyTextureSubImage2DEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="xoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="yoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void CopyTextureSubImage2DEXT(UInt32 texture, TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 x, Int32 y, Int32 width, Int32 height)
+		public static void CopyTextureSubImage2DEXT(uint texture, TextureTarget target, int level, int xoffset, int yoffset, int x, int y, int width, int height)
 		{
 			Debug.Assert(Delegates.pglCopyTextureSubImage2DEXT != null, "pglCopyTextureSubImage2DEXT not implemented");
-			Delegates.pglCopyTextureSubImage2DEXT(texture, (Int32)target, level, xoffset, yoffset, x, y, width, height);
+			Delegates.pglCopyTextureSubImage2DEXT(texture, (int)target, level, xoffset, yoffset, x, y, width, height);
 			LogCommand("glCopyTextureSubImage2DEXT", null, texture, target, level, xoffset, yoffset, x, y, width, height			);
 			DebugCheckErrors(null);
 		}
@@ -1153,13 +1153,13 @@ namespace OpenGL
 		/// [GL] glGetTextureImageEXT: Binding for glGetTextureImageEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
@@ -1171,10 +1171,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetTextureImageEXT(UInt32 texture, TextureTarget target, Int32 level, PixelFormat format, PixelType type, IntPtr pixels)
+		public static void GetTextureImageEXT(uint texture, TextureTarget target, int level, PixelFormat format, PixelType type, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglGetTextureImageEXT != null, "pglGetTextureImageEXT not implemented");
-			Delegates.pglGetTextureImageEXT(texture, (Int32)target, level, (Int32)format, (Int32)type, pixels);
+			Delegates.pglGetTextureImageEXT(texture, (int)target, level, (int)format, (int)type, pixels);
 			LogCommand("glGetTextureImageEXT", null, texture, target, level, format, type, pixels			);
 			DebugCheckErrors(null);
 		}
@@ -1183,13 +1183,13 @@ namespace OpenGL
 		/// [GL] glGetTextureImageEXT: Binding for glGetTextureImageEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
@@ -1201,7 +1201,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetTextureImageEXT(UInt32 texture, TextureTarget target, Int32 level, PixelFormat format, PixelType type, Object pixels)
+		public static void GetTextureImageEXT(uint texture, TextureTarget target, int level, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -1215,7 +1215,7 @@ namespace OpenGL
 		/// [GL] glGetTextureParameterfvEXT: Binding for glGetTextureParameterfvEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -1227,13 +1227,13 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetTextureParameterEXT(UInt32 texture, TextureTarget target, GetTextureParameter pname, [Out] float[] @params)
+		public static void GetTextureParameterEXT(uint texture, TextureTarget target, GetTextureParameter pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetTextureParameterfvEXT != null, "pglGetTextureParameterfvEXT not implemented");
-					Delegates.pglGetTextureParameterfvEXT(texture, (Int32)target, (Int32)pname, p_params);
+					Delegates.pglGetTextureParameterfvEXT(texture, (int)target, (int)pname, p_params);
 					LogCommand("glGetTextureParameterfvEXT", null, texture, target, pname, @params					);
 				}
 			}
@@ -1244,7 +1244,7 @@ namespace OpenGL
 		/// [GL] glGetTextureParameterfvEXT: Binding for glGetTextureParameterfvEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -1256,13 +1256,13 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetTextureParameterEXT(UInt32 texture, TextureTarget target, GetTextureParameter pname, out float @params)
+		public static void GetTextureParameterEXT(uint texture, TextureTarget target, GetTextureParameter pname, out float @params)
 		{
 			unsafe {
 				fixed (float* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetTextureParameterfvEXT != null, "pglGetTextureParameterfvEXT not implemented");
-					Delegates.pglGetTextureParameterfvEXT(texture, (Int32)target, (Int32)pname, p_params);
+					Delegates.pglGetTextureParameterfvEXT(texture, (int)target, (int)pname, p_params);
 					LogCommand("glGetTextureParameterfvEXT", null, texture, target, pname, @params					);
 				}
 			}
@@ -1273,7 +1273,7 @@ namespace OpenGL
 		/// [GL] glGetTextureParameterfvEXT: Binding for glGetTextureParameterfvEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -1285,10 +1285,10 @@ namespace OpenGL
 		/// A <see cref="T:float*"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static unsafe void GetTextureParameterEXT(UInt32 texture, TextureTarget target, GetTextureParameter pname, [Out] float* @params)
+		public static unsafe void GetTextureParameterEXT(uint texture, TextureTarget target, GetTextureParameter pname, [Out] float* @params)
 		{
 			Debug.Assert(Delegates.pglGetTextureParameterfvEXT != null, "pglGetTextureParameterfvEXT not implemented");
-			Delegates.pglGetTextureParameterfvEXT(texture, (Int32)target, (Int32)pname, @params);
+			Delegates.pglGetTextureParameterfvEXT(texture, (int)target, (int)pname, @params);
 			LogCommand("glGetTextureParameterfvEXT", null, texture, target, pname, new IntPtr(@params).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
@@ -1297,7 +1297,7 @@ namespace OpenGL
 		/// [GL] glGetTextureParameterfvEXT: Binding for glGetTextureParameterfvEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -1309,14 +1309,14 @@ namespace OpenGL
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetTextureParameterfEXT<T>(UInt32 texture, TextureTarget target, GetTextureParameter pname, ref T @params) where T : struct
+		public static void GetTextureParameterfEXT<T>(uint texture, TextureTarget target, GetTextureParameter pname, ref T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetTextureParameterfvEXT != null, "pglGetTextureParameterfvEXT not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
 				unsafe {
-					Delegates.pglGetTextureParameterfvEXT(texture, (Int32)target, (Int32)pname, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglGetTextureParameterfvEXT(texture, (int)target, (int)pname, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -1326,7 +1326,7 @@ namespace OpenGL
 				TypedReference refParams = __makeref(@params);
 				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
 
-				Delegates.pglGetTextureParameterfvEXT(texture, (Int32)target, (Int32)pname, (float*)refParamsPtr.ToPointer());
+				Delegates.pglGetTextureParameterfvEXT(texture, (int)target, (int)pname, (float*)refParamsPtr.ToPointer());
 			}
 			#endif
 			LogCommand("glGetTextureParameterfvEXT", null, texture, target, pname, @params			);
@@ -1337,7 +1337,7 @@ namespace OpenGL
 		/// [GL] glGetTextureParameterivEXT: Binding for glGetTextureParameterivEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -1346,16 +1346,16 @@ namespace OpenGL
 		/// A <see cref="T:GetTextureParameter"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetTextureParameterEXT(UInt32 texture, TextureTarget target, GetTextureParameter pname, [Out] Int32[] @params)
+		public static void GetTextureParameterEXT(uint texture, TextureTarget target, GetTextureParameter pname, [Out] int[] @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetTextureParameterivEXT != null, "pglGetTextureParameterivEXT not implemented");
-					Delegates.pglGetTextureParameterivEXT(texture, (Int32)target, (Int32)pname, p_params);
+					Delegates.pglGetTextureParameterivEXT(texture, (int)target, (int)pname, p_params);
 					LogCommand("glGetTextureParameterivEXT", null, texture, target, pname, @params					);
 				}
 			}
@@ -1366,7 +1366,7 @@ namespace OpenGL
 		/// [GL] glGetTextureParameterivEXT: Binding for glGetTextureParameterivEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -1375,16 +1375,16 @@ namespace OpenGL
 		/// A <see cref="T:GetTextureParameter"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetTextureParameterEXT(UInt32 texture, TextureTarget target, GetTextureParameter pname, out Int32 @params)
+		public static void GetTextureParameterEXT(uint texture, TextureTarget target, GetTextureParameter pname, out int @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = &@params)
+				fixed (int* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetTextureParameterivEXT != null, "pglGetTextureParameterivEXT not implemented");
-					Delegates.pglGetTextureParameterivEXT(texture, (Int32)target, (Int32)pname, p_params);
+					Delegates.pglGetTextureParameterivEXT(texture, (int)target, (int)pname, p_params);
 					LogCommand("glGetTextureParameterivEXT", null, texture, target, pname, @params					);
 				}
 			}
@@ -1395,7 +1395,7 @@ namespace OpenGL
 		/// [GL] glGetTextureParameterivEXT: Binding for glGetTextureParameterivEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -1404,13 +1404,13 @@ namespace OpenGL
 		/// A <see cref="T:GetTextureParameter"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32*"/>.
+		/// A <see cref="T:int*"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static unsafe void GetTextureParameterEXT(UInt32 texture, TextureTarget target, GetTextureParameter pname, [Out] Int32* @params)
+		public static unsafe void GetTextureParameterEXT(uint texture, TextureTarget target, GetTextureParameter pname, [Out] int* @params)
 		{
 			Debug.Assert(Delegates.pglGetTextureParameterivEXT != null, "pglGetTextureParameterivEXT not implemented");
-			Delegates.pglGetTextureParameterivEXT(texture, (Int32)target, (Int32)pname, @params);
+			Delegates.pglGetTextureParameterivEXT(texture, (int)target, (int)pname, @params);
 			LogCommand("glGetTextureParameterivEXT", null, texture, target, pname, new IntPtr(@params).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
@@ -1419,7 +1419,7 @@ namespace OpenGL
 		/// [GL] glGetTextureParameterivEXT: Binding for glGetTextureParameterivEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -1431,14 +1431,14 @@ namespace OpenGL
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetTextureParameteriEXT<T>(UInt32 texture, TextureTarget target, GetTextureParameter pname, ref T @params) where T : struct
+		public static void GetTextureParameteriEXT<T>(uint texture, TextureTarget target, GetTextureParameter pname, ref T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetTextureParameterivEXT != null, "pglGetTextureParameterivEXT not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
 				unsafe {
-					Delegates.pglGetTextureParameterivEXT(texture, (Int32)target, (Int32)pname, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglGetTextureParameterivEXT(texture, (int)target, (int)pname, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -1448,7 +1448,7 @@ namespace OpenGL
 				TypedReference refParams = __makeref(@params);
 				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
 
-				Delegates.pglGetTextureParameterivEXT(texture, (Int32)target, (Int32)pname, (Int32*)refParamsPtr.ToPointer());
+				Delegates.pglGetTextureParameterivEXT(texture, (int)target, (int)pname, (int*)refParamsPtr.ToPointer());
 			}
 			#endif
 			LogCommand("glGetTextureParameterivEXT", null, texture, target, pname, @params			);
@@ -1459,13 +1459,13 @@ namespace OpenGL
 		/// [GL] glGetTextureLevelParameterfvEXT: Binding for glGetTextureLevelParameterfvEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:GetTextureParameter"/>.
@@ -1474,13 +1474,13 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetTextureLevelParameterEXT(UInt32 texture, TextureTarget target, Int32 level, GetTextureParameter pname, [Out] float[] @params)
+		public static void GetTextureLevelParameterEXT(uint texture, TextureTarget target, int level, GetTextureParameter pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetTextureLevelParameterfvEXT != null, "pglGetTextureLevelParameterfvEXT not implemented");
-					Delegates.pglGetTextureLevelParameterfvEXT(texture, (Int32)target, level, (Int32)pname, p_params);
+					Delegates.pglGetTextureLevelParameterfvEXT(texture, (int)target, level, (int)pname, p_params);
 					LogCommand("glGetTextureLevelParameterfvEXT", null, texture, target, level, pname, @params					);
 				}
 			}
@@ -1491,13 +1491,13 @@ namespace OpenGL
 		/// [GL] glGetTextureLevelParameterfvEXT: Binding for glGetTextureLevelParameterfvEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:GetTextureParameter"/>.
@@ -1506,13 +1506,13 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetTextureLevelParameterEXT(UInt32 texture, TextureTarget target, Int32 level, GetTextureParameter pname, out float @params)
+		public static void GetTextureLevelParameterEXT(uint texture, TextureTarget target, int level, GetTextureParameter pname, out float @params)
 		{
 			unsafe {
 				fixed (float* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetTextureLevelParameterfvEXT != null, "pglGetTextureLevelParameterfvEXT not implemented");
-					Delegates.pglGetTextureLevelParameterfvEXT(texture, (Int32)target, level, (Int32)pname, p_params);
+					Delegates.pglGetTextureLevelParameterfvEXT(texture, (int)target, level, (int)pname, p_params);
 					LogCommand("glGetTextureLevelParameterfvEXT", null, texture, target, level, pname, @params					);
 				}
 			}
@@ -1523,13 +1523,13 @@ namespace OpenGL
 		/// [GL] glGetTextureLevelParameterfvEXT: Binding for glGetTextureLevelParameterfvEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:GetTextureParameter"/>.
@@ -1538,10 +1538,10 @@ namespace OpenGL
 		/// A <see cref="T:float*"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static unsafe void GetTextureLevelParameterEXT(UInt32 texture, TextureTarget target, Int32 level, GetTextureParameter pname, [Out] float* @params)
+		public static unsafe void GetTextureLevelParameterEXT(uint texture, TextureTarget target, int level, GetTextureParameter pname, [Out] float* @params)
 		{
 			Debug.Assert(Delegates.pglGetTextureLevelParameterfvEXT != null, "pglGetTextureLevelParameterfvEXT not implemented");
-			Delegates.pglGetTextureLevelParameterfvEXT(texture, (Int32)target, level, (Int32)pname, @params);
+			Delegates.pglGetTextureLevelParameterfvEXT(texture, (int)target, level, (int)pname, @params);
 			LogCommand("glGetTextureLevelParameterfvEXT", null, texture, target, level, pname, new IntPtr(@params).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
@@ -1550,13 +1550,13 @@ namespace OpenGL
 		/// [GL] glGetTextureLevelParameterfvEXT: Binding for glGetTextureLevelParameterfvEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:GetTextureParameter"/>.
@@ -1565,14 +1565,14 @@ namespace OpenGL
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetTextureLevelParameterfEXT<T>(UInt32 texture, TextureTarget target, Int32 level, GetTextureParameter pname, ref T @params) where T : struct
+		public static void GetTextureLevelParameterfEXT<T>(uint texture, TextureTarget target, int level, GetTextureParameter pname, ref T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetTextureLevelParameterfvEXT != null, "pglGetTextureLevelParameterfvEXT not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
 				unsafe {
-					Delegates.pglGetTextureLevelParameterfvEXT(texture, (Int32)target, level, (Int32)pname, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglGetTextureLevelParameterfvEXT(texture, (int)target, level, (int)pname, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -1582,7 +1582,7 @@ namespace OpenGL
 				TypedReference refParams = __makeref(@params);
 				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
 
-				Delegates.pglGetTextureLevelParameterfvEXT(texture, (Int32)target, level, (Int32)pname, (float*)refParamsPtr.ToPointer());
+				Delegates.pglGetTextureLevelParameterfvEXT(texture, (int)target, level, (int)pname, (float*)refParamsPtr.ToPointer());
 			}
 			#endif
 			LogCommand("glGetTextureLevelParameterfvEXT", null, texture, target, level, pname, @params			);
@@ -1593,28 +1593,28 @@ namespace OpenGL
 		/// [GL] glGetTextureLevelParameterivEXT: Binding for glGetTextureLevelParameterivEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:GetTextureParameter"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetTextureLevelParameterEXT(UInt32 texture, TextureTarget target, Int32 level, GetTextureParameter pname, [Out] Int32[] @params)
+		public static void GetTextureLevelParameterEXT(uint texture, TextureTarget target, int level, GetTextureParameter pname, [Out] int[] @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetTextureLevelParameterivEXT != null, "pglGetTextureLevelParameterivEXT not implemented");
-					Delegates.pglGetTextureLevelParameterivEXT(texture, (Int32)target, level, (Int32)pname, p_params);
+					Delegates.pglGetTextureLevelParameterivEXT(texture, (int)target, level, (int)pname, p_params);
 					LogCommand("glGetTextureLevelParameterivEXT", null, texture, target, level, pname, @params					);
 				}
 			}
@@ -1625,28 +1625,28 @@ namespace OpenGL
 		/// [GL] glGetTextureLevelParameterivEXT: Binding for glGetTextureLevelParameterivEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:GetTextureParameter"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetTextureLevelParameterEXT(UInt32 texture, TextureTarget target, Int32 level, GetTextureParameter pname, out Int32 @params)
+		public static void GetTextureLevelParameterEXT(uint texture, TextureTarget target, int level, GetTextureParameter pname, out int @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = &@params)
+				fixed (int* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetTextureLevelParameterivEXT != null, "pglGetTextureLevelParameterivEXT not implemented");
-					Delegates.pglGetTextureLevelParameterivEXT(texture, (Int32)target, level, (Int32)pname, p_params);
+					Delegates.pglGetTextureLevelParameterivEXT(texture, (int)target, level, (int)pname, p_params);
 					LogCommand("glGetTextureLevelParameterivEXT", null, texture, target, level, pname, @params					);
 				}
 			}
@@ -1657,25 +1657,25 @@ namespace OpenGL
 		/// [GL] glGetTextureLevelParameterivEXT: Binding for glGetTextureLevelParameterivEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:GetTextureParameter"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32*"/>.
+		/// A <see cref="T:int*"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static unsafe void GetTextureLevelParameterEXT(UInt32 texture, TextureTarget target, Int32 level, GetTextureParameter pname, [Out] Int32* @params)
+		public static unsafe void GetTextureLevelParameterEXT(uint texture, TextureTarget target, int level, GetTextureParameter pname, [Out] int* @params)
 		{
 			Debug.Assert(Delegates.pglGetTextureLevelParameterivEXT != null, "pglGetTextureLevelParameterivEXT not implemented");
-			Delegates.pglGetTextureLevelParameterivEXT(texture, (Int32)target, level, (Int32)pname, @params);
+			Delegates.pglGetTextureLevelParameterivEXT(texture, (int)target, level, (int)pname, @params);
 			LogCommand("glGetTextureLevelParameterivEXT", null, texture, target, level, pname, new IntPtr(@params).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
@@ -1684,13 +1684,13 @@ namespace OpenGL
 		/// [GL] glGetTextureLevelParameterivEXT: Binding for glGetTextureLevelParameterivEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:GetTextureParameter"/>.
@@ -1699,14 +1699,14 @@ namespace OpenGL
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetTextureLevelParameteriEXT<T>(UInt32 texture, TextureTarget target, Int32 level, GetTextureParameter pname, ref T @params) where T : struct
+		public static void GetTextureLevelParameteriEXT<T>(uint texture, TextureTarget target, int level, GetTextureParameter pname, ref T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetTextureLevelParameterivEXT != null, "pglGetTextureLevelParameterivEXT not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
 				unsafe {
-					Delegates.pglGetTextureLevelParameterivEXT(texture, (Int32)target, level, (Int32)pname, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglGetTextureLevelParameterivEXT(texture, (int)target, level, (int)pname, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -1716,7 +1716,7 @@ namespace OpenGL
 				TypedReference refParams = __makeref(@params);
 				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
 
-				Delegates.pglGetTextureLevelParameterivEXT(texture, (Int32)target, level, (Int32)pname, (Int32*)refParamsPtr.ToPointer());
+				Delegates.pglGetTextureLevelParameterivEXT(texture, (int)target, level, (int)pname, (int*)refParamsPtr.ToPointer());
 			}
 			#endif
 			LogCommand("glGetTextureLevelParameterivEXT", null, texture, target, level, pname, @params			);
@@ -1727,28 +1727,28 @@ namespace OpenGL
 		/// [GL] glTextureImage3DEXT: Binding for glTextureImage3DEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="depth">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="border">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
@@ -1760,10 +1760,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void TextureImage3DEXT(UInt32 texture, TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, PixelFormat format, PixelType type, IntPtr pixels)
+		public static void TextureImage3DEXT(uint texture, TextureTarget target, int level, InternalFormat internalformat, int width, int height, int depth, int border, PixelFormat format, PixelType type, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglTextureImage3DEXT != null, "pglTextureImage3DEXT not implemented");
-			Delegates.pglTextureImage3DEXT(texture, (Int32)target, level, (Int32)internalformat, width, height, depth, border, (Int32)format, (Int32)type, pixels);
+			Delegates.pglTextureImage3DEXT(texture, (int)target, level, (int)internalformat, width, height, depth, border, (int)format, (int)type, pixels);
 			LogCommand("glTextureImage3DEXT", null, texture, target, level, internalformat, width, height, depth, border, format, type, pixels			);
 			DebugCheckErrors(null);
 		}
@@ -1772,28 +1772,28 @@ namespace OpenGL
 		/// [GL] glTextureImage3DEXT: Binding for glTextureImage3DEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="depth">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="border">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
@@ -1805,7 +1805,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void TextureImage3DEXT(UInt32 texture, TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, PixelFormat format, PixelType type, Object pixels)
+		public static void TextureImage3DEXT(uint texture, TextureTarget target, int level, InternalFormat internalformat, int width, int height, int depth, int border, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -1819,31 +1819,31 @@ namespace OpenGL
 		/// [GL] glTextureSubImage3DEXT: Binding for glTextureSubImage3DEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="xoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="yoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="zoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="depth">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
@@ -1855,10 +1855,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void TextureSubImage3DEXT(UInt32 texture, TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, PixelType type, IntPtr pixels)
+		public static void TextureSubImage3DEXT(uint texture, TextureTarget target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, PixelFormat format, PixelType type, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglTextureSubImage3DEXT != null, "pglTextureSubImage3DEXT not implemented");
-			Delegates.pglTextureSubImage3DEXT(texture, (Int32)target, level, xoffset, yoffset, zoffset, width, height, depth, (Int32)format, (Int32)type, pixels);
+			Delegates.pglTextureSubImage3DEXT(texture, (int)target, level, xoffset, yoffset, zoffset, width, height, depth, (int)format, (int)type, pixels);
 			LogCommand("glTextureSubImage3DEXT", null, texture, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels			);
 			DebugCheckErrors(null);
 		}
@@ -1867,31 +1867,31 @@ namespace OpenGL
 		/// [GL] glTextureSubImage3DEXT: Binding for glTextureSubImage3DEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="xoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="yoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="zoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="depth">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
@@ -1903,7 +1903,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void TextureSubImage3DEXT(UInt32 texture, TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, PixelType type, Object pixels)
+		public static void TextureSubImage3DEXT(uint texture, TextureTarget target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -1917,40 +1917,40 @@ namespace OpenGL
 		/// [GL] glCopyTextureSubImage3DEXT: Binding for glCopyTextureSubImage3DEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="xoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="yoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="zoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void CopyTextureSubImage3DEXT(UInt32 texture, TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 x, Int32 y, Int32 width, Int32 height)
+		public static void CopyTextureSubImage3DEXT(uint texture, TextureTarget target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height)
 		{
 			Debug.Assert(Delegates.pglCopyTextureSubImage3DEXT != null, "pglCopyTextureSubImage3DEXT not implemented");
-			Delegates.pglCopyTextureSubImage3DEXT(texture, (Int32)target, level, xoffset, yoffset, zoffset, x, y, width, height);
+			Delegates.pglCopyTextureSubImage3DEXT(texture, (int)target, level, xoffset, yoffset, zoffset, x, y, width, height);
 			LogCommand("glCopyTextureSubImage3DEXT", null, texture, target, level, xoffset, yoffset, zoffset, x, y, width, height			);
 			DebugCheckErrors(null);
 		}
@@ -1965,13 +1965,13 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void BindMultiTextureEXT(TextureUnit texunit, TextureTarget target, UInt32 texture)
+		public static void BindMultiTextureEXT(TextureUnit texunit, TextureTarget target, uint texture)
 		{
 			Debug.Assert(Delegates.pglBindMultiTextureEXT != null, "pglBindMultiTextureEXT not implemented");
-			Delegates.pglBindMultiTextureEXT((Int32)texunit, (Int32)target, texture);
+			Delegates.pglBindMultiTextureEXT((int)texunit, (int)target, texture);
 			LogCommand("glBindMultiTextureEXT", null, texunit, target, texture			);
 			DebugCheckErrors(null);
 		}
@@ -1983,22 +1983,22 @@ namespace OpenGL
 		/// A <see cref="T:TextureUnit"/>.
 		/// </param>
 		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="type">
 		/// A <see cref="T:TexCoordPointerType"/>.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void MultiTexCoordPointerEXT(TextureUnit texunit, Int32 size, TexCoordPointerType type, Int32 stride, IntPtr pointer)
+		public static void MultiTexCoordPointerEXT(TextureUnit texunit, int size, TexCoordPointerType type, int stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoordPointerEXT != null, "pglMultiTexCoordPointerEXT not implemented");
-			Delegates.pglMultiTexCoordPointerEXT((Int32)texunit, size, (Int32)type, stride, pointer);
+			Delegates.pglMultiTexCoordPointerEXT((int)texunit, size, (int)type, stride, pointer);
 			LogCommand("glMultiTexCoordPointerEXT", null, texunit, size, type, stride, pointer			);
 			DebugCheckErrors(null);
 		}
@@ -2010,19 +2010,19 @@ namespace OpenGL
 		/// A <see cref="T:TextureUnit"/>.
 		/// </param>
 		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="type">
 		/// A <see cref="T:TexCoordPointerType"/>.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pointer">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void MultiTexCoordPointerEXT(TextureUnit texunit, Int32 size, TexCoordPointerType type, Int32 stride, Object pointer)
+		public static void MultiTexCoordPointerEXT(TextureUnit texunit, int size, TexCoordPointerType type, int stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -2051,7 +2051,7 @@ namespace OpenGL
 		public static void MultiTexEnvEXT(TextureUnit texunit, TextureEnvTarget target, TextureEnvParameter pname, float param)
 		{
 			Debug.Assert(Delegates.pglMultiTexEnvfEXT != null, "pglMultiTexEnvfEXT not implemented");
-			Delegates.pglMultiTexEnvfEXT((Int32)texunit, (Int32)target, (Int32)pname, param);
+			Delegates.pglMultiTexEnvfEXT((int)texunit, (int)target, (int)pname, param);
 			LogCommand("glMultiTexEnvfEXT", null, texunit, target, pname, param			);
 			DebugCheckErrors(null);
 		}
@@ -2078,7 +2078,7 @@ namespace OpenGL
 				fixed (float* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglMultiTexEnvfvEXT != null, "pglMultiTexEnvfvEXT not implemented");
-					Delegates.pglMultiTexEnvfvEXT((Int32)texunit, (Int32)target, (Int32)pname, p_params);
+					Delegates.pglMultiTexEnvfvEXT((int)texunit, (int)target, (int)pname, p_params);
 					LogCommand("glMultiTexEnvfvEXT", null, texunit, target, pname, @params					);
 				}
 			}
@@ -2098,13 +2098,13 @@ namespace OpenGL
 		/// A <see cref="T:TextureEnvParameter"/>.
 		/// </param>
 		/// <param name="param">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void MultiTexEnvEXT(TextureUnit texunit, TextureEnvTarget target, TextureEnvParameter pname, Int32 param)
+		public static void MultiTexEnvEXT(TextureUnit texunit, TextureEnvTarget target, TextureEnvParameter pname, int param)
 		{
 			Debug.Assert(Delegates.pglMultiTexEnviEXT != null, "pglMultiTexEnviEXT not implemented");
-			Delegates.pglMultiTexEnviEXT((Int32)texunit, (Int32)target, (Int32)pname, param);
+			Delegates.pglMultiTexEnviEXT((int)texunit, (int)target, (int)pname, param);
 			LogCommand("glMultiTexEnviEXT", null, texunit, target, pname, param			);
 			DebugCheckErrors(null);
 		}
@@ -2122,16 +2122,16 @@ namespace OpenGL
 		/// A <see cref="T:TextureEnvParameter"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void MultiTexEnvEXT(TextureUnit texunit, TextureEnvTarget target, TextureEnvParameter pname, Int32[] @params)
+		public static void MultiTexEnvEXT(TextureUnit texunit, TextureEnvTarget target, TextureEnvParameter pname, int[] @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglMultiTexEnvivEXT != null, "pglMultiTexEnvivEXT not implemented");
-					Delegates.pglMultiTexEnvivEXT((Int32)texunit, (Int32)target, (Int32)pname, p_params);
+					Delegates.pglMultiTexEnvivEXT((int)texunit, (int)target, (int)pname, p_params);
 					LogCommand("glMultiTexEnvivEXT", null, texunit, target, pname, @params					);
 				}
 			}
@@ -2157,7 +2157,7 @@ namespace OpenGL
 		public static void MultiTexGenEXT(TextureUnit texunit, TextureCoordName coord, TextureGenParameter pname, double param)
 		{
 			Debug.Assert(Delegates.pglMultiTexGendEXT != null, "pglMultiTexGendEXT not implemented");
-			Delegates.pglMultiTexGendEXT((Int32)texunit, (Int32)coord, (Int32)pname, param);
+			Delegates.pglMultiTexGendEXT((int)texunit, (int)coord, (int)pname, param);
 			LogCommand("glMultiTexGendEXT", null, texunit, coord, pname, param			);
 			DebugCheckErrors(null);
 		}
@@ -2184,7 +2184,7 @@ namespace OpenGL
 				fixed (double* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglMultiTexGendvEXT != null, "pglMultiTexGendvEXT not implemented");
-					Delegates.pglMultiTexGendvEXT((Int32)texunit, (Int32)coord, (Int32)pname, p_params);
+					Delegates.pglMultiTexGendvEXT((int)texunit, (int)coord, (int)pname, p_params);
 					LogCommand("glMultiTexGendvEXT", null, texunit, coord, pname, @params					);
 				}
 			}
@@ -2210,7 +2210,7 @@ namespace OpenGL
 		public static void MultiTexGenEXT(TextureUnit texunit, TextureCoordName coord, TextureGenParameter pname, float param)
 		{
 			Debug.Assert(Delegates.pglMultiTexGenfEXT != null, "pglMultiTexGenfEXT not implemented");
-			Delegates.pglMultiTexGenfEXT((Int32)texunit, (Int32)coord, (Int32)pname, param);
+			Delegates.pglMultiTexGenfEXT((int)texunit, (int)coord, (int)pname, param);
 			LogCommand("glMultiTexGenfEXT", null, texunit, coord, pname, param			);
 			DebugCheckErrors(null);
 		}
@@ -2237,7 +2237,7 @@ namespace OpenGL
 				fixed (float* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglMultiTexGenfvEXT != null, "pglMultiTexGenfvEXT not implemented");
-					Delegates.pglMultiTexGenfvEXT((Int32)texunit, (Int32)coord, (Int32)pname, p_params);
+					Delegates.pglMultiTexGenfvEXT((int)texunit, (int)coord, (int)pname, p_params);
 					LogCommand("glMultiTexGenfvEXT", null, texunit, coord, pname, @params					);
 				}
 			}
@@ -2257,13 +2257,13 @@ namespace OpenGL
 		/// A <see cref="T:TextureGenParameter"/>.
 		/// </param>
 		/// <param name="param">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void MultiTexGenEXT(TextureUnit texunit, TextureCoordName coord, TextureGenParameter pname, Int32 param)
+		public static void MultiTexGenEXT(TextureUnit texunit, TextureCoordName coord, TextureGenParameter pname, int param)
 		{
 			Debug.Assert(Delegates.pglMultiTexGeniEXT != null, "pglMultiTexGeniEXT not implemented");
-			Delegates.pglMultiTexGeniEXT((Int32)texunit, (Int32)coord, (Int32)pname, param);
+			Delegates.pglMultiTexGeniEXT((int)texunit, (int)coord, (int)pname, param);
 			LogCommand("glMultiTexGeniEXT", null, texunit, coord, pname, param			);
 			DebugCheckErrors(null);
 		}
@@ -2281,16 +2281,16 @@ namespace OpenGL
 		/// A <see cref="T:TextureGenParameter"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void MultiTexGenEXT(TextureUnit texunit, TextureCoordName coord, TextureGenParameter pname, Int32[] @params)
+		public static void MultiTexGenEXT(TextureUnit texunit, TextureCoordName coord, TextureGenParameter pname, int[] @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglMultiTexGenivEXT != null, "pglMultiTexGenivEXT not implemented");
-					Delegates.pglMultiTexGenivEXT((Int32)texunit, (Int32)coord, (Int32)pname, p_params);
+					Delegates.pglMultiTexGenivEXT((int)texunit, (int)coord, (int)pname, p_params);
 					LogCommand("glMultiTexGenivEXT", null, texunit, coord, pname, @params					);
 				}
 			}
@@ -2319,7 +2319,7 @@ namespace OpenGL
 				fixed (float* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetMultiTexEnvfvEXT != null, "pglGetMultiTexEnvfvEXT not implemented");
-					Delegates.pglGetMultiTexEnvfvEXT((Int32)texunit, (Int32)target, (Int32)pname, p_params);
+					Delegates.pglGetMultiTexEnvfvEXT((int)texunit, (int)target, (int)pname, p_params);
 					LogCommand("glGetMultiTexEnvfvEXT", null, texunit, target, pname, @params					);
 				}
 			}
@@ -2339,16 +2339,16 @@ namespace OpenGL
 		/// A <see cref="T:TextureEnvParameter"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetMultiTexEnvEXT(TextureUnit texunit, TextureEnvTarget target, TextureEnvParameter pname, [Out] Int32[] @params)
+		public static void GetMultiTexEnvEXT(TextureUnit texunit, TextureEnvTarget target, TextureEnvParameter pname, [Out] int[] @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetMultiTexEnvivEXT != null, "pglGetMultiTexEnvivEXT not implemented");
-					Delegates.pglGetMultiTexEnvivEXT((Int32)texunit, (Int32)target, (Int32)pname, p_params);
+					Delegates.pglGetMultiTexEnvivEXT((int)texunit, (int)target, (int)pname, p_params);
 					LogCommand("glGetMultiTexEnvivEXT", null, texunit, target, pname, @params					);
 				}
 			}
@@ -2377,7 +2377,7 @@ namespace OpenGL
 				fixed (double* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetMultiTexGendvEXT != null, "pglGetMultiTexGendvEXT not implemented");
-					Delegates.pglGetMultiTexGendvEXT((Int32)texunit, (Int32)coord, (Int32)pname, p_params);
+					Delegates.pglGetMultiTexGendvEXT((int)texunit, (int)coord, (int)pname, p_params);
 					LogCommand("glGetMultiTexGendvEXT", null, texunit, coord, pname, @params					);
 				}
 			}
@@ -2406,7 +2406,7 @@ namespace OpenGL
 				fixed (float* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetMultiTexGenfvEXT != null, "pglGetMultiTexGenfvEXT not implemented");
-					Delegates.pglGetMultiTexGenfvEXT((Int32)texunit, (Int32)coord, (Int32)pname, p_params);
+					Delegates.pglGetMultiTexGenfvEXT((int)texunit, (int)coord, (int)pname, p_params);
 					LogCommand("glGetMultiTexGenfvEXT", null, texunit, coord, pname, @params					);
 				}
 			}
@@ -2426,16 +2426,16 @@ namespace OpenGL
 		/// A <see cref="T:TextureGenParameter"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetMultiTexGenEXT(TextureUnit texunit, TextureCoordName coord, TextureGenParameter pname, [Out] Int32[] @params)
+		public static void GetMultiTexGenEXT(TextureUnit texunit, TextureCoordName coord, TextureGenParameter pname, [Out] int[] @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetMultiTexGenivEXT != null, "pglGetMultiTexGenivEXT not implemented");
-					Delegates.pglGetMultiTexGenivEXT((Int32)texunit, (Int32)coord, (Int32)pname, p_params);
+					Delegates.pglGetMultiTexGenivEXT((int)texunit, (int)coord, (int)pname, p_params);
 					LogCommand("glGetMultiTexGenivEXT", null, texunit, coord, pname, @params					);
 				}
 			}
@@ -2455,13 +2455,13 @@ namespace OpenGL
 		/// A <see cref="T:TextureParameterName"/>.
 		/// </param>
 		/// <param name="param">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void MultiTexParameterEXT(TextureUnit texunit, TextureTarget target, TextureParameterName pname, Int32 param)
+		public static void MultiTexParameterEXT(TextureUnit texunit, TextureTarget target, TextureParameterName pname, int param)
 		{
 			Debug.Assert(Delegates.pglMultiTexParameteriEXT != null, "pglMultiTexParameteriEXT not implemented");
-			Delegates.pglMultiTexParameteriEXT((Int32)texunit, (Int32)target, (Int32)pname, param);
+			Delegates.pglMultiTexParameteriEXT((int)texunit, (int)target, (int)pname, param);
 			LogCommand("glMultiTexParameteriEXT", null, texunit, target, pname, param			);
 			DebugCheckErrors(null);
 		}
@@ -2479,16 +2479,16 @@ namespace OpenGL
 		/// A <see cref="T:TextureParameterName"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void MultiTexParameterEXT(TextureUnit texunit, TextureTarget target, TextureParameterName pname, Int32[] @params)
+		public static void MultiTexParameterEXT(TextureUnit texunit, TextureTarget target, TextureParameterName pname, int[] @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglMultiTexParameterivEXT != null, "pglMultiTexParameterivEXT not implemented");
-					Delegates.pglMultiTexParameterivEXT((Int32)texunit, (Int32)target, (Int32)pname, p_params);
+					Delegates.pglMultiTexParameterivEXT((int)texunit, (int)target, (int)pname, p_params);
 					LogCommand("glMultiTexParameterivEXT", null, texunit, target, pname, @params					);
 				}
 			}
@@ -2514,7 +2514,7 @@ namespace OpenGL
 		public static void MultiTexParameterEXT(TextureUnit texunit, TextureTarget target, TextureParameterName pname, float param)
 		{
 			Debug.Assert(Delegates.pglMultiTexParameterfEXT != null, "pglMultiTexParameterfEXT not implemented");
-			Delegates.pglMultiTexParameterfEXT((Int32)texunit, (Int32)target, (Int32)pname, param);
+			Delegates.pglMultiTexParameterfEXT((int)texunit, (int)target, (int)pname, param);
 			LogCommand("glMultiTexParameterfEXT", null, texunit, target, pname, param			);
 			DebugCheckErrors(null);
 		}
@@ -2541,7 +2541,7 @@ namespace OpenGL
 				fixed (float* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglMultiTexParameterfvEXT != null, "pglMultiTexParameterfvEXT not implemented");
-					Delegates.pglMultiTexParameterfvEXT((Int32)texunit, (Int32)target, (Int32)pname, p_params);
+					Delegates.pglMultiTexParameterfvEXT((int)texunit, (int)target, (int)pname, p_params);
 					LogCommand("glMultiTexParameterfvEXT", null, texunit, target, pname, @params					);
 				}
 			}
@@ -2558,16 +2558,16 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="border">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
@@ -2579,10 +2579,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void MultiTexImage1DEXT(TextureUnit texunit, TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 border, PixelFormat format, PixelType type, IntPtr pixels)
+		public static void MultiTexImage1DEXT(TextureUnit texunit, TextureTarget target, int level, InternalFormat internalformat, int width, int border, PixelFormat format, PixelType type, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglMultiTexImage1DEXT != null, "pglMultiTexImage1DEXT not implemented");
-			Delegates.pglMultiTexImage1DEXT((Int32)texunit, (Int32)target, level, (Int32)internalformat, width, border, (Int32)format, (Int32)type, pixels);
+			Delegates.pglMultiTexImage1DEXT((int)texunit, (int)target, level, (int)internalformat, width, border, (int)format, (int)type, pixels);
 			LogCommand("glMultiTexImage1DEXT", null, texunit, target, level, internalformat, width, border, format, type, pixels			);
 			DebugCheckErrors(null);
 		}
@@ -2597,16 +2597,16 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="border">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
@@ -2618,7 +2618,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void MultiTexImage1DEXT(TextureUnit texunit, TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 border, PixelFormat format, PixelType type, Object pixels)
+		public static void MultiTexImage1DEXT(TextureUnit texunit, TextureTarget target, int level, InternalFormat internalformat, int width, int border, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -2638,19 +2638,19 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="border">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
@@ -2662,10 +2662,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void MultiTexImage2DEXT(TextureUnit texunit, TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 height, Int32 border, PixelFormat format, PixelType type, IntPtr pixels)
+		public static void MultiTexImage2DEXT(TextureUnit texunit, TextureTarget target, int level, InternalFormat internalformat, int width, int height, int border, PixelFormat format, PixelType type, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglMultiTexImage2DEXT != null, "pglMultiTexImage2DEXT not implemented");
-			Delegates.pglMultiTexImage2DEXT((Int32)texunit, (Int32)target, level, (Int32)internalformat, width, height, border, (Int32)format, (Int32)type, pixels);
+			Delegates.pglMultiTexImage2DEXT((int)texunit, (int)target, level, (int)internalformat, width, height, border, (int)format, (int)type, pixels);
 			LogCommand("glMultiTexImage2DEXT", null, texunit, target, level, internalformat, width, height, border, format, type, pixels			);
 			DebugCheckErrors(null);
 		}
@@ -2680,19 +2680,19 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="border">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
@@ -2704,7 +2704,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void MultiTexImage2DEXT(TextureUnit texunit, TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 height, Int32 border, PixelFormat format, PixelType type, Object pixels)
+		public static void MultiTexImage2DEXT(TextureUnit texunit, TextureTarget target, int level, InternalFormat internalformat, int width, int height, int border, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -2724,13 +2724,13 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="xoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
@@ -2742,10 +2742,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void MultiTexSubImage1DEXT(TextureUnit texunit, TextureTarget target, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, PixelType type, IntPtr pixels)
+		public static void MultiTexSubImage1DEXT(TextureUnit texunit, TextureTarget target, int level, int xoffset, int width, PixelFormat format, PixelType type, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglMultiTexSubImage1DEXT != null, "pglMultiTexSubImage1DEXT not implemented");
-			Delegates.pglMultiTexSubImage1DEXT((Int32)texunit, (Int32)target, level, xoffset, width, (Int32)format, (Int32)type, pixels);
+			Delegates.pglMultiTexSubImage1DEXT((int)texunit, (int)target, level, xoffset, width, (int)format, (int)type, pixels);
 			LogCommand("glMultiTexSubImage1DEXT", null, texunit, target, level, xoffset, width, format, type, pixels			);
 			DebugCheckErrors(null);
 		}
@@ -2760,13 +2760,13 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="xoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
@@ -2778,7 +2778,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void MultiTexSubImage1DEXT(TextureUnit texunit, TextureTarget target, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, PixelType type, Object pixels)
+		public static void MultiTexSubImage1DEXT(TextureUnit texunit, TextureTarget target, int level, int xoffset, int width, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -2798,19 +2798,19 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="xoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="yoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
@@ -2822,10 +2822,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void MultiTexSubImage2DEXT(TextureUnit texunit, TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, PixelType type, IntPtr pixels)
+		public static void MultiTexSubImage2DEXT(TextureUnit texunit, TextureTarget target, int level, int xoffset, int yoffset, int width, int height, PixelFormat format, PixelType type, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglMultiTexSubImage2DEXT != null, "pglMultiTexSubImage2DEXT not implemented");
-			Delegates.pglMultiTexSubImage2DEXT((Int32)texunit, (Int32)target, level, xoffset, yoffset, width, height, (Int32)format, (Int32)type, pixels);
+			Delegates.pglMultiTexSubImage2DEXT((int)texunit, (int)target, level, xoffset, yoffset, width, height, (int)format, (int)type, pixels);
 			LogCommand("glMultiTexSubImage2DEXT", null, texunit, target, level, xoffset, yoffset, width, height, format, type, pixels			);
 			DebugCheckErrors(null);
 		}
@@ -2840,19 +2840,19 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="xoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="yoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
@@ -2864,7 +2864,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void MultiTexSubImage2DEXT(TextureUnit texunit, TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, PixelType type, Object pixels)
+		public static void MultiTexSubImage2DEXT(TextureUnit texunit, TextureTarget target, int level, int xoffset, int yoffset, int width, int height, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -2884,28 +2884,28 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="border">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void CopyMultiTexImage1DEXT(TextureUnit texunit, TextureTarget target, Int32 level, InternalFormat internalformat, Int32 x, Int32 y, Int32 width, Int32 border)
+		public static void CopyMultiTexImage1DEXT(TextureUnit texunit, TextureTarget target, int level, InternalFormat internalformat, int x, int y, int width, int border)
 		{
 			Debug.Assert(Delegates.pglCopyMultiTexImage1DEXT != null, "pglCopyMultiTexImage1DEXT not implemented");
-			Delegates.pglCopyMultiTexImage1DEXT((Int32)texunit, (Int32)target, level, (Int32)internalformat, x, y, width, border);
+			Delegates.pglCopyMultiTexImage1DEXT((int)texunit, (int)target, level, (int)internalformat, x, y, width, border);
 			LogCommand("glCopyMultiTexImage1DEXT", null, texunit, target, level, internalformat, x, y, width, border			);
 			DebugCheckErrors(null);
 		}
@@ -2920,31 +2920,31 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="border">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void CopyMultiTexImage2DEXT(TextureUnit texunit, TextureTarget target, Int32 level, InternalFormat internalformat, Int32 x, Int32 y, Int32 width, Int32 height, Int32 border)
+		public static void CopyMultiTexImage2DEXT(TextureUnit texunit, TextureTarget target, int level, InternalFormat internalformat, int x, int y, int width, int height, int border)
 		{
 			Debug.Assert(Delegates.pglCopyMultiTexImage2DEXT != null, "pglCopyMultiTexImage2DEXT not implemented");
-			Delegates.pglCopyMultiTexImage2DEXT((Int32)texunit, (Int32)target, level, (Int32)internalformat, x, y, width, height, border);
+			Delegates.pglCopyMultiTexImage2DEXT((int)texunit, (int)target, level, (int)internalformat, x, y, width, height, border);
 			LogCommand("glCopyMultiTexImage2DEXT", null, texunit, target, level, internalformat, x, y, width, height, border			);
 			DebugCheckErrors(null);
 		}
@@ -2959,25 +2959,25 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="xoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void CopyMultiTexSubImage1DEXT(TextureUnit texunit, TextureTarget target, Int32 level, Int32 xoffset, Int32 x, Int32 y, Int32 width)
+		public static void CopyMultiTexSubImage1DEXT(TextureUnit texunit, TextureTarget target, int level, int xoffset, int x, int y, int width)
 		{
 			Debug.Assert(Delegates.pglCopyMultiTexSubImage1DEXT != null, "pglCopyMultiTexSubImage1DEXT not implemented");
-			Delegates.pglCopyMultiTexSubImage1DEXT((Int32)texunit, (Int32)target, level, xoffset, x, y, width);
+			Delegates.pglCopyMultiTexSubImage1DEXT((int)texunit, (int)target, level, xoffset, x, y, width);
 			LogCommand("glCopyMultiTexSubImage1DEXT", null, texunit, target, level, xoffset, x, y, width			);
 			DebugCheckErrors(null);
 		}
@@ -2992,31 +2992,31 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="xoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="yoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void CopyMultiTexSubImage2DEXT(TextureUnit texunit, TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 x, Int32 y, Int32 width, Int32 height)
+		public static void CopyMultiTexSubImage2DEXT(TextureUnit texunit, TextureTarget target, int level, int xoffset, int yoffset, int x, int y, int width, int height)
 		{
 			Debug.Assert(Delegates.pglCopyMultiTexSubImage2DEXT != null, "pglCopyMultiTexSubImage2DEXT not implemented");
-			Delegates.pglCopyMultiTexSubImage2DEXT((Int32)texunit, (Int32)target, level, xoffset, yoffset, x, y, width, height);
+			Delegates.pglCopyMultiTexSubImage2DEXT((int)texunit, (int)target, level, xoffset, yoffset, x, y, width, height);
 			LogCommand("glCopyMultiTexSubImage2DEXT", null, texunit, target, level, xoffset, yoffset, x, y, width, height			);
 			DebugCheckErrors(null);
 		}
@@ -3031,7 +3031,7 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
@@ -3043,10 +3043,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetMultiTexImageEXT(TextureUnit texunit, TextureTarget target, Int32 level, PixelFormat format, PixelType type, IntPtr pixels)
+		public static void GetMultiTexImageEXT(TextureUnit texunit, TextureTarget target, int level, PixelFormat format, PixelType type, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglGetMultiTexImageEXT != null, "pglGetMultiTexImageEXT not implemented");
-			Delegates.pglGetMultiTexImageEXT((Int32)texunit, (Int32)target, level, (Int32)format, (Int32)type, pixels);
+			Delegates.pglGetMultiTexImageEXT((int)texunit, (int)target, level, (int)format, (int)type, pixels);
 			LogCommand("glGetMultiTexImageEXT", null, texunit, target, level, format, type, pixels			);
 			DebugCheckErrors(null);
 		}
@@ -3061,7 +3061,7 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
@@ -3073,7 +3073,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetMultiTexImageEXT(TextureUnit texunit, TextureTarget target, Int32 level, PixelFormat format, PixelType type, Object pixels)
+		public static void GetMultiTexImageEXT(TextureUnit texunit, TextureTarget target, int level, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -3105,7 +3105,7 @@ namespace OpenGL
 				fixed (float* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetMultiTexParameterfvEXT != null, "pglGetMultiTexParameterfvEXT not implemented");
-					Delegates.pglGetMultiTexParameterfvEXT((Int32)texunit, (Int32)target, (Int32)pname, p_params);
+					Delegates.pglGetMultiTexParameterfvEXT((int)texunit, (int)target, (int)pname, p_params);
 					LogCommand("glGetMultiTexParameterfvEXT", null, texunit, target, pname, @params					);
 				}
 			}
@@ -3125,16 +3125,16 @@ namespace OpenGL
 		/// A <see cref="T:GetTextureParameter"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetMultiTexParameterEXT(TextureUnit texunit, TextureTarget target, GetTextureParameter pname, [Out] Int32[] @params)
+		public static void GetMultiTexParameterEXT(TextureUnit texunit, TextureTarget target, GetTextureParameter pname, [Out] int[] @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetMultiTexParameterivEXT != null, "pglGetMultiTexParameterivEXT not implemented");
-					Delegates.pglGetMultiTexParameterivEXT((Int32)texunit, (Int32)target, (Int32)pname, p_params);
+					Delegates.pglGetMultiTexParameterivEXT((int)texunit, (int)target, (int)pname, p_params);
 					LogCommand("glGetMultiTexParameterivEXT", null, texunit, target, pname, @params					);
 				}
 			}
@@ -3151,7 +3151,7 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:GetTextureParameter"/>.
@@ -3160,13 +3160,13 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetMultiTexLevelParameterEXT(TextureUnit texunit, TextureTarget target, Int32 level, GetTextureParameter pname, [Out] float[] @params)
+		public static void GetMultiTexLevelParameterEXT(TextureUnit texunit, TextureTarget target, int level, GetTextureParameter pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetMultiTexLevelParameterfvEXT != null, "pglGetMultiTexLevelParameterfvEXT not implemented");
-					Delegates.pglGetMultiTexLevelParameterfvEXT((Int32)texunit, (Int32)target, level, (Int32)pname, p_params);
+					Delegates.pglGetMultiTexLevelParameterfvEXT((int)texunit, (int)target, level, (int)pname, p_params);
 					LogCommand("glGetMultiTexLevelParameterfvEXT", null, texunit, target, level, pname, @params					);
 				}
 			}
@@ -3183,22 +3183,22 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:GetTextureParameter"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetMultiTexLevelParameterEXT(TextureUnit texunit, TextureTarget target, Int32 level, GetTextureParameter pname, [Out] Int32[] @params)
+		public static void GetMultiTexLevelParameterEXT(TextureUnit texunit, TextureTarget target, int level, GetTextureParameter pname, [Out] int[] @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetMultiTexLevelParameterivEXT != null, "pglGetMultiTexLevelParameterivEXT not implemented");
-					Delegates.pglGetMultiTexLevelParameterivEXT((Int32)texunit, (Int32)target, level, (Int32)pname, p_params);
+					Delegates.pglGetMultiTexLevelParameterivEXT((int)texunit, (int)target, level, (int)pname, p_params);
 					LogCommand("glGetMultiTexLevelParameterivEXT", null, texunit, target, level, pname, @params					);
 				}
 			}
@@ -3215,22 +3215,22 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="depth">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="border">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
@@ -3242,10 +3242,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void MultiTexImage3DEXT(TextureUnit texunit, TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, PixelFormat format, PixelType type, IntPtr pixels)
+		public static void MultiTexImage3DEXT(TextureUnit texunit, TextureTarget target, int level, InternalFormat internalformat, int width, int height, int depth, int border, PixelFormat format, PixelType type, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglMultiTexImage3DEXT != null, "pglMultiTexImage3DEXT not implemented");
-			Delegates.pglMultiTexImage3DEXT((Int32)texunit, (Int32)target, level, (Int32)internalformat, width, height, depth, border, (Int32)format, (Int32)type, pixels);
+			Delegates.pglMultiTexImage3DEXT((int)texunit, (int)target, level, (int)internalformat, width, height, depth, border, (int)format, (int)type, pixels);
 			LogCommand("glMultiTexImage3DEXT", null, texunit, target, level, internalformat, width, height, depth, border, format, type, pixels			);
 			DebugCheckErrors(null);
 		}
@@ -3260,22 +3260,22 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="depth">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="border">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
@@ -3287,7 +3287,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void MultiTexImage3DEXT(TextureUnit texunit, TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, PixelFormat format, PixelType type, Object pixels)
+		public static void MultiTexImage3DEXT(TextureUnit texunit, TextureTarget target, int level, InternalFormat internalformat, int width, int height, int depth, int border, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -3307,25 +3307,25 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="xoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="yoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="zoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="depth">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
@@ -3337,10 +3337,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void MultiTexSubImage3DEXT(TextureUnit texunit, TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, PixelType type, IntPtr pixels)
+		public static void MultiTexSubImage3DEXT(TextureUnit texunit, TextureTarget target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, PixelFormat format, PixelType type, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglMultiTexSubImage3DEXT != null, "pglMultiTexSubImage3DEXT not implemented");
-			Delegates.pglMultiTexSubImage3DEXT((Int32)texunit, (Int32)target, level, xoffset, yoffset, zoffset, width, height, depth, (Int32)format, (Int32)type, pixels);
+			Delegates.pglMultiTexSubImage3DEXT((int)texunit, (int)target, level, xoffset, yoffset, zoffset, width, height, depth, (int)format, (int)type, pixels);
 			LogCommand("glMultiTexSubImage3DEXT", null, texunit, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels			);
 			DebugCheckErrors(null);
 		}
@@ -3355,25 +3355,25 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="xoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="yoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="zoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="depth">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
@@ -3385,7 +3385,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void MultiTexSubImage3DEXT(TextureUnit texunit, TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, PixelType type, Object pixels)
+		public static void MultiTexSubImage3DEXT(TextureUnit texunit, TextureTarget target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -3405,34 +3405,34 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="xoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="yoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="zoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void CopyMultiTexSubImage3DEXT(TextureUnit texunit, TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 x, Int32 y, Int32 width, Int32 height)
+		public static void CopyMultiTexSubImage3DEXT(TextureUnit texunit, TextureTarget target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height)
 		{
 			Debug.Assert(Delegates.pglCopyMultiTexSubImage3DEXT != null, "pglCopyMultiTexSubImage3DEXT not implemented");
-			Delegates.pglCopyMultiTexSubImage3DEXT((Int32)texunit, (Int32)target, level, xoffset, yoffset, zoffset, x, y, width, height);
+			Delegates.pglCopyMultiTexSubImage3DEXT((int)texunit, (int)target, level, xoffset, yoffset, zoffset, x, y, width, height);
 			LogCommand("glCopyMultiTexSubImage3DEXT", null, texunit, target, level, xoffset, yoffset, zoffset, x, y, width, height			);
 			DebugCheckErrors(null);
 		}
@@ -3444,13 +3444,13 @@ namespace OpenGL
 		/// A <see cref="T:EnableCap"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void EnableClientStateIndexedEXT(EnableCap array, UInt32 index)
+		public static void EnableClientStateIndexedEXT(EnableCap array, uint index)
 		{
 			Debug.Assert(Delegates.pglEnableClientStateIndexedEXT != null, "pglEnableClientStateIndexedEXT not implemented");
-			Delegates.pglEnableClientStateIndexedEXT((Int32)array, index);
+			Delegates.pglEnableClientStateIndexedEXT((int)array, index);
 			LogCommand("glEnableClientStateIndexedEXT", null, array, index			);
 			DebugCheckErrors(null);
 		}
@@ -3462,13 +3462,13 @@ namespace OpenGL
 		/// A <see cref="T:EnableCap"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void DisableClientStateIndexedEXT(EnableCap array, UInt32 index)
+		public static void DisableClientStateIndexedEXT(EnableCap array, uint index)
 		{
 			Debug.Assert(Delegates.pglDisableClientStateIndexedEXT != null, "pglDisableClientStateIndexedEXT not implemented");
-			Delegates.pglDisableClientStateIndexedEXT((Int32)array, index);
+			Delegates.pglDisableClientStateIndexedEXT((int)array, index);
 			LogCommand("glDisableClientStateIndexedEXT", null, array, index			);
 			DebugCheckErrors(null);
 		}
@@ -3477,16 +3477,16 @@ namespace OpenGL
 		/// [GL] glGetPointerIndexedvEXT: Binding for glGetPointerIndexedvEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="data">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetPointerIndexedEXT(Int32 target, UInt32 index, out IntPtr data)
+		public static void GetPointerIndexedEXT(int target, uint index, out IntPtr data)
 		{
 			unsafe {
 				fixed (IntPtr* p_data = &data)
@@ -3503,16 +3503,16 @@ namespace OpenGL
 		/// [GL] glGetPointerIndexedvEXT: Binding for glGetPointerIndexedvEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="data">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetPointerIndexedEXT(Int32 target, UInt32 index, Object data)
+		public static void GetPointerIndexedEXT(int target, uint index, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -3526,40 +3526,40 @@ namespace OpenGL
 		/// [GL] glCompressedTextureImage3DEXT: Binding for glCompressedTextureImage3DEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="depth">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="border">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="imageSize">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="bits">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void CompressedTextureImage3DEXT(UInt32 texture, TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, IntPtr bits)
+		public static void CompressedTextureImage3DEXT(uint texture, TextureTarget target, int level, InternalFormat internalformat, int width, int height, int depth, int border, int imageSize, IntPtr bits)
 		{
 			Debug.Assert(Delegates.pglCompressedTextureImage3DEXT != null, "pglCompressedTextureImage3DEXT not implemented");
-			Delegates.pglCompressedTextureImage3DEXT(texture, (Int32)target, level, (Int32)internalformat, width, height, depth, border, imageSize, bits);
+			Delegates.pglCompressedTextureImage3DEXT(texture, (int)target, level, (int)internalformat, width, height, depth, border, imageSize, bits);
 			LogCommand("glCompressedTextureImage3DEXT", null, texture, target, level, internalformat, width, height, depth, border, imageSize, bits			);
 			DebugCheckErrors(null);
 		}
@@ -3568,37 +3568,37 @@ namespace OpenGL
 		/// [GL] glCompressedTextureImage3DEXT: Binding for glCompressedTextureImage3DEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="depth">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="border">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="imageSize">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="bits">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void CompressedTextureImage3DEXT(UInt32 texture, TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, Object bits)
+		public static void CompressedTextureImage3DEXT(uint texture, TextureTarget target, int level, InternalFormat internalformat, int width, int height, int depth, int border, int imageSize, Object bits)
 		{
 			GCHandle pin_bits = GCHandle.Alloc(bits, GCHandleType.Pinned);
 			try {
@@ -3612,37 +3612,37 @@ namespace OpenGL
 		/// [GL] glCompressedTextureImage2DEXT: Binding for glCompressedTextureImage2DEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="border">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="imageSize">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="bits">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void CompressedTextureImage2DEXT(UInt32 texture, TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, IntPtr bits)
+		public static void CompressedTextureImage2DEXT(uint texture, TextureTarget target, int level, InternalFormat internalformat, int width, int height, int border, int imageSize, IntPtr bits)
 		{
 			Debug.Assert(Delegates.pglCompressedTextureImage2DEXT != null, "pglCompressedTextureImage2DEXT not implemented");
-			Delegates.pglCompressedTextureImage2DEXT(texture, (Int32)target, level, (Int32)internalformat, width, height, border, imageSize, bits);
+			Delegates.pglCompressedTextureImage2DEXT(texture, (int)target, level, (int)internalformat, width, height, border, imageSize, bits);
 			LogCommand("glCompressedTextureImage2DEXT", null, texture, target, level, internalformat, width, height, border, imageSize, bits			);
 			DebugCheckErrors(null);
 		}
@@ -3651,34 +3651,34 @@ namespace OpenGL
 		/// [GL] glCompressedTextureImage2DEXT: Binding for glCompressedTextureImage2DEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="border">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="imageSize">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="bits">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void CompressedTextureImage2DEXT(UInt32 texture, TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, Object bits)
+		public static void CompressedTextureImage2DEXT(uint texture, TextureTarget target, int level, InternalFormat internalformat, int width, int height, int border, int imageSize, Object bits)
 		{
 			GCHandle pin_bits = GCHandle.Alloc(bits, GCHandleType.Pinned);
 			try {
@@ -3692,34 +3692,34 @@ namespace OpenGL
 		/// [GL] glCompressedTextureImage1DEXT: Binding for glCompressedTextureImage1DEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="border">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="imageSize">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="bits">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void CompressedTextureImage1DEXT(UInt32 texture, TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 border, Int32 imageSize, IntPtr bits)
+		public static void CompressedTextureImage1DEXT(uint texture, TextureTarget target, int level, InternalFormat internalformat, int width, int border, int imageSize, IntPtr bits)
 		{
 			Debug.Assert(Delegates.pglCompressedTextureImage1DEXT != null, "pglCompressedTextureImage1DEXT not implemented");
-			Delegates.pglCompressedTextureImage1DEXT(texture, (Int32)target, level, (Int32)internalformat, width, border, imageSize, bits);
+			Delegates.pglCompressedTextureImage1DEXT(texture, (int)target, level, (int)internalformat, width, border, imageSize, bits);
 			LogCommand("glCompressedTextureImage1DEXT", null, texture, target, level, internalformat, width, border, imageSize, bits			);
 			DebugCheckErrors(null);
 		}
@@ -3728,31 +3728,31 @@ namespace OpenGL
 		/// [GL] glCompressedTextureImage1DEXT: Binding for glCompressedTextureImage1DEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="border">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="imageSize">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="bits">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void CompressedTextureImage1DEXT(UInt32 texture, TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 border, Int32 imageSize, Object bits)
+		public static void CompressedTextureImage1DEXT(uint texture, TextureTarget target, int level, InternalFormat internalformat, int width, int border, int imageSize, Object bits)
 		{
 			GCHandle pin_bits = GCHandle.Alloc(bits, GCHandleType.Pinned);
 			try {
@@ -3766,46 +3766,46 @@ namespace OpenGL
 		/// [GL] glCompressedTextureSubImage3DEXT: Binding for glCompressedTextureSubImage3DEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="xoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="yoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="zoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="depth">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="imageSize">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="bits">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void CompressedTextureSubImage3DEXT(UInt32 texture, TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, Int32 imageSize, IntPtr bits)
+		public static void CompressedTextureSubImage3DEXT(uint texture, TextureTarget target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, PixelFormat format, int imageSize, IntPtr bits)
 		{
 			Debug.Assert(Delegates.pglCompressedTextureSubImage3DEXT != null, "pglCompressedTextureSubImage3DEXT not implemented");
-			Delegates.pglCompressedTextureSubImage3DEXT(texture, (Int32)target, level, xoffset, yoffset, zoffset, width, height, depth, (Int32)format, imageSize, bits);
+			Delegates.pglCompressedTextureSubImage3DEXT(texture, (int)target, level, xoffset, yoffset, zoffset, width, height, depth, (int)format, imageSize, bits);
 			LogCommand("glCompressedTextureSubImage3DEXT", null, texture, target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, bits			);
 			DebugCheckErrors(null);
 		}
@@ -3814,43 +3814,43 @@ namespace OpenGL
 		/// [GL] glCompressedTextureSubImage3DEXT: Binding for glCompressedTextureSubImage3DEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="xoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="yoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="zoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="depth">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="imageSize">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="bits">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void CompressedTextureSubImage3DEXT(UInt32 texture, TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, Int32 imageSize, Object bits)
+		public static void CompressedTextureSubImage3DEXT(uint texture, TextureTarget target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, PixelFormat format, int imageSize, Object bits)
 		{
 			GCHandle pin_bits = GCHandle.Alloc(bits, GCHandleType.Pinned);
 			try {
@@ -3864,40 +3864,40 @@ namespace OpenGL
 		/// [GL] glCompressedTextureSubImage2DEXT: Binding for glCompressedTextureSubImage2DEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="xoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="yoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="imageSize">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="bits">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void CompressedTextureSubImage2DEXT(UInt32 texture, TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, Int32 imageSize, IntPtr bits)
+		public static void CompressedTextureSubImage2DEXT(uint texture, TextureTarget target, int level, int xoffset, int yoffset, int width, int height, PixelFormat format, int imageSize, IntPtr bits)
 		{
 			Debug.Assert(Delegates.pglCompressedTextureSubImage2DEXT != null, "pglCompressedTextureSubImage2DEXT not implemented");
-			Delegates.pglCompressedTextureSubImage2DEXT(texture, (Int32)target, level, xoffset, yoffset, width, height, (Int32)format, imageSize, bits);
+			Delegates.pglCompressedTextureSubImage2DEXT(texture, (int)target, level, xoffset, yoffset, width, height, (int)format, imageSize, bits);
 			LogCommand("glCompressedTextureSubImage2DEXT", null, texture, target, level, xoffset, yoffset, width, height, format, imageSize, bits			);
 			DebugCheckErrors(null);
 		}
@@ -3906,37 +3906,37 @@ namespace OpenGL
 		/// [GL] glCompressedTextureSubImage2DEXT: Binding for glCompressedTextureSubImage2DEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="xoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="yoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="imageSize">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="bits">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void CompressedTextureSubImage2DEXT(UInt32 texture, TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, Int32 imageSize, Object bits)
+		public static void CompressedTextureSubImage2DEXT(uint texture, TextureTarget target, int level, int xoffset, int yoffset, int width, int height, PixelFormat format, int imageSize, Object bits)
 		{
 			GCHandle pin_bits = GCHandle.Alloc(bits, GCHandleType.Pinned);
 			try {
@@ -3950,34 +3950,34 @@ namespace OpenGL
 		/// [GL] glCompressedTextureSubImage1DEXT: Binding for glCompressedTextureSubImage1DEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="xoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="imageSize">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="bits">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void CompressedTextureSubImage1DEXT(UInt32 texture, TextureTarget target, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, Int32 imageSize, IntPtr bits)
+		public static void CompressedTextureSubImage1DEXT(uint texture, TextureTarget target, int level, int xoffset, int width, PixelFormat format, int imageSize, IntPtr bits)
 		{
 			Debug.Assert(Delegates.pglCompressedTextureSubImage1DEXT != null, "pglCompressedTextureSubImage1DEXT not implemented");
-			Delegates.pglCompressedTextureSubImage1DEXT(texture, (Int32)target, level, xoffset, width, (Int32)format, imageSize, bits);
+			Delegates.pglCompressedTextureSubImage1DEXT(texture, (int)target, level, xoffset, width, (int)format, imageSize, bits);
 			LogCommand("glCompressedTextureSubImage1DEXT", null, texture, target, level, xoffset, width, format, imageSize, bits			);
 			DebugCheckErrors(null);
 		}
@@ -3986,31 +3986,31 @@ namespace OpenGL
 		/// [GL] glCompressedTextureSubImage1DEXT: Binding for glCompressedTextureSubImage1DEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="xoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="imageSize">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="bits">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void CompressedTextureSubImage1DEXT(UInt32 texture, TextureTarget target, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, Int32 imageSize, Object bits)
+		public static void CompressedTextureSubImage1DEXT(uint texture, TextureTarget target, int level, int xoffset, int width, PixelFormat format, int imageSize, Object bits)
 		{
 			GCHandle pin_bits = GCHandle.Alloc(bits, GCHandleType.Pinned);
 			try {
@@ -4024,22 +4024,22 @@ namespace OpenGL
 		/// [GL] glGetCompressedTextureImageEXT: Binding for glGetCompressedTextureImageEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="lod">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="img">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetCompressedTextureImageEXT(UInt32 texture, TextureTarget target, Int32 lod, IntPtr img)
+		public static void GetCompressedTextureImageEXT(uint texture, TextureTarget target, int lod, IntPtr img)
 		{
 			Debug.Assert(Delegates.pglGetCompressedTextureImageEXT != null, "pglGetCompressedTextureImageEXT not implemented");
-			Delegates.pglGetCompressedTextureImageEXT(texture, (Int32)target, lod, img);
+			Delegates.pglGetCompressedTextureImageEXT(texture, (int)target, lod, img);
 			LogCommand("glGetCompressedTextureImageEXT", null, texture, target, lod, img			);
 			DebugCheckErrors(null);
 		}
@@ -4048,19 +4048,19 @@ namespace OpenGL
 		/// [GL] glGetCompressedTextureImageEXT: Binding for glGetCompressedTextureImageEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="lod">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="img">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetCompressedTextureImageEXT(UInt32 texture, TextureTarget target, Int32 lod, Object img)
+		public static void GetCompressedTextureImageEXT(uint texture, TextureTarget target, int lod, Object img)
 		{
 			GCHandle pin_img = GCHandle.Alloc(img, GCHandleType.Pinned);
 			try {
@@ -4080,34 +4080,34 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="depth">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="border">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="imageSize">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="bits">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void CompressedMultiTexImage3DEXT(TextureUnit texunit, TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, IntPtr bits)
+		public static void CompressedMultiTexImage3DEXT(TextureUnit texunit, TextureTarget target, int level, InternalFormat internalformat, int width, int height, int depth, int border, int imageSize, IntPtr bits)
 		{
 			Debug.Assert(Delegates.pglCompressedMultiTexImage3DEXT != null, "pglCompressedMultiTexImage3DEXT not implemented");
-			Delegates.pglCompressedMultiTexImage3DEXT((Int32)texunit, (Int32)target, level, (Int32)internalformat, width, height, depth, border, imageSize, bits);
+			Delegates.pglCompressedMultiTexImage3DEXT((int)texunit, (int)target, level, (int)internalformat, width, height, depth, border, imageSize, bits);
 			LogCommand("glCompressedMultiTexImage3DEXT", null, texunit, target, level, internalformat, width, height, depth, border, imageSize, bits			);
 			DebugCheckErrors(null);
 		}
@@ -4122,31 +4122,31 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="depth">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="border">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="imageSize">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="bits">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void CompressedMultiTexImage3DEXT(TextureUnit texunit, TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, Object bits)
+		public static void CompressedMultiTexImage3DEXT(TextureUnit texunit, TextureTarget target, int level, InternalFormat internalformat, int width, int height, int depth, int border, int imageSize, Object bits)
 		{
 			GCHandle pin_bits = GCHandle.Alloc(bits, GCHandleType.Pinned);
 			try {
@@ -4166,31 +4166,31 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="border">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="imageSize">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="bits">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void CompressedMultiTexImage2DEXT(TextureUnit texunit, TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, IntPtr bits)
+		public static void CompressedMultiTexImage2DEXT(TextureUnit texunit, TextureTarget target, int level, InternalFormat internalformat, int width, int height, int border, int imageSize, IntPtr bits)
 		{
 			Debug.Assert(Delegates.pglCompressedMultiTexImage2DEXT != null, "pglCompressedMultiTexImage2DEXT not implemented");
-			Delegates.pglCompressedMultiTexImage2DEXT((Int32)texunit, (Int32)target, level, (Int32)internalformat, width, height, border, imageSize, bits);
+			Delegates.pglCompressedMultiTexImage2DEXT((int)texunit, (int)target, level, (int)internalformat, width, height, border, imageSize, bits);
 			LogCommand("glCompressedMultiTexImage2DEXT", null, texunit, target, level, internalformat, width, height, border, imageSize, bits			);
 			DebugCheckErrors(null);
 		}
@@ -4205,28 +4205,28 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="border">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="imageSize">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="bits">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void CompressedMultiTexImage2DEXT(TextureUnit texunit, TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, Object bits)
+		public static void CompressedMultiTexImage2DEXT(TextureUnit texunit, TextureTarget target, int level, InternalFormat internalformat, int width, int height, int border, int imageSize, Object bits)
 		{
 			GCHandle pin_bits = GCHandle.Alloc(bits, GCHandleType.Pinned);
 			try {
@@ -4246,28 +4246,28 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="border">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="imageSize">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="bits">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void CompressedMultiTexImage1DEXT(TextureUnit texunit, TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 border, Int32 imageSize, IntPtr bits)
+		public static void CompressedMultiTexImage1DEXT(TextureUnit texunit, TextureTarget target, int level, InternalFormat internalformat, int width, int border, int imageSize, IntPtr bits)
 		{
 			Debug.Assert(Delegates.pglCompressedMultiTexImage1DEXT != null, "pglCompressedMultiTexImage1DEXT not implemented");
-			Delegates.pglCompressedMultiTexImage1DEXT((Int32)texunit, (Int32)target, level, (Int32)internalformat, width, border, imageSize, bits);
+			Delegates.pglCompressedMultiTexImage1DEXT((int)texunit, (int)target, level, (int)internalformat, width, border, imageSize, bits);
 			LogCommand("glCompressedMultiTexImage1DEXT", null, texunit, target, level, internalformat, width, border, imageSize, bits			);
 			DebugCheckErrors(null);
 		}
@@ -4282,25 +4282,25 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="border">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="imageSize">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="bits">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void CompressedMultiTexImage1DEXT(TextureUnit texunit, TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 border, Int32 imageSize, Object bits)
+		public static void CompressedMultiTexImage1DEXT(TextureUnit texunit, TextureTarget target, int level, InternalFormat internalformat, int width, int border, int imageSize, Object bits)
 		{
 			GCHandle pin_bits = GCHandle.Alloc(bits, GCHandleType.Pinned);
 			try {
@@ -4320,40 +4320,40 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="xoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="yoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="zoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="depth">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="imageSize">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="bits">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void CompressedMultiTexSubImage3DEXT(TextureUnit texunit, TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, Int32 imageSize, IntPtr bits)
+		public static void CompressedMultiTexSubImage3DEXT(TextureUnit texunit, TextureTarget target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, PixelFormat format, int imageSize, IntPtr bits)
 		{
 			Debug.Assert(Delegates.pglCompressedMultiTexSubImage3DEXT != null, "pglCompressedMultiTexSubImage3DEXT not implemented");
-			Delegates.pglCompressedMultiTexSubImage3DEXT((Int32)texunit, (Int32)target, level, xoffset, yoffset, zoffset, width, height, depth, (Int32)format, imageSize, bits);
+			Delegates.pglCompressedMultiTexSubImage3DEXT((int)texunit, (int)target, level, xoffset, yoffset, zoffset, width, height, depth, (int)format, imageSize, bits);
 			LogCommand("glCompressedMultiTexSubImage3DEXT", null, texunit, target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, bits			);
 			DebugCheckErrors(null);
 		}
@@ -4368,37 +4368,37 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="xoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="yoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="zoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="depth">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="imageSize">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="bits">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void CompressedMultiTexSubImage3DEXT(TextureUnit texunit, TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, Int32 imageSize, Object bits)
+		public static void CompressedMultiTexSubImage3DEXT(TextureUnit texunit, TextureTarget target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, PixelFormat format, int imageSize, Object bits)
 		{
 			GCHandle pin_bits = GCHandle.Alloc(bits, GCHandleType.Pinned);
 			try {
@@ -4418,34 +4418,34 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="xoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="yoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="imageSize">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="bits">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void CompressedMultiTexSubImage2DEXT(TextureUnit texunit, TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, Int32 imageSize, IntPtr bits)
+		public static void CompressedMultiTexSubImage2DEXT(TextureUnit texunit, TextureTarget target, int level, int xoffset, int yoffset, int width, int height, PixelFormat format, int imageSize, IntPtr bits)
 		{
 			Debug.Assert(Delegates.pglCompressedMultiTexSubImage2DEXT != null, "pglCompressedMultiTexSubImage2DEXT not implemented");
-			Delegates.pglCompressedMultiTexSubImage2DEXT((Int32)texunit, (Int32)target, level, xoffset, yoffset, width, height, (Int32)format, imageSize, bits);
+			Delegates.pglCompressedMultiTexSubImage2DEXT((int)texunit, (int)target, level, xoffset, yoffset, width, height, (int)format, imageSize, bits);
 			LogCommand("glCompressedMultiTexSubImage2DEXT", null, texunit, target, level, xoffset, yoffset, width, height, format, imageSize, bits			);
 			DebugCheckErrors(null);
 		}
@@ -4460,31 +4460,31 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="xoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="yoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="imageSize">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="bits">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void CompressedMultiTexSubImage2DEXT(TextureUnit texunit, TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, Int32 imageSize, Object bits)
+		public static void CompressedMultiTexSubImage2DEXT(TextureUnit texunit, TextureTarget target, int level, int xoffset, int yoffset, int width, int height, PixelFormat format, int imageSize, Object bits)
 		{
 			GCHandle pin_bits = GCHandle.Alloc(bits, GCHandleType.Pinned);
 			try {
@@ -4504,28 +4504,28 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="xoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="imageSize">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="bits">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void CompressedMultiTexSubImage1DEXT(TextureUnit texunit, TextureTarget target, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, Int32 imageSize, IntPtr bits)
+		public static void CompressedMultiTexSubImage1DEXT(TextureUnit texunit, TextureTarget target, int level, int xoffset, int width, PixelFormat format, int imageSize, IntPtr bits)
 		{
 			Debug.Assert(Delegates.pglCompressedMultiTexSubImage1DEXT != null, "pglCompressedMultiTexSubImage1DEXT not implemented");
-			Delegates.pglCompressedMultiTexSubImage1DEXT((Int32)texunit, (Int32)target, level, xoffset, width, (Int32)format, imageSize, bits);
+			Delegates.pglCompressedMultiTexSubImage1DEXT((int)texunit, (int)target, level, xoffset, width, (int)format, imageSize, bits);
 			LogCommand("glCompressedMultiTexSubImage1DEXT", null, texunit, target, level, xoffset, width, format, imageSize, bits			);
 			DebugCheckErrors(null);
 		}
@@ -4540,25 +4540,25 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="xoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="imageSize">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="bits">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void CompressedMultiTexSubImage1DEXT(TextureUnit texunit, TextureTarget target, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, Int32 imageSize, Object bits)
+		public static void CompressedMultiTexSubImage1DEXT(TextureUnit texunit, TextureTarget target, int level, int xoffset, int width, PixelFormat format, int imageSize, Object bits)
 		{
 			GCHandle pin_bits = GCHandle.Alloc(bits, GCHandleType.Pinned);
 			try {
@@ -4578,16 +4578,16 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="lod">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="img">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetCompressedMultiTexImageEXT(TextureUnit texunit, TextureTarget target, Int32 lod, IntPtr img)
+		public static void GetCompressedMultiTexImageEXT(TextureUnit texunit, TextureTarget target, int lod, IntPtr img)
 		{
 			Debug.Assert(Delegates.pglGetCompressedMultiTexImageEXT != null, "pglGetCompressedMultiTexImageEXT not implemented");
-			Delegates.pglGetCompressedMultiTexImageEXT((Int32)texunit, (Int32)target, lod, img);
+			Delegates.pglGetCompressedMultiTexImageEXT((int)texunit, (int)target, lod, img);
 			LogCommand("glGetCompressedMultiTexImageEXT", null, texunit, target, lod, img			);
 			DebugCheckErrors(null);
 		}
@@ -4602,13 +4602,13 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="lod">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="img">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetCompressedMultiTexImageEXT(TextureUnit texunit, TextureTarget target, Int32 lod, Object img)
+		public static void GetCompressedMultiTexImageEXT(TextureUnit texunit, TextureTarget target, int lod, Object img)
 		{
 			GCHandle pin_img = GCHandle.Alloc(img, GCHandleType.Pinned);
 			try {
@@ -4635,7 +4635,7 @@ namespace OpenGL
 				fixed (float* p_m = m)
 				{
 					Debug.Assert(Delegates.pglMatrixLoadTransposefEXT != null, "pglMatrixLoadTransposefEXT not implemented");
-					Delegates.pglMatrixLoadTransposefEXT((Int32)mode, p_m);
+					Delegates.pglMatrixLoadTransposefEXT((int)mode, p_m);
 					LogCommand("glMatrixLoadTransposefEXT", null, mode, m					);
 				}
 			}
@@ -4659,7 +4659,7 @@ namespace OpenGL
 				fixed (double* p_m = m)
 				{
 					Debug.Assert(Delegates.pglMatrixLoadTransposedEXT != null, "pglMatrixLoadTransposedEXT not implemented");
-					Delegates.pglMatrixLoadTransposedEXT((Int32)mode, p_m);
+					Delegates.pglMatrixLoadTransposedEXT((int)mode, p_m);
 					LogCommand("glMatrixLoadTransposedEXT", null, mode, m					);
 				}
 			}
@@ -4683,7 +4683,7 @@ namespace OpenGL
 				fixed (float* p_m = m)
 				{
 					Debug.Assert(Delegates.pglMatrixMultTransposefEXT != null, "pglMatrixMultTransposefEXT not implemented");
-					Delegates.pglMatrixMultTransposefEXT((Int32)mode, p_m);
+					Delegates.pglMatrixMultTransposefEXT((int)mode, p_m);
 					LogCommand("glMatrixMultTransposefEXT", null, mode, m					);
 				}
 			}
@@ -4707,7 +4707,7 @@ namespace OpenGL
 				fixed (double* p_m = m)
 				{
 					Debug.Assert(Delegates.pglMatrixMultTransposedEXT != null, "pglMatrixMultTransposedEXT not implemented");
-					Delegates.pglMatrixMultTransposedEXT((Int32)mode, p_m);
+					Delegates.pglMatrixMultTransposedEXT((int)mode, p_m);
 					LogCommand("glMatrixMultTransposedEXT", null, mode, m					);
 				}
 			}
@@ -4718,10 +4718,10 @@ namespace OpenGL
 		/// [GL] glNamedBufferDataEXT: Binding for glNamedBufferDataEXT.
 		/// </summary>
 		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="size">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="data">
 		/// A <see cref="T:IntPtr"/>.
@@ -4730,10 +4730,10 @@ namespace OpenGL
 		/// A <see cref="T:BufferUsage"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void NamedBufferDataEXT(UInt32 buffer, UInt32 size, IntPtr data, BufferUsage usage)
+		public static void NamedBufferDataEXT(uint buffer, uint size, IntPtr data, BufferUsage usage)
 		{
 			Debug.Assert(Delegates.pglNamedBufferDataEXT != null, "pglNamedBufferDataEXT not implemented");
-			Delegates.pglNamedBufferDataEXT(buffer, size, data, (Int32)usage);
+			Delegates.pglNamedBufferDataEXT(buffer, size, data, (int)usage);
 			LogCommand("glNamedBufferDataEXT", null, buffer, size, data, usage			);
 			DebugCheckErrors(null);
 		}
@@ -4742,10 +4742,10 @@ namespace OpenGL
 		/// [GL] glNamedBufferDataEXT: Binding for glNamedBufferDataEXT.
 		/// </summary>
 		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="size">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="data">
 		/// A <see cref="T:Object"/>.
@@ -4754,7 +4754,7 @@ namespace OpenGL
 		/// A <see cref="T:BufferUsage"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void NamedBufferDataEXT(UInt32 buffer, UInt32 size, Object data, BufferUsage usage)
+		public static void NamedBufferDataEXT(uint buffer, uint size, Object data, BufferUsage usage)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -4768,18 +4768,18 @@ namespace OpenGL
 		/// [GL] glMapNamedBufferEXT: Binding for glMapNamedBufferEXT.
 		/// </summary>
 		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="access">
 		/// A <see cref="T:BufferAccess"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static IntPtr MapNamedBufferEXT(UInt32 buffer, BufferAccess access)
+		public static IntPtr MapNamedBufferEXT(uint buffer, BufferAccess access)
 		{
 			IntPtr retValue;
 
 			Debug.Assert(Delegates.pglMapNamedBufferEXT != null, "pglMapNamedBufferEXT not implemented");
-			retValue = Delegates.pglMapNamedBufferEXT(buffer, (Int32)access);
+			retValue = Delegates.pglMapNamedBufferEXT(buffer, (int)access);
 			LogCommand("glMapNamedBufferEXT", retValue, buffer, access			);
 			DebugCheckErrors(retValue);
 
@@ -4790,10 +4790,10 @@ namespace OpenGL
 		/// [GL] glUnmapNamedBufferEXT: Binding for glUnmapNamedBufferEXT.
 		/// </summary>
 		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static bool UnmapNamedBufferEXT(UInt32 buffer)
+		public static bool UnmapNamedBufferEXT(uint buffer)
 		{
 			bool retValue;
 
@@ -4809,22 +4809,22 @@ namespace OpenGL
 		/// [GL] glGetNamedBufferParameterivEXT: Binding for glGetNamedBufferParameterivEXT.
 		/// </summary>
 		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:VertexBufferObjectParameter"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetNamedBufferParameterEXT(UInt32 buffer, VertexBufferObjectParameter pname, [Out] Int32[] @params)
+		public static void GetNamedBufferParameterEXT(uint buffer, VertexBufferObjectParameter pname, [Out] int[] @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetNamedBufferParameterivEXT != null, "pglGetNamedBufferParameterivEXT not implemented");
-					Delegates.pglGetNamedBufferParameterivEXT(buffer, (Int32)pname, p_params);
+					Delegates.pglGetNamedBufferParameterivEXT(buffer, (int)pname, p_params);
 					LogCommand("glGetNamedBufferParameterivEXT", null, buffer, pname, @params					);
 				}
 			}
@@ -4835,22 +4835,22 @@ namespace OpenGL
 		/// [GL] glGetNamedBufferParameterivEXT: Binding for glGetNamedBufferParameterivEXT.
 		/// </summary>
 		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:VertexBufferObjectParameter"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetNamedBufferParameterEXT(UInt32 buffer, VertexBufferObjectParameter pname, out Int32 @params)
+		public static void GetNamedBufferParameterEXT(uint buffer, VertexBufferObjectParameter pname, out int @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = &@params)
+				fixed (int* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetNamedBufferParameterivEXT != null, "pglGetNamedBufferParameterivEXT not implemented");
-					Delegates.pglGetNamedBufferParameterivEXT(buffer, (Int32)pname, p_params);
+					Delegates.pglGetNamedBufferParameterivEXT(buffer, (int)pname, p_params);
 					LogCommand("glGetNamedBufferParameterivEXT", null, buffer, pname, @params					);
 				}
 			}
@@ -4861,19 +4861,19 @@ namespace OpenGL
 		/// [GL] glGetNamedBufferParameterivEXT: Binding for glGetNamedBufferParameterivEXT.
 		/// </summary>
 		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:VertexBufferObjectParameter"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32*"/>.
+		/// A <see cref="T:int*"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static unsafe void GetNamedBufferParameterEXT(UInt32 buffer, VertexBufferObjectParameter pname, [Out] Int32* @params)
+		public static unsafe void GetNamedBufferParameterEXT(uint buffer, VertexBufferObjectParameter pname, [Out] int* @params)
 		{
 			Debug.Assert(Delegates.pglGetNamedBufferParameterivEXT != null, "pglGetNamedBufferParameterivEXT not implemented");
-			Delegates.pglGetNamedBufferParameterivEXT(buffer, (Int32)pname, @params);
+			Delegates.pglGetNamedBufferParameterivEXT(buffer, (int)pname, @params);
 			LogCommand("glGetNamedBufferParameterivEXT", null, buffer, pname, new IntPtr(@params).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
@@ -4882,7 +4882,7 @@ namespace OpenGL
 		/// [GL] glGetNamedBufferParameterivEXT: Binding for glGetNamedBufferParameterivEXT.
 		/// </summary>
 		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:VertexBufferObjectParameter"/>.
@@ -4891,14 +4891,14 @@ namespace OpenGL
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetNamedBufferParameteriEXT<T>(UInt32 buffer, VertexBufferObjectParameter pname, ref T @params) where T : struct
+		public static void GetNamedBufferParameteriEXT<T>(uint buffer, VertexBufferObjectParameter pname, ref T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetNamedBufferParameterivEXT != null, "pglGetNamedBufferParameterivEXT not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
 				unsafe {
-					Delegates.pglGetNamedBufferParameterivEXT(buffer, (Int32)pname, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglGetNamedBufferParameterivEXT(buffer, (int)pname, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -4908,7 +4908,7 @@ namespace OpenGL
 				TypedReference refParams = __makeref(@params);
 				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
 
-				Delegates.pglGetNamedBufferParameterivEXT(buffer, (Int32)pname, (Int32*)refParamsPtr.ToPointer());
+				Delegates.pglGetNamedBufferParameterivEXT(buffer, (int)pname, (int*)refParamsPtr.ToPointer());
 			}
 			#endif
 			LogCommand("glGetNamedBufferParameterivEXT", null, buffer, pname, @params			);
@@ -4919,7 +4919,7 @@ namespace OpenGL
 		/// [GL] glGetNamedBufferPointervEXT: Binding for glGetNamedBufferPointervEXT.
 		/// </summary>
 		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:VertexBufferObjectParameter"/>.
@@ -4928,13 +4928,13 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetNamedBufferPointerEXT(UInt32 buffer, VertexBufferObjectParameter pname, out IntPtr @params)
+		public static void GetNamedBufferPointerEXT(uint buffer, VertexBufferObjectParameter pname, out IntPtr @params)
 		{
 			unsafe {
 				fixed (IntPtr* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetNamedBufferPointervEXT != null, "pglGetNamedBufferPointervEXT not implemented");
-					Delegates.pglGetNamedBufferPointervEXT(buffer, (Int32)pname, p_params);
+					Delegates.pglGetNamedBufferPointervEXT(buffer, (int)pname, p_params);
 					LogCommand("glGetNamedBufferPointervEXT", null, buffer, pname, @params					);
 				}
 			}
@@ -4945,7 +4945,7 @@ namespace OpenGL
 		/// [GL] glGetNamedBufferPointervEXT: Binding for glGetNamedBufferPointervEXT.
 		/// </summary>
 		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:VertexBufferObjectParameter"/>.
@@ -4954,7 +4954,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetNamedBufferPointerEXT(UInt32 buffer, VertexBufferObjectParameter pname, Object @params)
+		public static void GetNamedBufferPointerEXT(uint buffer, VertexBufferObjectParameter pname, Object @params)
 		{
 			GCHandle pin_params = GCHandle.Alloc(@params, GCHandleType.Pinned);
 			try {
@@ -4968,19 +4968,19 @@ namespace OpenGL
 		/// [GL] glGetNamedBufferSubDataEXT: Binding for glGetNamedBufferSubDataEXT.
 		/// </summary>
 		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="offset">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="size">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="data">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetNamedBufferSubDataEXT(UInt32 buffer, IntPtr offset, UInt32 size, IntPtr data)
+		public static void GetNamedBufferSubDataEXT(uint buffer, IntPtr offset, uint size, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglGetNamedBufferSubDataEXT != null, "pglGetNamedBufferSubDataEXT not implemented");
 			Delegates.pglGetNamedBufferSubDataEXT(buffer, offset, size, data);
@@ -4992,19 +4992,19 @@ namespace OpenGL
 		/// [GL] glGetNamedBufferSubDataEXT: Binding for glGetNamedBufferSubDataEXT.
 		/// </summary>
 		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="offset">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="size">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="data">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetNamedBufferSubDataEXT(UInt32 buffer, IntPtr offset, UInt32 size, Object data)
+		public static void GetNamedBufferSubDataEXT(uint buffer, IntPtr offset, uint size, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -5018,7 +5018,7 @@ namespace OpenGL
 		/// [GL] glTextureBufferEXT: Binding for glTextureBufferEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -5027,13 +5027,13 @@ namespace OpenGL
 		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void TextureBufferEXT(UInt32 texture, TextureTarget target, InternalFormat internalformat, UInt32 buffer)
+		public static void TextureBufferEXT(uint texture, TextureTarget target, InternalFormat internalformat, uint buffer)
 		{
 			Debug.Assert(Delegates.pglTextureBufferEXT != null, "pglTextureBufferEXT not implemented");
-			Delegates.pglTextureBufferEXT(texture, (Int32)target, (Int32)internalformat, buffer);
+			Delegates.pglTextureBufferEXT(texture, (int)target, (int)internalformat, buffer);
 			LogCommand("glTextureBufferEXT", null, texture, target, internalformat, buffer			);
 			DebugCheckErrors(null);
 		}
@@ -5048,16 +5048,16 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void MultiTexBufferEXT(TextureUnit texunit, TextureTarget target, Int32 internalformat, UInt32 buffer)
+		public static void MultiTexBufferEXT(TextureUnit texunit, TextureTarget target, int internalformat, uint buffer)
 		{
 			Debug.Assert(Delegates.pglMultiTexBufferEXT != null, "pglMultiTexBufferEXT not implemented");
-			Delegates.pglMultiTexBufferEXT((Int32)texunit, (Int32)target, internalformat, buffer);
+			Delegates.pglMultiTexBufferEXT((int)texunit, (int)target, internalformat, buffer);
 			LogCommand("glMultiTexBufferEXT", null, texunit, target, internalformat, buffer			);
 			DebugCheckErrors(null);
 		}
@@ -5066,7 +5066,7 @@ namespace OpenGL
 		/// [GL] glTextureParameterIivEXT: Binding for glTextureParameterIivEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -5075,16 +5075,16 @@ namespace OpenGL
 		/// A <see cref="T:TextureParameterName"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void TextureParameterIEXT(UInt32 texture, TextureTarget target, TextureParameterName pname, Int32[] @params)
+		public static void TextureParameterIEXT(uint texture, TextureTarget target, TextureParameterName pname, int[] @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglTextureParameterIivEXT != null, "pglTextureParameterIivEXT not implemented");
-					Delegates.pglTextureParameterIivEXT(texture, (Int32)target, (Int32)pname, p_params);
+					Delegates.pglTextureParameterIivEXT(texture, (int)target, (int)pname, p_params);
 					LogCommand("glTextureParameterIivEXT", null, texture, target, pname, @params					);
 				}
 			}
@@ -5095,7 +5095,7 @@ namespace OpenGL
 		/// [GL] glTextureParameterIivEXT: Binding for glTextureParameterIivEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -5104,13 +5104,13 @@ namespace OpenGL
 		/// A <see cref="T:TextureParameterName"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32*"/>.
+		/// A <see cref="T:int*"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static unsafe void TextureParameterIEXT(UInt32 texture, TextureTarget target, TextureParameterName pname, Int32* @params)
+		public static unsafe void TextureParameterIEXT(uint texture, TextureTarget target, TextureParameterName pname, int* @params)
 		{
 			Debug.Assert(Delegates.pglTextureParameterIivEXT != null, "pglTextureParameterIivEXT not implemented");
-			Delegates.pglTextureParameterIivEXT(texture, (Int32)target, (Int32)pname, @params);
+			Delegates.pglTextureParameterIivEXT(texture, (int)target, (int)pname, @params);
 			LogCommand("glTextureParameterIivEXT", null, texture, target, pname, new IntPtr(@params).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
@@ -5119,7 +5119,7 @@ namespace OpenGL
 		/// [GL] glTextureParameterIivEXT: Binding for glTextureParameterIivEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -5131,14 +5131,14 @@ namespace OpenGL
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void TextureParameterIiEXT<T>(UInt32 texture, TextureTarget target, TextureParameterName pname, ref T @params) where T : struct
+		public static void TextureParameterIiEXT<T>(uint texture, TextureTarget target, TextureParameterName pname, ref T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglTextureParameterIivEXT != null, "pglTextureParameterIivEXT not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
 				unsafe {
-					Delegates.pglTextureParameterIivEXT(texture, (Int32)target, (Int32)pname, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglTextureParameterIivEXT(texture, (int)target, (int)pname, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -5148,7 +5148,7 @@ namespace OpenGL
 				TypedReference refParams = __makeref(@params);
 				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
 
-				Delegates.pglTextureParameterIivEXT(texture, (Int32)target, (Int32)pname, (Int32*)refParamsPtr.ToPointer());
+				Delegates.pglTextureParameterIivEXT(texture, (int)target, (int)pname, (int*)refParamsPtr.ToPointer());
 			}
 			#endif
 			LogCommand("glTextureParameterIivEXT", null, texture, target, pname, @params			);
@@ -5159,7 +5159,7 @@ namespace OpenGL
 		/// [GL] glTextureParameterIuivEXT: Binding for glTextureParameterIuivEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -5168,16 +5168,16 @@ namespace OpenGL
 		/// A <see cref="T:TextureParameterName"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void TextureParameterIEXT(UInt32 texture, TextureTarget target, TextureParameterName pname, UInt32[] @params)
+		public static void TextureParameterIEXT(uint texture, TextureTarget target, TextureParameterName pname, uint[] @params)
 		{
 			unsafe {
-				fixed (UInt32* p_params = @params)
+				fixed (uint* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglTextureParameterIuivEXT != null, "pglTextureParameterIuivEXT not implemented");
-					Delegates.pglTextureParameterIuivEXT(texture, (Int32)target, (Int32)pname, p_params);
+					Delegates.pglTextureParameterIuivEXT(texture, (int)target, (int)pname, p_params);
 					LogCommand("glTextureParameterIuivEXT", null, texture, target, pname, @params					);
 				}
 			}
@@ -5188,7 +5188,7 @@ namespace OpenGL
 		/// [GL] glTextureParameterIuivEXT: Binding for glTextureParameterIuivEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -5197,13 +5197,13 @@ namespace OpenGL
 		/// A <see cref="T:TextureParameterName"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:UInt32*"/>.
+		/// A <see cref="T:uint*"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static unsafe void TextureParameterIEXT(UInt32 texture, TextureTarget target, TextureParameterName pname, UInt32* @params)
+		public static unsafe void TextureParameterIEXT(uint texture, TextureTarget target, TextureParameterName pname, uint* @params)
 		{
 			Debug.Assert(Delegates.pglTextureParameterIuivEXT != null, "pglTextureParameterIuivEXT not implemented");
-			Delegates.pglTextureParameterIuivEXT(texture, (Int32)target, (Int32)pname, @params);
+			Delegates.pglTextureParameterIuivEXT(texture, (int)target, (int)pname, @params);
 			LogCommand("glTextureParameterIuivEXT", null, texture, target, pname, new IntPtr(@params).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
@@ -5212,7 +5212,7 @@ namespace OpenGL
 		/// [GL] glTextureParameterIuivEXT: Binding for glTextureParameterIuivEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -5224,14 +5224,14 @@ namespace OpenGL
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void TextureParameterIuiEXT<T>(UInt32 texture, TextureTarget target, TextureParameterName pname, ref T @params) where T : struct
+		public static void TextureParameterIuiEXT<T>(uint texture, TextureTarget target, TextureParameterName pname, ref T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglTextureParameterIuivEXT != null, "pglTextureParameterIuivEXT not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
 				unsafe {
-					Delegates.pglTextureParameterIuivEXT(texture, (Int32)target, (Int32)pname, (UInt32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglTextureParameterIuivEXT(texture, (int)target, (int)pname, (uint*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -5241,7 +5241,7 @@ namespace OpenGL
 				TypedReference refParams = __makeref(@params);
 				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
 
-				Delegates.pglTextureParameterIuivEXT(texture, (Int32)target, (Int32)pname, (UInt32*)refParamsPtr.ToPointer());
+				Delegates.pglTextureParameterIuivEXT(texture, (int)target, (int)pname, (uint*)refParamsPtr.ToPointer());
 			}
 			#endif
 			LogCommand("glTextureParameterIuivEXT", null, texture, target, pname, @params			);
@@ -5252,7 +5252,7 @@ namespace OpenGL
 		/// [GL] glGetTextureParameterIivEXT: Binding for glGetTextureParameterIivEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -5261,16 +5261,16 @@ namespace OpenGL
 		/// A <see cref="T:GetTextureParameter"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetTextureParameterIEXT(UInt32 texture, TextureTarget target, GetTextureParameter pname, [Out] Int32[] @params)
+		public static void GetTextureParameterIEXT(uint texture, TextureTarget target, GetTextureParameter pname, [Out] int[] @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetTextureParameterIivEXT != null, "pglGetTextureParameterIivEXT not implemented");
-					Delegates.pglGetTextureParameterIivEXT(texture, (Int32)target, (Int32)pname, p_params);
+					Delegates.pglGetTextureParameterIivEXT(texture, (int)target, (int)pname, p_params);
 					LogCommand("glGetTextureParameterIivEXT", null, texture, target, pname, @params					);
 				}
 			}
@@ -5281,7 +5281,7 @@ namespace OpenGL
 		/// [GL] glGetTextureParameterIivEXT: Binding for glGetTextureParameterIivEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -5290,16 +5290,16 @@ namespace OpenGL
 		/// A <see cref="T:GetTextureParameter"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetTextureParameterIEXT(UInt32 texture, TextureTarget target, GetTextureParameter pname, out Int32 @params)
+		public static void GetTextureParameterIEXT(uint texture, TextureTarget target, GetTextureParameter pname, out int @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = &@params)
+				fixed (int* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetTextureParameterIivEXT != null, "pglGetTextureParameterIivEXT not implemented");
-					Delegates.pglGetTextureParameterIivEXT(texture, (Int32)target, (Int32)pname, p_params);
+					Delegates.pglGetTextureParameterIivEXT(texture, (int)target, (int)pname, p_params);
 					LogCommand("glGetTextureParameterIivEXT", null, texture, target, pname, @params					);
 				}
 			}
@@ -5310,7 +5310,7 @@ namespace OpenGL
 		/// [GL] glGetTextureParameterIivEXT: Binding for glGetTextureParameterIivEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -5319,13 +5319,13 @@ namespace OpenGL
 		/// A <see cref="T:GetTextureParameter"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32*"/>.
+		/// A <see cref="T:int*"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static unsafe void GetTextureParameterIEXT(UInt32 texture, TextureTarget target, GetTextureParameter pname, [Out] Int32* @params)
+		public static unsafe void GetTextureParameterIEXT(uint texture, TextureTarget target, GetTextureParameter pname, [Out] int* @params)
 		{
 			Debug.Assert(Delegates.pglGetTextureParameterIivEXT != null, "pglGetTextureParameterIivEXT not implemented");
-			Delegates.pglGetTextureParameterIivEXT(texture, (Int32)target, (Int32)pname, @params);
+			Delegates.pglGetTextureParameterIivEXT(texture, (int)target, (int)pname, @params);
 			LogCommand("glGetTextureParameterIivEXT", null, texture, target, pname, new IntPtr(@params).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
@@ -5334,7 +5334,7 @@ namespace OpenGL
 		/// [GL] glGetTextureParameterIivEXT: Binding for glGetTextureParameterIivEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -5346,14 +5346,14 @@ namespace OpenGL
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetTextureParameterIiEXT<T>(UInt32 texture, TextureTarget target, GetTextureParameter pname, ref T @params) where T : struct
+		public static void GetTextureParameterIiEXT<T>(uint texture, TextureTarget target, GetTextureParameter pname, ref T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetTextureParameterIivEXT != null, "pglGetTextureParameterIivEXT not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
 				unsafe {
-					Delegates.pglGetTextureParameterIivEXT(texture, (Int32)target, (Int32)pname, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglGetTextureParameterIivEXT(texture, (int)target, (int)pname, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -5363,7 +5363,7 @@ namespace OpenGL
 				TypedReference refParams = __makeref(@params);
 				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
 
-				Delegates.pglGetTextureParameterIivEXT(texture, (Int32)target, (Int32)pname, (Int32*)refParamsPtr.ToPointer());
+				Delegates.pglGetTextureParameterIivEXT(texture, (int)target, (int)pname, (int*)refParamsPtr.ToPointer());
 			}
 			#endif
 			LogCommand("glGetTextureParameterIivEXT", null, texture, target, pname, @params			);
@@ -5374,7 +5374,7 @@ namespace OpenGL
 		/// [GL] glGetTextureParameterIuivEXT: Binding for glGetTextureParameterIuivEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -5383,16 +5383,16 @@ namespace OpenGL
 		/// A <see cref="T:GetTextureParameter"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetTextureParameterIEXT(UInt32 texture, TextureTarget target, GetTextureParameter pname, [Out] UInt32[] @params)
+		public static void GetTextureParameterIEXT(uint texture, TextureTarget target, GetTextureParameter pname, [Out] uint[] @params)
 		{
 			unsafe {
-				fixed (UInt32* p_params = @params)
+				fixed (uint* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetTextureParameterIuivEXT != null, "pglGetTextureParameterIuivEXT not implemented");
-					Delegates.pglGetTextureParameterIuivEXT(texture, (Int32)target, (Int32)pname, p_params);
+					Delegates.pglGetTextureParameterIuivEXT(texture, (int)target, (int)pname, p_params);
 					LogCommand("glGetTextureParameterIuivEXT", null, texture, target, pname, @params					);
 				}
 			}
@@ -5403,7 +5403,7 @@ namespace OpenGL
 		/// [GL] glGetTextureParameterIuivEXT: Binding for glGetTextureParameterIuivEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -5412,16 +5412,16 @@ namespace OpenGL
 		/// A <see cref="T:GetTextureParameter"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetTextureParameterIEXT(UInt32 texture, TextureTarget target, GetTextureParameter pname, out UInt32 @params)
+		public static void GetTextureParameterIEXT(uint texture, TextureTarget target, GetTextureParameter pname, out uint @params)
 		{
 			unsafe {
-				fixed (UInt32* p_params = &@params)
+				fixed (uint* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetTextureParameterIuivEXT != null, "pglGetTextureParameterIuivEXT not implemented");
-					Delegates.pglGetTextureParameterIuivEXT(texture, (Int32)target, (Int32)pname, p_params);
+					Delegates.pglGetTextureParameterIuivEXT(texture, (int)target, (int)pname, p_params);
 					LogCommand("glGetTextureParameterIuivEXT", null, texture, target, pname, @params					);
 				}
 			}
@@ -5432,7 +5432,7 @@ namespace OpenGL
 		/// [GL] glGetTextureParameterIuivEXT: Binding for glGetTextureParameterIuivEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -5441,13 +5441,13 @@ namespace OpenGL
 		/// A <see cref="T:GetTextureParameter"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:UInt32*"/>.
+		/// A <see cref="T:uint*"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static unsafe void GetTextureParameterIEXT(UInt32 texture, TextureTarget target, GetTextureParameter pname, [Out] UInt32* @params)
+		public static unsafe void GetTextureParameterIEXT(uint texture, TextureTarget target, GetTextureParameter pname, [Out] uint* @params)
 		{
 			Debug.Assert(Delegates.pglGetTextureParameterIuivEXT != null, "pglGetTextureParameterIuivEXT not implemented");
-			Delegates.pglGetTextureParameterIuivEXT(texture, (Int32)target, (Int32)pname, @params);
+			Delegates.pglGetTextureParameterIuivEXT(texture, (int)target, (int)pname, @params);
 			LogCommand("glGetTextureParameterIuivEXT", null, texture, target, pname, new IntPtr(@params).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
@@ -5456,7 +5456,7 @@ namespace OpenGL
 		/// [GL] glGetTextureParameterIuivEXT: Binding for glGetTextureParameterIuivEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -5468,14 +5468,14 @@ namespace OpenGL
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetTextureParameterIuiEXT<T>(UInt32 texture, TextureTarget target, GetTextureParameter pname, ref T @params) where T : struct
+		public static void GetTextureParameterIuiEXT<T>(uint texture, TextureTarget target, GetTextureParameter pname, ref T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetTextureParameterIuivEXT != null, "pglGetTextureParameterIuivEXT not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
 				unsafe {
-					Delegates.pglGetTextureParameterIuivEXT(texture, (Int32)target, (Int32)pname, (UInt32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglGetTextureParameterIuivEXT(texture, (int)target, (int)pname, (uint*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -5485,7 +5485,7 @@ namespace OpenGL
 				TypedReference refParams = __makeref(@params);
 				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
 
-				Delegates.pglGetTextureParameterIuivEXT(texture, (Int32)target, (Int32)pname, (UInt32*)refParamsPtr.ToPointer());
+				Delegates.pglGetTextureParameterIuivEXT(texture, (int)target, (int)pname, (uint*)refParamsPtr.ToPointer());
 			}
 			#endif
 			LogCommand("glGetTextureParameterIuivEXT", null, texture, target, pname, @params			);
@@ -5505,16 +5505,16 @@ namespace OpenGL
 		/// A <see cref="T:TextureParameterName"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void MultiTexParameterIEXT(TextureUnit texunit, TextureTarget target, TextureParameterName pname, Int32[] @params)
+		public static void MultiTexParameterIEXT(TextureUnit texunit, TextureTarget target, TextureParameterName pname, int[] @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglMultiTexParameterIivEXT != null, "pglMultiTexParameterIivEXT not implemented");
-					Delegates.pglMultiTexParameterIivEXT((Int32)texunit, (Int32)target, (Int32)pname, p_params);
+					Delegates.pglMultiTexParameterIivEXT((int)texunit, (int)target, (int)pname, p_params);
 					LogCommand("glMultiTexParameterIivEXT", null, texunit, target, pname, @params					);
 				}
 			}
@@ -5534,16 +5534,16 @@ namespace OpenGL
 		/// A <see cref="T:TextureParameterName"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void MultiTexParameterIEXT(TextureUnit texunit, TextureTarget target, TextureParameterName pname, UInt32[] @params)
+		public static void MultiTexParameterIEXT(TextureUnit texunit, TextureTarget target, TextureParameterName pname, uint[] @params)
 		{
 			unsafe {
-				fixed (UInt32* p_params = @params)
+				fixed (uint* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglMultiTexParameterIuivEXT != null, "pglMultiTexParameterIuivEXT not implemented");
-					Delegates.pglMultiTexParameterIuivEXT((Int32)texunit, (Int32)target, (Int32)pname, p_params);
+					Delegates.pglMultiTexParameterIuivEXT((int)texunit, (int)target, (int)pname, p_params);
 					LogCommand("glMultiTexParameterIuivEXT", null, texunit, target, pname, @params					);
 				}
 			}
@@ -5563,16 +5563,16 @@ namespace OpenGL
 		/// A <see cref="T:GetTextureParameter"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetMultiTexParameterIEXT(TextureUnit texunit, TextureTarget target, GetTextureParameter pname, [Out] Int32[] @params)
+		public static void GetMultiTexParameterIEXT(TextureUnit texunit, TextureTarget target, GetTextureParameter pname, [Out] int[] @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetMultiTexParameterIivEXT != null, "pglGetMultiTexParameterIivEXT not implemented");
-					Delegates.pglGetMultiTexParameterIivEXT((Int32)texunit, (Int32)target, (Int32)pname, p_params);
+					Delegates.pglGetMultiTexParameterIivEXT((int)texunit, (int)target, (int)pname, p_params);
 					LogCommand("glGetMultiTexParameterIivEXT", null, texunit, target, pname, @params					);
 				}
 			}
@@ -5592,16 +5592,16 @@ namespace OpenGL
 		/// A <see cref="T:GetTextureParameter"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetMultiTexParameterIEXT(TextureUnit texunit, TextureTarget target, GetTextureParameter pname, [Out] UInt32[] @params)
+		public static void GetMultiTexParameterIEXT(TextureUnit texunit, TextureTarget target, GetTextureParameter pname, [Out] uint[] @params)
 		{
 			unsafe {
-				fixed (UInt32* p_params = @params)
+				fixed (uint* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetMultiTexParameterIuivEXT != null, "pglGetMultiTexParameterIuivEXT not implemented");
-					Delegates.pglGetMultiTexParameterIuivEXT((Int32)texunit, (Int32)target, (Int32)pname, p_params);
+					Delegates.pglGetMultiTexParameterIuivEXT((int)texunit, (int)target, (int)pname, p_params);
 					LogCommand("glGetMultiTexParameterIuivEXT", null, texunit, target, pname, @params					);
 				}
 			}
@@ -5612,26 +5612,26 @@ namespace OpenGL
 		/// [GL] glNamedProgramLocalParameters4fvEXT: Binding for glNamedProgramLocalParameters4fvEXT.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void NamedProgramLocalParameters4EXT(UInt32 program, Int32 target, UInt32 index, float[] @params)
+		public static void NamedProgramLocalParameters4EXT(uint program, int target, uint index, float[] @params)
 		{
 			Debug.Assert(@params.Length > 0 && (@params.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
 				fixed (float* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglNamedProgramLocalParameters4fvEXT != null, "pglNamedProgramLocalParameters4fvEXT not implemented");
-					Delegates.pglNamedProgramLocalParameters4fvEXT(program, target, index, (Int32)@params.Length / 4, p_params);
+					Delegates.pglNamedProgramLocalParameters4fvEXT(program, target, index, @params.Length / 4, p_params);
 					LogCommand("glNamedProgramLocalParameters4fvEXT", null, program, target, index, @params.Length / 4, @params					);
 				}
 			}
@@ -5642,28 +5642,28 @@ namespace OpenGL
 		/// [GL] glNamedProgramLocalParameterI4iEXT: Binding for glNamedProgramLocalParameterI4iEXT.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="w">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void NamedProgramLocalParameterI4EXT(UInt32 program, Int32 target, UInt32 index, Int32 x, Int32 y, Int32 z, Int32 w)
+		public static void NamedProgramLocalParameterI4EXT(uint program, int target, uint index, int x, int y, int z, int w)
 		{
 			Debug.Assert(Delegates.pglNamedProgramLocalParameterI4iEXT != null, "pglNamedProgramLocalParameterI4iEXT not implemented");
 			Delegates.pglNamedProgramLocalParameterI4iEXT(program, target, index, x, y, z, w);
@@ -5675,23 +5675,23 @@ namespace OpenGL
 		/// [GL] glNamedProgramLocalParameterI4ivEXT: Binding for glNamedProgramLocalParameterI4ivEXT.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void NamedProgramLocalParameterI4EXT(UInt32 program, Int32 target, UInt32 index, Int32[] @params)
+		public static void NamedProgramLocalParameterI4EXT(uint program, int target, uint index, int[] @params)
 		{
 			Debug.Assert(@params.Length >= 4);
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglNamedProgramLocalParameterI4ivEXT != null, "pglNamedProgramLocalParameterI4ivEXT not implemented");
 					Delegates.pglNamedProgramLocalParameterI4ivEXT(program, target, index, p_params);
@@ -5705,26 +5705,26 @@ namespace OpenGL
 		/// [GL] glNamedProgramLocalParametersI4ivEXT: Binding for glNamedProgramLocalParametersI4ivEXT.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void NamedProgramLocalParametersI4EXT(UInt32 program, Int32 target, UInt32 index, Int32[] @params)
+		public static void NamedProgramLocalParametersI4EXT(uint program, int target, uint index, int[] @params)
 		{
 			Debug.Assert(@params.Length > 0 && (@params.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglNamedProgramLocalParametersI4ivEXT != null, "pglNamedProgramLocalParametersI4ivEXT not implemented");
-					Delegates.pglNamedProgramLocalParametersI4ivEXT(program, target, index, (Int32)@params.Length / 4, p_params);
+					Delegates.pglNamedProgramLocalParametersI4ivEXT(program, target, index, @params.Length / 4, p_params);
 					LogCommand("glNamedProgramLocalParametersI4ivEXT", null, program, target, index, @params.Length / 4, @params					);
 				}
 			}
@@ -5735,28 +5735,28 @@ namespace OpenGL
 		/// [GL] glNamedProgramLocalParameterI4uiEXT: Binding for glNamedProgramLocalParameterI4uiEXT.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="w">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void NamedProgramLocalParameterI4uiEXT(UInt32 program, Int32 target, UInt32 index, UInt32 x, UInt32 y, UInt32 z, UInt32 w)
+		public static void NamedProgramLocalParameterI4uiEXT(uint program, int target, uint index, uint x, uint y, uint z, uint w)
 		{
 			Debug.Assert(Delegates.pglNamedProgramLocalParameterI4uiEXT != null, "pglNamedProgramLocalParameterI4uiEXT not implemented");
 			Delegates.pglNamedProgramLocalParameterI4uiEXT(program, target, index, x, y, z, w);
@@ -5768,23 +5768,23 @@ namespace OpenGL
 		/// [GL] glNamedProgramLocalParameterI4uivEXT: Binding for glNamedProgramLocalParameterI4uivEXT.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void NamedProgramLocalParameterI4uiEXT(UInt32 program, Int32 target, UInt32 index, UInt32[] @params)
+		public static void NamedProgramLocalParameterI4uiEXT(uint program, int target, uint index, uint[] @params)
 		{
 			Debug.Assert(@params.Length >= 4);
 			unsafe {
-				fixed (UInt32* p_params = @params)
+				fixed (uint* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglNamedProgramLocalParameterI4uivEXT != null, "pglNamedProgramLocalParameterI4uivEXT not implemented");
 					Delegates.pglNamedProgramLocalParameterI4uivEXT(program, target, index, p_params);
@@ -5798,26 +5798,26 @@ namespace OpenGL
 		/// [GL] glNamedProgramLocalParametersI4uivEXT: Binding for glNamedProgramLocalParametersI4uivEXT.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void NamedProgramLocalParametersI4uiEXT(UInt32 program, Int32 target, UInt32 index, UInt32[] @params)
+		public static void NamedProgramLocalParametersI4uiEXT(uint program, int target, uint index, uint[] @params)
 		{
 			Debug.Assert(@params.Length > 0 && (@params.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
-				fixed (UInt32* p_params = @params)
+				fixed (uint* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglNamedProgramLocalParametersI4uivEXT != null, "pglNamedProgramLocalParametersI4uivEXT not implemented");
-					Delegates.pglNamedProgramLocalParametersI4uivEXT(program, target, index, (Int32)@params.Length / 4, p_params);
+					Delegates.pglNamedProgramLocalParametersI4uivEXT(program, target, index, @params.Length / 4, p_params);
 					LogCommand("glNamedProgramLocalParametersI4uivEXT", null, program, target, index, @params.Length / 4, @params					);
 				}
 			}
@@ -5828,23 +5828,23 @@ namespace OpenGL
 		/// [GL] glGetNamedProgramLocalParameterIivEXT: Binding for glGetNamedProgramLocalParameterIivEXT.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetNamedProgramLocalParameterIEXT(UInt32 program, Int32 target, UInt32 index, [Out] Int32[] @params)
+		public static void GetNamedProgramLocalParameterIEXT(uint program, int target, uint index, [Out] int[] @params)
 		{
 			Debug.Assert(@params.Length >= 4);
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetNamedProgramLocalParameterIivEXT != null, "pglGetNamedProgramLocalParameterIivEXT not implemented");
 					Delegates.pglGetNamedProgramLocalParameterIivEXT(program, target, index, p_params);
@@ -5858,23 +5858,23 @@ namespace OpenGL
 		/// [GL] glGetNamedProgramLocalParameterIuivEXT: Binding for glGetNamedProgramLocalParameterIuivEXT.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetNamedProgramLocalParameterIEXT(UInt32 program, Int32 target, UInt32 index, [Out] UInt32[] @params)
+		public static void GetNamedProgramLocalParameterIEXT(uint program, int target, uint index, [Out] uint[] @params)
 		{
 			Debug.Assert(@params.Length >= 4);
 			unsafe {
-				fixed (UInt32* p_params = @params)
+				fixed (uint* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetNamedProgramLocalParameterIuivEXT != null, "pglGetNamedProgramLocalParameterIuivEXT not implemented");
 					Delegates.pglGetNamedProgramLocalParameterIuivEXT(program, target, index, p_params);
@@ -5891,13 +5891,13 @@ namespace OpenGL
 		/// A <see cref="T:EnableCap"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void EnableClientStateEXT(EnableCap array, UInt32 index)
+		public static void EnableClientStateEXT(EnableCap array, uint index)
 		{
 			Debug.Assert(Delegates.pglEnableClientStateiEXT != null, "pglEnableClientStateiEXT not implemented");
-			Delegates.pglEnableClientStateiEXT((Int32)array, index);
+			Delegates.pglEnableClientStateiEXT((int)array, index);
 			LogCommand("glEnableClientStateiEXT", null, array, index			);
 			DebugCheckErrors(null);
 		}
@@ -5909,13 +5909,13 @@ namespace OpenGL
 		/// A <see cref="T:EnableCap"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void DisableClientStateEXT(EnableCap array, UInt32 index)
+		public static void DisableClientStateEXT(EnableCap array, uint index)
 		{
 			Debug.Assert(Delegates.pglDisableClientStateiEXT != null, "pglDisableClientStateiEXT not implemented");
-			Delegates.pglDisableClientStateiEXT((Int32)array, index);
+			Delegates.pglDisableClientStateiEXT((int)array, index);
 			LogCommand("glDisableClientStateiEXT", null, array, index			);
 			DebugCheckErrors(null);
 		}
@@ -5924,16 +5924,16 @@ namespace OpenGL
 		/// [GL] glGetPointeri_vEXT: Binding for glGetPointeri_vEXT.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetPointerEXT(Int32 pname, UInt32 index, out IntPtr @params)
+		public static void GetPointerEXT(int pname, uint index, out IntPtr @params)
 		{
 			unsafe {
 				fixed (IntPtr* p_params = &@params)
@@ -5950,16 +5950,16 @@ namespace OpenGL
 		/// [GL] glGetPointeri_vEXT: Binding for glGetPointeri_vEXT.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetPointerEXT(Int32 pname, UInt32 index, Object @params)
+		public static void GetPointerEXT(int pname, uint index, Object @params)
 		{
 			GCHandle pin_params = GCHandle.Alloc(@params, GCHandleType.Pinned);
 			try {
@@ -5973,22 +5973,22 @@ namespace OpenGL
 		/// [GL] glNamedProgramStringEXT: Binding for glNamedProgramStringEXT.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="len">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="string">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void NamedProgramStringEXT(UInt32 program, Int32 target, Int32 format, Int32 len, IntPtr @string)
+		public static void NamedProgramStringEXT(uint program, int target, int format, int len, IntPtr @string)
 		{
 			Debug.Assert(Delegates.pglNamedProgramStringEXT != null, "pglNamedProgramStringEXT not implemented");
 			Delegates.pglNamedProgramStringEXT(program, target, format, len, @string);
@@ -6000,22 +6000,22 @@ namespace OpenGL
 		/// [GL] glNamedProgramStringEXT: Binding for glNamedProgramStringEXT.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="len">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="string">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void NamedProgramStringEXT(UInt32 program, Int32 target, Int32 format, Int32 len, Object @string)
+		public static void NamedProgramStringEXT(uint program, int target, int format, int len, Object @string)
 		{
 			GCHandle pin_string = GCHandle.Alloc(@string, GCHandleType.Pinned);
 			try {
@@ -6029,13 +6029,13 @@ namespace OpenGL
 		/// [GL] glNamedProgramLocalParameter4dEXT: Binding for glNamedProgramLocalParameter4dEXT.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="x">
 		/// A <see cref="T:double"/>.
@@ -6050,7 +6050,7 @@ namespace OpenGL
 		/// A <see cref="T:double"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void NamedProgramLocalParameter4EXT(UInt32 program, Int32 target, UInt32 index, double x, double y, double z, double w)
+		public static void NamedProgramLocalParameter4EXT(uint program, int target, uint index, double x, double y, double z, double w)
 		{
 			Debug.Assert(Delegates.pglNamedProgramLocalParameter4dEXT != null, "pglNamedProgramLocalParameter4dEXT not implemented");
 			Delegates.pglNamedProgramLocalParameter4dEXT(program, target, index, x, y, z, w);
@@ -6062,19 +6062,19 @@ namespace OpenGL
 		/// [GL] glNamedProgramLocalParameter4dvEXT: Binding for glNamedProgramLocalParameter4dvEXT.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void NamedProgramLocalParameter4EXT(UInt32 program, Int32 target, UInt32 index, double[] @params)
+		public static void NamedProgramLocalParameter4EXT(uint program, int target, uint index, double[] @params)
 		{
 			Debug.Assert(@params.Length >= 4);
 			unsafe {
@@ -6092,13 +6092,13 @@ namespace OpenGL
 		/// [GL] glNamedProgramLocalParameter4fEXT: Binding for glNamedProgramLocalParameter4fEXT.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="x">
 		/// A <see cref="T:float"/>.
@@ -6113,7 +6113,7 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void NamedProgramLocalParameter4EXT(UInt32 program, Int32 target, UInt32 index, float x, float y, float z, float w)
+		public static void NamedProgramLocalParameter4EXT(uint program, int target, uint index, float x, float y, float z, float w)
 		{
 			Debug.Assert(Delegates.pglNamedProgramLocalParameter4fEXT != null, "pglNamedProgramLocalParameter4fEXT not implemented");
 			Delegates.pglNamedProgramLocalParameter4fEXT(program, target, index, x, y, z, w);
@@ -6125,19 +6125,19 @@ namespace OpenGL
 		/// [GL] glNamedProgramLocalParameter4fvEXT: Binding for glNamedProgramLocalParameter4fvEXT.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void NamedProgramLocalParameter4EXT(UInt32 program, Int32 target, UInt32 index, float[] @params)
+		public static void NamedProgramLocalParameter4EXT(uint program, int target, uint index, float[] @params)
 		{
 			Debug.Assert(@params.Length >= 4);
 			unsafe {
@@ -6155,19 +6155,19 @@ namespace OpenGL
 		/// [GL] glGetNamedProgramLocalParameterdvEXT: Binding for glGetNamedProgramLocalParameterdvEXT.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetNamedProgramLocalParameterEXT(UInt32 program, Int32 target, UInt32 index, [Out] double[] @params)
+		public static void GetNamedProgramLocalParameterEXT(uint program, int target, uint index, [Out] double[] @params)
 		{
 			Debug.Assert(@params.Length >= 4);
 			unsafe {
@@ -6185,19 +6185,19 @@ namespace OpenGL
 		/// [GL] glGetNamedProgramLocalParameterfvEXT: Binding for glGetNamedProgramLocalParameterfvEXT.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetNamedProgramLocalParameterEXT(UInt32 program, Int32 target, UInt32 index, [Out] float[] @params)
+		public static void GetNamedProgramLocalParameterEXT(uint program, int target, uint index, [Out] float[] @params)
 		{
 			Debug.Assert(@params.Length >= 4);
 			unsafe {
@@ -6215,25 +6215,25 @@ namespace OpenGL
 		/// [GL] glGetNamedProgramivEXT: Binding for glGetNamedProgramivEXT.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:ProgramProperty"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetNamedProgramEXT(UInt32 program, Int32 target, ProgramProperty pname, out Int32 @params)
+		public static void GetNamedProgramEXT(uint program, int target, ProgramProperty pname, out int @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = &@params)
+				fixed (int* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetNamedProgramivEXT != null, "pglGetNamedProgramivEXT not implemented");
-					Delegates.pglGetNamedProgramivEXT(program, target, (Int32)pname, p_params);
+					Delegates.pglGetNamedProgramivEXT(program, target, (int)pname, p_params);
 					LogCommand("glGetNamedProgramivEXT", null, program, target, pname, @params					);
 				}
 			}
@@ -6244,19 +6244,19 @@ namespace OpenGL
 		/// [GL] glGetNamedProgramStringEXT: Binding for glGetNamedProgramStringEXT.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="string">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetNamedProgramStringEXT(UInt32 program, Int32 target, Int32 pname, IntPtr @string)
+		public static void GetNamedProgramStringEXT(uint program, int target, int pname, IntPtr @string)
 		{
 			Debug.Assert(Delegates.pglGetNamedProgramStringEXT != null, "pglGetNamedProgramStringEXT not implemented");
 			Delegates.pglGetNamedProgramStringEXT(program, target, pname, @string);
@@ -6268,19 +6268,19 @@ namespace OpenGL
 		/// [GL] glGetNamedProgramStringEXT: Binding for glGetNamedProgramStringEXT.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="string">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetNamedProgramStringEXT(UInt32 program, Int32 target, Int32 pname, Object @string)
+		public static void GetNamedProgramStringEXT(uint program, int target, int pname, Object @string)
 		{
 			GCHandle pin_string = GCHandle.Alloc(@string, GCHandleType.Pinned);
 			try {
@@ -6294,22 +6294,22 @@ namespace OpenGL
 		/// [GL] glNamedRenderbufferStorageEXT: Binding for glNamedRenderbufferStorageEXT.
 		/// </summary>
 		/// <param name="renderbuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void NamedRenderbufferStorageEXT(UInt32 renderbuffer, InternalFormat internalformat, Int32 width, Int32 height)
+		public static void NamedRenderbufferStorageEXT(uint renderbuffer, InternalFormat internalformat, int width, int height)
 		{
 			Debug.Assert(Delegates.pglNamedRenderbufferStorageEXT != null, "pglNamedRenderbufferStorageEXT not implemented");
-			Delegates.pglNamedRenderbufferStorageEXT(renderbuffer, (Int32)internalformat, width, height);
+			Delegates.pglNamedRenderbufferStorageEXT(renderbuffer, (int)internalformat, width, height);
 			LogCommand("glNamedRenderbufferStorageEXT", null, renderbuffer, internalformat, width, height			);
 			DebugCheckErrors(null);
 		}
@@ -6318,22 +6318,22 @@ namespace OpenGL
 		/// [GL] glGetNamedRenderbufferParameterivEXT: Binding for glGetNamedRenderbufferParameterivEXT.
 		/// </summary>
 		/// <param name="renderbuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:RenderbufferParameterName"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetNamedRenderbufferParameterEXT(UInt32 renderbuffer, RenderbufferParameterName pname, [Out] Int32[] @params)
+		public static void GetNamedRenderbufferParameterEXT(uint renderbuffer, RenderbufferParameterName pname, [Out] int[] @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetNamedRenderbufferParameterivEXT != null, "pglGetNamedRenderbufferParameterivEXT not implemented");
-					Delegates.pglGetNamedRenderbufferParameterivEXT(renderbuffer, (Int32)pname, p_params);
+					Delegates.pglGetNamedRenderbufferParameterivEXT(renderbuffer, (int)pname, p_params);
 					LogCommand("glGetNamedRenderbufferParameterivEXT", null, renderbuffer, pname, @params					);
 				}
 			}
@@ -6344,22 +6344,22 @@ namespace OpenGL
 		/// [GL] glGetNamedRenderbufferParameterivEXT: Binding for glGetNamedRenderbufferParameterivEXT.
 		/// </summary>
 		/// <param name="renderbuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:RenderbufferParameterName"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetNamedRenderbufferParameterEXT(UInt32 renderbuffer, RenderbufferParameterName pname, out Int32 @params)
+		public static void GetNamedRenderbufferParameterEXT(uint renderbuffer, RenderbufferParameterName pname, out int @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = &@params)
+				fixed (int* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetNamedRenderbufferParameterivEXT != null, "pglGetNamedRenderbufferParameterivEXT not implemented");
-					Delegates.pglGetNamedRenderbufferParameterivEXT(renderbuffer, (Int32)pname, p_params);
+					Delegates.pglGetNamedRenderbufferParameterivEXT(renderbuffer, (int)pname, p_params);
 					LogCommand("glGetNamedRenderbufferParameterivEXT", null, renderbuffer, pname, @params					);
 				}
 			}
@@ -6370,19 +6370,19 @@ namespace OpenGL
 		/// [GL] glGetNamedRenderbufferParameterivEXT: Binding for glGetNamedRenderbufferParameterivEXT.
 		/// </summary>
 		/// <param name="renderbuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:RenderbufferParameterName"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32*"/>.
+		/// A <see cref="T:int*"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static unsafe void GetNamedRenderbufferParameterEXT(UInt32 renderbuffer, RenderbufferParameterName pname, [Out] Int32* @params)
+		public static unsafe void GetNamedRenderbufferParameterEXT(uint renderbuffer, RenderbufferParameterName pname, [Out] int* @params)
 		{
 			Debug.Assert(Delegates.pglGetNamedRenderbufferParameterivEXT != null, "pglGetNamedRenderbufferParameterivEXT not implemented");
-			Delegates.pglGetNamedRenderbufferParameterivEXT(renderbuffer, (Int32)pname, @params);
+			Delegates.pglGetNamedRenderbufferParameterivEXT(renderbuffer, (int)pname, @params);
 			LogCommand("glGetNamedRenderbufferParameterivEXT", null, renderbuffer, pname, new IntPtr(@params).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
@@ -6391,7 +6391,7 @@ namespace OpenGL
 		/// [GL] glGetNamedRenderbufferParameterivEXT: Binding for glGetNamedRenderbufferParameterivEXT.
 		/// </summary>
 		/// <param name="renderbuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:RenderbufferParameterName"/>.
@@ -6400,14 +6400,14 @@ namespace OpenGL
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetNamedRenderbufferParameteriEXT<T>(UInt32 renderbuffer, RenderbufferParameterName pname, ref T @params) where T : struct
+		public static void GetNamedRenderbufferParameteriEXT<T>(uint renderbuffer, RenderbufferParameterName pname, ref T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetNamedRenderbufferParameterivEXT != null, "pglGetNamedRenderbufferParameterivEXT not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
 				unsafe {
-					Delegates.pglGetNamedRenderbufferParameterivEXT(renderbuffer, (Int32)pname, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglGetNamedRenderbufferParameterivEXT(renderbuffer, (int)pname, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -6417,7 +6417,7 @@ namespace OpenGL
 				TypedReference refParams = __makeref(@params);
 				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
 
-				Delegates.pglGetNamedRenderbufferParameterivEXT(renderbuffer, (Int32)pname, (Int32*)refParamsPtr.ToPointer());
+				Delegates.pglGetNamedRenderbufferParameterivEXT(renderbuffer, (int)pname, (int*)refParamsPtr.ToPointer());
 			}
 			#endif
 			LogCommand("glGetNamedRenderbufferParameterivEXT", null, renderbuffer, pname, @params			);
@@ -6428,25 +6428,25 @@ namespace OpenGL
 		/// [GL] glNamedRenderbufferStorageMultisampleEXT: Binding for glNamedRenderbufferStorageMultisampleEXT.
 		/// </summary>
 		/// <param name="renderbuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="samples">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void NamedRenderbufferStorageMultisampleEXT(UInt32 renderbuffer, Int32 samples, InternalFormat internalformat, Int32 width, Int32 height)
+		public static void NamedRenderbufferStorageMultisampleEXT(uint renderbuffer, int samples, InternalFormat internalformat, int width, int height)
 		{
 			Debug.Assert(Delegates.pglNamedRenderbufferStorageMultisampleEXT != null, "pglNamedRenderbufferStorageMultisampleEXT not implemented");
-			Delegates.pglNamedRenderbufferStorageMultisampleEXT(renderbuffer, samples, (Int32)internalformat, width, height);
+			Delegates.pglNamedRenderbufferStorageMultisampleEXT(renderbuffer, samples, (int)internalformat, width, height);
 			LogCommand("glNamedRenderbufferStorageMultisampleEXT", null, renderbuffer, samples, internalformat, width, height			);
 			DebugCheckErrors(null);
 		}
@@ -6455,28 +6455,28 @@ namespace OpenGL
 		/// [GL] glNamedRenderbufferStorageMultisampleCoverageEXT: Binding for glNamedRenderbufferStorageMultisampleCoverageEXT.
 		/// </summary>
 		/// <param name="renderbuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="coverageSamples">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="colorSamples">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void NamedRenderbufferStorageMultisampleCoverageEXT(UInt32 renderbuffer, Int32 coverageSamples, Int32 colorSamples, InternalFormat internalformat, Int32 width, Int32 height)
+		public static void NamedRenderbufferStorageMultisampleCoverageEXT(uint renderbuffer, int coverageSamples, int colorSamples, InternalFormat internalformat, int width, int height)
 		{
 			Debug.Assert(Delegates.pglNamedRenderbufferStorageMultisampleCoverageEXT != null, "pglNamedRenderbufferStorageMultisampleCoverageEXT not implemented");
-			Delegates.pglNamedRenderbufferStorageMultisampleCoverageEXT(renderbuffer, coverageSamples, colorSamples, (Int32)internalformat, width, height);
+			Delegates.pglNamedRenderbufferStorageMultisampleCoverageEXT(renderbuffer, coverageSamples, colorSamples, (int)internalformat, width, height);
 			LogCommand("glNamedRenderbufferStorageMultisampleCoverageEXT", null, renderbuffer, coverageSamples, colorSamples, internalformat, width, height			);
 			DebugCheckErrors(null);
 		}
@@ -6485,18 +6485,18 @@ namespace OpenGL
 		/// [GL] glCheckNamedFramebufferStatusEXT: Binding for glCheckNamedFramebufferStatusEXT.
 		/// </summary>
 		/// <param name="framebuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:FramebufferTarget"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static FramebufferStatus CheckNamedFramebufferStatusEXT(UInt32 framebuffer, FramebufferTarget target)
+		public static FramebufferStatus CheckNamedFramebufferStatusEXT(uint framebuffer, FramebufferTarget target)
 		{
-			Int32 retValue;
+			int retValue;
 
 			Debug.Assert(Delegates.pglCheckNamedFramebufferStatusEXT != null, "pglCheckNamedFramebufferStatusEXT not implemented");
-			retValue = Delegates.pglCheckNamedFramebufferStatusEXT(framebuffer, (Int32)target);
+			retValue = Delegates.pglCheckNamedFramebufferStatusEXT(framebuffer, (int)target);
 			LogCommand("glCheckNamedFramebufferStatusEXT", (FramebufferStatus)retValue, framebuffer, target			);
 			DebugCheckErrors(retValue);
 
@@ -6507,7 +6507,7 @@ namespace OpenGL
 		/// [GL] glNamedFramebufferTexture1DEXT: Binding for glNamedFramebufferTexture1DEXT.
 		/// </summary>
 		/// <param name="framebuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="attachment">
 		/// A <see cref="T:FramebufferAttachment"/>.
@@ -6516,16 +6516,16 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void NamedFramebufferTexture1DEXT(UInt32 framebuffer, FramebufferAttachment attachment, TextureTarget textarget, UInt32 texture, Int32 level)
+		public static void NamedFramebufferTexture1DEXT(uint framebuffer, FramebufferAttachment attachment, TextureTarget textarget, uint texture, int level)
 		{
 			Debug.Assert(Delegates.pglNamedFramebufferTexture1DEXT != null, "pglNamedFramebufferTexture1DEXT not implemented");
-			Delegates.pglNamedFramebufferTexture1DEXT(framebuffer, (Int32)attachment, (Int32)textarget, texture, level);
+			Delegates.pglNamedFramebufferTexture1DEXT(framebuffer, (int)attachment, (int)textarget, texture, level);
 			LogCommand("glNamedFramebufferTexture1DEXT", null, framebuffer, attachment, textarget, texture, level			);
 			DebugCheckErrors(null);
 		}
@@ -6534,7 +6534,7 @@ namespace OpenGL
 		/// [GL] glNamedFramebufferTexture2DEXT: Binding for glNamedFramebufferTexture2DEXT.
 		/// </summary>
 		/// <param name="framebuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="attachment">
 		/// A <see cref="T:FramebufferAttachment"/>.
@@ -6543,16 +6543,16 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void NamedFramebufferTexture2DEXT(UInt32 framebuffer, FramebufferAttachment attachment, TextureTarget textarget, UInt32 texture, Int32 level)
+		public static void NamedFramebufferTexture2DEXT(uint framebuffer, FramebufferAttachment attachment, TextureTarget textarget, uint texture, int level)
 		{
 			Debug.Assert(Delegates.pglNamedFramebufferTexture2DEXT != null, "pglNamedFramebufferTexture2DEXT not implemented");
-			Delegates.pglNamedFramebufferTexture2DEXT(framebuffer, (Int32)attachment, (Int32)textarget, texture, level);
+			Delegates.pglNamedFramebufferTexture2DEXT(framebuffer, (int)attachment, (int)textarget, texture, level);
 			LogCommand("glNamedFramebufferTexture2DEXT", null, framebuffer, attachment, textarget, texture, level			);
 			DebugCheckErrors(null);
 		}
@@ -6561,7 +6561,7 @@ namespace OpenGL
 		/// [GL] glNamedFramebufferTexture3DEXT: Binding for glNamedFramebufferTexture3DEXT.
 		/// </summary>
 		/// <param name="framebuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="attachment">
 		/// A <see cref="T:FramebufferAttachment"/>.
@@ -6570,19 +6570,19 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="zoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void NamedFramebufferTexture3DEXT(UInt32 framebuffer, FramebufferAttachment attachment, TextureTarget textarget, UInt32 texture, Int32 level, Int32 zoffset)
+		public static void NamedFramebufferTexture3DEXT(uint framebuffer, FramebufferAttachment attachment, TextureTarget textarget, uint texture, int level, int zoffset)
 		{
 			Debug.Assert(Delegates.pglNamedFramebufferTexture3DEXT != null, "pglNamedFramebufferTexture3DEXT not implemented");
-			Delegates.pglNamedFramebufferTexture3DEXT(framebuffer, (Int32)attachment, (Int32)textarget, texture, level, zoffset);
+			Delegates.pglNamedFramebufferTexture3DEXT(framebuffer, (int)attachment, (int)textarget, texture, level, zoffset);
 			LogCommand("glNamedFramebufferTexture3DEXT", null, framebuffer, attachment, textarget, texture, level, zoffset			);
 			DebugCheckErrors(null);
 		}
@@ -6591,7 +6591,7 @@ namespace OpenGL
 		/// [GL] glNamedFramebufferRenderbufferEXT: Binding for glNamedFramebufferRenderbufferEXT.
 		/// </summary>
 		/// <param name="framebuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="attachment">
 		/// A <see cref="T:FramebufferAttachment"/>.
@@ -6600,13 +6600,13 @@ namespace OpenGL
 		/// A <see cref="T:RenderbufferTarget"/>.
 		/// </param>
 		/// <param name="renderbuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void NamedFramebufferRenderbufferEXT(UInt32 framebuffer, FramebufferAttachment attachment, RenderbufferTarget renderbuffertarget, UInt32 renderbuffer)
+		public static void NamedFramebufferRenderbufferEXT(uint framebuffer, FramebufferAttachment attachment, RenderbufferTarget renderbuffertarget, uint renderbuffer)
 		{
 			Debug.Assert(Delegates.pglNamedFramebufferRenderbufferEXT != null, "pglNamedFramebufferRenderbufferEXT not implemented");
-			Delegates.pglNamedFramebufferRenderbufferEXT(framebuffer, (Int32)attachment, (Int32)renderbuffertarget, renderbuffer);
+			Delegates.pglNamedFramebufferRenderbufferEXT(framebuffer, (int)attachment, (int)renderbuffertarget, renderbuffer);
 			LogCommand("glNamedFramebufferRenderbufferEXT", null, framebuffer, attachment, renderbuffertarget, renderbuffer			);
 			DebugCheckErrors(null);
 		}
@@ -6615,7 +6615,7 @@ namespace OpenGL
 		/// [GL] glGetNamedFramebufferAttachmentParameterivEXT: Binding for glGetNamedFramebufferAttachmentParameterivEXT.
 		/// </summary>
 		/// <param name="framebuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="attachment">
 		/// A <see cref="T:FramebufferAttachment"/>.
@@ -6624,16 +6624,16 @@ namespace OpenGL
 		/// A <see cref="T:FramebufferAttachmentParameterName"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetNamedFramebufferAttachmentParameterEXT(UInt32 framebuffer, FramebufferAttachment attachment, FramebufferAttachmentParameterName pname, [Out] Int32[] @params)
+		public static void GetNamedFramebufferAttachmentParameterEXT(uint framebuffer, FramebufferAttachment attachment, FramebufferAttachmentParameterName pname, [Out] int[] @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetNamedFramebufferAttachmentParameterivEXT != null, "pglGetNamedFramebufferAttachmentParameterivEXT not implemented");
-					Delegates.pglGetNamedFramebufferAttachmentParameterivEXT(framebuffer, (Int32)attachment, (Int32)pname, p_params);
+					Delegates.pglGetNamedFramebufferAttachmentParameterivEXT(framebuffer, (int)attachment, (int)pname, p_params);
 					LogCommand("glGetNamedFramebufferAttachmentParameterivEXT", null, framebuffer, attachment, pname, @params					);
 				}
 			}
@@ -6644,7 +6644,7 @@ namespace OpenGL
 		/// [GL] glGetNamedFramebufferAttachmentParameterivEXT: Binding for glGetNamedFramebufferAttachmentParameterivEXT.
 		/// </summary>
 		/// <param name="framebuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="attachment">
 		/// A <see cref="T:FramebufferAttachment"/>.
@@ -6653,16 +6653,16 @@ namespace OpenGL
 		/// A <see cref="T:FramebufferAttachmentParameterName"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetNamedFramebufferAttachmentParameterEXT(UInt32 framebuffer, FramebufferAttachment attachment, FramebufferAttachmentParameterName pname, out Int32 @params)
+		public static void GetNamedFramebufferAttachmentParameterEXT(uint framebuffer, FramebufferAttachment attachment, FramebufferAttachmentParameterName pname, out int @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = &@params)
+				fixed (int* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetNamedFramebufferAttachmentParameterivEXT != null, "pglGetNamedFramebufferAttachmentParameterivEXT not implemented");
-					Delegates.pglGetNamedFramebufferAttachmentParameterivEXT(framebuffer, (Int32)attachment, (Int32)pname, p_params);
+					Delegates.pglGetNamedFramebufferAttachmentParameterivEXT(framebuffer, (int)attachment, (int)pname, p_params);
 					LogCommand("glGetNamedFramebufferAttachmentParameterivEXT", null, framebuffer, attachment, pname, @params					);
 				}
 			}
@@ -6673,7 +6673,7 @@ namespace OpenGL
 		/// [GL] glGetNamedFramebufferAttachmentParameterivEXT: Binding for glGetNamedFramebufferAttachmentParameterivEXT.
 		/// </summary>
 		/// <param name="framebuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="attachment">
 		/// A <see cref="T:FramebufferAttachment"/>.
@@ -6682,13 +6682,13 @@ namespace OpenGL
 		/// A <see cref="T:FramebufferAttachmentParameterName"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32*"/>.
+		/// A <see cref="T:int*"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static unsafe void GetNamedFramebufferAttachmentParameterEXT(UInt32 framebuffer, FramebufferAttachment attachment, FramebufferAttachmentParameterName pname, [Out] Int32* @params)
+		public static unsafe void GetNamedFramebufferAttachmentParameterEXT(uint framebuffer, FramebufferAttachment attachment, FramebufferAttachmentParameterName pname, [Out] int* @params)
 		{
 			Debug.Assert(Delegates.pglGetNamedFramebufferAttachmentParameterivEXT != null, "pglGetNamedFramebufferAttachmentParameterivEXT not implemented");
-			Delegates.pglGetNamedFramebufferAttachmentParameterivEXT(framebuffer, (Int32)attachment, (Int32)pname, @params);
+			Delegates.pglGetNamedFramebufferAttachmentParameterivEXT(framebuffer, (int)attachment, (int)pname, @params);
 			LogCommand("glGetNamedFramebufferAttachmentParameterivEXT", null, framebuffer, attachment, pname, new IntPtr(@params).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
@@ -6697,7 +6697,7 @@ namespace OpenGL
 		/// [GL] glGetNamedFramebufferAttachmentParameterivEXT: Binding for glGetNamedFramebufferAttachmentParameterivEXT.
 		/// </summary>
 		/// <param name="framebuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="attachment">
 		/// A <see cref="T:FramebufferAttachment"/>.
@@ -6709,14 +6709,14 @@ namespace OpenGL
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetNamedFramebufferAttachmentParameteriEXT<T>(UInt32 framebuffer, FramebufferAttachment attachment, FramebufferAttachmentParameterName pname, ref T @params) where T : struct
+		public static void GetNamedFramebufferAttachmentParameteriEXT<T>(uint framebuffer, FramebufferAttachment attachment, FramebufferAttachmentParameterName pname, ref T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetNamedFramebufferAttachmentParameterivEXT != null, "pglGetNamedFramebufferAttachmentParameterivEXT not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
 				unsafe {
-					Delegates.pglGetNamedFramebufferAttachmentParameterivEXT(framebuffer, (Int32)attachment, (Int32)pname, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglGetNamedFramebufferAttachmentParameterivEXT(framebuffer, (int)attachment, (int)pname, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -6726,7 +6726,7 @@ namespace OpenGL
 				TypedReference refParams = __makeref(@params);
 				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
 
-				Delegates.pglGetNamedFramebufferAttachmentParameterivEXT(framebuffer, (Int32)attachment, (Int32)pname, (Int32*)refParamsPtr.ToPointer());
+				Delegates.pglGetNamedFramebufferAttachmentParameterivEXT(framebuffer, (int)attachment, (int)pname, (int*)refParamsPtr.ToPointer());
 			}
 			#endif
 			LogCommand("glGetNamedFramebufferAttachmentParameterivEXT", null, framebuffer, attachment, pname, @params			);
@@ -6737,16 +6737,16 @@ namespace OpenGL
 		/// [GL] glGenerateTextureMipmapEXT: Binding for glGenerateTextureMipmapEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GenerateTextureMipmapEXT(UInt32 texture, TextureTarget target)
+		public static void GenerateTextureMipmapEXT(uint texture, TextureTarget target)
 		{
 			Debug.Assert(Delegates.pglGenerateTextureMipmapEXT != null, "pglGenerateTextureMipmapEXT not implemented");
-			Delegates.pglGenerateTextureMipmapEXT(texture, (Int32)target);
+			Delegates.pglGenerateTextureMipmapEXT(texture, (int)target);
 			LogCommand("glGenerateTextureMipmapEXT", null, texture, target			);
 			DebugCheckErrors(null);
 		}
@@ -6764,7 +6764,7 @@ namespace OpenGL
 		public static void GenerateMultiTexMipmapEXT(TextureUnit texunit, TextureTarget target)
 		{
 			Debug.Assert(Delegates.pglGenerateMultiTexMipmapEXT != null, "pglGenerateMultiTexMipmapEXT not implemented");
-			Delegates.pglGenerateMultiTexMipmapEXT((Int32)texunit, (Int32)target);
+			Delegates.pglGenerateMultiTexMipmapEXT((int)texunit, (int)target);
 			LogCommand("glGenerateMultiTexMipmapEXT", null, texunit, target			);
 			DebugCheckErrors(null);
 		}
@@ -6773,16 +6773,16 @@ namespace OpenGL
 		/// [GL] glFramebufferDrawBufferEXT: Binding for glFramebufferDrawBufferEXT.
 		/// </summary>
 		/// <param name="framebuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="mode">
 		/// A <see cref="T:DrawBufferMode"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void FramebufferDrawBufferEXT(UInt32 framebuffer, DrawBufferMode mode)
+		public static void FramebufferDrawBufferEXT(uint framebuffer, DrawBufferMode mode)
 		{
 			Debug.Assert(Delegates.pglFramebufferDrawBufferEXT != null, "pglFramebufferDrawBufferEXT not implemented");
-			Delegates.pglFramebufferDrawBufferEXT(framebuffer, (Int32)mode);
+			Delegates.pglFramebufferDrawBufferEXT(framebuffer, (int)mode);
 			LogCommand("glFramebufferDrawBufferEXT", null, framebuffer, mode			);
 			DebugCheckErrors(null);
 		}
@@ -6791,19 +6791,19 @@ namespace OpenGL
 		/// [GL] glFramebufferDrawBuffersEXT: Binding for glFramebufferDrawBuffersEXT.
 		/// </summary>
 		/// <param name="framebuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="bufs">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void FramebufferDrawBuffersEXT(UInt32 framebuffer, Int32[] bufs)
+		public static void FramebufferDrawBuffersEXT(uint framebuffer, int[] bufs)
 		{
 			unsafe {
-				fixed (Int32* p_bufs = bufs)
+				fixed (int* p_bufs = bufs)
 				{
 					Debug.Assert(Delegates.pglFramebufferDrawBuffersEXT != null, "pglFramebufferDrawBuffersEXT not implemented");
-					Delegates.pglFramebufferDrawBuffersEXT(framebuffer, (Int32)bufs.Length, p_bufs);
+					Delegates.pglFramebufferDrawBuffersEXT(framebuffer, bufs.Length, p_bufs);
 					LogCommand("glFramebufferDrawBuffersEXT", null, framebuffer, bufs.Length, bufs					);
 				}
 			}
@@ -6814,16 +6814,16 @@ namespace OpenGL
 		/// [GL] glFramebufferReadBufferEXT: Binding for glFramebufferReadBufferEXT.
 		/// </summary>
 		/// <param name="framebuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="mode">
 		/// A <see cref="T:ReadBufferMode"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void FramebufferReadBufferEXT(UInt32 framebuffer, ReadBufferMode mode)
+		public static void FramebufferReadBufferEXT(uint framebuffer, ReadBufferMode mode)
 		{
 			Debug.Assert(Delegates.pglFramebufferReadBufferEXT != null, "pglFramebufferReadBufferEXT not implemented");
-			Delegates.pglFramebufferReadBufferEXT(framebuffer, (Int32)mode);
+			Delegates.pglFramebufferReadBufferEXT(framebuffer, (int)mode);
 			LogCommand("glFramebufferReadBufferEXT", null, framebuffer, mode			);
 			DebugCheckErrors(null);
 		}
@@ -6832,22 +6832,22 @@ namespace OpenGL
 		/// [GL] glGetFramebufferParameterivEXT: Binding for glGetFramebufferParameterivEXT.
 		/// </summary>
 		/// <param name="framebuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:GetFramebufferParameter"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetFramebufferParameterEXT(UInt32 framebuffer, GetFramebufferParameter pname, [Out] Int32[] @params)
+		public static void GetFramebufferParameterEXT(uint framebuffer, GetFramebufferParameter pname, [Out] int[] @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetFramebufferParameterivEXT != null, "pglGetFramebufferParameterivEXT not implemented");
-					Delegates.pglGetFramebufferParameterivEXT(framebuffer, (Int32)pname, p_params);
+					Delegates.pglGetFramebufferParameterivEXT(framebuffer, (int)pname, p_params);
 					LogCommand("glGetFramebufferParameterivEXT", null, framebuffer, pname, @params					);
 				}
 			}
@@ -6858,22 +6858,22 @@ namespace OpenGL
 		/// [GL] glGetFramebufferParameterivEXT: Binding for glGetFramebufferParameterivEXT.
 		/// </summary>
 		/// <param name="framebuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:GetFramebufferParameter"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetFramebufferParameterEXT(UInt32 framebuffer, GetFramebufferParameter pname, out Int32 @params)
+		public static void GetFramebufferParameterEXT(uint framebuffer, GetFramebufferParameter pname, out int @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = &@params)
+				fixed (int* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetFramebufferParameterivEXT != null, "pglGetFramebufferParameterivEXT not implemented");
-					Delegates.pglGetFramebufferParameterivEXT(framebuffer, (Int32)pname, p_params);
+					Delegates.pglGetFramebufferParameterivEXT(framebuffer, (int)pname, p_params);
 					LogCommand("glGetFramebufferParameterivEXT", null, framebuffer, pname, @params					);
 				}
 			}
@@ -6884,19 +6884,19 @@ namespace OpenGL
 		/// [GL] glGetFramebufferParameterivEXT: Binding for glGetFramebufferParameterivEXT.
 		/// </summary>
 		/// <param name="framebuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:GetFramebufferParameter"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32*"/>.
+		/// A <see cref="T:int*"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static unsafe void GetFramebufferParameterEXT(UInt32 framebuffer, GetFramebufferParameter pname, [Out] Int32* @params)
+		public static unsafe void GetFramebufferParameterEXT(uint framebuffer, GetFramebufferParameter pname, [Out] int* @params)
 		{
 			Debug.Assert(Delegates.pglGetFramebufferParameterivEXT != null, "pglGetFramebufferParameterivEXT not implemented");
-			Delegates.pglGetFramebufferParameterivEXT(framebuffer, (Int32)pname, @params);
+			Delegates.pglGetFramebufferParameterivEXT(framebuffer, (int)pname, @params);
 			LogCommand("glGetFramebufferParameterivEXT", null, framebuffer, pname, new IntPtr(@params).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
@@ -6905,7 +6905,7 @@ namespace OpenGL
 		/// [GL] glGetFramebufferParameterivEXT: Binding for glGetFramebufferParameterivEXT.
 		/// </summary>
 		/// <param name="framebuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:GetFramebufferParameter"/>.
@@ -6914,14 +6914,14 @@ namespace OpenGL
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetFramebufferParameteriEXT<T>(UInt32 framebuffer, GetFramebufferParameter pname, ref T @params) where T : struct
+		public static void GetFramebufferParameteriEXT<T>(uint framebuffer, GetFramebufferParameter pname, ref T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetFramebufferParameterivEXT != null, "pglGetFramebufferParameterivEXT not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
 				unsafe {
-					Delegates.pglGetFramebufferParameterivEXT(framebuffer, (Int32)pname, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglGetFramebufferParameterivEXT(framebuffer, (int)pname, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -6931,7 +6931,7 @@ namespace OpenGL
 				TypedReference refParams = __makeref(@params);
 				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
 
-				Delegates.pglGetFramebufferParameterivEXT(framebuffer, (Int32)pname, (Int32*)refParamsPtr.ToPointer());
+				Delegates.pglGetFramebufferParameterivEXT(framebuffer, (int)pname, (int*)refParamsPtr.ToPointer());
 			}
 			#endif
 			LogCommand("glGetFramebufferParameterivEXT", null, framebuffer, pname, @params			);
@@ -6942,10 +6942,10 @@ namespace OpenGL
 		/// [GL] glNamedCopyBufferSubDataEXT: Binding for glNamedCopyBufferSubDataEXT.
 		/// </summary>
 		/// <param name="readBuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="writeBuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="readOffset">
 		/// A <see cref="T:IntPtr"/>.
@@ -6954,10 +6954,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="size">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void NamedCopyBufferSubDataEXT(UInt32 readBuffer, UInt32 writeBuffer, IntPtr readOffset, IntPtr writeOffset, UInt32 size)
+		public static void NamedCopyBufferSubDataEXT(uint readBuffer, uint writeBuffer, IntPtr readOffset, IntPtr writeOffset, uint size)
 		{
 			Debug.Assert(Delegates.pglNamedCopyBufferSubDataEXT != null, "pglNamedCopyBufferSubDataEXT not implemented");
 			Delegates.pglNamedCopyBufferSubDataEXT(readBuffer, writeBuffer, readOffset, writeOffset, size);
@@ -6969,22 +6969,22 @@ namespace OpenGL
 		/// [GL] glNamedFramebufferTextureEXT: Binding for glNamedFramebufferTextureEXT.
 		/// </summary>
 		/// <param name="framebuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="attachment">
 		/// A <see cref="T:FramebufferAttachment"/>.
 		/// </param>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void NamedFramebufferTextureEXT(UInt32 framebuffer, FramebufferAttachment attachment, UInt32 texture, Int32 level)
+		public static void NamedFramebufferTextureEXT(uint framebuffer, FramebufferAttachment attachment, uint texture, int level)
 		{
 			Debug.Assert(Delegates.pglNamedFramebufferTextureEXT != null, "pglNamedFramebufferTextureEXT not implemented");
-			Delegates.pglNamedFramebufferTextureEXT(framebuffer, (Int32)attachment, texture, level);
+			Delegates.pglNamedFramebufferTextureEXT(framebuffer, (int)attachment, texture, level);
 			LogCommand("glNamedFramebufferTextureEXT", null, framebuffer, attachment, texture, level			);
 			DebugCheckErrors(null);
 		}
@@ -6993,25 +6993,25 @@ namespace OpenGL
 		/// [GL] glNamedFramebufferTextureLayerEXT: Binding for glNamedFramebufferTextureLayerEXT.
 		/// </summary>
 		/// <param name="framebuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="attachment">
 		/// A <see cref="T:FramebufferAttachment"/>.
 		/// </param>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="layer">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void NamedFramebufferTextureLayerEXT(UInt32 framebuffer, FramebufferAttachment attachment, UInt32 texture, Int32 level, Int32 layer)
+		public static void NamedFramebufferTextureLayerEXT(uint framebuffer, FramebufferAttachment attachment, uint texture, int level, int layer)
 		{
 			Debug.Assert(Delegates.pglNamedFramebufferTextureLayerEXT != null, "pglNamedFramebufferTextureLayerEXT not implemented");
-			Delegates.pglNamedFramebufferTextureLayerEXT(framebuffer, (Int32)attachment, texture, level, layer);
+			Delegates.pglNamedFramebufferTextureLayerEXT(framebuffer, (int)attachment, texture, level, layer);
 			LogCommand("glNamedFramebufferTextureLayerEXT", null, framebuffer, attachment, texture, level, layer			);
 			DebugCheckErrors(null);
 		}
@@ -7020,25 +7020,25 @@ namespace OpenGL
 		/// [GL] glNamedFramebufferTextureFaceEXT: Binding for glNamedFramebufferTextureFaceEXT.
 		/// </summary>
 		/// <param name="framebuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="attachment">
 		/// A <see cref="T:FramebufferAttachment"/>.
 		/// </param>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="face">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void NamedFramebufferTextureFaceEXT(UInt32 framebuffer, FramebufferAttachment attachment, UInt32 texture, Int32 level, TextureTarget face)
+		public static void NamedFramebufferTextureFaceEXT(uint framebuffer, FramebufferAttachment attachment, uint texture, int level, TextureTarget face)
 		{
 			Debug.Assert(Delegates.pglNamedFramebufferTextureFaceEXT != null, "pglNamedFramebufferTextureFaceEXT not implemented");
-			Delegates.pglNamedFramebufferTextureFaceEXT(framebuffer, (Int32)attachment, texture, level, (Int32)face);
+			Delegates.pglNamedFramebufferTextureFaceEXT(framebuffer, (int)attachment, texture, level, (int)face);
 			LogCommand("glNamedFramebufferTextureFaceEXT", null, framebuffer, attachment, texture, level, face			);
 			DebugCheckErrors(null);
 		}
@@ -7047,19 +7047,19 @@ namespace OpenGL
 		/// [GL] glTextureRenderbufferEXT: Binding for glTextureRenderbufferEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="renderbuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void TextureRenderbufferEXT(UInt32 texture, TextureTarget target, UInt32 renderbuffer)
+		public static void TextureRenderbufferEXT(uint texture, TextureTarget target, uint renderbuffer)
 		{
 			Debug.Assert(Delegates.pglTextureRenderbufferEXT != null, "pglTextureRenderbufferEXT not implemented");
-			Delegates.pglTextureRenderbufferEXT(texture, (Int32)target, renderbuffer);
+			Delegates.pglTextureRenderbufferEXT(texture, (int)target, renderbuffer);
 			LogCommand("glTextureRenderbufferEXT", null, texture, target, renderbuffer			);
 			DebugCheckErrors(null);
 		}
@@ -7074,13 +7074,13 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="renderbuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void MultiTexRenderbufferEXT(TextureUnit texunit, TextureTarget target, UInt32 renderbuffer)
+		public static void MultiTexRenderbufferEXT(TextureUnit texunit, TextureTarget target, uint renderbuffer)
 		{
 			Debug.Assert(Delegates.pglMultiTexRenderbufferEXT != null, "pglMultiTexRenderbufferEXT not implemented");
-			Delegates.pglMultiTexRenderbufferEXT((Int32)texunit, (Int32)target, renderbuffer);
+			Delegates.pglMultiTexRenderbufferEXT((int)texunit, (int)target, renderbuffer);
 			LogCommand("glMultiTexRenderbufferEXT", null, texunit, target, renderbuffer			);
 			DebugCheckErrors(null);
 		}
@@ -7089,28 +7089,28 @@ namespace OpenGL
 		/// [GL] glVertexArrayVertexOffsetEXT: Binding for glVertexArrayVertexOffsetEXT.
 		/// </summary>
 		/// <param name="vaobj">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="type">
 		/// A <see cref="T:VertexPointerType"/>.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="offset">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void VertexArrayVertexOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 size, VertexPointerType type, Int32 stride, IntPtr offset)
+		public static void VertexArrayVertexOffsetEXT(uint vaobj, uint buffer, int size, VertexPointerType type, int stride, IntPtr offset)
 		{
 			Debug.Assert(Delegates.pglVertexArrayVertexOffsetEXT != null, "pglVertexArrayVertexOffsetEXT not implemented");
-			Delegates.pglVertexArrayVertexOffsetEXT(vaobj, buffer, size, (Int32)type, stride, offset);
+			Delegates.pglVertexArrayVertexOffsetEXT(vaobj, buffer, size, (int)type, stride, offset);
 			LogCommand("glVertexArrayVertexOffsetEXT", null, vaobj, buffer, size, type, stride, offset			);
 			DebugCheckErrors(null);
 		}
@@ -7119,28 +7119,28 @@ namespace OpenGL
 		/// [GL] glVertexArrayColorOffsetEXT: Binding for glVertexArrayColorOffsetEXT.
 		/// </summary>
 		/// <param name="vaobj">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="type">
 		/// A <see cref="T:ColorPointerType"/>.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="offset">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void VertexArrayColorOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 size, ColorPointerType type, Int32 stride, IntPtr offset)
+		public static void VertexArrayColorOffsetEXT(uint vaobj, uint buffer, int size, ColorPointerType type, int stride, IntPtr offset)
 		{
 			Debug.Assert(Delegates.pglVertexArrayColorOffsetEXT != null, "pglVertexArrayColorOffsetEXT not implemented");
-			Delegates.pglVertexArrayColorOffsetEXT(vaobj, buffer, size, (Int32)type, stride, offset);
+			Delegates.pglVertexArrayColorOffsetEXT(vaobj, buffer, size, (int)type, stride, offset);
 			LogCommand("glVertexArrayColorOffsetEXT", null, vaobj, buffer, size, type, stride, offset			);
 			DebugCheckErrors(null);
 		}
@@ -7149,19 +7149,19 @@ namespace OpenGL
 		/// [GL] glVertexArrayEdgeFlagOffsetEXT: Binding for glVertexArrayEdgeFlagOffsetEXT.
 		/// </summary>
 		/// <param name="vaobj">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="offset">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void VertexArrayEdgeFlagOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 stride, IntPtr offset)
+		public static void VertexArrayEdgeFlagOffsetEXT(uint vaobj, uint buffer, int stride, IntPtr offset)
 		{
 			Debug.Assert(Delegates.pglVertexArrayEdgeFlagOffsetEXT != null, "pglVertexArrayEdgeFlagOffsetEXT not implemented");
 			Delegates.pglVertexArrayEdgeFlagOffsetEXT(vaobj, buffer, stride, offset);
@@ -7173,25 +7173,25 @@ namespace OpenGL
 		/// [GL] glVertexArrayIndexOffsetEXT: Binding for glVertexArrayIndexOffsetEXT.
 		/// </summary>
 		/// <param name="vaobj">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="type">
 		/// A <see cref="T:IndexPointerType"/>.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="offset">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void VertexArrayIndexOffsetEXT(UInt32 vaobj, UInt32 buffer, IndexPointerType type, Int32 stride, IntPtr offset)
+		public static void VertexArrayIndexOffsetEXT(uint vaobj, uint buffer, IndexPointerType type, int stride, IntPtr offset)
 		{
 			Debug.Assert(Delegates.pglVertexArrayIndexOffsetEXT != null, "pglVertexArrayIndexOffsetEXT not implemented");
-			Delegates.pglVertexArrayIndexOffsetEXT(vaobj, buffer, (Int32)type, stride, offset);
+			Delegates.pglVertexArrayIndexOffsetEXT(vaobj, buffer, (int)type, stride, offset);
 			LogCommand("glVertexArrayIndexOffsetEXT", null, vaobj, buffer, type, stride, offset			);
 			DebugCheckErrors(null);
 		}
@@ -7200,25 +7200,25 @@ namespace OpenGL
 		/// [GL] glVertexArrayNormalOffsetEXT: Binding for glVertexArrayNormalOffsetEXT.
 		/// </summary>
 		/// <param name="vaobj">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="type">
 		/// A <see cref="T:NormalPointerType"/>.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="offset">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void VertexArrayNormalOffsetEXT(UInt32 vaobj, UInt32 buffer, NormalPointerType type, Int32 stride, IntPtr offset)
+		public static void VertexArrayNormalOffsetEXT(uint vaobj, uint buffer, NormalPointerType type, int stride, IntPtr offset)
 		{
 			Debug.Assert(Delegates.pglVertexArrayNormalOffsetEXT != null, "pglVertexArrayNormalOffsetEXT not implemented");
-			Delegates.pglVertexArrayNormalOffsetEXT(vaobj, buffer, (Int32)type, stride, offset);
+			Delegates.pglVertexArrayNormalOffsetEXT(vaobj, buffer, (int)type, stride, offset);
 			LogCommand("glVertexArrayNormalOffsetEXT", null, vaobj, buffer, type, stride, offset			);
 			DebugCheckErrors(null);
 		}
@@ -7227,28 +7227,28 @@ namespace OpenGL
 		/// [GL] glVertexArrayTexCoordOffsetEXT: Binding for glVertexArrayTexCoordOffsetEXT.
 		/// </summary>
 		/// <param name="vaobj">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="type">
 		/// A <see cref="T:TexCoordPointerType"/>.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="offset">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void VertexArrayTexCoordOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 size, TexCoordPointerType type, Int32 stride, IntPtr offset)
+		public static void VertexArrayTexCoordOffsetEXT(uint vaobj, uint buffer, int size, TexCoordPointerType type, int stride, IntPtr offset)
 		{
 			Debug.Assert(Delegates.pglVertexArrayTexCoordOffsetEXT != null, "pglVertexArrayTexCoordOffsetEXT not implemented");
-			Delegates.pglVertexArrayTexCoordOffsetEXT(vaobj, buffer, size, (Int32)type, stride, offset);
+			Delegates.pglVertexArrayTexCoordOffsetEXT(vaobj, buffer, size, (int)type, stride, offset);
 			LogCommand("glVertexArrayTexCoordOffsetEXT", null, vaobj, buffer, size, type, stride, offset			);
 			DebugCheckErrors(null);
 		}
@@ -7257,31 +7257,31 @@ namespace OpenGL
 		/// [GL] glVertexArrayMultiTexCoordOffsetEXT: Binding for glVertexArrayMultiTexCoordOffsetEXT.
 		/// </summary>
 		/// <param name="vaobj">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="texunit">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="type">
 		/// A <see cref="T:TexCoordPointerType"/>.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="offset">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void VertexArrayMultiTexCoordOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 texunit, Int32 size, TexCoordPointerType type, Int32 stride, IntPtr offset)
+		public static void VertexArrayMultiTexCoordOffsetEXT(uint vaobj, uint buffer, int texunit, int size, TexCoordPointerType type, int stride, IntPtr offset)
 		{
 			Debug.Assert(Delegates.pglVertexArrayMultiTexCoordOffsetEXT != null, "pglVertexArrayMultiTexCoordOffsetEXT not implemented");
-			Delegates.pglVertexArrayMultiTexCoordOffsetEXT(vaobj, buffer, texunit, size, (Int32)type, stride, offset);
+			Delegates.pglVertexArrayMultiTexCoordOffsetEXT(vaobj, buffer, texunit, size, (int)type, stride, offset);
 			LogCommand("glVertexArrayMultiTexCoordOffsetEXT", null, vaobj, buffer, texunit, size, type, stride, offset			);
 			DebugCheckErrors(null);
 		}
@@ -7290,25 +7290,25 @@ namespace OpenGL
 		/// [GL] glVertexArrayFogCoordOffsetEXT: Binding for glVertexArrayFogCoordOffsetEXT.
 		/// </summary>
 		/// <param name="vaobj">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="type">
 		/// A <see cref="T:FogCoordinatePointerType"/>.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="offset">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void VertexArrayFogCoordOffsetEXT(UInt32 vaobj, UInt32 buffer, FogCoordinatePointerType type, Int32 stride, IntPtr offset)
+		public static void VertexArrayFogCoordOffsetEXT(uint vaobj, uint buffer, FogCoordinatePointerType type, int stride, IntPtr offset)
 		{
 			Debug.Assert(Delegates.pglVertexArrayFogCoordOffsetEXT != null, "pglVertexArrayFogCoordOffsetEXT not implemented");
-			Delegates.pglVertexArrayFogCoordOffsetEXT(vaobj, buffer, (Int32)type, stride, offset);
+			Delegates.pglVertexArrayFogCoordOffsetEXT(vaobj, buffer, (int)type, stride, offset);
 			LogCommand("glVertexArrayFogCoordOffsetEXT", null, vaobj, buffer, type, stride, offset			);
 			DebugCheckErrors(null);
 		}
@@ -7317,28 +7317,28 @@ namespace OpenGL
 		/// [GL] glVertexArraySecondaryColorOffsetEXT: Binding for glVertexArraySecondaryColorOffsetEXT.
 		/// </summary>
 		/// <param name="vaobj">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="type">
 		/// A <see cref="T:ColorPointerType"/>.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="offset">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void VertexArraySecondaryColorOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 size, ColorPointerType type, Int32 stride, IntPtr offset)
+		public static void VertexArraySecondaryColorOffsetEXT(uint vaobj, uint buffer, int size, ColorPointerType type, int stride, IntPtr offset)
 		{
 			Debug.Assert(Delegates.pglVertexArraySecondaryColorOffsetEXT != null, "pglVertexArraySecondaryColorOffsetEXT not implemented");
-			Delegates.pglVertexArraySecondaryColorOffsetEXT(vaobj, buffer, size, (Int32)type, stride, offset);
+			Delegates.pglVertexArraySecondaryColorOffsetEXT(vaobj, buffer, size, (int)type, stride, offset);
 			LogCommand("glVertexArraySecondaryColorOffsetEXT", null, vaobj, buffer, size, type, stride, offset			);
 			DebugCheckErrors(null);
 		}
@@ -7347,16 +7347,16 @@ namespace OpenGL
 		/// [GL] glVertexArrayVertexAttribOffsetEXT: Binding for glVertexArrayVertexAttribOffsetEXT.
 		/// </summary>
 		/// <param name="vaobj">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="type">
 		/// A <see cref="T:VertexAttribType"/>.
@@ -7365,16 +7365,16 @@ namespace OpenGL
 		/// A <see cref="T:bool"/>.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="offset">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void VertexArrayVertexAttribOffsetEXT(UInt32 vaobj, UInt32 buffer, UInt32 index, Int32 size, VertexAttribType type, bool normalized, Int32 stride, IntPtr offset)
+		public static void VertexArrayVertexAttribOffsetEXT(uint vaobj, uint buffer, uint index, int size, VertexAttribType type, bool normalized, int stride, IntPtr offset)
 		{
 			Debug.Assert(Delegates.pglVertexArrayVertexAttribOffsetEXT != null, "pglVertexArrayVertexAttribOffsetEXT not implemented");
-			Delegates.pglVertexArrayVertexAttribOffsetEXT(vaobj, buffer, index, size, (Int32)type, normalized, stride, offset);
+			Delegates.pglVertexArrayVertexAttribOffsetEXT(vaobj, buffer, index, size, (int)type, normalized, stride, offset);
 			LogCommand("glVertexArrayVertexAttribOffsetEXT", null, vaobj, buffer, index, size, type, normalized, stride, offset			);
 			DebugCheckErrors(null);
 		}
@@ -7383,31 +7383,31 @@ namespace OpenGL
 		/// [GL] glVertexArrayVertexAttribIOffsetEXT: Binding for glVertexArrayVertexAttribIOffsetEXT.
 		/// </summary>
 		/// <param name="vaobj">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="type">
 		/// A <see cref="T:VertexAttribEnum"/>.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="offset">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void VertexArrayVertexAttribIOffsetEXT(UInt32 vaobj, UInt32 buffer, UInt32 index, Int32 size, VertexAttribEnum type, Int32 stride, IntPtr offset)
+		public static void VertexArrayVertexAttribIOffsetEXT(uint vaobj, uint buffer, uint index, int size, VertexAttribEnum type, int stride, IntPtr offset)
 		{
 			Debug.Assert(Delegates.pglVertexArrayVertexAttribIOffsetEXT != null, "pglVertexArrayVertexAttribIOffsetEXT not implemented");
-			Delegates.pglVertexArrayVertexAttribIOffsetEXT(vaobj, buffer, index, size, (Int32)type, stride, offset);
+			Delegates.pglVertexArrayVertexAttribIOffsetEXT(vaobj, buffer, index, size, (int)type, stride, offset);
 			LogCommand("glVertexArrayVertexAttribIOffsetEXT", null, vaobj, buffer, index, size, type, stride, offset			);
 			DebugCheckErrors(null);
 		}
@@ -7416,16 +7416,16 @@ namespace OpenGL
 		/// [GL] glEnableVertexArrayEXT: Binding for glEnableVertexArrayEXT.
 		/// </summary>
 		/// <param name="vaobj">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="array">
 		/// A <see cref="T:EnableCap"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void EnableVertexArrayEXT(UInt32 vaobj, EnableCap array)
+		public static void EnableVertexArrayEXT(uint vaobj, EnableCap array)
 		{
 			Debug.Assert(Delegates.pglEnableVertexArrayEXT != null, "pglEnableVertexArrayEXT not implemented");
-			Delegates.pglEnableVertexArrayEXT(vaobj, (Int32)array);
+			Delegates.pglEnableVertexArrayEXT(vaobj, (int)array);
 			LogCommand("glEnableVertexArrayEXT", null, vaobj, array			);
 			DebugCheckErrors(null);
 		}
@@ -7434,16 +7434,16 @@ namespace OpenGL
 		/// [GL] glDisableVertexArrayEXT: Binding for glDisableVertexArrayEXT.
 		/// </summary>
 		/// <param name="vaobj">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="array">
 		/// A <see cref="T:EnableCap"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void DisableVertexArrayEXT(UInt32 vaobj, EnableCap array)
+		public static void DisableVertexArrayEXT(uint vaobj, EnableCap array)
 		{
 			Debug.Assert(Delegates.pglDisableVertexArrayEXT != null, "pglDisableVertexArrayEXT not implemented");
-			Delegates.pglDisableVertexArrayEXT(vaobj, (Int32)array);
+			Delegates.pglDisableVertexArrayEXT(vaobj, (int)array);
 			LogCommand("glDisableVertexArrayEXT", null, vaobj, array			);
 			DebugCheckErrors(null);
 		}
@@ -7452,13 +7452,13 @@ namespace OpenGL
 		/// [GL] glEnableVertexArrayAttribEXT: Binding for glEnableVertexArrayAttribEXT.
 		/// </summary>
 		/// <param name="vaobj">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void EnableVertexArrayAttribEXT(UInt32 vaobj, UInt32 index)
+		public static void EnableVertexArrayAttribEXT(uint vaobj, uint index)
 		{
 			Debug.Assert(Delegates.pglEnableVertexArrayAttribEXT != null, "pglEnableVertexArrayAttribEXT not implemented");
 			Delegates.pglEnableVertexArrayAttribEXT(vaobj, index);
@@ -7470,13 +7470,13 @@ namespace OpenGL
 		/// [GL] glDisableVertexArrayAttribEXT: Binding for glDisableVertexArrayAttribEXT.
 		/// </summary>
 		/// <param name="vaobj">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void DisableVertexArrayAttribEXT(UInt32 vaobj, UInt32 index)
+		public static void DisableVertexArrayAttribEXT(uint vaobj, uint index)
 		{
 			Debug.Assert(Delegates.pglDisableVertexArrayAttribEXT != null, "pglDisableVertexArrayAttribEXT not implemented");
 			Delegates.pglDisableVertexArrayAttribEXT(vaobj, index);
@@ -7488,22 +7488,22 @@ namespace OpenGL
 		/// [GL] glGetVertexArrayIntegervEXT: Binding for glGetVertexArrayIntegervEXT.
 		/// </summary>
 		/// <param name="vaobj">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:VertexArrayPName"/>.
 		/// </param>
 		/// <param name="param">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetVertexArrayIntegerEXT(UInt32 vaobj, VertexArrayPName pname, [Out] Int32[] param)
+		public static void GetVertexArrayIntegerEXT(uint vaobj, VertexArrayPName pname, [Out] int[] param)
 		{
 			unsafe {
-				fixed (Int32* p_param = param)
+				fixed (int* p_param = param)
 				{
 					Debug.Assert(Delegates.pglGetVertexArrayIntegervEXT != null, "pglGetVertexArrayIntegervEXT not implemented");
-					Delegates.pglGetVertexArrayIntegervEXT(vaobj, (Int32)pname, p_param);
+					Delegates.pglGetVertexArrayIntegervEXT(vaobj, (int)pname, p_param);
 					LogCommand("glGetVertexArrayIntegervEXT", null, vaobj, pname, param					);
 				}
 			}
@@ -7514,7 +7514,7 @@ namespace OpenGL
 		/// [GL] glGetVertexArrayPointervEXT: Binding for glGetVertexArrayPointervEXT.
 		/// </summary>
 		/// <param name="vaobj">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:VertexArrayPName"/>.
@@ -7523,13 +7523,13 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetVertexArrayPointerEXT(UInt32 vaobj, VertexArrayPName pname, out IntPtr param)
+		public static void GetVertexArrayPointerEXT(uint vaobj, VertexArrayPName pname, out IntPtr param)
 		{
 			unsafe {
 				fixed (IntPtr* p_param = &param)
 				{
 					Debug.Assert(Delegates.pglGetVertexArrayPointervEXT != null, "pglGetVertexArrayPointervEXT not implemented");
-					Delegates.pglGetVertexArrayPointervEXT(vaobj, (Int32)pname, p_param);
+					Delegates.pglGetVertexArrayPointervEXT(vaobj, (int)pname, p_param);
 					LogCommand("glGetVertexArrayPointervEXT", null, vaobj, pname, param					);
 				}
 			}
@@ -7540,7 +7540,7 @@ namespace OpenGL
 		/// [GL] glGetVertexArrayPointervEXT: Binding for glGetVertexArrayPointervEXT.
 		/// </summary>
 		/// <param name="vaobj">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:VertexArrayPName"/>.
@@ -7549,7 +7549,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetVertexArrayPointerEXT(UInt32 vaobj, VertexArrayPName pname, Object param)
+		public static void GetVertexArrayPointerEXT(uint vaobj, VertexArrayPName pname, Object param)
 		{
 			GCHandle pin_param = GCHandle.Alloc(param, GCHandleType.Pinned);
 			try {
@@ -7563,25 +7563,25 @@ namespace OpenGL
 		/// [GL] glGetVertexArrayIntegeri_vEXT: Binding for glGetVertexArrayIntegeri_vEXT.
 		/// </summary>
 		/// <param name="vaobj">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:VertexArrayPName"/>.
 		/// </param>
 		/// <param name="param">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetVertexArrayIntegerEXT(UInt32 vaobj, UInt32 index, VertexArrayPName pname, [Out] Int32[] param)
+		public static void GetVertexArrayIntegerEXT(uint vaobj, uint index, VertexArrayPName pname, [Out] int[] param)
 		{
 			unsafe {
-				fixed (Int32* p_param = param)
+				fixed (int* p_param = param)
 				{
 					Debug.Assert(Delegates.pglGetVertexArrayIntegeri_vEXT != null, "pglGetVertexArrayIntegeri_vEXT not implemented");
-					Delegates.pglGetVertexArrayIntegeri_vEXT(vaobj, index, (Int32)pname, p_param);
+					Delegates.pglGetVertexArrayIntegeri_vEXT(vaobj, index, (int)pname, p_param);
 					LogCommand("glGetVertexArrayIntegeri_vEXT", null, vaobj, index, pname, param					);
 				}
 			}
@@ -7592,10 +7592,10 @@ namespace OpenGL
 		/// [GL] glGetVertexArrayPointeri_vEXT: Binding for glGetVertexArrayPointeri_vEXT.
 		/// </summary>
 		/// <param name="vaobj">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:VertexArrayPName"/>.
@@ -7604,13 +7604,13 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetVertexArrayPointerEXT(UInt32 vaobj, UInt32 index, VertexArrayPName pname, [Out] IntPtr[] param)
+		public static void GetVertexArrayPointerEXT(uint vaobj, uint index, VertexArrayPName pname, [Out] IntPtr[] param)
 		{
 			unsafe {
 				fixed (IntPtr* p_param = param)
 				{
 					Debug.Assert(Delegates.pglGetVertexArrayPointeri_vEXT != null, "pglGetVertexArrayPointeri_vEXT not implemented");
-					Delegates.pglGetVertexArrayPointeri_vEXT(vaobj, index, (Int32)pname, p_param);
+					Delegates.pglGetVertexArrayPointeri_vEXT(vaobj, index, (int)pname, p_param);
 					LogCommand("glGetVertexArrayPointeri_vEXT", null, vaobj, index, pname, param					);
 				}
 			}
@@ -7621,19 +7621,19 @@ namespace OpenGL
 		/// [GL] glMapNamedBufferRangeEXT: Binding for glMapNamedBufferRangeEXT.
 		/// </summary>
 		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="offset">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="length">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="access">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static IntPtr MapNamedBufferRangeEXT(UInt32 buffer, IntPtr offset, UInt32 length, UInt32 access)
+		public static IntPtr MapNamedBufferRangeEXT(uint buffer, IntPtr offset, uint length, uint access)
 		{
 			IntPtr retValue;
 
@@ -7649,16 +7649,16 @@ namespace OpenGL
 		/// [GL] glFlushMappedNamedBufferRangeEXT: Binding for glFlushMappedNamedBufferRangeEXT.
 		/// </summary>
 		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="offset">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="length">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void FlushMappedNamedBufferRangeEXT(UInt32 buffer, IntPtr offset, UInt32 length)
+		public static void FlushMappedNamedBufferRangeEXT(uint buffer, IntPtr offset, uint length)
 		{
 			Debug.Assert(Delegates.pglFlushMappedNamedBufferRangeEXT != null, "pglFlushMappedNamedBufferRangeEXT not implemented");
 			Delegates.pglFlushMappedNamedBufferRangeEXT(buffer, offset, length);
@@ -7670,7 +7670,7 @@ namespace OpenGL
 		/// [GL] glClearNamedBufferDataEXT: Binding for glClearNamedBufferDataEXT.
 		/// </summary>
 		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:InternalFormat"/>.
@@ -7685,10 +7685,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void ClearNamedBufferDataEXT(UInt32 buffer, InternalFormat internalformat, PixelFormat format, PixelType type, IntPtr data)
+		public static void ClearNamedBufferDataEXT(uint buffer, InternalFormat internalformat, PixelFormat format, PixelType type, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglClearNamedBufferDataEXT != null, "pglClearNamedBufferDataEXT not implemented");
-			Delegates.pglClearNamedBufferDataEXT(buffer, (Int32)internalformat, (Int32)format, (Int32)type, data);
+			Delegates.pglClearNamedBufferDataEXT(buffer, (int)internalformat, (int)format, (int)type, data);
 			LogCommand("glClearNamedBufferDataEXT", null, buffer, internalformat, format, type, data			);
 			DebugCheckErrors(null);
 		}
@@ -7697,7 +7697,7 @@ namespace OpenGL
 		/// [GL] glClearNamedBufferDataEXT: Binding for glClearNamedBufferDataEXT.
 		/// </summary>
 		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:InternalFormat"/>.
@@ -7712,7 +7712,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void ClearNamedBufferDataEXT(UInt32 buffer, InternalFormat internalformat, PixelFormat format, PixelType type, Object data)
+		public static void ClearNamedBufferDataEXT(uint buffer, InternalFormat internalformat, PixelFormat format, PixelType type, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -7726,16 +7726,16 @@ namespace OpenGL
 		/// [GL] glClearNamedBufferSubDataEXT: Binding for glClearNamedBufferSubDataEXT.
 		/// </summary>
 		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="offset">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="size">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
@@ -7747,10 +7747,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void ClearNamedBufferSubDataEXT(UInt32 buffer, InternalFormat internalformat, UInt32 offset, UInt32 size, PixelFormat format, PixelType type, IntPtr data)
+		public static void ClearNamedBufferSubDataEXT(uint buffer, InternalFormat internalformat, uint offset, uint size, PixelFormat format, PixelType type, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglClearNamedBufferSubDataEXT != null, "pglClearNamedBufferSubDataEXT not implemented");
-			Delegates.pglClearNamedBufferSubDataEXT(buffer, (Int32)internalformat, offset, size, (Int32)format, (Int32)type, data);
+			Delegates.pglClearNamedBufferSubDataEXT(buffer, (int)internalformat, offset, size, (int)format, (int)type, data);
 			LogCommand("glClearNamedBufferSubDataEXT", null, buffer, internalformat, offset, size, format, type, data			);
 			DebugCheckErrors(null);
 		}
@@ -7759,16 +7759,16 @@ namespace OpenGL
 		/// [GL] glClearNamedBufferSubDataEXT: Binding for glClearNamedBufferSubDataEXT.
 		/// </summary>
 		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="offset">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="size">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
@@ -7780,7 +7780,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void ClearNamedBufferSubDataEXT(UInt32 buffer, InternalFormat internalformat, UInt32 offset, UInt32 size, PixelFormat format, PixelType type, Object data)
+		public static void ClearNamedBufferSubDataEXT(uint buffer, InternalFormat internalformat, uint offset, uint size, PixelFormat format, PixelType type, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -7794,19 +7794,19 @@ namespace OpenGL
 		/// [GL] glNamedFramebufferParameteriEXT: Binding for glNamedFramebufferParameteriEXT.
 		/// </summary>
 		/// <param name="framebuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:FramebufferParameterName"/>.
 		/// </param>
 		/// <param name="param">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void NamedFramebufferParameterEXT(UInt32 framebuffer, FramebufferParameterName pname, Int32 param)
+		public static void NamedFramebufferParameterEXT(uint framebuffer, FramebufferParameterName pname, int param)
 		{
 			Debug.Assert(Delegates.pglNamedFramebufferParameteriEXT != null, "pglNamedFramebufferParameteriEXT not implemented");
-			Delegates.pglNamedFramebufferParameteriEXT(framebuffer, (Int32)pname, param);
+			Delegates.pglNamedFramebufferParameteriEXT(framebuffer, (int)pname, param);
 			LogCommand("glNamedFramebufferParameteriEXT", null, framebuffer, pname, param			);
 			DebugCheckErrors(null);
 		}
@@ -7815,22 +7815,22 @@ namespace OpenGL
 		/// [GL] glGetNamedFramebufferParameterivEXT: Binding for glGetNamedFramebufferParameterivEXT.
 		/// </summary>
 		/// <param name="framebuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:GetFramebufferParameter"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetNamedFramebufferParameterEXT(UInt32 framebuffer, GetFramebufferParameter pname, [Out] Int32[] @params)
+		public static void GetNamedFramebufferParameterEXT(uint framebuffer, GetFramebufferParameter pname, [Out] int[] @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetNamedFramebufferParameterivEXT != null, "pglGetNamedFramebufferParameterivEXT not implemented");
-					Delegates.pglGetNamedFramebufferParameterivEXT(framebuffer, (Int32)pname, p_params);
+					Delegates.pglGetNamedFramebufferParameterivEXT(framebuffer, (int)pname, p_params);
 					LogCommand("glGetNamedFramebufferParameterivEXT", null, framebuffer, pname, @params					);
 				}
 			}
@@ -7841,22 +7841,22 @@ namespace OpenGL
 		/// [GL] glGetNamedFramebufferParameterivEXT: Binding for glGetNamedFramebufferParameterivEXT.
 		/// </summary>
 		/// <param name="framebuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:GetFramebufferParameter"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetNamedFramebufferParameterEXT(UInt32 framebuffer, GetFramebufferParameter pname, out Int32 @params)
+		public static void GetNamedFramebufferParameterEXT(uint framebuffer, GetFramebufferParameter pname, out int @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = &@params)
+				fixed (int* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetNamedFramebufferParameterivEXT != null, "pglGetNamedFramebufferParameterivEXT not implemented");
-					Delegates.pglGetNamedFramebufferParameterivEXT(framebuffer, (Int32)pname, p_params);
+					Delegates.pglGetNamedFramebufferParameterivEXT(framebuffer, (int)pname, p_params);
 					LogCommand("glGetNamedFramebufferParameterivEXT", null, framebuffer, pname, @params					);
 				}
 			}
@@ -7867,19 +7867,19 @@ namespace OpenGL
 		/// [GL] glGetNamedFramebufferParameterivEXT: Binding for glGetNamedFramebufferParameterivEXT.
 		/// </summary>
 		/// <param name="framebuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:GetFramebufferParameter"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32*"/>.
+		/// A <see cref="T:int*"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static unsafe void GetNamedFramebufferParameterEXT(UInt32 framebuffer, GetFramebufferParameter pname, [Out] Int32* @params)
+		public static unsafe void GetNamedFramebufferParameterEXT(uint framebuffer, GetFramebufferParameter pname, [Out] int* @params)
 		{
 			Debug.Assert(Delegates.pglGetNamedFramebufferParameterivEXT != null, "pglGetNamedFramebufferParameterivEXT not implemented");
-			Delegates.pglGetNamedFramebufferParameterivEXT(framebuffer, (Int32)pname, @params);
+			Delegates.pglGetNamedFramebufferParameterivEXT(framebuffer, (int)pname, @params);
 			LogCommand("glGetNamedFramebufferParameterivEXT", null, framebuffer, pname, new IntPtr(@params).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
@@ -7888,7 +7888,7 @@ namespace OpenGL
 		/// [GL] glGetNamedFramebufferParameterivEXT: Binding for glGetNamedFramebufferParameterivEXT.
 		/// </summary>
 		/// <param name="framebuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:GetFramebufferParameter"/>.
@@ -7897,14 +7897,14 @@ namespace OpenGL
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetNamedFramebufferParameteriEXT<T>(UInt32 framebuffer, GetFramebufferParameter pname, ref T @params) where T : struct
+		public static void GetNamedFramebufferParameteriEXT<T>(uint framebuffer, GetFramebufferParameter pname, ref T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetNamedFramebufferParameterivEXT != null, "pglGetNamedFramebufferParameterivEXT not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
 				unsafe {
-					Delegates.pglGetNamedFramebufferParameterivEXT(framebuffer, (Int32)pname, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglGetNamedFramebufferParameterivEXT(framebuffer, (int)pname, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -7914,7 +7914,7 @@ namespace OpenGL
 				TypedReference refParams = __makeref(@params);
 				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
 
-				Delegates.pglGetNamedFramebufferParameterivEXT(framebuffer, (Int32)pname, (Int32*)refParamsPtr.ToPointer());
+				Delegates.pglGetNamedFramebufferParameterivEXT(framebuffer, (int)pname, (int*)refParamsPtr.ToPointer());
 			}
 			#endif
 			LogCommand("glGetNamedFramebufferParameterivEXT", null, framebuffer, pname, @params			);
@@ -7925,16 +7925,16 @@ namespace OpenGL
 		/// [GL] glProgramUniform1dEXT: Binding for glProgramUniform1dEXT.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="x">
 		/// A <see cref="T:double"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void ProgramUniform1EXT(UInt32 program, Int32 location, double x)
+		public static void ProgramUniform1EXT(uint program, int location, double x)
 		{
 			Debug.Assert(Delegates.pglProgramUniform1dEXT != null, "pglProgramUniform1dEXT not implemented");
 			Delegates.pglProgramUniform1dEXT(program, location, x);
@@ -7946,10 +7946,10 @@ namespace OpenGL
 		/// [GL] glProgramUniform2dEXT: Binding for glProgramUniform2dEXT.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="x">
 		/// A <see cref="T:double"/>.
@@ -7958,7 +7958,7 @@ namespace OpenGL
 		/// A <see cref="T:double"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void ProgramUniform2EXT(UInt32 program, Int32 location, double x, double y)
+		public static void ProgramUniform2EXT(uint program, int location, double x, double y)
 		{
 			Debug.Assert(Delegates.pglProgramUniform2dEXT != null, "pglProgramUniform2dEXT not implemented");
 			Delegates.pglProgramUniform2dEXT(program, location, x, y);
@@ -7970,10 +7970,10 @@ namespace OpenGL
 		/// [GL] glProgramUniform3dEXT: Binding for glProgramUniform3dEXT.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="x">
 		/// A <see cref="T:double"/>.
@@ -7985,7 +7985,7 @@ namespace OpenGL
 		/// A <see cref="T:double"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void ProgramUniform3EXT(UInt32 program, Int32 location, double x, double y, double z)
+		public static void ProgramUniform3EXT(uint program, int location, double x, double y, double z)
 		{
 			Debug.Assert(Delegates.pglProgramUniform3dEXT != null, "pglProgramUniform3dEXT not implemented");
 			Delegates.pglProgramUniform3dEXT(program, location, x, y, z);
@@ -7997,10 +7997,10 @@ namespace OpenGL
 		/// [GL] glProgramUniform4dEXT: Binding for glProgramUniform4dEXT.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="x">
 		/// A <see cref="T:double"/>.
@@ -8015,7 +8015,7 @@ namespace OpenGL
 		/// A <see cref="T:double"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void ProgramUniform4EXT(UInt32 program, Int32 location, double x, double y, double z, double w)
+		public static void ProgramUniform4EXT(uint program, int location, double x, double y, double z, double w)
 		{
 			Debug.Assert(Delegates.pglProgramUniform4dEXT != null, "pglProgramUniform4dEXT not implemented");
 			Delegates.pglProgramUniform4dEXT(program, location, x, y, z, w);
@@ -8027,22 +8027,22 @@ namespace OpenGL
 		/// [GL] glProgramUniform1dvEXT: Binding for glProgramUniform1dvEXT.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void ProgramUniform1EXT(UInt32 program, Int32 location, double[] value)
+		public static void ProgramUniform1EXT(uint program, int location, double[] value)
 		{
 			unsafe {
 				fixed (double* p_value = value)
 				{
 					Debug.Assert(Delegates.pglProgramUniform1dvEXT != null, "pglProgramUniform1dvEXT not implemented");
-					Delegates.pglProgramUniform1dvEXT(program, location, (Int32)value.Length, p_value);
+					Delegates.pglProgramUniform1dvEXT(program, location, value.Length, p_value);
 					LogCommand("glProgramUniform1dvEXT", null, program, location, value.Length, value					);
 				}
 			}
@@ -8053,23 +8053,23 @@ namespace OpenGL
 		/// [GL] glProgramUniform2dvEXT: Binding for glProgramUniform2dvEXT.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void ProgramUniform2EXT(UInt32 program, Int32 location, double[] value)
+		public static void ProgramUniform2EXT(uint program, int location, double[] value)
 		{
 			Debug.Assert(value.Length > 0 && (value.Length % 2) == 0, "empty or not multiple of 2");
 			unsafe {
 				fixed (double* p_value = value)
 				{
 					Debug.Assert(Delegates.pglProgramUniform2dvEXT != null, "pglProgramUniform2dvEXT not implemented");
-					Delegates.pglProgramUniform2dvEXT(program, location, (Int32)value.Length / 2, p_value);
+					Delegates.pglProgramUniform2dvEXT(program, location, value.Length / 2, p_value);
 					LogCommand("glProgramUniform2dvEXT", null, program, location, value.Length / 2, value					);
 				}
 			}
@@ -8080,23 +8080,23 @@ namespace OpenGL
 		/// [GL] glProgramUniform3dvEXT: Binding for glProgramUniform3dvEXT.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void ProgramUniform3EXT(UInt32 program, Int32 location, double[] value)
+		public static void ProgramUniform3EXT(uint program, int location, double[] value)
 		{
 			Debug.Assert(value.Length > 0 && (value.Length % 3) == 0, "empty or not multiple of 3");
 			unsafe {
 				fixed (double* p_value = value)
 				{
 					Debug.Assert(Delegates.pglProgramUniform3dvEXT != null, "pglProgramUniform3dvEXT not implemented");
-					Delegates.pglProgramUniform3dvEXT(program, location, (Int32)value.Length / 3, p_value);
+					Delegates.pglProgramUniform3dvEXT(program, location, value.Length / 3, p_value);
 					LogCommand("glProgramUniform3dvEXT", null, program, location, value.Length / 3, value					);
 				}
 			}
@@ -8107,23 +8107,23 @@ namespace OpenGL
 		/// [GL] glProgramUniform4dvEXT: Binding for glProgramUniform4dvEXT.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void ProgramUniform4EXT(UInt32 program, Int32 location, double[] value)
+		public static void ProgramUniform4EXT(uint program, int location, double[] value)
 		{
 			Debug.Assert(value.Length > 0 && (value.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
 				fixed (double* p_value = value)
 				{
 					Debug.Assert(Delegates.pglProgramUniform4dvEXT != null, "pglProgramUniform4dvEXT not implemented");
-					Delegates.pglProgramUniform4dvEXT(program, location, (Int32)value.Length / 4, p_value);
+					Delegates.pglProgramUniform4dvEXT(program, location, value.Length / 4, p_value);
 					LogCommand("glProgramUniform4dvEXT", null, program, location, value.Length / 4, value					);
 				}
 			}
@@ -8134,10 +8134,10 @@ namespace OpenGL
 		/// [GL] glProgramUniformMatrix2dvEXT: Binding for glProgramUniformMatrix2dvEXT.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="transpose">
 		/// A <see cref="T:bool"/>.
@@ -8146,14 +8146,14 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void ProgramUniformMatrix2EXT(UInt32 program, Int32 location, bool transpose, double[] value)
+		public static void ProgramUniformMatrix2EXT(uint program, int location, bool transpose, double[] value)
 		{
 			Debug.Assert(value.Length > 0 && (value.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
 				fixed (double* p_value = value)
 				{
 					Debug.Assert(Delegates.pglProgramUniformMatrix2dvEXT != null, "pglProgramUniformMatrix2dvEXT not implemented");
-					Delegates.pglProgramUniformMatrix2dvEXT(program, location, (Int32)value.Length / 4, transpose, p_value);
+					Delegates.pglProgramUniformMatrix2dvEXT(program, location, value.Length / 4, transpose, p_value);
 					LogCommand("glProgramUniformMatrix2dvEXT", null, program, location, value.Length / 4, transpose, value					);
 				}
 			}
@@ -8164,10 +8164,10 @@ namespace OpenGL
 		/// [GL] glProgramUniformMatrix3dvEXT: Binding for glProgramUniformMatrix3dvEXT.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="transpose">
 		/// A <see cref="T:bool"/>.
@@ -8176,14 +8176,14 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void ProgramUniformMatrix3EXT(UInt32 program, Int32 location, bool transpose, double[] value)
+		public static void ProgramUniformMatrix3EXT(uint program, int location, bool transpose, double[] value)
 		{
 			Debug.Assert(value.Length > 0 && (value.Length % 9) == 0, "empty or not multiple of 9");
 			unsafe {
 				fixed (double* p_value = value)
 				{
 					Debug.Assert(Delegates.pglProgramUniformMatrix3dvEXT != null, "pglProgramUniformMatrix3dvEXT not implemented");
-					Delegates.pglProgramUniformMatrix3dvEXT(program, location, (Int32)value.Length / 9, transpose, p_value);
+					Delegates.pglProgramUniformMatrix3dvEXT(program, location, value.Length / 9, transpose, p_value);
 					LogCommand("glProgramUniformMatrix3dvEXT", null, program, location, value.Length / 9, transpose, value					);
 				}
 			}
@@ -8194,10 +8194,10 @@ namespace OpenGL
 		/// [GL] glProgramUniformMatrix4dvEXT: Binding for glProgramUniformMatrix4dvEXT.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="transpose">
 		/// A <see cref="T:bool"/>.
@@ -8206,14 +8206,14 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void ProgramUniformMatrix4EXT(UInt32 program, Int32 location, bool transpose, double[] value)
+		public static void ProgramUniformMatrix4EXT(uint program, int location, bool transpose, double[] value)
 		{
 			Debug.Assert(value.Length > 0 && (value.Length % 16) == 0, "empty or not multiple of 16");
 			unsafe {
 				fixed (double* p_value = value)
 				{
 					Debug.Assert(Delegates.pglProgramUniformMatrix4dvEXT != null, "pglProgramUniformMatrix4dvEXT not implemented");
-					Delegates.pglProgramUniformMatrix4dvEXT(program, location, (Int32)value.Length / 16, transpose, p_value);
+					Delegates.pglProgramUniformMatrix4dvEXT(program, location, value.Length / 16, transpose, p_value);
 					LogCommand("glProgramUniformMatrix4dvEXT", null, program, location, value.Length / 16, transpose, value					);
 				}
 			}
@@ -8224,10 +8224,10 @@ namespace OpenGL
 		/// [GL] glProgramUniformMatrix2x3dvEXT: Binding for glProgramUniformMatrix2x3dvEXT.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="transpose">
 		/// A <see cref="T:bool"/>.
@@ -8236,14 +8236,14 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void ProgramUniformMatrix2x3EXT(UInt32 program, Int32 location, bool transpose, double[] value)
+		public static void ProgramUniformMatrix2x3EXT(uint program, int location, bool transpose, double[] value)
 		{
 			Debug.Assert(value.Length > 0 && (value.Length % 6) == 0, "empty or not multiple of 6");
 			unsafe {
 				fixed (double* p_value = value)
 				{
 					Debug.Assert(Delegates.pglProgramUniformMatrix2x3dvEXT != null, "pglProgramUniformMatrix2x3dvEXT not implemented");
-					Delegates.pglProgramUniformMatrix2x3dvEXT(program, location, (Int32)value.Length / 6, transpose, p_value);
+					Delegates.pglProgramUniformMatrix2x3dvEXT(program, location, value.Length / 6, transpose, p_value);
 					LogCommand("glProgramUniformMatrix2x3dvEXT", null, program, location, value.Length / 6, transpose, value					);
 				}
 			}
@@ -8254,10 +8254,10 @@ namespace OpenGL
 		/// [GL] glProgramUniformMatrix2x4dvEXT: Binding for glProgramUniformMatrix2x4dvEXT.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="transpose">
 		/// A <see cref="T:bool"/>.
@@ -8266,14 +8266,14 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void ProgramUniformMatrix2x4EXT(UInt32 program, Int32 location, bool transpose, double[] value)
+		public static void ProgramUniformMatrix2x4EXT(uint program, int location, bool transpose, double[] value)
 		{
 			Debug.Assert(value.Length > 0 && (value.Length % 8) == 0, "empty or not multiple of 8");
 			unsafe {
 				fixed (double* p_value = value)
 				{
 					Debug.Assert(Delegates.pglProgramUniformMatrix2x4dvEXT != null, "pglProgramUniformMatrix2x4dvEXT not implemented");
-					Delegates.pglProgramUniformMatrix2x4dvEXT(program, location, (Int32)value.Length / 8, transpose, p_value);
+					Delegates.pglProgramUniformMatrix2x4dvEXT(program, location, value.Length / 8, transpose, p_value);
 					LogCommand("glProgramUniformMatrix2x4dvEXT", null, program, location, value.Length / 8, transpose, value					);
 				}
 			}
@@ -8284,10 +8284,10 @@ namespace OpenGL
 		/// [GL] glProgramUniformMatrix3x2dvEXT: Binding for glProgramUniformMatrix3x2dvEXT.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="transpose">
 		/// A <see cref="T:bool"/>.
@@ -8296,14 +8296,14 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void ProgramUniformMatrix3x2EXT(UInt32 program, Int32 location, bool transpose, double[] value)
+		public static void ProgramUniformMatrix3x2EXT(uint program, int location, bool transpose, double[] value)
 		{
 			Debug.Assert(value.Length > 0 && (value.Length % 6) == 0, "empty or not multiple of 6");
 			unsafe {
 				fixed (double* p_value = value)
 				{
 					Debug.Assert(Delegates.pglProgramUniformMatrix3x2dvEXT != null, "pglProgramUniformMatrix3x2dvEXT not implemented");
-					Delegates.pglProgramUniformMatrix3x2dvEXT(program, location, (Int32)value.Length / 6, transpose, p_value);
+					Delegates.pglProgramUniformMatrix3x2dvEXT(program, location, value.Length / 6, transpose, p_value);
 					LogCommand("glProgramUniformMatrix3x2dvEXT", null, program, location, value.Length / 6, transpose, value					);
 				}
 			}
@@ -8314,10 +8314,10 @@ namespace OpenGL
 		/// [GL] glProgramUniformMatrix3x4dvEXT: Binding for glProgramUniformMatrix3x4dvEXT.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="transpose">
 		/// A <see cref="T:bool"/>.
@@ -8326,14 +8326,14 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void ProgramUniformMatrix3x4EXT(UInt32 program, Int32 location, bool transpose, double[] value)
+		public static void ProgramUniformMatrix3x4EXT(uint program, int location, bool transpose, double[] value)
 		{
 			Debug.Assert(value.Length > 0 && (value.Length % 12) == 0, "empty or not multiple of 12");
 			unsafe {
 				fixed (double* p_value = value)
 				{
 					Debug.Assert(Delegates.pglProgramUniformMatrix3x4dvEXT != null, "pglProgramUniformMatrix3x4dvEXT not implemented");
-					Delegates.pglProgramUniformMatrix3x4dvEXT(program, location, (Int32)value.Length / 12, transpose, p_value);
+					Delegates.pglProgramUniformMatrix3x4dvEXT(program, location, value.Length / 12, transpose, p_value);
 					LogCommand("glProgramUniformMatrix3x4dvEXT", null, program, location, value.Length / 12, transpose, value					);
 				}
 			}
@@ -8344,10 +8344,10 @@ namespace OpenGL
 		/// [GL] glProgramUniformMatrix4x2dvEXT: Binding for glProgramUniformMatrix4x2dvEXT.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="transpose">
 		/// A <see cref="T:bool"/>.
@@ -8356,14 +8356,14 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void ProgramUniformMatrix4x2EXT(UInt32 program, Int32 location, bool transpose, double[] value)
+		public static void ProgramUniformMatrix4x2EXT(uint program, int location, bool transpose, double[] value)
 		{
 			Debug.Assert(value.Length > 0 && (value.Length % 8) == 0, "empty or not multiple of 8");
 			unsafe {
 				fixed (double* p_value = value)
 				{
 					Debug.Assert(Delegates.pglProgramUniformMatrix4x2dvEXT != null, "pglProgramUniformMatrix4x2dvEXT not implemented");
-					Delegates.pglProgramUniformMatrix4x2dvEXT(program, location, (Int32)value.Length / 8, transpose, p_value);
+					Delegates.pglProgramUniformMatrix4x2dvEXT(program, location, value.Length / 8, transpose, p_value);
 					LogCommand("glProgramUniformMatrix4x2dvEXT", null, program, location, value.Length / 8, transpose, value					);
 				}
 			}
@@ -8374,10 +8374,10 @@ namespace OpenGL
 		/// [GL] glProgramUniformMatrix4x3dvEXT: Binding for glProgramUniformMatrix4x3dvEXT.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="transpose">
 		/// A <see cref="T:bool"/>.
@@ -8386,14 +8386,14 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void ProgramUniformMatrix4x3EXT(UInt32 program, Int32 location, bool transpose, double[] value)
+		public static void ProgramUniformMatrix4x3EXT(uint program, int location, bool transpose, double[] value)
 		{
 			Debug.Assert(value.Length > 0 && (value.Length % 12) == 0, "empty or not multiple of 12");
 			unsafe {
 				fixed (double* p_value = value)
 				{
 					Debug.Assert(Delegates.pglProgramUniformMatrix4x3dvEXT != null, "pglProgramUniformMatrix4x3dvEXT not implemented");
-					Delegates.pglProgramUniformMatrix4x3dvEXT(program, location, (Int32)value.Length / 12, transpose, p_value);
+					Delegates.pglProgramUniformMatrix4x3dvEXT(program, location, value.Length / 12, transpose, p_value);
 					LogCommand("glProgramUniformMatrix4x3dvEXT", null, program, location, value.Length / 12, transpose, value					);
 				}
 			}
@@ -8404,7 +8404,7 @@ namespace OpenGL
 		/// [GL] glTextureBufferRangeEXT: Binding for glTextureBufferRangeEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
@@ -8413,19 +8413,19 @@ namespace OpenGL
 		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="offset">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="size">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void TextureBufferRangeEXT(UInt32 texture, TextureTarget target, InternalFormat internalformat, UInt32 buffer, IntPtr offset, UInt32 size)
+		public static void TextureBufferRangeEXT(uint texture, TextureTarget target, InternalFormat internalformat, uint buffer, IntPtr offset, uint size)
 		{
 			Debug.Assert(Delegates.pglTextureBufferRangeEXT != null, "pglTextureBufferRangeEXT not implemented");
-			Delegates.pglTextureBufferRangeEXT(texture, (Int32)target, (Int32)internalformat, buffer, offset, size);
+			Delegates.pglTextureBufferRangeEXT(texture, (int)target, (int)internalformat, buffer, offset, size);
 			LogCommand("glTextureBufferRangeEXT", null, texture, target, internalformat, buffer, offset, size			);
 			DebugCheckErrors(null);
 		}
@@ -8434,26 +8434,26 @@ namespace OpenGL
 		/// [GL] glTextureStorage1DEXT: Binding for glTextureStorage1DEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="levels">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
-		public static void TextureStorage1DEXT(UInt32 texture, Int32 target, Int32 levels, InternalFormat internalformat, Int32 width)
+		public static void TextureStorage1DEXT(uint texture, int target, int levels, InternalFormat internalformat, int width)
 		{
 			Debug.Assert(Delegates.pglTextureStorage1DEXT != null, "pglTextureStorage1DEXT not implemented");
-			Delegates.pglTextureStorage1DEXT(texture, target, levels, (Int32)internalformat, width);
+			Delegates.pglTextureStorage1DEXT(texture, target, levels, (int)internalformat, width);
 			LogCommand("glTextureStorage1DEXT", null, texture, target, levels, internalformat, width			);
 			DebugCheckErrors(null);
 		}
@@ -8462,29 +8462,29 @@ namespace OpenGL
 		/// [GL] glTextureStorage2DEXT: Binding for glTextureStorage2DEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="levels">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
-		public static void TextureStorage2DEXT(UInt32 texture, Int32 target, Int32 levels, InternalFormat internalformat, Int32 width, Int32 height)
+		public static void TextureStorage2DEXT(uint texture, int target, int levels, InternalFormat internalformat, int width, int height)
 		{
 			Debug.Assert(Delegates.pglTextureStorage2DEXT != null, "pglTextureStorage2DEXT not implemented");
-			Delegates.pglTextureStorage2DEXT(texture, target, levels, (Int32)internalformat, width, height);
+			Delegates.pglTextureStorage2DEXT(texture, target, levels, (int)internalformat, width, height);
 			LogCommand("glTextureStorage2DEXT", null, texture, target, levels, internalformat, width, height			);
 			DebugCheckErrors(null);
 		}
@@ -8493,32 +8493,32 @@ namespace OpenGL
 		/// [GL] glTextureStorage3DEXT: Binding for glTextureStorage3DEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="levels">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="depth">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
-		public static void TextureStorage3DEXT(UInt32 texture, Int32 target, Int32 levels, InternalFormat internalformat, Int32 width, Int32 height, Int32 depth)
+		public static void TextureStorage3DEXT(uint texture, int target, int levels, InternalFormat internalformat, int width, int height, int depth)
 		{
 			Debug.Assert(Delegates.pglTextureStorage3DEXT != null, "pglTextureStorage3DEXT not implemented");
-			Delegates.pglTextureStorage3DEXT(texture, target, levels, (Int32)internalformat, width, height, depth);
+			Delegates.pglTextureStorage3DEXT(texture, target, levels, (int)internalformat, width, height, depth);
 			LogCommand("glTextureStorage3DEXT", null, texture, target, levels, internalformat, width, height, depth			);
 			DebugCheckErrors(null);
 		}
@@ -8527,31 +8527,31 @@ namespace OpenGL
 		/// [GL] glTextureStorage2DMultisampleEXT: Binding for glTextureStorage2DMultisampleEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="samples">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="fixedsamplelocations">
 		/// A <see cref="T:bool"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void TextureStorage2DMultisampleEXT(UInt32 texture, TextureTarget target, Int32 samples, InternalFormat internalformat, Int32 width, Int32 height, bool fixedsamplelocations)
+		public static void TextureStorage2DMultisampleEXT(uint texture, TextureTarget target, int samples, InternalFormat internalformat, int width, int height, bool fixedsamplelocations)
 		{
 			Debug.Assert(Delegates.pglTextureStorage2DMultisampleEXT != null, "pglTextureStorage2DMultisampleEXT not implemented");
-			Delegates.pglTextureStorage2DMultisampleEXT(texture, (Int32)target, samples, (Int32)internalformat, width, height, fixedsamplelocations);
+			Delegates.pglTextureStorage2DMultisampleEXT(texture, (int)target, samples, (int)internalformat, width, height, fixedsamplelocations);
 			LogCommand("glTextureStorage2DMultisampleEXT", null, texture, target, samples, internalformat, width, height, fixedsamplelocations			);
 			DebugCheckErrors(null);
 		}
@@ -8560,34 +8560,34 @@ namespace OpenGL
 		/// [GL] glTextureStorage3DMultisampleEXT: Binding for glTextureStorage3DMultisampleEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="samples">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="depth">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="fixedsamplelocations">
 		/// A <see cref="T:bool"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void TextureStorage3DMultisampleEXT(UInt32 texture, Int32 target, Int32 samples, InternalFormat internalformat, Int32 width, Int32 height, Int32 depth, bool fixedsamplelocations)
+		public static void TextureStorage3DMultisampleEXT(uint texture, int target, int samples, InternalFormat internalformat, int width, int height, int depth, bool fixedsamplelocations)
 		{
 			Debug.Assert(Delegates.pglTextureStorage3DMultisampleEXT != null, "pglTextureStorage3DMultisampleEXT not implemented");
-			Delegates.pglTextureStorage3DMultisampleEXT(texture, target, samples, (Int32)internalformat, width, height, depth, fixedsamplelocations);
+			Delegates.pglTextureStorage3DMultisampleEXT(texture, target, samples, (int)internalformat, width, height, depth, fixedsamplelocations);
 			LogCommand("glTextureStorage3DMultisampleEXT", null, texture, target, samples, internalformat, width, height, depth, fixedsamplelocations			);
 			DebugCheckErrors(null);
 		}
@@ -8596,22 +8596,22 @@ namespace OpenGL
 		/// [GL] glVertexArrayBindVertexBufferEXT: Binding for glVertexArrayBindVertexBufferEXT.
 		/// </summary>
 		/// <param name="vaobj">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="bindingindex">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="offset">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void VertexArrayBindVertexBufferEXT(UInt32 vaobj, UInt32 bindingindex, UInt32 buffer, IntPtr offset, Int32 stride)
+		public static void VertexArrayBindVertexBufferEXT(uint vaobj, uint bindingindex, uint buffer, IntPtr offset, int stride)
 		{
 			Debug.Assert(Delegates.pglVertexArrayBindVertexBufferEXT != null, "pglVertexArrayBindVertexBufferEXT not implemented");
 			Delegates.pglVertexArrayBindVertexBufferEXT(vaobj, bindingindex, buffer, offset, stride);
@@ -8623,25 +8623,25 @@ namespace OpenGL
 		/// [GL] glVertexArrayVertexAttribFormatEXT: Binding for glVertexArrayVertexAttribFormatEXT.
 		/// </summary>
 		/// <param name="vaobj">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="attribindex">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="normalized">
 		/// A <see cref="T:bool"/>.
 		/// </param>
 		/// <param name="relativeoffset">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void VertexArrayVertexAttribFormatEXT(UInt32 vaobj, UInt32 attribindex, Int32 size, Int32 type, bool normalized, UInt32 relativeoffset)
+		public static void VertexArrayVertexAttribFormatEXT(uint vaobj, uint attribindex, int size, int type, bool normalized, uint relativeoffset)
 		{
 			Debug.Assert(Delegates.pglVertexArrayVertexAttribFormatEXT != null, "pglVertexArrayVertexAttribFormatEXT not implemented");
 			Delegates.pglVertexArrayVertexAttribFormatEXT(vaobj, attribindex, size, type, normalized, relativeoffset);
@@ -8653,22 +8653,22 @@ namespace OpenGL
 		/// [GL] glVertexArrayVertexAttribIFormatEXT: Binding for glVertexArrayVertexAttribIFormatEXT.
 		/// </summary>
 		/// <param name="vaobj">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="attribindex">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="relativeoffset">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void VertexArrayVertexAttribIFormatEXT(UInt32 vaobj, UInt32 attribindex, Int32 size, Int32 type, UInt32 relativeoffset)
+		public static void VertexArrayVertexAttribIFormatEXT(uint vaobj, uint attribindex, int size, int type, uint relativeoffset)
 		{
 			Debug.Assert(Delegates.pglVertexArrayVertexAttribIFormatEXT != null, "pglVertexArrayVertexAttribIFormatEXT not implemented");
 			Delegates.pglVertexArrayVertexAttribIFormatEXT(vaobj, attribindex, size, type, relativeoffset);
@@ -8680,22 +8680,22 @@ namespace OpenGL
 		/// [GL] glVertexArrayVertexAttribLFormatEXT: Binding for glVertexArrayVertexAttribLFormatEXT.
 		/// </summary>
 		/// <param name="vaobj">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="attribindex">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="relativeoffset">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void VertexArrayVertexAttribLFormatEXT(UInt32 vaobj, UInt32 attribindex, Int32 size, Int32 type, UInt32 relativeoffset)
+		public static void VertexArrayVertexAttribLFormatEXT(uint vaobj, uint attribindex, int size, int type, uint relativeoffset)
 		{
 			Debug.Assert(Delegates.pglVertexArrayVertexAttribLFormatEXT != null, "pglVertexArrayVertexAttribLFormatEXT not implemented");
 			Delegates.pglVertexArrayVertexAttribLFormatEXT(vaobj, attribindex, size, type, relativeoffset);
@@ -8707,16 +8707,16 @@ namespace OpenGL
 		/// [GL] glVertexArrayVertexAttribBindingEXT: Binding for glVertexArrayVertexAttribBindingEXT.
 		/// </summary>
 		/// <param name="vaobj">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="attribindex">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="bindingindex">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void VertexArrayVertexAttribBindingEXT(UInt32 vaobj, UInt32 attribindex, UInt32 bindingindex)
+		public static void VertexArrayVertexAttribBindingEXT(uint vaobj, uint attribindex, uint bindingindex)
 		{
 			Debug.Assert(Delegates.pglVertexArrayVertexAttribBindingEXT != null, "pglVertexArrayVertexAttribBindingEXT not implemented");
 			Delegates.pglVertexArrayVertexAttribBindingEXT(vaobj, attribindex, bindingindex);
@@ -8728,16 +8728,16 @@ namespace OpenGL
 		/// [GL] glVertexArrayVertexBindingDivisorEXT: Binding for glVertexArrayVertexBindingDivisorEXT.
 		/// </summary>
 		/// <param name="vaobj">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="bindingindex">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="divisor">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void VertexArrayVertexBindingDivisorEXT(UInt32 vaobj, UInt32 bindingindex, UInt32 divisor)
+		public static void VertexArrayVertexBindingDivisorEXT(uint vaobj, uint bindingindex, uint divisor)
 		{
 			Debug.Assert(Delegates.pglVertexArrayVertexBindingDivisorEXT != null, "pglVertexArrayVertexBindingDivisorEXT not implemented");
 			Delegates.pglVertexArrayVertexBindingDivisorEXT(vaobj, bindingindex, divisor);
@@ -8749,28 +8749,28 @@ namespace OpenGL
 		/// [GL] glVertexArrayVertexAttribLOffsetEXT: Binding for glVertexArrayVertexAttribLOffsetEXT.
 		/// </summary>
 		/// <param name="vaobj">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="offset">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void VertexArrayVertexAttribLOffsetEXT(UInt32 vaobj, UInt32 buffer, UInt32 index, Int32 size, Int32 type, Int32 stride, IntPtr offset)
+		public static void VertexArrayVertexAttribLOffsetEXT(uint vaobj, uint buffer, uint index, int size, int type, int stride, IntPtr offset)
 		{
 			Debug.Assert(Delegates.pglVertexArrayVertexAttribLOffsetEXT != null, "pglVertexArrayVertexAttribLOffsetEXT not implemented");
 			Delegates.pglVertexArrayVertexAttribLOffsetEXT(vaobj, buffer, index, size, type, stride, offset);
@@ -8782,34 +8782,34 @@ namespace OpenGL
 		/// [GL] glTexturePageCommitmentEXT: Binding for glTexturePageCommitmentEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="xoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="yoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="zoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="depth">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="commit">
 		/// A <see cref="T:bool"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void TexturePageCommitmentEXT(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, bool commit)
+		public static void TexturePageCommitmentEXT(uint texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, bool commit)
 		{
 			Debug.Assert(Delegates.pglTexturePageCommitmentEXT != null, "pglTexturePageCommitmentEXT not implemented");
 			Delegates.pglTexturePageCommitmentEXT(texture, level, xoffset, yoffset, zoffset, width, height, depth, commit);
@@ -8821,16 +8821,16 @@ namespace OpenGL
 		/// [GL] glVertexArrayVertexAttribDivisorEXT: Binding for glVertexArrayVertexAttribDivisorEXT.
 		/// </summary>
 		/// <param name="vaobj">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="divisor">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void VertexArrayVertexAttribDivisorEXT(UInt32 vaobj, UInt32 index, UInt32 divisor)
+		public static void VertexArrayVertexAttribDivisorEXT(uint vaobj, uint index, uint divisor)
 		{
 			Debug.Assert(Delegates.pglVertexArrayVertexAttribDivisorEXT != null, "pglVertexArrayVertexAttribDivisorEXT not implemented");
 			Delegates.pglVertexArrayVertexAttribDivisorEXT(vaobj, index, divisor);
@@ -8842,7 +8842,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMatrixLoadfEXT(Int32 mode, float* m);
+			internal unsafe delegate void glMatrixLoadfEXT(int mode, float* m);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -8850,7 +8850,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMatrixLoaddEXT(Int32 mode, double* m);
+			internal unsafe delegate void glMatrixLoaddEXT(int mode, double* m);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -8858,7 +8858,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMatrixMultfEXT(Int32 mode, float* m);
+			internal unsafe delegate void glMatrixMultfEXT(int mode, float* m);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -8866,7 +8866,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMatrixMultdEXT(Int32 mode, double* m);
+			internal unsafe delegate void glMatrixMultdEXT(int mode, double* m);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -8874,7 +8874,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMatrixLoadIdentityEXT(Int32 mode);
+			internal delegate void glMatrixLoadIdentityEXT(int mode);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -8882,7 +8882,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMatrixRotatefEXT(Int32 mode, float angle, float x, float y, float z);
+			internal delegate void glMatrixRotatefEXT(int mode, float angle, float x, float y, float z);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -8890,7 +8890,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMatrixRotatedEXT(Int32 mode, double angle, double x, double y, double z);
+			internal delegate void glMatrixRotatedEXT(int mode, double angle, double x, double y, double z);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -8898,7 +8898,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMatrixScalefEXT(Int32 mode, float x, float y, float z);
+			internal delegate void glMatrixScalefEXT(int mode, float x, float y, float z);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -8906,7 +8906,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMatrixScaledEXT(Int32 mode, double x, double y, double z);
+			internal delegate void glMatrixScaledEXT(int mode, double x, double y, double z);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -8914,7 +8914,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMatrixTranslatefEXT(Int32 mode, float x, float y, float z);
+			internal delegate void glMatrixTranslatefEXT(int mode, float x, float y, float z);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -8922,7 +8922,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMatrixTranslatedEXT(Int32 mode, double x, double y, double z);
+			internal delegate void glMatrixTranslatedEXT(int mode, double x, double y, double z);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -8930,7 +8930,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMatrixFrustumEXT(Int32 mode, double left, double right, double bottom, double top, double zNear, double zFar);
+			internal delegate void glMatrixFrustumEXT(int mode, double left, double right, double bottom, double top, double zNear, double zFar);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -8938,7 +8938,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMatrixOrthoEXT(Int32 mode, double left, double right, double bottom, double top, double zNear, double zFar);
+			internal delegate void glMatrixOrthoEXT(int mode, double left, double right, double bottom, double top, double zNear, double zFar);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -8946,7 +8946,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMatrixPopEXT(Int32 mode);
+			internal delegate void glMatrixPopEXT(int mode);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -8954,7 +8954,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMatrixPushEXT(Int32 mode);
+			internal delegate void glMatrixPushEXT(int mode);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -8962,7 +8962,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glClientAttribDefaultEXT(UInt32 mask);
+			internal delegate void glClientAttribDefaultEXT(uint mask);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -8970,7 +8970,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glPushClientAttribDefaultEXT(UInt32 mask);
+			internal delegate void glPushClientAttribDefaultEXT(uint mask);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -8978,7 +8978,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTextureParameterfEXT(UInt32 texture, Int32 target, Int32 pname, float param);
+			internal delegate void glTextureParameterfEXT(uint texture, int target, int pname, float param);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -8986,7 +8986,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTextureParameterfvEXT(UInt32 texture, Int32 target, Int32 pname, float* @params);
+			internal unsafe delegate void glTextureParameterfvEXT(uint texture, int target, int pname, float* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -8994,7 +8994,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTextureParameteriEXT(UInt32 texture, Int32 target, Int32 pname, Int32 param);
+			internal delegate void glTextureParameteriEXT(uint texture, int target, int pname, int param);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9002,7 +9002,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTextureParameterivEXT(UInt32 texture, Int32 target, Int32 pname, Int32* @params);
+			internal unsafe delegate void glTextureParameterivEXT(uint texture, int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9010,7 +9010,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTextureImage1DEXT(UInt32 texture, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 border, Int32 format, Int32 type, IntPtr pixels);
+			internal unsafe delegate void glTextureImage1DEXT(uint texture, int target, int level, int internalformat, int width, int border, int format, int type, IntPtr pixels);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9018,7 +9018,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTextureImage2DEXT(UInt32 texture, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, Int32 format, Int32 type, IntPtr pixels);
+			internal unsafe delegate void glTextureImage2DEXT(uint texture, int target, int level, int internalformat, int width, int height, int border, int format, int type, IntPtr pixels);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9026,7 +9026,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTextureSubImage1DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 width, Int32 format, Int32 type, IntPtr pixels);
+			internal unsafe delegate void glTextureSubImage1DEXT(uint texture, int target, int level, int xoffset, int width, int format, int type, IntPtr pixels);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9034,7 +9034,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTextureSubImage2DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, Int32 format, Int32 type, IntPtr pixels);
+			internal unsafe delegate void glTextureSubImage2DEXT(uint texture, int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, IntPtr pixels);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9042,7 +9042,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glCopyTextureImage1DEXT(UInt32 texture, Int32 target, Int32 level, Int32 internalformat, Int32 x, Int32 y, Int32 width, Int32 border);
+			internal delegate void glCopyTextureImage1DEXT(uint texture, int target, int level, int internalformat, int x, int y, int width, int border);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9050,7 +9050,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glCopyTextureImage2DEXT(UInt32 texture, Int32 target, Int32 level, Int32 internalformat, Int32 x, Int32 y, Int32 width, Int32 height, Int32 border);
+			internal delegate void glCopyTextureImage2DEXT(uint texture, int target, int level, int internalformat, int x, int y, int width, int height, int border);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9058,7 +9058,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glCopyTextureSubImage1DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 x, Int32 y, Int32 width);
+			internal delegate void glCopyTextureSubImage1DEXT(uint texture, int target, int level, int xoffset, int x, int y, int width);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9066,7 +9066,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glCopyTextureSubImage2DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 x, Int32 y, Int32 width, Int32 height);
+			internal delegate void glCopyTextureSubImage2DEXT(uint texture, int target, int level, int xoffset, int yoffset, int x, int y, int width, int height);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9074,7 +9074,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetTextureImageEXT(UInt32 texture, Int32 target, Int32 level, Int32 format, Int32 type, IntPtr pixels);
+			internal unsafe delegate void glGetTextureImageEXT(uint texture, int target, int level, int format, int type, IntPtr pixels);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9082,7 +9082,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetTextureParameterfvEXT(UInt32 texture, Int32 target, Int32 pname, float* @params);
+			internal unsafe delegate void glGetTextureParameterfvEXT(uint texture, int target, int pname, float* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9090,7 +9090,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetTextureParameterivEXT(UInt32 texture, Int32 target, Int32 pname, Int32* @params);
+			internal unsafe delegate void glGetTextureParameterivEXT(uint texture, int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9098,7 +9098,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetTextureLevelParameterfvEXT(UInt32 texture, Int32 target, Int32 level, Int32 pname, float* @params);
+			internal unsafe delegate void glGetTextureLevelParameterfvEXT(uint texture, int target, int level, int pname, float* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9106,7 +9106,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetTextureLevelParameterivEXT(UInt32 texture, Int32 target, Int32 level, Int32 pname, Int32* @params);
+			internal unsafe delegate void glGetTextureLevelParameterivEXT(uint texture, int target, int level, int pname, int* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9114,7 +9114,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTextureImage3DEXT(UInt32 texture, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 format, Int32 type, IntPtr pixels);
+			internal unsafe delegate void glTextureImage3DEXT(uint texture, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, IntPtr pixels);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9122,7 +9122,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTextureSubImage3DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, IntPtr pixels);
+			internal unsafe delegate void glTextureSubImage3DEXT(uint texture, int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, IntPtr pixels);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9130,7 +9130,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glCopyTextureSubImage3DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 x, Int32 y, Int32 width, Int32 height);
+			internal delegate void glCopyTextureSubImage3DEXT(uint texture, int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9138,7 +9138,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glBindMultiTextureEXT(Int32 texunit, Int32 target, UInt32 texture);
+			internal delegate void glBindMultiTextureEXT(int texunit, int target, uint texture);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9146,7 +9146,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexCoordPointerEXT(Int32 texunit, Int32 size, Int32 type, Int32 stride, IntPtr pointer);
+			internal unsafe delegate void glMultiTexCoordPointerEXT(int texunit, int size, int type, int stride, IntPtr pointer);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9154,7 +9154,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMultiTexEnvfEXT(Int32 texunit, Int32 target, Int32 pname, float param);
+			internal delegate void glMultiTexEnvfEXT(int texunit, int target, int pname, float param);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9162,7 +9162,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexEnvfvEXT(Int32 texunit, Int32 target, Int32 pname, float* @params);
+			internal unsafe delegate void glMultiTexEnvfvEXT(int texunit, int target, int pname, float* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9170,7 +9170,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMultiTexEnviEXT(Int32 texunit, Int32 target, Int32 pname, Int32 param);
+			internal delegate void glMultiTexEnviEXT(int texunit, int target, int pname, int param);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9178,7 +9178,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexEnvivEXT(Int32 texunit, Int32 target, Int32 pname, Int32* @params);
+			internal unsafe delegate void glMultiTexEnvivEXT(int texunit, int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9186,7 +9186,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMultiTexGendEXT(Int32 texunit, Int32 coord, Int32 pname, double param);
+			internal delegate void glMultiTexGendEXT(int texunit, int coord, int pname, double param);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9194,7 +9194,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexGendvEXT(Int32 texunit, Int32 coord, Int32 pname, double* @params);
+			internal unsafe delegate void glMultiTexGendvEXT(int texunit, int coord, int pname, double* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9202,7 +9202,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMultiTexGenfEXT(Int32 texunit, Int32 coord, Int32 pname, float param);
+			internal delegate void glMultiTexGenfEXT(int texunit, int coord, int pname, float param);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9210,7 +9210,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexGenfvEXT(Int32 texunit, Int32 coord, Int32 pname, float* @params);
+			internal unsafe delegate void glMultiTexGenfvEXT(int texunit, int coord, int pname, float* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9218,7 +9218,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMultiTexGeniEXT(Int32 texunit, Int32 coord, Int32 pname, Int32 param);
+			internal delegate void glMultiTexGeniEXT(int texunit, int coord, int pname, int param);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9226,7 +9226,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexGenivEXT(Int32 texunit, Int32 coord, Int32 pname, Int32* @params);
+			internal unsafe delegate void glMultiTexGenivEXT(int texunit, int coord, int pname, int* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9234,7 +9234,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetMultiTexEnvfvEXT(Int32 texunit, Int32 target, Int32 pname, float* @params);
+			internal unsafe delegate void glGetMultiTexEnvfvEXT(int texunit, int target, int pname, float* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9242,7 +9242,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetMultiTexEnvivEXT(Int32 texunit, Int32 target, Int32 pname, Int32* @params);
+			internal unsafe delegate void glGetMultiTexEnvivEXT(int texunit, int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9250,7 +9250,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetMultiTexGendvEXT(Int32 texunit, Int32 coord, Int32 pname, double* @params);
+			internal unsafe delegate void glGetMultiTexGendvEXT(int texunit, int coord, int pname, double* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9258,7 +9258,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetMultiTexGenfvEXT(Int32 texunit, Int32 coord, Int32 pname, float* @params);
+			internal unsafe delegate void glGetMultiTexGenfvEXT(int texunit, int coord, int pname, float* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9266,7 +9266,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetMultiTexGenivEXT(Int32 texunit, Int32 coord, Int32 pname, Int32* @params);
+			internal unsafe delegate void glGetMultiTexGenivEXT(int texunit, int coord, int pname, int* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9274,7 +9274,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMultiTexParameteriEXT(Int32 texunit, Int32 target, Int32 pname, Int32 param);
+			internal delegate void glMultiTexParameteriEXT(int texunit, int target, int pname, int param);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9282,7 +9282,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexParameterivEXT(Int32 texunit, Int32 target, Int32 pname, Int32* @params);
+			internal unsafe delegate void glMultiTexParameterivEXT(int texunit, int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9290,7 +9290,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMultiTexParameterfEXT(Int32 texunit, Int32 target, Int32 pname, float param);
+			internal delegate void glMultiTexParameterfEXT(int texunit, int target, int pname, float param);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9298,7 +9298,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexParameterfvEXT(Int32 texunit, Int32 target, Int32 pname, float* @params);
+			internal unsafe delegate void glMultiTexParameterfvEXT(int texunit, int target, int pname, float* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9306,7 +9306,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexImage1DEXT(Int32 texunit, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 border, Int32 format, Int32 type, IntPtr pixels);
+			internal unsafe delegate void glMultiTexImage1DEXT(int texunit, int target, int level, int internalformat, int width, int border, int format, int type, IntPtr pixels);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9314,7 +9314,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexImage2DEXT(Int32 texunit, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, Int32 format, Int32 type, IntPtr pixels);
+			internal unsafe delegate void glMultiTexImage2DEXT(int texunit, int target, int level, int internalformat, int width, int height, int border, int format, int type, IntPtr pixels);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9322,7 +9322,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexSubImage1DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 width, Int32 format, Int32 type, IntPtr pixels);
+			internal unsafe delegate void glMultiTexSubImage1DEXT(int texunit, int target, int level, int xoffset, int width, int format, int type, IntPtr pixels);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9330,7 +9330,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexSubImage2DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, Int32 format, Int32 type, IntPtr pixels);
+			internal unsafe delegate void glMultiTexSubImage2DEXT(int texunit, int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, IntPtr pixels);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9338,7 +9338,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glCopyMultiTexImage1DEXT(Int32 texunit, Int32 target, Int32 level, Int32 internalformat, Int32 x, Int32 y, Int32 width, Int32 border);
+			internal delegate void glCopyMultiTexImage1DEXT(int texunit, int target, int level, int internalformat, int x, int y, int width, int border);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9346,7 +9346,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glCopyMultiTexImage2DEXT(Int32 texunit, Int32 target, Int32 level, Int32 internalformat, Int32 x, Int32 y, Int32 width, Int32 height, Int32 border);
+			internal delegate void glCopyMultiTexImage2DEXT(int texunit, int target, int level, int internalformat, int x, int y, int width, int height, int border);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9354,7 +9354,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glCopyMultiTexSubImage1DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 x, Int32 y, Int32 width);
+			internal delegate void glCopyMultiTexSubImage1DEXT(int texunit, int target, int level, int xoffset, int x, int y, int width);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9362,7 +9362,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glCopyMultiTexSubImage2DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 x, Int32 y, Int32 width, Int32 height);
+			internal delegate void glCopyMultiTexSubImage2DEXT(int texunit, int target, int level, int xoffset, int yoffset, int x, int y, int width, int height);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9370,7 +9370,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetMultiTexImageEXT(Int32 texunit, Int32 target, Int32 level, Int32 format, Int32 type, IntPtr pixels);
+			internal unsafe delegate void glGetMultiTexImageEXT(int texunit, int target, int level, int format, int type, IntPtr pixels);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9378,7 +9378,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetMultiTexParameterfvEXT(Int32 texunit, Int32 target, Int32 pname, float* @params);
+			internal unsafe delegate void glGetMultiTexParameterfvEXT(int texunit, int target, int pname, float* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9386,7 +9386,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetMultiTexParameterivEXT(Int32 texunit, Int32 target, Int32 pname, Int32* @params);
+			internal unsafe delegate void glGetMultiTexParameterivEXT(int texunit, int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9394,7 +9394,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetMultiTexLevelParameterfvEXT(Int32 texunit, Int32 target, Int32 level, Int32 pname, float* @params);
+			internal unsafe delegate void glGetMultiTexLevelParameterfvEXT(int texunit, int target, int level, int pname, float* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9402,7 +9402,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetMultiTexLevelParameterivEXT(Int32 texunit, Int32 target, Int32 level, Int32 pname, Int32* @params);
+			internal unsafe delegate void glGetMultiTexLevelParameterivEXT(int texunit, int target, int level, int pname, int* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9410,7 +9410,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexImage3DEXT(Int32 texunit, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 format, Int32 type, IntPtr pixels);
+			internal unsafe delegate void glMultiTexImage3DEXT(int texunit, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, IntPtr pixels);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9418,7 +9418,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexSubImage3DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, IntPtr pixels);
+			internal unsafe delegate void glMultiTexSubImage3DEXT(int texunit, int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, IntPtr pixels);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9426,7 +9426,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glCopyMultiTexSubImage3DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 x, Int32 y, Int32 width, Int32 height);
+			internal delegate void glCopyMultiTexSubImage3DEXT(int texunit, int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9434,7 +9434,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glEnableClientStateIndexedEXT(Int32 array, UInt32 index);
+			internal delegate void glEnableClientStateIndexedEXT(int array, uint index);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9442,7 +9442,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glDisableClientStateIndexedEXT(Int32 array, UInt32 index);
+			internal delegate void glDisableClientStateIndexedEXT(int array, uint index);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9450,7 +9450,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetPointerIndexedvEXT(Int32 target, UInt32 index, IntPtr* data);
+			internal unsafe delegate void glGetPointerIndexedvEXT(int target, uint index, IntPtr* data);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9458,7 +9458,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glCompressedTextureImage3DEXT(UInt32 texture, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, IntPtr bits);
+			internal unsafe delegate void glCompressedTextureImage3DEXT(uint texture, int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, IntPtr bits);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9466,7 +9466,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glCompressedTextureImage2DEXT(UInt32 texture, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, IntPtr bits);
+			internal unsafe delegate void glCompressedTextureImage2DEXT(uint texture, int target, int level, int internalformat, int width, int height, int border, int imageSize, IntPtr bits);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9474,7 +9474,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glCompressedTextureImage1DEXT(UInt32 texture, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 border, Int32 imageSize, IntPtr bits);
+			internal unsafe delegate void glCompressedTextureImage1DEXT(uint texture, int target, int level, int internalformat, int width, int border, int imageSize, IntPtr bits);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9482,7 +9482,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glCompressedTextureSubImage3DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 imageSize, IntPtr bits);
+			internal unsafe delegate void glCompressedTextureSubImage3DEXT(uint texture, int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, IntPtr bits);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9490,7 +9490,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glCompressedTextureSubImage2DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, Int32 format, Int32 imageSize, IntPtr bits);
+			internal unsafe delegate void glCompressedTextureSubImage2DEXT(uint texture, int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, IntPtr bits);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9498,7 +9498,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glCompressedTextureSubImage1DEXT(UInt32 texture, Int32 target, Int32 level, Int32 xoffset, Int32 width, Int32 format, Int32 imageSize, IntPtr bits);
+			internal unsafe delegate void glCompressedTextureSubImage1DEXT(uint texture, int target, int level, int xoffset, int width, int format, int imageSize, IntPtr bits);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9506,7 +9506,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetCompressedTextureImageEXT(UInt32 texture, Int32 target, Int32 lod, IntPtr img);
+			internal unsafe delegate void glGetCompressedTextureImageEXT(uint texture, int target, int lod, IntPtr img);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9514,7 +9514,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glCompressedMultiTexImage3DEXT(Int32 texunit, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, IntPtr bits);
+			internal unsafe delegate void glCompressedMultiTexImage3DEXT(int texunit, int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, IntPtr bits);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9522,7 +9522,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glCompressedMultiTexImage2DEXT(Int32 texunit, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, IntPtr bits);
+			internal unsafe delegate void glCompressedMultiTexImage2DEXT(int texunit, int target, int level, int internalformat, int width, int height, int border, int imageSize, IntPtr bits);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9530,7 +9530,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glCompressedMultiTexImage1DEXT(Int32 texunit, Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 border, Int32 imageSize, IntPtr bits);
+			internal unsafe delegate void glCompressedMultiTexImage1DEXT(int texunit, int target, int level, int internalformat, int width, int border, int imageSize, IntPtr bits);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9538,7 +9538,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glCompressedMultiTexSubImage3DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 imageSize, IntPtr bits);
+			internal unsafe delegate void glCompressedMultiTexSubImage3DEXT(int texunit, int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, IntPtr bits);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9546,7 +9546,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glCompressedMultiTexSubImage2DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, Int32 format, Int32 imageSize, IntPtr bits);
+			internal unsafe delegate void glCompressedMultiTexSubImage2DEXT(int texunit, int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, IntPtr bits);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9554,7 +9554,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glCompressedMultiTexSubImage1DEXT(Int32 texunit, Int32 target, Int32 level, Int32 xoffset, Int32 width, Int32 format, Int32 imageSize, IntPtr bits);
+			internal unsafe delegate void glCompressedMultiTexSubImage1DEXT(int texunit, int target, int level, int xoffset, int width, int format, int imageSize, IntPtr bits);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9562,7 +9562,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetCompressedMultiTexImageEXT(Int32 texunit, Int32 target, Int32 lod, IntPtr img);
+			internal unsafe delegate void glGetCompressedMultiTexImageEXT(int texunit, int target, int lod, IntPtr img);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9570,7 +9570,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMatrixLoadTransposefEXT(Int32 mode, float* m);
+			internal unsafe delegate void glMatrixLoadTransposefEXT(int mode, float* m);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9578,7 +9578,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMatrixLoadTransposedEXT(Int32 mode, double* m);
+			internal unsafe delegate void glMatrixLoadTransposedEXT(int mode, double* m);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9586,7 +9586,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMatrixMultTransposefEXT(Int32 mode, float* m);
+			internal unsafe delegate void glMatrixMultTransposefEXT(int mode, float* m);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9594,7 +9594,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMatrixMultTransposedEXT(Int32 mode, double* m);
+			internal unsafe delegate void glMatrixMultTransposedEXT(int mode, double* m);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9602,7 +9602,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glNamedBufferDataEXT(UInt32 buffer, UInt32 size, IntPtr data, Int32 usage);
+			internal unsafe delegate void glNamedBufferDataEXT(uint buffer, uint size, IntPtr data, int usage);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9610,7 +9610,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate IntPtr glMapNamedBufferEXT(UInt32 buffer, Int32 access);
+			internal delegate IntPtr glMapNamedBufferEXT(uint buffer, int access);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9619,7 +9619,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
 			[return: MarshalAs(UnmanagedType.I1)]
-			internal delegate bool glUnmapNamedBufferEXT(UInt32 buffer);
+			internal delegate bool glUnmapNamedBufferEXT(uint buffer);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9627,7 +9627,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetNamedBufferParameterivEXT(UInt32 buffer, Int32 pname, Int32* @params);
+			internal unsafe delegate void glGetNamedBufferParameterivEXT(uint buffer, int pname, int* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9635,7 +9635,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetNamedBufferPointervEXT(UInt32 buffer, Int32 pname, IntPtr* @params);
+			internal unsafe delegate void glGetNamedBufferPointervEXT(uint buffer, int pname, IntPtr* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9643,7 +9643,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetNamedBufferSubDataEXT(UInt32 buffer, IntPtr offset, UInt32 size, IntPtr data);
+			internal unsafe delegate void glGetNamedBufferSubDataEXT(uint buffer, IntPtr offset, uint size, IntPtr data);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9651,7 +9651,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTextureBufferEXT(UInt32 texture, Int32 target, Int32 internalformat, UInt32 buffer);
+			internal delegate void glTextureBufferEXT(uint texture, int target, int internalformat, uint buffer);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9659,7 +9659,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMultiTexBufferEXT(Int32 texunit, Int32 target, Int32 internalformat, UInt32 buffer);
+			internal delegate void glMultiTexBufferEXT(int texunit, int target, int internalformat, uint buffer);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9667,7 +9667,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTextureParameterIivEXT(UInt32 texture, Int32 target, Int32 pname, Int32* @params);
+			internal unsafe delegate void glTextureParameterIivEXT(uint texture, int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9675,7 +9675,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTextureParameterIuivEXT(UInt32 texture, Int32 target, Int32 pname, UInt32* @params);
+			internal unsafe delegate void glTextureParameterIuivEXT(uint texture, int target, int pname, uint* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9683,7 +9683,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetTextureParameterIivEXT(UInt32 texture, Int32 target, Int32 pname, Int32* @params);
+			internal unsafe delegate void glGetTextureParameterIivEXT(uint texture, int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9691,7 +9691,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetTextureParameterIuivEXT(UInt32 texture, Int32 target, Int32 pname, UInt32* @params);
+			internal unsafe delegate void glGetTextureParameterIuivEXT(uint texture, int target, int pname, uint* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9699,7 +9699,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexParameterIivEXT(Int32 texunit, Int32 target, Int32 pname, Int32* @params);
+			internal unsafe delegate void glMultiTexParameterIivEXT(int texunit, int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9707,7 +9707,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexParameterIuivEXT(Int32 texunit, Int32 target, Int32 pname, UInt32* @params);
+			internal unsafe delegate void glMultiTexParameterIuivEXT(int texunit, int target, int pname, uint* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9715,7 +9715,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetMultiTexParameterIivEXT(Int32 texunit, Int32 target, Int32 pname, Int32* @params);
+			internal unsafe delegate void glGetMultiTexParameterIivEXT(int texunit, int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9723,7 +9723,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetMultiTexParameterIuivEXT(Int32 texunit, Int32 target, Int32 pname, UInt32* @params);
+			internal unsafe delegate void glGetMultiTexParameterIuivEXT(int texunit, int target, int pname, uint* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9731,7 +9731,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glNamedProgramLocalParameters4fvEXT(UInt32 program, Int32 target, UInt32 index, Int32 count, float* @params);
+			internal unsafe delegate void glNamedProgramLocalParameters4fvEXT(uint program, int target, uint index, int count, float* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9739,7 +9739,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glNamedProgramLocalParameterI4iEXT(UInt32 program, Int32 target, UInt32 index, Int32 x, Int32 y, Int32 z, Int32 w);
+			internal delegate void glNamedProgramLocalParameterI4iEXT(uint program, int target, uint index, int x, int y, int z, int w);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9747,7 +9747,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glNamedProgramLocalParameterI4ivEXT(UInt32 program, Int32 target, UInt32 index, Int32* @params);
+			internal unsafe delegate void glNamedProgramLocalParameterI4ivEXT(uint program, int target, uint index, int* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9755,7 +9755,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glNamedProgramLocalParametersI4ivEXT(UInt32 program, Int32 target, UInt32 index, Int32 count, Int32* @params);
+			internal unsafe delegate void glNamedProgramLocalParametersI4ivEXT(uint program, int target, uint index, int count, int* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9763,7 +9763,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glNamedProgramLocalParameterI4uiEXT(UInt32 program, Int32 target, UInt32 index, UInt32 x, UInt32 y, UInt32 z, UInt32 w);
+			internal delegate void glNamedProgramLocalParameterI4uiEXT(uint program, int target, uint index, uint x, uint y, uint z, uint w);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9771,7 +9771,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glNamedProgramLocalParameterI4uivEXT(UInt32 program, Int32 target, UInt32 index, UInt32* @params);
+			internal unsafe delegate void glNamedProgramLocalParameterI4uivEXT(uint program, int target, uint index, uint* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9779,7 +9779,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glNamedProgramLocalParametersI4uivEXT(UInt32 program, Int32 target, UInt32 index, Int32 count, UInt32* @params);
+			internal unsafe delegate void glNamedProgramLocalParametersI4uivEXT(uint program, int target, uint index, int count, uint* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9787,7 +9787,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetNamedProgramLocalParameterIivEXT(UInt32 program, Int32 target, UInt32 index, Int32* @params);
+			internal unsafe delegate void glGetNamedProgramLocalParameterIivEXT(uint program, int target, uint index, int* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9795,7 +9795,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetNamedProgramLocalParameterIuivEXT(UInt32 program, Int32 target, UInt32 index, UInt32* @params);
+			internal unsafe delegate void glGetNamedProgramLocalParameterIuivEXT(uint program, int target, uint index, uint* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9803,7 +9803,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glEnableClientStateiEXT(Int32 array, UInt32 index);
+			internal delegate void glEnableClientStateiEXT(int array, uint index);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9811,7 +9811,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glDisableClientStateiEXT(Int32 array, UInt32 index);
+			internal delegate void glDisableClientStateiEXT(int array, uint index);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9819,7 +9819,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetPointeri_vEXT(Int32 pname, UInt32 index, IntPtr* @params);
+			internal unsafe delegate void glGetPointeri_vEXT(int pname, uint index, IntPtr* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9827,7 +9827,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glNamedProgramStringEXT(UInt32 program, Int32 target, Int32 format, Int32 len, IntPtr @string);
+			internal unsafe delegate void glNamedProgramStringEXT(uint program, int target, int format, int len, IntPtr @string);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9835,7 +9835,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glNamedProgramLocalParameter4dEXT(UInt32 program, Int32 target, UInt32 index, double x, double y, double z, double w);
+			internal delegate void glNamedProgramLocalParameter4dEXT(uint program, int target, uint index, double x, double y, double z, double w);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9843,7 +9843,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glNamedProgramLocalParameter4dvEXT(UInt32 program, Int32 target, UInt32 index, double* @params);
+			internal unsafe delegate void glNamedProgramLocalParameter4dvEXT(uint program, int target, uint index, double* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9851,7 +9851,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glNamedProgramLocalParameter4fEXT(UInt32 program, Int32 target, UInt32 index, float x, float y, float z, float w);
+			internal delegate void glNamedProgramLocalParameter4fEXT(uint program, int target, uint index, float x, float y, float z, float w);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9859,7 +9859,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glNamedProgramLocalParameter4fvEXT(UInt32 program, Int32 target, UInt32 index, float* @params);
+			internal unsafe delegate void glNamedProgramLocalParameter4fvEXT(uint program, int target, uint index, float* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9867,7 +9867,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetNamedProgramLocalParameterdvEXT(UInt32 program, Int32 target, UInt32 index, double* @params);
+			internal unsafe delegate void glGetNamedProgramLocalParameterdvEXT(uint program, int target, uint index, double* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9875,7 +9875,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetNamedProgramLocalParameterfvEXT(UInt32 program, Int32 target, UInt32 index, float* @params);
+			internal unsafe delegate void glGetNamedProgramLocalParameterfvEXT(uint program, int target, uint index, float* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9883,7 +9883,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetNamedProgramivEXT(UInt32 program, Int32 target, Int32 pname, Int32* @params);
+			internal unsafe delegate void glGetNamedProgramivEXT(uint program, int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9891,7 +9891,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetNamedProgramStringEXT(UInt32 program, Int32 target, Int32 pname, IntPtr @string);
+			internal unsafe delegate void glGetNamedProgramStringEXT(uint program, int target, int pname, IntPtr @string);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9899,7 +9899,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glNamedRenderbufferStorageEXT(UInt32 renderbuffer, Int32 internalformat, Int32 width, Int32 height);
+			internal delegate void glNamedRenderbufferStorageEXT(uint renderbuffer, int internalformat, int width, int height);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9907,7 +9907,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetNamedRenderbufferParameterivEXT(UInt32 renderbuffer, Int32 pname, Int32* @params);
+			internal unsafe delegate void glGetNamedRenderbufferParameterivEXT(uint renderbuffer, int pname, int* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9915,7 +9915,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glNamedRenderbufferStorageMultisampleEXT(UInt32 renderbuffer, Int32 samples, Int32 internalformat, Int32 width, Int32 height);
+			internal delegate void glNamedRenderbufferStorageMultisampleEXT(uint renderbuffer, int samples, int internalformat, int width, int height);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9923,7 +9923,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glNamedRenderbufferStorageMultisampleCoverageEXT(UInt32 renderbuffer, Int32 coverageSamples, Int32 colorSamples, Int32 internalformat, Int32 width, Int32 height);
+			internal delegate void glNamedRenderbufferStorageMultisampleCoverageEXT(uint renderbuffer, int coverageSamples, int colorSamples, int internalformat, int width, int height);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9931,7 +9931,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Int32 glCheckNamedFramebufferStatusEXT(UInt32 framebuffer, Int32 target);
+			internal delegate int glCheckNamedFramebufferStatusEXT(uint framebuffer, int target);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9939,7 +9939,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glNamedFramebufferTexture1DEXT(UInt32 framebuffer, Int32 attachment, Int32 textarget, UInt32 texture, Int32 level);
+			internal delegate void glNamedFramebufferTexture1DEXT(uint framebuffer, int attachment, int textarget, uint texture, int level);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9947,7 +9947,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glNamedFramebufferTexture2DEXT(UInt32 framebuffer, Int32 attachment, Int32 textarget, UInt32 texture, Int32 level);
+			internal delegate void glNamedFramebufferTexture2DEXT(uint framebuffer, int attachment, int textarget, uint texture, int level);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9955,7 +9955,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glNamedFramebufferTexture3DEXT(UInt32 framebuffer, Int32 attachment, Int32 textarget, UInt32 texture, Int32 level, Int32 zoffset);
+			internal delegate void glNamedFramebufferTexture3DEXT(uint framebuffer, int attachment, int textarget, uint texture, int level, int zoffset);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9963,7 +9963,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glNamedFramebufferRenderbufferEXT(UInt32 framebuffer, Int32 attachment, Int32 renderbuffertarget, UInt32 renderbuffer);
+			internal delegate void glNamedFramebufferRenderbufferEXT(uint framebuffer, int attachment, int renderbuffertarget, uint renderbuffer);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9971,7 +9971,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetNamedFramebufferAttachmentParameterivEXT(UInt32 framebuffer, Int32 attachment, Int32 pname, Int32* @params);
+			internal unsafe delegate void glGetNamedFramebufferAttachmentParameterivEXT(uint framebuffer, int attachment, int pname, int* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9979,7 +9979,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glGenerateTextureMipmapEXT(UInt32 texture, Int32 target);
+			internal delegate void glGenerateTextureMipmapEXT(uint texture, int target);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9987,7 +9987,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glGenerateMultiTexMipmapEXT(Int32 texunit, Int32 target);
+			internal delegate void glGenerateMultiTexMipmapEXT(int texunit, int target);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -9995,7 +9995,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glFramebufferDrawBufferEXT(UInt32 framebuffer, Int32 mode);
+			internal delegate void glFramebufferDrawBufferEXT(uint framebuffer, int mode);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10003,7 +10003,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glFramebufferDrawBuffersEXT(UInt32 framebuffer, Int32 n, Int32* bufs);
+			internal unsafe delegate void glFramebufferDrawBuffersEXT(uint framebuffer, int n, int* bufs);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10011,7 +10011,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glFramebufferReadBufferEXT(UInt32 framebuffer, Int32 mode);
+			internal delegate void glFramebufferReadBufferEXT(uint framebuffer, int mode);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10019,7 +10019,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetFramebufferParameterivEXT(UInt32 framebuffer, Int32 pname, Int32* @params);
+			internal unsafe delegate void glGetFramebufferParameterivEXT(uint framebuffer, int pname, int* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10027,7 +10027,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glNamedCopyBufferSubDataEXT(UInt32 readBuffer, UInt32 writeBuffer, IntPtr readOffset, IntPtr writeOffset, UInt32 size);
+			internal unsafe delegate void glNamedCopyBufferSubDataEXT(uint readBuffer, uint writeBuffer, IntPtr readOffset, IntPtr writeOffset, uint size);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10035,7 +10035,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glNamedFramebufferTextureEXT(UInt32 framebuffer, Int32 attachment, UInt32 texture, Int32 level);
+			internal delegate void glNamedFramebufferTextureEXT(uint framebuffer, int attachment, uint texture, int level);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10043,7 +10043,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glNamedFramebufferTextureLayerEXT(UInt32 framebuffer, Int32 attachment, UInt32 texture, Int32 level, Int32 layer);
+			internal delegate void glNamedFramebufferTextureLayerEXT(uint framebuffer, int attachment, uint texture, int level, int layer);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10051,7 +10051,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glNamedFramebufferTextureFaceEXT(UInt32 framebuffer, Int32 attachment, UInt32 texture, Int32 level, Int32 face);
+			internal delegate void glNamedFramebufferTextureFaceEXT(uint framebuffer, int attachment, uint texture, int level, int face);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10059,7 +10059,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTextureRenderbufferEXT(UInt32 texture, Int32 target, UInt32 renderbuffer);
+			internal delegate void glTextureRenderbufferEXT(uint texture, int target, uint renderbuffer);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10067,7 +10067,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMultiTexRenderbufferEXT(Int32 texunit, Int32 target, UInt32 renderbuffer);
+			internal delegate void glMultiTexRenderbufferEXT(int texunit, int target, uint renderbuffer);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10075,7 +10075,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexArrayVertexOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 size, Int32 type, Int32 stride, IntPtr offset);
+			internal unsafe delegate void glVertexArrayVertexOffsetEXT(uint vaobj, uint buffer, int size, int type, int stride, IntPtr offset);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10083,7 +10083,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexArrayColorOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 size, Int32 type, Int32 stride, IntPtr offset);
+			internal unsafe delegate void glVertexArrayColorOffsetEXT(uint vaobj, uint buffer, int size, int type, int stride, IntPtr offset);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10091,7 +10091,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexArrayEdgeFlagOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 stride, IntPtr offset);
+			internal unsafe delegate void glVertexArrayEdgeFlagOffsetEXT(uint vaobj, uint buffer, int stride, IntPtr offset);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10099,7 +10099,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexArrayIndexOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 type, Int32 stride, IntPtr offset);
+			internal unsafe delegate void glVertexArrayIndexOffsetEXT(uint vaobj, uint buffer, int type, int stride, IntPtr offset);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10107,7 +10107,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexArrayNormalOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 type, Int32 stride, IntPtr offset);
+			internal unsafe delegate void glVertexArrayNormalOffsetEXT(uint vaobj, uint buffer, int type, int stride, IntPtr offset);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10115,7 +10115,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexArrayTexCoordOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 size, Int32 type, Int32 stride, IntPtr offset);
+			internal unsafe delegate void glVertexArrayTexCoordOffsetEXT(uint vaobj, uint buffer, int size, int type, int stride, IntPtr offset);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10123,7 +10123,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexArrayMultiTexCoordOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 texunit, Int32 size, Int32 type, Int32 stride, IntPtr offset);
+			internal unsafe delegate void glVertexArrayMultiTexCoordOffsetEXT(uint vaobj, uint buffer, int texunit, int size, int type, int stride, IntPtr offset);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10131,7 +10131,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexArrayFogCoordOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 type, Int32 stride, IntPtr offset);
+			internal unsafe delegate void glVertexArrayFogCoordOffsetEXT(uint vaobj, uint buffer, int type, int stride, IntPtr offset);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10139,7 +10139,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexArraySecondaryColorOffsetEXT(UInt32 vaobj, UInt32 buffer, Int32 size, Int32 type, Int32 stride, IntPtr offset);
+			internal unsafe delegate void glVertexArraySecondaryColorOffsetEXT(uint vaobj, uint buffer, int size, int type, int stride, IntPtr offset);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10147,7 +10147,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexArrayVertexAttribOffsetEXT(UInt32 vaobj, UInt32 buffer, UInt32 index, Int32 size, Int32 type, [MarshalAs(UnmanagedType.I1)] bool normalized, Int32 stride, IntPtr offset);
+			internal unsafe delegate void glVertexArrayVertexAttribOffsetEXT(uint vaobj, uint buffer, uint index, int size, int type, [MarshalAs(UnmanagedType.I1)] bool normalized, int stride, IntPtr offset);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10155,7 +10155,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexArrayVertexAttribIOffsetEXT(UInt32 vaobj, UInt32 buffer, UInt32 index, Int32 size, Int32 type, Int32 stride, IntPtr offset);
+			internal unsafe delegate void glVertexArrayVertexAttribIOffsetEXT(uint vaobj, uint buffer, uint index, int size, int type, int stride, IntPtr offset);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10163,7 +10163,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glEnableVertexArrayEXT(UInt32 vaobj, Int32 array);
+			internal delegate void glEnableVertexArrayEXT(uint vaobj, int array);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10171,7 +10171,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glDisableVertexArrayEXT(UInt32 vaobj, Int32 array);
+			internal delegate void glDisableVertexArrayEXT(uint vaobj, int array);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10179,7 +10179,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glEnableVertexArrayAttribEXT(UInt32 vaobj, UInt32 index);
+			internal delegate void glEnableVertexArrayAttribEXT(uint vaobj, uint index);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10187,7 +10187,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glDisableVertexArrayAttribEXT(UInt32 vaobj, UInt32 index);
+			internal delegate void glDisableVertexArrayAttribEXT(uint vaobj, uint index);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10195,7 +10195,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetVertexArrayIntegervEXT(UInt32 vaobj, Int32 pname, Int32* param);
+			internal unsafe delegate void glGetVertexArrayIntegervEXT(uint vaobj, int pname, int* param);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10203,7 +10203,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetVertexArrayPointervEXT(UInt32 vaobj, Int32 pname, IntPtr* param);
+			internal unsafe delegate void glGetVertexArrayPointervEXT(uint vaobj, int pname, IntPtr* param);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10211,7 +10211,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetVertexArrayIntegeri_vEXT(UInt32 vaobj, UInt32 index, Int32 pname, Int32* param);
+			internal unsafe delegate void glGetVertexArrayIntegeri_vEXT(uint vaobj, uint index, int pname, int* param);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10219,7 +10219,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetVertexArrayPointeri_vEXT(UInt32 vaobj, UInt32 index, Int32 pname, IntPtr* param);
+			internal unsafe delegate void glGetVertexArrayPointeri_vEXT(uint vaobj, uint index, int pname, IntPtr* param);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10227,7 +10227,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr glMapNamedBufferRangeEXT(UInt32 buffer, IntPtr offset, UInt32 length, UInt32 access);
+			internal unsafe delegate IntPtr glMapNamedBufferRangeEXT(uint buffer, IntPtr offset, uint length, uint access);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10235,7 +10235,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glFlushMappedNamedBufferRangeEXT(UInt32 buffer, IntPtr offset, UInt32 length);
+			internal unsafe delegate void glFlushMappedNamedBufferRangeEXT(uint buffer, IntPtr offset, uint length);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10243,7 +10243,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glClearNamedBufferDataEXT(UInt32 buffer, Int32 internalformat, Int32 format, Int32 type, IntPtr data);
+			internal unsafe delegate void glClearNamedBufferDataEXT(uint buffer, int internalformat, int format, int type, IntPtr data);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10251,7 +10251,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glClearNamedBufferSubDataEXT(UInt32 buffer, Int32 internalformat, UInt32 offset, UInt32 size, Int32 format, Int32 type, IntPtr data);
+			internal unsafe delegate void glClearNamedBufferSubDataEXT(uint buffer, int internalformat, uint offset, uint size, int format, int type, IntPtr data);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10259,7 +10259,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glNamedFramebufferParameteriEXT(UInt32 framebuffer, Int32 pname, Int32 param);
+			internal delegate void glNamedFramebufferParameteriEXT(uint framebuffer, int pname, int param);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10267,7 +10267,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetNamedFramebufferParameterivEXT(UInt32 framebuffer, Int32 pname, Int32* @params);
+			internal unsafe delegate void glGetNamedFramebufferParameterivEXT(uint framebuffer, int pname, int* @params);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10275,7 +10275,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glProgramUniform1dEXT(UInt32 program, Int32 location, double x);
+			internal delegate void glProgramUniform1dEXT(uint program, int location, double x);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10283,7 +10283,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glProgramUniform2dEXT(UInt32 program, Int32 location, double x, double y);
+			internal delegate void glProgramUniform2dEXT(uint program, int location, double x, double y);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10291,7 +10291,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glProgramUniform3dEXT(UInt32 program, Int32 location, double x, double y, double z);
+			internal delegate void glProgramUniform3dEXT(uint program, int location, double x, double y, double z);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10299,7 +10299,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glProgramUniform4dEXT(UInt32 program, Int32 location, double x, double y, double z, double w);
+			internal delegate void glProgramUniform4dEXT(uint program, int location, double x, double y, double z, double w);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10307,7 +10307,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramUniform1dvEXT(UInt32 program, Int32 location, Int32 count, double* value);
+			internal unsafe delegate void glProgramUniform1dvEXT(uint program, int location, int count, double* value);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10315,7 +10315,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramUniform2dvEXT(UInt32 program, Int32 location, Int32 count, double* value);
+			internal unsafe delegate void glProgramUniform2dvEXT(uint program, int location, int count, double* value);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10323,7 +10323,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramUniform3dvEXT(UInt32 program, Int32 location, Int32 count, double* value);
+			internal unsafe delegate void glProgramUniform3dvEXT(uint program, int location, int count, double* value);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10331,7 +10331,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramUniform4dvEXT(UInt32 program, Int32 location, Int32 count, double* value);
+			internal unsafe delegate void glProgramUniform4dvEXT(uint program, int location, int count, double* value);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10339,7 +10339,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramUniformMatrix2dvEXT(UInt32 program, Int32 location, Int32 count, [MarshalAs(UnmanagedType.I1)] bool transpose, double* value);
+			internal unsafe delegate void glProgramUniformMatrix2dvEXT(uint program, int location, int count, [MarshalAs(UnmanagedType.I1)] bool transpose, double* value);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10347,7 +10347,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramUniformMatrix3dvEXT(UInt32 program, Int32 location, Int32 count, [MarshalAs(UnmanagedType.I1)] bool transpose, double* value);
+			internal unsafe delegate void glProgramUniformMatrix3dvEXT(uint program, int location, int count, [MarshalAs(UnmanagedType.I1)] bool transpose, double* value);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10355,7 +10355,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramUniformMatrix4dvEXT(UInt32 program, Int32 location, Int32 count, [MarshalAs(UnmanagedType.I1)] bool transpose, double* value);
+			internal unsafe delegate void glProgramUniformMatrix4dvEXT(uint program, int location, int count, [MarshalAs(UnmanagedType.I1)] bool transpose, double* value);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10363,7 +10363,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramUniformMatrix2x3dvEXT(UInt32 program, Int32 location, Int32 count, [MarshalAs(UnmanagedType.I1)] bool transpose, double* value);
+			internal unsafe delegate void glProgramUniformMatrix2x3dvEXT(uint program, int location, int count, [MarshalAs(UnmanagedType.I1)] bool transpose, double* value);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10371,7 +10371,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramUniformMatrix2x4dvEXT(UInt32 program, Int32 location, Int32 count, [MarshalAs(UnmanagedType.I1)] bool transpose, double* value);
+			internal unsafe delegate void glProgramUniformMatrix2x4dvEXT(uint program, int location, int count, [MarshalAs(UnmanagedType.I1)] bool transpose, double* value);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10379,7 +10379,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramUniformMatrix3x2dvEXT(UInt32 program, Int32 location, Int32 count, [MarshalAs(UnmanagedType.I1)] bool transpose, double* value);
+			internal unsafe delegate void glProgramUniformMatrix3x2dvEXT(uint program, int location, int count, [MarshalAs(UnmanagedType.I1)] bool transpose, double* value);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10387,7 +10387,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramUniformMatrix3x4dvEXT(UInt32 program, Int32 location, Int32 count, [MarshalAs(UnmanagedType.I1)] bool transpose, double* value);
+			internal unsafe delegate void glProgramUniformMatrix3x4dvEXT(uint program, int location, int count, [MarshalAs(UnmanagedType.I1)] bool transpose, double* value);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10395,7 +10395,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramUniformMatrix4x2dvEXT(UInt32 program, Int32 location, Int32 count, [MarshalAs(UnmanagedType.I1)] bool transpose, double* value);
+			internal unsafe delegate void glProgramUniformMatrix4x2dvEXT(uint program, int location, int count, [MarshalAs(UnmanagedType.I1)] bool transpose, double* value);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10403,7 +10403,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramUniformMatrix4x3dvEXT(UInt32 program, Int32 location, Int32 count, [MarshalAs(UnmanagedType.I1)] bool transpose, double* value);
+			internal unsafe delegate void glProgramUniformMatrix4x3dvEXT(uint program, int location, int count, [MarshalAs(UnmanagedType.I1)] bool transpose, double* value);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10411,7 +10411,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTextureBufferRangeEXT(UInt32 texture, Int32 target, Int32 internalformat, UInt32 buffer, IntPtr offset, UInt32 size);
+			internal unsafe delegate void glTextureBufferRangeEXT(uint texture, int target, int internalformat, uint buffer, IntPtr offset, uint size);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10420,7 +10420,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTextureStorage1DEXT(UInt32 texture, Int32 target, Int32 levels, Int32 internalformat, Int32 width);
+			internal delegate void glTextureStorage1DEXT(uint texture, int target, int levels, int internalformat, int width);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
@@ -10430,7 +10430,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTextureStorage2DEXT(UInt32 texture, Int32 target, Int32 levels, Int32 internalformat, Int32 width, Int32 height);
+			internal delegate void glTextureStorage2DEXT(uint texture, int target, int levels, int internalformat, int width, int height);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
@@ -10440,7 +10440,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTextureStorage3DEXT(UInt32 texture, Int32 target, Int32 levels, Int32 internalformat, Int32 width, Int32 height, Int32 depth);
+			internal delegate void glTextureStorage3DEXT(uint texture, int target, int levels, int internalformat, int width, int height, int depth);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
@@ -10449,7 +10449,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTextureStorage2DMultisampleEXT(UInt32 texture, Int32 target, Int32 samples, Int32 internalformat, Int32 width, Int32 height, [MarshalAs(UnmanagedType.I1)] bool fixedsamplelocations);
+			internal delegate void glTextureStorage2DMultisampleEXT(uint texture, int target, int samples, int internalformat, int width, int height, [MarshalAs(UnmanagedType.I1)] bool fixedsamplelocations);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10457,7 +10457,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTextureStorage3DMultisampleEXT(UInt32 texture, Int32 target, Int32 samples, Int32 internalformat, Int32 width, Int32 height, Int32 depth, [MarshalAs(UnmanagedType.I1)] bool fixedsamplelocations);
+			internal delegate void glTextureStorage3DMultisampleEXT(uint texture, int target, int samples, int internalformat, int width, int height, int depth, [MarshalAs(UnmanagedType.I1)] bool fixedsamplelocations);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10465,7 +10465,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexArrayBindVertexBufferEXT(UInt32 vaobj, UInt32 bindingindex, UInt32 buffer, IntPtr offset, Int32 stride);
+			internal unsafe delegate void glVertexArrayBindVertexBufferEXT(uint vaobj, uint bindingindex, uint buffer, IntPtr offset, int stride);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10473,7 +10473,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glVertexArrayVertexAttribFormatEXT(UInt32 vaobj, UInt32 attribindex, Int32 size, Int32 type, [MarshalAs(UnmanagedType.I1)] bool normalized, UInt32 relativeoffset);
+			internal delegate void glVertexArrayVertexAttribFormatEXT(uint vaobj, uint attribindex, int size, int type, [MarshalAs(UnmanagedType.I1)] bool normalized, uint relativeoffset);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10481,7 +10481,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glVertexArrayVertexAttribIFormatEXT(UInt32 vaobj, UInt32 attribindex, Int32 size, Int32 type, UInt32 relativeoffset);
+			internal delegate void glVertexArrayVertexAttribIFormatEXT(uint vaobj, uint attribindex, int size, int type, uint relativeoffset);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10489,7 +10489,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glVertexArrayVertexAttribLFormatEXT(UInt32 vaobj, UInt32 attribindex, Int32 size, Int32 type, UInt32 relativeoffset);
+			internal delegate void glVertexArrayVertexAttribLFormatEXT(uint vaobj, uint attribindex, int size, int type, uint relativeoffset);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10497,7 +10497,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glVertexArrayVertexAttribBindingEXT(UInt32 vaobj, UInt32 attribindex, UInt32 bindingindex);
+			internal delegate void glVertexArrayVertexAttribBindingEXT(uint vaobj, uint attribindex, uint bindingindex);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10505,7 +10505,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glVertexArrayVertexBindingDivisorEXT(UInt32 vaobj, UInt32 bindingindex, UInt32 divisor);
+			internal delegate void glVertexArrayVertexBindingDivisorEXT(uint vaobj, uint bindingindex, uint divisor);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10513,7 +10513,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexArrayVertexAttribLOffsetEXT(UInt32 vaobj, UInt32 buffer, UInt32 index, Int32 size, Int32 type, Int32 stride, IntPtr offset);
+			internal unsafe delegate void glVertexArrayVertexAttribLOffsetEXT(uint vaobj, uint buffer, uint index, int size, int type, int stride, IntPtr offset);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10521,7 +10521,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTexturePageCommitmentEXT(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, [MarshalAs(UnmanagedType.I1)] bool commit);
+			internal delegate void glTexturePageCommitmentEXT(uint texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, [MarshalAs(UnmanagedType.I1)] bool commit);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -10529,7 +10529,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glVertexArrayVertexAttribDivisorEXT(UInt32 vaobj, UInt32 index, UInt32 divisor);
+			internal delegate void glVertexArrayVertexAttribDivisorEXT(uint vaobj, uint index, uint divisor);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[ThreadStatic]

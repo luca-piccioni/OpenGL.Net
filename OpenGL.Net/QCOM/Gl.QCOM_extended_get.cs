@@ -107,20 +107,20 @@ namespace OpenGL
 		/// [GL] glExtGetTexturesQCOM: Binding for glExtGetTexturesQCOM.
 		/// </summary>
 		/// <param name="textures">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		/// <param name="maxTextures">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="numTextures">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
-		public static void ExtGetTexturesQCOM(UInt32[] textures, Int32 maxTextures, Int32[] numTextures)
+		public static void ExtGetTexturesQCOM(uint[] textures, int maxTextures, int[] numTextures)
 		{
 			unsafe {
-				fixed (UInt32* p_textures = textures)
-				fixed (Int32* p_numTextures = numTextures)
+				fixed (uint* p_textures = textures)
+				fixed (int* p_numTextures = numTextures)
 				{
 					Debug.Assert(Delegates.pglExtGetTexturesQCOM != null, "pglExtGetTexturesQCOM not implemented");
 					Delegates.pglExtGetTexturesQCOM(p_textures, maxTextures, p_numTextures);
@@ -134,21 +134,21 @@ namespace OpenGL
 		/// [GL] glExtGetBuffersQCOM: Binding for glExtGetBuffersQCOM.
 		/// </summary>
 		/// <param name="buffers">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		/// <param name="numBuffers">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
-		public static void ExtGetBuffersQCOM(UInt32[] buffers, Int32[] numBuffers)
+		public static void ExtGetBuffersQCOM(uint[] buffers, int[] numBuffers)
 		{
 			Debug.Assert(numBuffers.Length >= 1);
 			unsafe {
-				fixed (UInt32* p_buffers = buffers)
-				fixed (Int32* p_numBuffers = numBuffers)
+				fixed (uint* p_buffers = buffers)
+				fixed (int* p_numBuffers = numBuffers)
 				{
 					Debug.Assert(Delegates.pglExtGetBuffersQCOM != null, "pglExtGetBuffersQCOM not implemented");
-					Delegates.pglExtGetBuffersQCOM(p_buffers, (Int32)buffers.Length, p_numBuffers);
+					Delegates.pglExtGetBuffersQCOM(p_buffers, buffers.Length, p_numBuffers);
 					LogCommand("glExtGetBuffersQCOM", null, buffers, buffers.Length, numBuffers					);
 				}
 			}
@@ -159,21 +159,21 @@ namespace OpenGL
 		/// [GL] glExtGetRenderbuffersQCOM: Binding for glExtGetRenderbuffersQCOM.
 		/// </summary>
 		/// <param name="renderbuffers">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		/// <param name="numRenderbuffers">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
-		public static void ExtGetRenderbuffersQCOM(UInt32[] renderbuffers, Int32[] numRenderbuffers)
+		public static void ExtGetRenderbuffersQCOM(uint[] renderbuffers, int[] numRenderbuffers)
 		{
 			Debug.Assert(numRenderbuffers.Length >= 1);
 			unsafe {
-				fixed (UInt32* p_renderbuffers = renderbuffers)
-				fixed (Int32* p_numRenderbuffers = numRenderbuffers)
+				fixed (uint* p_renderbuffers = renderbuffers)
+				fixed (int* p_numRenderbuffers = numRenderbuffers)
 				{
 					Debug.Assert(Delegates.pglExtGetRenderbuffersQCOM != null, "pglExtGetRenderbuffersQCOM not implemented");
-					Delegates.pglExtGetRenderbuffersQCOM(p_renderbuffers, (Int32)renderbuffers.Length, p_numRenderbuffers);
+					Delegates.pglExtGetRenderbuffersQCOM(p_renderbuffers, renderbuffers.Length, p_numRenderbuffers);
 					LogCommand("glExtGetRenderbuffersQCOM", null, renderbuffers, renderbuffers.Length, numRenderbuffers					);
 				}
 			}
@@ -184,21 +184,21 @@ namespace OpenGL
 		/// [GL] glExtGetFramebuffersQCOM: Binding for glExtGetFramebuffersQCOM.
 		/// </summary>
 		/// <param name="framebuffers">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		/// <param name="numFramebuffers">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
-		public static void ExtGetFramebuffersQCOM(UInt32[] framebuffers, Int32[] numFramebuffers)
+		public static void ExtGetFramebuffersQCOM(uint[] framebuffers, int[] numFramebuffers)
 		{
 			Debug.Assert(numFramebuffers.Length >= 1);
 			unsafe {
-				fixed (UInt32* p_framebuffers = framebuffers)
-				fixed (Int32* p_numFramebuffers = numFramebuffers)
+				fixed (uint* p_framebuffers = framebuffers)
+				fixed (int* p_numFramebuffers = numFramebuffers)
 				{
 					Debug.Assert(Delegates.pglExtGetFramebuffersQCOM != null, "pglExtGetFramebuffersQCOM not implemented");
-					Delegates.pglExtGetFramebuffersQCOM(p_framebuffers, (Int32)framebuffers.Length, p_numFramebuffers);
+					Delegates.pglExtGetFramebuffersQCOM(p_framebuffers, framebuffers.Length, p_numFramebuffers);
 					LogCommand("glExtGetFramebuffersQCOM", null, framebuffers, framebuffers.Length, numFramebuffers					);
 				}
 			}
@@ -209,25 +209,25 @@ namespace OpenGL
 		/// [GL] glExtGetTexLevelParameterivQCOM: Binding for glExtGetTexLevelParameterivQCOM.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="face">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
-		public static void ExtGetTexLevelParameterivQCOM(UInt32 texture, Int32 face, Int32 level, Int32 pname, Int32[] @params)
+		public static void ExtGetTexLevelParameterivQCOM(uint texture, int face, int level, int pname, int[] @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglExtGetTexLevelParameterivQCOM != null, "pglExtGetTexLevelParameterivQCOM not implemented");
 					Delegates.pglExtGetTexLevelParameterivQCOM(texture, face, level, pname, p_params);
@@ -241,16 +241,16 @@ namespace OpenGL
 		/// [GL] glExtTexObjectStateOverrideiQCOM: Binding for glExtTexObjectStateOverrideiQCOM.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="param">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
-		public static void ExtTexObjectStateOverrideiQCOM(Int32 target, Int32 pname, Int32 param)
+		public static void ExtTexObjectStateOverrideiQCOM(int target, int pname, int param)
 		{
 			Debug.Assert(Delegates.pglExtTexObjectStateOverrideiQCOM != null, "pglExtTexObjectStateOverrideiQCOM not implemented");
 			Delegates.pglExtTexObjectStateOverrideiQCOM(target, pname, param);
@@ -262,28 +262,28 @@ namespace OpenGL
 		/// [GL] glExtGetTexSubImageQCOM: Binding for glExtGetTexSubImageQCOM.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="xoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="yoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="zoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="depth">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
@@ -295,10 +295,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
-		public static void ExtGetTexSubImageQCOM(Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, PixelType type, IntPtr texels)
+		public static void ExtGetTexSubImageQCOM(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, PixelFormat format, PixelType type, IntPtr texels)
 		{
 			Debug.Assert(Delegates.pglExtGetTexSubImageQCOM != null, "pglExtGetTexSubImageQCOM not implemented");
-			Delegates.pglExtGetTexSubImageQCOM(target, level, xoffset, yoffset, zoffset, width, height, depth, (Int32)format, (Int32)type, texels);
+			Delegates.pglExtGetTexSubImageQCOM(target, level, xoffset, yoffset, zoffset, width, height, depth, (int)format, (int)type, texels);
 			LogCommand("glExtGetTexSubImageQCOM", null, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, texels			);
 			DebugCheckErrors(null);
 		}
@@ -307,13 +307,13 @@ namespace OpenGL
 		/// [GL] glExtGetBufferPointervQCOM: Binding for glExtGetBufferPointervQCOM.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
-		public static void ExtGetBufferPointervQCOM(Int32 target, IntPtr[] @params)
+		public static void ExtGetBufferPointervQCOM(int target, IntPtr[] @params)
 		{
 			unsafe {
 				fixed (IntPtr* p_params = @params)
@@ -330,7 +330,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glExtGetTexturesQCOM(UInt32* textures, Int32 maxTextures, Int32* numTextures);
+			internal unsafe delegate void glExtGetTexturesQCOM(uint* textures, int maxTextures, int* numTextures);
 
 			[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
 			[ThreadStatic]
@@ -338,7 +338,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glExtGetBuffersQCOM(UInt32* buffers, Int32 maxBuffers, Int32* numBuffers);
+			internal unsafe delegate void glExtGetBuffersQCOM(uint* buffers, int maxBuffers, int* numBuffers);
 
 			[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
 			[ThreadStatic]
@@ -346,7 +346,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glExtGetRenderbuffersQCOM(UInt32* renderbuffers, Int32 maxRenderbuffers, Int32* numRenderbuffers);
+			internal unsafe delegate void glExtGetRenderbuffersQCOM(uint* renderbuffers, int maxRenderbuffers, int* numRenderbuffers);
 
 			[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
 			[ThreadStatic]
@@ -354,7 +354,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glExtGetFramebuffersQCOM(UInt32* framebuffers, Int32 maxFramebuffers, Int32* numFramebuffers);
+			internal unsafe delegate void glExtGetFramebuffersQCOM(uint* framebuffers, int maxFramebuffers, int* numFramebuffers);
 
 			[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
 			[ThreadStatic]
@@ -362,7 +362,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glExtGetTexLevelParameterivQCOM(UInt32 texture, Int32 face, Int32 level, Int32 pname, Int32* @params);
+			internal unsafe delegate void glExtGetTexLevelParameterivQCOM(uint texture, int face, int level, int pname, int* @params);
 
 			[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
 			[ThreadStatic]
@@ -370,7 +370,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glExtTexObjectStateOverrideiQCOM(Int32 target, Int32 pname, Int32 param);
+			internal delegate void glExtTexObjectStateOverrideiQCOM(int target, int pname, int param);
 
 			[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
 			[ThreadStatic]
@@ -378,7 +378,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glExtGetTexSubImageQCOM(Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, IntPtr texels);
+			internal unsafe delegate void glExtGetTexSubImageQCOM(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, IntPtr texels);
 
 			[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
 			[ThreadStatic]
@@ -386,7 +386,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glExtGetBufferPointervQCOM(Int32 target, IntPtr* @params);
+			internal unsafe delegate void glExtGetBufferPointervQCOM(int target, IntPtr* @params);
 
 			[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
 			[ThreadStatic]

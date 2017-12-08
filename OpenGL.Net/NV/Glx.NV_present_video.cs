@@ -56,9 +56,9 @@ namespace OpenGL
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GLX_NV_present_video")]
-		public static unsafe UInt32* EnumerateVideoDevicesNV(IntPtr dpy, int screen, int[] nelements)
+		public static unsafe uint* EnumerateVideoDevicesNV(IntPtr dpy, int screen, int[] nelements)
 		{
-			UInt32* retValue;
+			uint* retValue;
 
 			unsafe {
 				fixed (int* p_nelements = nelements)
@@ -80,16 +80,16 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="video_slot">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="video_device">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="attrib_list">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GLX_NV_present_video")]
-		public static int BindVideoDeviceNV(IntPtr dpy, UInt32 video_slot, UInt32 video_device, int[] attrib_list)
+		public static int BindVideoDeviceNV(IntPtr dpy, uint video_slot, uint video_device, int[] attrib_list)
 		{
 			int retValue;
 
@@ -110,14 +110,14 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GLX_NV_present_video")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate UInt32* glXEnumerateVideoDevicesNV(IntPtr dpy, int screen, int* nelements);
+			internal unsafe delegate uint* glXEnumerateVideoDevicesNV(IntPtr dpy, int screen, int* nelements);
 
 			[RequiredByFeature("GLX_NV_present_video")]
 			internal static glXEnumerateVideoDevicesNV pglXEnumerateVideoDevicesNV;
 
 			[RequiredByFeature("GLX_NV_present_video")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate int glXBindVideoDeviceNV(IntPtr dpy, UInt32 video_slot, UInt32 video_device, int* attrib_list);
+			internal unsafe delegate int glXBindVideoDeviceNV(IntPtr dpy, uint video_slot, uint video_device, int* attrib_list);
 
 			[RequiredByFeature("GLX_NV_present_video")]
 			internal static glXBindVideoDeviceNV pglXBindVideoDeviceNV;

@@ -50,10 +50,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="readTarget">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="writeTarget">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="readOffset">
 		/// A <see cref="T:IntPtr"/>.
@@ -62,10 +62,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="size">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GLX_NV_copy_buffer")]
-		public static void CopyBufferSubDataNV(IntPtr dpy, IntPtr readCtx, IntPtr writeCtx, Int32 readTarget, Int32 writeTarget, IntPtr readOffset, IntPtr writeOffset, UInt32 size)
+		public static void CopyBufferSubDataNV(IntPtr dpy, IntPtr readCtx, IntPtr writeCtx, int readTarget, int writeTarget, IntPtr readOffset, IntPtr writeOffset, uint size)
 		{
 			Debug.Assert(Delegates.pglXCopyBufferSubDataNV != null, "pglXCopyBufferSubDataNV not implemented");
 			Delegates.pglXCopyBufferSubDataNV(dpy, readCtx, writeCtx, readTarget, writeTarget, readOffset, writeOffset, size);
@@ -86,10 +86,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="readBuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="writeBuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="readOffset">
 		/// A <see cref="T:IntPtr"/>.
@@ -98,10 +98,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="size">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GLX_NV_copy_buffer")]
-		public static void NamedCopyBufferSubDataNV(IntPtr dpy, IntPtr readCtx, IntPtr writeCtx, UInt32 readBuffer, UInt32 writeBuffer, IntPtr readOffset, IntPtr writeOffset, UInt32 size)
+		public static void NamedCopyBufferSubDataNV(IntPtr dpy, IntPtr readCtx, IntPtr writeCtx, uint readBuffer, uint writeBuffer, IntPtr readOffset, IntPtr writeOffset, uint size)
 		{
 			Debug.Assert(Delegates.pglXNamedCopyBufferSubDataNV != null, "pglXNamedCopyBufferSubDataNV not implemented");
 			Delegates.pglXNamedCopyBufferSubDataNV(dpy, readCtx, writeCtx, readBuffer, writeBuffer, readOffset, writeOffset, size);
@@ -113,14 +113,14 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GLX_NV_copy_buffer")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glXCopyBufferSubDataNV(IntPtr dpy, IntPtr readCtx, IntPtr writeCtx, Int32 readTarget, Int32 writeTarget, IntPtr readOffset, IntPtr writeOffset, UInt32 size);
+			internal unsafe delegate void glXCopyBufferSubDataNV(IntPtr dpy, IntPtr readCtx, IntPtr writeCtx, int readTarget, int writeTarget, IntPtr readOffset, IntPtr writeOffset, uint size);
 
 			[RequiredByFeature("GLX_NV_copy_buffer")]
 			internal static glXCopyBufferSubDataNV pglXCopyBufferSubDataNV;
 
 			[RequiredByFeature("GLX_NV_copy_buffer")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glXNamedCopyBufferSubDataNV(IntPtr dpy, IntPtr readCtx, IntPtr writeCtx, UInt32 readBuffer, UInt32 writeBuffer, IntPtr readOffset, IntPtr writeOffset, UInt32 size);
+			internal unsafe delegate void glXNamedCopyBufferSubDataNV(IntPtr dpy, IntPtr readCtx, IntPtr writeCtx, uint readBuffer, uint writeBuffer, IntPtr readOffset, IntPtr writeOffset, uint size);
 
 			[RequiredByFeature("GLX_NV_copy_buffer")]
 			internal static glXNamedCopyBufferSubDataNV pglXNamedCopyBufferSubDataNV;

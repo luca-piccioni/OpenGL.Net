@@ -41,16 +41,16 @@ namespace OpenGL
 		/// [GL] glAcquireKeyedMutexWin32EXT: Binding for glAcquireKeyedMutexWin32EXT.
 		/// </summary>
 		/// <param name="memory">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="key">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		/// <param name="timeout">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_win32_keyed_mutex", Api = "gl|gles2")]
-		public static bool AcquireKeyedMutexWin32EXT(UInt32 memory, UInt64 key, UInt32 timeout)
+		public static bool AcquireKeyedMutexWin32EXT(uint memory, ulong key, uint timeout)
 		{
 			bool retValue;
 
@@ -66,13 +66,13 @@ namespace OpenGL
 		/// [GL] glReleaseKeyedMutexWin32EXT: Binding for glReleaseKeyedMutexWin32EXT.
 		/// </summary>
 		/// <param name="memory">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="key">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_win32_keyed_mutex", Api = "gl|gles2")]
-		public static bool ReleaseKeyedEXT(UInt32 memory, UInt64 key)
+		public static bool ReleaseKeyedEXT(uint memory, ulong key)
 		{
 			bool retValue;
 
@@ -89,7 +89,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_win32_keyed_mutex", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			[return: MarshalAs(UnmanagedType.I1)]
-			internal delegate bool glAcquireKeyedMutexWin32EXT(UInt32 memory, UInt64 key, UInt32 timeout);
+			internal delegate bool glAcquireKeyedMutexWin32EXT(uint memory, ulong key, uint timeout);
 
 			[RequiredByFeature("GL_EXT_win32_keyed_mutex", Api = "gl|gles2")]
 			[ThreadStatic]
@@ -98,7 +98,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_win32_keyed_mutex", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			[return: MarshalAs(UnmanagedType.I1)]
-			internal delegate bool glReleaseKeyedMutexWin32EXT(UInt32 memory, UInt64 key);
+			internal delegate bool glReleaseKeyedMutexWin32EXT(uint memory, ulong key);
 
 			[RequiredByFeature("GL_EXT_win32_keyed_mutex", Api = "gl|gles2")]
 			[ThreadStatic]

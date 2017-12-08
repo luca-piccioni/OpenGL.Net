@@ -142,11 +142,11 @@ namespace OpenGL
 		/// [GL] glSamplePatternEXT: Binding for glSamplePatternEXT.
 		/// </summary>
 		/// <param name="pattern">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_multisample")]
 		[RequiredByFeature("GL_SGIS_multisample")]
-		public static void SamplePatternEXT(Int32 pattern)
+		public static void SamplePatternEXT(int pattern)
 		{
 			Debug.Assert(Delegates.pglSamplePatternEXT != null, "pglSamplePatternEXT not implemented");
 			Delegates.pglSamplePatternEXT(pattern);
@@ -169,7 +169,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_multisample")]
 			[RequiredByFeature("GL_SGIS_multisample")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glSamplePatternEXT(Int32 pattern);
+			internal delegate void glSamplePatternEXT(int pattern);
 
 			[RequiredByFeature("GL_EXT_multisample")]
 			[RequiredByFeature("GL_SGIS_multisample", EntryPoint = "glSamplePatternSGIS")]

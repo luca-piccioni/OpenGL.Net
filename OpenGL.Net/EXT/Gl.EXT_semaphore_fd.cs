@@ -48,19 +48,19 @@ namespace OpenGL
 		/// [GL] glImportSemaphoreFdEXT: Binding for glImportSemaphoreFdEXT.
 		/// </summary>
 		/// <param name="semaphore">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="handleType">
 		/// A <see cref="T:ExternalHandleType"/>.
 		/// </param>
 		/// <param name="fd">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_semaphore_fd", Api = "gl|gles2")]
-		public static void ImportSemaphoreEXT(UInt32 semaphore, ExternalHandleType handleType, Int32 fd)
+		public static void ImportSemaphoreEXT(uint semaphore, ExternalHandleType handleType, int fd)
 		{
 			Debug.Assert(Delegates.pglImportSemaphoreFdEXT != null, "pglImportSemaphoreFdEXT not implemented");
-			Delegates.pglImportSemaphoreFdEXT(semaphore, (Int32)handleType, fd);
+			Delegates.pglImportSemaphoreFdEXT(semaphore, (int)handleType, fd);
 			LogCommand("glImportSemaphoreFdEXT", null, semaphore, handleType, fd			);
 			DebugCheckErrors(null);
 		}
@@ -69,7 +69,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_EXT_semaphore_fd", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glImportSemaphoreFdEXT(UInt32 semaphore, Int32 handleType, Int32 fd);
+			internal delegate void glImportSemaphoreFdEXT(uint semaphore, int handleType, int fd);
 
 			[RequiredByFeature("GL_EXT_semaphore_fd", Api = "gl|gles2")]
 			[ThreadStatic]

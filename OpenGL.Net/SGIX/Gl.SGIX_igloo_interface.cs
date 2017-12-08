@@ -41,13 +41,13 @@ namespace OpenGL
 		/// [GL] glIglooInterfaceSGIX: Binding for glIglooInterfaceSGIX.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIX_igloo_interface")]
-		public static void IglooInterfaceSGIX(Int32 pname, IntPtr @params)
+		public static void IglooInterfaceSGIX(int pname, IntPtr @params)
 		{
 			Debug.Assert(Delegates.pglIglooInterfaceSGIX != null, "pglIglooInterfaceSGIX not implemented");
 			Delegates.pglIglooInterfaceSGIX(pname, @params);
@@ -59,13 +59,13 @@ namespace OpenGL
 		/// [GL] glIglooInterfaceSGIX: Binding for glIglooInterfaceSGIX.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIX_igloo_interface")]
-		public static void IglooInterfaceSGIX(Int32 pname, Object @params)
+		public static void IglooInterfaceSGIX(int pname, Object @params)
 		{
 			GCHandle pin_params = GCHandle.Alloc(@params, GCHandleType.Pinned);
 			try {
@@ -79,7 +79,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_SGIX_igloo_interface")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glIglooInterfaceSGIX(Int32 pname, IntPtr @params);
+			internal unsafe delegate void glIglooInterfaceSGIX(int pname, IntPtr @params);
 
 			[RequiredByFeature("GL_SGIX_igloo_interface")]
 			[ThreadStatic]

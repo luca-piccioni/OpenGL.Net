@@ -53,13 +53,13 @@ namespace OpenGL
 		/// [GL] glLockArraysEXT: Binding for glLockArraysEXT.
 		/// </summary>
 		/// <param name="first">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_compiled_vertex_array")]
-		public static void LockArraysEXT(Int32 first, Int32 count)
+		public static void LockArraysEXT(int first, int count)
 		{
 			Debug.Assert(Delegates.pglLockArraysEXT != null, "pglLockArraysEXT not implemented");
 			Delegates.pglLockArraysEXT(first, count);
@@ -83,7 +83,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_EXT_compiled_vertex_array")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glLockArraysEXT(Int32 first, Int32 count);
+			internal delegate void glLockArraysEXT(int first, int count);
 
 			[RequiredByFeature("GL_EXT_compiled_vertex_array")]
 			[ThreadStatic]

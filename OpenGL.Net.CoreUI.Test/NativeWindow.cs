@@ -28,6 +28,19 @@ namespace OpenGL.CoreUI.Test
 	[TestFixture(Category = "Toolkit_CoreUI")]
 	class NativeWindowTest
 	{
+		private static NativeWindowStyle[] NativeWindowStyles
+		{
+			get
+			{
+				return new NativeWindowStyle[] {
+					NativeWindowStyle.None,
+					NativeWindowStyle.Border,
+					NativeWindowStyle.Caption,
+					NativeWindowStyle.Resizeable
+				};
+			}
+		}
+
 		[Test(Description = "Test NativeWindow.Create()")]
 		public void TestFactory()
 		{
@@ -320,6 +333,55 @@ namespace OpenGL.CoreUI.Test
 			Assert.IsTrue(nativeWindow.IsDisposed);
 		}
 
+		[Test(Description = "Test NativeWindow.Location"), TestCaseSource("NativeWindowStyles")]
+		public void TestLocation(NativeWindowStyle style)
+		{
+			// Note: if other Windows hooks installed are hacking Win32 messages, this test may lead to false negatives
+
+			using (NativeWindow nativeWindow = NativeWindow.Create()) {
+				// Throws exceptions if not created
+				Point value;
+				Assert.Throws<InvalidOperationException>(() => value = nativeWindow.Location);
+				Assert.Throws<InvalidOperationException>(() => nativeWindow.Location = new Point(128, 128));
+
+				nativeWindow.Create(128, 256, 64, 64, style);
+				nativeWindow.Show();
+
+				// Location follows creation parameters
+				Assert.AreEqual(new Point(128, 256), nativeWindow.Location);
+
+				nativeWindow.Location = new Point(256, 64);
+				Assert.AreEqual(new Point(256, 64), nativeWindow.Location);
+			}
+		}
+
+		[Test(Description = "Test NativeWindow.ClientSize"), TestCaseSource("NativeWindowStyles")]
+		public void TestClientSize(NativeWindowStyle style)
+		{
+			// Note: if other Windows hooks installed are hacking Win32 messages, this test may lead to false negatives
+
+			using (NativeWindow nativeWindow = NativeWindow.Create()) {
+				int resize = 0;
+
+				// Throws exceptions if not created
+				Size value;
+				Assert.Throws<InvalidOperationException>(() => value = nativeWindow.ClientSize);
+				Assert.Throws<InvalidOperationException>(() => nativeWindow.ClientSize = new Size(128, 128));
+
+				nativeWindow.Resize += (object obj, EventArgs e) => resize++;
+				nativeWindow.Create(0, 0, 128, 256, style);
+
+				// ClientSize follows creation parameters
+				Assert.AreEqual(new Size(128, 256), nativeWindow.ClientSize);
+				// Creation shall not raise resize event (instead of must?)
+				Assert.AreEqual(0, resize);
+
+				nativeWindow.ClientSize = new Size(256, 64);
+				Assert.AreEqual(new Size(256, 64), nativeWindow.ClientSize);
+				Assert.AreEqual(1, resize);
+			}
+		}
+
 		[Test(Description = "Test NativeWindow.Show()")]
 		public void TestVisibility()
 		{
@@ -385,6 +447,11 @@ namespace OpenGL.CoreUI.Test
 		public void TestFullscreen()
 		{
 			using (NativeWindow nativeWindow = NativeWindow.Create()) {
+				// Throws exceptions if not created
+				bool value;
+				Assert.Throws<InvalidOperationException>(() => value = nativeWindow.Fullscreen);
+				Assert.Throws<InvalidOperationException>(() => nativeWindow.Fullscreen = true);
+
 				nativeWindow.Create(0, 0, 640, 480, NativeWindowStyle.None);
 
 				Assert.IsFalse(nativeWindow.Fullscreen);
@@ -412,7 +479,6 @@ namespace OpenGL.CoreUI.Test
 				// Reset fullscreen to the actual value, should avoid unecessary operations
 				nativeWindow.Fullscreen = false;
 				Assert.IsFalse(nativeWindow.Fullscreen);
-
 			}
 		}
 

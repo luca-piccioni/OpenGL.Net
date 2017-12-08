@@ -41,13 +41,13 @@ namespace OpenGL
 		/// [GL] glUseShaderProgramEXT: Binding for glUseShaderProgramEXT.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_separate_shader_objects")]
-		public static void UseShaderProgramEXT(Int32 type, UInt32 program)
+		public static void UseShaderProgramEXT(int type, uint program)
 		{
 			Debug.Assert(Delegates.pglUseShaderProgramEXT != null, "pglUseShaderProgramEXT not implemented");
 			Delegates.pglUseShaderProgramEXT(type, program);
@@ -59,10 +59,10 @@ namespace OpenGL
 		/// [GL] glActiveProgramEXT: Binding for glActiveProgramEXT.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_separate_shader_objects")]
-		public static void ActiveProgramEXT(UInt32 program)
+		public static void ActiveProgramEXT(uint program)
 		{
 			Debug.Assert(Delegates.pglActiveProgramEXT != null, "pglActiveProgramEXT not implemented");
 			Delegates.pglActiveProgramEXT(program);
@@ -80,12 +80,12 @@ namespace OpenGL
 		/// A <see cref="T:String"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_separate_shader_objects")]
-		public static UInt32 CreateShaderProgramEXT(ShaderType type, String @string)
+		public static uint CreateShaderProgramEXT(ShaderType type, String @string)
 		{
-			UInt32 retValue;
+			uint retValue;
 
 			Debug.Assert(Delegates.pglCreateShaderProgramEXT != null, "pglCreateShaderProgramEXT not implemented");
-			retValue = Delegates.pglCreateShaderProgramEXT((Int32)type, @string);
+			retValue = Delegates.pglCreateShaderProgramEXT((int)type, @string);
 			LogCommand("glCreateShaderProgramEXT", retValue, type, @string			);
 			DebugCheckErrors(retValue);
 
@@ -96,13 +96,13 @@ namespace OpenGL
 		/// [GL] glActiveShaderProgramEXT: Binding for glActiveShaderProgramEXT.
 		/// </summary>
 		/// <param name="pipeline">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-		public static void ActiveShaderProgramEXT(UInt32 pipeline, UInt32 program)
+		public static void ActiveShaderProgramEXT(uint pipeline, uint program)
 		{
 			Debug.Assert(Delegates.pglActiveShaderProgramEXT != null, "pglActiveShaderProgramEXT not implemented");
 			Delegates.pglActiveShaderProgramEXT(pipeline, program);
@@ -114,10 +114,10 @@ namespace OpenGL
 		/// [GL] glBindProgramPipelineEXT: Binding for glBindProgramPipelineEXT.
 		/// </summary>
 		/// <param name="pipeline">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-		public static void BindProgramPipelineEXT(UInt32 pipeline)
+		public static void BindProgramPipelineEXT(uint pipeline)
 		{
 			Debug.Assert(Delegates.pglBindProgramPipelineEXT != null, "pglBindProgramPipelineEXT not implemented");
 			Delegates.pglBindProgramPipelineEXT(pipeline);
@@ -132,18 +132,18 @@ namespace OpenGL
 		/// A <see cref="T:ShaderType"/>.
 		/// </param>
 		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="strings">
 		/// A <see cref="T:String[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-		public static UInt32 CreateShaderProgramEXT(ShaderType type, Int32 count, String[] strings)
+		public static uint CreateShaderProgramEXT(ShaderType type, int count, String[] strings)
 		{
-			UInt32 retValue;
+			uint retValue;
 
 			Debug.Assert(Delegates.pglCreateShaderProgramvEXT != null, "pglCreateShaderProgramvEXT not implemented");
-			retValue = Delegates.pglCreateShaderProgramvEXT((Int32)type, count, strings);
+			retValue = Delegates.pglCreateShaderProgramvEXT((int)type, count, strings);
 			LogCommand("glCreateShaderProgramvEXT", retValue, type, count, strings			);
 			DebugCheckErrors(retValue);
 
@@ -160,12 +160,12 @@ namespace OpenGL
 		/// A <see cref="T:String[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-		public static UInt32 CreateShaderProgramEXT(ShaderType type, String[] strings)
+		public static uint CreateShaderProgramEXT(ShaderType type, String[] strings)
 		{
-			UInt32 retValue;
+			uint retValue;
 
 			Debug.Assert(Delegates.pglCreateShaderProgramvEXT != null, "pglCreateShaderProgramvEXT not implemented");
-			retValue = Delegates.pglCreateShaderProgramvEXT((Int32)type, (Int32)strings.Length, strings);
+			retValue = Delegates.pglCreateShaderProgramvEXT((int)type, strings.Length, strings);
 			LogCommand("glCreateShaderProgramvEXT", retValue, type, strings.Length, strings			);
 			DebugCheckErrors(retValue);
 
@@ -176,16 +176,16 @@ namespace OpenGL
 		/// [GL] glDeleteProgramPipelinesEXT: Binding for glDeleteProgramPipelinesEXT.
 		/// </summary>
 		/// <param name="pipelines">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-		public static void DeleteProgramPipelinesEXT(params UInt32[] pipelines)
+		public static void DeleteProgramPipelinesEXT(params uint[] pipelines)
 		{
 			unsafe {
-				fixed (UInt32* p_pipelines = pipelines)
+				fixed (uint* p_pipelines = pipelines)
 				{
 					Debug.Assert(Delegates.pglDeleteProgramPipelinesEXT != null, "pglDeleteProgramPipelinesEXT not implemented");
-					Delegates.pglDeleteProgramPipelinesEXT((Int32)pipelines.Length, p_pipelines);
+					Delegates.pglDeleteProgramPipelinesEXT(pipelines.Length, p_pipelines);
 					LogCommand("glDeleteProgramPipelinesEXT", null, pipelines.Length, pipelines					);
 				}
 			}
@@ -196,16 +196,16 @@ namespace OpenGL
 		/// [GL] glGenProgramPipelinesEXT: Binding for glGenProgramPipelinesEXT.
 		/// </summary>
 		/// <param name="pipelines">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-		public static void GenProgramPipelinesEXT(UInt32[] pipelines)
+		public static void GenProgramPipelinesEXT(uint[] pipelines)
 		{
 			unsafe {
-				fixed (UInt32* p_pipelines = pipelines)
+				fixed (uint* p_pipelines = pipelines)
 				{
 					Debug.Assert(Delegates.pglGenProgramPipelinesEXT != null, "pglGenProgramPipelinesEXT not implemented");
-					Delegates.pglGenProgramPipelinesEXT((Int32)pipelines.Length, p_pipelines);
+					Delegates.pglGenProgramPipelinesEXT(pipelines.Length, p_pipelines);
 					LogCommand("glGenProgramPipelinesEXT", null, pipelines.Length, pipelines					);
 				}
 			}
@@ -216,9 +216,9 @@ namespace OpenGL
 		/// [GL] glGenProgramPipelinesEXT: Binding for glGenProgramPipelinesEXT.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-		public static UInt32 GenProgramPipelineEXT()
+		public static uint GenProgramPipelineEXT()
 		{
-			UInt32 retValue;
+			uint retValue;
 			unsafe {
 				Delegates.pglGenProgramPipelinesEXT(1, &retValue);
 				LogCommand("glGenProgramPipelinesEXT", null, 1, "{ " + retValue + " }"				);
@@ -231,22 +231,22 @@ namespace OpenGL
 		/// [GL] glGetProgramPipelineInfoLogEXT: Binding for glGetProgramPipelineInfoLogEXT.
 		/// </summary>
 		/// <param name="pipeline">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="bufSize">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="length">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="infoLog">
 		/// A <see cref="T:StringBuilder"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-		public static void GetProgramPipelineInfoLogEXT(UInt32 pipeline, Int32 bufSize, out Int32 length, [Out] StringBuilder infoLog)
+		public static void GetProgramPipelineInfoLogEXT(uint pipeline, int bufSize, out int length, [Out] StringBuilder infoLog)
 		{
 			unsafe {
-				fixed (Int32* p_length = &length)
+				fixed (int* p_length = &length)
 				{
 					Debug.Assert(Delegates.pglGetProgramPipelineInfoLogEXT != null, "pglGetProgramPipelineInfoLogEXT not implemented");
 					Delegates.pglGetProgramPipelineInfoLogEXT(pipeline, bufSize, p_length, infoLog);
@@ -260,22 +260,22 @@ namespace OpenGL
 		/// [GL] glGetProgramPipelineivEXT: Binding for glGetProgramPipelineivEXT.
 		/// </summary>
 		/// <param name="pipeline">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:PipelineParameterName"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-		public static void GetProgramPipelineEXT(UInt32 pipeline, PipelineParameterName pname, [Out] Int32[] @params)
+		public static void GetProgramPipelineEXT(uint pipeline, PipelineParameterName pname, [Out] int[] @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetProgramPipelineivEXT != null, "pglGetProgramPipelineivEXT not implemented");
-					Delegates.pglGetProgramPipelineivEXT(pipeline, (Int32)pname, p_params);
+					Delegates.pglGetProgramPipelineivEXT(pipeline, (int)pname, p_params);
 					LogCommand("glGetProgramPipelineivEXT", null, pipeline, pname, @params					);
 				}
 			}
@@ -286,22 +286,22 @@ namespace OpenGL
 		/// [GL] glGetProgramPipelineivEXT: Binding for glGetProgramPipelineivEXT.
 		/// </summary>
 		/// <param name="pipeline">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:PipelineParameterName"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-		public static void GetProgramPipelineEXT(UInt32 pipeline, PipelineParameterName pname, out Int32 @params)
+		public static void GetProgramPipelineEXT(uint pipeline, PipelineParameterName pname, out int @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = &@params)
+				fixed (int* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetProgramPipelineivEXT != null, "pglGetProgramPipelineivEXT not implemented");
-					Delegates.pglGetProgramPipelineivEXT(pipeline, (Int32)pname, p_params);
+					Delegates.pglGetProgramPipelineivEXT(pipeline, (int)pname, p_params);
 					LogCommand("glGetProgramPipelineivEXT", null, pipeline, pname, @params					);
 				}
 			}
@@ -312,10 +312,10 @@ namespace OpenGL
 		/// [GL] glIsProgramPipelineEXT: Binding for glIsProgramPipelineEXT.
 		/// </summary>
 		/// <param name="pipeline">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-		public static bool IsProgramPipelineEXT(UInt32 pipeline)
+		public static bool IsProgramPipelineEXT(uint pipeline)
 		{
 			bool retValue;
 
@@ -331,16 +331,16 @@ namespace OpenGL
 		/// [GL] glUseProgramStagesEXT: Binding for glUseProgramStagesEXT.
 		/// </summary>
 		/// <param name="pipeline">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="stages">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-		public static void UseProgramStageEXT(UInt32 pipeline, UInt32 stages, UInt32 program)
+		public static void UseProgramStageEXT(uint pipeline, uint stages, uint program)
 		{
 			Debug.Assert(Delegates.pglUseProgramStagesEXT != null, "pglUseProgramStagesEXT not implemented");
 			Delegates.pglUseProgramStagesEXT(pipeline, stages, program);
@@ -352,10 +352,10 @@ namespace OpenGL
 		/// [GL] glValidateProgramPipelineEXT: Binding for glValidateProgramPipelineEXT.
 		/// </summary>
 		/// <param name="pipeline">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-		public static void ValidateProgramPipelineEXT(UInt32 pipeline)
+		public static void ValidateProgramPipelineEXT(uint pipeline)
 		{
 			Debug.Assert(Delegates.pglValidateProgramPipelineEXT != null, "pglValidateProgramPipelineEXT not implemented");
 			Delegates.pglValidateProgramPipelineEXT(pipeline);
@@ -367,7 +367,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_EXT_separate_shader_objects")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glUseShaderProgramEXT(Int32 type, UInt32 program);
+			internal delegate void glUseShaderProgramEXT(int type, uint program);
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects")]
 			[ThreadStatic]
@@ -375,7 +375,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glActiveProgramEXT(UInt32 program);
+			internal delegate void glActiveProgramEXT(uint program);
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects")]
 			[ThreadStatic]
@@ -383,7 +383,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate UInt32 glCreateShaderProgramEXT(Int32 type, String @string);
+			internal delegate uint glCreateShaderProgramEXT(int type, String @string);
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects")]
 			[ThreadStatic]
@@ -391,7 +391,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glActiveShaderProgramEXT(UInt32 pipeline, UInt32 program);
+			internal delegate void glActiveShaderProgramEXT(uint pipeline, uint program);
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[ThreadStatic]
@@ -399,7 +399,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glBindProgramPipelineEXT(UInt32 pipeline);
+			internal delegate void glBindProgramPipelineEXT(uint pipeline);
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[ThreadStatic]
@@ -407,7 +407,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate UInt32 glCreateShaderProgramvEXT(Int32 type, Int32 count, String[] strings);
+			internal delegate uint glCreateShaderProgramvEXT(int type, int count, String[] strings);
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[ThreadStatic]
@@ -415,7 +415,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDeleteProgramPipelinesEXT(Int32 n, UInt32* pipelines);
+			internal unsafe delegate void glDeleteProgramPipelinesEXT(int n, uint* pipelines);
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[ThreadStatic]
@@ -423,7 +423,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGenProgramPipelinesEXT(Int32 n, UInt32* pipelines);
+			internal unsafe delegate void glGenProgramPipelinesEXT(int n, uint* pipelines);
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[ThreadStatic]
@@ -431,7 +431,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetProgramPipelineInfoLogEXT(UInt32 pipeline, Int32 bufSize, Int32* length, [Out] StringBuilder infoLog);
+			internal unsafe delegate void glGetProgramPipelineInfoLogEXT(uint pipeline, int bufSize, int* length, [Out] StringBuilder infoLog);
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[ThreadStatic]
@@ -439,7 +439,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetProgramPipelineivEXT(UInt32 pipeline, Int32 pname, Int32* @params);
+			internal unsafe delegate void glGetProgramPipelineivEXT(uint pipeline, int pname, int* @params);
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[ThreadStatic]
@@ -448,7 +448,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			[return: MarshalAs(UnmanagedType.I1)]
-			internal delegate bool glIsProgramPipelineEXT(UInt32 pipeline);
+			internal delegate bool glIsProgramPipelineEXT(uint pipeline);
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[ThreadStatic]
@@ -456,7 +456,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glUseProgramStagesEXT(UInt32 pipeline, UInt32 stages, UInt32 program);
+			internal delegate void glUseProgramStagesEXT(uint pipeline, uint stages, uint program);
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[ThreadStatic]
@@ -464,7 +464,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glValidateProgramPipelineEXT(UInt32 pipeline);
+			internal delegate void glValidateProgramPipelineEXT(uint pipeline);
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[ThreadStatic]

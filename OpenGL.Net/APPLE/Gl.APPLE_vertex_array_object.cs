@@ -41,10 +41,10 @@ namespace OpenGL
 		/// [GL] glBindVertexArrayAPPLE: Binding for glBindVertexArrayAPPLE.
 		/// </summary>
 		/// <param name="array">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_APPLE_vertex_array_object")]
-		public static void BindVertexArrayAPPLE(UInt32 array)
+		public static void BindVertexArrayAPPLE(uint array)
 		{
 			Debug.Assert(Delegates.pglBindVertexArrayAPPLE != null, "pglBindVertexArrayAPPLE not implemented");
 			Delegates.pglBindVertexArrayAPPLE(array);
@@ -56,7 +56,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_APPLE_vertex_array_object")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glBindVertexArrayAPPLE(UInt32 array);
+			internal delegate void glBindVertexArrayAPPLE(uint array);
 
 			[RequiredByFeature("GL_APPLE_vertex_array_object")]
 			[ThreadStatic]

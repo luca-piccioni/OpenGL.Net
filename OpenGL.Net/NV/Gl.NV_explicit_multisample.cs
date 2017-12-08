@@ -77,13 +77,13 @@ namespace OpenGL
 		/// [GL] glSampleMaskIndexedNV: Binding for glSampleMaskIndexedNV.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="mask">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_explicit_multisample")]
-		public static void SampleMaskIndexedNV(UInt32 index, UInt32 mask)
+		public static void SampleMaskIndexedNV(uint index, uint mask)
 		{
 			Debug.Assert(Delegates.pglSampleMaskIndexedNV != null, "pglSampleMaskIndexedNV not implemented");
 			Delegates.pglSampleMaskIndexedNV(index, mask);
@@ -98,13 +98,13 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="renderbuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_explicit_multisample")]
-		public static void TexRenderbufferNV(TextureTarget target, UInt32 renderbuffer)
+		public static void TexRenderbufferNV(TextureTarget target, uint renderbuffer)
 		{
 			Debug.Assert(Delegates.pglTexRenderbufferNV != null, "pglTexRenderbufferNV not implemented");
-			Delegates.pglTexRenderbufferNV((Int32)target, renderbuffer);
+			Delegates.pglTexRenderbufferNV((int)target, renderbuffer);
 			LogCommand("glTexRenderbufferNV", null, target, renderbuffer			);
 			DebugCheckErrors(null);
 		}
@@ -113,7 +113,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_NV_explicit_multisample")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glSampleMaskIndexedNV(UInt32 index, UInt32 mask);
+			internal delegate void glSampleMaskIndexedNV(uint index, uint mask);
 
 			[RequiredByFeature("GL_NV_explicit_multisample")]
 			[ThreadStatic]
@@ -121,7 +121,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_explicit_multisample")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTexRenderbufferNV(Int32 target, UInt32 renderbuffer);
+			internal delegate void glTexRenderbufferNV(int target, uint renderbuffer);
 
 			[RequiredByFeature("GL_NV_explicit_multisample")]
 			[ThreadStatic]

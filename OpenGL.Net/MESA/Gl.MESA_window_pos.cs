@@ -131,19 +131,19 @@ namespace OpenGL
 		/// [GL] glWindowPos4iMESA: Binding for glWindowPos4iMESA.
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="w">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_MESA_window_pos")]
-		public static void WindowPos4MESA(Int32 x, Int32 y, Int32 z, Int32 w)
+		public static void WindowPos4MESA(int x, int y, int z, int w)
 		{
 			Debug.Assert(Delegates.pglWindowPos4iMESA != null, "pglWindowPos4iMESA not implemented");
 			Delegates.pglWindowPos4iMESA(x, y, z, w);
@@ -155,14 +155,14 @@ namespace OpenGL
 		/// [GL] glWindowPos4ivMESA: Binding for glWindowPos4ivMESA.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_MESA_window_pos")]
-		public static void WindowPos4MESA(Int32[] v)
+		public static void WindowPos4MESA(int[] v)
 		{
 			Debug.Assert(v.Length >= 4);
 			unsafe {
-				fixed (Int32* p_v = v)
+				fixed (int* p_v = v)
 				{
 					Debug.Assert(Delegates.pglWindowPos4ivMESA != null, "pglWindowPos4ivMESA not implemented");
 					Delegates.pglWindowPos4ivMESA(p_v);
@@ -176,19 +176,19 @@ namespace OpenGL
 		/// [GL] glWindowPos4sMESA: Binding for glWindowPos4sMESA.
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="T:Int16"/>.
+		/// A <see cref="T:short"/>.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int16"/>.
+		/// A <see cref="T:short"/>.
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:Int16"/>.
+		/// A <see cref="T:short"/>.
 		/// </param>
 		/// <param name="w">
-		/// A <see cref="T:Int16"/>.
+		/// A <see cref="T:short"/>.
 		/// </param>
 		[RequiredByFeature("GL_MESA_window_pos")]
-		public static void WindowPos4MESA(Int16 x, Int16 y, Int16 z, Int16 w)
+		public static void WindowPos4MESA(short x, short y, short z, short w)
 		{
 			Debug.Assert(Delegates.pglWindowPos4sMESA != null, "pglWindowPos4sMESA not implemented");
 			Delegates.pglWindowPos4sMESA(x, y, z, w);
@@ -200,14 +200,14 @@ namespace OpenGL
 		/// [GL] glWindowPos4svMESA: Binding for glWindowPos4svMESA.
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="T:Int16[]"/>.
+		/// A <see cref="T:short[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_MESA_window_pos")]
-		public static void WindowPos4MESA(Int16[] v)
+		public static void WindowPos4MESA(short[] v)
 		{
 			Debug.Assert(v.Length >= 4);
 			unsafe {
-				fixed (Int16* p_v = v)
+				fixed (short* p_v = v)
 				{
 					Debug.Assert(Delegates.pglWindowPos4svMESA != null, "pglWindowPos4svMESA not implemented");
 					Delegates.pglWindowPos4svMESA(p_v);
@@ -253,7 +253,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_MESA_window_pos")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glWindowPos4iMESA(Int32 x, Int32 y, Int32 z, Int32 w);
+			internal delegate void glWindowPos4iMESA(int x, int y, int z, int w);
 
 			[RequiredByFeature("GL_MESA_window_pos")]
 			[ThreadStatic]
@@ -261,7 +261,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_MESA_window_pos")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glWindowPos4ivMESA(Int32* v);
+			internal unsafe delegate void glWindowPos4ivMESA(int* v);
 
 			[RequiredByFeature("GL_MESA_window_pos")]
 			[ThreadStatic]
@@ -269,7 +269,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_MESA_window_pos")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glWindowPos4sMESA(Int16 x, Int16 y, Int16 z, Int16 w);
+			internal delegate void glWindowPos4sMESA(short x, short y, short z, short w);
 
 			[RequiredByFeature("GL_MESA_window_pos")]
 			[ThreadStatic]
@@ -277,7 +277,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_MESA_window_pos")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glWindowPos4svMESA(Int16* v);
+			internal unsafe delegate void glWindowPos4svMESA(short* v);
 
 			[RequiredByFeature("GL_MESA_window_pos")]
 			[ThreadStatic]

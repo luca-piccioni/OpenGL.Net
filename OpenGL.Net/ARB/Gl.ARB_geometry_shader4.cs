@@ -87,20 +87,20 @@ namespace OpenGL
 		/// A <see cref="T:FramebufferAttachment"/>.
 		/// </param>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="face">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
 		[RequiredByFeature("GL_NV_geometry_program4")]
-		public static void FramebufferTextureFaceARB(FramebufferTarget target, FramebufferAttachment attachment, UInt32 texture, Int32 level, TextureTarget face)
+		public static void FramebufferTextureFaceARB(FramebufferTarget target, FramebufferAttachment attachment, uint texture, int level, TextureTarget face)
 		{
 			Debug.Assert(Delegates.pglFramebufferTextureFaceARB != null, "pglFramebufferTextureFaceARB not implemented");
-			Delegates.pglFramebufferTextureFaceARB((Int32)target, (Int32)attachment, texture, level, (Int32)face);
+			Delegates.pglFramebufferTextureFaceARB((int)target, (int)attachment, texture, level, (int)face);
 			LogCommand("glFramebufferTextureFaceARB", null, target, attachment, texture, level, face			);
 			DebugCheckErrors(null);
 		}
@@ -110,7 +110,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
 			[RequiredByFeature("GL_NV_geometry_program4")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glFramebufferTextureFaceARB(Int32 target, Int32 attachment, UInt32 texture, Int32 level, Int32 face);
+			internal delegate void glFramebufferTextureFaceARB(int target, int attachment, uint texture, int level, int face);
 
 			[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
 			[RequiredByFeature("GL_NV_geometry_program4", EntryPoint = "glFramebufferTextureFaceEXT")]

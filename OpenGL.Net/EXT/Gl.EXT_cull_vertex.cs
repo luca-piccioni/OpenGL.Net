@@ -59,13 +59,13 @@ namespace OpenGL
 		/// [GL] glCullParameterdvEXT: Binding for glCullParameterdvEXT.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_cull_vertex")]
-		public static void CullParameterEXT(Int32 pname, double[] @params)
+		public static void CullParameterEXT(int pname, double[] @params)
 		{
 			Debug.Assert(@params.Length >= 4);
 			unsafe {
@@ -83,13 +83,13 @@ namespace OpenGL
 		/// [GL] glCullParameterfvEXT: Binding for glCullParameterfvEXT.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_cull_vertex")]
-		public static void CullParameterEXT(Int32 pname, float[] @params)
+		public static void CullParameterEXT(int pname, float[] @params)
 		{
 			Debug.Assert(@params.Length >= 4);
 			unsafe {
@@ -107,7 +107,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_EXT_cull_vertex")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glCullParameterdvEXT(Int32 pname, double* @params);
+			internal unsafe delegate void glCullParameterdvEXT(int pname, double* @params);
 
 			[RequiredByFeature("GL_EXT_cull_vertex")]
 			[ThreadStatic]
@@ -115,7 +115,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_cull_vertex")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glCullParameterfvEXT(Int32 pname, float* @params);
+			internal unsafe delegate void glCullParameterfvEXT(int pname, float* @params);
 
 			[RequiredByFeature("GL_EXT_cull_vertex")]
 			[ThreadStatic]

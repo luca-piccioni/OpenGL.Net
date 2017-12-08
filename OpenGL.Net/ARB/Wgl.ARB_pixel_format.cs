@@ -388,7 +388,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="nAttributes">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="piAttributes">
 		/// A <see cref="T:int[]"/>.
@@ -397,7 +397,7 @@ namespace OpenGL
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("WGL_ARB_pixel_format")]
-		public static bool GetPixelFormatAttribARB(IntPtr hdc, int iPixelFormat, int iLayerPlane, UInt32 nAttributes, int[] piAttributes, [Out] int[] piValues)
+		public static bool GetPixelFormatAttribARB(IntPtr hdc, int iPixelFormat, int iLayerPlane, uint nAttributes, int[] piAttributes, [Out] int[] piValues)
 		{
 			bool retValue;
 
@@ -428,7 +428,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="nAttributes">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="piAttributes">
 		/// A <see cref="T:int[]"/>.
@@ -437,7 +437,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("WGL_ARB_pixel_format")]
-		public static bool GetPixelFormatAttribARB(IntPtr hdc, int iPixelFormat, int iLayerPlane, UInt32 nAttributes, int[] piAttributes, [Out] float[] pfValues)
+		public static bool GetPixelFormatAttribARB(IntPtr hdc, int iPixelFormat, int iLayerPlane, uint nAttributes, int[] piAttributes, [Out] float[] pfValues)
 		{
 			bool retValue;
 
@@ -468,16 +468,16 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		/// <param name="nMaxFormats">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="piFormats">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		/// <param name="nNumFormats">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("WGL_ARB_pixel_format")]
-		public static bool ChoosePixelFormatARB(IntPtr hdc, int[] piAttribIList, float[] pfAttribFList, UInt32 nMaxFormats, int[] piFormats, UInt32[] nNumFormats)
+		public static bool ChoosePixelFormatARB(IntPtr hdc, int[] piAttribIList, float[] pfAttribFList, uint nMaxFormats, int[] piFormats, uint[] nNumFormats)
 		{
 			bool retValue;
 
@@ -485,7 +485,7 @@ namespace OpenGL
 				fixed (int* p_piAttribIList = piAttribIList)
 				fixed (float* p_pfAttribFList = pfAttribFList)
 				fixed (int* p_piFormats = piFormats)
-				fixed (UInt32* p_nNumFormats = nNumFormats)
+				fixed (uint* p_nNumFormats = nNumFormats)
 				{
 					Debug.Assert(Delegates.pwglChoosePixelFormatARB != null, "pwglChoosePixelFormatARB not implemented");
 					retValue = Delegates.pwglChoosePixelFormatARB(hdc, p_piAttribIList, p_pfAttribFList, nMaxFormats, p_piFormats, p_nNumFormats);
@@ -501,21 +501,21 @@ namespace OpenGL
 		{
 			[RequiredByFeature("WGL_ARB_pixel_format")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglGetPixelFormatAttribivARB(IntPtr hdc, int iPixelFormat, int iLayerPlane, UInt32 nAttributes, int* piAttributes, int* piValues);
+			internal unsafe delegate bool wglGetPixelFormatAttribivARB(IntPtr hdc, int iPixelFormat, int iLayerPlane, uint nAttributes, int* piAttributes, int* piValues);
 
 			[RequiredByFeature("WGL_ARB_pixel_format")]
 			internal static wglGetPixelFormatAttribivARB pwglGetPixelFormatAttribivARB;
 
 			[RequiredByFeature("WGL_ARB_pixel_format")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglGetPixelFormatAttribfvARB(IntPtr hdc, int iPixelFormat, int iLayerPlane, UInt32 nAttributes, int* piAttributes, float* pfValues);
+			internal unsafe delegate bool wglGetPixelFormatAttribfvARB(IntPtr hdc, int iPixelFormat, int iLayerPlane, uint nAttributes, int* piAttributes, float* pfValues);
 
 			[RequiredByFeature("WGL_ARB_pixel_format")]
 			internal static wglGetPixelFormatAttribfvARB pwglGetPixelFormatAttribfvARB;
 
 			[RequiredByFeature("WGL_ARB_pixel_format")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglChoosePixelFormatARB(IntPtr hdc, int* piAttribIList, float* pfAttribFList, UInt32 nMaxFormats, int* piFormats, UInt32* nNumFormats);
+			internal unsafe delegate bool wglChoosePixelFormatARB(IntPtr hdc, int* piAttribIList, float* pfAttribFList, uint nMaxFormats, int* piFormats, uint* nNumFormats);
 
 			[RequiredByFeature("WGL_ARB_pixel_format")]
 			internal static wglChoosePixelFormatARB pwglChoosePixelFormatARB;

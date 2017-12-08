@@ -89,7 +89,7 @@ namespace OpenGL
 		/// [GL] glRasterSamplesEXT: Binding for glRasterSamplesEXT.
 		/// </summary>
 		/// <param name="samples">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="fixedsamplelocations">
 		/// A <see cref="T:bool"/>.
@@ -97,7 +97,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_raster_multisample", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_EXT_texture_filter_minmax", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_NV_framebuffer_mixed_samples", Api = "gl|glcore|gles2")]
-		public static void RasterSampleEXT(UInt32 samples, bool fixedsamplelocations)
+		public static void RasterSampleEXT(uint samples, bool fixedsamplelocations)
 		{
 			Debug.Assert(Delegates.pglRasterSamplesEXT != null, "pglRasterSamplesEXT not implemented");
 			Delegates.pglRasterSamplesEXT(samples, fixedsamplelocations);
@@ -111,7 +111,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_texture_filter_minmax", Api = "gl|glcore|gles2")]
 			[RequiredByFeature("GL_NV_framebuffer_mixed_samples", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glRasterSamplesEXT(UInt32 samples, [MarshalAs(UnmanagedType.I1)] bool fixedsamplelocations);
+			internal delegate void glRasterSamplesEXT(uint samples, [MarshalAs(UnmanagedType.I1)] bool fixedsamplelocations);
 
 			[RequiredByFeature("GL_EXT_raster_multisample", Api = "gl|glcore|gles2")]
 			[RequiredByFeature("GL_EXT_texture_filter_minmax", Api = "gl|glcore|gles2")]

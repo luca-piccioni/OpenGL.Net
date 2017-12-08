@@ -65,19 +65,19 @@ namespace OpenGL
 		/// [GL] glProgramSubroutineParametersuivNV: Binding for glProgramSubroutineParametersuivNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_gpu_program5")]
-		public static void ProgramSubroutineParametersNV(Int32 target, UInt32[] @params)
+		public static void ProgramSubroutineParametersNV(int target, uint[] @params)
 		{
 			unsafe {
-				fixed (UInt32* p_params = @params)
+				fixed (uint* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglProgramSubroutineParametersuivNV != null, "pglProgramSubroutineParametersuivNV not implemented");
-					Delegates.pglProgramSubroutineParametersuivNV(target, (Int32)@params.Length, p_params);
+					Delegates.pglProgramSubroutineParametersuivNV(target, @params.Length, p_params);
 					LogCommand("glProgramSubroutineParametersuivNV", null, target, @params.Length, @params					);
 				}
 			}
@@ -88,19 +88,19 @@ namespace OpenGL
 		/// [GL] glGetProgramSubroutineParameteruivNV: Binding for glGetProgramSubroutineParameteruivNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="param">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_gpu_program5")]
-		public static void GetProgramSubroutineParameterNV(Int32 target, UInt32 index, [Out] UInt32[] param)
+		public static void GetProgramSubroutineParameterNV(int target, uint index, [Out] uint[] param)
 		{
 			unsafe {
-				fixed (UInt32* p_param = param)
+				fixed (uint* p_param = param)
 				{
 					Debug.Assert(Delegates.pglGetProgramSubroutineParameteruivNV != null, "pglGetProgramSubroutineParameteruivNV not implemented");
 					Delegates.pglGetProgramSubroutineParameteruivNV(target, index, p_param);
@@ -114,7 +114,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_NV_gpu_program5")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramSubroutineParametersuivNV(Int32 target, Int32 count, UInt32* @params);
+			internal unsafe delegate void glProgramSubroutineParametersuivNV(int target, int count, uint* @params);
 
 			[RequiredByFeature("GL_NV_gpu_program5")]
 			[ThreadStatic]
@@ -122,7 +122,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_gpu_program5")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetProgramSubroutineParameteruivNV(Int32 target, UInt32 index, UInt32* param);
+			internal unsafe delegate void glGetProgramSubroutineParameteruivNV(int target, uint index, uint* param);
 
 			[RequiredByFeature("GL_NV_gpu_program5")]
 			[ThreadStatic]

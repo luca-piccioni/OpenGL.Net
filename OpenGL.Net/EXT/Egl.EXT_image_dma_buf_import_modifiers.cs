@@ -150,7 +150,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="modifiers">
-		/// A <see cref="T:UInt64[]"/>.
+		/// A <see cref="T:ulong[]"/>.
 		/// </param>
 		/// <param name="external_only">
 		/// A <see cref="T:bool[]"/>.
@@ -159,12 +159,12 @@ namespace OpenGL
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("EGL_EXT_image_dma_buf_import_modifiers")]
-		public static bool QueryDmaBufModifiersEXT(IntPtr dpy, int format, int max_modifiers, UInt64[] modifiers, bool[] external_only, int[] num_modifiers)
+		public static bool QueryDmaBufModifiersEXT(IntPtr dpy, int format, int max_modifiers, ulong[] modifiers, bool[] external_only, int[] num_modifiers)
 		{
 			bool retValue;
 
 			unsafe {
-				fixed (UInt64* p_modifiers = modifiers)
+				fixed (ulong* p_modifiers = modifiers)
 				fixed (bool* p_external_only = external_only)
 				fixed (int* p_num_modifiers = num_modifiers)
 				{
@@ -189,7 +189,7 @@ namespace OpenGL
 
 			[RequiredByFeature("EGL_EXT_image_dma_buf_import_modifiers")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool eglQueryDmaBufModifiersEXT(IntPtr dpy, int format, int max_modifiers, UInt64* modifiers, bool* external_only, int* num_modifiers);
+			internal unsafe delegate bool eglQueryDmaBufModifiersEXT(IntPtr dpy, int format, int max_modifiers, ulong* modifiers, bool* external_only, int* num_modifiers);
 
 			[RequiredByFeature("EGL_EXT_image_dma_buf_import_modifiers")]
 			internal static eglQueryDmaBufModifiersEXT peglQueryDmaBufModifiersEXT;

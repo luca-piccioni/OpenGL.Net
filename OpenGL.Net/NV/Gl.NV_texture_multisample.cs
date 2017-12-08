@@ -56,28 +56,28 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="coverageSamples">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="colorSamples">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalFormat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="fixedSampleLocations">
 		/// A <see cref="T:bool"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_texture_multisample")]
-		public static void TexImage2DMultisampleCoverageNV(TextureTarget target, Int32 coverageSamples, Int32 colorSamples, Int32 internalFormat, Int32 width, Int32 height, bool fixedSampleLocations)
+		public static void TexImage2DMultisampleCoverageNV(TextureTarget target, int coverageSamples, int colorSamples, int internalFormat, int width, int height, bool fixedSampleLocations)
 		{
 			Debug.Assert(Delegates.pglTexImage2DMultisampleCoverageNV != null, "pglTexImage2DMultisampleCoverageNV not implemented");
-			Delegates.pglTexImage2DMultisampleCoverageNV((Int32)target, coverageSamples, colorSamples, internalFormat, width, height, fixedSampleLocations);
+			Delegates.pglTexImage2DMultisampleCoverageNV((int)target, coverageSamples, colorSamples, internalFormat, width, height, fixedSampleLocations);
 			LogCommand("glTexImage2DMultisampleCoverageNV", null, target, coverageSamples, colorSamples, internalFormat, width, height, fixedSampleLocations			);
 			DebugCheckErrors(null);
 		}
@@ -89,31 +89,31 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="coverageSamples">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="colorSamples">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalFormat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="depth">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="fixedSampleLocations">
 		/// A <see cref="T:bool"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_texture_multisample")]
-		public static void TexImage3DMultisampleCoverageNV(TextureTarget target, Int32 coverageSamples, Int32 colorSamples, Int32 internalFormat, Int32 width, Int32 height, Int32 depth, bool fixedSampleLocations)
+		public static void TexImage3DMultisampleCoverageNV(TextureTarget target, int coverageSamples, int colorSamples, int internalFormat, int width, int height, int depth, bool fixedSampleLocations)
 		{
 			Debug.Assert(Delegates.pglTexImage3DMultisampleCoverageNV != null, "pglTexImage3DMultisampleCoverageNV not implemented");
-			Delegates.pglTexImage3DMultisampleCoverageNV((Int32)target, coverageSamples, colorSamples, internalFormat, width, height, depth, fixedSampleLocations);
+			Delegates.pglTexImage3DMultisampleCoverageNV((int)target, coverageSamples, colorSamples, internalFormat, width, height, depth, fixedSampleLocations);
 			LogCommand("glTexImage3DMultisampleCoverageNV", null, target, coverageSamples, colorSamples, internalFormat, width, height, depth, fixedSampleLocations			);
 			DebugCheckErrors(null);
 		}
@@ -122,31 +122,31 @@ namespace OpenGL
 		/// [GL] glTextureImage2DMultisampleNV: Binding for glTextureImage2DMultisampleNV.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="samples">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalFormat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="fixedSampleLocations">
 		/// A <see cref="T:bool"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_texture_multisample")]
-		public static void TextureImage2DMultisampleNV(UInt32 texture, TextureTarget target, Int32 samples, Int32 internalFormat, Int32 width, Int32 height, bool fixedSampleLocations)
+		public static void TextureImage2DMultisampleNV(uint texture, TextureTarget target, int samples, int internalFormat, int width, int height, bool fixedSampleLocations)
 		{
 			Debug.Assert(Delegates.pglTextureImage2DMultisampleNV != null, "pglTextureImage2DMultisampleNV not implemented");
-			Delegates.pglTextureImage2DMultisampleNV(texture, (Int32)target, samples, internalFormat, width, height, fixedSampleLocations);
+			Delegates.pglTextureImage2DMultisampleNV(texture, (int)target, samples, internalFormat, width, height, fixedSampleLocations);
 			LogCommand("glTextureImage2DMultisampleNV", null, texture, target, samples, internalFormat, width, height, fixedSampleLocations			);
 			DebugCheckErrors(null);
 		}
@@ -155,34 +155,34 @@ namespace OpenGL
 		/// [GL] glTextureImage3DMultisampleNV: Binding for glTextureImage3DMultisampleNV.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="samples">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalFormat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="depth">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="fixedSampleLocations">
 		/// A <see cref="T:bool"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_texture_multisample")]
-		public static void TextureImage3DMultisampleNV(UInt32 texture, TextureTarget target, Int32 samples, Int32 internalFormat, Int32 width, Int32 height, Int32 depth, bool fixedSampleLocations)
+		public static void TextureImage3DMultisampleNV(uint texture, TextureTarget target, int samples, int internalFormat, int width, int height, int depth, bool fixedSampleLocations)
 		{
 			Debug.Assert(Delegates.pglTextureImage3DMultisampleNV != null, "pglTextureImage3DMultisampleNV not implemented");
-			Delegates.pglTextureImage3DMultisampleNV(texture, (Int32)target, samples, internalFormat, width, height, depth, fixedSampleLocations);
+			Delegates.pglTextureImage3DMultisampleNV(texture, (int)target, samples, internalFormat, width, height, depth, fixedSampleLocations);
 			LogCommand("glTextureImage3DMultisampleNV", null, texture, target, samples, internalFormat, width, height, depth, fixedSampleLocations			);
 			DebugCheckErrors(null);
 		}
@@ -191,34 +191,34 @@ namespace OpenGL
 		/// [GL] glTextureImage2DMultisampleCoverageNV: Binding for glTextureImage2DMultisampleCoverageNV.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="coverageSamples">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="colorSamples">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalFormat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="fixedSampleLocations">
 		/// A <see cref="T:bool"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_texture_multisample")]
-		public static void TextureImage2DMultisampleCoverageNV(UInt32 texture, TextureTarget target, Int32 coverageSamples, Int32 colorSamples, Int32 internalFormat, Int32 width, Int32 height, bool fixedSampleLocations)
+		public static void TextureImage2DMultisampleCoverageNV(uint texture, TextureTarget target, int coverageSamples, int colorSamples, int internalFormat, int width, int height, bool fixedSampleLocations)
 		{
 			Debug.Assert(Delegates.pglTextureImage2DMultisampleCoverageNV != null, "pglTextureImage2DMultisampleCoverageNV not implemented");
-			Delegates.pglTextureImage2DMultisampleCoverageNV(texture, (Int32)target, coverageSamples, colorSamples, internalFormat, width, height, fixedSampleLocations);
+			Delegates.pglTextureImage2DMultisampleCoverageNV(texture, (int)target, coverageSamples, colorSamples, internalFormat, width, height, fixedSampleLocations);
 			LogCommand("glTextureImage2DMultisampleCoverageNV", null, texture, target, coverageSamples, colorSamples, internalFormat, width, height, fixedSampleLocations			);
 			DebugCheckErrors(null);
 		}
@@ -227,37 +227,37 @@ namespace OpenGL
 		/// [GL] glTextureImage3DMultisampleCoverageNV: Binding for glTextureImage3DMultisampleCoverageNV.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="coverageSamples">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="colorSamples">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalFormat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="depth">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="fixedSampleLocations">
 		/// A <see cref="T:bool"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_texture_multisample")]
-		public static void TextureImage3DMultisampleCoverageNV(UInt32 texture, TextureTarget target, Int32 coverageSamples, Int32 colorSamples, Int32 internalFormat, Int32 width, Int32 height, Int32 depth, bool fixedSampleLocations)
+		public static void TextureImage3DMultisampleCoverageNV(uint texture, TextureTarget target, int coverageSamples, int colorSamples, int internalFormat, int width, int height, int depth, bool fixedSampleLocations)
 		{
 			Debug.Assert(Delegates.pglTextureImage3DMultisampleCoverageNV != null, "pglTextureImage3DMultisampleCoverageNV not implemented");
-			Delegates.pglTextureImage3DMultisampleCoverageNV(texture, (Int32)target, coverageSamples, colorSamples, internalFormat, width, height, depth, fixedSampleLocations);
+			Delegates.pglTextureImage3DMultisampleCoverageNV(texture, (int)target, coverageSamples, colorSamples, internalFormat, width, height, depth, fixedSampleLocations);
 			LogCommand("glTextureImage3DMultisampleCoverageNV", null, texture, target, coverageSamples, colorSamples, internalFormat, width, height, depth, fixedSampleLocations			);
 			DebugCheckErrors(null);
 		}
@@ -266,7 +266,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_NV_texture_multisample")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTexImage2DMultisampleCoverageNV(Int32 target, Int32 coverageSamples, Int32 colorSamples, Int32 internalFormat, Int32 width, Int32 height, [MarshalAs(UnmanagedType.I1)] bool fixedSampleLocations);
+			internal delegate void glTexImage2DMultisampleCoverageNV(int target, int coverageSamples, int colorSamples, int internalFormat, int width, int height, [MarshalAs(UnmanagedType.I1)] bool fixedSampleLocations);
 
 			[RequiredByFeature("GL_NV_texture_multisample")]
 			[ThreadStatic]
@@ -274,7 +274,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_texture_multisample")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTexImage3DMultisampleCoverageNV(Int32 target, Int32 coverageSamples, Int32 colorSamples, Int32 internalFormat, Int32 width, Int32 height, Int32 depth, [MarshalAs(UnmanagedType.I1)] bool fixedSampleLocations);
+			internal delegate void glTexImage3DMultisampleCoverageNV(int target, int coverageSamples, int colorSamples, int internalFormat, int width, int height, int depth, [MarshalAs(UnmanagedType.I1)] bool fixedSampleLocations);
 
 			[RequiredByFeature("GL_NV_texture_multisample")]
 			[ThreadStatic]
@@ -282,7 +282,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_texture_multisample")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTextureImage2DMultisampleNV(UInt32 texture, Int32 target, Int32 samples, Int32 internalFormat, Int32 width, Int32 height, [MarshalAs(UnmanagedType.I1)] bool fixedSampleLocations);
+			internal delegate void glTextureImage2DMultisampleNV(uint texture, int target, int samples, int internalFormat, int width, int height, [MarshalAs(UnmanagedType.I1)] bool fixedSampleLocations);
 
 			[RequiredByFeature("GL_NV_texture_multisample")]
 			[ThreadStatic]
@@ -290,7 +290,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_texture_multisample")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTextureImage3DMultisampleNV(UInt32 texture, Int32 target, Int32 samples, Int32 internalFormat, Int32 width, Int32 height, Int32 depth, [MarshalAs(UnmanagedType.I1)] bool fixedSampleLocations);
+			internal delegate void glTextureImage3DMultisampleNV(uint texture, int target, int samples, int internalFormat, int width, int height, int depth, [MarshalAs(UnmanagedType.I1)] bool fixedSampleLocations);
 
 			[RequiredByFeature("GL_NV_texture_multisample")]
 			[ThreadStatic]
@@ -298,7 +298,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_texture_multisample")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTextureImage2DMultisampleCoverageNV(UInt32 texture, Int32 target, Int32 coverageSamples, Int32 colorSamples, Int32 internalFormat, Int32 width, Int32 height, [MarshalAs(UnmanagedType.I1)] bool fixedSampleLocations);
+			internal delegate void glTextureImage2DMultisampleCoverageNV(uint texture, int target, int coverageSamples, int colorSamples, int internalFormat, int width, int height, [MarshalAs(UnmanagedType.I1)] bool fixedSampleLocations);
 
 			[RequiredByFeature("GL_NV_texture_multisample")]
 			[ThreadStatic]
@@ -306,7 +306,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_texture_multisample")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTextureImage3DMultisampleCoverageNV(UInt32 texture, Int32 target, Int32 coverageSamples, Int32 colorSamples, Int32 internalFormat, Int32 width, Int32 height, Int32 depth, [MarshalAs(UnmanagedType.I1)] bool fixedSampleLocations);
+			internal delegate void glTextureImage3DMultisampleCoverageNV(uint texture, int target, int coverageSamples, int colorSamples, int internalFormat, int width, int height, int depth, [MarshalAs(UnmanagedType.I1)] bool fixedSampleLocations);
 
 			[RequiredByFeature("GL_NV_texture_multisample")]
 			[ThreadStatic]

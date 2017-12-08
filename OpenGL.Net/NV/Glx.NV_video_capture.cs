@@ -62,13 +62,13 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="video_capture_slot">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="device">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GLX_NV_video_capture")]
-		public static int BindVideoCaptureDeviceNV(IntPtr dpy, UInt32 video_capture_slot, IntPtr device)
+		public static int BindVideoCaptureDeviceNV(IntPtr dpy, uint video_capture_slot, IntPtr device)
 		{
 			int retValue;
 
@@ -183,7 +183,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GLX_NV_video_capture")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate int glXBindVideoCaptureDeviceNV(IntPtr dpy, UInt32 video_capture_slot, IntPtr device);
+			internal unsafe delegate int glXBindVideoCaptureDeviceNV(IntPtr dpy, uint video_capture_slot, IntPtr device);
 
 			[RequiredByFeature("GLX_NV_video_capture")]
 			internal static glXBindVideoCaptureDeviceNV pglXBindVideoCaptureDeviceNV;

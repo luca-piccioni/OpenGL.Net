@@ -213,18 +213,18 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pulCounterPbuffer">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		/// <param name="bBlock">
 		/// A <see cref="T:bool"/>.
 		/// </param>
 		[RequiredByFeature("GLX_NV_video_out")]
-		public static int SendPbufferToVideoNV(IntPtr dpy, IntPtr pbuf, int iBufferType, UInt32[] pulCounterPbuffer, bool bBlock)
+		public static int SendPbufferToVideoNV(IntPtr dpy, IntPtr pbuf, int iBufferType, uint[] pulCounterPbuffer, bool bBlock)
 		{
 			int retValue;
 
 			unsafe {
-				fixed (UInt32* p_pulCounterPbuffer = pulCounterPbuffer)
+				fixed (uint* p_pulCounterPbuffer = pulCounterPbuffer)
 				{
 					Debug.Assert(Delegates.pglXSendPbufferToVideoNV != null, "pglXSendPbufferToVideoNV not implemented");
 					retValue = Delegates.pglXSendPbufferToVideoNV(dpy, pbuf, iBufferType, p_pulCounterPbuffer, bBlock);
@@ -249,19 +249,19 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="pulCounterOutputPbuffer">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		/// <param name="pulCounterOutputVideo">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GLX_NV_video_out")]
-		public static int GetVideoInfoNV(IntPtr dpy, int screen, IntPtr VideoDevice, [Out] UInt32[] pulCounterOutputPbuffer, [Out] UInt32[] pulCounterOutputVideo)
+		public static int GetVideoInfoNV(IntPtr dpy, int screen, IntPtr VideoDevice, [Out] uint[] pulCounterOutputPbuffer, [Out] uint[] pulCounterOutputVideo)
 		{
 			int retValue;
 
 			unsafe {
-				fixed (UInt32* p_pulCounterOutputPbuffer = pulCounterOutputPbuffer)
-				fixed (UInt32* p_pulCounterOutputVideo = pulCounterOutputVideo)
+				fixed (uint* p_pulCounterOutputPbuffer = pulCounterOutputPbuffer)
+				fixed (uint* p_pulCounterOutputVideo = pulCounterOutputVideo)
 				{
 					Debug.Assert(Delegates.pglXGetVideoInfoNV != null, "pglXGetVideoInfoNV not implemented");
 					retValue = Delegates.pglXGetVideoInfoNV(dpy, screen, VideoDevice, p_pulCounterOutputPbuffer, p_pulCounterOutputVideo);
@@ -305,14 +305,14 @@ namespace OpenGL
 
 			[RequiredByFeature("GLX_NV_video_out")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate int glXSendPbufferToVideoNV(IntPtr dpy, IntPtr pbuf, int iBufferType, UInt32* pulCounterPbuffer, [MarshalAs(UnmanagedType.I1)] bool bBlock);
+			internal unsafe delegate int glXSendPbufferToVideoNV(IntPtr dpy, IntPtr pbuf, int iBufferType, uint* pulCounterPbuffer, [MarshalAs(UnmanagedType.I1)] bool bBlock);
 
 			[RequiredByFeature("GLX_NV_video_out")]
 			internal static glXSendPbufferToVideoNV pglXSendPbufferToVideoNV;
 
 			[RequiredByFeature("GLX_NV_video_out")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate int glXGetVideoInfoNV(IntPtr dpy, int screen, IntPtr VideoDevice, UInt32* pulCounterOutputPbuffer, UInt32* pulCounterOutputVideo);
+			internal unsafe delegate int glXGetVideoInfoNV(IntPtr dpy, int screen, IntPtr VideoDevice, uint* pulCounterOutputPbuffer, uint* pulCounterOutputVideo);
 
 			[RequiredByFeature("GLX_NV_video_out")]
 			internal static glXGetVideoInfoNV pglXGetVideoInfoNV;

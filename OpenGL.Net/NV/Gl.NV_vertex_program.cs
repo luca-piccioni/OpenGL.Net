@@ -491,22 +491,22 @@ namespace OpenGL
 		/// [GL] glAreProgramsResidentNV: Binding for glAreProgramsResidentNV.
 		/// </summary>
 		/// <param name="programs">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		/// <param name="residences">
 		/// A <see cref="T:byte[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static bool AreProgramsResidentNV(UInt32[] programs, [Out] byte[] residences)
+		public static bool AreProgramsResidentNV(uint[] programs, [Out] byte[] residences)
 		{
 			bool retValue;
 
 			unsafe {
-				fixed (UInt32* p_programs = programs)
+				fixed (uint* p_programs = programs)
 				fixed (byte* p_residences = residences)
 				{
 					Debug.Assert(Delegates.pglAreProgramsResidentNV != null, "pglAreProgramsResidentNV not implemented");
-					retValue = Delegates.pglAreProgramsResidentNV((Int32)programs.Length, p_programs, p_residences);
+					retValue = Delegates.pglAreProgramsResidentNV(programs.Length, p_programs, p_residences);
 					LogCommand("glAreProgramsResidentNV", retValue, programs.Length, programs, residences					);
 				}
 			}
@@ -519,16 +519,16 @@ namespace OpenGL
 		/// [GL] glExecuteProgramNV: Binding for glExecuteProgramNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void ExecuteProgramNV(Int32 target, UInt32 id, float[] @params)
+		public static void ExecuteProgramNV(int target, uint id, float[] @params)
 		{
 			Debug.Assert(@params.Length >= 4);
 			unsafe {
@@ -546,19 +546,19 @@ namespace OpenGL
 		/// [GL] glGetProgramParameterdvNV: Binding for glGetProgramParameterdvNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void GetProgramParameterNV(Int32 target, UInt32 index, Int32 pname, [Out] double[] @params)
+		public static void GetProgramParameterNV(int target, uint index, int pname, [Out] double[] @params)
 		{
 			Debug.Assert(@params.Length >= 4);
 			unsafe {
@@ -576,19 +576,19 @@ namespace OpenGL
 		/// [GL] glGetProgramParameterfvNV: Binding for glGetProgramParameterfvNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void GetProgramParameterNV(Int32 target, UInt32 index, Int32 pname, [Out] float[] @params)
+		public static void GetProgramParameterNV(int target, uint index, int pname, [Out] float[] @params)
 		{
 			Debug.Assert(@params.Length >= 4);
 			unsafe {
@@ -606,20 +606,20 @@ namespace OpenGL
 		/// [GL] glGetProgramivNV: Binding for glGetProgramivNV.
 		/// </summary>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void GetProgramNV(UInt32 id, Int32 pname, [Out] Int32[] @params)
+		public static void GetProgramNV(uint id, int pname, [Out] int[] @params)
 		{
 			Debug.Assert(@params.Length >= 4);
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetProgramivNV != null, "pglGetProgramivNV not implemented");
 					Delegates.pglGetProgramivNV(id, pname, p_params);
@@ -633,16 +633,16 @@ namespace OpenGL
 		/// [GL] glGetProgramStringNV: Binding for glGetProgramStringNV.
 		/// </summary>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="program">
 		/// A <see cref="T:byte[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void GetProgramStringNV(UInt32 id, Int32 pname, [Out] byte[] program)
+		public static void GetProgramStringNV(uint id, int pname, [Out] byte[] program)
 		{
 			unsafe {
 				fixed (byte* p_program = program)
@@ -659,22 +659,22 @@ namespace OpenGL
 		/// [GL] glGetTrackMatrixivNV: Binding for glGetTrackMatrixivNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="address">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void GetTrackMatrixNV(Int32 target, UInt32 address, Int32 pname, out Int32 @params)
+		public static void GetTrackMatrixNV(int target, uint address, int pname, out int @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = &@params)
+				fixed (int* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetTrackMatrixivNV != null, "pglGetTrackMatrixivNV not implemented");
 					Delegates.pglGetTrackMatrixivNV(target, address, pname, p_params);
@@ -688,22 +688,22 @@ namespace OpenGL
 		/// [GL] glLoadProgramNV: Binding for glLoadProgramNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="program">
 		/// A <see cref="T:byte[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void LoadProgramNV(Int32 target, UInt32 id, byte[] program)
+		public static void LoadProgramNV(int target, uint id, byte[] program)
 		{
 			unsafe {
 				fixed (byte* p_program = program)
 				{
 					Debug.Assert(Delegates.pglLoadProgramNV != null, "pglLoadProgramNV not implemented");
-					Delegates.pglLoadProgramNV(target, id, (Int32)program.Length, p_program);
+					Delegates.pglLoadProgramNV(target, id, program.Length, p_program);
 					LogCommand("glLoadProgramNV", null, target, id, program.Length, program					);
 				}
 			}
@@ -714,10 +714,10 @@ namespace OpenGL
 		/// [GL] glProgramParameter4dNV: Binding for glProgramParameter4dNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="x">
 		/// A <see cref="T:double"/>.
@@ -732,7 +732,7 @@ namespace OpenGL
 		/// A <see cref="T:double"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void ProgramParameter4NV(Int32 target, UInt32 index, double x, double y, double z, double w)
+		public static void ProgramParameter4NV(int target, uint index, double x, double y, double z, double w)
 		{
 			Debug.Assert(Delegates.pglProgramParameter4dNV != null, "pglProgramParameter4dNV not implemented");
 			Delegates.pglProgramParameter4dNV(target, index, x, y, z, w);
@@ -744,16 +744,16 @@ namespace OpenGL
 		/// [GL] glProgramParameter4dvNV: Binding for glProgramParameter4dvNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void ProgramParameter4NV(Int32 target, UInt32 index, double[] v)
+		public static void ProgramParameter4NV(int target, uint index, double[] v)
 		{
 			Debug.Assert(v.Length >= 4);
 			unsafe {
@@ -771,10 +771,10 @@ namespace OpenGL
 		/// [GL] glProgramParameter4fNV: Binding for glProgramParameter4fNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="x">
 		/// A <see cref="T:float"/>.
@@ -789,7 +789,7 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void ProgramParameter4NV(Int32 target, UInt32 index, float x, float y, float z, float w)
+		public static void ProgramParameter4NV(int target, uint index, float x, float y, float z, float w)
 		{
 			Debug.Assert(Delegates.pglProgramParameter4fNV != null, "pglProgramParameter4fNV not implemented");
 			Delegates.pglProgramParameter4fNV(target, index, x, y, z, w);
@@ -801,16 +801,16 @@ namespace OpenGL
 		/// [GL] glProgramParameter4fvNV: Binding for glProgramParameter4fvNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void ProgramParameter4NV(Int32 target, UInt32 index, float[] v)
+		public static void ProgramParameter4NV(int target, uint index, float[] v)
 		{
 			Debug.Assert(v.Length >= 4);
 			unsafe {
@@ -828,23 +828,23 @@ namespace OpenGL
 		/// [GL] glProgramParameters4dvNV: Binding for glProgramParameters4dvNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void ProgramParameters4NV(Int32 target, UInt32 index, double[] v)
+		public static void ProgramParameters4NV(int target, uint index, double[] v)
 		{
 			Debug.Assert(v.Length > 0 && (v.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
 				fixed (double* p_v = v)
 				{
 					Debug.Assert(Delegates.pglProgramParameters4dvNV != null, "pglProgramParameters4dvNV not implemented");
-					Delegates.pglProgramParameters4dvNV(target, index, (Int32)v.Length / 4, p_v);
+					Delegates.pglProgramParameters4dvNV(target, index, v.Length / 4, p_v);
 					LogCommand("glProgramParameters4dvNV", null, target, index, v.Length / 4, v					);
 				}
 			}
@@ -855,23 +855,23 @@ namespace OpenGL
 		/// [GL] glProgramParameters4fvNV: Binding for glProgramParameters4fvNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void ProgramParameters4NV(Int32 target, UInt32 index, float[] v)
+		public static void ProgramParameters4NV(int target, uint index, float[] v)
 		{
 			Debug.Assert(v.Length > 0 && (v.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
 				fixed (float* p_v = v)
 				{
 					Debug.Assert(Delegates.pglProgramParameters4fvNV != null, "pglProgramParameters4fvNV not implemented");
-					Delegates.pglProgramParameters4fvNV(target, index, (Int32)v.Length / 4, p_v);
+					Delegates.pglProgramParameters4fvNV(target, index, v.Length / 4, p_v);
 					LogCommand("glProgramParameters4fvNV", null, target, index, v.Length / 4, v					);
 				}
 			}
@@ -882,16 +882,16 @@ namespace OpenGL
 		/// [GL] glRequestResidentProgramsNV: Binding for glRequestResidentProgramsNV.
 		/// </summary>
 		/// <param name="programs">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void RequestResidentProgramsNV(UInt32[] programs)
+		public static void RequestResidentProgramsNV(uint[] programs)
 		{
 			unsafe {
-				fixed (UInt32* p_programs = programs)
+				fixed (uint* p_programs = programs)
 				{
 					Debug.Assert(Delegates.pglRequestResidentProgramsNV != null, "pglRequestResidentProgramsNV not implemented");
-					Delegates.pglRequestResidentProgramsNV((Int32)programs.Length, p_programs);
+					Delegates.pglRequestResidentProgramsNV(programs.Length, p_programs);
 					LogCommand("glRequestResidentProgramsNV", null, programs.Length, programs					);
 				}
 			}
@@ -902,19 +902,19 @@ namespace OpenGL
 		/// [GL] glTrackMatrixNV: Binding for glTrackMatrixNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="address">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="matrix">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="transform">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void TrackMatrixNV(Int32 target, UInt32 address, Int32 matrix, Int32 transform)
+		public static void TrackMatrixNV(int target, uint address, int matrix, int transform)
 		{
 			Debug.Assert(Delegates.pglTrackMatrixNV != null, "pglTrackMatrixNV not implemented");
 			Delegates.pglTrackMatrixNV(target, address, matrix, transform);
@@ -926,22 +926,22 @@ namespace OpenGL
 		/// [GL] glVertexAttribPointerNV: Binding for glVertexAttribPointerNV.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="fsize">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttribPointerNV(UInt32 index, Int32 fsize, Int32 type, Int32 stride, IntPtr pointer)
+		public static void VertexAttribPointerNV(uint index, int fsize, int type, int stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglVertexAttribPointerNV != null, "pglVertexAttribPointerNV not implemented");
 			Delegates.pglVertexAttribPointerNV(index, fsize, type, stride, pointer);
@@ -953,22 +953,22 @@ namespace OpenGL
 		/// [GL] glVertexAttribPointerNV: Binding for glVertexAttribPointerNV.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="fsize">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pointer">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttribPointerNV(UInt32 index, Int32 fsize, Int32 type, Int32 stride, Object pointer)
+		public static void VertexAttribPointerNV(uint index, int fsize, int type, int stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -982,19 +982,19 @@ namespace OpenGL
 		/// [GL] glVertexAttribs1dvNV: Binding for glVertexAttribs1dvNV.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttribs1NV(UInt32 index, double[] v)
+		public static void VertexAttribs1NV(uint index, double[] v)
 		{
 			unsafe {
 				fixed (double* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertexAttribs1dvNV != null, "pglVertexAttribs1dvNV not implemented");
-					Delegates.pglVertexAttribs1dvNV(index, (Int32)v.Length, p_v);
+					Delegates.pglVertexAttribs1dvNV(index, v.Length, p_v);
 					LogCommand("glVertexAttribs1dvNV", null, index, v.Length, v					);
 				}
 			}
@@ -1005,19 +1005,19 @@ namespace OpenGL
 		/// [GL] glVertexAttribs1fvNV: Binding for glVertexAttribs1fvNV.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttribs1NV(UInt32 index, float[] v)
+		public static void VertexAttribs1NV(uint index, float[] v)
 		{
 			unsafe {
 				fixed (float* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertexAttribs1fvNV != null, "pglVertexAttribs1fvNV not implemented");
-					Delegates.pglVertexAttribs1fvNV(index, (Int32)v.Length, p_v);
+					Delegates.pglVertexAttribs1fvNV(index, v.Length, p_v);
 					LogCommand("glVertexAttribs1fvNV", null, index, v.Length, v					);
 				}
 			}
@@ -1028,19 +1028,19 @@ namespace OpenGL
 		/// [GL] glVertexAttribs1svNV: Binding for glVertexAttribs1svNV.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="T:Int16[]"/>.
+		/// A <see cref="T:short[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttribs1NV(UInt32 index, Int16[] v)
+		public static void VertexAttribs1NV(uint index, short[] v)
 		{
 			unsafe {
-				fixed (Int16* p_v = v)
+				fixed (short* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertexAttribs1svNV != null, "pglVertexAttribs1svNV not implemented");
-					Delegates.pglVertexAttribs1svNV(index, (Int32)v.Length, p_v);
+					Delegates.pglVertexAttribs1svNV(index, v.Length, p_v);
 					LogCommand("glVertexAttribs1svNV", null, index, v.Length, v					);
 				}
 			}
@@ -1051,20 +1051,20 @@ namespace OpenGL
 		/// [GL] glVertexAttribs2dvNV: Binding for glVertexAttribs2dvNV.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttribs2NV(UInt32 index, double[] v)
+		public static void VertexAttribs2NV(uint index, double[] v)
 		{
 			Debug.Assert(v.Length > 0 && (v.Length % 2) == 0, "empty or not multiple of 2");
 			unsafe {
 				fixed (double* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertexAttribs2dvNV != null, "pglVertexAttribs2dvNV not implemented");
-					Delegates.pglVertexAttribs2dvNV(index, (Int32)v.Length / 2, p_v);
+					Delegates.pglVertexAttribs2dvNV(index, v.Length / 2, p_v);
 					LogCommand("glVertexAttribs2dvNV", null, index, v.Length / 2, v					);
 				}
 			}
@@ -1075,20 +1075,20 @@ namespace OpenGL
 		/// [GL] glVertexAttribs2fvNV: Binding for glVertexAttribs2fvNV.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttribs2NV(UInt32 index, float[] v)
+		public static void VertexAttribs2NV(uint index, float[] v)
 		{
 			Debug.Assert(v.Length > 0 && (v.Length % 2) == 0, "empty or not multiple of 2");
 			unsafe {
 				fixed (float* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertexAttribs2fvNV != null, "pglVertexAttribs2fvNV not implemented");
-					Delegates.pglVertexAttribs2fvNV(index, (Int32)v.Length / 2, p_v);
+					Delegates.pglVertexAttribs2fvNV(index, v.Length / 2, p_v);
 					LogCommand("glVertexAttribs2fvNV", null, index, v.Length / 2, v					);
 				}
 			}
@@ -1099,20 +1099,20 @@ namespace OpenGL
 		/// [GL] glVertexAttribs2svNV: Binding for glVertexAttribs2svNV.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="T:Int16[]"/>.
+		/// A <see cref="T:short[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttribs2NV(UInt32 index, Int16[] v)
+		public static void VertexAttribs2NV(uint index, short[] v)
 		{
 			Debug.Assert(v.Length > 0 && (v.Length % 2) == 0, "empty or not multiple of 2");
 			unsafe {
-				fixed (Int16* p_v = v)
+				fixed (short* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertexAttribs2svNV != null, "pglVertexAttribs2svNV not implemented");
-					Delegates.pglVertexAttribs2svNV(index, (Int32)v.Length / 2, p_v);
+					Delegates.pglVertexAttribs2svNV(index, v.Length / 2, p_v);
 					LogCommand("glVertexAttribs2svNV", null, index, v.Length / 2, v					);
 				}
 			}
@@ -1123,20 +1123,20 @@ namespace OpenGL
 		/// [GL] glVertexAttribs3dvNV: Binding for glVertexAttribs3dvNV.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttribs3NV(UInt32 index, double[] v)
+		public static void VertexAttribs3NV(uint index, double[] v)
 		{
 			Debug.Assert(v.Length > 0 && (v.Length % 3) == 0, "empty or not multiple of 3");
 			unsafe {
 				fixed (double* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertexAttribs3dvNV != null, "pglVertexAttribs3dvNV not implemented");
-					Delegates.pglVertexAttribs3dvNV(index, (Int32)v.Length / 3, p_v);
+					Delegates.pglVertexAttribs3dvNV(index, v.Length / 3, p_v);
 					LogCommand("glVertexAttribs3dvNV", null, index, v.Length / 3, v					);
 				}
 			}
@@ -1147,20 +1147,20 @@ namespace OpenGL
 		/// [GL] glVertexAttribs3fvNV: Binding for glVertexAttribs3fvNV.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttribs3NV(UInt32 index, float[] v)
+		public static void VertexAttribs3NV(uint index, float[] v)
 		{
 			Debug.Assert(v.Length > 0 && (v.Length % 3) == 0, "empty or not multiple of 3");
 			unsafe {
 				fixed (float* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertexAttribs3fvNV != null, "pglVertexAttribs3fvNV not implemented");
-					Delegates.pglVertexAttribs3fvNV(index, (Int32)v.Length / 3, p_v);
+					Delegates.pglVertexAttribs3fvNV(index, v.Length / 3, p_v);
 					LogCommand("glVertexAttribs3fvNV", null, index, v.Length / 3, v					);
 				}
 			}
@@ -1171,20 +1171,20 @@ namespace OpenGL
 		/// [GL] glVertexAttribs3svNV: Binding for glVertexAttribs3svNV.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="T:Int16[]"/>.
+		/// A <see cref="T:short[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttribs3NV(UInt32 index, Int16[] v)
+		public static void VertexAttribs3NV(uint index, short[] v)
 		{
 			Debug.Assert(v.Length > 0 && (v.Length % 3) == 0, "empty or not multiple of 3");
 			unsafe {
-				fixed (Int16* p_v = v)
+				fixed (short* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertexAttribs3svNV != null, "pglVertexAttribs3svNV not implemented");
-					Delegates.pglVertexAttribs3svNV(index, (Int32)v.Length / 3, p_v);
+					Delegates.pglVertexAttribs3svNV(index, v.Length / 3, p_v);
 					LogCommand("glVertexAttribs3svNV", null, index, v.Length / 3, v					);
 				}
 			}
@@ -1195,20 +1195,20 @@ namespace OpenGL
 		/// [GL] glVertexAttribs4dvNV: Binding for glVertexAttribs4dvNV.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttribs4NV(UInt32 index, double[] v)
+		public static void VertexAttribs4NV(uint index, double[] v)
 		{
 			Debug.Assert(v.Length > 0 && (v.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
 				fixed (double* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertexAttribs4dvNV != null, "pglVertexAttribs4dvNV not implemented");
-					Delegates.pglVertexAttribs4dvNV(index, (Int32)v.Length / 4, p_v);
+					Delegates.pglVertexAttribs4dvNV(index, v.Length / 4, p_v);
 					LogCommand("glVertexAttribs4dvNV", null, index, v.Length / 4, v					);
 				}
 			}
@@ -1219,20 +1219,20 @@ namespace OpenGL
 		/// [GL] glVertexAttribs4fvNV: Binding for glVertexAttribs4fvNV.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttribs4NV(UInt32 index, float[] v)
+		public static void VertexAttribs4NV(uint index, float[] v)
 		{
 			Debug.Assert(v.Length > 0 && (v.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
 				fixed (float* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertexAttribs4fvNV != null, "pglVertexAttribs4fvNV not implemented");
-					Delegates.pglVertexAttribs4fvNV(index, (Int32)v.Length / 4, p_v);
+					Delegates.pglVertexAttribs4fvNV(index, v.Length / 4, p_v);
 					LogCommand("glVertexAttribs4fvNV", null, index, v.Length / 4, v					);
 				}
 			}
@@ -1243,20 +1243,20 @@ namespace OpenGL
 		/// [GL] glVertexAttribs4svNV: Binding for glVertexAttribs4svNV.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="T:Int16[]"/>.
+		/// A <see cref="T:short[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttribs4NV(UInt32 index, Int16[] v)
+		public static void VertexAttribs4NV(uint index, short[] v)
 		{
 			Debug.Assert(v.Length > 0 && (v.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
-				fixed (Int16* p_v = v)
+				fixed (short* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertexAttribs4svNV != null, "pglVertexAttribs4svNV not implemented");
-					Delegates.pglVertexAttribs4svNV(index, (Int32)v.Length / 4, p_v);
+					Delegates.pglVertexAttribs4svNV(index, v.Length / 4, p_v);
 					LogCommand("glVertexAttribs4svNV", null, index, v.Length / 4, v					);
 				}
 			}
@@ -1267,20 +1267,20 @@ namespace OpenGL
 		/// [GL] glVertexAttribs4ubvNV: Binding for glVertexAttribs4ubvNV.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:byte[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttribs4NV(UInt32 index, byte[] v)
+		public static void VertexAttribs4NV(uint index, byte[] v)
 		{
 			Debug.Assert(v.Length > 0 && (v.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
 				fixed (byte* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertexAttribs4ubvNV != null, "pglVertexAttribs4ubvNV not implemented");
-					Delegates.pglVertexAttribs4ubvNV(index, (Int32)v.Length / 4, p_v);
+					Delegates.pglVertexAttribs4ubvNV(index, v.Length / 4, p_v);
 					LogCommand("glVertexAttribs4ubvNV", null, index, v.Length / 4, v					);
 				}
 			}
@@ -1292,7 +1292,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
 			[return: MarshalAs(UnmanagedType.I1)]
-			internal unsafe delegate bool glAreProgramsResidentNV(Int32 n, UInt32* programs, byte* residences);
+			internal unsafe delegate bool glAreProgramsResidentNV(int n, uint* programs, byte* residences);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1300,7 +1300,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glExecuteProgramNV(Int32 target, UInt32 id, float* @params);
+			internal unsafe delegate void glExecuteProgramNV(int target, uint id, float* @params);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1308,7 +1308,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetProgramParameterdvNV(Int32 target, UInt32 index, Int32 pname, double* @params);
+			internal unsafe delegate void glGetProgramParameterdvNV(int target, uint index, int pname, double* @params);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1316,7 +1316,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetProgramParameterfvNV(Int32 target, UInt32 index, Int32 pname, float* @params);
+			internal unsafe delegate void glGetProgramParameterfvNV(int target, uint index, int pname, float* @params);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1324,7 +1324,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetProgramivNV(UInt32 id, Int32 pname, Int32* @params);
+			internal unsafe delegate void glGetProgramivNV(uint id, int pname, int* @params);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1332,7 +1332,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetProgramStringNV(UInt32 id, Int32 pname, byte* program);
+			internal unsafe delegate void glGetProgramStringNV(uint id, int pname, byte* program);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1340,7 +1340,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetTrackMatrixivNV(Int32 target, UInt32 address, Int32 pname, Int32* @params);
+			internal unsafe delegate void glGetTrackMatrixivNV(int target, uint address, int pname, int* @params);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1348,7 +1348,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glLoadProgramNV(Int32 target, UInt32 id, Int32 len, byte* program);
+			internal unsafe delegate void glLoadProgramNV(int target, uint id, int len, byte* program);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1356,7 +1356,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glProgramParameter4dNV(Int32 target, UInt32 index, double x, double y, double z, double w);
+			internal delegate void glProgramParameter4dNV(int target, uint index, double x, double y, double z, double w);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1364,7 +1364,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramParameter4dvNV(Int32 target, UInt32 index, double* v);
+			internal unsafe delegate void glProgramParameter4dvNV(int target, uint index, double* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1372,7 +1372,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glProgramParameter4fNV(Int32 target, UInt32 index, float x, float y, float z, float w);
+			internal delegate void glProgramParameter4fNV(int target, uint index, float x, float y, float z, float w);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1380,7 +1380,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramParameter4fvNV(Int32 target, UInt32 index, float* v);
+			internal unsafe delegate void glProgramParameter4fvNV(int target, uint index, float* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1388,7 +1388,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramParameters4dvNV(Int32 target, UInt32 index, Int32 count, double* v);
+			internal unsafe delegate void glProgramParameters4dvNV(int target, uint index, int count, double* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1396,7 +1396,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramParameters4fvNV(Int32 target, UInt32 index, Int32 count, float* v);
+			internal unsafe delegate void glProgramParameters4fvNV(int target, uint index, int count, float* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1404,7 +1404,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glRequestResidentProgramsNV(Int32 n, UInt32* programs);
+			internal unsafe delegate void glRequestResidentProgramsNV(int n, uint* programs);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1412,7 +1412,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTrackMatrixNV(Int32 target, UInt32 address, Int32 matrix, Int32 transform);
+			internal delegate void glTrackMatrixNV(int target, uint address, int matrix, int transform);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1420,7 +1420,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttribPointerNV(UInt32 index, Int32 fsize, Int32 type, Int32 stride, IntPtr pointer);
+			internal unsafe delegate void glVertexAttribPointerNV(uint index, int fsize, int type, int stride, IntPtr pointer);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1428,7 +1428,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttribs1dvNV(UInt32 index, Int32 count, double* v);
+			internal unsafe delegate void glVertexAttribs1dvNV(uint index, int count, double* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1436,7 +1436,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttribs1fvNV(UInt32 index, Int32 count, float* v);
+			internal unsafe delegate void glVertexAttribs1fvNV(uint index, int count, float* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1444,7 +1444,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttribs1svNV(UInt32 index, Int32 count, Int16* v);
+			internal unsafe delegate void glVertexAttribs1svNV(uint index, int count, short* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1452,7 +1452,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttribs2dvNV(UInt32 index, Int32 count, double* v);
+			internal unsafe delegate void glVertexAttribs2dvNV(uint index, int count, double* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1460,7 +1460,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttribs2fvNV(UInt32 index, Int32 count, float* v);
+			internal unsafe delegate void glVertexAttribs2fvNV(uint index, int count, float* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1468,7 +1468,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttribs2svNV(UInt32 index, Int32 count, Int16* v);
+			internal unsafe delegate void glVertexAttribs2svNV(uint index, int count, short* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1476,7 +1476,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttribs3dvNV(UInt32 index, Int32 count, double* v);
+			internal unsafe delegate void glVertexAttribs3dvNV(uint index, int count, double* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1484,7 +1484,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttribs3fvNV(UInt32 index, Int32 count, float* v);
+			internal unsafe delegate void glVertexAttribs3fvNV(uint index, int count, float* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1492,7 +1492,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttribs3svNV(UInt32 index, Int32 count, Int16* v);
+			internal unsafe delegate void glVertexAttribs3svNV(uint index, int count, short* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1500,7 +1500,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttribs4dvNV(UInt32 index, Int32 count, double* v);
+			internal unsafe delegate void glVertexAttribs4dvNV(uint index, int count, double* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1508,7 +1508,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttribs4fvNV(UInt32 index, Int32 count, float* v);
+			internal unsafe delegate void glVertexAttribs4fvNV(uint index, int count, float* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1516,7 +1516,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttribs4svNV(UInt32 index, Int32 count, Int16* v);
+			internal unsafe delegate void glVertexAttribs4svNV(uint index, int count, short* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1524,7 +1524,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttribs4ubvNV(UInt32 index, Int32 count, byte* v);
+			internal unsafe delegate void glVertexAttribs4ubvNV(uint index, int count, byte* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]

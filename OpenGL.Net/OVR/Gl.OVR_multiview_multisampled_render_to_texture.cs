@@ -47,25 +47,25 @@ namespace OpenGL
 		/// A <see cref="T:FramebufferAttachment"/>.
 		/// </param>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="samples">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="baseViewIndex">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="numViews">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_OVR_multiview_multisampled_render_to_texture", Api = "gles2")]
-		public static void FramebufferTextureMultisampleMultiOVR(FramebufferTarget target, FramebufferAttachment attachment, UInt32 texture, Int32 level, Int32 samples, Int32 baseViewIndex, Int32 numViews)
+		public static void FramebufferTextureMultisampleMultiOVR(FramebufferTarget target, FramebufferAttachment attachment, uint texture, int level, int samples, int baseViewIndex, int numViews)
 		{
 			Debug.Assert(Delegates.pglFramebufferTextureMultisampleMultiviewOVR != null, "pglFramebufferTextureMultisampleMultiviewOVR not implemented");
-			Delegates.pglFramebufferTextureMultisampleMultiviewOVR((Int32)target, (Int32)attachment, texture, level, samples, baseViewIndex, numViews);
+			Delegates.pglFramebufferTextureMultisampleMultiviewOVR((int)target, (int)attachment, texture, level, samples, baseViewIndex, numViews);
 			LogCommand("glFramebufferTextureMultisampleMultiviewOVR", null, target, attachment, texture, level, samples, baseViewIndex, numViews			);
 			DebugCheckErrors(null);
 		}
@@ -74,7 +74,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_OVR_multiview_multisampled_render_to_texture", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glFramebufferTextureMultisampleMultiviewOVR(Int32 target, Int32 attachment, UInt32 texture, Int32 level, Int32 samples, Int32 baseViewIndex, Int32 numViews);
+			internal delegate void glFramebufferTextureMultisampleMultiviewOVR(int target, int attachment, uint texture, int level, int samples, int baseViewIndex, int numViews);
 
 			[RequiredByFeature("GL_OVR_multiview_multisampled_render_to_texture", Api = "gles2")]
 			[ThreadStatic]

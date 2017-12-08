@@ -41,10 +41,10 @@ namespace OpenGL
 		/// [GL] glVertexAttribArrayObjectATI: Binding for glVertexAttribArrayObjectATI.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="type">
 		/// A <see cref="T:VertexAttribType"/>.
@@ -53,19 +53,19 @@ namespace OpenGL
 		/// A <see cref="T:bool"/>.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="offset">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_attrib_array_object")]
-		public static void VertexAttribArrayObjectATI(UInt32 index, Int32 size, VertexAttribType type, bool normalized, Int32 stride, UInt32 buffer, UInt32 offset)
+		public static void VertexAttribArrayObjectATI(uint index, int size, VertexAttribType type, bool normalized, int stride, uint buffer, uint offset)
 		{
 			Debug.Assert(Delegates.pglVertexAttribArrayObjectATI != null, "pglVertexAttribArrayObjectATI not implemented");
-			Delegates.pglVertexAttribArrayObjectATI(index, size, (Int32)type, normalized, stride, buffer, offset);
+			Delegates.pglVertexAttribArrayObjectATI(index, size, (int)type, normalized, stride, buffer, offset);
 			LogCommand("glVertexAttribArrayObjectATI", null, index, size, type, normalized, stride, buffer, offset			);
 			DebugCheckErrors(null);
 		}
@@ -74,16 +74,16 @@ namespace OpenGL
 		/// [GL] glGetVertexAttribArrayObjectfvATI: Binding for glGetVertexAttribArrayObjectfvATI.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_attrib_array_object")]
-		public static void GetVertexAttribArrayObjectATI(UInt32 index, Int32 pname, [Out] float[] @params)
+		public static void GetVertexAttribArrayObjectATI(uint index, int pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -100,19 +100,19 @@ namespace OpenGL
 		/// [GL] glGetVertexAttribArrayObjectivATI: Binding for glGetVertexAttribArrayObjectivATI.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_attrib_array_object")]
-		public static void GetVertexAttribArrayObjectATI(UInt32 index, Int32 pname, [Out] Int32[] @params)
+		public static void GetVertexAttribArrayObjectATI(uint index, int pname, [Out] int[] @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetVertexAttribArrayObjectivATI != null, "pglGetVertexAttribArrayObjectivATI not implemented");
 					Delegates.pglGetVertexAttribArrayObjectivATI(index, pname, p_params);
@@ -126,7 +126,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_ATI_vertex_attrib_array_object")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glVertexAttribArrayObjectATI(UInt32 index, Int32 size, Int32 type, [MarshalAs(UnmanagedType.I1)] bool normalized, Int32 stride, UInt32 buffer, UInt32 offset);
+			internal delegate void glVertexAttribArrayObjectATI(uint index, int size, int type, [MarshalAs(UnmanagedType.I1)] bool normalized, int stride, uint buffer, uint offset);
 
 			[RequiredByFeature("GL_ATI_vertex_attrib_array_object")]
 			[ThreadStatic]
@@ -134,7 +134,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ATI_vertex_attrib_array_object")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetVertexAttribArrayObjectfvATI(UInt32 index, Int32 pname, float* @params);
+			internal unsafe delegate void glGetVertexAttribArrayObjectfvATI(uint index, int pname, float* @params);
 
 			[RequiredByFeature("GL_ATI_vertex_attrib_array_object")]
 			[ThreadStatic]
@@ -142,7 +142,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ATI_vertex_attrib_array_object")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetVertexAttribArrayObjectivATI(UInt32 index, Int32 pname, Int32* @params);
+			internal unsafe delegate void glGetVertexAttribArrayObjectivATI(uint index, int pname, int* @params);
 
 			[RequiredByFeature("GL_ATI_vertex_attrib_array_object")]
 			[ThreadStatic]

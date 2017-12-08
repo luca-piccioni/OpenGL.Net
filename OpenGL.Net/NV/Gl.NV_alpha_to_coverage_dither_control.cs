@@ -65,10 +65,10 @@ namespace OpenGL
 		/// [GL] glAlphaToCoverageDitherControlNV: Binding for glAlphaToCoverageDitherControlNV.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_alpha_to_coverage_dither_control")]
-		public static void AlphaToCoverageDitherControlNV(Int32 mode)
+		public static void AlphaToCoverageDitherControlNV(int mode)
 		{
 			Debug.Assert(Delegates.pglAlphaToCoverageDitherControlNV != null, "pglAlphaToCoverageDitherControlNV not implemented");
 			Delegates.pglAlphaToCoverageDitherControlNV(mode);
@@ -80,7 +80,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_NV_alpha_to_coverage_dither_control")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glAlphaToCoverageDitherControlNV(Int32 mode);
+			internal delegate void glAlphaToCoverageDitherControlNV(int mode);
 
 			[RequiredByFeature("GL_NV_alpha_to_coverage_dither_control")]
 			[ThreadStatic]

@@ -55,26 +55,26 @@ namespace OpenGL
 		/// [GL] glFramebufferFoveationConfigQCOM: Binding for glFramebufferFoveationConfigQCOM.
 		/// </summary>
 		/// <param name="framebuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="numLayers">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="focalPointsPerLayer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="requestedFeatures">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="providedFeatures">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_QCOM_framebuffer_foveated", Api = "gles2")]
-		public static void FramebufferFoveationQCOM(UInt32 framebuffer, UInt32 numLayers, UInt32 focalPointsPerLayer, UInt32 requestedFeatures, UInt32[] providedFeatures)
+		public static void FramebufferFoveationQCOM(uint framebuffer, uint numLayers, uint focalPointsPerLayer, uint requestedFeatures, uint[] providedFeatures)
 		{
 			Debug.Assert(providedFeatures.Length >= 1);
 			unsafe {
-				fixed (UInt32* p_providedFeatures = providedFeatures)
+				fixed (uint* p_providedFeatures = providedFeatures)
 				{
 					Debug.Assert(Delegates.pglFramebufferFoveationConfigQCOM != null, "pglFramebufferFoveationConfigQCOM not implemented");
 					Delegates.pglFramebufferFoveationConfigQCOM(framebuffer, numLayers, focalPointsPerLayer, requestedFeatures, p_providedFeatures);
@@ -88,13 +88,13 @@ namespace OpenGL
 		/// [GL] glFramebufferFoveationParametersQCOM: Binding for glFramebufferFoveationParametersQCOM.
 		/// </summary>
 		/// <param name="framebuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="layer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="focalPoint">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="focalX">
 		/// A <see cref="T:float"/>.
@@ -112,7 +112,7 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_QCOM_framebuffer_foveated", Api = "gles2")]
-		public static void FramebufferFoveationParametersQCOM(UInt32 framebuffer, UInt32 layer, UInt32 focalPoint, float focalX, float focalY, float gainX, float gainY, float foveaArea)
+		public static void FramebufferFoveationParametersQCOM(uint framebuffer, uint layer, uint focalPoint, float focalX, float focalY, float gainX, float gainY, float foveaArea)
 		{
 			Debug.Assert(Delegates.pglFramebufferFoveationParametersQCOM != null, "pglFramebufferFoveationParametersQCOM not implemented");
 			Delegates.pglFramebufferFoveationParametersQCOM(framebuffer, layer, focalPoint, focalX, focalY, gainX, gainY, foveaArea);
@@ -124,7 +124,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_QCOM_framebuffer_foveated", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glFramebufferFoveationConfigQCOM(UInt32 framebuffer, UInt32 numLayers, UInt32 focalPointsPerLayer, UInt32 requestedFeatures, UInt32* providedFeatures);
+			internal unsafe delegate void glFramebufferFoveationConfigQCOM(uint framebuffer, uint numLayers, uint focalPointsPerLayer, uint requestedFeatures, uint* providedFeatures);
 
 			[RequiredByFeature("GL_QCOM_framebuffer_foveated", Api = "gles2")]
 			[ThreadStatic]
@@ -132,7 +132,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_QCOM_framebuffer_foveated", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glFramebufferFoveationParametersQCOM(UInt32 framebuffer, UInt32 layer, UInt32 focalPoint, float focalX, float focalY, float gainX, float gainY, float foveaArea);
+			internal delegate void glFramebufferFoveationParametersQCOM(uint framebuffer, uint layer, uint focalPoint, float focalX, float focalY, float gainX, float gainY, float foveaArea);
 
 			[RequiredByFeature("GL_QCOM_framebuffer_foveated", Api = "gles2")]
 			[ThreadStatic]

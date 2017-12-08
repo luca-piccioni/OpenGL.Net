@@ -41,40 +41,40 @@ namespace OpenGL
 		/// [GL] glBlitFramebufferANGLE: Binding for glBlitFramebufferANGLE.
 		/// </summary>
 		/// <param name="srcX0">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="srcY0">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="srcX1">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="srcY1">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="dstX0">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="dstY0">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="dstX1">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="dstY1">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="mask">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="filter">
 		/// A <see cref="T:BlitFramebufferFilter"/>.
 		/// </param>
 		[RequiredByFeature("GL_ANGLE_framebuffer_blit", Api = "gles2")]
-		public static void BlitFramebufferANGLE(Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, UInt32 mask, BlitFramebufferFilter filter)
+		public static void BlitFramebufferANGLE(int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, uint mask, BlitFramebufferFilter filter)
 		{
 			Debug.Assert(Delegates.pglBlitFramebufferANGLE != null, "pglBlitFramebufferANGLE not implemented");
-			Delegates.pglBlitFramebufferANGLE(srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, (Int32)filter);
+			Delegates.pglBlitFramebufferANGLE(srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, (int)filter);
 			LogCommand("glBlitFramebufferANGLE", null, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter			);
 			DebugCheckErrors(null);
 		}
@@ -83,7 +83,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_ANGLE_framebuffer_blit", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glBlitFramebufferANGLE(Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, UInt32 mask, Int32 filter);
+			internal delegate void glBlitFramebufferANGLE(int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, uint mask, int filter);
 
 			[RequiredByFeature("GL_ANGLE_framebuffer_blit", Api = "gles2")]
 			[ThreadStatic]

@@ -53,9 +53,9 @@ namespace OpenGL
 		/// A <see cref="T:long []"/>.
 		/// </param>
 		[RequiredByFeature("GLX_SUN_get_transparent_index")]
-		public static Int32 GetTransparentIndexSUN(IntPtr dpy, IntPtr overlay, IntPtr underlay, [Out] long [] pTransparentIndex)
+		public static int GetTransparentIndexSUN(IntPtr dpy, IntPtr overlay, IntPtr underlay, [Out] long [] pTransparentIndex)
 		{
-			Int32 retValue;
+			int retValue;
 
 			unsafe {
 				fixed (long * p_pTransparentIndex = pTransparentIndex)
@@ -74,7 +74,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GLX_SUN_get_transparent_index")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Int32 glXGetTransparentIndexSUN(IntPtr dpy, IntPtr overlay, IntPtr underlay, long * pTransparentIndex);
+			internal unsafe delegate int glXGetTransparentIndexSUN(IntPtr dpy, IntPtr overlay, IntPtr underlay, long * pTransparentIndex);
 
 			[RequiredByFeature("GLX_SUN_get_transparent_index")]
 			internal static glXGetTransparentIndexSUN pglXGetTransparentIndexSUN;

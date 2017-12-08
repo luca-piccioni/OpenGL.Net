@@ -77,25 +77,25 @@ namespace OpenGL
 		/// [GL] glProgramLocalParameterI4iNV: Binding for glProgramLocalParameterI4iNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="w">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_gpu_program4")]
-		public static void ProgramLocalParameterI4NV(Int32 target, UInt32 index, Int32 x, Int32 y, Int32 z, Int32 w)
+		public static void ProgramLocalParameterI4NV(int target, uint index, int x, int y, int z, int w)
 		{
 			Debug.Assert(Delegates.pglProgramLocalParameterI4iNV != null, "pglProgramLocalParameterI4iNV not implemented");
 			Delegates.pglProgramLocalParameterI4iNV(target, index, x, y, z, w);
@@ -107,20 +107,20 @@ namespace OpenGL
 		/// [GL] glProgramLocalParameterI4ivNV: Binding for glProgramLocalParameterI4ivNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_gpu_program4")]
-		public static void ProgramLocalParameterI4NV(Int32 target, UInt32 index, Int32[] @params)
+		public static void ProgramLocalParameterI4NV(int target, uint index, int[] @params)
 		{
 			Debug.Assert(@params.Length >= 4);
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglProgramLocalParameterI4ivNV != null, "pglProgramLocalParameterI4ivNV not implemented");
 					Delegates.pglProgramLocalParameterI4ivNV(target, index, p_params);
@@ -134,23 +134,23 @@ namespace OpenGL
 		/// [GL] glProgramLocalParametersI4ivNV: Binding for glProgramLocalParametersI4ivNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_gpu_program4")]
-		public static void ProgramLocalParametersI4NV(Int32 target, UInt32 index, Int32[] @params)
+		public static void ProgramLocalParametersI4NV(int target, uint index, int[] @params)
 		{
 			Debug.Assert(@params.Length > 0 && (@params.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglProgramLocalParametersI4ivNV != null, "pglProgramLocalParametersI4ivNV not implemented");
-					Delegates.pglProgramLocalParametersI4ivNV(target, index, (Int32)@params.Length / 4, p_params);
+					Delegates.pglProgramLocalParametersI4ivNV(target, index, @params.Length / 4, p_params);
 					LogCommand("glProgramLocalParametersI4ivNV", null, target, index, @params.Length / 4, @params					);
 				}
 			}
@@ -161,25 +161,25 @@ namespace OpenGL
 		/// [GL] glProgramLocalParameterI4uiNV: Binding for glProgramLocalParameterI4uiNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="w">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_gpu_program4")]
-		public static void ProgramLocalParameterI4uiNV(Int32 target, UInt32 index, UInt32 x, UInt32 y, UInt32 z, UInt32 w)
+		public static void ProgramLocalParameterI4uiNV(int target, uint index, uint x, uint y, uint z, uint w)
 		{
 			Debug.Assert(Delegates.pglProgramLocalParameterI4uiNV != null, "pglProgramLocalParameterI4uiNV not implemented");
 			Delegates.pglProgramLocalParameterI4uiNV(target, index, x, y, z, w);
@@ -191,20 +191,20 @@ namespace OpenGL
 		/// [GL] glProgramLocalParameterI4uivNV: Binding for glProgramLocalParameterI4uivNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_gpu_program4")]
-		public static void ProgramLocalParameterI4uiNV(Int32 target, UInt32 index, UInt32[] @params)
+		public static void ProgramLocalParameterI4uiNV(int target, uint index, uint[] @params)
 		{
 			Debug.Assert(@params.Length >= 4);
 			unsafe {
-				fixed (UInt32* p_params = @params)
+				fixed (uint* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglProgramLocalParameterI4uivNV != null, "pglProgramLocalParameterI4uivNV not implemented");
 					Delegates.pglProgramLocalParameterI4uivNV(target, index, p_params);
@@ -218,23 +218,23 @@ namespace OpenGL
 		/// [GL] glProgramLocalParametersI4uivNV: Binding for glProgramLocalParametersI4uivNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_gpu_program4")]
-		public static void ProgramLocalParametersI4uiNV(Int32 target, UInt32 index, UInt32[] @params)
+		public static void ProgramLocalParametersI4uiNV(int target, uint index, uint[] @params)
 		{
 			Debug.Assert(@params.Length > 0 && (@params.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
-				fixed (UInt32* p_params = @params)
+				fixed (uint* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglProgramLocalParametersI4uivNV != null, "pglProgramLocalParametersI4uivNV not implemented");
-					Delegates.pglProgramLocalParametersI4uivNV(target, index, (Int32)@params.Length / 4, p_params);
+					Delegates.pglProgramLocalParametersI4uivNV(target, index, @params.Length / 4, p_params);
 					LogCommand("glProgramLocalParametersI4uivNV", null, target, index, @params.Length / 4, @params					);
 				}
 			}
@@ -245,25 +245,25 @@ namespace OpenGL
 		/// [GL] glProgramEnvParameterI4iNV: Binding for glProgramEnvParameterI4iNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="w">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_gpu_program4")]
-		public static void ProgramEnvParameterI4NV(Int32 target, UInt32 index, Int32 x, Int32 y, Int32 z, Int32 w)
+		public static void ProgramEnvParameterI4NV(int target, uint index, int x, int y, int z, int w)
 		{
 			Debug.Assert(Delegates.pglProgramEnvParameterI4iNV != null, "pglProgramEnvParameterI4iNV not implemented");
 			Delegates.pglProgramEnvParameterI4iNV(target, index, x, y, z, w);
@@ -275,20 +275,20 @@ namespace OpenGL
 		/// [GL] glProgramEnvParameterI4ivNV: Binding for glProgramEnvParameterI4ivNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_gpu_program4")]
-		public static void ProgramEnvParameterI4NV(Int32 target, UInt32 index, Int32[] @params)
+		public static void ProgramEnvParameterI4NV(int target, uint index, int[] @params)
 		{
 			Debug.Assert(@params.Length >= 4);
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglProgramEnvParameterI4ivNV != null, "pglProgramEnvParameterI4ivNV not implemented");
 					Delegates.pglProgramEnvParameterI4ivNV(target, index, p_params);
@@ -302,23 +302,23 @@ namespace OpenGL
 		/// [GL] glProgramEnvParametersI4ivNV: Binding for glProgramEnvParametersI4ivNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_gpu_program4")]
-		public static void ProgramEnvParametersI4NV(Int32 target, UInt32 index, Int32[] @params)
+		public static void ProgramEnvParametersI4NV(int target, uint index, int[] @params)
 		{
 			Debug.Assert(@params.Length > 0 && (@params.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglProgramEnvParametersI4ivNV != null, "pglProgramEnvParametersI4ivNV not implemented");
-					Delegates.pglProgramEnvParametersI4ivNV(target, index, (Int32)@params.Length / 4, p_params);
+					Delegates.pglProgramEnvParametersI4ivNV(target, index, @params.Length / 4, p_params);
 					LogCommand("glProgramEnvParametersI4ivNV", null, target, index, @params.Length / 4, @params					);
 				}
 			}
@@ -329,25 +329,25 @@ namespace OpenGL
 		/// [GL] glProgramEnvParameterI4uiNV: Binding for glProgramEnvParameterI4uiNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="w">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_gpu_program4")]
-		public static void ProgramEnvParameterI4uiNV(Int32 target, UInt32 index, UInt32 x, UInt32 y, UInt32 z, UInt32 w)
+		public static void ProgramEnvParameterI4uiNV(int target, uint index, uint x, uint y, uint z, uint w)
 		{
 			Debug.Assert(Delegates.pglProgramEnvParameterI4uiNV != null, "pglProgramEnvParameterI4uiNV not implemented");
 			Delegates.pglProgramEnvParameterI4uiNV(target, index, x, y, z, w);
@@ -359,20 +359,20 @@ namespace OpenGL
 		/// [GL] glProgramEnvParameterI4uivNV: Binding for glProgramEnvParameterI4uivNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_gpu_program4")]
-		public static void ProgramEnvParameterI4uiNV(Int32 target, UInt32 index, UInt32[] @params)
+		public static void ProgramEnvParameterI4uiNV(int target, uint index, uint[] @params)
 		{
 			Debug.Assert(@params.Length >= 4);
 			unsafe {
-				fixed (UInt32* p_params = @params)
+				fixed (uint* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglProgramEnvParameterI4uivNV != null, "pglProgramEnvParameterI4uivNV not implemented");
 					Delegates.pglProgramEnvParameterI4uivNV(target, index, p_params);
@@ -386,23 +386,23 @@ namespace OpenGL
 		/// [GL] glProgramEnvParametersI4uivNV: Binding for glProgramEnvParametersI4uivNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_gpu_program4")]
-		public static void ProgramEnvParametersI4uiNV(Int32 target, UInt32 index, UInt32[] @params)
+		public static void ProgramEnvParametersI4uiNV(int target, uint index, uint[] @params)
 		{
 			Debug.Assert(@params.Length > 0 && (@params.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
-				fixed (UInt32* p_params = @params)
+				fixed (uint* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglProgramEnvParametersI4uivNV != null, "pglProgramEnvParametersI4uivNV not implemented");
-					Delegates.pglProgramEnvParametersI4uivNV(target, index, (Int32)@params.Length / 4, p_params);
+					Delegates.pglProgramEnvParametersI4uivNV(target, index, @params.Length / 4, p_params);
 					LogCommand("glProgramEnvParametersI4uivNV", null, target, index, @params.Length / 4, @params					);
 				}
 			}
@@ -413,20 +413,20 @@ namespace OpenGL
 		/// [GL] glGetProgramLocalParameterIivNV: Binding for glGetProgramLocalParameterIivNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_gpu_program4")]
-		public static void GetProgramLocalParameterINV(Int32 target, UInt32 index, [Out] Int32[] @params)
+		public static void GetProgramLocalParameterINV(int target, uint index, [Out] int[] @params)
 		{
 			Debug.Assert(@params.Length >= 4);
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetProgramLocalParameterIivNV != null, "pglGetProgramLocalParameterIivNV not implemented");
 					Delegates.pglGetProgramLocalParameterIivNV(target, index, p_params);
@@ -440,20 +440,20 @@ namespace OpenGL
 		/// [GL] glGetProgramLocalParameterIuivNV: Binding for glGetProgramLocalParameterIuivNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_gpu_program4")]
-		public static void GetProgramLocalParameterINV(Int32 target, UInt32 index, [Out] UInt32[] @params)
+		public static void GetProgramLocalParameterINV(int target, uint index, [Out] uint[] @params)
 		{
 			Debug.Assert(@params.Length >= 4);
 			unsafe {
-				fixed (UInt32* p_params = @params)
+				fixed (uint* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetProgramLocalParameterIuivNV != null, "pglGetProgramLocalParameterIuivNV not implemented");
 					Delegates.pglGetProgramLocalParameterIuivNV(target, index, p_params);
@@ -467,20 +467,20 @@ namespace OpenGL
 		/// [GL] glGetProgramEnvParameterIivNV: Binding for glGetProgramEnvParameterIivNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_gpu_program4")]
-		public static void GetProgramEnvParameterINV(Int32 target, UInt32 index, [Out] Int32[] @params)
+		public static void GetProgramEnvParameterINV(int target, uint index, [Out] int[] @params)
 		{
 			Debug.Assert(@params.Length >= 4);
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetProgramEnvParameterIivNV != null, "pglGetProgramEnvParameterIivNV not implemented");
 					Delegates.pglGetProgramEnvParameterIivNV(target, index, p_params);
@@ -494,20 +494,20 @@ namespace OpenGL
 		/// [GL] glGetProgramEnvParameterIuivNV: Binding for glGetProgramEnvParameterIuivNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_gpu_program4")]
-		public static void GetProgramEnvParameterINV(Int32 target, UInt32 index, [Out] UInt32[] @params)
+		public static void GetProgramEnvParameterINV(int target, uint index, [Out] uint[] @params)
 		{
 			Debug.Assert(@params.Length >= 4);
 			unsafe {
-				fixed (UInt32* p_params = @params)
+				fixed (uint* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetProgramEnvParameterIuivNV != null, "pglGetProgramEnvParameterIuivNV not implemented");
 					Delegates.pglGetProgramEnvParameterIuivNV(target, index, p_params);
@@ -521,7 +521,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_NV_gpu_program4")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glProgramLocalParameterI4iNV(Int32 target, UInt32 index, Int32 x, Int32 y, Int32 z, Int32 w);
+			internal delegate void glProgramLocalParameterI4iNV(int target, uint index, int x, int y, int z, int w);
 
 			[RequiredByFeature("GL_NV_gpu_program4")]
 			[ThreadStatic]
@@ -529,7 +529,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_gpu_program4")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramLocalParameterI4ivNV(Int32 target, UInt32 index, Int32* @params);
+			internal unsafe delegate void glProgramLocalParameterI4ivNV(int target, uint index, int* @params);
 
 			[RequiredByFeature("GL_NV_gpu_program4")]
 			[ThreadStatic]
@@ -537,7 +537,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_gpu_program4")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramLocalParametersI4ivNV(Int32 target, UInt32 index, Int32 count, Int32* @params);
+			internal unsafe delegate void glProgramLocalParametersI4ivNV(int target, uint index, int count, int* @params);
 
 			[RequiredByFeature("GL_NV_gpu_program4")]
 			[ThreadStatic]
@@ -545,7 +545,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_gpu_program4")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glProgramLocalParameterI4uiNV(Int32 target, UInt32 index, UInt32 x, UInt32 y, UInt32 z, UInt32 w);
+			internal delegate void glProgramLocalParameterI4uiNV(int target, uint index, uint x, uint y, uint z, uint w);
 
 			[RequiredByFeature("GL_NV_gpu_program4")]
 			[ThreadStatic]
@@ -553,7 +553,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_gpu_program4")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramLocalParameterI4uivNV(Int32 target, UInt32 index, UInt32* @params);
+			internal unsafe delegate void glProgramLocalParameterI4uivNV(int target, uint index, uint* @params);
 
 			[RequiredByFeature("GL_NV_gpu_program4")]
 			[ThreadStatic]
@@ -561,7 +561,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_gpu_program4")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramLocalParametersI4uivNV(Int32 target, UInt32 index, Int32 count, UInt32* @params);
+			internal unsafe delegate void glProgramLocalParametersI4uivNV(int target, uint index, int count, uint* @params);
 
 			[RequiredByFeature("GL_NV_gpu_program4")]
 			[ThreadStatic]
@@ -569,7 +569,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_gpu_program4")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glProgramEnvParameterI4iNV(Int32 target, UInt32 index, Int32 x, Int32 y, Int32 z, Int32 w);
+			internal delegate void glProgramEnvParameterI4iNV(int target, uint index, int x, int y, int z, int w);
 
 			[RequiredByFeature("GL_NV_gpu_program4")]
 			[ThreadStatic]
@@ -577,7 +577,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_gpu_program4")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramEnvParameterI4ivNV(Int32 target, UInt32 index, Int32* @params);
+			internal unsafe delegate void glProgramEnvParameterI4ivNV(int target, uint index, int* @params);
 
 			[RequiredByFeature("GL_NV_gpu_program4")]
 			[ThreadStatic]
@@ -585,7 +585,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_gpu_program4")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramEnvParametersI4ivNV(Int32 target, UInt32 index, Int32 count, Int32* @params);
+			internal unsafe delegate void glProgramEnvParametersI4ivNV(int target, uint index, int count, int* @params);
 
 			[RequiredByFeature("GL_NV_gpu_program4")]
 			[ThreadStatic]
@@ -593,7 +593,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_gpu_program4")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glProgramEnvParameterI4uiNV(Int32 target, UInt32 index, UInt32 x, UInt32 y, UInt32 z, UInt32 w);
+			internal delegate void glProgramEnvParameterI4uiNV(int target, uint index, uint x, uint y, uint z, uint w);
 
 			[RequiredByFeature("GL_NV_gpu_program4")]
 			[ThreadStatic]
@@ -601,7 +601,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_gpu_program4")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramEnvParameterI4uivNV(Int32 target, UInt32 index, UInt32* @params);
+			internal unsafe delegate void glProgramEnvParameterI4uivNV(int target, uint index, uint* @params);
 
 			[RequiredByFeature("GL_NV_gpu_program4")]
 			[ThreadStatic]
@@ -609,7 +609,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_gpu_program4")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramEnvParametersI4uivNV(Int32 target, UInt32 index, Int32 count, UInt32* @params);
+			internal unsafe delegate void glProgramEnvParametersI4uivNV(int target, uint index, int count, uint* @params);
 
 			[RequiredByFeature("GL_NV_gpu_program4")]
 			[ThreadStatic]
@@ -617,7 +617,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_gpu_program4")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetProgramLocalParameterIivNV(Int32 target, UInt32 index, Int32* @params);
+			internal unsafe delegate void glGetProgramLocalParameterIivNV(int target, uint index, int* @params);
 
 			[RequiredByFeature("GL_NV_gpu_program4")]
 			[ThreadStatic]
@@ -625,7 +625,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_gpu_program4")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetProgramLocalParameterIuivNV(Int32 target, UInt32 index, UInt32* @params);
+			internal unsafe delegate void glGetProgramLocalParameterIuivNV(int target, uint index, uint* @params);
 
 			[RequiredByFeature("GL_NV_gpu_program4")]
 			[ThreadStatic]
@@ -633,7 +633,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_gpu_program4")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetProgramEnvParameterIivNV(Int32 target, UInt32 index, Int32* @params);
+			internal unsafe delegate void glGetProgramEnvParameterIivNV(int target, uint index, int* @params);
 
 			[RequiredByFeature("GL_NV_gpu_program4")]
 			[ThreadStatic]
@@ -641,7 +641,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_gpu_program4")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetProgramEnvParameterIuivNV(Int32 target, UInt32 index, UInt32* @params);
+			internal unsafe delegate void glGetProgramEnvParameterIuivNV(int target, uint index, uint* @params);
 
 			[RequiredByFeature("GL_NV_gpu_program4")]
 			[ThreadStatic]

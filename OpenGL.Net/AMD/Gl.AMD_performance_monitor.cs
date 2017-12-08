@@ -83,20 +83,20 @@ namespace OpenGL
 		/// [GL] glGetPerfMonitorGroupsAMD: Binding for glGetPerfMonitorGroupsAMD.
 		/// </summary>
 		/// <param name="numGroups">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="groups">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
-		public static void GetPerfMonitorGroupsAMD(out Int32 numGroups, [Out] UInt32[] groups)
+		public static void GetPerfMonitorGroupsAMD(out int numGroups, [Out] uint[] groups)
 		{
 			unsafe {
-				fixed (Int32* p_numGroups = &numGroups)
-				fixed (UInt32* p_groups = groups)
+				fixed (int* p_numGroups = &numGroups)
+				fixed (uint* p_groups = groups)
 				{
 					Debug.Assert(Delegates.pglGetPerfMonitorGroupsAMD != null, "pglGetPerfMonitorGroupsAMD not implemented");
-					Delegates.pglGetPerfMonitorGroupsAMD(p_numGroups, (Int32)groups.Length, p_groups);
+					Delegates.pglGetPerfMonitorGroupsAMD(p_numGroups, groups.Length, p_groups);
 					LogCommand("glGetPerfMonitorGroupsAMD", null, numGroups, groups.Length, groups					);
 				}
 			}
@@ -107,27 +107,27 @@ namespace OpenGL
 		/// [GL] glGetPerfMonitorCountersAMD: Binding for glGetPerfMonitorCountersAMD.
 		/// </summary>
 		/// <param name="group">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="numCounters">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="maxActiveCounters">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="counters">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
-		public static void GetPerfMonitorCountersAMD(UInt32 group, out Int32 numCounters, out Int32 maxActiveCounters, [Out] UInt32[] counters)
+		public static void GetPerfMonitorCountersAMD(uint group, out int numCounters, out int maxActiveCounters, [Out] uint[] counters)
 		{
 			unsafe {
-				fixed (Int32* p_numCounters = &numCounters)
-				fixed (Int32* p_maxActiveCounters = &maxActiveCounters)
-				fixed (UInt32* p_counters = counters)
+				fixed (int* p_numCounters = &numCounters)
+				fixed (int* p_maxActiveCounters = &maxActiveCounters)
+				fixed (uint* p_counters = counters)
 				{
 					Debug.Assert(Delegates.pglGetPerfMonitorCountersAMD != null, "pglGetPerfMonitorCountersAMD not implemented");
-					Delegates.pglGetPerfMonitorCountersAMD(group, p_numCounters, p_maxActiveCounters, (Int32)counters.Length, p_counters);
+					Delegates.pglGetPerfMonitorCountersAMD(group, p_numCounters, p_maxActiveCounters, counters.Length, p_counters);
 					LogCommand("glGetPerfMonitorCountersAMD", null, group, numCounters, maxActiveCounters, counters.Length, counters					);
 				}
 			}
@@ -138,22 +138,22 @@ namespace OpenGL
 		/// [GL] glGetPerfMonitorGroupStringAMD: Binding for glGetPerfMonitorGroupStringAMD.
 		/// </summary>
 		/// <param name="group">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="bufSize">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="length">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="groupString">
 		/// A <see cref="T:StringBuilder"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
-		public static void GetPerfMonitorGroupStringAMD(UInt32 group, Int32 bufSize, out Int32 length, [Out] StringBuilder groupString)
+		public static void GetPerfMonitorGroupStringAMD(uint group, int bufSize, out int length, [Out] StringBuilder groupString)
 		{
 			unsafe {
-				fixed (Int32* p_length = &length)
+				fixed (int* p_length = &length)
 				{
 					Debug.Assert(Delegates.pglGetPerfMonitorGroupStringAMD != null, "pglGetPerfMonitorGroupStringAMD not implemented");
 					Delegates.pglGetPerfMonitorGroupStringAMD(group, bufSize, p_length, groupString);
@@ -167,25 +167,25 @@ namespace OpenGL
 		/// [GL] glGetPerfMonitorCounterStringAMD: Binding for glGetPerfMonitorCounterStringAMD.
 		/// </summary>
 		/// <param name="group">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="counter">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="bufSize">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="length">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="counterString">
 		/// A <see cref="T:StringBuilder"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
-		public static void GetPerfMonitorCounterStringAMD(UInt32 group, UInt32 counter, Int32 bufSize, out Int32 length, [Out] StringBuilder counterString)
+		public static void GetPerfMonitorCounterStringAMD(uint group, uint counter, int bufSize, out int length, [Out] StringBuilder counterString)
 		{
 			unsafe {
-				fixed (Int32* p_length = &length)
+				fixed (int* p_length = &length)
 				{
 					Debug.Assert(Delegates.pglGetPerfMonitorCounterStringAMD != null, "pglGetPerfMonitorCounterStringAMD not implemented");
 					Delegates.pglGetPerfMonitorCounterStringAMD(group, counter, bufSize, p_length, counterString);
@@ -199,19 +199,19 @@ namespace OpenGL
 		/// [GL] glGetPerfMonitorCounterInfoAMD: Binding for glGetPerfMonitorCounterInfoAMD.
 		/// </summary>
 		/// <param name="group">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="counter">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="data">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
-		public static void GetPerfMonitorCounterInfoAMD(UInt32 group, UInt32 counter, Int32 pname, IntPtr data)
+		public static void GetPerfMonitorCounterInfoAMD(uint group, uint counter, int pname, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglGetPerfMonitorCounterInfoAMD != null, "pglGetPerfMonitorCounterInfoAMD not implemented");
 			Delegates.pglGetPerfMonitorCounterInfoAMD(group, counter, pname, data);
@@ -223,19 +223,19 @@ namespace OpenGL
 		/// [GL] glGetPerfMonitorCounterInfoAMD: Binding for glGetPerfMonitorCounterInfoAMD.
 		/// </summary>
 		/// <param name="group">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="counter">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="data">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
-		public static void GetPerfMonitorCounterInfoAMD(UInt32 group, UInt32 counter, Int32 pname, Object data)
+		public static void GetPerfMonitorCounterInfoAMD(uint group, uint counter, int pname, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -249,16 +249,16 @@ namespace OpenGL
 		/// [GL] glGenPerfMonitorsAMD: Binding for glGenPerfMonitorsAMD.
 		/// </summary>
 		/// <param name="monitors">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
-		public static void GenPerfMonitorsAMD(UInt32[] monitors)
+		public static void GenPerfMonitorsAMD(uint[] monitors)
 		{
 			unsafe {
-				fixed (UInt32* p_monitors = monitors)
+				fixed (uint* p_monitors = monitors)
 				{
 					Debug.Assert(Delegates.pglGenPerfMonitorsAMD != null, "pglGenPerfMonitorsAMD not implemented");
-					Delegates.pglGenPerfMonitorsAMD((Int32)monitors.Length, p_monitors);
+					Delegates.pglGenPerfMonitorsAMD(monitors.Length, p_monitors);
 					LogCommand("glGenPerfMonitorsAMD", null, monitors.Length, monitors					);
 				}
 			}
@@ -269,9 +269,9 @@ namespace OpenGL
 		/// [GL] glGenPerfMonitorsAMD: Binding for glGenPerfMonitorsAMD.
 		/// </summary>
 		[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
-		public static UInt32 GenPerfMonitorAMD()
+		public static uint GenPerfMonitorAMD()
 		{
-			UInt32 retValue;
+			uint retValue;
 			unsafe {
 				Delegates.pglGenPerfMonitorsAMD(1, &retValue);
 				LogCommand("glGenPerfMonitorsAMD", null, 1, "{ " + retValue + " }"				);
@@ -284,16 +284,16 @@ namespace OpenGL
 		/// [GL] glDeletePerfMonitorsAMD: Binding for glDeletePerfMonitorsAMD.
 		/// </summary>
 		/// <param name="monitors">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
-		public static void DeletePerfMonitorsAMD(params UInt32[] monitors)
+		public static void DeletePerfMonitorsAMD(params uint[] monitors)
 		{
 			unsafe {
-				fixed (UInt32* p_monitors = monitors)
+				fixed (uint* p_monitors = monitors)
 				{
 					Debug.Assert(Delegates.pglDeletePerfMonitorsAMD != null, "pglDeletePerfMonitorsAMD not implemented");
-					Delegates.pglDeletePerfMonitorsAMD((Int32)monitors.Length, p_monitors);
+					Delegates.pglDeletePerfMonitorsAMD(monitors.Length, p_monitors);
 					LogCommand("glDeletePerfMonitorsAMD", null, monitors.Length, monitors					);
 				}
 			}
@@ -304,25 +304,25 @@ namespace OpenGL
 		/// [GL] glSelectPerfMonitorCountersAMD: Binding for glSelectPerfMonitorCountersAMD.
 		/// </summary>
 		/// <param name="monitor">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="enable">
 		/// A <see cref="T:bool"/>.
 		/// </param>
 		/// <param name="group">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="counterList">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
-		public static void SelectPerfMonitorCountersAMD(UInt32 monitor, bool enable, UInt32 group, UInt32[] counterList)
+		public static void SelectPerfMonitorCountersAMD(uint monitor, bool enable, uint group, uint[] counterList)
 		{
 			unsafe {
-				fixed (UInt32* p_counterList = counterList)
+				fixed (uint* p_counterList = counterList)
 				{
 					Debug.Assert(Delegates.pglSelectPerfMonitorCountersAMD != null, "pglSelectPerfMonitorCountersAMD not implemented");
-					Delegates.pglSelectPerfMonitorCountersAMD(monitor, enable, group, (Int32)counterList.Length, p_counterList);
+					Delegates.pglSelectPerfMonitorCountersAMD(monitor, enable, group, counterList.Length, p_counterList);
 					LogCommand("glSelectPerfMonitorCountersAMD", null, monitor, enable, group, counterList.Length, counterList					);
 				}
 			}
@@ -333,10 +333,10 @@ namespace OpenGL
 		/// [GL] glBeginPerfMonitorAMD: Binding for glBeginPerfMonitorAMD.
 		/// </summary>
 		/// <param name="monitor">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
-		public static void BeginPerfMonitorAMD(UInt32 monitor)
+		public static void BeginPerfMonitorAMD(uint monitor)
 		{
 			Debug.Assert(Delegates.pglBeginPerfMonitorAMD != null, "pglBeginPerfMonitorAMD not implemented");
 			Delegates.pglBeginPerfMonitorAMD(monitor);
@@ -348,10 +348,10 @@ namespace OpenGL
 		/// [GL] glEndPerfMonitorAMD: Binding for glEndPerfMonitorAMD.
 		/// </summary>
 		/// <param name="monitor">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
-		public static void EndPerfMonitorAMD(UInt32 monitor)
+		public static void EndPerfMonitorAMD(uint monitor)
 		{
 			Debug.Assert(Delegates.pglEndPerfMonitorAMD != null, "pglEndPerfMonitorAMD not implemented");
 			Delegates.pglEndPerfMonitorAMD(monitor);
@@ -363,26 +363,26 @@ namespace OpenGL
 		/// [GL] glGetPerfMonitorCounterDataAMD: Binding for glGetPerfMonitorCounterDataAMD.
 		/// </summary>
 		/// <param name="monitor">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="data">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		/// <param name="bytesWritten">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
-		public static void GetPerfMonitorCounterDataAMD(UInt32 monitor, Int32 pname, [Out] UInt32[] data, out Int32 bytesWritten)
+		public static void GetPerfMonitorCounterDataAMD(uint monitor, int pname, [Out] uint[] data, out int bytesWritten)
 		{
 			unsafe {
-				fixed (UInt32* p_data = data)
-				fixed (Int32* p_bytesWritten = &bytesWritten)
+				fixed (uint* p_data = data)
+				fixed (int* p_bytesWritten = &bytesWritten)
 				{
 					Debug.Assert(Delegates.pglGetPerfMonitorCounterDataAMD != null, "pglGetPerfMonitorCounterDataAMD not implemented");
-					Delegates.pglGetPerfMonitorCounterDataAMD(monitor, pname, (Int32)data.Length, p_data, p_bytesWritten);
+					Delegates.pglGetPerfMonitorCounterDataAMD(monitor, pname, data.Length, p_data, p_bytesWritten);
 					LogCommand("glGetPerfMonitorCounterDataAMD", null, monitor, pname, data.Length, data, bytesWritten					);
 				}
 			}
@@ -393,7 +393,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetPerfMonitorGroupsAMD(Int32* numGroups, Int32 groupsSize, UInt32* groups);
+			internal unsafe delegate void glGetPerfMonitorGroupsAMD(int* numGroups, int groupsSize, uint* groups);
 
 			[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -401,7 +401,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetPerfMonitorCountersAMD(UInt32 group, Int32* numCounters, Int32* maxActiveCounters, Int32 counterSize, UInt32* counters);
+			internal unsafe delegate void glGetPerfMonitorCountersAMD(uint group, int* numCounters, int* maxActiveCounters, int counterSize, uint* counters);
 
 			[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -409,7 +409,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetPerfMonitorGroupStringAMD(UInt32 group, Int32 bufSize, Int32* length, [Out] StringBuilder groupString);
+			internal unsafe delegate void glGetPerfMonitorGroupStringAMD(uint group, int bufSize, int* length, [Out] StringBuilder groupString);
 
 			[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -417,7 +417,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetPerfMonitorCounterStringAMD(UInt32 group, UInt32 counter, Int32 bufSize, Int32* length, [Out] StringBuilder counterString);
+			internal unsafe delegate void glGetPerfMonitorCounterStringAMD(uint group, uint counter, int bufSize, int* length, [Out] StringBuilder counterString);
 
 			[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -425,7 +425,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetPerfMonitorCounterInfoAMD(UInt32 group, UInt32 counter, Int32 pname, IntPtr data);
+			internal unsafe delegate void glGetPerfMonitorCounterInfoAMD(uint group, uint counter, int pname, IntPtr data);
 
 			[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -433,7 +433,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGenPerfMonitorsAMD(Int32 n, UInt32* monitors);
+			internal unsafe delegate void glGenPerfMonitorsAMD(int n, uint* monitors);
 
 			[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -441,7 +441,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDeletePerfMonitorsAMD(Int32 n, UInt32* monitors);
+			internal unsafe delegate void glDeletePerfMonitorsAMD(int n, uint* monitors);
 
 			[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -449,7 +449,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glSelectPerfMonitorCountersAMD(UInt32 monitor, [MarshalAs(UnmanagedType.I1)] bool enable, UInt32 group, Int32 numCounters, UInt32* counterList);
+			internal unsafe delegate void glSelectPerfMonitorCountersAMD(uint monitor, [MarshalAs(UnmanagedType.I1)] bool enable, uint group, int numCounters, uint* counterList);
 
 			[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -457,7 +457,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glBeginPerfMonitorAMD(UInt32 monitor);
+			internal delegate void glBeginPerfMonitorAMD(uint monitor);
 
 			[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -465,7 +465,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glEndPerfMonitorAMD(UInt32 monitor);
+			internal delegate void glEndPerfMonitorAMD(uint monitor);
 
 			[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -473,7 +473,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetPerfMonitorCounterDataAMD(UInt32 monitor, Int32 pname, Int32 dataSize, UInt32* data, Int32* bytesWritten);
+			internal unsafe delegate void glGetPerfMonitorCounterDataAMD(uint monitor, int pname, int dataSize, uint* data, int* bytesWritten);
 
 			[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
 			[ThreadStatic]

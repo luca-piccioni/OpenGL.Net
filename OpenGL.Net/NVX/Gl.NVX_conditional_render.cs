@@ -41,10 +41,10 @@ namespace OpenGL
 		/// [GL] glBeginConditionalRenderNVX: Binding for glBeginConditionalRenderNVX.
 		/// </summary>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_NVX_conditional_render")]
-		public static void BeginConditionalRenderNVX(UInt32 id)
+		public static void BeginConditionalRenderNVX(uint id)
 		{
 			Debug.Assert(Delegates.pglBeginConditionalRenderNVX != null, "pglBeginConditionalRenderNVX not implemented");
 			Delegates.pglBeginConditionalRenderNVX(id);
@@ -56,7 +56,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_NVX_conditional_render")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glBeginConditionalRenderNVX(UInt32 id);
+			internal delegate void glBeginConditionalRenderNVX(uint id);
 
 			[RequiredByFeature("GL_NVX_conditional_render")]
 			[ThreadStatic]

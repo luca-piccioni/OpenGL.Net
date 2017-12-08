@@ -41,17 +41,17 @@ namespace OpenGL
 		/// [GL] glGenQueriesEXT: Binding for glGenQueriesEXT.
 		/// </summary>
 		/// <param name="ids">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
-		public static void GenQueriesEXT(UInt32[] ids)
+		public static void GenQueriesEXT(uint[] ids)
 		{
 			unsafe {
-				fixed (UInt32* p_ids = ids)
+				fixed (uint* p_ids = ids)
 				{
 					Debug.Assert(Delegates.pglGenQueriesEXT != null, "pglGenQueriesEXT not implemented");
-					Delegates.pglGenQueriesEXT((Int32)ids.Length, p_ids);
+					Delegates.pglGenQueriesEXT(ids.Length, p_ids);
 					LogCommand("glGenQueriesEXT", null, ids.Length, ids					);
 				}
 			}
@@ -63,9 +63,9 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
-		public static UInt32 GenQueryEXT()
+		public static uint GenQueryEXT()
 		{
-			UInt32 retValue;
+			uint retValue;
 			unsafe {
 				Delegates.pglGenQueriesEXT(1, &retValue);
 				LogCommand("glGenQueriesEXT", null, 1, "{ " + retValue + " }"				);
@@ -78,17 +78,17 @@ namespace OpenGL
 		/// [GL] glDeleteQueriesEXT: Binding for glDeleteQueriesEXT.
 		/// </summary>
 		/// <param name="ids">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
-		public static void DeleteQueriesEXT(params UInt32[] ids)
+		public static void DeleteQueriesEXT(params uint[] ids)
 		{
 			unsafe {
-				fixed (UInt32* p_ids = ids)
+				fixed (uint* p_ids = ids)
 				{
 					Debug.Assert(Delegates.pglDeleteQueriesEXT != null, "pglDeleteQueriesEXT not implemented");
-					Delegates.pglDeleteQueriesEXT((Int32)ids.Length, p_ids);
+					Delegates.pglDeleteQueriesEXT(ids.Length, p_ids);
 					LogCommand("glDeleteQueriesEXT", null, ids.Length, ids					);
 				}
 			}
@@ -99,11 +99,11 @@ namespace OpenGL
 		/// [GL] glIsQueryEXT: Binding for glIsQueryEXT.
 		/// </summary>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
-		public static bool IsQueryEXT(UInt32 id)
+		public static bool IsQueryEXT(uint id)
 		{
 			bool retValue;
 
@@ -122,14 +122,14 @@ namespace OpenGL
 		/// A <see cref="T:QueryTarget"/>.
 		/// </param>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
-		public static void BeginQueryEXT(QueryTarget target, UInt32 id)
+		public static void BeginQueryEXT(QueryTarget target, uint id)
 		{
 			Debug.Assert(Delegates.pglBeginQueryEXT != null, "pglBeginQueryEXT not implemented");
-			Delegates.pglBeginQueryEXT((Int32)target, id);
+			Delegates.pglBeginQueryEXT((int)target, id);
 			LogCommand("glBeginQueryEXT", null, target, id			);
 			DebugCheckErrors(null);
 		}
@@ -145,7 +145,7 @@ namespace OpenGL
 		public static void EndQueryEXT(QueryTarget target)
 		{
 			Debug.Assert(Delegates.pglEndQueryEXT != null, "pglEndQueryEXT not implemented");
-			Delegates.pglEndQueryEXT((Int32)target);
+			Delegates.pglEndQueryEXT((int)target);
 			LogCommand("glEndQueryEXT", null, target			);
 			DebugCheckErrors(null);
 		}
@@ -160,17 +160,17 @@ namespace OpenGL
 		/// A <see cref="T:QueryParameterName"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
-		public static void GetQueryEXT(QueryTarget target, QueryParameterName pname, [Out] Int32[] @params)
+		public static void GetQueryEXT(QueryTarget target, QueryParameterName pname, [Out] int[] @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetQueryivEXT != null, "pglGetQueryivEXT not implemented");
-					Delegates.pglGetQueryivEXT((Int32)target, (Int32)pname, p_params);
+					Delegates.pglGetQueryivEXT((int)target, (int)pname, p_params);
 					LogCommand("glGetQueryivEXT", null, target, pname, @params					);
 				}
 			}
@@ -187,17 +187,17 @@ namespace OpenGL
 		/// A <see cref="T:QueryParameterName"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
-		public static void GetQueryEXT(QueryTarget target, QueryParameterName pname, out Int32 @params)
+		public static void GetQueryEXT(QueryTarget target, QueryParameterName pname, out int @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = &@params)
+				fixed (int* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetQueryivEXT != null, "pglGetQueryivEXT not implemented");
-					Delegates.pglGetQueryivEXT((Int32)target, (Int32)pname, p_params);
+					Delegates.pglGetQueryivEXT((int)target, (int)pname, p_params);
 					LogCommand("glGetQueryivEXT", null, target, pname, @params					);
 				}
 			}
@@ -208,23 +208,23 @@ namespace OpenGL
 		/// [GL] glGetQueryObjectuivEXT: Binding for glGetQueryObjectuivEXT.
 		/// </summary>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:QueryObjectParameterName"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
-		public static void GetQueryObjectuivEXT(UInt32 id, QueryObjectParameterName pname, [Out] UInt32[] @params)
+		public static void GetQueryObjectuivEXT(uint id, QueryObjectParameterName pname, [Out] uint[] @params)
 		{
 			unsafe {
-				fixed (UInt32* p_params = @params)
+				fixed (uint* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetQueryObjectuivEXT != null, "pglGetQueryObjectuivEXT not implemented");
-					Delegates.pglGetQueryObjectuivEXT(id, (Int32)pname, p_params);
+					Delegates.pglGetQueryObjectuivEXT(id, (int)pname, p_params);
 					LogCommand("glGetQueryObjectuivEXT", null, id, pname, @params					);
 				}
 			}
@@ -235,23 +235,23 @@ namespace OpenGL
 		/// [GL] glGetQueryObjectuivEXT: Binding for glGetQueryObjectuivEXT.
 		/// </summary>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:QueryObjectParameterName"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
-		public static void GetQueryObjectuivEXT(UInt32 id, QueryObjectParameterName pname, out UInt32 @params)
+		public static void GetQueryObjectuivEXT(uint id, QueryObjectParameterName pname, out uint @params)
 		{
 			unsafe {
-				fixed (UInt32* p_params = &@params)
+				fixed (uint* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetQueryObjectuivEXT != null, "pglGetQueryObjectuivEXT not implemented");
-					Delegates.pglGetQueryObjectuivEXT(id, (Int32)pname, p_params);
+					Delegates.pglGetQueryObjectuivEXT(id, (int)pname, p_params);
 					LogCommand("glGetQueryObjectuivEXT", null, id, pname, @params					);
 				}
 			}
@@ -263,7 +263,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGenQueriesEXT(Int32 n, UInt32* ids);
+			internal unsafe delegate void glGenQueriesEXT(int n, uint* ids);
 
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
@@ -273,7 +273,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDeleteQueriesEXT(Int32 n, UInt32* ids);
+			internal unsafe delegate void glDeleteQueriesEXT(int n, uint* ids);
 
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
@@ -284,7 +284,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			[return: MarshalAs(UnmanagedType.I1)]
-			internal delegate bool glIsQueryEXT(UInt32 id);
+			internal delegate bool glIsQueryEXT(uint id);
 
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
@@ -294,7 +294,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glBeginQueryEXT(Int32 target, UInt32 id);
+			internal delegate void glBeginQueryEXT(int target, uint id);
 
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
@@ -304,7 +304,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glEndQueryEXT(Int32 target);
+			internal delegate void glEndQueryEXT(int target);
 
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
@@ -314,7 +314,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetQueryivEXT(Int32 target, Int32 pname, Int32* @params);
+			internal unsafe delegate void glGetQueryivEXT(int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
@@ -324,7 +324,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetQueryObjectuivEXT(UInt32 id, Int32 pname, UInt32* @params);
+			internal unsafe delegate void glGetQueryObjectuivEXT(uint id, int pname, uint* @params);
 
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]

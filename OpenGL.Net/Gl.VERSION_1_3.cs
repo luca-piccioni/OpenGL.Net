@@ -1123,7 +1123,7 @@ namespace OpenGL
 		public static void ActiveTexture(TextureUnit texture)
 		{
 			Debug.Assert(Delegates.pglActiveTexture != null, "pglActiveTexture not implemented");
-			Delegates.pglActiveTexture((Int32)texture);
+			Delegates.pglActiveTexture((int)texture);
 			LogCommand("glActiveTexture", null, texture			);
 			DebugCheckErrors(null);
 		}
@@ -1194,10 +1194,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_compression")]
-		public static void CompressedTexImage3D(TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, IntPtr data)
+		public static void CompressedTexImage3D(TextureTarget target, int level, InternalFormat internalformat, int width, int height, int depth, int border, int imageSize, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglCompressedTexImage3D != null, "pglCompressedTexImage3D not implemented");
-			Delegates.pglCompressedTexImage3D((Int32)target, level, (Int32)internalformat, width, height, depth, border, imageSize, data);
+			Delegates.pglCompressedTexImage3D((int)target, level, (int)internalformat, width, height, depth, border, imageSize, data);
 			LogCommand("glCompressedTexImage3D", null, target, level, internalformat, width, height, depth, border, imageSize, data			);
 			DebugCheckErrors(null);
 		}
@@ -1243,7 +1243,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_compression")]
-		public static void CompressedTexImage3D(TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, Object data)
+		public static void CompressedTexImage3D(TextureTarget target, int level, InternalFormat internalformat, int width, int height, int depth, int border, int imageSize, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -1292,10 +1292,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_compression")]
-		public static void CompressedTexImage2D(TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, IntPtr data)
+		public static void CompressedTexImage2D(TextureTarget target, int level, InternalFormat internalformat, int width, int height, int border, int imageSize, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglCompressedTexImage2D != null, "pglCompressedTexImage2D not implemented");
-			Delegates.pglCompressedTexImage2D((Int32)target, level, (Int32)internalformat, width, height, border, imageSize, data);
+			Delegates.pglCompressedTexImage2D((int)target, level, (int)internalformat, width, height, border, imageSize, data);
 			LogCommand("glCompressedTexImage2D", null, target, level, internalformat, width, height, border, imageSize, data			);
 			DebugCheckErrors(null);
 		}
@@ -1339,7 +1339,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_compression")]
-		public static void CompressedTexImage2D(TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, Object data)
+		public static void CompressedTexImage2D(TextureTarget target, int level, InternalFormat internalformat, int width, int height, int border, int imageSize, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -1377,10 +1377,10 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_texture_compression")]
-		public static void CompressedTexImage1D(TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 border, Int32 imageSize, IntPtr data)
+		public static void CompressedTexImage1D(TextureTarget target, int level, InternalFormat internalformat, int width, int border, int imageSize, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglCompressedTexImage1D != null, "pglCompressedTexImage1D not implemented");
-			Delegates.pglCompressedTexImage1D((Int32)target, level, (Int32)internalformat, width, border, imageSize, data);
+			Delegates.pglCompressedTexImage1D((int)target, level, (int)internalformat, width, border, imageSize, data);
 			LogCommand("glCompressedTexImage1D", null, target, level, internalformat, width, border, imageSize, data			);
 			DebugCheckErrors(null);
 		}
@@ -1413,7 +1413,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_texture_compression")]
-		public static void CompressedTexImage1D(TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 border, Int32 imageSize, Object data)
+		public static void CompressedTexImage1D(TextureTarget target, int level, InternalFormat internalformat, int width, int border, int imageSize, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -1442,7 +1442,7 @@ namespace OpenGL
 		/// Specifies a texel offset in the y direction within the texture array.
 		/// </param>
 		/// <param name="zoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
 		/// Specifies the width of the texture subimage.
@@ -1465,10 +1465,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_compression")]
-		public static void CompressedTexSubImage3D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, Int32 imageSize, IntPtr data)
+		public static void CompressedTexSubImage3D(TextureTarget target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, PixelFormat format, int imageSize, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglCompressedTexSubImage3D != null, "pglCompressedTexSubImage3D not implemented");
-			Delegates.pglCompressedTexSubImage3D((Int32)target, level, xoffset, yoffset, zoffset, width, height, depth, (Int32)format, imageSize, data);
+			Delegates.pglCompressedTexSubImage3D((int)target, level, xoffset, yoffset, zoffset, width, height, depth, (int)format, imageSize, data);
 			LogCommand("glCompressedTexSubImage3D", null, target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data			);
 			DebugCheckErrors(null);
 		}
@@ -1492,7 +1492,7 @@ namespace OpenGL
 		/// Specifies a texel offset in the y direction within the texture array.
 		/// </param>
 		/// <param name="zoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
 		/// Specifies the width of the texture subimage.
@@ -1515,7 +1515,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_compression")]
-		public static void CompressedTexSubImage3D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, Int32 imageSize, Object data)
+		public static void CompressedTexSubImage3D(TextureTarget target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, PixelFormat format, int imageSize, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -1564,10 +1564,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_texture_compression")]
-		public static void CompressedTexSubImage2D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, Int32 imageSize, IntPtr data)
+		public static void CompressedTexSubImage2D(TextureTarget target, int level, int xoffset, int yoffset, int width, int height, PixelFormat format, int imageSize, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglCompressedTexSubImage2D != null, "pglCompressedTexSubImage2D not implemented");
-			Delegates.pglCompressedTexSubImage2D((Int32)target, level, xoffset, yoffset, width, height, (Int32)format, imageSize, data);
+			Delegates.pglCompressedTexSubImage2D((int)target, level, xoffset, yoffset, width, height, (int)format, imageSize, data);
 			LogCommand("glCompressedTexSubImage2D", null, target, level, xoffset, yoffset, width, height, format, imageSize, data			);
 			DebugCheckErrors(null);
 		}
@@ -1611,7 +1611,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_texture_compression")]
-		public static void CompressedTexSubImage2D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, Int32 imageSize, Object data)
+		public static void CompressedTexSubImage2D(TextureTarget target, int level, int xoffset, int yoffset, int width, int height, PixelFormat format, int imageSize, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -1647,10 +1647,10 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_texture_compression")]
-		public static void CompressedTexSubImage1D(TextureTarget target, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, Int32 imageSize, IntPtr data)
+		public static void CompressedTexSubImage1D(TextureTarget target, int level, int xoffset, int width, PixelFormat format, int imageSize, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglCompressedTexSubImage1D != null, "pglCompressedTexSubImage1D not implemented");
-			Delegates.pglCompressedTexSubImage1D((Int32)target, level, xoffset, width, (Int32)format, imageSize, data);
+			Delegates.pglCompressedTexSubImage1D((int)target, level, xoffset, width, (int)format, imageSize, data);
 			LogCommand("glCompressedTexSubImage1D", null, target, level, xoffset, width, format, imageSize, data			);
 			DebugCheckErrors(null);
 		}
@@ -1681,7 +1681,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_texture_compression")]
-		public static void CompressedTexSubImage1D(TextureTarget target, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, Int32 imageSize, Object data)
+		public static void CompressedTexSubImage1D(TextureTarget target, int level, int xoffset, int width, PixelFormat format, int imageSize, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -1710,10 +1710,10 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_texture_compression")]
-		public static void GetCompressedTexImage(TextureTarget target, Int32 level, IntPtr img)
+		public static void GetCompressedTexImage(TextureTarget target, int level, IntPtr img)
 		{
 			Debug.Assert(Delegates.pglGetCompressedTexImage != null, "pglGetCompressedTexImage not implemented");
-			Delegates.pglGetCompressedTexImage((Int32)target, level, img);
+			Delegates.pglGetCompressedTexImage((int)target, level, img);
 			LogCommand("glGetCompressedTexImage", null, target, level, img			);
 			DebugCheckErrors(null);
 		}
@@ -1737,7 +1737,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_texture_compression")]
-		public static void GetCompressedTexImage(TextureTarget target, Int32 level, Object img)
+		public static void GetCompressedTexImage(TextureTarget target, int level, Object img)
 		{
 			GCHandle pin_img = GCHandle.Alloc(img, GCHandleType.Pinned);
 			try {
@@ -1767,7 +1767,7 @@ namespace OpenGL
 		public static void ClientActiveTexture(TextureUnit texture)
 		{
 			Debug.Assert(Delegates.pglClientActiveTexture != null, "pglClientActiveTexture not implemented");
-			Delegates.pglClientActiveTexture((Int32)texture);
+			Delegates.pglClientActiveTexture((int)texture);
 			LogCommand("glClientActiveTexture", null, texture			);
 			DebugCheckErrors(null);
 		}
@@ -1790,7 +1790,7 @@ namespace OpenGL
 		public static void MultiTexCoord1(TextureUnit target, double s)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord1d != null, "pglMultiTexCoord1d not implemented");
-			Delegates.pglMultiTexCoord1d((Int32)target, s);
+			Delegates.pglMultiTexCoord1d((int)target, s);
 			LogCommand("glMultiTexCoord1d", null, target, s			);
 		}
 
@@ -1815,7 +1815,7 @@ namespace OpenGL
 				fixed (double* p_v = v)
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord1dv != null, "pglMultiTexCoord1dv not implemented");
-					Delegates.pglMultiTexCoord1dv((Int32)target, p_v);
+					Delegates.pglMultiTexCoord1dv((int)target, p_v);
 					LogCommand("glMultiTexCoord1dv", null, target, v					);
 				}
 			}
@@ -1840,7 +1840,7 @@ namespace OpenGL
 		public static void MultiTexCoord1(TextureUnit target, float s)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord1f != null, "pglMultiTexCoord1f not implemented");
-			Delegates.pglMultiTexCoord1f((Int32)target, s);
+			Delegates.pglMultiTexCoord1f((int)target, s);
 			LogCommand("glMultiTexCoord1f", null, target, s			);
 		}
 
@@ -1865,7 +1865,7 @@ namespace OpenGL
 				fixed (float* p_v = v)
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord1fv != null, "pglMultiTexCoord1fv not implemented");
-					Delegates.pglMultiTexCoord1fv((Int32)target, p_v);
+					Delegates.pglMultiTexCoord1fv((int)target, p_v);
 					LogCommand("glMultiTexCoord1fv", null, target, v					);
 				}
 			}
@@ -1887,10 +1887,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void MultiTexCoord1(TextureUnit target, Int32 s)
+		public static void MultiTexCoord1(TextureUnit target, int s)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord1i != null, "pglMultiTexCoord1i not implemented");
-			Delegates.pglMultiTexCoord1i((Int32)target, s);
+			Delegates.pglMultiTexCoord1i((int)target, s);
 			LogCommand("glMultiTexCoord1i", null, target, s			);
 		}
 
@@ -1903,19 +1903,19 @@ namespace OpenGL
 		/// Gl.MAX_TEXTURE_COORDS - 1, which is an implementation-dependent value.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void MultiTexCoord1(TextureUnit target, Int32[] v)
+		public static void MultiTexCoord1(TextureUnit target, int[] v)
 		{
 			Debug.Assert(v.Length >= 1);
 			unsafe {
-				fixed (Int32* p_v = v)
+				fixed (int* p_v = v)
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord1iv != null, "pglMultiTexCoord1iv not implemented");
-					Delegates.pglMultiTexCoord1iv((Int32)target, p_v);
+					Delegates.pglMultiTexCoord1iv((int)target, p_v);
 					LogCommand("glMultiTexCoord1iv", null, target, v					);
 				}
 			}
@@ -1937,10 +1937,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void MultiTexCoord1(TextureUnit target, Int16 s)
+		public static void MultiTexCoord1(TextureUnit target, short s)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord1s != null, "pglMultiTexCoord1s not implemented");
-			Delegates.pglMultiTexCoord1s((Int32)target, s);
+			Delegates.pglMultiTexCoord1s((int)target, s);
 			LogCommand("glMultiTexCoord1s", null, target, s			);
 		}
 
@@ -1953,19 +1953,19 @@ namespace OpenGL
 		/// Gl.MAX_TEXTURE_COORDS - 1, which is an implementation-dependent value.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="T:Int16[]"/>.
+		/// A <see cref="T:short[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void MultiTexCoord1(TextureUnit target, Int16[] v)
+		public static void MultiTexCoord1(TextureUnit target, short[] v)
 		{
 			Debug.Assert(v.Length >= 1);
 			unsafe {
-				fixed (Int16* p_v = v)
+				fixed (short* p_v = v)
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord1sv != null, "pglMultiTexCoord1sv not implemented");
-					Delegates.pglMultiTexCoord1sv((Int32)target, p_v);
+					Delegates.pglMultiTexCoord1sv((int)target, p_v);
 					LogCommand("glMultiTexCoord1sv", null, target, v					);
 				}
 			}
@@ -1994,7 +1994,7 @@ namespace OpenGL
 		public static void MultiTexCoord2(TextureUnit target, double s, double t)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord2d != null, "pglMultiTexCoord2d not implemented");
-			Delegates.pglMultiTexCoord2d((Int32)target, s, t);
+			Delegates.pglMultiTexCoord2d((int)target, s, t);
 			LogCommand("glMultiTexCoord2d", null, target, s, t			);
 		}
 
@@ -2019,7 +2019,7 @@ namespace OpenGL
 				fixed (double* p_v = v)
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord2dv != null, "pglMultiTexCoord2dv not implemented");
-					Delegates.pglMultiTexCoord2dv((Int32)target, p_v);
+					Delegates.pglMultiTexCoord2dv((int)target, p_v);
 					LogCommand("glMultiTexCoord2dv", null, target, v					);
 				}
 			}
@@ -2048,7 +2048,7 @@ namespace OpenGL
 		public static void MultiTexCoord2(TextureUnit target, float s, float t)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord2f != null, "pglMultiTexCoord2f not implemented");
-			Delegates.pglMultiTexCoord2f((Int32)target, s, t);
+			Delegates.pglMultiTexCoord2f((int)target, s, t);
 			LogCommand("glMultiTexCoord2f", null, target, s, t			);
 		}
 
@@ -2073,7 +2073,7 @@ namespace OpenGL
 				fixed (float* p_v = v)
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord2fv != null, "pglMultiTexCoord2fv not implemented");
-					Delegates.pglMultiTexCoord2fv((Int32)target, p_v);
+					Delegates.pglMultiTexCoord2fv((int)target, p_v);
 					LogCommand("glMultiTexCoord2fv", null, target, v					);
 				}
 			}
@@ -2099,10 +2099,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void MultiTexCoord2(TextureUnit target, Int32 s, Int32 t)
+		public static void MultiTexCoord2(TextureUnit target, int s, int t)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord2i != null, "pglMultiTexCoord2i not implemented");
-			Delegates.pglMultiTexCoord2i((Int32)target, s, t);
+			Delegates.pglMultiTexCoord2i((int)target, s, t);
 			LogCommand("glMultiTexCoord2i", null, target, s, t			);
 		}
 
@@ -2115,19 +2115,19 @@ namespace OpenGL
 		/// Gl.MAX_TEXTURE_COORDS - 1, which is an implementation-dependent value.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void MultiTexCoord2(TextureUnit target, Int32[] v)
+		public static void MultiTexCoord2(TextureUnit target, int[] v)
 		{
 			Debug.Assert(v.Length >= 2);
 			unsafe {
-				fixed (Int32* p_v = v)
+				fixed (int* p_v = v)
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord2iv != null, "pglMultiTexCoord2iv not implemented");
-					Delegates.pglMultiTexCoord2iv((Int32)target, p_v);
+					Delegates.pglMultiTexCoord2iv((int)target, p_v);
 					LogCommand("glMultiTexCoord2iv", null, target, v					);
 				}
 			}
@@ -2153,10 +2153,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void MultiTexCoord2(TextureUnit target, Int16 s, Int16 t)
+		public static void MultiTexCoord2(TextureUnit target, short s, short t)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord2s != null, "pglMultiTexCoord2s not implemented");
-			Delegates.pglMultiTexCoord2s((Int32)target, s, t);
+			Delegates.pglMultiTexCoord2s((int)target, s, t);
 			LogCommand("glMultiTexCoord2s", null, target, s, t			);
 		}
 
@@ -2169,19 +2169,19 @@ namespace OpenGL
 		/// Gl.MAX_TEXTURE_COORDS - 1, which is an implementation-dependent value.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="T:Int16[]"/>.
+		/// A <see cref="T:short[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void MultiTexCoord2(TextureUnit target, Int16[] v)
+		public static void MultiTexCoord2(TextureUnit target, short[] v)
 		{
 			Debug.Assert(v.Length >= 2);
 			unsafe {
-				fixed (Int16* p_v = v)
+				fixed (short* p_v = v)
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord2sv != null, "pglMultiTexCoord2sv not implemented");
-					Delegates.pglMultiTexCoord2sv((Int32)target, p_v);
+					Delegates.pglMultiTexCoord2sv((int)target, p_v);
 					LogCommand("glMultiTexCoord2sv", null, target, v					);
 				}
 			}
@@ -2214,7 +2214,7 @@ namespace OpenGL
 		public static void MultiTexCoord3(TextureUnit target, double s, double t, double r)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord3d != null, "pglMultiTexCoord3d not implemented");
-			Delegates.pglMultiTexCoord3d((Int32)target, s, t, r);
+			Delegates.pglMultiTexCoord3d((int)target, s, t, r);
 			LogCommand("glMultiTexCoord3d", null, target, s, t, r			);
 		}
 
@@ -2239,7 +2239,7 @@ namespace OpenGL
 				fixed (double* p_v = v)
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord3dv != null, "pglMultiTexCoord3dv not implemented");
-					Delegates.pglMultiTexCoord3dv((Int32)target, p_v);
+					Delegates.pglMultiTexCoord3dv((int)target, p_v);
 					LogCommand("glMultiTexCoord3dv", null, target, v					);
 				}
 			}
@@ -2272,7 +2272,7 @@ namespace OpenGL
 		public static void MultiTexCoord3(TextureUnit target, float s, float t, float r)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord3f != null, "pglMultiTexCoord3f not implemented");
-			Delegates.pglMultiTexCoord3f((Int32)target, s, t, r);
+			Delegates.pglMultiTexCoord3f((int)target, s, t, r);
 			LogCommand("glMultiTexCoord3f", null, target, s, t, r			);
 		}
 
@@ -2297,7 +2297,7 @@ namespace OpenGL
 				fixed (float* p_v = v)
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord3fv != null, "pglMultiTexCoord3fv not implemented");
-					Delegates.pglMultiTexCoord3fv((Int32)target, p_v);
+					Delegates.pglMultiTexCoord3fv((int)target, p_v);
 					LogCommand("glMultiTexCoord3fv", null, target, v					);
 				}
 			}
@@ -2327,10 +2327,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void MultiTexCoord3(TextureUnit target, Int32 s, Int32 t, Int32 r)
+		public static void MultiTexCoord3(TextureUnit target, int s, int t, int r)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord3i != null, "pglMultiTexCoord3i not implemented");
-			Delegates.pglMultiTexCoord3i((Int32)target, s, t, r);
+			Delegates.pglMultiTexCoord3i((int)target, s, t, r);
 			LogCommand("glMultiTexCoord3i", null, target, s, t, r			);
 		}
 
@@ -2343,19 +2343,19 @@ namespace OpenGL
 		/// Gl.MAX_TEXTURE_COORDS - 1, which is an implementation-dependent value.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void MultiTexCoord3(TextureUnit target, Int32[] v)
+		public static void MultiTexCoord3(TextureUnit target, int[] v)
 		{
 			Debug.Assert(v.Length >= 3);
 			unsafe {
-				fixed (Int32* p_v = v)
+				fixed (int* p_v = v)
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord3iv != null, "pglMultiTexCoord3iv not implemented");
-					Delegates.pglMultiTexCoord3iv((Int32)target, p_v);
+					Delegates.pglMultiTexCoord3iv((int)target, p_v);
 					LogCommand("glMultiTexCoord3iv", null, target, v					);
 				}
 			}
@@ -2385,10 +2385,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void MultiTexCoord3(TextureUnit target, Int16 s, Int16 t, Int16 r)
+		public static void MultiTexCoord3(TextureUnit target, short s, short t, short r)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord3s != null, "pglMultiTexCoord3s not implemented");
-			Delegates.pglMultiTexCoord3s((Int32)target, s, t, r);
+			Delegates.pglMultiTexCoord3s((int)target, s, t, r);
 			LogCommand("glMultiTexCoord3s", null, target, s, t, r			);
 		}
 
@@ -2401,19 +2401,19 @@ namespace OpenGL
 		/// Gl.MAX_TEXTURE_COORDS - 1, which is an implementation-dependent value.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="T:Int16[]"/>.
+		/// A <see cref="T:short[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void MultiTexCoord3(TextureUnit target, Int16[] v)
+		public static void MultiTexCoord3(TextureUnit target, short[] v)
 		{
 			Debug.Assert(v.Length >= 3);
 			unsafe {
-				fixed (Int16* p_v = v)
+				fixed (short* p_v = v)
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord3sv != null, "pglMultiTexCoord3sv not implemented");
-					Delegates.pglMultiTexCoord3sv((Int32)target, p_v);
+					Delegates.pglMultiTexCoord3sv((int)target, p_v);
 					LogCommand("glMultiTexCoord3sv", null, target, v					);
 				}
 			}
@@ -2450,7 +2450,7 @@ namespace OpenGL
 		public static void MultiTexCoord4(TextureUnit target, double s, double t, double r, double q)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord4d != null, "pglMultiTexCoord4d not implemented");
-			Delegates.pglMultiTexCoord4d((Int32)target, s, t, r, q);
+			Delegates.pglMultiTexCoord4d((int)target, s, t, r, q);
 			LogCommand("glMultiTexCoord4d", null, target, s, t, r, q			);
 		}
 
@@ -2475,7 +2475,7 @@ namespace OpenGL
 				fixed (double* p_v = v)
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord4dv != null, "pglMultiTexCoord4dv not implemented");
-					Delegates.pglMultiTexCoord4dv((Int32)target, p_v);
+					Delegates.pglMultiTexCoord4dv((int)target, p_v);
 					LogCommand("glMultiTexCoord4dv", null, target, v					);
 				}
 			}
@@ -2515,7 +2515,7 @@ namespace OpenGL
 		public static void MultiTexCoord4(TextureUnit target, float s, float t, float r, float q)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord4f != null, "pglMultiTexCoord4f not implemented");
-			Delegates.pglMultiTexCoord4f((Int32)target, s, t, r, q);
+			Delegates.pglMultiTexCoord4f((int)target, s, t, r, q);
 			LogCommand("glMultiTexCoord4f", null, target, s, t, r, q			);
 		}
 
@@ -2540,7 +2540,7 @@ namespace OpenGL
 				fixed (float* p_v = v)
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord4fv != null, "pglMultiTexCoord4fv not implemented");
-					Delegates.pglMultiTexCoord4fv((Int32)target, p_v);
+					Delegates.pglMultiTexCoord4fv((int)target, p_v);
 					LogCommand("glMultiTexCoord4fv", null, target, v					);
 				}
 			}
@@ -2574,10 +2574,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void MultiTexCoord4(TextureUnit target, Int32 s, Int32 t, Int32 r, Int32 q)
+		public static void MultiTexCoord4(TextureUnit target, int s, int t, int r, int q)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord4i != null, "pglMultiTexCoord4i not implemented");
-			Delegates.pglMultiTexCoord4i((Int32)target, s, t, r, q);
+			Delegates.pglMultiTexCoord4i((int)target, s, t, r, q);
 			LogCommand("glMultiTexCoord4i", null, target, s, t, r, q			);
 		}
 
@@ -2590,19 +2590,19 @@ namespace OpenGL
 		/// Gl.MAX_TEXTURE_COORDS - 1, which is an implementation-dependent value.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void MultiTexCoord4(TextureUnit target, Int32[] v)
+		public static void MultiTexCoord4(TextureUnit target, int[] v)
 		{
 			Debug.Assert(v.Length >= 4);
 			unsafe {
-				fixed (Int32* p_v = v)
+				fixed (int* p_v = v)
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord4iv != null, "pglMultiTexCoord4iv not implemented");
-					Delegates.pglMultiTexCoord4iv((Int32)target, p_v);
+					Delegates.pglMultiTexCoord4iv((int)target, p_v);
 					LogCommand("glMultiTexCoord4iv", null, target, v					);
 				}
 			}
@@ -2636,10 +2636,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void MultiTexCoord4(TextureUnit target, Int16 s, Int16 t, Int16 r, Int16 q)
+		public static void MultiTexCoord4(TextureUnit target, short s, short t, short r, short q)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord4s != null, "pglMultiTexCoord4s not implemented");
-			Delegates.pglMultiTexCoord4s((Int32)target, s, t, r, q);
+			Delegates.pglMultiTexCoord4s((int)target, s, t, r, q);
 			LogCommand("glMultiTexCoord4s", null, target, s, t, r, q			);
 		}
 
@@ -2652,19 +2652,19 @@ namespace OpenGL
 		/// Gl.MAX_TEXTURE_COORDS - 1, which is an implementation-dependent value.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="T:Int16[]"/>.
+		/// A <see cref="T:short[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_multitexture")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void MultiTexCoord4(TextureUnit target, Int16[] v)
+		public static void MultiTexCoord4(TextureUnit target, short[] v)
 		{
 			Debug.Assert(v.Length >= 4);
 			unsafe {
-				fixed (Int16* p_v = v)
+				fixed (short* p_v = v)
 				{
 					Debug.Assert(Delegates.pglMultiTexCoord4sv != null, "pglMultiTexCoord4sv not implemented");
-					Delegates.pglMultiTexCoord4sv((Int32)target, p_v);
+					Delegates.pglMultiTexCoord4sv((int)target, p_v);
 					LogCommand("glMultiTexCoord4sv", null, target, v					);
 				}
 			}
@@ -2771,7 +2771,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glActiveTexture(Int32 texture);
+			internal delegate void glActiveTexture(int texture);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -2801,7 +2801,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_texture_compression")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glCompressedTexImage3D(Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, IntPtr data);
+			internal unsafe delegate void glCompressedTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, IntPtr data);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -2814,7 +2814,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_texture_compression")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glCompressedTexImage2D(Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 border, Int32 imageSize, IntPtr data);
+			internal unsafe delegate void glCompressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, int imageSize, IntPtr data);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -2826,7 +2826,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_texture_compression")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glCompressedTexImage1D(Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 border, Int32 imageSize, IntPtr data);
+			internal unsafe delegate void glCompressedTexImage1D(int target, int level, int internalformat, int width, int border, int imageSize, IntPtr data);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_texture_compression", EntryPoint = "glCompressedTexImage1DARB")]
@@ -2837,7 +2837,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_texture_compression")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glCompressedTexSubImage3D(Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 imageSize, IntPtr data);
+			internal unsafe delegate void glCompressedTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, IntPtr data);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -2851,7 +2851,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_texture_compression")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glCompressedTexSubImage2D(Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, Int32 format, Int32 imageSize, IntPtr data);
+			internal unsafe delegate void glCompressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, IntPtr data);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -2864,7 +2864,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_texture_compression")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glCompressedTexSubImage1D(Int32 target, Int32 level, Int32 xoffset, Int32 width, Int32 format, Int32 imageSize, IntPtr data);
+			internal unsafe delegate void glCompressedTexSubImage1D(int target, int level, int xoffset, int width, int format, int imageSize, IntPtr data);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_texture_compression", EntryPoint = "glCompressedTexSubImage1DARB")]
@@ -2874,7 +2874,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_texture_compression")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetCompressedTexImage(Int32 target, Int32 level, IntPtr img);
+			internal unsafe delegate void glGetCompressedTexImage(int target, int level, IntPtr img);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_texture_compression", EntryPoint = "glGetCompressedTexImageARB")]
@@ -2886,7 +2886,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glClientActiveTexture(Int32 texture);
+			internal delegate void glClientActiveTexture(int texture);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -2899,7 +2899,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMultiTexCoord1d(Int32 target, double s);
+			internal delegate void glMultiTexCoord1d(int target, double s);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord1dARB")]
@@ -2911,7 +2911,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexCoord1dv(Int32 target, double* v);
+			internal unsafe delegate void glMultiTexCoord1dv(int target, double* v);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord1dvARB")]
@@ -2923,7 +2923,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMultiTexCoord1f(Int32 target, float s);
+			internal delegate void glMultiTexCoord1f(int target, float s);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord1fARB")]
@@ -2935,7 +2935,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexCoord1fv(Int32 target, float* v);
+			internal unsafe delegate void glMultiTexCoord1fv(int target, float* v);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord1fvARB")]
@@ -2947,7 +2947,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMultiTexCoord1i(Int32 target, Int32 s);
+			internal delegate void glMultiTexCoord1i(int target, int s);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord1iARB")]
@@ -2959,7 +2959,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexCoord1iv(Int32 target, Int32* v);
+			internal unsafe delegate void glMultiTexCoord1iv(int target, int* v);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord1ivARB")]
@@ -2971,7 +2971,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMultiTexCoord1s(Int32 target, Int16 s);
+			internal delegate void glMultiTexCoord1s(int target, short s);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord1sARB")]
@@ -2983,7 +2983,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexCoord1sv(Int32 target, Int16* v);
+			internal unsafe delegate void glMultiTexCoord1sv(int target, short* v);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord1svARB")]
@@ -2995,7 +2995,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMultiTexCoord2d(Int32 target, double s, double t);
+			internal delegate void glMultiTexCoord2d(int target, double s, double t);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord2dARB")]
@@ -3007,7 +3007,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexCoord2dv(Int32 target, double* v);
+			internal unsafe delegate void glMultiTexCoord2dv(int target, double* v);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord2dvARB")]
@@ -3019,7 +3019,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMultiTexCoord2f(Int32 target, float s, float t);
+			internal delegate void glMultiTexCoord2f(int target, float s, float t);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord2fARB")]
@@ -3031,7 +3031,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexCoord2fv(Int32 target, float* v);
+			internal unsafe delegate void glMultiTexCoord2fv(int target, float* v);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord2fvARB")]
@@ -3043,7 +3043,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMultiTexCoord2i(Int32 target, Int32 s, Int32 t);
+			internal delegate void glMultiTexCoord2i(int target, int s, int t);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord2iARB")]
@@ -3055,7 +3055,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexCoord2iv(Int32 target, Int32* v);
+			internal unsafe delegate void glMultiTexCoord2iv(int target, int* v);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord2ivARB")]
@@ -3067,7 +3067,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMultiTexCoord2s(Int32 target, Int16 s, Int16 t);
+			internal delegate void glMultiTexCoord2s(int target, short s, short t);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord2sARB")]
@@ -3079,7 +3079,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexCoord2sv(Int32 target, Int16* v);
+			internal unsafe delegate void glMultiTexCoord2sv(int target, short* v);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord2svARB")]
@@ -3091,7 +3091,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMultiTexCoord3d(Int32 target, double s, double t, double r);
+			internal delegate void glMultiTexCoord3d(int target, double s, double t, double r);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord3dARB")]
@@ -3103,7 +3103,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexCoord3dv(Int32 target, double* v);
+			internal unsafe delegate void glMultiTexCoord3dv(int target, double* v);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord3dvARB")]
@@ -3115,7 +3115,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMultiTexCoord3f(Int32 target, float s, float t, float r);
+			internal delegate void glMultiTexCoord3f(int target, float s, float t, float r);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord3fARB")]
@@ -3127,7 +3127,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexCoord3fv(Int32 target, float* v);
+			internal unsafe delegate void glMultiTexCoord3fv(int target, float* v);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord3fvARB")]
@@ -3139,7 +3139,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMultiTexCoord3i(Int32 target, Int32 s, Int32 t, Int32 r);
+			internal delegate void glMultiTexCoord3i(int target, int s, int t, int r);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord3iARB")]
@@ -3151,7 +3151,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexCoord3iv(Int32 target, Int32* v);
+			internal unsafe delegate void glMultiTexCoord3iv(int target, int* v);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord3ivARB")]
@@ -3163,7 +3163,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMultiTexCoord3s(Int32 target, Int16 s, Int16 t, Int16 r);
+			internal delegate void glMultiTexCoord3s(int target, short s, short t, short r);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord3sARB")]
@@ -3175,7 +3175,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexCoord3sv(Int32 target, Int16* v);
+			internal unsafe delegate void glMultiTexCoord3sv(int target, short* v);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord3svARB")]
@@ -3187,7 +3187,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMultiTexCoord4d(Int32 target, double s, double t, double r, double q);
+			internal delegate void glMultiTexCoord4d(int target, double s, double t, double r, double q);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord4dARB")]
@@ -3199,7 +3199,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexCoord4dv(Int32 target, double* v);
+			internal unsafe delegate void glMultiTexCoord4dv(int target, double* v);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord4dvARB")]
@@ -3212,7 +3212,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMultiTexCoord4f(Int32 target, float s, float t, float r, float q);
+			internal delegate void glMultiTexCoord4f(int target, float s, float t, float r, float q);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
@@ -3225,7 +3225,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexCoord4fv(Int32 target, float* v);
+			internal unsafe delegate void glMultiTexCoord4fv(int target, float* v);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord4fvARB")]
@@ -3237,7 +3237,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMultiTexCoord4i(Int32 target, Int32 s, Int32 t, Int32 r, Int32 q);
+			internal delegate void glMultiTexCoord4i(int target, int s, int t, int r, int q);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord4iARB")]
@@ -3249,7 +3249,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexCoord4iv(Int32 target, Int32* v);
+			internal unsafe delegate void glMultiTexCoord4iv(int target, int* v);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord4ivARB")]
@@ -3261,7 +3261,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMultiTexCoord4s(Int32 target, Int16 s, Int16 t, Int16 r, Int16 q);
+			internal delegate void glMultiTexCoord4s(int target, short s, short t, short r, short q);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord4sARB")]
@@ -3273,7 +3273,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexCoord4sv(Int32 target, Int16* v);
+			internal unsafe delegate void glMultiTexCoord4sv(int target, short* v);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord4svARB")]

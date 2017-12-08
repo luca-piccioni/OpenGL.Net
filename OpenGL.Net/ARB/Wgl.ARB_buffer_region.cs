@@ -75,10 +75,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="uType">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("WGL_ARB_buffer_region")]
-		public static IntPtr CreateBufferRegionARB(IntPtr hDC, int iLayerPlane, UInt32 uType)
+		public static IntPtr CreateBufferRegionARB(IntPtr hDC, int iLayerPlane, uint uType)
 		{
 			IntPtr retValue;
 
@@ -177,7 +177,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("WGL_ARB_buffer_region")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr wglCreateBufferRegionARB(IntPtr hDC, int iLayerPlane, UInt32 uType);
+			internal unsafe delegate IntPtr wglCreateBufferRegionARB(IntPtr hDC, int iLayerPlane, uint uType);
 
 			[RequiredByFeature("WGL_ARB_buffer_region")]
 			internal static wglCreateBufferRegionARB pwglCreateBufferRegionARB;

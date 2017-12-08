@@ -47,10 +47,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="group">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GLX_NV_swap_group")]
-		public static bool JoinSwapGroupNV(IntPtr dpy, IntPtr drawable, UInt32 group)
+		public static bool JoinSwapGroupNV(IntPtr dpy, IntPtr drawable, uint group)
 		{
 			bool retValue;
 
@@ -69,13 +69,13 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="group">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="barrier">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GLX_NV_swap_group")]
-		public static bool BindSwapBarrierNV(IntPtr dpy, UInt32 group, UInt32 barrier)
+		public static bool BindSwapBarrierNV(IntPtr dpy, uint group, uint barrier)
 		{
 			bool retValue;
 
@@ -97,19 +97,19 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="group">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		/// <param name="barrier">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GLX_NV_swap_group")]
-		public static bool QuerySwapGroupNV(IntPtr dpy, IntPtr drawable, UInt32[] group, UInt32[] barrier)
+		public static bool QuerySwapGroupNV(IntPtr dpy, IntPtr drawable, uint[] group, uint[] barrier)
 		{
 			bool retValue;
 
 			unsafe {
-				fixed (UInt32* p_group = group)
-				fixed (UInt32* p_barrier = barrier)
+				fixed (uint* p_group = group)
+				fixed (uint* p_barrier = barrier)
 				{
 					Debug.Assert(Delegates.pglXQuerySwapGroupNV != null, "pglXQuerySwapGroupNV not implemented");
 					retValue = Delegates.pglXQuerySwapGroupNV(dpy, drawable, p_group, p_barrier);
@@ -131,19 +131,19 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="maxGroups">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		/// <param name="maxBarriers">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GLX_NV_swap_group")]
-		public static bool QueryMaxSwapGroupsNV(IntPtr dpy, int screen, UInt32[] maxGroups, UInt32[] maxBarriers)
+		public static bool QueryMaxSwapGroupsNV(IntPtr dpy, int screen, uint[] maxGroups, uint[] maxBarriers)
 		{
 			bool retValue;
 
 			unsafe {
-				fixed (UInt32* p_maxGroups = maxGroups)
-				fixed (UInt32* p_maxBarriers = maxBarriers)
+				fixed (uint* p_maxGroups = maxGroups)
+				fixed (uint* p_maxBarriers = maxBarriers)
 				{
 					Debug.Assert(Delegates.pglXQueryMaxSwapGroupsNV != null, "pglXQueryMaxSwapGroupsNV not implemented");
 					retValue = Delegates.pglXQueryMaxSwapGroupsNV(dpy, screen, p_maxGroups, p_maxBarriers);
@@ -165,15 +165,15 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="count">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GLX_NV_swap_group")]
-		public static bool QueryFrameCountNV(IntPtr dpy, int screen, UInt32[] count)
+		public static bool QueryFrameCountNV(IntPtr dpy, int screen, uint[] count)
 		{
 			bool retValue;
 
 			unsafe {
-				fixed (UInt32* p_count = count)
+				fixed (uint* p_count = count)
 				{
 					Debug.Assert(Delegates.pglXQueryFrameCountNV != null, "pglXQueryFrameCountNV not implemented");
 					retValue = Delegates.pglXQueryFrameCountNV(dpy, screen, p_count);
@@ -211,35 +211,35 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GLX_NV_swap_group")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool glXJoinSwapGroupNV(IntPtr dpy, IntPtr drawable, UInt32 group);
+			internal unsafe delegate bool glXJoinSwapGroupNV(IntPtr dpy, IntPtr drawable, uint group);
 
 			[RequiredByFeature("GLX_NV_swap_group")]
 			internal static glXJoinSwapGroupNV pglXJoinSwapGroupNV;
 
 			[RequiredByFeature("GLX_NV_swap_group")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool glXBindSwapBarrierNV(IntPtr dpy, UInt32 group, UInt32 barrier);
+			internal unsafe delegate bool glXBindSwapBarrierNV(IntPtr dpy, uint group, uint barrier);
 
 			[RequiredByFeature("GLX_NV_swap_group")]
 			internal static glXBindSwapBarrierNV pglXBindSwapBarrierNV;
 
 			[RequiredByFeature("GLX_NV_swap_group")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool glXQuerySwapGroupNV(IntPtr dpy, IntPtr drawable, UInt32* group, UInt32* barrier);
+			internal unsafe delegate bool glXQuerySwapGroupNV(IntPtr dpy, IntPtr drawable, uint* group, uint* barrier);
 
 			[RequiredByFeature("GLX_NV_swap_group")]
 			internal static glXQuerySwapGroupNV pglXQuerySwapGroupNV;
 
 			[RequiredByFeature("GLX_NV_swap_group")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool glXQueryMaxSwapGroupsNV(IntPtr dpy, int screen, UInt32* maxGroups, UInt32* maxBarriers);
+			internal unsafe delegate bool glXQueryMaxSwapGroupsNV(IntPtr dpy, int screen, uint* maxGroups, uint* maxBarriers);
 
 			[RequiredByFeature("GLX_NV_swap_group")]
 			internal static glXQueryMaxSwapGroupsNV pglXQueryMaxSwapGroupsNV;
 
 			[RequiredByFeature("GLX_NV_swap_group")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool glXQueryFrameCountNV(IntPtr dpy, int screen, UInt32* count);
+			internal unsafe delegate bool glXQueryFrameCountNV(IntPtr dpy, int screen, uint* count);
 
 			[RequiredByFeature("GLX_NV_swap_group")]
 			internal static glXQueryFrameCountNV pglXQueryFrameCountNV;

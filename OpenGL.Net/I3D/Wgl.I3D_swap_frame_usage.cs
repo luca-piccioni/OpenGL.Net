@@ -97,22 +97,22 @@ namespace OpenGL
 		/// [WGL] wglQueryFrameTrackingI3D: Binding for wglQueryFrameTrackingI3D.
 		/// </summary>
 		/// <param name="pFrameCount">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		/// <param name="pMissedFrames">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		/// <param name="pLastMissedUsage">
 		/// A <see cref="T:float []"/>.
 		/// </param>
 		[RequiredByFeature("WGL_I3D_swap_frame_usage")]
-		public static bool QueryFrameTrackingI3D(Int32[] pFrameCount, Int32[] pMissedFrames, float [] pLastMissedUsage)
+		public static bool QueryFrameTrackingI3D(int[] pFrameCount, int[] pMissedFrames, float [] pLastMissedUsage)
 		{
 			bool retValue;
 
 			unsafe {
-				fixed (Int32* p_pFrameCount = pFrameCount)
-				fixed (Int32* p_pMissedFrames = pMissedFrames)
+				fixed (int* p_pFrameCount = pFrameCount)
+				fixed (int* p_pMissedFrames = pMissedFrames)
 				fixed (float * p_pLastMissedUsage = pLastMissedUsage)
 				{
 					Debug.Assert(Delegates.pwglQueryFrameTrackingI3D != null, "pwglQueryFrameTrackingI3D not implemented");
@@ -150,7 +150,7 @@ namespace OpenGL
 
 			[RequiredByFeature("WGL_I3D_swap_frame_usage")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglQueryFrameTrackingI3D(Int32* pFrameCount, Int32* pMissedFrames, float * pLastMissedUsage);
+			internal unsafe delegate bool wglQueryFrameTrackingI3D(int* pFrameCount, int* pMissedFrames, float * pLastMissedUsage);
 
 			[RequiredByFeature("WGL_I3D_swap_frame_usage")]
 			internal static wglQueryFrameTrackingI3D pwglQueryFrameTrackingI3D;

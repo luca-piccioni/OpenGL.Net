@@ -958,7 +958,7 @@ namespace OpenGL
 		public static void BlendEquationSeparate(BlendEquationMode modeRGB, BlendEquationMode modeAlpha)
 		{
 			Debug.Assert(Delegates.pglBlendEquationSeparate != null, "pglBlendEquationSeparate not implemented");
-			Delegates.pglBlendEquationSeparate((Int32)modeRGB, (Int32)modeAlpha);
+			Delegates.pglBlendEquationSeparate((int)modeRGB, (int)modeAlpha);
 			LogCommand("glBlendEquationSeparate", null, modeRGB, modeAlpha			);
 			DebugCheckErrors(null);
 		}
@@ -977,13 +977,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_draw_buffers")]
 		[RequiredByFeature("GL_ATI_draw_buffers")]
 		[RequiredByFeature("GL_EXT_draw_buffers", Api = "gles2")]
-		public static void DrawBuffers(params Int32[] bufs)
+		public static void DrawBuffers(params int[] bufs)
 		{
 			unsafe {
-				fixed (Int32* p_bufs = bufs)
+				fixed (int* p_bufs = bufs)
 				{
 					Debug.Assert(Delegates.pglDrawBuffers != null, "pglDrawBuffers not implemented");
-					Delegates.pglDrawBuffers((Int32)bufs.Length, p_bufs);
+					Delegates.pglDrawBuffers(bufs.Length, p_bufs);
 					LogCommand("glDrawBuffers", null, bufs.Length, bufs					);
 				}
 			}
@@ -1019,7 +1019,7 @@ namespace OpenGL
 		public static void StencilOpSeparate(StencilFaceDirection face, StencilOp sfail, StencilOp dpfail, StencilOp dppass)
 		{
 			Debug.Assert(Delegates.pglStencilOpSeparate != null, "pglStencilOpSeparate not implemented");
-			Delegates.pglStencilOpSeparate((Int32)face, (Int32)sfail, (Int32)dpfail, (Int32)dppass);
+			Delegates.pglStencilOpSeparate((int)face, (int)sfail, (int)dpfail, (int)dppass);
 			LogCommand("glStencilOpSeparate", null, face, sfail, dpfail, dppass			);
 			DebugCheckErrors(null);
 		}
@@ -1048,10 +1048,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		public static void StencilFuncSeparate(StencilFaceDirection face, StencilFunction func, Int32 @ref, UInt32 mask)
+		public static void StencilFuncSeparate(StencilFaceDirection face, StencilFunction func, int @ref, uint mask)
 		{
 			Debug.Assert(Delegates.pglStencilFuncSeparate != null, "pglStencilFuncSeparate not implemented");
-			Delegates.pglStencilFuncSeparate((Int32)face, (Int32)func, @ref, mask);
+			Delegates.pglStencilFuncSeparate((int)face, (int)func, @ref, mask);
 			LogCommand("glStencilFuncSeparate", null, face, func, @ref, mask			);
 			DebugCheckErrors(null);
 		}
@@ -1072,10 +1072,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		public static void StencilMaskSeparate(StencilFaceDirection face, UInt32 mask)
+		public static void StencilMaskSeparate(StencilFaceDirection face, uint mask)
 		{
 			Debug.Assert(Delegates.pglStencilMaskSeparate != null, "pglStencilMaskSeparate not implemented");
-			Delegates.pglStencilMaskSeparate((Int32)face, mask);
+			Delegates.pglStencilMaskSeparate((int)face, mask);
 			LogCommand("glStencilMaskSeparate", null, face, mask			);
 			DebugCheckErrors(null);
 		}
@@ -1094,7 +1094,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void AttachShader(UInt32 program, UInt32 shader)
+		public static void AttachShader(uint program, uint shader)
 		{
 			Debug.Assert(Delegates.pglAttachShader != null, "pglAttachShader not implemented");
 			Delegates.pglAttachShader(program, shader);
@@ -1120,7 +1120,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static void BindAttribLocation(UInt32 program, UInt32 index, String name)
+		public static void BindAttribLocation(uint program, uint index, String name)
 		{
 			Debug.Assert(Delegates.pglBindAttribLocation != null, "pglBindAttribLocation not implemented");
 			Delegates.pglBindAttribLocation(program, index, name);
@@ -1139,7 +1139,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void CompileShader(UInt32 shader)
+		public static void CompileShader(uint shader)
 		{
 			Debug.Assert(Delegates.pglCompileShader != null, "pglCompileShader not implemented");
 			Delegates.pglCompileShader(shader);
@@ -1156,9 +1156,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static UInt32 CreateProgram()
+		public static uint CreateProgram()
 		{
-			UInt32 retValue;
+			uint retValue;
 
 			Debug.Assert(Delegates.pglCreateProgram != null, "pglCreateProgram not implemented");
 			retValue = Delegates.pglCreateProgram();
@@ -1179,12 +1179,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static UInt32 CreateShader(ShaderType type)
+		public static uint CreateShader(ShaderType type)
 		{
-			UInt32 retValue;
+			uint retValue;
 
 			Debug.Assert(Delegates.pglCreateShader != null, "pglCreateShader not implemented");
-			retValue = Delegates.pglCreateShader((Int32)type);
+			retValue = Delegates.pglCreateShader((int)type);
 			LogCommand("glCreateShader", retValue, type			);
 			DebugCheckErrors(retValue);
 
@@ -1201,7 +1201,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		public static void DeleteProgram(UInt32 program)
+		public static void DeleteProgram(uint program)
 		{
 			Debug.Assert(Delegates.pglDeleteProgram != null, "pglDeleteProgram not implemented");
 			Delegates.pglDeleteProgram(program);
@@ -1219,7 +1219,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		public static void DeleteShader(UInt32 shader)
+		public static void DeleteShader(uint shader)
 		{
 			Debug.Assert(Delegates.pglDeleteShader != null, "pglDeleteShader not implemented");
 			Delegates.pglDeleteShader(shader);
@@ -1241,7 +1241,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void DetachShader(UInt32 program, UInt32 shader)
+		public static void DetachShader(uint program, uint shader)
 		{
 			Debug.Assert(Delegates.pglDetachShader != null, "pglDetachShader not implemented");
 			Delegates.pglDetachShader(program, shader);
@@ -1262,7 +1262,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static void DisableVertexAttribArray(UInt32 index)
+		public static void DisableVertexAttribArray(uint index)
 		{
 			Debug.Assert(Delegates.pglDisableVertexAttribArray != null, "pglDisableVertexAttribArray not implemented");
 			Delegates.pglDisableVertexAttribArray(index);
@@ -1283,7 +1283,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static void EnableVertexAttribArray(UInt32 index)
+		public static void EnableVertexAttribArray(uint index)
 		{
 			Debug.Assert(Delegates.pglEnableVertexAttribArray != null, "pglEnableVertexAttribArray not implemented");
 			Delegates.pglEnableVertexAttribArray(index);
@@ -1322,12 +1322,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static void GetActiveAttrib(UInt32 program, UInt32 index, Int32 bufSize, out Int32 length, out Int32 size, out Int32 type, [Out] StringBuilder name)
+		public static void GetActiveAttrib(uint program, uint index, int bufSize, out int length, out int size, out int type, [Out] StringBuilder name)
 		{
 			unsafe {
-				fixed (Int32* p_length = &length)
-				fixed (Int32* p_size = &size)
-				fixed (Int32* p_type = &type)
+				fixed (int* p_length = &length)
+				fixed (int* p_size = &size)
+				fixed (int* p_type = &type)
 				{
 					Debug.Assert(Delegates.pglGetActiveAttrib != null, "pglGetActiveAttrib not implemented");
 					Delegates.pglGetActiveAttrib(program, index, bufSize, p_length, p_size, p_type, name);
@@ -1368,12 +1368,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void GetActiveUniform(UInt32 program, UInt32 index, Int32 bufSize, out Int32 length, out Int32 size, out Int32 type, [Out] StringBuilder name)
+		public static void GetActiveUniform(uint program, uint index, int bufSize, out int length, out int size, out int type, [Out] StringBuilder name)
 		{
 			unsafe {
-				fixed (Int32* p_length = &length)
-				fixed (Int32* p_size = &size)
-				fixed (Int32* p_type = &type)
+				fixed (int* p_length = &length)
+				fixed (int* p_size = &size)
+				fixed (int* p_type = &type)
 				{
 					Debug.Assert(Delegates.pglGetActiveUniform != null, "pglGetActiveUniform not implemented");
 					Delegates.pglGetActiveUniform(program, index, bufSize, p_length, p_size, p_type, name);
@@ -1399,14 +1399,14 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		public static void GetAttachedShaders(UInt32 program, out Int32 count, [Out] UInt32[] shaders)
+		public static void GetAttachedShaders(uint program, out int count, [Out] uint[] shaders)
 		{
 			unsafe {
-				fixed (Int32* p_count = &count)
-				fixed (UInt32* p_shaders = shaders)
+				fixed (int* p_count = &count)
+				fixed (uint* p_shaders = shaders)
 				{
 					Debug.Assert(Delegates.pglGetAttachedShaders != null, "pglGetAttachedShaders not implemented");
-					Delegates.pglGetAttachedShaders(program, (Int32)shaders.Length, p_count, p_shaders);
+					Delegates.pglGetAttachedShaders(program, shaders.Length, p_count, p_shaders);
 					LogCommand("glGetAttachedShaders", null, program, shaders.Length, count, shaders					);
 				}
 			}
@@ -1428,9 +1428,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static Int32 GetAttribLocation(UInt32 program, String name)
+		public static int GetAttribLocation(uint program, String name)
 		{
-			Int32 retValue;
+			int retValue;
 
 			Debug.Assert(Delegates.pglGetAttribLocation != null, "pglGetAttribLocation not implemented");
 			retValue = Delegates.pglGetAttribLocation(program, name);
@@ -1462,13 +1462,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		public static void GetProgram(UInt32 program, ProgramProperty pname, [Out] Int32[] @params)
+		public static void GetProgram(uint program, ProgramProperty pname, [Out] int[] @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetProgramiv != null, "pglGetProgramiv not implemented");
-					Delegates.pglGetProgramiv(program, (Int32)pname, p_params);
+					Delegates.pglGetProgramiv(program, (int)pname, p_params);
 					LogCommand("glGetProgramiv", null, program, pname, @params					);
 				}
 			}
@@ -1497,13 +1497,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		public static void GetProgram(UInt32 program, ProgramProperty pname, out Int32 @params)
+		public static void GetProgram(uint program, ProgramProperty pname, out int @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = &@params)
+				fixed (int* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetProgramiv != null, "pglGetProgramiv not implemented");
-					Delegates.pglGetProgramiv(program, (Int32)pname, p_params);
+					Delegates.pglGetProgramiv(program, (int)pname, p_params);
 					LogCommand("glGetProgramiv", null, program, pname, @params					);
 				}
 			}
@@ -1529,10 +1529,10 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		public static void GetProgramInfoLog(UInt32 program, Int32 maxLength, out Int32 length, [Out] StringBuilder infoLog)
+		public static void GetProgramInfoLog(uint program, int maxLength, out int length, [Out] StringBuilder infoLog)
 		{
 			unsafe {
-				fixed (Int32* p_length = &length)
+				fixed (int* p_length = &length)
 				{
 					Debug.Assert(Delegates.pglGetProgramInfoLog != null, "pglGetProgramInfoLog not implemented");
 					Delegates.pglGetProgramInfoLog(program, maxLength, p_length, infoLog);
@@ -1559,13 +1559,13 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		public static void GetShader(UInt32 shader, ShaderParameterName pname, [Out] Int32[] @params)
+		public static void GetShader(uint shader, ShaderParameterName pname, [Out] int[] @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetShaderiv != null, "pglGetShaderiv not implemented");
-					Delegates.pglGetShaderiv(shader, (Int32)pname, p_params);
+					Delegates.pglGetShaderiv(shader, (int)pname, p_params);
 					LogCommand("glGetShaderiv", null, shader, pname, @params					);
 				}
 			}
@@ -1589,13 +1589,13 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		public static void GetShader(UInt32 shader, ShaderParameterName pname, out Int32 @params)
+		public static void GetShader(uint shader, ShaderParameterName pname, out int @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = &@params)
+				fixed (int* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetShaderiv != null, "pglGetShaderiv not implemented");
-					Delegates.pglGetShaderiv(shader, (Int32)pname, p_params);
+					Delegates.pglGetShaderiv(shader, (int)pname, p_params);
 					LogCommand("glGetShaderiv", null, shader, pname, @params					);
 				}
 			}
@@ -1621,10 +1621,10 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		public static void GetShaderInfoLog(UInt32 shader, Int32 maxLength, out Int32 length, [Out] StringBuilder infoLog)
+		public static void GetShaderInfoLog(uint shader, int maxLength, out int length, [Out] StringBuilder infoLog)
 		{
 			unsafe {
-				fixed (Int32* p_length = &length)
+				fixed (int* p_length = &length)
 				{
 					Debug.Assert(Delegates.pglGetShaderInfoLog != null, "pglGetShaderInfoLog not implemented");
 					Delegates.pglGetShaderInfoLog(shader, maxLength, p_length, infoLog);
@@ -1654,10 +1654,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void GetShaderSource(UInt32 shader, Int32 bufSize, out Int32 length, [Out] StringBuilder source)
+		public static void GetShaderSource(uint shader, int bufSize, out int length, [Out] StringBuilder source)
 		{
 			unsafe {
-				fixed (Int32* p_length = &length)
+				fixed (int* p_length = &length)
 				{
 					Debug.Assert(Delegates.pglGetShaderSource != null, "pglGetShaderSource not implemented");
 					Delegates.pglGetShaderSource(shader, bufSize, p_length, source);
@@ -1682,9 +1682,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static Int32 GetUniformLocation(UInt32 program, String name)
+		public static int GetUniformLocation(uint program, String name)
 		{
-			Int32 retValue;
+			int retValue;
 
 			Debug.Assert(Delegates.pglGetUniformLocation != null, "pglGetUniformLocation not implemented");
 			retValue = Delegates.pglGetUniformLocation(program, name);
@@ -1711,7 +1711,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void GetUniform(UInt32 program, Int32 location, [Out] float[] @params)
+		public static void GetUniform(uint program, int location, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -1741,7 +1741,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static unsafe void GetUniform(UInt32 program, Int32 location, [Out] float* @params)
+		public static unsafe void GetUniform(uint program, int location, [Out] float* @params)
 		{
 			Debug.Assert(Delegates.pglGetUniformfv != null, "pglGetUniformfv not implemented");
 			Delegates.pglGetUniformfv(program, location, @params);
@@ -1766,7 +1766,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void GetUniformf<T>(UInt32 program, Int32 location, ref T @params) where T : struct
+		public static void GetUniformf<T>(uint program, int location, ref T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetUniformfv != null, "pglGetUniformfv not implemented");
 			#if NETCOREAPP1_1
@@ -1807,10 +1807,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void GetUniform(UInt32 program, Int32 location, [Out] Int32[] @params)
+		public static void GetUniform(uint program, int location, [Out] int[] @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetUniformiv != null, "pglGetUniformiv not implemented");
 					Delegates.pglGetUniformiv(program, location, p_params);
@@ -1837,7 +1837,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static unsafe void GetUniform(UInt32 program, Int32 location, [Out] Int32* @params)
+		public static unsafe void GetUniform(uint program, int location, [Out] int* @params)
 		{
 			Debug.Assert(Delegates.pglGetUniformiv != null, "pglGetUniformiv not implemented");
 			Delegates.pglGetUniformiv(program, location, @params);
@@ -1862,14 +1862,14 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void GetUniformi<T>(UInt32 program, Int32 location, ref T @params) where T : struct
+		public static void GetUniformi<T>(uint program, int location, ref T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetUniformiv != null, "pglGetUniformiv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
 				unsafe {
-					Delegates.pglGetUniformiv(program, location, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglGetUniformiv(program, location, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -1879,7 +1879,7 @@ namespace OpenGL
 				TypedReference refParams = __makeref(@params);
 				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
 
-				Delegates.pglGetUniformiv(program, location, (Int32*)refParamsPtr.ToPointer());
+				Delegates.pglGetUniformiv(program, location, (int*)refParamsPtr.ToPointer());
 			}
 			#endif
 			LogCommand("glGetUniformiv", null, program, location, @params			);
@@ -1905,7 +1905,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void GetVertexAttrib(UInt32 index, Int32 pname, [Out] double[] @params)
+		public static void GetVertexAttrib(uint index, int pname, [Out] double[] @params)
 		{
 			Debug.Assert(@params.Length >= 4);
 			unsafe {
@@ -1942,7 +1942,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void GetVertexAttrib(UInt32 index, Int32 pname, [Out] float[] @params)
+		public static void GetVertexAttrib(uint index, int pname, [Out] float[] @params)
 		{
 			Debug.Assert(@params.Length >= 4);
 			unsafe {
@@ -1979,7 +1979,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void GetVertexAttrib(UInt32 index, Int32 pname, out float @params)
+		public static void GetVertexAttrib(uint index, int pname, out float @params)
 		{
 			unsafe {
 				fixed (float* p_params = &@params)
@@ -2015,11 +2015,11 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void GetVertexAttrib(UInt32 index, Int32 pname, [Out] Int32[] @params)
+		public static void GetVertexAttrib(uint index, int pname, [Out] int[] @params)
 		{
 			Debug.Assert(@params.Length >= 4);
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetVertexAttribiv != null, "pglGetVertexAttribiv not implemented");
 					Delegates.pglGetVertexAttribiv(index, pname, p_params);
@@ -2052,10 +2052,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void GetVertexAttrib(UInt32 index, Int32 pname, out Int32 @params)
+		public static void GetVertexAttrib(uint index, int pname, out int @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = &@params)
+				fixed (int* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetVertexAttribiv != null, "pglGetVertexAttribiv not implemented");
 					Delegates.pglGetVertexAttribiv(index, pname, p_params);
@@ -2086,7 +2086,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void GetVertexAttribPointer(UInt32 index, Int32 pname, out IntPtr pointer)
+		public static void GetVertexAttribPointer(uint index, int pname, out IntPtr pointer)
 		{
 			unsafe {
 				fixed (IntPtr* p_pointer = &pointer)
@@ -2120,7 +2120,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void GetVertexAttribPointer(UInt32 index, Int32 pname, Object pointer)
+		public static void GetVertexAttribPointer(uint index, int pname, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -2140,7 +2140,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		public static bool IsProgram(UInt32 program)
+		public static bool IsProgram(uint program)
 		{
 			bool retValue;
 
@@ -2162,7 +2162,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		public static bool IsShader(UInt32 shader)
+		public static bool IsShader(uint shader)
 		{
 			bool retValue;
 
@@ -2185,7 +2185,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void LinkProgram(UInt32 program)
+		public static void LinkProgram(uint program)
 		{
 			Debug.Assert(Delegates.pglLinkProgram != null, "pglLinkProgram not implemented");
 			Delegates.pglLinkProgram(program);
@@ -2210,13 +2210,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void ShaderSource(UInt32 shader, String[] @string, Int32[] length)
+		public static void ShaderSource(uint shader, String[] @string, int[] length)
 		{
 			unsafe {
-				fixed (Int32* p_length = length)
+				fixed (int* p_length = length)
 				{
 					Debug.Assert(Delegates.pglShaderSource != null, "pglShaderSource not implemented");
-					Delegates.pglShaderSource(shader, (Int32)@string.Length, @string, p_length);
+					Delegates.pglShaderSource(shader, @string.Length, @string, p_length);
 					LogCommand("glShaderSource", null, shader, @string.Length, @string, length					);
 				}
 			}
@@ -2235,7 +2235,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void UseProgram(UInt32 program)
+		public static void UseProgram(uint program)
 		{
 			Debug.Assert(Delegates.pglUseProgram != null, "pglUseProgram not implemented");
 			Delegates.pglUseProgram(program);
@@ -2258,7 +2258,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void Uniform1(Int32 location, float v0)
+		public static void Uniform1(int location, float v0)
 		{
 			Debug.Assert(Delegates.pglUniform1f != null, "pglUniform1f not implemented");
 			Delegates.pglUniform1f(location, v0);
@@ -2284,7 +2284,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void Uniform2(Int32 location, float v0, float v1)
+		public static void Uniform2(int location, float v0, float v1)
 		{
 			Debug.Assert(Delegates.pglUniform2f != null, "pglUniform2f not implemented");
 			Delegates.pglUniform2f(location, v0, v1);
@@ -2313,7 +2313,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void Uniform3(Int32 location, float v0, float v1, float v2)
+		public static void Uniform3(int location, float v0, float v1, float v2)
 		{
 			Debug.Assert(Delegates.pglUniform3f != null, "pglUniform3f not implemented");
 			Delegates.pglUniform3f(location, v0, v1, v2);
@@ -2345,7 +2345,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void Uniform4(Int32 location, float v0, float v1, float v2, float v3)
+		public static void Uniform4(int location, float v0, float v1, float v2, float v3)
 		{
 			Debug.Assert(Delegates.pglUniform4f != null, "pglUniform4f not implemented");
 			Delegates.pglUniform4f(location, v0, v1, v2, v3);
@@ -2368,7 +2368,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void Uniform1(Int32 location, Int32 v0)
+		public static void Uniform1(int location, int v0)
 		{
 			Debug.Assert(Delegates.pglUniform1i != null, "pglUniform1i not implemented");
 			Delegates.pglUniform1i(location, v0);
@@ -2394,7 +2394,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void Uniform2(Int32 location, Int32 v0, Int32 v1)
+		public static void Uniform2(int location, int v0, int v1)
 		{
 			Debug.Assert(Delegates.pglUniform2i != null, "pglUniform2i not implemented");
 			Delegates.pglUniform2i(location, v0, v1);
@@ -2423,7 +2423,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void Uniform3(Int32 location, Int32 v0, Int32 v1, Int32 v2)
+		public static void Uniform3(int location, int v0, int v1, int v2)
 		{
 			Debug.Assert(Delegates.pglUniform3i != null, "pglUniform3i not implemented");
 			Delegates.pglUniform3i(location, v0, v1, v2);
@@ -2455,7 +2455,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void Uniform4(Int32 location, Int32 v0, Int32 v1, Int32 v2, Int32 v3)
+		public static void Uniform4(int location, int v0, int v1, int v2, int v3)
 		{
 			Debug.Assert(Delegates.pglUniform4i != null, "pglUniform4i not implemented");
 			Delegates.pglUniform4i(location, v0, v1, v2, v3);
@@ -2479,13 +2479,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void Uniform1(Int32 location, float[] value)
+		public static void Uniform1(int location, float[] value)
 		{
 			unsafe {
 				fixed (float* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniform1fv != null, "pglUniform1fv not implemented");
-					Delegates.pglUniform1fv(location, (Int32)value.Length, p_value);
+					Delegates.pglUniform1fv(location, value.Length, p_value);
 					LogCommand("glUniform1fv", null, location, value.Length, value					);
 				}
 			}
@@ -2512,7 +2512,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static unsafe void Uniform1(Int32 location, Int32 count, float* value)
+		public static unsafe void Uniform1(int location, int count, float* value)
 		{
 			Debug.Assert(Delegates.pglUniform1fv != null, "pglUniform1fv not implemented");
 			Delegates.pglUniform1fv(location, count, value);
@@ -2540,7 +2540,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void Uniform1f<T>(Int32 location, Int32 count, ref T value) where T : struct
+		public static void Uniform1f<T>(int location, int count, ref T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglUniform1fv != null, "pglUniform1fv not implemented");
 			#if NETCOREAPP1_1
@@ -2580,14 +2580,14 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void Uniform2(Int32 location, float[] value)
+		public static void Uniform2(int location, float[] value)
 		{
 			Debug.Assert(value.Length > 0 && (value.Length % 2) == 0, "empty or not multiple of 2");
 			unsafe {
 				fixed (float* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniform2fv != null, "pglUniform2fv not implemented");
-					Delegates.pglUniform2fv(location, (Int32)value.Length / 2, p_value);
+					Delegates.pglUniform2fv(location, value.Length / 2, p_value);
 					LogCommand("glUniform2fv", null, location, value.Length / 2, value					);
 				}
 			}
@@ -2614,7 +2614,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static unsafe void Uniform2(Int32 location, Int32 count, float* value)
+		public static unsafe void Uniform2(int location, int count, float* value)
 		{
 			Debug.Assert(Delegates.pglUniform2fv != null, "pglUniform2fv not implemented");
 			Delegates.pglUniform2fv(location, count, value);
@@ -2642,7 +2642,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void Uniform2f<T>(Int32 location, Int32 count, ref T value) where T : struct
+		public static void Uniform2f<T>(int location, int count, ref T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglUniform2fv != null, "pglUniform2fv not implemented");
 			#if NETCOREAPP1_1
@@ -2682,14 +2682,14 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void Uniform3(Int32 location, float[] value)
+		public static void Uniform3(int location, float[] value)
 		{
 			Debug.Assert(value.Length > 0 && (value.Length % 3) == 0, "empty or not multiple of 3");
 			unsafe {
 				fixed (float* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniform3fv != null, "pglUniform3fv not implemented");
-					Delegates.pglUniform3fv(location, (Int32)value.Length / 3, p_value);
+					Delegates.pglUniform3fv(location, value.Length / 3, p_value);
 					LogCommand("glUniform3fv", null, location, value.Length / 3, value					);
 				}
 			}
@@ -2716,7 +2716,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static unsafe void Uniform3(Int32 location, Int32 count, float* value)
+		public static unsafe void Uniform3(int location, int count, float* value)
 		{
 			Debug.Assert(Delegates.pglUniform3fv != null, "pglUniform3fv not implemented");
 			Delegates.pglUniform3fv(location, count, value);
@@ -2744,7 +2744,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void Uniform3f<T>(Int32 location, Int32 count, ref T value) where T : struct
+		public static void Uniform3f<T>(int location, int count, ref T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglUniform3fv != null, "pglUniform3fv not implemented");
 			#if NETCOREAPP1_1
@@ -2784,14 +2784,14 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void Uniform4(Int32 location, float[] value)
+		public static void Uniform4(int location, float[] value)
 		{
 			Debug.Assert(value.Length > 0 && (value.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
 				fixed (float* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniform4fv != null, "pglUniform4fv not implemented");
-					Delegates.pglUniform4fv(location, (Int32)value.Length / 4, p_value);
+					Delegates.pglUniform4fv(location, value.Length / 4, p_value);
 					LogCommand("glUniform4fv", null, location, value.Length / 4, value					);
 				}
 			}
@@ -2818,7 +2818,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static unsafe void Uniform4(Int32 location, Int32 count, float* value)
+		public static unsafe void Uniform4(int location, int count, float* value)
 		{
 			Debug.Assert(Delegates.pglUniform4fv != null, "pglUniform4fv not implemented");
 			Delegates.pglUniform4fv(location, count, value);
@@ -2846,7 +2846,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void Uniform4f<T>(Int32 location, Int32 count, ref T value) where T : struct
+		public static void Uniform4f<T>(int location, int count, ref T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglUniform4fv != null, "pglUniform4fv not implemented");
 			#if NETCOREAPP1_1
@@ -2886,13 +2886,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void Uniform1(Int32 location, Int32[] value)
+		public static void Uniform1(int location, int[] value)
 		{
 			unsafe {
-				fixed (Int32* p_value = value)
+				fixed (int* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniform1iv != null, "pglUniform1iv not implemented");
-					Delegates.pglUniform1iv(location, (Int32)value.Length, p_value);
+					Delegates.pglUniform1iv(location, value.Length, p_value);
 					LogCommand("glUniform1iv", null, location, value.Length, value					);
 				}
 			}
@@ -2919,7 +2919,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static unsafe void Uniform1(Int32 location, Int32 count, Int32* value)
+		public static unsafe void Uniform1(int location, int count, int* value)
 		{
 			Debug.Assert(Delegates.pglUniform1iv != null, "pglUniform1iv not implemented");
 			Delegates.pglUniform1iv(location, count, value);
@@ -2947,14 +2947,14 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void Uniform1i<T>(Int32 location, Int32 count, ref T value) where T : struct
+		public static void Uniform1i<T>(int location, int count, ref T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglUniform1iv != null, "pglUniform1iv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					Delegates.pglUniform1iv(location, count, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglUniform1iv(location, count, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -2964,7 +2964,7 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				Delegates.pglUniform1iv(location, count, (Int32*)refValuePtr.ToPointer());
+				Delegates.pglUniform1iv(location, count, (int*)refValuePtr.ToPointer());
 			}
 			#endif
 			LogCommand("glUniform1iv", null, location, count, value			);
@@ -2987,14 +2987,14 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void Uniform2(Int32 location, Int32[] value)
+		public static void Uniform2(int location, int[] value)
 		{
 			Debug.Assert(value.Length > 0 && (value.Length % 2) == 0, "empty or not multiple of 2");
 			unsafe {
-				fixed (Int32* p_value = value)
+				fixed (int* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniform2iv != null, "pglUniform2iv not implemented");
-					Delegates.pglUniform2iv(location, (Int32)value.Length / 2, p_value);
+					Delegates.pglUniform2iv(location, value.Length / 2, p_value);
 					LogCommand("glUniform2iv", null, location, value.Length / 2, value					);
 				}
 			}
@@ -3021,7 +3021,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static unsafe void Uniform2(Int32 location, Int32 count, Int32* value)
+		public static unsafe void Uniform2(int location, int count, int* value)
 		{
 			Debug.Assert(Delegates.pglUniform2iv != null, "pglUniform2iv not implemented");
 			Delegates.pglUniform2iv(location, count, value);
@@ -3049,14 +3049,14 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void Uniform2i<T>(Int32 location, Int32 count, ref T value) where T : struct
+		public static void Uniform2i<T>(int location, int count, ref T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglUniform2iv != null, "pglUniform2iv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					Delegates.pglUniform2iv(location, count, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglUniform2iv(location, count, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -3066,7 +3066,7 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				Delegates.pglUniform2iv(location, count, (Int32*)refValuePtr.ToPointer());
+				Delegates.pglUniform2iv(location, count, (int*)refValuePtr.ToPointer());
 			}
 			#endif
 			LogCommand("glUniform2iv", null, location, count, value			);
@@ -3089,14 +3089,14 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void Uniform3(Int32 location, Int32[] value)
+		public static void Uniform3(int location, int[] value)
 		{
 			Debug.Assert(value.Length > 0 && (value.Length % 3) == 0, "empty or not multiple of 3");
 			unsafe {
-				fixed (Int32* p_value = value)
+				fixed (int* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniform3iv != null, "pglUniform3iv not implemented");
-					Delegates.pglUniform3iv(location, (Int32)value.Length / 3, p_value);
+					Delegates.pglUniform3iv(location, value.Length / 3, p_value);
 					LogCommand("glUniform3iv", null, location, value.Length / 3, value					);
 				}
 			}
@@ -3123,7 +3123,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static unsafe void Uniform3(Int32 location, Int32 count, Int32* value)
+		public static unsafe void Uniform3(int location, int count, int* value)
 		{
 			Debug.Assert(Delegates.pglUniform3iv != null, "pglUniform3iv not implemented");
 			Delegates.pglUniform3iv(location, count, value);
@@ -3151,14 +3151,14 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void Uniform3i<T>(Int32 location, Int32 count, ref T value) where T : struct
+		public static void Uniform3i<T>(int location, int count, ref T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglUniform3iv != null, "pglUniform3iv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					Delegates.pglUniform3iv(location, count, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglUniform3iv(location, count, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -3168,7 +3168,7 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				Delegates.pglUniform3iv(location, count, (Int32*)refValuePtr.ToPointer());
+				Delegates.pglUniform3iv(location, count, (int*)refValuePtr.ToPointer());
 			}
 			#endif
 			LogCommand("glUniform3iv", null, location, count, value			);
@@ -3191,14 +3191,14 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void Uniform4(Int32 location, Int32[] value)
+		public static void Uniform4(int location, int[] value)
 		{
 			Debug.Assert(value.Length > 0 && (value.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
-				fixed (Int32* p_value = value)
+				fixed (int* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniform4iv != null, "pglUniform4iv not implemented");
-					Delegates.pglUniform4iv(location, (Int32)value.Length / 4, p_value);
+					Delegates.pglUniform4iv(location, value.Length / 4, p_value);
 					LogCommand("glUniform4iv", null, location, value.Length / 4, value					);
 				}
 			}
@@ -3225,7 +3225,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static unsafe void Uniform4(Int32 location, Int32 count, Int32* value)
+		public static unsafe void Uniform4(int location, int count, int* value)
 		{
 			Debug.Assert(Delegates.pglUniform4iv != null, "pglUniform4iv not implemented");
 			Delegates.pglUniform4iv(location, count, value);
@@ -3253,14 +3253,14 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void Uniform4i<T>(Int32 location, Int32 count, ref T value) where T : struct
+		public static void Uniform4i<T>(int location, int count, ref T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglUniform4iv != null, "pglUniform4iv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(value);
 			try {
 				unsafe {
-					Delegates.pglUniform4iv(location, count, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglUniform4iv(location, count, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -3270,7 +3270,7 @@ namespace OpenGL
 				TypedReference refValue = __makeref(value);
 				IntPtr refValuePtr = *(IntPtr*)(&refValue);
 
-				Delegates.pglUniform4iv(location, count, (Int32*)refValuePtr.ToPointer());
+				Delegates.pglUniform4iv(location, count, (int*)refValuePtr.ToPointer());
 			}
 			#endif
 			LogCommand("glUniform4iv", null, location, count, value			);
@@ -3296,14 +3296,14 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void UniformMatrix2(Int32 location, bool transpose, float[] value)
+		public static void UniformMatrix2(int location, bool transpose, float[] value)
 		{
 			Debug.Assert(value.Length > 0 && (value.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
 				fixed (float* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniformMatrix2fv != null, "pglUniformMatrix2fv not implemented");
-					Delegates.pglUniformMatrix2fv(location, (Int32)value.Length / 4, transpose, p_value);
+					Delegates.pglUniformMatrix2fv(location, value.Length / 4, transpose, p_value);
 					LogCommand("glUniformMatrix2fv", null, location, value.Length / 4, transpose, value					);
 				}
 			}
@@ -3333,7 +3333,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static unsafe void UniformMatrix2(Int32 location, Int32 count, bool transpose, float* value)
+		public static unsafe void UniformMatrix2(int location, int count, bool transpose, float* value)
 		{
 			Debug.Assert(Delegates.pglUniformMatrix2fv != null, "pglUniformMatrix2fv not implemented");
 			Delegates.pglUniformMatrix2fv(location, count, transpose, value);
@@ -3364,7 +3364,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void UniformMatrix2f<T>(Int32 location, Int32 count, bool transpose, ref T value) where T : struct
+		public static void UniformMatrix2f<T>(int location, int count, bool transpose, ref T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglUniformMatrix2fv != null, "pglUniformMatrix2fv not implemented");
 			#if NETCOREAPP1_1
@@ -3407,14 +3407,14 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void UniformMatrix3(Int32 location, bool transpose, float[] value)
+		public static void UniformMatrix3(int location, bool transpose, float[] value)
 		{
 			Debug.Assert(value.Length > 0 && (value.Length % 9) == 0, "empty or not multiple of 9");
 			unsafe {
 				fixed (float* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniformMatrix3fv != null, "pglUniformMatrix3fv not implemented");
-					Delegates.pglUniformMatrix3fv(location, (Int32)value.Length / 9, transpose, p_value);
+					Delegates.pglUniformMatrix3fv(location, value.Length / 9, transpose, p_value);
 					LogCommand("glUniformMatrix3fv", null, location, value.Length / 9, transpose, value					);
 				}
 			}
@@ -3444,7 +3444,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static unsafe void UniformMatrix3(Int32 location, Int32 count, bool transpose, float* value)
+		public static unsafe void UniformMatrix3(int location, int count, bool transpose, float* value)
 		{
 			Debug.Assert(Delegates.pglUniformMatrix3fv != null, "pglUniformMatrix3fv not implemented");
 			Delegates.pglUniformMatrix3fv(location, count, transpose, value);
@@ -3475,7 +3475,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void UniformMatrix3f<T>(Int32 location, Int32 count, bool transpose, ref T value) where T : struct
+		public static void UniformMatrix3f<T>(int location, int count, bool transpose, ref T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglUniformMatrix3fv != null, "pglUniformMatrix3fv not implemented");
 			#if NETCOREAPP1_1
@@ -3518,14 +3518,14 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void UniformMatrix4(Int32 location, bool transpose, float[] value)
+		public static void UniformMatrix4(int location, bool transpose, float[] value)
 		{
 			Debug.Assert(value.Length > 0 && (value.Length % 16) == 0, "empty or not multiple of 16");
 			unsafe {
 				fixed (float* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniformMatrix4fv != null, "pglUniformMatrix4fv not implemented");
-					Delegates.pglUniformMatrix4fv(location, (Int32)value.Length / 16, transpose, p_value);
+					Delegates.pglUniformMatrix4fv(location, value.Length / 16, transpose, p_value);
 					LogCommand("glUniformMatrix4fv", null, location, value.Length / 16, transpose, value					);
 				}
 			}
@@ -3555,7 +3555,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static unsafe void UniformMatrix4(Int32 location, Int32 count, bool transpose, float* value)
+		public static unsafe void UniformMatrix4(int location, int count, bool transpose, float* value)
 		{
 			Debug.Assert(Delegates.pglUniformMatrix4fv != null, "pglUniformMatrix4fv not implemented");
 			Delegates.pglUniformMatrix4fv(location, count, transpose, value);
@@ -3586,7 +3586,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void UniformMatrix4f<T>(Int32 location, Int32 count, bool transpose, ref T value) where T : struct
+		public static void UniformMatrix4f<T>(int location, int count, bool transpose, ref T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglUniformMatrix4fv != null, "pglUniformMatrix4fv not implemented");
 			#if NETCOREAPP1_1
@@ -3621,7 +3621,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void ValidateProgram(UInt32 program)
+		public static void ValidateProgram(uint program)
 		{
 			Debug.Assert(Delegates.pglValidateProgram != null, "pglValidateProgram not implemented");
 			Delegates.pglValidateProgram(program);
@@ -3642,7 +3642,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib1(UInt32 index, double x)
+		public static void VertexAttrib1(uint index, double x)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib1d != null, "pglVertexAttrib1d not implemented");
 			Delegates.pglVertexAttrib1d(index, x);
@@ -3663,7 +3663,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib1(UInt32 index, double[] v)
+		public static void VertexAttrib1(uint index, double[] v)
 		{
 			Debug.Assert(v.Length >= 1);
 			unsafe {
@@ -3691,7 +3691,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static unsafe void VertexAttrib1(UInt32 index, double* v)
+		public static unsafe void VertexAttrib1(uint index, double* v)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib1dv != null, "pglVertexAttrib1dv not implemented");
 			Delegates.pglVertexAttrib1dv(index, v);
@@ -3713,7 +3713,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib1d<T>(UInt32 index, ref T v) where T : struct
+		public static void VertexAttrib1d<T>(uint index, ref T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttrib1dv != null, "pglVertexAttrib1dv not implemented");
 			#if NETCOREAPP1_1
@@ -3754,7 +3754,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib1(UInt32 index, float x)
+		public static void VertexAttrib1(uint index, float x)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib1f != null, "pglVertexAttrib1f not implemented");
 			Delegates.pglVertexAttrib1f(index, x);
@@ -3779,7 +3779,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib1(UInt32 index, float[] v)
+		public static void VertexAttrib1(uint index, float[] v)
 		{
 			Debug.Assert(v.Length >= 1);
 			unsafe {
@@ -3811,7 +3811,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static unsafe void VertexAttrib1(UInt32 index, float* v)
+		public static unsafe void VertexAttrib1(uint index, float* v)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib1fv != null, "pglVertexAttrib1fv not implemented");
 			Delegates.pglVertexAttrib1fv(index, v);
@@ -3837,7 +3837,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib1f<T>(UInt32 index, ref T v) where T : struct
+		public static void VertexAttrib1f<T>(uint index, ref T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttrib1fv != null, "pglVertexAttrib1fv not implemented");
 			#if NETCOREAPP1_1
@@ -3868,13 +3868,13 @@ namespace OpenGL
 		/// Specifies the index of the generic vertex attribute to be modified.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:Int16"/>.
+		/// A <see cref="T:short"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib1(UInt32 index, Int16 x)
+		public static void VertexAttrib1(uint index, short x)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib1s != null, "pglVertexAttrib1s not implemented");
 			Delegates.pglVertexAttrib1s(index, x);
@@ -3895,11 +3895,11 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib1(UInt32 index, Int16[] v)
+		public static void VertexAttrib1(uint index, short[] v)
 		{
 			Debug.Assert(v.Length >= 1);
 			unsafe {
-				fixed (Int16* p_v = v)
+				fixed (short* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertexAttrib1sv != null, "pglVertexAttrib1sv not implemented");
 					Delegates.pglVertexAttrib1sv(index, p_v);
@@ -3923,7 +3923,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static unsafe void VertexAttrib1(UInt32 index, Int16* v)
+		public static unsafe void VertexAttrib1(uint index, short* v)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib1sv != null, "pglVertexAttrib1sv not implemented");
 			Delegates.pglVertexAttrib1sv(index, v);
@@ -3945,14 +3945,14 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib1s<T>(UInt32 index, ref T v) where T : struct
+		public static void VertexAttrib1s<T>(uint index, ref T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttrib1sv != null, "pglVertexAttrib1sv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(v);
 			try {
 				unsafe {
-					Delegates.pglVertexAttrib1sv(index, (Int16*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglVertexAttrib1sv(index, (short*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -3962,7 +3962,7 @@ namespace OpenGL
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
-				Delegates.pglVertexAttrib1sv(index, (Int16*)refVPtr.ToPointer());
+				Delegates.pglVertexAttrib1sv(index, (short*)refVPtr.ToPointer());
 			}
 			#endif
 			LogCommand("glVertexAttrib1sv", null, index, v			);
@@ -3985,7 +3985,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib2(UInt32 index, double x, double y)
+		public static void VertexAttrib2(uint index, double x, double y)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib2d != null, "pglVertexAttrib2d not implemented");
 			Delegates.pglVertexAttrib2d(index, x, y);
@@ -4006,7 +4006,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib2(UInt32 index, double[] v)
+		public static void VertexAttrib2(uint index, double[] v)
 		{
 			Debug.Assert(v.Length >= 2);
 			unsafe {
@@ -4034,7 +4034,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static unsafe void VertexAttrib2(UInt32 index, double* v)
+		public static unsafe void VertexAttrib2(uint index, double* v)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib2dv != null, "pglVertexAttrib2dv not implemented");
 			Delegates.pglVertexAttrib2dv(index, v);
@@ -4056,7 +4056,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib2d<T>(UInt32 index, ref T v) where T : struct
+		public static void VertexAttrib2d<T>(uint index, ref T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttrib2dv != null, "pglVertexAttrib2dv not implemented");
 			#if NETCOREAPP1_1
@@ -4100,7 +4100,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib2(UInt32 index, float x, float y)
+		public static void VertexAttrib2(uint index, float x, float y)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib2f != null, "pglVertexAttrib2f not implemented");
 			Delegates.pglVertexAttrib2f(index, x, y);
@@ -4125,7 +4125,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib2(UInt32 index, float[] v)
+		public static void VertexAttrib2(uint index, float[] v)
 		{
 			Debug.Assert(v.Length >= 2);
 			unsafe {
@@ -4157,7 +4157,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static unsafe void VertexAttrib2(UInt32 index, float* v)
+		public static unsafe void VertexAttrib2(uint index, float* v)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib2fv != null, "pglVertexAttrib2fv not implemented");
 			Delegates.pglVertexAttrib2fv(index, v);
@@ -4183,7 +4183,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib2f<T>(UInt32 index, ref T v) where T : struct
+		public static void VertexAttrib2f<T>(uint index, ref T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttrib2fv != null, "pglVertexAttrib2fv not implemented");
 			#if NETCOREAPP1_1
@@ -4214,16 +4214,16 @@ namespace OpenGL
 		/// Specifies the index of the generic vertex attribute to be modified.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:Int16"/>.
+		/// A <see cref="T:short"/>.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int16"/>.
+		/// A <see cref="T:short"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib2(UInt32 index, Int16 x, Int16 y)
+		public static void VertexAttrib2(uint index, short x, short y)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib2s != null, "pglVertexAttrib2s not implemented");
 			Delegates.pglVertexAttrib2s(index, x, y);
@@ -4244,11 +4244,11 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib2(UInt32 index, Int16[] v)
+		public static void VertexAttrib2(uint index, short[] v)
 		{
 			Debug.Assert(v.Length >= 2);
 			unsafe {
-				fixed (Int16* p_v = v)
+				fixed (short* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertexAttrib2sv != null, "pglVertexAttrib2sv not implemented");
 					Delegates.pglVertexAttrib2sv(index, p_v);
@@ -4272,7 +4272,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static unsafe void VertexAttrib2(UInt32 index, Int16* v)
+		public static unsafe void VertexAttrib2(uint index, short* v)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib2sv != null, "pglVertexAttrib2sv not implemented");
 			Delegates.pglVertexAttrib2sv(index, v);
@@ -4294,14 +4294,14 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib2s<T>(UInt32 index, ref T v) where T : struct
+		public static void VertexAttrib2s<T>(uint index, ref T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttrib2sv != null, "pglVertexAttrib2sv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(v);
 			try {
 				unsafe {
-					Delegates.pglVertexAttrib2sv(index, (Int16*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglVertexAttrib2sv(index, (short*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -4311,7 +4311,7 @@ namespace OpenGL
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
-				Delegates.pglVertexAttrib2sv(index, (Int16*)refVPtr.ToPointer());
+				Delegates.pglVertexAttrib2sv(index, (short*)refVPtr.ToPointer());
 			}
 			#endif
 			LogCommand("glVertexAttrib2sv", null, index, v			);
@@ -4337,7 +4337,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib3(UInt32 index, double x, double y, double z)
+		public static void VertexAttrib3(uint index, double x, double y, double z)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib3d != null, "pglVertexAttrib3d not implemented");
 			Delegates.pglVertexAttrib3d(index, x, y, z);
@@ -4358,7 +4358,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib3(UInt32 index, double[] v)
+		public static void VertexAttrib3(uint index, double[] v)
 		{
 			Debug.Assert(v.Length >= 3);
 			unsafe {
@@ -4386,7 +4386,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static unsafe void VertexAttrib3(UInt32 index, double* v)
+		public static unsafe void VertexAttrib3(uint index, double* v)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib3dv != null, "pglVertexAttrib3dv not implemented");
 			Delegates.pglVertexAttrib3dv(index, v);
@@ -4408,7 +4408,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib3d<T>(UInt32 index, ref T v) where T : struct
+		public static void VertexAttrib3d<T>(uint index, ref T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttrib3dv != null, "pglVertexAttrib3dv not implemented");
 			#if NETCOREAPP1_1
@@ -4455,7 +4455,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib3(UInt32 index, float x, float y, float z)
+		public static void VertexAttrib3(uint index, float x, float y, float z)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib3f != null, "pglVertexAttrib3f not implemented");
 			Delegates.pglVertexAttrib3f(index, x, y, z);
@@ -4480,7 +4480,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib3(UInt32 index, float[] v)
+		public static void VertexAttrib3(uint index, float[] v)
 		{
 			Debug.Assert(v.Length >= 3);
 			unsafe {
@@ -4512,7 +4512,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static unsafe void VertexAttrib3(UInt32 index, float* v)
+		public static unsafe void VertexAttrib3(uint index, float* v)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib3fv != null, "pglVertexAttrib3fv not implemented");
 			Delegates.pglVertexAttrib3fv(index, v);
@@ -4538,7 +4538,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib3f<T>(UInt32 index, ref T v) where T : struct
+		public static void VertexAttrib3f<T>(uint index, ref T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttrib3fv != null, "pglVertexAttrib3fv not implemented");
 			#if NETCOREAPP1_1
@@ -4569,19 +4569,19 @@ namespace OpenGL
 		/// Specifies the index of the generic vertex attribute to be modified.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:Int16"/>.
+		/// A <see cref="T:short"/>.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int16"/>.
+		/// A <see cref="T:short"/>.
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:Int16"/>.
+		/// A <see cref="T:short"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib3(UInt32 index, Int16 x, Int16 y, Int16 z)
+		public static void VertexAttrib3(uint index, short x, short y, short z)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib3s != null, "pglVertexAttrib3s not implemented");
 			Delegates.pglVertexAttrib3s(index, x, y, z);
@@ -4602,11 +4602,11 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib3(UInt32 index, Int16[] v)
+		public static void VertexAttrib3(uint index, short[] v)
 		{
 			Debug.Assert(v.Length >= 3);
 			unsafe {
-				fixed (Int16* p_v = v)
+				fixed (short* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertexAttrib3sv != null, "pglVertexAttrib3sv not implemented");
 					Delegates.pglVertexAttrib3sv(index, p_v);
@@ -4630,7 +4630,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static unsafe void VertexAttrib3(UInt32 index, Int16* v)
+		public static unsafe void VertexAttrib3(uint index, short* v)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib3sv != null, "pglVertexAttrib3sv not implemented");
 			Delegates.pglVertexAttrib3sv(index, v);
@@ -4652,14 +4652,14 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib3s<T>(UInt32 index, ref T v) where T : struct
+		public static void VertexAttrib3s<T>(uint index, ref T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttrib3sv != null, "pglVertexAttrib3sv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(v);
 			try {
 				unsafe {
-					Delegates.pglVertexAttrib3sv(index, (Int16*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglVertexAttrib3sv(index, (short*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -4669,7 +4669,7 @@ namespace OpenGL
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
-				Delegates.pglVertexAttrib3sv(index, (Int16*)refVPtr.ToPointer());
+				Delegates.pglVertexAttrib3sv(index, (short*)refVPtr.ToPointer());
 			}
 			#endif
 			LogCommand("glVertexAttrib3sv", null, index, v			);
@@ -4689,7 +4689,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static void VertexAttrib4N(UInt32 index, sbyte[] v)
+		public static void VertexAttrib4N(uint index, sbyte[] v)
 		{
 			Debug.Assert(v.Length >= 4);
 			unsafe {
@@ -4716,7 +4716,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static unsafe void VertexAttrib4N(UInt32 index, sbyte* v)
+		public static unsafe void VertexAttrib4N(uint index, sbyte* v)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4Nbv != null, "pglVertexAttrib4Nbv not implemented");
 			Delegates.pglVertexAttrib4Nbv(index, v);
@@ -4737,7 +4737,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static void VertexAttrib4Nb<T>(UInt32 index, ref T v) where T : struct
+		public static void VertexAttrib4Nb<T>(uint index, ref T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4Nbv != null, "pglVertexAttrib4Nbv not implemented");
 			#if NETCOREAPP1_1
@@ -4774,11 +4774,11 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static void VertexAttrib4N(UInt32 index, Int32[] v)
+		public static void VertexAttrib4N(uint index, int[] v)
 		{
 			Debug.Assert(v.Length >= 4);
 			unsafe {
-				fixed (Int32* p_v = v)
+				fixed (int* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertexAttrib4Niv != null, "pglVertexAttrib4Niv not implemented");
 					Delegates.pglVertexAttrib4Niv(index, p_v);
@@ -4801,7 +4801,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static unsafe void VertexAttrib4N(UInt32 index, Int32* v)
+		public static unsafe void VertexAttrib4N(uint index, int* v)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4Niv != null, "pglVertexAttrib4Niv not implemented");
 			Delegates.pglVertexAttrib4Niv(index, v);
@@ -4822,14 +4822,14 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static void VertexAttrib4Ni<T>(UInt32 index, ref T v) where T : struct
+		public static void VertexAttrib4Ni<T>(uint index, ref T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4Niv != null, "pglVertexAttrib4Niv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(v);
 			try {
 				unsafe {
-					Delegates.pglVertexAttrib4Niv(index, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglVertexAttrib4Niv(index, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -4839,7 +4839,7 @@ namespace OpenGL
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
-				Delegates.pglVertexAttrib4Niv(index, (Int32*)refVPtr.ToPointer());
+				Delegates.pglVertexAttrib4Niv(index, (int*)refVPtr.ToPointer());
 			}
 			#endif
 			LogCommand("glVertexAttrib4Niv", null, index, v			);
@@ -4859,11 +4859,11 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static void VertexAttrib4N(UInt32 index, Int16[] v)
+		public static void VertexAttrib4N(uint index, short[] v)
 		{
 			Debug.Assert(v.Length >= 4);
 			unsafe {
-				fixed (Int16* p_v = v)
+				fixed (short* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertexAttrib4Nsv != null, "pglVertexAttrib4Nsv not implemented");
 					Delegates.pglVertexAttrib4Nsv(index, p_v);
@@ -4886,7 +4886,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static unsafe void VertexAttrib4N(UInt32 index, Int16* v)
+		public static unsafe void VertexAttrib4N(uint index, short* v)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4Nsv != null, "pglVertexAttrib4Nsv not implemented");
 			Delegates.pglVertexAttrib4Nsv(index, v);
@@ -4907,14 +4907,14 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static void VertexAttrib4Ns<T>(UInt32 index, ref T v) where T : struct
+		public static void VertexAttrib4Ns<T>(uint index, ref T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4Nsv != null, "pglVertexAttrib4Nsv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(v);
 			try {
 				unsafe {
-					Delegates.pglVertexAttrib4Nsv(index, (Int16*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglVertexAttrib4Nsv(index, (short*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -4924,7 +4924,7 @@ namespace OpenGL
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
-				Delegates.pglVertexAttrib4Nsv(index, (Int16*)refVPtr.ToPointer());
+				Delegates.pglVertexAttrib4Nsv(index, (short*)refVPtr.ToPointer());
 			}
 			#endif
 			LogCommand("glVertexAttrib4Nsv", null, index, v			);
@@ -4953,7 +4953,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib4N(UInt32 index, byte x, byte y, byte z, byte w)
+		public static void VertexAttrib4N(uint index, byte x, byte y, byte z, byte w)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4Nub != null, "pglVertexAttrib4Nub not implemented");
 			Delegates.pglVertexAttrib4Nub(index, x, y, z, w);
@@ -4974,7 +4974,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib4N(UInt32 index, byte[] v)
+		public static void VertexAttrib4N(uint index, byte[] v)
 		{
 			Debug.Assert(v.Length >= 4);
 			unsafe {
@@ -5002,7 +5002,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static unsafe void VertexAttrib4N(UInt32 index, byte* v)
+		public static unsafe void VertexAttrib4N(uint index, byte* v)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4Nubv != null, "pglVertexAttrib4Nubv not implemented");
 			Delegates.pglVertexAttrib4Nubv(index, v);
@@ -5024,7 +5024,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib4Nub<T>(UInt32 index, ref T v) where T : struct
+		public static void VertexAttrib4Nub<T>(uint index, ref T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4Nubv != null, "pglVertexAttrib4Nubv not implemented");
 			#if NETCOREAPP1_1
@@ -5061,11 +5061,11 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static void VertexAttrib4N(UInt32 index, UInt32[] v)
+		public static void VertexAttrib4N(uint index, uint[] v)
 		{
 			Debug.Assert(v.Length >= 4);
 			unsafe {
-				fixed (UInt32* p_v = v)
+				fixed (uint* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertexAttrib4Nuiv != null, "pglVertexAttrib4Nuiv not implemented");
 					Delegates.pglVertexAttrib4Nuiv(index, p_v);
@@ -5088,7 +5088,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static unsafe void VertexAttrib4N(UInt32 index, UInt32* v)
+		public static unsafe void VertexAttrib4N(uint index, uint* v)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4Nuiv != null, "pglVertexAttrib4Nuiv not implemented");
 			Delegates.pglVertexAttrib4Nuiv(index, v);
@@ -5109,14 +5109,14 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static void VertexAttrib4Nui<T>(UInt32 index, ref T v) where T : struct
+		public static void VertexAttrib4Nui<T>(uint index, ref T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4Nuiv != null, "pglVertexAttrib4Nuiv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(v);
 			try {
 				unsafe {
-					Delegates.pglVertexAttrib4Nuiv(index, (UInt32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglVertexAttrib4Nuiv(index, (uint*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -5126,7 +5126,7 @@ namespace OpenGL
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
-				Delegates.pglVertexAttrib4Nuiv(index, (UInt32*)refVPtr.ToPointer());
+				Delegates.pglVertexAttrib4Nuiv(index, (uint*)refVPtr.ToPointer());
 			}
 			#endif
 			LogCommand("glVertexAttrib4Nuiv", null, index, v			);
@@ -5146,11 +5146,11 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static void VertexAttrib4N(UInt32 index, UInt16[] v)
+		public static void VertexAttrib4N(uint index, ushort[] v)
 		{
 			Debug.Assert(v.Length >= 4);
 			unsafe {
-				fixed (UInt16* p_v = v)
+				fixed (ushort* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertexAttrib4Nusv != null, "pglVertexAttrib4Nusv not implemented");
 					Delegates.pglVertexAttrib4Nusv(index, p_v);
@@ -5173,7 +5173,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static unsafe void VertexAttrib4N(UInt32 index, UInt16* v)
+		public static unsafe void VertexAttrib4N(uint index, ushort* v)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4Nusv != null, "pglVertexAttrib4Nusv not implemented");
 			Delegates.pglVertexAttrib4Nusv(index, v);
@@ -5194,14 +5194,14 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static void VertexAttrib4Nus<T>(UInt32 index, ref T v) where T : struct
+		public static void VertexAttrib4Nus<T>(uint index, ref T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4Nusv != null, "pglVertexAttrib4Nusv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(v);
 			try {
 				unsafe {
-					Delegates.pglVertexAttrib4Nusv(index, (UInt16*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglVertexAttrib4Nusv(index, (ushort*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -5211,7 +5211,7 @@ namespace OpenGL
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
-				Delegates.pglVertexAttrib4Nusv(index, (UInt16*)refVPtr.ToPointer());
+				Delegates.pglVertexAttrib4Nusv(index, (ushort*)refVPtr.ToPointer());
 			}
 			#endif
 			LogCommand("glVertexAttrib4Nusv", null, index, v			);
@@ -5231,7 +5231,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static void VertexAttrib4(UInt32 index, sbyte[] v)
+		public static void VertexAttrib4(uint index, sbyte[] v)
 		{
 			Debug.Assert(v.Length >= 4);
 			unsafe {
@@ -5258,7 +5258,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static unsafe void VertexAttrib4(UInt32 index, sbyte* v)
+		public static unsafe void VertexAttrib4(uint index, sbyte* v)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4bv != null, "pglVertexAttrib4bv not implemented");
 			Delegates.pglVertexAttrib4bv(index, v);
@@ -5279,7 +5279,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static void VertexAttrib4b<T>(UInt32 index, ref T v) where T : struct
+		public static void VertexAttrib4b<T>(uint index, ref T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4bv != null, "pglVertexAttrib4bv not implemented");
 			#if NETCOREAPP1_1
@@ -5325,7 +5325,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib4(UInt32 index, double x, double y, double z, double w)
+		public static void VertexAttrib4(uint index, double x, double y, double z, double w)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4d != null, "pglVertexAttrib4d not implemented");
 			Delegates.pglVertexAttrib4d(index, x, y, z, w);
@@ -5346,7 +5346,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib4(UInt32 index, double[] v)
+		public static void VertexAttrib4(uint index, double[] v)
 		{
 			Debug.Assert(v.Length >= 4);
 			unsafe {
@@ -5374,7 +5374,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static unsafe void VertexAttrib4(UInt32 index, double* v)
+		public static unsafe void VertexAttrib4(uint index, double* v)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4dv != null, "pglVertexAttrib4dv not implemented");
 			Delegates.pglVertexAttrib4dv(index, v);
@@ -5396,7 +5396,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib4d<T>(UInt32 index, ref T v) where T : struct
+		public static void VertexAttrib4d<T>(uint index, ref T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4dv != null, "pglVertexAttrib4dv not implemented");
 			#if NETCOREAPP1_1
@@ -5446,7 +5446,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib4(UInt32 index, float x, float y, float z, float w)
+		public static void VertexAttrib4(uint index, float x, float y, float z, float w)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4f != null, "pglVertexAttrib4f not implemented");
 			Delegates.pglVertexAttrib4f(index, x, y, z, w);
@@ -5471,7 +5471,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib4(UInt32 index, float[] v)
+		public static void VertexAttrib4(uint index, float[] v)
 		{
 			Debug.Assert(v.Length >= 4);
 			unsafe {
@@ -5503,7 +5503,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static unsafe void VertexAttrib4(UInt32 index, float* v)
+		public static unsafe void VertexAttrib4(uint index, float* v)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4fv != null, "pglVertexAttrib4fv not implemented");
 			Delegates.pglVertexAttrib4fv(index, v);
@@ -5529,7 +5529,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib4f<T>(UInt32 index, ref T v) where T : struct
+		public static void VertexAttrib4f<T>(uint index, ref T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4fv != null, "pglVertexAttrib4fv not implemented");
 			#if NETCOREAPP1_1
@@ -5566,11 +5566,11 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static void VertexAttrib4(UInt32 index, Int32[] v)
+		public static void VertexAttrib4(uint index, int[] v)
 		{
 			Debug.Assert(v.Length >= 4);
 			unsafe {
-				fixed (Int32* p_v = v)
+				fixed (int* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertexAttrib4iv != null, "pglVertexAttrib4iv not implemented");
 					Delegates.pglVertexAttrib4iv(index, p_v);
@@ -5593,7 +5593,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static unsafe void VertexAttrib4(UInt32 index, Int32* v)
+		public static unsafe void VertexAttrib4(uint index, int* v)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4iv != null, "pglVertexAttrib4iv not implemented");
 			Delegates.pglVertexAttrib4iv(index, v);
@@ -5614,14 +5614,14 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static void VertexAttrib4i<T>(UInt32 index, ref T v) where T : struct
+		public static void VertexAttrib4i<T>(uint index, ref T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4iv != null, "pglVertexAttrib4iv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(v);
 			try {
 				unsafe {
-					Delegates.pglVertexAttrib4iv(index, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglVertexAttrib4iv(index, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -5631,7 +5631,7 @@ namespace OpenGL
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
-				Delegates.pglVertexAttrib4iv(index, (Int32*)refVPtr.ToPointer());
+				Delegates.pglVertexAttrib4iv(index, (int*)refVPtr.ToPointer());
 			}
 			#endif
 			LogCommand("glVertexAttrib4iv", null, index, v			);
@@ -5645,22 +5645,22 @@ namespace OpenGL
 		/// Specifies the index of the generic vertex attribute to be modified.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:Int16"/>.
+		/// A <see cref="T:short"/>.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int16"/>.
+		/// A <see cref="T:short"/>.
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:Int16"/>.
+		/// A <see cref="T:short"/>.
 		/// </param>
 		/// <param name="w">
-		/// A <see cref="T:Int16"/>.
+		/// A <see cref="T:short"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib4(UInt32 index, Int16 x, Int16 y, Int16 z, Int16 w)
+		public static void VertexAttrib4(uint index, short x, short y, short z, short w)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4s != null, "pglVertexAttrib4s not implemented");
 			Delegates.pglVertexAttrib4s(index, x, y, z, w);
@@ -5681,11 +5681,11 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib4(UInt32 index, Int16[] v)
+		public static void VertexAttrib4(uint index, short[] v)
 		{
 			Debug.Assert(v.Length >= 4);
 			unsafe {
-				fixed (Int16* p_v = v)
+				fixed (short* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertexAttrib4sv != null, "pglVertexAttrib4sv not implemented");
 					Delegates.pglVertexAttrib4sv(index, p_v);
@@ -5709,7 +5709,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static unsafe void VertexAttrib4(UInt32 index, Int16* v)
+		public static unsafe void VertexAttrib4(uint index, short* v)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4sv != null, "pglVertexAttrib4sv not implemented");
 			Delegates.pglVertexAttrib4sv(index, v);
@@ -5731,14 +5731,14 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib4s<T>(UInt32 index, ref T v) where T : struct
+		public static void VertexAttrib4s<T>(uint index, ref T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4sv != null, "pglVertexAttrib4sv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(v);
 			try {
 				unsafe {
-					Delegates.pglVertexAttrib4sv(index, (Int16*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglVertexAttrib4sv(index, (short*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -5748,7 +5748,7 @@ namespace OpenGL
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
-				Delegates.pglVertexAttrib4sv(index, (Int16*)refVPtr.ToPointer());
+				Delegates.pglVertexAttrib4sv(index, (short*)refVPtr.ToPointer());
 			}
 			#endif
 			LogCommand("glVertexAttrib4sv", null, index, v			);
@@ -5768,7 +5768,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static void VertexAttrib4ub(UInt32 index, byte[] v)
+		public static void VertexAttrib4ub(uint index, byte[] v)
 		{
 			Debug.Assert(v.Length >= 4);
 			unsafe {
@@ -5795,7 +5795,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static unsafe void VertexAttrib4ub(UInt32 index, byte* v)
+		public static unsafe void VertexAttrib4ub(uint index, byte* v)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4ubv != null, "pglVertexAttrib4ubv not implemented");
 			Delegates.pglVertexAttrib4ubv(index, v);
@@ -5816,7 +5816,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static void VertexAttrib4ub<T>(UInt32 index, ref T v) where T : struct
+		public static void VertexAttrib4ub<T>(uint index, ref T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4ubv != null, "pglVertexAttrib4ubv not implemented");
 			#if NETCOREAPP1_1
@@ -5853,11 +5853,11 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static void VertexAttrib4(UInt32 index, UInt32[] v)
+		public static void VertexAttrib4(uint index, uint[] v)
 		{
 			Debug.Assert(v.Length >= 4);
 			unsafe {
-				fixed (UInt32* p_v = v)
+				fixed (uint* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertexAttrib4uiv != null, "pglVertexAttrib4uiv not implemented");
 					Delegates.pglVertexAttrib4uiv(index, p_v);
@@ -5880,7 +5880,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static unsafe void VertexAttrib4(UInt32 index, UInt32* v)
+		public static unsafe void VertexAttrib4(uint index, uint* v)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4uiv != null, "pglVertexAttrib4uiv not implemented");
 			Delegates.pglVertexAttrib4uiv(index, v);
@@ -5901,14 +5901,14 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static void VertexAttrib4ui<T>(UInt32 index, ref T v) where T : struct
+		public static void VertexAttrib4ui<T>(uint index, ref T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4uiv != null, "pglVertexAttrib4uiv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(v);
 			try {
 				unsafe {
-					Delegates.pglVertexAttrib4uiv(index, (UInt32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglVertexAttrib4uiv(index, (uint*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -5918,7 +5918,7 @@ namespace OpenGL
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
-				Delegates.pglVertexAttrib4uiv(index, (UInt32*)refVPtr.ToPointer());
+				Delegates.pglVertexAttrib4uiv(index, (uint*)refVPtr.ToPointer());
 			}
 			#endif
 			LogCommand("glVertexAttrib4uiv", null, index, v			);
@@ -5938,11 +5938,11 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static void VertexAttrib4(UInt32 index, UInt16[] v)
+		public static void VertexAttrib4(uint index, ushort[] v)
 		{
 			Debug.Assert(v.Length >= 4);
 			unsafe {
-				fixed (UInt16* p_v = v)
+				fixed (ushort* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertexAttrib4usv != null, "pglVertexAttrib4usv not implemented");
 					Delegates.pglVertexAttrib4usv(index, p_v);
@@ -5965,7 +5965,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static unsafe void VertexAttrib4(UInt32 index, UInt16* v)
+		public static unsafe void VertexAttrib4(uint index, ushort* v)
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4usv != null, "pglVertexAttrib4usv not implemented");
 			Delegates.pglVertexAttrib4usv(index, v);
@@ -5986,14 +5986,14 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static void VertexAttrib4us<T>(UInt32 index, ref T v) where T : struct
+		public static void VertexAttrib4us<T>(uint index, ref T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4usv != null, "pglVertexAttrib4usv not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(v);
 			try {
 				unsafe {
-					Delegates.pglVertexAttrib4usv(index, (UInt16*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglVertexAttrib4usv(index, (ushort*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -6003,7 +6003,7 @@ namespace OpenGL
 				TypedReference refV = __makeref(v);
 				IntPtr refVPtr = *(IntPtr*)(&refV);
 
-				Delegates.pglVertexAttrib4usv(index, (UInt16*)refVPtr.ToPointer());
+				Delegates.pglVertexAttrib4usv(index, (ushort*)refVPtr.ToPointer());
 			}
 			#endif
 			LogCommand("glVertexAttrib4usv", null, index, v			);
@@ -6047,10 +6047,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static void VertexAttribPointer(UInt32 index, Int32 size, VertexAttribType type, bool normalized, Int32 stride, IntPtr pointer)
+		public static void VertexAttribPointer(uint index, int size, VertexAttribType type, bool normalized, int stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglVertexAttribPointer != null, "pglVertexAttribPointer not implemented");
-			Delegates.pglVertexAttribPointer(index, size, (Int32)type, normalized, stride, pointer);
+			Delegates.pglVertexAttribPointer(index, size, (int)type, normalized, stride, pointer);
 			LogCommand("glVertexAttribPointer", null, index, size, type, normalized, stride, pointer			);
 			DebugCheckErrors(null);
 		}
@@ -6092,7 +6092,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static void VertexAttribPointer(UInt32 index, Int32 size, VertexAttribType type, bool normalized, Int32 stride, Object pointer)
+		public static void VertexAttribPointer(uint index, int size, VertexAttribType type, bool normalized, int stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -6109,7 +6109,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_EXT_blend_equation_separate")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glBlendEquationSeparate(Int32 modeRGB, Int32 modeAlpha);
+			internal delegate void glBlendEquationSeparate(int modeRGB, int modeAlpha);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6124,7 +6124,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ATI_draw_buffers")]
 			[RequiredByFeature("GL_EXT_draw_buffers", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDrawBuffers(Int32 n, Int32* bufs);
+			internal unsafe delegate void glDrawBuffers(int n, int* bufs);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -6139,7 +6139,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ATI_separate_stencil")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glStencilOpSeparate(Int32 face, Int32 sfail, Int32 dpfail, Int32 dppass);
+			internal delegate void glStencilOpSeparate(int face, int sfail, int dpfail, int dppass);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6152,7 +6152,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glStencilFuncSeparate(Int32 face, Int32 func, Int32 @ref, UInt32 mask);
+			internal delegate void glStencilFuncSeparate(int face, int func, int @ref, uint mask);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6164,7 +6164,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glStencilMaskSeparate(Int32 face, UInt32 mask);
+			internal delegate void glStencilMaskSeparate(int face, uint mask);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6176,7 +6176,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_shader_objects")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glAttachShader(UInt32 program, UInt32 shader);
+			internal delegate void glAttachShader(uint program, uint shader);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6188,7 +6188,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glBindAttribLocation(UInt32 program, UInt32 index, String name);
+			internal delegate void glBindAttribLocation(uint program, uint index, String name);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6200,7 +6200,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_shader_objects")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glCompileShader(UInt32 shader);
+			internal delegate void glCompileShader(uint shader);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6213,7 +6213,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_shader_objects")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate UInt32 glCreateProgram();
+			internal delegate uint glCreateProgram();
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6226,7 +6226,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_shader_objects")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate UInt32 glCreateShader(Int32 type);
+			internal delegate uint glCreateShader(int type);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6237,7 +6237,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glDeleteProgram(UInt32 program);
+			internal delegate void glDeleteProgram(uint program);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6247,7 +6247,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glDeleteShader(UInt32 shader);
+			internal delegate void glDeleteShader(uint shader);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6258,7 +6258,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_shader_objects")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glDetachShader(UInt32 program, UInt32 shader);
+			internal delegate void glDetachShader(uint program, uint shader);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6272,7 +6272,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_vertex_program")]
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glDisableVertexAttribArray(UInt32 index);
+			internal delegate void glDisableVertexAttribArray(uint index);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6288,7 +6288,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_vertex_program")]
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glEnableVertexAttribArray(UInt32 index);
+			internal delegate void glEnableVertexAttribArray(uint index);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6302,7 +6302,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetActiveAttrib(UInt32 program, UInt32 index, Int32 bufSize, Int32* length, Int32* size, Int32* type, [Out] StringBuilder name);
+			internal unsafe delegate void glGetActiveAttrib(uint program, uint index, int bufSize, int* length, int* size, int* type, [Out] StringBuilder name);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6314,7 +6314,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_shader_objects")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetActiveUniform(UInt32 program, UInt32 index, Int32 bufSize, Int32* length, Int32* size, Int32* type, [Out] StringBuilder name);
+			internal unsafe delegate void glGetActiveUniform(uint program, uint index, int bufSize, int* length, int* size, int* type, [Out] StringBuilder name);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6325,7 +6325,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetAttachedShaders(UInt32 program, Int32 maxCount, Int32* count, UInt32* shaders);
+			internal unsafe delegate void glGetAttachedShaders(uint program, int maxCount, int* count, uint* shaders);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6337,7 +6337,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Int32 glGetAttribLocation(UInt32 program, String name);
+			internal delegate int glGetAttribLocation(uint program, String name);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6350,7 +6350,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetProgramiv(UInt32 program, Int32 pname, Int32* @params);
+			internal unsafe delegate void glGetProgramiv(uint program, int pname, int* @params);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6361,7 +6361,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetProgramInfoLog(UInt32 program, Int32 bufSize, Int32* length, [Out] StringBuilder infoLog);
+			internal unsafe delegate void glGetProgramInfoLog(uint program, int bufSize, int* length, [Out] StringBuilder infoLog);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6371,7 +6371,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetShaderiv(UInt32 shader, Int32 pname, Int32* @params);
+			internal unsafe delegate void glGetShaderiv(uint shader, int pname, int* @params);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6381,7 +6381,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetShaderInfoLog(UInt32 shader, Int32 bufSize, Int32* length, [Out] StringBuilder infoLog);
+			internal unsafe delegate void glGetShaderInfoLog(uint shader, int bufSize, int* length, [Out] StringBuilder infoLog);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6392,7 +6392,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_shader_objects")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetShaderSource(UInt32 shader, Int32 bufSize, Int32* length, [Out] StringBuilder source);
+			internal unsafe delegate void glGetShaderSource(uint shader, int bufSize, int* length, [Out] StringBuilder source);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6405,7 +6405,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_shader_objects")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Int32 glGetUniformLocation(UInt32 program, String name);
+			internal delegate int glGetUniformLocation(uint program, String name);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6418,7 +6418,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_shader_objects")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetUniformfv(UInt32 program, Int32 location, float* @params);
+			internal unsafe delegate void glGetUniformfv(uint program, int location, float* @params);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6430,7 +6430,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_shader_objects")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetUniformiv(UInt32 program, Int32 location, Int32* @params);
+			internal unsafe delegate void glGetUniformiv(uint program, int location, int* @params);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6443,7 +6443,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetVertexAttribdv(UInt32 index, Int32 pname, double* @params);
+			internal unsafe delegate void glGetVertexAttribdv(uint index, int pname, double* @params);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ARB_vertex_program", EntryPoint = "glGetVertexAttribdvARB")]
@@ -6459,7 +6459,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetVertexAttribfv(UInt32 index, Int32 pname, float* @params);
+			internal unsafe delegate void glGetVertexAttribfv(uint index, int pname, float* @params);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6477,7 +6477,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetVertexAttribiv(UInt32 index, Int32 pname, Int32* @params);
+			internal unsafe delegate void glGetVertexAttribiv(uint index, int pname, int* @params);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6495,7 +6495,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetVertexAttribPointerv(UInt32 index, Int32 pname, IntPtr* pointer);
+			internal unsafe delegate void glGetVertexAttribPointerv(uint index, int pname, IntPtr* pointer);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6510,7 +6510,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			[return: MarshalAs(UnmanagedType.I1)]
-			internal delegate bool glIsProgram(UInt32 program);
+			internal delegate bool glIsProgram(uint program);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6521,7 +6521,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			[return: MarshalAs(UnmanagedType.I1)]
-			internal delegate bool glIsShader(UInt32 shader);
+			internal delegate bool glIsShader(uint shader);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6532,7 +6532,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_shader_objects")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glLinkProgram(UInt32 program);
+			internal delegate void glLinkProgram(uint program);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6544,7 +6544,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_shader_objects")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glShaderSource(UInt32 shader, Int32 count, String[] @string, Int32* length);
+			internal unsafe delegate void glShaderSource(uint shader, int count, String[] @string, int* length);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6557,7 +6557,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_shader_objects")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glUseProgram(UInt32 program);
+			internal delegate void glUseProgram(uint program);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6571,7 +6571,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_shader_objects")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glUniform1f(Int32 location, float v0);
+			internal delegate void glUniform1f(int location, float v0);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6585,7 +6585,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_shader_objects")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glUniform2f(Int32 location, float v0, float v1);
+			internal delegate void glUniform2f(int location, float v0, float v1);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6599,7 +6599,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_shader_objects")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glUniform3f(Int32 location, float v0, float v1, float v2);
+			internal delegate void glUniform3f(int location, float v0, float v1, float v2);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6613,7 +6613,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_shader_objects")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glUniform4f(Int32 location, float v0, float v1, float v2, float v3);
+			internal delegate void glUniform4f(int location, float v0, float v1, float v2, float v3);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6627,7 +6627,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_shader_objects")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glUniform1i(Int32 location, Int32 v0);
+			internal delegate void glUniform1i(int location, int v0);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6641,7 +6641,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_shader_objects")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glUniform2i(Int32 location, Int32 v0, Int32 v1);
+			internal delegate void glUniform2i(int location, int v0, int v1);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6655,7 +6655,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_shader_objects")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glUniform3i(Int32 location, Int32 v0, Int32 v1, Int32 v2);
+			internal delegate void glUniform3i(int location, int v0, int v1, int v2);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6669,7 +6669,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_shader_objects")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glUniform4i(Int32 location, Int32 v0, Int32 v1, Int32 v2, Int32 v3);
+			internal delegate void glUniform4i(int location, int v0, int v1, int v2, int v3);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6683,7 +6683,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_shader_objects")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glUniform1fv(Int32 location, Int32 count, float* value);
+			internal unsafe delegate void glUniform1fv(int location, int count, float* value);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6697,7 +6697,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_shader_objects")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glUniform2fv(Int32 location, Int32 count, float* value);
+			internal unsafe delegate void glUniform2fv(int location, int count, float* value);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6711,7 +6711,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_shader_objects")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glUniform3fv(Int32 location, Int32 count, float* value);
+			internal unsafe delegate void glUniform3fv(int location, int count, float* value);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6725,7 +6725,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_shader_objects")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glUniform4fv(Int32 location, Int32 count, float* value);
+			internal unsafe delegate void glUniform4fv(int location, int count, float* value);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6739,7 +6739,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_shader_objects")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glUniform1iv(Int32 location, Int32 count, Int32* value);
+			internal unsafe delegate void glUniform1iv(int location, int count, int* value);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6753,7 +6753,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_shader_objects")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glUniform2iv(Int32 location, Int32 count, Int32* value);
+			internal unsafe delegate void glUniform2iv(int location, int count, int* value);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6767,7 +6767,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_shader_objects")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glUniform3iv(Int32 location, Int32 count, Int32* value);
+			internal unsafe delegate void glUniform3iv(int location, int count, int* value);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6781,7 +6781,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_shader_objects")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glUniform4iv(Int32 location, Int32 count, Int32* value);
+			internal unsafe delegate void glUniform4iv(int location, int count, int* value);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6795,7 +6795,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_shader_objects")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glUniformMatrix2fv(Int32 location, Int32 count, [MarshalAs(UnmanagedType.I1)] bool transpose, float* value);
+			internal unsafe delegate void glUniformMatrix2fv(int location, int count, [MarshalAs(UnmanagedType.I1)] bool transpose, float* value);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6809,7 +6809,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_shader_objects")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glUniformMatrix3fv(Int32 location, Int32 count, [MarshalAs(UnmanagedType.I1)] bool transpose, float* value);
+			internal unsafe delegate void glUniformMatrix3fv(int location, int count, [MarshalAs(UnmanagedType.I1)] bool transpose, float* value);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6823,7 +6823,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_shader_objects")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glUniformMatrix4fv(Int32 location, Int32 count, [MarshalAs(UnmanagedType.I1)] bool transpose, float* value);
+			internal unsafe delegate void glUniformMatrix4fv(int location, int count, [MarshalAs(UnmanagedType.I1)] bool transpose, float* value);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6836,7 +6836,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_shader_objects")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glValidateProgram(UInt32 program);
+			internal delegate void glValidateProgram(uint program);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6849,7 +6849,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glVertexAttrib1d(UInt32 index, double x);
+			internal delegate void glVertexAttrib1d(uint index, double x);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ARB_vertex_program", EntryPoint = "glVertexAttrib1dARB")]
@@ -6863,7 +6863,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttrib1dv(UInt32 index, double* v);
+			internal unsafe delegate void glVertexAttrib1dv(uint index, double* v);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ARB_vertex_program", EntryPoint = "glVertexAttrib1dvARB")]
@@ -6879,7 +6879,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glVertexAttrib1f(UInt32 index, float x);
+			internal delegate void glVertexAttrib1f(uint index, float x);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6897,7 +6897,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttrib1fv(UInt32 index, float* v);
+			internal unsafe delegate void glVertexAttrib1fv(uint index, float* v);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6913,7 +6913,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glVertexAttrib1s(UInt32 index, Int16 x);
+			internal delegate void glVertexAttrib1s(uint index, short x);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ARB_vertex_program", EntryPoint = "glVertexAttrib1sARB")]
@@ -6927,7 +6927,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttrib1sv(UInt32 index, Int16* v);
+			internal unsafe delegate void glVertexAttrib1sv(uint index, short* v);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ARB_vertex_program", EntryPoint = "glVertexAttrib1svARB")]
@@ -6941,7 +6941,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glVertexAttrib2d(UInt32 index, double x, double y);
+			internal delegate void glVertexAttrib2d(uint index, double x, double y);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ARB_vertex_program", EntryPoint = "glVertexAttrib2dARB")]
@@ -6955,7 +6955,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttrib2dv(UInt32 index, double* v);
+			internal unsafe delegate void glVertexAttrib2dv(uint index, double* v);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ARB_vertex_program", EntryPoint = "glVertexAttrib2dvARB")]
@@ -6971,7 +6971,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glVertexAttrib2f(UInt32 index, float x, float y);
+			internal delegate void glVertexAttrib2f(uint index, float x, float y);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -6989,7 +6989,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttrib2fv(UInt32 index, float* v);
+			internal unsafe delegate void glVertexAttrib2fv(uint index, float* v);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -7005,7 +7005,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glVertexAttrib2s(UInt32 index, Int16 x, Int16 y);
+			internal delegate void glVertexAttrib2s(uint index, short x, short y);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ARB_vertex_program", EntryPoint = "glVertexAttrib2sARB")]
@@ -7019,7 +7019,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttrib2sv(UInt32 index, Int16* v);
+			internal unsafe delegate void glVertexAttrib2sv(uint index, short* v);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ARB_vertex_program", EntryPoint = "glVertexAttrib2svARB")]
@@ -7033,7 +7033,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glVertexAttrib3d(UInt32 index, double x, double y, double z);
+			internal delegate void glVertexAttrib3d(uint index, double x, double y, double z);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ARB_vertex_program", EntryPoint = "glVertexAttrib3dARB")]
@@ -7047,7 +7047,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttrib3dv(UInt32 index, double* v);
+			internal unsafe delegate void glVertexAttrib3dv(uint index, double* v);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ARB_vertex_program", EntryPoint = "glVertexAttrib3dvARB")]
@@ -7063,7 +7063,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glVertexAttrib3f(UInt32 index, float x, float y, float z);
+			internal delegate void glVertexAttrib3f(uint index, float x, float y, float z);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -7081,7 +7081,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttrib3fv(UInt32 index, float* v);
+			internal unsafe delegate void glVertexAttrib3fv(uint index, float* v);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -7097,7 +7097,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glVertexAttrib3s(UInt32 index, Int16 x, Int16 y, Int16 z);
+			internal delegate void glVertexAttrib3s(uint index, short x, short y, short z);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ARB_vertex_program", EntryPoint = "glVertexAttrib3sARB")]
@@ -7111,7 +7111,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttrib3sv(UInt32 index, Int16* v);
+			internal unsafe delegate void glVertexAttrib3sv(uint index, short* v);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ARB_vertex_program", EntryPoint = "glVertexAttrib3svARB")]
@@ -7124,7 +7124,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_vertex_program")]
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttrib4Nbv(UInt32 index, sbyte* v);
+			internal unsafe delegate void glVertexAttrib4Nbv(uint index, sbyte* v);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ARB_vertex_program", EntryPoint = "glVertexAttrib4NbvARB")]
@@ -7136,7 +7136,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_vertex_program")]
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttrib4Niv(UInt32 index, Int32* v);
+			internal unsafe delegate void glVertexAttrib4Niv(uint index, int* v);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ARB_vertex_program", EntryPoint = "glVertexAttrib4NivARB")]
@@ -7148,7 +7148,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_vertex_program")]
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttrib4Nsv(UInt32 index, Int16* v);
+			internal unsafe delegate void glVertexAttrib4Nsv(uint index, short* v);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ARB_vertex_program", EntryPoint = "glVertexAttrib4NsvARB")]
@@ -7161,7 +7161,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glVertexAttrib4Nub(UInt32 index, byte x, byte y, byte z, byte w);
+			internal delegate void glVertexAttrib4Nub(uint index, byte x, byte y, byte z, byte w);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ARB_vertex_program", EntryPoint = "glVertexAttrib4NubARB")]
@@ -7175,7 +7175,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttrib4Nubv(UInt32 index, byte* v);
+			internal unsafe delegate void glVertexAttrib4Nubv(uint index, byte* v);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ARB_vertex_program", EntryPoint = "glVertexAttrib4NubvARB")]
@@ -7188,7 +7188,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_vertex_program")]
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttrib4Nuiv(UInt32 index, UInt32* v);
+			internal unsafe delegate void glVertexAttrib4Nuiv(uint index, uint* v);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ARB_vertex_program", EntryPoint = "glVertexAttrib4NuivARB")]
@@ -7200,7 +7200,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_vertex_program")]
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttrib4Nusv(UInt32 index, UInt16* v);
+			internal unsafe delegate void glVertexAttrib4Nusv(uint index, ushort* v);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ARB_vertex_program", EntryPoint = "glVertexAttrib4NusvARB")]
@@ -7212,7 +7212,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_vertex_program")]
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttrib4bv(UInt32 index, sbyte* v);
+			internal unsafe delegate void glVertexAttrib4bv(uint index, sbyte* v);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ARB_vertex_program", EntryPoint = "glVertexAttrib4bvARB")]
@@ -7225,7 +7225,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glVertexAttrib4d(UInt32 index, double x, double y, double z, double w);
+			internal delegate void glVertexAttrib4d(uint index, double x, double y, double z, double w);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ARB_vertex_program", EntryPoint = "glVertexAttrib4dARB")]
@@ -7239,7 +7239,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttrib4dv(UInt32 index, double* v);
+			internal unsafe delegate void glVertexAttrib4dv(uint index, double* v);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ARB_vertex_program", EntryPoint = "glVertexAttrib4dvARB")]
@@ -7255,7 +7255,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glVertexAttrib4f(UInt32 index, float x, float y, float z, float w);
+			internal delegate void glVertexAttrib4f(uint index, float x, float y, float z, float w);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -7273,7 +7273,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttrib4fv(UInt32 index, float* v);
+			internal unsafe delegate void glVertexAttrib4fv(uint index, float* v);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -7288,7 +7288,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_vertex_program")]
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttrib4iv(UInt32 index, Int32* v);
+			internal unsafe delegate void glVertexAttrib4iv(uint index, int* v);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ARB_vertex_program", EntryPoint = "glVertexAttrib4ivARB")]
@@ -7301,7 +7301,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glVertexAttrib4s(UInt32 index, Int16 x, Int16 y, Int16 z, Int16 w);
+			internal delegate void glVertexAttrib4s(uint index, short x, short y, short z, short w);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ARB_vertex_program", EntryPoint = "glVertexAttrib4sARB")]
@@ -7315,7 +7315,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttrib4sv(UInt32 index, Int16* v);
+			internal unsafe delegate void glVertexAttrib4sv(uint index, short* v);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ARB_vertex_program", EntryPoint = "glVertexAttrib4svARB")]
@@ -7328,7 +7328,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_vertex_program")]
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttrib4ubv(UInt32 index, byte* v);
+			internal unsafe delegate void glVertexAttrib4ubv(uint index, byte* v);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ARB_vertex_program", EntryPoint = "glVertexAttrib4ubvARB")]
@@ -7340,7 +7340,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_vertex_program")]
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttrib4uiv(UInt32 index, UInt32* v);
+			internal unsafe delegate void glVertexAttrib4uiv(uint index, uint* v);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ARB_vertex_program", EntryPoint = "glVertexAttrib4uivARB")]
@@ -7352,7 +7352,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_vertex_program")]
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttrib4usv(UInt32 index, UInt16* v);
+			internal unsafe delegate void glVertexAttrib4usv(uint index, ushort* v);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ARB_vertex_program", EntryPoint = "glVertexAttrib4usvARB")]
@@ -7366,7 +7366,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_vertex_program")]
 			[RequiredByFeature("GL_ARB_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttribPointer(UInt32 index, Int32 size, Int32 type, [MarshalAs(UnmanagedType.I1)] bool normalized, Int32 stride, IntPtr pointer);
+			internal unsafe delegate void glVertexAttribPointer(uint index, int size, int type, [MarshalAs(UnmanagedType.I1)] bool normalized, int stride, IntPtr pointer);
 
 			[RequiredByFeature("GL_VERSION_2_0")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]

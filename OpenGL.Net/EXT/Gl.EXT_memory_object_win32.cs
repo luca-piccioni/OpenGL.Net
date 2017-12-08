@@ -65,10 +65,10 @@ namespace OpenGL
 		/// [GL] glImportMemoryWin32HandleEXT: Binding for glImportMemoryWin32HandleEXT.
 		/// </summary>
 		/// <param name="memory">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="size">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		/// <param name="handleType">
 		/// A <see cref="T:ExternalHandleType"/>.
@@ -77,10 +77,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_memory_object_win32", Api = "gl|gles2")]
-		public static void ImportMemoryWin32HandleEXT(UInt32 memory, UInt64 size, ExternalHandleType handleType, IntPtr handle)
+		public static void ImportMemoryWin32HandleEXT(uint memory, ulong size, ExternalHandleType handleType, IntPtr handle)
 		{
 			Debug.Assert(Delegates.pglImportMemoryWin32HandleEXT != null, "pglImportMemoryWin32HandleEXT not implemented");
-			Delegates.pglImportMemoryWin32HandleEXT(memory, size, (Int32)handleType, handle);
+			Delegates.pglImportMemoryWin32HandleEXT(memory, size, (int)handleType, handle);
 			LogCommand("glImportMemoryWin32HandleEXT", null, memory, size, handleType, handle			);
 			DebugCheckErrors(null);
 		}
@@ -89,10 +89,10 @@ namespace OpenGL
 		/// [GL] glImportMemoryWin32NameEXT: Binding for glImportMemoryWin32NameEXT.
 		/// </summary>
 		/// <param name="memory">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="size">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		/// <param name="handleType">
 		/// A <see cref="T:ExternalHandleType"/>.
@@ -101,10 +101,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_memory_object_win32", Api = "gl|gles2")]
-		public static void ImportMemoryWin32NameEXT(UInt32 memory, UInt64 size, ExternalHandleType handleType, IntPtr name)
+		public static void ImportMemoryWin32NameEXT(uint memory, ulong size, ExternalHandleType handleType, IntPtr name)
 		{
 			Debug.Assert(Delegates.pglImportMemoryWin32NameEXT != null, "pglImportMemoryWin32NameEXT not implemented");
-			Delegates.pglImportMemoryWin32NameEXT(memory, size, (Int32)handleType, name);
+			Delegates.pglImportMemoryWin32NameEXT(memory, size, (int)handleType, name);
 			LogCommand("glImportMemoryWin32NameEXT", null, memory, size, handleType, name			);
 			DebugCheckErrors(null);
 		}
@@ -113,10 +113,10 @@ namespace OpenGL
 		/// [GL] glImportMemoryWin32NameEXT: Binding for glImportMemoryWin32NameEXT.
 		/// </summary>
 		/// <param name="memory">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="size">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		/// <param name="handleType">
 		/// A <see cref="T:ExternalHandleType"/>.
@@ -125,7 +125,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_memory_object_win32", Api = "gl|gles2")]
-		public static void ImportMemoryWin32NameEXT(UInt32 memory, UInt64 size, ExternalHandleType handleType, Object name)
+		public static void ImportMemoryWin32NameEXT(uint memory, ulong size, ExternalHandleType handleType, Object name)
 		{
 			GCHandle pin_name = GCHandle.Alloc(name, GCHandleType.Pinned);
 			try {
@@ -139,7 +139,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_EXT_memory_object_win32", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glImportMemoryWin32HandleEXT(UInt32 memory, UInt64 size, Int32 handleType, IntPtr handle);
+			internal unsafe delegate void glImportMemoryWin32HandleEXT(uint memory, ulong size, int handleType, IntPtr handle);
 
 			[RequiredByFeature("GL_EXT_memory_object_win32", Api = "gl|gles2")]
 			[ThreadStatic]
@@ -147,7 +147,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_memory_object_win32", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glImportMemoryWin32NameEXT(UInt32 memory, UInt64 size, Int32 handleType, IntPtr name);
+			internal unsafe delegate void glImportMemoryWin32NameEXT(uint memory, ulong size, int handleType, IntPtr name);
 
 			[RequiredByFeature("GL_EXT_memory_object_win32", Api = "gl|gles2")]
 			[ThreadStatic]

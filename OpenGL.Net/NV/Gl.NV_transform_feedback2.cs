@@ -44,13 +44,13 @@ namespace OpenGL
 		/// A <see cref="T:TransformFeedbackTarget"/>.
 		/// </param>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_transform_feedback2")]
-		public static void BindTransformFeedbackNV(TransformFeedbackTarget target, UInt32 id)
+		public static void BindTransformFeedbackNV(TransformFeedbackTarget target, uint id)
 		{
 			Debug.Assert(Delegates.pglBindTransformFeedbackNV != null, "pglBindTransformFeedbackNV not implemented");
-			Delegates.pglBindTransformFeedbackNV((Int32)target, id);
+			Delegates.pglBindTransformFeedbackNV((int)target, id);
 			LogCommand("glBindTransformFeedbackNV", null, target, id			);
 			DebugCheckErrors(null);
 		}
@@ -59,7 +59,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_NV_transform_feedback2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glBindTransformFeedbackNV(Int32 target, UInt32 id);
+			internal delegate void glBindTransformFeedbackNV(int target, uint id);
 
 			[RequiredByFeature("GL_NV_transform_feedback2")]
 			[ThreadStatic]

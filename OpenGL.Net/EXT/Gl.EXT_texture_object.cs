@@ -59,22 +59,22 @@ namespace OpenGL
 		/// [GL] glAreTexturesResidentEXT: Binding for glAreTexturesResidentEXT.
 		/// </summary>
 		/// <param name="textures">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		/// <param name="residences">
 		/// A <see cref="T:byte[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_texture_object")]
-		public static bool AreTexturesResidentEXT(UInt32[] textures, [Out] byte[] residences)
+		public static bool AreTexturesResidentEXT(uint[] textures, [Out] byte[] residences)
 		{
 			bool retValue;
 
 			unsafe {
-				fixed (UInt32* p_textures = textures)
+				fixed (uint* p_textures = textures)
 				fixed (byte* p_residences = residences)
 				{
 					Debug.Assert(Delegates.pglAreTexturesResidentEXT != null, "pglAreTexturesResidentEXT not implemented");
-					retValue = Delegates.pglAreTexturesResidentEXT((Int32)textures.Length, p_textures, p_residences);
+					retValue = Delegates.pglAreTexturesResidentEXT(textures.Length, p_textures, p_residences);
 					LogCommand("glAreTexturesResidentEXT", retValue, textures.Length, textures, residences					);
 				}
 			}
@@ -87,16 +87,16 @@ namespace OpenGL
 		/// [GL] glDeleteTexturesEXT: Binding for glDeleteTexturesEXT.
 		/// </summary>
 		/// <param name="textures">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_texture_object")]
-		public static void DeleteTexturesEXT(params UInt32[] textures)
+		public static void DeleteTexturesEXT(params uint[] textures)
 		{
 			unsafe {
-				fixed (UInt32* p_textures = textures)
+				fixed (uint* p_textures = textures)
 				{
 					Debug.Assert(Delegates.pglDeleteTexturesEXT != null, "pglDeleteTexturesEXT not implemented");
-					Delegates.pglDeleteTexturesEXT((Int32)textures.Length, p_textures);
+					Delegates.pglDeleteTexturesEXT(textures.Length, p_textures);
 					LogCommand("glDeleteTexturesEXT", null, textures.Length, textures					);
 				}
 			}
@@ -107,16 +107,16 @@ namespace OpenGL
 		/// [GL] glGenTexturesEXT: Binding for glGenTexturesEXT.
 		/// </summary>
 		/// <param name="textures">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_texture_object")]
-		public static void GenTexturesEXT(UInt32[] textures)
+		public static void GenTexturesEXT(uint[] textures)
 		{
 			unsafe {
-				fixed (UInt32* p_textures = textures)
+				fixed (uint* p_textures = textures)
 				{
 					Debug.Assert(Delegates.pglGenTexturesEXT != null, "pglGenTexturesEXT not implemented");
-					Delegates.pglGenTexturesEXT((Int32)textures.Length, p_textures);
+					Delegates.pglGenTexturesEXT(textures.Length, p_textures);
 					LogCommand("glGenTexturesEXT", null, textures.Length, textures					);
 				}
 			}
@@ -127,9 +127,9 @@ namespace OpenGL
 		/// [GL] glGenTexturesEXT: Binding for glGenTexturesEXT.
 		/// </summary>
 		[RequiredByFeature("GL_EXT_texture_object")]
-		public static UInt32 GenTextureEXT()
+		public static uint GenTextureEXT()
 		{
-			UInt32 retValue;
+			uint retValue;
 			unsafe {
 				Delegates.pglGenTexturesEXT(1, &retValue);
 				LogCommand("glGenTexturesEXT", null, 1, "{ " + retValue + " }"				);
@@ -142,10 +142,10 @@ namespace OpenGL
 		/// [GL] glIsTextureEXT: Binding for glIsTextureEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_texture_object")]
-		public static bool IsTextureEXT(UInt32 texture)
+		public static bool IsTextureEXT(uint texture)
 		{
 			bool retValue;
 
@@ -162,7 +162,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_texture_object")]
 			[SuppressUnmanagedCodeSecurity()]
 			[return: MarshalAs(UnmanagedType.I1)]
-			internal unsafe delegate bool glAreTexturesResidentEXT(Int32 n, UInt32* textures, byte* residences);
+			internal unsafe delegate bool glAreTexturesResidentEXT(int n, uint* textures, byte* residences);
 
 			[RequiredByFeature("GL_EXT_texture_object")]
 			[ThreadStatic]
@@ -170,7 +170,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_texture_object")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDeleteTexturesEXT(Int32 n, UInt32* textures);
+			internal unsafe delegate void glDeleteTexturesEXT(int n, uint* textures);
 
 			[RequiredByFeature("GL_EXT_texture_object")]
 			[ThreadStatic]
@@ -178,7 +178,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_texture_object")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGenTexturesEXT(Int32 n, UInt32* textures);
+			internal unsafe delegate void glGenTexturesEXT(int n, uint* textures);
 
 			[RequiredByFeature("GL_EXT_texture_object")]
 			[ThreadStatic]
@@ -187,7 +187,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_texture_object")]
 			[SuppressUnmanagedCodeSecurity()]
 			[return: MarshalAs(UnmanagedType.I1)]
-			internal delegate bool glIsTextureEXT(UInt32 texture);
+			internal delegate bool glIsTextureEXT(uint texture);
 
 			[RequiredByFeature("GL_EXT_texture_object")]
 			[ThreadStatic]

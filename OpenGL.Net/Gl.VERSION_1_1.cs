@@ -1129,10 +1129,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_EXT_vertex_array")]
-		public static void DrawArrays(PrimitiveType mode, Int32 first, Int32 count)
+		public static void DrawArrays(PrimitiveType mode, int first, int count)
 		{
 			Debug.Assert(Delegates.pglDrawArrays != null, "pglDrawArrays not implemented");
-			Delegates.pglDrawArrays((Int32)mode, first, count);
+			Delegates.pglDrawArrays((int)mode, first, count);
 			LogCommand("glDrawArrays", null, mode, first, count			);
 			DebugCheckErrors(null);
 		}
@@ -1160,10 +1160,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		public static void DrawElements(PrimitiveType mode, Int32 count, DrawElementsType type, IntPtr indices)
+		public static void DrawElements(PrimitiveType mode, int count, DrawElementsType type, IntPtr indices)
 		{
 			Debug.Assert(Delegates.pglDrawElements != null, "pglDrawElements not implemented");
-			Delegates.pglDrawElements((Int32)mode, count, (Int32)type, indices);
+			Delegates.pglDrawElements((int)mode, count, (int)type, indices);
 			LogCommand("glDrawElements", null, mode, count, type, indices			);
 			DebugCheckErrors(null);
 		}
@@ -1191,7 +1191,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		public static void DrawElements(PrimitiveType mode, Int32 count, DrawElementsType type, Object indices)
+		public static void DrawElements(PrimitiveType mode, int count, DrawElementsType type, Object indices)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
 			try {
@@ -1227,7 +1227,7 @@ namespace OpenGL
 				fixed (IntPtr* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetPointerv != null, "pglGetPointerv not implemented");
-					Delegates.pglGetPointerv((Int32)pname, p_params);
+					Delegates.pglGetPointerv((int)pname, p_params);
 					LogCommand("glGetPointerv", null, pname, @params					);
 				}
 			}
@@ -1322,10 +1322,10 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_EXT_copy_texture")]
-		public static void CopyTexImage1D(TextureTarget target, Int32 level, InternalFormat internalformat, Int32 x, Int32 y, Int32 width, Int32 border)
+		public static void CopyTexImage1D(TextureTarget target, int level, InternalFormat internalformat, int x, int y, int width, int border)
 		{
 			Debug.Assert(Delegates.pglCopyTexImage1D != null, "pglCopyTexImage1D not implemented");
-			Delegates.pglCopyTexImage1D((Int32)target, level, (Int32)internalformat, x, y, width, border);
+			Delegates.pglCopyTexImage1D((int)target, level, (int)internalformat, x, y, width, border);
 			LogCommand("glCopyTexImage1D", null, target, level, internalformat, x, y, width, border			);
 			DebugCheckErrors(null);
 		}
@@ -1376,10 +1376,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_copy_texture")]
-		public static void CopyTexImage2D(TextureTarget target, Int32 level, InternalFormat internalformat, Int32 x, Int32 y, Int32 width, Int32 height, Int32 border)
+		public static void CopyTexImage2D(TextureTarget target, int level, InternalFormat internalformat, int x, int y, int width, int height, int border)
 		{
 			Debug.Assert(Delegates.pglCopyTexImage2D != null, "pglCopyTexImage2D not implemented");
-			Delegates.pglCopyTexImage2D((Int32)target, level, (Int32)internalformat, x, y, width, height, border);
+			Delegates.pglCopyTexImage2D((int)target, level, (int)internalformat, x, y, width, height, border);
 			LogCommand("glCopyTexImage2D", null, target, level, internalformat, x, y, width, height, border			);
 			DebugCheckErrors(null);
 		}
@@ -1407,10 +1407,10 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_EXT_copy_texture")]
-		public static void CopyTexSubImage1D(TextureTarget target, Int32 level, Int32 xoffset, Int32 x, Int32 y, Int32 width)
+		public static void CopyTexSubImage1D(TextureTarget target, int level, int xoffset, int x, int y, int width)
 		{
 			Debug.Assert(Delegates.pglCopyTexSubImage1D != null, "pglCopyTexSubImage1D not implemented");
-			Delegates.pglCopyTexSubImage1D((Int32)target, level, xoffset, x, y, width);
+			Delegates.pglCopyTexSubImage1D((int)target, level, xoffset, x, y, width);
 			LogCommand("glCopyTexSubImage1D", null, target, level, xoffset, x, y, width			);
 			DebugCheckErrors(null);
 		}
@@ -1453,10 +1453,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_copy_texture")]
-		public static void CopyTexSubImage2D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 x, Int32 y, Int32 width, Int32 height)
+		public static void CopyTexSubImage2D(TextureTarget target, int level, int xoffset, int yoffset, int x, int y, int width, int height)
 		{
 			Debug.Assert(Delegates.pglCopyTexSubImage2D != null, "pglCopyTexSubImage2D not implemented");
-			Delegates.pglCopyTexSubImage2D((Int32)target, level, xoffset, yoffset, x, y, width, height);
+			Delegates.pglCopyTexSubImage2D((int)target, level, xoffset, yoffset, x, y, width, height);
 			LogCommand("glCopyTexSubImage2D", null, target, level, xoffset, yoffset, x, y, width, height			);
 			DebugCheckErrors(null);
 		}
@@ -1492,10 +1492,10 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_EXT_subtexture")]
-		public static void TexSubImage1D(TextureTarget target, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, PixelType type, IntPtr pixels)
+		public static void TexSubImage1D(TextureTarget target, int level, int xoffset, int width, PixelFormat format, PixelType type, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglTexSubImage1D != null, "pglTexSubImage1D not implemented");
-			Delegates.pglTexSubImage1D((Int32)target, level, xoffset, width, (Int32)format, (Int32)type, pixels);
+			Delegates.pglTexSubImage1D((int)target, level, xoffset, width, (int)format, (int)type, pixels);
 			LogCommand("glTexSubImage1D", null, target, level, xoffset, width, format, type, pixels			);
 			DebugCheckErrors(null);
 		}
@@ -1531,7 +1531,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_EXT_subtexture")]
-		public static void TexSubImage1D(TextureTarget target, Int32 level, Int32 xoffset, Int32 width, PixelFormat format, PixelType type, Object pixels)
+		public static void TexSubImage1D(TextureTarget target, int level, int xoffset, int width, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -1585,10 +1585,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_EXT_subtexture")]
-		public static void TexSubImage2D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, PixelType type, IntPtr pixels)
+		public static void TexSubImage2D(TextureTarget target, int level, int xoffset, int yoffset, int width, int height, PixelFormat format, PixelType type, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglTexSubImage2D != null, "pglTexSubImage2D not implemented");
-			Delegates.pglTexSubImage2D((Int32)target, level, xoffset, yoffset, width, height, (Int32)format, (Int32)type, pixels);
+			Delegates.pglTexSubImage2D((int)target, level, xoffset, yoffset, width, height, (int)format, (int)type, pixels);
 			LogCommand("glTexSubImage2D", null, target, level, xoffset, yoffset, width, height, format, type, pixels			);
 			DebugCheckErrors(null);
 		}
@@ -1637,7 +1637,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_EXT_subtexture")]
-		public static void TexSubImage2D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, PixelFormat format, PixelType type, Object pixels)
+		public static void TexSubImage2D(TextureTarget target, int level, int xoffset, int yoffset, int width, int height, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -1665,10 +1665,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_EXT_texture_object")]
-		public static void BindTexture(TextureTarget target, UInt32 texture)
+		public static void BindTexture(TextureTarget target, uint texture)
 		{
 			Debug.Assert(Delegates.pglBindTexture != null, "pglBindTexture not implemented");
-			Delegates.pglBindTexture((Int32)target, texture);
+			Delegates.pglBindTexture((int)target, texture);
 			LogCommand("glBindTexture", null, target, texture			);
 			DebugCheckErrors(null);
 		}
@@ -1684,13 +1684,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		public static void DeleteTextures(params UInt32[] textures)
+		public static void DeleteTextures(params uint[] textures)
 		{
 			unsafe {
-				fixed (UInt32* p_textures = textures)
+				fixed (uint* p_textures = textures)
 				{
 					Debug.Assert(Delegates.pglDeleteTextures != null, "pglDeleteTextures not implemented");
-					Delegates.pglDeleteTextures((Int32)textures.Length, p_textures);
+					Delegates.pglDeleteTextures(textures.Length, p_textures);
 					LogCommand("glDeleteTextures", null, textures.Length, textures					);
 				}
 			}
@@ -1709,13 +1709,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		public static void GenTextures(UInt32[] textures)
+		public static void GenTextures(uint[] textures)
 		{
 			unsafe {
-				fixed (UInt32* p_textures = textures)
+				fixed (uint* p_textures = textures)
 				{
 					Debug.Assert(Delegates.pglGenTextures != null, "pglGenTextures not implemented");
-					Delegates.pglGenTextures((Int32)textures.Length, p_textures);
+					Delegates.pglGenTextures(textures.Length, p_textures);
 					LogCommand("glGenTextures", null, textures.Length, textures					);
 				}
 			}
@@ -1731,9 +1731,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		public static UInt32 GenTexture()
+		public static uint GenTexture()
 		{
-			UInt32 retValue;
+			uint retValue;
 			unsafe {
 				Delegates.pglGenTextures(1, &retValue);
 				LogCommand("glGenTextures", null, 1, "{ " + retValue + " }"				);
@@ -1753,7 +1753,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		public static bool IsTexture(UInt32 texture)
+		public static bool IsTexture(uint texture)
 		{
 			bool retValue;
 
@@ -1774,7 +1774,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_EXT_vertex_array")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void ArrayElement(Int32 i)
+		public static void ArrayElement(int i)
 		{
 			Debug.Assert(Delegates.pglArrayElement != null, "pglArrayElement not implemented");
 			Delegates.pglArrayElement(i);
@@ -1803,10 +1803,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void ColorPointer(Int32 size, ColorPointerType type, Int32 stride, IntPtr pointer)
+		public static void ColorPointer(int size, ColorPointerType type, int stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglColorPointer != null, "pglColorPointer not implemented");
-			Delegates.pglColorPointer(size, (Int32)type, stride, pointer);
+			Delegates.pglColorPointer(size, (int)type, stride, pointer);
 			LogCommand("glColorPointer", null, size, type, stride, pointer			);
 			DebugCheckErrors(null);
 		}
@@ -1833,7 +1833,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void ColorPointer(Int32 size, ColorPointerType type, Int32 stride, Object pointer)
+		public static void ColorPointer(int size, ColorPointerType type, int stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -1857,7 +1857,7 @@ namespace OpenGL
 		public static void DisableClientState(EnableCap array)
 		{
 			Debug.Assert(Delegates.pglDisableClientState != null, "pglDisableClientState not implemented");
-			Delegates.pglDisableClientState((Int32)array);
+			Delegates.pglDisableClientState((int)array);
 			LogCommand("glDisableClientState", null, array			);
 			DebugCheckErrors(null);
 		}
@@ -1874,7 +1874,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void EdgeFlagPointer(Int32 stride, IntPtr pointer)
+		public static void EdgeFlagPointer(int stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglEdgeFlagPointer != null, "pglEdgeFlagPointer not implemented");
 			Delegates.pglEdgeFlagPointer(stride, pointer);
@@ -1894,7 +1894,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void EdgeFlagPointer(Int32 stride, Object pointer)
+		public static void EdgeFlagPointer(int stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -1918,7 +1918,7 @@ namespace OpenGL
 		public static void EnableClientState(EnableCap array)
 		{
 			Debug.Assert(Delegates.pglEnableClientState != null, "pglEnableClientState not implemented");
-			Delegates.pglEnableClientState((Int32)array);
+			Delegates.pglEnableClientState((int)array);
 			LogCommand("glEnableClientState", null, array			);
 			DebugCheckErrors(null);
 		}
@@ -1939,10 +1939,10 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void IndexPointer(IndexPointerType type, Int32 stride, IntPtr pointer)
+		public static void IndexPointer(IndexPointerType type, int stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglIndexPointer != null, "pglIndexPointer not implemented");
-			Delegates.pglIndexPointer((Int32)type, stride, pointer);
+			Delegates.pglIndexPointer((int)type, stride, pointer);
 			LogCommand("glIndexPointer", null, type, stride, pointer			);
 			DebugCheckErrors(null);
 		}
@@ -1963,7 +1963,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void IndexPointer(IndexPointerType type, Int32 stride, Object pointer)
+		public static void IndexPointer(IndexPointerType type, int stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -1989,10 +1989,10 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void InterleavedArrays(InterleavedArrayFormat format, Int32 stride, IntPtr pointer)
+		public static void InterleavedArrays(InterleavedArrayFormat format, int stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglInterleavedArrays != null, "pglInterleavedArrays not implemented");
-			Delegates.pglInterleavedArrays((Int32)format, stride, pointer);
+			Delegates.pglInterleavedArrays((int)format, stride, pointer);
 			LogCommand("glInterleavedArrays", null, format, stride, pointer			);
 			DebugCheckErrors(null);
 		}
@@ -2013,7 +2013,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void InterleavedArrays(InterleavedArrayFormat format, Int32 stride, Object pointer)
+		public static void InterleavedArrays(InterleavedArrayFormat format, int stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -2042,10 +2042,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void NormalPointer(NormalPointerType type, Int32 stride, IntPtr pointer)
+		public static void NormalPointer(NormalPointerType type, int stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglNormalPointer != null, "pglNormalPointer not implemented");
-			Delegates.pglNormalPointer((Int32)type, stride, pointer);
+			Delegates.pglNormalPointer((int)type, stride, pointer);
 			LogCommand("glNormalPointer", null, type, stride, pointer			);
 			DebugCheckErrors(null);
 		}
@@ -2069,7 +2069,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void NormalPointer(NormalPointerType type, Int32 stride, Object pointer)
+		public static void NormalPointer(NormalPointerType type, int stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -2101,10 +2101,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void TexCoordPointer(Int32 size, TexCoordPointerType type, Int32 stride, IntPtr pointer)
+		public static void TexCoordPointer(int size, TexCoordPointerType type, int stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglTexCoordPointer != null, "pglTexCoordPointer not implemented");
-			Delegates.pglTexCoordPointer(size, (Int32)type, stride, pointer);
+			Delegates.pglTexCoordPointer(size, (int)type, stride, pointer);
 			LogCommand("glTexCoordPointer", null, size, type, stride, pointer			);
 			DebugCheckErrors(null);
 		}
@@ -2131,7 +2131,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void TexCoordPointer(Int32 size, TexCoordPointerType type, Int32 stride, Object pointer)
+		public static void TexCoordPointer(int size, TexCoordPointerType type, int stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -2166,10 +2166,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void VertexPointer(Int32 size, VertexPointerType type, Int32 stride, IntPtr pointer)
+		public static void VertexPointer(int size, VertexPointerType type, int stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglVertexPointer != null, "pglVertexPointer not implemented");
-			Delegates.pglVertexPointer(size, (Int32)type, stride, pointer);
+			Delegates.pglVertexPointer(size, (int)type, stride, pointer);
 			LogCommand("glVertexPointer", null, size, type, stride, pointer			);
 			DebugCheckErrors(null);
 		}
@@ -2199,7 +2199,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void VertexPointer(Int32 size, VertexPointerType type, Int32 stride, Object pointer)
+		public static void VertexPointer(int size, VertexPointerType type, int stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -2221,16 +2221,16 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static bool AreTexturesResident(UInt32[] textures, [Out] byte[] residences)
+		public static bool AreTexturesResident(uint[] textures, [Out] byte[] residences)
 		{
 			bool retValue;
 
 			unsafe {
-				fixed (UInt32* p_textures = textures)
+				fixed (uint* p_textures = textures)
 				fixed (byte* p_residences = residences)
 				{
 					Debug.Assert(Delegates.pglAreTexturesResident != null, "pglAreTexturesResident not implemented");
-					retValue = Delegates.pglAreTexturesResident((Int32)textures.Length, p_textures, p_residences);
+					retValue = Delegates.pglAreTexturesResident(textures.Length, p_textures, p_residences);
 					LogCommand("glAreTexturesResident", retValue, textures.Length, textures, residences					);
 				}
 			}
@@ -2252,14 +2252,14 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_EXT_texture_object")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void PrioritizeTextures(UInt32[] textures, params float[] priorities)
+		public static void PrioritizeTextures(uint[] textures, params float[] priorities)
 		{
 			unsafe {
-				fixed (UInt32* p_textures = textures)
+				fixed (uint* p_textures = textures)
 				fixed (float* p_priorities = priorities)
 				{
 					Debug.Assert(Delegates.pglPrioritizeTextures != null, "pglPrioritizeTextures not implemented");
-					Delegates.pglPrioritizeTextures((Int32)textures.Length, p_textures, p_priorities);
+					Delegates.pglPrioritizeTextures(textures.Length, p_textures, p_priorities);
 					LogCommand("glPrioritizeTextures", null, textures.Length, textures, priorities					);
 				}
 			}
@@ -2327,7 +2327,7 @@ namespace OpenGL
 		public static void PushClientAttrib(ClientAttribMask mask)
 		{
 			Debug.Assert(Delegates.pglPushClientAttrib != null, "pglPushClientAttrib not implemented");
-			Delegates.pglPushClientAttrib((UInt32)mask);
+			Delegates.pglPushClientAttrib((uint)mask);
 			LogCommand("glPushClientAttrib", null, mask			);
 			DebugCheckErrors(null);
 		}
@@ -2340,7 +2340,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_EXT_vertex_array")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glDrawArrays(Int32 mode, Int32 first, Int32 count);
+			internal delegate void glDrawArrays(int mode, int first, int count);
 
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -2354,7 +2354,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDrawElements(Int32 mode, Int32 count, Int32 type, IntPtr indices);
+			internal unsafe delegate void glDrawElements(int mode, int count, int type, IntPtr indices);
 
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -2372,7 +2372,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetPointerv(Int32 pname, IntPtr* @params);
+			internal unsafe delegate void glGetPointerv(int pname, IntPtr* @params);
 
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RequiredByFeature("GL_VERSION_4_3")]
@@ -2403,7 +2403,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RequiredByFeature("GL_EXT_copy_texture")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glCopyTexImage1D(Int32 target, Int32 level, Int32 internalformat, Int32 x, Int32 y, Int32 width, Int32 border);
+			internal delegate void glCopyTexImage1D(int target, int level, int internalformat, int x, int y, int width, int border);
 
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RequiredByFeature("GL_EXT_copy_texture", EntryPoint = "glCopyTexImage1DEXT")]
@@ -2415,7 +2415,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_copy_texture")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glCopyTexImage2D(Int32 target, Int32 level, Int32 internalformat, Int32 x, Int32 y, Int32 width, Int32 height, Int32 border);
+			internal delegate void glCopyTexImage2D(int target, int level, int internalformat, int x, int y, int width, int height, int border);
 
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -2427,7 +2427,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RequiredByFeature("GL_EXT_copy_texture")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glCopyTexSubImage1D(Int32 target, Int32 level, Int32 xoffset, Int32 x, Int32 y, Int32 width);
+			internal delegate void glCopyTexSubImage1D(int target, int level, int xoffset, int x, int y, int width);
 
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RequiredByFeature("GL_EXT_copy_texture", EntryPoint = "glCopyTexSubImage1DEXT")]
@@ -2439,7 +2439,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_copy_texture")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glCopyTexSubImage2D(Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 x, Int32 y, Int32 width, Int32 height);
+			internal delegate void glCopyTexSubImage2D(int target, int level, int xoffset, int yoffset, int x, int y, int width, int height);
 
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -2451,7 +2451,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RequiredByFeature("GL_EXT_subtexture")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexSubImage1D(Int32 target, Int32 level, Int32 xoffset, Int32 width, Int32 format, Int32 type, IntPtr pixels);
+			internal unsafe delegate void glTexSubImage1D(int target, int level, int xoffset, int width, int format, int type, IntPtr pixels);
 
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RequiredByFeature("GL_EXT_subtexture", EntryPoint = "glTexSubImage1DEXT")]
@@ -2464,7 +2464,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_EXT_subtexture")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexSubImage2D(Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 width, Int32 height, Int32 format, Int32 type, IntPtr pixels);
+			internal unsafe delegate void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, IntPtr pixels);
 
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -2480,7 +2480,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_EXT_texture_object")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glBindTexture(Int32 target, UInt32 texture);
+			internal delegate void glBindTexture(int target, uint texture);
 
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -2494,7 +2494,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDeleteTextures(Int32 n, UInt32* textures);
+			internal unsafe delegate void glDeleteTextures(int n, uint* textures);
 
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -2507,7 +2507,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGenTextures(Int32 n, UInt32* textures);
+			internal unsafe delegate void glGenTextures(int n, uint* textures);
 
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -2521,7 +2521,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			[return: MarshalAs(UnmanagedType.I1)]
-			internal delegate bool glIsTexture(UInt32 texture);
+			internal delegate bool glIsTexture(uint texture);
 
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -2533,7 +2533,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_vertex_array")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glArrayElement(Int32 i);
+			internal delegate void glArrayElement(int i);
 
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RequiredByFeature("GL_EXT_vertex_array", EntryPoint = "glArrayElementEXT")]
@@ -2545,7 +2545,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glColorPointer(Int32 size, Int32 type, Int32 stride, IntPtr pointer);
+			internal unsafe delegate void glColorPointer(int size, int type, int stride, IntPtr pointer);
 
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -2557,7 +2557,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glDisableClientState(Int32 array);
+			internal delegate void glDisableClientState(int array);
 
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -2568,7 +2568,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glEdgeFlagPointer(Int32 stride, IntPtr pointer);
+			internal unsafe delegate void glEdgeFlagPointer(int stride, IntPtr pointer);
 
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -2579,7 +2579,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glEnableClientState(Int32 array);
+			internal delegate void glEnableClientState(int array);
 
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -2590,7 +2590,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glIndexPointer(Int32 type, Int32 stride, IntPtr pointer);
+			internal unsafe delegate void glIndexPointer(int type, int stride, IntPtr pointer);
 
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -2600,7 +2600,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glInterleavedArrays(Int32 format, Int32 stride, IntPtr pointer);
+			internal unsafe delegate void glInterleavedArrays(int format, int stride, IntPtr pointer);
 
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -2611,7 +2611,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glNormalPointer(Int32 type, Int32 stride, IntPtr pointer);
+			internal unsafe delegate void glNormalPointer(int type, int stride, IntPtr pointer);
 
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -2623,7 +2623,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexCoordPointer(Int32 size, Int32 type, Int32 stride, IntPtr pointer);
+			internal unsafe delegate void glTexCoordPointer(int size, int type, int stride, IntPtr pointer);
 
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -2635,7 +2635,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexPointer(Int32 size, Int32 type, Int32 stride, IntPtr pointer);
+			internal unsafe delegate void glVertexPointer(int size, int type, int stride, IntPtr pointer);
 
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -2647,7 +2647,7 @@ namespace OpenGL
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
 			[return: MarshalAs(UnmanagedType.I1)]
-			internal unsafe delegate bool glAreTexturesResident(Int32 n, UInt32* textures, byte* residences);
+			internal unsafe delegate bool glAreTexturesResident(int n, uint* textures, byte* residences);
 
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -2658,7 +2658,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_texture_object")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glPrioritizeTextures(Int32 n, UInt32* textures, float* priorities);
+			internal unsafe delegate void glPrioritizeTextures(int n, uint* textures, float* priorities);
 
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RequiredByFeature("GL_EXT_texture_object", EntryPoint = "glPrioritizeTexturesEXT")]
@@ -2699,7 +2699,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glPushClientAttrib(UInt32 mask);
+			internal delegate void glPushClientAttrib(uint mask);
 
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]

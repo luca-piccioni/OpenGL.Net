@@ -47,10 +47,10 @@ namespace OpenGL
 		/// [GLES1.1] glCurrentPaletteMatrixOES: defines which of the palette's matrices is affected by subsequent matrix operations
 		/// </summary>
 		/// <param name="matrixpaletteindex">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_matrix_palette", Api = "gles1")]
-		public static void CurrentPaletteMatrixOES(UInt32 matrixpaletteindex)
+		public static void CurrentPaletteMatrixOES(uint matrixpaletteindex)
 		{
 			Debug.Assert(Delegates.pglCurrentPaletteMatrixOES != null, "pglCurrentPaletteMatrixOES not implemented");
 			Delegates.pglCurrentPaletteMatrixOES(matrixpaletteindex);
@@ -90,7 +90,7 @@ namespace OpenGL
 		/// Specifies a pointer to the first matrix index of the first vertex in the array. The initial value is Gl..
 		/// </param>
 		[RequiredByFeature("GL_OES_matrix_palette", Api = "gles1")]
-		public static void MatrixIndexPointerOES(Int32 size, Int32 type, Int32 stride, IntPtr pointer)
+		public static void MatrixIndexPointerOES(int size, int type, int stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglMatrixIndexPointerOES != null, "pglMatrixIndexPointerOES not implemented");
 			Delegates.pglMatrixIndexPointerOES(size, type, stride, pointer);
@@ -117,7 +117,7 @@ namespace OpenGL
 		/// Specifies a pointer to the first matrix index of the first vertex in the array. The initial value is Gl..
 		/// </param>
 		[RequiredByFeature("GL_OES_matrix_palette", Api = "gles1")]
-		public static void MatrixIndexPointerOES(Int32 size, Int32 type, Int32 stride, Object pointer)
+		public static void MatrixIndexPointerOES(int size, int type, int stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -147,7 +147,7 @@ namespace OpenGL
 		/// Specifies a pointer to the first weight of the first vertex in the array. The initial value is Gl..
 		/// </param>
 		[RequiredByFeature("GL_OES_matrix_palette", Api = "gles1")]
-		public static void WeightPointerOES(Int32 size, Int32 type, Int32 stride, IntPtr pointer)
+		public static void WeightPointerOES(int size, int type, int stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglWeightPointerOES != null, "pglWeightPointerOES not implemented");
 			Delegates.pglWeightPointerOES(size, type, stride, pointer);
@@ -175,7 +175,7 @@ namespace OpenGL
 		/// Specifies a pointer to the first weight of the first vertex in the array. The initial value is Gl..
 		/// </param>
 		[RequiredByFeature("GL_OES_matrix_palette", Api = "gles1")]
-		public static void WeightPointerOES(Int32 size, Int32 type, Int32 stride, Object pointer)
+		public static void WeightPointerOES(int size, int type, int stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -189,7 +189,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_OES_matrix_palette", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glCurrentPaletteMatrixOES(UInt32 matrixpaletteindex);
+			internal delegate void glCurrentPaletteMatrixOES(uint matrixpaletteindex);
 
 			[RequiredByFeature("GL_OES_matrix_palette", Api = "gles1")]
 			[ThreadStatic]
@@ -205,7 +205,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_matrix_palette", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMatrixIndexPointerOES(Int32 size, Int32 type, Int32 stride, IntPtr pointer);
+			internal unsafe delegate void glMatrixIndexPointerOES(int size, int type, int stride, IntPtr pointer);
 
 			[RequiredByFeature("GL_OES_matrix_palette", Api = "gles1")]
 			[ThreadStatic]
@@ -213,7 +213,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_matrix_palette", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glWeightPointerOES(Int32 size, Int32 type, Int32 stride, IntPtr pointer);
+			internal unsafe delegate void glWeightPointerOES(int size, int type, int stride, IntPtr pointer);
 
 			[RequiredByFeature("GL_OES_matrix_palette", Api = "gles1")]
 			[ThreadStatic]

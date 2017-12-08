@@ -44,22 +44,22 @@ namespace OpenGL
 		/// A <see cref="T:RenderbufferTarget"/>.
 		/// </param>
 		/// <param name="samples">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_ANGLE_framebuffer_multisample", Api = "gles2")]
-		public static void RenderbufferStorageMultisampleANGLE(RenderbufferTarget target, Int32 samples, InternalFormat internalformat, Int32 width, Int32 height)
+		public static void RenderbufferStorageMultisampleANGLE(RenderbufferTarget target, int samples, InternalFormat internalformat, int width, int height)
 		{
 			Debug.Assert(Delegates.pglRenderbufferStorageMultisampleANGLE != null, "pglRenderbufferStorageMultisampleANGLE not implemented");
-			Delegates.pglRenderbufferStorageMultisampleANGLE((Int32)target, samples, (Int32)internalformat, width, height);
+			Delegates.pglRenderbufferStorageMultisampleANGLE((int)target, samples, (int)internalformat, width, height);
 			LogCommand("glRenderbufferStorageMultisampleANGLE", null, target, samples, internalformat, width, height			);
 			DebugCheckErrors(null);
 		}
@@ -68,7 +68,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_ANGLE_framebuffer_multisample", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glRenderbufferStorageMultisampleANGLE(Int32 target, Int32 samples, Int32 internalformat, Int32 width, Int32 height);
+			internal delegate void glRenderbufferStorageMultisampleANGLE(int target, int samples, int internalformat, int width, int height);
 
 			[RequiredByFeature("GL_ANGLE_framebuffer_multisample", Api = "gles2")]
 			[ThreadStatic]

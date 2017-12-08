@@ -53,13 +53,13 @@ namespace OpenGL
 		/// [GL] glStencilClearTagEXT: Binding for glStencilClearTagEXT.
 		/// </summary>
 		/// <param name="stencilTagBits">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="stencilClearTag">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_stencil_clear_tag")]
-		public static void StencilClearTagEXT(Int32 stencilTagBits, UInt32 stencilClearTag)
+		public static void StencilClearTagEXT(int stencilTagBits, uint stencilClearTag)
 		{
 			Debug.Assert(Delegates.pglStencilClearTagEXT != null, "pglStencilClearTagEXT not implemented");
 			Delegates.pglStencilClearTagEXT(stencilTagBits, stencilClearTag);
@@ -71,7 +71,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_EXT_stencil_clear_tag")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glStencilClearTagEXT(Int32 stencilTagBits, UInt32 stencilClearTag);
+			internal delegate void glStencilClearTagEXT(int stencilTagBits, uint stencilClearTag);
 
 			[RequiredByFeature("GL_EXT_stencil_clear_tag")]
 			[ThreadStatic]

@@ -62,13 +62,13 @@ namespace OpenGL
 		/// A <see cref="T:ReadBufferMode"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_multiview_draw_buffers", Api = "gles2")]
-		public static void ReadBufferIndexedEXT(ReadBufferMode src, Int32 index)
+		public static void ReadBufferIndexedEXT(ReadBufferMode src, int index)
 		{
 			Debug.Assert(Delegates.pglReadBufferIndexedEXT != null, "pglReadBufferIndexedEXT not implemented");
-			Delegates.pglReadBufferIndexedEXT((Int32)src, index);
+			Delegates.pglReadBufferIndexedEXT((int)src, index);
 			LogCommand("glReadBufferIndexedEXT", null, src, index			);
 			DebugCheckErrors(null);
 		}
@@ -77,20 +77,20 @@ namespace OpenGL
 		/// [GL] glDrawBuffersIndexedEXT: Binding for glDrawBuffersIndexedEXT.
 		/// </summary>
 		/// <param name="location">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		/// <param name="indices">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_multiview_draw_buffers", Api = "gles2")]
-		public static void DrawBuffersIndexedEXT(Int32[] location, Int32[] indices)
+		public static void DrawBuffersIndexedEXT(int[] location, int[] indices)
 		{
 			unsafe {
-				fixed (Int32* p_location = location)
-				fixed (Int32* p_indices = indices)
+				fixed (int* p_location = location)
+				fixed (int* p_indices = indices)
 				{
 					Debug.Assert(Delegates.pglDrawBuffersIndexedEXT != null, "pglDrawBuffersIndexedEXT not implemented");
-					Delegates.pglDrawBuffersIndexedEXT((Int32)location.Length, p_location, p_indices);
+					Delegates.pglDrawBuffersIndexedEXT(location.Length, p_location, p_indices);
 					LogCommand("glDrawBuffersIndexedEXT", null, location.Length, location, indices					);
 				}
 			}
@@ -101,19 +101,19 @@ namespace OpenGL
 		/// [GL] glGetIntegeri_vEXT: Binding for glGetIntegeri_vEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="data">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_multiview_draw_buffers", Api = "gles2")]
-		public static void GetIntegerEXT(Int32 target, UInt32 index, [Out] Int32[] data)
+		public static void GetIntegerEXT(int target, uint index, [Out] int[] data)
 		{
 			unsafe {
-				fixed (Int32* p_data = data)
+				fixed (int* p_data = data)
 				{
 					Debug.Assert(Delegates.pglGetIntegeri_vEXT != null, "pglGetIntegeri_vEXT not implemented");
 					Delegates.pglGetIntegeri_vEXT(target, index, p_data);
@@ -127,7 +127,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_EXT_multiview_draw_buffers", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glReadBufferIndexedEXT(Int32 src, Int32 index);
+			internal delegate void glReadBufferIndexedEXT(int src, int index);
 
 			[RequiredByFeature("GL_EXT_multiview_draw_buffers", Api = "gles2")]
 			[ThreadStatic]
@@ -135,7 +135,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_multiview_draw_buffers", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDrawBuffersIndexedEXT(Int32 n, Int32* location, Int32* indices);
+			internal unsafe delegate void glDrawBuffersIndexedEXT(int n, int* location, int* indices);
 
 			[RequiredByFeature("GL_EXT_multiview_draw_buffers", Api = "gles2")]
 			[ThreadStatic]
@@ -143,7 +143,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_multiview_draw_buffers", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetIntegeri_vEXT(Int32 target, UInt32 index, Int32* data);
+			internal unsafe delegate void glGetIntegeri_vEXT(int target, uint index, int* data);
 
 			[RequiredByFeature("GL_EXT_multiview_draw_buffers", Api = "gles2")]
 			[ThreadStatic]

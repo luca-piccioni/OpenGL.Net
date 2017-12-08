@@ -128,16 +128,16 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="name">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="access">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("WGL_NV_DX_interop")]
-		public static IntPtr DXRegisterObjectNV(IntPtr hDevice, IntPtr dxObject, UInt32 name, Int32 type, Int32 access)
+		public static IntPtr DXRegisterObjectNV(IntPtr hDevice, IntPtr dxObject, uint name, int type, int access)
 		{
 			IntPtr retValue;
 
@@ -178,10 +178,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="access">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("WGL_NV_DX_interop")]
-		public static bool DXObjectNV(IntPtr hObject, Int32 access)
+		public static bool DXObjectNV(IntPtr hObject, int access)
 		{
 			bool retValue;
 
@@ -200,13 +200,13 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="hObjects">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("WGL_NV_DX_interop")]
-		public static bool DXLockObjectNV(IntPtr hDevice, Int32 count, IntPtr[] hObjects)
+		public static bool DXLockObjectNV(IntPtr hDevice, int count, IntPtr[] hObjects)
 		{
 			bool retValue;
 
@@ -230,13 +230,13 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="hObjects">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("WGL_NV_DX_interop")]
-		public static bool DXUnlockObjectsNV(IntPtr hDevice, Int32 count, IntPtr[] hObjects)
+		public static bool DXUnlockObjectsNV(IntPtr hDevice, int count, IntPtr[] hObjects)
 		{
 			bool retValue;
 
@@ -278,7 +278,7 @@ namespace OpenGL
 
 			[RequiredByFeature("WGL_NV_DX_interop")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr wglDXRegisterObjectNV(IntPtr hDevice, IntPtr dxObject, UInt32 name, Int32 type, Int32 access);
+			internal unsafe delegate IntPtr wglDXRegisterObjectNV(IntPtr hDevice, IntPtr dxObject, uint name, int type, int access);
 
 			[RequiredByFeature("WGL_NV_DX_interop")]
 			internal static wglDXRegisterObjectNV pwglDXRegisterObjectNV;
@@ -292,21 +292,21 @@ namespace OpenGL
 
 			[RequiredByFeature("WGL_NV_DX_interop")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglDXObjectAccessNV(IntPtr hObject, Int32 access);
+			internal unsafe delegate bool wglDXObjectAccessNV(IntPtr hObject, int access);
 
 			[RequiredByFeature("WGL_NV_DX_interop")]
 			internal static wglDXObjectAccessNV pwglDXObjectAccessNV;
 
 			[RequiredByFeature("WGL_NV_DX_interop")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglDXLockObjectsNV(IntPtr hDevice, Int32 count, IntPtr* hObjects);
+			internal unsafe delegate bool wglDXLockObjectsNV(IntPtr hDevice, int count, IntPtr* hObjects);
 
 			[RequiredByFeature("WGL_NV_DX_interop")]
 			internal static wglDXLockObjectsNV pwglDXLockObjectsNV;
 
 			[RequiredByFeature("WGL_NV_DX_interop")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglDXUnlockObjectsNV(IntPtr hDevice, Int32 count, IntPtr* hObjects);
+			internal unsafe delegate bool wglDXUnlockObjectsNV(IntPtr hDevice, int count, IntPtr* hObjects);
 
 			[RequiredByFeature("WGL_NV_DX_interop")]
 			internal static wglDXUnlockObjectsNV pwglDXUnlockObjectsNV;

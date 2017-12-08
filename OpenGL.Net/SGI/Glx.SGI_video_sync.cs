@@ -41,15 +41,15 @@ namespace OpenGL
 		/// [GLX] glXGetVideoSyncSGI: Binding for glXGetVideoSyncSGI.
 		/// </summary>
 		/// <param name="count">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GLX_SGI_video_sync")]
-		public static int GetVideoSyncSGI([Out] UInt32[] count)
+		public static int GetVideoSyncSGI([Out] uint[] count)
 		{
 			int retValue;
 
 			unsafe {
-				fixed (UInt32* p_count = count)
+				fixed (uint* p_count = count)
 				{
 					Debug.Assert(Delegates.pglXGetVideoSyncSGI != null, "pglXGetVideoSyncSGI not implemented");
 					retValue = Delegates.pglXGetVideoSyncSGI(p_count);
@@ -71,15 +71,15 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="count">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GLX_SGI_video_sync")]
-		public static int WaitVideoSyncSGI(int divisor, int remainder, UInt32[] count)
+		public static int WaitVideoSyncSGI(int divisor, int remainder, uint[] count)
 		{
 			int retValue;
 
 			unsafe {
-				fixed (UInt32* p_count = count)
+				fixed (uint* p_count = count)
 				{
 					Debug.Assert(Delegates.pglXWaitVideoSyncSGI != null, "pglXWaitVideoSyncSGI not implemented");
 					retValue = Delegates.pglXWaitVideoSyncSGI(divisor, remainder, p_count);
@@ -95,14 +95,14 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GLX_SGI_video_sync")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate int glXGetVideoSyncSGI(UInt32* count);
+			internal unsafe delegate int glXGetVideoSyncSGI(uint* count);
 
 			[RequiredByFeature("GLX_SGI_video_sync")]
 			internal static glXGetVideoSyncSGI pglXGetVideoSyncSGI;
 
 			[RequiredByFeature("GLX_SGI_video_sync")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate int glXWaitVideoSyncSGI(int divisor, int remainder, UInt32* count);
+			internal unsafe delegate int glXWaitVideoSyncSGI(int divisor, int remainder, uint* count);
 
 			[RequiredByFeature("GLX_SGI_video_sync")]
 			internal static glXWaitVideoSyncSGI pglXWaitVideoSyncSGI;

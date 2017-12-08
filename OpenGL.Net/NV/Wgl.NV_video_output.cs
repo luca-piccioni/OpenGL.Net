@@ -221,18 +221,18 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pulCounterPbuffer">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		/// <param name="bBlock">
 		/// A <see cref="T:bool"/>.
 		/// </param>
 		[RequiredByFeature("WGL_NV_video_output")]
-		public static bool SendPbufferToVideoNV(IntPtr hPbuffer, int iBufferType, UInt32[] pulCounterPbuffer, bool bBlock)
+		public static bool SendPbufferToVideoNV(IntPtr hPbuffer, int iBufferType, uint[] pulCounterPbuffer, bool bBlock)
 		{
 			bool retValue;
 
 			unsafe {
-				fixed (UInt32* p_pulCounterPbuffer = pulCounterPbuffer)
+				fixed (uint* p_pulCounterPbuffer = pulCounterPbuffer)
 				{
 					Debug.Assert(Delegates.pwglSendPbufferToVideoNV != null, "pwglSendPbufferToVideoNV not implemented");
 					retValue = Delegates.pwglSendPbufferToVideoNV(hPbuffer, iBufferType, p_pulCounterPbuffer, bBlock);
@@ -251,19 +251,19 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="pulCounterOutputPbuffer">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		/// <param name="pulCounterOutputVideo">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("WGL_NV_video_output")]
-		public static bool GetVideoInfoNV(IntPtr hpVideoDevice, [Out] UInt32[] pulCounterOutputPbuffer, [Out] UInt32[] pulCounterOutputVideo)
+		public static bool GetVideoInfoNV(IntPtr hpVideoDevice, [Out] uint[] pulCounterOutputPbuffer, [Out] uint[] pulCounterOutputVideo)
 		{
 			bool retValue;
 
 			unsafe {
-				fixed (UInt32* p_pulCounterOutputPbuffer = pulCounterOutputPbuffer)
-				fixed (UInt32* p_pulCounterOutputVideo = pulCounterOutputVideo)
+				fixed (uint* p_pulCounterOutputPbuffer = pulCounterOutputPbuffer)
+				fixed (uint* p_pulCounterOutputVideo = pulCounterOutputVideo)
 				{
 					Debug.Assert(Delegates.pwglGetVideoInfoNV != null, "pwglGetVideoInfoNV not implemented");
 					retValue = Delegates.pwglGetVideoInfoNV(hpVideoDevice, p_pulCounterOutputPbuffer, p_pulCounterOutputVideo);
@@ -307,14 +307,14 @@ namespace OpenGL
 
 			[RequiredByFeature("WGL_NV_video_output")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglSendPbufferToVideoNV(IntPtr hPbuffer, int iBufferType, UInt32* pulCounterPbuffer, bool bBlock);
+			internal unsafe delegate bool wglSendPbufferToVideoNV(IntPtr hPbuffer, int iBufferType, uint* pulCounterPbuffer, bool bBlock);
 
 			[RequiredByFeature("WGL_NV_video_output")]
 			internal static wglSendPbufferToVideoNV pwglSendPbufferToVideoNV;
 
 			[RequiredByFeature("WGL_NV_video_output")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglGetVideoInfoNV(IntPtr hpVideoDevice, UInt32* pulCounterOutputPbuffer, UInt32* pulCounterOutputVideo);
+			internal unsafe delegate bool wglGetVideoInfoNV(IntPtr hpVideoDevice, uint* pulCounterOutputPbuffer, uint* pulCounterOutputVideo);
 
 			[RequiredByFeature("WGL_NV_video_output")]
 			internal static wglGetVideoInfoNV pwglGetVideoInfoNV;

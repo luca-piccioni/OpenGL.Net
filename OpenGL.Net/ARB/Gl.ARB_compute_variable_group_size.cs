@@ -53,25 +53,25 @@ namespace OpenGL
 		/// [GL] glDispatchComputeGroupSizeARB: Binding for glDispatchComputeGroupSizeARB.
 		/// </summary>
 		/// <param name="num_groups_x">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="num_groups_y">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="num_groups_z">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="group_size_x">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="group_size_y">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="group_size_z">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_compute_variable_group_size", Api = "gl|glcore")]
-		public static void DispatchComputeGroupSizeARB(UInt32 num_groups_x, UInt32 num_groups_y, UInt32 num_groups_z, UInt32 group_size_x, UInt32 group_size_y, UInt32 group_size_z)
+		public static void DispatchComputeGroupSizeARB(uint num_groups_x, uint num_groups_y, uint num_groups_z, uint group_size_x, uint group_size_y, uint group_size_z)
 		{
 			Debug.Assert(Delegates.pglDispatchComputeGroupSizeARB != null, "pglDispatchComputeGroupSizeARB not implemented");
 			Delegates.pglDispatchComputeGroupSizeARB(num_groups_x, num_groups_y, num_groups_z, group_size_x, group_size_y, group_size_z);
@@ -83,7 +83,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_ARB_compute_variable_group_size", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glDispatchComputeGroupSizeARB(UInt32 num_groups_x, UInt32 num_groups_y, UInt32 num_groups_z, UInt32 group_size_x, UInt32 group_size_y, UInt32 group_size_z);
+			internal delegate void glDispatchComputeGroupSizeARB(uint num_groups_x, uint num_groups_y, uint num_groups_z, uint group_size_x, uint group_size_y, uint group_size_z);
 
 			[RequiredByFeature("GL_ARB_compute_variable_group_size", Api = "gl|glcore")]
 			[ThreadStatic]

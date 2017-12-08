@@ -59,13 +59,13 @@ namespace OpenGL
 		/// [GL] glElementPointerATI: Binding for glElementPointerATI.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_element_array")]
-		public static void ElementPointerATI(Int32 type, IntPtr pointer)
+		public static void ElementPointerATI(int type, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglElementPointerATI != null, "pglElementPointerATI not implemented");
 			Delegates.pglElementPointerATI(type, pointer);
@@ -77,13 +77,13 @@ namespace OpenGL
 		/// [GL] glElementPointerATI: Binding for glElementPointerATI.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pointer">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_element_array")]
-		public static void ElementPointerATI(Int32 type, Object pointer)
+		public static void ElementPointerATI(int type, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -100,13 +100,13 @@ namespace OpenGL
 		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_element_array")]
-		public static void DrawElementArrayATI(PrimitiveType mode, Int32 count)
+		public static void DrawElementArrayATI(PrimitiveType mode, int count)
 		{
 			Debug.Assert(Delegates.pglDrawElementArrayATI != null, "pglDrawElementArrayATI not implemented");
-			Delegates.pglDrawElementArrayATI((Int32)mode, count);
+			Delegates.pglDrawElementArrayATI((int)mode, count);
 			LogCommand("glDrawElementArrayATI", null, mode, count			);
 			DebugCheckErrors(null);
 		}
@@ -118,19 +118,19 @@ namespace OpenGL
 		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="start">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="end">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_element_array")]
-		public static void DrawRangeElementArrayATI(PrimitiveType mode, UInt32 start, UInt32 end, Int32 count)
+		public static void DrawRangeElementArrayATI(PrimitiveType mode, uint start, uint end, int count)
 		{
 			Debug.Assert(Delegates.pglDrawRangeElementArrayATI != null, "pglDrawRangeElementArrayATI not implemented");
-			Delegates.pglDrawRangeElementArrayATI((Int32)mode, start, end, count);
+			Delegates.pglDrawRangeElementArrayATI((int)mode, start, end, count);
 			LogCommand("glDrawRangeElementArrayATI", null, mode, start, end, count			);
 			DebugCheckErrors(null);
 		}
@@ -139,7 +139,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_ATI_element_array")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glElementPointerATI(Int32 type, IntPtr pointer);
+			internal unsafe delegate void glElementPointerATI(int type, IntPtr pointer);
 
 			[RequiredByFeature("GL_ATI_element_array")]
 			[ThreadStatic]
@@ -147,7 +147,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ATI_element_array")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glDrawElementArrayATI(Int32 mode, Int32 count);
+			internal delegate void glDrawElementArrayATI(int mode, int count);
 
 			[RequiredByFeature("GL_ATI_element_array")]
 			[ThreadStatic]
@@ -155,7 +155,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ATI_element_array")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glDrawRangeElementArrayATI(Int32 mode, UInt32 start, UInt32 end, Int32 count);
+			internal delegate void glDrawRangeElementArrayATI(int mode, uint start, uint end, int count);
 
 			[RequiredByFeature("GL_ATI_element_array")]
 			[ThreadStatic]

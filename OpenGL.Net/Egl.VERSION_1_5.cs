@@ -351,12 +351,12 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="timeout">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		[RequiredByFeature("EGL_VERSION_1_5")]
 		[RequiredByFeature("EGL_KHR_fence_sync")]
 		[RequiredByFeature("EGL_KHR_reusable_sync")]
-		public static int ClientWaitSync(IntPtr dpy, IntPtr sync, int flags, UInt64 timeout)
+		public static int ClientWaitSync(IntPtr dpy, IntPtr sync, int flags, ulong timeout)
 		{
 			int retValue;
 
@@ -608,7 +608,7 @@ namespace OpenGL
 			[RequiredByFeature("EGL_KHR_fence_sync")]
 			[RequiredByFeature("EGL_KHR_reusable_sync")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate int eglClientWaitSync(IntPtr dpy, IntPtr sync, int flags, UInt64 timeout);
+			internal unsafe delegate int eglClientWaitSync(IntPtr dpy, IntPtr sync, int flags, ulong timeout);
 
 			[RequiredByFeature("EGL_VERSION_1_5")]
 			[RequiredByFeature("EGL_KHR_fence_sync", EntryPoint = "eglClientWaitSyncKHR")]

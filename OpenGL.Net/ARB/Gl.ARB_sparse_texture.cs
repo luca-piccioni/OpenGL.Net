@@ -116,35 +116,35 @@ namespace OpenGL
 		/// [GL] glTexPageCommitmentARB: Binding for glTexPageCommitmentARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="xoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="yoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="zoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="depth">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="commit">
 		/// A <see cref="T:bool"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_sparse_texture", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_sparse_texture", Api = "gles2")]
-		public static void TexPageCommitmentARB(Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, bool commit)
+		public static void TexPageCommitmentARB(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, bool commit)
 		{
 			Debug.Assert(Delegates.pglTexPageCommitmentARB != null, "pglTexPageCommitmentARB not implemented");
 			Delegates.pglTexPageCommitmentARB(target, level, xoffset, yoffset, zoffset, width, height, depth, commit);
@@ -157,7 +157,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_sparse_texture", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_sparse_texture", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTexPageCommitmentARB(Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, [MarshalAs(UnmanagedType.I1)] bool commit);
+			internal delegate void glTexPageCommitmentARB(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, [MarshalAs(UnmanagedType.I1)] bool commit);
 
 			[RequiredByFeature("GL_ARB_sparse_texture", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_sparse_texture", Api = "gles2", EntryPoint = "glTexPageCommitmentEXT")]

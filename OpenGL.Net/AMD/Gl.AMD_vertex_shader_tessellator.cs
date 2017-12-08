@@ -98,10 +98,10 @@ namespace OpenGL
 		/// [GL] glTessellationModeAMD: Binding for glTessellationModeAMD.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_vertex_shader_tessellator")]
-		public static void TessellationModeAMD(Int32 mode)
+		public static void TessellationModeAMD(int mode)
 		{
 			Debug.Assert(Delegates.pglTessellationModeAMD != null, "pglTessellationModeAMD not implemented");
 			Delegates.pglTessellationModeAMD(mode);
@@ -121,7 +121,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_AMD_vertex_shader_tessellator")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTessellationModeAMD(Int32 mode);
+			internal delegate void glTessellationModeAMD(int mode);
 
 			[RequiredByFeature("GL_AMD_vertex_shader_tessellator")]
 			[ThreadStatic]

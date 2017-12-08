@@ -41,7 +41,7 @@ namespace OpenGL
 		/// [WGL] wglAllocateMemoryNV: Binding for wglAllocateMemoryNV.
 		/// </summary>
 		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="readfreq">
 		/// A <see cref="T:float"/>.
@@ -53,7 +53,7 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("WGL_NV_vertex_array_range")]
-		public static IntPtr AllocateMemoryNV(Int32 size, float readfreq, float writefreq, float priority)
+		public static IntPtr AllocateMemoryNV(int size, float readfreq, float writefreq, float priority)
 		{
 			IntPtr retValue;
 
@@ -84,7 +84,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("WGL_NV_vertex_array_range")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate IntPtr wglAllocateMemoryNV(Int32 size, float readfreq, float writefreq, float priority);
+			internal delegate IntPtr wglAllocateMemoryNV(int size, float readfreq, float writefreq, float priority);
 
 			[RequiredByFeature("WGL_NV_vertex_array_range")]
 			internal static wglAllocateMemoryNV pwglAllocateMemoryNV;

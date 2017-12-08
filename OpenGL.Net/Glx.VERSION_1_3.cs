@@ -934,10 +934,10 @@ namespace OpenGL
 		/// Contains the return value for <paramref name="attribute"/>.
 		/// </param>
 		[RequiredByFeature("GLX_VERSION_1_3")]
-		public static void QueryDrawable(IntPtr dpy, IntPtr draw, int attribute, UInt32[] value)
+		public static void QueryDrawable(IntPtr dpy, IntPtr draw, int attribute, uint[] value)
 		{
 			unsafe {
-				fixed (UInt32* p_value = value)
+				fixed (uint* p_value = value)
 				{
 					Debug.Assert(Delegates.pglXQueryDrawable != null, "pglXQueryDrawable not implemented");
 					Delegates.pglXQueryDrawable(dpy, draw, attribute, p_value);
@@ -1068,7 +1068,7 @@ namespace OpenGL
 		/// Specifies the events to be returned for <paramref name="draw"/>.
 		/// </param>
 		[RequiredByFeature("GLX_VERSION_1_3")]
-		public static void SelectEvent(IntPtr dpy, IntPtr draw, UInt32 event_mask)
+		public static void SelectEvent(IntPtr dpy, IntPtr draw, uint event_mask)
 		{
 			Debug.Assert(Delegates.pglXSelectEvent != null, "pglXSelectEvent not implemented");
 			Delegates.pglXSelectEvent(dpy, draw, event_mask);
@@ -1089,10 +1089,10 @@ namespace OpenGL
 		/// Returns the events that are selected for <paramref name="draw"/>.
 		/// </param>
 		[RequiredByFeature("GLX_VERSION_1_3")]
-		public static void GetSelectedEvent(IntPtr dpy, IntPtr draw, [Out] UInt32[] event_mask)
+		public static void GetSelectedEvent(IntPtr dpy, IntPtr draw, [Out] uint[] event_mask)
 		{
 			unsafe {
-				fixed (UInt32* p_event_mask = event_mask)
+				fixed (uint* p_event_mask = event_mask)
 				{
 					Debug.Assert(Delegates.pglXGetSelectedEvent != null, "pglXGetSelectedEvent not implemented");
 					Delegates.pglXGetSelectedEvent(dpy, draw, p_event_mask);
@@ -1176,7 +1176,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GLX_VERSION_1_3")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glXQueryDrawable(IntPtr dpy, IntPtr draw, int attribute, UInt32* value);
+			internal unsafe delegate void glXQueryDrawable(IntPtr dpy, IntPtr draw, int attribute, uint* value);
 
 			[RequiredByFeature("GLX_VERSION_1_3")]
 			internal static glXQueryDrawable pglXQueryDrawable;
@@ -1211,14 +1211,14 @@ namespace OpenGL
 
 			[RequiredByFeature("GLX_VERSION_1_3")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glXSelectEvent(IntPtr dpy, IntPtr draw, UInt32 event_mask);
+			internal unsafe delegate void glXSelectEvent(IntPtr dpy, IntPtr draw, uint event_mask);
 
 			[RequiredByFeature("GLX_VERSION_1_3")]
 			internal static glXSelectEvent pglXSelectEvent;
 
 			[RequiredByFeature("GLX_VERSION_1_3")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glXGetSelectedEvent(IntPtr dpy, IntPtr draw, UInt32* event_mask);
+			internal unsafe delegate void glXGetSelectedEvent(IntPtr dpy, IntPtr draw, uint* event_mask);
 
 			[RequiredByFeature("GLX_VERSION_1_3")]
 			internal static glXGetSelectedEvent pglXGetSelectedEvent;

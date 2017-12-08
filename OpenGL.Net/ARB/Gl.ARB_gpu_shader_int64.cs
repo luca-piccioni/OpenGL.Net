@@ -98,13 +98,13 @@ namespace OpenGL
 		/// [GL] glUniform1i64ARB: Binding for glUniform1i64ARB.
 		/// </summary>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:Int64"/>.
+		/// A <see cref="T:long"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void Uniform1ARB(Int32 location, Int64 x)
+		public static void Uniform1ARB(int location, long x)
 		{
 			Debug.Assert(Delegates.pglUniform1i64ARB != null, "pglUniform1i64ARB not implemented");
 			Delegates.pglUniform1i64ARB(location, x);
@@ -116,16 +116,16 @@ namespace OpenGL
 		/// [GL] glUniform2i64ARB: Binding for glUniform2i64ARB.
 		/// </summary>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:Int64"/>.
+		/// A <see cref="T:long"/>.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int64"/>.
+		/// A <see cref="T:long"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void Uniform2ARB(Int32 location, Int64 x, Int64 y)
+		public static void Uniform2ARB(int location, long x, long y)
 		{
 			Debug.Assert(Delegates.pglUniform2i64ARB != null, "pglUniform2i64ARB not implemented");
 			Delegates.pglUniform2i64ARB(location, x, y);
@@ -137,19 +137,19 @@ namespace OpenGL
 		/// [GL] glUniform3i64ARB: Binding for glUniform3i64ARB.
 		/// </summary>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:Int64"/>.
+		/// A <see cref="T:long"/>.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int64"/>.
+		/// A <see cref="T:long"/>.
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:Int64"/>.
+		/// A <see cref="T:long"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void Uniform3ARB(Int32 location, Int64 x, Int64 y, Int64 z)
+		public static void Uniform3ARB(int location, long x, long y, long z)
 		{
 			Debug.Assert(Delegates.pglUniform3i64ARB != null, "pglUniform3i64ARB not implemented");
 			Delegates.pglUniform3i64ARB(location, x, y, z);
@@ -161,22 +161,22 @@ namespace OpenGL
 		/// [GL] glUniform4i64ARB: Binding for glUniform4i64ARB.
 		/// </summary>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:Int64"/>.
+		/// A <see cref="T:long"/>.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int64"/>.
+		/// A <see cref="T:long"/>.
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:Int64"/>.
+		/// A <see cref="T:long"/>.
 		/// </param>
 		/// <param name="w">
-		/// A <see cref="T:Int64"/>.
+		/// A <see cref="T:long"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void Uniform4ARB(Int32 location, Int64 x, Int64 y, Int64 z, Int64 w)
+		public static void Uniform4ARB(int location, long x, long y, long z, long w)
 		{
 			Debug.Assert(Delegates.pglUniform4i64ARB != null, "pglUniform4i64ARB not implemented");
 			Delegates.pglUniform4i64ARB(location, x, y, z, w);
@@ -188,19 +188,19 @@ namespace OpenGL
 		/// [GL] glUniform1i64vARB: Binding for glUniform1i64vARB.
 		/// </summary>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:Int64[]"/>.
+		/// A <see cref="T:long[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void Uniform1ARB(Int32 location, Int64[] value)
+		public static void Uniform1ARB(int location, long[] value)
 		{
 			unsafe {
-				fixed (Int64* p_value = value)
+				fixed (long* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniform1i64vARB != null, "pglUniform1i64vARB not implemented");
-					Delegates.pglUniform1i64vARB(location, (Int32)value.Length, p_value);
+					Delegates.pglUniform1i64vARB(location, value.Length, p_value);
 					LogCommand("glUniform1i64vARB", null, location, value.Length, value					);
 				}
 			}
@@ -211,20 +211,20 @@ namespace OpenGL
 		/// [GL] glUniform2i64vARB: Binding for glUniform2i64vARB.
 		/// </summary>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:Int64[]"/>.
+		/// A <see cref="T:long[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void Uniform2ARB(Int32 location, Int64[] value)
+		public static void Uniform2ARB(int location, long[] value)
 		{
 			Debug.Assert(value.Length > 0 && (value.Length % 2) == 0, "empty or not multiple of 2");
 			unsafe {
-				fixed (Int64* p_value = value)
+				fixed (long* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniform2i64vARB != null, "pglUniform2i64vARB not implemented");
-					Delegates.pglUniform2i64vARB(location, (Int32)value.Length / 2, p_value);
+					Delegates.pglUniform2i64vARB(location, value.Length / 2, p_value);
 					LogCommand("glUniform2i64vARB", null, location, value.Length / 2, value					);
 				}
 			}
@@ -235,20 +235,20 @@ namespace OpenGL
 		/// [GL] glUniform3i64vARB: Binding for glUniform3i64vARB.
 		/// </summary>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:Int64[]"/>.
+		/// A <see cref="T:long[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void Uniform3ARB(Int32 location, Int64[] value)
+		public static void Uniform3ARB(int location, long[] value)
 		{
 			Debug.Assert(value.Length > 0 && (value.Length % 3) == 0, "empty or not multiple of 3");
 			unsafe {
-				fixed (Int64* p_value = value)
+				fixed (long* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniform3i64vARB != null, "pglUniform3i64vARB not implemented");
-					Delegates.pglUniform3i64vARB(location, (Int32)value.Length / 3, p_value);
+					Delegates.pglUniform3i64vARB(location, value.Length / 3, p_value);
 					LogCommand("glUniform3i64vARB", null, location, value.Length / 3, value					);
 				}
 			}
@@ -259,20 +259,20 @@ namespace OpenGL
 		/// [GL] glUniform4i64vARB: Binding for glUniform4i64vARB.
 		/// </summary>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:Int64[]"/>.
+		/// A <see cref="T:long[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void Uniform4ARB(Int32 location, Int64[] value)
+		public static void Uniform4ARB(int location, long[] value)
 		{
 			Debug.Assert(value.Length > 0 && (value.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
-				fixed (Int64* p_value = value)
+				fixed (long* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniform4i64vARB != null, "pglUniform4i64vARB not implemented");
-					Delegates.pglUniform4i64vARB(location, (Int32)value.Length / 4, p_value);
+					Delegates.pglUniform4i64vARB(location, value.Length / 4, p_value);
 					LogCommand("glUniform4i64vARB", null, location, value.Length / 4, value					);
 				}
 			}
@@ -283,13 +283,13 @@ namespace OpenGL
 		/// [GL] glUniform1ui64ARB: Binding for glUniform1ui64ARB.
 		/// </summary>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void Uniform1ARB(Int32 location, UInt64 x)
+		public static void Uniform1ARB(int location, ulong x)
 		{
 			Debug.Assert(Delegates.pglUniform1ui64ARB != null, "pglUniform1ui64ARB not implemented");
 			Delegates.pglUniform1ui64ARB(location, x);
@@ -301,16 +301,16 @@ namespace OpenGL
 		/// [GL] glUniform2ui64ARB: Binding for glUniform2ui64ARB.
 		/// </summary>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void Uniform2ARB(Int32 location, UInt64 x, UInt64 y)
+		public static void Uniform2ARB(int location, ulong x, ulong y)
 		{
 			Debug.Assert(Delegates.pglUniform2ui64ARB != null, "pglUniform2ui64ARB not implemented");
 			Delegates.pglUniform2ui64ARB(location, x, y);
@@ -322,19 +322,19 @@ namespace OpenGL
 		/// [GL] glUniform3ui64ARB: Binding for glUniform3ui64ARB.
 		/// </summary>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void Uniform3ARB(Int32 location, UInt64 x, UInt64 y, UInt64 z)
+		public static void Uniform3ARB(int location, ulong x, ulong y, ulong z)
 		{
 			Debug.Assert(Delegates.pglUniform3ui64ARB != null, "pglUniform3ui64ARB not implemented");
 			Delegates.pglUniform3ui64ARB(location, x, y, z);
@@ -346,22 +346,22 @@ namespace OpenGL
 		/// [GL] glUniform4ui64ARB: Binding for glUniform4ui64ARB.
 		/// </summary>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		/// <param name="w">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void Uniform4ARB(Int32 location, UInt64 x, UInt64 y, UInt64 z, UInt64 w)
+		public static void Uniform4ARB(int location, ulong x, ulong y, ulong z, ulong w)
 		{
 			Debug.Assert(Delegates.pglUniform4ui64ARB != null, "pglUniform4ui64ARB not implemented");
 			Delegates.pglUniform4ui64ARB(location, x, y, z, w);
@@ -373,19 +373,19 @@ namespace OpenGL
 		/// [GL] glUniform1ui64vARB: Binding for glUniform1ui64vARB.
 		/// </summary>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:UInt64[]"/>.
+		/// A <see cref="T:ulong[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void Uniform1ARB(Int32 location, UInt64[] value)
+		public static void Uniform1ARB(int location, ulong[] value)
 		{
 			unsafe {
-				fixed (UInt64* p_value = value)
+				fixed (ulong* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniform1ui64vARB != null, "pglUniform1ui64vARB not implemented");
-					Delegates.pglUniform1ui64vARB(location, (Int32)value.Length, p_value);
+					Delegates.pglUniform1ui64vARB(location, value.Length, p_value);
 					LogCommand("glUniform1ui64vARB", null, location, value.Length, value					);
 				}
 			}
@@ -396,20 +396,20 @@ namespace OpenGL
 		/// [GL] glUniform2ui64vARB: Binding for glUniform2ui64vARB.
 		/// </summary>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:UInt64[]"/>.
+		/// A <see cref="T:ulong[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void Uniform2ARB(Int32 location, UInt64[] value)
+		public static void Uniform2ARB(int location, ulong[] value)
 		{
 			Debug.Assert(value.Length > 0 && (value.Length % 2) == 0, "empty or not multiple of 2");
 			unsafe {
-				fixed (UInt64* p_value = value)
+				fixed (ulong* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniform2ui64vARB != null, "pglUniform2ui64vARB not implemented");
-					Delegates.pglUniform2ui64vARB(location, (Int32)value.Length / 2, p_value);
+					Delegates.pglUniform2ui64vARB(location, value.Length / 2, p_value);
 					LogCommand("glUniform2ui64vARB", null, location, value.Length / 2, value					);
 				}
 			}
@@ -420,20 +420,20 @@ namespace OpenGL
 		/// [GL] glUniform3ui64vARB: Binding for glUniform3ui64vARB.
 		/// </summary>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:UInt64[]"/>.
+		/// A <see cref="T:ulong[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void Uniform3ARB(Int32 location, UInt64[] value)
+		public static void Uniform3ARB(int location, ulong[] value)
 		{
 			Debug.Assert(value.Length > 0 && (value.Length % 3) == 0, "empty or not multiple of 3");
 			unsafe {
-				fixed (UInt64* p_value = value)
+				fixed (ulong* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniform3ui64vARB != null, "pglUniform3ui64vARB not implemented");
-					Delegates.pglUniform3ui64vARB(location, (Int32)value.Length / 3, p_value);
+					Delegates.pglUniform3ui64vARB(location, value.Length / 3, p_value);
 					LogCommand("glUniform3ui64vARB", null, location, value.Length / 3, value					);
 				}
 			}
@@ -444,20 +444,20 @@ namespace OpenGL
 		/// [GL] glUniform4ui64vARB: Binding for glUniform4ui64vARB.
 		/// </summary>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:UInt64[]"/>.
+		/// A <see cref="T:ulong[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void Uniform4ARB(Int32 location, UInt64[] value)
+		public static void Uniform4ARB(int location, ulong[] value)
 		{
 			Debug.Assert(value.Length > 0 && (value.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
-				fixed (UInt64* p_value = value)
+				fixed (ulong* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniform4ui64vARB != null, "pglUniform4ui64vARB not implemented");
-					Delegates.pglUniform4ui64vARB(location, (Int32)value.Length / 4, p_value);
+					Delegates.pglUniform4ui64vARB(location, value.Length / 4, p_value);
 					LogCommand("glUniform4ui64vARB", null, location, value.Length / 4, value					);
 				}
 			}
@@ -468,19 +468,19 @@ namespace OpenGL
 		/// [GL] glGetUniformi64vARB: Binding for glGetUniformi64vARB.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int64[]"/>.
+		/// A <see cref="T:long[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void GetUniformARB(UInt32 program, Int32 location, [Out] Int64[] @params)
+		public static void GetUniformARB(uint program, int location, [Out] long[] @params)
 		{
 			unsafe {
-				fixed (Int64* p_params = @params)
+				fixed (long* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetUniformi64vARB != null, "pglGetUniformi64vARB not implemented");
 					Delegates.pglGetUniformi64vARB(program, location, p_params);
@@ -494,19 +494,19 @@ namespace OpenGL
 		/// [GL] glGetUniformui64vARB: Binding for glGetUniformui64vARB.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:UInt64[]"/>.
+		/// A <see cref="T:ulong[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void GetUniformARB(UInt32 program, Int32 location, [Out] UInt64[] @params)
+		public static void GetUniformARB(uint program, int location, [Out] ulong[] @params)
 		{
 			unsafe {
-				fixed (UInt64* p_params = @params)
+				fixed (ulong* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetUniformui64vARB != null, "pglGetUniformui64vARB not implemented");
 					Delegates.pglGetUniformui64vARB(program, location, p_params);
@@ -520,22 +520,22 @@ namespace OpenGL
 		/// [GL] glGetnUniformi64vARB: Binding for glGetnUniformi64vARB.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="bufSize">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int64[]"/>.
+		/// A <see cref="T:long[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void GetnUniformARB(UInt32 program, Int32 location, Int32 bufSize, [Out] Int64[] @params)
+		public static void GetnUniformARB(uint program, int location, int bufSize, [Out] long[] @params)
 		{
 			unsafe {
-				fixed (Int64* p_params = @params)
+				fixed (long* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetnUniformi64vARB != null, "pglGetnUniformi64vARB not implemented");
 					Delegates.pglGetnUniformi64vARB(program, location, bufSize, p_params);
@@ -549,22 +549,22 @@ namespace OpenGL
 		/// [GL] glGetnUniformui64vARB: Binding for glGetnUniformui64vARB.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="bufSize">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:UInt64[]"/>.
+		/// A <see cref="T:ulong[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void GetnUniformARB(UInt32 program, Int32 location, Int32 bufSize, [Out] UInt64[] @params)
+		public static void GetnUniformARB(uint program, int location, int bufSize, [Out] ulong[] @params)
 		{
 			unsafe {
-				fixed (UInt64* p_params = @params)
+				fixed (ulong* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetnUniformui64vARB != null, "pglGetnUniformui64vARB not implemented");
 					Delegates.pglGetnUniformui64vARB(program, location, bufSize, p_params);
@@ -578,16 +578,16 @@ namespace OpenGL
 		/// [GL] glProgramUniform1i64ARB: Binding for glProgramUniform1i64ARB.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:Int64"/>.
+		/// A <see cref="T:long"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void ProgramUniform1ARB(UInt32 program, Int32 location, Int64 x)
+		public static void ProgramUniform1ARB(uint program, int location, long x)
 		{
 			Debug.Assert(Delegates.pglProgramUniform1i64ARB != null, "pglProgramUniform1i64ARB not implemented");
 			Delegates.pglProgramUniform1i64ARB(program, location, x);
@@ -599,19 +599,19 @@ namespace OpenGL
 		/// [GL] glProgramUniform2i64ARB: Binding for glProgramUniform2i64ARB.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:Int64"/>.
+		/// A <see cref="T:long"/>.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int64"/>.
+		/// A <see cref="T:long"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void ProgramUniform2ARB(UInt32 program, Int32 location, Int64 x, Int64 y)
+		public static void ProgramUniform2ARB(uint program, int location, long x, long y)
 		{
 			Debug.Assert(Delegates.pglProgramUniform2i64ARB != null, "pglProgramUniform2i64ARB not implemented");
 			Delegates.pglProgramUniform2i64ARB(program, location, x, y);
@@ -623,22 +623,22 @@ namespace OpenGL
 		/// [GL] glProgramUniform3i64ARB: Binding for glProgramUniform3i64ARB.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:Int64"/>.
+		/// A <see cref="T:long"/>.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int64"/>.
+		/// A <see cref="T:long"/>.
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:Int64"/>.
+		/// A <see cref="T:long"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void ProgramUniform3ARB(UInt32 program, Int32 location, Int64 x, Int64 y, Int64 z)
+		public static void ProgramUniform3ARB(uint program, int location, long x, long y, long z)
 		{
 			Debug.Assert(Delegates.pglProgramUniform3i64ARB != null, "pglProgramUniform3i64ARB not implemented");
 			Delegates.pglProgramUniform3i64ARB(program, location, x, y, z);
@@ -650,25 +650,25 @@ namespace OpenGL
 		/// [GL] glProgramUniform4i64ARB: Binding for glProgramUniform4i64ARB.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:Int64"/>.
+		/// A <see cref="T:long"/>.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int64"/>.
+		/// A <see cref="T:long"/>.
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:Int64"/>.
+		/// A <see cref="T:long"/>.
 		/// </param>
 		/// <param name="w">
-		/// A <see cref="T:Int64"/>.
+		/// A <see cref="T:long"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void ProgramUniform4ARB(UInt32 program, Int32 location, Int64 x, Int64 y, Int64 z, Int64 w)
+		public static void ProgramUniform4ARB(uint program, int location, long x, long y, long z, long w)
 		{
 			Debug.Assert(Delegates.pglProgramUniform4i64ARB != null, "pglProgramUniform4i64ARB not implemented");
 			Delegates.pglProgramUniform4i64ARB(program, location, x, y, z, w);
@@ -680,22 +680,22 @@ namespace OpenGL
 		/// [GL] glProgramUniform1i64vARB: Binding for glProgramUniform1i64vARB.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:Int64[]"/>.
+		/// A <see cref="T:long[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void ProgramUniform1ARB(UInt32 program, Int32 location, Int64[] value)
+		public static void ProgramUniform1ARB(uint program, int location, long[] value)
 		{
 			unsafe {
-				fixed (Int64* p_value = value)
+				fixed (long* p_value = value)
 				{
 					Debug.Assert(Delegates.pglProgramUniform1i64vARB != null, "pglProgramUniform1i64vARB not implemented");
-					Delegates.pglProgramUniform1i64vARB(program, location, (Int32)value.Length, p_value);
+					Delegates.pglProgramUniform1i64vARB(program, location, value.Length, p_value);
 					LogCommand("glProgramUniform1i64vARB", null, program, location, value.Length, value					);
 				}
 			}
@@ -706,23 +706,23 @@ namespace OpenGL
 		/// [GL] glProgramUniform2i64vARB: Binding for glProgramUniform2i64vARB.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:Int64[]"/>.
+		/// A <see cref="T:long[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void ProgramUniform2ARB(UInt32 program, Int32 location, Int64[] value)
+		public static void ProgramUniform2ARB(uint program, int location, long[] value)
 		{
 			Debug.Assert(value.Length > 0 && (value.Length % 2) == 0, "empty or not multiple of 2");
 			unsafe {
-				fixed (Int64* p_value = value)
+				fixed (long* p_value = value)
 				{
 					Debug.Assert(Delegates.pglProgramUniform2i64vARB != null, "pglProgramUniform2i64vARB not implemented");
-					Delegates.pglProgramUniform2i64vARB(program, location, (Int32)value.Length / 2, p_value);
+					Delegates.pglProgramUniform2i64vARB(program, location, value.Length / 2, p_value);
 					LogCommand("glProgramUniform2i64vARB", null, program, location, value.Length / 2, value					);
 				}
 			}
@@ -733,23 +733,23 @@ namespace OpenGL
 		/// [GL] glProgramUniform3i64vARB: Binding for glProgramUniform3i64vARB.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:Int64[]"/>.
+		/// A <see cref="T:long[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void ProgramUniform3ARB(UInt32 program, Int32 location, Int64[] value)
+		public static void ProgramUniform3ARB(uint program, int location, long[] value)
 		{
 			Debug.Assert(value.Length > 0 && (value.Length % 3) == 0, "empty or not multiple of 3");
 			unsafe {
-				fixed (Int64* p_value = value)
+				fixed (long* p_value = value)
 				{
 					Debug.Assert(Delegates.pglProgramUniform3i64vARB != null, "pglProgramUniform3i64vARB not implemented");
-					Delegates.pglProgramUniform3i64vARB(program, location, (Int32)value.Length / 3, p_value);
+					Delegates.pglProgramUniform3i64vARB(program, location, value.Length / 3, p_value);
 					LogCommand("glProgramUniform3i64vARB", null, program, location, value.Length / 3, value					);
 				}
 			}
@@ -760,23 +760,23 @@ namespace OpenGL
 		/// [GL] glProgramUniform4i64vARB: Binding for glProgramUniform4i64vARB.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:Int64[]"/>.
+		/// A <see cref="T:long[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void ProgramUniform4ARB(UInt32 program, Int32 location, Int64[] value)
+		public static void ProgramUniform4ARB(uint program, int location, long[] value)
 		{
 			Debug.Assert(value.Length > 0 && (value.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
-				fixed (Int64* p_value = value)
+				fixed (long* p_value = value)
 				{
 					Debug.Assert(Delegates.pglProgramUniform4i64vARB != null, "pglProgramUniform4i64vARB not implemented");
-					Delegates.pglProgramUniform4i64vARB(program, location, (Int32)value.Length / 4, p_value);
+					Delegates.pglProgramUniform4i64vARB(program, location, value.Length / 4, p_value);
 					LogCommand("glProgramUniform4i64vARB", null, program, location, value.Length / 4, value					);
 				}
 			}
@@ -787,16 +787,16 @@ namespace OpenGL
 		/// [GL] glProgramUniform1ui64ARB: Binding for glProgramUniform1ui64ARB.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void ProgramUniform1ARB(UInt32 program, Int32 location, UInt64 x)
+		public static void ProgramUniform1ARB(uint program, int location, ulong x)
 		{
 			Debug.Assert(Delegates.pglProgramUniform1ui64ARB != null, "pglProgramUniform1ui64ARB not implemented");
 			Delegates.pglProgramUniform1ui64ARB(program, location, x);
@@ -808,19 +808,19 @@ namespace OpenGL
 		/// [GL] glProgramUniform2ui64ARB: Binding for glProgramUniform2ui64ARB.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void ProgramUniform2ARB(UInt32 program, Int32 location, UInt64 x, UInt64 y)
+		public static void ProgramUniform2ARB(uint program, int location, ulong x, ulong y)
 		{
 			Debug.Assert(Delegates.pglProgramUniform2ui64ARB != null, "pglProgramUniform2ui64ARB not implemented");
 			Delegates.pglProgramUniform2ui64ARB(program, location, x, y);
@@ -832,22 +832,22 @@ namespace OpenGL
 		/// [GL] glProgramUniform3ui64ARB: Binding for glProgramUniform3ui64ARB.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void ProgramUniform3ARB(UInt32 program, Int32 location, UInt64 x, UInt64 y, UInt64 z)
+		public static void ProgramUniform3ARB(uint program, int location, ulong x, ulong y, ulong z)
 		{
 			Debug.Assert(Delegates.pglProgramUniform3ui64ARB != null, "pglProgramUniform3ui64ARB not implemented");
 			Delegates.pglProgramUniform3ui64ARB(program, location, x, y, z);
@@ -859,25 +859,25 @@ namespace OpenGL
 		/// [GL] glProgramUniform4ui64ARB: Binding for glProgramUniform4ui64ARB.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		/// <param name="w">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void ProgramUniform4ARB(UInt32 program, Int32 location, UInt64 x, UInt64 y, UInt64 z, UInt64 w)
+		public static void ProgramUniform4ARB(uint program, int location, ulong x, ulong y, ulong z, ulong w)
 		{
 			Debug.Assert(Delegates.pglProgramUniform4ui64ARB != null, "pglProgramUniform4ui64ARB not implemented");
 			Delegates.pglProgramUniform4ui64ARB(program, location, x, y, z, w);
@@ -889,22 +889,22 @@ namespace OpenGL
 		/// [GL] glProgramUniform1ui64vARB: Binding for glProgramUniform1ui64vARB.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:UInt64[]"/>.
+		/// A <see cref="T:ulong[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void ProgramUniform1ARB(UInt32 program, Int32 location, UInt64[] value)
+		public static void ProgramUniform1ARB(uint program, int location, ulong[] value)
 		{
 			unsafe {
-				fixed (UInt64* p_value = value)
+				fixed (ulong* p_value = value)
 				{
 					Debug.Assert(Delegates.pglProgramUniform1ui64vARB != null, "pglProgramUniform1ui64vARB not implemented");
-					Delegates.pglProgramUniform1ui64vARB(program, location, (Int32)value.Length, p_value);
+					Delegates.pglProgramUniform1ui64vARB(program, location, value.Length, p_value);
 					LogCommand("glProgramUniform1ui64vARB", null, program, location, value.Length, value					);
 				}
 			}
@@ -915,23 +915,23 @@ namespace OpenGL
 		/// [GL] glProgramUniform2ui64vARB: Binding for glProgramUniform2ui64vARB.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:UInt64[]"/>.
+		/// A <see cref="T:ulong[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void ProgramUniform2ARB(UInt32 program, Int32 location, UInt64[] value)
+		public static void ProgramUniform2ARB(uint program, int location, ulong[] value)
 		{
 			Debug.Assert(value.Length > 0 && (value.Length % 2) == 0, "empty or not multiple of 2");
 			unsafe {
-				fixed (UInt64* p_value = value)
+				fixed (ulong* p_value = value)
 				{
 					Debug.Assert(Delegates.pglProgramUniform2ui64vARB != null, "pglProgramUniform2ui64vARB not implemented");
-					Delegates.pglProgramUniform2ui64vARB(program, location, (Int32)value.Length / 2, p_value);
+					Delegates.pglProgramUniform2ui64vARB(program, location, value.Length / 2, p_value);
 					LogCommand("glProgramUniform2ui64vARB", null, program, location, value.Length / 2, value					);
 				}
 			}
@@ -942,23 +942,23 @@ namespace OpenGL
 		/// [GL] glProgramUniform3ui64vARB: Binding for glProgramUniform3ui64vARB.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:UInt64[]"/>.
+		/// A <see cref="T:ulong[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void ProgramUniform3ARB(UInt32 program, Int32 location, UInt64[] value)
+		public static void ProgramUniform3ARB(uint program, int location, ulong[] value)
 		{
 			Debug.Assert(value.Length > 0 && (value.Length % 3) == 0, "empty or not multiple of 3");
 			unsafe {
-				fixed (UInt64* p_value = value)
+				fixed (ulong* p_value = value)
 				{
 					Debug.Assert(Delegates.pglProgramUniform3ui64vARB != null, "pglProgramUniform3ui64vARB not implemented");
-					Delegates.pglProgramUniform3ui64vARB(program, location, (Int32)value.Length / 3, p_value);
+					Delegates.pglProgramUniform3ui64vARB(program, location, value.Length / 3, p_value);
 					LogCommand("glProgramUniform3ui64vARB", null, program, location, value.Length / 3, value					);
 				}
 			}
@@ -969,23 +969,23 @@ namespace OpenGL
 		/// [GL] glProgramUniform4ui64vARB: Binding for glProgramUniform4ui64vARB.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:UInt64[]"/>.
+		/// A <see cref="T:ulong[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void ProgramUniform4ARB(UInt32 program, Int32 location, UInt64[] value)
+		public static void ProgramUniform4ARB(uint program, int location, ulong[] value)
 		{
 			Debug.Assert(value.Length > 0 && (value.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
-				fixed (UInt64* p_value = value)
+				fixed (ulong* p_value = value)
 				{
 					Debug.Assert(Delegates.pglProgramUniform4ui64vARB != null, "pglProgramUniform4ui64vARB not implemented");
-					Delegates.pglProgramUniform4ui64vARB(program, location, (Int32)value.Length / 4, p_value);
+					Delegates.pglProgramUniform4ui64vARB(program, location, value.Length / 4, p_value);
 					LogCommand("glProgramUniform4ui64vARB", null, program, location, value.Length / 4, value					);
 				}
 			}
@@ -996,7 +996,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glUniform1i64ARB(Int32 location, Int64 x);
+			internal delegate void glUniform1i64ARB(int location, long x);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -1004,7 +1004,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glUniform2i64ARB(Int32 location, Int64 x, Int64 y);
+			internal delegate void glUniform2i64ARB(int location, long x, long y);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -1012,7 +1012,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glUniform3i64ARB(Int32 location, Int64 x, Int64 y, Int64 z);
+			internal delegate void glUniform3i64ARB(int location, long x, long y, long z);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -1020,7 +1020,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glUniform4i64ARB(Int32 location, Int64 x, Int64 y, Int64 z, Int64 w);
+			internal delegate void glUniform4i64ARB(int location, long x, long y, long z, long w);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -1028,7 +1028,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glUniform1i64vARB(Int32 location, Int32 count, Int64* value);
+			internal unsafe delegate void glUniform1i64vARB(int location, int count, long* value);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -1036,7 +1036,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glUniform2i64vARB(Int32 location, Int32 count, Int64* value);
+			internal unsafe delegate void glUniform2i64vARB(int location, int count, long* value);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -1044,7 +1044,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glUniform3i64vARB(Int32 location, Int32 count, Int64* value);
+			internal unsafe delegate void glUniform3i64vARB(int location, int count, long* value);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -1052,7 +1052,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glUniform4i64vARB(Int32 location, Int32 count, Int64* value);
+			internal unsafe delegate void glUniform4i64vARB(int location, int count, long* value);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -1060,7 +1060,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glUniform1ui64ARB(Int32 location, UInt64 x);
+			internal delegate void glUniform1ui64ARB(int location, ulong x);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -1068,7 +1068,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glUniform2ui64ARB(Int32 location, UInt64 x, UInt64 y);
+			internal delegate void glUniform2ui64ARB(int location, ulong x, ulong y);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -1076,7 +1076,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glUniform3ui64ARB(Int32 location, UInt64 x, UInt64 y, UInt64 z);
+			internal delegate void glUniform3ui64ARB(int location, ulong x, ulong y, ulong z);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -1084,7 +1084,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glUniform4ui64ARB(Int32 location, UInt64 x, UInt64 y, UInt64 z, UInt64 w);
+			internal delegate void glUniform4ui64ARB(int location, ulong x, ulong y, ulong z, ulong w);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -1092,7 +1092,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glUniform1ui64vARB(Int32 location, Int32 count, UInt64* value);
+			internal unsafe delegate void glUniform1ui64vARB(int location, int count, ulong* value);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -1100,7 +1100,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glUniform2ui64vARB(Int32 location, Int32 count, UInt64* value);
+			internal unsafe delegate void glUniform2ui64vARB(int location, int count, ulong* value);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -1108,7 +1108,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glUniform3ui64vARB(Int32 location, Int32 count, UInt64* value);
+			internal unsafe delegate void glUniform3ui64vARB(int location, int count, ulong* value);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -1116,7 +1116,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glUniform4ui64vARB(Int32 location, Int32 count, UInt64* value);
+			internal unsafe delegate void glUniform4ui64vARB(int location, int count, ulong* value);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -1124,7 +1124,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetUniformi64vARB(UInt32 program, Int32 location, Int64* @params);
+			internal unsafe delegate void glGetUniformi64vARB(uint program, int location, long* @params);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -1132,7 +1132,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetUniformui64vARB(UInt32 program, Int32 location, UInt64* @params);
+			internal unsafe delegate void glGetUniformui64vARB(uint program, int location, ulong* @params);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -1140,7 +1140,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetnUniformi64vARB(UInt32 program, Int32 location, Int32 bufSize, Int64* @params);
+			internal unsafe delegate void glGetnUniformi64vARB(uint program, int location, int bufSize, long* @params);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -1148,7 +1148,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetnUniformui64vARB(UInt32 program, Int32 location, Int32 bufSize, UInt64* @params);
+			internal unsafe delegate void glGetnUniformui64vARB(uint program, int location, int bufSize, ulong* @params);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -1156,7 +1156,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glProgramUniform1i64ARB(UInt32 program, Int32 location, Int64 x);
+			internal delegate void glProgramUniform1i64ARB(uint program, int location, long x);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -1164,7 +1164,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glProgramUniform2i64ARB(UInt32 program, Int32 location, Int64 x, Int64 y);
+			internal delegate void glProgramUniform2i64ARB(uint program, int location, long x, long y);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -1172,7 +1172,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glProgramUniform3i64ARB(UInt32 program, Int32 location, Int64 x, Int64 y, Int64 z);
+			internal delegate void glProgramUniform3i64ARB(uint program, int location, long x, long y, long z);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -1180,7 +1180,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glProgramUniform4i64ARB(UInt32 program, Int32 location, Int64 x, Int64 y, Int64 z, Int64 w);
+			internal delegate void glProgramUniform4i64ARB(uint program, int location, long x, long y, long z, long w);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -1188,7 +1188,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramUniform1i64vARB(UInt32 program, Int32 location, Int32 count, Int64* value);
+			internal unsafe delegate void glProgramUniform1i64vARB(uint program, int location, int count, long* value);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -1196,7 +1196,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramUniform2i64vARB(UInt32 program, Int32 location, Int32 count, Int64* value);
+			internal unsafe delegate void glProgramUniform2i64vARB(uint program, int location, int count, long* value);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -1204,7 +1204,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramUniform3i64vARB(UInt32 program, Int32 location, Int32 count, Int64* value);
+			internal unsafe delegate void glProgramUniform3i64vARB(uint program, int location, int count, long* value);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -1212,7 +1212,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramUniform4i64vARB(UInt32 program, Int32 location, Int32 count, Int64* value);
+			internal unsafe delegate void glProgramUniform4i64vARB(uint program, int location, int count, long* value);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -1220,7 +1220,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glProgramUniform1ui64ARB(UInt32 program, Int32 location, UInt64 x);
+			internal delegate void glProgramUniform1ui64ARB(uint program, int location, ulong x);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -1228,7 +1228,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glProgramUniform2ui64ARB(UInt32 program, Int32 location, UInt64 x, UInt64 y);
+			internal delegate void glProgramUniform2ui64ARB(uint program, int location, ulong x, ulong y);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -1236,7 +1236,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glProgramUniform3ui64ARB(UInt32 program, Int32 location, UInt64 x, UInt64 y, UInt64 z);
+			internal delegate void glProgramUniform3ui64ARB(uint program, int location, ulong x, ulong y, ulong z);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -1244,7 +1244,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glProgramUniform4ui64ARB(UInt32 program, Int32 location, UInt64 x, UInt64 y, UInt64 z, UInt64 w);
+			internal delegate void glProgramUniform4ui64ARB(uint program, int location, ulong x, ulong y, ulong z, ulong w);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -1252,7 +1252,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramUniform1ui64vARB(UInt32 program, Int32 location, Int32 count, UInt64* value);
+			internal unsafe delegate void glProgramUniform1ui64vARB(uint program, int location, int count, ulong* value);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -1260,7 +1260,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramUniform2ui64vARB(UInt32 program, Int32 location, Int32 count, UInt64* value);
+			internal unsafe delegate void glProgramUniform2ui64vARB(uint program, int location, int count, ulong* value);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -1268,7 +1268,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramUniform3ui64vARB(UInt32 program, Int32 location, Int32 count, UInt64* value);
+			internal unsafe delegate void glProgramUniform3ui64vARB(uint program, int location, int count, ulong* value);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -1276,7 +1276,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramUniform4ui64vARB(UInt32 program, Int32 location, Int32 count, UInt64* value);
+			internal unsafe delegate void glProgramUniform4ui64vARB(uint program, int location, int count, ulong* value);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
 			[ThreadStatic]

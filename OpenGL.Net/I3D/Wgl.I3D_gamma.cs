@@ -119,23 +119,23 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="puRed">
-		/// A <see cref="T:UInt16[]"/>.
+		/// A <see cref="T:ushort[]"/>.
 		/// </param>
 		/// <param name="puGreen">
-		/// A <see cref="T:UInt16[]"/>.
+		/// A <see cref="T:ushort[]"/>.
 		/// </param>
 		/// <param name="puBlue">
-		/// A <see cref="T:UInt16[]"/>.
+		/// A <see cref="T:ushort[]"/>.
 		/// </param>
 		[RequiredByFeature("WGL_I3D_gamma")]
-		public static bool GetGammaTableI3D(IntPtr hDC, int iEntries, [Out] UInt16[] puRed, [Out] UInt16[] puGreen, [Out] UInt16[] puBlue)
+		public static bool GetGammaTableI3D(IntPtr hDC, int iEntries, [Out] ushort[] puRed, [Out] ushort[] puGreen, [Out] ushort[] puBlue)
 		{
 			bool retValue;
 
 			unsafe {
-				fixed (UInt16* p_puRed = puRed)
-				fixed (UInt16* p_puGreen = puGreen)
-				fixed (UInt16* p_puBlue = puBlue)
+				fixed (ushort* p_puRed = puRed)
+				fixed (ushort* p_puGreen = puGreen)
+				fixed (ushort* p_puBlue = puBlue)
 				{
 					Debug.Assert(Delegates.pwglGetGammaTableI3D != null, "pwglGetGammaTableI3D not implemented");
 					retValue = Delegates.pwglGetGammaTableI3D(hDC, iEntries, p_puRed, p_puGreen, p_puBlue);
@@ -157,23 +157,23 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="puRed">
-		/// A <see cref="T:UInt16[]"/>.
+		/// A <see cref="T:ushort[]"/>.
 		/// </param>
 		/// <param name="puGreen">
-		/// A <see cref="T:UInt16[]"/>.
+		/// A <see cref="T:ushort[]"/>.
 		/// </param>
 		/// <param name="puBlue">
-		/// A <see cref="T:UInt16[]"/>.
+		/// A <see cref="T:ushort[]"/>.
 		/// </param>
 		[RequiredByFeature("WGL_I3D_gamma")]
-		public static bool SetGammaTableI3D(IntPtr hDC, int iEntries, UInt16[] puRed, UInt16[] puGreen, UInt16[] puBlue)
+		public static bool SetGammaTableI3D(IntPtr hDC, int iEntries, ushort[] puRed, ushort[] puGreen, ushort[] puBlue)
 		{
 			bool retValue;
 
 			unsafe {
-				fixed (UInt16* p_puRed = puRed)
-				fixed (UInt16* p_puGreen = puGreen)
-				fixed (UInt16* p_puBlue = puBlue)
+				fixed (ushort* p_puRed = puRed)
+				fixed (ushort* p_puGreen = puGreen)
+				fixed (ushort* p_puBlue = puBlue)
 				{
 					Debug.Assert(Delegates.pwglSetGammaTableI3D != null, "pwglSetGammaTableI3D not implemented");
 					retValue = Delegates.pwglSetGammaTableI3D(hDC, iEntries, p_puRed, p_puGreen, p_puBlue);
@@ -203,14 +203,14 @@ namespace OpenGL
 
 			[RequiredByFeature("WGL_I3D_gamma")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglGetGammaTableI3D(IntPtr hDC, int iEntries, UInt16* puRed, UInt16* puGreen, UInt16* puBlue);
+			internal unsafe delegate bool wglGetGammaTableI3D(IntPtr hDC, int iEntries, ushort* puRed, ushort* puGreen, ushort* puBlue);
 
 			[RequiredByFeature("WGL_I3D_gamma")]
 			internal static wglGetGammaTableI3D pwglGetGammaTableI3D;
 
 			[RequiredByFeature("WGL_I3D_gamma")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglSetGammaTableI3D(IntPtr hDC, int iEntries, UInt16* puRed, UInt16* puGreen, UInt16* puBlue);
+			internal unsafe delegate bool wglSetGammaTableI3D(IntPtr hDC, int iEntries, ushort* puRed, ushort* puGreen, ushort* puBlue);
 
 			[RequiredByFeature("WGL_I3D_gamma")]
 			internal static wglSetGammaTableI3D pwglSetGammaTableI3D;

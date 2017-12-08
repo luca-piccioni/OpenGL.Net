@@ -165,7 +165,7 @@ namespace OpenGL
 #else
 				switch (Type.GetTypeCode(returnValue.GetType())) {
 					case TypeCode.Boolean:
-						if ((bool)returnValue == true)
+						if ((bool)returnValue)
 							methodErrorHandling = ErrorHandlingMode.LogOnly;
 						break;
 					case TypeCode.String:
@@ -494,38 +494,38 @@ namespace OpenGL
 			/// <summary>
 			/// The buffer is double-buffered. This flag and PFD_SUPPORT_GDI are mutually exclusive in the current generic implementation.
 			/// </summary>
-			Doublebuffer = Wgl.PFD_DOUBLEBUFFER,
+			Doublebuffer = PFD_DOUBLEBUFFER,
 
 			/// <summary>
 			/// The buffer is stereoscopic. This flag is not supported in the current generic implementation.
 			/// </summary>
-			Stereo = Wgl.PFD_STEREO,
+			Stereo = PFD_STEREO,
 
 			/// <summary>
 			/// The buffer can draw to a window or device surface.
 			/// </summary>
-			DrawToWindow = Wgl.PFD_DRAW_TO_WINDOW,
+			DrawToWindow = PFD_DRAW_TO_WINDOW,
 
 			/// <summary>
 			/// The buffer can draw to a memory bitmap.
 			/// </summary>
-			DrawToBitmap = Wgl.PFD_DRAW_TO_BITMAP,
+			DrawToBitmap = PFD_DRAW_TO_BITMAP,
 
 			/// <summary>
 			/// The buffer supports GDI drawing. This flag and PFD_DOUBLEBUFFER are mutually exclusive in the current generic implementation.
 			/// </summary>
-			SupportGdi = Wgl.PFD_SUPPORT_GDI,
+			SupportGdi = PFD_SUPPORT_GDI,
 
 			/// <summary>
 			/// The buffer supports OpenGL drawing.
 			/// </summary>
-			SupportOpenGL = Wgl.PFD_SUPPORT_OPENGL,
+			SupportOpenGL = PFD_SUPPORT_OPENGL,
 
 			/// <summary>
 			/// The pixel format is supported by the GDI software implementation, which is also known as the generic implementation.
 			/// If this bit is clear, the pixel format is supported by a device driver or hardware.
 			/// </summary>
-			GenericFormat = Wgl.PFD_GENERIC_FORMAT,
+			GenericFormat = PFD_GENERIC_FORMAT,
 
 			/// <summary>
 			/// The buffer uses RGBA pixels on a palette-managed device. A logical palette is required to achieve the best results for
@@ -533,7 +533,7 @@ namespace OpenGL
 			/// cGreenShift, cBluebits, and cBlueShift members. The palette should be created and realized in the device context before
 			/// calling wglMakeCurrent.
 			/// </summary>
-			NeedPalette = Wgl.PFD_NEED_PALETTE,
+			NeedPalette = PFD_NEED_PALETTE,
 
 			/// <summary>
 			/// Defined in the pixel format descriptors of hardware that supports one hardware palette in 256-color mode only. For such
@@ -546,7 +546,7 @@ namespace OpenGL
 			/// <remarks>
 			/// This flag is not set in the generic pixel formats.
 			/// </remarks>
-			NeedSystemPalette = Wgl.PFD_NEED_SYSTEM_PALETTE,
+			NeedSystemPalette = PFD_NEED_SYSTEM_PALETTE,
 
 			/// <summary>
 			/// 
@@ -559,7 +559,7 @@ namespace OpenGL
 			/// content before the swap. <b>PFD_SWAP_EXCHANGE</b> is a hint only and might
 			/// not be provided by a driver.
 			/// </remarks>
-			SwapExchange = Wgl.PFD_SWAP_EXCHANGE,
+			SwapExchange = PFD_SWAP_EXCHANGE,
 
 			/// <summary>
 			/// 

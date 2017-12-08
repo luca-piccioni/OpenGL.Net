@@ -67,19 +67,19 @@ namespace OpenGL
 		/// [GL] glLabelObjectEXT: Binding for glLabelObjectEXT.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="object">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="length">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="label">
 		/// A <see cref="T:String"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_debug_label", Api = "gl|glcore|gles2")]
-		public static void LabelObjectEXT(Int32 type, UInt32 @object, Int32 length, String label)
+		public static void LabelObjectEXT(int type, uint @object, int length, String label)
 		{
 			Debug.Assert(Delegates.pglLabelObjectEXT != null, "pglLabelObjectEXT not implemented");
 			Delegates.pglLabelObjectEXT(type, @object, length, label);
@@ -91,25 +91,25 @@ namespace OpenGL
 		/// [GL] glGetObjectLabelEXT: Binding for glGetObjectLabelEXT.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="object">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="bufSize">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="length">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="label">
 		/// A <see cref="T:StringBuilder"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_debug_label", Api = "gl|glcore|gles2")]
-		public static void GetObjectLabelEXT(Int32 type, UInt32 @object, Int32 bufSize, out Int32 length, [Out] StringBuilder label)
+		public static void GetObjectLabelEXT(int type, uint @object, int bufSize, out int length, [Out] StringBuilder label)
 		{
 			unsafe {
-				fixed (Int32* p_length = &length)
+				fixed (int* p_length = &length)
 				{
 					Debug.Assert(Delegates.pglGetObjectLabelEXT != null, "pglGetObjectLabelEXT not implemented");
 					Delegates.pglGetObjectLabelEXT(type, @object, bufSize, p_length, label);
@@ -123,7 +123,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_EXT_debug_label", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glLabelObjectEXT(Int32 type, UInt32 @object, Int32 length, String label);
+			internal delegate void glLabelObjectEXT(int type, uint @object, int length, String label);
 
 			[RequiredByFeature("GL_EXT_debug_label", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -131,7 +131,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_debug_label", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetObjectLabelEXT(Int32 type, UInt32 @object, Int32 bufSize, Int32* length, [Out] StringBuilder label);
+			internal unsafe delegate void glGetObjectLabelEXT(int type, uint @object, int bufSize, int* length, [Out] StringBuilder label);
 
 			[RequiredByFeature("GL_EXT_debug_label", Api = "gl|glcore|gles2")]
 			[ThreadStatic]

@@ -41,7 +41,7 @@ namespace OpenGL
 		/// [GL] glGetProgramResourceLocationIndexEXT: Binding for glGetProgramResourceLocationIndexEXT.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="programInterface">
 		/// A <see cref="T:ProgramInterface"/>.
@@ -50,12 +50,12 @@ namespace OpenGL
 		/// A <see cref="T:String"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2")]
-		public static Int32 GetProgramResourceLocationIndexEXT(UInt32 program, ProgramInterface programInterface, String name)
+		public static int GetProgramResourceLocationIndexEXT(uint program, ProgramInterface programInterface, String name)
 		{
-			Int32 retValue;
+			int retValue;
 
 			Debug.Assert(Delegates.pglGetProgramResourceLocationIndexEXT != null, "pglGetProgramResourceLocationIndexEXT not implemented");
-			retValue = Delegates.pglGetProgramResourceLocationIndexEXT(program, (Int32)programInterface, name);
+			retValue = Delegates.pglGetProgramResourceLocationIndexEXT(program, (int)programInterface, name);
 			LogCommand("glGetProgramResourceLocationIndexEXT", retValue, program, programInterface, name			);
 			DebugCheckErrors(retValue);
 
@@ -66,7 +66,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Int32 glGetProgramResourceLocationIndexEXT(UInt32 program, Int32 programInterface, String name);
+			internal delegate int glGetProgramResourceLocationIndexEXT(uint program, int programInterface, String name);
 
 			[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2")]
 			[ThreadStatic]

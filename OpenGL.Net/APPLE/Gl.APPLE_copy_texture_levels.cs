@@ -41,19 +41,19 @@ namespace OpenGL
 		/// [GL] glCopyTextureLevelsAPPLE: Binding for glCopyTextureLevelsAPPLE.
 		/// </summary>
 		/// <param name="destinationTexture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="sourceTexture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="sourceBaseLevel">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="sourceLevelCount">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_APPLE_copy_texture_levels", Api = "gles1|gles2")]
-		public static void CopyTextureLevelsAPPLE(UInt32 destinationTexture, UInt32 sourceTexture, Int32 sourceBaseLevel, Int32 sourceLevelCount)
+		public static void CopyTextureLevelsAPPLE(uint destinationTexture, uint sourceTexture, int sourceBaseLevel, int sourceLevelCount)
 		{
 			Debug.Assert(Delegates.pglCopyTextureLevelsAPPLE != null, "pglCopyTextureLevelsAPPLE not implemented");
 			Delegates.pglCopyTextureLevelsAPPLE(destinationTexture, sourceTexture, sourceBaseLevel, sourceLevelCount);
@@ -65,7 +65,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_APPLE_copy_texture_levels", Api = "gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glCopyTextureLevelsAPPLE(UInt32 destinationTexture, UInt32 sourceTexture, Int32 sourceBaseLevel, Int32 sourceLevelCount);
+			internal delegate void glCopyTextureLevelsAPPLE(uint destinationTexture, uint sourceTexture, int sourceBaseLevel, int sourceLevelCount);
 
 			[RequiredByFeature("GL_APPLE_copy_texture_levels", Api = "gles1|gles2")]
 			[ThreadStatic]

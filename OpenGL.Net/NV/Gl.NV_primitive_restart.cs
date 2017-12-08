@@ -65,10 +65,10 @@ namespace OpenGL
 		/// [GL] glPrimitiveRestartIndexNV: Binding for glPrimitiveRestartIndexNV.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_primitive_restart")]
-		public static void PrimitiveRestartIndexNV(UInt32 index)
+		public static void PrimitiveRestartIndexNV(uint index)
 		{
 			Debug.Assert(Delegates.pglPrimitiveRestartIndexNV != null, "pglPrimitiveRestartIndexNV not implemented");
 			Delegates.pglPrimitiveRestartIndexNV(index);
@@ -88,7 +88,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_primitive_restart")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glPrimitiveRestartIndexNV(UInt32 index);
+			internal delegate void glPrimitiveRestartIndexNV(uint index);
 
 			[RequiredByFeature("GL_NV_primitive_restart")]
 			[ThreadStatic]

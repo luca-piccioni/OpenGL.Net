@@ -72,10 +72,10 @@ namespace OpenGL
 		/// [GL] glRenderGpuMaskNV: Binding for glRenderGpuMaskNV.
 		/// </summary>
 		/// <param name="mask">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_gpu_multicast")]
-		public static void RenderGpuMaskNV(UInt32 mask)
+		public static void RenderGpuMaskNV(uint mask)
 		{
 			Debug.Assert(Delegates.pglRenderGpuMaskNV != null, "pglRenderGpuMaskNV not implemented");
 			Delegates.pglRenderGpuMaskNV(mask);
@@ -87,22 +87,22 @@ namespace OpenGL
 		/// [GL] glMulticastBufferSubDataNV: Binding for glMulticastBufferSubDataNV.
 		/// </summary>
 		/// <param name="gpuMask">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="offset">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="size">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="data">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_gpu_multicast")]
-		public static void MulticastBufferSubDataNV(UInt32 gpuMask, UInt32 buffer, IntPtr offset, UInt32 size, IntPtr data)
+		public static void MulticastBufferSubDataNV(uint gpuMask, uint buffer, IntPtr offset, uint size, IntPtr data)
 		{
 			unsafe {
 				{
@@ -118,22 +118,22 @@ namespace OpenGL
 		/// [GL] glMulticastBufferSubDataNV: Binding for glMulticastBufferSubDataNV.
 		/// </summary>
 		/// <param name="gpuMask">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="offset">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="size">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="data">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_gpu_multicast")]
-		public static void MulticastBufferSubDataNV(UInt32 gpuMask, UInt32 buffer, IntPtr offset, UInt32 size, Object data)
+		public static void MulticastBufferSubDataNV(uint gpuMask, uint buffer, IntPtr offset, uint size, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -147,16 +147,16 @@ namespace OpenGL
 		/// [GL] glMulticastCopyBufferSubDataNV: Binding for glMulticastCopyBufferSubDataNV.
 		/// </summary>
 		/// <param name="readGpu">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="writeGpuMask">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="readBuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="writeBuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="readOffset">
 		/// A <see cref="T:IntPtr"/>.
@@ -165,10 +165,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="size">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_gpu_multicast")]
-		public static void MulticastCopyBufferSubDataNV(UInt32 readGpu, UInt32 writeGpuMask, UInt32 readBuffer, UInt32 writeBuffer, IntPtr readOffset, IntPtr writeOffset, UInt32 size)
+		public static void MulticastCopyBufferSubDataNV(uint readGpu, uint writeGpuMask, uint readBuffer, uint writeBuffer, IntPtr readOffset, IntPtr writeOffset, uint size)
 		{
 			Debug.Assert(Delegates.pglMulticastCopyBufferSubDataNV != null, "pglMulticastCopyBufferSubDataNV not implemented");
 			Delegates.pglMulticastCopyBufferSubDataNV(readGpu, writeGpuMask, readBuffer, writeBuffer, readOffset, writeOffset, size);
@@ -180,58 +180,58 @@ namespace OpenGL
 		/// [GL] glMulticastCopyImageSubDataNV: Binding for glMulticastCopyImageSubDataNV.
 		/// </summary>
 		/// <param name="srcGpu">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="dstGpuMask">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="srcName">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="srcTarget">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="srcLevel">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="srcX">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="srcY">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="srcZ">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="dstName">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="dstTarget">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="dstLevel">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="dstX">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="dstY">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="dstZ">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="srcWidth">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="srcHeight">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="srcDepth">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_gpu_multicast")]
-		public static void MulticastCopyImageSubDataNV(UInt32 srcGpu, UInt32 dstGpuMask, UInt32 srcName, Int32 srcTarget, Int32 srcLevel, Int32 srcX, Int32 srcY, Int32 srcZ, UInt32 dstName, Int32 dstTarget, Int32 dstLevel, Int32 dstX, Int32 dstY, Int32 dstZ, Int32 srcWidth, Int32 srcHeight, Int32 srcDepth)
+		public static void MulticastCopyImageSubDataNV(uint srcGpu, uint dstGpuMask, uint srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, uint dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int srcWidth, int srcHeight, int srcDepth)
 		{
 			Debug.Assert(Delegates.pglMulticastCopyImageSubDataNV != null, "pglMulticastCopyImageSubDataNV not implemented");
 			Delegates.pglMulticastCopyImageSubDataNV(srcGpu, dstGpuMask, srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, srcWidth, srcHeight, srcDepth);
@@ -243,43 +243,43 @@ namespace OpenGL
 		/// [GL] glMulticastBlitFramebufferNV: Binding for glMulticastBlitFramebufferNV.
 		/// </summary>
 		/// <param name="srcGpu">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="dstGpu">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="srcX0">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="srcY0">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="srcX1">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="srcY1">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="dstX0">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="dstY0">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="dstX1">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="dstY1">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="mask">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="filter">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_gpu_multicast")]
-		public static void MulticastBlitFramebufferNV(UInt32 srcGpu, UInt32 dstGpu, Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, UInt32 mask, Int32 filter)
+		public static void MulticastBlitFramebufferNV(uint srcGpu, uint dstGpu, int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, uint mask, int filter)
 		{
 			Debug.Assert(Delegates.pglMulticastBlitFramebufferNV != null, "pglMulticastBlitFramebufferNV not implemented");
 			Delegates.pglMulticastBlitFramebufferNV(srcGpu, dstGpu, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
@@ -291,22 +291,22 @@ namespace OpenGL
 		/// [GL] glMulticastFramebufferSampleLocationsfvNV: Binding for glMulticastFramebufferSampleLocationsfvNV.
 		/// </summary>
 		/// <param name="gpu">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="framebuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="start">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_gpu_multicast")]
-		public static void MulticastFramebufferSampleLocationsfvNV(UInt32 gpu, UInt32 framebuffer, UInt32 start, Int32 count, float[] v)
+		public static void MulticastFramebufferSampleLocationsfvNV(uint gpu, uint framebuffer, uint start, int count, float[] v)
 		{
 			unsafe {
 				fixed (float* p_v = v)
@@ -335,13 +335,13 @@ namespace OpenGL
 		/// [GL] glMulticastWaitSyncNV: Binding for glMulticastWaitSyncNV.
 		/// </summary>
 		/// <param name="signalGpu">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="waitGpuMask">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_gpu_multicast")]
-		public static void MulticastWaitSyncNV(UInt32 signalGpu, UInt32 waitGpuMask)
+		public static void MulticastWaitSyncNV(uint signalGpu, uint waitGpuMask)
 		{
 			Debug.Assert(Delegates.pglMulticastWaitSyncNV != null, "pglMulticastWaitSyncNV not implemented");
 			Delegates.pglMulticastWaitSyncNV(signalGpu, waitGpuMask);
@@ -353,22 +353,22 @@ namespace OpenGL
 		/// [GL] glMulticastGetQueryObjectivNV: Binding for glMulticastGetQueryObjectivNV.
 		/// </summary>
 		/// <param name="gpu">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_gpu_multicast")]
-		public static void MulticastGetQueryObjectivNV(UInt32 gpu, UInt32 id, Int32 pname, Int32[] @params)
+		public static void MulticastGetQueryObjectivNV(uint gpu, uint id, int pname, int[] @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglMulticastGetQueryObjectivNV != null, "pglMulticastGetQueryObjectivNV not implemented");
 					Delegates.pglMulticastGetQueryObjectivNV(gpu, id, pname, p_params);
@@ -382,22 +382,22 @@ namespace OpenGL
 		/// [GL] glMulticastGetQueryObjectuivNV: Binding for glMulticastGetQueryObjectuivNV.
 		/// </summary>
 		/// <param name="gpu">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_gpu_multicast")]
-		public static void MulticastGetQueryObjectuivNV(UInt32 gpu, UInt32 id, Int32 pname, UInt32[] @params)
+		public static void MulticastGetQueryObjectuivNV(uint gpu, uint id, int pname, uint[] @params)
 		{
 			unsafe {
-				fixed (UInt32* p_params = @params)
+				fixed (uint* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglMulticastGetQueryObjectuivNV != null, "pglMulticastGetQueryObjectuivNV not implemented");
 					Delegates.pglMulticastGetQueryObjectuivNV(gpu, id, pname, p_params);
@@ -411,22 +411,22 @@ namespace OpenGL
 		/// [GL] glMulticastGetQueryObjecti64vNV: Binding for glMulticastGetQueryObjecti64vNV.
 		/// </summary>
 		/// <param name="gpu">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int64[]"/>.
+		/// A <see cref="T:long[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_gpu_multicast")]
-		public static void MulticastGetQueryObjecti64vNV(UInt32 gpu, UInt32 id, Int32 pname, Int64[] @params)
+		public static void MulticastGetQueryObjecti64vNV(uint gpu, uint id, int pname, long[] @params)
 		{
 			unsafe {
-				fixed (Int64* p_params = @params)
+				fixed (long* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglMulticastGetQueryObjecti64vNV != null, "pglMulticastGetQueryObjecti64vNV not implemented");
 					Delegates.pglMulticastGetQueryObjecti64vNV(gpu, id, pname, p_params);
@@ -440,22 +440,22 @@ namespace OpenGL
 		/// [GL] glMulticastGetQueryObjectui64vNV: Binding for glMulticastGetQueryObjectui64vNV.
 		/// </summary>
 		/// <param name="gpu">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:UInt64[]"/>.
+		/// A <see cref="T:ulong[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_gpu_multicast")]
-		public static void MulticastGetQueryObjectui64vNV(UInt32 gpu, UInt32 id, Int32 pname, UInt64[] @params)
+		public static void MulticastGetQueryObjectui64vNV(uint gpu, uint id, int pname, ulong[] @params)
 		{
 			unsafe {
-				fixed (UInt64* p_params = @params)
+				fixed (ulong* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglMulticastGetQueryObjectui64vNV != null, "pglMulticastGetQueryObjectui64vNV not implemented");
 					Delegates.pglMulticastGetQueryObjectui64vNV(gpu, id, pname, p_params);
@@ -469,7 +469,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_NV_gpu_multicast")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glRenderGpuMaskNV(UInt32 mask);
+			internal delegate void glRenderGpuMaskNV(uint mask);
 
 			[RequiredByFeature("GL_NV_gpu_multicast")]
 			[ThreadStatic]
@@ -477,7 +477,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_gpu_multicast")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMulticastBufferSubDataNV(UInt32 gpuMask, UInt32 buffer, IntPtr offset, UInt32 size, void* data);
+			internal unsafe delegate void glMulticastBufferSubDataNV(uint gpuMask, uint buffer, IntPtr offset, uint size, void* data);
 
 			[RequiredByFeature("GL_NV_gpu_multicast")]
 			[ThreadStatic]
@@ -485,7 +485,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_gpu_multicast")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMulticastCopyBufferSubDataNV(UInt32 readGpu, UInt32 writeGpuMask, UInt32 readBuffer, UInt32 writeBuffer, IntPtr readOffset, IntPtr writeOffset, UInt32 size);
+			internal unsafe delegate void glMulticastCopyBufferSubDataNV(uint readGpu, uint writeGpuMask, uint readBuffer, uint writeBuffer, IntPtr readOffset, IntPtr writeOffset, uint size);
 
 			[RequiredByFeature("GL_NV_gpu_multicast")]
 			[ThreadStatic]
@@ -493,7 +493,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_gpu_multicast")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMulticastCopyImageSubDataNV(UInt32 srcGpu, UInt32 dstGpuMask, UInt32 srcName, Int32 srcTarget, Int32 srcLevel, Int32 srcX, Int32 srcY, Int32 srcZ, UInt32 dstName, Int32 dstTarget, Int32 dstLevel, Int32 dstX, Int32 dstY, Int32 dstZ, Int32 srcWidth, Int32 srcHeight, Int32 srcDepth);
+			internal delegate void glMulticastCopyImageSubDataNV(uint srcGpu, uint dstGpuMask, uint srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, uint dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int srcWidth, int srcHeight, int srcDepth);
 
 			[RequiredByFeature("GL_NV_gpu_multicast")]
 			[ThreadStatic]
@@ -501,7 +501,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_gpu_multicast")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMulticastBlitFramebufferNV(UInt32 srcGpu, UInt32 dstGpu, Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, UInt32 mask, Int32 filter);
+			internal delegate void glMulticastBlitFramebufferNV(uint srcGpu, uint dstGpu, int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, uint mask, int filter);
 
 			[RequiredByFeature("GL_NV_gpu_multicast")]
 			[ThreadStatic]
@@ -509,7 +509,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_gpu_multicast")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMulticastFramebufferSampleLocationsfvNV(UInt32 gpu, UInt32 framebuffer, UInt32 start, Int32 count, float* v);
+			internal unsafe delegate void glMulticastFramebufferSampleLocationsfvNV(uint gpu, uint framebuffer, uint start, int count, float* v);
 
 			[RequiredByFeature("GL_NV_gpu_multicast")]
 			[ThreadStatic]
@@ -525,7 +525,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_gpu_multicast")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMulticastWaitSyncNV(UInt32 signalGpu, UInt32 waitGpuMask);
+			internal delegate void glMulticastWaitSyncNV(uint signalGpu, uint waitGpuMask);
 
 			[RequiredByFeature("GL_NV_gpu_multicast")]
 			[ThreadStatic]
@@ -533,7 +533,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_gpu_multicast")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMulticastGetQueryObjectivNV(UInt32 gpu, UInt32 id, Int32 pname, Int32* @params);
+			internal unsafe delegate void glMulticastGetQueryObjectivNV(uint gpu, uint id, int pname, int* @params);
 
 			[RequiredByFeature("GL_NV_gpu_multicast")]
 			[ThreadStatic]
@@ -541,7 +541,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_gpu_multicast")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMulticastGetQueryObjectuivNV(UInt32 gpu, UInt32 id, Int32 pname, UInt32* @params);
+			internal unsafe delegate void glMulticastGetQueryObjectuivNV(uint gpu, uint id, int pname, uint* @params);
 
 			[RequiredByFeature("GL_NV_gpu_multicast")]
 			[ThreadStatic]
@@ -549,7 +549,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_gpu_multicast")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMulticastGetQueryObjecti64vNV(UInt32 gpu, UInt32 id, Int32 pname, Int64* @params);
+			internal unsafe delegate void glMulticastGetQueryObjecti64vNV(uint gpu, uint id, int pname, long* @params);
 
 			[RequiredByFeature("GL_NV_gpu_multicast")]
 			[ThreadStatic]
@@ -557,7 +557,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_gpu_multicast")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMulticastGetQueryObjectui64vNV(UInt32 gpu, UInt32 id, Int32 pname, UInt64* @params);
+			internal unsafe delegate void glMulticastGetQueryObjectui64vNV(uint gpu, uint id, int pname, ulong* @params);
 
 			[RequiredByFeature("GL_NV_gpu_multicast")]
 			[ThreadStatic]

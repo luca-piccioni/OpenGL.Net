@@ -41,11 +41,11 @@ namespace OpenGL
 		/// [GL] glMaxShaderCompilerThreadsKHR: Binding for glMaxShaderCompilerThreadsKHR.
 		/// </summary>
 		/// <param name="count">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_parallel_shader_compile", Api = "gl|glcore")]
 		[RequiredByFeature("GL_KHR_parallel_shader_compile", Api = "gl|glcore|gles2")]
-		public static void MaxShaderCompilerThreadsKHR(UInt32 count)
+		public static void MaxShaderCompilerThreadsKHR(uint count)
 		{
 			Debug.Assert(Delegates.pglMaxShaderCompilerThreadsKHR != null, "pglMaxShaderCompilerThreadsKHR not implemented");
 			Delegates.pglMaxShaderCompilerThreadsKHR(count);
@@ -58,7 +58,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_parallel_shader_compile", Api = "gl|glcore")]
 			[RequiredByFeature("GL_KHR_parallel_shader_compile", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMaxShaderCompilerThreadsKHR(UInt32 count);
+			internal delegate void glMaxShaderCompilerThreadsKHR(uint count);
 
 			[RequiredByFeature("GL_ARB_parallel_shader_compile", Api = "gl|glcore", EntryPoint = "glMaxShaderCompilerThreadsARB")]
 			[RequiredByFeature("GL_KHR_parallel_shader_compile", Api = "gl|glcore|gles2")]

@@ -56,19 +56,19 @@ namespace OpenGL
 		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="first">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_SUN_mesh_array")]
-		public static void DrawMeshArraysSUN(PrimitiveType mode, Int32 first, Int32 count, Int32 width)
+		public static void DrawMeshArraysSUN(PrimitiveType mode, int first, int count, int width)
 		{
 			Debug.Assert(Delegates.pglDrawMeshArraysSUN != null, "pglDrawMeshArraysSUN not implemented");
-			Delegates.pglDrawMeshArraysSUN((Int32)mode, first, count, width);
+			Delegates.pglDrawMeshArraysSUN((int)mode, first, count, width);
 			LogCommand("glDrawMeshArraysSUN", null, mode, first, count, width			);
 			DebugCheckErrors(null);
 		}
@@ -77,7 +77,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_SUN_mesh_array")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glDrawMeshArraysSUN(Int32 mode, Int32 first, Int32 count, Int32 width);
+			internal delegate void glDrawMeshArraysSUN(int mode, int first, int count, int width);
 
 			[RequiredByFeature("GL_SUN_mesh_array")]
 			[ThreadStatic]

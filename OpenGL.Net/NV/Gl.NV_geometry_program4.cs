@@ -59,13 +59,13 @@ namespace OpenGL
 		/// [GL] glProgramVertexLimitNV: Binding for glProgramVertexLimitNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="limit">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_geometry_program4")]
-		public static void ProgramVertexLimitNV(Int32 target, Int32 limit)
+		public static void ProgramVertexLimitNV(int target, int limit)
 		{
 			Debug.Assert(Delegates.pglProgramVertexLimitNV != null, "pglProgramVertexLimitNV not implemented");
 			Delegates.pglProgramVertexLimitNV(target, limit);
@@ -77,7 +77,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_NV_geometry_program4")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glProgramVertexLimitNV(Int32 target, Int32 limit);
+			internal delegate void glProgramVertexLimitNV(int target, int limit);
 
 			[RequiredByFeature("GL_NV_geometry_program4")]
 			[ThreadStatic]

@@ -41,13 +41,13 @@ namespace OpenGL
 		/// [GL] glVertexAttribL1i64NV: Binding for glVertexAttribL1i64NV.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:Int64"/>.
+		/// A <see cref="T:long"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
-		public static void VertexAttribL1NV(UInt32 index, Int64 x)
+		public static void VertexAttribL1NV(uint index, long x)
 		{
 			Debug.Assert(Delegates.pglVertexAttribL1i64NV != null, "pglVertexAttribL1i64NV not implemented");
 			Delegates.pglVertexAttribL1i64NV(index, x);
@@ -59,16 +59,16 @@ namespace OpenGL
 		/// [GL] glVertexAttribL2i64NV: Binding for glVertexAttribL2i64NV.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:Int64"/>.
+		/// A <see cref="T:long"/>.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int64"/>.
+		/// A <see cref="T:long"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
-		public static void VertexAttribL2NV(UInt32 index, Int64 x, Int64 y)
+		public static void VertexAttribL2NV(uint index, long x, long y)
 		{
 			Debug.Assert(Delegates.pglVertexAttribL2i64NV != null, "pglVertexAttribL2i64NV not implemented");
 			Delegates.pglVertexAttribL2i64NV(index, x, y);
@@ -80,19 +80,19 @@ namespace OpenGL
 		/// [GL] glVertexAttribL3i64NV: Binding for glVertexAttribL3i64NV.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:Int64"/>.
+		/// A <see cref="T:long"/>.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int64"/>.
+		/// A <see cref="T:long"/>.
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:Int64"/>.
+		/// A <see cref="T:long"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
-		public static void VertexAttribL3NV(UInt32 index, Int64 x, Int64 y, Int64 z)
+		public static void VertexAttribL3NV(uint index, long x, long y, long z)
 		{
 			Debug.Assert(Delegates.pglVertexAttribL3i64NV != null, "pglVertexAttribL3i64NV not implemented");
 			Delegates.pglVertexAttribL3i64NV(index, x, y, z);
@@ -104,22 +104,22 @@ namespace OpenGL
 		/// [GL] glVertexAttribL4i64NV: Binding for glVertexAttribL4i64NV.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:Int64"/>.
+		/// A <see cref="T:long"/>.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int64"/>.
+		/// A <see cref="T:long"/>.
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:Int64"/>.
+		/// A <see cref="T:long"/>.
 		/// </param>
 		/// <param name="w">
-		/// A <see cref="T:Int64"/>.
+		/// A <see cref="T:long"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
-		public static void VertexAttribL4NV(UInt32 index, Int64 x, Int64 y, Int64 z, Int64 w)
+		public static void VertexAttribL4NV(uint index, long x, long y, long z, long w)
 		{
 			Debug.Assert(Delegates.pglVertexAttribL4i64NV != null, "pglVertexAttribL4i64NV not implemented");
 			Delegates.pglVertexAttribL4i64NV(index, x, y, z, w);
@@ -131,17 +131,17 @@ namespace OpenGL
 		/// [GL] glVertexAttribL1i64vNV: Binding for glVertexAttribL1i64vNV.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="T:Int64[]"/>.
+		/// A <see cref="T:long[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
-		public static void VertexAttribL1NV(UInt32 index, Int64[] v)
+		public static void VertexAttribL1NV(uint index, long[] v)
 		{
 			Debug.Assert(v.Length >= 1);
 			unsafe {
-				fixed (Int64* p_v = v)
+				fixed (long* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertexAttribL1i64vNV != null, "pglVertexAttribL1i64vNV not implemented");
 					Delegates.pglVertexAttribL1i64vNV(index, p_v);
@@ -155,17 +155,17 @@ namespace OpenGL
 		/// [GL] glVertexAttribL2i64vNV: Binding for glVertexAttribL2i64vNV.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="T:Int64[]"/>.
+		/// A <see cref="T:long[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
-		public static void VertexAttribL2NV(UInt32 index, Int64[] v)
+		public static void VertexAttribL2NV(uint index, long[] v)
 		{
 			Debug.Assert(v.Length >= 2);
 			unsafe {
-				fixed (Int64* p_v = v)
+				fixed (long* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertexAttribL2i64vNV != null, "pglVertexAttribL2i64vNV not implemented");
 					Delegates.pglVertexAttribL2i64vNV(index, p_v);
@@ -179,17 +179,17 @@ namespace OpenGL
 		/// [GL] glVertexAttribL3i64vNV: Binding for glVertexAttribL3i64vNV.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="T:Int64[]"/>.
+		/// A <see cref="T:long[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
-		public static void VertexAttribL3NV(UInt32 index, Int64[] v)
+		public static void VertexAttribL3NV(uint index, long[] v)
 		{
 			Debug.Assert(v.Length >= 3);
 			unsafe {
-				fixed (Int64* p_v = v)
+				fixed (long* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertexAttribL3i64vNV != null, "pglVertexAttribL3i64vNV not implemented");
 					Delegates.pglVertexAttribL3i64vNV(index, p_v);
@@ -203,17 +203,17 @@ namespace OpenGL
 		/// [GL] glVertexAttribL4i64vNV: Binding for glVertexAttribL4i64vNV.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="T:Int64[]"/>.
+		/// A <see cref="T:long[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
-		public static void VertexAttribL4NV(UInt32 index, Int64[] v)
+		public static void VertexAttribL4NV(uint index, long[] v)
 		{
 			Debug.Assert(v.Length >= 4);
 			unsafe {
-				fixed (Int64* p_v = v)
+				fixed (long* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertexAttribL4i64vNV != null, "pglVertexAttribL4i64vNV not implemented");
 					Delegates.pglVertexAttribL4i64vNV(index, p_v);
@@ -227,13 +227,13 @@ namespace OpenGL
 		/// [GL] glVertexAttribL1ui64NV: Binding for glVertexAttribL1ui64NV.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
-		public static void VertexAttribL1NV(UInt32 index, UInt64 x)
+		public static void VertexAttribL1NV(uint index, ulong x)
 		{
 			Debug.Assert(Delegates.pglVertexAttribL1ui64NV != null, "pglVertexAttribL1ui64NV not implemented");
 			Delegates.pglVertexAttribL1ui64NV(index, x);
@@ -245,16 +245,16 @@ namespace OpenGL
 		/// [GL] glVertexAttribL2ui64NV: Binding for glVertexAttribL2ui64NV.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
-		public static void VertexAttribL2NV(UInt32 index, UInt64 x, UInt64 y)
+		public static void VertexAttribL2NV(uint index, ulong x, ulong y)
 		{
 			Debug.Assert(Delegates.pglVertexAttribL2ui64NV != null, "pglVertexAttribL2ui64NV not implemented");
 			Delegates.pglVertexAttribL2ui64NV(index, x, y);
@@ -266,19 +266,19 @@ namespace OpenGL
 		/// [GL] glVertexAttribL3ui64NV: Binding for glVertexAttribL3ui64NV.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
-		public static void VertexAttribL3NV(UInt32 index, UInt64 x, UInt64 y, UInt64 z)
+		public static void VertexAttribL3NV(uint index, ulong x, ulong y, ulong z)
 		{
 			Debug.Assert(Delegates.pglVertexAttribL3ui64NV != null, "pglVertexAttribL3ui64NV not implemented");
 			Delegates.pglVertexAttribL3ui64NV(index, x, y, z);
@@ -290,22 +290,22 @@ namespace OpenGL
 		/// [GL] glVertexAttribL4ui64NV: Binding for glVertexAttribL4ui64NV.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		/// <param name="z">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		/// <param name="w">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
-		public static void VertexAttribL4NV(UInt32 index, UInt64 x, UInt64 y, UInt64 z, UInt64 w)
+		public static void VertexAttribL4NV(uint index, ulong x, ulong y, ulong z, ulong w)
 		{
 			Debug.Assert(Delegates.pglVertexAttribL4ui64NV != null, "pglVertexAttribL4ui64NV not implemented");
 			Delegates.pglVertexAttribL4ui64NV(index, x, y, z, w);
@@ -317,17 +317,17 @@ namespace OpenGL
 		/// [GL] glVertexAttribL1ui64vNV: Binding for glVertexAttribL1ui64vNV.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="T:UInt64[]"/>.
+		/// A <see cref="T:ulong[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
-		public static void VertexAttribL1NV(UInt32 index, UInt64[] v)
+		public static void VertexAttribL1NV(uint index, ulong[] v)
 		{
 			Debug.Assert(v.Length >= 1);
 			unsafe {
-				fixed (UInt64* p_v = v)
+				fixed (ulong* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertexAttribL1ui64vNV != null, "pglVertexAttribL1ui64vNV not implemented");
 					Delegates.pglVertexAttribL1ui64vNV(index, p_v);
@@ -341,17 +341,17 @@ namespace OpenGL
 		/// [GL] glVertexAttribL2ui64vNV: Binding for glVertexAttribL2ui64vNV.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="T:UInt64[]"/>.
+		/// A <see cref="T:ulong[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
-		public static void VertexAttribL2NV(UInt32 index, UInt64[] v)
+		public static void VertexAttribL2NV(uint index, ulong[] v)
 		{
 			Debug.Assert(v.Length >= 2);
 			unsafe {
-				fixed (UInt64* p_v = v)
+				fixed (ulong* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertexAttribL2ui64vNV != null, "pglVertexAttribL2ui64vNV not implemented");
 					Delegates.pglVertexAttribL2ui64vNV(index, p_v);
@@ -365,17 +365,17 @@ namespace OpenGL
 		/// [GL] glVertexAttribL3ui64vNV: Binding for glVertexAttribL3ui64vNV.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="T:UInt64[]"/>.
+		/// A <see cref="T:ulong[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
-		public static void VertexAttribL3NV(UInt32 index, UInt64[] v)
+		public static void VertexAttribL3NV(uint index, ulong[] v)
 		{
 			Debug.Assert(v.Length >= 3);
 			unsafe {
-				fixed (UInt64* p_v = v)
+				fixed (ulong* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertexAttribL3ui64vNV != null, "pglVertexAttribL3ui64vNV not implemented");
 					Delegates.pglVertexAttribL3ui64vNV(index, p_v);
@@ -389,17 +389,17 @@ namespace OpenGL
 		/// [GL] glVertexAttribL4ui64vNV: Binding for glVertexAttribL4ui64vNV.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="v">
-		/// A <see cref="T:UInt64[]"/>.
+		/// A <see cref="T:ulong[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
-		public static void VertexAttribL4NV(UInt32 index, UInt64[] v)
+		public static void VertexAttribL4NV(uint index, ulong[] v)
 		{
 			Debug.Assert(v.Length >= 4);
 			unsafe {
-				fixed (UInt64* p_v = v)
+				fixed (ulong* p_v = v)
 				{
 					Debug.Assert(Delegates.pglVertexAttribL4ui64vNV != null, "pglVertexAttribL4ui64vNV not implemented");
 					Delegates.pglVertexAttribL4ui64vNV(index, p_v);
@@ -413,22 +413,22 @@ namespace OpenGL
 		/// [GL] glGetVertexAttribLi64vNV: Binding for glGetVertexAttribLi64vNV.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:VertexAttribEnum"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int64[]"/>.
+		/// A <see cref="T:long[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
-		public static void GetVertexAttribLNV(UInt32 index, VertexAttribEnum pname, [Out] Int64[] @params)
+		public static void GetVertexAttribLNV(uint index, VertexAttribEnum pname, [Out] long[] @params)
 		{
 			unsafe {
-				fixed (Int64* p_params = @params)
+				fixed (long* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetVertexAttribLi64vNV != null, "pglGetVertexAttribLi64vNV not implemented");
-					Delegates.pglGetVertexAttribLi64vNV(index, (Int32)pname, p_params);
+					Delegates.pglGetVertexAttribLi64vNV(index, (int)pname, p_params);
 					LogCommand("glGetVertexAttribLi64vNV", null, index, pname, @params					);
 				}
 			}
@@ -439,22 +439,22 @@ namespace OpenGL
 		/// [GL] glGetVertexAttribLui64vNV: Binding for glGetVertexAttribLui64vNV.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:VertexAttribEnum"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:UInt64[]"/>.
+		/// A <see cref="T:ulong[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
-		public static void GetVertexAttribLNV(UInt32 index, VertexAttribEnum pname, [Out] UInt64[] @params)
+		public static void GetVertexAttribLNV(uint index, VertexAttribEnum pname, [Out] ulong[] @params)
 		{
 			unsafe {
-				fixed (UInt64* p_params = @params)
+				fixed (ulong* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetVertexAttribLui64vNV != null, "pglGetVertexAttribLui64vNV not implemented");
-					Delegates.pglGetVertexAttribLui64vNV(index, (Int32)pname, p_params);
+					Delegates.pglGetVertexAttribLui64vNV(index, (int)pname, p_params);
 					LogCommand("glGetVertexAttribLui64vNV", null, index, pname, @params					);
 				}
 			}
@@ -465,22 +465,22 @@ namespace OpenGL
 		/// [GL] glVertexAttribLFormatNV: Binding for glVertexAttribLFormatNV.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="type">
 		/// A <see cref="T:VertexAttribType"/>.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
-		public static void VertexAttribLFormatNV(UInt32 index, Int32 size, VertexAttribType type, Int32 stride)
+		public static void VertexAttribLFormatNV(uint index, int size, VertexAttribType type, int stride)
 		{
 			Debug.Assert(Delegates.pglVertexAttribLFormatNV != null, "pglVertexAttribLFormatNV not implemented");
-			Delegates.pglVertexAttribLFormatNV(index, size, (Int32)type, stride);
+			Delegates.pglVertexAttribLFormatNV(index, size, (int)type, stride);
 			LogCommand("glVertexAttribLFormatNV", null, index, size, type, stride			);
 			DebugCheckErrors(null);
 		}
@@ -489,7 +489,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glVertexAttribL1i64NV(UInt32 index, Int64 x);
+			internal delegate void glVertexAttribL1i64NV(uint index, long x);
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -497,7 +497,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glVertexAttribL2i64NV(UInt32 index, Int64 x, Int64 y);
+			internal delegate void glVertexAttribL2i64NV(uint index, long x, long y);
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -505,7 +505,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glVertexAttribL3i64NV(UInt32 index, Int64 x, Int64 y, Int64 z);
+			internal delegate void glVertexAttribL3i64NV(uint index, long x, long y, long z);
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -513,7 +513,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glVertexAttribL4i64NV(UInt32 index, Int64 x, Int64 y, Int64 z, Int64 w);
+			internal delegate void glVertexAttribL4i64NV(uint index, long x, long y, long z, long w);
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -521,7 +521,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttribL1i64vNV(UInt32 index, Int64* v);
+			internal unsafe delegate void glVertexAttribL1i64vNV(uint index, long* v);
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -529,7 +529,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttribL2i64vNV(UInt32 index, Int64* v);
+			internal unsafe delegate void glVertexAttribL2i64vNV(uint index, long* v);
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -537,7 +537,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttribL3i64vNV(UInt32 index, Int64* v);
+			internal unsafe delegate void glVertexAttribL3i64vNV(uint index, long* v);
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -545,7 +545,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttribL4i64vNV(UInt32 index, Int64* v);
+			internal unsafe delegate void glVertexAttribL4i64vNV(uint index, long* v);
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -553,7 +553,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glVertexAttribL1ui64NV(UInt32 index, UInt64 x);
+			internal delegate void glVertexAttribL1ui64NV(uint index, ulong x);
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -561,7 +561,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glVertexAttribL2ui64NV(UInt32 index, UInt64 x, UInt64 y);
+			internal delegate void glVertexAttribL2ui64NV(uint index, ulong x, ulong y);
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -569,7 +569,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glVertexAttribL3ui64NV(UInt32 index, UInt64 x, UInt64 y, UInt64 z);
+			internal delegate void glVertexAttribL3ui64NV(uint index, ulong x, ulong y, ulong z);
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -577,7 +577,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glVertexAttribL4ui64NV(UInt32 index, UInt64 x, UInt64 y, UInt64 z, UInt64 w);
+			internal delegate void glVertexAttribL4ui64NV(uint index, ulong x, ulong y, ulong z, ulong w);
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -585,7 +585,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttribL1ui64vNV(UInt32 index, UInt64* v);
+			internal unsafe delegate void glVertexAttribL1ui64vNV(uint index, ulong* v);
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -593,7 +593,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttribL2ui64vNV(UInt32 index, UInt64* v);
+			internal unsafe delegate void glVertexAttribL2ui64vNV(uint index, ulong* v);
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -601,7 +601,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttribL3ui64vNV(UInt32 index, UInt64* v);
+			internal unsafe delegate void glVertexAttribL3ui64vNV(uint index, ulong* v);
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -609,7 +609,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttribL4ui64vNV(UInt32 index, UInt64* v);
+			internal unsafe delegate void glVertexAttribL4ui64vNV(uint index, ulong* v);
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -617,7 +617,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetVertexAttribLi64vNV(UInt32 index, Int32 pname, Int64* @params);
+			internal unsafe delegate void glGetVertexAttribLi64vNV(uint index, int pname, long* @params);
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -625,7 +625,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetVertexAttribLui64vNV(UInt32 index, Int32 pname, UInt64* @params);
+			internal unsafe delegate void glGetVertexAttribLui64vNV(uint index, int pname, ulong* @params);
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -633,7 +633,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glVertexAttribLFormatNV(UInt32 index, Int32 size, Int32 type, Int32 stride);
+			internal delegate void glVertexAttribLFormatNV(uint index, int size, int type, int stride);
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
 			[ThreadStatic]

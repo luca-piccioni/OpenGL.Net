@@ -85,13 +85,13 @@ namespace OpenGL
 		/// [GL] glVertexArrayRangeAPPLE: Binding for glVertexArrayRangeAPPLE.
 		/// </summary>
 		/// <param name="length">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_APPLE_vertex_array_range")]
-		public static void VertexArrayRangeAPPLE(Int32 length, IntPtr pointer)
+		public static void VertexArrayRangeAPPLE(int length, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglVertexArrayRangeAPPLE != null, "pglVertexArrayRangeAPPLE not implemented");
 			Delegates.pglVertexArrayRangeAPPLE(length, pointer);
@@ -103,13 +103,13 @@ namespace OpenGL
 		/// [GL] glFlushVertexArrayRangeAPPLE: Binding for glFlushVertexArrayRangeAPPLE.
 		/// </summary>
 		/// <param name="length">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_APPLE_vertex_array_range")]
-		public static void FlushVertexArrayRangeAPPLE(Int32 length, IntPtr pointer)
+		public static void FlushVertexArrayRangeAPPLE(int length, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglFlushVertexArrayRangeAPPLE != null, "pglFlushVertexArrayRangeAPPLE not implemented");
 			Delegates.pglFlushVertexArrayRangeAPPLE(length, pointer);
@@ -121,13 +121,13 @@ namespace OpenGL
 		/// [GL] glVertexArrayParameteriAPPLE: Binding for glVertexArrayParameteriAPPLE.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="param">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_APPLE_vertex_array_range")]
-		public static void VertexArrayParameterAPPLE(Int32 pname, Int32 param)
+		public static void VertexArrayParameterAPPLE(int pname, int param)
 		{
 			Debug.Assert(Delegates.pglVertexArrayParameteriAPPLE != null, "pglVertexArrayParameteriAPPLE not implemented");
 			Delegates.pglVertexArrayParameteriAPPLE(pname, param);
@@ -139,7 +139,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_APPLE_vertex_array_range")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexArrayRangeAPPLE(Int32 length, IntPtr pointer);
+			internal unsafe delegate void glVertexArrayRangeAPPLE(int length, IntPtr pointer);
 
 			[RequiredByFeature("GL_APPLE_vertex_array_range")]
 			[ThreadStatic]
@@ -147,7 +147,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_APPLE_vertex_array_range")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glFlushVertexArrayRangeAPPLE(Int32 length, IntPtr pointer);
+			internal unsafe delegate void glFlushVertexArrayRangeAPPLE(int length, IntPtr pointer);
 
 			[RequiredByFeature("GL_APPLE_vertex_array_range")]
 			[ThreadStatic]
@@ -155,7 +155,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_APPLE_vertex_array_range")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glVertexArrayParameteriAPPLE(Int32 pname, Int32 param);
+			internal delegate void glVertexArrayParameteriAPPLE(int pname, int param);
 
 			[RequiredByFeature("GL_APPLE_vertex_array_range")]
 			[ThreadStatic]

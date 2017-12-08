@@ -59,10 +59,10 @@ namespace OpenGL
 		/// [GL] glProgramNamedParameter4fNV: Binding for glProgramNamedParameter4fNV.
 		/// </summary>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="len">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="name">
 		/// A <see cref="T:byte[]"/>.
@@ -80,7 +80,7 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_fragment_program")]
-		public static void ProgramNamedParameter4NV(UInt32 id, Int32 len, byte[] name, float x, float y, float z, float w)
+		public static void ProgramNamedParameter4NV(uint id, int len, byte[] name, float x, float y, float z, float w)
 		{
 			Debug.Assert(name.Length >= 1);
 			unsafe {
@@ -98,10 +98,10 @@ namespace OpenGL
 		/// [GL] glProgramNamedParameter4fvNV: Binding for glProgramNamedParameter4fvNV.
 		/// </summary>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="len">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="name">
 		/// A <see cref="T:byte[]"/>.
@@ -110,7 +110,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_fragment_program")]
-		public static void ProgramNamedParameter4NV(UInt32 id, Int32 len, byte[] name, float[] v)
+		public static void ProgramNamedParameter4NV(uint id, int len, byte[] name, float[] v)
 		{
 			Debug.Assert(name.Length >= 1);
 			Debug.Assert(v.Length >= 4);
@@ -130,10 +130,10 @@ namespace OpenGL
 		/// [GL] glProgramNamedParameter4dNV: Binding for glProgramNamedParameter4dNV.
 		/// </summary>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="len">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="name">
 		/// A <see cref="T:byte[]"/>.
@@ -151,7 +151,7 @@ namespace OpenGL
 		/// A <see cref="T:double"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_fragment_program")]
-		public static void ProgramNamedParameter4NV(UInt32 id, Int32 len, byte[] name, double x, double y, double z, double w)
+		public static void ProgramNamedParameter4NV(uint id, int len, byte[] name, double x, double y, double z, double w)
 		{
 			Debug.Assert(name.Length >= 1);
 			unsafe {
@@ -169,10 +169,10 @@ namespace OpenGL
 		/// [GL] glProgramNamedParameter4dvNV: Binding for glProgramNamedParameter4dvNV.
 		/// </summary>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="len">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="name">
 		/// A <see cref="T:byte[]"/>.
@@ -181,7 +181,7 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_fragment_program")]
-		public static void ProgramNamedParameter4NV(UInt32 id, Int32 len, byte[] name, double[] v)
+		public static void ProgramNamedParameter4NV(uint id, int len, byte[] name, double[] v)
 		{
 			Debug.Assert(name.Length >= 1);
 			Debug.Assert(v.Length >= 4);
@@ -201,10 +201,10 @@ namespace OpenGL
 		/// [GL] glGetProgramNamedParameterfvNV: Binding for glGetProgramNamedParameterfvNV.
 		/// </summary>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="len">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="name">
 		/// A <see cref="T:byte[]"/>.
@@ -213,7 +213,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_fragment_program")]
-		public static void GetProgramNamedParameterNV(UInt32 id, Int32 len, byte[] name, [Out] float[] @params)
+		public static void GetProgramNamedParameterNV(uint id, int len, byte[] name, [Out] float[] @params)
 		{
 			Debug.Assert(name.Length >= 1);
 			Debug.Assert(@params.Length >= 4);
@@ -233,10 +233,10 @@ namespace OpenGL
 		/// [GL] glGetProgramNamedParameterdvNV: Binding for glGetProgramNamedParameterdvNV.
 		/// </summary>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="len">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="name">
 		/// A <see cref="T:byte[]"/>.
@@ -245,7 +245,7 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_fragment_program")]
-		public static void GetProgramNamedParameterNV(UInt32 id, Int32 len, byte[] name, [Out] double[] @params)
+		public static void GetProgramNamedParameterNV(uint id, int len, byte[] name, [Out] double[] @params)
 		{
 			Debug.Assert(name.Length >= 1);
 			Debug.Assert(@params.Length >= 4);
@@ -265,7 +265,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_NV_fragment_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramNamedParameter4fNV(UInt32 id, Int32 len, byte* name, float x, float y, float z, float w);
+			internal unsafe delegate void glProgramNamedParameter4fNV(uint id, int len, byte* name, float x, float y, float z, float w);
 
 			[RequiredByFeature("GL_NV_fragment_program")]
 			[ThreadStatic]
@@ -273,7 +273,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_fragment_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramNamedParameter4fvNV(UInt32 id, Int32 len, byte* name, float* v);
+			internal unsafe delegate void glProgramNamedParameter4fvNV(uint id, int len, byte* name, float* v);
 
 			[RequiredByFeature("GL_NV_fragment_program")]
 			[ThreadStatic]
@@ -281,7 +281,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_fragment_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramNamedParameter4dNV(UInt32 id, Int32 len, byte* name, double x, double y, double z, double w);
+			internal unsafe delegate void glProgramNamedParameter4dNV(uint id, int len, byte* name, double x, double y, double z, double w);
 
 			[RequiredByFeature("GL_NV_fragment_program")]
 			[ThreadStatic]
@@ -289,7 +289,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_fragment_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramNamedParameter4dvNV(UInt32 id, Int32 len, byte* name, double* v);
+			internal unsafe delegate void glProgramNamedParameter4dvNV(uint id, int len, byte* name, double* v);
 
 			[RequiredByFeature("GL_NV_fragment_program")]
 			[ThreadStatic]
@@ -297,7 +297,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_fragment_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetProgramNamedParameterfvNV(UInt32 id, Int32 len, byte* name, float* @params);
+			internal unsafe delegate void glGetProgramNamedParameterfvNV(uint id, int len, byte* name, float* @params);
 
 			[RequiredByFeature("GL_NV_fragment_program")]
 			[ThreadStatic]
@@ -305,7 +305,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_fragment_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetProgramNamedParameterdvNV(UInt32 id, Int32 len, byte* name, double* @params);
+			internal unsafe delegate void glGetProgramNamedParameterdvNV(uint id, int len, byte* name, double* @params);
 
 			[RequiredByFeature("GL_NV_fragment_program")]
 			[ThreadStatic]

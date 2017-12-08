@@ -95,10 +95,10 @@ namespace OpenGL
 		/// [GL] glApplyTextureEXT: Binding for glApplyTextureEXT.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_light_texture")]
-		public static void ApplyTextureEXT(Int32 mode)
+		public static void ApplyTextureEXT(int mode)
 		{
 			Debug.Assert(Delegates.pglApplyTextureEXT != null, "pglApplyTextureEXT not implemented");
 			Delegates.pglApplyTextureEXT(mode);
@@ -110,10 +110,10 @@ namespace OpenGL
 		/// [GL] glTextureLightEXT: Binding for glTextureLightEXT.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_light_texture")]
-		public static void TextureLightEXT(Int32 pname)
+		public static void TextureLightEXT(int pname)
 		{
 			Debug.Assert(Delegates.pglTextureLightEXT != null, "pglTextureLightEXT not implemented");
 			Delegates.pglTextureLightEXT(pname);
@@ -134,7 +134,7 @@ namespace OpenGL
 		public static void TextureMaterialEXT(MaterialFace face, MaterialParameter mode)
 		{
 			Debug.Assert(Delegates.pglTextureMaterialEXT != null, "pglTextureMaterialEXT not implemented");
-			Delegates.pglTextureMaterialEXT((Int32)face, (Int32)mode);
+			Delegates.pglTextureMaterialEXT((int)face, (int)mode);
 			LogCommand("glTextureMaterialEXT", null, face, mode			);
 			DebugCheckErrors(null);
 		}
@@ -143,7 +143,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_EXT_light_texture")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glApplyTextureEXT(Int32 mode);
+			internal delegate void glApplyTextureEXT(int mode);
 
 			[RequiredByFeature("GL_EXT_light_texture")]
 			[ThreadStatic]
@@ -151,7 +151,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_light_texture")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTextureLightEXT(Int32 pname);
+			internal delegate void glTextureLightEXT(int pname);
 
 			[RequiredByFeature("GL_EXT_light_texture")]
 			[ThreadStatic]
@@ -159,7 +159,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_light_texture")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTextureMaterialEXT(Int32 face, Int32 mode);
+			internal delegate void glTextureMaterialEXT(int face, int mode);
 
 			[RequiredByFeature("GL_EXT_light_texture")]
 			[ThreadStatic]

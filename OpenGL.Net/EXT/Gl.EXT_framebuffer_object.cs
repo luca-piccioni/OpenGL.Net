@@ -58,13 +58,13 @@ namespace OpenGL
 		/// A <see cref="T:RenderbufferTarget"/>.
 		/// </param>
 		/// <param name="renderbuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_framebuffer_object")]
-		public static void BindRenderbufferEXT(RenderbufferTarget target, UInt32 renderbuffer)
+		public static void BindRenderbufferEXT(RenderbufferTarget target, uint renderbuffer)
 		{
 			Debug.Assert(Delegates.pglBindRenderbufferEXT != null, "pglBindRenderbufferEXT not implemented");
-			Delegates.pglBindRenderbufferEXT((Int32)target, renderbuffer);
+			Delegates.pglBindRenderbufferEXT((int)target, renderbuffer);
 			LogCommand("glBindRenderbufferEXT", null, target, renderbuffer			);
 			DebugCheckErrors(null);
 		}
@@ -76,13 +76,13 @@ namespace OpenGL
 		/// A <see cref="T:FramebufferTarget"/>.
 		/// </param>
 		/// <param name="framebuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_framebuffer_object")]
-		public static void BindFramebufferEXT(FramebufferTarget target, UInt32 framebuffer)
+		public static void BindFramebufferEXT(FramebufferTarget target, uint framebuffer)
 		{
 			Debug.Assert(Delegates.pglBindFramebufferEXT != null, "pglBindFramebufferEXT not implemented");
-			Delegates.pglBindFramebufferEXT((Int32)target, framebuffer);
+			Delegates.pglBindFramebufferEXT((int)target, framebuffer);
 			LogCommand("glBindFramebufferEXT", null, target, framebuffer			);
 			DebugCheckErrors(null);
 		}
@@ -91,7 +91,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_EXT_framebuffer_object")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glBindRenderbufferEXT(Int32 target, UInt32 renderbuffer);
+			internal delegate void glBindRenderbufferEXT(int target, uint renderbuffer);
 
 			[RequiredByFeature("GL_EXT_framebuffer_object")]
 			[ThreadStatic]
@@ -99,7 +99,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_framebuffer_object")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glBindFramebufferEXT(Int32 target, UInt32 framebuffer);
+			internal delegate void glBindFramebufferEXT(int target, uint framebuffer);
 
 			[RequiredByFeature("GL_EXT_framebuffer_object")]
 			[ThreadStatic]

@@ -93,22 +93,22 @@ namespace OpenGL
 		/// A <see cref="T:FramebufferTarget"/>.
 		/// </param>
 		/// <param name="start">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_sample_locations", Api = "gl|glcore")]
-		public static void FramebufferSampleLocationARB(FramebufferTarget target, UInt32 start, Int32 count, float[] v)
+		public static void FramebufferSampleLocationARB(FramebufferTarget target, uint start, int count, float[] v)
 		{
 			unsafe {
 				fixed (float* p_v = v)
 				{
 					Debug.Assert(Delegates.pglFramebufferSampleLocationsfvARB != null, "pglFramebufferSampleLocationsfvARB not implemented");
-					Delegates.pglFramebufferSampleLocationsfvARB((Int32)target, start, count, p_v);
+					Delegates.pglFramebufferSampleLocationsfvARB((int)target, start, count, p_v);
 					LogCommand("glFramebufferSampleLocationsfvARB", null, target, start, count, v					);
 				}
 			}
@@ -119,19 +119,19 @@ namespace OpenGL
 		/// [GL] glNamedFramebufferSampleLocationsfvARB: Binding for glNamedFramebufferSampleLocationsfvARB.
 		/// </summary>
 		/// <param name="framebuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="start">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_sample_locations", Api = "gl|glcore")]
-		public static void NamedFramebufferSampleLocationARB(UInt32 framebuffer, UInt32 start, Int32 count, float[] v)
+		public static void NamedFramebufferSampleLocationARB(uint framebuffer, uint start, int count, float[] v)
 		{
 			unsafe {
 				fixed (float* p_v = v)
@@ -160,7 +160,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_ARB_sample_locations", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glFramebufferSampleLocationsfvARB(Int32 target, UInt32 start, Int32 count, float* v);
+			internal unsafe delegate void glFramebufferSampleLocationsfvARB(int target, uint start, int count, float* v);
 
 			[RequiredByFeature("GL_ARB_sample_locations", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -168,7 +168,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_sample_locations", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glNamedFramebufferSampleLocationsfvARB(UInt32 framebuffer, UInt32 start, Int32 count, float* v);
+			internal unsafe delegate void glNamedFramebufferSampleLocationsfvARB(uint framebuffer, uint start, int count, float* v);
 
 			[RequiredByFeature("GL_ARB_sample_locations", Api = "gl|glcore")]
 			[ThreadStatic]

@@ -68,10 +68,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="uState">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("WGL_3DL_stereo_control")]
-		public static bool SetStereoEmitter3DL(IntPtr hDC, UInt32 uState)
+		public static bool SetStereoEmitter3DL(IntPtr hDC, uint uState)
 		{
 			bool retValue;
 
@@ -87,7 +87,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("WGL_3DL_stereo_control")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglSetStereoEmitterState3DL(IntPtr hDC, UInt32 uState);
+			internal unsafe delegate bool wglSetStereoEmitterState3DL(IntPtr hDC, uint uState);
 
 			[RequiredByFeature("WGL_3DL_stereo_control")]
 			internal static wglSetStereoEmitterState3DL pwglSetStereoEmitterState3DL;

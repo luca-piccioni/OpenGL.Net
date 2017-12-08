@@ -65,13 +65,13 @@ namespace OpenGL
 		/// [GL] glSubpixelPrecisionBiasNV: Binding for glSubpixelPrecisionBiasNV.
 		/// </summary>
 		/// <param name="xbits">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="ybits">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_conservative_raster", Api = "gl|glcore|gles2")]
-		public static void SubpixelPrecisionBiasNV(UInt32 xbits, UInt32 ybits)
+		public static void SubpixelPrecisionBiasNV(uint xbits, uint ybits)
 		{
 			Debug.Assert(Delegates.pglSubpixelPrecisionBiasNV != null, "pglSubpixelPrecisionBiasNV not implemented");
 			Delegates.pglSubpixelPrecisionBiasNV(xbits, ybits);
@@ -83,7 +83,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_NV_conservative_raster", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glSubpixelPrecisionBiasNV(UInt32 xbits, UInt32 ybits);
+			internal delegate void glSubpixelPrecisionBiasNV(uint xbits, uint ybits);
 
 			[RequiredByFeature("GL_NV_conservative_raster", Api = "gl|glcore|gles2")]
 			[ThreadStatic]

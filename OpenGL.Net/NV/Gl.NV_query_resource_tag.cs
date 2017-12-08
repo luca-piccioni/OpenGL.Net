@@ -41,16 +41,16 @@ namespace OpenGL
 		/// [GL] glGenQueryResourceTagNV: Binding for glGenQueryResourceTagNV.
 		/// </summary>
 		/// <param name="tagIds">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_query_resource_tag")]
-		public static void GenQueryResourceTagNV(Int32[] tagIds)
+		public static void GenQueryResourceTagNV(int[] tagIds)
 		{
 			unsafe {
-				fixed (Int32* p_tagIds = tagIds)
+				fixed (int* p_tagIds = tagIds)
 				{
 					Debug.Assert(Delegates.pglGenQueryResourceTagNV != null, "pglGenQueryResourceTagNV not implemented");
-					Delegates.pglGenQueryResourceTagNV((Int32)tagIds.Length, p_tagIds);
+					Delegates.pglGenQueryResourceTagNV(tagIds.Length, p_tagIds);
 					LogCommand("glGenQueryResourceTagNV", null, tagIds.Length, tagIds					);
 				}
 			}
@@ -61,9 +61,9 @@ namespace OpenGL
 		/// [GL] glGenQueryResourceTagNV: Binding for glGenQueryResourceTagNV.
 		/// </summary>
 		[RequiredByFeature("GL_NV_query_resource_tag")]
-		public static Int32 GenQueryResourceTagNV()
+		public static int GenQueryResourceTagNV()
 		{
-			Int32 retValue;
+			int retValue;
 			unsafe {
 				Delegates.pglGenQueryResourceTagNV(1, &retValue);
 				LogCommand("glGenQueryResourceTagNV", null, 1, "{ " + retValue + " }"				);
@@ -76,16 +76,16 @@ namespace OpenGL
 		/// [GL] glDeleteQueryResourceTagNV: Binding for glDeleteQueryResourceTagNV.
 		/// </summary>
 		/// <param name="tagIds">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_query_resource_tag")]
-		public static void DeleteQueryResourceTagNV(Int32[] tagIds)
+		public static void DeleteQueryResourceTagNV(int[] tagIds)
 		{
 			unsafe {
-				fixed (Int32* p_tagIds = tagIds)
+				fixed (int* p_tagIds = tagIds)
 				{
 					Debug.Assert(Delegates.pglDeleteQueryResourceTagNV != null, "pglDeleteQueryResourceTagNV not implemented");
-					Delegates.pglDeleteQueryResourceTagNV((Int32)tagIds.Length, p_tagIds);
+					Delegates.pglDeleteQueryResourceTagNV(tagIds.Length, p_tagIds);
 					LogCommand("glDeleteQueryResourceTagNV", null, tagIds.Length, tagIds					);
 				}
 			}
@@ -96,13 +96,13 @@ namespace OpenGL
 		/// [GL] glQueryResourceTagNV: Binding for glQueryResourceTagNV.
 		/// </summary>
 		/// <param name="tagId">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="tagString">
 		/// A <see cref="T:String"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_query_resource_tag")]
-		public static void QueryResourceTagNV(Int32 tagId, String tagString)
+		public static void QueryResourceTagNV(int tagId, String tagString)
 		{
 			Debug.Assert(Delegates.pglQueryResourceTagNV != null, "pglQueryResourceTagNV not implemented");
 			Delegates.pglQueryResourceTagNV(tagId, tagString);
@@ -114,7 +114,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_NV_query_resource_tag")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGenQueryResourceTagNV(Int32 n, Int32* tagIds);
+			internal unsafe delegate void glGenQueryResourceTagNV(int n, int* tagIds);
 
 			[RequiredByFeature("GL_NV_query_resource_tag")]
 			[ThreadStatic]
@@ -122,7 +122,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_query_resource_tag")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDeleteQueryResourceTagNV(Int32 n, Int32* tagIds);
+			internal unsafe delegate void glDeleteQueryResourceTagNV(int n, int* tagIds);
 
 			[RequiredByFeature("GL_NV_query_resource_tag")]
 			[ThreadStatic]
@@ -130,7 +130,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_query_resource_tag")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glQueryResourceTagNV(Int32 tagId, String tagString);
+			internal delegate void glQueryResourceTagNV(int tagId, String tagString);
 
 			[RequiredByFeature("GL_NV_query_resource_tag")]
 			[ThreadStatic]

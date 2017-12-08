@@ -996,12 +996,12 @@ namespace OpenGL
 		/// [GL] glGenPathsNV: Binding for glGenPathsNV.
 		/// </summary>
 		/// <param name="range">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static UInt32 GenPathsNV(Int32 range)
+		public static uint GenPathsNV(int range)
 		{
-			UInt32 retValue;
+			uint retValue;
 
 			Debug.Assert(Delegates.pglGenPathsNV != null, "pglGenPathsNV not implemented");
 			retValue = Delegates.pglGenPathsNV(range);
@@ -1015,13 +1015,13 @@ namespace OpenGL
 		/// [GL] glDeletePathsNV: Binding for glDeletePathsNV.
 		/// </summary>
 		/// <param name="path">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="range">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void DeletePathsNV(UInt32 path, Int32 range)
+		public static void DeletePathsNV(uint path, int range)
 		{
 			Debug.Assert(Delegates.pglDeletePathsNV != null, "pglDeletePathsNV not implemented");
 			Delegates.pglDeletePathsNV(path, range);
@@ -1033,10 +1033,10 @@ namespace OpenGL
 		/// [GL] glIsPathNV: Binding for glIsPathNV.
 		/// </summary>
 		/// <param name="path">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static bool IsPathNV(UInt32 path)
+		public static bool IsPathNV(uint path)
 		{
 			bool retValue;
 
@@ -1052,25 +1052,25 @@ namespace OpenGL
 		/// [GL] glPathCommandsNV: Binding for glPathCommandsNV.
 		/// </summary>
 		/// <param name="path">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="numCommands">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="commands">
 		/// A <see cref="T:byte[]"/>.
 		/// </param>
 		/// <param name="numCoords">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="coordType">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void PathCommandsNV(UInt32 path, Int32 numCommands, byte[] commands, Int32 numCoords, Int32 coordType, Object coords)
+		public static void PathCommandsNV(uint path, int numCommands, byte[] commands, int numCoords, int coordType, Object coords)
 		{
 			GCHandle pin_coords = GCHandle.Alloc(coords, GCHandleType.Pinned);
 			try {
@@ -1084,28 +1084,28 @@ namespace OpenGL
 		/// [GL] glPathCommandsNV: Binding for glPathCommandsNV.
 		/// </summary>
 		/// <param name="path">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="commands">
 		/// A <see cref="T:byte[]"/>.
 		/// </param>
 		/// <param name="numCoords">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="coordType">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void PathCommandsNV(UInt32 path, byte[] commands, Int32 numCoords, Int32 coordType, IntPtr coords)
+		public static void PathCommandsNV(uint path, byte[] commands, int numCoords, int coordType, IntPtr coords)
 		{
 			unsafe {
 				fixed (byte* p_commands = commands)
 				{
 					Debug.Assert(Delegates.pglPathCommandsNV != null, "pglPathCommandsNV not implemented");
-					Delegates.pglPathCommandsNV(path, (Int32)commands.Length, p_commands, numCoords, coordType, coords);
+					Delegates.pglPathCommandsNV(path, commands.Length, p_commands, numCoords, coordType, coords);
 					LogCommand("glPathCommandsNV", null, path, commands.Length, commands, numCoords, coordType, coords					);
 				}
 			}
@@ -1116,19 +1116,19 @@ namespace OpenGL
 		/// [GL] glPathCoordsNV: Binding for glPathCoordsNV.
 		/// </summary>
 		/// <param name="path">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="numCoords">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="coordType">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void PathCoordsNV(UInt32 path, Int32 numCoords, Int32 coordType, IntPtr coords)
+		public static void PathCoordsNV(uint path, int numCoords, int coordType, IntPtr coords)
 		{
 			Debug.Assert(Delegates.pglPathCoordsNV != null, "pglPathCoordsNV not implemented");
 			Delegates.pglPathCoordsNV(path, numCoords, coordType, coords);
@@ -1140,19 +1140,19 @@ namespace OpenGL
 		/// [GL] glPathCoordsNV: Binding for glPathCoordsNV.
 		/// </summary>
 		/// <param name="path">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="numCoords">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="coordType">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void PathCoordsNV(UInt32 path, Int32 numCoords, Int32 coordType, Object coords)
+		public static void PathCoordsNV(uint path, int numCoords, int coordType, Object coords)
 		{
 			GCHandle pin_coords = GCHandle.Alloc(coords, GCHandleType.Pinned);
 			try {
@@ -1166,31 +1166,31 @@ namespace OpenGL
 		/// [GL] glPathSubCommandsNV: Binding for glPathSubCommandsNV.
 		/// </summary>
 		/// <param name="path">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="commandStart">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="commandsToDelete">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="numCommands">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="commands">
 		/// A <see cref="T:byte[]"/>.
 		/// </param>
 		/// <param name="numCoords">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="coordType">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void PathSubCommandsNV(UInt32 path, Int32 commandStart, Int32 commandsToDelete, Int32 numCommands, byte[] commands, Int32 numCoords, Int32 coordType, Object coords)
+		public static void PathSubCommandsNV(uint path, int commandStart, int commandsToDelete, int numCommands, byte[] commands, int numCoords, int coordType, Object coords)
 		{
 			GCHandle pin_coords = GCHandle.Alloc(coords, GCHandleType.Pinned);
 			try {
@@ -1204,34 +1204,34 @@ namespace OpenGL
 		/// [GL] glPathSubCommandsNV: Binding for glPathSubCommandsNV.
 		/// </summary>
 		/// <param name="path">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="commandStart">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="commandsToDelete">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="commands">
 		/// A <see cref="T:byte[]"/>.
 		/// </param>
 		/// <param name="numCoords">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="coordType">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void PathSubCommandsNV(UInt32 path, Int32 commandStart, Int32 commandsToDelete, byte[] commands, Int32 numCoords, Int32 coordType, IntPtr coords)
+		public static void PathSubCommandsNV(uint path, int commandStart, int commandsToDelete, byte[] commands, int numCoords, int coordType, IntPtr coords)
 		{
 			unsafe {
 				fixed (byte* p_commands = commands)
 				{
 					Debug.Assert(Delegates.pglPathSubCommandsNV != null, "pglPathSubCommandsNV not implemented");
-					Delegates.pglPathSubCommandsNV(path, commandStart, commandsToDelete, (Int32)commands.Length, p_commands, numCoords, coordType, coords);
+					Delegates.pglPathSubCommandsNV(path, commandStart, commandsToDelete, commands.Length, p_commands, numCoords, coordType, coords);
 					LogCommand("glPathSubCommandsNV", null, path, commandStart, commandsToDelete, commands.Length, commands, numCoords, coordType, coords					);
 				}
 			}
@@ -1242,22 +1242,22 @@ namespace OpenGL
 		/// [GL] glPathSubCoordsNV: Binding for glPathSubCoordsNV.
 		/// </summary>
 		/// <param name="path">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="coordStart">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="numCoords">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="coordType">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void PathSubCoordNV(UInt32 path, Int32 coordStart, Int32 numCoords, Int32 coordType, IntPtr coords)
+		public static void PathSubCoordNV(uint path, int coordStart, int numCoords, int coordType, IntPtr coords)
 		{
 			Debug.Assert(Delegates.pglPathSubCoordsNV != null, "pglPathSubCoordsNV not implemented");
 			Delegates.pglPathSubCoordsNV(path, coordStart, numCoords, coordType, coords);
@@ -1269,22 +1269,22 @@ namespace OpenGL
 		/// [GL] glPathSubCoordsNV: Binding for glPathSubCoordsNV.
 		/// </summary>
 		/// <param name="path">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="coordStart">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="numCoords">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="coordType">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void PathSubCoordNV(UInt32 path, Int32 coordStart, Int32 numCoords, Int32 coordType, Object coords)
+		public static void PathSubCoordNV(uint path, int coordStart, int numCoords, int coordType, Object coords)
 		{
 			GCHandle pin_coords = GCHandle.Alloc(coords, GCHandleType.Pinned);
 			try {
@@ -1298,22 +1298,22 @@ namespace OpenGL
 		/// [GL] glPathStringNV: Binding for glPathStringNV.
 		/// </summary>
 		/// <param name="path">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PathStringFormat"/>.
 		/// </param>
 		/// <param name="length">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pathString">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void PathStringNV(UInt32 path, PathStringFormat format, Int32 length, IntPtr pathString)
+		public static void PathStringNV(uint path, PathStringFormat format, int length, IntPtr pathString)
 		{
 			Debug.Assert(Delegates.pglPathStringNV != null, "pglPathStringNV not implemented");
-			Delegates.pglPathStringNV(path, (Int32)format, length, pathString);
+			Delegates.pglPathStringNV(path, (int)format, length, pathString);
 			LogCommand("glPathStringNV", null, path, format, length, pathString			);
 			DebugCheckErrors(null);
 		}
@@ -1322,19 +1322,19 @@ namespace OpenGL
 		/// [GL] glPathStringNV: Binding for glPathStringNV.
 		/// </summary>
 		/// <param name="path">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PathStringFormat"/>.
 		/// </param>
 		/// <param name="length">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pathString">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void PathStringNV(UInt32 path, PathStringFormat format, Int32 length, Object pathString)
+		public static void PathStringNV(uint path, PathStringFormat format, int length, Object pathString)
 		{
 			GCHandle pin_pathString = GCHandle.Alloc(pathString, GCHandleType.Pinned);
 			try {
@@ -1348,7 +1348,7 @@ namespace OpenGL
 		/// [GL] glPathGlyphsNV: Binding for glPathGlyphsNV.
 		/// </summary>
 		/// <param name="firstPathName">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="fontTarget">
 		/// A <see cref="T:PathFontTarget"/>.
@@ -1360,7 +1360,7 @@ namespace OpenGL
 		/// A <see cref="T:PathFontStyle"/>.
 		/// </param>
 		/// <param name="numGlyphs">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="type">
 		/// A <see cref="T:PathElementType"/>.
@@ -1372,16 +1372,16 @@ namespace OpenGL
 		/// A <see cref="T:PathHandleMissingGlyphs"/>.
 		/// </param>
 		/// <param name="pathParameterTemplate">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="emScale">
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void PathGlyphsNV(UInt32 firstPathName, PathFontTarget fontTarget, IntPtr fontName, PathFontStyle fontStyle, Int32 numGlyphs, PathElementType type, IntPtr charcodes, PathHandleMissingGlyphs handleMissingGlyphs, UInt32 pathParameterTemplate, float emScale)
+		public static void PathGlyphsNV(uint firstPathName, PathFontTarget fontTarget, IntPtr fontName, PathFontStyle fontStyle, int numGlyphs, PathElementType type, IntPtr charcodes, PathHandleMissingGlyphs handleMissingGlyphs, uint pathParameterTemplate, float emScale)
 		{
 			Debug.Assert(Delegates.pglPathGlyphsNV != null, "pglPathGlyphsNV not implemented");
-			Delegates.pglPathGlyphsNV(firstPathName, (Int32)fontTarget, fontName, (UInt32)fontStyle, numGlyphs, (Int32)type, charcodes, (Int32)handleMissingGlyphs, pathParameterTemplate, emScale);
+			Delegates.pglPathGlyphsNV(firstPathName, (int)fontTarget, fontName, (uint)fontStyle, numGlyphs, (int)type, charcodes, (int)handleMissingGlyphs, pathParameterTemplate, emScale);
 			LogCommand("glPathGlyphsNV", null, firstPathName, fontTarget, fontName, fontStyle, numGlyphs, type, charcodes, handleMissingGlyphs, pathParameterTemplate, emScale			);
 			DebugCheckErrors(null);
 		}
@@ -1390,7 +1390,7 @@ namespace OpenGL
 		/// [GL] glPathGlyphsNV: Binding for glPathGlyphsNV.
 		/// </summary>
 		/// <param name="firstPathName">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="fontTarget">
 		/// A <see cref="T:PathFontTarget"/>.
@@ -1402,7 +1402,7 @@ namespace OpenGL
 		/// A <see cref="T:PathFontStyle"/>.
 		/// </param>
 		/// <param name="numGlyphs">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="type">
 		/// A <see cref="T:PathElementType"/>.
@@ -1414,13 +1414,13 @@ namespace OpenGL
 		/// A <see cref="T:PathHandleMissingGlyphs"/>.
 		/// </param>
 		/// <param name="pathParameterTemplate">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="emScale">
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void PathGlyphsNV(UInt32 firstPathName, PathFontTarget fontTarget, Object fontName, PathFontStyle fontStyle, Int32 numGlyphs, PathElementType type, Object charcodes, PathHandleMissingGlyphs handleMissingGlyphs, UInt32 pathParameterTemplate, float emScale)
+		public static void PathGlyphsNV(uint firstPathName, PathFontTarget fontTarget, Object fontName, PathFontStyle fontStyle, int numGlyphs, PathElementType type, Object charcodes, PathHandleMissingGlyphs handleMissingGlyphs, uint pathParameterTemplate, float emScale)
 		{
 			GCHandle pin_fontName = GCHandle.Alloc(fontName, GCHandleType.Pinned);
 			GCHandle pin_charcodes = GCHandle.Alloc(charcodes, GCHandleType.Pinned);
@@ -1436,7 +1436,7 @@ namespace OpenGL
 		/// [GL] glPathGlyphRangeNV: Binding for glPathGlyphRangeNV.
 		/// </summary>
 		/// <param name="firstPathName">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="fontTarget">
 		/// A <see cref="T:PathFontTarget"/>.
@@ -1448,25 +1448,25 @@ namespace OpenGL
 		/// A <see cref="T:PathFontStyle"/>.
 		/// </param>
 		/// <param name="firstGlyph">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="numGlyphs">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="handleMissingGlyphs">
 		/// A <see cref="T:PathHandleMissingGlyphs"/>.
 		/// </param>
 		/// <param name="pathParameterTemplate">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="emScale">
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void PathGlyphRangeNV(UInt32 firstPathName, PathFontTarget fontTarget, IntPtr fontName, PathFontStyle fontStyle, UInt32 firstGlyph, Int32 numGlyphs, PathHandleMissingGlyphs handleMissingGlyphs, UInt32 pathParameterTemplate, float emScale)
+		public static void PathGlyphRangeNV(uint firstPathName, PathFontTarget fontTarget, IntPtr fontName, PathFontStyle fontStyle, uint firstGlyph, int numGlyphs, PathHandleMissingGlyphs handleMissingGlyphs, uint pathParameterTemplate, float emScale)
 		{
 			Debug.Assert(Delegates.pglPathGlyphRangeNV != null, "pglPathGlyphRangeNV not implemented");
-			Delegates.pglPathGlyphRangeNV(firstPathName, (Int32)fontTarget, fontName, (UInt32)fontStyle, firstGlyph, numGlyphs, (Int32)handleMissingGlyphs, pathParameterTemplate, emScale);
+			Delegates.pglPathGlyphRangeNV(firstPathName, (int)fontTarget, fontName, (uint)fontStyle, firstGlyph, numGlyphs, (int)handleMissingGlyphs, pathParameterTemplate, emScale);
 			LogCommand("glPathGlyphRangeNV", null, firstPathName, fontTarget, fontName, fontStyle, firstGlyph, numGlyphs, handleMissingGlyphs, pathParameterTemplate, emScale			);
 			DebugCheckErrors(null);
 		}
@@ -1475,7 +1475,7 @@ namespace OpenGL
 		/// [GL] glPathGlyphRangeNV: Binding for glPathGlyphRangeNV.
 		/// </summary>
 		/// <param name="firstPathName">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="fontTarget">
 		/// A <see cref="T:PathFontTarget"/>.
@@ -1487,22 +1487,22 @@ namespace OpenGL
 		/// A <see cref="T:PathFontStyle"/>.
 		/// </param>
 		/// <param name="firstGlyph">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="numGlyphs">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="handleMissingGlyphs">
 		/// A <see cref="T:PathHandleMissingGlyphs"/>.
 		/// </param>
 		/// <param name="pathParameterTemplate">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="emScale">
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void PathGlyphRangeNV(UInt32 firstPathName, PathFontTarget fontTarget, Object fontName, PathFontStyle fontStyle, UInt32 firstGlyph, Int32 numGlyphs, PathHandleMissingGlyphs handleMissingGlyphs, UInt32 pathParameterTemplate, float emScale)
+		public static void PathGlyphRangeNV(uint firstPathName, PathFontTarget fontTarget, Object fontName, PathFontStyle fontStyle, uint firstGlyph, int numGlyphs, PathHandleMissingGlyphs handleMissingGlyphs, uint pathParameterTemplate, float emScale)
 		{
 			GCHandle pin_fontName = GCHandle.Alloc(fontName, GCHandleType.Pinned);
 			try {
@@ -1516,23 +1516,23 @@ namespace OpenGL
 		/// [GL] glWeightPathsNV: Binding for glWeightPathsNV.
 		/// </summary>
 		/// <param name="resultPath">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="paths">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		/// <param name="weights">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void WeightPathsNV(UInt32 resultPath, UInt32[] paths, float[] weights)
+		public static void WeightPathsNV(uint resultPath, uint[] paths, float[] weights)
 		{
 			unsafe {
-				fixed (UInt32* p_paths = paths)
+				fixed (uint* p_paths = paths)
 				fixed (float* p_weights = weights)
 				{
 					Debug.Assert(Delegates.pglWeightPathsNV != null, "pglWeightPathsNV not implemented");
-					Delegates.pglWeightPathsNV(resultPath, (Int32)paths.Length, p_paths, p_weights);
+					Delegates.pglWeightPathsNV(resultPath, paths.Length, p_paths, p_weights);
 					LogCommand("glWeightPathsNV", null, resultPath, paths.Length, paths, weights					);
 				}
 			}
@@ -1543,13 +1543,13 @@ namespace OpenGL
 		/// [GL] glCopyPathNV: Binding for glCopyPathNV.
 		/// </summary>
 		/// <param name="resultPath">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="srcPath">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void CopyPathNV(UInt32 resultPath, UInt32 srcPath)
+		public static void CopyPathNV(uint resultPath, uint srcPath)
 		{
 			Debug.Assert(Delegates.pglCopyPathNV != null, "pglCopyPathNV not implemented");
 			Delegates.pglCopyPathNV(resultPath, srcPath);
@@ -1561,19 +1561,19 @@ namespace OpenGL
 		/// [GL] glInterpolatePathsNV: Binding for glInterpolatePathsNV.
 		/// </summary>
 		/// <param name="resultPath">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pathA">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pathB">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="weight">
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void InterpolatePathsNV(UInt32 resultPath, UInt32 pathA, UInt32 pathB, float weight)
+		public static void InterpolatePathsNV(uint resultPath, uint pathA, uint pathB, float weight)
 		{
 			Debug.Assert(Delegates.pglInterpolatePathsNV != null, "pglInterpolatePathsNV not implemented");
 			Delegates.pglInterpolatePathsNV(resultPath, pathA, pathB, weight);
@@ -1585,10 +1585,10 @@ namespace OpenGL
 		/// [GL] glTransformPathNV: Binding for glTransformPathNV.
 		/// </summary>
 		/// <param name="resultPath">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="srcPath">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="transformType">
 		/// A <see cref="T:PathTransformType"/>.
@@ -1597,13 +1597,13 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void TransformPathNV(UInt32 resultPath, UInt32 srcPath, PathTransformType transformType, float[] transformValues)
+		public static void TransformPathNV(uint resultPath, uint srcPath, PathTransformType transformType, float[] transformValues)
 		{
 			unsafe {
 				fixed (float* p_transformValues = transformValues)
 				{
 					Debug.Assert(Delegates.pglTransformPathNV != null, "pglTransformPathNV not implemented");
-					Delegates.pglTransformPathNV(resultPath, srcPath, (Int32)transformType, p_transformValues);
+					Delegates.pglTransformPathNV(resultPath, srcPath, (int)transformType, p_transformValues);
 					LogCommand("glTransformPathNV", null, resultPath, srcPath, transformType, transformValues					);
 				}
 			}
@@ -1614,22 +1614,22 @@ namespace OpenGL
 		/// [GL] glPathParameterivNV: Binding for glPathParameterivNV.
 		/// </summary>
 		/// <param name="path">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:PathParameter"/>.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void PathParameterNV(UInt32 path, PathParameter pname, Int32[] value)
+		public static void PathParameterNV(uint path, PathParameter pname, int[] value)
 		{
 			unsafe {
-				fixed (Int32* p_value = value)
+				fixed (int* p_value = value)
 				{
 					Debug.Assert(Delegates.pglPathParameterivNV != null, "pglPathParameterivNV not implemented");
-					Delegates.pglPathParameterivNV(path, (Int32)pname, p_value);
+					Delegates.pglPathParameterivNV(path, (int)pname, p_value);
 					LogCommand("glPathParameterivNV", null, path, pname, value					);
 				}
 			}
@@ -1640,19 +1640,19 @@ namespace OpenGL
 		/// [GL] glPathParameteriNV: Binding for glPathParameteriNV.
 		/// </summary>
 		/// <param name="path">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:PathParameter"/>.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void PathParameterNV(UInt32 path, PathParameter pname, Int32 value)
+		public static void PathParameterNV(uint path, PathParameter pname, int value)
 		{
 			Debug.Assert(Delegates.pglPathParameteriNV != null, "pglPathParameteriNV not implemented");
-			Delegates.pglPathParameteriNV(path, (Int32)pname, value);
+			Delegates.pglPathParameteriNV(path, (int)pname, value);
 			LogCommand("glPathParameteriNV", null, path, pname, value			);
 			DebugCheckErrors(null);
 		}
@@ -1661,7 +1661,7 @@ namespace OpenGL
 		/// [GL] glPathParameterfvNV: Binding for glPathParameterfvNV.
 		/// </summary>
 		/// <param name="path">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:PathParameter"/>.
@@ -1670,13 +1670,13 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void PathParameterNV(UInt32 path, PathParameter pname, float[] value)
+		public static void PathParameterNV(uint path, PathParameter pname, float[] value)
 		{
 			unsafe {
 				fixed (float* p_value = value)
 				{
 					Debug.Assert(Delegates.pglPathParameterfvNV != null, "pglPathParameterfvNV not implemented");
-					Delegates.pglPathParameterfvNV(path, (Int32)pname, p_value);
+					Delegates.pglPathParameterfvNV(path, (int)pname, p_value);
 					LogCommand("glPathParameterfvNV", null, path, pname, value					);
 				}
 			}
@@ -1687,7 +1687,7 @@ namespace OpenGL
 		/// [GL] glPathParameterfNV: Binding for glPathParameterfNV.
 		/// </summary>
 		/// <param name="path">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:PathParameter"/>.
@@ -1696,10 +1696,10 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void PathParameterNV(UInt32 path, PathParameter pname, float value)
+		public static void PathParameterNV(uint path, PathParameter pname, float value)
 		{
 			Debug.Assert(Delegates.pglPathParameterfNV != null, "pglPathParameterfNV not implemented");
-			Delegates.pglPathParameterfNV(path, (Int32)pname, value);
+			Delegates.pglPathParameterfNV(path, (int)pname, value);
 			LogCommand("glPathParameterfNV", null, path, pname, value			);
 			DebugCheckErrors(null);
 		}
@@ -1708,19 +1708,19 @@ namespace OpenGL
 		/// [GL] glPathDashArrayNV: Binding for glPathDashArrayNV.
 		/// </summary>
 		/// <param name="path">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="dashArray">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void PathDashArrayNV(UInt32 path, float[] dashArray)
+		public static void PathDashArrayNV(uint path, float[] dashArray)
 		{
 			unsafe {
 				fixed (float* p_dashArray = dashArray)
 				{
 					Debug.Assert(Delegates.pglPathDashArrayNV != null, "pglPathDashArrayNV not implemented");
-					Delegates.pglPathDashArrayNV(path, (Int32)dashArray.Length, p_dashArray);
+					Delegates.pglPathDashArrayNV(path, dashArray.Length, p_dashArray);
 					LogCommand("glPathDashArrayNV", null, path, dashArray.Length, dashArray					);
 				}
 			}
@@ -1734,16 +1734,16 @@ namespace OpenGL
 		/// A <see cref="T:StencilFunction"/>.
 		/// </param>
 		/// <param name="ref">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="mask">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void PathStencilFuncNV(StencilFunction func, Int32 @ref, UInt32 mask)
+		public static void PathStencilFuncNV(StencilFunction func, int @ref, uint mask)
 		{
 			Debug.Assert(Delegates.pglPathStencilFuncNV != null, "pglPathStencilFuncNV not implemented");
-			Delegates.pglPathStencilFuncNV((Int32)func, @ref, mask);
+			Delegates.pglPathStencilFuncNV((int)func, @ref, mask);
 			LogCommand("glPathStencilFuncNV", null, func, @ref, mask			);
 			DebugCheckErrors(null);
 		}
@@ -1770,19 +1770,19 @@ namespace OpenGL
 		/// [GL] glStencilFillPathNV: Binding for glStencilFillPathNV.
 		/// </summary>
 		/// <param name="path">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="fillMode">
 		/// A <see cref="T:PathFillMode"/>.
 		/// </param>
 		/// <param name="mask">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void StencilFillPathNV(UInt32 path, PathFillMode fillMode, UInt32 mask)
+		public static void StencilFillPathNV(uint path, PathFillMode fillMode, uint mask)
 		{
 			Debug.Assert(Delegates.pglStencilFillPathNV != null, "pglStencilFillPathNV not implemented");
-			Delegates.pglStencilFillPathNV(path, (Int32)fillMode, mask);
+			Delegates.pglStencilFillPathNV(path, (int)fillMode, mask);
 			LogCommand("glStencilFillPathNV", null, path, fillMode, mask			);
 			DebugCheckErrors(null);
 		}
@@ -1791,16 +1791,16 @@ namespace OpenGL
 		/// [GL] glStencilStrokePathNV: Binding for glStencilStrokePathNV.
 		/// </summary>
 		/// <param name="path">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="reference">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="mask">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void StencilStrokePathNV(UInt32 path, Int32 reference, UInt32 mask)
+		public static void StencilStrokePathNV(uint path, int reference, uint mask)
 		{
 			Debug.Assert(Delegates.pglStencilStrokePathNV != null, "pglStencilStrokePathNV not implemented");
 			Delegates.pglStencilStrokePathNV(path, reference, mask);
@@ -1812,7 +1812,7 @@ namespace OpenGL
 		/// [GL] glStencilFillPathInstancedNV: Binding for glStencilFillPathInstancedNV.
 		/// </summary>
 		/// <param name="numPaths">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pathNameType">
 		/// A <see cref="T:PathElementType"/>.
@@ -1821,13 +1821,13 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="pathBase">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="fillMode">
 		/// A <see cref="T:PathFillMode"/>.
 		/// </param>
 		/// <param name="mask">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="transformType">
 		/// A <see cref="T:PathTransformType"/>.
@@ -1836,13 +1836,13 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void StencilFillPathInstancedNV(Int32 numPaths, PathElementType pathNameType, IntPtr paths, UInt32 pathBase, PathFillMode fillMode, UInt32 mask, PathTransformType transformType, float[] transformValues)
+		public static void StencilFillPathInstancedNV(int numPaths, PathElementType pathNameType, IntPtr paths, uint pathBase, PathFillMode fillMode, uint mask, PathTransformType transformType, float[] transformValues)
 		{
 			unsafe {
 				fixed (float* p_transformValues = transformValues)
 				{
 					Debug.Assert(Delegates.pglStencilFillPathInstancedNV != null, "pglStencilFillPathInstancedNV not implemented");
-					Delegates.pglStencilFillPathInstancedNV(numPaths, (Int32)pathNameType, paths, pathBase, (Int32)fillMode, mask, (Int32)transformType, p_transformValues);
+					Delegates.pglStencilFillPathInstancedNV(numPaths, (int)pathNameType, paths, pathBase, (int)fillMode, mask, (int)transformType, p_transformValues);
 					LogCommand("glStencilFillPathInstancedNV", null, numPaths, pathNameType, paths, pathBase, fillMode, mask, transformType, transformValues					);
 				}
 			}
@@ -1853,7 +1853,7 @@ namespace OpenGL
 		/// [GL] glStencilFillPathInstancedNV: Binding for glStencilFillPathInstancedNV.
 		/// </summary>
 		/// <param name="numPaths">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pathNameType">
 		/// A <see cref="T:PathElementType"/>.
@@ -1862,13 +1862,13 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="pathBase">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="fillMode">
 		/// A <see cref="T:PathFillMode"/>.
 		/// </param>
 		/// <param name="mask">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="transformType">
 		/// A <see cref="T:PathTransformType"/>.
@@ -1877,7 +1877,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void StencilFillPathInstancedNV(Int32 numPaths, PathElementType pathNameType, Object paths, UInt32 pathBase, PathFillMode fillMode, UInt32 mask, PathTransformType transformType, float[] transformValues)
+		public static void StencilFillPathInstancedNV(int numPaths, PathElementType pathNameType, Object paths, uint pathBase, PathFillMode fillMode, uint mask, PathTransformType transformType, float[] transformValues)
 		{
 			GCHandle pin_paths = GCHandle.Alloc(paths, GCHandleType.Pinned);
 			try {
@@ -1891,7 +1891,7 @@ namespace OpenGL
 		/// [GL] glStencilStrokePathInstancedNV: Binding for glStencilStrokePathInstancedNV.
 		/// </summary>
 		/// <param name="numPaths">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pathNameType">
 		/// A <see cref="T:PathElementType"/>.
@@ -1900,13 +1900,13 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="pathBase">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="reference">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="mask">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="transformType">
 		/// A <see cref="T:PathTransformType"/>.
@@ -1915,13 +1915,13 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void StencilStrokePathInstancedNV(Int32 numPaths, PathElementType pathNameType, IntPtr paths, UInt32 pathBase, Int32 reference, UInt32 mask, PathTransformType transformType, float[] transformValues)
+		public static void StencilStrokePathInstancedNV(int numPaths, PathElementType pathNameType, IntPtr paths, uint pathBase, int reference, uint mask, PathTransformType transformType, float[] transformValues)
 		{
 			unsafe {
 				fixed (float* p_transformValues = transformValues)
 				{
 					Debug.Assert(Delegates.pglStencilStrokePathInstancedNV != null, "pglStencilStrokePathInstancedNV not implemented");
-					Delegates.pglStencilStrokePathInstancedNV(numPaths, (Int32)pathNameType, paths, pathBase, reference, mask, (Int32)transformType, p_transformValues);
+					Delegates.pglStencilStrokePathInstancedNV(numPaths, (int)pathNameType, paths, pathBase, reference, mask, (int)transformType, p_transformValues);
 					LogCommand("glStencilStrokePathInstancedNV", null, numPaths, pathNameType, paths, pathBase, reference, mask, transformType, transformValues					);
 				}
 			}
@@ -1932,7 +1932,7 @@ namespace OpenGL
 		/// [GL] glStencilStrokePathInstancedNV: Binding for glStencilStrokePathInstancedNV.
 		/// </summary>
 		/// <param name="numPaths">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pathNameType">
 		/// A <see cref="T:PathElementType"/>.
@@ -1941,13 +1941,13 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="pathBase">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="reference">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="mask">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="transformType">
 		/// A <see cref="T:PathTransformType"/>.
@@ -1956,7 +1956,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void StencilStrokePathInstancedNV(Int32 numPaths, PathElementType pathNameType, Object paths, UInt32 pathBase, Int32 reference, UInt32 mask, PathTransformType transformType, float[] transformValues)
+		public static void StencilStrokePathInstancedNV(int numPaths, PathElementType pathNameType, Object paths, uint pathBase, int reference, uint mask, PathTransformType transformType, float[] transformValues)
 		{
 			GCHandle pin_paths = GCHandle.Alloc(paths, GCHandleType.Pinned);
 			try {
@@ -1976,7 +1976,7 @@ namespace OpenGL
 		public static void PathCoverDepthFuncNV(DepthFunction func)
 		{
 			Debug.Assert(Delegates.pglPathCoverDepthFuncNV != null, "pglPathCoverDepthFuncNV not implemented");
-			Delegates.pglPathCoverDepthFuncNV((Int32)func);
+			Delegates.pglPathCoverDepthFuncNV((int)func);
 			LogCommand("glPathCoverDepthFuncNV", null, func			);
 			DebugCheckErrors(null);
 		}
@@ -1985,16 +1985,16 @@ namespace OpenGL
 		/// [GL] glCoverFillPathNV: Binding for glCoverFillPathNV.
 		/// </summary>
 		/// <param name="path">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="coverMode">
 		/// A <see cref="T:PathCoverMode"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void CoverFillPathNV(UInt32 path, PathCoverMode coverMode)
+		public static void CoverFillPathNV(uint path, PathCoverMode coverMode)
 		{
 			Debug.Assert(Delegates.pglCoverFillPathNV != null, "pglCoverFillPathNV not implemented");
-			Delegates.pglCoverFillPathNV(path, (Int32)coverMode);
+			Delegates.pglCoverFillPathNV(path, (int)coverMode);
 			LogCommand("glCoverFillPathNV", null, path, coverMode			);
 			DebugCheckErrors(null);
 		}
@@ -2003,16 +2003,16 @@ namespace OpenGL
 		/// [GL] glCoverStrokePathNV: Binding for glCoverStrokePathNV.
 		/// </summary>
 		/// <param name="path">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="coverMode">
 		/// A <see cref="T:PathCoverMode"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void CoverStrokePathNV(UInt32 path, PathCoverMode coverMode)
+		public static void CoverStrokePathNV(uint path, PathCoverMode coverMode)
 		{
 			Debug.Assert(Delegates.pglCoverStrokePathNV != null, "pglCoverStrokePathNV not implemented");
-			Delegates.pglCoverStrokePathNV(path, (Int32)coverMode);
+			Delegates.pglCoverStrokePathNV(path, (int)coverMode);
 			LogCommand("glCoverStrokePathNV", null, path, coverMode			);
 			DebugCheckErrors(null);
 		}
@@ -2021,7 +2021,7 @@ namespace OpenGL
 		/// [GL] glCoverFillPathInstancedNV: Binding for glCoverFillPathInstancedNV.
 		/// </summary>
 		/// <param name="numPaths">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pathNameType">
 		/// A <see cref="T:PathElementType"/>.
@@ -2030,7 +2030,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="pathBase">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="coverMode">
 		/// A <see cref="T:PathCoverMode"/>.
@@ -2042,13 +2042,13 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void CoverFillPathInstancedNV(Int32 numPaths, PathElementType pathNameType, IntPtr paths, UInt32 pathBase, PathCoverMode coverMode, PathTransformType transformType, float[] transformValues)
+		public static void CoverFillPathInstancedNV(int numPaths, PathElementType pathNameType, IntPtr paths, uint pathBase, PathCoverMode coverMode, PathTransformType transformType, float[] transformValues)
 		{
 			unsafe {
 				fixed (float* p_transformValues = transformValues)
 				{
 					Debug.Assert(Delegates.pglCoverFillPathInstancedNV != null, "pglCoverFillPathInstancedNV not implemented");
-					Delegates.pglCoverFillPathInstancedNV(numPaths, (Int32)pathNameType, paths, pathBase, (Int32)coverMode, (Int32)transformType, p_transformValues);
+					Delegates.pglCoverFillPathInstancedNV(numPaths, (int)pathNameType, paths, pathBase, (int)coverMode, (int)transformType, p_transformValues);
 					LogCommand("glCoverFillPathInstancedNV", null, numPaths, pathNameType, paths, pathBase, coverMode, transformType, transformValues					);
 				}
 			}
@@ -2059,7 +2059,7 @@ namespace OpenGL
 		/// [GL] glCoverFillPathInstancedNV: Binding for glCoverFillPathInstancedNV.
 		/// </summary>
 		/// <param name="numPaths">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pathNameType">
 		/// A <see cref="T:PathElementType"/>.
@@ -2068,7 +2068,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="pathBase">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="coverMode">
 		/// A <see cref="T:PathCoverMode"/>.
@@ -2080,7 +2080,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void CoverFillPathInstancedNV(Int32 numPaths, PathElementType pathNameType, Object paths, UInt32 pathBase, PathCoverMode coverMode, PathTransformType transformType, float[] transformValues)
+		public static void CoverFillPathInstancedNV(int numPaths, PathElementType pathNameType, Object paths, uint pathBase, PathCoverMode coverMode, PathTransformType transformType, float[] transformValues)
 		{
 			GCHandle pin_paths = GCHandle.Alloc(paths, GCHandleType.Pinned);
 			try {
@@ -2094,7 +2094,7 @@ namespace OpenGL
 		/// [GL] glCoverStrokePathInstancedNV: Binding for glCoverStrokePathInstancedNV.
 		/// </summary>
 		/// <param name="numPaths">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pathNameType">
 		/// A <see cref="T:PathElementType"/>.
@@ -2103,7 +2103,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="pathBase">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="coverMode">
 		/// A <see cref="T:PathCoverMode"/>.
@@ -2115,13 +2115,13 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void CoverStrokePathInstancedNV(Int32 numPaths, PathElementType pathNameType, IntPtr paths, UInt32 pathBase, PathCoverMode coverMode, PathTransformType transformType, float[] transformValues)
+		public static void CoverStrokePathInstancedNV(int numPaths, PathElementType pathNameType, IntPtr paths, uint pathBase, PathCoverMode coverMode, PathTransformType transformType, float[] transformValues)
 		{
 			unsafe {
 				fixed (float* p_transformValues = transformValues)
 				{
 					Debug.Assert(Delegates.pglCoverStrokePathInstancedNV != null, "pglCoverStrokePathInstancedNV not implemented");
-					Delegates.pglCoverStrokePathInstancedNV(numPaths, (Int32)pathNameType, paths, pathBase, (Int32)coverMode, (Int32)transformType, p_transformValues);
+					Delegates.pglCoverStrokePathInstancedNV(numPaths, (int)pathNameType, paths, pathBase, (int)coverMode, (int)transformType, p_transformValues);
 					LogCommand("glCoverStrokePathInstancedNV", null, numPaths, pathNameType, paths, pathBase, coverMode, transformType, transformValues					);
 				}
 			}
@@ -2132,7 +2132,7 @@ namespace OpenGL
 		/// [GL] glCoverStrokePathInstancedNV: Binding for glCoverStrokePathInstancedNV.
 		/// </summary>
 		/// <param name="numPaths">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pathNameType">
 		/// A <see cref="T:PathElementType"/>.
@@ -2141,7 +2141,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="pathBase">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="coverMode">
 		/// A <see cref="T:PathCoverMode"/>.
@@ -2153,7 +2153,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void CoverStrokePathInstancedNV(Int32 numPaths, PathElementType pathNameType, Object paths, UInt32 pathBase, PathCoverMode coverMode, PathTransformType transformType, float[] transformValues)
+		public static void CoverStrokePathInstancedNV(int numPaths, PathElementType pathNameType, Object paths, uint pathBase, PathCoverMode coverMode, PathTransformType transformType, float[] transformValues)
 		{
 			GCHandle pin_paths = GCHandle.Alloc(paths, GCHandleType.Pinned);
 			try {
@@ -2167,23 +2167,23 @@ namespace OpenGL
 		/// [GL] glGetPathParameterivNV: Binding for glGetPathParameterivNV.
 		/// </summary>
 		/// <param name="path">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:PathParameter"/>.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void GetPathParameterNV(UInt32 path, PathParameter pname, [Out] Int32[] value)
+		public static void GetPathParameterNV(uint path, PathParameter pname, [Out] int[] value)
 		{
 			Debug.Assert(value.Length >= 4);
 			unsafe {
-				fixed (Int32* p_value = value)
+				fixed (int* p_value = value)
 				{
 					Debug.Assert(Delegates.pglGetPathParameterivNV != null, "pglGetPathParameterivNV not implemented");
-					Delegates.pglGetPathParameterivNV(path, (Int32)pname, p_value);
+					Delegates.pglGetPathParameterivNV(path, (int)pname, p_value);
 					LogCommand("glGetPathParameterivNV", null, path, pname, value					);
 				}
 			}
@@ -2194,7 +2194,7 @@ namespace OpenGL
 		/// [GL] glGetPathParameterfvNV: Binding for glGetPathParameterfvNV.
 		/// </summary>
 		/// <param name="path">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:PathParameter"/>.
@@ -2203,14 +2203,14 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void GetPathParameterNV(UInt32 path, PathParameter pname, [Out] float[] value)
+		public static void GetPathParameterNV(uint path, PathParameter pname, [Out] float[] value)
 		{
 			Debug.Assert(value.Length >= 4);
 			unsafe {
 				fixed (float* p_value = value)
 				{
 					Debug.Assert(Delegates.pglGetPathParameterfvNV != null, "pglGetPathParameterfvNV not implemented");
-					Delegates.pglGetPathParameterfvNV(path, (Int32)pname, p_value);
+					Delegates.pglGetPathParameterfvNV(path, (int)pname, p_value);
 					LogCommand("glGetPathParameterfvNV", null, path, pname, value					);
 				}
 			}
@@ -2221,13 +2221,13 @@ namespace OpenGL
 		/// [GL] glGetPathCommandsNV: Binding for glGetPathCommandsNV.
 		/// </summary>
 		/// <param name="path">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="commands">
 		/// A <see cref="T:byte[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void GetPathCommandsNV(UInt32 path, [Out] byte[] commands)
+		public static void GetPathCommandsNV(uint path, [Out] byte[] commands)
 		{
 			unsafe {
 				fixed (byte* p_commands = commands)
@@ -2244,13 +2244,13 @@ namespace OpenGL
 		/// [GL] glGetPathCoordsNV: Binding for glGetPathCoordsNV.
 		/// </summary>
 		/// <param name="path">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void GetPathCoordsNV(UInt32 path, [Out] float[] coords)
+		public static void GetPathCoordsNV(uint path, [Out] float[] coords)
 		{
 			unsafe {
 				fixed (float* p_coords = coords)
@@ -2267,13 +2267,13 @@ namespace OpenGL
 		/// [GL] glGetPathDashArrayNV: Binding for glGetPathDashArrayNV.
 		/// </summary>
 		/// <param name="path">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="dashArray">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void GetPathDashArrayNV(UInt32 path, [Out] float[] dashArray)
+		public static void GetPathDashArrayNV(uint path, [Out] float[] dashArray)
 		{
 			unsafe {
 				fixed (float* p_dashArray = dashArray)
@@ -2293,7 +2293,7 @@ namespace OpenGL
 		/// A <see cref="T:PathMetricMask"/>.
 		/// </param>
 		/// <param name="numPaths">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pathNameType">
 		/// A <see cref="T:PathElementType"/>.
@@ -2302,22 +2302,22 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="pathBase">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="metrics">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void GetPathMetricsNV(PathMetricMask metricQueryMask, Int32 numPaths, PathElementType pathNameType, IntPtr paths, UInt32 pathBase, Int32 stride, [Out] float[] metrics)
+		public static void GetPathMetricsNV(PathMetricMask metricQueryMask, int numPaths, PathElementType pathNameType, IntPtr paths, uint pathBase, int stride, [Out] float[] metrics)
 		{
 			unsafe {
 				fixed (float* p_metrics = metrics)
 				{
 					Debug.Assert(Delegates.pglGetPathMetricsNV != null, "pglGetPathMetricsNV not implemented");
-					Delegates.pglGetPathMetricsNV((UInt32)metricQueryMask, numPaths, (Int32)pathNameType, paths, pathBase, stride, p_metrics);
+					Delegates.pglGetPathMetricsNV((uint)metricQueryMask, numPaths, (int)pathNameType, paths, pathBase, stride, p_metrics);
 					LogCommand("glGetPathMetricsNV", null, metricQueryMask, numPaths, pathNameType, paths, pathBase, stride, metrics					);
 				}
 			}
@@ -2331,7 +2331,7 @@ namespace OpenGL
 		/// A <see cref="T:PathMetricMask"/>.
 		/// </param>
 		/// <param name="numPaths">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pathNameType">
 		/// A <see cref="T:PathElementType"/>.
@@ -2340,16 +2340,16 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="pathBase">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="metrics">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void GetPathMetricsNV(PathMetricMask metricQueryMask, Int32 numPaths, PathElementType pathNameType, Object paths, UInt32 pathBase, Int32 stride, [Out] float[] metrics)
+		public static void GetPathMetricsNV(PathMetricMask metricQueryMask, int numPaths, PathElementType pathNameType, Object paths, uint pathBase, int stride, [Out] float[] metrics)
 		{
 			GCHandle pin_paths = GCHandle.Alloc(paths, GCHandleType.Pinned);
 			try {
@@ -2366,25 +2366,25 @@ namespace OpenGL
 		/// A <see cref="T:PathMetricMask"/>.
 		/// </param>
 		/// <param name="firstPathName">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="numPaths">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="metrics">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void GetPathMetricRangeNV(PathMetricMask metricQueryMask, UInt32 firstPathName, Int32 numPaths, Int32 stride, [Out] float[] metrics)
+		public static void GetPathMetricRangeNV(PathMetricMask metricQueryMask, uint firstPathName, int numPaths, int stride, [Out] float[] metrics)
 		{
 			unsafe {
 				fixed (float* p_metrics = metrics)
 				{
 					Debug.Assert(Delegates.pglGetPathMetricRangeNV != null, "pglGetPathMetricRangeNV not implemented");
-					Delegates.pglGetPathMetricRangeNV((UInt32)metricQueryMask, firstPathName, numPaths, stride, p_metrics);
+					Delegates.pglGetPathMetricRangeNV((uint)metricQueryMask, firstPathName, numPaths, stride, p_metrics);
 					LogCommand("glGetPathMetricRangeNV", null, metricQueryMask, firstPathName, numPaths, stride, metrics					);
 				}
 			}
@@ -2398,7 +2398,7 @@ namespace OpenGL
 		/// A <see cref="T:PathListMode"/>.
 		/// </param>
 		/// <param name="numPaths">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pathNameType">
 		/// A <see cref="T:PathElementType"/>.
@@ -2407,7 +2407,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="pathBase">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="advanceScale">
 		/// A <see cref="T:float"/>.
@@ -2422,13 +2422,13 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void GetPathSpacingNV(PathListMode pathListMode, Int32 numPaths, PathElementType pathNameType, IntPtr paths, UInt32 pathBase, float advanceScale, float kerningScale, PathTransformType transformType, [Out] float[] returnedSpacing)
+		public static void GetPathSpacingNV(PathListMode pathListMode, int numPaths, PathElementType pathNameType, IntPtr paths, uint pathBase, float advanceScale, float kerningScale, PathTransformType transformType, [Out] float[] returnedSpacing)
 		{
 			unsafe {
 				fixed (float* p_returnedSpacing = returnedSpacing)
 				{
 					Debug.Assert(Delegates.pglGetPathSpacingNV != null, "pglGetPathSpacingNV not implemented");
-					Delegates.pglGetPathSpacingNV((Int32)pathListMode, numPaths, (Int32)pathNameType, paths, pathBase, advanceScale, kerningScale, (Int32)transformType, p_returnedSpacing);
+					Delegates.pglGetPathSpacingNV((int)pathListMode, numPaths, (int)pathNameType, paths, pathBase, advanceScale, kerningScale, (int)transformType, p_returnedSpacing);
 					LogCommand("glGetPathSpacingNV", null, pathListMode, numPaths, pathNameType, paths, pathBase, advanceScale, kerningScale, transformType, returnedSpacing					);
 				}
 			}
@@ -2442,7 +2442,7 @@ namespace OpenGL
 		/// A <see cref="T:PathListMode"/>.
 		/// </param>
 		/// <param name="numPaths">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pathNameType">
 		/// A <see cref="T:PathElementType"/>.
@@ -2451,7 +2451,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="pathBase">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="advanceScale">
 		/// A <see cref="T:float"/>.
@@ -2466,7 +2466,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void GetPathSpacingNV(PathListMode pathListMode, Int32 numPaths, PathElementType pathNameType, Object paths, UInt32 pathBase, float advanceScale, float kerningScale, PathTransformType transformType, [Out] float[] returnedSpacing)
+		public static void GetPathSpacingNV(PathListMode pathListMode, int numPaths, PathElementType pathNameType, Object paths, uint pathBase, float advanceScale, float kerningScale, PathTransformType transformType, [Out] float[] returnedSpacing)
 		{
 			GCHandle pin_paths = GCHandle.Alloc(paths, GCHandleType.Pinned);
 			try {
@@ -2480,10 +2480,10 @@ namespace OpenGL
 		/// [GL] glIsPointInFillPathNV: Binding for glIsPointInFillPathNV.
 		/// </summary>
 		/// <param name="path">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="mask">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="x">
 		/// A <see cref="T:float"/>.
@@ -2492,7 +2492,7 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static bool IsPointInFillPathNV(UInt32 path, UInt32 mask, float x, float y)
+		public static bool IsPointInFillPathNV(uint path, uint mask, float x, float y)
 		{
 			bool retValue;
 
@@ -2508,7 +2508,7 @@ namespace OpenGL
 		/// [GL] glIsPointInStrokePathNV: Binding for glIsPointInStrokePathNV.
 		/// </summary>
 		/// <param name="path">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="x">
 		/// A <see cref="T:float"/>.
@@ -2517,7 +2517,7 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static bool IsPointInStrokePathNV(UInt32 path, float x, float y)
+		public static bool IsPointInStrokePathNV(uint path, float x, float y)
 		{
 			bool retValue;
 
@@ -2533,16 +2533,16 @@ namespace OpenGL
 		/// [GL] glGetPathLengthNV: Binding for glGetPathLengthNV.
 		/// </summary>
 		/// <param name="path">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="startSegment">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="numSegments">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static float GetPathNV(UInt32 path, Int32 startSegment, Int32 numSegments)
+		public static float GetPathNV(uint path, int startSegment, int numSegments)
 		{
 			float retValue;
 
@@ -2558,13 +2558,13 @@ namespace OpenGL
 		/// [GL] glPointAlongPathNV: Binding for glPointAlongPathNV.
 		/// </summary>
 		/// <param name="path">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="startSegment">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="numSegments">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="distance">
 		/// A <see cref="T:float"/>.
@@ -2582,7 +2582,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static bool PointAlongPathNV(UInt32 path, Int32 startSegment, Int32 numSegments, float distance, float[] x, float[] y, float[] tangentX, float[] tangentY)
+		public static bool PointAlongPathNV(uint path, int startSegment, int numSegments, float distance, float[] x, float[] y, float[] tangentX, float[] tangentY)
 		{
 			Debug.Assert(x.Length >= 1);
 			Debug.Assert(y.Length >= 1);
@@ -2610,13 +2610,13 @@ namespace OpenGL
 		/// [GL] glMatrixLoad3x2fNV: Binding for glMatrixLoad3x2fNV.
 		/// </summary>
 		/// <param name="matrixMode">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="m">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void MatrixLoad3x2NV(Int32 matrixMode, float[] m)
+		public static void MatrixLoad3x2NV(int matrixMode, float[] m)
 		{
 			unsafe {
 				fixed (float* p_m = m)
@@ -2633,13 +2633,13 @@ namespace OpenGL
 		/// [GL] glMatrixLoad3x3fNV: Binding for glMatrixLoad3x3fNV.
 		/// </summary>
 		/// <param name="matrixMode">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="m">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void MatrixLoad3NV(Int32 matrixMode, float[] m)
+		public static void MatrixLoad3NV(int matrixMode, float[] m)
 		{
 			unsafe {
 				fixed (float* p_m = m)
@@ -2656,13 +2656,13 @@ namespace OpenGL
 		/// [GL] glMatrixLoadTranspose3x3fNV: Binding for glMatrixLoadTranspose3x3fNV.
 		/// </summary>
 		/// <param name="matrixMode">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="m">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void MatrixLoadTransposeNV(Int32 matrixMode, float[] m)
+		public static void MatrixLoadTransposeNV(int matrixMode, float[] m)
 		{
 			unsafe {
 				fixed (float* p_m = m)
@@ -2679,13 +2679,13 @@ namespace OpenGL
 		/// [GL] glMatrixMult3x2fNV: Binding for glMatrixMult3x2fNV.
 		/// </summary>
 		/// <param name="matrixMode">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="m">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void MatrixMult3x2NV(Int32 matrixMode, float[] m)
+		public static void MatrixMult3x2NV(int matrixMode, float[] m)
 		{
 			unsafe {
 				fixed (float* p_m = m)
@@ -2702,13 +2702,13 @@ namespace OpenGL
 		/// [GL] glMatrixMult3x3fNV: Binding for glMatrixMult3x3fNV.
 		/// </summary>
 		/// <param name="matrixMode">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="m">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void MatrixMult3x3NV(Int32 matrixMode, float[] m)
+		public static void MatrixMult3x3NV(int matrixMode, float[] m)
 		{
 			unsafe {
 				fixed (float* p_m = m)
@@ -2725,13 +2725,13 @@ namespace OpenGL
 		/// [GL] glMatrixMultTranspose3x3fNV: Binding for glMatrixMultTranspose3x3fNV.
 		/// </summary>
 		/// <param name="matrixMode">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="m">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void MatrixMultTransposeNV(Int32 matrixMode, float[] m)
+		public static void MatrixMultTransposeNV(int matrixMode, float[] m)
 		{
 			unsafe {
 				fixed (float* p_m = m)
@@ -2748,19 +2748,19 @@ namespace OpenGL
 		/// [GL] glStencilThenCoverFillPathNV: Binding for glStencilThenCoverFillPathNV.
 		/// </summary>
 		/// <param name="path">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="fillMode">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="mask">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="coverMode">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void StencilThenCoverFillPathNV(UInt32 path, Int32 fillMode, UInt32 mask, Int32 coverMode)
+		public static void StencilThenCoverFillPathNV(uint path, int fillMode, uint mask, int coverMode)
 		{
 			Debug.Assert(Delegates.pglStencilThenCoverFillPathNV != null, "pglStencilThenCoverFillPathNV not implemented");
 			Delegates.pglStencilThenCoverFillPathNV(path, fillMode, mask, coverMode);
@@ -2772,19 +2772,19 @@ namespace OpenGL
 		/// [GL] glStencilThenCoverStrokePathNV: Binding for glStencilThenCoverStrokePathNV.
 		/// </summary>
 		/// <param name="path">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="reference">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="mask">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="coverMode">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void StencilThenCoverStrokePathNV(UInt32 path, Int32 reference, UInt32 mask, Int32 coverMode)
+		public static void StencilThenCoverStrokePathNV(uint path, int reference, uint mask, int coverMode)
 		{
 			Debug.Assert(Delegates.pglStencilThenCoverStrokePathNV != null, "pglStencilThenCoverStrokePathNV not implemented");
 			Delegates.pglStencilThenCoverStrokePathNV(path, reference, mask, coverMode);
@@ -2796,34 +2796,34 @@ namespace OpenGL
 		/// [GL] glStencilThenCoverFillPathInstancedNV: Binding for glStencilThenCoverFillPathInstancedNV.
 		/// </summary>
 		/// <param name="numPaths">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pathNameType">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="paths">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="pathBase">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="fillMode">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="mask">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="coverMode">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="transformType">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="transformValues">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void StencilThenCoverFillPathInstancedNV(Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 fillMode, UInt32 mask, Int32 coverMode, Int32 transformType, float[] transformValues)
+		public static void StencilThenCoverFillPathInstancedNV(int numPaths, int pathNameType, IntPtr paths, uint pathBase, int fillMode, uint mask, int coverMode, int transformType, float[] transformValues)
 		{
 			unsafe {
 				fixed (float* p_transformValues = transformValues)
@@ -2840,34 +2840,34 @@ namespace OpenGL
 		/// [GL] glStencilThenCoverFillPathInstancedNV: Binding for glStencilThenCoverFillPathInstancedNV.
 		/// </summary>
 		/// <param name="numPaths">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pathNameType">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="paths">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="pathBase">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="fillMode">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="mask">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="coverMode">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="transformType">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="transformValues">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void StencilThenCoverFillPathInstancedNV(Int32 numPaths, Int32 pathNameType, Object paths, UInt32 pathBase, Int32 fillMode, UInt32 mask, Int32 coverMode, Int32 transformType, float[] transformValues)
+		public static void StencilThenCoverFillPathInstancedNV(int numPaths, int pathNameType, Object paths, uint pathBase, int fillMode, uint mask, int coverMode, int transformType, float[] transformValues)
 		{
 			GCHandle pin_paths = GCHandle.Alloc(paths, GCHandleType.Pinned);
 			try {
@@ -2881,34 +2881,34 @@ namespace OpenGL
 		/// [GL] glStencilThenCoverStrokePathInstancedNV: Binding for glStencilThenCoverStrokePathInstancedNV.
 		/// </summary>
 		/// <param name="numPaths">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pathNameType">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="paths">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="pathBase">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="reference">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="mask">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="coverMode">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="transformType">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="transformValues">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void StencilThenCoverStrokePathInstancedNV(Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 reference, UInt32 mask, Int32 coverMode, Int32 transformType, float[] transformValues)
+		public static void StencilThenCoverStrokePathInstancedNV(int numPaths, int pathNameType, IntPtr paths, uint pathBase, int reference, uint mask, int coverMode, int transformType, float[] transformValues)
 		{
 			unsafe {
 				fixed (float* p_transformValues = transformValues)
@@ -2925,34 +2925,34 @@ namespace OpenGL
 		/// [GL] glStencilThenCoverStrokePathInstancedNV: Binding for glStencilThenCoverStrokePathInstancedNV.
 		/// </summary>
 		/// <param name="numPaths">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pathNameType">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="paths">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="pathBase">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="reference">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="mask">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="coverMode">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="transformType">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="transformValues">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void StencilThenCoverStrokePathInstancedNV(Int32 numPaths, Int32 pathNameType, Object paths, UInt32 pathBase, Int32 reference, UInt32 mask, Int32 coverMode, Int32 transformType, float[] transformValues)
+		public static void StencilThenCoverStrokePathInstancedNV(int numPaths, int pathNameType, Object paths, uint pathBase, int reference, uint mask, int coverMode, int transformType, float[] transformValues)
 		{
 			GCHandle pin_paths = GCHandle.Alloc(paths, GCHandleType.Pinned);
 			try {
@@ -2966,30 +2966,30 @@ namespace OpenGL
 		/// [GL] glPathGlyphIndexRangeNV: Binding for glPathGlyphIndexRangeNV.
 		/// </summary>
 		/// <param name="fontTarget">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="fontName">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="fontStyle">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pathParameterTemplate">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="emScale">
 		/// A <see cref="T:float"/>.
 		/// </param>
 		/// <param name="baseAndCount">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static Int32 PathGlyphIndexRangeNV(Int32 fontTarget, IntPtr fontName, UInt32 fontStyle, UInt32 pathParameterTemplate, float emScale, UInt32[] baseAndCount)
+		public static int PathGlyphIndexRangeNV(int fontTarget, IntPtr fontName, uint fontStyle, uint pathParameterTemplate, float emScale, uint[] baseAndCount)
 		{
-			Int32 retValue;
+			int retValue;
 
 			unsafe {
-				fixed (UInt32* p_baseAndCount = baseAndCount)
+				fixed (uint* p_baseAndCount = baseAndCount)
 				{
 					Debug.Assert(Delegates.pglPathGlyphIndexRangeNV != null, "pglPathGlyphIndexRangeNV not implemented");
 					retValue = Delegates.pglPathGlyphIndexRangeNV(fontTarget, fontName, fontStyle, pathParameterTemplate, emScale, p_baseAndCount);
@@ -3005,25 +3005,25 @@ namespace OpenGL
 		/// [GL] glPathGlyphIndexRangeNV: Binding for glPathGlyphIndexRangeNV.
 		/// </summary>
 		/// <param name="fontTarget">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="fontName">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="fontStyle">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pathParameterTemplate">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="emScale">
 		/// A <see cref="T:float"/>.
 		/// </param>
 		/// <param name="baseAndCount">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static Int32 PathGlyphIndexRangeNV(Int32 fontTarget, Object fontName, UInt32 fontStyle, UInt32 pathParameterTemplate, float emScale, UInt32[] baseAndCount)
+		public static int PathGlyphIndexRangeNV(int fontTarget, Object fontName, uint fontStyle, uint pathParameterTemplate, float emScale, uint[] baseAndCount)
 		{
 			GCHandle pin_fontName = GCHandle.Alloc(fontName, GCHandleType.Pinned);
 			try {
@@ -3037,33 +3037,33 @@ namespace OpenGL
 		/// [GL] glPathGlyphIndexArrayNV: Binding for glPathGlyphIndexArrayNV.
 		/// </summary>
 		/// <param name="firstPathName">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="fontTarget">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="fontName">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="fontStyle">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="firstGlyphIndex">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="numGlyphs">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pathParameterTemplate">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="emScale">
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static Int32 PathGlyphIndexArrayNV(UInt32 firstPathName, Int32 fontTarget, IntPtr fontName, UInt32 fontStyle, UInt32 firstGlyphIndex, Int32 numGlyphs, UInt32 pathParameterTemplate, float emScale)
+		public static int PathGlyphIndexArrayNV(uint firstPathName, int fontTarget, IntPtr fontName, uint fontStyle, uint firstGlyphIndex, int numGlyphs, uint pathParameterTemplate, float emScale)
 		{
-			Int32 retValue;
+			int retValue;
 
 			Debug.Assert(Delegates.pglPathGlyphIndexArrayNV != null, "pglPathGlyphIndexArrayNV not implemented");
 			retValue = Delegates.pglPathGlyphIndexArrayNV(firstPathName, fontTarget, fontName, fontStyle, firstGlyphIndex, numGlyphs, pathParameterTemplate, emScale);
@@ -3077,31 +3077,31 @@ namespace OpenGL
 		/// [GL] glPathGlyphIndexArrayNV: Binding for glPathGlyphIndexArrayNV.
 		/// </summary>
 		/// <param name="firstPathName">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="fontTarget">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="fontName">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="fontStyle">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="firstGlyphIndex">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="numGlyphs">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pathParameterTemplate">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="emScale">
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static Int32 PathGlyphIndexArrayNV(UInt32 firstPathName, Int32 fontTarget, Object fontName, UInt32 fontStyle, UInt32 firstGlyphIndex, Int32 numGlyphs, UInt32 pathParameterTemplate, float emScale)
+		public static int PathGlyphIndexArrayNV(uint firstPathName, int fontTarget, Object fontName, uint fontStyle, uint firstGlyphIndex, int numGlyphs, uint pathParameterTemplate, float emScale)
 		{
 			GCHandle pin_fontName = GCHandle.Alloc(fontName, GCHandleType.Pinned);
 			try {
@@ -3115,36 +3115,36 @@ namespace OpenGL
 		/// [GL] glPathMemoryGlyphIndexArrayNV: Binding for glPathMemoryGlyphIndexArrayNV.
 		/// </summary>
 		/// <param name="firstPathName">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="fontTarget">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="fontSize">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="fontData">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="faceIndex">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="firstGlyphIndex">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="numGlyphs">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pathParameterTemplate">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="emScale">
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static Int32 PathMemoryGlyphIndexArrayNV(UInt32 firstPathName, Int32 fontTarget, UInt32 fontSize, IntPtr fontData, Int32 faceIndex, UInt32 firstGlyphIndex, Int32 numGlyphs, UInt32 pathParameterTemplate, float emScale)
+		public static int PathMemoryGlyphIndexArrayNV(uint firstPathName, int fontTarget, uint fontSize, IntPtr fontData, int faceIndex, uint firstGlyphIndex, int numGlyphs, uint pathParameterTemplate, float emScale)
 		{
-			Int32 retValue;
+			int retValue;
 
 			Debug.Assert(Delegates.pglPathMemoryGlyphIndexArrayNV != null, "pglPathMemoryGlyphIndexArrayNV not implemented");
 			retValue = Delegates.pglPathMemoryGlyphIndexArrayNV(firstPathName, fontTarget, fontSize, fontData, faceIndex, firstGlyphIndex, numGlyphs, pathParameterTemplate, emScale);
@@ -3158,34 +3158,34 @@ namespace OpenGL
 		/// [GL] glPathMemoryGlyphIndexArrayNV: Binding for glPathMemoryGlyphIndexArrayNV.
 		/// </summary>
 		/// <param name="firstPathName">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="fontTarget">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="fontSize">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="fontData">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="faceIndex">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="firstGlyphIndex">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="numGlyphs">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pathParameterTemplate">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="emScale">
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static Int32 PathMemoryGlyphIndexArrayNV(UInt32 firstPathName, Int32 fontTarget, UInt32 fontSize, Object fontData, Int32 faceIndex, UInt32 firstGlyphIndex, Int32 numGlyphs, UInt32 pathParameterTemplate, float emScale)
+		public static int PathMemoryGlyphIndexArrayNV(uint firstPathName, int fontTarget, uint fontSize, Object fontData, int faceIndex, uint firstGlyphIndex, int numGlyphs, uint pathParameterTemplate, float emScale)
 		{
 			GCHandle pin_fontData = GCHandle.Alloc(fontData, GCHandleType.Pinned);
 			try {
@@ -3199,22 +3199,22 @@ namespace OpenGL
 		/// [GL] glProgramPathFragmentInputGenNV: Binding for glProgramPathFragmentInputGenNV.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="genMode">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="components">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="coeffs">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void ProgramPathFragmentInputGenNV(UInt32 program, Int32 location, Int32 genMode, Int32 components, float[] coeffs)
+		public static void ProgramPathFragmentInputGenNV(uint program, int location, int genMode, int components, float[] coeffs)
 		{
 			unsafe {
 				fixed (float* p_coeffs = coeffs)
@@ -3231,39 +3231,39 @@ namespace OpenGL
 		/// [GL] glGetProgramResourcefvNV: Binding for glGetProgramResourcefvNV.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="programInterface">
 		/// A <see cref="T:ProgramInterface"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="propCount">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="props">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		/// <param name="bufSize">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="length">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void GetProgramResourceNV(UInt32 program, ProgramInterface programInterface, UInt32 index, Int32 propCount, Int32[] props, Int32 bufSize, [Out] Int32[] length, [Out] float[] @params)
+		public static void GetProgramResourceNV(uint program, ProgramInterface programInterface, uint index, int propCount, int[] props, int bufSize, [Out] int[] length, [Out] float[] @params)
 		{
 			unsafe {
-				fixed (Int32* p_props = props)
-				fixed (Int32* p_length = length)
+				fixed (int* p_props = props)
+				fixed (int* p_length = length)
 				fixed (float* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetProgramResourcefvNV != null, "pglGetProgramResourcefvNV not implemented");
-					Delegates.pglGetProgramResourcefvNV(program, (Int32)programInterface, index, propCount, p_props, bufSize, p_length, p_params);
+					Delegates.pglGetProgramResourcefvNV(program, (int)programInterface, index, propCount, p_props, bufSize, p_length, p_params);
 					LogCommand("glGetProgramResourcefvNV", null, program, programInterface, index, propCount, props, bufSize, length, @params					);
 				}
 			}
@@ -3280,19 +3280,19 @@ namespace OpenGL
 		/// A <see cref="T:PathGenMode"/>.
 		/// </param>
 		/// <param name="colorFormat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="coeffs">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Profile = "compatibility")]
-		public static void PathColorGenNV(PathColor color, PathGenMode genMode, Int32 colorFormat, float[] coeffs)
+		public static void PathColorGenNV(PathColor color, PathGenMode genMode, int colorFormat, float[] coeffs)
 		{
 			unsafe {
 				fixed (float* p_coeffs = coeffs)
 				{
 					Debug.Assert(Delegates.pglPathColorGenNV != null, "pglPathColorGenNV not implemented");
-					Delegates.pglPathColorGenNV((Int32)color, (Int32)genMode, colorFormat, p_coeffs);
+					Delegates.pglPathColorGenNV((int)color, (int)genMode, colorFormat, p_coeffs);
 					LogCommand("glPathColorGenNV", null, color, genMode, colorFormat, coeffs					);
 				}
 			}
@@ -3309,19 +3309,19 @@ namespace OpenGL
 		/// A <see cref="T:PathGenMode"/>.
 		/// </param>
 		/// <param name="components">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="coeffs">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Profile = "compatibility")]
-		public static void PathTexGenNV(PathColor texCoordSet, PathGenMode genMode, Int32 components, float[] coeffs)
+		public static void PathTexGenNV(PathColor texCoordSet, PathGenMode genMode, int components, float[] coeffs)
 		{
 			unsafe {
 				fixed (float* p_coeffs = coeffs)
 				{
 					Debug.Assert(Delegates.pglPathTexGenNV != null, "pglPathTexGenNV not implemented");
-					Delegates.pglPathTexGenNV((Int32)texCoordSet, (Int32)genMode, components, p_coeffs);
+					Delegates.pglPathTexGenNV((int)texCoordSet, (int)genMode, components, p_coeffs);
 					LogCommand("glPathTexGenNV", null, texCoordSet, genMode, components, coeffs					);
 				}
 			}
@@ -3338,7 +3338,7 @@ namespace OpenGL
 		public static void PathFogGenNV(PathGenMode genMode)
 		{
 			Debug.Assert(Delegates.pglPathFogGenNV != null, "pglPathFogGenNV not implemented");
-			Delegates.pglPathFogGenNV((Int32)genMode);
+			Delegates.pglPathFogGenNV((int)genMode);
 			LogCommand("glPathFogGenNV", null, genMode			);
 			DebugCheckErrors(null);
 		}
@@ -3353,16 +3353,16 @@ namespace OpenGL
 		/// A <see cref="T:PathGenMode"/>.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Profile = "compatibility")]
-		public static void GetPathColorGenNV(PathColor color, PathGenMode pname, [Out] Int32[] value)
+		public static void GetPathColorGenNV(PathColor color, PathGenMode pname, [Out] int[] value)
 		{
 			unsafe {
-				fixed (Int32* p_value = value)
+				fixed (int* p_value = value)
 				{
 					Debug.Assert(Delegates.pglGetPathColorGenivNV != null, "pglGetPathColorGenivNV not implemented");
-					Delegates.pglGetPathColorGenivNV((Int32)color, (Int32)pname, p_value);
+					Delegates.pglGetPathColorGenivNV((int)color, (int)pname, p_value);
 					LogCommand("glGetPathColorGenivNV", null, color, pname, value					);
 				}
 			}
@@ -3388,7 +3388,7 @@ namespace OpenGL
 				fixed (float* p_value = value)
 				{
 					Debug.Assert(Delegates.pglGetPathColorGenfvNV != null, "pglGetPathColorGenfvNV not implemented");
-					Delegates.pglGetPathColorGenfvNV((Int32)color, (Int32)pname, p_value);
+					Delegates.pglGetPathColorGenfvNV((int)color, (int)pname, p_value);
 					LogCommand("glGetPathColorGenfvNV", null, color, pname, value					);
 				}
 			}
@@ -3405,16 +3405,16 @@ namespace OpenGL
 		/// A <see cref="T:PathGenMode"/>.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Profile = "compatibility")]
-		public static void GetPathTexGenNV(TextureUnit texCoordSet, PathGenMode pname, [Out] Int32[] value)
+		public static void GetPathTexGenNV(TextureUnit texCoordSet, PathGenMode pname, [Out] int[] value)
 		{
 			unsafe {
-				fixed (Int32* p_value = value)
+				fixed (int* p_value = value)
 				{
 					Debug.Assert(Delegates.pglGetPathTexGenivNV != null, "pglGetPathTexGenivNV not implemented");
-					Delegates.pglGetPathTexGenivNV((Int32)texCoordSet, (Int32)pname, p_value);
+					Delegates.pglGetPathTexGenivNV((int)texCoordSet, (int)pname, p_value);
 					LogCommand("glGetPathTexGenivNV", null, texCoordSet, pname, value					);
 				}
 			}
@@ -3440,7 +3440,7 @@ namespace OpenGL
 				fixed (float* p_value = value)
 				{
 					Debug.Assert(Delegates.pglGetPathTexGenfvNV != null, "pglGetPathTexGenfvNV not implemented");
-					Delegates.pglGetPathTexGenfvNV((Int32)texCoordSet, (Int32)pname, p_value);
+					Delegates.pglGetPathTexGenfvNV((int)texCoordSet, (int)pname, p_value);
 					LogCommand("glGetPathTexGenfvNV", null, texCoordSet, pname, value					);
 				}
 			}
@@ -3451,7 +3451,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate UInt32 glGenPathsNV(Int32 range);
+			internal delegate uint glGenPathsNV(int range);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3459,7 +3459,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glDeletePathsNV(UInt32 path, Int32 range);
+			internal delegate void glDeletePathsNV(uint path, int range);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3468,7 +3468,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			[return: MarshalAs(UnmanagedType.I1)]
-			internal delegate bool glIsPathNV(UInt32 path);
+			internal delegate bool glIsPathNV(uint path);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3476,7 +3476,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glPathCommandsNV(UInt32 path, Int32 numCommands, byte* commands, Int32 numCoords, Int32 coordType, IntPtr coords);
+			internal unsafe delegate void glPathCommandsNV(uint path, int numCommands, byte* commands, int numCoords, int coordType, IntPtr coords);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3484,7 +3484,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glPathCoordsNV(UInt32 path, Int32 numCoords, Int32 coordType, IntPtr coords);
+			internal unsafe delegate void glPathCoordsNV(uint path, int numCoords, int coordType, IntPtr coords);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3492,7 +3492,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glPathSubCommandsNV(UInt32 path, Int32 commandStart, Int32 commandsToDelete, Int32 numCommands, byte* commands, Int32 numCoords, Int32 coordType, IntPtr coords);
+			internal unsafe delegate void glPathSubCommandsNV(uint path, int commandStart, int commandsToDelete, int numCommands, byte* commands, int numCoords, int coordType, IntPtr coords);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3500,7 +3500,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glPathSubCoordsNV(UInt32 path, Int32 coordStart, Int32 numCoords, Int32 coordType, IntPtr coords);
+			internal unsafe delegate void glPathSubCoordsNV(uint path, int coordStart, int numCoords, int coordType, IntPtr coords);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3508,7 +3508,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glPathStringNV(UInt32 path, Int32 format, Int32 length, IntPtr pathString);
+			internal unsafe delegate void glPathStringNV(uint path, int format, int length, IntPtr pathString);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3516,7 +3516,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glPathGlyphsNV(UInt32 firstPathName, Int32 fontTarget, IntPtr fontName, UInt32 fontStyle, Int32 numGlyphs, Int32 type, IntPtr charcodes, Int32 handleMissingGlyphs, UInt32 pathParameterTemplate, float emScale);
+			internal unsafe delegate void glPathGlyphsNV(uint firstPathName, int fontTarget, IntPtr fontName, uint fontStyle, int numGlyphs, int type, IntPtr charcodes, int handleMissingGlyphs, uint pathParameterTemplate, float emScale);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3524,7 +3524,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glPathGlyphRangeNV(UInt32 firstPathName, Int32 fontTarget, IntPtr fontName, UInt32 fontStyle, UInt32 firstGlyph, Int32 numGlyphs, Int32 handleMissingGlyphs, UInt32 pathParameterTemplate, float emScale);
+			internal unsafe delegate void glPathGlyphRangeNV(uint firstPathName, int fontTarget, IntPtr fontName, uint fontStyle, uint firstGlyph, int numGlyphs, int handleMissingGlyphs, uint pathParameterTemplate, float emScale);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3532,7 +3532,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glWeightPathsNV(UInt32 resultPath, Int32 numPaths, UInt32* paths, float* weights);
+			internal unsafe delegate void glWeightPathsNV(uint resultPath, int numPaths, uint* paths, float* weights);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3540,7 +3540,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glCopyPathNV(UInt32 resultPath, UInt32 srcPath);
+			internal delegate void glCopyPathNV(uint resultPath, uint srcPath);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3548,7 +3548,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glInterpolatePathsNV(UInt32 resultPath, UInt32 pathA, UInt32 pathB, float weight);
+			internal delegate void glInterpolatePathsNV(uint resultPath, uint pathA, uint pathB, float weight);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3556,7 +3556,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTransformPathNV(UInt32 resultPath, UInt32 srcPath, Int32 transformType, float* transformValues);
+			internal unsafe delegate void glTransformPathNV(uint resultPath, uint srcPath, int transformType, float* transformValues);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3564,7 +3564,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glPathParameterivNV(UInt32 path, Int32 pname, Int32* value);
+			internal unsafe delegate void glPathParameterivNV(uint path, int pname, int* value);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3572,7 +3572,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glPathParameteriNV(UInt32 path, Int32 pname, Int32 value);
+			internal delegate void glPathParameteriNV(uint path, int pname, int value);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3580,7 +3580,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glPathParameterfvNV(UInt32 path, Int32 pname, float* value);
+			internal unsafe delegate void glPathParameterfvNV(uint path, int pname, float* value);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3588,7 +3588,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glPathParameterfNV(UInt32 path, Int32 pname, float value);
+			internal delegate void glPathParameterfNV(uint path, int pname, float value);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3596,7 +3596,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glPathDashArrayNV(UInt32 path, Int32 dashCount, float* dashArray);
+			internal unsafe delegate void glPathDashArrayNV(uint path, int dashCount, float* dashArray);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3604,7 +3604,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glPathStencilFuncNV(Int32 func, Int32 @ref, UInt32 mask);
+			internal delegate void glPathStencilFuncNV(int func, int @ref, uint mask);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3620,7 +3620,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glStencilFillPathNV(UInt32 path, Int32 fillMode, UInt32 mask);
+			internal delegate void glStencilFillPathNV(uint path, int fillMode, uint mask);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3628,7 +3628,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glStencilStrokePathNV(UInt32 path, Int32 reference, UInt32 mask);
+			internal delegate void glStencilStrokePathNV(uint path, int reference, uint mask);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3636,7 +3636,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glStencilFillPathInstancedNV(Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 fillMode, UInt32 mask, Int32 transformType, float* transformValues);
+			internal unsafe delegate void glStencilFillPathInstancedNV(int numPaths, int pathNameType, IntPtr paths, uint pathBase, int fillMode, uint mask, int transformType, float* transformValues);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3644,7 +3644,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glStencilStrokePathInstancedNV(Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 reference, UInt32 mask, Int32 transformType, float* transformValues);
+			internal unsafe delegate void glStencilStrokePathInstancedNV(int numPaths, int pathNameType, IntPtr paths, uint pathBase, int reference, uint mask, int transformType, float* transformValues);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3652,7 +3652,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glPathCoverDepthFuncNV(Int32 func);
+			internal delegate void glPathCoverDepthFuncNV(int func);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3660,7 +3660,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glCoverFillPathNV(UInt32 path, Int32 coverMode);
+			internal delegate void glCoverFillPathNV(uint path, int coverMode);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3668,7 +3668,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glCoverStrokePathNV(UInt32 path, Int32 coverMode);
+			internal delegate void glCoverStrokePathNV(uint path, int coverMode);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3676,7 +3676,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glCoverFillPathInstancedNV(Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 coverMode, Int32 transformType, float* transformValues);
+			internal unsafe delegate void glCoverFillPathInstancedNV(int numPaths, int pathNameType, IntPtr paths, uint pathBase, int coverMode, int transformType, float* transformValues);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3684,7 +3684,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glCoverStrokePathInstancedNV(Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 coverMode, Int32 transformType, float* transformValues);
+			internal unsafe delegate void glCoverStrokePathInstancedNV(int numPaths, int pathNameType, IntPtr paths, uint pathBase, int coverMode, int transformType, float* transformValues);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3692,7 +3692,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetPathParameterivNV(UInt32 path, Int32 pname, Int32* value);
+			internal unsafe delegate void glGetPathParameterivNV(uint path, int pname, int* value);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3700,7 +3700,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetPathParameterfvNV(UInt32 path, Int32 pname, float* value);
+			internal unsafe delegate void glGetPathParameterfvNV(uint path, int pname, float* value);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3708,7 +3708,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetPathCommandsNV(UInt32 path, byte* commands);
+			internal unsafe delegate void glGetPathCommandsNV(uint path, byte* commands);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3716,7 +3716,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetPathCoordsNV(UInt32 path, float* coords);
+			internal unsafe delegate void glGetPathCoordsNV(uint path, float* coords);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3724,7 +3724,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetPathDashArrayNV(UInt32 path, float* dashArray);
+			internal unsafe delegate void glGetPathDashArrayNV(uint path, float* dashArray);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3732,7 +3732,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetPathMetricsNV(UInt32 metricQueryMask, Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 stride, float* metrics);
+			internal unsafe delegate void glGetPathMetricsNV(uint metricQueryMask, int numPaths, int pathNameType, IntPtr paths, uint pathBase, int stride, float* metrics);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3740,7 +3740,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetPathMetricRangeNV(UInt32 metricQueryMask, UInt32 firstPathName, Int32 numPaths, Int32 stride, float* metrics);
+			internal unsafe delegate void glGetPathMetricRangeNV(uint metricQueryMask, uint firstPathName, int numPaths, int stride, float* metrics);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3748,7 +3748,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetPathSpacingNV(Int32 pathListMode, Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, float advanceScale, float kerningScale, Int32 transformType, float* returnedSpacing);
+			internal unsafe delegate void glGetPathSpacingNV(int pathListMode, int numPaths, int pathNameType, IntPtr paths, uint pathBase, float advanceScale, float kerningScale, int transformType, float* returnedSpacing);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3757,7 +3757,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			[return: MarshalAs(UnmanagedType.I1)]
-			internal delegate bool glIsPointInFillPathNV(UInt32 path, UInt32 mask, float x, float y);
+			internal delegate bool glIsPointInFillPathNV(uint path, uint mask, float x, float y);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3766,7 +3766,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			[return: MarshalAs(UnmanagedType.I1)]
-			internal delegate bool glIsPointInStrokePathNV(UInt32 path, float x, float y);
+			internal delegate bool glIsPointInStrokePathNV(uint path, float x, float y);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3774,7 +3774,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate float glGetPathLengthNV(UInt32 path, Int32 startSegment, Int32 numSegments);
+			internal delegate float glGetPathLengthNV(uint path, int startSegment, int numSegments);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3783,7 +3783,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			[return: MarshalAs(UnmanagedType.I1)]
-			internal unsafe delegate bool glPointAlongPathNV(UInt32 path, Int32 startSegment, Int32 numSegments, float distance, float* x, float* y, float* tangentX, float* tangentY);
+			internal unsafe delegate bool glPointAlongPathNV(uint path, int startSegment, int numSegments, float distance, float* x, float* y, float* tangentX, float* tangentY);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3791,7 +3791,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMatrixLoad3x2fNV(Int32 matrixMode, float* m);
+			internal unsafe delegate void glMatrixLoad3x2fNV(int matrixMode, float* m);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3799,7 +3799,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMatrixLoad3x3fNV(Int32 matrixMode, float* m);
+			internal unsafe delegate void glMatrixLoad3x3fNV(int matrixMode, float* m);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3807,7 +3807,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMatrixLoadTranspose3x3fNV(Int32 matrixMode, float* m);
+			internal unsafe delegate void glMatrixLoadTranspose3x3fNV(int matrixMode, float* m);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3815,7 +3815,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMatrixMult3x2fNV(Int32 matrixMode, float* m);
+			internal unsafe delegate void glMatrixMult3x2fNV(int matrixMode, float* m);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3823,7 +3823,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMatrixMult3x3fNV(Int32 matrixMode, float* m);
+			internal unsafe delegate void glMatrixMult3x3fNV(int matrixMode, float* m);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3831,7 +3831,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMatrixMultTranspose3x3fNV(Int32 matrixMode, float* m);
+			internal unsafe delegate void glMatrixMultTranspose3x3fNV(int matrixMode, float* m);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3839,7 +3839,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glStencilThenCoverFillPathNV(UInt32 path, Int32 fillMode, UInt32 mask, Int32 coverMode);
+			internal delegate void glStencilThenCoverFillPathNV(uint path, int fillMode, uint mask, int coverMode);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3847,7 +3847,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glStencilThenCoverStrokePathNV(UInt32 path, Int32 reference, UInt32 mask, Int32 coverMode);
+			internal delegate void glStencilThenCoverStrokePathNV(uint path, int reference, uint mask, int coverMode);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3855,7 +3855,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glStencilThenCoverFillPathInstancedNV(Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 fillMode, UInt32 mask, Int32 coverMode, Int32 transformType, float* transformValues);
+			internal unsafe delegate void glStencilThenCoverFillPathInstancedNV(int numPaths, int pathNameType, IntPtr paths, uint pathBase, int fillMode, uint mask, int coverMode, int transformType, float* transformValues);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3863,7 +3863,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glStencilThenCoverStrokePathInstancedNV(Int32 numPaths, Int32 pathNameType, IntPtr paths, UInt32 pathBase, Int32 reference, UInt32 mask, Int32 coverMode, Int32 transformType, float* transformValues);
+			internal unsafe delegate void glStencilThenCoverStrokePathInstancedNV(int numPaths, int pathNameType, IntPtr paths, uint pathBase, int reference, uint mask, int coverMode, int transformType, float* transformValues);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3871,7 +3871,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Int32 glPathGlyphIndexRangeNV(Int32 fontTarget, IntPtr fontName, UInt32 fontStyle, UInt32 pathParameterTemplate, float emScale, UInt32* baseAndCount);
+			internal unsafe delegate int glPathGlyphIndexRangeNV(int fontTarget, IntPtr fontName, uint fontStyle, uint pathParameterTemplate, float emScale, uint* baseAndCount);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3879,7 +3879,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Int32 glPathGlyphIndexArrayNV(UInt32 firstPathName, Int32 fontTarget, IntPtr fontName, UInt32 fontStyle, UInt32 firstGlyphIndex, Int32 numGlyphs, UInt32 pathParameterTemplate, float emScale);
+			internal unsafe delegate int glPathGlyphIndexArrayNV(uint firstPathName, int fontTarget, IntPtr fontName, uint fontStyle, uint firstGlyphIndex, int numGlyphs, uint pathParameterTemplate, float emScale);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3887,7 +3887,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Int32 glPathMemoryGlyphIndexArrayNV(UInt32 firstPathName, Int32 fontTarget, UInt32 fontSize, IntPtr fontData, Int32 faceIndex, UInt32 firstGlyphIndex, Int32 numGlyphs, UInt32 pathParameterTemplate, float emScale);
+			internal unsafe delegate int glPathMemoryGlyphIndexArrayNV(uint firstPathName, int fontTarget, uint fontSize, IntPtr fontData, int faceIndex, uint firstGlyphIndex, int numGlyphs, uint pathParameterTemplate, float emScale);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3895,7 +3895,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramPathFragmentInputGenNV(UInt32 program, Int32 location, Int32 genMode, Int32 components, float* coeffs);
+			internal unsafe delegate void glProgramPathFragmentInputGenNV(uint program, int location, int genMode, int components, float* coeffs);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3903,7 +3903,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetProgramResourcefvNV(UInt32 program, Int32 programInterface, UInt32 index, Int32 propCount, Int32* props, Int32 bufSize, Int32* length, float* @params);
+			internal unsafe delegate void glGetProgramResourcefvNV(uint program, int programInterface, uint index, int propCount, int* props, int bufSize, int* length, float* @params);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3911,7 +3911,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glPathColorGenNV(Int32 color, Int32 genMode, Int32 colorFormat, float* coeffs);
+			internal unsafe delegate void glPathColorGenNV(int color, int genMode, int colorFormat, float* coeffs);
 
 			[RequiredByFeature("GL_NV_path_rendering", Profile = "compatibility")]
 			[ThreadStatic]
@@ -3919,7 +3919,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glPathTexGenNV(Int32 texCoordSet, Int32 genMode, Int32 components, float* coeffs);
+			internal unsafe delegate void glPathTexGenNV(int texCoordSet, int genMode, int components, float* coeffs);
 
 			[RequiredByFeature("GL_NV_path_rendering", Profile = "compatibility")]
 			[ThreadStatic]
@@ -3927,7 +3927,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glPathFogGenNV(Int32 genMode);
+			internal delegate void glPathFogGenNV(int genMode);
 
 			[RequiredByFeature("GL_NV_path_rendering", Profile = "compatibility")]
 			[ThreadStatic]
@@ -3935,7 +3935,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetPathColorGenivNV(Int32 color, Int32 pname, Int32* value);
+			internal unsafe delegate void glGetPathColorGenivNV(int color, int pname, int* value);
 
 			[RequiredByFeature("GL_NV_path_rendering", Profile = "compatibility")]
 			[ThreadStatic]
@@ -3943,7 +3943,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetPathColorGenfvNV(Int32 color, Int32 pname, float* value);
+			internal unsafe delegate void glGetPathColorGenfvNV(int color, int pname, float* value);
 
 			[RequiredByFeature("GL_NV_path_rendering", Profile = "compatibility")]
 			[ThreadStatic]
@@ -3951,7 +3951,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetPathTexGenivNV(Int32 texCoordSet, Int32 pname, Int32* value);
+			internal unsafe delegate void glGetPathTexGenivNV(int texCoordSet, int pname, int* value);
 
 			[RequiredByFeature("GL_NV_path_rendering", Profile = "compatibility")]
 			[ThreadStatic]
@@ -3959,7 +3959,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetPathTexGenfvNV(Int32 texCoordSet, Int32 pname, float* value);
+			internal unsafe delegate void glGetPathTexGenfvNV(int texCoordSet, int pname, float* value);
 
 			[RequiredByFeature("GL_NV_path_rendering", Profile = "compatibility")]
 			[ThreadStatic]

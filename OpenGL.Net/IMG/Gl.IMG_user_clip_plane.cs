@@ -54,7 +54,7 @@ namespace OpenGL
 				fixed (float* p_eqn = eqn)
 				{
 					Debug.Assert(Delegates.pglClipPlanefIMG != null, "pglClipPlanefIMG not implemented");
-					Delegates.pglClipPlanefIMG((Int32)p, p_eqn);
+					Delegates.pglClipPlanefIMG((int)p, p_eqn);
 					LogCommand("glClipPlanefIMG", null, p, eqn					);
 				}
 			}
@@ -78,7 +78,7 @@ namespace OpenGL
 				fixed (IntPtr* p_eqn = eqn)
 				{
 					Debug.Assert(Delegates.pglClipPlanexIMG != null, "pglClipPlanexIMG not implemented");
-					Delegates.pglClipPlanexIMG((Int32)p, p_eqn);
+					Delegates.pglClipPlanexIMG((int)p, p_eqn);
 					LogCommand("glClipPlanexIMG", null, p, eqn					);
 				}
 			}
@@ -89,7 +89,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glClipPlanefIMG(Int32 p, float* eqn);
+			internal unsafe delegate void glClipPlanefIMG(int p, float* eqn);
 
 			[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
 			[ThreadStatic]
@@ -97,7 +97,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glClipPlanexIMG(Int32 p, IntPtr* eqn);
+			internal unsafe delegate void glClipPlanexIMG(int p, IntPtr* eqn);
 
 			[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
 			[ThreadStatic]

@@ -101,18 +101,18 @@ namespace OpenGL
 		/// [WGL] wglGetGPUIDsAMD: Binding for wglGetGPUIDsAMD.
 		/// </summary>
 		/// <param name="maxCount">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="ids">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("WGL_AMD_gpu_association")]
-		public static UInt32 GetGPUIDsAMD(UInt32 maxCount, [Out] UInt32[] ids)
+		public static uint GetGPUIDsAMD(uint maxCount, [Out] uint[] ids)
 		{
-			UInt32 retValue;
+			uint retValue;
 
 			unsafe {
-				fixed (UInt32* p_ids = ids)
+				fixed (uint* p_ids = ids)
 				{
 					Debug.Assert(Delegates.pwglGetGPUIDsAMD != null, "pwglGetGPUIDsAMD not implemented");
 					retValue = Delegates.pwglGetGPUIDsAMD(maxCount, p_ids);
@@ -128,24 +128,24 @@ namespace OpenGL
 		/// [WGL] wglGetGPUInfoAMD: Binding for wglGetGPUInfoAMD.
 		/// </summary>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="property">
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="dataType">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="size">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="data">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("WGL_AMD_gpu_association")]
-		public static Int32 GetGPUInfoAMD(UInt32 id, int property, Int32 dataType, UInt32 size, IntPtr data)
+		public static int GetGPUInfoAMD(uint id, int property, int dataType, uint size, IntPtr data)
 		{
-			Int32 retValue;
+			int retValue;
 
 			Debug.Assert(Delegates.pwglGetGPUInfoAMD != null, "pwglGetGPUInfoAMD not implemented");
 			retValue = Delegates.pwglGetGPUInfoAMD(id, property, dataType, size, data);
@@ -162,9 +162,9 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("WGL_AMD_gpu_association")]
-		public static UInt32 GetContextGPUIDAMD(IntPtr hglrc)
+		public static uint GetContextGPUIDAMD(IntPtr hglrc)
 		{
-			UInt32 retValue;
+			uint retValue;
 
 			Debug.Assert(Delegates.pwglGetContextGPUIDAMD != null, "pwglGetContextGPUIDAMD not implemented");
 			retValue = Delegates.pwglGetContextGPUIDAMD(hglrc);
@@ -178,10 +178,10 @@ namespace OpenGL
 		/// [WGL] wglCreateAssociatedContextAMD: Binding for wglCreateAssociatedContextAMD.
 		/// </summary>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("WGL_AMD_gpu_association")]
-		public static IntPtr CreateAssociatedContextAMD(UInt32 id)
+		public static IntPtr CreateAssociatedContextAMD(uint id)
 		{
 			IntPtr retValue;
 
@@ -197,7 +197,7 @@ namespace OpenGL
 		/// [WGL] wglCreateAssociatedContextAttribsAMD: Binding for wglCreateAssociatedContextAttribsAMD.
 		/// </summary>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="hShareContext">
 		/// A <see cref="T:IntPtr"/>.
@@ -206,7 +206,7 @@ namespace OpenGL
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("WGL_AMD_gpu_association")]
-		public static IntPtr CreateAssociatedContextAttribsAMD(UInt32 id, IntPtr hShareContext, int[] attribList)
+		public static IntPtr CreateAssociatedContextAttribsAMD(uint id, IntPtr hShareContext, int[] attribList)
 		{
 			IntPtr retValue;
 
@@ -284,37 +284,37 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="srcX0">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="srcY0">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="srcX1">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="srcY1">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="dstX0">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="dstY0">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="dstX1">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="dstY1">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="mask">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="filter">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("WGL_AMD_gpu_association")]
-		public static void BlitContextFramebufferAMD(IntPtr dstCtx, Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, UInt32 mask, Int32 filter)
+		public static void BlitContextFramebufferAMD(IntPtr dstCtx, int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, uint mask, int filter)
 		{
 			Debug.Assert(Delegates.pwglBlitContextFramebufferAMD != null, "pwglBlitContextFramebufferAMD not implemented");
 			Delegates.pwglBlitContextFramebufferAMD(dstCtx, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
@@ -326,35 +326,35 @@ namespace OpenGL
 		{
 			[RequiredByFeature("WGL_AMD_gpu_association")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate UInt32 wglGetGPUIDsAMD(UInt32 maxCount, UInt32* ids);
+			internal unsafe delegate uint wglGetGPUIDsAMD(uint maxCount, uint* ids);
 
 			[RequiredByFeature("WGL_AMD_gpu_association")]
 			internal static wglGetGPUIDsAMD pwglGetGPUIDsAMD;
 
 			[RequiredByFeature("WGL_AMD_gpu_association")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Int32 wglGetGPUInfoAMD(UInt32 id, int property, Int32 dataType, UInt32 size, IntPtr data);
+			internal unsafe delegate int wglGetGPUInfoAMD(uint id, int property, int dataType, uint size, IntPtr data);
 
 			[RequiredByFeature("WGL_AMD_gpu_association")]
 			internal static wglGetGPUInfoAMD pwglGetGPUInfoAMD;
 
 			[RequiredByFeature("WGL_AMD_gpu_association")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate UInt32 wglGetContextGPUIDAMD(IntPtr hglrc);
+			internal unsafe delegate uint wglGetContextGPUIDAMD(IntPtr hglrc);
 
 			[RequiredByFeature("WGL_AMD_gpu_association")]
 			internal static wglGetContextGPUIDAMD pwglGetContextGPUIDAMD;
 
 			[RequiredByFeature("WGL_AMD_gpu_association")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate IntPtr wglCreateAssociatedContextAMD(UInt32 id);
+			internal delegate IntPtr wglCreateAssociatedContextAMD(uint id);
 
 			[RequiredByFeature("WGL_AMD_gpu_association")]
 			internal static wglCreateAssociatedContextAMD pwglCreateAssociatedContextAMD;
 
 			[RequiredByFeature("WGL_AMD_gpu_association")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr wglCreateAssociatedContextAttribsAMD(UInt32 id, IntPtr hShareContext, int* attribList);
+			internal unsafe delegate IntPtr wglCreateAssociatedContextAttribsAMD(uint id, IntPtr hShareContext, int* attribList);
 
 			[RequiredByFeature("WGL_AMD_gpu_association")]
 			internal static wglCreateAssociatedContextAttribsAMD pwglCreateAssociatedContextAttribsAMD;
@@ -382,7 +382,7 @@ namespace OpenGL
 
 			[RequiredByFeature("WGL_AMD_gpu_association")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void wglBlitContextFramebufferAMD(IntPtr dstCtx, Int32 srcX0, Int32 srcY0, Int32 srcX1, Int32 srcY1, Int32 dstX0, Int32 dstY0, Int32 dstX1, Int32 dstY1, UInt32 mask, Int32 filter);
+			internal unsafe delegate void wglBlitContextFramebufferAMD(IntPtr dstCtx, int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, uint mask, int filter);
 
 			[RequiredByFeature("WGL_AMD_gpu_association")]
 			internal static wglBlitContextFramebufferAMD pwglBlitContextFramebufferAMD;

@@ -47,7 +47,7 @@ namespace OpenGL
 		public static void BlendEquationOES(BlendEquationMode mode)
 		{
 			Debug.Assert(Delegates.pglBlendEquationOES != null, "pglBlendEquationOES not implemented");
-			Delegates.pglBlendEquationOES((Int32)mode);
+			Delegates.pglBlendEquationOES((int)mode);
 			LogCommand("glBlendEquationOES", null, mode			);
 			DebugCheckErrors(null);
 		}
@@ -56,7 +56,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_OES_blend_subtract", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glBlendEquationOES(Int32 mode);
+			internal delegate void glBlendEquationOES(int mode);
 
 			[RequiredByFeature("GL_OES_blend_subtract", Api = "gles1")]
 			[ThreadStatic]

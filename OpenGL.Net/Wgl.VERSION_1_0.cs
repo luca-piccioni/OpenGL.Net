@@ -276,10 +276,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="mask">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("WGL_VERSION_1_0")]
-		public static bool CopyContext(IntPtr hglrcSrc, IntPtr hglrcDst, UInt32 mask)
+		public static bool CopyContext(IntPtr hglrcSrc, IntPtr hglrcDst, uint mask)
 		{
 			bool retValue;
 
@@ -364,13 +364,13 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="nBytes">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="plpd">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("WGL_VERSION_1_0")]
-		public static bool DescribeLayerPlane(IntPtr hDc, int pixelFormat, int layerPlane, UInt32 nBytes, IntPtr[] plpd)
+		public static bool DescribeLayerPlane(IntPtr hDc, int pixelFormat, int layerPlane, uint nBytes, IntPtr[] plpd)
 		{
 			bool retValue;
 
@@ -575,10 +575,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="fuFlags">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("WGL_VERSION_1_0")]
-		public static bool SwapLayerBuffers(IntPtr hdc, UInt32 fuFlags)
+		public static bool SwapLayerBuffers(IntPtr hdc, uint fuFlags)
 		{
 			bool retValue;
 
@@ -597,16 +597,16 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="first">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="listBase">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("WGL_VERSION_1_0")]
-		public static bool UseFont(IntPtr hDC, Int32 first, Int32 count, Int32 listBase)
+		public static bool UseFont(IntPtr hDC, int first, int count, int listBase)
 		{
 			bool retValue;
 
@@ -625,16 +625,16 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="first">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="listBase">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("WGL_VERSION_1_0")]
-		public static bool UseFontBitmapsA(IntPtr hDC, Int32 first, Int32 count, Int32 listBase)
+		public static bool UseFontBitmapsA(IntPtr hDC, int first, int count, int listBase)
 		{
 			bool retValue;
 
@@ -653,16 +653,16 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="first">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="listBase">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("WGL_VERSION_1_0")]
-		public static bool UseFontBitmapsW(IntPtr hDC, Int32 first, Int32 count, Int32 listBase)
+		public static bool UseFontBitmapsW(IntPtr hDC, int first, int count, int listBase)
 		{
 			bool retValue;
 
@@ -681,13 +681,13 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="first">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="listBase">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="deviation">
 		/// A <see cref="T:float"/>.
@@ -702,7 +702,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("WGL_VERSION_1_0")]
-		public static bool UseFont(IntPtr hDC, Int32 first, Int32 count, Int32 listBase, float deviation, float extrusion, int format, IntPtr lpgmf)
+		public static bool UseFont(IntPtr hDC, int first, int count, int listBase, float deviation, float extrusion, int format, IntPtr lpgmf)
 		{
 			bool retValue;
 
@@ -721,13 +721,13 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="first">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="listBase">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="deviation">
 		/// A <see cref="T:float"/>.
@@ -742,7 +742,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("WGL_VERSION_1_0")]
-		public static bool UseFontOutlinesA(IntPtr hDC, Int32 first, Int32 count, Int32 listBase, float deviation, float extrusion, int format, IntPtr lpgmf)
+		public static bool UseFontOutlinesA(IntPtr hDC, int first, int count, int listBase, float deviation, float extrusion, int format, IntPtr lpgmf)
 		{
 			bool retValue;
 
@@ -761,13 +761,13 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="first">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="listBase">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="deviation">
 		/// A <see cref="T:float"/>.
@@ -782,7 +782,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("WGL_VERSION_1_0")]
-		public static bool UseFontOutlinesW(IntPtr hDC, Int32 first, Int32 count, Int32 listBase, float deviation, float extrusion, int format, IntPtr lpgmf)
+		public static bool UseFontOutlinesW(IntPtr hDC, int first, int count, int listBase, float deviation, float extrusion, int format, IntPtr lpgmf)
 		{
 			bool retValue;
 
@@ -798,7 +798,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglCopyContext(IntPtr hglrcSrc, IntPtr hglrcDst, UInt32 mask);
+			internal unsafe delegate bool wglCopyContext(IntPtr hglrcSrc, IntPtr hglrcDst, uint mask);
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			internal static wglCopyContext pwglCopyContext;
@@ -826,7 +826,7 @@ namespace OpenGL
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglDescribeLayerPlane(IntPtr hDc, int pixelFormat, int layerPlane, UInt32 nBytes, IntPtr* plpd);
+			internal unsafe delegate bool wglDescribeLayerPlane(IntPtr hDc, int pixelFormat, int layerPlane, uint nBytes, IntPtr* plpd);
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			internal static wglDescribeLayerPlane pwglDescribeLayerPlane;
@@ -889,49 +889,49 @@ namespace OpenGL
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglSwapLayerBuffers(IntPtr hdc, UInt32 fuFlags);
+			internal unsafe delegate bool wglSwapLayerBuffers(IntPtr hdc, uint fuFlags);
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			internal static wglSwapLayerBuffers pwglSwapLayerBuffers;
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglUseFontBitmaps(IntPtr hDC, Int32 first, Int32 count, Int32 listBase);
+			internal unsafe delegate bool wglUseFontBitmaps(IntPtr hDC, int first, int count, int listBase);
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			internal static wglUseFontBitmaps pwglUseFontBitmaps;
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglUseFontBitmapsA(IntPtr hDC, Int32 first, Int32 count, Int32 listBase);
+			internal unsafe delegate bool wglUseFontBitmapsA(IntPtr hDC, int first, int count, int listBase);
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			internal static wglUseFontBitmapsA pwglUseFontBitmapsA;
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglUseFontBitmapsW(IntPtr hDC, Int32 first, Int32 count, Int32 listBase);
+			internal unsafe delegate bool wglUseFontBitmapsW(IntPtr hDC, int first, int count, int listBase);
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			internal static wglUseFontBitmapsW pwglUseFontBitmapsW;
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglUseFontOutlines(IntPtr hDC, Int32 first, Int32 count, Int32 listBase, float deviation, float extrusion, int format, IntPtr lpgmf);
+			internal unsafe delegate bool wglUseFontOutlines(IntPtr hDC, int first, int count, int listBase, float deviation, float extrusion, int format, IntPtr lpgmf);
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			internal static wglUseFontOutlines pwglUseFontOutlines;
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglUseFontOutlinesA(IntPtr hDC, Int32 first, Int32 count, Int32 listBase, float deviation, float extrusion, int format, IntPtr lpgmf);
+			internal unsafe delegate bool wglUseFontOutlinesA(IntPtr hDC, int first, int count, int listBase, float deviation, float extrusion, int format, IntPtr lpgmf);
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			internal static wglUseFontOutlinesA pwglUseFontOutlinesA;
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglUseFontOutlinesW(IntPtr hDC, Int32 first, Int32 count, Int32 listBase, float deviation, float extrusion, int format, IntPtr lpgmf);
+			internal unsafe delegate bool wglUseFontOutlinesW(IntPtr hDC, int first, int count, int listBase, float deviation, float extrusion, int format, IntPtr lpgmf);
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			internal static wglUseFontOutlinesW pwglUseFontOutlinesW;

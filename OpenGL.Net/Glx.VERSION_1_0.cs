@@ -560,7 +560,7 @@ namespace OpenGL
 		/// Specifies which portions of <paramref name="src"/> state are to be copied to <paramref name="dst"/>.
 		/// </param>
 		[RequiredByFeature("GLX_VERSION_1_0")]
-		public static void CopyContext(IntPtr dpy, IntPtr src, IntPtr dst, UInt32 mask)
+		public static void CopyContext(IntPtr dpy, IntPtr src, IntPtr dst, uint mask)
 		{
 			Debug.Assert(Delegates.pglXCopyContext != null, "pglXCopyContext not implemented");
 			Delegates.pglXCopyContext(dpy, src, dst, mask);
@@ -818,7 +818,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GLX_VERSION_1_0")]
-		public static void UseXFont(Int32 font, int first, int count, int list)
+		public static void UseXFont(int font, int first, int count, int list)
 		{
 			Debug.Assert(Delegates.pglXUseXFont != null, "pglXUseXFont not implemented");
 			Delegates.pglXUseXFont(font, first, count, list);
@@ -858,7 +858,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glXCopyContext(IntPtr dpy, IntPtr src, IntPtr dst, UInt32 mask);
+			internal unsafe delegate void glXCopyContext(IntPtr dpy, IntPtr src, IntPtr dst, uint mask);
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
 			internal static glXCopyContext pglXCopyContext;
@@ -942,7 +942,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glXUseXFont(Int32 font, int first, int count, int list);
+			internal delegate void glXUseXFont(int font, int first, int count, int list);
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
 			internal static glXUseXFont pglXUseXFont;

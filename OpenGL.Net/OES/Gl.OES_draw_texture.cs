@@ -62,7 +62,7 @@ namespace OpenGL
 		/// Specifies the width and height of the affected screen rectangle in pixels.
 		/// </param>
 		[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
-		public static void DrawTexOES(Int16 x, Int16 y, Int16 z, Int16 width, Int16 height)
+		public static void DrawTexOES(short x, short y, short z, short width, short height)
 		{
 			Debug.Assert(Delegates.pglDrawTexsOES != null, "pglDrawTexsOES not implemented");
 			Delegates.pglDrawTexsOES(x, y, z, width, height);
@@ -89,7 +89,7 @@ namespace OpenGL
 		/// Specifies the width and height of the affected screen rectangle in pixels.
 		/// </param>
 		[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
-		public static void DrawTexOES(Int32 x, Int32 y, Int32 z, Int32 width, Int32 height)
+		public static void DrawTexOES(int x, int y, int z, int width, int height)
 		{
 			Debug.Assert(Delegates.pglDrawTexiOES != null, "pglDrawTexiOES not implemented");
 			Delegates.pglDrawTexiOES(x, y, z, width, height);
@@ -131,10 +131,10 @@ namespace OpenGL
 		/// Specifies a pointer to the coords for the affected screen rectangle.
 		/// </param>
 		[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
-		public static void DrawTexOES(Int16[] coords)
+		public static void DrawTexOES(short[] coords)
 		{
 			unsafe {
-				fixed (Int16* p_coords = coords)
+				fixed (short* p_coords = coords)
 				{
 					Debug.Assert(Delegates.pglDrawTexsvOES != null, "pglDrawTexsvOES not implemented");
 					Delegates.pglDrawTexsvOES(p_coords);
@@ -151,10 +151,10 @@ namespace OpenGL
 		/// Specifies a pointer to the coords for the affected screen rectangle.
 		/// </param>
 		[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
-		public static void DrawTexOES(Int32[] coords)
+		public static void DrawTexOES(int[] coords)
 		{
 			unsafe {
-				fixed (Int32* p_coords = coords)
+				fixed (int* p_coords = coords)
 				{
 					Debug.Assert(Delegates.pglDrawTexivOES != null, "pglDrawTexivOES not implemented");
 					Delegates.pglDrawTexivOES(p_coords);
@@ -235,7 +235,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glDrawTexsOES(Int16 x, Int16 y, Int16 z, Int16 width, Int16 height);
+			internal delegate void glDrawTexsOES(short x, short y, short z, short width, short height);
 
 			[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
 			[ThreadStatic]
@@ -243,7 +243,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glDrawTexiOES(Int32 x, Int32 y, Int32 z, Int32 width, Int32 height);
+			internal delegate void glDrawTexiOES(int x, int y, int z, int width, int height);
 
 			[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
 			[ThreadStatic]
@@ -259,7 +259,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDrawTexsvOES(Int16* coords);
+			internal unsafe delegate void glDrawTexsvOES(short* coords);
 
 			[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
 			[ThreadStatic]
@@ -267,7 +267,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDrawTexivOES(Int32* coords);
+			internal unsafe delegate void glDrawTexivOES(int* coords);
 
 			[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
 			[ThreadStatic]

@@ -219,10 +219,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="synctype">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GLX_SGIX_video_resize")]
-		public static int ChannelRectSyncSGIX(IntPtr display, int screen, int channel, Int32 synctype)
+		public static int ChannelRectSyncSGIX(IntPtr display, int screen, int channel, int synctype)
 		{
 			int retValue;
 
@@ -266,7 +266,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GLX_SGIX_video_resize")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate int glXChannelRectSyncSGIX(IntPtr display, int screen, int channel, Int32 synctype);
+			internal unsafe delegate int glXChannelRectSyncSGIX(IntPtr display, int screen, int channel, int synctype);
 
 			[RequiredByFeature("GLX_SGIX_video_resize")]
 			internal static glXChannelRectSyncSGIX pglXChannelRectSyncSGIX;

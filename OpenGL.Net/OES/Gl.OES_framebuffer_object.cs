@@ -41,10 +41,10 @@ namespace OpenGL
 		/// [GL] glIsRenderbufferOES: Binding for glIsRenderbufferOES.
 		/// </summary>
 		/// <param name="renderbuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
-		public static bool IsRenderbufferOES(UInt32 renderbuffer)
+		public static bool IsRenderbufferOES(uint renderbuffer)
 		{
 			bool retValue;
 
@@ -63,13 +63,13 @@ namespace OpenGL
 		/// A <see cref="T:RenderbufferTarget"/>.
 		/// </param>
 		/// <param name="renderbuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
-		public static void BindRenderbufferOES(RenderbufferTarget target, UInt32 renderbuffer)
+		public static void BindRenderbufferOES(RenderbufferTarget target, uint renderbuffer)
 		{
 			Debug.Assert(Delegates.pglBindRenderbufferOES != null, "pglBindRenderbufferOES not implemented");
-			Delegates.pglBindRenderbufferOES((Int32)target, renderbuffer);
+			Delegates.pglBindRenderbufferOES((int)target, renderbuffer);
 			LogCommand("glBindRenderbufferOES", null, target, renderbuffer			);
 			DebugCheckErrors(null);
 		}
@@ -78,16 +78,16 @@ namespace OpenGL
 		/// [GL] glDeleteRenderbuffersOES: Binding for glDeleteRenderbuffersOES.
 		/// </summary>
 		/// <param name="renderbuffers">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
-		public static void DeleteRenderbuffersOES(UInt32[] renderbuffers)
+		public static void DeleteRenderbuffersOES(uint[] renderbuffers)
 		{
 			unsafe {
-				fixed (UInt32* p_renderbuffers = renderbuffers)
+				fixed (uint* p_renderbuffers = renderbuffers)
 				{
 					Debug.Assert(Delegates.pglDeleteRenderbuffersOES != null, "pglDeleteRenderbuffersOES not implemented");
-					Delegates.pglDeleteRenderbuffersOES((Int32)renderbuffers.Length, p_renderbuffers);
+					Delegates.pglDeleteRenderbuffersOES(renderbuffers.Length, p_renderbuffers);
 					LogCommand("glDeleteRenderbuffersOES", null, renderbuffers.Length, renderbuffers					);
 				}
 			}
@@ -98,16 +98,16 @@ namespace OpenGL
 		/// [GL] glGenRenderbuffersOES: Binding for glGenRenderbuffersOES.
 		/// </summary>
 		/// <param name="renderbuffers">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
-		public static void GenRenderbuffersOES(UInt32[] renderbuffers)
+		public static void GenRenderbuffersOES(uint[] renderbuffers)
 		{
 			unsafe {
-				fixed (UInt32* p_renderbuffers = renderbuffers)
+				fixed (uint* p_renderbuffers = renderbuffers)
 				{
 					Debug.Assert(Delegates.pglGenRenderbuffersOES != null, "pglGenRenderbuffersOES not implemented");
-					Delegates.pglGenRenderbuffersOES((Int32)renderbuffers.Length, p_renderbuffers);
+					Delegates.pglGenRenderbuffersOES(renderbuffers.Length, p_renderbuffers);
 					LogCommand("glGenRenderbuffersOES", null, renderbuffers.Length, renderbuffers					);
 				}
 			}
@@ -118,9 +118,9 @@ namespace OpenGL
 		/// [GL] glGenRenderbuffersOES: Binding for glGenRenderbuffersOES.
 		/// </summary>
 		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
-		public static UInt32 GenRenderbufferOES()
+		public static uint GenRenderbufferOES()
 		{
-			UInt32 retValue;
+			uint retValue;
 			unsafe {
 				Delegates.pglGenRenderbuffersOES(1, &retValue);
 				LogCommand("glGenRenderbuffersOES", null, 1, "{ " + retValue + " }"				);
@@ -139,16 +139,16 @@ namespace OpenGL
 		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
-		public static void RenderbufferStorageOES(RenderbufferTarget target, InternalFormat internalformat, Int32 width, Int32 height)
+		public static void RenderbufferStorageOES(RenderbufferTarget target, InternalFormat internalformat, int width, int height)
 		{
 			Debug.Assert(Delegates.pglRenderbufferStorageOES != null, "pglRenderbufferStorageOES not implemented");
-			Delegates.pglRenderbufferStorageOES((Int32)target, (Int32)internalformat, width, height);
+			Delegates.pglRenderbufferStorageOES((int)target, (int)internalformat, width, height);
 			LogCommand("glRenderbufferStorageOES", null, target, internalformat, width, height			);
 			DebugCheckErrors(null);
 		}
@@ -163,16 +163,16 @@ namespace OpenGL
 		/// A <see cref="T:RenderbufferParameterName"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
-		public static void GetRenderbufferParameterOES(RenderbufferTarget target, RenderbufferParameterName pname, [Out] Int32[] @params)
+		public static void GetRenderbufferParameterOES(RenderbufferTarget target, RenderbufferParameterName pname, [Out] int[] @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetRenderbufferParameterivOES != null, "pglGetRenderbufferParameterivOES not implemented");
-					Delegates.pglGetRenderbufferParameterivOES((Int32)target, (Int32)pname, p_params);
+					Delegates.pglGetRenderbufferParameterivOES((int)target, (int)pname, p_params);
 					LogCommand("glGetRenderbufferParameterivOES", null, target, pname, @params					);
 				}
 			}
@@ -183,10 +183,10 @@ namespace OpenGL
 		/// [GL] glIsFramebufferOES: Binding for glIsFramebufferOES.
 		/// </summary>
 		/// <param name="framebuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
-		public static bool IsFramebufferOES(UInt32 framebuffer)
+		public static bool IsFramebufferOES(uint framebuffer)
 		{
 			bool retValue;
 
@@ -205,13 +205,13 @@ namespace OpenGL
 		/// A <see cref="T:FramebufferTarget"/>.
 		/// </param>
 		/// <param name="framebuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
-		public static void BindFramebufferOES(FramebufferTarget target, UInt32 framebuffer)
+		public static void BindFramebufferOES(FramebufferTarget target, uint framebuffer)
 		{
 			Debug.Assert(Delegates.pglBindFramebufferOES != null, "pglBindFramebufferOES not implemented");
-			Delegates.pglBindFramebufferOES((Int32)target, framebuffer);
+			Delegates.pglBindFramebufferOES((int)target, framebuffer);
 			LogCommand("glBindFramebufferOES", null, target, framebuffer			);
 			DebugCheckErrors(null);
 		}
@@ -220,16 +220,16 @@ namespace OpenGL
 		/// [GL] glDeleteFramebuffersOES: Binding for glDeleteFramebuffersOES.
 		/// </summary>
 		/// <param name="framebuffers">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
-		public static void DeleteFramebuffersOES(UInt32[] framebuffers)
+		public static void DeleteFramebuffersOES(uint[] framebuffers)
 		{
 			unsafe {
-				fixed (UInt32* p_framebuffers = framebuffers)
+				fixed (uint* p_framebuffers = framebuffers)
 				{
 					Debug.Assert(Delegates.pglDeleteFramebuffersOES != null, "pglDeleteFramebuffersOES not implemented");
-					Delegates.pglDeleteFramebuffersOES((Int32)framebuffers.Length, p_framebuffers);
+					Delegates.pglDeleteFramebuffersOES(framebuffers.Length, p_framebuffers);
 					LogCommand("glDeleteFramebuffersOES", null, framebuffers.Length, framebuffers					);
 				}
 			}
@@ -240,16 +240,16 @@ namespace OpenGL
 		/// [GL] glGenFramebuffersOES: Binding for glGenFramebuffersOES.
 		/// </summary>
 		/// <param name="framebuffers">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
-		public static void GenFramebuffersOES(UInt32[] framebuffers)
+		public static void GenFramebuffersOES(uint[] framebuffers)
 		{
 			unsafe {
-				fixed (UInt32* p_framebuffers = framebuffers)
+				fixed (uint* p_framebuffers = framebuffers)
 				{
 					Debug.Assert(Delegates.pglGenFramebuffersOES != null, "pglGenFramebuffersOES not implemented");
-					Delegates.pglGenFramebuffersOES((Int32)framebuffers.Length, p_framebuffers);
+					Delegates.pglGenFramebuffersOES(framebuffers.Length, p_framebuffers);
 					LogCommand("glGenFramebuffersOES", null, framebuffers.Length, framebuffers					);
 				}
 			}
@@ -260,9 +260,9 @@ namespace OpenGL
 		/// [GL] glGenFramebuffersOES: Binding for glGenFramebuffersOES.
 		/// </summary>
 		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
-		public static UInt32 GenFramebufferOES()
+		public static uint GenFramebufferOES()
 		{
-			UInt32 retValue;
+			uint retValue;
 			unsafe {
 				Delegates.pglGenFramebuffersOES(1, &retValue);
 				LogCommand("glGenFramebuffersOES", null, 1, "{ " + retValue + " }"				);
@@ -280,10 +280,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 		public static FramebufferStatus CheckFramebufferStatusOES(FramebufferTarget target)
 		{
-			Int32 retValue;
+			int retValue;
 
 			Debug.Assert(Delegates.pglCheckFramebufferStatusOES != null, "pglCheckFramebufferStatusOES not implemented");
-			retValue = Delegates.pglCheckFramebufferStatusOES((Int32)target);
+			retValue = Delegates.pglCheckFramebufferStatusOES((int)target);
 			LogCommand("glCheckFramebufferStatusOES", (FramebufferStatus)retValue, target			);
 			DebugCheckErrors(retValue);
 
@@ -303,13 +303,13 @@ namespace OpenGL
 		/// A <see cref="T:RenderbufferTarget"/>.
 		/// </param>
 		/// <param name="renderbuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
-		public static void FramebufferRenderbufferOES(FramebufferTarget target, FramebufferAttachment attachment, RenderbufferTarget renderbuffertarget, UInt32 renderbuffer)
+		public static void FramebufferRenderbufferOES(FramebufferTarget target, FramebufferAttachment attachment, RenderbufferTarget renderbuffertarget, uint renderbuffer)
 		{
 			Debug.Assert(Delegates.pglFramebufferRenderbufferOES != null, "pglFramebufferRenderbufferOES not implemented");
-			Delegates.pglFramebufferRenderbufferOES((Int32)target, (Int32)attachment, (Int32)renderbuffertarget, renderbuffer);
+			Delegates.pglFramebufferRenderbufferOES((int)target, (int)attachment, (int)renderbuffertarget, renderbuffer);
 			LogCommand("glFramebufferRenderbufferOES", null, target, attachment, renderbuffertarget, renderbuffer			);
 			DebugCheckErrors(null);
 		}
@@ -327,16 +327,16 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
-		public static void FramebufferTexture2DOES(FramebufferTarget target, FramebufferAttachment attachment, TextureTarget textarget, UInt32 texture, Int32 level)
+		public static void FramebufferTexture2DOES(FramebufferTarget target, FramebufferAttachment attachment, TextureTarget textarget, uint texture, int level)
 		{
 			Debug.Assert(Delegates.pglFramebufferTexture2DOES != null, "pglFramebufferTexture2DOES not implemented");
-			Delegates.pglFramebufferTexture2DOES((Int32)target, (Int32)attachment, (Int32)textarget, texture, level);
+			Delegates.pglFramebufferTexture2DOES((int)target, (int)attachment, (int)textarget, texture, level);
 			LogCommand("glFramebufferTexture2DOES", null, target, attachment, textarget, texture, level			);
 			DebugCheckErrors(null);
 		}
@@ -354,16 +354,16 @@ namespace OpenGL
 		/// A <see cref="T:FramebufferAttachmentParameterName"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
-		public static void GetFramebufferAttachmentParameterOES(FramebufferTarget target, FramebufferAttachment attachment, FramebufferAttachmentParameterName pname, [Out] Int32[] @params)
+		public static void GetFramebufferAttachmentParameterOES(FramebufferTarget target, FramebufferAttachment attachment, FramebufferAttachmentParameterName pname, [Out] int[] @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetFramebufferAttachmentParameterivOES != null, "pglGetFramebufferAttachmentParameterivOES not implemented");
-					Delegates.pglGetFramebufferAttachmentParameterivOES((Int32)target, (Int32)attachment, (Int32)pname, p_params);
+					Delegates.pglGetFramebufferAttachmentParameterivOES((int)target, (int)attachment, (int)pname, p_params);
 					LogCommand("glGetFramebufferAttachmentParameterivOES", null, target, attachment, pname, @params					);
 				}
 			}
@@ -380,7 +380,7 @@ namespace OpenGL
 		public static void GenerateMipmapOES(TextureTarget target)
 		{
 			Debug.Assert(Delegates.pglGenerateMipmapOES != null, "pglGenerateMipmapOES not implemented");
-			Delegates.pglGenerateMipmapOES((Int32)target);
+			Delegates.pglGenerateMipmapOES((int)target);
 			LogCommand("glGenerateMipmapOES", null, target			);
 			DebugCheckErrors(null);
 		}
@@ -390,7 +390,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
 			[return: MarshalAs(UnmanagedType.I1)]
-			internal delegate bool glIsRenderbufferOES(UInt32 renderbuffer);
+			internal delegate bool glIsRenderbufferOES(uint renderbuffer);
 
 			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[ThreadStatic]
@@ -398,7 +398,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glBindRenderbufferOES(Int32 target, UInt32 renderbuffer);
+			internal delegate void glBindRenderbufferOES(int target, uint renderbuffer);
 
 			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[ThreadStatic]
@@ -406,7 +406,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDeleteRenderbuffersOES(Int32 n, UInt32* renderbuffers);
+			internal unsafe delegate void glDeleteRenderbuffersOES(int n, uint* renderbuffers);
 
 			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[ThreadStatic]
@@ -414,7 +414,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGenRenderbuffersOES(Int32 n, UInt32* renderbuffers);
+			internal unsafe delegate void glGenRenderbuffersOES(int n, uint* renderbuffers);
 
 			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[ThreadStatic]
@@ -422,7 +422,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glRenderbufferStorageOES(Int32 target, Int32 internalformat, Int32 width, Int32 height);
+			internal delegate void glRenderbufferStorageOES(int target, int internalformat, int width, int height);
 
 			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[ThreadStatic]
@@ -430,7 +430,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetRenderbufferParameterivOES(Int32 target, Int32 pname, Int32* @params);
+			internal unsafe delegate void glGetRenderbufferParameterivOES(int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[ThreadStatic]
@@ -439,7 +439,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
 			[return: MarshalAs(UnmanagedType.I1)]
-			internal delegate bool glIsFramebufferOES(UInt32 framebuffer);
+			internal delegate bool glIsFramebufferOES(uint framebuffer);
 
 			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[ThreadStatic]
@@ -447,7 +447,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glBindFramebufferOES(Int32 target, UInt32 framebuffer);
+			internal delegate void glBindFramebufferOES(int target, uint framebuffer);
 
 			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[ThreadStatic]
@@ -455,7 +455,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDeleteFramebuffersOES(Int32 n, UInt32* framebuffers);
+			internal unsafe delegate void glDeleteFramebuffersOES(int n, uint* framebuffers);
 
 			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[ThreadStatic]
@@ -463,7 +463,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGenFramebuffersOES(Int32 n, UInt32* framebuffers);
+			internal unsafe delegate void glGenFramebuffersOES(int n, uint* framebuffers);
 
 			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[ThreadStatic]
@@ -471,7 +471,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Int32 glCheckFramebufferStatusOES(Int32 target);
+			internal delegate int glCheckFramebufferStatusOES(int target);
 
 			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[ThreadStatic]
@@ -479,7 +479,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glFramebufferRenderbufferOES(Int32 target, Int32 attachment, Int32 renderbuffertarget, UInt32 renderbuffer);
+			internal delegate void glFramebufferRenderbufferOES(int target, int attachment, int renderbuffertarget, uint renderbuffer);
 
 			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[ThreadStatic]
@@ -487,7 +487,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glFramebufferTexture2DOES(Int32 target, Int32 attachment, Int32 textarget, UInt32 texture, Int32 level);
+			internal delegate void glFramebufferTexture2DOES(int target, int attachment, int textarget, uint texture, int level);
 
 			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[ThreadStatic]
@@ -495,7 +495,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetFramebufferAttachmentParameterivOES(Int32 target, Int32 attachment, Int32 pname, Int32* @params);
+			internal unsafe delegate void glGetFramebufferAttachmentParameterivOES(int target, int attachment, int pname, int* @params);
 
 			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[ThreadStatic]
@@ -503,7 +503,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glGenerateMipmapOES(Int32 target);
+			internal delegate void glGenerateMipmapOES(int target);
 
 			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[ThreadStatic]

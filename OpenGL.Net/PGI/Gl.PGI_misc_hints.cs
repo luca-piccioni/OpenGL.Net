@@ -161,13 +161,13 @@ namespace OpenGL
 		/// [GL] glHintPGI: Binding for glHintPGI.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="mode">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_PGI_misc_hints")]
-		public static void HintPGI(Int32 target, Int32 mode)
+		public static void HintPGI(int target, int mode)
 		{
 			Debug.Assert(Delegates.pglHintPGI != null, "pglHintPGI not implemented");
 			Delegates.pglHintPGI(target, mode);
@@ -179,7 +179,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_PGI_misc_hints")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glHintPGI(Int32 target, Int32 mode);
+			internal delegate void glHintPGI(int target, int mode);
 
 			[RequiredByFeature("GL_PGI_misc_hints")]
 			[ThreadStatic]

@@ -203,19 +203,19 @@ namespace OpenGL
 		/// [GL] glClearColorIiEXT: Binding for glClearColorIiEXT.
 		/// </summary>
 		/// <param name="red">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="green">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="blue">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="alpha">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_texture_integer")]
-		public static void ClearColorIEXT(Int32 red, Int32 green, Int32 blue, Int32 alpha)
+		public static void ClearColorIEXT(int red, int green, int blue, int alpha)
 		{
 			Debug.Assert(Delegates.pglClearColorIiEXT != null, "pglClearColorIiEXT not implemented");
 			Delegates.pglClearColorIiEXT(red, green, blue, alpha);
@@ -227,19 +227,19 @@ namespace OpenGL
 		/// [GL] glClearColorIuiEXT: Binding for glClearColorIuiEXT.
 		/// </summary>
 		/// <param name="red">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="green">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="blue">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="alpha">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_texture_integer")]
-		public static void ClearColorIEXT(UInt32 red, UInt32 green, UInt32 blue, UInt32 alpha)
+		public static void ClearColorIEXT(uint red, uint green, uint blue, uint alpha)
 		{
 			Debug.Assert(Delegates.pglClearColorIuiEXT != null, "pglClearColorIuiEXT not implemented");
 			Delegates.pglClearColorIuiEXT(red, green, blue, alpha);
@@ -251,7 +251,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_EXT_texture_integer")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glClearColorIiEXT(Int32 red, Int32 green, Int32 blue, Int32 alpha);
+			internal delegate void glClearColorIiEXT(int red, int green, int blue, int alpha);
 
 			[RequiredByFeature("GL_EXT_texture_integer")]
 			[ThreadStatic]
@@ -259,7 +259,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_texture_integer")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glClearColorIuiEXT(UInt32 red, UInt32 green, UInt32 blue, UInt32 alpha);
+			internal delegate void glClearColorIuiEXT(uint red, uint green, uint blue, uint alpha);
 
 			[RequiredByFeature("GL_EXT_texture_integer")]
 			[ThreadStatic]

@@ -41,10 +41,10 @@ namespace OpenGL
 		/// [GL] glReadBufferNV: Binding for glReadBufferNV.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_read_buffer", Api = "gles2")]
-		public static void ReadBufferNV(Int32 mode)
+		public static void ReadBufferNV(int mode)
 		{
 			Debug.Assert(Delegates.pglReadBufferNV != null, "pglReadBufferNV not implemented");
 			Delegates.pglReadBufferNV(mode);
@@ -56,7 +56,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_NV_read_buffer", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glReadBufferNV(Int32 mode);
+			internal delegate void glReadBufferNV(int mode);
 
 			[RequiredByFeature("GL_NV_read_buffer", Api = "gles2")]
 			[ThreadStatic]

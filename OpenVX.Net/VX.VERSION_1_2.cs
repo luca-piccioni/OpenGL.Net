@@ -2028,7 +2028,7 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		public static void AddLogEntry(Reference @ref, Status status, string message, Int32 vaArgs)
+		public static void AddLogEntry(Reference @ref, Status status, string message, int vaArgs)
 		{
 			Debug.Assert(Delegates.pvxAddLogEntry != null, "pvxAddLogEntry not implemented");
 			Delegates.pvxAddLogEntry(@ref, status, message, vaArgs);
@@ -4250,7 +4250,7 @@ namespace OpenVX
 			internal static vxRegisterAutoAging pvxRegisterAutoAging;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void vxAddLogEntry(Reference @ref, Status status, string message, Int32 vaArgs);
+			internal delegate void vxAddLogEntry(Reference @ref, Status status, string message, int vaArgs);
 
 			internal static vxAddLogEntry pvxAddLogEntry;
 

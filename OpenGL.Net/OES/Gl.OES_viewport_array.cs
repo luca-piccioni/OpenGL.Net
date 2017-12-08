@@ -41,16 +41,16 @@ namespace OpenGL
 		/// [GL] glDepthRangeArrayfvOES: Binding for glDepthRangeArrayfvOES.
 		/// </summary>
 		/// <param name="first">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_viewport_array", Api = "gles2")]
-		public static void DepthRangeArrayOES(UInt32 first, Int32 count, float[] v)
+		public static void DepthRangeArrayOES(uint first, int count, float[] v)
 		{
 			unsafe {
 				fixed (float* p_v = v)
@@ -67,7 +67,7 @@ namespace OpenGL
 		/// [GL] glDepthRangeIndexedfOES: Binding for glDepthRangeIndexedfOES.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="n">
 		/// A <see cref="T:float"/>.
@@ -76,7 +76,7 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_viewport_array", Api = "gles2")]
-		public static void DepthRangeIndexedOES(UInt32 index, float n, float f)
+		public static void DepthRangeIndexedOES(uint index, float n, float f)
 		{
 			Debug.Assert(Delegates.pglDepthRangeIndexedfOES != null, "pglDepthRangeIndexedfOES not implemented");
 			Delegates.pglDepthRangeIndexedfOES(index, n, f);
@@ -88,7 +88,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_OES_viewport_array", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDepthRangeArrayfvOES(UInt32 first, Int32 count, float* v);
+			internal unsafe delegate void glDepthRangeArrayfvOES(uint first, int count, float* v);
 
 			[RequiredByFeature("GL_OES_viewport_array", Api = "gles2")]
 			[ThreadStatic]
@@ -96,7 +96,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_viewport_array", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glDepthRangeIndexedfOES(UInt32 index, float n, float f);
+			internal delegate void glDepthRangeIndexedfOES(uint index, float n, float f);
 
 			[RequiredByFeature("GL_OES_viewport_array", Api = "gles2")]
 			[ThreadStatic]

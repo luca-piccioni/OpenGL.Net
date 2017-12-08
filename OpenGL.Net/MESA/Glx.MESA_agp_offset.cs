@@ -44,9 +44,9 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GLX_MESA_agp_offset")]
-		public static UInt32 GetAGPOffsetMESA(IntPtr pointer)
+		public static uint GetAGPOffsetMESA(IntPtr pointer)
 		{
-			UInt32 retValue;
+			uint retValue;
 
 			Debug.Assert(Delegates.pglXGetAGPOffsetMESA != null, "pglXGetAGPOffsetMESA not implemented");
 			retValue = Delegates.pglXGetAGPOffsetMESA(pointer);
@@ -60,7 +60,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GLX_MESA_agp_offset")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate UInt32 glXGetAGPOffsetMESA(IntPtr pointer);
+			internal unsafe delegate uint glXGetAGPOffsetMESA(IntPtr pointer);
 
 			[RequiredByFeature("GLX_MESA_agp_offset")]
 			internal static glXGetAGPOffsetMESA pglXGetAGPOffsetMESA;

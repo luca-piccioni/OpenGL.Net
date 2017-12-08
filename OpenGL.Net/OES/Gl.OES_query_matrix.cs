@@ -47,15 +47,15 @@ namespace OpenGL
 		/// Returns the exponents of the current matrix.
 		/// </param>
 		[RequiredByFeature("GL_OES_query_matrix", Api = "gl|gles1")]
-		public static UInt32 QueryMatrixxOES(IntPtr[] mantissa, Int32[] exponent)
+		public static uint QueryMatrixxOES(IntPtr[] mantissa, int[] exponent)
 		{
 			Debug.Assert(mantissa.Length >= 16);
 			Debug.Assert(exponent.Length >= 16);
-			UInt32 retValue;
+			uint retValue;
 
 			unsafe {
 				fixed (IntPtr* p_mantissa = mantissa)
-				fixed (Int32* p_exponent = exponent)
+				fixed (int* p_exponent = exponent)
 				{
 					Debug.Assert(Delegates.pglQueryMatrixxOES != null, "pglQueryMatrixxOES not implemented");
 					retValue = Delegates.pglQueryMatrixxOES(p_mantissa, p_exponent);
@@ -71,7 +71,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_OES_query_matrix", Api = "gl|gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate UInt32 glQueryMatrixxOES(IntPtr* mantissa, Int32* exponent);
+			internal unsafe delegate uint glQueryMatrixxOES(IntPtr* mantissa, int* exponent);
 
 			[RequiredByFeature("GL_OES_query_matrix", Api = "gl|gles1")]
 			[ThreadStatic]

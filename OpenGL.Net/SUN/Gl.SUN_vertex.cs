@@ -837,7 +837,7 @@ namespace OpenGL
 		/// [GL] glReplacementCodeuiVertex3fSUN: Binding for glReplacementCodeuiVertex3fSUN.
 		/// </summary>
 		/// <param name="rc">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="x">
 		/// A <see cref="T:float"/>.
@@ -849,7 +849,7 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_SUN_vertex")]
-		public static void ReplacementCodeuiVertex3SUN(UInt32 rc, float x, float y, float z)
+		public static void ReplacementCodeuiVertex3SUN(uint rc, float x, float y, float z)
 		{
 			Debug.Assert(Delegates.pglReplacementCodeuiVertex3fSUN != null, "pglReplacementCodeuiVertex3fSUN not implemented");
 			Delegates.pglReplacementCodeuiVertex3fSUN(rc, x, y, z);
@@ -861,18 +861,18 @@ namespace OpenGL
 		/// [GL] glReplacementCodeuiVertex3fvSUN: Binding for glReplacementCodeuiVertex3fvSUN.
 		/// </summary>
 		/// <param name="rc">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_SUN_vertex")]
-		public static void ReplacementCodeuiVertex3SUN(UInt32[] rc, float[] v)
+		public static void ReplacementCodeuiVertex3SUN(uint[] rc, float[] v)
 		{
 			Debug.Assert(rc.Length >= 1);
 			Debug.Assert(v.Length >= 3);
 			unsafe {
-				fixed (UInt32* p_rc = rc)
+				fixed (uint* p_rc = rc)
 				fixed (float* p_v = v)
 				{
 					Debug.Assert(Delegates.pglReplacementCodeuiVertex3fvSUN != null, "pglReplacementCodeuiVertex3fvSUN not implemented");
@@ -887,7 +887,7 @@ namespace OpenGL
 		/// [GL] glReplacementCodeuiColor4ubVertex3fSUN: Binding for glReplacementCodeuiColor4ubVertex3fSUN.
 		/// </summary>
 		/// <param name="rc">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="r">
 		/// A <see cref="T:byte"/>.
@@ -911,7 +911,7 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_SUN_vertex")]
-		public static void ReplacementCodeuiColor4ubVertex3fSUN(UInt32 rc, byte r, byte g, byte b, byte a, float x, float y, float z)
+		public static void ReplacementCodeuiColor4ubVertex3fSUN(uint rc, byte r, byte g, byte b, byte a, float x, float y, float z)
 		{
 			Debug.Assert(Delegates.pglReplacementCodeuiColor4ubVertex3fSUN != null, "pglReplacementCodeuiColor4ubVertex3fSUN not implemented");
 			Delegates.pglReplacementCodeuiColor4ubVertex3fSUN(rc, r, g, b, a, x, y, z);
@@ -923,7 +923,7 @@ namespace OpenGL
 		/// [GL] glReplacementCodeuiColor4ubVertex3fvSUN: Binding for glReplacementCodeuiColor4ubVertex3fvSUN.
 		/// </summary>
 		/// <param name="rc">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		/// <param name="c">
 		/// A <see cref="T:byte[]"/>.
@@ -932,13 +932,13 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_SUN_vertex")]
-		public static void ReplacementCodeuiColor4ubVertex3fvSUN(UInt32[] rc, byte[] c, float[] v)
+		public static void ReplacementCodeuiColor4ubVertex3fvSUN(uint[] rc, byte[] c, float[] v)
 		{
 			Debug.Assert(rc.Length >= 1);
 			Debug.Assert(c.Length >= 4);
 			Debug.Assert(v.Length >= 3);
 			unsafe {
-				fixed (UInt32* p_rc = rc)
+				fixed (uint* p_rc = rc)
 				fixed (byte* p_c = c)
 				fixed (float* p_v = v)
 				{
@@ -954,7 +954,7 @@ namespace OpenGL
 		/// [GL] glReplacementCodeuiColor3fVertex3fSUN: Binding for glReplacementCodeuiColor3fVertex3fSUN.
 		/// </summary>
 		/// <param name="rc">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="r">
 		/// A <see cref="T:float"/>.
@@ -975,7 +975,7 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_SUN_vertex")]
-		public static void ReplacementCodeuiColor3fVertex3fSUN(UInt32 rc, float r, float g, float b, float x, float y, float z)
+		public static void ReplacementCodeuiColor3fVertex3fSUN(uint rc, float r, float g, float b, float x, float y, float z)
 		{
 			Debug.Assert(Delegates.pglReplacementCodeuiColor3fVertex3fSUN != null, "pglReplacementCodeuiColor3fVertex3fSUN not implemented");
 			Delegates.pglReplacementCodeuiColor3fVertex3fSUN(rc, r, g, b, x, y, z);
@@ -987,7 +987,7 @@ namespace OpenGL
 		/// [GL] glReplacementCodeuiColor3fVertex3fvSUN: Binding for glReplacementCodeuiColor3fVertex3fvSUN.
 		/// </summary>
 		/// <param name="rc">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		/// <param name="c">
 		/// A <see cref="T:float[]"/>.
@@ -996,13 +996,13 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_SUN_vertex")]
-		public static void ReplacementCodeuiColor3fVertex3fvSUN(UInt32[] rc, float[] c, float[] v)
+		public static void ReplacementCodeuiColor3fVertex3fvSUN(uint[] rc, float[] c, float[] v)
 		{
 			Debug.Assert(rc.Length >= 1);
 			Debug.Assert(c.Length >= 3);
 			Debug.Assert(v.Length >= 3);
 			unsafe {
-				fixed (UInt32* p_rc = rc)
+				fixed (uint* p_rc = rc)
 				fixed (float* p_c = c)
 				fixed (float* p_v = v)
 				{
@@ -1018,7 +1018,7 @@ namespace OpenGL
 		/// [GL] glReplacementCodeuiNormal3fVertex3fSUN: Binding for glReplacementCodeuiNormal3fVertex3fSUN.
 		/// </summary>
 		/// <param name="rc">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="nx">
 		/// A <see cref="T:float"/>.
@@ -1039,7 +1039,7 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_SUN_vertex")]
-		public static void ReplacementCodeuiNormal3fVertex3fSUN(UInt32 rc, float nx, float ny, float nz, float x, float y, float z)
+		public static void ReplacementCodeuiNormal3fVertex3fSUN(uint rc, float nx, float ny, float nz, float x, float y, float z)
 		{
 			Debug.Assert(Delegates.pglReplacementCodeuiNormal3fVertex3fSUN != null, "pglReplacementCodeuiNormal3fVertex3fSUN not implemented");
 			Delegates.pglReplacementCodeuiNormal3fVertex3fSUN(rc, nx, ny, nz, x, y, z);
@@ -1051,7 +1051,7 @@ namespace OpenGL
 		/// [GL] glReplacementCodeuiNormal3fVertex3fvSUN: Binding for glReplacementCodeuiNormal3fVertex3fvSUN.
 		/// </summary>
 		/// <param name="rc">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		/// <param name="n">
 		/// A <see cref="T:float[]"/>.
@@ -1060,13 +1060,13 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_SUN_vertex")]
-		public static void ReplacementCodeuiNormal3fVertex3fvSUN(UInt32[] rc, float[] n, float[] v)
+		public static void ReplacementCodeuiNormal3fVertex3fvSUN(uint[] rc, float[] n, float[] v)
 		{
 			Debug.Assert(rc.Length >= 1);
 			Debug.Assert(n.Length >= 3);
 			Debug.Assert(v.Length >= 3);
 			unsafe {
-				fixed (UInt32* p_rc = rc)
+				fixed (uint* p_rc = rc)
 				fixed (float* p_n = n)
 				fixed (float* p_v = v)
 				{
@@ -1082,7 +1082,7 @@ namespace OpenGL
 		/// [GL] glReplacementCodeuiColor4fNormal3fVertex3fSUN: Binding for glReplacementCodeuiColor4fNormal3fVertex3fSUN.
 		/// </summary>
 		/// <param name="rc">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="r">
 		/// A <see cref="T:float"/>.
@@ -1115,7 +1115,7 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_SUN_vertex")]
-		public static void ReplacementCodeuiColor4fNormal3fVertex3fSUN(UInt32 rc, float r, float g, float b, float a, float nx, float ny, float nz, float x, float y, float z)
+		public static void ReplacementCodeuiColor4fNormal3fVertex3fSUN(uint rc, float r, float g, float b, float a, float nx, float ny, float nz, float x, float y, float z)
 		{
 			Debug.Assert(Delegates.pglReplacementCodeuiColor4fNormal3fVertex3fSUN != null, "pglReplacementCodeuiColor4fNormal3fVertex3fSUN not implemented");
 			Delegates.pglReplacementCodeuiColor4fNormal3fVertex3fSUN(rc, r, g, b, a, nx, ny, nz, x, y, z);
@@ -1127,7 +1127,7 @@ namespace OpenGL
 		/// [GL] glReplacementCodeuiColor4fNormal3fVertex3fvSUN: Binding for glReplacementCodeuiColor4fNormal3fVertex3fvSUN.
 		/// </summary>
 		/// <param name="rc">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		/// <param name="c">
 		/// A <see cref="T:float[]"/>.
@@ -1139,14 +1139,14 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_SUN_vertex")]
-		public static void ReplacementCodeuiColor4fNormal3fVertex3fvSUN(UInt32[] rc, float[] c, float[] n, float[] v)
+		public static void ReplacementCodeuiColor4fNormal3fVertex3fvSUN(uint[] rc, float[] c, float[] n, float[] v)
 		{
 			Debug.Assert(rc.Length >= 1);
 			Debug.Assert(c.Length >= 4);
 			Debug.Assert(n.Length >= 3);
 			Debug.Assert(v.Length >= 3);
 			unsafe {
-				fixed (UInt32* p_rc = rc)
+				fixed (uint* p_rc = rc)
 				fixed (float* p_c = c)
 				fixed (float* p_n = n)
 				fixed (float* p_v = v)
@@ -1163,7 +1163,7 @@ namespace OpenGL
 		/// [GL] glReplacementCodeuiTexCoord2fVertex3fSUN: Binding for glReplacementCodeuiTexCoord2fVertex3fSUN.
 		/// </summary>
 		/// <param name="rc">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="s">
 		/// A <see cref="T:float"/>.
@@ -1181,7 +1181,7 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_SUN_vertex")]
-		public static void ReplacementCodeuiTexCoord2fVertex3fSUN(UInt32 rc, float s, float t, float x, float y, float z)
+		public static void ReplacementCodeuiTexCoord2fVertex3fSUN(uint rc, float s, float t, float x, float y, float z)
 		{
 			Debug.Assert(Delegates.pglReplacementCodeuiTexCoord2fVertex3fSUN != null, "pglReplacementCodeuiTexCoord2fVertex3fSUN not implemented");
 			Delegates.pglReplacementCodeuiTexCoord2fVertex3fSUN(rc, s, t, x, y, z);
@@ -1193,7 +1193,7 @@ namespace OpenGL
 		/// [GL] glReplacementCodeuiTexCoord2fVertex3fvSUN: Binding for glReplacementCodeuiTexCoord2fVertex3fvSUN.
 		/// </summary>
 		/// <param name="rc">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		/// <param name="tc">
 		/// A <see cref="T:float[]"/>.
@@ -1202,13 +1202,13 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_SUN_vertex")]
-		public static void ReplacementCodeuiTexCoord2fVertex3fvSUN(UInt32[] rc, float[] tc, float[] v)
+		public static void ReplacementCodeuiTexCoord2fVertex3fvSUN(uint[] rc, float[] tc, float[] v)
 		{
 			Debug.Assert(rc.Length >= 1);
 			Debug.Assert(tc.Length >= 2);
 			Debug.Assert(v.Length >= 3);
 			unsafe {
-				fixed (UInt32* p_rc = rc)
+				fixed (uint* p_rc = rc)
 				fixed (float* p_tc = tc)
 				fixed (float* p_v = v)
 				{
@@ -1224,7 +1224,7 @@ namespace OpenGL
 		/// [GL] glReplacementCodeuiTexCoord2fNormal3fVertex3fSUN: Binding for glReplacementCodeuiTexCoord2fNormal3fVertex3fSUN.
 		/// </summary>
 		/// <param name="rc">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="s">
 		/// A <see cref="T:float"/>.
@@ -1251,7 +1251,7 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_SUN_vertex")]
-		public static void ReplacementCodeuiTexCoord2fNormal3fVertex3fSUN(UInt32 rc, float s, float t, float nx, float ny, float nz, float x, float y, float z)
+		public static void ReplacementCodeuiTexCoord2fNormal3fVertex3fSUN(uint rc, float s, float t, float nx, float ny, float nz, float x, float y, float z)
 		{
 			Debug.Assert(Delegates.pglReplacementCodeuiTexCoord2fNormal3fVertex3fSUN != null, "pglReplacementCodeuiTexCoord2fNormal3fVertex3fSUN not implemented");
 			Delegates.pglReplacementCodeuiTexCoord2fNormal3fVertex3fSUN(rc, s, t, nx, ny, nz, x, y, z);
@@ -1263,7 +1263,7 @@ namespace OpenGL
 		/// [GL] glReplacementCodeuiTexCoord2fNormal3fVertex3fvSUN: Binding for glReplacementCodeuiTexCoord2fNormal3fVertex3fvSUN.
 		/// </summary>
 		/// <param name="rc">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		/// <param name="tc">
 		/// A <see cref="T:float[]"/>.
@@ -1275,14 +1275,14 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_SUN_vertex")]
-		public static void ReplacementCodeuiTexCoord2fNormal3fVertex3fvSUN(UInt32[] rc, float[] tc, float[] n, float[] v)
+		public static void ReplacementCodeuiTexCoord2fNormal3fVertex3fvSUN(uint[] rc, float[] tc, float[] n, float[] v)
 		{
 			Debug.Assert(rc.Length >= 1);
 			Debug.Assert(tc.Length >= 2);
 			Debug.Assert(n.Length >= 3);
 			Debug.Assert(v.Length >= 3);
 			unsafe {
-				fixed (UInt32* p_rc = rc)
+				fixed (uint* p_rc = rc)
 				fixed (float* p_tc = tc)
 				fixed (float* p_n = n)
 				fixed (float* p_v = v)
@@ -1300,7 +1300,7 @@ namespace OpenGL
 		/// glReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fSUN.
 		/// </summary>
 		/// <param name="rc">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="s">
 		/// A <see cref="T:float"/>.
@@ -1339,7 +1339,7 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_SUN_vertex")]
-		public static void ReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fSUN(UInt32 rc, float s, float t, float r, float g, float b, float a, float nx, float ny, float nz, float x, float y, float z)
+		public static void ReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fSUN(uint rc, float s, float t, float r, float g, float b, float a, float nx, float ny, float nz, float x, float y, float z)
 		{
 			Debug.Assert(Delegates.pglReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fSUN != null, "pglReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fSUN not implemented");
 			Delegates.pglReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fSUN(rc, s, t, r, g, b, a, nx, ny, nz, x, y, z);
@@ -1352,7 +1352,7 @@ namespace OpenGL
 		/// glReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fvSUN.
 		/// </summary>
 		/// <param name="rc">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		/// <param name="tc">
 		/// A <see cref="T:float[]"/>.
@@ -1367,7 +1367,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_SUN_vertex")]
-		public static void ReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fvSUN(UInt32[] rc, float[] tc, float[] c, float[] n, float[] v)
+		public static void ReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fvSUN(uint[] rc, float[] tc, float[] c, float[] n, float[] v)
 		{
 			Debug.Assert(rc.Length >= 1);
 			Debug.Assert(tc.Length >= 2);
@@ -1375,7 +1375,7 @@ namespace OpenGL
 			Debug.Assert(n.Length >= 3);
 			Debug.Assert(v.Length >= 3);
 			unsafe {
-				fixed (UInt32* p_rc = rc)
+				fixed (uint* p_rc = rc)
 				fixed (float* p_tc = tc)
 				fixed (float* p_c = c)
 				fixed (float* p_n = n)
@@ -1585,7 +1585,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glReplacementCodeuiVertex3fSUN(UInt32 rc, float x, float y, float z);
+			internal delegate void glReplacementCodeuiVertex3fSUN(uint rc, float x, float y, float z);
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[ThreadStatic]
@@ -1593,7 +1593,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glReplacementCodeuiVertex3fvSUN(UInt32* rc, float* v);
+			internal unsafe delegate void glReplacementCodeuiVertex3fvSUN(uint* rc, float* v);
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[ThreadStatic]
@@ -1601,7 +1601,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glReplacementCodeuiColor4ubVertex3fSUN(UInt32 rc, byte r, byte g, byte b, byte a, float x, float y, float z);
+			internal delegate void glReplacementCodeuiColor4ubVertex3fSUN(uint rc, byte r, byte g, byte b, byte a, float x, float y, float z);
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[ThreadStatic]
@@ -1609,7 +1609,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glReplacementCodeuiColor4ubVertex3fvSUN(UInt32* rc, byte* c, float* v);
+			internal unsafe delegate void glReplacementCodeuiColor4ubVertex3fvSUN(uint* rc, byte* c, float* v);
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[ThreadStatic]
@@ -1617,7 +1617,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glReplacementCodeuiColor3fVertex3fSUN(UInt32 rc, float r, float g, float b, float x, float y, float z);
+			internal delegate void glReplacementCodeuiColor3fVertex3fSUN(uint rc, float r, float g, float b, float x, float y, float z);
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[ThreadStatic]
@@ -1625,7 +1625,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glReplacementCodeuiColor3fVertex3fvSUN(UInt32* rc, float* c, float* v);
+			internal unsafe delegate void glReplacementCodeuiColor3fVertex3fvSUN(uint* rc, float* c, float* v);
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[ThreadStatic]
@@ -1633,7 +1633,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glReplacementCodeuiNormal3fVertex3fSUN(UInt32 rc, float nx, float ny, float nz, float x, float y, float z);
+			internal delegate void glReplacementCodeuiNormal3fVertex3fSUN(uint rc, float nx, float ny, float nz, float x, float y, float z);
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[ThreadStatic]
@@ -1641,7 +1641,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glReplacementCodeuiNormal3fVertex3fvSUN(UInt32* rc, float* n, float* v);
+			internal unsafe delegate void glReplacementCodeuiNormal3fVertex3fvSUN(uint* rc, float* n, float* v);
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[ThreadStatic]
@@ -1649,7 +1649,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glReplacementCodeuiColor4fNormal3fVertex3fSUN(UInt32 rc, float r, float g, float b, float a, float nx, float ny, float nz, float x, float y, float z);
+			internal delegate void glReplacementCodeuiColor4fNormal3fVertex3fSUN(uint rc, float r, float g, float b, float a, float nx, float ny, float nz, float x, float y, float z);
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[ThreadStatic]
@@ -1657,7 +1657,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glReplacementCodeuiColor4fNormal3fVertex3fvSUN(UInt32* rc, float* c, float* n, float* v);
+			internal unsafe delegate void glReplacementCodeuiColor4fNormal3fVertex3fvSUN(uint* rc, float* c, float* n, float* v);
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[ThreadStatic]
@@ -1665,7 +1665,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glReplacementCodeuiTexCoord2fVertex3fSUN(UInt32 rc, float s, float t, float x, float y, float z);
+			internal delegate void glReplacementCodeuiTexCoord2fVertex3fSUN(uint rc, float s, float t, float x, float y, float z);
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[ThreadStatic]
@@ -1673,7 +1673,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glReplacementCodeuiTexCoord2fVertex3fvSUN(UInt32* rc, float* tc, float* v);
+			internal unsafe delegate void glReplacementCodeuiTexCoord2fVertex3fvSUN(uint* rc, float* tc, float* v);
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[ThreadStatic]
@@ -1681,7 +1681,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glReplacementCodeuiTexCoord2fNormal3fVertex3fSUN(UInt32 rc, float s, float t, float nx, float ny, float nz, float x, float y, float z);
+			internal delegate void glReplacementCodeuiTexCoord2fNormal3fVertex3fSUN(uint rc, float s, float t, float nx, float ny, float nz, float x, float y, float z);
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[ThreadStatic]
@@ -1689,7 +1689,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glReplacementCodeuiTexCoord2fNormal3fVertex3fvSUN(UInt32* rc, float* tc, float* n, float* v);
+			internal unsafe delegate void glReplacementCodeuiTexCoord2fNormal3fVertex3fvSUN(uint* rc, float* tc, float* n, float* v);
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[ThreadStatic]
@@ -1697,7 +1697,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fSUN(UInt32 rc, float s, float t, float r, float g, float b, float a, float nx, float ny, float nz, float x, float y, float z);
+			internal delegate void glReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fSUN(uint rc, float s, float t, float r, float g, float b, float a, float nx, float ny, float nz, float x, float y, float z);
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[ThreadStatic]
@@ -1705,7 +1705,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fvSUN(UInt32* rc, float* tc, float* c, float* n, float* v);
+			internal unsafe delegate void glReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fvSUN(uint* rc, float* tc, float* c, float* n, float* v);
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[ThreadStatic]

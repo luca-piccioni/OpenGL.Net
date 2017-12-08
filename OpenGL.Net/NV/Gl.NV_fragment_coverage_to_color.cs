@@ -53,10 +53,10 @@ namespace OpenGL
 		/// [GL] glFragmentCoverageColorNV: Binding for glFragmentCoverageColorNV.
 		/// </summary>
 		/// <param name="color">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_fragment_coverage_to_color", Api = "gl|glcore|gles2")]
-		public static void FragmentCoverageColorNV(UInt32 color)
+		public static void FragmentCoverageColorNV(uint color)
 		{
 			Debug.Assert(Delegates.pglFragmentCoverageColorNV != null, "pglFragmentCoverageColorNV not implemented");
 			Delegates.pglFragmentCoverageColorNV(color);
@@ -68,7 +68,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_NV_fragment_coverage_to_color", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glFragmentCoverageColorNV(UInt32 color);
+			internal delegate void glFragmentCoverageColorNV(uint color);
 
 			[RequiredByFeature("GL_NV_fragment_coverage_to_color", Api = "gl|glcore|gles2")]
 			[ThreadStatic]

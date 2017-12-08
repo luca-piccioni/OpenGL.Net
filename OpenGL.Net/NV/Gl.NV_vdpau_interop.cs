@@ -120,16 +120,16 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="numTextureNames">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="textureNames">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vdpau_interop")]
-		public static IntPtr VDPAURegisterVideoSurfaceNV(Object vdpSurface, Int32 target, Int32 numTextureNames, UInt32[] textureNames)
+		public static IntPtr VDPAURegisterVideoSurfaceNV(Object vdpSurface, int target, int numTextureNames, uint[] textureNames)
 		{
 			GCHandle pin_vdpSurface = GCHandle.Alloc(vdpSurface, GCHandleType.Pinned);
 			try {
@@ -146,21 +146,21 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="textureNames">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vdpau_interop")]
-		public static IntPtr VDPAURegisterVideoSurfaceNV(IntPtr vdpSurface, Int32 target, UInt32[] textureNames)
+		public static IntPtr VDPAURegisterVideoSurfaceNV(IntPtr vdpSurface, int target, uint[] textureNames)
 		{
 			IntPtr retValue;
 
 			unsafe {
-				fixed (UInt32* p_textureNames = textureNames)
+				fixed (uint* p_textureNames = textureNames)
 				{
 					Debug.Assert(Delegates.pglVDPAURegisterVideoSurfaceNV != null, "pglVDPAURegisterVideoSurfaceNV not implemented");
-					retValue = Delegates.pglVDPAURegisterVideoSurfaceNV(vdpSurface, target, (Int32)textureNames.Length, p_textureNames);
+					retValue = Delegates.pglVDPAURegisterVideoSurfaceNV(vdpSurface, target, textureNames.Length, p_textureNames);
 					LogCommand("glVDPAURegisterVideoSurfaceNV", retValue, vdpSurface, target, textureNames.Length, textureNames					);
 				}
 			}
@@ -176,16 +176,16 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="numTextureNames">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="textureNames">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vdpau_interop")]
-		public static IntPtr VDPAURegisterOutputSurfaceNV(Object vdpSurface, Int32 target, Int32 numTextureNames, UInt32[] textureNames)
+		public static IntPtr VDPAURegisterOutputSurfaceNV(Object vdpSurface, int target, int numTextureNames, uint[] textureNames)
 		{
 			GCHandle pin_vdpSurface = GCHandle.Alloc(vdpSurface, GCHandleType.Pinned);
 			try {
@@ -202,21 +202,21 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="textureNames">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vdpau_interop")]
-		public static IntPtr VDPAURegisterOutputSurfaceNV(IntPtr vdpSurface, Int32 target, UInt32[] textureNames)
+		public static IntPtr VDPAURegisterOutputSurfaceNV(IntPtr vdpSurface, int target, uint[] textureNames)
 		{
 			IntPtr retValue;
 
 			unsafe {
-				fixed (UInt32* p_textureNames = textureNames)
+				fixed (uint* p_textureNames = textureNames)
 				{
 					Debug.Assert(Delegates.pglVDPAURegisterOutputSurfaceNV != null, "pglVDPAURegisterOutputSurfaceNV not implemented");
-					retValue = Delegates.pglVDPAURegisterOutputSurfaceNV(vdpSurface, target, (Int32)textureNames.Length, p_textureNames);
+					retValue = Delegates.pglVDPAURegisterOutputSurfaceNV(vdpSurface, target, textureNames.Length, p_textureNames);
 					LogCommand("glVDPAURegisterOutputSurfaceNV", retValue, vdpSurface, target, textureNames.Length, textureNames					);
 				}
 			}
@@ -266,23 +266,23 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="length">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		/// <param name="values">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vdpau_interop")]
-		public static void VDPAUGetSurfaceNV(IntPtr surface, Int32 pname, Int32[] length, Int32[] values)
+		public static void VDPAUGetSurfaceNV(IntPtr surface, int pname, int[] length, int[] values)
 		{
 			unsafe {
-				fixed (Int32* p_length = length)
-				fixed (Int32* p_values = values)
+				fixed (int* p_length = length)
+				fixed (int* p_values = values)
 				{
 					Debug.Assert(Delegates.pglVDPAUGetSurfaceivNV != null, "pglVDPAUGetSurfaceivNV not implemented");
-					Delegates.pglVDPAUGetSurfaceivNV(surface, pname, (Int32)values.Length, p_length, p_values);
+					Delegates.pglVDPAUGetSurfaceivNV(surface, pname, values.Length, p_length, p_values);
 					LogCommand("glVDPAUGetSurfaceivNV", null, surface, pname, values.Length, length, values					);
 				}
 			}
@@ -296,10 +296,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="access">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vdpau_interop")]
-		public static void VDPAUSurfaceNV(IntPtr surface, Int32 access)
+		public static void VDPAUSurfaceNV(IntPtr surface, int access)
 		{
 			Debug.Assert(Delegates.pglVDPAUSurfaceAccessNV != null, "pglVDPAUSurfaceAccessNV not implemented");
 			Delegates.pglVDPAUSurfaceAccessNV(surface, access);
@@ -320,7 +320,7 @@ namespace OpenGL
 				fixed (IntPtr* p_surfaces = surfaces)
 				{
 					Debug.Assert(Delegates.pglVDPAUMapSurfacesNV != null, "pglVDPAUMapSurfacesNV not implemented");
-					Delegates.pglVDPAUMapSurfacesNV((Int32)surfaces.Length, p_surfaces);
+					Delegates.pglVDPAUMapSurfacesNV(surfaces.Length, p_surfaces);
 					LogCommand("glVDPAUMapSurfacesNV", null, surfaces.Length, surfaces					);
 				}
 			}
@@ -340,7 +340,7 @@ namespace OpenGL
 				fixed (IntPtr* p_surfaces = surfaces)
 				{
 					Debug.Assert(Delegates.pglVDPAUUnmapSurfacesNV != null, "pglVDPAUUnmapSurfacesNV not implemented");
-					Delegates.pglVDPAUUnmapSurfacesNV((Int32)surfaces.Length, p_surfaces);
+					Delegates.pglVDPAUUnmapSurfacesNV(surfaces.Length, p_surfaces);
 					LogCommand("glVDPAUUnmapSurfacesNV", null, surfaces.Length, surfaces					);
 				}
 			}
@@ -367,7 +367,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vdpau_interop")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr glVDPAURegisterVideoSurfaceNV(IntPtr vdpSurface, Int32 target, Int32 numTextureNames, UInt32* textureNames);
+			internal unsafe delegate IntPtr glVDPAURegisterVideoSurfaceNV(IntPtr vdpSurface, int target, int numTextureNames, uint* textureNames);
 
 			[RequiredByFeature("GL_NV_vdpau_interop")]
 			[ThreadStatic]
@@ -375,7 +375,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vdpau_interop")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr glVDPAURegisterOutputSurfaceNV(IntPtr vdpSurface, Int32 target, Int32 numTextureNames, UInt32* textureNames);
+			internal unsafe delegate IntPtr glVDPAURegisterOutputSurfaceNV(IntPtr vdpSurface, int target, int numTextureNames, uint* textureNames);
 
 			[RequiredByFeature("GL_NV_vdpau_interop")]
 			[ThreadStatic]
@@ -400,7 +400,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vdpau_interop")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVDPAUGetSurfaceivNV(IntPtr surface, Int32 pname, Int32 bufSize, Int32* length, Int32* values);
+			internal unsafe delegate void glVDPAUGetSurfaceivNV(IntPtr surface, int pname, int bufSize, int* length, int* values);
 
 			[RequiredByFeature("GL_NV_vdpau_interop")]
 			[ThreadStatic]
@@ -408,7 +408,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vdpau_interop")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVDPAUSurfaceAccessNV(IntPtr surface, Int32 access);
+			internal unsafe delegate void glVDPAUSurfaceAccessNV(IntPtr surface, int access);
 
 			[RequiredByFeature("GL_NV_vdpau_interop")]
 			[ThreadStatic]
@@ -416,7 +416,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vdpau_interop")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVDPAUMapSurfacesNV(Int32 numSurfaces, IntPtr* surfaces);
+			internal unsafe delegate void glVDPAUMapSurfacesNV(int numSurfaces, IntPtr* surfaces);
 
 			[RequiredByFeature("GL_NV_vdpau_interop")]
 			[ThreadStatic]
@@ -424,7 +424,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vdpau_interop")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVDPAUUnmapSurfacesNV(Int32 numSurface, IntPtr* surfaces);
+			internal unsafe delegate void glVDPAUUnmapSurfacesNV(int numSurface, IntPtr* surfaces);
 
 			[RequiredByFeature("GL_NV_vdpau_interop")]
 			[ThreadStatic]

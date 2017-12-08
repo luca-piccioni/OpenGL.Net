@@ -59,10 +59,10 @@ namespace OpenGL
 		/// [GL] glFrameZoomSGIX: Binding for glFrameZoomSGIX.
 		/// </summary>
 		/// <param name="factor">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIX_framezoom")]
-		public static void FrameZoomSGIX(Int32 factor)
+		public static void FrameZoomSGIX(int factor)
 		{
 			Debug.Assert(Delegates.pglFrameZoomSGIX != null, "pglFrameZoomSGIX not implemented");
 			Delegates.pglFrameZoomSGIX(factor);
@@ -74,7 +74,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_SGIX_framezoom")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glFrameZoomSGIX(Int32 factor);
+			internal delegate void glFrameZoomSGIX(int factor);
 
 			[RequiredByFeature("GL_SGIX_framezoom")]
 			[ThreadStatic]

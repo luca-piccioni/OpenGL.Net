@@ -53,16 +53,16 @@ namespace OpenGL
 		/// [GL] glGenFencesAPPLE: Binding for glGenFencesAPPLE.
 		/// </summary>
 		/// <param name="fences">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_APPLE_fence")]
-		public static void GenFencesAPPLE(UInt32[] fences)
+		public static void GenFencesAPPLE(uint[] fences)
 		{
 			unsafe {
-				fixed (UInt32* p_fences = fences)
+				fixed (uint* p_fences = fences)
 				{
 					Debug.Assert(Delegates.pglGenFencesAPPLE != null, "pglGenFencesAPPLE not implemented");
-					Delegates.pglGenFencesAPPLE((Int32)fences.Length, p_fences);
+					Delegates.pglGenFencesAPPLE(fences.Length, p_fences);
 					LogCommand("glGenFencesAPPLE", null, fences.Length, fences					);
 				}
 			}
@@ -73,9 +73,9 @@ namespace OpenGL
 		/// [GL] glGenFencesAPPLE: Binding for glGenFencesAPPLE.
 		/// </summary>
 		[RequiredByFeature("GL_APPLE_fence")]
-		public static UInt32 GenFenceAPPLE()
+		public static uint GenFenceAPPLE()
 		{
-			UInt32 retValue;
+			uint retValue;
 			unsafe {
 				Delegates.pglGenFencesAPPLE(1, &retValue);
 				LogCommand("glGenFencesAPPLE", null, 1, "{ " + retValue + " }"				);
@@ -88,16 +88,16 @@ namespace OpenGL
 		/// [GL] glDeleteFencesAPPLE: Binding for glDeleteFencesAPPLE.
 		/// </summary>
 		/// <param name="fences">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_APPLE_fence")]
-		public static void DeleteFencesAPPLE(params UInt32[] fences)
+		public static void DeleteFencesAPPLE(params uint[] fences)
 		{
 			unsafe {
-				fixed (UInt32* p_fences = fences)
+				fixed (uint* p_fences = fences)
 				{
 					Debug.Assert(Delegates.pglDeleteFencesAPPLE != null, "pglDeleteFencesAPPLE not implemented");
-					Delegates.pglDeleteFencesAPPLE((Int32)fences.Length, p_fences);
+					Delegates.pglDeleteFencesAPPLE(fences.Length, p_fences);
 					LogCommand("glDeleteFencesAPPLE", null, fences.Length, fences					);
 				}
 			}
@@ -108,10 +108,10 @@ namespace OpenGL
 		/// [GL] glSetFenceAPPLE: Binding for glSetFenceAPPLE.
 		/// </summary>
 		/// <param name="fence">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_APPLE_fence")]
-		public static void SetFenceAPPLE(UInt32 fence)
+		public static void SetFenceAPPLE(uint fence)
 		{
 			Debug.Assert(Delegates.pglSetFenceAPPLE != null, "pglSetFenceAPPLE not implemented");
 			Delegates.pglSetFenceAPPLE(fence);
@@ -123,10 +123,10 @@ namespace OpenGL
 		/// [GL] glIsFenceAPPLE: Binding for glIsFenceAPPLE.
 		/// </summary>
 		/// <param name="fence">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_APPLE_fence")]
-		public static bool IsFenceAPPLE(UInt32 fence)
+		public static bool IsFenceAPPLE(uint fence)
 		{
 			bool retValue;
 
@@ -142,10 +142,10 @@ namespace OpenGL
 		/// [GL] glTestFenceAPPLE: Binding for glTestFenceAPPLE.
 		/// </summary>
 		/// <param name="fence">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_APPLE_fence")]
-		public static bool TestFenceAPPLE(UInt32 fence)
+		public static bool TestFenceAPPLE(uint fence)
 		{
 			bool retValue;
 
@@ -161,10 +161,10 @@ namespace OpenGL
 		/// [GL] glFinishFenceAPPLE: Binding for glFinishFenceAPPLE.
 		/// </summary>
 		/// <param name="fence">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_APPLE_fence")]
-		public static void FinishFenceAPPLE(UInt32 fence)
+		public static void FinishFenceAPPLE(uint fence)
 		{
 			Debug.Assert(Delegates.pglFinishFenceAPPLE != null, "pglFinishFenceAPPLE not implemented");
 			Delegates.pglFinishFenceAPPLE(fence);
@@ -176,13 +176,13 @@ namespace OpenGL
 		/// [GL] glTestObjectAPPLE: Binding for glTestObjectAPPLE.
 		/// </summary>
 		/// <param name="object">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="name">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_APPLE_fence")]
-		public static bool TestObjectAPPLE(Int32 @object, UInt32 name)
+		public static bool TestObjectAPPLE(int @object, uint name)
 		{
 			bool retValue;
 
@@ -198,13 +198,13 @@ namespace OpenGL
 		/// [GL] glFinishObjectAPPLE: Binding for glFinishObjectAPPLE.
 		/// </summary>
 		/// <param name="object">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="name">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_APPLE_fence")]
-		public static void FinishObjectAPPLE(Int32 @object, Int32 name)
+		public static void FinishObjectAPPLE(int @object, int name)
 		{
 			Debug.Assert(Delegates.pglFinishObjectAPPLE != null, "pglFinishObjectAPPLE not implemented");
 			Delegates.pglFinishObjectAPPLE(@object, name);
@@ -216,7 +216,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_APPLE_fence")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGenFencesAPPLE(Int32 n, UInt32* fences);
+			internal unsafe delegate void glGenFencesAPPLE(int n, uint* fences);
 
 			[RequiredByFeature("GL_APPLE_fence")]
 			[ThreadStatic]
@@ -224,7 +224,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_APPLE_fence")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDeleteFencesAPPLE(Int32 n, UInt32* fences);
+			internal unsafe delegate void glDeleteFencesAPPLE(int n, uint* fences);
 
 			[RequiredByFeature("GL_APPLE_fence")]
 			[ThreadStatic]
@@ -232,7 +232,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_APPLE_fence")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glSetFenceAPPLE(UInt32 fence);
+			internal delegate void glSetFenceAPPLE(uint fence);
 
 			[RequiredByFeature("GL_APPLE_fence")]
 			[ThreadStatic]
@@ -241,7 +241,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_APPLE_fence")]
 			[SuppressUnmanagedCodeSecurity()]
 			[return: MarshalAs(UnmanagedType.I1)]
-			internal delegate bool glIsFenceAPPLE(UInt32 fence);
+			internal delegate bool glIsFenceAPPLE(uint fence);
 
 			[RequiredByFeature("GL_APPLE_fence")]
 			[ThreadStatic]
@@ -250,7 +250,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_APPLE_fence")]
 			[SuppressUnmanagedCodeSecurity()]
 			[return: MarshalAs(UnmanagedType.I1)]
-			internal delegate bool glTestFenceAPPLE(UInt32 fence);
+			internal delegate bool glTestFenceAPPLE(uint fence);
 
 			[RequiredByFeature("GL_APPLE_fence")]
 			[ThreadStatic]
@@ -258,7 +258,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_APPLE_fence")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glFinishFenceAPPLE(UInt32 fence);
+			internal delegate void glFinishFenceAPPLE(uint fence);
 
 			[RequiredByFeature("GL_APPLE_fence")]
 			[ThreadStatic]
@@ -267,7 +267,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_APPLE_fence")]
 			[SuppressUnmanagedCodeSecurity()]
 			[return: MarshalAs(UnmanagedType.I1)]
-			internal delegate bool glTestObjectAPPLE(Int32 @object, UInt32 name);
+			internal delegate bool glTestObjectAPPLE(int @object, uint name);
 
 			[RequiredByFeature("GL_APPLE_fence")]
 			[ThreadStatic]
@@ -275,7 +275,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_APPLE_fence")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glFinishObjectAPPLE(Int32 @object, Int32 name);
+			internal delegate void glFinishObjectAPPLE(int @object, int name);
 
 			[RequiredByFeature("GL_APPLE_fence")]
 			[ThreadStatic]

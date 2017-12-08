@@ -83,13 +83,13 @@ namespace OpenGL
 		/// [GL] glVertexArrayRangeNV: Binding for glVertexArrayRangeNV.
 		/// </summary>
 		/// <param name="length">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_array_range")]
-		public static void VertexArrayRangeNV(Int32 length, IntPtr pointer)
+		public static void VertexArrayRangeNV(int length, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglVertexArrayRangeNV != null, "pglVertexArrayRangeNV not implemented");
 			Delegates.pglVertexArrayRangeNV(length, pointer);
@@ -101,13 +101,13 @@ namespace OpenGL
 		/// [GL] glVertexArrayRangeNV: Binding for glVertexArrayRangeNV.
 		/// </summary>
 		/// <param name="length">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pointer">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_array_range")]
-		public static void VertexArrayRangeNV(Int32 length, Object pointer)
+		public static void VertexArrayRangeNV(int length, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -129,7 +129,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_array_range")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexArrayRangeNV(Int32 length, IntPtr pointer);
+			internal unsafe delegate void glVertexArrayRangeNV(int length, IntPtr pointer);
 
 			[RequiredByFeature("GL_NV_vertex_array_range")]
 			[ThreadStatic]

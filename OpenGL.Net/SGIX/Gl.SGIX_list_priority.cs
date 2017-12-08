@@ -47,7 +47,7 @@ namespace OpenGL
 		/// [GL] glGetListParameterfvSGIX: Binding for glGetListParameterfvSGIX.
 		/// </summary>
 		/// <param name="list">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:ListParameterName"/>.
@@ -56,13 +56,13 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIX_list_priority")]
-		public static void GetListParameterSGIX(UInt32 list, ListParameterName pname, [Out] float[] @params)
+		public static void GetListParameterSGIX(uint list, ListParameterName pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetListParameterfvSGIX != null, "pglGetListParameterfvSGIX not implemented");
-					Delegates.pglGetListParameterfvSGIX(list, (Int32)pname, p_params);
+					Delegates.pglGetListParameterfvSGIX(list, (int)pname, p_params);
 					LogCommand("glGetListParameterfvSGIX", null, list, pname, @params					);
 				}
 			}
@@ -73,22 +73,22 @@ namespace OpenGL
 		/// [GL] glGetListParameterivSGIX: Binding for glGetListParameterivSGIX.
 		/// </summary>
 		/// <param name="list">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:ListParameterName"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIX_list_priority")]
-		public static void GetListParameterSGIX(UInt32 list, ListParameterName pname, [Out] Int32[] @params)
+		public static void GetListParameterSGIX(uint list, ListParameterName pname, [Out] int[] @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetListParameterivSGIX != null, "pglGetListParameterivSGIX not implemented");
-					Delegates.pglGetListParameterivSGIX(list, (Int32)pname, p_params);
+					Delegates.pglGetListParameterivSGIX(list, (int)pname, p_params);
 					LogCommand("glGetListParameterivSGIX", null, list, pname, @params					);
 				}
 			}
@@ -99,7 +99,7 @@ namespace OpenGL
 		/// [GL] glListParameterfSGIX: Binding for glListParameterfSGIX.
 		/// </summary>
 		/// <param name="list">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:ListParameterName"/>.
@@ -108,10 +108,10 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIX_list_priority")]
-		public static void ListParameterSGIX(UInt32 list, ListParameterName pname, float param)
+		public static void ListParameterSGIX(uint list, ListParameterName pname, float param)
 		{
 			Debug.Assert(Delegates.pglListParameterfSGIX != null, "pglListParameterfSGIX not implemented");
-			Delegates.pglListParameterfSGIX(list, (Int32)pname, param);
+			Delegates.pglListParameterfSGIX(list, (int)pname, param);
 			LogCommand("glListParameterfSGIX", null, list, pname, param			);
 			DebugCheckErrors(null);
 		}
@@ -120,7 +120,7 @@ namespace OpenGL
 		/// [GL] glListParameterfvSGIX: Binding for glListParameterfvSGIX.
 		/// </summary>
 		/// <param name="list">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:ListParameterName"/>.
@@ -129,13 +129,13 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIX_list_priority")]
-		public static void ListParameterSGIX(UInt32 list, ListParameterName pname, float[] @params)
+		public static void ListParameterSGIX(uint list, ListParameterName pname, float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglListParameterfvSGIX != null, "pglListParameterfvSGIX not implemented");
-					Delegates.pglListParameterfvSGIX(list, (Int32)pname, p_params);
+					Delegates.pglListParameterfvSGIX(list, (int)pname, p_params);
 					LogCommand("glListParameterfvSGIX", null, list, pname, @params					);
 				}
 			}
@@ -146,19 +146,19 @@ namespace OpenGL
 		/// [GL] glListParameteriSGIX: Binding for glListParameteriSGIX.
 		/// </summary>
 		/// <param name="list">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:ListParameterName"/>.
 		/// </param>
 		/// <param name="param">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIX_list_priority")]
-		public static void ListParameterSGIX(UInt32 list, ListParameterName pname, Int32 param)
+		public static void ListParameterSGIX(uint list, ListParameterName pname, int param)
 		{
 			Debug.Assert(Delegates.pglListParameteriSGIX != null, "pglListParameteriSGIX not implemented");
-			Delegates.pglListParameteriSGIX(list, (Int32)pname, param);
+			Delegates.pglListParameteriSGIX(list, (int)pname, param);
 			LogCommand("glListParameteriSGIX", null, list, pname, param			);
 			DebugCheckErrors(null);
 		}
@@ -167,22 +167,22 @@ namespace OpenGL
 		/// [GL] glListParameterivSGIX: Binding for glListParameterivSGIX.
 		/// </summary>
 		/// <param name="list">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:ListParameterName"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIX_list_priority")]
-		public static void ListParameterSGIX(UInt32 list, ListParameterName pname, Int32[] @params)
+		public static void ListParameterSGIX(uint list, ListParameterName pname, int[] @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglListParameterivSGIX != null, "pglListParameterivSGIX not implemented");
-					Delegates.pglListParameterivSGIX(list, (Int32)pname, p_params);
+					Delegates.pglListParameterivSGIX(list, (int)pname, p_params);
 					LogCommand("glListParameterivSGIX", null, list, pname, @params					);
 				}
 			}
@@ -193,7 +193,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_SGIX_list_priority")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetListParameterfvSGIX(UInt32 list, Int32 pname, float* @params);
+			internal unsafe delegate void glGetListParameterfvSGIX(uint list, int pname, float* @params);
 
 			[RequiredByFeature("GL_SGIX_list_priority")]
 			[ThreadStatic]
@@ -201,7 +201,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SGIX_list_priority")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetListParameterivSGIX(UInt32 list, Int32 pname, Int32* @params);
+			internal unsafe delegate void glGetListParameterivSGIX(uint list, int pname, int* @params);
 
 			[RequiredByFeature("GL_SGIX_list_priority")]
 			[ThreadStatic]
@@ -209,7 +209,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SGIX_list_priority")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glListParameterfSGIX(UInt32 list, Int32 pname, float param);
+			internal delegate void glListParameterfSGIX(uint list, int pname, float param);
 
 			[RequiredByFeature("GL_SGIX_list_priority")]
 			[ThreadStatic]
@@ -217,7 +217,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SGIX_list_priority")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glListParameterfvSGIX(UInt32 list, Int32 pname, float* @params);
+			internal unsafe delegate void glListParameterfvSGIX(uint list, int pname, float* @params);
 
 			[RequiredByFeature("GL_SGIX_list_priority")]
 			[ThreadStatic]
@@ -225,7 +225,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SGIX_list_priority")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glListParameteriSGIX(UInt32 list, Int32 pname, Int32 param);
+			internal delegate void glListParameteriSGIX(uint list, int pname, int param);
 
 			[RequiredByFeature("GL_SGIX_list_priority")]
 			[ThreadStatic]
@@ -233,7 +233,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SGIX_list_priority")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glListParameterivSGIX(UInt32 list, Int32 pname, Int32* @params);
+			internal unsafe delegate void glListParameterivSGIX(uint list, int pname, int* @params);
 
 			[RequiredByFeature("GL_SGIX_list_priority")]
 			[ThreadStatic]

@@ -53,13 +53,13 @@ namespace OpenGL
 		/// [WGL] wglBindVideoCaptureDeviceNV: Binding for wglBindVideoCaptureDeviceNV.
 		/// </summary>
 		/// <param name="uVideoSlot">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="hDevice">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("WGL_NV_video_capture")]
-		public static bool BindVideoCaptureDeviceNV(UInt32 uVideoSlot, IntPtr hDevice)
+		public static bool BindVideoCaptureDeviceNV(uint uVideoSlot, IntPtr hDevice)
 		{
 			bool retValue;
 
@@ -81,9 +81,9 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("WGL_NV_video_capture")]
-		public static UInt32 EnumerateVideoCaptureDevicesNV(IntPtr hDc, IntPtr[] phDeviceList)
+		public static uint EnumerateVideoCaptureDevicesNV(IntPtr hDc, IntPtr[] phDeviceList)
 		{
-			UInt32 retValue;
+			uint retValue;
 
 			unsafe {
 				fixed (IntPtr* p_phDeviceList = phDeviceList)
@@ -179,14 +179,14 @@ namespace OpenGL
 		{
 			[RequiredByFeature("WGL_NV_video_capture")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglBindVideoCaptureDeviceNV(UInt32 uVideoSlot, IntPtr hDevice);
+			internal unsafe delegate bool wglBindVideoCaptureDeviceNV(uint uVideoSlot, IntPtr hDevice);
 
 			[RequiredByFeature("WGL_NV_video_capture")]
 			internal static wglBindVideoCaptureDeviceNV pwglBindVideoCaptureDeviceNV;
 
 			[RequiredByFeature("WGL_NV_video_capture")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate UInt32 wglEnumerateVideoCaptureDevicesNV(IntPtr hDc, IntPtr* phDeviceList);
+			internal unsafe delegate uint wglEnumerateVideoCaptureDevicesNV(IntPtr hDc, IntPtr* phDeviceList);
 
 			[RequiredByFeature("WGL_NV_video_capture")]
 			internal static wglEnumerateVideoCaptureDevicesNV pwglEnumerateVideoCaptureDevicesNV;

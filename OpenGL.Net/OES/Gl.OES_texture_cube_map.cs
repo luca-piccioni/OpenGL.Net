@@ -59,7 +59,7 @@ namespace OpenGL
 		public static void TexGenOES(TextureCoordName coord, TextureGenParameter pname, float param)
 		{
 			Debug.Assert(Delegates.pglTexGenfOES != null, "pglTexGenfOES not implemented");
-			Delegates.pglTexGenfOES((Int32)coord, (Int32)pname, param);
+			Delegates.pglTexGenfOES((int)coord, (int)pname, param);
 			LogCommand("glTexGenfOES", null, coord, pname, param			);
 			DebugCheckErrors(null);
 		}
@@ -83,7 +83,7 @@ namespace OpenGL
 				fixed (float* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglTexGenfvOES != null, "pglTexGenfvOES not implemented");
-					Delegates.pglTexGenfvOES((Int32)coord, (Int32)pname, p_params);
+					Delegates.pglTexGenfvOES((int)coord, (int)pname, p_params);
 					LogCommand("glTexGenfvOES", null, coord, pname, @params					);
 				}
 			}
@@ -100,13 +100,13 @@ namespace OpenGL
 		/// A <see cref="T:TextureGenParameter"/>.
 		/// </param>
 		/// <param name="param">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_texture_cube_map", Api = "gles1")]
-		public static void TexGenOES(TextureCoordName coord, TextureGenParameter pname, Int32 param)
+		public static void TexGenOES(TextureCoordName coord, TextureGenParameter pname, int param)
 		{
 			Debug.Assert(Delegates.pglTexGeniOES != null, "pglTexGeniOES not implemented");
-			Delegates.pglTexGeniOES((Int32)coord, (Int32)pname, param);
+			Delegates.pglTexGeniOES((int)coord, (int)pname, param);
 			LogCommand("glTexGeniOES", null, coord, pname, param			);
 			DebugCheckErrors(null);
 		}
@@ -121,16 +121,16 @@ namespace OpenGL
 		/// A <see cref="T:TextureGenParameter"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_texture_cube_map", Api = "gles1")]
-		public static void TexGenOES(TextureCoordName coord, TextureGenParameter pname, Int32[] @params)
+		public static void TexGenOES(TextureCoordName coord, TextureGenParameter pname, int[] @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglTexGenivOES != null, "pglTexGenivOES not implemented");
-					Delegates.pglTexGenivOES((Int32)coord, (Int32)pname, p_params);
+					Delegates.pglTexGenivOES((int)coord, (int)pname, p_params);
 					LogCommand("glTexGenivOES", null, coord, pname, @params					);
 				}
 			}
@@ -156,7 +156,7 @@ namespace OpenGL
 				fixed (float* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetTexGenfvOES != null, "pglGetTexGenfvOES not implemented");
-					Delegates.pglGetTexGenfvOES((Int32)coord, (Int32)pname, p_params);
+					Delegates.pglGetTexGenfvOES((int)coord, (int)pname, p_params);
 					LogCommand("glGetTexGenfvOES", null, coord, pname, @params					);
 				}
 			}
@@ -173,16 +173,16 @@ namespace OpenGL
 		/// A <see cref="T:TextureGenParameter"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_texture_cube_map", Api = "gles1")]
-		public static void GetTexGenOES(TextureCoordName coord, TextureGenParameter pname, [Out] Int32[] @params)
+		public static void GetTexGenOES(TextureCoordName coord, TextureGenParameter pname, [Out] int[] @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetTexGenivOES != null, "pglGetTexGenivOES not implemented");
-					Delegates.pglGetTexGenivOES((Int32)coord, (Int32)pname, p_params);
+					Delegates.pglGetTexGenivOES((int)coord, (int)pname, p_params);
 					LogCommand("glGetTexGenivOES", null, coord, pname, @params					);
 				}
 			}
@@ -193,7 +193,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_OES_texture_cube_map", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTexGenfOES(Int32 coord, Int32 pname, float param);
+			internal delegate void glTexGenfOES(int coord, int pname, float param);
 
 			[RequiredByFeature("GL_OES_texture_cube_map", Api = "gles1")]
 			[ThreadStatic]
@@ -201,7 +201,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_texture_cube_map", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexGenfvOES(Int32 coord, Int32 pname, float* @params);
+			internal unsafe delegate void glTexGenfvOES(int coord, int pname, float* @params);
 
 			[RequiredByFeature("GL_OES_texture_cube_map", Api = "gles1")]
 			[ThreadStatic]
@@ -209,7 +209,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_texture_cube_map", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTexGeniOES(Int32 coord, Int32 pname, Int32 param);
+			internal delegate void glTexGeniOES(int coord, int pname, int param);
 
 			[RequiredByFeature("GL_OES_texture_cube_map", Api = "gles1")]
 			[ThreadStatic]
@@ -217,7 +217,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_texture_cube_map", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexGenivOES(Int32 coord, Int32 pname, Int32* @params);
+			internal unsafe delegate void glTexGenivOES(int coord, int pname, int* @params);
 
 			[RequiredByFeature("GL_OES_texture_cube_map", Api = "gles1")]
 			[ThreadStatic]
@@ -225,7 +225,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_texture_cube_map", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetTexGenfvOES(Int32 coord, Int32 pname, float* @params);
+			internal unsafe delegate void glGetTexGenfvOES(int coord, int pname, float* @params);
 
 			[RequiredByFeature("GL_OES_texture_cube_map", Api = "gles1")]
 			[ThreadStatic]
@@ -233,7 +233,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_texture_cube_map", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetTexGenivOES(Int32 coord, Int32 pname, Int32* @params);
+			internal unsafe delegate void glGetTexGenivOES(int coord, int pname, int* @params);
 
 			[RequiredByFeature("GL_OES_texture_cube_map", Api = "gles1")]
 			[ThreadStatic]

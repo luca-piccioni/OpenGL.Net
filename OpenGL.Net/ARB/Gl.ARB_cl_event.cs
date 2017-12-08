@@ -59,12 +59,12 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="flags">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_cl_event", Api = "gl|glcore")]
-		public static Int32 CreateSyncFromCLeventARB(IntPtr context, IntPtr @event, UInt32 flags)
+		public static int CreateSyncFromCLeventARB(IntPtr context, IntPtr @event, uint flags)
 		{
-			Int32 retValue;
+			int retValue;
 
 			Debug.Assert(Delegates.pglCreateSyncFromCLeventARB != null, "pglCreateSyncFromCLeventARB not implemented");
 			retValue = Delegates.pglCreateSyncFromCLeventARB(context, @event, flags);
@@ -78,7 +78,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_ARB_cl_event", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Int32 glCreateSyncFromCLeventARB(IntPtr context, IntPtr @event, UInt32 flags);
+			internal unsafe delegate int glCreateSyncFromCLeventARB(IntPtr context, IntPtr @event, uint flags);
 
 			[RequiredByFeature("GL_ARB_cl_event", Api = "gl|glcore")]
 			[ThreadStatic]

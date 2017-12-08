@@ -41,13 +41,13 @@ namespace OpenGL
 		/// [GL] glInsertEventMarkerEXT: Binding for glInsertEventMarkerEXT.
 		/// </summary>
 		/// <param name="length">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="marker">
 		/// A <see cref="T:String"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_debug_marker", Api = "gl|glcore|gles2")]
-		public static void InsertEventMarkerEXT(Int32 length, String marker)
+		public static void InsertEventMarkerEXT(int length, String marker)
 		{
 			Debug.Assert(Delegates.pglInsertEventMarkerEXT != null, "pglInsertEventMarkerEXT not implemented");
 			Delegates.pglInsertEventMarkerEXT(length, marker);
@@ -59,13 +59,13 @@ namespace OpenGL
 		/// [GL] glPushGroupMarkerEXT: Binding for glPushGroupMarkerEXT.
 		/// </summary>
 		/// <param name="length">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="marker">
 		/// A <see cref="T:String"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_debug_marker", Api = "gl|glcore|gles2")]
-		public static void PushGroupMarkerEXT(Int32 length, String marker)
+		public static void PushGroupMarkerEXT(int length, String marker)
 		{
 			Debug.Assert(Delegates.pglPushGroupMarkerEXT != null, "pglPushGroupMarkerEXT not implemented");
 			Delegates.pglPushGroupMarkerEXT(length, marker);
@@ -89,7 +89,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_EXT_debug_marker", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glInsertEventMarkerEXT(Int32 length, String marker);
+			internal delegate void glInsertEventMarkerEXT(int length, String marker);
 
 			[RequiredByFeature("GL_EXT_debug_marker", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -97,7 +97,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_debug_marker", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glPushGroupMarkerEXT(Int32 length, String marker);
+			internal delegate void glPushGroupMarkerEXT(int length, String marker);
 
 			[RequiredByFeature("GL_EXT_debug_marker", Api = "gl|glcore|gles2")]
 			[ThreadStatic]

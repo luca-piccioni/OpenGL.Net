@@ -683,7 +683,7 @@ namespace OpenGL
 		public static void BlendFuncSeparate(BlendingFactor sfactorRGB, BlendingFactor dfactorRGB, BlendingFactor sfactorAlpha, BlendingFactor dfactorAlpha)
 		{
 			Debug.Assert(Delegates.pglBlendFuncSeparate != null, "pglBlendFuncSeparate not implemented");
-			Delegates.pglBlendFuncSeparate((Int32)sfactorRGB, (Int32)dfactorRGB, (Int32)sfactorAlpha, (Int32)dfactorAlpha);
+			Delegates.pglBlendFuncSeparate((int)sfactorRGB, (int)dfactorRGB, (int)sfactorAlpha, (int)dfactorAlpha);
 			LogCommand("glBlendFuncSeparate", null, sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha			);
 			DebugCheckErrors(null);
 		}
@@ -707,14 +707,14 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_multi_draw_arrays", Api = "gl|gles1|gles2")]
-		public static void MultiDrawArrays(PrimitiveType mode, Int32[] first, Int32[] count, Int32 drawcount)
+		public static void MultiDrawArrays(PrimitiveType mode, int[] first, int[] count, int drawcount)
 		{
 			unsafe {
-				fixed (Int32* p_first = first)
-				fixed (Int32* p_count = count)
+				fixed (int* p_first = first)
+				fixed (int* p_count = count)
 				{
 					Debug.Assert(Delegates.pglMultiDrawArrays != null, "pglMultiDrawArrays not implemented");
-					Delegates.pglMultiDrawArrays((Int32)mode, p_first, p_count, drawcount);
+					Delegates.pglMultiDrawArrays((int)mode, p_first, p_count, drawcount);
 					LogCommand("glMultiDrawArrays", null, mode, first, count, drawcount					);
 				}
 			}
@@ -744,14 +744,14 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_multi_draw_arrays", Api = "gl|gles1|gles2")]
-		public static void MultiDrawElements(PrimitiveType mode, Int32[] count, DrawElementsType type, IntPtr[] indices, Int32 drawcount)
+		public static void MultiDrawElements(PrimitiveType mode, int[] count, DrawElementsType type, IntPtr[] indices, int drawcount)
 		{
 			unsafe {
-				fixed (Int32* p_count = count)
+				fixed (int* p_count = count)
 				fixed (IntPtr* p_indices = indices)
 				{
 					Debug.Assert(Delegates.pglMultiDrawElements != null, "pglMultiDrawElements not implemented");
-					Delegates.pglMultiDrawElements((Int32)mode, p_count, (Int32)type, p_indices, drawcount);
+					Delegates.pglMultiDrawElements((int)mode, p_count, (int)type, p_indices, drawcount);
 					LogCommand("glMultiDrawElements", null, mode, count, type, indices, drawcount					);
 				}
 			}
@@ -777,7 +777,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_point_parameters")]
 		[RequiredByFeature("GL_EXT_point_parameters")]
 		[RequiredByFeature("GL_SGIS_point_parameters")]
-		public static void PointParameter(Int32 pname, float param)
+		public static void PointParameter(int pname, float param)
 		{
 			Debug.Assert(Delegates.pglPointParameterf != null, "pglPointParameterf not implemented");
 			Delegates.pglPointParameterf(pname, param);
@@ -805,7 +805,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_point_parameters")]
 		[RequiredByFeature("GL_EXT_point_parameters")]
 		[RequiredByFeature("GL_SGIS_point_parameters")]
-		public static void PointParameter(Int32 pname, float[] @params)
+		public static void PointParameter(int pname, float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -829,7 +829,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_NV_point_sprite")]
-		public static void PointParameter(Int32 pname, Int32 param)
+		public static void PointParameter(int pname, int param)
 		{
 			Debug.Assert(Delegates.pglPointParameteri != null, "pglPointParameteri not implemented");
 			Delegates.pglPointParameteri(pname, param);
@@ -849,10 +849,10 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_NV_point_sprite")]
-		public static void PointParameter(Int32 pname, Int32[] @params)
+		public static void PointParameter(int pname, int[] @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglPointParameteriv != null, "pglPointParameteriv not implemented");
 					Delegates.pglPointParameteriv(pname, p_params);
@@ -957,10 +957,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_fog_coord")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void FogCoordPointer(FogCoordinatePointerType type, Int32 stride, IntPtr pointer)
+		public static void FogCoordPointer(FogCoordinatePointerType type, int stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglFogCoordPointer != null, "pglFogCoordPointer not implemented");
-			Delegates.pglFogCoordPointer((Int32)type, stride, pointer);
+			Delegates.pglFogCoordPointer((int)type, stride, pointer);
 			LogCommand("glFogCoordPointer", null, type, stride, pointer			);
 			DebugCheckErrors(null);
 		}
@@ -982,7 +982,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_fog_coord")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void FogCoordPointer(FogCoordinatePointerType type, Int32 stride, Object pointer)
+		public static void FogCoordPointer(FogCoordinatePointerType type, int stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -1142,7 +1142,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_secondary_color")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void SecondaryColor3(Int32 red, Int32 green, Int32 blue)
+		public static void SecondaryColor3(int red, int green, int blue)
 		{
 			Debug.Assert(Delegates.pglSecondaryColor3i != null, "pglSecondaryColor3i not implemented");
 			Delegates.pglSecondaryColor3i(red, green, blue);
@@ -1153,16 +1153,16 @@ namespace OpenGL
 		/// [GL2.1] glSecondaryColor3iv: set the current secondary color
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_secondary_color")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void SecondaryColor3(Int32[] v)
+		public static void SecondaryColor3(int[] v)
 		{
 			Debug.Assert(v.Length >= 3);
 			unsafe {
-				fixed (Int32* p_v = v)
+				fixed (int* p_v = v)
 				{
 					Debug.Assert(Delegates.pglSecondaryColor3iv != null, "pglSecondaryColor3iv not implemented");
 					Delegates.pglSecondaryColor3iv(p_v);
@@ -1187,7 +1187,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_secondary_color")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void SecondaryColor3(Int16 red, Int16 green, Int16 blue)
+		public static void SecondaryColor3(short red, short green, short blue)
 		{
 			Debug.Assert(Delegates.pglSecondaryColor3s != null, "pglSecondaryColor3s not implemented");
 			Delegates.pglSecondaryColor3s(red, green, blue);
@@ -1198,16 +1198,16 @@ namespace OpenGL
 		/// [GL2.1] glSecondaryColor3sv: set the current secondary color
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="T:Int16[]"/>.
+		/// A <see cref="T:short[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_secondary_color")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void SecondaryColor3(Int16[] v)
+		public static void SecondaryColor3(short[] v)
 		{
 			Debug.Assert(v.Length >= 3);
 			unsafe {
-				fixed (Int16* p_v = v)
+				fixed (short* p_v = v)
 				{
 					Debug.Assert(Delegates.pglSecondaryColor3sv != null, "pglSecondaryColor3sv not implemented");
 					Delegates.pglSecondaryColor3sv(p_v);
@@ -1277,7 +1277,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_secondary_color")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void SecondaryColor3(UInt32 red, UInt32 green, UInt32 blue)
+		public static void SecondaryColor3(uint red, uint green, uint blue)
 		{
 			Debug.Assert(Delegates.pglSecondaryColor3ui != null, "pglSecondaryColor3ui not implemented");
 			Delegates.pglSecondaryColor3ui(red, green, blue);
@@ -1288,16 +1288,16 @@ namespace OpenGL
 		/// [GL2.1] glSecondaryColor3uiv: set the current secondary color
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_secondary_color")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void SecondaryColor3(UInt32[] v)
+		public static void SecondaryColor3(uint[] v)
 		{
 			Debug.Assert(v.Length >= 3);
 			unsafe {
-				fixed (UInt32* p_v = v)
+				fixed (uint* p_v = v)
 				{
 					Debug.Assert(Delegates.pglSecondaryColor3uiv != null, "pglSecondaryColor3uiv not implemented");
 					Delegates.pglSecondaryColor3uiv(p_v);
@@ -1322,7 +1322,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_secondary_color")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void SecondaryColor3(UInt16 red, UInt16 green, UInt16 blue)
+		public static void SecondaryColor3(ushort red, ushort green, ushort blue)
 		{
 			Debug.Assert(Delegates.pglSecondaryColor3us != null, "pglSecondaryColor3us not implemented");
 			Delegates.pglSecondaryColor3us(red, green, blue);
@@ -1333,16 +1333,16 @@ namespace OpenGL
 		/// [GL2.1] glSecondaryColor3usv: set the current secondary color
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="T:UInt16[]"/>.
+		/// A <see cref="T:ushort[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_secondary_color")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void SecondaryColor3(UInt16[] v)
+		public static void SecondaryColor3(ushort[] v)
 		{
 			Debug.Assert(v.Length >= 3);
 			unsafe {
-				fixed (UInt16* p_v = v)
+				fixed (ushort* p_v = v)
 				{
 					Debug.Assert(Delegates.pglSecondaryColor3usv != null, "pglSecondaryColor3usv not implemented");
 					Delegates.pglSecondaryColor3usv(p_v);
@@ -1372,10 +1372,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_secondary_color")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void SecondaryColorPointer(Int32 size, ColorPointerType type, Int32 stride, IntPtr pointer)
+		public static void SecondaryColorPointer(int size, ColorPointerType type, int stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglSecondaryColorPointer != null, "pglSecondaryColorPointer not implemented");
-			Delegates.pglSecondaryColorPointer(size, (Int32)type, stride, pointer);
+			Delegates.pglSecondaryColorPointer(size, (int)type, stride, pointer);
 			LogCommand("glSecondaryColorPointer", null, size, type, stride, pointer			);
 			DebugCheckErrors(null);
 		}
@@ -1400,7 +1400,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_secondary_color")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void SecondaryColorPointer(Int32 size, ColorPointerType type, Int32 stride, Object pointer)
+		public static void SecondaryColorPointer(int size, ColorPointerType type, int stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -1513,7 +1513,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_window_pos")]
 		[RequiredByFeature("GL_MESA_window_pos")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void WindowPos2(Int32 x, Int32 y)
+		public static void WindowPos2(int x, int y)
 		{
 			Debug.Assert(Delegates.pglWindowPos2i != null, "pglWindowPos2i not implemented");
 			Delegates.pglWindowPos2i(x, y);
@@ -1525,17 +1525,17 @@ namespace OpenGL
 		/// [GL2.1] glWindowPos2iv: specify the raster position in window coordinates for pixel operations
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_ARB_window_pos")]
 		[RequiredByFeature("GL_MESA_window_pos")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void WindowPos2(Int32[] v)
+		public static void WindowPos2(int[] v)
 		{
 			Debug.Assert(v.Length >= 2);
 			unsafe {
-				fixed (Int32* p_v = v)
+				fixed (int* p_v = v)
 				{
 					Debug.Assert(Delegates.pglWindowPos2iv != null, "pglWindowPos2iv not implemented");
 					Delegates.pglWindowPos2iv(p_v);
@@ -1558,7 +1558,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_window_pos")]
 		[RequiredByFeature("GL_MESA_window_pos")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void WindowPos2(Int16 x, Int16 y)
+		public static void WindowPos2(short x, short y)
 		{
 			Debug.Assert(Delegates.pglWindowPos2s != null, "pglWindowPos2s not implemented");
 			Delegates.pglWindowPos2s(x, y);
@@ -1570,17 +1570,17 @@ namespace OpenGL
 		/// [GL2.1] glWindowPos2sv: specify the raster position in window coordinates for pixel operations
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="T:Int16[]"/>.
+		/// A <see cref="T:short[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_ARB_window_pos")]
 		[RequiredByFeature("GL_MESA_window_pos")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void WindowPos2(Int16[] v)
+		public static void WindowPos2(short[] v)
 		{
 			Debug.Assert(v.Length >= 2);
 			unsafe {
-				fixed (Int16* p_v = v)
+				fixed (short* p_v = v)
 				{
 					Debug.Assert(Delegates.pglWindowPos2sv != null, "pglWindowPos2sv not implemented");
 					Delegates.pglWindowPos2sv(p_v);
@@ -1702,7 +1702,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_window_pos")]
 		[RequiredByFeature("GL_MESA_window_pos")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void WindowPos3(Int32 x, Int32 y, Int32 z)
+		public static void WindowPos3(int x, int y, int z)
 		{
 			Debug.Assert(Delegates.pglWindowPos3i != null, "pglWindowPos3i not implemented");
 			Delegates.pglWindowPos3i(x, y, z);
@@ -1714,17 +1714,17 @@ namespace OpenGL
 		/// [GL2.1] glWindowPos3iv: specify the raster position in window coordinates for pixel operations
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_ARB_window_pos")]
 		[RequiredByFeature("GL_MESA_window_pos")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void WindowPos3(Int32[] v)
+		public static void WindowPos3(int[] v)
 		{
 			Debug.Assert(v.Length >= 3);
 			unsafe {
-				fixed (Int32* p_v = v)
+				fixed (int* p_v = v)
 				{
 					Debug.Assert(Delegates.pglWindowPos3iv != null, "pglWindowPos3iv not implemented");
 					Delegates.pglWindowPos3iv(p_v);
@@ -1750,7 +1750,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_window_pos")]
 		[RequiredByFeature("GL_MESA_window_pos")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void WindowPos3(Int16 x, Int16 y, Int16 z)
+		public static void WindowPos3(short x, short y, short z)
 		{
 			Debug.Assert(Delegates.pglWindowPos3s != null, "pglWindowPos3s not implemented");
 			Delegates.pglWindowPos3s(x, y, z);
@@ -1762,17 +1762,17 @@ namespace OpenGL
 		/// [GL2.1] glWindowPos3sv: specify the raster position in window coordinates for pixel operations
 		/// </summary>
 		/// <param name="v">
-		/// A <see cref="T:Int16[]"/>.
+		/// A <see cref="T:short[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_ARB_window_pos")]
 		[RequiredByFeature("GL_MESA_window_pos")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void WindowPos3(Int16[] v)
+		public static void WindowPos3(short[] v)
 		{
 			Debug.Assert(v.Length >= 3);
 			unsafe {
-				fixed (Int16* p_v = v)
+				fixed (short* p_v = v)
 				{
 					Debug.Assert(Delegates.pglWindowPos3sv != null, "pglWindowPos3sv not implemented");
 					Delegates.pglWindowPos3sv(p_v);
@@ -1827,7 +1827,7 @@ namespace OpenGL
 		public static void BlendEquation(BlendEquationMode mode)
 		{
 			Debug.Assert(Delegates.pglBlendEquation != null, "pglBlendEquation not implemented");
-			Delegates.pglBlendEquation((Int32)mode);
+			Delegates.pglBlendEquation((int)mode);
 			LogCommand("glBlendEquation", null, mode			);
 			DebugCheckErrors(null);
 		}
@@ -1840,7 +1840,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_blend_func_separate")]
 			[RequiredByFeature("GL_INGR_blend_func_separate")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glBlendFuncSeparate(Int32 sfactorRGB, Int32 dfactorRGB, Int32 sfactorAlpha, Int32 dfactorAlpha);
+			internal delegate void glBlendFuncSeparate(int sfactorRGB, int dfactorRGB, int sfactorAlpha, int dfactorAlpha);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -1853,7 +1853,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_multi_draw_arrays", Api = "gl|gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiDrawArrays(Int32 mode, Int32* first, Int32* count, Int32 drawcount);
+			internal unsafe delegate void glMultiDrawArrays(int mode, int* first, int* count, int drawcount);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_multi_draw_arrays", Api = "gl|gles1|gles2", EntryPoint = "glMultiDrawArraysEXT")]
@@ -1863,7 +1863,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_multi_draw_arrays", Api = "gl|gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiDrawElements(Int32 mode, Int32* count, Int32 type, IntPtr* indices, Int32 drawcount);
+			internal unsafe delegate void glMultiDrawElements(int mode, int* count, int type, IntPtr* indices, int drawcount);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_multi_draw_arrays", Api = "gl|gles1|gles2", EntryPoint = "glMultiDrawElementsEXT")]
@@ -1876,7 +1876,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_point_parameters")]
 			[RequiredByFeature("GL_SGIS_point_parameters")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glPointParameterf(Int32 pname, float param);
+			internal delegate void glPointParameterf(int pname, float param);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
@@ -1892,7 +1892,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_point_parameters")]
 			[RequiredByFeature("GL_SGIS_point_parameters")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glPointParameterfv(Int32 pname, float* @params);
+			internal unsafe delegate void glPointParameterfv(int pname, float* @params);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
@@ -1905,7 +1905,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_NV_point_sprite")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glPointParameteri(Int32 pname, Int32 param);
+			internal delegate void glPointParameteri(int pname, int param);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_NV_point_sprite", EntryPoint = "glPointParameteriNV")]
@@ -1915,7 +1915,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_NV_point_sprite")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glPointParameteriv(Int32 pname, Int32* @params);
+			internal unsafe delegate void glPointParameteriv(int pname, int* @params);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_NV_point_sprite", EntryPoint = "glPointParameterivNV")]
@@ -1974,7 +1974,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_fog_coord")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glFogCoordPointer(Int32 type, Int32 stride, IntPtr pointer);
+			internal unsafe delegate void glFogCoordPointer(int type, int stride, IntPtr pointer);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_fog_coord", EntryPoint = "glFogCoordPointerEXT")]
@@ -2058,7 +2058,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_secondary_color")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glSecondaryColor3i(Int32 red, Int32 green, Int32 blue);
+			internal delegate void glSecondaryColor3i(int red, int green, int blue);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_secondary_color", EntryPoint = "glSecondaryColor3iEXT")]
@@ -2070,7 +2070,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_secondary_color")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glSecondaryColor3iv(Int32* v);
+			internal unsafe delegate void glSecondaryColor3iv(int* v);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_secondary_color", EntryPoint = "glSecondaryColor3ivEXT")]
@@ -2082,7 +2082,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_secondary_color")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glSecondaryColor3s(Int16 red, Int16 green, Int16 blue);
+			internal delegate void glSecondaryColor3s(short red, short green, short blue);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_secondary_color", EntryPoint = "glSecondaryColor3sEXT")]
@@ -2094,7 +2094,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_secondary_color")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glSecondaryColor3sv(Int16* v);
+			internal unsafe delegate void glSecondaryColor3sv(short* v);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_secondary_color", EntryPoint = "glSecondaryColor3svEXT")]
@@ -2130,7 +2130,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_secondary_color")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glSecondaryColor3ui(UInt32 red, UInt32 green, UInt32 blue);
+			internal delegate void glSecondaryColor3ui(uint red, uint green, uint blue);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_secondary_color", EntryPoint = "glSecondaryColor3uiEXT")]
@@ -2142,7 +2142,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_secondary_color")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glSecondaryColor3uiv(UInt32* v);
+			internal unsafe delegate void glSecondaryColor3uiv(uint* v);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_secondary_color", EntryPoint = "glSecondaryColor3uivEXT")]
@@ -2154,7 +2154,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_secondary_color")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glSecondaryColor3us(UInt16 red, UInt16 green, UInt16 blue);
+			internal delegate void glSecondaryColor3us(ushort red, ushort green, ushort blue);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_secondary_color", EntryPoint = "glSecondaryColor3usEXT")]
@@ -2166,7 +2166,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_secondary_color")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glSecondaryColor3usv(UInt16* v);
+			internal unsafe delegate void glSecondaryColor3usv(ushort* v);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_secondary_color", EntryPoint = "glSecondaryColor3usvEXT")]
@@ -2178,7 +2178,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_secondary_color")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glSecondaryColorPointer(Int32 size, Int32 type, Int32 stride, IntPtr pointer);
+			internal unsafe delegate void glSecondaryColorPointer(int size, int type, int stride, IntPtr pointer);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_secondary_color", EntryPoint = "glSecondaryColorPointerEXT")]
@@ -2247,7 +2247,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_MESA_window_pos")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glWindowPos2i(Int32 x, Int32 y);
+			internal delegate void glWindowPos2i(int x, int y);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_ARB_window_pos", EntryPoint = "glWindowPos2iARB")]
@@ -2261,7 +2261,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_MESA_window_pos")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glWindowPos2iv(Int32* v);
+			internal unsafe delegate void glWindowPos2iv(int* v);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_ARB_window_pos", EntryPoint = "glWindowPos2ivARB")]
@@ -2275,7 +2275,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_MESA_window_pos")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glWindowPos2s(Int16 x, Int16 y);
+			internal delegate void glWindowPos2s(short x, short y);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_ARB_window_pos", EntryPoint = "glWindowPos2sARB")]
@@ -2289,7 +2289,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_MESA_window_pos")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glWindowPos2sv(Int16* v);
+			internal unsafe delegate void glWindowPos2sv(short* v);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_ARB_window_pos", EntryPoint = "glWindowPos2svARB")]
@@ -2359,7 +2359,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_MESA_window_pos")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glWindowPos3i(Int32 x, Int32 y, Int32 z);
+			internal delegate void glWindowPos3i(int x, int y, int z);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_ARB_window_pos", EntryPoint = "glWindowPos3iARB")]
@@ -2373,7 +2373,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_MESA_window_pos")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glWindowPos3iv(Int32* v);
+			internal unsafe delegate void glWindowPos3iv(int* v);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_ARB_window_pos", EntryPoint = "glWindowPos3ivARB")]
@@ -2387,7 +2387,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_MESA_window_pos")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glWindowPos3s(Int16 x, Int16 y, Int16 z);
+			internal delegate void glWindowPos3s(short x, short y, short z);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_ARB_window_pos", EntryPoint = "glWindowPos3sARB")]
@@ -2401,7 +2401,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_MESA_window_pos")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glWindowPos3sv(Int16* v);
+			internal unsafe delegate void glWindowPos3sv(short* v);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_ARB_window_pos", EntryPoint = "glWindowPos3svARB")]
@@ -2432,7 +2432,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_blend_minmax")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glBlendEquation(Int32 mode);
+			internal delegate void glBlendEquation(int mode);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]

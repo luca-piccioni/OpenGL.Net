@@ -74,15 +74,15 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:UInt64[]"/>.
+		/// A <see cref="T:ulong[]"/>.
 		/// </param>
 		[RequiredByFeature("EGL_KHR_stream_fifo")]
-		public static bool QueryStreamTimeKHR(IntPtr dpy, IntPtr stream, uint attribute, UInt64[] value)
+		public static bool QueryStreamTimeKHR(IntPtr dpy, IntPtr stream, uint attribute, ulong[] value)
 		{
 			bool retValue;
 
 			unsafe {
-				fixed (UInt64* p_value = value)
+				fixed (ulong* p_value = value)
 				{
 					Debug.Assert(Delegates.peglQueryStreamTimeKHR != null, "peglQueryStreamTimeKHR not implemented");
 					retValue = Delegates.peglQueryStreamTimeKHR(dpy, stream, attribute, p_value);
@@ -98,7 +98,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("EGL_KHR_stream_fifo")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool eglQueryStreamTimeKHR(IntPtr dpy, IntPtr stream, uint attribute, UInt64* value);
+			internal unsafe delegate bool eglQueryStreamTimeKHR(IntPtr dpy, IntPtr stream, uint attribute, ulong* value);
 
 			[RequiredByFeature("EGL_KHR_stream_fifo")]
 			internal static eglQueryStreamTimeKHR peglQueryStreamTimeKHR;

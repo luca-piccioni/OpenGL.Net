@@ -143,19 +143,19 @@ namespace OpenGL
 		/// [GL] glVertexWeightPointerEXT: Binding for glVertexWeightPointerEXT.
 		/// </summary>
 		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_weighting")]
-		public static void VertexWeightPointerEXT(Int32 size, Int32 type, Int32 stride, IntPtr pointer)
+		public static void VertexWeightPointerEXT(int size, int type, int stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglVertexWeightPointerEXT != null, "pglVertexWeightPointerEXT not implemented");
 			Delegates.pglVertexWeightPointerEXT(size, type, stride, pointer);
@@ -167,19 +167,19 @@ namespace OpenGL
 		/// [GL] glVertexWeightPointerEXT: Binding for glVertexWeightPointerEXT.
 		/// </summary>
 		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pointer">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_weighting")]
-		public static void VertexWeightPointerEXT(Int32 size, Int32 type, Int32 stride, Object pointer)
+		public static void VertexWeightPointerEXT(int size, int type, int stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -209,7 +209,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_weighting")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexWeightPointerEXT(Int32 size, Int32 type, Int32 stride, IntPtr pointer);
+			internal unsafe delegate void glVertexWeightPointerEXT(int size, int type, int stride, IntPtr pointer);
 
 			[RequiredByFeature("GL_EXT_vertex_weighting")]
 			[ThreadStatic]

@@ -16,15 +16,15 @@
 
     <type name="void[][]" value="[MarshalAs(UnmanagedType.LPArray)] IntPtr[,]" />
 
-    <type name="GLenum" value="Int32" />
-	<type name="GLenum*" value="Int32*" />
+    <type name="GLenum" value="int" />
+	<type name="GLenum*" value="int*" />
 	
-	<type name="GLsizei" value="Int32" />
-	<type name="GLsizei*" value="Int32*" />
-	<type name="const size_t *" value="UInt32*" />
+	<type name="GLsizei" value="int" />
+	<type name="GLsizei*" value="int*" />
+	<type name="const size_t *" value="uint*" />
 	
-	<type name="GLsizeiptr" value="UInt32" />
-	<type name="GLsizeiptr*" value="UInt32*" />
+	<type name="GLsizeiptr" value="uint" />
+	<type name="GLsizeiptr*" value="uint*" />
 	
 	<type name="GLintptr" value="IntPtr" />
 	<type name="GLintptr*" value="IntPtr*" />
@@ -33,7 +33,7 @@
 	<type name="GLboolean*" value="bool*" />
 	<type name="GLboolean**" value="bool[]" />
 	
-	<type name="GLbitfield" value="UInt32" />
+	<type name="GLbitfield" value="uint" />
 	
     <type name="char*" value="string" />
 	<type name="GLchar" value="char" />
@@ -47,17 +47,17 @@
 	<type name="GLubyte" value="byte" />
 	<type name="GLubyte*" value="byte*" />
 	
-	<type name="GLshort" value="Int16" />
-	<type name="GLshort*" value="Int16*" />
+	<type name="GLshort" value="short" />
+	<type name="GLshort*" value="short*" />
 	
-	<type name="GLushort" value="UInt16" />
-	<type name="GLushort*" value="UInt16*" />
+	<type name="GLushort" value="ushort" />
+	<type name="GLushort*" value="ushort*" />
 	
-	<type name="GLint" value="Int32" />
-	<type name="GLint*" value="Int32*" />
+	<type name="GLint" value="int" />
+	<type name="GLint*" value="int*" />
 	
-	<type name="GLuint" value="UInt32" />
-	<type name="GLuint*" value="UInt32*" />
+	<type name="GLuint" value="uint" />
+	<type name="GLuint*" value="uint*" />
 	
 	<type name="GLfloat" value="float" />
 	<type name="GLfloat*" value="float*" />
@@ -67,46 +67,46 @@
 	
 	<type name="GLstring" value="String" />
 	
-	<type name="GLsync" value="Int32" />
+	<type name="GLsync" value="int" />
 	
 	<type name="GLfixed" value="IntPtr" />
 	
-	<type name="GLint64" value="Int64" />
-	<type name="GLint64EXT" value="Int64" />
-	<type name="GLint64*" value="Int64*" />
+	<type name="GLint64" value="long" />
+	<type name="GLint64EXT" value="long" />
+	<type name="GLint64*" value="long*" />
 	
-	<type name="GLuint64" value="UInt64" />
-	<type name="GLuint64EXT" value="UInt64" />
-	<type name="GLuint64*" value="UInt64*" />
+	<type name="GLuint64" value="ulong" />
+	<type name="GLuint64EXT" value="ulong" />
+	<type name="GLuint64*" value="ulong*" />
 
 	<type name="GLfixed*" value="IntPtr*" />
-	<type name="GLint64EXT*" value="Int64*" />
-	<type name="GLuint64EXT*" value="UInt64*" />
+	<type name="GLint64EXT*" value="long*" />
+	<type name="GLuint64EXT*" value="ulong*" />
 
 	<!-- Compatibility types -->
 	<type name="GLclampf" value="float" />
 	<type name="GLclampf*" value="float*" />
 	<type name="GLclampd" value="double" />
-	<type name="GLclampx" value="Int32" />
+	<type name="GLclampx" value="int" />
 
 	<!-- ARB types -->
-	<type name="GLsizeiptrARB" value="UInt32" />
+	<type name="GLsizeiptrARB" value="uint" />
 	<type name="GLintptrARB" value="IntPtr" />
-	<type name="GLhandleARB" value="UInt32" />
-	<type name="GLhandleARB*" value="UInt32*" />
-	<type name="GLhalfARB" value="UInt16" />
-	<type name="GLhalfARB*" value="UInt16*" />
-	<type name="GLhalfNV" value="UInt16" />
-	<type name="GLhalfNV*" value="UInt16*" />
+	<type name="GLhandleARB" value="uint" />
+	<type name="GLhandleARB*" value="uint*" />
+	<type name="GLhalfARB" value="ushort" />
+	<type name="GLhalfARB*" value="ushort*" />
+	<type name="GLhalfNV" value="ushort" />
+	<type name="GLhalfNV*" value="ushort*" />
 	<type name="GLcharARB" value="char" />
 	<type name="GLcharARB*" value="String" />
 	<type name="GLcharARB**" value="String[]" />
 	
 	<!-- WGL types -->
-	<type name="unsigned int" value="UInt32" />
-	<type name="unsigned int *" value="UInt32*" />
-	<type name="unsigned long" value="UInt32" />
-	<type name="unsigned long *" value="UInt32*" />
+	<type name="unsigned int" value="uint" />
+	<type name="unsigned int *" value="uint*" />
+	<type name="unsigned long" value="uint" />
+	<type name="unsigned long *" value="uint*" />
 	<type name="int" value="int" />
 	<type name="int *" value="int*" />
 	<type name="const int *" value="int*" />
@@ -117,24 +117,24 @@
 	<type name="LPVOID*" value="IntPtr*" />
 	<type name="BOOL" value="bool" />
 	<type name="BOOL*" value="bool*" />
-	<type name="DWORD" value="Int32" />
-	<type name="DWORD*" value="Int32*" />
-	<type name="INT" value="Int32" />
-	<type name="UINT" value="UInt32" />
-	<type name="UINT*" value="UInt32*" />
+	<type name="DWORD" value="int" />
+	<type name="DWORD*" value="int*" />
+	<type name="INT" value="int" />
+	<type name="UINT" value="uint" />
+	<type name="UINT*" value="uint*" />
 	<type name="FLOAT" value="float" />
 	<type name="FLOAT*" value="float*" />
-	<type name="USHORT" value="UInt16" />
-	<type name="USHORT*" value="UInt16*" />
-	<type name="INT32" value="Int32" />
-	<type name="INT32*" value="Int32*" />
-	<type name="INT64" value="Int64" />
-	<type name="INT64*" value="Int64*" />
+	<type name="USHORT" value="ushort" />
+	<type name="USHORT*" value="ushort*" />
+	<type name="INT32" value="int" />
+	<type name="INT32*" value="int*" />
+	<type name="INT64" value="long" />
+	<type name="INT64*" value="long*" />
 	<type name="LPCSTR" value="String" />
 	<type name="PROC" value="IntPtr" />
 	<type name="VoidPointer" value="IntPtr" />
-	<type name="IntPtr" value="Int32" />
-	<type name="Int32" value="Int32" />
+	<type name="IntPtr" value="int" />
+	<type name="Int32" value="int" />
 	<type name="String" value="string" />
 	<type name="COLORREF" value="IntPtr" />
 	<type name="COLORREF*" value="IntPtr" />
@@ -180,10 +180,10 @@
 	<!-- GLX types -->
 	<type name="Void" value="void" />
 	<type name="Bool" value="bool" />
-	<type name="int32_t" value="Int32" />
-	<type name="int32_t*" value="Int32*" />
-	<type name="int64_t" value="Int64" />
-	<type name="int64_t*" value="Int64*" />
+	<type name="int32_t" value="int" />
+	<type name="int32_t*" value="int*" />
+	<type name="int64_t" value="long" />
+	<type name="int64_t*" value="long*" />
 
 	<type name="Display" value="IntPtr" />
 	<type name="Display*" value="IntPtr" />
@@ -193,7 +193,7 @@
 	<type name="Pixmap*" value="IntPtr*" />
 	<type name="Colormap" value="IntPtr" />
 	<type name="Colormap*" value="IntPtr*" />
-	<type name="Status" value="Int32" />
+	<type name="Status" value="int" />
 
 	<type name="XVisualInfo*" value="IntPtr" />
 
@@ -227,7 +227,7 @@
 	<type name="VLPath" value="IntPtr" />
 	<type name="VLNode" value="IntPtr" />
 
-	<type name="Font" value="Int32" />
+	<type name="Font" value="int" />
 	<type name="DMparams*" value="IntPtr*" />
 	<type name="DMbuffer" value="IntPtr" />
 	
@@ -270,15 +270,15 @@
 	<type name="EGLSyncKHR" value="IntPtr" />
 	<type name="EGLSyncNV" value="IntPtr" />
 	<type name="__eglMustCastToProperFunctionPointerType" value="IntPtr" />
-	<type name="EGLTimeKHR" value="UInt64" />
-	<type name="EGLTimeKHR*" value="UInt64*" />
-	<type name="EGLTime" value="UInt64" />
-	<type name="EGLTimeNV" value="UInt64" />
-	<type name="EGLuint64NV" value="UInt64" />
-	<type name="EGLuint64KHR" value="UInt64" />
-	<type name="EGLuint64KHR*" value="UInt64*" />
+	<type name="EGLTimeKHR" value="ulong" />
+	<type name="EGLTimeKHR*" value="ulong*" />
+	<type name="EGLTime" value="ulong" />
+	<type name="EGLTimeNV" value="ulong" />
+	<type name="EGLuint64NV" value="ulong" />
+	<type name="EGLuint64KHR" value="ulong" />
+	<type name="EGLuint64KHR*" value="ulong*" />
 	<type name="EGLNativeFileDescriptorKHR" value="int" />
-	<type name="EGLsizeiANDROID" value="UInt32" />
+	<type name="EGLsizeiANDROID" value="uint" />
 	<type name="EGLSetBlobFuncANDROID" value="SetBlobFuncDelegate" />
 	<type name="EGLGetBlobFuncANDROID" value="GetBlobFuncDelegate" />
 	<type name="EGLClientPixmapHI" value="ClientPixmap" />
@@ -292,24 +292,24 @@
 	<type name="WFCint*" value="int*" />
 	<type name="WFCfloat" value="float" />
 	<type name="WFCfloat*" value="float*" />
-	<type name="WFCbitfield" value="UInt32" />
-	<type name="WFCHandle" value="UInt32" />
+	<type name="WFCbitfield" value="uint" />
+	<type name="WFCHandle" value="uint" />
 	<type name="WFCEGLDisplay" value="IntPtr" />
 	<type name="WFCEGLSync" value="IntPtr" />
-	<type name="WFCNativeStreamType" value="UInt32" />
+	<type name="WFCNativeStreamType" value="uint" />
 	
-	<type name="WFCDevice" value="UInt32" />
-	<type name="WFCContext" value="UInt32" />
-	<type name="WFCSource" value="UInt32" />
-	<type name="WFCMask" value="UInt32" />
-	<type name="WFCElement" value="UInt32" />
+	<type name="WFCDevice" value="uint" />
+	<type name="WFCContext" value="uint" />
+	<type name="WFCSource" value="uint" />
+	<type name="WFCMask" value="uint" />
+	<type name="WFCElement" value="uint" />
 	
 	<!-- WFD types -->
 	<type name="WFDboolean" value="bool" />
 	<type name="WFDuint8" value="byte" />
 	<type name="WFDuint8*" value="byte*" />
-	<type name="WFDbitfield" value="UInt32" />
-	<type name="WFDbitfield*" value="UInt32*" />
+	<type name="WFDbitfield" value="uint" />
+	<type name="WFDbitfield*" value="uint*" />
 	<type name="WFDtime" value="ulong" />
 	<type name="WFDint" value="int" />
 	<type name="WFDint*" value="int*" />
@@ -318,22 +318,22 @@
 	<type name="WFDfloat*" value="float*" />
 	<type name="const WFDfloat" value="float" />
 	<type name="WFDHandle" value="UInt32" />
-	<type name="WFDNativeStreamType" value="UInt32" />
-	<type name="WFDDevice" value="UInt32" />
-	<type name="WFDEvent" value="UInt32" />
-	<type name="WFDPort" value="UInt32" />
-	<type name="WFDPortMode" value="UInt32" />
-	<type name="WFDPortMode*" value="UInt32*" />
-	<type name="WFDPipeline" value="UInt32" />
-	<type name="WFDSource" value="UInt32" />
-	<type name="WFDMask" value="UInt32" />
+	<type name="WFDNativeStreamType" value="uint" />
+	<type name="WFDDevice" value="uint" />
+	<type name="WFDEvent" value="uint" />
+	<type name="WFDPort" value="uint" />
+	<type name="WFDPortMode" value="uint" />
+	<type name="WFDPortMode*" value="uint*" />
+	<type name="WFDPipeline" value="uint" />
+	<type name="WFDSource" value="uint" />
+	<type name="WFDMask" value="uint" />
 	<type name="WFDEGLDisplay" value="IntPtr" />
 	<type name="WFDEGLSync" value="IntPtr" />
 	<type name="WFDEGLImage" value="IntPtr" />
 	<type name="UInt32" value="IntPtr" />
     
     <!-- OpenVX types -->
-    <type name="vx_char" value="Char" />
+    <type name="vx_char" value="char" />
     <type name="vx_char*" value="string" />
     <type name="vx_uint8" value="byte" />
     <type name="vx_uint8*" value="byte*" />

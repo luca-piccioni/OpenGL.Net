@@ -44,22 +44,22 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="depth">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="border">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
@@ -71,10 +71,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
-		public static void TexImage3DOES(TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, PixelFormat format, PixelType type, IntPtr pixels)
+		public static void TexImage3DOES(TextureTarget target, int level, InternalFormat internalformat, int width, int height, int depth, int border, PixelFormat format, PixelType type, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglTexImage3DOES != null, "pglTexImage3DOES not implemented");
-			Delegates.pglTexImage3DOES((Int32)target, level, (Int32)internalformat, width, height, depth, border, (Int32)format, (Int32)type, pixels);
+			Delegates.pglTexImage3DOES((int)target, level, (int)internalformat, width, height, depth, border, (int)format, (int)type, pixels);
 			LogCommand("glTexImage3DOES", null, target, level, internalformat, width, height, depth, border, format, type, pixels			);
 			DebugCheckErrors(null);
 		}
@@ -86,22 +86,22 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="depth">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="border">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
@@ -113,7 +113,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
-		public static void TexImage3DOES(TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, PixelFormat format, PixelType type, Object pixels)
+		public static void TexImage3DOES(TextureTarget target, int level, InternalFormat internalformat, int width, int height, int depth, int border, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -130,25 +130,25 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="xoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="yoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="zoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="depth">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
@@ -160,10 +160,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
-		public static void TexSubImage3DOES(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, PixelType type, IntPtr pixels)
+		public static void TexSubImage3DOES(TextureTarget target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, PixelFormat format, PixelType type, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglTexSubImage3DOES != null, "pglTexSubImage3DOES not implemented");
-			Delegates.pglTexSubImage3DOES((Int32)target, level, xoffset, yoffset, zoffset, width, height, depth, (Int32)format, (Int32)type, pixels);
+			Delegates.pglTexSubImage3DOES((int)target, level, xoffset, yoffset, zoffset, width, height, depth, (int)format, (int)type, pixels);
 			LogCommand("glTexSubImage3DOES", null, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels			);
 			DebugCheckErrors(null);
 		}
@@ -175,25 +175,25 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="xoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="yoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="zoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="depth">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
@@ -205,7 +205,7 @@ namespace OpenGL
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
-		public static void TexSubImage3DOES(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, PixelType type, Object pixels)
+		public static void TexSubImage3DOES(TextureTarget target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -219,34 +219,34 @@ namespace OpenGL
 		/// [GL] glCopyTexSubImage3DOES: Binding for glCopyTexSubImage3DOES.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="xoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="yoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="zoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="x">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
-		public static void CopyTexSubImage3DOES(Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 x, Int32 y, Int32 width, Int32 height)
+		public static void CopyTexSubImage3DOES(int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height)
 		{
 			Debug.Assert(Delegates.pglCopyTexSubImage3DOES != null, "pglCopyTexSubImage3DOES not implemented");
 			Delegates.pglCopyTexSubImage3DOES(target, level, xoffset, yoffset, zoffset, x, y, width, height);
@@ -261,34 +261,34 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="depth">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="border">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="imageSize">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="data">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
-		public static void CompressedTexImage3DOES(TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, IntPtr data)
+		public static void CompressedTexImage3DOES(TextureTarget target, int level, InternalFormat internalformat, int width, int height, int depth, int border, int imageSize, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglCompressedTexImage3DOES != null, "pglCompressedTexImage3DOES not implemented");
-			Delegates.pglCompressedTexImage3DOES((Int32)target, level, (Int32)internalformat, width, height, depth, border, imageSize, data);
+			Delegates.pglCompressedTexImage3DOES((int)target, level, (int)internalformat, width, height, depth, border, imageSize, data);
 			LogCommand("glCompressedTexImage3DOES", null, target, level, internalformat, width, height, depth, border, imageSize, data			);
 			DebugCheckErrors(null);
 		}
@@ -300,31 +300,31 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="depth">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="border">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="imageSize">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="data">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
-		public static void CompressedTexImage3DOES(TextureTarget target, Int32 level, InternalFormat internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, Object data)
+		public static void CompressedTexImage3DOES(TextureTarget target, int level, InternalFormat internalformat, int width, int height, int depth, int border, int imageSize, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -341,40 +341,40 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="xoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="yoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="zoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="depth">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="imageSize">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="data">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
-		public static void CompressedTexSubImage3DOES(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, Int32 imageSize, IntPtr data)
+		public static void CompressedTexSubImage3DOES(TextureTarget target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, PixelFormat format, int imageSize, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglCompressedTexSubImage3DOES != null, "pglCompressedTexSubImage3DOES not implemented");
-			Delegates.pglCompressedTexSubImage3DOES((Int32)target, level, xoffset, yoffset, zoffset, width, height, depth, (Int32)format, imageSize, data);
+			Delegates.pglCompressedTexSubImage3DOES((int)target, level, xoffset, yoffset, zoffset, width, height, depth, (int)format, imageSize, data);
 			LogCommand("glCompressedTexSubImage3DOES", null, target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data			);
 			DebugCheckErrors(null);
 		}
@@ -386,37 +386,37 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="xoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="yoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="zoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="depth">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		/// <param name="imageSize">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="data">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
-		public static void CompressedTexSubImage3DOES(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, Int32 imageSize, Object data)
+		public static void CompressedTexSubImage3DOES(TextureTarget target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, PixelFormat format, int imageSize, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -439,19 +439,19 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="zoffset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
-		public static void FramebufferTexture3DOES(FramebufferTarget target, FramebufferAttachment attachment, TextureTarget textarget, UInt32 texture, Int32 level, Int32 zoffset)
+		public static void FramebufferTexture3DOES(FramebufferTarget target, FramebufferAttachment attachment, TextureTarget textarget, uint texture, int level, int zoffset)
 		{
 			Debug.Assert(Delegates.pglFramebufferTexture3DOES != null, "pglFramebufferTexture3DOES not implemented");
-			Delegates.pglFramebufferTexture3DOES((Int32)target, (Int32)attachment, (Int32)textarget, texture, level, zoffset);
+			Delegates.pglFramebufferTexture3DOES((int)target, (int)attachment, (int)textarget, texture, level, zoffset);
 			LogCommand("glFramebufferTexture3DOES", null, target, attachment, textarget, texture, level, zoffset			);
 			DebugCheckErrors(null);
 		}
@@ -460,7 +460,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexImage3DOES(Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 format, Int32 type, IntPtr pixels);
+			internal unsafe delegate void glTexImage3DOES(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, IntPtr pixels);
 
 			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 			[ThreadStatic]
@@ -468,7 +468,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexSubImage3DOES(Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, IntPtr pixels);
+			internal unsafe delegate void glTexSubImage3DOES(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, IntPtr pixels);
 
 			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 			[ThreadStatic]
@@ -476,7 +476,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glCopyTexSubImage3DOES(Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 x, Int32 y, Int32 width, Int32 height);
+			internal delegate void glCopyTexSubImage3DOES(int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height);
 
 			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 			[ThreadStatic]
@@ -484,7 +484,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glCompressedTexImage3DOES(Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 imageSize, IntPtr data);
+			internal unsafe delegate void glCompressedTexImage3DOES(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, IntPtr data);
 
 			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 			[ThreadStatic]
@@ -492,7 +492,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glCompressedTexSubImage3DOES(Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 imageSize, IntPtr data);
+			internal unsafe delegate void glCompressedTexSubImage3DOES(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, IntPtr data);
 
 			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 			[ThreadStatic]
@@ -500,7 +500,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glFramebufferTexture3DOES(Int32 target, Int32 attachment, Int32 textarget, UInt32 texture, Int32 level, Int32 zoffset);
+			internal delegate void glFramebufferTexture3DOES(int target, int attachment, int textarget, uint texture, int level, int zoffset);
 
 			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 			[ThreadStatic]

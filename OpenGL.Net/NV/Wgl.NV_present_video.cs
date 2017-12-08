@@ -77,7 +77,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="uVideoSlot">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="hVideoDevice">
 		/// A <see cref="T:IntPtr"/>.
@@ -86,7 +86,7 @@ namespace OpenGL
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("WGL_NV_present_video")]
-		public static bool BindVideoDeviceNV(IntPtr hDC, UInt32 uVideoSlot, IntPtr hVideoDevice, int[] piAttribList)
+		public static bool BindVideoDeviceNV(IntPtr hDC, uint uVideoSlot, IntPtr hVideoDevice, int[] piAttribList)
 		{
 			bool retValue;
 
@@ -141,7 +141,7 @@ namespace OpenGL
 
 			[RequiredByFeature("WGL_NV_present_video")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglBindVideoDeviceNV(IntPtr hDC, UInt32 uVideoSlot, IntPtr hVideoDevice, int* piAttribList);
+			internal unsafe delegate bool wglBindVideoDeviceNV(IntPtr hDC, uint uVideoSlot, IntPtr hVideoDevice, int* piAttribList);
 
 			[RequiredByFeature("WGL_NV_present_video")]
 			internal static wglBindVideoDeviceNV pwglBindVideoDeviceNV;

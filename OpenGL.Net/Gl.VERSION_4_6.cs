@@ -179,27 +179,27 @@ namespace OpenGL
 		/// [GL] glSpecializeShader: Binding for glSpecializeShader.
 		/// </summary>
 		/// <param name="shader">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pEntryPoint">
 		/// A <see cref="T:String"/>.
 		/// </param>
 		/// <param name="numSpecializationConstants">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pConstantIndex">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		/// <param name="pConstantValue">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_6")]
 		[RequiredByFeature("GL_ARB_gl_spirv", Api = "gl|glcore")]
-		public static void SpecializeShader(UInt32 shader, String pEntryPoint, UInt32 numSpecializationConstants, UInt32[] pConstantIndex, UInt32[] pConstantValue)
+		public static void SpecializeShader(uint shader, String pEntryPoint, uint numSpecializationConstants, uint[] pConstantIndex, uint[] pConstantValue)
 		{
 			unsafe {
-				fixed (UInt32* p_pConstantIndex = pConstantIndex)
-				fixed (UInt32* p_pConstantValue = pConstantValue)
+				fixed (uint* p_pConstantIndex = pConstantIndex)
+				fixed (uint* p_pConstantValue = pConstantValue)
 				{
 					Debug.Assert(Delegates.pglSpecializeShader != null, "pglSpecializeShader not implemented");
 					Delegates.pglSpecializeShader(shader, pEntryPoint, numSpecializationConstants, p_pConstantIndex, p_pConstantValue);
@@ -222,17 +222,17 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="maxdrawcount">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_6")]
 		[RequiredByFeature("GL_ARB_indirect_parameters", Api = "gl|glcore")]
-		public static void MultiDrawArraysIndirect(PrimitiveType mode, IntPtr indirect, IntPtr drawcount, Int32 maxdrawcount, Int32 stride)
+		public static void MultiDrawArraysIndirect(PrimitiveType mode, IntPtr indirect, IntPtr drawcount, int maxdrawcount, int stride)
 		{
 			Debug.Assert(Delegates.pglMultiDrawArraysIndirectCount != null, "pglMultiDrawArraysIndirectCount not implemented");
-			Delegates.pglMultiDrawArraysIndirectCount((Int32)mode, indirect, drawcount, maxdrawcount, stride);
+			Delegates.pglMultiDrawArraysIndirectCount((int)mode, indirect, drawcount, maxdrawcount, stride);
 			LogCommand("glMultiDrawArraysIndirectCount", null, mode, indirect, drawcount, maxdrawcount, stride			);
 			DebugCheckErrors(null);
 		}
@@ -250,14 +250,14 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="maxdrawcount">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_6")]
 		[RequiredByFeature("GL_ARB_indirect_parameters", Api = "gl|glcore")]
-		public static void MultiDrawArraysIndirect(PrimitiveType mode, Object indirect, IntPtr drawcount, Int32 maxdrawcount, Int32 stride)
+		public static void MultiDrawArraysIndirect(PrimitiveType mode, Object indirect, IntPtr drawcount, int maxdrawcount, int stride)
 		{
 			GCHandle pin_indirect = GCHandle.Alloc(indirect, GCHandleType.Pinned);
 			try {
@@ -274,7 +274,7 @@ namespace OpenGL
 		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="indirect">
 		/// A <see cref="T:IntPtr"/>.
@@ -283,17 +283,17 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="maxdrawcount">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_6")]
 		[RequiredByFeature("GL_ARB_indirect_parameters", Api = "gl|glcore")]
-		public static void MultiDrawElementsIndirect(PrimitiveType mode, Int32 type, IntPtr indirect, IntPtr drawcount, Int32 maxdrawcount, Int32 stride)
+		public static void MultiDrawElementsIndirect(PrimitiveType mode, int type, IntPtr indirect, IntPtr drawcount, int maxdrawcount, int stride)
 		{
 			Debug.Assert(Delegates.pglMultiDrawElementsIndirectCount != null, "pglMultiDrawElementsIndirectCount not implemented");
-			Delegates.pglMultiDrawElementsIndirectCount((Int32)mode, type, indirect, drawcount, maxdrawcount, stride);
+			Delegates.pglMultiDrawElementsIndirectCount((int)mode, type, indirect, drawcount, maxdrawcount, stride);
 			LogCommand("glMultiDrawElementsIndirectCount", null, mode, type, indirect, drawcount, maxdrawcount, stride			);
 			DebugCheckErrors(null);
 		}
@@ -305,7 +305,7 @@ namespace OpenGL
 		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="indirect">
 		/// A <see cref="T:Object"/>.
@@ -314,14 +314,14 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="maxdrawcount">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_6")]
 		[RequiredByFeature("GL_ARB_indirect_parameters", Api = "gl|glcore")]
-		public static void MultiDrawElementsIndirect(PrimitiveType mode, Int32 type, Object indirect, IntPtr drawcount, Int32 maxdrawcount, Int32 stride)
+		public static void MultiDrawElementsIndirect(PrimitiveType mode, int type, Object indirect, IntPtr drawcount, int maxdrawcount, int stride)
 		{
 			GCHandle pin_indirect = GCHandle.Alloc(indirect, GCHandleType.Pinned);
 			try {
@@ -359,7 +359,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_6")]
 			[RequiredByFeature("GL_ARB_gl_spirv", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glSpecializeShader(UInt32 shader, String pEntryPoint, UInt32 numSpecializationConstants, UInt32* pConstantIndex, UInt32* pConstantValue);
+			internal unsafe delegate void glSpecializeShader(uint shader, String pEntryPoint, uint numSpecializationConstants, uint* pConstantIndex, uint* pConstantValue);
 
 			[RequiredByFeature("GL_VERSION_4_6")]
 			[RequiredByFeature("GL_ARB_gl_spirv", Api = "gl|glcore", EntryPoint = "glSpecializeShaderARB")]
@@ -369,7 +369,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_6")]
 			[RequiredByFeature("GL_ARB_indirect_parameters", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiDrawArraysIndirectCount(Int32 mode, IntPtr indirect, IntPtr drawcount, Int32 maxdrawcount, Int32 stride);
+			internal unsafe delegate void glMultiDrawArraysIndirectCount(int mode, IntPtr indirect, IntPtr drawcount, int maxdrawcount, int stride);
 
 			[RequiredByFeature("GL_VERSION_4_6")]
 			[RequiredByFeature("GL_ARB_indirect_parameters", Api = "gl|glcore", EntryPoint = "glMultiDrawArraysIndirectCountARB")]
@@ -379,7 +379,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_6")]
 			[RequiredByFeature("GL_ARB_indirect_parameters", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiDrawElementsIndirectCount(Int32 mode, Int32 type, IntPtr indirect, IntPtr drawcount, Int32 maxdrawcount, Int32 stride);
+			internal unsafe delegate void glMultiDrawElementsIndirectCount(int mode, int type, IntPtr indirect, IntPtr drawcount, int maxdrawcount, int stride);
 
 			[RequiredByFeature("GL_VERSION_4_6")]
 			[RequiredByFeature("GL_ARB_indirect_parameters", Api = "gl|glcore", EntryPoint = "glMultiDrawElementsIndirectCountARB")]

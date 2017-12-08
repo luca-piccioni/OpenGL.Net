@@ -113,22 +113,22 @@ namespace OpenGL
 		/// [GL] glViewportSwizzleNV: Binding for glViewportSwizzleNV.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="swizzlex">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="swizzley">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="swizzlez">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="swizzlew">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_viewport_swizzle", Api = "gl|glcore|gles2")]
-		public static void ViewportSwizzleNV(UInt32 index, Int32 swizzlex, Int32 swizzley, Int32 swizzlez, Int32 swizzlew)
+		public static void ViewportSwizzleNV(uint index, int swizzlex, int swizzley, int swizzlez, int swizzlew)
 		{
 			Debug.Assert(Delegates.pglViewportSwizzleNV != null, "pglViewportSwizzleNV not implemented");
 			Delegates.pglViewportSwizzleNV(index, swizzlex, swizzley, swizzlez, swizzlew);
@@ -140,7 +140,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_NV_viewport_swizzle", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glViewportSwizzleNV(UInt32 index, Int32 swizzlex, Int32 swizzley, Int32 swizzlez, Int32 swizzlew);
+			internal delegate void glViewportSwizzleNV(uint index, int swizzlex, int swizzley, int swizzlez, int swizzlew);
 
 			[RequiredByFeature("GL_NV_viewport_swizzle", Api = "gl|glcore|gles2")]
 			[ThreadStatic]

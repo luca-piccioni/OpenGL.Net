@@ -41,10 +41,10 @@ namespace OpenGL
 		/// [WGL] wglCreateDisplayColorTableEXT: Binding for wglCreateDisplayColorTableEXT.
 		/// </summary>
 		/// <param name="id">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		[RequiredByFeature("WGL_EXT_display_color_table")]
-		public static bool CreateDisplayColorTableEXT(UInt16 id)
+		public static bool CreateDisplayColorTableEXT(ushort id)
 		{
 			bool retValue;
 
@@ -60,18 +60,18 @@ namespace OpenGL
 		/// [WGL] wglLoadDisplayColorTableEXT: Binding for wglLoadDisplayColorTableEXT.
 		/// </summary>
 		/// <param name="table">
-		/// A <see cref="T:UInt16[]"/>.
+		/// A <see cref="T:ushort[]"/>.
 		/// </param>
 		/// <param name="length">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("WGL_EXT_display_color_table")]
-		public static bool LoadDisplayColorTableEXT(UInt16[] table, UInt32 length)
+		public static bool LoadDisplayColorTableEXT(ushort[] table, uint length)
 		{
 			bool retValue;
 
 			unsafe {
-				fixed (UInt16* p_table = table)
+				fixed (ushort* p_table = table)
 				{
 					Debug.Assert(Delegates.pwglLoadDisplayColorTableEXT != null, "pwglLoadDisplayColorTableEXT not implemented");
 					retValue = Delegates.pwglLoadDisplayColorTableEXT(p_table, length);
@@ -87,10 +87,10 @@ namespace OpenGL
 		/// [WGL] wglBindDisplayColorTableEXT: Binding for wglBindDisplayColorTableEXT.
 		/// </summary>
 		/// <param name="id">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		[RequiredByFeature("WGL_EXT_display_color_table")]
-		public static bool BindDisplayColorTableEXT(UInt16 id)
+		public static bool BindDisplayColorTableEXT(ushort id)
 		{
 			bool retValue;
 
@@ -106,10 +106,10 @@ namespace OpenGL
 		/// [WGL] wglDestroyDisplayColorTableEXT: Binding for wglDestroyDisplayColorTableEXT.
 		/// </summary>
 		/// <param name="id">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		[RequiredByFeature("WGL_EXT_display_color_table")]
-		public static void DestroyDisplayColorTableEXT(UInt16 id)
+		public static void DestroyDisplayColorTableEXT(ushort id)
 		{
 			Debug.Assert(Delegates.pwglDestroyDisplayColorTableEXT != null, "pwglDestroyDisplayColorTableEXT not implemented");
 			Delegates.pwglDestroyDisplayColorTableEXT(id);
@@ -122,7 +122,7 @@ namespace OpenGL
 			[RequiredByFeature("WGL_EXT_display_color_table")]
 			[SuppressUnmanagedCodeSecurity()]
 			[return: MarshalAs(UnmanagedType.I1)]
-			internal delegate bool wglCreateDisplayColorTableEXT(UInt16 id);
+			internal delegate bool wglCreateDisplayColorTableEXT(ushort id);
 
 			[RequiredByFeature("WGL_EXT_display_color_table")]
 			internal static wglCreateDisplayColorTableEXT pwglCreateDisplayColorTableEXT;
@@ -130,7 +130,7 @@ namespace OpenGL
 			[RequiredByFeature("WGL_EXT_display_color_table")]
 			[SuppressUnmanagedCodeSecurity()]
 			[return: MarshalAs(UnmanagedType.I1)]
-			internal unsafe delegate bool wglLoadDisplayColorTableEXT(UInt16* table, UInt32 length);
+			internal unsafe delegate bool wglLoadDisplayColorTableEXT(ushort* table, uint length);
 
 			[RequiredByFeature("WGL_EXT_display_color_table")]
 			internal static wglLoadDisplayColorTableEXT pwglLoadDisplayColorTableEXT;
@@ -138,14 +138,14 @@ namespace OpenGL
 			[RequiredByFeature("WGL_EXT_display_color_table")]
 			[SuppressUnmanagedCodeSecurity()]
 			[return: MarshalAs(UnmanagedType.I1)]
-			internal delegate bool wglBindDisplayColorTableEXT(UInt16 id);
+			internal delegate bool wglBindDisplayColorTableEXT(ushort id);
 
 			[RequiredByFeature("WGL_EXT_display_color_table")]
 			internal static wglBindDisplayColorTableEXT pwglBindDisplayColorTableEXT;
 
 			[RequiredByFeature("WGL_EXT_display_color_table")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void wglDestroyDisplayColorTableEXT(UInt16 id);
+			internal delegate void wglDestroyDisplayColorTableEXT(ushort id);
 
 			[RequiredByFeature("WGL_EXT_display_color_table")]
 			internal static wglDestroyDisplayColorTableEXT pwglDestroyDisplayColorTableEXT;

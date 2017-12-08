@@ -72,7 +72,7 @@ namespace OpenGL
 				fixed (float* p_eqn = eqn)
 				{
 					Debug.Assert(Delegates.pglClipPlanef != null, "pglClipPlanef not implemented");
-					Delegates.pglClipPlanef((Int32)p, p_eqn);
+					Delegates.pglClipPlanef((int)p, p_eqn);
 					LogCommand("glClipPlanef", null, p, eqn					);
 				}
 			}
@@ -129,7 +129,7 @@ namespace OpenGL
 				fixed (float* p_equation = equation)
 				{
 					Debug.Assert(Delegates.pglGetClipPlanef != null, "pglGetClipPlanef not implemented");
-					Delegates.pglGetClipPlanef((Int32)plane, p_equation);
+					Delegates.pglGetClipPlanef((int)plane, p_equation);
 					LogCommand("glGetClipPlanef", null, plane, equation					);
 				}
 			}
@@ -183,7 +183,7 @@ namespace OpenGL
 		public static void AlphaFunc(AlphaFunction func, IntPtr @ref)
 		{
 			Debug.Assert(Delegates.pglAlphaFuncx != null, "pglAlphaFuncx not implemented");
-			Delegates.pglAlphaFuncx((Int32)func, @ref);
+			Delegates.pglAlphaFuncx((int)func, @ref);
 			LogCommand("glAlphaFuncx", null, func, @ref			);
 			DebugCheckErrors(null);
 		}
@@ -246,7 +246,7 @@ namespace OpenGL
 				fixed (IntPtr* p_equation = equation)
 				{
 					Debug.Assert(Delegates.pglClipPlanex != null, "pglClipPlanex not implemented");
-					Delegates.pglClipPlanex((Int32)plane, p_equation);
+					Delegates.pglClipPlanex((int)plane, p_equation);
 					LogCommand("glClipPlanex", null, plane, equation					);
 				}
 			}
@@ -308,7 +308,7 @@ namespace OpenGL
 		public static void Fog(FogPName pname, IntPtr param)
 		{
 			Debug.Assert(Delegates.pglFogx != null, "pglFogx not implemented");
-			Delegates.pglFogx((Int32)pname, param);
+			Delegates.pglFogx((int)pname, param);
 			LogCommand("glFogx", null, pname, param			);
 			DebugCheckErrors(null);
 		}
@@ -329,7 +329,7 @@ namespace OpenGL
 				fixed (IntPtr* p_param = param)
 				{
 					Debug.Assert(Delegates.pglFogxv != null, "pglFogxv not implemented");
-					Delegates.pglFogxv((Int32)pname, p_param);
+					Delegates.pglFogxv((int)pname, p_param);
 					LogCommand("glFogxv", null, pname, param					);
 				}
 			}
@@ -386,7 +386,7 @@ namespace OpenGL
 				fixed (IntPtr* p_equation = equation)
 				{
 					Debug.Assert(Delegates.pglGetClipPlanex != null, "pglGetClipPlanex not implemented");
-					Delegates.pglGetClipPlanex((Int32)plane, p_equation);
+					Delegates.pglGetClipPlanex((int)plane, p_equation);
 					LogCommand("glGetClipPlanex", null, plane, equation					);
 				}
 			}
@@ -409,7 +409,7 @@ namespace OpenGL
 				fixed (IntPtr* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetFixedv != null, "pglGetFixedv not implemented");
-					Delegates.pglGetFixedv((Int32)pname, p_params);
+					Delegates.pglGetFixedv((int)pname, p_params);
 					LogCommand("glGetFixedv", null, pname, @params					);
 				}
 			}
@@ -438,7 +438,7 @@ namespace OpenGL
 				fixed (IntPtr* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetLightxv != null, "pglGetLightxv not implemented");
-					Delegates.pglGetLightxv((Int32)light, (Int32)pname, p_params);
+					Delegates.pglGetLightxv((int)light, (int)pname, p_params);
 					LogCommand("glGetLightxv", null, light, pname, @params					);
 				}
 			}
@@ -466,7 +466,7 @@ namespace OpenGL
 				fixed (IntPtr* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetMaterialxv != null, "pglGetMaterialxv not implemented");
-					Delegates.pglGetMaterialxv((Int32)face, (Int32)pname, p_params);
+					Delegates.pglGetMaterialxv((int)face, (int)pname, p_params);
 					LogCommand("glGetMaterialxv", null, face, pname, @params					);
 				}
 			}
@@ -495,7 +495,7 @@ namespace OpenGL
 				fixed (IntPtr* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetTexEnvxv != null, "pglGetTexEnvxv not implemented");
-					Delegates.pglGetTexEnvxv((Int32)target, (Int32)pname, p_params);
+					Delegates.pglGetTexEnvxv((int)target, (int)pname, p_params);
 					LogCommand("glGetTexEnvxv", null, target, pname, @params					);
 				}
 			}
@@ -522,7 +522,7 @@ namespace OpenGL
 				fixed (IntPtr* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetTexParameterxv != null, "pglGetTexParameterxv not implemented");
-					Delegates.pglGetTexParameterxv((Int32)target, (Int32)pname, p_params);
+					Delegates.pglGetTexParameterxv((int)target, (int)pname, p_params);
 					LogCommand("glGetTexParameterxv", null, target, pname, @params					);
 				}
 			}
@@ -542,7 +542,7 @@ namespace OpenGL
 		public static void LightModel(LightModelParameter pname, IntPtr param)
 		{
 			Debug.Assert(Delegates.pglLightModelx != null, "pglLightModelx not implemented");
-			Delegates.pglLightModelx((Int32)pname, param);
+			Delegates.pglLightModelx((int)pname, param);
 			LogCommand("glLightModelx", null, pname, param			);
 			DebugCheckErrors(null);
 		}
@@ -563,7 +563,7 @@ namespace OpenGL
 				fixed (IntPtr* p_param = param)
 				{
 					Debug.Assert(Delegates.pglLightModelxv != null, "pglLightModelxv not implemented");
-					Delegates.pglLightModelxv((Int32)pname, p_param);
+					Delegates.pglLightModelxv((int)pname, p_param);
 					LogCommand("glLightModelxv", null, pname, param					);
 				}
 			}
@@ -588,7 +588,7 @@ namespace OpenGL
 		public static void Lightx(LightName light, LightParameter pname, IntPtr param)
 		{
 			Debug.Assert(Delegates.pglLightx != null, "pglLightx not implemented");
-			Delegates.pglLightx((Int32)light, (Int32)pname, param);
+			Delegates.pglLightx((int)light, (int)pname, param);
 			LogCommand("glLightx", null, light, pname, param			);
 			DebugCheckErrors(null);
 		}
@@ -614,7 +614,7 @@ namespace OpenGL
 				fixed (IntPtr* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglLightxv != null, "pglLightxv not implemented");
-					Delegates.pglLightxv((Int32)light, (Int32)pname, p_params);
+					Delegates.pglLightxv((int)light, (int)pname, p_params);
 					LogCommand("glLightxv", null, light, pname, @params					);
 				}
 			}
@@ -673,7 +673,7 @@ namespace OpenGL
 		public static void Material(MaterialFace face, MaterialParameter pname, IntPtr param)
 		{
 			Debug.Assert(Delegates.pglMaterialx != null, "pglMaterialx not implemented");
-			Delegates.pglMaterialx((Int32)face, (Int32)pname, param);
+			Delegates.pglMaterialx((int)face, (int)pname, param);
 			LogCommand("glMaterialx", null, face, pname, param			);
 			DebugCheckErrors(null);
 		}
@@ -697,7 +697,7 @@ namespace OpenGL
 				fixed (IntPtr* p_param = param)
 				{
 					Debug.Assert(Delegates.pglMaterialxv != null, "pglMaterialxv not implemented");
-					Delegates.pglMaterialxv((Int32)face, (Int32)pname, p_param);
+					Delegates.pglMaterialxv((int)face, (int)pname, p_param);
 					LogCommand("glMaterialxv", null, face, pname, param					);
 				}
 			}
@@ -751,7 +751,7 @@ namespace OpenGL
 		public static void MultiTexCoord4(TextureUnit texture, IntPtr s, IntPtr t, IntPtr r, IntPtr q)
 		{
 			Debug.Assert(Delegates.pglMultiTexCoord4x != null, "pglMultiTexCoord4x not implemented");
-			Delegates.pglMultiTexCoord4x((Int32)texture, s, t, r, q);
+			Delegates.pglMultiTexCoord4x((int)texture, s, t, r, q);
 			LogCommand("glMultiTexCoord4x", null, texture, s, t, r, q			);
 			DebugCheckErrors(null);
 		}
@@ -823,7 +823,7 @@ namespace OpenGL
 		/// Specifies the value that the parameter will be set to.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		public static void PointParameter(Int32 pname, IntPtr param)
+		public static void PointParameter(int pname, IntPtr param)
 		{
 			Debug.Assert(Delegates.pglPointParameterx != null, "pglPointParameterx not implemented");
 			Delegates.pglPointParameterx(pname, param);
@@ -842,7 +842,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		public static void PointParameter(Int32 pname, IntPtr[] @params)
+		public static void PointParameter(int pname, IntPtr[] @params)
 		{
 			unsafe {
 				fixed (IntPtr* p_params = @params)
@@ -924,7 +924,7 @@ namespace OpenGL
 		/// Gl.FALSE.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		public static void SampleCoverage(Int32 value, bool invert)
+		public static void SampleCoverage(int value, bool invert)
 		{
 			Debug.Assert(Delegates.pglSampleCoveragex != null, "pglSampleCoveragex not implemented");
 			Delegates.pglSampleCoveragex(value, invert);
@@ -975,7 +975,7 @@ namespace OpenGL
 		public static void TexEnv(TextureEnvTarget target, TextureEnvParameter pname, IntPtr param)
 		{
 			Debug.Assert(Delegates.pglTexEnvx != null, "pglTexEnvx not implemented");
-			Delegates.pglTexEnvx((Int32)target, (Int32)pname, param);
+			Delegates.pglTexEnvx((int)target, (int)pname, param);
 			LogCommand("glTexEnvx", null, target, pname, param			);
 			DebugCheckErrors(null);
 		}
@@ -1002,7 +1002,7 @@ namespace OpenGL
 				fixed (IntPtr* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglTexEnvxv != null, "pglTexEnvxv not implemented");
-					Delegates.pglTexEnvxv((Int32)target, (Int32)pname, p_params);
+					Delegates.pglTexEnvxv((int)target, (int)pname, p_params);
 					LogCommand("glTexEnvxv", null, target, pname, @params					);
 				}
 			}
@@ -1026,7 +1026,7 @@ namespace OpenGL
 		public static void TexParameter(TextureTarget target, GetTextureParameter pname, IntPtr param)
 		{
 			Debug.Assert(Delegates.pglTexParameterx != null, "pglTexParameterx not implemented");
-			Delegates.pglTexParameterx((Int32)target, (Int32)pname, param);
+			Delegates.pglTexParameterx((int)target, (int)pname, param);
 			LogCommand("glTexParameterx", null, target, pname, param			);
 			DebugCheckErrors(null);
 		}
@@ -1051,7 +1051,7 @@ namespace OpenGL
 				fixed (IntPtr* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglTexParameterxv != null, "pglTexParameterxv not implemented");
-					Delegates.pglTexParameterxv((Int32)target, (Int32)pname, p_params);
+					Delegates.pglTexParameterxv((int)target, (int)pname, p_params);
 					LogCommand("glTexParameterxv", null, target, pname, @params					);
 				}
 			}
@@ -1083,7 +1083,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glClipPlanef(Int32 p, float* eqn);
+			internal unsafe delegate void glClipPlanef(int p, float* eqn);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 			[ThreadStatic]
@@ -1099,7 +1099,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetClipPlanef(Int32 plane, float* equation);
+			internal unsafe delegate void glGetClipPlanef(int plane, float* equation);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 			[ThreadStatic]
@@ -1115,7 +1115,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glAlphaFuncx(Int32 func, IntPtr @ref);
+			internal unsafe delegate void glAlphaFuncx(int func, IntPtr @ref);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
@@ -1139,7 +1139,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glClipPlanex(Int32 plane, IntPtr* equation);
+			internal unsafe delegate void glClipPlanex(int plane, IntPtr* equation);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
@@ -1163,7 +1163,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glFogx(Int32 pname, IntPtr param);
+			internal unsafe delegate void glFogx(int pname, IntPtr param);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
@@ -1171,7 +1171,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glFogxv(Int32 pname, IntPtr* param);
+			internal unsafe delegate void glFogxv(int pname, IntPtr* param);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
@@ -1187,7 +1187,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetClipPlanex(Int32 plane, IntPtr* equation);
+			internal unsafe delegate void glGetClipPlanex(int plane, IntPtr* equation);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
@@ -1195,7 +1195,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetFixedv(Int32 pname, IntPtr* @params);
+			internal unsafe delegate void glGetFixedv(int pname, IntPtr* @params);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
@@ -1203,7 +1203,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetLightxv(Int32 light, Int32 pname, IntPtr* @params);
+			internal unsafe delegate void glGetLightxv(int light, int pname, IntPtr* @params);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
@@ -1211,7 +1211,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetMaterialxv(Int32 face, Int32 pname, IntPtr* @params);
+			internal unsafe delegate void glGetMaterialxv(int face, int pname, IntPtr* @params);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
@@ -1219,7 +1219,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetTexEnvxv(Int32 target, Int32 pname, IntPtr* @params);
+			internal unsafe delegate void glGetTexEnvxv(int target, int pname, IntPtr* @params);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
@@ -1227,7 +1227,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetTexParameterxv(Int32 target, Int32 pname, IntPtr* @params);
+			internal unsafe delegate void glGetTexParameterxv(int target, int pname, IntPtr* @params);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
@@ -1235,7 +1235,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glLightModelx(Int32 pname, IntPtr param);
+			internal unsafe delegate void glLightModelx(int pname, IntPtr param);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
@@ -1243,7 +1243,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glLightModelxv(Int32 pname, IntPtr* param);
+			internal unsafe delegate void glLightModelxv(int pname, IntPtr* param);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
@@ -1251,7 +1251,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glLightx(Int32 light, Int32 pname, IntPtr param);
+			internal unsafe delegate void glLightx(int light, int pname, IntPtr param);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
@@ -1259,7 +1259,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glLightxv(Int32 light, Int32 pname, IntPtr* @params);
+			internal unsafe delegate void glLightxv(int light, int pname, IntPtr* @params);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
@@ -1283,7 +1283,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMaterialx(Int32 face, Int32 pname, IntPtr param);
+			internal unsafe delegate void glMaterialx(int face, int pname, IntPtr param);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
@@ -1291,7 +1291,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMaterialxv(Int32 face, Int32 pname, IntPtr* param);
+			internal unsafe delegate void glMaterialxv(int face, int pname, IntPtr* param);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
@@ -1307,7 +1307,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexCoord4x(Int32 texture, IntPtr s, IntPtr t, IntPtr r, IntPtr q);
+			internal unsafe delegate void glMultiTexCoord4x(int texture, IntPtr s, IntPtr t, IntPtr r, IntPtr q);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
@@ -1331,7 +1331,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glPointParameterx(Int32 pname, IntPtr param);
+			internal unsafe delegate void glPointParameterx(int pname, IntPtr param);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
@@ -1339,7 +1339,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glPointParameterxv(Int32 pname, IntPtr* @params);
+			internal unsafe delegate void glPointParameterxv(int pname, IntPtr* @params);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
@@ -1371,7 +1371,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glSampleCoveragex(Int32 value, [MarshalAs(UnmanagedType.I1)] bool invert);
+			internal delegate void glSampleCoveragex(int value, [MarshalAs(UnmanagedType.I1)] bool invert);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
@@ -1387,7 +1387,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexEnvx(Int32 target, Int32 pname, IntPtr param);
+			internal unsafe delegate void glTexEnvx(int target, int pname, IntPtr param);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
@@ -1395,7 +1395,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexEnvxv(Int32 target, Int32 pname, IntPtr* @params);
+			internal unsafe delegate void glTexEnvxv(int target, int pname, IntPtr* @params);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
@@ -1403,7 +1403,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexParameterx(Int32 target, Int32 pname, IntPtr param);
+			internal unsafe delegate void glTexParameterx(int target, int pname, IntPtr param);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]
@@ -1411,7 +1411,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexParameterxv(Int32 target, Int32 pname, IntPtr* @params);
+			internal unsafe delegate void glTexParameterxv(int target, int pname, IntPtr* @params);
 
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[ThreadStatic]

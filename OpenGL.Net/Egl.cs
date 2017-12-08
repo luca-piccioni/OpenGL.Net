@@ -59,7 +59,7 @@ namespace OpenGL
 		/// </summary>
 		public static void Initialize()
 		{
-			if (_Initialized == true)
+			if (_Initialized)
 				return; // Already initialized
 			_Initialized = true;
 
@@ -69,17 +69,15 @@ namespace OpenGL
 
 			switch (Platform.CurrentPlatformId) {
 				case Platform.Id.WindowsNT:
-					if (assemblyPath != null) {
+					if (assemblyPath != null)
+					{
 #if DEBUG
 						if (IntPtr.Size == 8)
 							anglePath = Path.Combine(assemblyPath, @"ANGLE\winrt10d\x64");
 						else
 							anglePath = Path.Combine(assemblyPath, @"ANGLE\winrt10d\x86");
 #else
-						if (IntPtr.Size == 8)
-							anglePath = Path.Combine(assemblyPath, @"ANGLE\winrt10\x64");
-						else
-							anglePath = Path.Combine(assemblyPath, @"ANGLE\winrt10\x86");
+						anglePath = Path.Combine(assemblyPath, IntPtr.Size == 8 ? @"ANGLE\winrt10\x64" : @"ANGLE\winrt10\x86");
 #endif
 					}
 					break;
@@ -118,7 +116,7 @@ namespace OpenGL
 			RaiseEglInitializing(args);
 
 			// Get EGL information
-			IntPtr eglDisplay = Egl.GetDisplay(args.Display);
+			IntPtr eglDisplay = GetDisplay(args.Display);
 
 			try {
 				_IsInitializing = true;
@@ -127,13 +125,13 @@ namespace OpenGL
 
 				// Query EGL version
 				string eglVersionString = QueryString(eglDisplay, VERSION);
-				_CurrentVersion = KhronosVersion.Parse(eglVersionString, KhronosVersion.ApiEgl);
+				CurrentVersion = KhronosVersion.Parse(eglVersionString, KhronosVersion.ApiEgl);
 				// Query EGL vendor
-				_Vendor = QueryString(eglDisplay, VENDOR);
+				CurrentVendor = QueryString(eglDisplay, VENDOR);
 				// Client APIs
 				List<string> clientApis = new List<string>();
 
-				if (_CurrentVersion >= Version_120) {
+				if (CurrentVersion >= Version_120) {
 					string clientApisString = QueryString(eglDisplay, CLIENT_APIS);
 					string[] clientApiTokens = System.Text.RegularExpressions.Regex.Split(clientApisString, " ");
 
@@ -141,12 +139,12 @@ namespace OpenGL
 						clientApis.Add(api);
 				}
 
-				_AvailableApis = clientApis.ToArray();
+				AvailableApis = clientApis.ToArray();
 
 				// Null device context for querying extensions
 				using (DeviceContextEGL deviceContext = new DeviceContextEGL(args.Display, IntPtr.Zero)) {
-					_CurrentExtensions = new Extensions();
-					_CurrentExtensions.Query(deviceContext);
+					CurrentExtensions = new Extensions();
+					CurrentExtensions.Query(deviceContext);
 				}
 			} finally {
 				Terminate(eglDisplay);
@@ -166,37 +164,22 @@ namespace OpenGL
 		/// <summary>
 		/// EGL version currently implemented.
 		/// </summary>
-		public static KhronosVersion CurrentVersion { get { return (_CurrentVersion); } }
-
-		/// <summary>
-		/// EGL version currently implemented.
-		/// </summary>
-		private static KhronosVersion _CurrentVersion;
+		public static KhronosVersion CurrentVersion { get; private set; }
 
 		/// <summary>
 		/// Get the EGL vendor.
 		/// </summary>
-		public static string CurrentVendor { get { return (_Vendor); } }
-
-		/// <summary>
-		/// EGL vendor.
-		/// </summary>
-		private static string _Vendor;
+		public static string CurrentVendor { get; private set; }
 
 		/// <summary>
 		/// EGL available APIs.
 		/// </summary>
-		internal static string[] _AvailableApis;
+		internal static string[] AvailableApis;
 
 		/// <summary>
 		/// OpenGL extension support.
 		/// </summary>
-		public static Extensions CurrentExtensions { get { return (_CurrentExtensions); } }
-
-		/// <summary>
-		/// OpenGL extension support.
-		/// </summary>
-		internal static Extensions _CurrentExtensions;
+		public static Extensions CurrentExtensions { get; internal set; }
 
 		#endregion
 
@@ -214,12 +197,10 @@ namespace OpenGL
 		{
 			get
 			{
-				switch (Platform.CurrentPlatformId) {
-					case Platform.Id.Android:
-						return (true);
-					default:
-						return ((_IsRequired && IsAvailable) || _IsInitializing);
-				}
+				if (Platform.CurrentPlatformId == Platform.Id.Android)
+					return (true);
+
+				return ((_IsRequired && IsAvailable) || _IsInitializing);
 			}
 			set { _IsRequired = value; }
 		}
@@ -258,12 +239,10 @@ namespace OpenGL
 		/// </returns>
 		private static string GetPlatformLibrary()
 		{
-			switch (Platform.CurrentPlatformId) {
-				case Platform.Id.Linux:
-					return ("libEGL.so");
-				default:
-					return (Library);
-			}
+			if (Platform.CurrentPlatformId == Platform.Id.Linux)
+				return ("libEGL.so");
+
+			return (Library);
 		}
 
 		/// <summary>
@@ -278,6 +257,9 @@ namespace OpenGL
 		/// <summary>
 		/// OpenGL error checking.
 		/// </summary>
+		/// <paramref name="returnValue">
+		/// A <see cref="Object"/> that specifies the returned value of the function called before checking the error.
+		/// </paramref>
 		[Conditional("GL_DEBUG")]
 		private static void DebugCheckErrors(object returnValue)
 		{
@@ -304,7 +286,7 @@ namespace OpenGL
 		/// A <see cref="T:Object[]"/> that specifies the API command arguments, if any.
 		/// </param>
 		[Conditional("GL_DEBUG")]
-		protected static new void LogCommand(string name, object returnValue, params object[] args)
+		protected new static void LogCommand(string name, object returnValue, params object[] args)
 		{
 			if (_LogContext == null)
 				_LogContext = new KhronosLogContext(typeof(Egl));
@@ -334,17 +316,17 @@ namespace OpenGL
 			/// <summary>
 			/// Width of client pixmap, in pixels.
 			/// </summary>
-			public Int32 Width;
+			public int Width;
 
 			/// <summary>
 			/// Height of client pixmap, in pixels.
 			/// </summary>
-			public Int32 Height;
+			public int Height;
 
 			/// <summary>
 			/// Stride of the client pixmap row, in bytes.
 			/// </summary>
-			public Int32 Stride;
+			public int Stride;
 		}
 
 		/// <summary>

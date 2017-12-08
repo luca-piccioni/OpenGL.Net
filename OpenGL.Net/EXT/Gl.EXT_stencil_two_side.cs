@@ -59,7 +59,7 @@ namespace OpenGL
 		public static void ActiveStencilFaceEXT(StencilFaceDirection face)
 		{
 			Debug.Assert(Delegates.pglActiveStencilFaceEXT != null, "pglActiveStencilFaceEXT not implemented");
-			Delegates.pglActiveStencilFaceEXT((Int32)face);
+			Delegates.pglActiveStencilFaceEXT((int)face);
 			LogCommand("glActiveStencilFaceEXT", null, face			);
 			DebugCheckErrors(null);
 		}
@@ -68,7 +68,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_EXT_stencil_two_side")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glActiveStencilFaceEXT(Int32 face);
+			internal delegate void glActiveStencilFaceEXT(int face);
 
 			[RequiredByFeature("GL_EXT_stencil_two_side")]
 			[ThreadStatic]

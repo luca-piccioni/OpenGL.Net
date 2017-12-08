@@ -88,10 +88,10 @@ namespace OpenGL
 		/// A <see cref="T:double"/>.
 		/// </param>
 		/// <param name="ustride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="uorder">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="v1">
 		/// A <see cref="T:double"/>.
@@ -100,10 +100,10 @@ namespace OpenGL
 		/// A <see cref="T:double"/>.
 		/// </param>
 		/// <param name="vstride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="vorder">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="w1">
 		/// A <see cref="T:double"/>.
@@ -112,22 +112,22 @@ namespace OpenGL
 		/// A <see cref="T:double"/>.
 		/// </param>
 		/// <param name="wstride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="worder">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="points">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIX_polynomial_ffd")]
-		public static void DeformationMap3SGIX(FfdTargetSGIX target, double u1, double u2, Int32 ustride, Int32 uorder, double v1, double v2, Int32 vstride, Int32 vorder, double w1, double w2, Int32 wstride, Int32 worder, double[] points)
+		public static void DeformationMap3SGIX(FfdTargetSGIX target, double u1, double u2, int ustride, int uorder, double v1, double v2, int vstride, int vorder, double w1, double w2, int wstride, int worder, double[] points)
 		{
 			unsafe {
 				fixed (double* p_points = points)
 				{
 					Debug.Assert(Delegates.pglDeformationMap3dSGIX != null, "pglDeformationMap3dSGIX not implemented");
-					Delegates.pglDeformationMap3dSGIX((Int32)target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, w1, w2, wstride, worder, p_points);
+					Delegates.pglDeformationMap3dSGIX((int)target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, w1, w2, wstride, worder, p_points);
 					LogCommand("glDeformationMap3dSGIX", null, target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, w1, w2, wstride, worder, points					);
 				}
 			}
@@ -147,10 +147,10 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		/// <param name="ustride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="uorder">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="v1">
 		/// A <see cref="T:float"/>.
@@ -159,10 +159,10 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		/// <param name="vstride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="vorder">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="w1">
 		/// A <see cref="T:float"/>.
@@ -171,22 +171,22 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		/// <param name="wstride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="worder">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="points">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIX_polynomial_ffd")]
-		public static void DeformationMap3SGIX(FfdTargetSGIX target, float u1, float u2, Int32 ustride, Int32 uorder, float v1, float v2, Int32 vstride, Int32 vorder, float w1, float w2, Int32 wstride, Int32 worder, float[] points)
+		public static void DeformationMap3SGIX(FfdTargetSGIX target, float u1, float u2, int ustride, int uorder, float v1, float v2, int vstride, int vorder, float w1, float w2, int wstride, int worder, float[] points)
 		{
 			unsafe {
 				fixed (float* p_points = points)
 				{
 					Debug.Assert(Delegates.pglDeformationMap3fSGIX != null, "pglDeformationMap3fSGIX not implemented");
-					Delegates.pglDeformationMap3fSGIX((Int32)target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, w1, w2, wstride, worder, p_points);
+					Delegates.pglDeformationMap3fSGIX((int)target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, w1, w2, wstride, worder, p_points);
 					LogCommand("glDeformationMap3fSGIX", null, target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, w1, w2, wstride, worder, points					);
 				}
 			}
@@ -203,7 +203,7 @@ namespace OpenGL
 		public static void DeformSGIX(FfdMaskSGIX mask)
 		{
 			Debug.Assert(Delegates.pglDeformSGIX != null, "pglDeformSGIX not implemented");
-			Delegates.pglDeformSGIX((UInt32)mask);
+			Delegates.pglDeformSGIX((uint)mask);
 			LogCommand("glDeformSGIX", null, mask			);
 			DebugCheckErrors(null);
 		}
@@ -218,7 +218,7 @@ namespace OpenGL
 		public static void LoadIdentityDeformationMapSGIX(FfdMaskSGIX mask)
 		{
 			Debug.Assert(Delegates.pglLoadIdentityDeformationMapSGIX != null, "pglLoadIdentityDeformationMapSGIX not implemented");
-			Delegates.pglLoadIdentityDeformationMapSGIX((UInt32)mask);
+			Delegates.pglLoadIdentityDeformationMapSGIX((uint)mask);
 			LogCommand("glLoadIdentityDeformationMapSGIX", null, mask			);
 			DebugCheckErrors(null);
 		}
@@ -227,7 +227,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_SGIX_polynomial_ffd")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDeformationMap3dSGIX(Int32 target, double u1, double u2, Int32 ustride, Int32 uorder, double v1, double v2, Int32 vstride, Int32 vorder, double w1, double w2, Int32 wstride, Int32 worder, double* points);
+			internal unsafe delegate void glDeformationMap3dSGIX(int target, double u1, double u2, int ustride, int uorder, double v1, double v2, int vstride, int vorder, double w1, double w2, int wstride, int worder, double* points);
 
 			[RequiredByFeature("GL_SGIX_polynomial_ffd")]
 			[ThreadStatic]
@@ -235,7 +235,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SGIX_polynomial_ffd")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDeformationMap3fSGIX(Int32 target, float u1, float u2, Int32 ustride, Int32 uorder, float v1, float v2, Int32 vstride, Int32 vorder, float w1, float w2, Int32 wstride, Int32 worder, float* points);
+			internal unsafe delegate void glDeformationMap3fSGIX(int target, float u1, float u2, int ustride, int uorder, float v1, float v2, int vstride, int vorder, float w1, float w2, int wstride, int worder, float* points);
 
 			[RequiredByFeature("GL_SGIX_polynomial_ffd")]
 			[ThreadStatic]
@@ -243,7 +243,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SGIX_polynomial_ffd")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glDeformSGIX(UInt32 mask);
+			internal delegate void glDeformSGIX(uint mask);
 
 			[RequiredByFeature("GL_SGIX_polynomial_ffd")]
 			[ThreadStatic]
@@ -251,7 +251,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SGIX_polynomial_ffd")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glLoadIdentityDeformationMapSGIX(UInt32 mask);
+			internal delegate void glLoadIdentityDeformationMapSGIX(uint mask);
 
 			[RequiredByFeature("GL_SGIX_polynomial_ffd")]
 			[ThreadStatic]

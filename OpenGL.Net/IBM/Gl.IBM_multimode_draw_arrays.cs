@@ -41,27 +41,27 @@ namespace OpenGL
 		/// [GL] glMultiModeDrawArraysIBM: Binding for glMultiModeDrawArraysIBM.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		/// <param name="first">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		/// <param name="count">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		/// <param name="primcount">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="modestride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_IBM_multimode_draw_arrays")]
-		public static void MultiModeDrawArraysIBM(Int32[] mode, Int32[] first, Int32[] count, Int32 primcount, Int32 modestride)
+		public static void MultiModeDrawArraysIBM(int[] mode, int[] first, int[] count, int primcount, int modestride)
 		{
 			unsafe {
-				fixed (Int32* p_mode = mode)
-				fixed (Int32* p_first = first)
-				fixed (Int32* p_count = count)
+				fixed (int* p_mode = mode)
+				fixed (int* p_first = first)
+				fixed (int* p_count = count)
 				{
 					Debug.Assert(Delegates.pglMultiModeDrawArraysIBM != null, "pglMultiModeDrawArraysIBM not implemented");
 					Delegates.pglMultiModeDrawArraysIBM(p_mode, p_first, p_count, primcount, modestride);
@@ -75,10 +75,10 @@ namespace OpenGL
 		/// [GL] glMultiModeDrawElementsIBM: Binding for glMultiModeDrawElementsIBM.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		/// <param name="count">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		/// <param name="type">
 		/// A <see cref="T:DrawElementsType"/>.
@@ -87,21 +87,21 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		/// <param name="primcount">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="modestride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_IBM_multimode_draw_arrays")]
-		public static void MultiModeDrawElementsIBM(Int32[] mode, Int32[] count, DrawElementsType type, IntPtr[] indices, Int32 primcount, Int32 modestride)
+		public static void MultiModeDrawElementsIBM(int[] mode, int[] count, DrawElementsType type, IntPtr[] indices, int primcount, int modestride)
 		{
 			unsafe {
-				fixed (Int32* p_mode = mode)
-				fixed (Int32* p_count = count)
+				fixed (int* p_mode = mode)
+				fixed (int* p_count = count)
 				fixed (IntPtr* p_indices = indices)
 				{
 					Debug.Assert(Delegates.pglMultiModeDrawElementsIBM != null, "pglMultiModeDrawElementsIBM not implemented");
-					Delegates.pglMultiModeDrawElementsIBM(p_mode, p_count, (Int32)type, p_indices, primcount, modestride);
+					Delegates.pglMultiModeDrawElementsIBM(p_mode, p_count, (int)type, p_indices, primcount, modestride);
 					LogCommand("glMultiModeDrawElementsIBM", null, mode, count, type, indices, primcount, modestride					);
 				}
 			}
@@ -112,7 +112,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_IBM_multimode_draw_arrays")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiModeDrawArraysIBM(Int32* mode, Int32* first, Int32* count, Int32 primcount, Int32 modestride);
+			internal unsafe delegate void glMultiModeDrawArraysIBM(int* mode, int* first, int* count, int primcount, int modestride);
 
 			[RequiredByFeature("GL_IBM_multimode_draw_arrays")]
 			[ThreadStatic]
@@ -120,7 +120,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_IBM_multimode_draw_arrays")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiModeDrawElementsIBM(Int32* mode, Int32* count, Int32 type, IntPtr* indices, Int32 primcount, Int32 modestride);
+			internal unsafe delegate void glMultiModeDrawElementsIBM(int* mode, int* count, int type, IntPtr* indices, int primcount, int modestride);
 
 			[RequiredByFeature("GL_IBM_multimode_draw_arrays")]
 			[ThreadStatic]

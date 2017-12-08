@@ -725,10 +725,10 @@ namespace OpenGL
 		/// [GL] glBindVertexShaderEXT: Binding for glBindVertexShaderEXT.
 		/// </summary>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void BindVertexShaderEXT(UInt32 id)
+		public static void BindVertexShaderEXT(uint id)
 		{
 			Debug.Assert(Delegates.pglBindVertexShaderEXT != null, "pglBindVertexShaderEXT not implemented");
 			Delegates.pglBindVertexShaderEXT(id);
@@ -740,12 +740,12 @@ namespace OpenGL
 		/// [GL] glGenVertexShadersEXT: Binding for glGenVertexShadersEXT.
 		/// </summary>
 		/// <param name="range">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static UInt32 GenVertexShadersEXT(UInt32 range)
+		public static uint GenVertexShadersEXT(uint range)
 		{
-			UInt32 retValue;
+			uint retValue;
 
 			Debug.Assert(Delegates.pglGenVertexShadersEXT != null, "pglGenVertexShadersEXT not implemented");
 			retValue = Delegates.pglGenVertexShadersEXT(range);
@@ -759,10 +759,10 @@ namespace OpenGL
 		/// [GL] glDeleteVertexShaderEXT: Binding for glDeleteVertexShaderEXT.
 		/// </summary>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void DeleteVertexShaderEXT(UInt32 id)
+		public static void DeleteVertexShaderEXT(uint id)
 		{
 			Debug.Assert(Delegates.pglDeleteVertexShaderEXT != null, "pglDeleteVertexShaderEXT not implemented");
 			Delegates.pglDeleteVertexShaderEXT(id);
@@ -774,16 +774,16 @@ namespace OpenGL
 		/// [GL] glShaderOp1EXT: Binding for glShaderOp1EXT.
 		/// </summary>
 		/// <param name="op">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="res">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="arg1">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void ShaderOp1EXT(Int32 op, UInt32 res, UInt32 arg1)
+		public static void ShaderOp1EXT(int op, uint res, uint arg1)
 		{
 			Debug.Assert(Delegates.pglShaderOp1EXT != null, "pglShaderOp1EXT not implemented");
 			Delegates.pglShaderOp1EXT(op, res, arg1);
@@ -795,19 +795,19 @@ namespace OpenGL
 		/// [GL] glShaderOp2EXT: Binding for glShaderOp2EXT.
 		/// </summary>
 		/// <param name="op">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="res">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="arg1">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="arg2">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void ShaderOp2EXT(Int32 op, UInt32 res, UInt32 arg1, UInt32 arg2)
+		public static void ShaderOp2EXT(int op, uint res, uint arg1, uint arg2)
 		{
 			Debug.Assert(Delegates.pglShaderOp2EXT != null, "pglShaderOp2EXT not implemented");
 			Delegates.pglShaderOp2EXT(op, res, arg1, arg2);
@@ -819,22 +819,22 @@ namespace OpenGL
 		/// [GL] glShaderOp3EXT: Binding for glShaderOp3EXT.
 		/// </summary>
 		/// <param name="op">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="res">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="arg1">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="arg2">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="arg3">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void ShaderOp3EXT(Int32 op, UInt32 res, UInt32 arg1, UInt32 arg2, UInt32 arg3)
+		public static void ShaderOp3EXT(int op, uint res, uint arg1, uint arg2, uint arg3)
 		{
 			Debug.Assert(Delegates.pglShaderOp3EXT != null, "pglShaderOp3EXT not implemented");
 			Delegates.pglShaderOp3EXT(op, res, arg1, arg2, arg3);
@@ -846,25 +846,25 @@ namespace OpenGL
 		/// [GL] glSwizzleEXT: Binding for glSwizzleEXT.
 		/// </summary>
 		/// <param name="res">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="in">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="outX">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="outY">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="outZ">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="outW">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void SwizzleEXT(UInt32 res, UInt32 @in, Int32 outX, Int32 outY, Int32 outZ, Int32 outW)
+		public static void SwizzleEXT(uint res, uint @in, int outX, int outY, int outZ, int outW)
 		{
 			Debug.Assert(Delegates.pglSwizzleEXT != null, "pglSwizzleEXT not implemented");
 			Delegates.pglSwizzleEXT(res, @in, outX, outY, outZ, outW);
@@ -876,25 +876,25 @@ namespace OpenGL
 		/// [GL] glWriteMaskEXT: Binding for glWriteMaskEXT.
 		/// </summary>
 		/// <param name="res">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="in">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="outX">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="outY">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="outZ">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="outW">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void WriteMaskEXT(UInt32 res, UInt32 @in, Int32 outX, Int32 outY, Int32 outZ, Int32 outW)
+		public static void WriteMaskEXT(uint res, uint @in, int outX, int outY, int outZ, int outW)
 		{
 			Debug.Assert(Delegates.pglWriteMaskEXT != null, "pglWriteMaskEXT not implemented");
 			Delegates.pglWriteMaskEXT(res, @in, outX, outY, outZ, outW);
@@ -906,16 +906,16 @@ namespace OpenGL
 		/// [GL] glInsertComponentEXT: Binding for glInsertComponentEXT.
 		/// </summary>
 		/// <param name="res">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="src">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="num">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void InsertComponentEXT(UInt32 res, UInt32 src, UInt32 num)
+		public static void InsertComponentEXT(uint res, uint src, uint num)
 		{
 			Debug.Assert(Delegates.pglInsertComponentEXT != null, "pglInsertComponentEXT not implemented");
 			Delegates.pglInsertComponentEXT(res, src, num);
@@ -927,16 +927,16 @@ namespace OpenGL
 		/// [GL] glExtractComponentEXT: Binding for glExtractComponentEXT.
 		/// </summary>
 		/// <param name="res">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="src">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="num">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void ExtractComponentEXT(UInt32 res, UInt32 src, UInt32 num)
+		public static void ExtractComponentEXT(uint res, uint src, uint num)
 		{
 			Debug.Assert(Delegates.pglExtractComponentEXT != null, "pglExtractComponentEXT not implemented");
 			Delegates.pglExtractComponentEXT(res, src, num);
@@ -948,21 +948,21 @@ namespace OpenGL
 		/// [GL] glGenSymbolsEXT: Binding for glGenSymbolsEXT.
 		/// </summary>
 		/// <param name="datatype">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="storagetype">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="range">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="components">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static UInt32 GenSymbolsEXT(Int32 datatype, Int32 storagetype, Int32 range, UInt32 components)
+		public static uint GenSymbolsEXT(int datatype, int storagetype, int range, uint components)
 		{
-			UInt32 retValue;
+			uint retValue;
 
 			Debug.Assert(Delegates.pglGenSymbolsEXT != null, "pglGenSymbolsEXT not implemented");
 			retValue = Delegates.pglGenSymbolsEXT(datatype, storagetype, range, components);
@@ -976,16 +976,16 @@ namespace OpenGL
 		/// [GL] glSetInvariantEXT: Binding for glSetInvariantEXT.
 		/// </summary>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="addr">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void SetInvariantEXT(UInt32 id, Int32 type, IntPtr addr)
+		public static void SetInvariantEXT(uint id, int type, IntPtr addr)
 		{
 			Debug.Assert(Delegates.pglSetInvariantEXT != null, "pglSetInvariantEXT not implemented");
 			Delegates.pglSetInvariantEXT(id, type, addr);
@@ -997,16 +997,16 @@ namespace OpenGL
 		/// [GL] glSetInvariantEXT: Binding for glSetInvariantEXT.
 		/// </summary>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="addr">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void SetInvariantEXT(UInt32 id, Int32 type, Object addr)
+		public static void SetInvariantEXT(uint id, int type, Object addr)
 		{
 			GCHandle pin_addr = GCHandle.Alloc(addr, GCHandleType.Pinned);
 			try {
@@ -1020,16 +1020,16 @@ namespace OpenGL
 		/// [GL] glSetLocalConstantEXT: Binding for glSetLocalConstantEXT.
 		/// </summary>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="addr">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void SetLocalConstantEXT(UInt32 id, Int32 type, IntPtr addr)
+		public static void SetLocalConstantEXT(uint id, int type, IntPtr addr)
 		{
 			Debug.Assert(Delegates.pglSetLocalConstantEXT != null, "pglSetLocalConstantEXT not implemented");
 			Delegates.pglSetLocalConstantEXT(id, type, addr);
@@ -1041,16 +1041,16 @@ namespace OpenGL
 		/// [GL] glSetLocalConstantEXT: Binding for glSetLocalConstantEXT.
 		/// </summary>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="addr">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void SetLocalConstantEXT(UInt32 id, Int32 type, Object addr)
+		public static void SetLocalConstantEXT(uint id, int type, Object addr)
 		{
 			GCHandle pin_addr = GCHandle.Alloc(addr, GCHandleType.Pinned);
 			try {
@@ -1064,13 +1064,13 @@ namespace OpenGL
 		/// [GL] glVariantbvEXT: Binding for glVariantbvEXT.
 		/// </summary>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="addr">
 		/// A <see cref="T:sbyte[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void VariantEXT(UInt32 id, sbyte[] addr)
+		public static void VariantEXT(uint id, sbyte[] addr)
 		{
 			unsafe {
 				fixed (sbyte* p_addr = addr)
@@ -1087,16 +1087,16 @@ namespace OpenGL
 		/// [GL] glVariantsvEXT: Binding for glVariantsvEXT.
 		/// </summary>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="addr">
-		/// A <see cref="T:Int16[]"/>.
+		/// A <see cref="T:short[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void VariantEXT(UInt32 id, Int16[] addr)
+		public static void VariantEXT(uint id, short[] addr)
 		{
 			unsafe {
-				fixed (Int16* p_addr = addr)
+				fixed (short* p_addr = addr)
 				{
 					Debug.Assert(Delegates.pglVariantsvEXT != null, "pglVariantsvEXT not implemented");
 					Delegates.pglVariantsvEXT(id, p_addr);
@@ -1110,16 +1110,16 @@ namespace OpenGL
 		/// [GL] glVariantivEXT: Binding for glVariantivEXT.
 		/// </summary>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="addr">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void VariantEXT(UInt32 id, Int32[] addr)
+		public static void VariantEXT(uint id, int[] addr)
 		{
 			unsafe {
-				fixed (Int32* p_addr = addr)
+				fixed (int* p_addr = addr)
 				{
 					Debug.Assert(Delegates.pglVariantivEXT != null, "pglVariantivEXT not implemented");
 					Delegates.pglVariantivEXT(id, p_addr);
@@ -1133,13 +1133,13 @@ namespace OpenGL
 		/// [GL] glVariantfvEXT: Binding for glVariantfvEXT.
 		/// </summary>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="addr">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void VariantEXT(UInt32 id, float[] addr)
+		public static void VariantEXT(uint id, float[] addr)
 		{
 			unsafe {
 				fixed (float* p_addr = addr)
@@ -1156,13 +1156,13 @@ namespace OpenGL
 		/// [GL] glVariantdvEXT: Binding for glVariantdvEXT.
 		/// </summary>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="addr">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void VariantEXT(UInt32 id, double[] addr)
+		public static void VariantEXT(uint id, double[] addr)
 		{
 			unsafe {
 				fixed (double* p_addr = addr)
@@ -1179,13 +1179,13 @@ namespace OpenGL
 		/// [GL] glVariantubvEXT: Binding for glVariantubvEXT.
 		/// </summary>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="addr">
 		/// A <see cref="T:byte[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void VariantEXT(UInt32 id, byte[] addr)
+		public static void VariantEXT(uint id, byte[] addr)
 		{
 			unsafe {
 				fixed (byte* p_addr = addr)
@@ -1202,16 +1202,16 @@ namespace OpenGL
 		/// [GL] glVariantusvEXT: Binding for glVariantusvEXT.
 		/// </summary>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="addr">
-		/// A <see cref="T:UInt16[]"/>.
+		/// A <see cref="T:ushort[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void VariantEXT(UInt32 id, UInt16[] addr)
+		public static void VariantEXT(uint id, ushort[] addr)
 		{
 			unsafe {
-				fixed (UInt16* p_addr = addr)
+				fixed (ushort* p_addr = addr)
 				{
 					Debug.Assert(Delegates.pglVariantusvEXT != null, "pglVariantusvEXT not implemented");
 					Delegates.pglVariantusvEXT(id, p_addr);
@@ -1225,16 +1225,16 @@ namespace OpenGL
 		/// [GL] glVariantuivEXT: Binding for glVariantuivEXT.
 		/// </summary>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="addr">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void VariantEXT(UInt32 id, UInt32[] addr)
+		public static void VariantEXT(uint id, uint[] addr)
 		{
 			unsafe {
-				fixed (UInt32* p_addr = addr)
+				fixed (uint* p_addr = addr)
 				{
 					Debug.Assert(Delegates.pglVariantuivEXT != null, "pglVariantuivEXT not implemented");
 					Delegates.pglVariantuivEXT(id, p_addr);
@@ -1248,19 +1248,19 @@ namespace OpenGL
 		/// [GL] glVariantPointerEXT: Binding for glVariantPointerEXT.
 		/// </summary>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="addr">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void VariantPointerEXT(UInt32 id, Int32 type, UInt32 stride, IntPtr addr)
+		public static void VariantPointerEXT(uint id, int type, uint stride, IntPtr addr)
 		{
 			Debug.Assert(Delegates.pglVariantPointerEXT != null, "pglVariantPointerEXT not implemented");
 			Delegates.pglVariantPointerEXT(id, type, stride, addr);
@@ -1272,19 +1272,19 @@ namespace OpenGL
 		/// [GL] glVariantPointerEXT: Binding for glVariantPointerEXT.
 		/// </summary>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="addr">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void VariantPointerEXT(UInt32 id, Int32 type, UInt32 stride, Object addr)
+		public static void VariantPointerEXT(uint id, int type, uint stride, Object addr)
 		{
 			GCHandle pin_addr = GCHandle.Alloc(addr, GCHandleType.Pinned);
 			try {
@@ -1298,10 +1298,10 @@ namespace OpenGL
 		/// [GL] glEnableVariantClientStateEXT: Binding for glEnableVariantClientStateEXT.
 		/// </summary>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void EnableVariantClientStateEXT(UInt32 id)
+		public static void EnableVariantClientStateEXT(uint id)
 		{
 			Debug.Assert(Delegates.pglEnableVariantClientStateEXT != null, "pglEnableVariantClientStateEXT not implemented");
 			Delegates.pglEnableVariantClientStateEXT(id);
@@ -1313,10 +1313,10 @@ namespace OpenGL
 		/// [GL] glDisableVariantClientStateEXT: Binding for glDisableVariantClientStateEXT.
 		/// </summary>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void DisableVariantClientStateEXT(UInt32 id)
+		public static void DisableVariantClientStateEXT(uint id)
 		{
 			Debug.Assert(Delegates.pglDisableVariantClientStateEXT != null, "pglDisableVariantClientStateEXT not implemented");
 			Delegates.pglDisableVariantClientStateEXT(id);
@@ -1334,12 +1334,12 @@ namespace OpenGL
 		/// A <see cref="T:LightParameter"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static UInt32 BindLightParameterEXT(LightName light, LightParameter value)
+		public static uint BindLightParameterEXT(LightName light, LightParameter value)
 		{
-			UInt32 retValue;
+			uint retValue;
 
 			Debug.Assert(Delegates.pglBindLightParameterEXT != null, "pglBindLightParameterEXT not implemented");
-			retValue = Delegates.pglBindLightParameterEXT((Int32)light, (Int32)value);
+			retValue = Delegates.pglBindLightParameterEXT((int)light, (int)value);
 			LogCommand("glBindLightParameterEXT", retValue, light, value			);
 			DebugCheckErrors(retValue);
 
@@ -1356,12 +1356,12 @@ namespace OpenGL
 		/// A <see cref="T:MaterialParameter"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static UInt32 BindMaterialParameterEXT(MaterialFace face, MaterialParameter value)
+		public static uint BindMaterialParameterEXT(MaterialFace face, MaterialParameter value)
 		{
-			UInt32 retValue;
+			uint retValue;
 
 			Debug.Assert(Delegates.pglBindMaterialParameterEXT != null, "pglBindMaterialParameterEXT not implemented");
-			retValue = Delegates.pglBindMaterialParameterEXT((Int32)face, (Int32)value);
+			retValue = Delegates.pglBindMaterialParameterEXT((int)face, (int)value);
 			LogCommand("glBindMaterialParameterEXT", retValue, face, value			);
 			DebugCheckErrors(retValue);
 
@@ -1381,12 +1381,12 @@ namespace OpenGL
 		/// A <see cref="T:TextureGenParameter"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static UInt32 BindTexGenParameterEXT(TextureUnit unit, TextureCoordName coord, TextureGenParameter value)
+		public static uint BindTexGenParameterEXT(TextureUnit unit, TextureCoordName coord, TextureGenParameter value)
 		{
-			UInt32 retValue;
+			uint retValue;
 
 			Debug.Assert(Delegates.pglBindTexGenParameterEXT != null, "pglBindTexGenParameterEXT not implemented");
-			retValue = Delegates.pglBindTexGenParameterEXT((Int32)unit, (Int32)coord, (Int32)value);
+			retValue = Delegates.pglBindTexGenParameterEXT((int)unit, (int)coord, (int)value);
 			LogCommand("glBindTexGenParameterEXT", retValue, unit, coord, value			);
 			DebugCheckErrors(retValue);
 
@@ -1400,15 +1400,15 @@ namespace OpenGL
 		/// A <see cref="T:TextureUnit"/>.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static UInt32 BindTextureUnitParameterEXT(TextureUnit unit, Int32 value)
+		public static uint BindTextureUnitParameterEXT(TextureUnit unit, int value)
 		{
-			UInt32 retValue;
+			uint retValue;
 
 			Debug.Assert(Delegates.pglBindTextureUnitParameterEXT != null, "pglBindTextureUnitParameterEXT not implemented");
-			retValue = Delegates.pglBindTextureUnitParameterEXT((Int32)unit, value);
+			retValue = Delegates.pglBindTextureUnitParameterEXT((int)unit, value);
 			LogCommand("glBindTextureUnitParameterEXT", retValue, unit, value			);
 			DebugCheckErrors(retValue);
 
@@ -1419,12 +1419,12 @@ namespace OpenGL
 		/// [GL] glBindParameterEXT: Binding for glBindParameterEXT.
 		/// </summary>
 		/// <param name="value">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static UInt32 BindParameterEXT(Int32 value)
+		public static uint BindParameterEXT(int value)
 		{
-			UInt32 retValue;
+			uint retValue;
 
 			Debug.Assert(Delegates.pglBindParameterEXT != null, "pglBindParameterEXT not implemented");
 			retValue = Delegates.pglBindParameterEXT(value);
@@ -1438,13 +1438,13 @@ namespace OpenGL
 		/// [GL] glIsVariantEnabledEXT: Binding for glIsVariantEnabledEXT.
 		/// </summary>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="cap">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static bool IsVariantEnabledEXT(UInt32 id, Int32 cap)
+		public static bool IsVariantEnabledEXT(uint id, int cap)
 		{
 			bool retValue;
 
@@ -1460,16 +1460,16 @@ namespace OpenGL
 		/// [GL] glGetVariantBooleanvEXT: Binding for glGetVariantBooleanvEXT.
 		/// </summary>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="data">
 		/// A <see cref="T:byte[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void GetVariantBooleanEXT(UInt32 id, Int32 value, [Out] byte[] data)
+		public static void GetVariantBooleanEXT(uint id, int value, [Out] byte[] data)
 		{
 			unsafe {
 				fixed (byte* p_data = data)
@@ -1486,19 +1486,19 @@ namespace OpenGL
 		/// [GL] glGetVariantIntegervEXT: Binding for glGetVariantIntegervEXT.
 		/// </summary>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="data">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void GetVariantIntegerEXT(UInt32 id, Int32 value, [Out] Int32[] data)
+		public static void GetVariantIntegerEXT(uint id, int value, [Out] int[] data)
 		{
 			unsafe {
-				fixed (Int32* p_data = data)
+				fixed (int* p_data = data)
 				{
 					Debug.Assert(Delegates.pglGetVariantIntegervEXT != null, "pglGetVariantIntegervEXT not implemented");
 					Delegates.pglGetVariantIntegervEXT(id, value, p_data);
@@ -1512,16 +1512,16 @@ namespace OpenGL
 		/// [GL] glGetVariantFloatvEXT: Binding for glGetVariantFloatvEXT.
 		/// </summary>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="data">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void GetVariantFloatEXT(UInt32 id, Int32 value, [Out] float[] data)
+		public static void GetVariantFloatEXT(uint id, int value, [Out] float[] data)
 		{
 			unsafe {
 				fixed (float* p_data = data)
@@ -1538,16 +1538,16 @@ namespace OpenGL
 		/// [GL] glGetVariantPointervEXT: Binding for glGetVariantPointervEXT.
 		/// </summary>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="data">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void GetVariantPointerEXT(UInt32 id, Int32 value, [Out] IntPtr[] data)
+		public static void GetVariantPointerEXT(uint id, int value, [Out] IntPtr[] data)
 		{
 			unsafe {
 				fixed (IntPtr* p_data = data)
@@ -1564,16 +1564,16 @@ namespace OpenGL
 		/// [GL] glGetInvariantBooleanvEXT: Binding for glGetInvariantBooleanvEXT.
 		/// </summary>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="data">
 		/// A <see cref="T:byte[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void GetInvariantBooleanEXT(UInt32 id, Int32 value, [Out] byte[] data)
+		public static void GetInvariantBooleanEXT(uint id, int value, [Out] byte[] data)
 		{
 			unsafe {
 				fixed (byte* p_data = data)
@@ -1590,19 +1590,19 @@ namespace OpenGL
 		/// [GL] glGetInvariantIntegervEXT: Binding for glGetInvariantIntegervEXT.
 		/// </summary>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="data">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void GetInvariantIntegerEXT(UInt32 id, Int32 value, [Out] Int32[] data)
+		public static void GetInvariantIntegerEXT(uint id, int value, [Out] int[] data)
 		{
 			unsafe {
-				fixed (Int32* p_data = data)
+				fixed (int* p_data = data)
 				{
 					Debug.Assert(Delegates.pglGetInvariantIntegervEXT != null, "pglGetInvariantIntegervEXT not implemented");
 					Delegates.pglGetInvariantIntegervEXT(id, value, p_data);
@@ -1616,16 +1616,16 @@ namespace OpenGL
 		/// [GL] glGetInvariantFloatvEXT: Binding for glGetInvariantFloatvEXT.
 		/// </summary>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="data">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void GetInvariantFloatEXT(UInt32 id, Int32 value, [Out] float[] data)
+		public static void GetInvariantFloatEXT(uint id, int value, [Out] float[] data)
 		{
 			unsafe {
 				fixed (float* p_data = data)
@@ -1642,16 +1642,16 @@ namespace OpenGL
 		/// [GL] glGetLocalConstantBooleanvEXT: Binding for glGetLocalConstantBooleanvEXT.
 		/// </summary>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="data">
 		/// A <see cref="T:byte[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void GetLocalConstantBooleanEXT(UInt32 id, Int32 value, [Out] byte[] data)
+		public static void GetLocalConstantBooleanEXT(uint id, int value, [Out] byte[] data)
 		{
 			unsafe {
 				fixed (byte* p_data = data)
@@ -1668,19 +1668,19 @@ namespace OpenGL
 		/// [GL] glGetLocalConstantIntegervEXT: Binding for glGetLocalConstantIntegervEXT.
 		/// </summary>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="data">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void GetLocalConstantIntegerEXT(UInt32 id, Int32 value, [Out] Int32[] data)
+		public static void GetLocalConstantIntegerEXT(uint id, int value, [Out] int[] data)
 		{
 			unsafe {
-				fixed (Int32* p_data = data)
+				fixed (int* p_data = data)
 				{
 					Debug.Assert(Delegates.pglGetLocalConstantIntegervEXT != null, "pglGetLocalConstantIntegervEXT not implemented");
 					Delegates.pglGetLocalConstantIntegervEXT(id, value, p_data);
@@ -1694,16 +1694,16 @@ namespace OpenGL
 		/// [GL] glGetLocalConstantFloatvEXT: Binding for glGetLocalConstantFloatvEXT.
 		/// </summary>
 		/// <param name="id">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="data">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void GetLocalConstantFloatEXT(UInt32 id, Int32 value, [Out] float[] data)
+		public static void GetLocalConstantFloatEXT(uint id, int value, [Out] float[] data)
 		{
 			unsafe {
 				fixed (float* p_data = data)
@@ -1736,7 +1736,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glBindVertexShaderEXT(UInt32 id);
+			internal delegate void glBindVertexShaderEXT(uint id);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -1744,7 +1744,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate UInt32 glGenVertexShadersEXT(UInt32 range);
+			internal delegate uint glGenVertexShadersEXT(uint range);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -1752,7 +1752,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glDeleteVertexShaderEXT(UInt32 id);
+			internal delegate void glDeleteVertexShaderEXT(uint id);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -1760,7 +1760,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glShaderOp1EXT(Int32 op, UInt32 res, UInt32 arg1);
+			internal delegate void glShaderOp1EXT(int op, uint res, uint arg1);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -1768,7 +1768,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glShaderOp2EXT(Int32 op, UInt32 res, UInt32 arg1, UInt32 arg2);
+			internal delegate void glShaderOp2EXT(int op, uint res, uint arg1, uint arg2);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -1776,7 +1776,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glShaderOp3EXT(Int32 op, UInt32 res, UInt32 arg1, UInt32 arg2, UInt32 arg3);
+			internal delegate void glShaderOp3EXT(int op, uint res, uint arg1, uint arg2, uint arg3);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -1784,7 +1784,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glSwizzleEXT(UInt32 res, UInt32 @in, Int32 outX, Int32 outY, Int32 outZ, Int32 outW);
+			internal delegate void glSwizzleEXT(uint res, uint @in, int outX, int outY, int outZ, int outW);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -1792,7 +1792,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glWriteMaskEXT(UInt32 res, UInt32 @in, Int32 outX, Int32 outY, Int32 outZ, Int32 outW);
+			internal delegate void glWriteMaskEXT(uint res, uint @in, int outX, int outY, int outZ, int outW);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -1800,7 +1800,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glInsertComponentEXT(UInt32 res, UInt32 src, UInt32 num);
+			internal delegate void glInsertComponentEXT(uint res, uint src, uint num);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -1808,7 +1808,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glExtractComponentEXT(UInt32 res, UInt32 src, UInt32 num);
+			internal delegate void glExtractComponentEXT(uint res, uint src, uint num);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -1816,7 +1816,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate UInt32 glGenSymbolsEXT(Int32 datatype, Int32 storagetype, Int32 range, UInt32 components);
+			internal delegate uint glGenSymbolsEXT(int datatype, int storagetype, int range, uint components);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -1824,7 +1824,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glSetInvariantEXT(UInt32 id, Int32 type, IntPtr addr);
+			internal unsafe delegate void glSetInvariantEXT(uint id, int type, IntPtr addr);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -1832,7 +1832,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glSetLocalConstantEXT(UInt32 id, Int32 type, IntPtr addr);
+			internal unsafe delegate void glSetLocalConstantEXT(uint id, int type, IntPtr addr);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -1840,7 +1840,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVariantbvEXT(UInt32 id, sbyte* addr);
+			internal unsafe delegate void glVariantbvEXT(uint id, sbyte* addr);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -1848,7 +1848,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVariantsvEXT(UInt32 id, Int16* addr);
+			internal unsafe delegate void glVariantsvEXT(uint id, short* addr);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -1856,7 +1856,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVariantivEXT(UInt32 id, Int32* addr);
+			internal unsafe delegate void glVariantivEXT(uint id, int* addr);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -1864,7 +1864,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVariantfvEXT(UInt32 id, float* addr);
+			internal unsafe delegate void glVariantfvEXT(uint id, float* addr);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -1872,7 +1872,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVariantdvEXT(UInt32 id, double* addr);
+			internal unsafe delegate void glVariantdvEXT(uint id, double* addr);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -1880,7 +1880,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVariantubvEXT(UInt32 id, byte* addr);
+			internal unsafe delegate void glVariantubvEXT(uint id, byte* addr);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -1888,7 +1888,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVariantusvEXT(UInt32 id, UInt16* addr);
+			internal unsafe delegate void glVariantusvEXT(uint id, ushort* addr);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -1896,7 +1896,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVariantuivEXT(UInt32 id, UInt32* addr);
+			internal unsafe delegate void glVariantuivEXT(uint id, uint* addr);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -1904,7 +1904,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVariantPointerEXT(UInt32 id, Int32 type, UInt32 stride, IntPtr addr);
+			internal unsafe delegate void glVariantPointerEXT(uint id, int type, uint stride, IntPtr addr);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -1912,7 +1912,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glEnableVariantClientStateEXT(UInt32 id);
+			internal delegate void glEnableVariantClientStateEXT(uint id);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -1920,7 +1920,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glDisableVariantClientStateEXT(UInt32 id);
+			internal delegate void glDisableVariantClientStateEXT(uint id);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -1928,7 +1928,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate UInt32 glBindLightParameterEXT(Int32 light, Int32 value);
+			internal delegate uint glBindLightParameterEXT(int light, int value);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -1936,7 +1936,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate UInt32 glBindMaterialParameterEXT(Int32 face, Int32 value);
+			internal delegate uint glBindMaterialParameterEXT(int face, int value);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -1944,7 +1944,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate UInt32 glBindTexGenParameterEXT(Int32 unit, Int32 coord, Int32 value);
+			internal delegate uint glBindTexGenParameterEXT(int unit, int coord, int value);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -1952,7 +1952,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate UInt32 glBindTextureUnitParameterEXT(Int32 unit, Int32 value);
+			internal delegate uint glBindTextureUnitParameterEXT(int unit, int value);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -1960,7 +1960,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate UInt32 glBindParameterEXT(Int32 value);
+			internal delegate uint glBindParameterEXT(int value);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -1969,7 +1969,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
 			[return: MarshalAs(UnmanagedType.I1)]
-			internal delegate bool glIsVariantEnabledEXT(UInt32 id, Int32 cap);
+			internal delegate bool glIsVariantEnabledEXT(uint id, int cap);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -1977,7 +1977,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetVariantBooleanvEXT(UInt32 id, Int32 value, byte* data);
+			internal unsafe delegate void glGetVariantBooleanvEXT(uint id, int value, byte* data);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -1985,7 +1985,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetVariantIntegervEXT(UInt32 id, Int32 value, Int32* data);
+			internal unsafe delegate void glGetVariantIntegervEXT(uint id, int value, int* data);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -1993,7 +1993,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetVariantFloatvEXT(UInt32 id, Int32 value, float* data);
+			internal unsafe delegate void glGetVariantFloatvEXT(uint id, int value, float* data);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -2001,7 +2001,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetVariantPointervEXT(UInt32 id, Int32 value, IntPtr* data);
+			internal unsafe delegate void glGetVariantPointervEXT(uint id, int value, IntPtr* data);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -2009,7 +2009,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetInvariantBooleanvEXT(UInt32 id, Int32 value, byte* data);
+			internal unsafe delegate void glGetInvariantBooleanvEXT(uint id, int value, byte* data);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -2017,7 +2017,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetInvariantIntegervEXT(UInt32 id, Int32 value, Int32* data);
+			internal unsafe delegate void glGetInvariantIntegervEXT(uint id, int value, int* data);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -2025,7 +2025,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetInvariantFloatvEXT(UInt32 id, Int32 value, float* data);
+			internal unsafe delegate void glGetInvariantFloatvEXT(uint id, int value, float* data);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -2033,7 +2033,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetLocalConstantBooleanvEXT(UInt32 id, Int32 value, byte* data);
+			internal unsafe delegate void glGetLocalConstantBooleanvEXT(uint id, int value, byte* data);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -2041,7 +2041,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetLocalConstantIntegervEXT(UInt32 id, Int32 value, Int32* data);
+			internal unsafe delegate void glGetLocalConstantIntegervEXT(uint id, int value, int* data);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -2049,7 +2049,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetLocalConstantFloatvEXT(UInt32 id, Int32 value, float* data);
+			internal unsafe delegate void glGetLocalConstantFloatvEXT(uint id, int value, float* data);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]

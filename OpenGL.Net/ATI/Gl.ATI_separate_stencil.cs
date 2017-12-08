@@ -47,16 +47,16 @@ namespace OpenGL
 		/// A <see cref="T:StencilFunction"/>.
 		/// </param>
 		/// <param name="ref">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="mask">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_separate_stencil")]
-		public static void StencilFuncSeparateATI(StencilFunction frontfunc, StencilFunction backfunc, Int32 @ref, UInt32 mask)
+		public static void StencilFuncSeparateATI(StencilFunction frontfunc, StencilFunction backfunc, int @ref, uint mask)
 		{
 			Debug.Assert(Delegates.pglStencilFuncSeparateATI != null, "pglStencilFuncSeparateATI not implemented");
-			Delegates.pglStencilFuncSeparateATI((Int32)frontfunc, (Int32)backfunc, @ref, mask);
+			Delegates.pglStencilFuncSeparateATI((int)frontfunc, (int)backfunc, @ref, mask);
 			LogCommand("glStencilFuncSeparateATI", null, frontfunc, backfunc, @ref, mask			);
 			DebugCheckErrors(null);
 		}
@@ -65,7 +65,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_ATI_separate_stencil")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glStencilFuncSeparateATI(Int32 frontfunc, Int32 backfunc, Int32 @ref, UInt32 mask);
+			internal delegate void glStencilFuncSeparateATI(int frontfunc, int backfunc, int @ref, uint mask);
 
 			[RequiredByFeature("GL_ATI_separate_stencil")]
 			[ThreadStatic]

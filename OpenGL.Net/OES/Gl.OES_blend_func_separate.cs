@@ -56,7 +56,7 @@ namespace OpenGL
 		public static void BlendFuncSeparateOES(BlendingFactor srcRGB, BlendingFactor dstRGB, BlendingFactor srcAlpha, BlendingFactor dstAlpha)
 		{
 			Debug.Assert(Delegates.pglBlendFuncSeparateOES != null, "pglBlendFuncSeparateOES not implemented");
-			Delegates.pglBlendFuncSeparateOES((Int32)srcRGB, (Int32)dstRGB, (Int32)srcAlpha, (Int32)dstAlpha);
+			Delegates.pglBlendFuncSeparateOES((int)srcRGB, (int)dstRGB, (int)srcAlpha, (int)dstAlpha);
 			LogCommand("glBlendFuncSeparateOES", null, srcRGB, dstRGB, srcAlpha, dstAlpha			);
 			DebugCheckErrors(null);
 		}
@@ -65,7 +65,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_OES_blend_func_separate", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glBlendFuncSeparateOES(Int32 srcRGB, Int32 dstRGB, Int32 srcAlpha, Int32 dstAlpha);
+			internal delegate void glBlendFuncSeparateOES(int srcRGB, int dstRGB, int srcAlpha, int dstAlpha);
 
 			[RequiredByFeature("GL_OES_blend_func_separate", Api = "gles1")]
 			[ThreadStatic]

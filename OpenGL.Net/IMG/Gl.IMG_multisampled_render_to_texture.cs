@@ -68,22 +68,22 @@ namespace OpenGL
 		/// A <see cref="T:RenderbufferTarget"/>.
 		/// </param>
 		/// <param name="samples">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalformat">
 		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_IMG_multisampled_render_to_texture", Api = "gles1|gles2")]
-		public static void RenderbufferStorageMultisampleIMG(RenderbufferTarget target, Int32 samples, InternalFormat internalformat, Int32 width, Int32 height)
+		public static void RenderbufferStorageMultisampleIMG(RenderbufferTarget target, int samples, InternalFormat internalformat, int width, int height)
 		{
 			Debug.Assert(Delegates.pglRenderbufferStorageMultisampleIMG != null, "pglRenderbufferStorageMultisampleIMG not implemented");
-			Delegates.pglRenderbufferStorageMultisampleIMG((Int32)target, samples, (Int32)internalformat, width, height);
+			Delegates.pglRenderbufferStorageMultisampleIMG((int)target, samples, (int)internalformat, width, height);
 			LogCommand("glRenderbufferStorageMultisampleIMG", null, target, samples, internalformat, width, height			);
 			DebugCheckErrors(null);
 		}
@@ -101,19 +101,19 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="samples">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_IMG_multisampled_render_to_texture", Api = "gles1|gles2")]
-		public static void FramebufferTexture2DMultisampleIMG(FramebufferTarget target, FramebufferAttachment attachment, TextureTarget textarget, UInt32 texture, Int32 level, Int32 samples)
+		public static void FramebufferTexture2DMultisampleIMG(FramebufferTarget target, FramebufferAttachment attachment, TextureTarget textarget, uint texture, int level, int samples)
 		{
 			Debug.Assert(Delegates.pglFramebufferTexture2DMultisampleIMG != null, "pglFramebufferTexture2DMultisampleIMG not implemented");
-			Delegates.pglFramebufferTexture2DMultisampleIMG((Int32)target, (Int32)attachment, (Int32)textarget, texture, level, samples);
+			Delegates.pglFramebufferTexture2DMultisampleIMG((int)target, (int)attachment, (int)textarget, texture, level, samples);
 			LogCommand("glFramebufferTexture2DMultisampleIMG", null, target, attachment, textarget, texture, level, samples			);
 			DebugCheckErrors(null);
 		}
@@ -122,7 +122,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_IMG_multisampled_render_to_texture", Api = "gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glRenderbufferStorageMultisampleIMG(Int32 target, Int32 samples, Int32 internalformat, Int32 width, Int32 height);
+			internal delegate void glRenderbufferStorageMultisampleIMG(int target, int samples, int internalformat, int width, int height);
 
 			[RequiredByFeature("GL_IMG_multisampled_render_to_texture", Api = "gles1|gles2")]
 			[ThreadStatic]
@@ -130,7 +130,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_IMG_multisampled_render_to_texture", Api = "gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glFramebufferTexture2DMultisampleIMG(Int32 target, Int32 attachment, Int32 textarget, UInt32 texture, Int32 level, Int32 samples);
+			internal delegate void glFramebufferTexture2DMultisampleIMG(int target, int attachment, int textarget, uint texture, int level, int samples);
 
 			[RequiredByFeature("GL_IMG_multisampled_render_to_texture", Api = "gles1|gles2")]
 			[ThreadStatic]

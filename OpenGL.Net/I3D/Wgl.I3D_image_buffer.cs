@@ -58,13 +58,13 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="dwSize">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="uFlags">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("WGL_I3D_image_buffer")]
-		public static IntPtr CreateImageBufferI3D(IntPtr hDC, Int32 dwSize, UInt32 uFlags)
+		public static IntPtr CreateImageBufferI3D(IntPtr hDC, int dwSize, uint uFlags)
 		{
 			IntPtr retValue;
 
@@ -111,20 +111,20 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		/// <param name="pSize">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		/// <param name="count">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("WGL_I3D_image_buffer")]
-		public static bool AssociateImageBufferEventsI3D(IntPtr hDC, IntPtr[] pEvent, IntPtr[] pAddress, Int32[] pSize, UInt32 count)
+		public static bool AssociateImageBufferEventsI3D(IntPtr hDC, IntPtr[] pEvent, IntPtr[] pAddress, int[] pSize, uint count)
 		{
 			bool retValue;
 
 			unsafe {
 				fixed (IntPtr* p_pEvent = pEvent)
 				fixed (IntPtr* p_pAddress = pAddress)
-				fixed (Int32* p_pSize = pSize)
+				fixed (int* p_pSize = pSize)
 				{
 					Debug.Assert(Delegates.pwglAssociateImageBufferEventsI3D != null, "pwglAssociateImageBufferEventsI3D not implemented");
 					retValue = Delegates.pwglAssociateImageBufferEventsI3D(hDC, p_pEvent, p_pAddress, p_pSize, count);
@@ -146,10 +146,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		/// <param name="count">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("WGL_I3D_image_buffer")]
-		public static bool ReleaseImageBufferEventsI3D(IntPtr hDC, IntPtr[] pAddress, UInt32 count)
+		public static bool ReleaseImageBufferEventsI3D(IntPtr hDC, IntPtr[] pAddress, uint count)
 		{
 			bool retValue;
 
@@ -170,7 +170,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("WGL_I3D_image_buffer")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr wglCreateImageBufferI3D(IntPtr hDC, Int32 dwSize, UInt32 uFlags);
+			internal unsafe delegate IntPtr wglCreateImageBufferI3D(IntPtr hDC, int dwSize, uint uFlags);
 
 			[RequiredByFeature("WGL_I3D_image_buffer")]
 			internal static wglCreateImageBufferI3D pwglCreateImageBufferI3D;
@@ -184,14 +184,14 @@ namespace OpenGL
 
 			[RequiredByFeature("WGL_I3D_image_buffer")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglAssociateImageBufferEventsI3D(IntPtr hDC, IntPtr* pEvent, IntPtr* pAddress, Int32* pSize, UInt32 count);
+			internal unsafe delegate bool wglAssociateImageBufferEventsI3D(IntPtr hDC, IntPtr* pEvent, IntPtr* pAddress, int* pSize, uint count);
 
 			[RequiredByFeature("WGL_I3D_image_buffer")]
 			internal static wglAssociateImageBufferEventsI3D pwglAssociateImageBufferEventsI3D;
 
 			[RequiredByFeature("WGL_I3D_image_buffer")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglReleaseImageBufferEventsI3D(IntPtr hDC, IntPtr* pAddress, UInt32 count);
+			internal unsafe delegate bool wglReleaseImageBufferEventsI3D(IntPtr hDC, IntPtr* pAddress, uint count);
 
 			[RequiredByFeature("WGL_I3D_image_buffer")]
 			internal static wglReleaseImageBufferEventsI3D pwglReleaseImageBufferEventsI3D;

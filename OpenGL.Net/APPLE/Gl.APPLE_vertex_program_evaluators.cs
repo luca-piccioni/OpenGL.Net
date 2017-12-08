@@ -101,13 +101,13 @@ namespace OpenGL
 		/// [GL] glEnableVertexAttribAPPLE: Binding for glEnableVertexAttribAPPLE.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]
-		public static void EnableVertexAttribAPPLE(UInt32 index, Int32 pname)
+		public static void EnableVertexAttribAPPLE(uint index, int pname)
 		{
 			Debug.Assert(Delegates.pglEnableVertexAttribAPPLE != null, "pglEnableVertexAttribAPPLE not implemented");
 			Delegates.pglEnableVertexAttribAPPLE(index, pname);
@@ -119,13 +119,13 @@ namespace OpenGL
 		/// [GL] glDisableVertexAttribAPPLE: Binding for glDisableVertexAttribAPPLE.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]
-		public static void DisableVertexAttribAPPLE(UInt32 index, Int32 pname)
+		public static void DisableVertexAttribAPPLE(uint index, int pname)
 		{
 			Debug.Assert(Delegates.pglDisableVertexAttribAPPLE != null, "pglDisableVertexAttribAPPLE not implemented");
 			Delegates.pglDisableVertexAttribAPPLE(index, pname);
@@ -137,13 +137,13 @@ namespace OpenGL
 		/// [GL] glIsVertexAttribEnabledAPPLE: Binding for glIsVertexAttribEnabledAPPLE.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]
-		public static bool IsVertexAttribEnabledAPPLE(UInt32 index, Int32 pname)
+		public static bool IsVertexAttribEnabledAPPLE(uint index, int pname)
 		{
 			bool retValue;
 
@@ -159,10 +159,10 @@ namespace OpenGL
 		/// [GL] glMapVertexAttrib1dAPPLE: Binding for glMapVertexAttrib1dAPPLE.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="size">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="u1">
 		/// A <see cref="T:double"/>.
@@ -171,16 +171,16 @@ namespace OpenGL
 		/// A <see cref="T:double"/>.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="order">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="points">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]
-		public static void MapVertexAttrib1APPLE(UInt32 index, UInt32 size, double u1, double u2, Int32 stride, Int32 order, double[] points)
+		public static void MapVertexAttrib1APPLE(uint index, uint size, double u1, double u2, int stride, int order, double[] points)
 		{
 			unsafe {
 				fixed (double* p_points = points)
@@ -197,10 +197,10 @@ namespace OpenGL
 		/// [GL] glMapVertexAttrib1fAPPLE: Binding for glMapVertexAttrib1fAPPLE.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="size">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="u1">
 		/// A <see cref="T:float"/>.
@@ -209,16 +209,16 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="order">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="points">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]
-		public static void MapVertexAttrib1APPLE(UInt32 index, UInt32 size, float u1, float u2, Int32 stride, Int32 order, float[] points)
+		public static void MapVertexAttrib1APPLE(uint index, uint size, float u1, float u2, int stride, int order, float[] points)
 		{
 			unsafe {
 				fixed (float* p_points = points)
@@ -235,10 +235,10 @@ namespace OpenGL
 		/// [GL] glMapVertexAttrib2dAPPLE: Binding for glMapVertexAttrib2dAPPLE.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="size">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="u1">
 		/// A <see cref="T:double"/>.
@@ -247,10 +247,10 @@ namespace OpenGL
 		/// A <see cref="T:double"/>.
 		/// </param>
 		/// <param name="ustride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="uorder">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="v1">
 		/// A <see cref="T:double"/>.
@@ -259,16 +259,16 @@ namespace OpenGL
 		/// A <see cref="T:double"/>.
 		/// </param>
 		/// <param name="vstride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="vorder">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="points">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]
-		public static void MapVertexAttrib2APPLE(UInt32 index, UInt32 size, double u1, double u2, Int32 ustride, Int32 uorder, double v1, double v2, Int32 vstride, Int32 vorder, double[] points)
+		public static void MapVertexAttrib2APPLE(uint index, uint size, double u1, double u2, int ustride, int uorder, double v1, double v2, int vstride, int vorder, double[] points)
 		{
 			unsafe {
 				fixed (double* p_points = points)
@@ -285,10 +285,10 @@ namespace OpenGL
 		/// [GL] glMapVertexAttrib2fAPPLE: Binding for glMapVertexAttrib2fAPPLE.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="size">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="u1">
 		/// A <see cref="T:float"/>.
@@ -297,10 +297,10 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		/// <param name="ustride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="uorder">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="v1">
 		/// A <see cref="T:float"/>.
@@ -309,16 +309,16 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		/// <param name="vstride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="vorder">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="points">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]
-		public static void MapVertexAttrib2APPLE(UInt32 index, UInt32 size, float u1, float u2, Int32 ustride, Int32 uorder, float v1, float v2, Int32 vstride, Int32 vorder, float[] points)
+		public static void MapVertexAttrib2APPLE(uint index, uint size, float u1, float u2, int ustride, int uorder, float v1, float v2, int vstride, int vorder, float[] points)
 		{
 			unsafe {
 				fixed (float* p_points = points)
@@ -335,7 +335,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glEnableVertexAttribAPPLE(UInt32 index, Int32 pname);
+			internal delegate void glEnableVertexAttribAPPLE(uint index, int pname);
 
 			[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]
 			[ThreadStatic]
@@ -343,7 +343,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glDisableVertexAttribAPPLE(UInt32 index, Int32 pname);
+			internal delegate void glDisableVertexAttribAPPLE(uint index, int pname);
 
 			[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]
 			[ThreadStatic]
@@ -352,7 +352,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]
 			[SuppressUnmanagedCodeSecurity()]
 			[return: MarshalAs(UnmanagedType.I1)]
-			internal delegate bool glIsVertexAttribEnabledAPPLE(UInt32 index, Int32 pname);
+			internal delegate bool glIsVertexAttribEnabledAPPLE(uint index, int pname);
 
 			[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]
 			[ThreadStatic]
@@ -360,7 +360,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMapVertexAttrib1dAPPLE(UInt32 index, UInt32 size, double u1, double u2, Int32 stride, Int32 order, double* points);
+			internal unsafe delegate void glMapVertexAttrib1dAPPLE(uint index, uint size, double u1, double u2, int stride, int order, double* points);
 
 			[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]
 			[ThreadStatic]
@@ -368,7 +368,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMapVertexAttrib1fAPPLE(UInt32 index, UInt32 size, float u1, float u2, Int32 stride, Int32 order, float* points);
+			internal unsafe delegate void glMapVertexAttrib1fAPPLE(uint index, uint size, float u1, float u2, int stride, int order, float* points);
 
 			[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]
 			[ThreadStatic]
@@ -376,7 +376,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMapVertexAttrib2dAPPLE(UInt32 index, UInt32 size, double u1, double u2, Int32 ustride, Int32 uorder, double v1, double v2, Int32 vstride, Int32 vorder, double* points);
+			internal unsafe delegate void glMapVertexAttrib2dAPPLE(uint index, uint size, double u1, double u2, int ustride, int uorder, double v1, double v2, int vstride, int vorder, double* points);
 
 			[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]
 			[ThreadStatic]
@@ -384,7 +384,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMapVertexAttrib2fAPPLE(UInt32 index, UInt32 size, float u1, float u2, Int32 ustride, Int32 uorder, float v1, float v2, Int32 vstride, Int32 vorder, float* points);
+			internal unsafe delegate void glMapVertexAttrib2fAPPLE(uint index, uint size, float u1, float u2, int ustride, int uorder, float v1, float v2, int vstride, int vorder, float* points);
 
 			[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]
 			[ThreadStatic]

@@ -2380,7 +2380,10 @@ namespace OpenGL.CoreUI
 			[DllImport("user32.dll")]
 			internal static extern bool ShowWindow(IntPtr hWnd, WindowShowStyle nCmdShow);
 
-			[DllImport("user32.dll")]
+			[DllImport("user32.dll", SetLastError = true)]
+			internal static extern bool GetWindowRect(IntPtr hWnd, out RECT lpRect);
+
+			[DllImport("user32.dll", SetLastError = true)]
 			internal static extern bool GetClientRect(IntPtr hWnd, out RECT lpRect);
 
 			[DllImport("user32.dll")]
@@ -2613,7 +2616,12 @@ namespace OpenGL.CoreUI
 			get {
 				CheckHandle();
 
-				return (Point.Empty);
+				RECT windowRect;
+
+				if (UnsafeNativeMethods.GetWindowRect(_Handle, out windowRect) == false)
+					throw new Win32Exception(Marshal.GetLastWin32Error());
+
+				return ((Point)windowRect);
 			}
 			set {
 				CheckHandle();
@@ -2621,10 +2629,12 @@ namespace OpenGL.CoreUI
 				CheckNotFullscreen();
 
 				const SetWindowPosFlags windowPosFlags =
-					SetWindowPosFlags.SWP_NOSIZE | SetWindowPosFlags.SWP_NOZORDER | SetWindowPosFlags.SWP_NOACTIVATE;
-
-				if (UnsafeNativeMethods.SetWindowPos(_Handle, IntPtr.Zero, value.X, value.Y, 0, 0, windowPosFlags))
-					throw new InvalidOperationException("unable to set location");
+					SetWindowPosFlags.SWP_NOSIZE | SetWindowPosFlags.SWP_NOZORDER |
+					SetWindowPosFlags.SWP_NOACTIVATE |
+					SetWindowPosFlags.SWP_FRAMECHANGED;
+				
+				if (UnsafeNativeMethods.SetWindowPos(_Handle, IntPtr.Zero, value.X, value.Y, 0, 0, windowPosFlags) == false)
+					throw new Win32Exception(Marshal.GetLastWin32Error());
 			}
 		}
 
@@ -2639,7 +2649,8 @@ namespace OpenGL.CoreUI
 
 				RECT clientSize = new RECT();
 
-				UnsafeNativeMethods.GetClientRect(_Handle, out clientSize);
+				if (UnsafeNativeMethods.GetClientRect(_Handle, out clientSize) == false)
+					throw new Win32Exception(Marshal.GetLastWin32Error());
 
 				return ((Size)clientSize);
 			}
@@ -2649,13 +2660,14 @@ namespace OpenGL.CoreUI
 				CheckNotFullscreen();
 
 				const SetWindowPosFlags windowPosFlags =
-					SetWindowPosFlags.SWP_NOMOVE | SetWindowPosFlags.SWP_NOZORDER | SetWindowPosFlags.SWP_NOACTIVATE |
+					SetWindowPosFlags.SWP_NOMOVE | SetWindowPosFlags.SWP_NOZORDER |
+					SetWindowPosFlags.SWP_NOACTIVATE |
 					SetWindowPosFlags.SWP_FRAMECHANGED;
 
 				Size frameSize = (Size)GetClientToFrameRect(0, 0, (uint)value.Width, (uint)value.Height);
 
 				if (UnsafeNativeMethods.SetWindowPos(_Handle, IntPtr.Zero, 0, 0, frameSize.Width, frameSize.Height, windowPosFlags) == false)
-					throw new InvalidOperationException("unable to set client size");
+					throw new Win32Exception(Marshal.GetLastWin32Error());
 			}
 		}
 

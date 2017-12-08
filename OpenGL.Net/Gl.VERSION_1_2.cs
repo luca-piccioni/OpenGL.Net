@@ -519,10 +519,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_EXT_draw_range_elements")]
-		public static void DrawRangeElements(PrimitiveType mode, UInt32 start, UInt32 end, Int32 count, DrawElementsType type, IntPtr indices)
+		public static void DrawRangeElements(PrimitiveType mode, uint start, uint end, int count, DrawElementsType type, IntPtr indices)
 		{
 			Debug.Assert(Delegates.pglDrawRangeElements != null, "pglDrawRangeElements not implemented");
-			Delegates.pglDrawRangeElements((Int32)mode, start, end, count, (Int32)type, indices);
+			Delegates.pglDrawRangeElements((int)mode, start, end, count, (int)type, indices);
 			LogCommand("glDrawRangeElements", null, mode, start, end, count, type, indices			);
 			DebugCheckErrors(null);
 		}
@@ -557,7 +557,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_EXT_draw_range_elements")]
-		public static void DrawRangeElements(PrimitiveType mode, UInt32 start, UInt32 end, Int32 count, DrawElementsType type, Object indices)
+		public static void DrawRangeElements(PrimitiveType mode, uint start, uint end, int count, DrawElementsType type, Object indices)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
 			try {
@@ -622,10 +622,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture3D")]
-		public static void TexImage3D(TextureTarget target, Int32 level, InternalFormat internalFormat, Int32 width, Int32 height, Int32 depth, Int32 border, PixelFormat format, PixelType type, IntPtr data)
+		public static void TexImage3D(TextureTarget target, int level, InternalFormat internalFormat, int width, int height, int depth, int border, PixelFormat format, PixelType type, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglTexImage3D != null, "pglTexImage3D not implemented");
-			Delegates.pglTexImage3D((Int32)target, level, (Int32)internalFormat, width, height, depth, border, (Int32)format, (Int32)type, data);
+			Delegates.pglTexImage3D((int)target, level, (int)internalFormat, width, height, depth, border, (int)format, (int)type, data);
 			LogCommand("glTexImage3D", null, target, level, internalFormat, width, height, depth, border, format, type, data			);
 			DebugCheckErrors(null);
 		}
@@ -685,7 +685,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture3D")]
-		public static void TexImage3D(TextureTarget target, Int32 level, InternalFormat internalFormat, Int32 width, Int32 height, Int32 depth, Int32 border, PixelFormat format, PixelType type, Object data)
+		public static void TexImage3D(TextureTarget target, int level, InternalFormat internalFormat, int width, int height, int depth, int border, PixelFormat format, PixelType type, Object data)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -741,10 +741,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture3D")]
-		public static void TexSubImage3D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, PixelType type, IntPtr pixels)
+		public static void TexSubImage3D(TextureTarget target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, PixelFormat format, PixelType type, IntPtr pixels)
 		{
 			Debug.Assert(Delegates.pglTexSubImage3D != null, "pglTexSubImage3D not implemented");
-			Delegates.pglTexSubImage3D((Int32)target, level, xoffset, yoffset, zoffset, width, height, depth, (Int32)format, (Int32)type, pixels);
+			Delegates.pglTexSubImage3D((int)target, level, xoffset, yoffset, zoffset, width, height, depth, (int)format, (int)type, pixels);
 			LogCommand("glTexSubImage3D", null, target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels			);
 			DebugCheckErrors(null);
 		}
@@ -795,7 +795,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture3D")]
-		public static void TexSubImage3D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, PixelType type, Object pixels)
+		public static void TexSubImage3D(TextureTarget target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, PixelFormat format, PixelType type, Object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -838,10 +838,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_copy_texture")]
-		public static void CopyTexSubImage3D(TextureTarget target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 x, Int32 y, Int32 width, Int32 height)
+		public static void CopyTexSubImage3D(TextureTarget target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height)
 		{
 			Debug.Assert(Delegates.pglCopyTexSubImage3D != null, "pglCopyTexSubImage3D not implemented");
-			Delegates.pglCopyTexSubImage3D((Int32)target, level, xoffset, yoffset, zoffset, x, y, width, height);
+			Delegates.pglCopyTexSubImage3D((int)target, level, xoffset, yoffset, zoffset, x, y, width, height);
 			LogCommand("glCopyTexSubImage3D", null, target, level, xoffset, yoffset, zoffset, x, y, width, height			);
 			DebugCheckErrors(null);
 		}
@@ -853,7 +853,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_EXT_draw_range_elements")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDrawRangeElements(Int32 mode, UInt32 start, UInt32 end, Int32 count, Int32 type, IntPtr indices);
+			internal unsafe delegate void glDrawRangeElements(int mode, uint start, uint end, int count, int type, IntPtr indices);
 
 			[RequiredByFeature("GL_VERSION_1_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -866,7 +866,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_texture3D")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexImage3D(Int32 target, Int32 level, Int32 internalformat, Int32 width, Int32 height, Int32 depth, Int32 border, Int32 format, Int32 type, IntPtr pixels);
+			internal unsafe delegate void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, IntPtr pixels);
 
 			[RequiredByFeature("GL_VERSION_1_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -878,7 +878,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_texture3D")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexSubImage3D(Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, IntPtr pixels);
+			internal unsafe delegate void glTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, IntPtr pixels);
 
 			[RequiredByFeature("GL_VERSION_1_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -890,7 +890,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_copy_texture")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glCopyTexSubImage3D(Int32 target, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 x, Int32 y, Int32 width, Int32 height);
+			internal delegate void glCopyTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height);
 
 			[RequiredByFeature("GL_VERSION_1_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]

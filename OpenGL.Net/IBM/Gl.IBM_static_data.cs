@@ -53,10 +53,10 @@ namespace OpenGL
 		/// [GL] glFlushStaticDataIBM: Binding for glFlushStaticDataIBM.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_IBM_static_data")]
-		public static void FlushStaticDataIBM(Int32 target)
+		public static void FlushStaticDataIBM(int target)
 		{
 			Debug.Assert(Delegates.pglFlushStaticDataIBM != null, "pglFlushStaticDataIBM not implemented");
 			Delegates.pglFlushStaticDataIBM(target);
@@ -68,7 +68,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_IBM_static_data")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glFlushStaticDataIBM(Int32 target);
+			internal delegate void glFlushStaticDataIBM(int target);
 
 			[RequiredByFeature("GL_IBM_static_data")]
 			[ThreadStatic]

@@ -116,15 +116,15 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GLX_MESA_query_renderer")]
-		public static bool QueryCurrentRenderMESA(int attribute, UInt32[] value)
+		public static bool QueryCurrentRenderMESA(int attribute, uint[] value)
 		{
 			bool retValue;
 
 			unsafe {
-				fixed (UInt32* p_value = value)
+				fixed (uint* p_value = value)
 				{
 					Debug.Assert(Delegates.pglXQueryCurrentRendererIntegerMESA != null, "pglXQueryCurrentRendererIntegerMESA not implemented");
 					retValue = Delegates.pglXQueryCurrentRendererIntegerMESA(attribute, p_value);
@@ -171,15 +171,15 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GLX_MESA_query_renderer")]
-		public static bool QueryRenderMESA(IntPtr dpy, int screen, int renderer, int attribute, UInt32[] value)
+		public static bool QueryRenderMESA(IntPtr dpy, int screen, int renderer, int attribute, uint[] value)
 		{
 			bool retValue;
 
 			unsafe {
-				fixed (UInt32* p_value = value)
+				fixed (uint* p_value = value)
 				{
 					Debug.Assert(Delegates.pglXQueryRendererIntegerMESA != null, "pglXQueryRendererIntegerMESA not implemented");
 					retValue = Delegates.pglXQueryRendererIntegerMESA(dpy, screen, renderer, attribute, p_value);
@@ -223,7 +223,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GLX_MESA_query_renderer")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool glXQueryCurrentRendererIntegerMESA(int attribute, UInt32* value);
+			internal unsafe delegate bool glXQueryCurrentRendererIntegerMESA(int attribute, uint* value);
 
 			[RequiredByFeature("GLX_MESA_query_renderer")]
 			internal static glXQueryCurrentRendererIntegerMESA pglXQueryCurrentRendererIntegerMESA;
@@ -237,7 +237,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GLX_MESA_query_renderer")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool glXQueryRendererIntegerMESA(IntPtr dpy, int screen, int renderer, int attribute, UInt32* value);
+			internal unsafe delegate bool glXQueryRendererIntegerMESA(IntPtr dpy, int screen, int renderer, int attribute, uint* value);
 
 			[RequiredByFeature("GLX_MESA_query_renderer")]
 			internal static glXQueryRendererIntegerMESA pglXQueryRendererIntegerMESA;

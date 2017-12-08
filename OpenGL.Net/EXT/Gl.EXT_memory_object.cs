@@ -83,16 +83,16 @@ namespace OpenGL
 		/// [GL] glDeleteMemoryObjectsEXT: Binding for glDeleteMemoryObjectsEXT.
 		/// </summary>
 		/// <param name="memoryObjects">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
-		public static void DeleteMemoryObjectEXT(UInt32[] memoryObjects)
+		public static void DeleteMemoryObjectEXT(uint[] memoryObjects)
 		{
 			unsafe {
-				fixed (UInt32* p_memoryObjects = memoryObjects)
+				fixed (uint* p_memoryObjects = memoryObjects)
 				{
 					Debug.Assert(Delegates.pglDeleteMemoryObjectsEXT != null, "pglDeleteMemoryObjectsEXT not implemented");
-					Delegates.pglDeleteMemoryObjectsEXT((Int32)memoryObjects.Length, p_memoryObjects);
+					Delegates.pglDeleteMemoryObjectsEXT(memoryObjects.Length, p_memoryObjects);
 					LogCommand("glDeleteMemoryObjectsEXT", null, memoryObjects.Length, memoryObjects					);
 				}
 			}
@@ -103,10 +103,10 @@ namespace OpenGL
 		/// [GL] glIsMemoryObjectEXT: Binding for glIsMemoryObjectEXT.
 		/// </summary>
 		/// <param name="memoryObject">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
-		public static bool IsMemoryObjectEXT(UInt32 memoryObject)
+		public static bool IsMemoryObjectEXT(uint memoryObject)
 		{
 			bool retValue;
 
@@ -122,16 +122,16 @@ namespace OpenGL
 		/// [GL] glCreateMemoryObjectsEXT: Binding for glCreateMemoryObjectsEXT.
 		/// </summary>
 		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="memoryObjects">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
-		public static void CreateMemoryObjectEXT(Int32 n, UInt32[] memoryObjects)
+		public static void CreateMemoryObjectEXT(int n, uint[] memoryObjects)
 		{
 			unsafe {
-				fixed (UInt32* p_memoryObjects = memoryObjects)
+				fixed (uint* p_memoryObjects = memoryObjects)
 				{
 					Debug.Assert(Delegates.pglCreateMemoryObjectsEXT != null, "pglCreateMemoryObjectsEXT not implemented");
 					Delegates.pglCreateMemoryObjectsEXT(n, p_memoryObjects);
@@ -145,22 +145,22 @@ namespace OpenGL
 		/// [GL] glMemoryObjectParameterivEXT: Binding for glMemoryObjectParameterivEXT.
 		/// </summary>
 		/// <param name="memoryObject">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:MemoryObjectParameterName"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
-		public static void MemoryObjectParameterEXT(UInt32 memoryObject, MemoryObjectParameterName pname, Int32[] @params)
+		public static void MemoryObjectParameterEXT(uint memoryObject, MemoryObjectParameterName pname, int[] @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglMemoryObjectParameterivEXT != null, "pglMemoryObjectParameterivEXT not implemented");
-					Delegates.pglMemoryObjectParameterivEXT(memoryObject, (Int32)pname, p_params);
+					Delegates.pglMemoryObjectParameterivEXT(memoryObject, (int)pname, p_params);
 					LogCommand("glMemoryObjectParameterivEXT", null, memoryObject, pname, @params					);
 				}
 			}
@@ -171,22 +171,22 @@ namespace OpenGL
 		/// [GL] glGetMemoryObjectParameterivEXT: Binding for glGetMemoryObjectParameterivEXT.
 		/// </summary>
 		/// <param name="memoryObject">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:MemoryObjectParameterName"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
-		public static void GetMemoryObjectParameterEXT(UInt32 memoryObject, MemoryObjectParameterName pname, [Out] Int32[] @params)
+		public static void GetMemoryObjectParameterEXT(uint memoryObject, MemoryObjectParameterName pname, [Out] int[] @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetMemoryObjectParameterivEXT != null, "pglGetMemoryObjectParameterivEXT not implemented");
-					Delegates.pglGetMemoryObjectParameterivEXT(memoryObject, (Int32)pname, p_params);
+					Delegates.pglGetMemoryObjectParameterivEXT(memoryObject, (int)pname, p_params);
 					LogCommand("glGetMemoryObjectParameterivEXT", null, memoryObject, pname, @params					);
 				}
 			}
@@ -200,28 +200,28 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="levels">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalFormat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="memory">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="offset">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
-		public static void TexStorageEXT(TextureTarget target, Int32 levels, Int32 internalFormat, Int32 width, Int32 height, UInt32 memory, UInt64 offset)
+		public static void TexStorageEXT(TextureTarget target, int levels, int internalFormat, int width, int height, uint memory, ulong offset)
 		{
 			Debug.Assert(Delegates.pglTexStorageMem2DEXT != null, "pglTexStorageMem2DEXT not implemented");
-			Delegates.pglTexStorageMem2DEXT((Int32)target, levels, internalFormat, width, height, memory, offset);
+			Delegates.pglTexStorageMem2DEXT((int)target, levels, internalFormat, width, height, memory, offset);
 			LogCommand("glTexStorageMem2DEXT", null, target, levels, internalFormat, width, height, memory, offset			);
 			DebugCheckErrors(null);
 		}
@@ -233,31 +233,31 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="samples">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalFormat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="fixedSampleLocations">
 		/// A <see cref="T:bool"/>.
 		/// </param>
 		/// <param name="memory">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="offset">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
-		public static void TexStorageMem2DMultisampleEXT(TextureTarget target, Int32 samples, Int32 internalFormat, Int32 width, Int32 height, bool fixedSampleLocations, UInt32 memory, UInt64 offset)
+		public static void TexStorageMem2DMultisampleEXT(TextureTarget target, int samples, int internalFormat, int width, int height, bool fixedSampleLocations, uint memory, ulong offset)
 		{
 			Debug.Assert(Delegates.pglTexStorageMem2DMultisampleEXT != null, "pglTexStorageMem2DMultisampleEXT not implemented");
-			Delegates.pglTexStorageMem2DMultisampleEXT((Int32)target, samples, internalFormat, width, height, fixedSampleLocations, memory, offset);
+			Delegates.pglTexStorageMem2DMultisampleEXT((int)target, samples, internalFormat, width, height, fixedSampleLocations, memory, offset);
 			LogCommand("glTexStorageMem2DMultisampleEXT", null, target, samples, internalFormat, width, height, fixedSampleLocations, memory, offset			);
 			DebugCheckErrors(null);
 		}
@@ -269,31 +269,31 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="levels">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalFormat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="depth">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="memory">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="offset">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
-		public static void TexStorageEXT(TextureTarget target, Int32 levels, Int32 internalFormat, Int32 width, Int32 height, Int32 depth, UInt32 memory, UInt64 offset)
+		public static void TexStorageEXT(TextureTarget target, int levels, int internalFormat, int width, int height, int depth, uint memory, ulong offset)
 		{
 			Debug.Assert(Delegates.pglTexStorageMem3DEXT != null, "pglTexStorageMem3DEXT not implemented");
-			Delegates.pglTexStorageMem3DEXT((Int32)target, levels, internalFormat, width, height, depth, memory, offset);
+			Delegates.pglTexStorageMem3DEXT((int)target, levels, internalFormat, width, height, depth, memory, offset);
 			LogCommand("glTexStorageMem3DEXT", null, target, levels, internalFormat, width, height, depth, memory, offset			);
 			DebugCheckErrors(null);
 		}
@@ -305,34 +305,34 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="samples">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalFormat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="depth">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="fixedSampleLocations">
 		/// A <see cref="T:bool"/>.
 		/// </param>
 		/// <param name="memory">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="offset">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
-		public static void TexStorageMem3DMultisampleEXT(TextureTarget target, Int32 samples, Int32 internalFormat, Int32 width, Int32 height, Int32 depth, bool fixedSampleLocations, UInt32 memory, UInt64 offset)
+		public static void TexStorageMem3DMultisampleEXT(TextureTarget target, int samples, int internalFormat, int width, int height, int depth, bool fixedSampleLocations, uint memory, ulong offset)
 		{
 			Debug.Assert(Delegates.pglTexStorageMem3DMultisampleEXT != null, "pglTexStorageMem3DMultisampleEXT not implemented");
-			Delegates.pglTexStorageMem3DMultisampleEXT((Int32)target, samples, internalFormat, width, height, depth, fixedSampleLocations, memory, offset);
+			Delegates.pglTexStorageMem3DMultisampleEXT((int)target, samples, internalFormat, width, height, depth, fixedSampleLocations, memory, offset);
 			LogCommand("glTexStorageMem3DMultisampleEXT", null, target, samples, internalFormat, width, height, depth, fixedSampleLocations, memory, offset			);
 			DebugCheckErrors(null);
 		}
@@ -344,19 +344,19 @@ namespace OpenGL
 		/// A <see cref="T:BufferTarget"/>.
 		/// </param>
 		/// <param name="size">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="memory">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="offset">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
-		public static void BufferStorageEXT(BufferTarget target, UInt32 size, UInt32 memory, UInt64 offset)
+		public static void BufferStorageEXT(BufferTarget target, uint size, uint memory, ulong offset)
 		{
 			Debug.Assert(Delegates.pglBufferStorageMemEXT != null, "pglBufferStorageMemEXT not implemented");
-			Delegates.pglBufferStorageMemEXT((Int32)target, size, memory, offset);
+			Delegates.pglBufferStorageMemEXT((int)target, size, memory, offset);
 			LogCommand("glBufferStorageMemEXT", null, target, size, memory, offset			);
 			DebugCheckErrors(null);
 		}
@@ -365,28 +365,28 @@ namespace OpenGL
 		/// [GL] glTextureStorageMem2DEXT: Binding for glTextureStorageMem2DEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="levels">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalFormat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="memory">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="offset">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
-		public static void TextureStorageEXT(UInt32 texture, Int32 levels, Int32 internalFormat, Int32 width, Int32 height, UInt32 memory, UInt64 offset)
+		public static void TextureStorageEXT(uint texture, int levels, int internalFormat, int width, int height, uint memory, ulong offset)
 		{
 			Debug.Assert(Delegates.pglTextureStorageMem2DEXT != null, "pglTextureStorageMem2DEXT not implemented");
 			Delegates.pglTextureStorageMem2DEXT(texture, levels, internalFormat, width, height, memory, offset);
@@ -398,31 +398,31 @@ namespace OpenGL
 		/// [GL] glTextureStorageMem2DMultisampleEXT: Binding for glTextureStorageMem2DMultisampleEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="samples">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalFormat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="fixedSampleLocations">
 		/// A <see cref="T:bool"/>.
 		/// </param>
 		/// <param name="memory">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="offset">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
-		public static void TextureStorageMem2DMultisampleEXT(UInt32 texture, Int32 samples, Int32 internalFormat, Int32 width, Int32 height, bool fixedSampleLocations, UInt32 memory, UInt64 offset)
+		public static void TextureStorageMem2DMultisampleEXT(uint texture, int samples, int internalFormat, int width, int height, bool fixedSampleLocations, uint memory, ulong offset)
 		{
 			Debug.Assert(Delegates.pglTextureStorageMem2DMultisampleEXT != null, "pglTextureStorageMem2DMultisampleEXT not implemented");
 			Delegates.pglTextureStorageMem2DMultisampleEXT(texture, samples, internalFormat, width, height, fixedSampleLocations, memory, offset);
@@ -434,31 +434,31 @@ namespace OpenGL
 		/// [GL] glTextureStorageMem3DEXT: Binding for glTextureStorageMem3DEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="levels">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalFormat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="depth">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="memory">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="offset">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
-		public static void TextureStorageEXT(UInt32 texture, Int32 levels, Int32 internalFormat, Int32 width, Int32 height, Int32 depth, UInt32 memory, UInt64 offset)
+		public static void TextureStorageEXT(uint texture, int levels, int internalFormat, int width, int height, int depth, uint memory, ulong offset)
 		{
 			Debug.Assert(Delegates.pglTextureStorageMem3DEXT != null, "pglTextureStorageMem3DEXT not implemented");
 			Delegates.pglTextureStorageMem3DEXT(texture, levels, internalFormat, width, height, depth, memory, offset);
@@ -470,34 +470,34 @@ namespace OpenGL
 		/// [GL] glTextureStorageMem3DMultisampleEXT: Binding for glTextureStorageMem3DMultisampleEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="samples">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalFormat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="depth">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="fixedSampleLocations">
 		/// A <see cref="T:bool"/>.
 		/// </param>
 		/// <param name="memory">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="offset">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
-		public static void TextureStorageMem3DMultisampleEXT(UInt32 texture, Int32 samples, Int32 internalFormat, Int32 width, Int32 height, Int32 depth, bool fixedSampleLocations, UInt32 memory, UInt64 offset)
+		public static void TextureStorageMem3DMultisampleEXT(uint texture, int samples, int internalFormat, int width, int height, int depth, bool fixedSampleLocations, uint memory, ulong offset)
 		{
 			Debug.Assert(Delegates.pglTextureStorageMem3DMultisampleEXT != null, "pglTextureStorageMem3DMultisampleEXT not implemented");
 			Delegates.pglTextureStorageMem3DMultisampleEXT(texture, samples, internalFormat, width, height, depth, fixedSampleLocations, memory, offset);
@@ -509,19 +509,19 @@ namespace OpenGL
 		/// [GL] glNamedBufferStorageMemEXT: Binding for glNamedBufferStorageMemEXT.
 		/// </summary>
 		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="size">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="memory">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="offset">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
-		public static void NamedBufferStorageEXT(UInt32 buffer, UInt32 size, UInt32 memory, UInt64 offset)
+		public static void NamedBufferStorageEXT(uint buffer, uint size, uint memory, ulong offset)
 		{
 			Debug.Assert(Delegates.pglNamedBufferStorageMemEXT != null, "pglNamedBufferStorageMemEXT not implemented");
 			Delegates.pglNamedBufferStorageMemEXT(buffer, size, memory, offset);
@@ -536,25 +536,25 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="levels">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalFormat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="memory">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="offset">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_memory_object")]
-		public static void TexStorageEXT(TextureTarget target, Int32 levels, Int32 internalFormat, Int32 width, UInt32 memory, UInt64 offset)
+		public static void TexStorageEXT(TextureTarget target, int levels, int internalFormat, int width, uint memory, ulong offset)
 		{
 			Debug.Assert(Delegates.pglTexStorageMem1DEXT != null, "pglTexStorageMem1DEXT not implemented");
-			Delegates.pglTexStorageMem1DEXT((Int32)target, levels, internalFormat, width, memory, offset);
+			Delegates.pglTexStorageMem1DEXT((int)target, levels, internalFormat, width, memory, offset);
 			LogCommand("glTexStorageMem1DEXT", null, target, levels, internalFormat, width, memory, offset			);
 			DebugCheckErrors(null);
 		}
@@ -563,25 +563,25 @@ namespace OpenGL
 		/// [GL] glTextureStorageMem1DEXT: Binding for glTextureStorageMem1DEXT.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="levels">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalFormat">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="memory">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="offset">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_memory_object")]
-		public static void TextureStorageEXT(UInt32 texture, Int32 levels, Int32 internalFormat, Int32 width, UInt32 memory, UInt64 offset)
+		public static void TextureStorageEXT(uint texture, int levels, int internalFormat, int width, uint memory, ulong offset)
 		{
 			Debug.Assert(Delegates.pglTextureStorageMem1DEXT != null, "pglTextureStorageMem1DEXT not implemented");
 			Delegates.pglTextureStorageMem1DEXT(texture, levels, internalFormat, width, memory, offset);
@@ -593,7 +593,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDeleteMemoryObjectsEXT(Int32 n, UInt32* memoryObjects);
+			internal unsafe delegate void glDeleteMemoryObjectsEXT(int n, uint* memoryObjects);
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[ThreadStatic]
@@ -602,7 +602,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			[return: MarshalAs(UnmanagedType.I1)]
-			internal delegate bool glIsMemoryObjectEXT(UInt32 memoryObject);
+			internal delegate bool glIsMemoryObjectEXT(uint memoryObject);
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[ThreadStatic]
@@ -610,7 +610,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glCreateMemoryObjectsEXT(Int32 n, UInt32* memoryObjects);
+			internal unsafe delegate void glCreateMemoryObjectsEXT(int n, uint* memoryObjects);
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[ThreadStatic]
@@ -618,7 +618,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMemoryObjectParameterivEXT(UInt32 memoryObject, Int32 pname, Int32* @params);
+			internal unsafe delegate void glMemoryObjectParameterivEXT(uint memoryObject, int pname, int* @params);
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[ThreadStatic]
@@ -626,7 +626,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetMemoryObjectParameterivEXT(UInt32 memoryObject, Int32 pname, Int32* @params);
+			internal unsafe delegate void glGetMemoryObjectParameterivEXT(uint memoryObject, int pname, int* @params);
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[ThreadStatic]
@@ -634,7 +634,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTexStorageMem2DEXT(Int32 target, Int32 levels, Int32 internalFormat, Int32 width, Int32 height, UInt32 memory, UInt64 offset);
+			internal delegate void glTexStorageMem2DEXT(int target, int levels, int internalFormat, int width, int height, uint memory, ulong offset);
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[ThreadStatic]
@@ -642,7 +642,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTexStorageMem2DMultisampleEXT(Int32 target, Int32 samples, Int32 internalFormat, Int32 width, Int32 height, [MarshalAs(UnmanagedType.I1)] bool fixedSampleLocations, UInt32 memory, UInt64 offset);
+			internal delegate void glTexStorageMem2DMultisampleEXT(int target, int samples, int internalFormat, int width, int height, [MarshalAs(UnmanagedType.I1)] bool fixedSampleLocations, uint memory, ulong offset);
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[ThreadStatic]
@@ -650,7 +650,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTexStorageMem3DEXT(Int32 target, Int32 levels, Int32 internalFormat, Int32 width, Int32 height, Int32 depth, UInt32 memory, UInt64 offset);
+			internal delegate void glTexStorageMem3DEXT(int target, int levels, int internalFormat, int width, int height, int depth, uint memory, ulong offset);
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[ThreadStatic]
@@ -658,7 +658,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTexStorageMem3DMultisampleEXT(Int32 target, Int32 samples, Int32 internalFormat, Int32 width, Int32 height, Int32 depth, [MarshalAs(UnmanagedType.I1)] bool fixedSampleLocations, UInt32 memory, UInt64 offset);
+			internal delegate void glTexStorageMem3DMultisampleEXT(int target, int samples, int internalFormat, int width, int height, int depth, [MarshalAs(UnmanagedType.I1)] bool fixedSampleLocations, uint memory, ulong offset);
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[ThreadStatic]
@@ -666,7 +666,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glBufferStorageMemEXT(Int32 target, UInt32 size, UInt32 memory, UInt64 offset);
+			internal delegate void glBufferStorageMemEXT(int target, uint size, uint memory, ulong offset);
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[ThreadStatic]
@@ -674,7 +674,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTextureStorageMem2DEXT(UInt32 texture, Int32 levels, Int32 internalFormat, Int32 width, Int32 height, UInt32 memory, UInt64 offset);
+			internal delegate void glTextureStorageMem2DEXT(uint texture, int levels, int internalFormat, int width, int height, uint memory, ulong offset);
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[ThreadStatic]
@@ -682,7 +682,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTextureStorageMem2DMultisampleEXT(UInt32 texture, Int32 samples, Int32 internalFormat, Int32 width, Int32 height, [MarshalAs(UnmanagedType.I1)] bool fixedSampleLocations, UInt32 memory, UInt64 offset);
+			internal delegate void glTextureStorageMem2DMultisampleEXT(uint texture, int samples, int internalFormat, int width, int height, [MarshalAs(UnmanagedType.I1)] bool fixedSampleLocations, uint memory, ulong offset);
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[ThreadStatic]
@@ -690,7 +690,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTextureStorageMem3DEXT(UInt32 texture, Int32 levels, Int32 internalFormat, Int32 width, Int32 height, Int32 depth, UInt32 memory, UInt64 offset);
+			internal delegate void glTextureStorageMem3DEXT(uint texture, int levels, int internalFormat, int width, int height, int depth, uint memory, ulong offset);
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[ThreadStatic]
@@ -698,7 +698,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTextureStorageMem3DMultisampleEXT(UInt32 texture, Int32 samples, Int32 internalFormat, Int32 width, Int32 height, Int32 depth, [MarshalAs(UnmanagedType.I1)] bool fixedSampleLocations, UInt32 memory, UInt64 offset);
+			internal delegate void glTextureStorageMem3DMultisampleEXT(uint texture, int samples, int internalFormat, int width, int height, int depth, [MarshalAs(UnmanagedType.I1)] bool fixedSampleLocations, uint memory, ulong offset);
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[ThreadStatic]
@@ -706,7 +706,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glNamedBufferStorageMemEXT(UInt32 buffer, UInt32 size, UInt32 memory, UInt64 offset);
+			internal delegate void glNamedBufferStorageMemEXT(uint buffer, uint size, uint memory, ulong offset);
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[ThreadStatic]
@@ -714,7 +714,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_memory_object")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTexStorageMem1DEXT(Int32 target, Int32 levels, Int32 internalFormat, Int32 width, UInt32 memory, UInt64 offset);
+			internal delegate void glTexStorageMem1DEXT(int target, int levels, int internalFormat, int width, uint memory, ulong offset);
 
 			[RequiredByFeature("GL_EXT_memory_object")]
 			[ThreadStatic]
@@ -722,7 +722,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_memory_object")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTextureStorageMem1DEXT(UInt32 texture, Int32 levels, Int32 internalFormat, Int32 width, UInt32 memory, UInt64 offset);
+			internal delegate void glTextureStorageMem1DEXT(uint texture, int levels, int internalFormat, int width, uint memory, ulong offset);
 
 			[RequiredByFeature("GL_EXT_memory_object")]
 			[ThreadStatic]

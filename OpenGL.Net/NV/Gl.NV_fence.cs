@@ -59,16 +59,16 @@ namespace OpenGL
 		/// [GL] glDeleteFencesNV: Binding for glDeleteFencesNV.
 		/// </summary>
 		/// <param name="fences">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
-		public static void DeleteFencesNV(params UInt32[] fences)
+		public static void DeleteFencesNV(params uint[] fences)
 		{
 			unsafe {
-				fixed (UInt32* p_fences = fences)
+				fixed (uint* p_fences = fences)
 				{
 					Debug.Assert(Delegates.pglDeleteFencesNV != null, "pglDeleteFencesNV not implemented");
-					Delegates.pglDeleteFencesNV((Int32)fences.Length, p_fences);
+					Delegates.pglDeleteFencesNV(fences.Length, p_fences);
 					LogCommand("glDeleteFencesNV", null, fences.Length, fences					);
 				}
 			}
@@ -79,16 +79,16 @@ namespace OpenGL
 		/// [GL] glGenFencesNV: Binding for glGenFencesNV.
 		/// </summary>
 		/// <param name="fences">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
-		public static void GenFencesNV(UInt32[] fences)
+		public static void GenFencesNV(uint[] fences)
 		{
 			unsafe {
-				fixed (UInt32* p_fences = fences)
+				fixed (uint* p_fences = fences)
 				{
 					Debug.Assert(Delegates.pglGenFencesNV != null, "pglGenFencesNV not implemented");
-					Delegates.pglGenFencesNV((Int32)fences.Length, p_fences);
+					Delegates.pglGenFencesNV(fences.Length, p_fences);
 					LogCommand("glGenFencesNV", null, fences.Length, fences					);
 				}
 			}
@@ -99,9 +99,9 @@ namespace OpenGL
 		/// [GL] glGenFencesNV: Binding for glGenFencesNV.
 		/// </summary>
 		[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
-		public static UInt32 GenFenceNV()
+		public static uint GenFenceNV()
 		{
-			UInt32 retValue;
+			uint retValue;
 			unsafe {
 				Delegates.pglGenFencesNV(1, &retValue);
 				LogCommand("glGenFencesNV", null, 1, "{ " + retValue + " }"				);
@@ -114,10 +114,10 @@ namespace OpenGL
 		/// [GL] glIsFenceNV: Binding for glIsFenceNV.
 		/// </summary>
 		/// <param name="fence">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
-		public static bool IsFenceNV(UInt32 fence)
+		public static bool IsFenceNV(uint fence)
 		{
 			bool retValue;
 
@@ -133,10 +133,10 @@ namespace OpenGL
 		/// [GL] glTestFenceNV: Binding for glTestFenceNV.
 		/// </summary>
 		/// <param name="fence">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
-		public static bool TestFenceNV(UInt32 fence)
+		public static bool TestFenceNV(uint fence)
 		{
 			bool retValue;
 
@@ -152,19 +152,19 @@ namespace OpenGL
 		/// [GL] glGetFenceivNV: Binding for glGetFenceivNV.
 		/// </summary>
 		/// <param name="fence">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
-		public static void GetFenceNV(UInt32 fence, Int32 pname, [Out] Int32[] @params)
+		public static void GetFenceNV(uint fence, int pname, [Out] int[] @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetFenceivNV != null, "pglGetFenceivNV not implemented");
 					Delegates.pglGetFenceivNV(fence, pname, p_params);
@@ -178,10 +178,10 @@ namespace OpenGL
 		/// [GL] glFinishFenceNV: Binding for glFinishFenceNV.
 		/// </summary>
 		/// <param name="fence">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
-		public static void FinishFenceNV(UInt32 fence)
+		public static void FinishFenceNV(uint fence)
 		{
 			Debug.Assert(Delegates.pglFinishFenceNV != null, "pglFinishFenceNV not implemented");
 			Delegates.pglFinishFenceNV(fence);
@@ -193,13 +193,13 @@ namespace OpenGL
 		/// [GL] glSetFenceNV: Binding for glSetFenceNV.
 		/// </summary>
 		/// <param name="fence">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="condition">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
-		public static void SetFenceNV(UInt32 fence, Int32 condition)
+		public static void SetFenceNV(uint fence, int condition)
 		{
 			Debug.Assert(Delegates.pglSetFenceNV != null, "pglSetFenceNV not implemented");
 			Delegates.pglSetFenceNV(fence, condition);
@@ -211,7 +211,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDeleteFencesNV(Int32 n, UInt32* fences);
+			internal unsafe delegate void glDeleteFencesNV(int n, uint* fences);
 
 			[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
 			[ThreadStatic]
@@ -219,7 +219,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGenFencesNV(Int32 n, UInt32* fences);
+			internal unsafe delegate void glGenFencesNV(int n, uint* fences);
 
 			[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
 			[ThreadStatic]
@@ -228,7 +228,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			[return: MarshalAs(UnmanagedType.I1)]
-			internal delegate bool glIsFenceNV(UInt32 fence);
+			internal delegate bool glIsFenceNV(uint fence);
 
 			[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
 			[ThreadStatic]
@@ -237,7 +237,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			[return: MarshalAs(UnmanagedType.I1)]
-			internal delegate bool glTestFenceNV(UInt32 fence);
+			internal delegate bool glTestFenceNV(uint fence);
 
 			[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
 			[ThreadStatic]
@@ -245,7 +245,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetFenceivNV(UInt32 fence, Int32 pname, Int32* @params);
+			internal unsafe delegate void glGetFenceivNV(uint fence, int pname, int* @params);
 
 			[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
 			[ThreadStatic]
@@ -253,7 +253,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glFinishFenceNV(UInt32 fence);
+			internal delegate void glFinishFenceNV(uint fence);
 
 			[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
 			[ThreadStatic]
@@ -261,7 +261,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glSetFenceNV(UInt32 fence, Int32 condition);
+			internal delegate void glSetFenceNV(uint fence, int condition);
 
 			[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
 			[ThreadStatic]

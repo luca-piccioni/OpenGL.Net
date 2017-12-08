@@ -65,10 +65,10 @@ namespace OpenGL
 		/// [GL] glSyncTextureINTEL: Binding for glSyncTextureINTEL.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_INTEL_map_texture")]
-		public static void SyncTextureINTEL(UInt32 texture)
+		public static void SyncTextureINTEL(uint texture)
 		{
 			Debug.Assert(Delegates.pglSyncTextureINTEL != null, "pglSyncTextureINTEL not implemented");
 			Delegates.pglSyncTextureINTEL(texture);
@@ -80,13 +80,13 @@ namespace OpenGL
 		/// [GL] glUnmapTexture2DINTEL: Binding for glUnmapTexture2DINTEL.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_INTEL_map_texture")]
-		public static void UnmapTexture2DINTEL(UInt32 texture, Int32 level)
+		public static void UnmapTexture2DINTEL(uint texture, int level)
 		{
 			Debug.Assert(Delegates.pglUnmapTexture2DINTEL != null, "pglUnmapTexture2DINTEL not implemented");
 			Delegates.pglUnmapTexture2DINTEL(texture, level);
@@ -98,30 +98,30 @@ namespace OpenGL
 		/// [GL] glMapTexture2DINTEL: Binding for glMapTexture2DINTEL.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="access">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		/// <param name="layout">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_INTEL_map_texture")]
-		public static IntPtr MapTexture2DINTEL(UInt32 texture, Int32 level, UInt32 access, Int32[] stride, Int32[] layout)
+		public static IntPtr MapTexture2DINTEL(uint texture, int level, uint access, int[] stride, int[] layout)
 		{
 			Debug.Assert(stride.Length >= 1);
 			Debug.Assert(layout.Length >= 1);
 			IntPtr retValue;
 
 			unsafe {
-				fixed (Int32* p_stride = stride)
-				fixed (Int32* p_layout = layout)
+				fixed (int* p_stride = stride)
+				fixed (int* p_layout = layout)
 				{
 					Debug.Assert(Delegates.pglMapTexture2DINTEL != null, "pglMapTexture2DINTEL not implemented");
 					retValue = Delegates.pglMapTexture2DINTEL(texture, level, access, p_stride, p_layout);
@@ -137,7 +137,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_INTEL_map_texture")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glSyncTextureINTEL(UInt32 texture);
+			internal delegate void glSyncTextureINTEL(uint texture);
 
 			[RequiredByFeature("GL_INTEL_map_texture")]
 			[ThreadStatic]
@@ -145,7 +145,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_INTEL_map_texture")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glUnmapTexture2DINTEL(UInt32 texture, Int32 level);
+			internal delegate void glUnmapTexture2DINTEL(uint texture, int level);
 
 			[RequiredByFeature("GL_INTEL_map_texture")]
 			[ThreadStatic]
@@ -153,7 +153,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_INTEL_map_texture")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr glMapTexture2DINTEL(UInt32 texture, Int32 level, UInt32 access, Int32* stride, Int32* layout);
+			internal unsafe delegate IntPtr glMapTexture2DINTEL(uint texture, int level, uint access, int* stride, int* layout);
 
 			[RequiredByFeature("GL_INTEL_map_texture")]
 			[ThreadStatic]

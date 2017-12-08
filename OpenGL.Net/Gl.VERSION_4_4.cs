@@ -222,10 +222,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_buffer_storage", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_buffer_storage", Api = "gles2")]
-		public static void BufferStorage(BufferTarget target, UInt32 size, IntPtr data, UInt32 flags)
+		public static void BufferStorage(BufferTarget target, uint size, IntPtr data, uint flags)
 		{
 			Debug.Assert(Delegates.pglBufferStorage != null, "pglBufferStorage not implemented");
-			Delegates.pglBufferStorage((Int32)target, size, data, flags);
+			Delegates.pglBufferStorage((int)target, size, data, flags);
 			LogCommand("glBufferStorage", null, target, size, data, flags			);
 			DebugCheckErrors(null);
 		}
@@ -252,7 +252,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_buffer_storage", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_buffer_storage", Api = "gles2")]
-		public static void BufferStorage(BufferTarget target, UInt32 size, Object data, UInt32 flags)
+		public static void BufferStorage(BufferTarget target, uint size, Object data, uint flags)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -283,10 +283,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_clear_texture", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_clear_texture", Api = "gles2")]
-		public static void ClearTexImage(UInt32 texture, Int32 level, PixelFormat format, PixelType type, IntPtr data)
+		public static void ClearTexImage(uint texture, int level, PixelFormat format, PixelType type, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglClearTexImage != null, "pglClearTexImage not implemented");
-			Delegates.pglClearTexImage(texture, level, (Int32)format, (Int32)type, data);
+			Delegates.pglClearTexImage(texture, level, (int)format, (int)type, data);
 			LogCommand("glClearTexImage", null, texture, level, format, type, data			);
 			DebugCheckErrors(null);
 		}
@@ -312,7 +312,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_clear_texture", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_clear_texture", Api = "gles2")]
-		public static void ClearTexImage(UInt32 texture, Int32 level, PixelFormat format, PixelType type, Object data)
+		public static void ClearTexImage(uint texture, int level, PixelFormat format, PixelType type, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -361,10 +361,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_clear_texture", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_clear_texture", Api = "gles2")]
-		public static void ClearTexSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, PixelType type, IntPtr data)
+		public static void ClearTexSubImage(uint texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, PixelFormat format, PixelType type, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglClearTexSubImage != null, "pglClearTexSubImage not implemented");
-			Delegates.pglClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, (Int32)format, (Int32)type, data);
+			Delegates.pglClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, (int)format, (int)type, data);
 			LogCommand("glClearTexSubImage", null, texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, data			);
 			DebugCheckErrors(null);
 		}
@@ -408,7 +408,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_clear_texture", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_clear_texture", Api = "gles2")]
-		public static void ClearTexSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, PixelFormat format, PixelType type, Object data)
+		public static void ClearTexSubImage(uint texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, PixelFormat format, PixelType type, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -426,7 +426,7 @@ namespace OpenGL
 		/// Gl.TRANSFORM_FEEDBACK_BUFFER, Gl.UNIFORM_BUFFER or Gl.SHADER_STORAGE_BUFFER.
 		/// </param>
 		/// <param name="first">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="count">
 		/// Specify the number of contiguous binding points to which to bind buffers.
@@ -436,13 +436,13 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
-		public static void BindBuffersBase(BufferTarget target, UInt32 first, Int32 count, UInt32[] buffers)
+		public static void BindBuffersBase(BufferTarget target, uint first, int count, uint[] buffers)
 		{
 			unsafe {
-				fixed (UInt32* p_buffers = buffers)
+				fixed (uint* p_buffers = buffers)
 				{
 					Debug.Assert(Delegates.pglBindBuffersBase != null, "pglBindBuffersBase not implemented");
-					Delegates.pglBindBuffersBase((Int32)target, first, count, p_buffers);
+					Delegates.pglBindBuffersBase((int)target, first, count, p_buffers);
 					LogCommand("glBindBuffersBase", null, target, first, count, buffers					);
 				}
 			}
@@ -457,20 +457,20 @@ namespace OpenGL
 		/// Gl.TRANSFORM_FEEDBACK_BUFFER, Gl.UNIFORM_BUFFER or Gl.SHADER_STORAGE_BUFFER.
 		/// </param>
 		/// <param name="first">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="buffers">
 		/// A pointer to an array of names of buffer objects to bind to the targets on the specified binding point, or Gl.L.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
-		public static void BindBuffersBase(BufferTarget target, UInt32 first, UInt32[] buffers)
+		public static void BindBuffersBase(BufferTarget target, uint first, uint[] buffers)
 		{
 			unsafe {
-				fixed (UInt32* p_buffers = buffers)
+				fixed (uint* p_buffers = buffers)
 				{
 					Debug.Assert(Delegates.pglBindBuffersBase != null, "pglBindBuffersBase not implemented");
-					Delegates.pglBindBuffersBase((Int32)target, first, (Int32)buffers.Length, p_buffers);
+					Delegates.pglBindBuffersBase((int)target, first, buffers.Length, p_buffers);
 					LogCommand("glBindBuffersBase", null, target, first, buffers.Length, buffers					);
 				}
 			}
@@ -485,7 +485,7 @@ namespace OpenGL
 		/// Gl.TRANSFORM_FEEDBACK_BUFFER, Gl.UNIFORM_BUFFER or Gl.SHADER_STORAGE_BUFFER.
 		/// </param>
 		/// <param name="first">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="count">
 		/// Specify the number of contiguous binding points to which to bind buffers.
@@ -503,15 +503,15 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
-		public static void BindBuffersRange(BufferTarget target, UInt32 first, Int32 count, UInt32[] buffers, IntPtr[] offsets, UInt32[] sizes)
+		public static void BindBuffersRange(BufferTarget target, uint first, int count, uint[] buffers, IntPtr[] offsets, uint[] sizes)
 		{
 			unsafe {
-				fixed (UInt32* p_buffers = buffers)
+				fixed (uint* p_buffers = buffers)
 				fixed (IntPtr* p_offsets = offsets)
-				fixed (UInt32* p_sizes = sizes)
+				fixed (uint* p_sizes = sizes)
 				{
 					Debug.Assert(Delegates.pglBindBuffersRange != null, "pglBindBuffersRange not implemented");
-					Delegates.pglBindBuffersRange((Int32)target, first, count, p_buffers, p_offsets, p_sizes);
+					Delegates.pglBindBuffersRange((int)target, first, count, p_buffers, p_offsets, p_sizes);
 					LogCommand("glBindBuffersRange", null, target, first, count, buffers, offsets, sizes					);
 				}
 			}
@@ -526,7 +526,7 @@ namespace OpenGL
 		/// Gl.TRANSFORM_FEEDBACK_BUFFER, Gl.UNIFORM_BUFFER or Gl.SHADER_STORAGE_BUFFER.
 		/// </param>
 		/// <param name="first">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="buffers">
 		/// A pointer to an array of names of buffer objects to bind to the targets on the specified binding point, or Gl.L.
@@ -541,15 +541,15 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
-		public static void BindBuffersRange(BufferTarget target, UInt32 first, UInt32[] buffers, IntPtr[] offsets, UInt32[] sizes)
+		public static void BindBuffersRange(BufferTarget target, uint first, uint[] buffers, IntPtr[] offsets, uint[] sizes)
 		{
 			unsafe {
-				fixed (UInt32* p_buffers = buffers)
+				fixed (uint* p_buffers = buffers)
 				fixed (IntPtr* p_offsets = offsets)
-				fixed (UInt32* p_sizes = sizes)
+				fixed (uint* p_sizes = sizes)
 				{
 					Debug.Assert(Delegates.pglBindBuffersRange != null, "pglBindBuffersRange not implemented");
-					Delegates.pglBindBuffersRange((Int32)target, first, (Int32)buffers.Length, p_buffers, p_offsets, p_sizes);
+					Delegates.pglBindBuffersRange((int)target, first, buffers.Length, p_buffers, p_offsets, p_sizes);
 					LogCommand("glBindBuffersRange", null, target, first, buffers.Length, buffers, offsets, sizes					);
 				}
 			}
@@ -567,13 +567,13 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
-		public static void BindTextures(UInt32 first, params UInt32[] textures)
+		public static void BindTextures(uint first, params uint[] textures)
 		{
 			unsafe {
-				fixed (UInt32* p_textures = textures)
+				fixed (uint* p_textures = textures)
 				{
 					Debug.Assert(Delegates.pglBindTextures != null, "pglBindTextures not implemented");
-					Delegates.pglBindTextures(first, (Int32)textures.Length, p_textures);
+					Delegates.pglBindTextures(first, textures.Length, p_textures);
 					LogCommand("glBindTextures", null, first, textures.Length, textures					);
 				}
 			}
@@ -591,13 +591,13 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
-		public static void BindSamplers(UInt32 first, params UInt32[] samplers)
+		public static void BindSamplers(uint first, params uint[] samplers)
 		{
 			unsafe {
-				fixed (UInt32* p_samplers = samplers)
+				fixed (uint* p_samplers = samplers)
 				{
 					Debug.Assert(Delegates.pglBindSamplers != null, "pglBindSamplers not implemented");
-					Delegates.pglBindSamplers(first, (Int32)samplers.Length, p_samplers);
+					Delegates.pglBindSamplers(first, samplers.Length, p_samplers);
 					LogCommand("glBindSamplers", null, first, samplers.Length, samplers					);
 				}
 			}
@@ -615,13 +615,13 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
-		public static void BindImageTextures(UInt32 first, params UInt32[] textures)
+		public static void BindImageTextures(uint first, params uint[] textures)
 		{
 			unsafe {
-				fixed (UInt32* p_textures = textures)
+				fixed (uint* p_textures = textures)
 				{
 					Debug.Assert(Delegates.pglBindImageTextures != null, "pglBindImageTextures not implemented");
-					Delegates.pglBindImageTextures(first, (Int32)textures.Length, p_textures);
+					Delegates.pglBindImageTextures(first, textures.Length, p_textures);
 					LogCommand("glBindImageTextures", null, first, textures.Length, textures					);
 				}
 			}
@@ -641,19 +641,19 @@ namespace OpenGL
 		/// Specifies the address of an array of offsets to associate with the binding points.
 		/// </param>
 		/// <param name="strides">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
-		public static void BindVertexBuffers(UInt32 first, UInt32[] buffers, IntPtr[] offsets, params Int32[] strides)
+		public static void BindVertexBuffers(uint first, uint[] buffers, IntPtr[] offsets, params int[] strides)
 		{
 			unsafe {
-				fixed (UInt32* p_buffers = buffers)
+				fixed (uint* p_buffers = buffers)
 				fixed (IntPtr* p_offsets = offsets)
-				fixed (Int32* p_strides = strides)
+				fixed (int* p_strides = strides)
 				{
 					Debug.Assert(Delegates.pglBindVertexBuffers != null, "pglBindVertexBuffers not implemented");
-					Delegates.pglBindVertexBuffers(first, (Int32)buffers.Length, p_buffers, p_offsets, p_strides);
+					Delegates.pglBindVertexBuffers(first, buffers.Length, p_buffers, p_offsets, p_strides);
 					LogCommand("glBindVertexBuffers", null, first, buffers.Length, buffers, offsets, strides					);
 				}
 			}
@@ -666,7 +666,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_buffer_storage", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_buffer_storage", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glBufferStorage(Int32 target, UInt32 size, IntPtr data, UInt32 flags);
+			internal unsafe delegate void glBufferStorage(int target, uint size, IntPtr data, uint flags);
 
 			[RequiredByFeature("GL_VERSION_4_4")]
 			[RequiredByFeature("GL_ARB_buffer_storage", Api = "gl|glcore")]
@@ -678,7 +678,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_clear_texture", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_clear_texture", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glClearTexImage(UInt32 texture, Int32 level, Int32 format, Int32 type, IntPtr data);
+			internal unsafe delegate void glClearTexImage(uint texture, int level, int format, int type, IntPtr data);
 
 			[RequiredByFeature("GL_VERSION_4_4")]
 			[RequiredByFeature("GL_ARB_clear_texture", Api = "gl|glcore")]
@@ -690,7 +690,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_clear_texture", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_clear_texture", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glClearTexSubImage(UInt32 texture, Int32 level, Int32 xoffset, Int32 yoffset, Int32 zoffset, Int32 width, Int32 height, Int32 depth, Int32 format, Int32 type, IntPtr data);
+			internal unsafe delegate void glClearTexSubImage(uint texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, IntPtr data);
 
 			[RequiredByFeature("GL_VERSION_4_4")]
 			[RequiredByFeature("GL_ARB_clear_texture", Api = "gl|glcore")]
@@ -701,7 +701,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_4")]
 			[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glBindBuffersBase(Int32 target, UInt32 first, Int32 count, UInt32* buffers);
+			internal unsafe delegate void glBindBuffersBase(int target, uint first, int count, uint* buffers);
 
 			[RequiredByFeature("GL_VERSION_4_4")]
 			[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
@@ -711,7 +711,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_4")]
 			[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glBindBuffersRange(Int32 target, UInt32 first, Int32 count, UInt32* buffers, IntPtr* offsets, UInt32* sizes);
+			internal unsafe delegate void glBindBuffersRange(int target, uint first, int count, uint* buffers, IntPtr* offsets, uint* sizes);
 
 			[RequiredByFeature("GL_VERSION_4_4")]
 			[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
@@ -721,7 +721,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_4")]
 			[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glBindTextures(UInt32 first, Int32 count, UInt32* textures);
+			internal unsafe delegate void glBindTextures(uint first, int count, uint* textures);
 
 			[RequiredByFeature("GL_VERSION_4_4")]
 			[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
@@ -731,7 +731,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_4")]
 			[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glBindSamplers(UInt32 first, Int32 count, UInt32* samplers);
+			internal unsafe delegate void glBindSamplers(uint first, int count, uint* samplers);
 
 			[RequiredByFeature("GL_VERSION_4_4")]
 			[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
@@ -741,7 +741,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_4")]
 			[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glBindImageTextures(UInt32 first, Int32 count, UInt32* textures);
+			internal unsafe delegate void glBindImageTextures(uint first, int count, uint* textures);
 
 			[RequiredByFeature("GL_VERSION_4_4")]
 			[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
@@ -751,7 +751,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_4")]
 			[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glBindVertexBuffers(UInt32 first, Int32 count, UInt32* buffers, IntPtr* offsets, Int32* strides);
+			internal unsafe delegate void glBindVertexBuffers(uint first, int count, uint* buffers, IntPtr* offsets, int* strides);
 
 			[RequiredByFeature("GL_VERSION_4_4")]
 			[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]

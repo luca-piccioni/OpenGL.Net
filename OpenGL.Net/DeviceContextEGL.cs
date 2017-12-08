@@ -640,7 +640,7 @@ namespace OpenGL
 		/// <returns></returns>
 		internal static string[] GetAvailableApis()
 		{
-			return (ConvertApiNames(Egl._AvailableApis));
+			return (ConvertApiNames(Egl.AvailableApis));
 		}
 
 		internal static string[] ConvertApiNames(IEnumerable<string> clientApis)
@@ -879,8 +879,8 @@ namespace OpenGL
 		/// </summary>
 		internal override void QueryPlatformExtensions()
 		{
-			Egl._CurrentExtensions = new Egl.Extensions();
-			Egl._CurrentExtensions.Query(this);
+			Egl.CurrentExtensions = new Egl.Extensions();
+			Egl.CurrentExtensions.Query(this);
 		}
 
 		/// <summary>

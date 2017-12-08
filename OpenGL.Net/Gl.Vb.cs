@@ -58,7 +58,7 @@ namespace OpenGL
 			public static void Clear(ClearBufferMask mask)
 			{
 				Debug.Assert(Delegates.pglClear != null, "pglClear not implemented");
-				Delegates.pglClear((UInt32)mask);
+				Delegates.pglClear((uint)mask);
 				LogCommand("glClear", null, mask				);
 				DebugCheckErrors(null);
 			}
@@ -86,7 +86,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-			public static void Viewport(Int32 x, Int32 y, Int32 width, Int32 height)
+			public static void Viewport(int x, int y, int width, int height)
 			{
 				Debug.Assert(Delegates.pglViewport != null, "pglViewport not implemented");
 				Delegates.pglViewport(x, y, width, height);
@@ -122,7 +122,7 @@ namespace OpenGL
 			/// </param>
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			public static void Bitmap(Int32 width, Int32 height, float xorig, float yorig, float xmove, float ymove, byte[] bitmap)
+			public static void Bitmap(int width, int height, float xorig, float yorig, float xmove, float ymove, byte[] bitmap)
 			{
 				unsafe {
 					fixed (byte* p_bitmap = bitmap)
@@ -217,7 +217,7 @@ namespace OpenGL
 			/// </param>
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			public static void Index(Int32 c)
+			public static void Index(int c)
 			{
 				Debug.Assert(Delegates.pglIndexi != null, "pglIndexi not implemented");
 				Delegates.pglIndexi(c);
@@ -232,11 +232,11 @@ namespace OpenGL
 			/// </param>
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			public static void Index(Int32[] c)
+			public static void Index(int[] c)
 			{
 				Debug.Assert(c.Length >= 1);
 				unsafe {
-					fixed (Int32* p_c = c)
+					fixed (int* p_c = c)
 					{
 						Debug.Assert(Delegates.pglIndexiv != null, "pglIndexiv not implemented");
 						Delegates.pglIndexiv(p_c);
@@ -254,7 +254,7 @@ namespace OpenGL
 			/// </param>
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			public static void Index(Int16 c)
+			public static void Index(short c)
 			{
 				Debug.Assert(Delegates.pglIndexs != null, "pglIndexs not implemented");
 				Delegates.pglIndexs(c);
@@ -269,11 +269,11 @@ namespace OpenGL
 			/// </param>
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			public static void Index(Int16[] c)
+			public static void Index(short[] c)
 			{
 				Debug.Assert(c.Length >= 1);
 				unsafe {
-					fixed (Int16* p_c = c)
+					fixed (short* p_c = c)
 					{
 						Debug.Assert(Delegates.pglIndexsv != null, "pglIndexsv not implemented");
 						Delegates.pglIndexsv(p_c);
@@ -301,7 +301,7 @@ namespace OpenGL
 			public static void Fog(FogParameter pname, float param)
 			{
 				Debug.Assert(Delegates.pglFogf != null, "pglFogf not implemented");
-				Delegates.pglFogf((Int32)pname, param);
+				Delegates.pglFogf((int)pname, param);
 				LogCommand("glFogf", null, pname, param				);
 				DebugCheckErrors(null);
 			}
@@ -327,7 +327,7 @@ namespace OpenGL
 					fixed (float* p_params = @params)
 					{
 						Debug.Assert(Delegates.pglFogfv != null, "pglFogfv not implemented");
-						Delegates.pglFogfv((Int32)pname, p_params);
+						Delegates.pglFogfv((int)pname, p_params);
 						LogCommand("glFogfv", null, pname, @params						);
 					}
 				}
@@ -346,10 +346,10 @@ namespace OpenGL
 			/// </param>
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			public static void Fog(FogParameter pname, Int32 param)
+			public static void Fog(FogParameter pname, int param)
 			{
 				Debug.Assert(Delegates.pglFogi != null, "pglFogi not implemented");
-				Delegates.pglFogi((Int32)pname, param);
+				Delegates.pglFogi((int)pname, param);
 				LogCommand("glFogi", null, pname, param				);
 				DebugCheckErrors(null);
 			}
@@ -362,17 +362,17 @@ namespace OpenGL
 			/// Gl.FOG_COORD_SRC are accepted.
 			/// </param>
 			/// <param name="params">
-			/// A <see cref="T:Int32[]"/>.
+			/// A <see cref="T:int[]"/>.
 			/// </param>
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			public static void Fog(FogParameter pname, Int32[] @params)
+			public static void Fog(FogParameter pname, int[] @params)
 			{
 				unsafe {
-					fixed (Int32* p_params = @params)
+					fixed (int* p_params = @params)
 					{
 						Debug.Assert(Delegates.pglFogiv != null, "pglFogiv not implemented");
-						Delegates.pglFogiv((Int32)pname, p_params);
+						Delegates.pglFogiv((int)pname, p_params);
 						LogCommand("glFogiv", null, pname, @params						);
 					}
 				}
@@ -395,7 +395,7 @@ namespace OpenGL
 			public static void Accum(AccumOp op, float value)
 			{
 				Debug.Assert(Delegates.pglAccum != null, "pglAccum not implemented");
-				Delegates.pglAccum((Int32)op, value);
+				Delegates.pglAccum((int)op, value);
 				LogCommand("glAccum", null, op, value				);
 				DebugCheckErrors(null);
 			}
@@ -450,7 +450,7 @@ namespace OpenGL
 			public static void Fog(FogPName pname, IntPtr param)
 			{
 				Debug.Assert(Delegates.pglFogx != null, "pglFogx not implemented");
-				Delegates.pglFogx((Int32)pname, param);
+				Delegates.pglFogx((int)pname, param);
 				LogCommand("glFogx", null, pname, param				);
 				DebugCheckErrors(null);
 			}
@@ -471,7 +471,7 @@ namespace OpenGL
 					fixed (IntPtr* p_param = param)
 					{
 						Debug.Assert(Delegates.pglFogxv != null, "pglFogxv not implemented");
-						Delegates.pglFogxv((Int32)pname, p_param);
+						Delegates.pglFogxv((int)pname, p_param);
 						LogCommand("glFogxv", null, pname, param						);
 					}
 				}
@@ -500,10 +500,10 @@ namespace OpenGL
 			/// </param>
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_histogram")]
-			public static void Histogram(HistogramTarget target, Int32 width, InternalFormat internalformat, bool sink)
+			public static void Histogram(HistogramTarget target, int width, InternalFormat internalformat, bool sink)
 			{
 				Debug.Assert(Delegates.pglHistogram != null, "pglHistogram not implemented");
-				Delegates.pglHistogram((Int32)target, width, (Int32)internalformat, sink);
+				Delegates.pglHistogram((int)target, width, (int)internalformat, sink);
 				LogCommand("glHistogram", null, target, width, internalformat, sink				);
 				DebugCheckErrors(null);
 			}
@@ -530,7 +530,7 @@ namespace OpenGL
 			public static void Minmax(MinmaxTarget target, InternalFormat internalformat, bool sink)
 			{
 				Debug.Assert(Delegates.pglMinmax != null, "pglMinmax not implemented");
-				Delegates.pglMinmax((Int32)target, (Int32)internalformat, sink);
+				Delegates.pglMinmax((int)target, (int)internalformat, sink);
 				LogCommand("glMinmax", null, target, internalformat, sink				);
 				DebugCheckErrors(null);
 			}

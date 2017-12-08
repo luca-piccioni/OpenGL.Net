@@ -53,9 +53,9 @@ namespace OpenGL
 		/// [GL] glGetInstrumentsSGIX: Binding for glGetInstrumentsSGIX.
 		/// </summary>
 		[RequiredByFeature("GL_SGIX_instruments")]
-		public static Int32 GetInstrumentsSGIX()
+		public static int GetInstrumentsSGIX()
 		{
-			Int32 retValue;
+			int retValue;
 
 			Debug.Assert(Delegates.pglGetInstrumentsSGIX != null, "pglGetInstrumentsSGIX not implemented");
 			retValue = Delegates.pglGetInstrumentsSGIX();
@@ -69,16 +69,16 @@ namespace OpenGL
 		/// [GL] glInstrumentsBufferSGIX: Binding for glInstrumentsBufferSGIX.
 		/// </summary>
 		/// <param name="buffer">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIX_instruments")]
-		public static void InstrumentsBufferSGIX(Int32[] buffer)
+		public static void InstrumentsBufferSGIX(int[] buffer)
 		{
 			unsafe {
-				fixed (Int32* p_buffer = buffer)
+				fixed (int* p_buffer = buffer)
 				{
 					Debug.Assert(Delegates.pglInstrumentsBufferSGIX != null, "pglInstrumentsBufferSGIX not implemented");
-					Delegates.pglInstrumentsBufferSGIX((Int32)buffer.Length, p_buffer);
+					Delegates.pglInstrumentsBufferSGIX(buffer.Length, p_buffer);
 					LogCommand("glInstrumentsBufferSGIX", null, buffer.Length, buffer					);
 				}
 			}
@@ -89,16 +89,16 @@ namespace OpenGL
 		/// [GL] glPollInstrumentsSGIX: Binding for glPollInstrumentsSGIX.
 		/// </summary>
 		/// <param name="marker_p">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIX_instruments")]
-		public static Int32 PollInstrumentsSGIX(Int32[] marker_p)
+		public static int PollInstrumentsSGIX(int[] marker_p)
 		{
 			Debug.Assert(marker_p.Length >= 1);
-			Int32 retValue;
+			int retValue;
 
 			unsafe {
-				fixed (Int32* p_marker_p = marker_p)
+				fixed (int* p_marker_p = marker_p)
 				{
 					Debug.Assert(Delegates.pglPollInstrumentsSGIX != null, "pglPollInstrumentsSGIX not implemented");
 					retValue = Delegates.pglPollInstrumentsSGIX(p_marker_p);
@@ -114,10 +114,10 @@ namespace OpenGL
 		/// [GL] glReadInstrumentsSGIX: Binding for glReadInstrumentsSGIX.
 		/// </summary>
 		/// <param name="marker">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIX_instruments")]
-		public static void ReadInstrumentsSGIX(Int32 marker)
+		public static void ReadInstrumentsSGIX(int marker)
 		{
 			Debug.Assert(Delegates.pglReadInstrumentsSGIX != null, "pglReadInstrumentsSGIX not implemented");
 			Delegates.pglReadInstrumentsSGIX(marker);
@@ -141,10 +141,10 @@ namespace OpenGL
 		/// [GL] glStopInstrumentsSGIX: Binding for glStopInstrumentsSGIX.
 		/// </summary>
 		/// <param name="marker">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIX_instruments")]
-		public static void StopInstrumentsSGIX(Int32 marker)
+		public static void StopInstrumentsSGIX(int marker)
 		{
 			Debug.Assert(Delegates.pglStopInstrumentsSGIX != null, "pglStopInstrumentsSGIX not implemented");
 			Delegates.pglStopInstrumentsSGIX(marker);
@@ -156,7 +156,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_SGIX_instruments")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Int32 glGetInstrumentsSGIX();
+			internal delegate int glGetInstrumentsSGIX();
 
 			[RequiredByFeature("GL_SGIX_instruments")]
 			[ThreadStatic]
@@ -164,7 +164,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SGIX_instruments")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glInstrumentsBufferSGIX(Int32 size, Int32* buffer);
+			internal unsafe delegate void glInstrumentsBufferSGIX(int size, int* buffer);
 
 			[RequiredByFeature("GL_SGIX_instruments")]
 			[ThreadStatic]
@@ -172,7 +172,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SGIX_instruments")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Int32 glPollInstrumentsSGIX(Int32* marker_p);
+			internal unsafe delegate int glPollInstrumentsSGIX(int* marker_p);
 
 			[RequiredByFeature("GL_SGIX_instruments")]
 			[ThreadStatic]
@@ -180,7 +180,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SGIX_instruments")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glReadInstrumentsSGIX(Int32 marker);
+			internal delegate void glReadInstrumentsSGIX(int marker);
 
 			[RequiredByFeature("GL_SGIX_instruments")]
 			[ThreadStatic]
@@ -196,7 +196,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SGIX_instruments")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glStopInstrumentsSGIX(Int32 marker);
+			internal delegate void glStopInstrumentsSGIX(int marker);
 
 			[RequiredByFeature("GL_SGIX_instruments")]
 			[ThreadStatic]

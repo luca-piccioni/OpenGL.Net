@@ -131,16 +131,16 @@ namespace OpenGL
 		/// [GL] glImageTransformParameteriHP: Binding for glImageTransformParameteriHP.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="param">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_HP_image_transform")]
-		public static void ImageTransformParameterHP(Int32 target, Int32 pname, Int32 param)
+		public static void ImageTransformParameterHP(int target, int pname, int param)
 		{
 			Debug.Assert(Delegates.pglImageTransformParameteriHP != null, "pglImageTransformParameteriHP not implemented");
 			Delegates.pglImageTransformParameteriHP(target, pname, param);
@@ -152,16 +152,16 @@ namespace OpenGL
 		/// [GL] glImageTransformParameterfHP: Binding for glImageTransformParameterfHP.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_HP_image_transform")]
-		public static void ImageTransformParameterHP(Int32 target, Int32 pname, float param)
+		public static void ImageTransformParameterHP(int target, int pname, float param)
 		{
 			Debug.Assert(Delegates.pglImageTransformParameterfHP != null, "pglImageTransformParameterfHP not implemented");
 			Delegates.pglImageTransformParameterfHP(target, pname, param);
@@ -173,19 +173,19 @@ namespace OpenGL
 		/// [GL] glImageTransformParameterivHP: Binding for glImageTransformParameterivHP.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_HP_image_transform")]
-		public static void ImageTransformParameterHP(Int32 target, Int32 pname, Int32[] @params)
+		public static void ImageTransformParameterHP(int target, int pname, int[] @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglImageTransformParameterivHP != null, "pglImageTransformParameterivHP not implemented");
 					Delegates.pglImageTransformParameterivHP(target, pname, p_params);
@@ -199,16 +199,16 @@ namespace OpenGL
 		/// [GL] glImageTransformParameterfvHP: Binding for glImageTransformParameterfvHP.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_HP_image_transform")]
-		public static void ImageTransformParameterHP(Int32 target, Int32 pname, float[] @params)
+		public static void ImageTransformParameterHP(int target, int pname, float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -225,19 +225,19 @@ namespace OpenGL
 		/// [GL] glGetImageTransformParameterivHP: Binding for glGetImageTransformParameterivHP.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_HP_image_transform")]
-		public static void GetImageTransformParameterHP(Int32 target, Int32 pname, [Out] Int32[] @params)
+		public static void GetImageTransformParameterHP(int target, int pname, [Out] int[] @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetImageTransformParameterivHP != null, "pglGetImageTransformParameterivHP not implemented");
 					Delegates.pglGetImageTransformParameterivHP(target, pname, p_params);
@@ -251,16 +251,16 @@ namespace OpenGL
 		/// [GL] glGetImageTransformParameterfvHP: Binding for glGetImageTransformParameterfvHP.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_HP_image_transform")]
-		public static void GetImageTransformParameterHP(Int32 target, Int32 pname, [Out] float[] @params)
+		public static void GetImageTransformParameterHP(int target, int pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -277,7 +277,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_HP_image_transform")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glImageTransformParameteriHP(Int32 target, Int32 pname, Int32 param);
+			internal delegate void glImageTransformParameteriHP(int target, int pname, int param);
 
 			[RequiredByFeature("GL_HP_image_transform")]
 			[ThreadStatic]
@@ -285,7 +285,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_HP_image_transform")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glImageTransformParameterfHP(Int32 target, Int32 pname, float param);
+			internal delegate void glImageTransformParameterfHP(int target, int pname, float param);
 
 			[RequiredByFeature("GL_HP_image_transform")]
 			[ThreadStatic]
@@ -293,7 +293,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_HP_image_transform")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glImageTransformParameterivHP(Int32 target, Int32 pname, Int32* @params);
+			internal unsafe delegate void glImageTransformParameterivHP(int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_HP_image_transform")]
 			[ThreadStatic]
@@ -301,7 +301,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_HP_image_transform")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glImageTransformParameterfvHP(Int32 target, Int32 pname, float* @params);
+			internal unsafe delegate void glImageTransformParameterfvHP(int target, int pname, float* @params);
 
 			[RequiredByFeature("GL_HP_image_transform")]
 			[ThreadStatic]
@@ -309,7 +309,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_HP_image_transform")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetImageTransformParameterivHP(Int32 target, Int32 pname, Int32* @params);
+			internal unsafe delegate void glGetImageTransformParameterivHP(int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_HP_image_transform")]
 			[ThreadStatic]
@@ -317,7 +317,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_HP_image_transform")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetImageTransformParameterfvHP(Int32 target, Int32 pname, float* @params);
+			internal unsafe delegate void glGetImageTransformParameterfvHP(int target, int pname, float* @params);
 
 			[RequiredByFeature("GL_HP_image_transform")]
 			[ThreadStatic]

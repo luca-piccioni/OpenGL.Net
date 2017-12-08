@@ -59,13 +59,13 @@ namespace OpenGL
 		/// [GL] glFramebufferPixelLocalStorageSizeEXT: Binding for glFramebufferPixelLocalStorageSizeEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_shader_pixel_local_storage2", Api = "gles2")]
-		public static void FramebufferPixelLocalStorageSizeEXT(UInt32 target, Int32 size)
+		public static void FramebufferPixelLocalStorageSizeEXT(uint target, int size)
 		{
 			Debug.Assert(Delegates.pglFramebufferPixelLocalStorageSizeEXT != null, "pglFramebufferPixelLocalStorageSizeEXT not implemented");
 			Delegates.pglFramebufferPixelLocalStorageSizeEXT(target, size);
@@ -80,12 +80,12 @@ namespace OpenGL
 		/// A <see cref="T:FramebufferTarget"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_shader_pixel_local_storage2", Api = "gles2")]
-		public static Int32 GetFramebufferPixelLocalStorageSizeEXT(FramebufferTarget target)
+		public static int GetFramebufferPixelLocalStorageSizeEXT(FramebufferTarget target)
 		{
-			Int32 retValue;
+			int retValue;
 
 			Debug.Assert(Delegates.pglGetFramebufferPixelLocalStorageSizeEXT != null, "pglGetFramebufferPixelLocalStorageSizeEXT not implemented");
-			retValue = Delegates.pglGetFramebufferPixelLocalStorageSizeEXT((UInt32)target);
+			retValue = Delegates.pglGetFramebufferPixelLocalStorageSizeEXT((uint)target);
 			LogCommand("glGetFramebufferPixelLocalStorageSizeEXT", retValue, target			);
 			DebugCheckErrors(retValue);
 
@@ -96,19 +96,19 @@ namespace OpenGL
 		/// [GL] glClearPixelLocalStorageuiEXT: Binding for glClearPixelLocalStorageuiEXT.
 		/// </summary>
 		/// <param name="offset">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="values">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_shader_pixel_local_storage2", Api = "gles2")]
-		public static void ClearPixelLocalStorageEXT(Int32 offset, UInt32[] values)
+		public static void ClearPixelLocalStorageEXT(int offset, uint[] values)
 		{
 			unsafe {
-				fixed (UInt32* p_values = values)
+				fixed (uint* p_values = values)
 				{
 					Debug.Assert(Delegates.pglClearPixelLocalStorageuiEXT != null, "pglClearPixelLocalStorageuiEXT not implemented");
-					Delegates.pglClearPixelLocalStorageuiEXT(offset, (Int32)values.Length, p_values);
+					Delegates.pglClearPixelLocalStorageuiEXT(offset, values.Length, p_values);
 					LogCommand("glClearPixelLocalStorageuiEXT", null, offset, values.Length, values					);
 				}
 			}
@@ -119,7 +119,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_EXT_shader_pixel_local_storage2", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glFramebufferPixelLocalStorageSizeEXT(UInt32 target, Int32 size);
+			internal delegate void glFramebufferPixelLocalStorageSizeEXT(uint target, int size);
 
 			[RequiredByFeature("GL_EXT_shader_pixel_local_storage2", Api = "gles2")]
 			[ThreadStatic]
@@ -127,7 +127,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_shader_pixel_local_storage2", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Int32 glGetFramebufferPixelLocalStorageSizeEXT(UInt32 target);
+			internal delegate int glGetFramebufferPixelLocalStorageSizeEXT(uint target);
 
 			[RequiredByFeature("GL_EXT_shader_pixel_local_storage2", Api = "gles2")]
 			[ThreadStatic]
@@ -135,7 +135,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_shader_pixel_local_storage2", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glClearPixelLocalStorageuiEXT(Int32 offset, Int32 n, UInt32* values);
+			internal unsafe delegate void glClearPixelLocalStorageuiEXT(int offset, int n, uint* values);
 
 			[RequiredByFeature("GL_EXT_shader_pixel_local_storage2", Api = "gles2")]
 			[ThreadStatic]

@@ -603,10 +603,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_paletted_texture")]
 		[RequiredByFeature("GL_SGI_color_table")]
-		public static void ColorTable(ColorTableTarget target, InternalFormat internalformat, Int32 width, PixelFormat format, PixelType type, IntPtr data)
+		public static void ColorTable(ColorTableTarget target, InternalFormat internalformat, int width, PixelFormat format, PixelType type, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglColorTable != null, "pglColorTable not implemented");
-			Delegates.pglColorTable((Int32)target, (Int32)internalformat, width, (Int32)format, (Int32)type, data);
+			Delegates.pglColorTable((int)target, (int)internalformat, width, (int)format, (int)type, data);
 			LogCommand("glColorTable", null, target, internalformat, width, format, type, data			);
 			DebugCheckErrors(null);
 		}
@@ -646,7 +646,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_paletted_texture")]
 		[RequiredByFeature("GL_SGI_color_table")]
-		public static void ColorTable(ColorTableTarget target, InternalFormat internalformat, Int32 width, PixelFormat format, PixelType type, Object data)
+		public static void ColorTable(ColorTableTarget target, InternalFormat internalformat, int width, PixelFormat format, PixelType type, Object data)
 		{
 			GCHandle pin_table = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -676,7 +676,7 @@ namespace OpenGL
 				fixed (float* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglColorTableParameterfv != null, "pglColorTableParameterfv not implemented");
-					Delegates.pglColorTableParameterfv((Int32)target, (Int32)pname, p_params);
+					Delegates.pglColorTableParameterfv((int)target, (int)pname, p_params);
 					LogCommand("glColorTableParameterfv", null, target, pname, @params					);
 				}
 			}
@@ -697,13 +697,13 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_SGI_color_table")]
-		public static void ColorTableParameter(ColorTableTarget target, ColorTableParameterPName pname, Int32[] @params)
+		public static void ColorTableParameter(ColorTableTarget target, ColorTableParameterPName pname, int[] @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglColorTableParameteriv != null, "pglColorTableParameteriv not implemented");
-					Delegates.pglColorTableParameteriv((Int32)target, (Int32)pname, p_params);
+					Delegates.pglColorTableParameteriv((int)target, (int)pname, p_params);
 					LogCommand("glColorTableParameteriv", null, target, pname, @params					);
 				}
 			}
@@ -735,10 +735,10 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_SGI_color_table")]
-		public static void CopyColorTable(ColorTableTarget target, InternalFormat internalformat, Int32 x, Int32 y, Int32 width)
+		public static void CopyColorTable(ColorTableTarget target, InternalFormat internalformat, int x, int y, int width)
 		{
 			Debug.Assert(Delegates.pglCopyColorTable != null, "pglCopyColorTable not implemented");
-			Delegates.pglCopyColorTable((Int32)target, (Int32)internalformat, x, y, width);
+			Delegates.pglCopyColorTable((int)target, (int)internalformat, x, y, width);
 			LogCommand("glCopyColorTable", null, target, internalformat, x, y, width			);
 			DebugCheckErrors(null);
 		}
@@ -768,7 +768,7 @@ namespace OpenGL
 		public static void GetColorTable(ColorTableTarget target, PixelFormat format, PixelType type, IntPtr table)
 		{
 			Debug.Assert(Delegates.pglGetColorTable != null, "pglGetColorTable not implemented");
-			Delegates.pglGetColorTable((Int32)target, (Int32)format, (Int32)type, table);
+			Delegates.pglGetColorTable((int)target, (int)format, (int)type, table);
 			LogCommand("glGetColorTable", null, target, format, type, table			);
 			DebugCheckErrors(null);
 		}
@@ -828,7 +828,7 @@ namespace OpenGL
 				fixed (float* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetColorTableParameterfv != null, "pglGetColorTableParameterfv not implemented");
-					Delegates.pglGetColorTableParameterfv((Int32)target, (Int32)pname, p_params);
+					Delegates.pglGetColorTableParameterfv((int)target, (int)pname, p_params);
 					LogCommand("glGetColorTableParameterfv", null, target, pname, @params					);
 				}
 			}
@@ -852,13 +852,13 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_paletted_texture")]
-		public static void GetColorTableParameter(ColorTableTarget target, GetColorTableParameterPNameSGI pname, [Out] Int32[] @params)
+		public static void GetColorTableParameter(ColorTableTarget target, GetColorTableParameterPNameSGI pname, [Out] int[] @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetColorTableParameteriv != null, "pglGetColorTableParameteriv not implemented");
-					Delegates.pglGetColorTableParameteriv((Int32)target, (Int32)pname, p_params);
+					Delegates.pglGetColorTableParameteriv((int)target, (int)pname, p_params);
 					LogCommand("glGetColorTableParameteriv", null, target, pname, @params					);
 				}
 			}
@@ -893,10 +893,10 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_color_subtable")]
-		public static void ColorSubTable(ColorTableTarget target, Int32 start, Int32 count, PixelFormat format, PixelType type, IntPtr data)
+		public static void ColorSubTable(ColorTableTarget target, int start, int count, PixelFormat format, PixelType type, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglColorSubTable != null, "pglColorSubTable not implemented");
-			Delegates.pglColorSubTable((Int32)target, start, count, (Int32)format, (Int32)type, data);
+			Delegates.pglColorSubTable((int)target, start, count, (int)format, (int)type, data);
 			LogCommand("glColorSubTable", null, target, start, count, format, type, data			);
 			DebugCheckErrors(null);
 		}
@@ -929,7 +929,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_color_subtable")]
-		public static void ColorSubTable(ColorTableTarget target, Int32 start, Int32 count, PixelFormat format, PixelType type, Object data)
+		public static void ColorSubTable(ColorTableTarget target, int start, int count, PixelFormat format, PixelType type, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -959,10 +959,10 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_color_subtable")]
-		public static void CopyColorSubTable(ColorTableTarget target, Int32 start, Int32 x, Int32 y, Int32 width)
+		public static void CopyColorSubTable(ColorTableTarget target, int start, int x, int y, int width)
 		{
 			Debug.Assert(Delegates.pglCopyColorSubTable != null, "pglCopyColorSubTable not implemented");
-			Delegates.pglCopyColorSubTable((Int32)target, start, x, y, width);
+			Delegates.pglCopyColorSubTable((int)target, start, x, y, width);
 			LogCommand("glCopyColorSubTable", null, target, start, x, y, width			);
 			DebugCheckErrors(null);
 		}
@@ -1000,10 +1000,10 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_convolution")]
-		public static void ConvolutionFilter1D(ConvolutionTarget target, InternalFormat internalformat, Int32 width, PixelFormat format, PixelType type, IntPtr data)
+		public static void ConvolutionFilter1D(ConvolutionTarget target, InternalFormat internalformat, int width, PixelFormat format, PixelType type, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglConvolutionFilter1D != null, "pglConvolutionFilter1D not implemented");
-			Delegates.pglConvolutionFilter1D((Int32)target, (Int32)internalformat, width, (Int32)format, (Int32)type, data);
+			Delegates.pglConvolutionFilter1D((int)target, (int)internalformat, width, (int)format, (int)type, data);
 			LogCommand("glConvolutionFilter1D", null, target, internalformat, width, format, type, data			);
 			DebugCheckErrors(null);
 		}
@@ -1041,7 +1041,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_convolution")]
-		public static void ConvolutionFilter1D(ConvolutionTarget target, InternalFormat internalformat, Int32 width, PixelFormat format, PixelType type, Object data)
+		public static void ConvolutionFilter1D(ConvolutionTarget target, InternalFormat internalformat, int width, PixelFormat format, PixelType type, Object data)
 		{
 			GCHandle pin_image = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -1087,10 +1087,10 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_convolution")]
-		public static void ConvolutionFilter2D(ConvolutionTarget target, InternalFormat internalformat, Int32 width, Int32 height, PixelFormat format, PixelType type, IntPtr data)
+		public static void ConvolutionFilter2D(ConvolutionTarget target, InternalFormat internalformat, int width, int height, PixelFormat format, PixelType type, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglConvolutionFilter2D != null, "pglConvolutionFilter2D not implemented");
-			Delegates.pglConvolutionFilter2D((Int32)target, (Int32)internalformat, width, height, (Int32)format, (Int32)type, data);
+			Delegates.pglConvolutionFilter2D((int)target, (int)internalformat, width, height, (int)format, (int)type, data);
 			LogCommand("glConvolutionFilter2D", null, target, internalformat, width, height, format, type, data			);
 			DebugCheckErrors(null);
 		}
@@ -1131,7 +1131,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_convolution")]
-		public static void ConvolutionFilter2D(ConvolutionTarget target, InternalFormat internalformat, Int32 width, Int32 height, PixelFormat format, PixelType type, Object data)
+		public static void ConvolutionFilter2D(ConvolutionTarget target, InternalFormat internalformat, int width, int height, PixelFormat format, PixelType type, Object data)
 		{
 			GCHandle pin_image = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -1158,7 +1158,7 @@ namespace OpenGL
 		public static void ConvolutionParameter(ConvolutionTarget target, ConvolutionParameterEXT pname, float @params)
 		{
 			Debug.Assert(Delegates.pglConvolutionParameterf != null, "pglConvolutionParameterf not implemented");
-			Delegates.pglConvolutionParameterf((Int32)target, (Int32)pname, @params);
+			Delegates.pglConvolutionParameterf((int)target, (int)pname, @params);
 			LogCommand("glConvolutionParameterf", null, target, pname, @params			);
 			DebugCheckErrors(null);
 		}
@@ -1183,7 +1183,7 @@ namespace OpenGL
 				fixed (float* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglConvolutionParameterfv != null, "pglConvolutionParameterfv not implemented");
-					Delegates.pglConvolutionParameterfv((Int32)target, (Int32)pname, p_params);
+					Delegates.pglConvolutionParameterfv((int)target, (int)pname, p_params);
 					LogCommand("glConvolutionParameterfv", null, target, pname, @params					);
 				}
 			}
@@ -1204,10 +1204,10 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_convolution")]
-		public static void ConvolutionParameter(ConvolutionTarget target, ConvolutionParameterEXT pname, Int32 @params)
+		public static void ConvolutionParameter(ConvolutionTarget target, ConvolutionParameterEXT pname, int @params)
 		{
 			Debug.Assert(Delegates.pglConvolutionParameteri != null, "pglConvolutionParameteri not implemented");
-			Delegates.pglConvolutionParameteri((Int32)target, (Int32)pname, @params);
+			Delegates.pglConvolutionParameteri((int)target, (int)pname, @params);
 			LogCommand("glConvolutionParameteri", null, target, pname, @params			);
 			DebugCheckErrors(null);
 		}
@@ -1226,13 +1226,13 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_convolution")]
-		public static void ConvolutionParameter(ConvolutionTarget target, ConvolutionParameterEXT pname, Int32[] @params)
+		public static void ConvolutionParameter(ConvolutionTarget target, ConvolutionParameterEXT pname, int[] @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglConvolutionParameteriv != null, "pglConvolutionParameteriv not implemented");
-					Delegates.pglConvolutionParameteriv((Int32)target, (Int32)pname, p_params);
+					Delegates.pglConvolutionParameteriv((int)target, (int)pname, p_params);
 					LogCommand("glConvolutionParameteriv", null, target, pname, @params					);
 				}
 			}
@@ -1264,10 +1264,10 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_convolution")]
-		public static void CopyConvolutionFilter1D(ConvolutionTarget target, InternalFormat internalformat, Int32 x, Int32 y, Int32 width)
+		public static void CopyConvolutionFilter1D(ConvolutionTarget target, InternalFormat internalformat, int x, int y, int width)
 		{
 			Debug.Assert(Delegates.pglCopyConvolutionFilter1D != null, "pglCopyConvolutionFilter1D not implemented");
-			Delegates.pglCopyConvolutionFilter1D((Int32)target, (Int32)internalformat, x, y, width);
+			Delegates.pglCopyConvolutionFilter1D((int)target, (int)internalformat, x, y, width);
 			LogCommand("glCopyConvolutionFilter1D", null, target, internalformat, x, y, width			);
 			DebugCheckErrors(null);
 		}
@@ -1300,10 +1300,10 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_convolution")]
-		public static void CopyConvolutionFilter2D(ConvolutionTarget target, InternalFormat internalformat, Int32 x, Int32 y, Int32 width, Int32 height)
+		public static void CopyConvolutionFilter2D(ConvolutionTarget target, InternalFormat internalformat, int x, int y, int width, int height)
 		{
 			Debug.Assert(Delegates.pglCopyConvolutionFilter2D != null, "pglCopyConvolutionFilter2D not implemented");
-			Delegates.pglCopyConvolutionFilter2D((Int32)target, (Int32)internalformat, x, y, width, height);
+			Delegates.pglCopyConvolutionFilter2D((int)target, (int)internalformat, x, y, width, height);
 			LogCommand("glCopyConvolutionFilter2D", null, target, internalformat, x, y, width, height			);
 			DebugCheckErrors(null);
 		}
@@ -1332,7 +1332,7 @@ namespace OpenGL
 		public static void GetConvolutionFilter(ConvolutionTarget target, PixelFormat format, PixelType type, IntPtr image)
 		{
 			Debug.Assert(Delegates.pglGetConvolutionFilter != null, "pglGetConvolutionFilter not implemented");
-			Delegates.pglGetConvolutionFilter((Int32)target, (Int32)format, (Int32)type, image);
+			Delegates.pglGetConvolutionFilter((int)target, (int)format, (int)type, image);
 			LogCommand("glGetConvolutionFilter", null, target, format, type, image			);
 			DebugCheckErrors(null);
 		}
@@ -1390,7 +1390,7 @@ namespace OpenGL
 				fixed (float* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetConvolutionParameterfv != null, "pglGetConvolutionParameterfv not implemented");
-					Delegates.pglGetConvolutionParameterfv((Int32)target, (Int32)pname, p_params);
+					Delegates.pglGetConvolutionParameterfv((int)target, (int)pname, p_params);
 					LogCommand("glGetConvolutionParameterfv", null, target, pname, @params					);
 				}
 			}
@@ -1413,13 +1413,13 @@ namespace OpenGL
 		/// Pointer to storage for the parameters to be retrieved.
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-		public static void GetConvolutionParameter(ConvolutionTarget target, ConvolutionParameterEXT pname, [Out] Int32[] @params)
+		public static void GetConvolutionParameter(ConvolutionTarget target, ConvolutionParameterEXT pname, [Out] int[] @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetConvolutionParameteriv != null, "pglGetConvolutionParameteriv not implemented");
-					Delegates.pglGetConvolutionParameteriv((Int32)target, (Int32)pname, p_params);
+					Delegates.pglGetConvolutionParameteriv((int)target, (int)pname, p_params);
 					LogCommand("glGetConvolutionParameteriv", null, target, pname, @params					);
 				}
 			}
@@ -1456,7 +1456,7 @@ namespace OpenGL
 		public static void GetSeparableFilter(SeparableTarget target, PixelFormat format, PixelType type, IntPtr row, IntPtr column, IntPtr span)
 		{
 			Debug.Assert(Delegates.pglGetSeparableFilter != null, "pglGetSeparableFilter not implemented");
-			Delegates.pglGetSeparableFilter((Int32)target, (Int32)format, (Int32)type, row, column, span);
+			Delegates.pglGetSeparableFilter((int)target, (int)format, (int)type, row, column, span);
 			LogCommand("glGetSeparableFilter", null, target, format, type, row, column, span			);
 			DebugCheckErrors(null);
 		}
@@ -1543,10 +1543,10 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_convolution")]
-		public static void SeparableFilter2D(SeparableTarget target, InternalFormat internalformat, Int32 width, Int32 height, PixelFormat format, PixelType type, IntPtr row, IntPtr column)
+		public static void SeparableFilter2D(SeparableTarget target, InternalFormat internalformat, int width, int height, PixelFormat format, PixelType type, IntPtr row, IntPtr column)
 		{
 			Debug.Assert(Delegates.pglSeparableFilter2D != null, "pglSeparableFilter2D not implemented");
-			Delegates.pglSeparableFilter2D((Int32)target, (Int32)internalformat, width, height, (Int32)format, (Int32)type, row, column);
+			Delegates.pglSeparableFilter2D((int)target, (int)internalformat, width, height, (int)format, (int)type, row, column);
 			LogCommand("glSeparableFilter2D", null, target, internalformat, width, height, format, type, row, column			);
 			DebugCheckErrors(null);
 		}
@@ -1592,7 +1592,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_convolution")]
-		public static void SeparableFilter2D(SeparableTarget target, InternalFormat internalformat, Int32 width, Int32 height, PixelFormat format, PixelType type, Object row, Object column)
+		public static void SeparableFilter2D(SeparableTarget target, InternalFormat internalformat, int width, int height, PixelFormat format, PixelType type, Object row, Object column)
 		{
 			GCHandle pin_row = GCHandle.Alloc(row, GCHandleType.Pinned);
 			GCHandle pin_column = GCHandle.Alloc(column, GCHandleType.Pinned);
@@ -1632,7 +1632,7 @@ namespace OpenGL
 		public static void GetHistogram(HistogramTarget target, bool reset, PixelFormat format, PixelType type, IntPtr values)
 		{
 			Debug.Assert(Delegates.pglGetHistogram != null, "pglGetHistogram not implemented");
-			Delegates.pglGetHistogram((Int32)target, reset, (Int32)format, (Int32)type, values);
+			Delegates.pglGetHistogram((int)target, reset, (int)format, (int)type, values);
 			LogCommand("glGetHistogram", null, target, reset, format, type, values			);
 			DebugCheckErrors(null);
 		}
@@ -1693,7 +1693,7 @@ namespace OpenGL
 				fixed (float* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetHistogramParameterfv != null, "pglGetHistogramParameterfv not implemented");
-					Delegates.pglGetHistogramParameterfv((Int32)target, (Int32)pname, p_params);
+					Delegates.pglGetHistogramParameterfv((int)target, (int)pname, p_params);
 					LogCommand("glGetHistogramParameterfv", null, target, pname, @params					);
 				}
 			}
@@ -1715,13 +1715,13 @@ namespace OpenGL
 		/// Pointer to storage for the returned values.
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-		public static void GetHistogramParameter(HistogramTarget target, GetHistogramParameterPName pname, [Out] Int32[] @params)
+		public static void GetHistogramParameter(HistogramTarget target, GetHistogramParameterPName pname, [Out] int[] @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetHistogramParameteriv != null, "pglGetHistogramParameteriv not implemented");
-					Delegates.pglGetHistogramParameteriv((Int32)target, (Int32)pname, p_params);
+					Delegates.pglGetHistogramParameteriv((int)target, (int)pname, p_params);
 					LogCommand("glGetHistogramParameteriv", null, target, pname, @params					);
 				}
 			}
@@ -1752,7 +1752,7 @@ namespace OpenGL
 		public static void GetMinmax(MinmaxTarget target, bool reset, PixelFormat format, PixelType type, IntPtr values)
 		{
 			Debug.Assert(Delegates.pglGetMinmax != null, "pglGetMinmax not implemented");
-			Delegates.pglGetMinmax((Int32)target, reset, (Int32)format, (Int32)type, values);
+			Delegates.pglGetMinmax((int)target, reset, (int)format, (int)type, values);
 			LogCommand("glGetMinmax", null, target, reset, format, type, values			);
 			DebugCheckErrors(null);
 		}
@@ -1807,7 +1807,7 @@ namespace OpenGL
 				fixed (float* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetMinmaxParameterfv != null, "pglGetMinmaxParameterfv not implemented");
-					Delegates.pglGetMinmaxParameterfv((Int32)target, (Int32)pname, p_params);
+					Delegates.pglGetMinmaxParameterfv((int)target, (int)pname, p_params);
 					LogCommand("glGetMinmaxParameterfv", null, target, pname, @params					);
 				}
 			}
@@ -1827,13 +1827,13 @@ namespace OpenGL
 		/// A pointer to storage for the retrieved parameters.
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-		public static void GetMinmaxParameter(MinmaxTarget target, GetMinmaxParameterPName pname, [Out] Int32[] @params)
+		public static void GetMinmaxParameter(MinmaxTarget target, GetMinmaxParameterPName pname, [Out] int[] @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetMinmaxParameteriv != null, "pglGetMinmaxParameteriv not implemented");
-					Delegates.pglGetMinmaxParameteriv((Int32)target, (Int32)pname, p_params);
+					Delegates.pglGetMinmaxParameteriv((int)target, (int)pname, p_params);
 					LogCommand("glGetMinmaxParameteriv", null, target, pname, @params					);
 				}
 			}
@@ -1862,10 +1862,10 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_histogram")]
-		public static void Histogram(HistogramTarget target, Int32 width, InternalFormat internalformat, bool sink)
+		public static void Histogram(HistogramTarget target, int width, InternalFormat internalformat, bool sink)
 		{
 			Debug.Assert(Delegates.pglHistogram != null, "pglHistogram not implemented");
-			Delegates.pglHistogram((Int32)target, width, (Int32)internalformat, sink);
+			Delegates.pglHistogram((int)target, width, (int)internalformat, sink);
 			LogCommand("glHistogram", null, target, width, internalformat, sink			);
 			DebugCheckErrors(null);
 		}
@@ -1892,7 +1892,7 @@ namespace OpenGL
 		public static void Minmax(MinmaxTarget target, InternalFormat internalformat, bool sink)
 		{
 			Debug.Assert(Delegates.pglMinmax != null, "pglMinmax not implemented");
-			Delegates.pglMinmax((Int32)target, (Int32)internalformat, sink);
+			Delegates.pglMinmax((int)target, (int)internalformat, sink);
 			LogCommand("glMinmax", null, target, internalformat, sink			);
 			DebugCheckErrors(null);
 		}
@@ -1908,7 +1908,7 @@ namespace OpenGL
 		public static void ResetHistogram(HistogramTarget target)
 		{
 			Debug.Assert(Delegates.pglResetHistogram != null, "pglResetHistogram not implemented");
-			Delegates.pglResetHistogram((Int32)target);
+			Delegates.pglResetHistogram((int)target);
 			LogCommand("glResetHistogram", null, target			);
 			DebugCheckErrors(null);
 		}
@@ -1924,7 +1924,7 @@ namespace OpenGL
 		public static void ResetMinmax(MinmaxTarget target)
 		{
 			Debug.Assert(Delegates.pglResetMinmax != null, "pglResetMinmax not implemented");
-			Delegates.pglResetMinmax((Int32)target);
+			Delegates.pglResetMinmax((int)target);
 			LogCommand("glResetMinmax", null, target			);
 			DebugCheckErrors(null);
 		}
@@ -1935,7 +1935,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_paletted_texture")]
 			[RequiredByFeature("GL_SGI_color_table")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glColorTable(Int32 target, Int32 internalformat, Int32 width, Int32 format, Int32 type, IntPtr table);
+			internal unsafe delegate void glColorTable(int target, int internalformat, int width, int format, int type, IntPtr table);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_paletted_texture", EntryPoint = "glColorTableEXT")]
@@ -1946,7 +1946,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_SGI_color_table")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glColorTableParameterfv(Int32 target, Int32 pname, float* @params);
+			internal unsafe delegate void glColorTableParameterfv(int target, int pname, float* @params);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_SGI_color_table", EntryPoint = "glColorTableParameterfvSGI")]
@@ -1956,7 +1956,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_SGI_color_table")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glColorTableParameteriv(Int32 target, Int32 pname, Int32* @params);
+			internal unsafe delegate void glColorTableParameteriv(int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_SGI_color_table", EntryPoint = "glColorTableParameterivSGI")]
@@ -1966,7 +1966,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_SGI_color_table")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glCopyColorTable(Int32 target, Int32 internalformat, Int32 x, Int32 y, Int32 width);
+			internal delegate void glCopyColorTable(int target, int internalformat, int x, int y, int width);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_SGI_color_table", EntryPoint = "glCopyColorTableSGI")]
@@ -1976,7 +1976,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_paletted_texture")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetColorTable(Int32 target, Int32 format, Int32 type, IntPtr table);
+			internal unsafe delegate void glGetColorTable(int target, int format, int type, IntPtr table);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_paletted_texture", EntryPoint = "glGetColorTableEXT")]
@@ -1986,7 +1986,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_paletted_texture")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetColorTableParameterfv(Int32 target, Int32 pname, float* @params);
+			internal unsafe delegate void glGetColorTableParameterfv(int target, int pname, float* @params);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_paletted_texture", EntryPoint = "glGetColorTableParameterfvEXT")]
@@ -1996,7 +1996,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_paletted_texture")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetColorTableParameteriv(Int32 target, Int32 pname, Int32* @params);
+			internal unsafe delegate void glGetColorTableParameteriv(int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_paletted_texture", EntryPoint = "glGetColorTableParameterivEXT")]
@@ -2006,7 +2006,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_color_subtable")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glColorSubTable(Int32 target, Int32 start, Int32 count, Int32 format, Int32 type, IntPtr data);
+			internal unsafe delegate void glColorSubTable(int target, int start, int count, int format, int type, IntPtr data);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_color_subtable", EntryPoint = "glColorSubTableEXT")]
@@ -2016,7 +2016,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_color_subtable")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glCopyColorSubTable(Int32 target, Int32 start, Int32 x, Int32 y, Int32 width);
+			internal delegate void glCopyColorSubTable(int target, int start, int x, int y, int width);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_color_subtable", EntryPoint = "glCopyColorSubTableEXT")]
@@ -2026,7 +2026,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_convolution")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glConvolutionFilter1D(Int32 target, Int32 internalformat, Int32 width, Int32 format, Int32 type, IntPtr image);
+			internal unsafe delegate void glConvolutionFilter1D(int target, int internalformat, int width, int format, int type, IntPtr image);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_convolution", EntryPoint = "glConvolutionFilter1DEXT")]
@@ -2036,7 +2036,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_convolution")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glConvolutionFilter2D(Int32 target, Int32 internalformat, Int32 width, Int32 height, Int32 format, Int32 type, IntPtr image);
+			internal unsafe delegate void glConvolutionFilter2D(int target, int internalformat, int width, int height, int format, int type, IntPtr image);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_convolution", EntryPoint = "glConvolutionFilter2DEXT")]
@@ -2046,7 +2046,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_convolution")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glConvolutionParameterf(Int32 target, Int32 pname, float @params);
+			internal delegate void glConvolutionParameterf(int target, int pname, float @params);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_convolution", EntryPoint = "glConvolutionParameterfEXT")]
@@ -2056,7 +2056,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_convolution")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glConvolutionParameterfv(Int32 target, Int32 pname, float* @params);
+			internal unsafe delegate void glConvolutionParameterfv(int target, int pname, float* @params);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_convolution", EntryPoint = "glConvolutionParameterfvEXT")]
@@ -2066,7 +2066,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_convolution")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glConvolutionParameteri(Int32 target, Int32 pname, Int32 @params);
+			internal delegate void glConvolutionParameteri(int target, int pname, int @params);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_convolution", EntryPoint = "glConvolutionParameteriEXT")]
@@ -2076,7 +2076,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_convolution")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glConvolutionParameteriv(Int32 target, Int32 pname, Int32* @params);
+			internal unsafe delegate void glConvolutionParameteriv(int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_convolution", EntryPoint = "glConvolutionParameterivEXT")]
@@ -2086,7 +2086,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_convolution")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glCopyConvolutionFilter1D(Int32 target, Int32 internalformat, Int32 x, Int32 y, Int32 width);
+			internal delegate void glCopyConvolutionFilter1D(int target, int internalformat, int x, int y, int width);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_convolution", EntryPoint = "glCopyConvolutionFilter1DEXT")]
@@ -2096,7 +2096,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_convolution")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glCopyConvolutionFilter2D(Int32 target, Int32 internalformat, Int32 x, Int32 y, Int32 width, Int32 height);
+			internal delegate void glCopyConvolutionFilter2D(int target, int internalformat, int x, int y, int width, int height);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_convolution", EntryPoint = "glCopyConvolutionFilter2DEXT")]
@@ -2105,7 +2105,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetConvolutionFilter(Int32 target, Int32 format, Int32 type, IntPtr image);
+			internal unsafe delegate void glGetConvolutionFilter(int target, int format, int type, IntPtr image);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[ThreadStatic]
@@ -2113,7 +2113,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetConvolutionParameterfv(Int32 target, Int32 pname, float* @params);
+			internal unsafe delegate void glGetConvolutionParameterfv(int target, int pname, float* @params);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[ThreadStatic]
@@ -2121,7 +2121,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetConvolutionParameteriv(Int32 target, Int32 pname, Int32* @params);
+			internal unsafe delegate void glGetConvolutionParameteriv(int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[ThreadStatic]
@@ -2129,7 +2129,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetSeparableFilter(Int32 target, Int32 format, Int32 type, IntPtr row, IntPtr column, IntPtr span);
+			internal unsafe delegate void glGetSeparableFilter(int target, int format, int type, IntPtr row, IntPtr column, IntPtr span);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[ThreadStatic]
@@ -2138,7 +2138,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_convolution")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glSeparableFilter2D(Int32 target, Int32 internalformat, Int32 width, Int32 height, Int32 format, Int32 type, IntPtr row, IntPtr column);
+			internal unsafe delegate void glSeparableFilter2D(int target, int internalformat, int width, int height, int format, int type, IntPtr row, IntPtr column);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_convolution", EntryPoint = "glSeparableFilter2DEXT")]
@@ -2147,7 +2147,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetHistogram(Int32 target, [MarshalAs(UnmanagedType.I1)] bool reset, Int32 format, Int32 type, IntPtr values);
+			internal unsafe delegate void glGetHistogram(int target, [MarshalAs(UnmanagedType.I1)] bool reset, int format, int type, IntPtr values);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[ThreadStatic]
@@ -2155,7 +2155,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetHistogramParameterfv(Int32 target, Int32 pname, float* @params);
+			internal unsafe delegate void glGetHistogramParameterfv(int target, int pname, float* @params);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[ThreadStatic]
@@ -2163,7 +2163,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetHistogramParameteriv(Int32 target, Int32 pname, Int32* @params);
+			internal unsafe delegate void glGetHistogramParameteriv(int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[ThreadStatic]
@@ -2171,7 +2171,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetMinmax(Int32 target, [MarshalAs(UnmanagedType.I1)] bool reset, Int32 format, Int32 type, IntPtr values);
+			internal unsafe delegate void glGetMinmax(int target, [MarshalAs(UnmanagedType.I1)] bool reset, int format, int type, IntPtr values);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[ThreadStatic]
@@ -2179,7 +2179,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetMinmaxParameterfv(Int32 target, Int32 pname, float* @params);
+			internal unsafe delegate void glGetMinmaxParameterfv(int target, int pname, float* @params);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[ThreadStatic]
@@ -2187,7 +2187,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetMinmaxParameteriv(Int32 target, Int32 pname, Int32* @params);
+			internal unsafe delegate void glGetMinmaxParameteriv(int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[ThreadStatic]
@@ -2196,7 +2196,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_histogram")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glHistogram(Int32 target, Int32 width, Int32 internalformat, [MarshalAs(UnmanagedType.I1)] bool sink);
+			internal delegate void glHistogram(int target, int width, int internalformat, [MarshalAs(UnmanagedType.I1)] bool sink);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_histogram", EntryPoint = "glHistogramEXT")]
@@ -2206,7 +2206,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_histogram")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMinmax(Int32 target, Int32 internalformat, [MarshalAs(UnmanagedType.I1)] bool sink);
+			internal delegate void glMinmax(int target, int internalformat, [MarshalAs(UnmanagedType.I1)] bool sink);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_histogram", EntryPoint = "glMinmaxEXT")]
@@ -2216,7 +2216,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_histogram")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glResetHistogram(Int32 target);
+			internal delegate void glResetHistogram(int target);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_histogram", EntryPoint = "glResetHistogramEXT")]
@@ -2226,7 +2226,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_histogram")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glResetMinmax(Int32 target);
+			internal delegate void glResetMinmax(int target);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_histogram", EntryPoint = "glResetMinmaxEXT")]

@@ -59,13 +59,13 @@ namespace OpenGL
 		/// [GL] glConservativeRasterParameteriNV: Binding for glConservativeRasterParameteriNV.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="param">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_conservative_raster_pre_snap_triangles", Api = "gl|glcore|gles2")]
-		public static void ConservativeRasterParameteriNV(Int32 pname, Int32 param)
+		public static void ConservativeRasterParameteriNV(int pname, int param)
 		{
 			Debug.Assert(Delegates.pglConservativeRasterParameteriNV != null, "pglConservativeRasterParameteriNV not implemented");
 			Delegates.pglConservativeRasterParameteriNV(pname, param);
@@ -77,7 +77,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_NV_conservative_raster_pre_snap_triangles", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glConservativeRasterParameteriNV(Int32 pname, Int32 param);
+			internal delegate void glConservativeRasterParameteriNV(int pname, int param);
 
 			[RequiredByFeature("GL_NV_conservative_raster_pre_snap_triangles", Api = "gl|glcore|gles2")]
 			[ThreadStatic]

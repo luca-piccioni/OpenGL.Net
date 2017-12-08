@@ -77,24 +77,24 @@ namespace OpenGL
 		/// [GL] glQueryResourceNV: Binding for glQueryResourceNV.
 		/// </summary>
 		/// <param name="queryType">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="tagId">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="bufSize">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="buffer">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_query_resource")]
-		public static Int32 QueryResourceNV(Int32 queryType, Int32 tagId, UInt32 bufSize, Int32[] buffer)
+		public static int QueryResourceNV(int queryType, int tagId, uint bufSize, int[] buffer)
 		{
-			Int32 retValue;
+			int retValue;
 
 			unsafe {
-				fixed (Int32* p_buffer = buffer)
+				fixed (int* p_buffer = buffer)
 				{
 					Debug.Assert(Delegates.pglQueryResourceNV != null, "pglQueryResourceNV not implemented");
 					retValue = Delegates.pglQueryResourceNV(queryType, tagId, bufSize, p_buffer);
@@ -110,7 +110,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_NV_query_resource")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Int32 glQueryResourceNV(Int32 queryType, Int32 tagId, UInt32 bufSize, Int32* buffer);
+			internal unsafe delegate int glQueryResourceNV(int queryType, int tagId, uint bufSize, int* buffer);
 
 			[RequiredByFeature("GL_NV_query_resource")]
 			[ThreadStatic]

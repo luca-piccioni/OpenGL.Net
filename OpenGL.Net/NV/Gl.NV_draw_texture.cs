@@ -41,10 +41,10 @@ namespace OpenGL
 		/// [GL] glDrawTextureNV: Binding for glDrawTextureNV.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="sampler">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="x0">
 		/// A <see cref="T:float"/>.
@@ -74,7 +74,7 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_draw_texture")]
-		public static void DrawTextureNV(UInt32 texture, UInt32 sampler, float x0, float y0, float x1, float y1, float z, float s0, float t0, float s1, float t1)
+		public static void DrawTextureNV(uint texture, uint sampler, float x0, float y0, float x1, float y1, float z, float s0, float t0, float s1, float t1)
 		{
 			Debug.Assert(Delegates.pglDrawTextureNV != null, "pglDrawTextureNV not implemented");
 			Delegates.pglDrawTextureNV(texture, sampler, x0, y0, x1, y1, z, s0, t0, s1, t1);
@@ -86,7 +86,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_NV_draw_texture")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glDrawTextureNV(UInt32 texture, UInt32 sampler, float x0, float y0, float x1, float y1, float z, float s0, float t0, float s1, float t1);
+			internal delegate void glDrawTextureNV(uint texture, uint sampler, float x0, float y0, float x1, float y1, float z, float s0, float t0, float s1, float t1);
 
 			[RequiredByFeature("GL_NV_draw_texture")]
 			[ThreadStatic]

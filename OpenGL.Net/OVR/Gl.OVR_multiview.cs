@@ -71,22 +71,22 @@ namespace OpenGL
 		/// A <see cref="T:FramebufferAttachment"/>.
 		/// </param>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="baseViewIndex">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="numViews">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_OVR_multiview", Api = "gl|glcore|gles2")]
-		public static void FramebufferTextureMultiOVR(FramebufferTarget target, FramebufferAttachment attachment, UInt32 texture, Int32 level, Int32 baseViewIndex, Int32 numViews)
+		public static void FramebufferTextureMultiOVR(FramebufferTarget target, FramebufferAttachment attachment, uint texture, int level, int baseViewIndex, int numViews)
 		{
 			Debug.Assert(Delegates.pglFramebufferTextureMultiviewOVR != null, "pglFramebufferTextureMultiviewOVR not implemented");
-			Delegates.pglFramebufferTextureMultiviewOVR((Int32)target, (Int32)attachment, texture, level, baseViewIndex, numViews);
+			Delegates.pglFramebufferTextureMultiviewOVR((int)target, (int)attachment, texture, level, baseViewIndex, numViews);
 			LogCommand("glFramebufferTextureMultiviewOVR", null, target, attachment, texture, level, baseViewIndex, numViews			);
 			DebugCheckErrors(null);
 		}
@@ -95,7 +95,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_OVR_multiview", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glFramebufferTextureMultiviewOVR(Int32 target, Int32 attachment, UInt32 texture, Int32 level, Int32 baseViewIndex, Int32 numViews);
+			internal delegate void glFramebufferTextureMultiviewOVR(int target, int attachment, uint texture, int level, int baseViewIndex, int numViews);
 
 			[RequiredByFeature("GL_OVR_multiview", Api = "gl|glcore|gles2")]
 			[ThreadStatic]

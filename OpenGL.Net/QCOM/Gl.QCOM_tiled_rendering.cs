@@ -265,22 +265,22 @@ namespace OpenGL
 		/// [GL] glStartTilingQCOM: Binding for glStartTilingQCOM.
 		/// </summary>
 		/// <param name="x">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="y">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="preserveMask">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_QCOM_tiled_rendering", Api = "gles1|gles2")]
-		public static void StartQCOM(UInt32 x, UInt32 y, UInt32 width, UInt32 height, UInt32 preserveMask)
+		public static void StartQCOM(uint x, uint y, uint width, uint height, uint preserveMask)
 		{
 			Debug.Assert(Delegates.pglStartTilingQCOM != null, "pglStartTilingQCOM not implemented");
 			Delegates.pglStartTilingQCOM(x, y, width, height, preserveMask);
@@ -292,10 +292,10 @@ namespace OpenGL
 		/// [GL] glEndTilingQCOM: Binding for glEndTilingQCOM.
 		/// </summary>
 		/// <param name="preserveMask">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_QCOM_tiled_rendering", Api = "gles1|gles2")]
-		public static void EndQCOM(UInt32 preserveMask)
+		public static void EndQCOM(uint preserveMask)
 		{
 			Debug.Assert(Delegates.pglEndTilingQCOM != null, "pglEndTilingQCOM not implemented");
 			Delegates.pglEndTilingQCOM(preserveMask);
@@ -307,7 +307,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_QCOM_tiled_rendering", Api = "gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glStartTilingQCOM(UInt32 x, UInt32 y, UInt32 width, UInt32 height, UInt32 preserveMask);
+			internal delegate void glStartTilingQCOM(uint x, uint y, uint width, uint height, uint preserveMask);
 
 			[RequiredByFeature("GL_QCOM_tiled_rendering", Api = "gles1|gles2")]
 			[ThreadStatic]
@@ -315,7 +315,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_QCOM_tiled_rendering", Api = "gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glEndTilingQCOM(UInt32 preserveMask);
+			internal delegate void glEndTilingQCOM(uint preserveMask);
 
 			[RequiredByFeature("GL_QCOM_tiled_rendering", Api = "gles1|gles2")]
 			[ThreadStatic]

@@ -48,16 +48,16 @@ namespace OpenGL
 		/// [GL] glSetMultisamplefvAMD: Binding for glSetMultisamplefvAMD.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="val">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_sample_positions")]
-		public static void SetMultisampleAMD(Int32 pname, UInt32 index, float[] val)
+		public static void SetMultisampleAMD(int pname, uint index, float[] val)
 		{
 			Debug.Assert(val.Length >= 2);
 			unsafe {
@@ -75,7 +75,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_AMD_sample_positions")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glSetMultisamplefvAMD(Int32 pname, UInt32 index, float* val);
+			internal unsafe delegate void glSetMultisamplefvAMD(int pname, uint index, float* val);
 
 			[RequiredByFeature("GL_AMD_sample_positions")]
 			[ThreadStatic]

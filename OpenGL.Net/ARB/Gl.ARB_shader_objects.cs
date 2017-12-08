@@ -121,10 +121,10 @@ namespace OpenGL
 		/// [GL] glDeleteObjectARB: Binding for glDeleteObjectARB.
 		/// </summary>
 		/// <param name="obj">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void DeleteObjectARB(UInt32 obj)
+		public static void DeleteObjectARB(uint obj)
 		{
 			Debug.Assert(Delegates.pglDeleteObjectARB != null, "pglDeleteObjectARB not implemented");
 			Delegates.pglDeleteObjectARB(obj);
@@ -136,12 +136,12 @@ namespace OpenGL
 		/// [GL] glGetHandleARB: Binding for glGetHandleARB.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static UInt32 GetHandleARB(Int32 pname)
+		public static uint GetHandleARB(int pname)
 		{
-			UInt32 retValue;
+			uint retValue;
 
 			Debug.Assert(Delegates.pglGetHandleARB != null, "pglGetHandleARB not implemented");
 			retValue = Delegates.pglGetHandleARB(pname);
@@ -155,16 +155,16 @@ namespace OpenGL
 		/// [GL] glGetObjectParameterfvARB: Binding for glGetObjectParameterfvARB.
 		/// </summary>
 		/// <param name="obj">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void GetObjectParameterARB(UInt32 obj, Int32 pname, [Out] float[] @params)
+		public static void GetObjectParameterARB(uint obj, int pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -181,16 +181,16 @@ namespace OpenGL
 		/// [GL] glGetObjectParameterfvARB: Binding for glGetObjectParameterfvARB.
 		/// </summary>
 		/// <param name="obj">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void GetObjectParameterARB(UInt32 obj, Int32 pname, out float @params)
+		public static void GetObjectParameterARB(uint obj, int pname, out float @params)
 		{
 			unsafe {
 				fixed (float* p_params = &@params)
@@ -207,16 +207,16 @@ namespace OpenGL
 		/// [GL] glGetObjectParameterfvARB: Binding for glGetObjectParameterfvARB.
 		/// </summary>
 		/// <param name="obj">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float*"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static unsafe void GetObjectParameterARB(UInt32 obj, Int32 pname, [Out] float* @params)
+		public static unsafe void GetObjectParameterARB(uint obj, int pname, [Out] float* @params)
 		{
 			Debug.Assert(Delegates.pglGetObjectParameterfvARB != null, "pglGetObjectParameterfvARB not implemented");
 			Delegates.pglGetObjectParameterfvARB(obj, pname, @params);
@@ -228,16 +228,16 @@ namespace OpenGL
 		/// [GL] glGetObjectParameterfvARB: Binding for glGetObjectParameterfvARB.
 		/// </summary>
 		/// <param name="obj">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void GetObjectParameterfARB<T>(UInt32 obj, Int32 pname, ref T @params) where T : struct
+		public static void GetObjectParameterfARB<T>(uint obj, int pname, ref T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetObjectParameterfvARB != null, "pglGetObjectParameterfvARB not implemented");
 			#if NETCOREAPP1_1
@@ -265,19 +265,19 @@ namespace OpenGL
 		/// [GL] glGetObjectParameterivARB: Binding for glGetObjectParameterivARB.
 		/// </summary>
 		/// <param name="obj">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void GetObjectParameterARB(UInt32 obj, Int32 pname, [Out] Int32[] @params)
+		public static void GetObjectParameterARB(uint obj, int pname, [Out] int[] @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetObjectParameterivARB != null, "pglGetObjectParameterivARB not implemented");
 					Delegates.pglGetObjectParameterivARB(obj, pname, p_params);
@@ -291,19 +291,19 @@ namespace OpenGL
 		/// [GL] glGetObjectParameterivARB: Binding for glGetObjectParameterivARB.
 		/// </summary>
 		/// <param name="obj">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void GetObjectParameterARB(UInt32 obj, Int32 pname, out Int32 @params)
+		public static void GetObjectParameterARB(uint obj, int pname, out int @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = &@params)
+				fixed (int* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetObjectParameterivARB != null, "pglGetObjectParameterivARB not implemented");
 					Delegates.pglGetObjectParameterivARB(obj, pname, p_params);
@@ -317,16 +317,16 @@ namespace OpenGL
 		/// [GL] glGetObjectParameterivARB: Binding for glGetObjectParameterivARB.
 		/// </summary>
 		/// <param name="obj">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32*"/>.
+		/// A <see cref="T:int*"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static unsafe void GetObjectParameterARB(UInt32 obj, Int32 pname, [Out] Int32* @params)
+		public static unsafe void GetObjectParameterARB(uint obj, int pname, [Out] int* @params)
 		{
 			Debug.Assert(Delegates.pglGetObjectParameterivARB != null, "pglGetObjectParameterivARB not implemented");
 			Delegates.pglGetObjectParameterivARB(obj, pname, @params);
@@ -338,23 +338,23 @@ namespace OpenGL
 		/// [GL] glGetObjectParameterivARB: Binding for glGetObjectParameterivARB.
 		/// </summary>
 		/// <param name="obj">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void GetObjectParameteriARB<T>(UInt32 obj, Int32 pname, ref T @params) where T : struct
+		public static void GetObjectParameteriARB<T>(uint obj, int pname, ref T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetObjectParameterivARB != null, "pglGetObjectParameterivARB not implemented");
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
 				unsafe {
-					Delegates.pglGetObjectParameterivARB(obj, pname, (Int32*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglGetObjectParameterivARB(obj, pname, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -364,7 +364,7 @@ namespace OpenGL
 				TypedReference refParams = __makeref(@params);
 				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
 
-				Delegates.pglGetObjectParameterivARB(obj, pname, (Int32*)refParamsPtr.ToPointer());
+				Delegates.pglGetObjectParameterivARB(obj, pname, (int*)refParamsPtr.ToPointer());
 			}
 			#endif
 			LogCommand("glGetObjectParameterivARB", null, obj, pname, @params			);
@@ -375,22 +375,22 @@ namespace OpenGL
 		/// [GL] glGetInfoLogARB: Binding for glGetInfoLogARB.
 		/// </summary>
 		/// <param name="obj">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="maxLength">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="length">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="infoLog">
 		/// A <see cref="T:StringBuilder"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void GetInfoLogARB(UInt32 obj, Int32 maxLength, out Int32 length, [Out] StringBuilder infoLog)
+		public static void GetInfoLogARB(uint obj, int maxLength, out int length, [Out] StringBuilder infoLog)
 		{
 			unsafe {
-				fixed (Int32* p_length = &length)
+				fixed (int* p_length = &length)
 				{
 					Debug.Assert(Delegates.pglGetInfoLogARB != null, "pglGetInfoLogARB not implemented");
 					Delegates.pglGetInfoLogARB(obj, maxLength, p_length, infoLog);
@@ -404,23 +404,23 @@ namespace OpenGL
 		/// [GL] glGetAttachedObjectsARB: Binding for glGetAttachedObjectsARB.
 		/// </summary>
 		/// <param name="containerObj">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="obj">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void GetAttachedObjectARB(UInt32 containerObj, out Int32 count, [Out] UInt32[] obj)
+		public static void GetAttachedObjectARB(uint containerObj, out int count, [Out] uint[] obj)
 		{
 			unsafe {
-				fixed (Int32* p_count = &count)
-				fixed (UInt32* p_obj = obj)
+				fixed (int* p_count = &count)
+				fixed (uint* p_obj = obj)
 				{
 					Debug.Assert(Delegates.pglGetAttachedObjectsARB != null, "pglGetAttachedObjectsARB not implemented");
-					Delegates.pglGetAttachedObjectsARB(containerObj, (Int32)obj.Length, p_count, p_obj);
+					Delegates.pglGetAttachedObjectsARB(containerObj, obj.Length, p_count, p_obj);
 					LogCommand("glGetAttachedObjectsARB", null, containerObj, obj.Length, count, obj					);
 				}
 			}
@@ -431,7 +431,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_ARB_shader_objects")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glDeleteObjectARB(UInt32 obj);
+			internal delegate void glDeleteObjectARB(uint obj);
 
 			[RequiredByFeature("GL_ARB_shader_objects")]
 			[ThreadStatic]
@@ -439,7 +439,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_shader_objects")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate UInt32 glGetHandleARB(Int32 pname);
+			internal delegate uint glGetHandleARB(int pname);
 
 			[RequiredByFeature("GL_ARB_shader_objects")]
 			[ThreadStatic]
@@ -447,7 +447,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_shader_objects")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetObjectParameterfvARB(UInt32 obj, Int32 pname, float* @params);
+			internal unsafe delegate void glGetObjectParameterfvARB(uint obj, int pname, float* @params);
 
 			[RequiredByFeature("GL_ARB_shader_objects")]
 			[ThreadStatic]
@@ -455,7 +455,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_shader_objects")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetObjectParameterivARB(UInt32 obj, Int32 pname, Int32* @params);
+			internal unsafe delegate void glGetObjectParameterivARB(uint obj, int pname, int* @params);
 
 			[RequiredByFeature("GL_ARB_shader_objects")]
 			[ThreadStatic]
@@ -463,7 +463,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_shader_objects")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetInfoLogARB(UInt32 obj, Int32 maxLength, Int32* length, [Out] StringBuilder infoLog);
+			internal unsafe delegate void glGetInfoLogARB(uint obj, int maxLength, int* length, [Out] StringBuilder infoLog);
 
 			[RequiredByFeature("GL_ARB_shader_objects")]
 			[ThreadStatic]
@@ -471,7 +471,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_shader_objects")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetAttachedObjectsARB(UInt32 containerObj, Int32 maxCount, Int32* count, UInt32* obj);
+			internal unsafe delegate void glGetAttachedObjectsARB(uint containerObj, int maxCount, int* count, uint* obj);
 
 			[RequiredByFeature("GL_ARB_shader_objects")]
 			[ThreadStatic]

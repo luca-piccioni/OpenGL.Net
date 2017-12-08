@@ -73,16 +73,16 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="attrib_list">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
-		public static IntPtr CreateGLXPbufferSGIX(IntPtr dpy, IntPtr config, UInt32 width, UInt32 height, int[] attrib_list)
+		public static IntPtr CreateGLXPbufferSGIX(IntPtr dpy, IntPtr config, uint width, uint height, int[] attrib_list)
 		{
 			IntPtr retValue;
 
@@ -130,15 +130,15 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
-		public static int QueryGLXPbufferSGIX(IntPtr dpy, IntPtr pbuf, int attribute, UInt32[] value)
+		public static int QueryGLXPbufferSGIX(IntPtr dpy, IntPtr pbuf, int attribute, uint[] value)
 		{
 			int retValue;
 
 			unsafe {
-				fixed (UInt32* p_value = value)
+				fixed (uint* p_value = value)
 				{
 					Debug.Assert(Delegates.pglXQueryGLXPbufferSGIX != null, "pglXQueryGLXPbufferSGIX not implemented");
 					retValue = Delegates.pglXQueryGLXPbufferSGIX(dpy, pbuf, attribute, p_value);
@@ -160,10 +160,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="mask">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
-		public static void SelectEventSGIX(IntPtr dpy, IntPtr drawable, UInt32 mask)
+		public static void SelectEventSGIX(IntPtr dpy, IntPtr drawable, uint mask)
 		{
 			Debug.Assert(Delegates.pglXSelectEventSGIX != null, "pglXSelectEventSGIX not implemented");
 			Delegates.pglXSelectEventSGIX(dpy, drawable, mask);
@@ -181,13 +181,13 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="mask">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GLX_SGIX_pbuffer")]
-		public static void GetSelectedEventSGIX(IntPtr dpy, IntPtr drawable, [Out] UInt32[] mask)
+		public static void GetSelectedEventSGIX(IntPtr dpy, IntPtr drawable, [Out] uint[] mask)
 		{
 			unsafe {
-				fixed (UInt32* p_mask = mask)
+				fixed (uint* p_mask = mask)
 				{
 					Debug.Assert(Delegates.pglXGetSelectedEventSGIX != null, "pglXGetSelectedEventSGIX not implemented");
 					Delegates.pglXGetSelectedEventSGIX(dpy, drawable, p_mask);
@@ -201,7 +201,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GLX_SGIX_pbuffer")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr glXCreateGLXPbufferSGIX(IntPtr dpy, IntPtr config, UInt32 width, UInt32 height, int* attrib_list);
+			internal unsafe delegate IntPtr glXCreateGLXPbufferSGIX(IntPtr dpy, IntPtr config, uint width, uint height, int* attrib_list);
 
 			[RequiredByFeature("GLX_SGIX_pbuffer")]
 			internal static glXCreateGLXPbufferSGIX pglXCreateGLXPbufferSGIX;
@@ -215,21 +215,21 @@ namespace OpenGL
 
 			[RequiredByFeature("GLX_SGIX_pbuffer")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate int glXQueryGLXPbufferSGIX(IntPtr dpy, IntPtr pbuf, int attribute, UInt32* value);
+			internal unsafe delegate int glXQueryGLXPbufferSGIX(IntPtr dpy, IntPtr pbuf, int attribute, uint* value);
 
 			[RequiredByFeature("GLX_SGIX_pbuffer")]
 			internal static glXQueryGLXPbufferSGIX pglXQueryGLXPbufferSGIX;
 
 			[RequiredByFeature("GLX_SGIX_pbuffer")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glXSelectEventSGIX(IntPtr dpy, IntPtr drawable, UInt32 mask);
+			internal unsafe delegate void glXSelectEventSGIX(IntPtr dpy, IntPtr drawable, uint mask);
 
 			[RequiredByFeature("GLX_SGIX_pbuffer")]
 			internal static glXSelectEventSGIX pglXSelectEventSGIX;
 
 			[RequiredByFeature("GLX_SGIX_pbuffer")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glXGetSelectedEventSGIX(IntPtr dpy, IntPtr drawable, UInt32* mask);
+			internal unsafe delegate void glXGetSelectedEventSGIX(IntPtr dpy, IntPtr drawable, uint* mask);
 
 			[RequiredByFeature("GLX_SGIX_pbuffer")]
 			internal static glXGetSelectedEventSGIX pglXGetSelectedEventSGIX;

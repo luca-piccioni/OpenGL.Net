@@ -89,16 +89,16 @@ namespace OpenGL
 		/// [GL] glTexBumpParameterivATI: Binding for glTexBumpParameterivATI.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="param">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_envmap_bumpmap")]
-		public static void TexBumpParameterATI(Int32 pname, Int32[] param)
+		public static void TexBumpParameterATI(int pname, int[] param)
 		{
 			unsafe {
-				fixed (Int32* p_param = param)
+				fixed (int* p_param = param)
 				{
 					Debug.Assert(Delegates.pglTexBumpParameterivATI != null, "pglTexBumpParameterivATI not implemented");
 					Delegates.pglTexBumpParameterivATI(pname, p_param);
@@ -112,13 +112,13 @@ namespace OpenGL
 		/// [GL] glTexBumpParameterfvATI: Binding for glTexBumpParameterfvATI.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_envmap_bumpmap")]
-		public static void TexBumpParameterATI(Int32 pname, float[] param)
+		public static void TexBumpParameterATI(int pname, float[] param)
 		{
 			unsafe {
 				fixed (float* p_param = param)
@@ -135,16 +135,16 @@ namespace OpenGL
 		/// [GL] glGetTexBumpParameterivATI: Binding for glGetTexBumpParameterivATI.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="param">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_envmap_bumpmap")]
-		public static void GetTexBumpParameterATI(Int32 pname, [Out] Int32[] param)
+		public static void GetTexBumpParameterATI(int pname, [Out] int[] param)
 		{
 			unsafe {
-				fixed (Int32* p_param = param)
+				fixed (int* p_param = param)
 				{
 					Debug.Assert(Delegates.pglGetTexBumpParameterivATI != null, "pglGetTexBumpParameterivATI not implemented");
 					Delegates.pglGetTexBumpParameterivATI(pname, p_param);
@@ -158,13 +158,13 @@ namespace OpenGL
 		/// [GL] glGetTexBumpParameterfvATI: Binding for glGetTexBumpParameterfvATI.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_envmap_bumpmap")]
-		public static void GetTexBumpParameterATI(Int32 pname, [Out] float[] param)
+		public static void GetTexBumpParameterATI(int pname, [Out] float[] param)
 		{
 			unsafe {
 				fixed (float* p_param = param)
@@ -181,7 +181,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_ATI_envmap_bumpmap")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexBumpParameterivATI(Int32 pname, Int32* param);
+			internal unsafe delegate void glTexBumpParameterivATI(int pname, int* param);
 
 			[RequiredByFeature("GL_ATI_envmap_bumpmap")]
 			[ThreadStatic]
@@ -189,7 +189,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ATI_envmap_bumpmap")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexBumpParameterfvATI(Int32 pname, float* param);
+			internal unsafe delegate void glTexBumpParameterfvATI(int pname, float* param);
 
 			[RequiredByFeature("GL_ATI_envmap_bumpmap")]
 			[ThreadStatic]
@@ -197,7 +197,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ATI_envmap_bumpmap")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetTexBumpParameterivATI(Int32 pname, Int32* param);
+			internal unsafe delegate void glGetTexBumpParameterivATI(int pname, int* param);
 
 			[RequiredByFeature("GL_ATI_envmap_bumpmap")]
 			[ThreadStatic]
@@ -205,7 +205,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ATI_envmap_bumpmap")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetTexBumpParameterfvATI(Int32 pname, float* param);
+			internal unsafe delegate void glGetTexBumpParameterfvATI(int pname, float* param);
 
 			[RequiredByFeature("GL_ATI_envmap_bumpmap")]
 			[ThreadStatic]

@@ -44,20 +44,20 @@ namespace OpenGL
 		/// A <see cref="T:BufferTarget"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="offset">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_transform_feedback")]
 		[RequiredByFeature("GL_NV_transform_feedback")]
-		public static void BindBufferOffsetEXT(BufferTarget target, UInt32 index, UInt32 buffer, IntPtr offset)
+		public static void BindBufferOffsetEXT(BufferTarget target, uint index, uint buffer, IntPtr offset)
 		{
 			Debug.Assert(Delegates.pglBindBufferOffsetEXT != null, "pglBindBufferOffsetEXT not implemented");
-			Delegates.pglBindBufferOffsetEXT((Int32)target, index, buffer, offset);
+			Delegates.pglBindBufferOffsetEXT((int)target, index, buffer, offset);
 			LogCommand("glBindBufferOffsetEXT", null, target, index, buffer, offset			);
 			DebugCheckErrors(null);
 		}
@@ -67,7 +67,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_transform_feedback")]
 			[RequiredByFeature("GL_NV_transform_feedback")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glBindBufferOffsetEXT(Int32 target, UInt32 index, UInt32 buffer, IntPtr offset);
+			internal unsafe delegate void glBindBufferOffsetEXT(int target, uint index, uint buffer, IntPtr offset);
 
 			[RequiredByFeature("GL_EXT_transform_feedback")]
 			[RequiredByFeature("GL_NV_transform_feedback", EntryPoint = "glBindBufferOffsetNV")]

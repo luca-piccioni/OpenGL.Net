@@ -54,22 +54,22 @@ namespace OpenGL
 		/// [GL] glLGPUNamedBufferSubDataNVX: Binding for glLGPUNamedBufferSubDataNVX.
 		/// </summary>
 		/// <param name="gpuMask">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="offset">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="size">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="data">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_NVX_linked_gpu_multicast")]
-		public static void LGPUNamedBufferSubDataNVX(UInt32 gpuMask, UInt32 buffer, IntPtr offset, UInt32 size, IntPtr data)
+		public static void LGPUNamedBufferSubDataNVX(uint gpuMask, uint buffer, IntPtr offset, uint size, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglLGPUNamedBufferSubDataNVX != null, "pglLGPUNamedBufferSubDataNVX not implemented");
 			Delegates.pglLGPUNamedBufferSubDataNVX(gpuMask, buffer, offset, size, data);
@@ -81,22 +81,22 @@ namespace OpenGL
 		/// [GL] glLGPUNamedBufferSubDataNVX: Binding for glLGPUNamedBufferSubDataNVX.
 		/// </summary>
 		/// <param name="gpuMask">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="offset">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="size">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="data">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_NVX_linked_gpu_multicast")]
-		public static void LGPUNamedBufferSubDataNVX(UInt32 gpuMask, UInt32 buffer, IntPtr offset, UInt32 size, Object data)
+		public static void LGPUNamedBufferSubDataNVX(uint gpuMask, uint buffer, IntPtr offset, uint size, Object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -110,58 +110,58 @@ namespace OpenGL
 		/// [GL] glLGPUCopyImageSubDataNVX: Binding for glLGPUCopyImageSubDataNVX.
 		/// </summary>
 		/// <param name="sourceGpu">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="destinationGpuMask">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="srcName">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="srcTarget">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="srcLevel">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="srcX">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="srxY">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="srcZ">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="dstName">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="dstTarget">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="dstLevel">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="dstX">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="dstY">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="dstZ">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="width">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="height">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="depth">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_NVX_linked_gpu_multicast")]
-		public static void LGPUCopyImageSubDataNVX(UInt32 sourceGpu, UInt32 destinationGpuMask, UInt32 srcName, Int32 srcTarget, Int32 srcLevel, Int32 srcX, Int32 srxY, Int32 srcZ, UInt32 dstName, Int32 dstTarget, Int32 dstLevel, Int32 dstX, Int32 dstY, Int32 dstZ, Int32 width, Int32 height, Int32 depth)
+		public static void LGPUCopyImageSubDataNVX(uint sourceGpu, uint destinationGpuMask, uint srcName, int srcTarget, int srcLevel, int srcX, int srxY, int srcZ, uint dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int width, int height, int depth)
 		{
 			Debug.Assert(Delegates.pglLGPUCopyImageSubDataNVX != null, "pglLGPUCopyImageSubDataNVX not implemented");
 			Delegates.pglLGPUCopyImageSubDataNVX(sourceGpu, destinationGpuMask, srcName, srcTarget, srcLevel, srcX, srxY, srcZ, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, width, height, depth);
@@ -185,7 +185,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_NVX_linked_gpu_multicast")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glLGPUNamedBufferSubDataNVX(UInt32 gpuMask, UInt32 buffer, IntPtr offset, UInt32 size, IntPtr data);
+			internal unsafe delegate void glLGPUNamedBufferSubDataNVX(uint gpuMask, uint buffer, IntPtr offset, uint size, IntPtr data);
 
 			[RequiredByFeature("GL_NVX_linked_gpu_multicast")]
 			[ThreadStatic]
@@ -193,7 +193,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NVX_linked_gpu_multicast")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glLGPUCopyImageSubDataNVX(UInt32 sourceGpu, UInt32 destinationGpuMask, UInt32 srcName, Int32 srcTarget, Int32 srcLevel, Int32 srcX, Int32 srxY, Int32 srcZ, UInt32 dstName, Int32 dstTarget, Int32 dstLevel, Int32 dstX, Int32 dstY, Int32 dstZ, Int32 width, Int32 height, Int32 depth);
+			internal delegate void glLGPUCopyImageSubDataNVX(uint sourceGpu, uint destinationGpuMask, uint srcName, int srcTarget, int srcLevel, int srcX, int srxY, int srcZ, uint dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int width, int height, int depth);
 
 			[RequiredByFeature("GL_NVX_linked_gpu_multicast")]
 			[ThreadStatic]

@@ -93,7 +93,7 @@ namespace OpenGL
 		/// Specifies a pointer to the point size of the first vertex in the array. The initial value is Gl..
 		/// </param>
 		[RequiredByFeature("GL_OES_point_size_array", Api = "gles1")]
-		public static void PointSizePointerOES(Int32 type, Int32 stride, IntPtr pointer)
+		public static void PointSizePointerOES(int type, int stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglPointSizePointerOES != null, "pglPointSizePointerOES not implemented");
 			Delegates.pglPointSizePointerOES(type, stride, pointer);
@@ -117,7 +117,7 @@ namespace OpenGL
 		/// Specifies a pointer to the point size of the first vertex in the array. The initial value is Gl..
 		/// </param>
 		[RequiredByFeature("GL_OES_point_size_array", Api = "gles1")]
-		public static void PointSizePointerOES(Int32 type, Int32 stride, Object pointer)
+		public static void PointSizePointerOES(int type, int stride, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -131,7 +131,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_OES_point_size_array", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glPointSizePointerOES(Int32 type, Int32 stride, IntPtr pointer);
+			internal unsafe delegate void glPointSizePointerOES(int type, int stride, IntPtr pointer);
 
 			[RequiredByFeature("GL_OES_point_size_array", Api = "gles1")]
 			[ThreadStatic]

@@ -59,19 +59,19 @@ namespace OpenGL
 		/// [GL] glGenNamesAMD: Binding for glGenNamesAMD.
 		/// </summary>
 		/// <param name="identifier">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="names">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_name_gen_delete")]
-		public static void GenNameAMD(Int32 identifier, UInt32[] names)
+		public static void GenNameAMD(int identifier, uint[] names)
 		{
 			unsafe {
-				fixed (UInt32* p_names = names)
+				fixed (uint* p_names = names)
 				{
 					Debug.Assert(Delegates.pglGenNamesAMD != null, "pglGenNamesAMD not implemented");
-					Delegates.pglGenNamesAMD(identifier, (UInt32)names.Length, p_names);
+					Delegates.pglGenNamesAMD(identifier, (uint)names.Length, p_names);
 					LogCommand("glGenNamesAMD", null, identifier, names.Length, names					);
 				}
 			}
@@ -82,12 +82,12 @@ namespace OpenGL
 		/// [GL] glGenNamesAMD: Binding for glGenNamesAMD.
 		/// </summary>
 		/// <param name="identifier">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_name_gen_delete")]
-		public static UInt32 GenNameAMD(Int32 identifier)
+		public static uint GenNameAMD(int identifier)
 		{
-			UInt32 retValue;
+			uint retValue;
 			unsafe {
 				Delegates.pglGenNamesAMD(identifier, 1, &retValue);
 				LogCommand("glGenNamesAMD", null, identifier, 1, "{ " + retValue + " }"				);
@@ -100,19 +100,19 @@ namespace OpenGL
 		/// [GL] glDeleteNamesAMD: Binding for glDeleteNamesAMD.
 		/// </summary>
 		/// <param name="identifier">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="names">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_name_gen_delete")]
-		public static void DeleteNameAMD(Int32 identifier, UInt32[] names)
+		public static void DeleteNameAMD(int identifier, uint[] names)
 		{
 			unsafe {
-				fixed (UInt32* p_names = names)
+				fixed (uint* p_names = names)
 				{
 					Debug.Assert(Delegates.pglDeleteNamesAMD != null, "pglDeleteNamesAMD not implemented");
-					Delegates.pglDeleteNamesAMD(identifier, (UInt32)names.Length, p_names);
+					Delegates.pglDeleteNamesAMD(identifier, (uint)names.Length, p_names);
 					LogCommand("glDeleteNamesAMD", null, identifier, names.Length, names					);
 				}
 			}
@@ -123,13 +123,13 @@ namespace OpenGL
 		/// [GL] glIsNameAMD: Binding for glIsNameAMD.
 		/// </summary>
 		/// <param name="identifier">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="name">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_name_gen_delete")]
-		public static bool IsNameAMD(Int32 identifier, UInt32 name)
+		public static bool IsNameAMD(int identifier, uint name)
 		{
 			bool retValue;
 
@@ -145,7 +145,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_AMD_name_gen_delete")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGenNamesAMD(Int32 identifier, UInt32 num, UInt32* names);
+			internal unsafe delegate void glGenNamesAMD(int identifier, uint num, uint* names);
 
 			[RequiredByFeature("GL_AMD_name_gen_delete")]
 			[ThreadStatic]
@@ -153,7 +153,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_AMD_name_gen_delete")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDeleteNamesAMD(Int32 identifier, UInt32 num, UInt32* names);
+			internal unsafe delegate void glDeleteNamesAMD(int identifier, uint num, uint* names);
 
 			[RequiredByFeature("GL_AMD_name_gen_delete")]
 			[ThreadStatic]
@@ -162,7 +162,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_AMD_name_gen_delete")]
 			[SuppressUnmanagedCodeSecurity()]
 			[return: MarshalAs(UnmanagedType.I1)]
-			internal delegate bool glIsNameAMD(Int32 identifier, UInt32 name);
+			internal delegate bool glIsNameAMD(int identifier, uint name);
 
 			[RequiredByFeature("GL_AMD_name_gen_delete")]
 			[ThreadStatic]

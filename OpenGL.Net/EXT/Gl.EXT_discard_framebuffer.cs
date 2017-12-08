@@ -41,19 +41,19 @@ namespace OpenGL
 		/// [GL] glDiscardFramebufferEXT: Binding for glDiscardFramebufferEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="attachments">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_discard_framebuffer", Api = "gles1|gles2")]
-		public static void DiscardFramebufferEXT(Int32 target, Int32[] attachments)
+		public static void DiscardFramebufferEXT(int target, int[] attachments)
 		{
 			unsafe {
-				fixed (Int32* p_attachments = attachments)
+				fixed (int* p_attachments = attachments)
 				{
 					Debug.Assert(Delegates.pglDiscardFramebufferEXT != null, "pglDiscardFramebufferEXT not implemented");
-					Delegates.pglDiscardFramebufferEXT(target, (Int32)attachments.Length, p_attachments);
+					Delegates.pglDiscardFramebufferEXT(target, attachments.Length, p_attachments);
 					LogCommand("glDiscardFramebufferEXT", null, target, attachments.Length, attachments					);
 				}
 			}
@@ -64,7 +64,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_EXT_discard_framebuffer", Api = "gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDiscardFramebufferEXT(Int32 target, Int32 numAttachments, Int32* attachments);
+			internal unsafe delegate void glDiscardFramebufferEXT(int target, int numAttachments, int* attachments);
 
 			[RequiredByFeature("GL_EXT_discard_framebuffer", Api = "gles1|gles2")]
 			[ThreadStatic]

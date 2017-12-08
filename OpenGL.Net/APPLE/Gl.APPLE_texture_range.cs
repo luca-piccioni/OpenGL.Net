@@ -65,16 +65,16 @@ namespace OpenGL
 		/// [GL] glTextureRangeAPPLE: Binding for glTextureRangeAPPLE.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="length">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_APPLE_texture_range")]
-		public static void TextureRangeAPPLE(Int32 target, Int32 length, IntPtr pointer)
+		public static void TextureRangeAPPLE(int target, int length, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglTextureRangeAPPLE != null, "pglTextureRangeAPPLE not implemented");
 			Delegates.pglTextureRangeAPPLE(target, length, pointer);
@@ -86,16 +86,16 @@ namespace OpenGL
 		/// [GL] glTextureRangeAPPLE: Binding for glTextureRangeAPPLE.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="length">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pointer">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_APPLE_texture_range")]
-		public static void TextureRangeAPPLE(Int32 target, Int32 length, Object pointer)
+		public static void TextureRangeAPPLE(int target, int length, Object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -109,16 +109,16 @@ namespace OpenGL
 		/// [GL] glGetTexParameterPointervAPPLE: Binding for glGetTexParameterPointervAPPLE.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_APPLE_texture_range")]
-		public static void GetTexParameterPointerAPPLE(Int32 target, Int32 pname, out IntPtr @params)
+		public static void GetTexParameterPointerAPPLE(int target, int pname, out IntPtr @params)
 		{
 			unsafe {
 				fixed (IntPtr* p_params = &@params)
@@ -135,16 +135,16 @@ namespace OpenGL
 		/// [GL] glGetTexParameterPointervAPPLE: Binding for glGetTexParameterPointervAPPLE.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:Object"/>.
 		/// </param>
 		[RequiredByFeature("GL_APPLE_texture_range")]
-		public static void GetTexParameterPointerAPPLE(Int32 target, Int32 pname, Object @params)
+		public static void GetTexParameterPointerAPPLE(int target, int pname, Object @params)
 		{
 			GCHandle pin_params = GCHandle.Alloc(@params, GCHandleType.Pinned);
 			try {
@@ -158,7 +158,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_APPLE_texture_range")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTextureRangeAPPLE(Int32 target, Int32 length, IntPtr pointer);
+			internal unsafe delegate void glTextureRangeAPPLE(int target, int length, IntPtr pointer);
 
 			[RequiredByFeature("GL_APPLE_texture_range")]
 			[ThreadStatic]
@@ -166,7 +166,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_APPLE_texture_range")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetTexParameterPointervAPPLE(Int32 target, Int32 pname, IntPtr* @params);
+			internal unsafe delegate void glGetTexParameterPointervAPPLE(int target, int pname, IntPtr* @params);
 
 			[RequiredByFeature("GL_APPLE_texture_range")]
 			[ThreadStatic]

@@ -68,13 +68,13 @@ namespace OpenGL
 		/// A <see cref="T:StencilFaceDirection"/>.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_stencil_operation_extended")]
-		public static void StencilOpAMD(StencilFaceDirection face, UInt32 value)
+		public static void StencilOpAMD(StencilFaceDirection face, uint value)
 		{
 			Debug.Assert(Delegates.pglStencilOpValueAMD != null, "pglStencilOpValueAMD not implemented");
-			Delegates.pglStencilOpValueAMD((Int32)face, value);
+			Delegates.pglStencilOpValueAMD((int)face, value);
 			LogCommand("glStencilOpValueAMD", null, face, value			);
 			DebugCheckErrors(null);
 		}
@@ -83,7 +83,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_AMD_stencil_operation_extended")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glStencilOpValueAMD(Int32 face, UInt32 value);
+			internal delegate void glStencilOpValueAMD(int face, uint value);
 
 			[RequiredByFeature("GL_AMD_stencil_operation_extended")]
 			[ThreadStatic]

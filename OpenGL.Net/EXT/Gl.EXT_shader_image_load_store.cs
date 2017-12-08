@@ -41,19 +41,19 @@ namespace OpenGL
 		/// [GL] glBindImageTextureEXT: Binding for glBindImageTextureEXT.
 		/// </summary>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="layered">
 		/// A <see cref="T:bool"/>.
 		/// </param>
 		/// <param name="layer">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="access">
 		/// A <see cref="T:BufferAccess"/>.
@@ -62,10 +62,10 @@ namespace OpenGL
 		/// A <see cref="T:InternalFormat"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_shader_image_load_store")]
-		public static void BindImageTextureEXT(UInt32 index, UInt32 texture, Int32 level, bool layered, Int32 layer, BufferAccess access, InternalFormat format)
+		public static void BindImageTextureEXT(uint index, uint texture, int level, bool layered, int layer, BufferAccess access, InternalFormat format)
 		{
 			Debug.Assert(Delegates.pglBindImageTextureEXT != null, "pglBindImageTextureEXT not implemented");
-			Delegates.pglBindImageTextureEXT(index, texture, level, layered, layer, (Int32)access, (Int32)format);
+			Delegates.pglBindImageTextureEXT(index, texture, level, layered, layer, (int)access, (int)format);
 			LogCommand("glBindImageTextureEXT", null, index, texture, level, layered, layer, access, format			);
 			DebugCheckErrors(null);
 		}
@@ -74,7 +74,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_EXT_shader_image_load_store")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glBindImageTextureEXT(UInt32 index, UInt32 texture, Int32 level, [MarshalAs(UnmanagedType.I1)] bool layered, Int32 layer, Int32 access, Int32 format);
+			internal delegate void glBindImageTextureEXT(uint index, uint texture, int level, [MarshalAs(UnmanagedType.I1)] bool layered, int layer, int access, int format);
 
 			[RequiredByFeature("GL_EXT_shader_image_load_store")]
 			[ThreadStatic]

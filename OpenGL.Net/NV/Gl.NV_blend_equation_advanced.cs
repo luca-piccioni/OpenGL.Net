@@ -221,13 +221,13 @@ namespace OpenGL
 		/// [GL] glBlendParameteriNV: Binding for glBlendParameteriNV.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
-		public static void BlendParameterNV(Int32 pname, Int32 value)
+		public static void BlendParameterNV(int pname, int value)
 		{
 			Debug.Assert(Delegates.pglBlendParameteriNV != null, "pglBlendParameteriNV not implemented");
 			Delegates.pglBlendParameteriNV(pname, value);
@@ -239,7 +239,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glBlendParameteriNV(Int32 pname, Int32 value);
+			internal delegate void glBlendParameteriNV(int pname, int value);
 
 			[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
 			[ThreadStatic]

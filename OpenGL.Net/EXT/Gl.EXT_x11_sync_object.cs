@@ -47,18 +47,18 @@ namespace OpenGL
 		/// [GL] glImportSyncEXT: Binding for glImportSyncEXT.
 		/// </summary>
 		/// <param name="external_sync_type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="external_sync">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="flags">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_x11_sync_object")]
-		public static Int32 ImportSyncEXT(Int32 external_sync_type, IntPtr external_sync, UInt32 flags)
+		public static int ImportSyncEXT(int external_sync_type, IntPtr external_sync, uint flags)
 		{
-			Int32 retValue;
+			int retValue;
 
 			Debug.Assert(Delegates.pglImportSyncEXT != null, "pglImportSyncEXT not implemented");
 			retValue = Delegates.pglImportSyncEXT(external_sync_type, external_sync, flags);
@@ -72,7 +72,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_EXT_x11_sync_object")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Int32 glImportSyncEXT(Int32 external_sync_type, IntPtr external_sync, UInt32 flags);
+			internal unsafe delegate int glImportSyncEXT(int external_sync_type, IntPtr external_sync, uint flags);
 
 			[RequiredByFeature("GL_EXT_x11_sync_object")]
 			[ThreadStatic]

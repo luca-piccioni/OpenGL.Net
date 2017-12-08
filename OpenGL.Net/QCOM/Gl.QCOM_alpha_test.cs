@@ -41,13 +41,13 @@ namespace OpenGL
 		/// [GL] glAlphaFuncQCOM: Binding for glAlphaFuncQCOM.
 		/// </summary>
 		/// <param name="func">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="ref">
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_QCOM_alpha_test", Api = "gles2")]
-		public static void AlphaFuncQCOM(Int32 func, float @ref)
+		public static void AlphaFuncQCOM(int func, float @ref)
 		{
 			Debug.Assert(Delegates.pglAlphaFuncQCOM != null, "pglAlphaFuncQCOM not implemented");
 			Delegates.pglAlphaFuncQCOM(func, @ref);
@@ -59,7 +59,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_QCOM_alpha_test", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glAlphaFuncQCOM(Int32 func, float @ref);
+			internal delegate void glAlphaFuncQCOM(int func, float @ref);
 
 			[RequiredByFeature("GL_QCOM_alpha_test", Api = "gles2")]
 			[ThreadStatic]

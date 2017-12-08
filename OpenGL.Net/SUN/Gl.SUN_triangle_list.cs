@@ -143,10 +143,10 @@ namespace OpenGL
 		/// [GL] glReplacementCodeuiSUN: Binding for glReplacementCodeuiSUN.
 		/// </summary>
 		/// <param name="code">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_SUN_triangle_list")]
-		public static void ReplacementCodeuiSUN(UInt32 code)
+		public static void ReplacementCodeuiSUN(uint code)
 		{
 			Debug.Assert(Delegates.pglReplacementCodeuiSUN != null, "pglReplacementCodeuiSUN not implemented");
 			Delegates.pglReplacementCodeuiSUN(code);
@@ -158,10 +158,10 @@ namespace OpenGL
 		/// [GL] glReplacementCodeusSUN: Binding for glReplacementCodeusSUN.
 		/// </summary>
 		/// <param name="code">
-		/// A <see cref="T:UInt16"/>.
+		/// A <see cref="T:ushort"/>.
 		/// </param>
 		[RequiredByFeature("GL_SUN_triangle_list")]
-		public static void ReplacementCodeusSUN(UInt16 code)
+		public static void ReplacementCodeusSUN(ushort code)
 		{
 			Debug.Assert(Delegates.pglReplacementCodeusSUN != null, "pglReplacementCodeusSUN not implemented");
 			Delegates.pglReplacementCodeusSUN(code);
@@ -188,13 +188,13 @@ namespace OpenGL
 		/// [GL] glReplacementCodeuivSUN: Binding for glReplacementCodeuivSUN.
 		/// </summary>
 		/// <param name="code">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_SUN_triangle_list")]
-		public static void ReplacementCodeuiSUN(UInt32[] code)
+		public static void ReplacementCodeuiSUN(uint[] code)
 		{
 			unsafe {
-				fixed (UInt32* p_code = code)
+				fixed (uint* p_code = code)
 				{
 					Debug.Assert(Delegates.pglReplacementCodeuivSUN != null, "pglReplacementCodeuivSUN not implemented");
 					Delegates.pglReplacementCodeuivSUN(p_code);
@@ -208,13 +208,13 @@ namespace OpenGL
 		/// [GL] glReplacementCodeusvSUN: Binding for glReplacementCodeusvSUN.
 		/// </summary>
 		/// <param name="code">
-		/// A <see cref="T:UInt16[]"/>.
+		/// A <see cref="T:ushort[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_SUN_triangle_list")]
-		public static void ReplacementCodeusSUN(UInt16[] code)
+		public static void ReplacementCodeusSUN(ushort[] code)
 		{
 			unsafe {
-				fixed (UInt16* p_code = code)
+				fixed (ushort* p_code = code)
 				{
 					Debug.Assert(Delegates.pglReplacementCodeusvSUN != null, "pglReplacementCodeusvSUN not implemented");
 					Delegates.pglReplacementCodeusvSUN(p_code);
@@ -248,16 +248,16 @@ namespace OpenGL
 		/// [GL] glReplacementCodePointerSUN: Binding for glReplacementCodePointerSUN.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_SUN_triangle_list")]
-		public static void ReplacementCodePointerSUN(Int32 type, Int32 stride, IntPtr[] pointer)
+		public static void ReplacementCodePointerSUN(int type, int stride, IntPtr[] pointer)
 		{
 			unsafe {
 				fixed (IntPtr* p_pointer = pointer)
@@ -274,7 +274,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_SUN_triangle_list")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glReplacementCodeuiSUN(UInt32 code);
+			internal delegate void glReplacementCodeuiSUN(uint code);
 
 			[RequiredByFeature("GL_SUN_triangle_list")]
 			[ThreadStatic]
@@ -282,7 +282,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SUN_triangle_list")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glReplacementCodeusSUN(UInt16 code);
+			internal delegate void glReplacementCodeusSUN(ushort code);
 
 			[RequiredByFeature("GL_SUN_triangle_list")]
 			[ThreadStatic]
@@ -298,7 +298,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SUN_triangle_list")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glReplacementCodeuivSUN(UInt32* code);
+			internal unsafe delegate void glReplacementCodeuivSUN(uint* code);
 
 			[RequiredByFeature("GL_SUN_triangle_list")]
 			[ThreadStatic]
@@ -306,7 +306,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SUN_triangle_list")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glReplacementCodeusvSUN(UInt16* code);
+			internal unsafe delegate void glReplacementCodeusvSUN(ushort* code);
 
 			[RequiredByFeature("GL_SUN_triangle_list")]
 			[ThreadStatic]
@@ -322,7 +322,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SUN_triangle_list")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glReplacementCodePointerSUN(Int32 type, Int32 stride, IntPtr* pointer);
+			internal unsafe delegate void glReplacementCodePointerSUN(int type, int stride, IntPtr* pointer);
 
 			[RequiredByFeature("GL_SUN_triangle_list")]
 			[ThreadStatic]

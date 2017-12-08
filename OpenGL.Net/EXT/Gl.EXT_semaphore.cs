@@ -124,7 +124,7 @@ namespace OpenGL
 				fixed (byte* p_data = data)
 				{
 					Debug.Assert(Delegates.pglGetUnsignedBytevEXT != null, "pglGetUnsignedBytevEXT not implemented");
-					Delegates.pglGetUnsignedBytevEXT((Int32)pname, p_data);
+					Delegates.pglGetUnsignedBytevEXT((int)pname, p_data);
 					LogCommand("glGetUnsignedBytevEXT", null, pname, data					);
 				}
 			}
@@ -135,17 +135,17 @@ namespace OpenGL
 		/// [GL] glGetUnsignedBytei_vEXT: Binding for glGetUnsignedBytei_vEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="data">
 		/// A <see cref="T:byte[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 		[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
-		public static void GetUnsignedBytei_vEXT(Int32 target, UInt32 index, [Out] byte[] data)
+		public static void GetUnsignedBytei_vEXT(int target, uint index, [Out] byte[] data)
 		{
 			unsafe {
 				fixed (byte* p_data = data)
@@ -162,16 +162,16 @@ namespace OpenGL
 		/// [GL] glGenSemaphoresEXT: Binding for glGenSemaphoresEXT.
 		/// </summary>
 		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="semaphores">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
-		public static void GenSemaphoreEXT(Int32 n, UInt32[] semaphores)
+		public static void GenSemaphoreEXT(int n, uint[] semaphores)
 		{
 			unsafe {
-				fixed (UInt32* p_semaphores = semaphores)
+				fixed (uint* p_semaphores = semaphores)
 				{
 					Debug.Assert(Delegates.pglGenSemaphoresEXT != null, "pglGenSemaphoresEXT not implemented");
 					Delegates.pglGenSemaphoresEXT(n, p_semaphores);
@@ -185,16 +185,16 @@ namespace OpenGL
 		/// [GL] glDeleteSemaphoresEXT: Binding for glDeleteSemaphoresEXT.
 		/// </summary>
 		/// <param name="n">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="semaphores">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
-		public static void DeleteSemaphoreEXT(Int32 n, UInt32[] semaphores)
+		public static void DeleteSemaphoreEXT(int n, uint[] semaphores)
 		{
 			unsafe {
-				fixed (UInt32* p_semaphores = semaphores)
+				fixed (uint* p_semaphores = semaphores)
 				{
 					Debug.Assert(Delegates.pglDeleteSemaphoresEXT != null, "pglDeleteSemaphoresEXT not implemented");
 					Delegates.pglDeleteSemaphoresEXT(n, p_semaphores);
@@ -208,10 +208,10 @@ namespace OpenGL
 		/// [GL] glIsSemaphoreEXT: Binding for glIsSemaphoreEXT.
 		/// </summary>
 		/// <param name="semaphore">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
-		public static bool IsSemaphoreEXT(UInt32 semaphore)
+		public static bool IsSemaphoreEXT(uint semaphore)
 		{
 			bool retValue;
 
@@ -227,22 +227,22 @@ namespace OpenGL
 		/// [GL] glSemaphoreParameterui64vEXT: Binding for glSemaphoreParameterui64vEXT.
 		/// </summary>
 		/// <param name="semaphore">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:SemaphoreParameterName"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:UInt64[]"/>.
+		/// A <see cref="T:ulong[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
-		public static void SemaphoreParameterEXT(UInt32 semaphore, SemaphoreParameterName pname, UInt64[] @params)
+		public static void SemaphoreParameterEXT(uint semaphore, SemaphoreParameterName pname, ulong[] @params)
 		{
 			unsafe {
-				fixed (UInt64* p_params = @params)
+				fixed (ulong* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglSemaphoreParameterui64vEXT != null, "pglSemaphoreParameterui64vEXT not implemented");
-					Delegates.pglSemaphoreParameterui64vEXT(semaphore, (Int32)pname, p_params);
+					Delegates.pglSemaphoreParameterui64vEXT(semaphore, (int)pname, p_params);
 					LogCommand("glSemaphoreParameterui64vEXT", null, semaphore, pname, @params					);
 				}
 			}
@@ -253,22 +253,22 @@ namespace OpenGL
 		/// [GL] glGetSemaphoreParameterui64vEXT: Binding for glGetSemaphoreParameterui64vEXT.
 		/// </summary>
 		/// <param name="semaphore">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:SemaphoreParameterName"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:UInt64[]"/>.
+		/// A <see cref="T:ulong[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
-		public static void GetSemaphoreParameterEXT(UInt32 semaphore, SemaphoreParameterName pname, [Out] UInt64[] @params)
+		public static void GetSemaphoreParameterEXT(uint semaphore, SemaphoreParameterName pname, [Out] ulong[] @params)
 		{
 			unsafe {
-				fixed (UInt64* p_params = @params)
+				fixed (ulong* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetSemaphoreParameterui64vEXT != null, "pglGetSemaphoreParameterui64vEXT not implemented");
-					Delegates.pglGetSemaphoreParameterui64vEXT(semaphore, (Int32)pname, p_params);
+					Delegates.pglGetSemaphoreParameterui64vEXT(semaphore, (int)pname, p_params);
 					LogCommand("glGetSemaphoreParameterui64vEXT", null, semaphore, pname, @params					);
 				}
 			}
@@ -279,30 +279,30 @@ namespace OpenGL
 		/// [GL] glWaitSemaphoreEXT: Binding for glWaitSemaphoreEXT.
 		/// </summary>
 		/// <param name="semaphore">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="numBufferBarriers">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="buffers">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		/// <param name="numTextureBarriers">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="textures">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		/// <param name="srcLayouts">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
-		public static void WaitSemaphoreEXT(UInt32 semaphore, UInt32 numBufferBarriers, UInt32[] buffers, UInt32 numTextureBarriers, UInt32[] textures, Int32[] srcLayouts)
+		public static void WaitSemaphoreEXT(uint semaphore, uint numBufferBarriers, uint[] buffers, uint numTextureBarriers, uint[] textures, int[] srcLayouts)
 		{
 			unsafe {
-				fixed (UInt32* p_buffers = buffers)
-				fixed (UInt32* p_textures = textures)
-				fixed (Int32* p_srcLayouts = srcLayouts)
+				fixed (uint* p_buffers = buffers)
+				fixed (uint* p_textures = textures)
+				fixed (int* p_srcLayouts = srcLayouts)
 				{
 					Debug.Assert(Delegates.pglWaitSemaphoreEXT != null, "pglWaitSemaphoreEXT not implemented");
 					Delegates.pglWaitSemaphoreEXT(semaphore, numBufferBarriers, p_buffers, numTextureBarriers, p_textures, p_srcLayouts);
@@ -316,30 +316,30 @@ namespace OpenGL
 		/// [GL] glSignalSemaphoreEXT: Binding for glSignalSemaphoreEXT.
 		/// </summary>
 		/// <param name="semaphore">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="numBufferBarriers">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="buffers">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		/// <param name="numTextureBarriers">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="textures">
-		/// A <see cref="T:UInt32[]"/>.
+		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		/// <param name="dstLayouts">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
-		public static void SignalSemaphoreEXT(UInt32 semaphore, UInt32 numBufferBarriers, UInt32[] buffers, UInt32 numTextureBarriers, UInt32[] textures, Int32[] dstLayouts)
+		public static void SignalSemaphoreEXT(uint semaphore, uint numBufferBarriers, uint[] buffers, uint numTextureBarriers, uint[] textures, int[] dstLayouts)
 		{
 			unsafe {
-				fixed (UInt32* p_buffers = buffers)
-				fixed (UInt32* p_textures = textures)
-				fixed (Int32* p_dstLayouts = dstLayouts)
+				fixed (uint* p_buffers = buffers)
+				fixed (uint* p_textures = textures)
+				fixed (int* p_dstLayouts = dstLayouts)
 				{
 					Debug.Assert(Delegates.pglSignalSemaphoreEXT != null, "pglSignalSemaphoreEXT not implemented");
 					Delegates.pglSignalSemaphoreEXT(semaphore, numBufferBarriers, p_buffers, numTextureBarriers, p_textures, p_dstLayouts);
@@ -354,7 +354,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetUnsignedBytevEXT(Int32 pname, byte* data);
+			internal unsafe delegate void glGetUnsignedBytevEXT(int pname, byte* data);
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
@@ -364,7 +364,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetUnsignedBytei_vEXT(Int32 target, UInt32 index, byte* data);
+			internal unsafe delegate void glGetUnsignedBytei_vEXT(int target, uint index, byte* data);
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
@@ -373,7 +373,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGenSemaphoresEXT(Int32 n, UInt32* semaphores);
+			internal unsafe delegate void glGenSemaphoresEXT(int n, uint* semaphores);
 
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
 			[ThreadStatic]
@@ -381,7 +381,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDeleteSemaphoresEXT(Int32 n, UInt32* semaphores);
+			internal unsafe delegate void glDeleteSemaphoresEXT(int n, uint* semaphores);
 
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
 			[ThreadStatic]
@@ -390,7 +390,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			[return: MarshalAs(UnmanagedType.I1)]
-			internal delegate bool glIsSemaphoreEXT(UInt32 semaphore);
+			internal delegate bool glIsSemaphoreEXT(uint semaphore);
 
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
 			[ThreadStatic]
@@ -398,7 +398,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glSemaphoreParameterui64vEXT(UInt32 semaphore, Int32 pname, UInt64* @params);
+			internal unsafe delegate void glSemaphoreParameterui64vEXT(uint semaphore, int pname, ulong* @params);
 
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
 			[ThreadStatic]
@@ -406,7 +406,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetSemaphoreParameterui64vEXT(UInt32 semaphore, Int32 pname, UInt64* @params);
+			internal unsafe delegate void glGetSemaphoreParameterui64vEXT(uint semaphore, int pname, ulong* @params);
 
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
 			[ThreadStatic]
@@ -414,7 +414,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glWaitSemaphoreEXT(UInt32 semaphore, UInt32 numBufferBarriers, UInt32* buffers, UInt32 numTextureBarriers, UInt32* textures, Int32* srcLayouts);
+			internal unsafe delegate void glWaitSemaphoreEXT(uint semaphore, uint numBufferBarriers, uint* buffers, uint numTextureBarriers, uint* textures, int* srcLayouts);
 
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
 			[ThreadStatic]
@@ -422,7 +422,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glSignalSemaphoreEXT(UInt32 semaphore, UInt32 numBufferBarriers, UInt32* buffers, UInt32 numTextureBarriers, UInt32* textures, Int32* dstLayouts);
+			internal unsafe delegate void glSignalSemaphoreEXT(uint semaphore, uint numBufferBarriers, uint* buffers, uint numTextureBarriers, uint* textures, int* dstLayouts);
 
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
 			[ThreadStatic]

@@ -95,7 +95,7 @@ namespace OpenGL
 			switch (errorCode) {
 
 				default:
-					return (String.Format("unknown error code 0x{0}", errorCode.ToString("X8")));
+					return (String.Format("unknown error code 0x{0:X8}", errorCode));
 				case Gl.NO_ERROR:
 					return ("no error");
 

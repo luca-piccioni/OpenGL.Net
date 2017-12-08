@@ -41,16 +41,16 @@ namespace OpenGL
 		/// [GL] glDrawBuffersNV: Binding for glDrawBuffersNV.
 		/// </summary>
 		/// <param name="bufs">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_draw_buffers", Api = "gles2")]
-		public static void DrawBuffersNV(Int32[] bufs)
+		public static void DrawBuffersNV(int[] bufs)
 		{
 			unsafe {
-				fixed (Int32* p_bufs = bufs)
+				fixed (int* p_bufs = bufs)
 				{
 					Debug.Assert(Delegates.pglDrawBuffersNV != null, "pglDrawBuffersNV not implemented");
-					Delegates.pglDrawBuffersNV((Int32)bufs.Length, p_bufs);
+					Delegates.pglDrawBuffersNV(bufs.Length, p_bufs);
 					LogCommand("glDrawBuffersNV", null, bufs.Length, bufs					);
 				}
 			}
@@ -61,7 +61,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_NV_draw_buffers", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDrawBuffersNV(Int32 n, Int32* bufs);
+			internal unsafe delegate void glDrawBuffersNV(int n, int* bufs);
 
 			[RequiredByFeature("GL_NV_draw_buffers", Api = "gles2")]
 			[ThreadStatic]

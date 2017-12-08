@@ -91,7 +91,7 @@ namespace OpenGL
 		/// <summary>
 		/// Delegate executing a memory set operation.
 		/// </summary>
-		private static Action<IntPtr, byte, uint> _MemsetDelegate = GenerateMemsetDelegate();
+		private static readonly Action<IntPtr, byte, uint> _MemsetDelegate = GenerateMemsetDelegate();
 
 		#endregion
 
@@ -118,7 +118,7 @@ namespace OpenGL
 		/// <param name="dst"></param>
 		/// <param name="src"></param>
 		/// <param name="bytes"></param>
-		public static unsafe void MemoryCopy(void* dst, void* src, ulong bytes)
+		public static void MemoryCopy(void* dst, void* src, ulong bytes)
 		{
 			MemoryCopyPointer(dst, src, bytes);
 #if false
@@ -173,15 +173,15 @@ namespace OpenGL
 		public static void MemoryCopy(IntPtr dst, Array src, uint srcOffset, ulong bytes)
 		{
 			if (dst == IntPtr.Zero)
-				throw new ArgumentNullException("dst");
+				throw new ArgumentNullException(nameof(dst));
 			if (src == null)
-				throw new ArgumentNullException("src");
+				throw new ArgumentNullException(nameof(src));
 			if (src.Rank > 1)
-				throw new ArgumentException("multidimensional array", "src");
+				throw new ArgumentException("multidimensional array", nameof(src));
 
 			GCHandle srcArray = GCHandle.Alloc(src, GCHandleType.Pinned);
 			try {
-				IntPtr srcArrayPtr = new IntPtr(srcArray.AddrOfPinnedObject().ToInt64() + (long)srcOffset);
+				IntPtr srcArrayPtr = new IntPtr(srcArray.AddrOfPinnedObject().ToInt64() + srcOffset);
 
 				// Copy from array to aligned buffer
 				MemoryCopyPointer(dst.ToPointer(), srcArrayPtr.ToPointer(), bytes);
@@ -270,7 +270,7 @@ namespace OpenGL
 			}
 		}
 
-		private static unsafe void MemoryCopyDelegate_Managed(void *dst, void* src, ulong bytes)
+		private static void MemoryCopyDelegate_Managed(void *dst, void* src, ulong bytes)
 		{
 			uint *dstPtr4 = (uint*)dst, srcPtr4 = (uint*)dst;
 

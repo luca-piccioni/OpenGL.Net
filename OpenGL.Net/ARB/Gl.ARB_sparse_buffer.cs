@@ -54,19 +54,19 @@ namespace OpenGL
 		/// [GL] glBufferPageCommitmentARB: Binding for glBufferPageCommitmentARB.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="offset">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="size">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="commit">
 		/// A <see cref="T:bool"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_sparse_buffer", Api = "gl|glcore")]
-		public static void BufferPageCommitmentARB(Int32 target, IntPtr offset, UInt32 size, bool commit)
+		public static void BufferPageCommitmentARB(int target, IntPtr offset, uint size, bool commit)
 		{
 			Debug.Assert(Delegates.pglBufferPageCommitmentARB != null, "pglBufferPageCommitmentARB not implemented");
 			Delegates.pglBufferPageCommitmentARB(target, offset, size, commit);
@@ -78,19 +78,19 @@ namespace OpenGL
 		/// [GL] glNamedBufferPageCommitmentEXT: Binding for glNamedBufferPageCommitmentEXT.
 		/// </summary>
 		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="offset">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="size">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="commit">
 		/// A <see cref="T:bool"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_sparse_buffer", Api = "gl|glcore")]
-		public static void NamedBufferPageCommitmentEXT(UInt32 buffer, IntPtr offset, UInt32 size, bool commit)
+		public static void NamedBufferPageCommitmentEXT(uint buffer, IntPtr offset, uint size, bool commit)
 		{
 			Debug.Assert(Delegates.pglNamedBufferPageCommitmentEXT != null, "pglNamedBufferPageCommitmentEXT not implemented");
 			Delegates.pglNamedBufferPageCommitmentEXT(buffer, offset, size, commit);
@@ -102,19 +102,19 @@ namespace OpenGL
 		/// [GL] glNamedBufferPageCommitmentARB: Binding for glNamedBufferPageCommitmentARB.
 		/// </summary>
 		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="offset">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="size">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="commit">
 		/// A <see cref="T:bool"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_sparse_buffer", Api = "gl|glcore")]
-		public static void NamedBufferPageCommitmentARB(UInt32 buffer, IntPtr offset, UInt32 size, bool commit)
+		public static void NamedBufferPageCommitmentARB(uint buffer, IntPtr offset, uint size, bool commit)
 		{
 			Debug.Assert(Delegates.pglNamedBufferPageCommitmentARB != null, "pglNamedBufferPageCommitmentARB not implemented");
 			Delegates.pglNamedBufferPageCommitmentARB(buffer, offset, size, commit);
@@ -126,7 +126,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_ARB_sparse_buffer", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glBufferPageCommitmentARB(Int32 target, IntPtr offset, UInt32 size, [MarshalAs(UnmanagedType.I1)] bool commit);
+			internal unsafe delegate void glBufferPageCommitmentARB(int target, IntPtr offset, uint size, [MarshalAs(UnmanagedType.I1)] bool commit);
 
 			[RequiredByFeature("GL_ARB_sparse_buffer", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -134,7 +134,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_sparse_buffer", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glNamedBufferPageCommitmentEXT(UInt32 buffer, IntPtr offset, UInt32 size, [MarshalAs(UnmanagedType.I1)] bool commit);
+			internal unsafe delegate void glNamedBufferPageCommitmentEXT(uint buffer, IntPtr offset, uint size, [MarshalAs(UnmanagedType.I1)] bool commit);
 
 			[RequiredByFeature("GL_ARB_sparse_buffer", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -142,7 +142,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_sparse_buffer", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glNamedBufferPageCommitmentARB(UInt32 buffer, IntPtr offset, UInt32 size, [MarshalAs(UnmanagedType.I1)] bool commit);
+			internal unsafe delegate void glNamedBufferPageCommitmentARB(uint buffer, IntPtr offset, uint size, [MarshalAs(UnmanagedType.I1)] bool commit);
 
 			[RequiredByFeature("GL_ARB_sparse_buffer", Api = "gl|glcore")]
 			[ThreadStatic]

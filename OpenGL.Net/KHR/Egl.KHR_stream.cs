@@ -214,15 +214,15 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:UInt64[]"/>.
+		/// A <see cref="T:ulong[]"/>.
 		/// </param>
 		[RequiredByFeature("EGL_KHR_stream")]
-		public static bool QueryStreamKHR(IntPtr dpy, IntPtr stream, uint attribute, UInt64[] value)
+		public static bool QueryStreamKHR(IntPtr dpy, IntPtr stream, uint attribute, ulong[] value)
 		{
 			bool retValue;
 
 			unsafe {
-				fixed (UInt64* p_value = value)
+				fixed (ulong* p_value = value)
 				{
 					Debug.Assert(Delegates.peglQueryStreamu64KHR != null, "peglQueryStreamu64KHR not implemented");
 					retValue = Delegates.peglQueryStreamu64KHR(dpy, stream, attribute, p_value);
@@ -266,7 +266,7 @@ namespace OpenGL
 
 			[RequiredByFeature("EGL_KHR_stream")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool eglQueryStreamu64KHR(IntPtr dpy, IntPtr stream, uint attribute, UInt64* value);
+			internal unsafe delegate bool eglQueryStreamu64KHR(IntPtr dpy, IntPtr stream, uint attribute, ulong* value);
 
 			[RequiredByFeature("EGL_KHR_stream")]
 			internal static eglQueryStreamu64KHR peglQueryStreamu64KHR;

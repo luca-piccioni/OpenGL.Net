@@ -41,9 +41,9 @@ namespace OpenGL
 		/// [EGL] eglGetSystemTimeFrequencyNV: Binding for eglGetSystemTimeFrequencyNV.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_system_time")]
-		public static UInt64 GetSystemTimeFrequencyNV()
+		public static ulong GetSystemTimeFrequencyNV()
 		{
-			UInt64 retValue;
+			ulong retValue;
 
 			Debug.Assert(Delegates.peglGetSystemTimeFrequencyNV != null, "peglGetSystemTimeFrequencyNV not implemented");
 			retValue = Delegates.peglGetSystemTimeFrequencyNV();
@@ -57,9 +57,9 @@ namespace OpenGL
 		/// [EGL] eglGetSystemTimeNV: Binding for eglGetSystemTimeNV.
 		/// </summary>
 		[RequiredByFeature("EGL_NV_system_time")]
-		public static UInt64 GetSystemTimeNV()
+		public static ulong GetSystemTimeNV()
 		{
-			UInt64 retValue;
+			ulong retValue;
 
 			Debug.Assert(Delegates.peglGetSystemTimeNV != null, "peglGetSystemTimeNV not implemented");
 			retValue = Delegates.peglGetSystemTimeNV();
@@ -73,14 +73,14 @@ namespace OpenGL
 		{
 			[RequiredByFeature("EGL_NV_system_time")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate UInt64 eglGetSystemTimeFrequencyNV();
+			internal delegate ulong eglGetSystemTimeFrequencyNV();
 
 			[RequiredByFeature("EGL_NV_system_time")]
 			internal static eglGetSystemTimeFrequencyNV peglGetSystemTimeFrequencyNV;
 
 			[RequiredByFeature("EGL_NV_system_time")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate UInt64 eglGetSystemTimeNV();
+			internal delegate ulong eglGetSystemTimeNV();
 
 			[RequiredByFeature("EGL_NV_system_time")]
 			internal static eglGetSystemTimeNV peglGetSystemTimeNV;

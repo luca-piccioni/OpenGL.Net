@@ -137,28 +137,28 @@ namespace OpenGL
 		/// [GL] glColorPointerListIBM: Binding for glColorPointerListIBM.
 		/// </summary>
 		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="type">
 		/// A <see cref="T:ColorPointerType"/>.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		/// <param name="ptrstride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_IBM_vertex_array_lists")]
-		public static void ColorPointerListIBM(Int32 size, ColorPointerType type, Int32 stride, IntPtr[] pointer, Int32 ptrstride)
+		public static void ColorPointerListIBM(int size, ColorPointerType type, int stride, IntPtr[] pointer, int ptrstride)
 		{
 			unsafe {
 				fixed (IntPtr* p_pointer = pointer)
 				{
 					Debug.Assert(Delegates.pglColorPointerListIBM != null, "pglColorPointerListIBM not implemented");
-					Delegates.pglColorPointerListIBM(size, (Int32)type, stride, p_pointer, ptrstride);
+					Delegates.pglColorPointerListIBM(size, (int)type, stride, p_pointer, ptrstride);
 					LogCommand("glColorPointerListIBM", null, size, type, stride, pointer, ptrstride					);
 				}
 			}
@@ -169,22 +169,22 @@ namespace OpenGL
 		/// [GL] glSecondaryColorPointerListIBM: Binding for glSecondaryColorPointerListIBM.
 		/// </summary>
 		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		/// <param name="ptrstride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_IBM_vertex_array_lists")]
-		public static void SecondaryColorPointerListIBM(Int32 size, Int32 type, Int32 stride, IntPtr[] pointer, Int32 ptrstride)
+		public static void SecondaryColorPointerListIBM(int size, int type, int stride, IntPtr[] pointer, int ptrstride)
 		{
 			unsafe {
 				fixed (IntPtr* p_pointer = pointer)
@@ -201,16 +201,16 @@ namespace OpenGL
 		/// [GL] glEdgeFlagPointerListIBM: Binding for glEdgeFlagPointerListIBM.
 		/// </summary>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pointer">
 		/// A <see cref="T:bool[]"/>.
 		/// </param>
 		/// <param name="ptrstride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_IBM_vertex_array_lists")]
-		public static void EdgeFlagPointerListIBM(Int32 stride, bool[] pointer, Int32 ptrstride)
+		public static void EdgeFlagPointerListIBM(int stride, bool[] pointer, int ptrstride)
 		{
 			Debug.Assert(Delegates.pglEdgeFlagPointerListIBM != null, "pglEdgeFlagPointerListIBM not implemented");
 			Delegates.pglEdgeFlagPointerListIBM(stride, pointer, ptrstride);
@@ -225,22 +225,22 @@ namespace OpenGL
 		/// A <see cref="T:FogCoordinatePointerType"/>.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		/// <param name="ptrstride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_IBM_vertex_array_lists")]
-		public static void FogCoordPointerListIBM(FogCoordinatePointerType type, Int32 stride, IntPtr[] pointer, Int32 ptrstride)
+		public static void FogCoordPointerListIBM(FogCoordinatePointerType type, int stride, IntPtr[] pointer, int ptrstride)
 		{
 			unsafe {
 				fixed (IntPtr* p_pointer = pointer)
 				{
 					Debug.Assert(Delegates.pglFogCoordPointerListIBM != null, "pglFogCoordPointerListIBM not implemented");
-					Delegates.pglFogCoordPointerListIBM((Int32)type, stride, p_pointer, ptrstride);
+					Delegates.pglFogCoordPointerListIBM((int)type, stride, p_pointer, ptrstride);
 					LogCommand("glFogCoordPointerListIBM", null, type, stride, pointer, ptrstride					);
 				}
 			}
@@ -254,22 +254,22 @@ namespace OpenGL
 		/// A <see cref="T:IndexPointerType"/>.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		/// <param name="ptrstride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_IBM_vertex_array_lists")]
-		public static void IndexPointerListIBM(IndexPointerType type, Int32 stride, IntPtr[] pointer, Int32 ptrstride)
+		public static void IndexPointerListIBM(IndexPointerType type, int stride, IntPtr[] pointer, int ptrstride)
 		{
 			unsafe {
 				fixed (IntPtr* p_pointer = pointer)
 				{
 					Debug.Assert(Delegates.pglIndexPointerListIBM != null, "pglIndexPointerListIBM not implemented");
-					Delegates.pglIndexPointerListIBM((Int32)type, stride, p_pointer, ptrstride);
+					Delegates.pglIndexPointerListIBM((int)type, stride, p_pointer, ptrstride);
 					LogCommand("glIndexPointerListIBM", null, type, stride, pointer, ptrstride					);
 				}
 			}
@@ -283,22 +283,22 @@ namespace OpenGL
 		/// A <see cref="T:NormalPointerType"/>.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		/// <param name="ptrstride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_IBM_vertex_array_lists")]
-		public static void NormalPointerListIBM(NormalPointerType type, Int32 stride, IntPtr[] pointer, Int32 ptrstride)
+		public static void NormalPointerListIBM(NormalPointerType type, int stride, IntPtr[] pointer, int ptrstride)
 		{
 			unsafe {
 				fixed (IntPtr* p_pointer = pointer)
 				{
 					Debug.Assert(Delegates.pglNormalPointerListIBM != null, "pglNormalPointerListIBM not implemented");
-					Delegates.pglNormalPointerListIBM((Int32)type, stride, p_pointer, ptrstride);
+					Delegates.pglNormalPointerListIBM((int)type, stride, p_pointer, ptrstride);
 					LogCommand("glNormalPointerListIBM", null, type, stride, pointer, ptrstride					);
 				}
 			}
@@ -309,28 +309,28 @@ namespace OpenGL
 		/// [GL] glTexCoordPointerListIBM: Binding for glTexCoordPointerListIBM.
 		/// </summary>
 		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="type">
 		/// A <see cref="T:TexCoordPointerType"/>.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		/// <param name="ptrstride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_IBM_vertex_array_lists")]
-		public static void TexCoordPointerListIBM(Int32 size, TexCoordPointerType type, Int32 stride, IntPtr[] pointer, Int32 ptrstride)
+		public static void TexCoordPointerListIBM(int size, TexCoordPointerType type, int stride, IntPtr[] pointer, int ptrstride)
 		{
 			unsafe {
 				fixed (IntPtr* p_pointer = pointer)
 				{
 					Debug.Assert(Delegates.pglTexCoordPointerListIBM != null, "pglTexCoordPointerListIBM not implemented");
-					Delegates.pglTexCoordPointerListIBM(size, (Int32)type, stride, p_pointer, ptrstride);
+					Delegates.pglTexCoordPointerListIBM(size, (int)type, stride, p_pointer, ptrstride);
 					LogCommand("glTexCoordPointerListIBM", null, size, type, stride, pointer, ptrstride					);
 				}
 			}
@@ -341,28 +341,28 @@ namespace OpenGL
 		/// [GL] glVertexPointerListIBM: Binding for glVertexPointerListIBM.
 		/// </summary>
 		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="type">
 		/// A <see cref="T:VertexPointerType"/>.
 		/// </param>
 		/// <param name="stride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		/// <param name="ptrstride">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_IBM_vertex_array_lists")]
-		public static void VertexPointerListIBM(Int32 size, VertexPointerType type, Int32 stride, IntPtr[] pointer, Int32 ptrstride)
+		public static void VertexPointerListIBM(int size, VertexPointerType type, int stride, IntPtr[] pointer, int ptrstride)
 		{
 			unsafe {
 				fixed (IntPtr* p_pointer = pointer)
 				{
 					Debug.Assert(Delegates.pglVertexPointerListIBM != null, "pglVertexPointerListIBM not implemented");
-					Delegates.pglVertexPointerListIBM(size, (Int32)type, stride, p_pointer, ptrstride);
+					Delegates.pglVertexPointerListIBM(size, (int)type, stride, p_pointer, ptrstride);
 					LogCommand("glVertexPointerListIBM", null, size, type, stride, pointer, ptrstride					);
 				}
 			}
@@ -373,7 +373,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_IBM_vertex_array_lists")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glColorPointerListIBM(Int32 size, Int32 type, Int32 stride, IntPtr* pointer, Int32 ptrstride);
+			internal unsafe delegate void glColorPointerListIBM(int size, int type, int stride, IntPtr* pointer, int ptrstride);
 
 			[RequiredByFeature("GL_IBM_vertex_array_lists")]
 			[ThreadStatic]
@@ -381,7 +381,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_IBM_vertex_array_lists")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glSecondaryColorPointerListIBM(Int32 size, Int32 type, Int32 stride, IntPtr* pointer, Int32 ptrstride);
+			internal unsafe delegate void glSecondaryColorPointerListIBM(int size, int type, int stride, IntPtr* pointer, int ptrstride);
 
 			[RequiredByFeature("GL_IBM_vertex_array_lists")]
 			[ThreadStatic]
@@ -389,7 +389,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_IBM_vertex_array_lists")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glEdgeFlagPointerListIBM(Int32 stride, bool[] pointer, Int32 ptrstride);
+			internal delegate void glEdgeFlagPointerListIBM(int stride, bool[] pointer, int ptrstride);
 
 			[RequiredByFeature("GL_IBM_vertex_array_lists")]
 			[ThreadStatic]
@@ -397,7 +397,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_IBM_vertex_array_lists")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glFogCoordPointerListIBM(Int32 type, Int32 stride, IntPtr* pointer, Int32 ptrstride);
+			internal unsafe delegate void glFogCoordPointerListIBM(int type, int stride, IntPtr* pointer, int ptrstride);
 
 			[RequiredByFeature("GL_IBM_vertex_array_lists")]
 			[ThreadStatic]
@@ -405,7 +405,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_IBM_vertex_array_lists")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glIndexPointerListIBM(Int32 type, Int32 stride, IntPtr* pointer, Int32 ptrstride);
+			internal unsafe delegate void glIndexPointerListIBM(int type, int stride, IntPtr* pointer, int ptrstride);
 
 			[RequiredByFeature("GL_IBM_vertex_array_lists")]
 			[ThreadStatic]
@@ -413,7 +413,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_IBM_vertex_array_lists")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glNormalPointerListIBM(Int32 type, Int32 stride, IntPtr* pointer, Int32 ptrstride);
+			internal unsafe delegate void glNormalPointerListIBM(int type, int stride, IntPtr* pointer, int ptrstride);
 
 			[RequiredByFeature("GL_IBM_vertex_array_lists")]
 			[ThreadStatic]
@@ -421,7 +421,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_IBM_vertex_array_lists")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexCoordPointerListIBM(Int32 size, Int32 type, Int32 stride, IntPtr* pointer, Int32 ptrstride);
+			internal unsafe delegate void glTexCoordPointerListIBM(int size, int type, int stride, IntPtr* pointer, int ptrstride);
 
 			[RequiredByFeature("GL_IBM_vertex_array_lists")]
 			[ThreadStatic]
@@ -429,7 +429,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_IBM_vertex_array_lists")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexPointerListIBM(Int32 size, Int32 type, Int32 stride, IntPtr* pointer, Int32 ptrstride);
+			internal unsafe delegate void glVertexPointerListIBM(int size, int type, int stride, IntPtr* pointer, int ptrstride);
 
 			[RequiredByFeature("GL_IBM_vertex_array_lists")]
 			[ThreadStatic]

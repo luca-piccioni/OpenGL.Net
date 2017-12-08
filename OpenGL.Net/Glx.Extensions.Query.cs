@@ -48,7 +48,7 @@ namespace OpenGL
 				string glxExtensions = null;
 				int[] majorArg = new int[1], minorArg = new int[1];
 
-				using (Glx.XLock xLock = new Glx.XLock(deviceContext.Display)) {
+				using (XLock xLock = new XLock(deviceContext.Display)) {
 					Glx.QueryVersion(deviceContext.Display, majorArg, minorArg);
 
 					if ((majorArg[0] >= 1) && (minorArg[0] >= 1))

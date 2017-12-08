@@ -44,23 +44,23 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="ust">
-		/// A <see cref="T:Int64[]"/>.
+		/// A <see cref="T:long[]"/>.
 		/// </param>
 		/// <param name="msc">
-		/// A <see cref="T:Int64[]"/>.
+		/// A <see cref="T:long[]"/>.
 		/// </param>
 		/// <param name="sbc">
-		/// A <see cref="T:Int64[]"/>.
+		/// A <see cref="T:long[]"/>.
 		/// </param>
 		[RequiredByFeature("WGL_OML_sync_control")]
-		public static bool GetSyncValuesOML(IntPtr hdc, [Out] Int64[] ust, [Out] Int64[] msc, [Out] Int64[] sbc)
+		public static bool GetSyncValuesOML(IntPtr hdc, [Out] long[] ust, [Out] long[] msc, [Out] long[] sbc)
 		{
 			bool retValue;
 
 			unsafe {
-				fixed (Int64* p_ust = ust)
-				fixed (Int64* p_msc = msc)
-				fixed (Int64* p_sbc = sbc)
+				fixed (long* p_ust = ust)
+				fixed (long* p_msc = msc)
+				fixed (long* p_sbc = sbc)
 				{
 					Debug.Assert(Delegates.pwglGetSyncValuesOML != null, "pwglGetSyncValuesOML not implemented");
 					retValue = Delegates.pwglGetSyncValuesOML(hdc, p_ust, p_msc, p_sbc);
@@ -79,19 +79,19 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="numerator">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		/// <param name="denominator">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("WGL_OML_sync_control")]
-		public static bool GetMscRateOML(IntPtr hdc, [Out] Int32[] numerator, [Out] Int32[] denominator)
+		public static bool GetMscRateOML(IntPtr hdc, [Out] int[] numerator, [Out] int[] denominator)
 		{
 			bool retValue;
 
 			unsafe {
-				fixed (Int32* p_numerator = numerator)
-				fixed (Int32* p_denominator = denominator)
+				fixed (int* p_numerator = numerator)
+				fixed (int* p_denominator = denominator)
 				{
 					Debug.Assert(Delegates.pwglGetMscRateOML != null, "pwglGetMscRateOML not implemented");
 					retValue = Delegates.pwglGetMscRateOML(hdc, p_numerator, p_denominator);
@@ -110,18 +110,18 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="target_msc">
-		/// A <see cref="T:Int64"/>.
+		/// A <see cref="T:long"/>.
 		/// </param>
 		/// <param name="divisor">
-		/// A <see cref="T:Int64"/>.
+		/// A <see cref="T:long"/>.
 		/// </param>
 		/// <param name="remainder">
-		/// A <see cref="T:Int64"/>.
+		/// A <see cref="T:long"/>.
 		/// </param>
 		[RequiredByFeature("WGL_OML_sync_control")]
-		public static Int64 SwapBuffersMscOML(IntPtr hdc, Int64 target_msc, Int64 divisor, Int64 remainder)
+		public static long SwapBuffersMscOML(IntPtr hdc, long target_msc, long divisor, long remainder)
 		{
-			Int64 retValue;
+			long retValue;
 
 			Debug.Assert(Delegates.pwglSwapBuffersMscOML != null, "pwglSwapBuffersMscOML not implemented");
 			retValue = Delegates.pwglSwapBuffersMscOML(hdc, target_msc, divisor, remainder);
@@ -141,18 +141,18 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="target_msc">
-		/// A <see cref="T:Int64"/>.
+		/// A <see cref="T:long"/>.
 		/// </param>
 		/// <param name="divisor">
-		/// A <see cref="T:Int64"/>.
+		/// A <see cref="T:long"/>.
 		/// </param>
 		/// <param name="remainder">
-		/// A <see cref="T:Int64"/>.
+		/// A <see cref="T:long"/>.
 		/// </param>
 		[RequiredByFeature("WGL_OML_sync_control")]
-		public static Int64 SwapLayerBuffersMscOML(IntPtr hdc, int fuPlanes, Int64 target_msc, Int64 divisor, Int64 remainder)
+		public static long SwapLayerBuffersMscOML(IntPtr hdc, int fuPlanes, long target_msc, long divisor, long remainder)
 		{
-			Int64 retValue;
+			long retValue;
 
 			Debug.Assert(Delegates.pwglSwapLayerBuffersMscOML != null, "pwglSwapLayerBuffersMscOML not implemented");
 			retValue = Delegates.pwglSwapLayerBuffersMscOML(hdc, fuPlanes, target_msc, divisor, remainder);
@@ -169,32 +169,32 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="target_msc">
-		/// A <see cref="T:Int64"/>.
+		/// A <see cref="T:long"/>.
 		/// </param>
 		/// <param name="divisor">
-		/// A <see cref="T:Int64"/>.
+		/// A <see cref="T:long"/>.
 		/// </param>
 		/// <param name="remainder">
-		/// A <see cref="T:Int64"/>.
+		/// A <see cref="T:long"/>.
 		/// </param>
 		/// <param name="ust">
-		/// A <see cref="T:Int64[]"/>.
+		/// A <see cref="T:long[]"/>.
 		/// </param>
 		/// <param name="msc">
-		/// A <see cref="T:Int64[]"/>.
+		/// A <see cref="T:long[]"/>.
 		/// </param>
 		/// <param name="sbc">
-		/// A <see cref="T:Int64[]"/>.
+		/// A <see cref="T:long[]"/>.
 		/// </param>
 		[RequiredByFeature("WGL_OML_sync_control")]
-		public static bool WaitForMscOML(IntPtr hdc, Int64 target_msc, Int64 divisor, Int64 remainder, Int64[] ust, Int64[] msc, Int64[] sbc)
+		public static bool WaitForMscOML(IntPtr hdc, long target_msc, long divisor, long remainder, long[] ust, long[] msc, long[] sbc)
 		{
 			bool retValue;
 
 			unsafe {
-				fixed (Int64* p_ust = ust)
-				fixed (Int64* p_msc = msc)
-				fixed (Int64* p_sbc = sbc)
+				fixed (long* p_ust = ust)
+				fixed (long* p_msc = msc)
+				fixed (long* p_sbc = sbc)
 				{
 					Debug.Assert(Delegates.pwglWaitForMscOML != null, "pwglWaitForMscOML not implemented");
 					retValue = Delegates.pwglWaitForMscOML(hdc, target_msc, divisor, remainder, p_ust, p_msc, p_sbc);
@@ -213,26 +213,26 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="target_sbc">
-		/// A <see cref="T:Int64"/>.
+		/// A <see cref="T:long"/>.
 		/// </param>
 		/// <param name="ust">
-		/// A <see cref="T:Int64[]"/>.
+		/// A <see cref="T:long[]"/>.
 		/// </param>
 		/// <param name="msc">
-		/// A <see cref="T:Int64[]"/>.
+		/// A <see cref="T:long[]"/>.
 		/// </param>
 		/// <param name="sbc">
-		/// A <see cref="T:Int64[]"/>.
+		/// A <see cref="T:long[]"/>.
 		/// </param>
 		[RequiredByFeature("WGL_OML_sync_control")]
-		public static bool WaitForSbcOML(IntPtr hdc, Int64 target_sbc, Int64[] ust, Int64[] msc, Int64[] sbc)
+		public static bool WaitForSbcOML(IntPtr hdc, long target_sbc, long[] ust, long[] msc, long[] sbc)
 		{
 			bool retValue;
 
 			unsafe {
-				fixed (Int64* p_ust = ust)
-				fixed (Int64* p_msc = msc)
-				fixed (Int64* p_sbc = sbc)
+				fixed (long* p_ust = ust)
+				fixed (long* p_msc = msc)
+				fixed (long* p_sbc = sbc)
 				{
 					Debug.Assert(Delegates.pwglWaitForSbcOML != null, "pwglWaitForSbcOML not implemented");
 					retValue = Delegates.pwglWaitForSbcOML(hdc, target_sbc, p_ust, p_msc, p_sbc);
@@ -248,42 +248,42 @@ namespace OpenGL
 		{
 			[RequiredByFeature("WGL_OML_sync_control")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglGetSyncValuesOML(IntPtr hdc, Int64* ust, Int64* msc, Int64* sbc);
+			internal unsafe delegate bool wglGetSyncValuesOML(IntPtr hdc, long* ust, long* msc, long* sbc);
 
 			[RequiredByFeature("WGL_OML_sync_control")]
 			internal static wglGetSyncValuesOML pwglGetSyncValuesOML;
 
 			[RequiredByFeature("WGL_OML_sync_control")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglGetMscRateOML(IntPtr hdc, Int32* numerator, Int32* denominator);
+			internal unsafe delegate bool wglGetMscRateOML(IntPtr hdc, int* numerator, int* denominator);
 
 			[RequiredByFeature("WGL_OML_sync_control")]
 			internal static wglGetMscRateOML pwglGetMscRateOML;
 
 			[RequiredByFeature("WGL_OML_sync_control")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Int64 wglSwapBuffersMscOML(IntPtr hdc, Int64 target_msc, Int64 divisor, Int64 remainder);
+			internal unsafe delegate long wglSwapBuffersMscOML(IntPtr hdc, long target_msc, long divisor, long remainder);
 
 			[RequiredByFeature("WGL_OML_sync_control")]
 			internal static wglSwapBuffersMscOML pwglSwapBuffersMscOML;
 
 			[RequiredByFeature("WGL_OML_sync_control")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Int64 wglSwapLayerBuffersMscOML(IntPtr hdc, int fuPlanes, Int64 target_msc, Int64 divisor, Int64 remainder);
+			internal unsafe delegate long wglSwapLayerBuffersMscOML(IntPtr hdc, int fuPlanes, long target_msc, long divisor, long remainder);
 
 			[RequiredByFeature("WGL_OML_sync_control")]
 			internal static wglSwapLayerBuffersMscOML pwglSwapLayerBuffersMscOML;
 
 			[RequiredByFeature("WGL_OML_sync_control")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglWaitForMscOML(IntPtr hdc, Int64 target_msc, Int64 divisor, Int64 remainder, Int64* ust, Int64* msc, Int64* sbc);
+			internal unsafe delegate bool wglWaitForMscOML(IntPtr hdc, long target_msc, long divisor, long remainder, long* ust, long* msc, long* sbc);
 
 			[RequiredByFeature("WGL_OML_sync_control")]
 			internal static wglWaitForMscOML pwglWaitForMscOML;
 
 			[RequiredByFeature("WGL_OML_sync_control")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglWaitForSbcOML(IntPtr hdc, Int64 target_sbc, Int64* ust, Int64* msc, Int64* sbc);
+			internal unsafe delegate bool wglWaitForSbcOML(IntPtr hdc, long target_sbc, long* ust, long* msc, long* sbc);
 
 			[RequiredByFeature("WGL_OML_sync_control")]
 			internal static wglWaitForSbcOML pwglWaitForSbcOML;

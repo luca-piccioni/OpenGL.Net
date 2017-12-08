@@ -77,16 +77,16 @@ namespace OpenGL
 		/// [GL] glUniformBufferEXT: Binding for glUniformBufferEXT.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="buffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_bindable_uniform")]
-		public static void UniformBufferEXT(UInt32 program, Int32 location, UInt32 buffer)
+		public static void UniformBufferEXT(uint program, int location, uint buffer)
 		{
 			Debug.Assert(Delegates.pglUniformBufferEXT != null, "pglUniformBufferEXT not implemented");
 			Delegates.pglUniformBufferEXT(program, location, buffer);
@@ -98,15 +98,15 @@ namespace OpenGL
 		/// [GL] glGetUniformBufferSizeEXT: Binding for glGetUniformBufferSizeEXT.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_bindable_uniform")]
-		public static Int32 GetUniformBufferSizeEXT(UInt32 program, Int32 location)
+		public static int GetUniformBufferSizeEXT(uint program, int location)
 		{
-			Int32 retValue;
+			int retValue;
 
 			Debug.Assert(Delegates.pglGetUniformBufferSizeEXT != null, "pglGetUniformBufferSizeEXT not implemented");
 			retValue = Delegates.pglGetUniformBufferSizeEXT(program, location);
@@ -120,13 +120,13 @@ namespace OpenGL
 		/// [GL] glGetUniformOffsetEXT: Binding for glGetUniformOffsetEXT.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_bindable_uniform")]
-		public static IntPtr GetUniformOffsetEXT(UInt32 program, Int32 location)
+		public static IntPtr GetUniformOffsetEXT(uint program, int location)
 		{
 			IntPtr retValue;
 
@@ -142,7 +142,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_EXT_bindable_uniform")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glUniformBufferEXT(UInt32 program, Int32 location, UInt32 buffer);
+			internal delegate void glUniformBufferEXT(uint program, int location, uint buffer);
 
 			[RequiredByFeature("GL_EXT_bindable_uniform")]
 			[ThreadStatic]
@@ -150,7 +150,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_bindable_uniform")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Int32 glGetUniformBufferSizeEXT(UInt32 program, Int32 location);
+			internal delegate int glGetUniformBufferSizeEXT(uint program, int location);
 
 			[RequiredByFeature("GL_EXT_bindable_uniform")]
 			[ThreadStatic]
@@ -158,7 +158,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_bindable_uniform")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate IntPtr glGetUniformOffsetEXT(UInt32 program, Int32 location);
+			internal delegate IntPtr glGetUniformOffsetEXT(uint program, int location);
 
 			[RequiredByFeature("GL_EXT_bindable_uniform")]
 			[ThreadStatic]

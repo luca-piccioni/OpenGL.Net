@@ -41,10 +41,10 @@ namespace OpenGL
 		/// [GL] glTbufferMask3DFX: Binding for glTbufferMask3DFX.
 		/// </summary>
 		/// <param name="mask">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_3DFX_tbuffer")]
-		public static void TbufferMask3DFX(UInt32 mask)
+		public static void TbufferMask3DFX(uint mask)
 		{
 			Debug.Assert(Delegates.pglTbufferMask3DFX != null, "pglTbufferMask3DFX not implemented");
 			Delegates.pglTbufferMask3DFX(mask);
@@ -56,7 +56,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_3DFX_tbuffer")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTbufferMask3DFX(UInt32 mask);
+			internal delegate void glTbufferMask3DFX(uint mask);
 
 			[RequiredByFeature("GL_3DFX_tbuffer")]
 			[ThreadStatic]

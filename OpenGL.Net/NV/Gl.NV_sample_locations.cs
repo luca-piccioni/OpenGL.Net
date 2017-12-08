@@ -44,22 +44,22 @@ namespace OpenGL
 		/// A <see cref="T:FramebufferTarget"/>.
 		/// </param>
 		/// <param name="start">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_sample_locations", Api = "gl|glcore|gles2")]
-		public static void FramebufferSampleLocationNV(FramebufferTarget target, UInt32 start, Int32 count, float[] v)
+		public static void FramebufferSampleLocationNV(FramebufferTarget target, uint start, int count, float[] v)
 		{
 			unsafe {
 				fixed (float* p_v = v)
 				{
 					Debug.Assert(Delegates.pglFramebufferSampleLocationsfvNV != null, "pglFramebufferSampleLocationsfvNV not implemented");
-					Delegates.pglFramebufferSampleLocationsfvNV((Int32)target, start, count, p_v);
+					Delegates.pglFramebufferSampleLocationsfvNV((int)target, start, count, p_v);
 					LogCommand("glFramebufferSampleLocationsfvNV", null, target, start, count, v					);
 				}
 			}
@@ -70,19 +70,19 @@ namespace OpenGL
 		/// [GL] glNamedFramebufferSampleLocationsfvNV: Binding for glNamedFramebufferSampleLocationsfvNV.
 		/// </summary>
 		/// <param name="framebuffer">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="start">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_sample_locations", Api = "gl|glcore|gles2")]
-		public static void NamedFramebufferSampleLocationNV(UInt32 framebuffer, UInt32 start, Int32 count, float[] v)
+		public static void NamedFramebufferSampleLocationNV(uint framebuffer, uint start, int count, float[] v)
 		{
 			unsafe {
 				fixed (float* p_v = v)
@@ -111,7 +111,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_NV_sample_locations", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glFramebufferSampleLocationsfvNV(Int32 target, UInt32 start, Int32 count, float* v);
+			internal unsafe delegate void glFramebufferSampleLocationsfvNV(int target, uint start, int count, float* v);
 
 			[RequiredByFeature("GL_NV_sample_locations", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -119,7 +119,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_sample_locations", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glNamedFramebufferSampleLocationsfvNV(UInt32 framebuffer, UInt32 start, Int32 count, float* v);
+			internal unsafe delegate void glNamedFramebufferSampleLocationsfvNV(uint framebuffer, uint start, int count, float* v);
 
 			[RequiredByFeature("GL_NV_sample_locations", Api = "gl|glcore|gles2")]
 			[ThreadStatic]

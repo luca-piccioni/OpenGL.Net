@@ -69,7 +69,7 @@ namespace OpenGL
 				fixed (float* p_points = points)
 				{
 					Debug.Assert(Delegates.pglFogFuncSGIS != null, "pglFogFuncSGIS not implemented");
-					Delegates.pglFogFuncSGIS((Int32)points.Length / 2, p_points);
+					Delegates.pglFogFuncSGIS(points.Length / 2, p_points);
 					LogCommand("glFogFuncSGIS", null, points.Length / 2, points					);
 				}
 			}
@@ -100,7 +100,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_SGIS_fog_function")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glFogFuncSGIS(Int32 n, float* points);
+			internal unsafe delegate void glFogFuncSGIS(int n, float* points);
 
 			[RequiredByFeature("GL_SGIS_fog_function")]
 			[ThreadStatic]

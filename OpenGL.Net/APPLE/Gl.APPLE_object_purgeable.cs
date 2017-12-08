@@ -77,18 +77,18 @@ namespace OpenGL
 		/// [GL] glObjectPurgeableAPPLE: Binding for glObjectPurgeableAPPLE.
 		/// </summary>
 		/// <param name="objectType">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="name">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="option">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_APPLE_object_purgeable")]
-		public static Int32 ObjectPurgeableAPPLE(Int32 objectType, UInt32 name, Int32 option)
+		public static int ObjectPurgeableAPPLE(int objectType, uint name, int option)
 		{
-			Int32 retValue;
+			int retValue;
 
 			Debug.Assert(Delegates.pglObjectPurgeableAPPLE != null, "pglObjectPurgeableAPPLE not implemented");
 			retValue = Delegates.pglObjectPurgeableAPPLE(objectType, name, option);
@@ -102,18 +102,18 @@ namespace OpenGL
 		/// [GL] glObjectUnpurgeableAPPLE: Binding for glObjectUnpurgeableAPPLE.
 		/// </summary>
 		/// <param name="objectType">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="name">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="option">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_APPLE_object_purgeable")]
-		public static Int32 ObjectUnpurgeableAPPLE(Int32 objectType, UInt32 name, Int32 option)
+		public static int ObjectUnpurgeableAPPLE(int objectType, uint name, int option)
 		{
-			Int32 retValue;
+			int retValue;
 
 			Debug.Assert(Delegates.pglObjectUnpurgeableAPPLE != null, "pglObjectUnpurgeableAPPLE not implemented");
 			retValue = Delegates.pglObjectUnpurgeableAPPLE(objectType, name, option);
@@ -127,22 +127,22 @@ namespace OpenGL
 		/// [GL] glGetObjectParameterivAPPLE: Binding for glGetObjectParameterivAPPLE.
 		/// </summary>
 		/// <param name="objectType">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="name">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_APPLE_object_purgeable")]
-		public static void GetObjectParameterAPPLE(Int32 objectType, UInt32 name, Int32 pname, [Out] Int32[] @params)
+		public static void GetObjectParameterAPPLE(int objectType, uint name, int pname, [Out] int[] @params)
 		{
 			unsafe {
-				fixed (Int32* p_params = @params)
+				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetObjectParameterivAPPLE != null, "pglGetObjectParameterivAPPLE not implemented");
 					Delegates.pglGetObjectParameterivAPPLE(objectType, name, pname, p_params);
@@ -156,7 +156,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_APPLE_object_purgeable")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Int32 glObjectPurgeableAPPLE(Int32 objectType, UInt32 name, Int32 option);
+			internal delegate int glObjectPurgeableAPPLE(int objectType, uint name, int option);
 
 			[RequiredByFeature("GL_APPLE_object_purgeable")]
 			[ThreadStatic]
@@ -164,7 +164,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_APPLE_object_purgeable")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate Int32 glObjectUnpurgeableAPPLE(Int32 objectType, UInt32 name, Int32 option);
+			internal delegate int glObjectUnpurgeableAPPLE(int objectType, uint name, int option);
 
 			[RequiredByFeature("GL_APPLE_object_purgeable")]
 			[ThreadStatic]
@@ -172,7 +172,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_APPLE_object_purgeable")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetObjectParameterivAPPLE(Int32 objectType, UInt32 name, Int32 pname, Int32* @params);
+			internal unsafe delegate void glGetObjectParameterivAPPLE(int objectType, uint name, int pname, int* @params);
 
 			[RequiredByFeature("GL_APPLE_object_purgeable")]
 			[ThreadStatic]

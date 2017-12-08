@@ -71,7 +71,7 @@ namespace OpenGL
 		/// [GL] glVertexPointervINTEL: Binding for glVertexPointervINTEL.
 		/// </summary>
 		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="type">
 		/// A <see cref="T:VertexPointerType"/>.
@@ -80,14 +80,14 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_INTEL_parallel_arrays")]
-		public static void VertexPointerINTEL(Int32 size, VertexPointerType type, IntPtr[] pointer)
+		public static void VertexPointerINTEL(int size, VertexPointerType type, IntPtr[] pointer)
 		{
 			Debug.Assert(pointer.Length >= 4);
 			unsafe {
 				fixed (IntPtr* p_pointer = pointer)
 				{
 					Debug.Assert(Delegates.pglVertexPointervINTEL != null, "pglVertexPointervINTEL not implemented");
-					Delegates.pglVertexPointervINTEL(size, (Int32)type, p_pointer);
+					Delegates.pglVertexPointervINTEL(size, (int)type, p_pointer);
 					LogCommand("glVertexPointervINTEL", null, size, type, pointer					);
 				}
 			}
@@ -111,7 +111,7 @@ namespace OpenGL
 				fixed (IntPtr* p_pointer = pointer)
 				{
 					Debug.Assert(Delegates.pglNormalPointervINTEL != null, "pglNormalPointervINTEL not implemented");
-					Delegates.pglNormalPointervINTEL((Int32)type, p_pointer);
+					Delegates.pglNormalPointervINTEL((int)type, p_pointer);
 					LogCommand("glNormalPointervINTEL", null, type, pointer					);
 				}
 			}
@@ -122,7 +122,7 @@ namespace OpenGL
 		/// [GL] glColorPointervINTEL: Binding for glColorPointervINTEL.
 		/// </summary>
 		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="type">
 		/// A <see cref="T:VertexPointerType"/>.
@@ -131,14 +131,14 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_INTEL_parallel_arrays")]
-		public static void ColorPointerINTEL(Int32 size, VertexPointerType type, IntPtr[] pointer)
+		public static void ColorPointerINTEL(int size, VertexPointerType type, IntPtr[] pointer)
 		{
 			Debug.Assert(pointer.Length >= 4);
 			unsafe {
 				fixed (IntPtr* p_pointer = pointer)
 				{
 					Debug.Assert(Delegates.pglColorPointervINTEL != null, "pglColorPointervINTEL not implemented");
-					Delegates.pglColorPointervINTEL(size, (Int32)type, p_pointer);
+					Delegates.pglColorPointervINTEL(size, (int)type, p_pointer);
 					LogCommand("glColorPointervINTEL", null, size, type, pointer					);
 				}
 			}
@@ -149,7 +149,7 @@ namespace OpenGL
 		/// [GL] glTexCoordPointervINTEL: Binding for glTexCoordPointervINTEL.
 		/// </summary>
 		/// <param name="size">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="type">
 		/// A <see cref="T:TexCoordPointerType"/>.
@@ -158,14 +158,14 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_INTEL_parallel_arrays")]
-		public static void TexCoordPointerINTEL(Int32 size, TexCoordPointerType type, IntPtr[] pointer)
+		public static void TexCoordPointerINTEL(int size, TexCoordPointerType type, IntPtr[] pointer)
 		{
 			Debug.Assert(pointer.Length >= 4);
 			unsafe {
 				fixed (IntPtr* p_pointer = pointer)
 				{
 					Debug.Assert(Delegates.pglTexCoordPointervINTEL != null, "pglTexCoordPointervINTEL not implemented");
-					Delegates.pglTexCoordPointervINTEL(size, (Int32)type, p_pointer);
+					Delegates.pglTexCoordPointervINTEL(size, (int)type, p_pointer);
 					LogCommand("glTexCoordPointervINTEL", null, size, type, pointer					);
 				}
 			}
@@ -176,7 +176,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_INTEL_parallel_arrays")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexPointervINTEL(Int32 size, Int32 type, IntPtr* pointer);
+			internal unsafe delegate void glVertexPointervINTEL(int size, int type, IntPtr* pointer);
 
 			[RequiredByFeature("GL_INTEL_parallel_arrays")]
 			[ThreadStatic]
@@ -184,7 +184,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_INTEL_parallel_arrays")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glNormalPointervINTEL(Int32 type, IntPtr* pointer);
+			internal unsafe delegate void glNormalPointervINTEL(int type, IntPtr* pointer);
 
 			[RequiredByFeature("GL_INTEL_parallel_arrays")]
 			[ThreadStatic]
@@ -192,7 +192,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_INTEL_parallel_arrays")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glColorPointervINTEL(Int32 size, Int32 type, IntPtr* pointer);
+			internal unsafe delegate void glColorPointervINTEL(int size, int type, IntPtr* pointer);
 
 			[RequiredByFeature("GL_INTEL_parallel_arrays")]
 			[ThreadStatic]
@@ -200,7 +200,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_INTEL_parallel_arrays")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexCoordPointervINTEL(Int32 size, Int32 type, IntPtr* pointer);
+			internal unsafe delegate void glTexCoordPointervINTEL(int size, int type, IntPtr* pointer);
 
 			[RequiredByFeature("GL_INTEL_parallel_arrays")]
 			[ThreadStatic]

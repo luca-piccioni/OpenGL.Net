@@ -54,7 +54,7 @@ namespace OpenGL
 				fixed (float* p_equation = equation)
 				{
 					Debug.Assert(Delegates.pglClipPlanefOES != null, "pglClipPlanefOES not implemented");
-					Delegates.pglClipPlanefOES((Int32)plane, p_equation);
+					Delegates.pglClipPlanefOES((int)plane, p_equation);
 					LogCommand("glClipPlanefOES", null, plane, equation					);
 				}
 			}
@@ -108,7 +108,7 @@ namespace OpenGL
 				fixed (float* p_equation = equation)
 				{
 					Debug.Assert(Delegates.pglGetClipPlanefOES != null, "pglGetClipPlanefOES not implemented");
-					Delegates.pglGetClipPlanefOES((Int32)plane, p_equation);
+					Delegates.pglGetClipPlanefOES((int)plane, p_equation);
 					LogCommand("glGetClipPlanefOES", null, plane, equation					);
 				}
 			}
@@ -149,7 +149,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_OES_single_precision", Api = "gl|gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glClipPlanefOES(Int32 plane, float* equation);
+			internal unsafe delegate void glClipPlanefOES(int plane, float* equation);
 
 			[RequiredByFeature("GL_OES_single_precision", Api = "gl|gles1")]
 			[ThreadStatic]
@@ -165,7 +165,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_single_precision", Api = "gl|gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetClipPlanefOES(Int32 plane, float* equation);
+			internal unsafe delegate void glGetClipPlanefOES(int plane, float* equation);
 
 			[RequiredByFeature("GL_OES_single_precision", Api = "gl|gles1")]
 			[ThreadStatic]

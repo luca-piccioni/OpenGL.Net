@@ -41,12 +41,12 @@ namespace OpenGL
 		/// [GL] glGetTextureHandleNV: Binding for glGetTextureHandleNV.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
-		public static UInt64 GetTextureHandleNV(UInt32 texture)
+		public static ulong GetTextureHandleNV(uint texture)
 		{
-			UInt64 retValue;
+			ulong retValue;
 
 			Debug.Assert(Delegates.pglGetTextureHandleNV != null, "pglGetTextureHandleNV not implemented");
 			retValue = Delegates.pglGetTextureHandleNV(texture);
@@ -60,15 +60,15 @@ namespace OpenGL
 		/// [GL] glGetTextureSamplerHandleNV: Binding for glGetTextureSamplerHandleNV.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="sampler">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
-		public static UInt64 GetTextureSamplerHandleNV(UInt32 texture, UInt32 sampler)
+		public static ulong GetTextureSamplerHandleNV(uint texture, uint sampler)
 		{
-			UInt64 retValue;
+			ulong retValue;
 
 			Debug.Assert(Delegates.pglGetTextureSamplerHandleNV != null, "pglGetTextureSamplerHandleNV not implemented");
 			retValue = Delegates.pglGetTextureSamplerHandleNV(texture, sampler);
@@ -82,10 +82,10 @@ namespace OpenGL
 		/// [GL] glMakeTextureHandleResidentNV: Binding for glMakeTextureHandleResidentNV.
 		/// </summary>
 		/// <param name="handle">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
-		public static void MakeTextureHandleResidentNV(UInt64 handle)
+		public static void MakeTextureHandleResidentNV(ulong handle)
 		{
 			Debug.Assert(Delegates.pglMakeTextureHandleResidentNV != null, "pglMakeTextureHandleResidentNV not implemented");
 			Delegates.pglMakeTextureHandleResidentNV(handle);
@@ -97,10 +97,10 @@ namespace OpenGL
 		/// [GL] glMakeTextureHandleNonResidentNV: Binding for glMakeTextureHandleNonResidentNV.
 		/// </summary>
 		/// <param name="handle">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
-		public static void MakeTextureHandleNonResidentNV(UInt64 handle)
+		public static void MakeTextureHandleNonResidentNV(ulong handle)
 		{
 			Debug.Assert(Delegates.pglMakeTextureHandleNonResidentNV != null, "pglMakeTextureHandleNonResidentNV not implemented");
 			Delegates.pglMakeTextureHandleNonResidentNV(handle);
@@ -112,27 +112,27 @@ namespace OpenGL
 		/// [GL] glGetImageHandleNV: Binding for glGetImageHandleNV.
 		/// </summary>
 		/// <param name="texture">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="level">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="layered">
 		/// A <see cref="T:bool"/>.
 		/// </param>
 		/// <param name="layer">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="format">
 		/// A <see cref="T:PixelFormat"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
-		public static UInt64 GetImageHandleNV(UInt32 texture, Int32 level, bool layered, Int32 layer, PixelFormat format)
+		public static ulong GetImageHandleNV(uint texture, int level, bool layered, int layer, PixelFormat format)
 		{
-			UInt64 retValue;
+			ulong retValue;
 
 			Debug.Assert(Delegates.pglGetImageHandleNV != null, "pglGetImageHandleNV not implemented");
-			retValue = Delegates.pglGetImageHandleNV(texture, level, layered, layer, (Int32)format);
+			retValue = Delegates.pglGetImageHandleNV(texture, level, layered, layer, (int)format);
 			LogCommand("glGetImageHandleNV", retValue, texture, level, layered, layer, format			);
 			DebugCheckErrors(retValue);
 
@@ -143,13 +143,13 @@ namespace OpenGL
 		/// [GL] glMakeImageHandleResidentNV: Binding for glMakeImageHandleResidentNV.
 		/// </summary>
 		/// <param name="handle">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		/// <param name="access">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
-		public static void MakeImageHandleResidentNV(UInt64 handle, Int32 access)
+		public static void MakeImageHandleResidentNV(ulong handle, int access)
 		{
 			Debug.Assert(Delegates.pglMakeImageHandleResidentNV != null, "pglMakeImageHandleResidentNV not implemented");
 			Delegates.pglMakeImageHandleResidentNV(handle, access);
@@ -161,10 +161,10 @@ namespace OpenGL
 		/// [GL] glMakeImageHandleNonResidentNV: Binding for glMakeImageHandleNonResidentNV.
 		/// </summary>
 		/// <param name="handle">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
-		public static void MakeImageHandleNonResidentNV(UInt64 handle)
+		public static void MakeImageHandleNonResidentNV(ulong handle)
 		{
 			Debug.Assert(Delegates.pglMakeImageHandleNonResidentNV != null, "pglMakeImageHandleNonResidentNV not implemented");
 			Delegates.pglMakeImageHandleNonResidentNV(handle);
@@ -176,13 +176,13 @@ namespace OpenGL
 		/// [GL] glUniformHandleui64NV: Binding for glUniformHandleui64NV.
 		/// </summary>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
-		public static void UniformHandleNV(Int32 location, UInt64 value)
+		public static void UniformHandleNV(int location, ulong value)
 		{
 			Debug.Assert(Delegates.pglUniformHandleui64NV != null, "pglUniformHandleui64NV not implemented");
 			Delegates.pglUniformHandleui64NV(location, value);
@@ -194,19 +194,19 @@ namespace OpenGL
 		/// [GL] glUniformHandleui64vNV: Binding for glUniformHandleui64vNV.
 		/// </summary>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:UInt64[]"/>.
+		/// A <see cref="T:ulong[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
-		public static void UniformHandleNV(Int32 location, UInt64[] value)
+		public static void UniformHandleNV(int location, ulong[] value)
 		{
 			unsafe {
-				fixed (UInt64* p_value = value)
+				fixed (ulong* p_value = value)
 				{
 					Debug.Assert(Delegates.pglUniformHandleui64vNV != null, "pglUniformHandleui64vNV not implemented");
-					Delegates.pglUniformHandleui64vNV(location, (Int32)value.Length, p_value);
+					Delegates.pglUniformHandleui64vNV(location, value.Length, p_value);
 					LogCommand("glUniformHandleui64vNV", null, location, value.Length, value					);
 				}
 			}
@@ -217,16 +217,16 @@ namespace OpenGL
 		/// [GL] glProgramUniformHandleui64NV: Binding for glProgramUniformHandleui64NV.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="value">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
-		public static void ProgramUniformHandleNV(UInt32 program, Int32 location, UInt64 value)
+		public static void ProgramUniformHandleNV(uint program, int location, ulong value)
 		{
 			Debug.Assert(Delegates.pglProgramUniformHandleui64NV != null, "pglProgramUniformHandleui64NV not implemented");
 			Delegates.pglProgramUniformHandleui64NV(program, location, value);
@@ -238,22 +238,22 @@ namespace OpenGL
 		/// [GL] glProgramUniformHandleui64vNV: Binding for glProgramUniformHandleui64vNV.
 		/// </summary>
 		/// <param name="program">
-		/// A <see cref="T:UInt32"/>.
+		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="location">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="values">
-		/// A <see cref="T:UInt64[]"/>.
+		/// A <see cref="T:ulong[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
-		public static void ProgramUniformHandleNV(UInt32 program, Int32 location, UInt64[] values)
+		public static void ProgramUniformHandleNV(uint program, int location, ulong[] values)
 		{
 			unsafe {
-				fixed (UInt64* p_values = values)
+				fixed (ulong* p_values = values)
 				{
 					Debug.Assert(Delegates.pglProgramUniformHandleui64vNV != null, "pglProgramUniformHandleui64vNV not implemented");
-					Delegates.pglProgramUniformHandleui64vNV(program, location, (Int32)values.Length, p_values);
+					Delegates.pglProgramUniformHandleui64vNV(program, location, values.Length, p_values);
 					LogCommand("glProgramUniformHandleui64vNV", null, program, location, values.Length, values					);
 				}
 			}
@@ -264,10 +264,10 @@ namespace OpenGL
 		/// [GL] glIsTextureHandleResidentNV: Binding for glIsTextureHandleResidentNV.
 		/// </summary>
 		/// <param name="handle">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
-		public static bool IsTextureHandleResidentNV(UInt64 handle)
+		public static bool IsTextureHandleResidentNV(ulong handle)
 		{
 			bool retValue;
 
@@ -283,10 +283,10 @@ namespace OpenGL
 		/// [GL] glIsImageHandleResidentNV: Binding for glIsImageHandleResidentNV.
 		/// </summary>
 		/// <param name="handle">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
-		public static bool IsImageHandleResidentNV(UInt64 handle)
+		public static bool IsImageHandleResidentNV(ulong handle)
 		{
 			bool retValue;
 
@@ -302,7 +302,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate UInt64 glGetTextureHandleNV(UInt32 texture);
+			internal delegate ulong glGetTextureHandleNV(uint texture);
 
 			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -310,7 +310,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate UInt64 glGetTextureSamplerHandleNV(UInt32 texture, UInt32 sampler);
+			internal delegate ulong glGetTextureSamplerHandleNV(uint texture, uint sampler);
 
 			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -318,7 +318,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMakeTextureHandleResidentNV(UInt64 handle);
+			internal delegate void glMakeTextureHandleResidentNV(ulong handle);
 
 			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -326,7 +326,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMakeTextureHandleNonResidentNV(UInt64 handle);
+			internal delegate void glMakeTextureHandleNonResidentNV(ulong handle);
 
 			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -334,7 +334,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate UInt64 glGetImageHandleNV(UInt32 texture, Int32 level, [MarshalAs(UnmanagedType.I1)] bool layered, Int32 layer, Int32 format);
+			internal delegate ulong glGetImageHandleNV(uint texture, int level, [MarshalAs(UnmanagedType.I1)] bool layered, int layer, int format);
 
 			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -342,7 +342,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMakeImageHandleResidentNV(UInt64 handle, Int32 access);
+			internal delegate void glMakeImageHandleResidentNV(ulong handle, int access);
 
 			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -350,7 +350,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glMakeImageHandleNonResidentNV(UInt64 handle);
+			internal delegate void glMakeImageHandleNonResidentNV(ulong handle);
 
 			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -358,7 +358,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glUniformHandleui64NV(Int32 location, UInt64 value);
+			internal delegate void glUniformHandleui64NV(int location, ulong value);
 
 			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -366,7 +366,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glUniformHandleui64vNV(Int32 location, Int32 count, UInt64* value);
+			internal unsafe delegate void glUniformHandleui64vNV(int location, int count, ulong* value);
 
 			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -374,7 +374,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glProgramUniformHandleui64NV(UInt32 program, Int32 location, UInt64 value);
+			internal delegate void glProgramUniformHandleui64NV(uint program, int location, ulong value);
 
 			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -382,7 +382,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramUniformHandleui64vNV(UInt32 program, Int32 location, Int32 count, UInt64* values);
+			internal unsafe delegate void glProgramUniformHandleui64vNV(uint program, int location, int count, ulong* values);
 
 			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -391,7 +391,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			[return: MarshalAs(UnmanagedType.I1)]
-			internal delegate bool glIsTextureHandleResidentNV(UInt64 handle);
+			internal delegate bool glIsTextureHandleResidentNV(ulong handle);
 
 			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -400,7 +400,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			[return: MarshalAs(UnmanagedType.I1)]
-			internal delegate bool glIsImageHandleResidentNV(UInt64 handle);
+			internal delegate bool glIsImageHandleResidentNV(ulong handle);
 
 			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
 			[ThreadStatic]

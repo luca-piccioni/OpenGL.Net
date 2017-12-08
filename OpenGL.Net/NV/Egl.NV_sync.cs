@@ -175,10 +175,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="timeout">
-		/// A <see cref="T:UInt64"/>.
+		/// A <see cref="T:ulong"/>.
 		/// </param>
 		[RequiredByFeature("EGL_NV_sync")]
-		public static int ClientWaitSyncNV(IntPtr sync, int flags, UInt64 timeout)
+		public static int ClientWaitSyncNV(IntPtr sync, int flags, ulong timeout)
 		{
 			int retValue;
 
@@ -267,7 +267,7 @@ namespace OpenGL
 
 			[RequiredByFeature("EGL_NV_sync")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate int eglClientWaitSyncNV(IntPtr sync, int flags, UInt64 timeout);
+			internal unsafe delegate int eglClientWaitSyncNV(IntPtr sync, int flags, ulong timeout);
 
 			[RequiredByFeature("EGL_NV_sync")]
 			internal static eglClientWaitSyncNV peglClientWaitSyncNV;

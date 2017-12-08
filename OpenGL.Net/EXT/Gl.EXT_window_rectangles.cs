@@ -77,19 +77,19 @@ namespace OpenGL
 		/// [GL] glWindowRectanglesEXT: Binding for glWindowRectanglesEXT.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="count">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="box">
-		/// A <see cref="T:Int32[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_window_rectangles", Api = "gl|glcore|gles2")]
-		public static void WindowRectanglesEXT(Int32 mode, Int32 count, Int32[] box)
+		public static void WindowRectanglesEXT(int mode, int count, int[] box)
 		{
 			unsafe {
-				fixed (Int32* p_box = box)
+				fixed (int* p_box = box)
 				{
 					Debug.Assert(Delegates.pglWindowRectanglesEXT != null, "pglWindowRectanglesEXT not implemented");
 					Delegates.pglWindowRectanglesEXT(mode, count, p_box);
@@ -103,7 +103,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_EXT_window_rectangles", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glWindowRectanglesEXT(Int32 mode, Int32 count, Int32* box);
+			internal unsafe delegate void glWindowRectanglesEXT(int mode, int count, int* box);
 
 			[RequiredByFeature("GL_EXT_window_rectangles", Api = "gl|glcore|gles2")]
 			[ThreadStatic]

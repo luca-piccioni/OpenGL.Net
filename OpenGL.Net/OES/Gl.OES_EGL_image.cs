@@ -41,13 +41,13 @@ namespace OpenGL
 		/// [GL] glEGLImageTargetTexture2DOES: Binding for glEGLImageTargetTexture2DOES.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="image">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_EGL_image", Api = "gles1|gles2")]
-		public static void EGLImageTargetTexture2DOES(Int32 target, IntPtr image)
+		public static void EGLImageTargetTexture2DOES(int target, IntPtr image)
 		{
 			Debug.Assert(Delegates.pglEGLImageTargetTexture2DOES != null, "pglEGLImageTargetTexture2DOES not implemented");
 			Delegates.pglEGLImageTargetTexture2DOES(target, image);
@@ -59,13 +59,13 @@ namespace OpenGL
 		/// [GL] glEGLImageTargetRenderbufferStorageOES: Binding for glEGLImageTargetRenderbufferStorageOES.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:Int32"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="image">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_EGL_image", Api = "gles1|gles2")]
-		public static void EGLImageTargetRenderbufferStorageOES(Int32 target, IntPtr image)
+		public static void EGLImageTargetRenderbufferStorageOES(int target, IntPtr image)
 		{
 			Debug.Assert(Delegates.pglEGLImageTargetRenderbufferStorageOES != null, "pglEGLImageTargetRenderbufferStorageOES not implemented");
 			Delegates.pglEGLImageTargetRenderbufferStorageOES(target, image);
@@ -77,7 +77,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_OES_EGL_image", Api = "gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glEGLImageTargetTexture2DOES(Int32 target, IntPtr image);
+			internal unsafe delegate void glEGLImageTargetTexture2DOES(int target, IntPtr image);
 
 			[RequiredByFeature("GL_OES_EGL_image", Api = "gles1|gles2")]
 			[ThreadStatic]
@@ -85,7 +85,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_EGL_image", Api = "gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glEGLImageTargetRenderbufferStorageOES(Int32 target, IntPtr image);
+			internal unsafe delegate void glEGLImageTargetRenderbufferStorageOES(int target, IntPtr image);
 
 			[RequiredByFeature("GL_OES_EGL_image", Api = "gles1|gles2")]
 			[ThreadStatic]
