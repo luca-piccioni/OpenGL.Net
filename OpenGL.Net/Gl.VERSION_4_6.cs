@@ -359,7 +359,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_6")]
 			[RequiredByFeature("GL_ARB_gl_spirv", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glSpecializeShader(uint shader, String pEntryPoint, uint numSpecializationConstants, uint* pConstantIndex, uint* pConstantValue);
+			internal delegate void glSpecializeShader(uint shader, String pEntryPoint, uint numSpecializationConstants, uint* pConstantIndex, uint* pConstantValue);
 
 			[RequiredByFeature("GL_VERSION_4_6")]
 			[RequiredByFeature("GL_ARB_gl_spirv", Api = "gl|glcore", EntryPoint = "glSpecializeShaderARB")]
@@ -369,7 +369,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_6")]
 			[RequiredByFeature("GL_ARB_indirect_parameters", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiDrawArraysIndirectCount(int mode, IntPtr indirect, IntPtr drawcount, int maxdrawcount, int stride);
+			internal delegate void glMultiDrawArraysIndirectCount(int mode, IntPtr indirect, IntPtr drawcount, int maxdrawcount, int stride);
 
 			[RequiredByFeature("GL_VERSION_4_6")]
 			[RequiredByFeature("GL_ARB_indirect_parameters", Api = "gl|glcore", EntryPoint = "glMultiDrawArraysIndirectCountARB")]
@@ -379,7 +379,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_6")]
 			[RequiredByFeature("GL_ARB_indirect_parameters", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiDrawElementsIndirectCount(int mode, int type, IntPtr indirect, IntPtr drawcount, int maxdrawcount, int stride);
+			internal delegate void glMultiDrawElementsIndirectCount(int mode, int type, IntPtr indirect, IntPtr drawcount, int maxdrawcount, int stride);
 
 			[RequiredByFeature("GL_VERSION_4_6")]
 			[RequiredByFeature("GL_ARB_indirect_parameters", Api = "gl|glcore", EntryPoint = "glMultiDrawElementsIndirectCountARB")]

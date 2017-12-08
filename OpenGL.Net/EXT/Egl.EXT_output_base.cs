@@ -319,56 +319,56 @@ namespace OpenGL
 		{
 			[RequiredByFeature("EGL_EXT_output_base")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool eglGetOutputLayersEXT(IntPtr dpy, IntPtr* attrib_list, IntPtr* layers, int max_layers, int* num_layers);
+			internal delegate bool eglGetOutputLayersEXT(IntPtr dpy, IntPtr* attrib_list, IntPtr* layers, int max_layers, int* num_layers);
 
 			[RequiredByFeature("EGL_EXT_output_base")]
 			internal static eglGetOutputLayersEXT peglGetOutputLayersEXT;
 
 			[RequiredByFeature("EGL_EXT_output_base")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool eglGetOutputPortsEXT(IntPtr dpy, IntPtr* attrib_list, IntPtr* ports, int max_ports, int* num_ports);
+			internal delegate bool eglGetOutputPortsEXT(IntPtr dpy, IntPtr* attrib_list, IntPtr* ports, int max_ports, int* num_ports);
 
 			[RequiredByFeature("EGL_EXT_output_base")]
 			internal static eglGetOutputPortsEXT peglGetOutputPortsEXT;
 
 			[RequiredByFeature("EGL_EXT_output_base")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool eglOutputLayerAttribEXT(IntPtr dpy, IntPtr layer, int attribute, IntPtr value);
+			internal delegate bool eglOutputLayerAttribEXT(IntPtr dpy, IntPtr layer, int attribute, IntPtr value);
 
 			[RequiredByFeature("EGL_EXT_output_base")]
 			internal static eglOutputLayerAttribEXT peglOutputLayerAttribEXT;
 
 			[RequiredByFeature("EGL_EXT_output_base")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool eglQueryOutputLayerAttribEXT(IntPtr dpy, IntPtr layer, int attribute, IntPtr* value);
+			internal delegate bool eglQueryOutputLayerAttribEXT(IntPtr dpy, IntPtr layer, int attribute, IntPtr* value);
 
 			[RequiredByFeature("EGL_EXT_output_base")]
 			internal static eglQueryOutputLayerAttribEXT peglQueryOutputLayerAttribEXT;
 
 			[RequiredByFeature("EGL_EXT_output_base")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr eglQueryOutputLayerStringEXT(IntPtr dpy, IntPtr layer, int name);
+			internal delegate IntPtr eglQueryOutputLayerStringEXT(IntPtr dpy, IntPtr layer, int name);
 
 			[RequiredByFeature("EGL_EXT_output_base")]
 			internal static eglQueryOutputLayerStringEXT peglQueryOutputLayerStringEXT;
 
 			[RequiredByFeature("EGL_EXT_output_base")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool eglOutputPortAttribEXT(IntPtr dpy, IntPtr port, int attribute, IntPtr value);
+			internal delegate bool eglOutputPortAttribEXT(IntPtr dpy, IntPtr port, int attribute, IntPtr value);
 
 			[RequiredByFeature("EGL_EXT_output_base")]
 			internal static eglOutputPortAttribEXT peglOutputPortAttribEXT;
 
 			[RequiredByFeature("EGL_EXT_output_base")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool eglQueryOutputPortAttribEXT(IntPtr dpy, IntPtr port, int attribute, IntPtr* value);
+			internal delegate bool eglQueryOutputPortAttribEXT(IntPtr dpy, IntPtr port, int attribute, IntPtr* value);
 
 			[RequiredByFeature("EGL_EXT_output_base")]
 			internal static eglQueryOutputPortAttribEXT peglQueryOutputPortAttribEXT;
 
 			[RequiredByFeature("EGL_EXT_output_base")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr eglQueryOutputPortStringEXT(IntPtr dpy, IntPtr port, int name);
+			internal delegate IntPtr eglQueryOutputPortStringEXT(IntPtr dpy, IntPtr port, int name);
 
 			[RequiredByFeature("EGL_EXT_output_base")]
 			internal static eglQueryOutputPortStringEXT peglQueryOutputPortStringEXT;

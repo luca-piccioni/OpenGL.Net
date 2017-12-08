@@ -1292,7 +1292,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
 			[return: MarshalAs(UnmanagedType.I1)]
-			internal unsafe delegate bool glAreProgramsResidentNV(int n, uint* programs, byte* residences);
+			internal delegate bool glAreProgramsResidentNV(int n, uint* programs, byte* residences);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1300,7 +1300,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glExecuteProgramNV(int target, uint id, float* @params);
+			internal delegate void glExecuteProgramNV(int target, uint id, float* @params);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1308,7 +1308,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetProgramParameterdvNV(int target, uint index, int pname, double* @params);
+			internal delegate void glGetProgramParameterdvNV(int target, uint index, int pname, double* @params);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1316,7 +1316,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetProgramParameterfvNV(int target, uint index, int pname, float* @params);
+			internal delegate void glGetProgramParameterfvNV(int target, uint index, int pname, float* @params);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1324,7 +1324,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetProgramivNV(uint id, int pname, int* @params);
+			internal delegate void glGetProgramivNV(uint id, int pname, int* @params);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1332,7 +1332,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetProgramStringNV(uint id, int pname, byte* program);
+			internal delegate void glGetProgramStringNV(uint id, int pname, byte* program);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1340,7 +1340,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetTrackMatrixivNV(int target, uint address, int pname, int* @params);
+			internal delegate void glGetTrackMatrixivNV(int target, uint address, int pname, int* @params);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1348,7 +1348,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glLoadProgramNV(int target, uint id, int len, byte* program);
+			internal delegate void glLoadProgramNV(int target, uint id, int len, byte* program);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1364,7 +1364,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramParameter4dvNV(int target, uint index, double* v);
+			internal delegate void glProgramParameter4dvNV(int target, uint index, double* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1380,7 +1380,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramParameter4fvNV(int target, uint index, float* v);
+			internal delegate void glProgramParameter4fvNV(int target, uint index, float* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1388,7 +1388,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramParameters4dvNV(int target, uint index, int count, double* v);
+			internal delegate void glProgramParameters4dvNV(int target, uint index, int count, double* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1396,7 +1396,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramParameters4fvNV(int target, uint index, int count, float* v);
+			internal delegate void glProgramParameters4fvNV(int target, uint index, int count, float* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1404,7 +1404,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glRequestResidentProgramsNV(int n, uint* programs);
+			internal delegate void glRequestResidentProgramsNV(int n, uint* programs);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1420,7 +1420,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttribPointerNV(uint index, int fsize, int type, int stride, IntPtr pointer);
+			internal delegate void glVertexAttribPointerNV(uint index, int fsize, int type, int stride, IntPtr pointer);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1428,7 +1428,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttribs1dvNV(uint index, int count, double* v);
+			internal delegate void glVertexAttribs1dvNV(uint index, int count, double* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1436,7 +1436,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttribs1fvNV(uint index, int count, float* v);
+			internal delegate void glVertexAttribs1fvNV(uint index, int count, float* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1444,7 +1444,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttribs1svNV(uint index, int count, short* v);
+			internal delegate void glVertexAttribs1svNV(uint index, int count, short* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1452,7 +1452,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttribs2dvNV(uint index, int count, double* v);
+			internal delegate void glVertexAttribs2dvNV(uint index, int count, double* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1460,7 +1460,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttribs2fvNV(uint index, int count, float* v);
+			internal delegate void glVertexAttribs2fvNV(uint index, int count, float* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1468,7 +1468,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttribs2svNV(uint index, int count, short* v);
+			internal delegate void glVertexAttribs2svNV(uint index, int count, short* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1476,7 +1476,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttribs3dvNV(uint index, int count, double* v);
+			internal delegate void glVertexAttribs3dvNV(uint index, int count, double* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1484,7 +1484,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttribs3fvNV(uint index, int count, float* v);
+			internal delegate void glVertexAttribs3fvNV(uint index, int count, float* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1492,7 +1492,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttribs3svNV(uint index, int count, short* v);
+			internal delegate void glVertexAttribs3svNV(uint index, int count, short* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1500,7 +1500,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttribs4dvNV(uint index, int count, double* v);
+			internal delegate void glVertexAttribs4dvNV(uint index, int count, double* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1508,7 +1508,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttribs4fvNV(uint index, int count, float* v);
+			internal delegate void glVertexAttribs4fvNV(uint index, int count, float* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1516,7 +1516,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttribs4svNV(uint index, int count, short* v);
+			internal delegate void glVertexAttribs4svNV(uint index, int count, short* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]
@@ -1524,7 +1524,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttribs4ubvNV(uint index, int count, byte* v);
+			internal delegate void glVertexAttribs4ubvNV(uint index, int count, byte* v);
 
 			[RequiredByFeature("GL_NV_vertex_program")]
 			[ThreadStatic]

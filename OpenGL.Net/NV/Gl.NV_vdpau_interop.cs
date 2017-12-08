@@ -351,7 +351,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_NV_vdpau_interop")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVDPAUInitNV(IntPtr vdpDevice, IntPtr getProcAddress);
+			internal delegate void glVDPAUInitNV(IntPtr vdpDevice, IntPtr getProcAddress);
 
 			[RequiredByFeature("GL_NV_vdpau_interop")]
 			[ThreadStatic]
@@ -367,7 +367,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vdpau_interop")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr glVDPAURegisterVideoSurfaceNV(IntPtr vdpSurface, int target, int numTextureNames, uint* textureNames);
+			internal delegate IntPtr glVDPAURegisterVideoSurfaceNV(IntPtr vdpSurface, int target, int numTextureNames, uint* textureNames);
 
 			[RequiredByFeature("GL_NV_vdpau_interop")]
 			[ThreadStatic]
@@ -375,7 +375,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vdpau_interop")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr glVDPAURegisterOutputSurfaceNV(IntPtr vdpSurface, int target, int numTextureNames, uint* textureNames);
+			internal delegate IntPtr glVDPAURegisterOutputSurfaceNV(IntPtr vdpSurface, int target, int numTextureNames, uint* textureNames);
 
 			[RequiredByFeature("GL_NV_vdpau_interop")]
 			[ThreadStatic]
@@ -384,7 +384,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_NV_vdpau_interop")]
 			[SuppressUnmanagedCodeSecurity()]
 			[return: MarshalAs(UnmanagedType.I1)]
-			internal unsafe delegate bool glVDPAUIsSurfaceNV(IntPtr surface);
+			internal delegate bool glVDPAUIsSurfaceNV(IntPtr surface);
 
 			[RequiredByFeature("GL_NV_vdpau_interop")]
 			[ThreadStatic]
@@ -392,7 +392,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vdpau_interop")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVDPAUUnregisterSurfaceNV(IntPtr surface);
+			internal delegate void glVDPAUUnregisterSurfaceNV(IntPtr surface);
 
 			[RequiredByFeature("GL_NV_vdpau_interop")]
 			[ThreadStatic]
@@ -400,7 +400,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vdpau_interop")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVDPAUGetSurfaceivNV(IntPtr surface, int pname, int bufSize, int* length, int* values);
+			internal delegate void glVDPAUGetSurfaceivNV(IntPtr surface, int pname, int bufSize, int* length, int* values);
 
 			[RequiredByFeature("GL_NV_vdpau_interop")]
 			[ThreadStatic]
@@ -408,7 +408,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vdpau_interop")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVDPAUSurfaceAccessNV(IntPtr surface, int access);
+			internal delegate void glVDPAUSurfaceAccessNV(IntPtr surface, int access);
 
 			[RequiredByFeature("GL_NV_vdpau_interop")]
 			[ThreadStatic]
@@ -416,7 +416,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vdpau_interop")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVDPAUMapSurfacesNV(int numSurfaces, IntPtr* surfaces);
+			internal delegate void glVDPAUMapSurfacesNV(int numSurfaces, IntPtr* surfaces);
 
 			[RequiredByFeature("GL_NV_vdpau_interop")]
 			[ThreadStatic]
@@ -424,7 +424,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vdpau_interop")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVDPAUUnmapSurfacesNV(int numSurface, IntPtr* surfaces);
+			internal delegate void glVDPAUUnmapSurfacesNV(int numSurface, IntPtr* surfaces);
 
 			[RequiredByFeature("GL_NV_vdpau_interop")]
 			[ThreadStatic]

@@ -130,7 +130,7 @@ namespace OpenGL
 			[RequiredByFeature("WGL_EXT_display_color_table")]
 			[SuppressUnmanagedCodeSecurity()]
 			[return: MarshalAs(UnmanagedType.I1)]
-			internal unsafe delegate bool wglLoadDisplayColorTableEXT(ushort* table, uint length);
+			internal delegate bool wglLoadDisplayColorTableEXT(ushort* table, uint length);
 
 			[RequiredByFeature("WGL_EXT_display_color_table")]
 			internal static wglLoadDisplayColorTableEXT pwglLoadDisplayColorTableEXT;

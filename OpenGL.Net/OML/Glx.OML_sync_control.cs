@@ -232,35 +232,35 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GLX_OML_sync_control")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool glXGetSyncValuesOML(IntPtr dpy, IntPtr drawable, long* ust, long* msc, long* sbc);
+			internal delegate bool glXGetSyncValuesOML(IntPtr dpy, IntPtr drawable, long* ust, long* msc, long* sbc);
 
 			[RequiredByFeature("GLX_OML_sync_control")]
 			internal static glXGetSyncValuesOML pglXGetSyncValuesOML;
 
 			[RequiredByFeature("GLX_OML_sync_control")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool glXGetMscRateOML(IntPtr dpy, IntPtr drawable, int* numerator, int* denominator);
+			internal delegate bool glXGetMscRateOML(IntPtr dpy, IntPtr drawable, int* numerator, int* denominator);
 
 			[RequiredByFeature("GLX_OML_sync_control")]
 			internal static glXGetMscRateOML pglXGetMscRateOML;
 
 			[RequiredByFeature("GLX_OML_sync_control")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate long glXSwapBuffersMscOML(IntPtr dpy, IntPtr drawable, long target_msc, long divisor, long remainder);
+			internal delegate long glXSwapBuffersMscOML(IntPtr dpy, IntPtr drawable, long target_msc, long divisor, long remainder);
 
 			[RequiredByFeature("GLX_OML_sync_control")]
 			internal static glXSwapBuffersMscOML pglXSwapBuffersMscOML;
 
 			[RequiredByFeature("GLX_OML_sync_control")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool glXWaitForMscOML(IntPtr dpy, IntPtr drawable, long target_msc, long divisor, long remainder, long* ust, long* msc, long* sbc);
+			internal delegate bool glXWaitForMscOML(IntPtr dpy, IntPtr drawable, long target_msc, long divisor, long remainder, long* ust, long* msc, long* sbc);
 
 			[RequiredByFeature("GLX_OML_sync_control")]
 			internal static glXWaitForMscOML pglXWaitForMscOML;
 
 			[RequiredByFeature("GLX_OML_sync_control")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool glXWaitForSbcOML(IntPtr dpy, IntPtr drawable, long target_sbc, long* ust, long* msc, long* sbc);
+			internal delegate bool glXWaitForSbcOML(IntPtr dpy, IntPtr drawable, long target_sbc, long* ust, long* msc, long* sbc);
 
 			[RequiredByFeature("GLX_OML_sync_control")]
 			internal static glXWaitForSbcOML pglXWaitForSbcOML;

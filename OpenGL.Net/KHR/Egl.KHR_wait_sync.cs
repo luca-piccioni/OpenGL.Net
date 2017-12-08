@@ -66,7 +66,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("EGL_KHR_wait_sync")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate int eglWaitSyncKHR(IntPtr dpy, IntPtr sync, int flags);
+			internal delegate int eglWaitSyncKHR(IntPtr dpy, IntPtr sync, int flags);
 
 			[RequiredByFeature("EGL_KHR_wait_sync")]
 			internal static eglWaitSyncKHR peglWaitSyncKHR;

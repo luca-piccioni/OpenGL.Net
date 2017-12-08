@@ -227,7 +227,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_SGIX_polynomial_ffd")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDeformationMap3dSGIX(int target, double u1, double u2, int ustride, int uorder, double v1, double v2, int vstride, int vorder, double w1, double w2, int wstride, int worder, double* points);
+			internal delegate void glDeformationMap3dSGIX(int target, double u1, double u2, int ustride, int uorder, double v1, double v2, int vstride, int vorder, double w1, double w2, int wstride, int worder, double* points);
 
 			[RequiredByFeature("GL_SGIX_polynomial_ffd")]
 			[ThreadStatic]
@@ -235,7 +235,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SGIX_polynomial_ffd")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDeformationMap3fSGIX(int target, float u1, float u2, int ustride, int uorder, float v1, float v2, int vstride, int vorder, float w1, float w2, int wstride, int worder, float* points);
+			internal delegate void glDeformationMap3fSGIX(int target, float u1, float u2, int ustride, int uorder, float v1, float v2, int vstride, int vorder, float w1, float w2, int wstride, int worder, float* points);
 
 			[RequiredByFeature("GL_SGIX_polynomial_ffd")]
 			[ThreadStatic]

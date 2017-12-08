@@ -60,7 +60,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GLX_MESA_agp_offset")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate uint glXGetAGPOffsetMESA(IntPtr pointer);
+			internal delegate uint glXGetAGPOffsetMESA(IntPtr pointer);
 
 			[RequiredByFeature("GLX_MESA_agp_offset")]
 			internal static glXGetAGPOffsetMESA pglXGetAGPOffsetMESA;

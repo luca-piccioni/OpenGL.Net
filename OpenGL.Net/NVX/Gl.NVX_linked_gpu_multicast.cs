@@ -185,7 +185,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_NVX_linked_gpu_multicast")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glLGPUNamedBufferSubDataNVX(uint gpuMask, uint buffer, IntPtr offset, uint size, IntPtr data);
+			internal delegate void glLGPUNamedBufferSubDataNVX(uint gpuMask, uint buffer, IntPtr offset, uint size, IntPtr data);
 
 			[RequiredByFeature("GL_NVX_linked_gpu_multicast")]
 			[ThreadStatic]

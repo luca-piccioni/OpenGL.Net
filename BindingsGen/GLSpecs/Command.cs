@@ -65,7 +65,7 @@ namespace BindingsGen.GLSpecs
 		/// <summary>
 		/// Command alias information.
 		/// </summary>
-		[DebuggerDisplay("CommandAlias: Name={Name}")]
+		[DebuggerDisplay("CommandAlias: Name={" + nameof(Name) + "}")]
 		public class CommandAlias
 		{
 			#region Specification
@@ -82,21 +82,21 @@ namespace BindingsGen.GLSpecs
 		/// <summary>
 		/// Vector command alias information.
 		/// </summary>
-		[DebuggerDisplay("VectorCommandAlias: Name={Name}")]
+		[DebuggerDisplay("VectorCommandAlias: Name={" + nameof(Name) + "}")]
 		public class VectorCommandAlias
 		{
 			/// <summary>
 			/// Vector equivalent command name.
 			/// </summary>
 			[XmlAttribute("name")]
-			public String Name;
+			public string Name;
 		}
 
 		/// <summary>
 		/// Arbitrary string.
 		/// </summary>
 		[XmlAttribute("comment")]
-		public String Comment;
+		public string Comment;
 
 		/// <summary>
 		/// Command prototype.
@@ -287,9 +287,7 @@ namespace BindingsGen.GLSpecs
 			}
 
 			// Delegate type definition
-			sw.WriteIdentation(); sw.Write("internal ");
-			if (IsSafeImplementation == false) sw.Write("unsafe ");
-			sw.Write("delegate ");
+			sw.WriteIdentation(); sw.Write("internal "); sw.Write("delegate ");
 
 			sw.Write("{0} {1}(", DelegateReturnType, ImportName);
 
@@ -404,7 +402,7 @@ namespace BindingsGen.GLSpecs
 		/// <summary>
 		/// Get the local variable storing the returned value.
 		/// </summary>
-		private string ReturnVariableName { get { return ("retValue"); } }
+		private string ReturnVariableName => "retValue";
 
 		/// <summary>
 		/// Get the implementation return type.

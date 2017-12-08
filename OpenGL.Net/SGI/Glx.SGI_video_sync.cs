@@ -95,14 +95,14 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GLX_SGI_video_sync")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate int glXGetVideoSyncSGI(uint* count);
+			internal delegate int glXGetVideoSyncSGI(uint* count);
 
 			[RequiredByFeature("GLX_SGI_video_sync")]
 			internal static glXGetVideoSyncSGI pglXGetVideoSyncSGI;
 
 			[RequiredByFeature("GLX_SGI_video_sync")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate int glXWaitVideoSyncSGI(int divisor, int remainder, uint* count);
+			internal delegate int glXWaitVideoSyncSGI(int divisor, int remainder, uint* count);
 
 			[RequiredByFeature("GLX_SGI_video_sync")]
 			internal static glXWaitVideoSyncSGI pglXWaitVideoSyncSGI;

@@ -201,35 +201,35 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GLX_SGIX_pbuffer")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr glXCreateGLXPbufferSGIX(IntPtr dpy, IntPtr config, uint width, uint height, int* attrib_list);
+			internal delegate IntPtr glXCreateGLXPbufferSGIX(IntPtr dpy, IntPtr config, uint width, uint height, int* attrib_list);
 
 			[RequiredByFeature("GLX_SGIX_pbuffer")]
 			internal static glXCreateGLXPbufferSGIX pglXCreateGLXPbufferSGIX;
 
 			[RequiredByFeature("GLX_SGIX_pbuffer")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glXDestroyGLXPbufferSGIX(IntPtr dpy, IntPtr pbuf);
+			internal delegate void glXDestroyGLXPbufferSGIX(IntPtr dpy, IntPtr pbuf);
 
 			[RequiredByFeature("GLX_SGIX_pbuffer")]
 			internal static glXDestroyGLXPbufferSGIX pglXDestroyGLXPbufferSGIX;
 
 			[RequiredByFeature("GLX_SGIX_pbuffer")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate int glXQueryGLXPbufferSGIX(IntPtr dpy, IntPtr pbuf, int attribute, uint* value);
+			internal delegate int glXQueryGLXPbufferSGIX(IntPtr dpy, IntPtr pbuf, int attribute, uint* value);
 
 			[RequiredByFeature("GLX_SGIX_pbuffer")]
 			internal static glXQueryGLXPbufferSGIX pglXQueryGLXPbufferSGIX;
 
 			[RequiredByFeature("GLX_SGIX_pbuffer")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glXSelectEventSGIX(IntPtr dpy, IntPtr drawable, uint mask);
+			internal delegate void glXSelectEventSGIX(IntPtr dpy, IntPtr drawable, uint mask);
 
 			[RequiredByFeature("GLX_SGIX_pbuffer")]
 			internal static glXSelectEventSGIX pglXSelectEventSGIX;
 
 			[RequiredByFeature("GLX_SGIX_pbuffer")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glXGetSelectedEventSGIX(IntPtr dpy, IntPtr drawable, uint* mask);
+			internal delegate void glXGetSelectedEventSGIX(IntPtr dpy, IntPtr drawable, uint* mask);
 
 			[RequiredByFeature("GLX_SGIX_pbuffer")]
 			internal static glXGetSelectedEventSGIX pglXGetSelectedEventSGIX;

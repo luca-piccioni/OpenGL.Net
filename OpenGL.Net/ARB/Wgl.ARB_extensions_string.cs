@@ -60,7 +60,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("WGL_ARB_extensions_string")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr wglGetExtensionsStringARB(IntPtr hdc);
+			internal delegate IntPtr wglGetExtensionsStringARB(IntPtr hdc);
 
 			[RequiredByFeature("WGL_ARB_extensions_string")]
 			internal static wglGetExtensionsStringARB pwglGetExtensionsStringARB;

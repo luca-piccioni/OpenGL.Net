@@ -107,7 +107,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GLX_NV_copy_image")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glXCopyImageSubDataNV(IntPtr dpy, IntPtr srcCtx, uint srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, IntPtr dstCtx, uint dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int width, int height, int depth);
+			internal delegate void glXCopyImageSubDataNV(IntPtr dpy, IntPtr srcCtx, uint srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, IntPtr dstCtx, uint dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int width, int height, int depth);
 
 			[RequiredByFeature("GLX_NV_copy_image")]
 			internal static glXCopyImageSubDataNV pglXCopyImageSubDataNV;

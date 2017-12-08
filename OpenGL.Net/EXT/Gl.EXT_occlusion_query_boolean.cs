@@ -263,7 +263,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGenQueriesEXT(int n, uint* ids);
+			internal delegate void glGenQueriesEXT(int n, uint* ids);
 
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
@@ -273,7 +273,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDeleteQueriesEXT(int n, uint* ids);
+			internal delegate void glDeleteQueriesEXT(int n, uint* ids);
 
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
@@ -314,7 +314,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetQueryivEXT(int target, int pname, int* @params);
+			internal delegate void glGetQueryivEXT(int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
@@ -324,7 +324,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetQueryObjectuivEXT(uint id, int pname, uint* @params);
+			internal delegate void glGetQueryObjectuivEXT(uint id, int pname, uint* @params);
 
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]

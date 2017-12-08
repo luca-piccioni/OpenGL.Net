@@ -193,7 +193,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_SGIX_list_priority")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetListParameterfvSGIX(uint list, int pname, float* @params);
+			internal delegate void glGetListParameterfvSGIX(uint list, int pname, float* @params);
 
 			[RequiredByFeature("GL_SGIX_list_priority")]
 			[ThreadStatic]
@@ -201,7 +201,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SGIX_list_priority")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetListParameterivSGIX(uint list, int pname, int* @params);
+			internal delegate void glGetListParameterivSGIX(uint list, int pname, int* @params);
 
 			[RequiredByFeature("GL_SGIX_list_priority")]
 			[ThreadStatic]
@@ -217,7 +217,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SGIX_list_priority")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glListParameterfvSGIX(uint list, int pname, float* @params);
+			internal delegate void glListParameterfvSGIX(uint list, int pname, float* @params);
 
 			[RequiredByFeature("GL_SGIX_list_priority")]
 			[ThreadStatic]
@@ -233,7 +233,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SGIX_list_priority")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glListParameterivSGIX(uint list, int pname, int* @params);
+			internal delegate void glListParameterivSGIX(uint list, int pname, int* @params);
 
 			[RequiredByFeature("GL_SGIX_list_priority")]
 			[ThreadStatic]

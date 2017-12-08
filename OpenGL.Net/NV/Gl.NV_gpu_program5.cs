@@ -114,7 +114,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_NV_gpu_program5")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramSubroutineParametersuivNV(int target, int count, uint* @params);
+			internal delegate void glProgramSubroutineParametersuivNV(int target, int count, uint* @params);
 
 			[RequiredByFeature("GL_NV_gpu_program5")]
 			[ThreadStatic]
@@ -122,7 +122,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_gpu_program5")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetProgramSubroutineParameteruivNV(int target, uint index, uint* param);
+			internal delegate void glGetProgramSubroutineParameteruivNV(int target, uint index, uint* param);
 
 			[RequiredByFeature("GL_NV_gpu_program5")]
 			[ThreadStatic]

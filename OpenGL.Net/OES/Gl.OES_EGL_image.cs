@@ -77,7 +77,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_OES_EGL_image", Api = "gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glEGLImageTargetTexture2DOES(int target, IntPtr image);
+			internal delegate void glEGLImageTargetTexture2DOES(int target, IntPtr image);
 
 			[RequiredByFeature("GL_OES_EGL_image", Api = "gles1|gles2")]
 			[ThreadStatic]
@@ -85,7 +85,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_EGL_image", Api = "gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glEGLImageTargetRenderbufferStorageOES(int target, IntPtr image);
+			internal delegate void glEGLImageTargetRenderbufferStorageOES(int target, IntPtr image);
 
 			[RequiredByFeature("GL_OES_EGL_image", Api = "gles1|gles2")]
 			[ThreadStatic]

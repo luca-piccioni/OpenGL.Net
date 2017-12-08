@@ -160,7 +160,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_ARB_sample_locations", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glFramebufferSampleLocationsfvARB(int target, uint start, int count, float* v);
+			internal delegate void glFramebufferSampleLocationsfvARB(int target, uint start, int count, float* v);
 
 			[RequiredByFeature("GL_ARB_sample_locations", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -168,7 +168,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_sample_locations", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glNamedFramebufferSampleLocationsfvARB(uint framebuffer, uint start, int count, float* v);
+			internal delegate void glNamedFramebufferSampleLocationsfvARB(uint framebuffer, uint start, int count, float* v);
 
 			[RequiredByFeature("GL_ARB_sample_locations", Api = "gl|glcore")]
 			[ThreadStatic]

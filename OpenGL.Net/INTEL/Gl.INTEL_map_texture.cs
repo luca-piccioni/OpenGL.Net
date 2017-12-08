@@ -153,7 +153,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_INTEL_map_texture")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr glMapTexture2DINTEL(uint texture, int level, uint access, int* stride, int* layout);
+			internal delegate IntPtr glMapTexture2DINTEL(uint texture, int level, uint access, int* stride, int* layout);
 
 			[RequiredByFeature("GL_INTEL_map_texture")]
 			[ThreadStatic]

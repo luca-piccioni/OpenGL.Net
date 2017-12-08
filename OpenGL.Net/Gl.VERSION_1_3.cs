@@ -2801,7 +2801,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_texture_compression")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glCompressedTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, IntPtr data);
+			internal delegate void glCompressedTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, IntPtr data);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -2814,7 +2814,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_texture_compression")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glCompressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, int imageSize, IntPtr data);
+			internal delegate void glCompressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, int imageSize, IntPtr data);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -2826,7 +2826,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_texture_compression")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glCompressedTexImage1D(int target, int level, int internalformat, int width, int border, int imageSize, IntPtr data);
+			internal delegate void glCompressedTexImage1D(int target, int level, int internalformat, int width, int border, int imageSize, IntPtr data);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_texture_compression", EntryPoint = "glCompressedTexImage1DARB")]
@@ -2837,7 +2837,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_texture_compression")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glCompressedTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, IntPtr data);
+			internal delegate void glCompressedTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, IntPtr data);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -2851,7 +2851,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_texture_compression")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glCompressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, IntPtr data);
+			internal delegate void glCompressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, IntPtr data);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -2864,7 +2864,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_texture_compression")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glCompressedTexSubImage1D(int target, int level, int xoffset, int width, int format, int imageSize, IntPtr data);
+			internal delegate void glCompressedTexSubImage1D(int target, int level, int xoffset, int width, int format, int imageSize, IntPtr data);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_texture_compression", EntryPoint = "glCompressedTexSubImage1DARB")]
@@ -2874,7 +2874,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_texture_compression")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetCompressedTexImage(int target, int level, IntPtr img);
+			internal delegate void glGetCompressedTexImage(int target, int level, IntPtr img);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_texture_compression", EntryPoint = "glGetCompressedTexImageARB")]
@@ -2911,7 +2911,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexCoord1dv(int target, double* v);
+			internal delegate void glMultiTexCoord1dv(int target, double* v);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord1dvARB")]
@@ -2935,7 +2935,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexCoord1fv(int target, float* v);
+			internal delegate void glMultiTexCoord1fv(int target, float* v);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord1fvARB")]
@@ -2959,7 +2959,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexCoord1iv(int target, int* v);
+			internal delegate void glMultiTexCoord1iv(int target, int* v);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord1ivARB")]
@@ -2983,7 +2983,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexCoord1sv(int target, short* v);
+			internal delegate void glMultiTexCoord1sv(int target, short* v);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord1svARB")]
@@ -3007,7 +3007,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexCoord2dv(int target, double* v);
+			internal delegate void glMultiTexCoord2dv(int target, double* v);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord2dvARB")]
@@ -3031,7 +3031,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexCoord2fv(int target, float* v);
+			internal delegate void glMultiTexCoord2fv(int target, float* v);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord2fvARB")]
@@ -3055,7 +3055,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexCoord2iv(int target, int* v);
+			internal delegate void glMultiTexCoord2iv(int target, int* v);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord2ivARB")]
@@ -3079,7 +3079,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexCoord2sv(int target, short* v);
+			internal delegate void glMultiTexCoord2sv(int target, short* v);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord2svARB")]
@@ -3103,7 +3103,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexCoord3dv(int target, double* v);
+			internal delegate void glMultiTexCoord3dv(int target, double* v);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord3dvARB")]
@@ -3127,7 +3127,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexCoord3fv(int target, float* v);
+			internal delegate void glMultiTexCoord3fv(int target, float* v);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord3fvARB")]
@@ -3151,7 +3151,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexCoord3iv(int target, int* v);
+			internal delegate void glMultiTexCoord3iv(int target, int* v);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord3ivARB")]
@@ -3175,7 +3175,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexCoord3sv(int target, short* v);
+			internal delegate void glMultiTexCoord3sv(int target, short* v);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord3svARB")]
@@ -3199,7 +3199,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexCoord4dv(int target, double* v);
+			internal delegate void glMultiTexCoord4dv(int target, double* v);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord4dvARB")]
@@ -3225,7 +3225,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexCoord4fv(int target, float* v);
+			internal delegate void glMultiTexCoord4fv(int target, float* v);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord4fvARB")]
@@ -3249,7 +3249,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexCoord4iv(int target, int* v);
+			internal delegate void glMultiTexCoord4iv(int target, int* v);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord4ivARB")]
@@ -3273,7 +3273,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_multitexture")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexCoord4sv(int target, short* v);
+			internal delegate void glMultiTexCoord4sv(int target, short* v);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_multitexture", EntryPoint = "glMultiTexCoord4svARB")]
@@ -3285,7 +3285,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_transpose_matrix")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glLoadTransposeMatrixf(float* m);
+			internal delegate void glLoadTransposeMatrixf(float* m);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_transpose_matrix", EntryPoint = "glLoadTransposeMatrixfARB")]
@@ -3297,7 +3297,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_transpose_matrix")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glLoadTransposeMatrixd(double* m);
+			internal delegate void glLoadTransposeMatrixd(double* m);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_transpose_matrix", EntryPoint = "glLoadTransposeMatrixdARB")]
@@ -3309,7 +3309,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_transpose_matrix")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultTransposeMatrixf(float* m);
+			internal delegate void glMultTransposeMatrixf(float* m);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_transpose_matrix", EntryPoint = "glMultTransposeMatrixfARB")]
@@ -3321,7 +3321,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_transpose_matrix")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultTransposeMatrixd(double* m);
+			internal delegate void glMultTransposeMatrixd(double* m);
 
 			[RequiredByFeature("GL_VERSION_1_3")]
 			[RequiredByFeature("GL_ARB_transpose_matrix", EntryPoint = "glMultTransposeMatrixdARB")]

@@ -1496,7 +1496,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_base_instance", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_base_instance", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDrawElementsInstancedBaseInstance(int mode, int count, int type, IntPtr indices, int instancecount, uint baseinstance);
+			internal delegate void glDrawElementsInstancedBaseInstance(int mode, int count, int type, IntPtr indices, int instancecount, uint baseinstance);
 
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ARB_base_instance", Api = "gl|glcore")]
@@ -1508,7 +1508,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_base_instance", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_base_instance", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDrawElementsInstancedBaseVertexBaseInstance(int mode, int count, int type, IntPtr indices, int instancecount, int basevertex, uint baseinstance);
+			internal delegate void glDrawElementsInstancedBaseVertexBaseInstance(int mode, int count, int type, IntPtr indices, int instancecount, int basevertex, uint baseinstance);
 
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ARB_base_instance", Api = "gl|glcore")]
@@ -1520,7 +1520,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_internalformat_query", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetInternalformativ(int target, int internalformat, int pname, int bufSize, int* @params);
+			internal delegate void glGetInternalformativ(int target, int internalformat, int pname, int bufSize, int* @params);
 
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -1531,7 +1531,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ARB_shader_atomic_counters", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetActiveAtomicCounterBufferiv(uint program, uint bufferIndex, int pname, int* @params);
+			internal delegate void glGetActiveAtomicCounterBufferiv(uint program, uint bufferIndex, int pname, int* @params);
 
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ARB_shader_atomic_counters", Api = "gl|glcore")]

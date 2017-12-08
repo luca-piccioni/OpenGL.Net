@@ -108,7 +108,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("WGL_NV_copy_image")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglCopyImageSubDataNV(IntPtr hSrcRC, uint srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, IntPtr hDstRC, uint dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int width, int height, int depth);
+			internal delegate bool wglCopyImageSubDataNV(IntPtr hSrcRC, uint srcName, int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, IntPtr hDstRC, uint dstName, int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int width, int height, int depth);
 
 			[RequiredByFeature("WGL_NV_copy_image")]
 			internal static wglCopyImageSubDataNV pwglCopyImageSubDataNV;

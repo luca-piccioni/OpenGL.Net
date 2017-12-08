@@ -107,7 +107,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_EXT_cull_vertex")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glCullParameterdvEXT(int pname, double* @params);
+			internal delegate void glCullParameterdvEXT(int pname, double* @params);
 
 			[RequiredByFeature("GL_EXT_cull_vertex")]
 			[ThreadStatic]
@@ -115,7 +115,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_cull_vertex")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glCullParameterfvEXT(int pname, float* @params);
+			internal delegate void glCullParameterfvEXT(int pname, float* @params);
 
 			[RequiredByFeature("GL_EXT_cull_vertex")]
 			[ThreadStatic]

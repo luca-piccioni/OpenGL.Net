@@ -179,35 +179,35 @@ namespace OpenGL
 		{
 			[RequiredByFeature("WGL_NV_video_capture")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglBindVideoCaptureDeviceNV(uint uVideoSlot, IntPtr hDevice);
+			internal delegate bool wglBindVideoCaptureDeviceNV(uint uVideoSlot, IntPtr hDevice);
 
 			[RequiredByFeature("WGL_NV_video_capture")]
 			internal static wglBindVideoCaptureDeviceNV pwglBindVideoCaptureDeviceNV;
 
 			[RequiredByFeature("WGL_NV_video_capture")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate uint wglEnumerateVideoCaptureDevicesNV(IntPtr hDc, IntPtr* phDeviceList);
+			internal delegate uint wglEnumerateVideoCaptureDevicesNV(IntPtr hDc, IntPtr* phDeviceList);
 
 			[RequiredByFeature("WGL_NV_video_capture")]
 			internal static wglEnumerateVideoCaptureDevicesNV pwglEnumerateVideoCaptureDevicesNV;
 
 			[RequiredByFeature("WGL_NV_video_capture")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglLockVideoCaptureDeviceNV(IntPtr hDc, IntPtr hDevice);
+			internal delegate bool wglLockVideoCaptureDeviceNV(IntPtr hDc, IntPtr hDevice);
 
 			[RequiredByFeature("WGL_NV_video_capture")]
 			internal static wglLockVideoCaptureDeviceNV pwglLockVideoCaptureDeviceNV;
 
 			[RequiredByFeature("WGL_NV_video_capture")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglQueryVideoCaptureDeviceNV(IntPtr hDc, IntPtr hDevice, int iAttribute, int* piValue);
+			internal delegate bool wglQueryVideoCaptureDeviceNV(IntPtr hDc, IntPtr hDevice, int iAttribute, int* piValue);
 
 			[RequiredByFeature("WGL_NV_video_capture")]
 			internal static wglQueryVideoCaptureDeviceNV pwglQueryVideoCaptureDeviceNV;
 
 			[RequiredByFeature("WGL_NV_video_capture")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglReleaseVideoCaptureDeviceNV(IntPtr hDc, IntPtr hDevice);
+			internal delegate bool wglReleaseVideoCaptureDeviceNV(IntPtr hDc, IntPtr hDevice);
 
 			[RequiredByFeature("WGL_NV_video_capture")]
 			internal static wglReleaseVideoCaptureDeviceNV pwglReleaseVideoCaptureDeviceNV;

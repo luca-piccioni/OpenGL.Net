@@ -71,7 +71,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GLX_MESA_copy_sub_buffer")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glXCopySubBufferMESA(IntPtr dpy, IntPtr drawable, int x, int y, int width, int height);
+			internal delegate void glXCopySubBufferMESA(IntPtr dpy, IntPtr drawable, int x, int y, int width, int height);
 
 			[RequiredByFeature("GLX_MESA_copy_sub_buffer")]
 			internal static glXCopySubBufferMESA pglXCopySubBufferMESA;

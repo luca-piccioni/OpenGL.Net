@@ -229,7 +229,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_MESA_window_pos")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glWindowPos4dvMESA(double* v);
+			internal delegate void glWindowPos4dvMESA(double* v);
 
 			[RequiredByFeature("GL_MESA_window_pos")]
 			[ThreadStatic]
@@ -245,7 +245,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_MESA_window_pos")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glWindowPos4fvMESA(float* v);
+			internal delegate void glWindowPos4fvMESA(float* v);
 
 			[RequiredByFeature("GL_MESA_window_pos")]
 			[ThreadStatic]
@@ -261,7 +261,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_MESA_window_pos")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glWindowPos4ivMESA(int* v);
+			internal delegate void glWindowPos4ivMESA(int* v);
 
 			[RequiredByFeature("GL_MESA_window_pos")]
 			[ThreadStatic]
@@ -277,7 +277,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_MESA_window_pos")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glWindowPos4svMESA(short* v);
+			internal delegate void glWindowPos4svMESA(short* v);
 
 			[RequiredByFeature("GL_MESA_window_pos")]
 			[ThreadStatic]

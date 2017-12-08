@@ -354,7 +354,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetUnsignedBytevEXT(int pname, byte* data);
+			internal delegate void glGetUnsignedBytevEXT(int pname, byte* data);
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
@@ -364,7 +364,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetUnsignedBytei_vEXT(int target, uint index, byte* data);
+			internal delegate void glGetUnsignedBytei_vEXT(int target, uint index, byte* data);
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
@@ -373,7 +373,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGenSemaphoresEXT(int n, uint* semaphores);
+			internal delegate void glGenSemaphoresEXT(int n, uint* semaphores);
 
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
 			[ThreadStatic]
@@ -381,7 +381,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDeleteSemaphoresEXT(int n, uint* semaphores);
+			internal delegate void glDeleteSemaphoresEXT(int n, uint* semaphores);
 
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
 			[ThreadStatic]
@@ -398,7 +398,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glSemaphoreParameterui64vEXT(uint semaphore, int pname, ulong* @params);
+			internal delegate void glSemaphoreParameterui64vEXT(uint semaphore, int pname, ulong* @params);
 
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
 			[ThreadStatic]
@@ -406,7 +406,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetSemaphoreParameterui64vEXT(uint semaphore, int pname, ulong* @params);
+			internal delegate void glGetSemaphoreParameterui64vEXT(uint semaphore, int pname, ulong* @params);
 
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
 			[ThreadStatic]
@@ -414,7 +414,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glWaitSemaphoreEXT(uint semaphore, uint numBufferBarriers, uint* buffers, uint numTextureBarriers, uint* textures, int* srcLayouts);
+			internal delegate void glWaitSemaphoreEXT(uint semaphore, uint numBufferBarriers, uint* buffers, uint numTextureBarriers, uint* textures, int* srcLayouts);
 
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
 			[ThreadStatic]
@@ -422,7 +422,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glSignalSemaphoreEXT(uint semaphore, uint numBufferBarriers, uint* buffers, uint numTextureBarriers, uint* textures, int* dstLayouts);
+			internal delegate void glSignalSemaphoreEXT(uint semaphore, uint numBufferBarriers, uint* buffers, uint numTextureBarriers, uint* textures, int* dstLayouts);
 
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
 			[ThreadStatic]

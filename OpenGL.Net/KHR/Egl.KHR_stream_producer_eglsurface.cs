@@ -81,7 +81,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("EGL_KHR_stream_producer_eglsurface")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr eglCreateStreamProducerSurfaceKHR(IntPtr dpy, IntPtr config, IntPtr stream, int* attrib_list);
+			internal delegate IntPtr eglCreateStreamProducerSurfaceKHR(IntPtr dpy, IntPtr config, IntPtr stream, int* attrib_list);
 
 			[RequiredByFeature("EGL_KHR_stream_producer_eglsurface")]
 			internal static eglCreateStreamProducerSurfaceKHR peglCreateStreamProducerSurfaceKHR;

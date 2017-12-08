@@ -85,7 +85,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GLX_SGI_make_current_read")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool glXMakeCurrentReadSGI(IntPtr dpy, IntPtr draw, IntPtr read, IntPtr ctx);
+			internal delegate bool glXMakeCurrentReadSGI(IntPtr dpy, IntPtr draw, IntPtr read, IntPtr ctx);
 
 			[RequiredByFeature("GLX_SGI_make_current_read")]
 			internal static glXMakeCurrentReadSGI pglXMakeCurrentReadSGI;

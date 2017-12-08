@@ -91,7 +91,7 @@ namespace OpenGL
 
 			[RequiredByFeature("WGL_NV_vertex_array_range")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void wglFreeMemoryNV(IntPtr pointer);
+			internal delegate void wglFreeMemoryNV(IntPtr pointer);
 
 			[RequiredByFeature("WGL_NV_vertex_array_range")]
 			internal static wglFreeMemoryNV pwglFreeMemoryNV;

@@ -328,7 +328,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_NV_transform_feedback")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTransformFeedbackAttribsNV(int count, int* attribs, int bufferMode);
+			internal delegate void glTransformFeedbackAttribsNV(int count, int* attribs, int bufferMode);
 
 			[RequiredByFeature("GL_NV_transform_feedback")]
 			[ThreadStatic]
@@ -336,7 +336,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_transform_feedback")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTransformFeedbackVaryingsNV(uint program, int count, int* locations, int bufferMode);
+			internal delegate void glTransformFeedbackVaryingsNV(uint program, int count, int* locations, int bufferMode);
 
 			[RequiredByFeature("GL_NV_transform_feedback")]
 			[ThreadStatic]
@@ -360,7 +360,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_transform_feedback")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetActiveVaryingNV(uint program, uint index, int bufSize, int* length, int* size, int* type, [Out] StringBuilder name);
+			internal delegate void glGetActiveVaryingNV(uint program, uint index, int bufSize, int* length, int* size, int* type, [Out] StringBuilder name);
 
 			[RequiredByFeature("GL_NV_transform_feedback")]
 			[ThreadStatic]
@@ -368,7 +368,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_transform_feedback")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetTransformFeedbackVaryingNV(uint program, uint index, int* location);
+			internal delegate void glGetTransformFeedbackVaryingNV(uint program, uint index, int* location);
 
 			[RequiredByFeature("GL_NV_transform_feedback")]
 			[ThreadStatic]
@@ -376,7 +376,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_transform_feedback")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTransformFeedbackStreamAttribsNV(int count, int* attribs, int nbuffers, int* bufstreams, int bufferMode);
+			internal delegate void glTransformFeedbackStreamAttribsNV(int count, int* attribs, int nbuffers, int* bufstreams, int bufferMode);
 
 			[RequiredByFeature("GL_NV_transform_feedback")]
 			[ThreadStatic]

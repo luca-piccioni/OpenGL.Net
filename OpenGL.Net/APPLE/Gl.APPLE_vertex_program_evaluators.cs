@@ -360,7 +360,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMapVertexAttrib1dAPPLE(uint index, uint size, double u1, double u2, int stride, int order, double* points);
+			internal delegate void glMapVertexAttrib1dAPPLE(uint index, uint size, double u1, double u2, int stride, int order, double* points);
 
 			[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]
 			[ThreadStatic]
@@ -368,7 +368,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMapVertexAttrib1fAPPLE(uint index, uint size, float u1, float u2, int stride, int order, float* points);
+			internal delegate void glMapVertexAttrib1fAPPLE(uint index, uint size, float u1, float u2, int stride, int order, float* points);
 
 			[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]
 			[ThreadStatic]
@@ -376,7 +376,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMapVertexAttrib2dAPPLE(uint index, uint size, double u1, double u2, int ustride, int uorder, double v1, double v2, int vstride, int vorder, double* points);
+			internal delegate void glMapVertexAttrib2dAPPLE(uint index, uint size, double u1, double u2, int ustride, int uorder, double v1, double v2, int vstride, int vorder, double* points);
 
 			[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]
 			[ThreadStatic]
@@ -384,7 +384,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMapVertexAttrib2fAPPLE(uint index, uint size, float u1, float u2, int ustride, int uorder, float v1, float v2, int vstride, int vorder, float* points);
+			internal delegate void glMapVertexAttrib2fAPPLE(uint index, uint size, float u1, float u2, int ustride, int uorder, float v1, float v2, int vstride, int vorder, float* points);
 
 			[RequiredByFeature("GL_APPLE_vertex_program_evaluators")]
 			[ThreadStatic]

@@ -64,7 +64,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_EXT_discard_framebuffer", Api = "gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDiscardFramebufferEXT(int target, int numAttachments, int* attachments);
+			internal delegate void glDiscardFramebufferEXT(int target, int numAttachments, int* attachments);
 
 			[RequiredByFeature("GL_EXT_discard_framebuffer", Api = "gles1|gles2")]
 			[ThreadStatic]

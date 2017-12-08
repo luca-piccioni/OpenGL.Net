@@ -927,7 +927,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetnTexImageARB(int target, int level, int format, int type, int bufSize, IntPtr img);
+			internal delegate void glGetnTexImageARB(int target, int level, int format, int type, int bufSize, IntPtr img);
 
 			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -935,7 +935,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetnCompressedTexImageARB(int target, int lod, int bufSize, IntPtr img);
+			internal delegate void glGetnCompressedTexImageARB(int target, int lod, int bufSize, IntPtr img);
 
 			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -943,7 +943,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetnUniformfvARB(uint program, int location, int bufSize, float* @params);
+			internal delegate void glGetnUniformfvARB(uint program, int location, int bufSize, float* @params);
 
 			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -951,7 +951,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetnUniformivARB(uint program, int location, int bufSize, int* @params);
+			internal delegate void glGetnUniformivARB(uint program, int location, int bufSize, int* @params);
 
 			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -959,7 +959,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetnUniformuivARB(uint program, int location, int bufSize, uint* @params);
+			internal delegate void glGetnUniformuivARB(uint program, int location, int bufSize, uint* @params);
 
 			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -967,7 +967,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetnUniformdvARB(uint program, int location, int bufSize, double* @params);
+			internal delegate void glGetnUniformdvARB(uint program, int location, int bufSize, double* @params);
 
 			[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -975,7 +975,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetnMapdvARB(int target, int query, int bufSize, double* v);
+			internal delegate void glGetnMapdvARB(int target, int query, int bufSize, double* v);
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
 			[ThreadStatic]
@@ -983,7 +983,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetnMapfvARB(int target, int query, int bufSize, float* v);
+			internal delegate void glGetnMapfvARB(int target, int query, int bufSize, float* v);
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
 			[ThreadStatic]
@@ -991,7 +991,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetnMapivARB(int target, int query, int bufSize, int* v);
+			internal delegate void glGetnMapivARB(int target, int query, int bufSize, int* v);
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
 			[ThreadStatic]
@@ -999,7 +999,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetnPixelMapfvARB(int map, int bufSize, float* values);
+			internal delegate void glGetnPixelMapfvARB(int map, int bufSize, float* values);
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
 			[ThreadStatic]
@@ -1007,7 +1007,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetnPixelMapuivARB(int map, int bufSize, uint* values);
+			internal delegate void glGetnPixelMapuivARB(int map, int bufSize, uint* values);
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
 			[ThreadStatic]
@@ -1015,7 +1015,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetnPixelMapusvARB(int map, int bufSize, ushort* values);
+			internal delegate void glGetnPixelMapusvARB(int map, int bufSize, ushort* values);
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
 			[ThreadStatic]
@@ -1023,7 +1023,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetnPolygonStippleARB(int bufSize, byte* pattern);
+			internal delegate void glGetnPolygonStippleARB(int bufSize, byte* pattern);
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
 			[ThreadStatic]
@@ -1031,7 +1031,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetnColorTableARB(int target, int format, int type, int bufSize, IntPtr table);
+			internal delegate void glGetnColorTableARB(int target, int format, int type, int bufSize, IntPtr table);
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
 			[ThreadStatic]
@@ -1039,7 +1039,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetnConvolutionFilterARB(int target, int format, int type, int bufSize, IntPtr image);
+			internal delegate void glGetnConvolutionFilterARB(int target, int format, int type, int bufSize, IntPtr image);
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
 			[ThreadStatic]
@@ -1047,7 +1047,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetnSeparableFilterARB(int target, int format, int type, int rowBufSize, IntPtr row, int columnBufSize, IntPtr column, IntPtr span);
+			internal delegate void glGetnSeparableFilterARB(int target, int format, int type, int rowBufSize, IntPtr row, int columnBufSize, IntPtr column, IntPtr span);
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
 			[ThreadStatic]
@@ -1055,7 +1055,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetnHistogramARB(int target, [MarshalAs(UnmanagedType.I1)] bool reset, int format, int type, int bufSize, IntPtr values);
+			internal delegate void glGetnHistogramARB(int target, [MarshalAs(UnmanagedType.I1)] bool reset, int format, int type, int bufSize, IntPtr values);
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
 			[ThreadStatic]
@@ -1063,7 +1063,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetnMinmaxARB(int target, [MarshalAs(UnmanagedType.I1)] bool reset, int format, int type, int bufSize, IntPtr values);
+			internal delegate void glGetnMinmaxARB(int target, [MarshalAs(UnmanagedType.I1)] bool reset, int format, int type, int bufSize, IntPtr values);
 
 			[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
 			[ThreadStatic]

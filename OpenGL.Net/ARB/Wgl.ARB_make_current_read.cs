@@ -95,7 +95,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("WGL_ARB_make_current_read")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglMakeContextCurrentARB(IntPtr hDrawDC, IntPtr hReadDC, IntPtr hglrc);
+			internal delegate bool wglMakeContextCurrentARB(IntPtr hDrawDC, IntPtr hReadDC, IntPtr hglrc);
 
 			[RequiredByFeature("WGL_ARB_make_current_read")]
 			internal static wglMakeContextCurrentARB pwglMakeContextCurrentARB;

@@ -41,15 +41,15 @@ namespace BindingsGen
 			RegistryProcessor glRegistryProcessor;
 			int index;
 
-			DummyStream = Array.FindIndex(args, delegate(string item) { return (item == "--dummy"); }) >= 0;
-			DocDisabled= Array.FindIndex(args, delegate(string item) { return (item == "--nodoc"); }) >= 0;
+			DummyStream = Array.FindIndex(args, item => (item == "--dummy")) >= 0;
+			DocDisabled= Array.FindIndex(args, item => (item == "--nodoc")) >= 0;
 
 			#region Assembly processing
 
-			if ((args.Length > 0) && ((index = Array.FindIndex(args, delegate(string item) { return (item == "--assembly"); })) >= 0)) {
+			if ((args.Length > 0) && ((index = Array.FindIndex(args, item => item == "--assembly")) >= 0)) {
 				string assemblyPath = args[index + 1];
-				bool overwriteAssembly = Array.Exists(args, delegate(string item) { return (item.StartsWith("--assembly-overwrite")); });
-				bool profileOnlyOpts = Array.Exists(args, delegate(string item) { return (item.StartsWith("--profile-")); });
+				bool overwriteAssembly = Array.Exists(args, item => item.StartsWith("--assembly-overwrite"));
+				bool profileOnlyOpts = Array.Exists(args, item => item.StartsWith("--profile-"));
 
 				List<RegistryAssemblyConfiguration> cfgs = new List<RegistryAssemblyConfiguration>();
 
@@ -58,11 +58,11 @@ namespace BindingsGen
 					cfgs.Add(RegistryAssemblyConfiguration.Load("BindingsGen.Profiles.ES2Profile.xml"));
 					cfgs.Add(RegistryAssemblyConfiguration.Load("BindingsGen.Profiles.SC2Profile.xml"));
 				} else {
-					if (Array.Exists(args, delegate(string item) { return (item.StartsWith("--profile-core")); }))
+					if (Array.Exists(args, item => (item.StartsWith("--profile-core"))))
 						cfgs.Add(RegistryAssemblyConfiguration.Load("BindingsGen.Profiles.CoreProfile.xml"));
-					if (Array.Exists(args, delegate(string item) { return (item.StartsWith("--profile-es2")); }))
+					if (Array.Exists(args, item => (item.StartsWith("--profile-es2"))))
 						cfgs.Add(RegistryAssemblyConfiguration.Load("BindingsGen.Profiles.ES2Profile.xml"));
-					if (Array.Exists(args, delegate(string item) { return (item.StartsWith("--profile-sc2")); }))
+					if (Array.Exists(args, item => (item.StartsWith("--profile-sc2"))))
 						cfgs.Add(RegistryAssemblyConfiguration.Load("BindingsGen.Profiles.SC2Profile.xml"));
 				}
 
@@ -70,7 +70,7 @@ namespace BindingsGen
 					try {
 						RegistryAssembly.CleanAssembly(assemblyPath, cfg, overwriteAssembly);
 					} catch (Exception exception) {
-						Console.WriteLine("Unable to process assembly: {0}.", exception.ToString());
+						Console.WriteLine("Unable to process assembly: {0}.", exception);
 					}
 				}
 
@@ -82,29 +82,29 @@ namespace BindingsGen
 
 			#region Log Maps
 
-			if ((args.Length > 0) && (Array.FindIndex(args, delegate(string item) { return (item == "--only-logmaps"); }) >= 0)) {
-				if ((args.Length == 1) || (Array.FindIndex(args, delegate(string item) { return (item == "--gl"); }) >= 0)) {
+			if ((args.Length > 0) && (Array.FindIndex(args, item => item == "--only-logmaps") >= 0)) {
+				if ((args.Length == 1) || (Array.FindIndex(args, item => item == "--gl") >= 0)) {
 					Console.WriteLine("Generating GL log map...");
 					ctx = new RegistryContext("Gl", "Gl", Path.Combine(BasePath, "GLSpecs/gl.xml"));
 					glRegistryProcessor = new RegistryProcessor(ctx.Registry);
 					glRegistryProcessor.GenerateLogMap(ctx, Path.Combine(BasePath, "OpenGL.Net/KhronosLogMapGl.xml"));
 				}
 
-				if ((args.Length == 1) || (Array.FindIndex(args, delegate(string item) { return (item == "--wgl"); }) >= 0)) {
+				if ((args.Length == 1) || (Array.FindIndex(args, item => item == "--wgl") >= 0)) {
 					Console.WriteLine("Generating WGL log map...");
 					ctx = new RegistryContext("Wgl", "Wgl", Path.Combine(BasePath, "GLSpecs/wgl.xml"));
 					glRegistryProcessor = new RegistryProcessor(ctx.Registry);
 					glRegistryProcessor.GenerateLogMap(ctx, Path.Combine(BasePath, "OpenGL.Net/KhronosLogMapWgl.xml"));
 				}
 
-				if ((args.Length == 1) || (Array.FindIndex(args, delegate(string item) { return (item == "--glx"); }) >= 0)) {
+				if ((args.Length == 1) || (Array.FindIndex(args, item => item == "--glx") >= 0)) {
 					Console.WriteLine("Generating GLX log map...");
 					ctx = new RegistryContext("Glx", "Glx", Path.Combine(BasePath, "GLSpecs/glx.xml"));
 					glRegistryProcessor = new RegistryProcessor(ctx.Registry);
 					glRegistryProcessor.GenerateLogMap(ctx, Path.Combine(BasePath, "OpenGL.Net/KhronosLogMapGlx.xml"));
 				}
 
-				if ((args.Length == 1) || (Array.FindIndex(args, delegate(string item) { return (item == "--egl"); }) >= 0)) {
+				if ((args.Length == 1) || (Array.FindIndex(args, item => item == "--egl") >= 0)) {
 					Console.WriteLine("Generating EGL log map...");
 					ctx = new RegistryContext("Egl", "Egl", Path.Combine(BasePath, "GLSpecs/egl.xml"));
 					glRegistryProcessor = new RegistryProcessor(ctx.Registry);
@@ -117,10 +117,10 @@ namespace BindingsGen
 
 			#endregion
 
-			bool genGL = (args.Length == 0) || (Array.FindIndex(args, delegate(string item) { return (item == "--gl"); }) >= 0);
-			bool genWGL = (args.Length == 0) || (Array.FindIndex(args, delegate(string item) { return (item == "--wgl"); }) >= 0);
-			bool genGLX = (args.Length == 0) || (Array.FindIndex(args, delegate(string item) { return (item == "--glx"); }) >= 0);
-			bool genEGL = (args.Length == 0) || (Array.FindIndex(args, delegate(string item) { return (item == "--egl"); }) >= 0);
+			bool genGL = (args.Length == 0) || (Array.FindIndex(args, item => item == "--gl") >= 0);
+			bool genWGL = (args.Length == 0) || (Array.FindIndex(args, item => item == "--wgl") >= 0);
+			bool genGLX = (args.Length == 0) || (Array.FindIndex(args, item => item == "--glx") >= 0);
+			bool genEGL = (args.Length == 0) || (Array.FindIndex(args, item => item == "--egl") >= 0);
 
 			// (Common) Documentation
 			RegistryDocumentation<RegistryDocumentationHandler_GL4> gl4Documentation = new RegistryDocumentation<RegistryDocumentationHandler_GL4>();
@@ -142,7 +142,7 @@ namespace BindingsGen
 			if (genGL) {
 				bool genGL_Features = true, genGL_Commands = false, genGL_Extensions = false, genGL_Limits = false;
 
-				foreach (string arg in Array.FindAll(args, delegate(string item) { return (item.StartsWith("--gl-")); })) {
+				foreach (string arg in Array.FindAll(args, item => (item.StartsWith("--gl-")))) {
 					switch (arg.Substring(5, arg.Length - 5)) {
 						case "commands":
 							genGL_Commands = true;
@@ -158,13 +158,13 @@ namespace BindingsGen
 				}
 
 				// Additional ES documentation
-				RegistryDocumentation<RegistryDocumentationHandler_GL4> gles3Documentation = new RegistryDocumentation<RegistryDocumentationHandler_GL4>();
-				gles3Documentation.Api = "GLES3.2";
+				RegistryDocumentation<RegistryDocumentationHandler_GL4> gles3Documentation =
+					new RegistryDocumentation<RegistryDocumentationHandler_GL4> { Api = "GLES3.2" };
 				if (DocDisabled == false)
 					gles3Documentation.ScanDocumentation(Path.Combine(BasePath, "RefPages/OpenGL/es3"));
 
-				RegistryDocumentation<RegistryDocumentationHandler_GL2> gles1Documentation = new RegistryDocumentation<RegistryDocumentationHandler_GL2>();
-				gles1Documentation.Api = "GLES1.1";
+				RegistryDocumentation<RegistryDocumentationHandler_GL2> gles1Documentation =
+					new RegistryDocumentation<RegistryDocumentationHandler_GL2> { Api = "GLES1.1" };
 				if (DocDisabled == false)
 					gles1Documentation.ScanDocumentation(Path.Combine(BasePath, "RefPages/OpenGL/es1.1"));
 
@@ -219,9 +219,9 @@ namespace BindingsGen
 			}
 
 			// EGL
-			if ((args.Length == 0) || (Array.FindIndex(args, delegate(string item) { return (item == "--egl"); }) >= 0)) {
-				RegistryDocumentation<RegistryDocumentationHandler_EGL> eglDocumentation = new RegistryDocumentation<RegistryDocumentationHandler_EGL>();
-				eglDocumentation.Api = "EGL";
+			if (genEGL) {
+				RegistryDocumentation<RegistryDocumentationHandler_EGL> eglDocumentation =
+					new RegistryDocumentation<RegistryDocumentationHandler_EGL> { Api = "EGL" };
 				eglDocumentation.ScanDocumentation(Path.Combine(BasePath, "RefPages/EGL-Registry/sdk/docs/man"));
 
 				ctx = new RegistryContext("Egl", "Egl", Path.Combine(BasePath, "GLSpecs/egl.xml"));
@@ -242,11 +242,13 @@ namespace BindingsGen
 
 			// OpenWF(C)
 			// Note: you must setup CLI to generate this bindings
-			if ((args.Length > 0) && (Array.FindIndex(args, delegate(string item) { return (item == "--wfc"); }) >= 0)) {
-				Header headRegistry = new Header("Wfc");
-				headRegistry.CommandExportRegex = "WF(D|C)_APIENTRY ";
-				headRegistry.CommandCallConventionRegex = "WF(D|C)_API_CALL ";
-				headRegistry.CommandExitRegex = " WF(D|C)_APIEXIT";
+			if ((args.Length > 0) && (Array.FindIndex(args, item => item == "--wfc") >= 0)) {
+				Header headRegistry = new Header("Wfc")
+				{
+					CommandExportRegex = "WF(D|C)_APIENTRY ",
+					CommandCallConventionRegex = "WF(D|C)_API_CALL ",
+					CommandExitRegex = " WF(D|C)_APIEXIT"
+				};
 				headRegistry.AppendHeader(Path.Combine(BasePath, "GLSpecs/WF/wfc.h"), new KhronosVersion(1, 0, KhronosVersion.ApiWfc));
 
 				ctx = new RegistryContext("Wfc", "Wfc", headRegistry);
@@ -259,11 +261,13 @@ namespace BindingsGen
 			}
 
 			// OpenWF(D)
-			if ((args.Length == 0) || (Array.FindIndex(args, delegate(string item) { return (item == "--wfd"); }) >= 0)) {
-				Header headRegistry = new Header("Wfd");
-				headRegistry.CommandExportRegex = "WF(D|C)_APIENTRY ";
-				headRegistry.CommandCallConventionRegex = "WF(D|C)_API_CALL ";
-				headRegistry.CommandExitRegex = " WF(D|C)_APIEXIT";
+			if ((args.Length == 0) || (Array.FindIndex(args, item => item == "--wfd") >= 0)) {
+				Header headRegistry = new Header("Wfd")
+				{
+					CommandExportRegex = "WF(D|C)_APIENTRY ",
+					CommandCallConventionRegex = "WF(D|C)_API_CALL ",
+					CommandExitRegex = " WF(D|C)_APIEXIT"
+				};
 				headRegistry.AppendHeader(Path.Combine(BasePath, "GLSpecs/WF/wfd.h"), new KhronosVersion(1, 0, KhronosVersion.ApiWfd));
 
 				ctx = new RegistryContext("Wfd", "Wfd", headRegistry);
@@ -279,10 +283,12 @@ namespace BindingsGen
 
 			OutputBasePath = "OpenVX.Net";
 
-			if ((args.Length == 0) || (Array.FindIndex(args, delegate(string item) { return (item == "--vx"); }) >= 0)) {
-				Header vxRegistry = new Header("VX");
-				vxRegistry.CommandExportRegex = "VX_API_ENTRY ";
-				vxRegistry.CommandCallConventionRegex = "VX_API_CALL ";
+			if ((args.Length == 0) || (Array.FindIndex(args, item => item == "--vx") >= 0)) {
+				Header vxRegistry = new Header("VX")
+				{
+					CommandExportRegex = "VX_API_ENTRY ",
+					CommandCallConventionRegex = "VX_API_CALL "
+				};
 				vxRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.2/vx_api.h"), new KhronosVersion(1, 2, KhronosVersion.ApiVx));
 				vxRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.2/vx_types.h"), new KhronosVersion(1, 2, KhronosVersion.ApiVx));
 				vxRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.2/vx_kernels.h"), new KhronosVersion(1, 2, KhronosVersion.ApiVx));
@@ -303,9 +309,11 @@ namespace BindingsGen
 				//glRegistryProcessor.GenerateExtensionsSupportClass(ctx);
 				//glRegistryProcessor.GenerateVersionsSupportClass(ctx);
 
-				Header vxuRegistry = new Header("VXU");
-				vxuRegistry.CommandExportRegex = "VX_API_ENTRY ";
-				vxuRegistry.CommandCallConventionRegex = "VX_API_CALL ";
+				Header vxuRegistry = new Header("VXU")
+				{
+					CommandExportRegex = "VX_API_ENTRY ",
+					CommandCallConventionRegex = "VX_API_CALL "
+				};
 				vxuRegistry.AppendHeader(Path.Combine(BasePath, "VXSpecs/1.2/vxu.h"), new KhronosVersion(1, 2, KhronosVersion.ApiVx));
 
 				ctx = new RegistryContext("VXU", "VX", vxuRegistry);

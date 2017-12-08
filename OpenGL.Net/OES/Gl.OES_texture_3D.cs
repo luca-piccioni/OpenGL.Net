@@ -460,7 +460,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexImage3DOES(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, IntPtr pixels);
+			internal delegate void glTexImage3DOES(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, IntPtr pixels);
 
 			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 			[ThreadStatic]
@@ -468,7 +468,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexSubImage3DOES(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, IntPtr pixels);
+			internal delegate void glTexSubImage3DOES(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, IntPtr pixels);
 
 			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 			[ThreadStatic]
@@ -484,7 +484,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glCompressedTexImage3DOES(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, IntPtr data);
+			internal delegate void glCompressedTexImage3DOES(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, IntPtr data);
 
 			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 			[ThreadStatic]
@@ -492,7 +492,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glCompressedTexSubImage3DOES(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, IntPtr data);
+			internal delegate void glCompressedTexSubImage3DOES(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, IntPtr data);
 
 			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
 			[ThreadStatic]

@@ -293,7 +293,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_HP_image_transform")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glImageTransformParameterivHP(int target, int pname, int* @params);
+			internal delegate void glImageTransformParameterivHP(int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_HP_image_transform")]
 			[ThreadStatic]
@@ -301,7 +301,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_HP_image_transform")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glImageTransformParameterfvHP(int target, int pname, float* @params);
+			internal delegate void glImageTransformParameterfvHP(int target, int pname, float* @params);
 
 			[RequiredByFeature("GL_HP_image_transform")]
 			[ThreadStatic]
@@ -309,7 +309,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_HP_image_transform")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetImageTransformParameterivHP(int target, int pname, int* @params);
+			internal delegate void glGetImageTransformParameterivHP(int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_HP_image_transform")]
 			[ThreadStatic]
@@ -317,7 +317,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_HP_image_transform")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetImageTransformParameterfvHP(int target, int pname, float* @params);
+			internal delegate void glGetImageTransformParameterfvHP(int target, int pname, float* @params);
 
 			[RequiredByFeature("GL_HP_image_transform")]
 			[ThreadStatic]

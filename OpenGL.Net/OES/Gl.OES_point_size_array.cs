@@ -131,7 +131,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_OES_point_size_array", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glPointSizePointerOES(int type, int stride, IntPtr pointer);
+			internal delegate void glPointSizePointerOES(int type, int stride, IntPtr pointer);
 
 			[RequiredByFeature("GL_OES_point_size_array", Api = "gles1")]
 			[ThreadStatic]

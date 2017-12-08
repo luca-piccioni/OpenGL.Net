@@ -1401,7 +1401,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glColor4ubVertex2fvSUN(byte* c, float* v);
+			internal delegate void glColor4ubVertex2fvSUN(byte* c, float* v);
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[ThreadStatic]
@@ -1417,7 +1417,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glColor4ubVertex3fvSUN(byte* c, float* v);
+			internal delegate void glColor4ubVertex3fvSUN(byte* c, float* v);
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[ThreadStatic]
@@ -1433,7 +1433,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glColor3fVertex3fvSUN(float* c, float* v);
+			internal delegate void glColor3fVertex3fvSUN(float* c, float* v);
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[ThreadStatic]
@@ -1449,7 +1449,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glNormal3fVertex3fvSUN(float* n, float* v);
+			internal delegate void glNormal3fVertex3fvSUN(float* n, float* v);
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[ThreadStatic]
@@ -1465,7 +1465,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glColor4fNormal3fVertex3fvSUN(float* c, float* n, float* v);
+			internal delegate void glColor4fNormal3fVertex3fvSUN(float* c, float* n, float* v);
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[ThreadStatic]
@@ -1481,7 +1481,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexCoord2fVertex3fvSUN(float* tc, float* v);
+			internal delegate void glTexCoord2fVertex3fvSUN(float* tc, float* v);
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[ThreadStatic]
@@ -1497,7 +1497,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexCoord4fVertex4fvSUN(float* tc, float* v);
+			internal delegate void glTexCoord4fVertex4fvSUN(float* tc, float* v);
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[ThreadStatic]
@@ -1513,7 +1513,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexCoord2fColor4ubVertex3fvSUN(float* tc, byte* c, float* v);
+			internal delegate void glTexCoord2fColor4ubVertex3fvSUN(float* tc, byte* c, float* v);
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[ThreadStatic]
@@ -1529,7 +1529,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexCoord2fColor3fVertex3fvSUN(float* tc, float* c, float* v);
+			internal delegate void glTexCoord2fColor3fVertex3fvSUN(float* tc, float* c, float* v);
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[ThreadStatic]
@@ -1545,7 +1545,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexCoord2fNormal3fVertex3fvSUN(float* tc, float* n, float* v);
+			internal delegate void glTexCoord2fNormal3fVertex3fvSUN(float* tc, float* n, float* v);
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[ThreadStatic]
@@ -1561,7 +1561,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexCoord2fColor4fNormal3fVertex3fvSUN(float* tc, float* c, float* n, float* v);
+			internal delegate void glTexCoord2fColor4fNormal3fVertex3fvSUN(float* tc, float* c, float* n, float* v);
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[ThreadStatic]
@@ -1577,7 +1577,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexCoord4fColor4fNormal3fVertex4fvSUN(float* tc, float* c, float* n, float* v);
+			internal delegate void glTexCoord4fColor4fNormal3fVertex4fvSUN(float* tc, float* c, float* n, float* v);
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[ThreadStatic]
@@ -1593,7 +1593,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glReplacementCodeuiVertex3fvSUN(uint* rc, float* v);
+			internal delegate void glReplacementCodeuiVertex3fvSUN(uint* rc, float* v);
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[ThreadStatic]
@@ -1609,7 +1609,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glReplacementCodeuiColor4ubVertex3fvSUN(uint* rc, byte* c, float* v);
+			internal delegate void glReplacementCodeuiColor4ubVertex3fvSUN(uint* rc, byte* c, float* v);
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[ThreadStatic]
@@ -1625,7 +1625,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glReplacementCodeuiColor3fVertex3fvSUN(uint* rc, float* c, float* v);
+			internal delegate void glReplacementCodeuiColor3fVertex3fvSUN(uint* rc, float* c, float* v);
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[ThreadStatic]
@@ -1641,7 +1641,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glReplacementCodeuiNormal3fVertex3fvSUN(uint* rc, float* n, float* v);
+			internal delegate void glReplacementCodeuiNormal3fVertex3fvSUN(uint* rc, float* n, float* v);
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[ThreadStatic]
@@ -1657,7 +1657,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glReplacementCodeuiColor4fNormal3fVertex3fvSUN(uint* rc, float* c, float* n, float* v);
+			internal delegate void glReplacementCodeuiColor4fNormal3fVertex3fvSUN(uint* rc, float* c, float* n, float* v);
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[ThreadStatic]
@@ -1673,7 +1673,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glReplacementCodeuiTexCoord2fVertex3fvSUN(uint* rc, float* tc, float* v);
+			internal delegate void glReplacementCodeuiTexCoord2fVertex3fvSUN(uint* rc, float* tc, float* v);
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[ThreadStatic]
@@ -1689,7 +1689,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glReplacementCodeuiTexCoord2fNormal3fVertex3fvSUN(uint* rc, float* tc, float* n, float* v);
+			internal delegate void glReplacementCodeuiTexCoord2fNormal3fVertex3fvSUN(uint* rc, float* tc, float* n, float* v);
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[ThreadStatic]
@@ -1705,7 +1705,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fvSUN(uint* rc, float* tc, float* c, float* n, float* v);
+			internal delegate void glReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fvSUN(uint* rc, float* tc, float* c, float* n, float* v);
 
 			[RequiredByFeature("GL_SUN_vertex")]
 			[ThreadStatic]

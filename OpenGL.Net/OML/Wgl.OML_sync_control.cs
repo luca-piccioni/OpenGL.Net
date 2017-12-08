@@ -248,42 +248,42 @@ namespace OpenGL
 		{
 			[RequiredByFeature("WGL_OML_sync_control")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglGetSyncValuesOML(IntPtr hdc, long* ust, long* msc, long* sbc);
+			internal delegate bool wglGetSyncValuesOML(IntPtr hdc, long* ust, long* msc, long* sbc);
 
 			[RequiredByFeature("WGL_OML_sync_control")]
 			internal static wglGetSyncValuesOML pwglGetSyncValuesOML;
 
 			[RequiredByFeature("WGL_OML_sync_control")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglGetMscRateOML(IntPtr hdc, int* numerator, int* denominator);
+			internal delegate bool wglGetMscRateOML(IntPtr hdc, int* numerator, int* denominator);
 
 			[RequiredByFeature("WGL_OML_sync_control")]
 			internal static wglGetMscRateOML pwglGetMscRateOML;
 
 			[RequiredByFeature("WGL_OML_sync_control")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate long wglSwapBuffersMscOML(IntPtr hdc, long target_msc, long divisor, long remainder);
+			internal delegate long wglSwapBuffersMscOML(IntPtr hdc, long target_msc, long divisor, long remainder);
 
 			[RequiredByFeature("WGL_OML_sync_control")]
 			internal static wglSwapBuffersMscOML pwglSwapBuffersMscOML;
 
 			[RequiredByFeature("WGL_OML_sync_control")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate long wglSwapLayerBuffersMscOML(IntPtr hdc, int fuPlanes, long target_msc, long divisor, long remainder);
+			internal delegate long wglSwapLayerBuffersMscOML(IntPtr hdc, int fuPlanes, long target_msc, long divisor, long remainder);
 
 			[RequiredByFeature("WGL_OML_sync_control")]
 			internal static wglSwapLayerBuffersMscOML pwglSwapLayerBuffersMscOML;
 
 			[RequiredByFeature("WGL_OML_sync_control")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglWaitForMscOML(IntPtr hdc, long target_msc, long divisor, long remainder, long* ust, long* msc, long* sbc);
+			internal delegate bool wglWaitForMscOML(IntPtr hdc, long target_msc, long divisor, long remainder, long* ust, long* msc, long* sbc);
 
 			[RequiredByFeature("WGL_OML_sync_control")]
 			internal static wglWaitForMscOML pwglWaitForMscOML;
 
 			[RequiredByFeature("WGL_OML_sync_control")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglWaitForSbcOML(IntPtr hdc, long target_sbc, long* ust, long* msc, long* sbc);
+			internal delegate bool wglWaitForSbcOML(IntPtr hdc, long target_sbc, long* ust, long* msc, long* sbc);
 
 			[RequiredByFeature("WGL_OML_sync_control")]
 			internal static wglWaitForSbcOML pwglWaitForSbcOML;

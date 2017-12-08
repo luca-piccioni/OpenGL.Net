@@ -366,7 +366,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glUniformHandleui64vNV(int location, int count, ulong* value);
+			internal delegate void glUniformHandleui64vNV(int location, int count, ulong* value);
 
 			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -382,7 +382,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramUniformHandleui64vNV(uint program, int location, int count, ulong* values);
+			internal delegate void glProgramUniformHandleui64vNV(uint program, int location, int count, ulong* values);
 
 			[RequiredByFeature("GL_NV_bindless_texture", Api = "gl|glcore|gles2")]
 			[ThreadStatic]

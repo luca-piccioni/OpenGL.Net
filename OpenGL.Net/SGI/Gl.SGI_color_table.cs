@@ -143,7 +143,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_SGI_color_table")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetColorTableSGI(int target, int format, int type, IntPtr table);
+			internal delegate void glGetColorTableSGI(int target, int format, int type, IntPtr table);
 
 			[RequiredByFeature("GL_SGI_color_table")]
 			[ThreadStatic]
@@ -151,7 +151,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SGI_color_table")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetColorTableParameterfvSGI(int target, int pname, float* @params);
+			internal delegate void glGetColorTableParameterfvSGI(int target, int pname, float* @params);
 
 			[RequiredByFeature("GL_SGI_color_table")]
 			[ThreadStatic]
@@ -159,7 +159,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SGI_color_table")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetColorTableParameterivSGI(int target, int pname, int* @params);
+			internal delegate void glGetColorTableParameterivSGI(int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_SGI_color_table")]
 			[ThreadStatic]

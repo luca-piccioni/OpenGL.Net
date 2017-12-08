@@ -163,7 +163,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_SGIS_detail_texture")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDetailTexFuncSGIS(int target, int n, float* points);
+			internal delegate void glDetailTexFuncSGIS(int target, int n, float* points);
 
 			[RequiredByFeature("GL_SGIS_detail_texture")]
 			[ThreadStatic]
@@ -171,7 +171,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SGIS_detail_texture")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetDetailTexFuncSGIS(int target, float* points);
+			internal delegate void glGetDetailTexFuncSGIS(int target, float* points);
 
 			[RequiredByFeature("GL_SGIS_detail_texture")]
 			[ThreadStatic]

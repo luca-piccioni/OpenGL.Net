@@ -170,28 +170,28 @@ namespace OpenGL
 		{
 			[RequiredByFeature("WGL_I3D_image_buffer")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr wglCreateImageBufferI3D(IntPtr hDC, int dwSize, uint uFlags);
+			internal delegate IntPtr wglCreateImageBufferI3D(IntPtr hDC, int dwSize, uint uFlags);
 
 			[RequiredByFeature("WGL_I3D_image_buffer")]
 			internal static wglCreateImageBufferI3D pwglCreateImageBufferI3D;
 
 			[RequiredByFeature("WGL_I3D_image_buffer")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglDestroyImageBufferI3D(IntPtr hDC, IntPtr pAddress);
+			internal delegate bool wglDestroyImageBufferI3D(IntPtr hDC, IntPtr pAddress);
 
 			[RequiredByFeature("WGL_I3D_image_buffer")]
 			internal static wglDestroyImageBufferI3D pwglDestroyImageBufferI3D;
 
 			[RequiredByFeature("WGL_I3D_image_buffer")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglAssociateImageBufferEventsI3D(IntPtr hDC, IntPtr* pEvent, IntPtr* pAddress, int* pSize, uint count);
+			internal delegate bool wglAssociateImageBufferEventsI3D(IntPtr hDC, IntPtr* pEvent, IntPtr* pAddress, int* pSize, uint count);
 
 			[RequiredByFeature("WGL_I3D_image_buffer")]
 			internal static wglAssociateImageBufferEventsI3D pwglAssociateImageBufferEventsI3D;
 
 			[RequiredByFeature("WGL_I3D_image_buffer")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglReleaseImageBufferEventsI3D(IntPtr hDC, IntPtr* pAddress, uint count);
+			internal delegate bool wglReleaseImageBufferEventsI3D(IntPtr hDC, IntPtr* pAddress, uint count);
 
 			[RequiredByFeature("WGL_I3D_image_buffer")]
 			internal static wglReleaseImageBufferEventsI3D pwglReleaseImageBufferEventsI3D;

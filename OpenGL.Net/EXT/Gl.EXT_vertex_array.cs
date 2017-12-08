@@ -371,7 +371,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_EXT_vertex_array")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glColorPointerEXT(int size, int type, int stride, int count, IntPtr pointer);
+			internal delegate void glColorPointerEXT(int size, int type, int stride, int count, IntPtr pointer);
 
 			[RequiredByFeature("GL_EXT_vertex_array")]
 			[ThreadStatic]
@@ -379,7 +379,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_array")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glEdgeFlagPointerEXT(int stride, int count, byte* pointer);
+			internal delegate void glEdgeFlagPointerEXT(int stride, int count, byte* pointer);
 
 			[RequiredByFeature("GL_EXT_vertex_array")]
 			[ThreadStatic]
@@ -387,7 +387,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_array")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glIndexPointerEXT(int type, int stride, int count, IntPtr pointer);
+			internal delegate void glIndexPointerEXT(int type, int stride, int count, IntPtr pointer);
 
 			[RequiredByFeature("GL_EXT_vertex_array")]
 			[ThreadStatic]
@@ -395,7 +395,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_array")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glNormalPointerEXT(int type, int stride, int count, IntPtr pointer);
+			internal delegate void glNormalPointerEXT(int type, int stride, int count, IntPtr pointer);
 
 			[RequiredByFeature("GL_EXT_vertex_array")]
 			[ThreadStatic]
@@ -403,7 +403,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_array")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexCoordPointerEXT(int size, int type, int stride, int count, IntPtr pointer);
+			internal delegate void glTexCoordPointerEXT(int size, int type, int stride, int count, IntPtr pointer);
 
 			[RequiredByFeature("GL_EXT_vertex_array")]
 			[ThreadStatic]
@@ -411,7 +411,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_array")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexPointerEXT(int size, int type, int stride, int count, IntPtr pointer);
+			internal delegate void glVertexPointerEXT(int size, int type, int stride, int count, IntPtr pointer);
 
 			[RequiredByFeature("GL_EXT_vertex_array")]
 			[ThreadStatic]

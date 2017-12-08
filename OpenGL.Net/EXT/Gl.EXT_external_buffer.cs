@@ -95,7 +95,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_EXT_external_buffer", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glBufferStorageExternalEXT(int target, IntPtr offset, uint size, IntPtr clientBuffer, uint flags);
+			internal delegate void glBufferStorageExternalEXT(int target, IntPtr offset, uint size, IntPtr clientBuffer, uint flags);
 
 			[RequiredByFeature("GL_EXT_external_buffer", Api = "gl|gles2")]
 			[ThreadStatic]
@@ -103,7 +103,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_external_buffer", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glNamedBufferStorageExternalEXT(uint buffer, IntPtr offset, uint size, IntPtr clientBuffer, uint flags);
+			internal delegate void glNamedBufferStorageExternalEXT(uint buffer, IntPtr offset, uint size, IntPtr clientBuffer, uint flags);
 
 			[RequiredByFeature("GL_EXT_external_buffer", Api = "gl|gles2")]
 			[ThreadStatic]

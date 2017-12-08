@@ -79,7 +79,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_SGIX_igloo_interface")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glIglooInterfaceSGIX(int pname, IntPtr @params);
+			internal delegate void glIglooInterfaceSGIX(int pname, IntPtr @params);
 
 			[RequiredByFeature("GL_SGIX_igloo_interface")]
 			[ThreadStatic]

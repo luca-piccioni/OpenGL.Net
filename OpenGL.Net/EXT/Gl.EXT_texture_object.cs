@@ -162,7 +162,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_texture_object")]
 			[SuppressUnmanagedCodeSecurity()]
 			[return: MarshalAs(UnmanagedType.I1)]
-			internal unsafe delegate bool glAreTexturesResidentEXT(int n, uint* textures, byte* residences);
+			internal delegate bool glAreTexturesResidentEXT(int n, uint* textures, byte* residences);
 
 			[RequiredByFeature("GL_EXT_texture_object")]
 			[ThreadStatic]
@@ -170,7 +170,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_texture_object")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDeleteTexturesEXT(int n, uint* textures);
+			internal delegate void glDeleteTexturesEXT(int n, uint* textures);
 
 			[RequiredByFeature("GL_EXT_texture_object")]
 			[ThreadStatic]
@@ -178,7 +178,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_texture_object")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGenTexturesEXT(int n, uint* textures);
+			internal delegate void glGenTexturesEXT(int n, uint* textures);
 
 			[RequiredByFeature("GL_EXT_texture_object")]
 			[ThreadStatic]

@@ -150,14 +150,14 @@ namespace OpenGL
 		{
 			[RequiredByFeature("EGL_MESA_drm_image")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr eglCreateDRMImageMESA(IntPtr dpy, int* attrib_list);
+			internal delegate IntPtr eglCreateDRMImageMESA(IntPtr dpy, int* attrib_list);
 
 			[RequiredByFeature("EGL_MESA_drm_image")]
 			internal static eglCreateDRMImageMESA peglCreateDRMImageMESA;
 
 			[RequiredByFeature("EGL_MESA_drm_image")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool eglExportDRMImageMESA(IntPtr dpy, IntPtr image, int* name, int* handle, int* stride);
+			internal delegate bool eglExportDRMImageMESA(IntPtr dpy, IntPtr image, int* name, int* handle, int* stride);
 
 			[RequiredByFeature("EGL_MESA_drm_image")]
 			internal static eglExportDRMImageMESA peglExportDRMImageMESA;

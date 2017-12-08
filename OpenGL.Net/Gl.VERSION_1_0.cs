@@ -14177,7 +14177,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexParameterfv(int target, int pname, float* @params);
+			internal delegate void glTexParameterfv(int target, int pname, float* @params);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
@@ -14205,7 +14205,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexParameteriv(int target, int pname, int* @params);
+			internal delegate void glTexParameteriv(int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -14216,7 +14216,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexImage1D(int target, int level, int internalformat, int width, int border, int format, int type, IntPtr pixels);
+			internal delegate void glTexImage1D(int target, int level, int internalformat, int width, int border, int format, int type, IntPtr pixels);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[ThreadStatic]
@@ -14226,7 +14226,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, IntPtr pixels);
+			internal delegate void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, IntPtr pixels);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -14492,7 +14492,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glReadPixels(int x, int y, int width, int height, int format, int type, IntPtr pixels);
+			internal delegate void glReadPixels(int x, int y, int width, int height, int format, int type, IntPtr pixels);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -14505,7 +14505,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetBooleanv(int pname, byte* data);
+			internal delegate void glGetBooleanv(int pname, byte* data);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -14516,7 +14516,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetDoublev(int pname, double* data);
+			internal delegate void glGetDoublev(int pname, double* data);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[ThreadStatic]
@@ -14541,7 +14541,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetFloatv(int pname, float* data);
+			internal delegate void glGetFloatv(int pname, float* data);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
@@ -14555,7 +14555,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetIntegerv(int pname, int* data);
+			internal delegate void glGetIntegerv(int pname, int* data);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -14580,7 +14580,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetTexImage(int target, int level, int format, int type, IntPtr pixels);
+			internal delegate void glGetTexImage(int target, int level, int format, int type, IntPtr pixels);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[ThreadStatic]
@@ -14591,7 +14591,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetTexParameterfv(int target, int pname, float* @params);
+			internal delegate void glGetTexParameterfv(int target, int pname, float* @params);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
@@ -14605,7 +14605,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetTexParameteriv(int target, int pname, int* @params);
+			internal delegate void glGetTexParameteriv(int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -14617,7 +14617,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetTexLevelParameterfv(int target, int level, int pname, float* @params);
+			internal delegate void glGetTexLevelParameterfv(int target, int level, int pname, float* @params);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -14627,7 +14627,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetTexLevelParameteriv(int target, int level, int pname, int* @params);
+			internal delegate void glGetTexLevelParameteriv(int target, int level, int pname, int* @params);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
@@ -14704,7 +14704,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glCallLists(int n, int type, IntPtr lists);
+			internal delegate void glCallLists(int n, int type, IntPtr lists);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -14754,7 +14754,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glBitmap(int width, int height, float xorig, float yorig, float xmove, float ymove, byte* bitmap);
+			internal delegate void glBitmap(int width, int height, float xorig, float yorig, float xmove, float ymove, byte* bitmap);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -14774,7 +14774,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glColor3bv(sbyte* v);
+			internal delegate void glColor3bv(sbyte* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -14794,7 +14794,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glColor3dv(double* v);
+			internal delegate void glColor3dv(double* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -14814,7 +14814,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glColor3fv(float* v);
+			internal delegate void glColor3fv(float* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -14834,7 +14834,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glColor3iv(int* v);
+			internal delegate void glColor3iv(int* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -14854,7 +14854,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glColor3sv(short* v);
+			internal delegate void glColor3sv(short* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -14874,7 +14874,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glColor3ubv(byte* v);
+			internal delegate void glColor3ubv(byte* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -14894,7 +14894,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glColor3uiv(uint* v);
+			internal delegate void glColor3uiv(uint* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -14914,7 +14914,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glColor3usv(ushort* v);
+			internal delegate void glColor3usv(ushort* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -14934,7 +14934,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glColor4bv(sbyte* v);
+			internal delegate void glColor4bv(sbyte* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -14954,7 +14954,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glColor4dv(double* v);
+			internal delegate void glColor4dv(double* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -14976,7 +14976,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glColor4fv(float* v);
+			internal delegate void glColor4fv(float* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -14996,7 +14996,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glColor4iv(int* v);
+			internal delegate void glColor4iv(int* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15016,7 +15016,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glColor4sv(short* v);
+			internal delegate void glColor4sv(short* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15038,7 +15038,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glColor4ubv(byte* v);
+			internal delegate void glColor4ubv(byte* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15058,7 +15058,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glColor4uiv(uint* v);
+			internal delegate void glColor4uiv(uint* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15078,7 +15078,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glColor4usv(ushort* v);
+			internal delegate void glColor4usv(ushort* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15098,7 +15098,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glEdgeFlagv(byte* flag);
+			internal delegate void glEdgeFlagv(byte* flag);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15128,7 +15128,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glIndexdv(double* c);
+			internal delegate void glIndexdv(double* c);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15148,7 +15148,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glIndexfv(float* c);
+			internal delegate void glIndexfv(float* c);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15168,7 +15168,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glIndexiv(int* c);
+			internal delegate void glIndexiv(int* c);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15188,7 +15188,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glIndexsv(short* c);
+			internal delegate void glIndexsv(short* c);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15208,7 +15208,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glNormal3bv(sbyte* v);
+			internal delegate void glNormal3bv(sbyte* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15228,7 +15228,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glNormal3dv(double* v);
+			internal delegate void glNormal3dv(double* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15250,7 +15250,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glNormal3fv(float* v);
+			internal delegate void glNormal3fv(float* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15270,7 +15270,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glNormal3iv(int* v);
+			internal delegate void glNormal3iv(int* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15290,7 +15290,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glNormal3sv(short* v);
+			internal delegate void glNormal3sv(short* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15310,7 +15310,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glRasterPos2dv(double* v);
+			internal delegate void glRasterPos2dv(double* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15330,7 +15330,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glRasterPos2fv(float* v);
+			internal delegate void glRasterPos2fv(float* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15350,7 +15350,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glRasterPos2iv(int* v);
+			internal delegate void glRasterPos2iv(int* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15370,7 +15370,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glRasterPos2sv(short* v);
+			internal delegate void glRasterPos2sv(short* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15390,7 +15390,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glRasterPos3dv(double* v);
+			internal delegate void glRasterPos3dv(double* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15410,7 +15410,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glRasterPos3fv(float* v);
+			internal delegate void glRasterPos3fv(float* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15430,7 +15430,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glRasterPos3iv(int* v);
+			internal delegate void glRasterPos3iv(int* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15450,7 +15450,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glRasterPos3sv(short* v);
+			internal delegate void glRasterPos3sv(short* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15470,7 +15470,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glRasterPos4dv(double* v);
+			internal delegate void glRasterPos4dv(double* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15490,7 +15490,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glRasterPos4fv(float* v);
+			internal delegate void glRasterPos4fv(float* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15510,7 +15510,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glRasterPos4iv(int* v);
+			internal delegate void glRasterPos4iv(int* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15530,7 +15530,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glRasterPos4sv(short* v);
+			internal delegate void glRasterPos4sv(short* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15550,7 +15550,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glRectdv(double* v1, double* v2);
+			internal delegate void glRectdv(double* v1, double* v2);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15570,7 +15570,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glRectfv(float* v1, float* v2);
+			internal delegate void glRectfv(float* v1, float* v2);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15590,7 +15590,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glRectiv(int* v1, int* v2);
+			internal delegate void glRectiv(int* v1, int* v2);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15610,7 +15610,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glRectsv(short* v1, short* v2);
+			internal delegate void glRectsv(short* v1, short* v2);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15630,7 +15630,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexCoord1dv(double* v);
+			internal delegate void glTexCoord1dv(double* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15650,7 +15650,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexCoord1fv(float* v);
+			internal delegate void glTexCoord1fv(float* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15670,7 +15670,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexCoord1iv(int* v);
+			internal delegate void glTexCoord1iv(int* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15690,7 +15690,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexCoord1sv(short* v);
+			internal delegate void glTexCoord1sv(short* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15710,7 +15710,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexCoord2dv(double* v);
+			internal delegate void glTexCoord2dv(double* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15730,7 +15730,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexCoord2fv(float* v);
+			internal delegate void glTexCoord2fv(float* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15750,7 +15750,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexCoord2iv(int* v);
+			internal delegate void glTexCoord2iv(int* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15770,7 +15770,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexCoord2sv(short* v);
+			internal delegate void glTexCoord2sv(short* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15790,7 +15790,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexCoord3dv(double* v);
+			internal delegate void glTexCoord3dv(double* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15810,7 +15810,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexCoord3fv(float* v);
+			internal delegate void glTexCoord3fv(float* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15830,7 +15830,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexCoord3iv(int* v);
+			internal delegate void glTexCoord3iv(int* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15850,7 +15850,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexCoord3sv(short* v);
+			internal delegate void glTexCoord3sv(short* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15870,7 +15870,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexCoord4dv(double* v);
+			internal delegate void glTexCoord4dv(double* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15890,7 +15890,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexCoord4fv(float* v);
+			internal delegate void glTexCoord4fv(float* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15910,7 +15910,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexCoord4iv(int* v);
+			internal delegate void glTexCoord4iv(int* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15930,7 +15930,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexCoord4sv(short* v);
+			internal delegate void glTexCoord4sv(short* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15950,7 +15950,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertex2dv(double* v);
+			internal delegate void glVertex2dv(double* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15970,7 +15970,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertex2fv(float* v);
+			internal delegate void glVertex2fv(float* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -15990,7 +15990,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertex2iv(int* v);
+			internal delegate void glVertex2iv(int* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -16010,7 +16010,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertex2sv(short* v);
+			internal delegate void glVertex2sv(short* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -16030,7 +16030,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertex3dv(double* v);
+			internal delegate void glVertex3dv(double* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -16050,7 +16050,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertex3fv(float* v);
+			internal delegate void glVertex3fv(float* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -16070,7 +16070,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertex3iv(int* v);
+			internal delegate void glVertex3iv(int* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -16090,7 +16090,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertex3sv(short* v);
+			internal delegate void glVertex3sv(short* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -16110,7 +16110,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertex4dv(double* v);
+			internal delegate void glVertex4dv(double* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -16130,7 +16130,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertex4fv(float* v);
+			internal delegate void glVertex4fv(float* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -16150,7 +16150,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertex4iv(int* v);
+			internal delegate void glVertex4iv(int* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -16170,7 +16170,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertex4sv(short* v);
+			internal delegate void glVertex4sv(short* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -16180,7 +16180,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glClipPlane(int plane, double* equation);
+			internal delegate void glClipPlane(int plane, double* equation);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -16213,7 +16213,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glFogfv(int pname, float* @params);
+			internal delegate void glFogfv(int pname, float* @params);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
@@ -16234,7 +16234,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glFogiv(int pname, int* @params);
+			internal delegate void glFogiv(int pname, int* @params);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -16257,7 +16257,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glLightfv(int light, int pname, float* @params);
+			internal delegate void glLightfv(int light, int pname, float* @params);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
@@ -16278,7 +16278,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glLightiv(int light, int pname, int* @params);
+			internal delegate void glLightiv(int light, int pname, int* @params);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -16301,7 +16301,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glLightModelfv(int pname, float* @params);
+			internal delegate void glLightModelfv(int pname, float* @params);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
@@ -16322,7 +16322,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glLightModeliv(int pname, int* @params);
+			internal delegate void glLightModeliv(int pname, int* @params);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -16355,7 +16355,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMaterialfv(int face, int pname, float* @params);
+			internal delegate void glMaterialfv(int face, int pname, float* @params);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
@@ -16376,7 +16376,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMaterialiv(int face, int pname, int* @params);
+			internal delegate void glMaterialiv(int face, int pname, int* @params);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -16386,7 +16386,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glPolygonStipple(byte* mask);
+			internal delegate void glPolygonStipple(byte* mask);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -16421,7 +16421,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexEnvfv(int target, int pname, float* @params);
+			internal delegate void glTexEnvfv(int target, int pname, float* @params);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
@@ -16445,7 +16445,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexEnviv(int target, int pname, int* @params);
+			internal delegate void glTexEnviv(int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -16466,7 +16466,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexGendv(int coord, int pname, double* @params);
+			internal delegate void glTexGendv(int coord, int pname, double* @params);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -16486,7 +16486,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexGenfv(int coord, int pname, float* @params);
+			internal delegate void glTexGenfv(int coord, int pname, float* @params);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -16506,7 +16506,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexGeniv(int coord, int pname, int* @params);
+			internal delegate void glTexGeniv(int coord, int pname, int* @params);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -16516,7 +16516,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glFeedbackBuffer(int size, int type, float* buffer);
+			internal delegate void glFeedbackBuffer(int size, int type, float* buffer);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -16526,7 +16526,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glSelectBuffer(int size, uint* buffer);
+			internal delegate void glSelectBuffer(int size, uint* buffer);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -16656,7 +16656,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMap1d(int target, double u1, double u2, int stride, int order, double* points);
+			internal delegate void glMap1d(int target, double u1, double u2, int stride, int order, double* points);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -16666,7 +16666,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMap1f(int target, float u1, float u2, int stride, int order, float* points);
+			internal delegate void glMap1f(int target, float u1, float u2, int stride, int order, float* points);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -16676,7 +16676,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMap2d(int target, double u1, double u2, int ustride, int uorder, double v1, double v2, int vstride, int vorder, double* points);
+			internal delegate void glMap2d(int target, double u1, double u2, int ustride, int uorder, double v1, double v2, int vstride, int vorder, double* points);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -16686,7 +16686,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMap2f(int target, float u1, float u2, int ustride, int uorder, float v1, float v2, int vstride, int vorder, float* points);
+			internal delegate void glMap2f(int target, float u1, float u2, int ustride, int uorder, float v1, float v2, int vstride, int vorder, float* points);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -16746,7 +16746,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glEvalCoord1dv(double* u);
+			internal delegate void glEvalCoord1dv(double* u);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -16766,7 +16766,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glEvalCoord1fv(float* u);
+			internal delegate void glEvalCoord1fv(float* u);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -16786,7 +16786,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glEvalCoord2dv(double* u);
+			internal delegate void glEvalCoord2dv(double* u);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -16806,7 +16806,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glEvalCoord2fv(float* u);
+			internal delegate void glEvalCoord2fv(float* u);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -16898,7 +16898,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glPixelMapfv(int map, int mapsize, float* values);
+			internal delegate void glPixelMapfv(int map, int mapsize, float* values);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -16908,7 +16908,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glPixelMapuiv(int map, int mapsize, uint* values);
+			internal delegate void glPixelMapuiv(int map, int mapsize, uint* values);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -16918,7 +16918,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glPixelMapusv(int map, int mapsize, ushort* values);
+			internal delegate void glPixelMapusv(int map, int mapsize, ushort* values);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -16938,7 +16938,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDrawPixels(int width, int height, int format, int type, IntPtr pixels);
+			internal delegate void glDrawPixels(int width, int height, int format, int type, IntPtr pixels);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -16948,7 +16948,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetClipPlane(int plane, double* equation);
+			internal delegate void glGetClipPlane(int plane, double* equation);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -16959,7 +16959,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetLightfv(int light, int pname, float* @params);
+			internal delegate void glGetLightfv(int light, int pname, float* @params);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
@@ -16970,7 +16970,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetLightiv(int light, int pname, int* @params);
+			internal delegate void glGetLightiv(int light, int pname, int* @params);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -16980,7 +16980,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetMapdv(int target, int query, double* v);
+			internal delegate void glGetMapdv(int target, int query, double* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -16990,7 +16990,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetMapfv(int target, int query, float* v);
+			internal delegate void glGetMapfv(int target, int query, float* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -17000,7 +17000,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetMapiv(int target, int query, int* v);
+			internal delegate void glGetMapiv(int target, int query, int* v);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -17011,7 +17011,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetMaterialfv(int face, int pname, float* @params);
+			internal delegate void glGetMaterialfv(int face, int pname, float* @params);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
@@ -17022,7 +17022,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetMaterialiv(int face, int pname, int* @params);
+			internal delegate void glGetMaterialiv(int face, int pname, int* @params);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -17032,7 +17032,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetPixelMapfv(int map, float* values);
+			internal delegate void glGetPixelMapfv(int map, float* values);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -17042,7 +17042,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetPixelMapuiv(int map, uint* values);
+			internal delegate void glGetPixelMapuiv(int map, uint* values);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -17052,7 +17052,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetPixelMapusv(int map, ushort* values);
+			internal delegate void glGetPixelMapusv(int map, ushort* values);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -17062,7 +17062,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetPolygonStipple(byte* mask);
+			internal delegate void glGetPolygonStipple(byte* mask);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -17073,7 +17073,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetTexEnvfv(int target, int pname, float* @params);
+			internal delegate void glGetTexEnvfv(int target, int pname, float* @params);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
@@ -17085,7 +17085,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetTexEnviv(int target, int pname, int* @params);
+			internal delegate void glGetTexEnviv(int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -17096,7 +17096,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetTexGendv(int coord, int pname, double* @params);
+			internal delegate void glGetTexGendv(int coord, int pname, double* @params);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -17106,7 +17106,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetTexGenfv(int coord, int pname, float* @params);
+			internal delegate void glGetTexGenfv(int coord, int pname, float* @params);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -17116,7 +17116,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetTexGeniv(int coord, int pname, int* @params);
+			internal delegate void glGetTexGeniv(int coord, int pname, int* @params);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -17160,7 +17160,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glLoadMatrixf(float* m);
+			internal delegate void glLoadMatrixf(float* m);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
@@ -17171,7 +17171,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glLoadMatrixd(double* m);
+			internal delegate void glLoadMatrixd(double* m);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
@@ -17194,7 +17194,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultMatrixf(float* m);
+			internal delegate void glMultMatrixf(float* m);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
@@ -17205,7 +17205,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultMatrixd(double* m);
+			internal delegate void glMultMatrixd(double* m);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]

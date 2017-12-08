@@ -128,21 +128,21 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GLX_VERSION_1_1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr glXQueryExtensionsString(IntPtr dpy, int screen);
+			internal delegate IntPtr glXQueryExtensionsString(IntPtr dpy, int screen);
 
 			[RequiredByFeature("GLX_VERSION_1_1")]
 			internal static glXQueryExtensionsString pglXQueryExtensionsString;
 
 			[RequiredByFeature("GLX_VERSION_1_1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr glXQueryServerString(IntPtr dpy, int screen, int name);
+			internal delegate IntPtr glXQueryServerString(IntPtr dpy, int screen, int name);
 
 			[RequiredByFeature("GLX_VERSION_1_1")]
 			internal static glXQueryServerString pglXQueryServerString;
 
 			[RequiredByFeature("GLX_VERSION_1_1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr glXGetClientString(IntPtr dpy, int name);
+			internal delegate IntPtr glXGetClientString(IntPtr dpy, int name);
 
 			[RequiredByFeature("GLX_VERSION_1_1")]
 			internal static glXGetClientString pglXGetClientString;

@@ -74,7 +74,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("EGL_KHR_swap_buffers_with_damage")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool eglSwapBuffersWithDamageKHR(IntPtr dpy, IntPtr surface, int* rects, int n_rects);
+			internal delegate bool eglSwapBuffersWithDamageKHR(IntPtr dpy, IntPtr surface, int* rects, int n_rects);
 
 			[RequiredByFeature("EGL_KHR_swap_buffers_with_damage")]
 			internal static eglSwapBuffersWithDamageKHR peglSwapBuffersWithDamageKHR;

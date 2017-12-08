@@ -209,7 +209,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_EXT_convolution")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetConvolutionFilterEXT(int target, int format, int type, IntPtr image);
+			internal delegate void glGetConvolutionFilterEXT(int target, int format, int type, IntPtr image);
 
 			[RequiredByFeature("GL_EXT_convolution")]
 			[ThreadStatic]
@@ -217,7 +217,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_convolution")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetConvolutionParameterfvEXT(int target, int pname, float* @params);
+			internal delegate void glGetConvolutionParameterfvEXT(int target, int pname, float* @params);
 
 			[RequiredByFeature("GL_EXT_convolution")]
 			[ThreadStatic]
@@ -225,7 +225,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_convolution")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetConvolutionParameterivEXT(int target, int pname, int* @params);
+			internal delegate void glGetConvolutionParameterivEXT(int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_EXT_convolution")]
 			[ThreadStatic]
@@ -233,7 +233,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_convolution")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetSeparableFilterEXT(int target, int format, int type, IntPtr row, IntPtr column, IntPtr span);
+			internal delegate void glGetSeparableFilterEXT(int target, int format, int type, IntPtr row, IntPtr column, IntPtr span);
 
 			[RequiredByFeature("GL_EXT_convolution")]
 			[ThreadStatic]

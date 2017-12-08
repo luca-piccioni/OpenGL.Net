@@ -848,7 +848,7 @@ namespace OpenVX
 			internal static vxuAbsDiff pvxuAbsDiff;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxuMeanStdDev(Context context, Image input, float* mean, float* stddev);
+			internal delegate Status vxuMeanStdDev(Context context, Image input, float* mean, float* stddev);
 
 			internal static vxuMeanStdDev pvxuMeanStdDev;
 
@@ -1033,7 +1033,7 @@ namespace OpenVX
 			internal static vxuLBPNode pvxuLBPNode;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxuHOGFeatures(Context context, Image input, Tensor magnitudes, Tensor bins, Hog* @params, UIntPtr hog_param_size, Tensor features);
+			internal delegate Status vxuHOGFeatures(Context context, Image input, Tensor magnitudes, Tensor bins, Hog* @params, UIntPtr hog_param_size, Tensor features);
 
 			internal static vxuHOGFeatures pvxuHOGFeatures;
 
@@ -1043,7 +1043,7 @@ namespace OpenVX
 			internal static vxuHOGCells pvxuHOGCells;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxuHoughLinesPNode(Context context, Image input, HoughLinesParams* @params, Array lines_array, Scalar num_lines);
+			internal delegate Status vxuHoughLinesPNode(Context context, Image input, HoughLinesParams* @params, Array lines_array, Scalar num_lines);
 
 			internal static vxuHoughLinesPNode pvxuHoughLinesPNode;
 
@@ -1088,7 +1088,7 @@ namespace OpenVX
 			internal static vxuTensorConvertDepth pvxuTensorConvertDepth;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxuMatrixMultiply(Context context, Tensor input1, Tensor input2, Tensor input3, MatrixMulParams* matrix_multiply_params, Tensor output);
+			internal delegate Status vxuMatrixMultiply(Context context, Tensor input1, Tensor input2, Tensor input3, MatrixMulParams* matrix_multiply_params, Tensor output);
 
 			internal static vxuMatrixMultiply pvxuMatrixMultiply;
 

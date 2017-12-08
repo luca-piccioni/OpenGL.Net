@@ -80,7 +80,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GLX_SGIX_dmbuffer")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool glXAssociateDMPbufferSGIX(IntPtr dpy, IntPtr pbuffer, IntPtr* @params, IntPtr dmbuffer);
+			internal delegate bool glXAssociateDMPbufferSGIX(IntPtr dpy, IntPtr pbuffer, IntPtr* @params, IntPtr dmbuffer);
 
 			[RequiredByFeature("GLX_SGIX_dmbuffer")]
 			internal static glXAssociateDMPbufferSGIX pglXAssociateDMPbufferSGIX;

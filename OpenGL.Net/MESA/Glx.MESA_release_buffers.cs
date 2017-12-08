@@ -63,7 +63,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GLX_MESA_release_buffers")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool glXReleaseBuffersMESA(IntPtr dpy, IntPtr drawable);
+			internal delegate bool glXReleaseBuffersMESA(IntPtr dpy, IntPtr drawable);
 
 			[RequiredByFeature("GLX_MESA_release_buffers")]
 			internal static glXReleaseBuffersMESA pglXReleaseBuffersMESA;

@@ -192,7 +192,7 @@ namespace OpenVX
 		internal unsafe static partial class Delegates
 		{
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Node vxConvolutionLayer(Graph graph, Tensor inputs, Tensor weights, Tensor biases, NnConvolutionParams* convolution_params, UIntPtr size_of_convolution_params, Tensor outputs);
+			internal delegate Node vxConvolutionLayer(Graph graph, Tensor inputs, Tensor weights, Tensor biases, NnConvolutionParams* convolution_params, UIntPtr size_of_convolution_params, Tensor outputs);
 
 			internal static vxConvolutionLayer pvxConvolutionLayer;
 
@@ -222,7 +222,7 @@ namespace OpenVX
 			internal static vxActivationLayer pvxActivationLayer;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Node vxDeconvolutionLayer(Graph graph, Tensor inputs, Tensor weights, Tensor biases, NnDeconvolutionParams* deconvolution_params, UIntPtr size_of_deconv_params, Tensor outputs);
+			internal delegate Node vxDeconvolutionLayer(Graph graph, Tensor inputs, Tensor weights, Tensor biases, NnDeconvolutionParams* deconvolution_params, UIntPtr size_of_deconv_params, Tensor outputs);
 
 			internal static vxDeconvolutionLayer pvxDeconvolutionLayer;
 

@@ -1164,7 +1164,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ATI_fragment_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glSetFragmentShaderConstantATI(uint dst, float* value);
+			internal delegate void glSetFragmentShaderConstantATI(uint dst, float* value);
 
 			[RequiredByFeature("GL_ATI_fragment_shader")]
 			[ThreadStatic]

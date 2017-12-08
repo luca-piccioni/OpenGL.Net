@@ -103,7 +103,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_EXT_window_rectangles", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glWindowRectanglesEXT(int mode, int count, int* box);
+			internal delegate void glWindowRectanglesEXT(int mode, int count, int* box);
 
 			[RequiredByFeature("GL_EXT_window_rectangles", Api = "gl|glcore|gles2")]
 			[ThreadStatic]

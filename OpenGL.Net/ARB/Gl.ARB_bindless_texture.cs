@@ -456,7 +456,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
 			[RequiredByFeature("GL_IMG_bindless_texture", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glUniformHandleui64vARB(int location, int count, ulong* value);
+			internal delegate void glUniformHandleui64vARB(int location, int count, ulong* value);
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
 			[RequiredByFeature("GL_IMG_bindless_texture", Api = "gles2", EntryPoint = "glUniformHandleui64vIMG")]
@@ -476,7 +476,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
 			[RequiredByFeature("GL_IMG_bindless_texture", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramUniformHandleui64vARB(uint program, int location, int count, ulong* values);
+			internal delegate void glProgramUniformHandleui64vARB(uint program, int location, int count, ulong* values);
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
 			[RequiredByFeature("GL_IMG_bindless_texture", Api = "gles2", EntryPoint = "glProgramUniformHandleui64vIMG")]
@@ -511,7 +511,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttribL1ui64vARB(uint index, ulong* v);
+			internal delegate void glVertexAttribL1ui64vARB(uint index, ulong* v);
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -519,7 +519,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetVertexAttribLui64vARB(uint index, int pname, ulong* @params);
+			internal delegate void glGetVertexAttribLui64vARB(uint index, int pname, ulong* @params);
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
 			[ThreadStatic]

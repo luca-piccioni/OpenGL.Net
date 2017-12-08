@@ -208,42 +208,42 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GLX_SGIX_fbconfig")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate int glXGetFBConfigAttribSGIX(IntPtr dpy, IntPtr config, int attribute, int* value);
+			internal delegate int glXGetFBConfigAttribSGIX(IntPtr dpy, IntPtr config, int attribute, int* value);
 
 			[RequiredByFeature("GLX_SGIX_fbconfig")]
 			internal static glXGetFBConfigAttribSGIX pglXGetFBConfigAttribSGIX;
 
 			[RequiredByFeature("GLX_SGIX_fbconfig")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr* glXChooseFBConfigSGIX(IntPtr dpy, int screen, int* attrib_list, int* nelements);
+			internal delegate IntPtr* glXChooseFBConfigSGIX(IntPtr dpy, int screen, int* attrib_list, int* nelements);
 
 			[RequiredByFeature("GLX_SGIX_fbconfig")]
 			internal static glXChooseFBConfigSGIX pglXChooseFBConfigSGIX;
 
 			[RequiredByFeature("GLX_SGIX_fbconfig")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr glXCreateGLXPixmapWithConfigSGIX(IntPtr dpy, IntPtr config, IntPtr pixmap);
+			internal delegate IntPtr glXCreateGLXPixmapWithConfigSGIX(IntPtr dpy, IntPtr config, IntPtr pixmap);
 
 			[RequiredByFeature("GLX_SGIX_fbconfig")]
 			internal static glXCreateGLXPixmapWithConfigSGIX pglXCreateGLXPixmapWithConfigSGIX;
 
 			[RequiredByFeature("GLX_SGIX_fbconfig")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr glXCreateContextWithConfigSGIX(IntPtr dpy, IntPtr config, int render_type, IntPtr share_list, bool direct);
+			internal delegate IntPtr glXCreateContextWithConfigSGIX(IntPtr dpy, IntPtr config, int render_type, IntPtr share_list, bool direct);
 
 			[RequiredByFeature("GLX_SGIX_fbconfig")]
 			internal static glXCreateContextWithConfigSGIX pglXCreateContextWithConfigSGIX;
 
 			[RequiredByFeature("GLX_SGIX_fbconfig")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr glXGetVisualFromFBConfigSGIX(IntPtr dpy, IntPtr config);
+			internal delegate IntPtr glXGetVisualFromFBConfigSGIX(IntPtr dpy, IntPtr config);
 
 			[RequiredByFeature("GLX_SGIX_fbconfig")]
 			internal static glXGetVisualFromFBConfigSGIX pglXGetVisualFromFBConfigSGIX;
 
 			[RequiredByFeature("GLX_SGIX_fbconfig")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr glXGetFBConfigFromVisualSGIX(IntPtr dpy, IntPtr vis);
+			internal delegate IntPtr glXGetFBConfigFromVisualSGIX(IntPtr dpy, IntPtr vis);
 
 			[RequiredByFeature("GLX_SGIX_fbconfig")]
 			internal static glXGetFBConfigFromVisualSGIX pglXGetFBConfigFromVisualSGIX;

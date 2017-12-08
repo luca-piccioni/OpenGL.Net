@@ -259,7 +259,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_pixel_transform")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glPixelTransformParameterivEXT(int target, int pname, int* @params);
+			internal delegate void glPixelTransformParameterivEXT(int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_EXT_pixel_transform")]
 			[ThreadStatic]
@@ -267,7 +267,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_pixel_transform")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glPixelTransformParameterfvEXT(int target, int pname, float* @params);
+			internal delegate void glPixelTransformParameterfvEXT(int target, int pname, float* @params);
 
 			[RequiredByFeature("GL_EXT_pixel_transform")]
 			[ThreadStatic]
@@ -275,7 +275,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_pixel_transform")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetPixelTransformParameterivEXT(int target, int pname, int* @params);
+			internal delegate void glGetPixelTransformParameterivEXT(int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_EXT_pixel_transform")]
 			[ThreadStatic]
@@ -283,7 +283,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_pixel_transform")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetPixelTransformParameterfvEXT(int target, int pname, float* @params);
+			internal delegate void glGetPixelTransformParameterfvEXT(int target, int pname, float* @params);
 
 			[RequiredByFeature("GL_EXT_pixel_transform")]
 			[ThreadStatic]

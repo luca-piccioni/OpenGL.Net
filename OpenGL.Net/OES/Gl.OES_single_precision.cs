@@ -149,7 +149,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_OES_single_precision", Api = "gl|gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glClipPlanefOES(int plane, float* equation);
+			internal delegate void glClipPlanefOES(int plane, float* equation);
 
 			[RequiredByFeature("GL_OES_single_precision", Api = "gl|gles1")]
 			[ThreadStatic]
@@ -165,7 +165,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_single_precision", Api = "gl|gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetClipPlanefOES(int plane, float* equation);
+			internal delegate void glGetClipPlanefOES(int plane, float* equation);
 
 			[RequiredByFeature("GL_OES_single_precision", Api = "gl|gles1")]
 			[ThreadStatic]

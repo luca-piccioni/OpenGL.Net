@@ -114,7 +114,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_NV_query_resource_tag")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGenQueryResourceTagNV(int n, int* tagIds);
+			internal delegate void glGenQueryResourceTagNV(int n, int* tagIds);
 
 			[RequiredByFeature("GL_NV_query_resource_tag")]
 			[ThreadStatic]
@@ -122,7 +122,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_query_resource_tag")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDeleteQueryResourceTagNV(int n, int* tagIds);
+			internal delegate void glDeleteQueryResourceTagNV(int n, int* tagIds);
 
 			[RequiredByFeature("GL_NV_query_resource_tag")]
 			[ThreadStatic]

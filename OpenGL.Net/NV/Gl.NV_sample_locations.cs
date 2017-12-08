@@ -111,7 +111,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_NV_sample_locations", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glFramebufferSampleLocationsfvNV(int target, uint start, int count, float* v);
+			internal delegate void glFramebufferSampleLocationsfvNV(int target, uint start, int count, float* v);
 
 			[RequiredByFeature("GL_NV_sample_locations", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -119,7 +119,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_sample_locations", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glNamedFramebufferSampleLocationsfvNV(uint framebuffer, uint start, int count, float* v);
+			internal delegate void glNamedFramebufferSampleLocationsfvNV(uint framebuffer, uint start, int count, float* v);
 
 			[RequiredByFeature("GL_NV_sample_locations", Api = "gl|glcore|gles2")]
 			[ThreadStatic]

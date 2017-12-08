@@ -124,7 +124,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_QCOM_driver_control", Api = "gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetDriverControlsQCOM(int* num, int size, uint* driverControls);
+			internal delegate void glGetDriverControlsQCOM(int* num, int size, uint* driverControls);
 
 			[RequiredByFeature("GL_QCOM_driver_control", Api = "gles1|gles2")]
 			[ThreadStatic]
@@ -132,7 +132,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_QCOM_driver_control", Api = "gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetDriverControlStringQCOM(uint driverControl, int bufSize, int* length, [Out] StringBuilder driverControlString);
+			internal delegate void glGetDriverControlStringQCOM(uint driverControl, int bufSize, int* length, [Out] StringBuilder driverControlString);
 
 			[RequiredByFeature("GL_QCOM_driver_control", Api = "gles1|gles2")]
 			[ThreadStatic]

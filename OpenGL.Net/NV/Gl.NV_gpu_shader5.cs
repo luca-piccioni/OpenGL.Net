@@ -1073,7 +1073,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glUniform1i64vNV(int location, int count, long* value);
+			internal delegate void glUniform1i64vNV(int location, int count, long* value);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
@@ -1083,7 +1083,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glUniform2i64vNV(int location, int count, long* value);
+			internal delegate void glUniform2i64vNV(int location, int count, long* value);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
@@ -1093,7 +1093,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glUniform3i64vNV(int location, int count, long* value);
+			internal delegate void glUniform3i64vNV(int location, int count, long* value);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
@@ -1103,7 +1103,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glUniform4i64vNV(int location, int count, long* value);
+			internal delegate void glUniform4i64vNV(int location, int count, long* value);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
@@ -1153,7 +1153,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glUniform1ui64vNV(int location, int count, ulong* value);
+			internal delegate void glUniform1ui64vNV(int location, int count, ulong* value);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
@@ -1163,7 +1163,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glUniform2ui64vNV(int location, int count, ulong* value);
+			internal delegate void glUniform2ui64vNV(int location, int count, ulong* value);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
@@ -1173,7 +1173,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glUniform3ui64vNV(int location, int count, ulong* value);
+			internal delegate void glUniform3ui64vNV(int location, int count, ulong* value);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
@@ -1183,7 +1183,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glUniform4ui64vNV(int location, int count, ulong* value);
+			internal delegate void glUniform4ui64vNV(int location, int count, ulong* value);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
@@ -1193,7 +1193,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetUniformi64vNV(uint program, int location, long* @params);
+			internal delegate void glGetUniformi64vNV(uint program, int location, long* @params);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
@@ -1243,7 +1243,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramUniform1i64vNV(uint program, int location, int count, long* value);
+			internal delegate void glProgramUniform1i64vNV(uint program, int location, int count, long* value);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
@@ -1253,7 +1253,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramUniform2i64vNV(uint program, int location, int count, long* value);
+			internal delegate void glProgramUniform2i64vNV(uint program, int location, int count, long* value);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
@@ -1263,7 +1263,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramUniform3i64vNV(uint program, int location, int count, long* value);
+			internal delegate void glProgramUniform3i64vNV(uint program, int location, int count, long* value);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
@@ -1273,7 +1273,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramUniform4i64vNV(uint program, int location, int count, long* value);
+			internal delegate void glProgramUniform4i64vNV(uint program, int location, int count, long* value);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
@@ -1323,7 +1323,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramUniform1ui64vNV(uint program, int location, int count, ulong* value);
+			internal delegate void glProgramUniform1ui64vNV(uint program, int location, int count, ulong* value);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
@@ -1333,7 +1333,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramUniform2ui64vNV(uint program, int location, int count, ulong* value);
+			internal delegate void glProgramUniform2ui64vNV(uint program, int location, int count, ulong* value);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
@@ -1343,7 +1343,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramUniform3ui64vNV(uint program, int location, int count, ulong* value);
+			internal delegate void glProgramUniform3ui64vNV(uint program, int location, int count, ulong* value);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
@@ -1353,7 +1353,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramUniform4ui64vNV(uint program, int location, int count, ulong* value);
+			internal delegate void glProgramUniform4ui64vNV(uint program, int location, int count, ulong* value);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_gpu_shader5", Api = "gl|glcore|gles2")]

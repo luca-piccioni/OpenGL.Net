@@ -62,7 +62,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GLX_SGI_cushion")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glXCushionSGI(IntPtr dpy, IntPtr window, float cushion);
+			internal delegate void glXCushionSGI(IntPtr dpy, IntPtr window, float cushion);
 
 			[RequiredByFeature("GLX_SGI_cushion")]
 			internal static glXCushionSGI pglXCushionSGI;

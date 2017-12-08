@@ -87,7 +87,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("WGL_3DL_stereo_control")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglSetStereoEmitterState3DL(IntPtr hDC, uint uState);
+			internal delegate bool wglSetStereoEmitterState3DL(IntPtr hDC, uint uState);
 
 			[RequiredByFeature("WGL_3DL_stereo_control")]
 			internal static wglSetStereoEmitterState3DL pwglSetStereoEmitterState3DL;

@@ -593,7 +593,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDeleteMemoryObjectsEXT(int n, uint* memoryObjects);
+			internal delegate void glDeleteMemoryObjectsEXT(int n, uint* memoryObjects);
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[ThreadStatic]
@@ -610,7 +610,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glCreateMemoryObjectsEXT(int n, uint* memoryObjects);
+			internal delegate void glCreateMemoryObjectsEXT(int n, uint* memoryObjects);
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[ThreadStatic]
@@ -618,7 +618,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMemoryObjectParameterivEXT(uint memoryObject, int pname, int* @params);
+			internal delegate void glMemoryObjectParameterivEXT(uint memoryObject, int pname, int* @params);
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[ThreadStatic]
@@ -626,7 +626,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetMemoryObjectParameterivEXT(uint memoryObject, int pname, int* @params);
+			internal delegate void glGetMemoryObjectParameterivEXT(uint memoryObject, int pname, int* @params);
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[ThreadStatic]

@@ -110,7 +110,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_NV_query_resource")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate int glQueryResourceNV(int queryType, int tagId, uint bufSize, int* buffer);
+			internal delegate int glQueryResourceNV(int queryType, int tagId, uint bufSize, int* buffer);
 
 			[RequiredByFeature("GL_NV_query_resource")]
 			[ThreadStatic]

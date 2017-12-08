@@ -330,7 +330,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glExtGetTexturesQCOM(uint* textures, int maxTextures, int* numTextures);
+			internal delegate void glExtGetTexturesQCOM(uint* textures, int maxTextures, int* numTextures);
 
 			[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
 			[ThreadStatic]
@@ -338,7 +338,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glExtGetBuffersQCOM(uint* buffers, int maxBuffers, int* numBuffers);
+			internal delegate void glExtGetBuffersQCOM(uint* buffers, int maxBuffers, int* numBuffers);
 
 			[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
 			[ThreadStatic]
@@ -346,7 +346,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glExtGetRenderbuffersQCOM(uint* renderbuffers, int maxRenderbuffers, int* numRenderbuffers);
+			internal delegate void glExtGetRenderbuffersQCOM(uint* renderbuffers, int maxRenderbuffers, int* numRenderbuffers);
 
 			[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
 			[ThreadStatic]
@@ -354,7 +354,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glExtGetFramebuffersQCOM(uint* framebuffers, int maxFramebuffers, int* numFramebuffers);
+			internal delegate void glExtGetFramebuffersQCOM(uint* framebuffers, int maxFramebuffers, int* numFramebuffers);
 
 			[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
 			[ThreadStatic]
@@ -362,7 +362,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glExtGetTexLevelParameterivQCOM(uint texture, int face, int level, int pname, int* @params);
+			internal delegate void glExtGetTexLevelParameterivQCOM(uint texture, int face, int level, int pname, int* @params);
 
 			[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
 			[ThreadStatic]
@@ -378,7 +378,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glExtGetTexSubImageQCOM(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, IntPtr texels);
+			internal delegate void glExtGetTexSubImageQCOM(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, IntPtr texels);
 
 			[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
 			[ThreadStatic]
@@ -386,7 +386,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glExtGetBufferPointervQCOM(int target, IntPtr* @params);
+			internal delegate void glExtGetBufferPointervQCOM(int target, IntPtr* @params);
 
 			[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
 			[ThreadStatic]

@@ -95,7 +95,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_EXT_gpu_program_parameters")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramEnvParameters4fvEXT(int target, uint index, int count, float* @params);
+			internal delegate void glProgramEnvParameters4fvEXT(int target, uint index, int count, float* @params);
 
 			[RequiredByFeature("GL_EXT_gpu_program_parameters")]
 			[ThreadStatic]
@@ -103,7 +103,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_gpu_program_parameters")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramLocalParameters4fvEXT(int target, uint index, int count, float* @params);
+			internal delegate void glProgramLocalParameters4fvEXT(int target, uint index, int count, float* @params);
 
 			[RequiredByFeature("GL_EXT_gpu_program_parameters")]
 			[ThreadStatic]

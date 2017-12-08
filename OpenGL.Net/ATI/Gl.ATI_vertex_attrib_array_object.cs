@@ -134,7 +134,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ATI_vertex_attrib_array_object")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetVertexAttribArrayObjectfvATI(uint index, int pname, float* @params);
+			internal delegate void glGetVertexAttribArrayObjectfvATI(uint index, int pname, float* @params);
 
 			[RequiredByFeature("GL_ATI_vertex_attrib_array_object")]
 			[ThreadStatic]
@@ -142,7 +142,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ATI_vertex_attrib_array_object")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetVertexAttribArrayObjectivATI(uint index, int pname, int* @params);
+			internal delegate void glGetVertexAttribArrayObjectivATI(uint index, int pname, int* @params);
 
 			[RequiredByFeature("GL_ATI_vertex_attrib_array_object")]
 			[ThreadStatic]

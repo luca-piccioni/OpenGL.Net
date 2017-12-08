@@ -176,7 +176,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SGIX_async")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate int glFinishAsyncSGIX(uint* markerp);
+			internal delegate int glFinishAsyncSGIX(uint* markerp);
 
 			[RequiredByFeature("GL_SGIX_async")]
 			[ThreadStatic]
@@ -184,7 +184,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SGIX_async")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate int glPollAsyncSGIX(uint* markerp);
+			internal delegate int glPollAsyncSGIX(uint* markerp);
 
 			[RequiredByFeature("GL_SGIX_async")]
 			[ThreadStatic]

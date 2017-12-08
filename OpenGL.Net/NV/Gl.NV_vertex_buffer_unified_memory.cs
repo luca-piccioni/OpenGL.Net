@@ -533,7 +533,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetIntegerui64i_vNV(int value, uint index, ulong* result);
+			internal delegate void glGetIntegerui64i_vNV(int value, uint index, ulong* result);
 
 			[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
 			[ThreadStatic]

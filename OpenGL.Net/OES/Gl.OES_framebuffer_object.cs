@@ -406,7 +406,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDeleteRenderbuffersOES(int n, uint* renderbuffers);
+			internal delegate void glDeleteRenderbuffersOES(int n, uint* renderbuffers);
 
 			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[ThreadStatic]
@@ -414,7 +414,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGenRenderbuffersOES(int n, uint* renderbuffers);
+			internal delegate void glGenRenderbuffersOES(int n, uint* renderbuffers);
 
 			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[ThreadStatic]
@@ -430,7 +430,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetRenderbufferParameterivOES(int target, int pname, int* @params);
+			internal delegate void glGetRenderbufferParameterivOES(int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[ThreadStatic]
@@ -455,7 +455,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDeleteFramebuffersOES(int n, uint* framebuffers);
+			internal delegate void glDeleteFramebuffersOES(int n, uint* framebuffers);
 
 			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[ThreadStatic]
@@ -463,7 +463,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGenFramebuffersOES(int n, uint* framebuffers);
+			internal delegate void glGenFramebuffersOES(int n, uint* framebuffers);
 
 			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[ThreadStatic]
@@ -495,7 +495,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetFramebufferAttachmentParameterivOES(int target, int attachment, int pname, int* @params);
+			internal delegate void glGetFramebufferAttachmentParameterivOES(int target, int attachment, int pname, int* @params);
 
 			[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
 			[ThreadStatic]

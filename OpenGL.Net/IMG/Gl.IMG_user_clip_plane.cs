@@ -89,7 +89,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glClipPlanefIMG(int p, float* eqn);
+			internal delegate void glClipPlanefIMG(int p, float* eqn);
 
 			[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
 			[ThreadStatic]
@@ -97,7 +97,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glClipPlanexIMG(int p, IntPtr* eqn);
+			internal delegate void glClipPlanexIMG(int p, IntPtr* eqn);
 
 			[RequiredByFeature("GL_IMG_user_clip_plane", Api = "gles1")]
 			[ThreadStatic]

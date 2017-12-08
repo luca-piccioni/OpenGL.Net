@@ -115,7 +115,7 @@ namespace OpenVX
 			internal static vxGetImportReferenceByIndex pvxGetImportReferenceByIndex;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxQueryImport(Import import, int attribute, void* ptr, UIntPtr size);
+			internal delegate Status vxQueryImport(Import import, int attribute, void* ptr, UIntPtr size);
 
 			internal static vxQueryImport pvxQueryImport;
 

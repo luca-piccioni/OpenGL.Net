@@ -136,7 +136,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_NV_pixel_data_range")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glPixelDataRangeNV(int target, int length, IntPtr pointer);
+			internal delegate void glPixelDataRangeNV(int target, int length, IntPtr pointer);
 
 			[RequiredByFeature("GL_NV_pixel_data_range")]
 			[ThreadStatic]

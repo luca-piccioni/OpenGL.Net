@@ -853,7 +853,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_EXT_draw_range_elements")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDrawRangeElements(int mode, uint start, uint end, int count, int type, IntPtr indices);
+			internal delegate void glDrawRangeElements(int mode, uint start, uint end, int count, int type, IntPtr indices);
 
 			[RequiredByFeature("GL_VERSION_1_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -866,7 +866,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_texture3D")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, IntPtr pixels);
+			internal delegate void glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, IntPtr pixels);
 
 			[RequiredByFeature("GL_VERSION_1_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -878,7 +878,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_texture3D")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, IntPtr pixels);
+			internal delegate void glTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, IntPtr pixels);
 
 			[RequiredByFeature("GL_VERSION_1_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]

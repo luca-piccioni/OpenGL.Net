@@ -138,7 +138,7 @@ namespace OpenGL
 			[RequiredByFeature("EGL_KHR_fence_sync")]
 			[RequiredByFeature("EGL_KHR_reusable_sync")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr eglCreateSyncKHR(IntPtr dpy, uint type, int* attrib_list);
+			internal delegate IntPtr eglCreateSyncKHR(IntPtr dpy, uint type, int* attrib_list);
 
 			[RequiredByFeature("EGL_KHR_fence_sync")]
 			[RequiredByFeature("EGL_KHR_reusable_sync")]
@@ -146,7 +146,7 @@ namespace OpenGL
 
 			[RequiredByFeature("EGL_KHR_reusable_sync")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool eglSignalSyncKHR(IntPtr dpy, IntPtr sync, uint mode);
+			internal delegate bool eglSignalSyncKHR(IntPtr dpy, IntPtr sync, uint mode);
 
 			[RequiredByFeature("EGL_KHR_reusable_sync")]
 			internal static eglSignalSyncKHR peglSignalSyncKHR;
@@ -154,7 +154,7 @@ namespace OpenGL
 			[RequiredByFeature("EGL_KHR_fence_sync")]
 			[RequiredByFeature("EGL_KHR_reusable_sync")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool eglGetSyncAttribKHR(IntPtr dpy, IntPtr sync, int attribute, int* value);
+			internal delegate bool eglGetSyncAttribKHR(IntPtr dpy, IntPtr sync, int attribute, int* value);
 
 			[RequiredByFeature("EGL_KHR_fence_sync")]
 			[RequiredByFeature("EGL_KHR_reusable_sync")]

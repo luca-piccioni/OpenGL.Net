@@ -129,7 +129,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vertex_array_range")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexArrayRangeNV(int length, IntPtr pointer);
+			internal delegate void glVertexArrayRangeNV(int length, IntPtr pointer);
 
 			[RequiredByFeature("GL_NV_vertex_array_range")]
 			[ThreadStatic]

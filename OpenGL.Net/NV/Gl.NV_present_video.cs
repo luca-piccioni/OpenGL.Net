@@ -293,7 +293,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_present_video")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetVideoivNV(uint video_slot, int pname, int* @params);
+			internal delegate void glGetVideoivNV(uint video_slot, int pname, int* @params);
 
 			[RequiredByFeature("GL_NV_present_video")]
 			[ThreadStatic]
@@ -301,7 +301,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_present_video")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetVideouivNV(uint video_slot, int pname, uint* @params);
+			internal delegate void glGetVideouivNV(uint video_slot, int pname, uint* @params);
 
 			[RequiredByFeature("GL_NV_present_video")]
 			[ThreadStatic]
@@ -309,7 +309,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_present_video")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetVideoi64vNV(uint video_slot, int pname, long* @params);
+			internal delegate void glGetVideoi64vNV(uint video_slot, int pname, long* @params);
 
 			[RequiredByFeature("GL_NV_present_video")]
 			[ThreadStatic]
@@ -317,7 +317,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_present_video")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetVideoui64vNV(uint video_slot, int pname, ulong* @params);
+			internal delegate void glGetVideoui64vNV(uint video_slot, int pname, ulong* @params);
 
 			[RequiredByFeature("GL_NV_present_video")]
 			[ThreadStatic]

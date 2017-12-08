@@ -297,7 +297,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_SGIS_texture4D")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexImage4DSGIS(int target, int level, int internalformat, int width, int height, int depth, int size4d, int border, int format, int type, IntPtr pixels);
+			internal delegate void glTexImage4DSGIS(int target, int level, int internalformat, int width, int height, int depth, int size4d, int border, int format, int type, IntPtr pixels);
 
 			[RequiredByFeature("GL_SGIS_texture4D")]
 			[ThreadStatic]
@@ -305,7 +305,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SGIS_texture4D")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexSubImage4DSGIS(int target, int level, int xoffset, int yoffset, int zoffset, int woffset, int width, int height, int depth, int size4d, int format, int type, IntPtr pixels);
+			internal delegate void glTexSubImage4DSGIS(int target, int level, int xoffset, int yoffset, int zoffset, int woffset, int width, int height, int depth, int size4d, int format, int type, IntPtr pixels);
 
 			[RequiredByFeature("GL_SGIS_texture4D")]
 			[ThreadStatic]

@@ -113,21 +113,21 @@ namespace OpenGL
 		{
 			[RequiredByFeature("EGL_KHR_stream_consumer_gltexture")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool eglStreamConsumerGLTextureExternalKHR(IntPtr dpy, IntPtr stream);
+			internal delegate bool eglStreamConsumerGLTextureExternalKHR(IntPtr dpy, IntPtr stream);
 
 			[RequiredByFeature("EGL_KHR_stream_consumer_gltexture")]
 			internal static eglStreamConsumerGLTextureExternalKHR peglStreamConsumerGLTextureExternalKHR;
 
 			[RequiredByFeature("EGL_KHR_stream_consumer_gltexture")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool eglStreamConsumerAcquireKHR(IntPtr dpy, IntPtr stream);
+			internal delegate bool eglStreamConsumerAcquireKHR(IntPtr dpy, IntPtr stream);
 
 			[RequiredByFeature("EGL_KHR_stream_consumer_gltexture")]
 			internal static eglStreamConsumerAcquireKHR peglStreamConsumerAcquireKHR;
 
 			[RequiredByFeature("EGL_KHR_stream_consumer_gltexture")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool eglStreamConsumerReleaseKHR(IntPtr dpy, IntPtr stream);
+			internal delegate bool eglStreamConsumerReleaseKHR(IntPtr dpy, IntPtr stream);
 
 			[RequiredByFeature("EGL_KHR_stream_consumer_gltexture")]
 			internal static eglStreamConsumerReleaseKHR peglStreamConsumerReleaseKHR;

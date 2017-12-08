@@ -587,7 +587,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glCreateStatesNV(int n, uint* states);
+			internal delegate void glCreateStatesNV(int n, uint* states);
 
 			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -595,7 +595,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDeleteStatesNV(int n, uint* states);
+			internal delegate void glDeleteStatesNV(int n, uint* states);
 
 			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -636,7 +636,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDrawCommandsNV(int primitiveMode, uint buffer, IntPtr* indirects, int* sizes, uint count);
+			internal delegate void glDrawCommandsNV(int primitiveMode, uint buffer, IntPtr* indirects, int* sizes, uint count);
 
 			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -644,7 +644,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDrawCommandsAddressNV(int primitiveMode, ulong* indirects, int* sizes, uint count);
+			internal delegate void glDrawCommandsAddressNV(int primitiveMode, ulong* indirects, int* sizes, uint count);
 
 			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -652,7 +652,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDrawCommandsStatesNV(uint buffer, IntPtr* indirects, int* sizes, uint* states, uint* fbos, uint count);
+			internal delegate void glDrawCommandsStatesNV(uint buffer, IntPtr* indirects, int* sizes, uint* states, uint* fbos, uint count);
 
 			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -660,7 +660,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDrawCommandsStatesAddressNV(ulong* indirects, int* sizes, uint* states, uint* fbos, uint count);
+			internal delegate void glDrawCommandsStatesAddressNV(ulong* indirects, int* sizes, uint* states, uint* fbos, uint count);
 
 			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -668,7 +668,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glCreateCommandListsNV(int n, uint* lists);
+			internal delegate void glCreateCommandListsNV(int n, uint* lists);
 
 			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -676,7 +676,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDeleteCommandListsNV(int n, uint* lists);
+			internal delegate void glDeleteCommandListsNV(int n, uint* lists);
 
 			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -693,7 +693,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glListDrawCommandsStatesClientNV(uint list, uint segment, IntPtr* indirects, int* sizes, uint* states, uint* fbos, uint count);
+			internal delegate void glListDrawCommandsStatesClientNV(uint list, uint segment, IntPtr* indirects, int* sizes, uint* states, uint* fbos, uint count);
 
 			[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
 			[ThreadStatic]

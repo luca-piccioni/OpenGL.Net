@@ -124,7 +124,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_QCOM_framebuffer_foveated", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glFramebufferFoveationConfigQCOM(uint framebuffer, uint numLayers, uint focalPointsPerLayer, uint requestedFeatures, uint* providedFeatures);
+			internal delegate void glFramebufferFoveationConfigQCOM(uint framebuffer, uint numLayers, uint focalPointsPerLayer, uint requestedFeatures, uint* providedFeatures);
 
 			[RequiredByFeature("GL_QCOM_framebuffer_foveated", Api = "gles2")]
 			[ThreadStatic]

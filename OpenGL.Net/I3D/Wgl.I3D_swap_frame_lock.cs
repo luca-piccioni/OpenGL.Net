@@ -135,14 +135,14 @@ namespace OpenGL
 
 			[RequiredByFeature("WGL_I3D_swap_frame_lock")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglIsEnabledFrameLockI3D(bool* pFlag);
+			internal delegate bool wglIsEnabledFrameLockI3D(bool* pFlag);
 
 			[RequiredByFeature("WGL_I3D_swap_frame_lock")]
 			internal static wglIsEnabledFrameLockI3D pwglIsEnabledFrameLockI3D;
 
 			[RequiredByFeature("WGL_I3D_swap_frame_lock")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglQueryFrameLockMasterI3D(bool* pFlag);
+			internal delegate bool wglQueryFrameLockMasterI3D(bool* pFlag);
 
 			[RequiredByFeature("WGL_I3D_swap_frame_lock")]
 			internal static wglQueryFrameLockMasterI3D pwglQueryFrameLockMasterI3D;

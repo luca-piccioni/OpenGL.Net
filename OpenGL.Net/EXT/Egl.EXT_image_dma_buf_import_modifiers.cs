@@ -182,14 +182,14 @@ namespace OpenGL
 		{
 			[RequiredByFeature("EGL_EXT_image_dma_buf_import_modifiers")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool eglQueryDmaBufFormatsEXT(IntPtr dpy, int max_formats, int* formats, int* num_formats);
+			internal delegate bool eglQueryDmaBufFormatsEXT(IntPtr dpy, int max_formats, int* formats, int* num_formats);
 
 			[RequiredByFeature("EGL_EXT_image_dma_buf_import_modifiers")]
 			internal static eglQueryDmaBufFormatsEXT peglQueryDmaBufFormatsEXT;
 
 			[RequiredByFeature("EGL_EXT_image_dma_buf_import_modifiers")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool eglQueryDmaBufModifiersEXT(IntPtr dpy, int format, int max_modifiers, ulong* modifiers, bool* external_only, int* num_modifiers);
+			internal delegate bool eglQueryDmaBufModifiersEXT(IntPtr dpy, int format, int max_modifiers, ulong* modifiers, bool* external_only, int* num_modifiers);
 
 			[RequiredByFeature("EGL_EXT_image_dma_buf_import_modifiers")]
 			internal static eglQueryDmaBufModifiersEXT peglQueryDmaBufModifiersEXT;

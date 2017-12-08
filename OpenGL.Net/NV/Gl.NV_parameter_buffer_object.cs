@@ -158,7 +158,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_NV_parameter_buffer_object")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramBufferParametersfvNV(int target, uint bindingIndex, uint wordIndex, int count, float* @params);
+			internal delegate void glProgramBufferParametersfvNV(int target, uint bindingIndex, uint wordIndex, int count, float* @params);
 
 			[RequiredByFeature("GL_NV_parameter_buffer_object")]
 			[ThreadStatic]
@@ -166,7 +166,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_parameter_buffer_object")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramBufferParametersIivNV(int target, uint bindingIndex, uint wordIndex, int count, int* @params);
+			internal delegate void glProgramBufferParametersIivNV(int target, uint bindingIndex, uint wordIndex, int count, int* @params);
 
 			[RequiredByFeature("GL_NV_parameter_buffer_object")]
 			[ThreadStatic]
@@ -174,7 +174,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_parameter_buffer_object")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramBufferParametersIuivNV(int target, uint bindingIndex, uint wordIndex, int count, uint* @params);
+			internal delegate void glProgramBufferParametersIuivNV(int target, uint bindingIndex, uint wordIndex, int count, uint* @params);
 
 			[RequiredByFeature("GL_NV_parameter_buffer_object")]
 			[ThreadStatic]

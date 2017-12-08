@@ -75,7 +75,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("EGL_NV_stream_reset")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool eglResetStreamNV(IntPtr dpy, IntPtr stream);
+			internal delegate bool eglResetStreamNV(IntPtr dpy, IntPtr stream);
 
 			[RequiredByFeature("EGL_NV_stream_reset")]
 			internal static eglResetStreamNV peglResetStreamNV;

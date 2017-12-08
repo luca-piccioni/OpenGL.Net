@@ -77,7 +77,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("EGL_HI_clientpixmap")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr eglCreatePixmapSurfaceHI(IntPtr dpy, IntPtr config, ClientPixmap* pixmap);
+			internal delegate IntPtr eglCreatePixmapSurfaceHI(IntPtr dpy, IntPtr config, ClientPixmap* pixmap);
 
 			[RequiredByFeature("EGL_HI_clientpixmap")]
 			internal static eglCreatePixmapSurfaceHI peglCreatePixmapSurfaceHI;

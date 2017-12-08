@@ -513,7 +513,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_NV_evaluators")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMapControlPointsNV(int target, uint index, int type, int ustride, int vstride, int uorder, int vorder, [MarshalAs(UnmanagedType.I1)] bool packed, IntPtr points);
+			internal delegate void glMapControlPointsNV(int target, uint index, int type, int ustride, int vstride, int uorder, int vorder, [MarshalAs(UnmanagedType.I1)] bool packed, IntPtr points);
 
 			[RequiredByFeature("GL_NV_evaluators")]
 			[ThreadStatic]
@@ -521,7 +521,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_evaluators")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMapParameterivNV(int target, int pname, int* @params);
+			internal delegate void glMapParameterivNV(int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_NV_evaluators")]
 			[ThreadStatic]
@@ -529,7 +529,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_evaluators")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMapParameterfvNV(int target, int pname, float* @params);
+			internal delegate void glMapParameterfvNV(int target, int pname, float* @params);
 
 			[RequiredByFeature("GL_NV_evaluators")]
 			[ThreadStatic]
@@ -537,7 +537,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_evaluators")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetMapControlPointsNV(int target, uint index, int type, int ustride, int vstride, [MarshalAs(UnmanagedType.I1)] bool packed, IntPtr points);
+			internal delegate void glGetMapControlPointsNV(int target, uint index, int type, int ustride, int vstride, [MarshalAs(UnmanagedType.I1)] bool packed, IntPtr points);
 
 			[RequiredByFeature("GL_NV_evaluators")]
 			[ThreadStatic]
@@ -545,7 +545,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_evaluators")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetMapParameterivNV(int target, int pname, int* @params);
+			internal delegate void glGetMapParameterivNV(int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_NV_evaluators")]
 			[ThreadStatic]
@@ -553,7 +553,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_evaluators")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetMapParameterfvNV(int target, int pname, float* @params);
+			internal delegate void glGetMapParameterfvNV(int target, int pname, float* @params);
 
 			[RequiredByFeature("GL_NV_evaluators")]
 			[ThreadStatic]
@@ -561,7 +561,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_evaluators")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetMapAttribParameterivNV(int target, uint index, int pname, int* @params);
+			internal delegate void glGetMapAttribParameterivNV(int target, uint index, int pname, int* @params);
 
 			[RequiredByFeature("GL_NV_evaluators")]
 			[ThreadStatic]
@@ -569,7 +569,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_evaluators")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetMapAttribParameterfvNV(int target, uint index, int pname, float* @params);
+			internal delegate void glGetMapAttribParameterfvNV(int target, uint index, int pname, float* @params);
 
 			[RequiredByFeature("GL_NV_evaluators")]
 			[ThreadStatic]

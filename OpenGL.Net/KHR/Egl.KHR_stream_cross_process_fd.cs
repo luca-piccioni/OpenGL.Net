@@ -91,14 +91,14 @@ namespace OpenGL
 		{
 			[RequiredByFeature("EGL_KHR_stream_cross_process_fd")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate int eglGetStreamFileDescriptorKHR(IntPtr dpy, IntPtr stream);
+			internal delegate int eglGetStreamFileDescriptorKHR(IntPtr dpy, IntPtr stream);
 
 			[RequiredByFeature("EGL_KHR_stream_cross_process_fd")]
 			internal static eglGetStreamFileDescriptorKHR peglGetStreamFileDescriptorKHR;
 
 			[RequiredByFeature("EGL_KHR_stream_cross_process_fd")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr eglCreateStreamFromFileDescriptorKHR(IntPtr dpy, int file_descriptor);
+			internal delegate IntPtr eglCreateStreamFromFileDescriptorKHR(IntPtr dpy, int file_descriptor);
 
 			[RequiredByFeature("EGL_KHR_stream_cross_process_fd")]
 			internal static eglCreateStreamFromFileDescriptorKHR peglCreateStreamFromFileDescriptorKHR;

@@ -100,7 +100,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_SGIS_fog_function")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glFogFuncSGIS(int n, float* points);
+			internal delegate void glFogFuncSGIS(int n, float* points);
 
 			[RequiredByFeature("GL_SGIS_fog_function")]
 			[ThreadStatic]
@@ -108,7 +108,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SGIS_fog_function")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetFogFuncSGIS(float* points);
+			internal delegate void glGetFogFuncSGIS(float* points);
 
 			[RequiredByFeature("GL_SGIS_fog_function")]
 			[ThreadStatic]

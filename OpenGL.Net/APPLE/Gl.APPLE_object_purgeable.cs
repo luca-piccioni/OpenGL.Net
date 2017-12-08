@@ -172,7 +172,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_APPLE_object_purgeable")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetObjectParameterivAPPLE(int objectType, uint name, int pname, int* @params);
+			internal delegate void glGetObjectParameterivAPPLE(int objectType, uint name, int pname, int* @params);
 
 			[RequiredByFeature("GL_APPLE_object_purgeable")]
 			[ThreadStatic]

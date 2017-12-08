@@ -66,7 +66,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GLX_NV_delay_before_swap")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool glXDelayBeforeSwapNV(IntPtr dpy, IntPtr drawable, float seconds);
+			internal delegate bool glXDelayBeforeSwapNV(IntPtr dpy, IntPtr drawable, float seconds);
 
 			[RequiredByFeature("GLX_NV_delay_before_swap")]
 			internal static glXDelayBeforeSwapNV pglXDelayBeforeSwapNV;

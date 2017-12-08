@@ -587,7 +587,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SGIX_fragment_lighting")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glFragmentLightfvSGIX(int light, int pname, float* @params);
+			internal delegate void glFragmentLightfvSGIX(int light, int pname, float* @params);
 
 			[RequiredByFeature("GL_SGIX_fragment_lighting")]
 			[ThreadStatic]
@@ -603,7 +603,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SGIX_fragment_lighting")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glFragmentLightivSGIX(int light, int pname, int* @params);
+			internal delegate void glFragmentLightivSGIX(int light, int pname, int* @params);
 
 			[RequiredByFeature("GL_SGIX_fragment_lighting")]
 			[ThreadStatic]
@@ -619,7 +619,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SGIX_fragment_lighting")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glFragmentLightModelfvSGIX(int pname, float* @params);
+			internal delegate void glFragmentLightModelfvSGIX(int pname, float* @params);
 
 			[RequiredByFeature("GL_SGIX_fragment_lighting")]
 			[ThreadStatic]
@@ -635,7 +635,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SGIX_fragment_lighting")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glFragmentLightModelivSGIX(int pname, int* @params);
+			internal delegate void glFragmentLightModelivSGIX(int pname, int* @params);
 
 			[RequiredByFeature("GL_SGIX_fragment_lighting")]
 			[ThreadStatic]
@@ -651,7 +651,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SGIX_fragment_lighting")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glFragmentMaterialfvSGIX(int face, int pname, float* @params);
+			internal delegate void glFragmentMaterialfvSGIX(int face, int pname, float* @params);
 
 			[RequiredByFeature("GL_SGIX_fragment_lighting")]
 			[ThreadStatic]
@@ -667,7 +667,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SGIX_fragment_lighting")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glFragmentMaterialivSGIX(int face, int pname, int* @params);
+			internal delegate void glFragmentMaterialivSGIX(int face, int pname, int* @params);
 
 			[RequiredByFeature("GL_SGIX_fragment_lighting")]
 			[ThreadStatic]
@@ -675,7 +675,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SGIX_fragment_lighting")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetFragmentLightfvSGIX(int light, int pname, float* @params);
+			internal delegate void glGetFragmentLightfvSGIX(int light, int pname, float* @params);
 
 			[RequiredByFeature("GL_SGIX_fragment_lighting")]
 			[ThreadStatic]
@@ -683,7 +683,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SGIX_fragment_lighting")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetFragmentLightivSGIX(int light, int pname, int* @params);
+			internal delegate void glGetFragmentLightivSGIX(int light, int pname, int* @params);
 
 			[RequiredByFeature("GL_SGIX_fragment_lighting")]
 			[ThreadStatic]
@@ -691,7 +691,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SGIX_fragment_lighting")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetFragmentMaterialfvSGIX(int face, int pname, float* @params);
+			internal delegate void glGetFragmentMaterialfvSGIX(int face, int pname, float* @params);
 
 			[RequiredByFeature("GL_SGIX_fragment_lighting")]
 			[ThreadStatic]
@@ -699,7 +699,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SGIX_fragment_lighting")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetFragmentMaterialivSGIX(int face, int pname, int* @params);
+			internal delegate void glGetFragmentMaterialivSGIX(int face, int pname, int* @params);
 
 			[RequiredByFeature("GL_SGIX_fragment_lighting")]
 			[ThreadStatic]

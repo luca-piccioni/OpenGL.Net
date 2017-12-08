@@ -216,7 +216,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_APPLE_fence")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGenFencesAPPLE(int n, uint* fences);
+			internal delegate void glGenFencesAPPLE(int n, uint* fences);
 
 			[RequiredByFeature("GL_APPLE_fence")]
 			[ThreadStatic]
@@ -224,7 +224,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_APPLE_fence")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDeleteFencesAPPLE(int n, uint* fences);
+			internal delegate void glDeleteFencesAPPLE(int n, uint* fences);
 
 			[RequiredByFeature("GL_APPLE_fence")]
 			[ThreadStatic]

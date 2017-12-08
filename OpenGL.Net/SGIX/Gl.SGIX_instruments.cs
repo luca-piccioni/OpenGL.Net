@@ -164,7 +164,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SGIX_instruments")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glInstrumentsBufferSGIX(int size, int* buffer);
+			internal delegate void glInstrumentsBufferSGIX(int size, int* buffer);
 
 			[RequiredByFeature("GL_SGIX_instruments")]
 			[ThreadStatic]
@@ -172,7 +172,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SGIX_instruments")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate int glPollInstrumentsSGIX(int* marker_p);
+			internal delegate int glPollInstrumentsSGIX(int* marker_p);
 
 			[RequiredByFeature("GL_SGIX_instruments")]
 			[ThreadStatic]

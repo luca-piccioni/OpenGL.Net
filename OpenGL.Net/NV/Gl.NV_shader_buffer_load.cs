@@ -403,7 +403,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetBufferParameterui64vNV(int target, int pname, ulong* @params);
+			internal delegate void glGetBufferParameterui64vNV(int target, int pname, ulong* @params);
 
 			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -411,7 +411,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetNamedBufferParameterui64vNV(uint buffer, int pname, ulong* @params);
+			internal delegate void glGetNamedBufferParameterui64vNV(uint buffer, int pname, ulong* @params);
 
 			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -419,7 +419,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetIntegerui64vNV(int value, ulong* result);
+			internal delegate void glGetIntegerui64vNV(int value, ulong* result);
 
 			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -435,7 +435,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glUniformui64vNV(int location, int count, ulong* value);
+			internal delegate void glUniformui64vNV(int location, int count, ulong* value);
 
 			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -444,7 +444,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetUniformui64vNV(uint program, int location, ulong* @params);
+			internal delegate void glGetUniformui64vNV(uint program, int location, ulong* @params);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
@@ -461,7 +461,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramUniformui64vNV(uint program, int location, int count, ulong* value);
+			internal delegate void glProgramUniformui64vNV(uint program, int location, int count, ulong* value);
 
 			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
 			[ThreadStatic]

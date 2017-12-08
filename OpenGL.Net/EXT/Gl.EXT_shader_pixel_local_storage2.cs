@@ -135,7 +135,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_shader_pixel_local_storage2", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glClearPixelLocalStorageuiEXT(int offset, int n, uint* values);
+			internal delegate void glClearPixelLocalStorageuiEXT(int offset, int n, uint* values);
 
 			[RequiredByFeature("GL_EXT_shader_pixel_local_storage2", Api = "gles2")]
 			[ThreadStatic]

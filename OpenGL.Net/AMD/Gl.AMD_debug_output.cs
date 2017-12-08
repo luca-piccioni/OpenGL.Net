@@ -237,7 +237,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_AMD_debug_output")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDebugMessageEnableAMD(int category, int severity, int count, uint* ids, [MarshalAs(UnmanagedType.I1)] bool enabled);
+			internal delegate void glDebugMessageEnableAMD(int category, int severity, int count, uint* ids, [MarshalAs(UnmanagedType.I1)] bool enabled);
 
 			[RequiredByFeature("GL_AMD_debug_output")]
 			[ThreadStatic]
@@ -253,7 +253,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_AMD_debug_output")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDebugMessageCallbackAMD(Gl.DebugProc callback, IntPtr userParam);
+			internal delegate void glDebugMessageCallbackAMD(Gl.DebugProc callback, IntPtr userParam);
 
 			[RequiredByFeature("GL_AMD_debug_output")]
 			[ThreadStatic]
@@ -261,7 +261,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_AMD_debug_output")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate uint glGetDebugMessageLogAMD(uint count, int bufsize, int* categories, uint* severities, uint* ids, int* lengths, [Out] StringBuilder message);
+			internal delegate uint glGetDebugMessageLogAMD(uint count, int bufsize, int* categories, uint* severities, uint* ids, int* lengths, [Out] StringBuilder message);
 
 			[RequiredByFeature("GL_AMD_debug_output")]
 			[ThreadStatic]

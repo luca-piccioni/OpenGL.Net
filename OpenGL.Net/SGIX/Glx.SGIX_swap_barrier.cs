@@ -92,14 +92,14 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GLX_SGIX_swap_barrier")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glXBindSwapBarrierSGIX(IntPtr dpy, IntPtr drawable, int barrier);
+			internal delegate void glXBindSwapBarrierSGIX(IntPtr dpy, IntPtr drawable, int barrier);
 
 			[RequiredByFeature("GLX_SGIX_swap_barrier")]
 			internal static glXBindSwapBarrierSGIX pglXBindSwapBarrierSGIX;
 
 			[RequiredByFeature("GLX_SGIX_swap_barrier")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool glXQueryMaxSwapBarriersSGIX(IntPtr dpy, int screen, int* max);
+			internal delegate bool glXQueryMaxSwapBarriersSGIX(IntPtr dpy, int screen, int* max);
 
 			[RequiredByFeature("GLX_SGIX_swap_barrier")]
 			internal static glXQueryMaxSwapBarriersSGIX pglXQueryMaxSwapBarriersSGIX;

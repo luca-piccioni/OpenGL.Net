@@ -61,7 +61,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_NV_draw_buffers", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDrawBuffersNV(int n, int* bufs);
+			internal delegate void glDrawBuffersNV(int n, int* bufs);
 
 			[RequiredByFeature("GL_NV_draw_buffers", Api = "gles2")]
 			[ThreadStatic]

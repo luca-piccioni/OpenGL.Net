@@ -177,28 +177,28 @@ namespace OpenGL
 		{
 			[RequiredByFeature("WGL_ARB_buffer_region")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr wglCreateBufferRegionARB(IntPtr hDC, int iLayerPlane, uint uType);
+			internal delegate IntPtr wglCreateBufferRegionARB(IntPtr hDC, int iLayerPlane, uint uType);
 
 			[RequiredByFeature("WGL_ARB_buffer_region")]
 			internal static wglCreateBufferRegionARB pwglCreateBufferRegionARB;
 
 			[RequiredByFeature("WGL_ARB_buffer_region")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void wglDeleteBufferRegionARB(IntPtr hRegion);
+			internal delegate void wglDeleteBufferRegionARB(IntPtr hRegion);
 
 			[RequiredByFeature("WGL_ARB_buffer_region")]
 			internal static wglDeleteBufferRegionARB pwglDeleteBufferRegionARB;
 
 			[RequiredByFeature("WGL_ARB_buffer_region")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglSaveBufferRegionARB(IntPtr hRegion, int x, int y, int width, int height);
+			internal delegate bool wglSaveBufferRegionARB(IntPtr hRegion, int x, int y, int width, int height);
 
 			[RequiredByFeature("WGL_ARB_buffer_region")]
 			internal static wglSaveBufferRegionARB pwglSaveBufferRegionARB;
 
 			[RequiredByFeature("WGL_ARB_buffer_region")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglRestoreBufferRegionARB(IntPtr hRegion, int x, int y, int width, int height, int xSrc, int ySrc);
+			internal delegate bool wglRestoreBufferRegionARB(IntPtr hRegion, int x, int y, int width, int height, int xSrc, int ySrc);
 
 			[RequiredByFeature("WGL_ARB_buffer_region")]
 			internal static wglRestoreBufferRegionARB pwglRestoreBufferRegionARB;

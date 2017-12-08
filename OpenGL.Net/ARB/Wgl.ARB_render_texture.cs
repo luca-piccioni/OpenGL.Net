@@ -310,21 +310,21 @@ namespace OpenGL
 		{
 			[RequiredByFeature("WGL_ARB_render_texture")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglBindTexImageARB(IntPtr hPbuffer, int iBuffer);
+			internal delegate bool wglBindTexImageARB(IntPtr hPbuffer, int iBuffer);
 
 			[RequiredByFeature("WGL_ARB_render_texture")]
 			internal static wglBindTexImageARB pwglBindTexImageARB;
 
 			[RequiredByFeature("WGL_ARB_render_texture")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglReleaseTexImageARB(IntPtr hPbuffer, int iBuffer);
+			internal delegate bool wglReleaseTexImageARB(IntPtr hPbuffer, int iBuffer);
 
 			[RequiredByFeature("WGL_ARB_render_texture")]
 			internal static wglReleaseTexImageARB pwglReleaseTexImageARB;
 
 			[RequiredByFeature("WGL_ARB_render_texture")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglSetPbufferAttribARB(IntPtr hPbuffer, int* piAttribList);
+			internal delegate bool wglSetPbufferAttribARB(IntPtr hPbuffer, int* piAttribList);
 
 			[RequiredByFeature("WGL_ARB_render_texture")]
 			internal static wglSetPbufferAttribARB pwglSetPbufferAttribARB;

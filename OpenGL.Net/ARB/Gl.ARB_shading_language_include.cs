@@ -258,7 +258,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_shading_language_include", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glCompileShaderIncludeARB(uint shader, int count, String[] path, int* length);
+			internal delegate void glCompileShaderIncludeARB(uint shader, int count, String[] path, int* length);
 
 			[RequiredByFeature("GL_ARB_shading_language_include", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -275,7 +275,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_shading_language_include", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetNamedStringARB(int namelen, String name, int bufSize, int* stringlen, [Out] StringBuilder @string);
+			internal delegate void glGetNamedStringARB(int namelen, String name, int bufSize, int* stringlen, [Out] StringBuilder @string);
 
 			[RequiredByFeature("GL_ARB_shading_language_include", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -283,7 +283,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_shading_language_include", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetNamedStringivARB(int namelen, String name, int pname, int* @params);
+			internal delegate void glGetNamedStringivARB(int namelen, String name, int pname, int* @params);
 
 			[RequiredByFeature("GL_ARB_shading_language_include", Api = "gl|glcore")]
 			[ThreadStatic]

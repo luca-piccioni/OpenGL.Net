@@ -92,7 +92,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("EGL_ANDROID_create_native_client_buffer")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr eglCreateNativeClientBufferANDROID(int* attrib_list);
+			internal delegate IntPtr eglCreateNativeClientBufferANDROID(int* attrib_list);
 
 			[RequiredByFeature("EGL_ANDROID_create_native_client_buffer")]
 			internal static eglCreateNativeClientBufferANDROID peglCreateNativeClientBufferANDROID;

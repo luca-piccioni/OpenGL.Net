@@ -265,7 +265,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_NV_fragment_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramNamedParameter4fNV(uint id, int len, byte* name, float x, float y, float z, float w);
+			internal delegate void glProgramNamedParameter4fNV(uint id, int len, byte* name, float x, float y, float z, float w);
 
 			[RequiredByFeature("GL_NV_fragment_program")]
 			[ThreadStatic]
@@ -273,7 +273,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_fragment_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramNamedParameter4fvNV(uint id, int len, byte* name, float* v);
+			internal delegate void glProgramNamedParameter4fvNV(uint id, int len, byte* name, float* v);
 
 			[RequiredByFeature("GL_NV_fragment_program")]
 			[ThreadStatic]
@@ -281,7 +281,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_fragment_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramNamedParameter4dNV(uint id, int len, byte* name, double x, double y, double z, double w);
+			internal delegate void glProgramNamedParameter4dNV(uint id, int len, byte* name, double x, double y, double z, double w);
 
 			[RequiredByFeature("GL_NV_fragment_program")]
 			[ThreadStatic]
@@ -289,7 +289,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_fragment_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramNamedParameter4dvNV(uint id, int len, byte* name, double* v);
+			internal delegate void glProgramNamedParameter4dvNV(uint id, int len, byte* name, double* v);
 
 			[RequiredByFeature("GL_NV_fragment_program")]
 			[ThreadStatic]
@@ -297,7 +297,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_fragment_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetProgramNamedParameterfvNV(uint id, int len, byte* name, float* @params);
+			internal delegate void glGetProgramNamedParameterfvNV(uint id, int len, byte* name, float* @params);
 
 			[RequiredByFeature("GL_NV_fragment_program")]
 			[ThreadStatic]
@@ -305,7 +305,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_fragment_program")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetProgramNamedParameterdvNV(uint id, int len, byte* name, double* @params);
+			internal delegate void glGetProgramNamedParameterdvNV(uint id, int len, byte* name, double* @params);
 
 			[RequiredByFeature("GL_NV_fragment_program")]
 			[ThreadStatic]

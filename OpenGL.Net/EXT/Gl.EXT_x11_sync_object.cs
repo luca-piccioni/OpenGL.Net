@@ -72,7 +72,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_EXT_x11_sync_object")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate int glImportSyncEXT(int external_sync_type, IntPtr external_sync, uint flags);
+			internal delegate int glImportSyncEXT(int external_sync_type, IntPtr external_sync, uint flags);
 
 			[RequiredByFeature("GL_EXT_x11_sync_object")]
 			[ThreadStatic]

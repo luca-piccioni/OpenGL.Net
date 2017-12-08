@@ -666,7 +666,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_buffer_storage", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_buffer_storage", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glBufferStorage(int target, uint size, IntPtr data, uint flags);
+			internal delegate void glBufferStorage(int target, uint size, IntPtr data, uint flags);
 
 			[RequiredByFeature("GL_VERSION_4_4")]
 			[RequiredByFeature("GL_ARB_buffer_storage", Api = "gl|glcore")]
@@ -678,7 +678,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_clear_texture", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_clear_texture", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glClearTexImage(uint texture, int level, int format, int type, IntPtr data);
+			internal delegate void glClearTexImage(uint texture, int level, int format, int type, IntPtr data);
 
 			[RequiredByFeature("GL_VERSION_4_4")]
 			[RequiredByFeature("GL_ARB_clear_texture", Api = "gl|glcore")]
@@ -690,7 +690,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_clear_texture", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_clear_texture", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glClearTexSubImage(uint texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, IntPtr data);
+			internal delegate void glClearTexSubImage(uint texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, IntPtr data);
 
 			[RequiredByFeature("GL_VERSION_4_4")]
 			[RequiredByFeature("GL_ARB_clear_texture", Api = "gl|glcore")]
@@ -701,7 +701,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_4")]
 			[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glBindBuffersBase(int target, uint first, int count, uint* buffers);
+			internal delegate void glBindBuffersBase(int target, uint first, int count, uint* buffers);
 
 			[RequiredByFeature("GL_VERSION_4_4")]
 			[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
@@ -711,7 +711,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_4")]
 			[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glBindBuffersRange(int target, uint first, int count, uint* buffers, IntPtr* offsets, uint* sizes);
+			internal delegate void glBindBuffersRange(int target, uint first, int count, uint* buffers, IntPtr* offsets, uint* sizes);
 
 			[RequiredByFeature("GL_VERSION_4_4")]
 			[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
@@ -721,7 +721,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_4")]
 			[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glBindTextures(uint first, int count, uint* textures);
+			internal delegate void glBindTextures(uint first, int count, uint* textures);
 
 			[RequiredByFeature("GL_VERSION_4_4")]
 			[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
@@ -731,7 +731,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_4")]
 			[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glBindSamplers(uint first, int count, uint* samplers);
+			internal delegate void glBindSamplers(uint first, int count, uint* samplers);
 
 			[RequiredByFeature("GL_VERSION_4_4")]
 			[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
@@ -741,7 +741,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_4")]
 			[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glBindImageTextures(uint first, int count, uint* textures);
+			internal delegate void glBindImageTextures(uint first, int count, uint* textures);
 
 			[RequiredByFeature("GL_VERSION_4_4")]
 			[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
@@ -751,7 +751,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_4")]
 			[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glBindVertexBuffers(uint first, int count, uint* buffers, IntPtr* offsets, int* strides);
+			internal delegate void glBindVertexBuffers(uint first, int count, uint* buffers, IntPtr* offsets, int* strides);
 
 			[RequiredByFeature("GL_VERSION_4_4")]
 			[RequiredByFeature("GL_ARB_multi_bind", Api = "gl|glcore")]

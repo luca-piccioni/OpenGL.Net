@@ -139,7 +139,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_ATI_element_array")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glElementPointerATI(int type, IntPtr pointer);
+			internal delegate void glElementPointerATI(int type, IntPtr pointer);
 
 			[RequiredByFeature("GL_ATI_element_array")]
 			[ThreadStatic]

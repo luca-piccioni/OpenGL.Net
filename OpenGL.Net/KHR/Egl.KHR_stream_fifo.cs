@@ -98,7 +98,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("EGL_KHR_stream_fifo")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool eglQueryStreamTimeKHR(IntPtr dpy, IntPtr stream, uint attribute, ulong* value);
+			internal delegate bool eglQueryStreamTimeKHR(IntPtr dpy, IntPtr stream, uint attribute, ulong* value);
 
 			[RequiredByFeature("EGL_KHR_stream_fifo")]
 			internal static eglQueryStreamTimeKHR peglQueryStreamTimeKHR;

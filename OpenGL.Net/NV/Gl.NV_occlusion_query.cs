@@ -218,7 +218,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_NV_occlusion_query")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGenOcclusionQueriesNV(int n, uint* ids);
+			internal delegate void glGenOcclusionQueriesNV(int n, uint* ids);
 
 			[RequiredByFeature("GL_NV_occlusion_query")]
 			[ThreadStatic]
@@ -226,7 +226,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_occlusion_query")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDeleteOcclusionQueriesNV(int n, uint* ids);
+			internal delegate void glDeleteOcclusionQueriesNV(int n, uint* ids);
 
 			[RequiredByFeature("GL_NV_occlusion_query")]
 			[ThreadStatic]
@@ -259,7 +259,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_occlusion_query")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetOcclusionQueryivNV(uint id, int pname, int* @params);
+			internal delegate void glGetOcclusionQueryivNV(uint id, int pname, int* @params);
 
 			[RequiredByFeature("GL_NV_occlusion_query")]
 			[ThreadStatic]
@@ -267,7 +267,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_occlusion_query")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetOcclusionQueryuivNV(uint id, int pname, uint* @params);
+			internal delegate void glGetOcclusionQueryuivNV(uint id, int pname, uint* @params);
 
 			[RequiredByFeature("GL_NV_occlusion_query")]
 			[ThreadStatic]

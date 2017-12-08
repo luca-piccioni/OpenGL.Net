@@ -153,7 +153,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_EXT_semaphore_win32", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glImportSemaphoreWin32HandleEXT(uint semaphore, int handleType, IntPtr handle);
+			internal delegate void glImportSemaphoreWin32HandleEXT(uint semaphore, int handleType, IntPtr handle);
 
 			[RequiredByFeature("GL_EXT_semaphore_win32", Api = "gl|gles2")]
 			[ThreadStatic]
@@ -161,7 +161,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_semaphore_win32", Api = "gl|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glImportSemaphoreWin32NameEXT(uint semaphore, int handleType, IntPtr name);
+			internal delegate void glImportSemaphoreWin32NameEXT(uint semaphore, int handleType, IntPtr name);
 
 			[RequiredByFeature("GL_EXT_semaphore_win32", Api = "gl|gles2")]
 			[ThreadStatic]

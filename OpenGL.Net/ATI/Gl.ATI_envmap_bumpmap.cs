@@ -181,7 +181,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_ATI_envmap_bumpmap")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexBumpParameterivATI(int pname, int* param);
+			internal delegate void glTexBumpParameterivATI(int pname, int* param);
 
 			[RequiredByFeature("GL_ATI_envmap_bumpmap")]
 			[ThreadStatic]
@@ -189,7 +189,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ATI_envmap_bumpmap")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexBumpParameterfvATI(int pname, float* param);
+			internal delegate void glTexBumpParameterfvATI(int pname, float* param);
 
 			[RequiredByFeature("GL_ATI_envmap_bumpmap")]
 			[ThreadStatic]
@@ -197,7 +197,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ATI_envmap_bumpmap")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetTexBumpParameterivATI(int pname, int* param);
+			internal delegate void glGetTexBumpParameterivATI(int pname, int* param);
 
 			[RequiredByFeature("GL_ATI_envmap_bumpmap")]
 			[ThreadStatic]
@@ -205,7 +205,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ATI_envmap_bumpmap")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetTexBumpParameterfvATI(int pname, float* param);
+			internal delegate void glGetTexBumpParameterfvATI(int pname, float* param);
 
 			[RequiredByFeature("GL_ATI_envmap_bumpmap")]
 			[ThreadStatic]

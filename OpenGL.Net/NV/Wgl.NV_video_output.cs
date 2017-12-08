@@ -279,42 +279,42 @@ namespace OpenGL
 		{
 			[RequiredByFeature("WGL_NV_video_output")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglGetVideoDeviceNV(IntPtr hDC, int numDevices, IntPtr* hVideoDevice);
+			internal delegate bool wglGetVideoDeviceNV(IntPtr hDC, int numDevices, IntPtr* hVideoDevice);
 
 			[RequiredByFeature("WGL_NV_video_output")]
 			internal static wglGetVideoDeviceNV pwglGetVideoDeviceNV;
 
 			[RequiredByFeature("WGL_NV_video_output")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglReleaseVideoDeviceNV(IntPtr hVideoDevice);
+			internal delegate bool wglReleaseVideoDeviceNV(IntPtr hVideoDevice);
 
 			[RequiredByFeature("WGL_NV_video_output")]
 			internal static wglReleaseVideoDeviceNV pwglReleaseVideoDeviceNV;
 
 			[RequiredByFeature("WGL_NV_video_output")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglBindVideoImageNV(IntPtr hVideoDevice, IntPtr hPbuffer, int iVideoBuffer);
+			internal delegate bool wglBindVideoImageNV(IntPtr hVideoDevice, IntPtr hPbuffer, int iVideoBuffer);
 
 			[RequiredByFeature("WGL_NV_video_output")]
 			internal static wglBindVideoImageNV pwglBindVideoImageNV;
 
 			[RequiredByFeature("WGL_NV_video_output")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglReleaseVideoImageNV(IntPtr hPbuffer, int iVideoBuffer);
+			internal delegate bool wglReleaseVideoImageNV(IntPtr hPbuffer, int iVideoBuffer);
 
 			[RequiredByFeature("WGL_NV_video_output")]
 			internal static wglReleaseVideoImageNV pwglReleaseVideoImageNV;
 
 			[RequiredByFeature("WGL_NV_video_output")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglSendPbufferToVideoNV(IntPtr hPbuffer, int iBufferType, uint* pulCounterPbuffer, bool bBlock);
+			internal delegate bool wglSendPbufferToVideoNV(IntPtr hPbuffer, int iBufferType, uint* pulCounterPbuffer, bool bBlock);
 
 			[RequiredByFeature("WGL_NV_video_output")]
 			internal static wglSendPbufferToVideoNV pwglSendPbufferToVideoNV;
 
 			[RequiredByFeature("WGL_NV_video_output")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglGetVideoInfoNV(IntPtr hpVideoDevice, uint* pulCounterOutputPbuffer, uint* pulCounterOutputVideo);
+			internal delegate bool wglGetVideoInfoNV(IntPtr hpVideoDevice, uint* pulCounterOutputPbuffer, uint* pulCounterOutputVideo);
 
 			[RequiredByFeature("WGL_NV_video_output")]
 			internal static wglGetVideoInfoNV pwglGetVideoInfoNV;

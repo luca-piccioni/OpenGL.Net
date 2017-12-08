@@ -223,7 +223,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GLX_MESA_query_renderer")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool glXQueryCurrentRendererIntegerMESA(int attribute, uint* value);
+			internal delegate bool glXQueryCurrentRendererIntegerMESA(int attribute, uint* value);
 
 			[RequiredByFeature("GLX_MESA_query_renderer")]
 			internal static glXQueryCurrentRendererIntegerMESA pglXQueryCurrentRendererIntegerMESA;
@@ -237,14 +237,14 @@ namespace OpenGL
 
 			[RequiredByFeature("GLX_MESA_query_renderer")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool glXQueryRendererIntegerMESA(IntPtr dpy, int screen, int renderer, int attribute, uint* value);
+			internal delegate bool glXQueryRendererIntegerMESA(IntPtr dpy, int screen, int renderer, int attribute, uint* value);
 
 			[RequiredByFeature("GLX_MESA_query_renderer")]
 			internal static glXQueryRendererIntegerMESA pglXQueryRendererIntegerMESA;
 
 			[RequiredByFeature("GLX_MESA_query_renderer")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr glXQueryRendererStringMESA(IntPtr dpy, int screen, int renderer, int attribute);
+			internal delegate IntPtr glXQueryRendererStringMESA(IntPtr dpy, int screen, int renderer, int attribute);
 
 			[RequiredByFeature("GLX_MESA_query_renderer")]
 			internal static glXQueryRendererStringMESA pglXQueryRendererStringMESA;

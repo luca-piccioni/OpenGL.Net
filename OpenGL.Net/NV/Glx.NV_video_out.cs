@@ -277,42 +277,42 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GLX_NV_video_out")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate int glXGetVideoDeviceNV(IntPtr dpy, int screen, int numVideoDevices, IntPtr pVideoDevice);
+			internal delegate int glXGetVideoDeviceNV(IntPtr dpy, int screen, int numVideoDevices, IntPtr pVideoDevice);
 
 			[RequiredByFeature("GLX_NV_video_out")]
 			internal static glXGetVideoDeviceNV pglXGetVideoDeviceNV;
 
 			[RequiredByFeature("GLX_NV_video_out")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate int glXReleaseVideoDeviceNV(IntPtr dpy, int screen, IntPtr VideoDevice);
+			internal delegate int glXReleaseVideoDeviceNV(IntPtr dpy, int screen, IntPtr VideoDevice);
 
 			[RequiredByFeature("GLX_NV_video_out")]
 			internal static glXReleaseVideoDeviceNV pglXReleaseVideoDeviceNV;
 
 			[RequiredByFeature("GLX_NV_video_out")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate int glXBindVideoImageNV(IntPtr dpy, IntPtr VideoDevice, IntPtr pbuf, int iVideoBuffer);
+			internal delegate int glXBindVideoImageNV(IntPtr dpy, IntPtr VideoDevice, IntPtr pbuf, int iVideoBuffer);
 
 			[RequiredByFeature("GLX_NV_video_out")]
 			internal static glXBindVideoImageNV pglXBindVideoImageNV;
 
 			[RequiredByFeature("GLX_NV_video_out")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate int glXReleaseVideoImageNV(IntPtr dpy, IntPtr pbuf);
+			internal delegate int glXReleaseVideoImageNV(IntPtr dpy, IntPtr pbuf);
 
 			[RequiredByFeature("GLX_NV_video_out")]
 			internal static glXReleaseVideoImageNV pglXReleaseVideoImageNV;
 
 			[RequiredByFeature("GLX_NV_video_out")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate int glXSendPbufferToVideoNV(IntPtr dpy, IntPtr pbuf, int iBufferType, uint* pulCounterPbuffer, [MarshalAs(UnmanagedType.I1)] bool bBlock);
+			internal delegate int glXSendPbufferToVideoNV(IntPtr dpy, IntPtr pbuf, int iBufferType, uint* pulCounterPbuffer, [MarshalAs(UnmanagedType.I1)] bool bBlock);
 
 			[RequiredByFeature("GLX_NV_video_out")]
 			internal static glXSendPbufferToVideoNV pglXSendPbufferToVideoNV;
 
 			[RequiredByFeature("GLX_NV_video_out")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate int glXGetVideoInfoNV(IntPtr dpy, int screen, IntPtr VideoDevice, uint* pulCounterOutputPbuffer, uint* pulCounterOutputVideo);
+			internal delegate int glXGetVideoInfoNV(IntPtr dpy, int screen, IntPtr VideoDevice, uint* pulCounterOutputPbuffer, uint* pulCounterOutputVideo);
 
 			[RequiredByFeature("GLX_NV_video_out")]
 			internal static glXGetVideoInfoNV pglXGetVideoInfoNV;

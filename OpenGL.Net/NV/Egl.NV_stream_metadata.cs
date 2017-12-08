@@ -196,14 +196,14 @@ namespace OpenGL
 		{
 			[RequiredByFeature("EGL_NV_stream_metadata")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool eglSetStreamMetadataNV(IntPtr dpy, IntPtr stream, int n, int offset, int size, IntPtr data);
+			internal delegate bool eglSetStreamMetadataNV(IntPtr dpy, IntPtr stream, int n, int offset, int size, IntPtr data);
 
 			[RequiredByFeature("EGL_NV_stream_metadata")]
 			internal static eglSetStreamMetadataNV peglSetStreamMetadataNV;
 
 			[RequiredByFeature("EGL_NV_stream_metadata")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool eglQueryStreamMetadataNV(IntPtr dpy, IntPtr stream, uint name, int n, int offset, int size, IntPtr data);
+			internal delegate bool eglQueryStreamMetadataNV(IntPtr dpy, IntPtr stream, uint name, int n, int offset, int size, IntPtr data);
 
 			[RequiredByFeature("EGL_NV_stream_metadata")]
 			internal static eglQueryStreamMetadataNV peglQueryStreamMetadataNV;

@@ -380,7 +380,7 @@ namespace OpenGL
 
 			[RequiredByFeature("EGL_VERSION_1_2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr eglCreatePbufferFromClientBuffer(IntPtr dpy, uint buftype, IntPtr buffer, IntPtr config, int* attrib_list);
+			internal delegate IntPtr eglCreatePbufferFromClientBuffer(IntPtr dpy, uint buftype, IntPtr buffer, IntPtr config, int* attrib_list);
 
 			[RequiredByFeature("EGL_VERSION_1_2")]
 			internal static eglCreatePbufferFromClientBuffer peglCreatePbufferFromClientBuffer;

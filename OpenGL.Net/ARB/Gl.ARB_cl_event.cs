@@ -78,7 +78,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_ARB_cl_event", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate int glCreateSyncFromCLeventARB(IntPtr context, IntPtr @event, uint flags);
+			internal delegate int glCreateSyncFromCLeventARB(IntPtr context, IntPtr @event, uint flags);
 
 			[RequiredByFeature("GL_ARB_cl_event", Api = "gl|glcore")]
 			[ThreadStatic]

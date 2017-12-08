@@ -1324,7 +1324,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_occlusion_query")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGenQueries(int n, uint* ids);
+			internal delegate void glGenQueries(int n, uint* ids);
 
 			[RequiredByFeature("GL_VERSION_1_5")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -1336,7 +1336,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_occlusion_query")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDeleteQueries(int n, uint* ids);
+			internal delegate void glDeleteQueries(int n, uint* ids);
 
 			[RequiredByFeature("GL_VERSION_1_5")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -1385,7 +1385,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_occlusion_query")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetQueryiv(int target, int pname, int* @params);
+			internal delegate void glGetQueryiv(int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_VERSION_1_5")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -1397,7 +1397,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_occlusion_query")]
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetQueryObjectiv(uint id, int pname, int* @params);
+			internal delegate void glGetQueryObjectiv(uint id, int pname, int* @params);
 
 			[RequiredByFeature("GL_VERSION_1_5")]
 			[RequiredByFeature("GL_ARB_occlusion_query", EntryPoint = "glGetQueryObjectivARB")]
@@ -1409,7 +1409,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_occlusion_query")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetQueryObjectuiv(uint id, int pname, uint* @params);
+			internal delegate void glGetQueryObjectuiv(uint id, int pname, uint* @params);
 
 			[RequiredByFeature("GL_VERSION_1_5")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -1438,7 +1438,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDeleteBuffers(int n, uint* buffers);
+			internal delegate void glDeleteBuffers(int n, uint* buffers);
 
 			[RequiredByFeature("GL_VERSION_1_5")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1453,7 +1453,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGenBuffers(int n, uint* buffers);
+			internal delegate void glGenBuffers(int n, uint* buffers);
 
 			[RequiredByFeature("GL_VERSION_1_5")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1484,7 +1484,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glBufferData(int target, uint size, IntPtr data, int usage);
+			internal delegate void glBufferData(int target, uint size, IntPtr data, int usage);
 
 			[RequiredByFeature("GL_VERSION_1_5")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1500,7 +1500,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glBufferSubData(int target, IntPtr offset, uint size, IntPtr data);
+			internal delegate void glBufferSubData(int target, IntPtr offset, uint size, IntPtr data);
 
 			[RequiredByFeature("GL_VERSION_1_5")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1513,7 +1513,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_5")]
 			[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetBufferSubData(int target, IntPtr offset, uint size, IntPtr data);
+			internal delegate void glGetBufferSubData(int target, IntPtr offset, uint size, IntPtr data);
 
 			[RequiredByFeature("GL_VERSION_1_5")]
 			[RequiredByFeature("GL_ARB_vertex_buffer_object", EntryPoint = "glGetBufferSubDataARB")]
@@ -1553,7 +1553,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetBufferParameteriv(int target, int pname, int* @params);
+			internal delegate void glGetBufferParameteriv(int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_VERSION_1_5")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -1568,7 +1568,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 			[RequiredByFeature("GL_OES_mapbuffer", Api = "gles1|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetBufferPointerv(int target, int pname, IntPtr* @params);
+			internal delegate void glGetBufferPointerv(int target, int pname, IntPtr* @params);
 
 			[RequiredByFeature("GL_VERSION_1_5")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]

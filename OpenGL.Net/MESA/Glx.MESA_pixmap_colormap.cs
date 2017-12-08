@@ -69,7 +69,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GLX_MESA_pixmap_colormap")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr glXCreateGLXPixmapMESA(IntPtr dpy, IntPtr visual, IntPtr pixmap, IntPtr cmap);
+			internal delegate IntPtr glXCreateGLXPixmapMESA(IntPtr dpy, IntPtr visual, IntPtr pixmap, IntPtr cmap);
 
 			[RequiredByFeature("GLX_MESA_pixmap_colormap")]
 			internal static glXCreateGLXPixmapMESA pglXCreateGLXPixmapMESA;

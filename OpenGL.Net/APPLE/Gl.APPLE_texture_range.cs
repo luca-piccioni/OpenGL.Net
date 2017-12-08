@@ -158,7 +158,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_APPLE_texture_range")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTextureRangeAPPLE(int target, int length, IntPtr pointer);
+			internal delegate void glTextureRangeAPPLE(int target, int length, IntPtr pointer);
 
 			[RequiredByFeature("GL_APPLE_texture_range")]
 			[ThreadStatic]
@@ -166,7 +166,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_APPLE_texture_range")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetTexParameterPointervAPPLE(int target, int pname, IntPtr* @params);
+			internal delegate void glGetTexParameterPointervAPPLE(int target, int pname, IntPtr* @params);
 
 			[RequiredByFeature("GL_APPLE_texture_range")]
 			[ThreadStatic]

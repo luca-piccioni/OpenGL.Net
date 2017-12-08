@@ -134,7 +134,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_SGIS_texture_filter4")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetTexFilterFuncSGIS(int target, int filter, float* weights);
+			internal delegate void glGetTexFilterFuncSGIS(int target, int filter, float* weights);
 
 			[RequiredByFeature("GL_SGIS_texture_filter4")]
 			[ThreadStatic]
@@ -142,7 +142,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_SGIS_texture_filter4")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexFilterFuncSGIS(int target, int filter, int n, float* weights);
+			internal delegate void glTexFilterFuncSGIS(int target, int filter, int n, float* weights);
 
 			[RequiredByFeature("GL_SGIS_texture_filter4")]
 			[ThreadStatic]

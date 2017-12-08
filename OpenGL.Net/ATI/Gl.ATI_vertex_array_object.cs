@@ -440,7 +440,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_ATI_vertex_array_object")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate uint glNewObjectBufferATI(int size, IntPtr pointer, int usage);
+			internal delegate uint glNewObjectBufferATI(int size, IntPtr pointer, int usage);
 
 			[RequiredByFeature("GL_ATI_vertex_array_object")]
 			[ThreadStatic]
@@ -457,7 +457,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ATI_vertex_array_object")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glUpdateObjectBufferATI(uint buffer, uint offset, int size, IntPtr pointer, int preserve);
+			internal delegate void glUpdateObjectBufferATI(uint buffer, uint offset, int size, IntPtr pointer, int preserve);
 
 			[RequiredByFeature("GL_ATI_vertex_array_object")]
 			[ThreadStatic]
@@ -465,7 +465,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ATI_vertex_array_object")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetObjectBufferfvATI(uint buffer, int pname, float* @params);
+			internal delegate void glGetObjectBufferfvATI(uint buffer, int pname, float* @params);
 
 			[RequiredByFeature("GL_ATI_vertex_array_object")]
 			[ThreadStatic]
@@ -473,7 +473,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ATI_vertex_array_object")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetObjectBufferivATI(uint buffer, int pname, int* @params);
+			internal delegate void glGetObjectBufferivATI(uint buffer, int pname, int* @params);
 
 			[RequiredByFeature("GL_ATI_vertex_array_object")]
 			[ThreadStatic]
@@ -497,7 +497,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ATI_vertex_array_object")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetArrayObjectfvATI(int array, int pname, float* @params);
+			internal delegate void glGetArrayObjectfvATI(int array, int pname, float* @params);
 
 			[RequiredByFeature("GL_ATI_vertex_array_object")]
 			[ThreadStatic]
@@ -505,7 +505,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ATI_vertex_array_object")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetArrayObjectivATI(int array, int pname, int* @params);
+			internal delegate void glGetArrayObjectivATI(int array, int pname, int* @params);
 
 			[RequiredByFeature("GL_ATI_vertex_array_object")]
 			[ThreadStatic]
@@ -521,7 +521,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ATI_vertex_array_object")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetVariantArrayObjectfvATI(uint id, int pname, float* @params);
+			internal delegate void glGetVariantArrayObjectfvATI(uint id, int pname, float* @params);
 
 			[RequiredByFeature("GL_ATI_vertex_array_object")]
 			[ThreadStatic]
@@ -529,7 +529,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ATI_vertex_array_object")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetVariantArrayObjectivATI(uint id, int pname, int* @params);
+			internal delegate void glGetVariantArrayObjectivATI(uint id, int pname, int* @params);
 
 			[RequiredByFeature("GL_ATI_vertex_array_object")]
 			[ThreadStatic]

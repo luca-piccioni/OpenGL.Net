@@ -251,7 +251,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDrawTexxOES(IntPtr x, IntPtr y, IntPtr z, IntPtr width, IntPtr height);
+			internal delegate void glDrawTexxOES(IntPtr x, IntPtr y, IntPtr z, IntPtr width, IntPtr height);
 
 			[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
 			[ThreadStatic]
@@ -259,7 +259,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDrawTexsvOES(short* coords);
+			internal delegate void glDrawTexsvOES(short* coords);
 
 			[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
 			[ThreadStatic]
@@ -267,7 +267,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDrawTexivOES(int* coords);
+			internal delegate void glDrawTexivOES(int* coords);
 
 			[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
 			[ThreadStatic]
@@ -275,7 +275,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDrawTexxvOES(IntPtr* coords);
+			internal delegate void glDrawTexxvOES(IntPtr* coords);
 
 			[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
 			[ThreadStatic]
@@ -291,7 +291,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDrawTexfvOES(float* coords);
+			internal delegate void glDrawTexfvOES(float* coords);
 
 			[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
 			[ThreadStatic]

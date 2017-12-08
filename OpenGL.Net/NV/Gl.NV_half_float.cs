@@ -1044,7 +1044,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertex2hvNV(ushort* v);
+			internal delegate void glVertex2hvNV(ushort* v);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1060,7 +1060,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertex3hvNV(ushort* v);
+			internal delegate void glVertex3hvNV(ushort* v);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1076,7 +1076,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertex4hvNV(ushort* v);
+			internal delegate void glVertex4hvNV(ushort* v);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1092,7 +1092,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glNormal3hvNV(ushort* v);
+			internal delegate void glNormal3hvNV(ushort* v);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1108,7 +1108,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glColor3hvNV(ushort* v);
+			internal delegate void glColor3hvNV(ushort* v);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1124,7 +1124,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glColor4hvNV(ushort* v);
+			internal delegate void glColor4hvNV(ushort* v);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1140,7 +1140,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexCoord1hvNV(ushort* v);
+			internal delegate void glTexCoord1hvNV(ushort* v);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1156,7 +1156,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexCoord2hvNV(ushort* v);
+			internal delegate void glTexCoord2hvNV(ushort* v);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1172,7 +1172,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexCoord3hvNV(ushort* v);
+			internal delegate void glTexCoord3hvNV(ushort* v);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1188,7 +1188,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTexCoord4hvNV(ushort* v);
+			internal delegate void glTexCoord4hvNV(ushort* v);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1204,7 +1204,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexCoord1hvNV(int target, ushort* v);
+			internal delegate void glMultiTexCoord1hvNV(int target, ushort* v);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1220,7 +1220,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexCoord2hvNV(int target, ushort* v);
+			internal delegate void glMultiTexCoord2hvNV(int target, ushort* v);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1236,7 +1236,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexCoord3hvNV(int target, ushort* v);
+			internal delegate void glMultiTexCoord3hvNV(int target, ushort* v);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1252,7 +1252,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiTexCoord4hvNV(int target, ushort* v);
+			internal delegate void glMultiTexCoord4hvNV(int target, ushort* v);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1268,7 +1268,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glFogCoordhvNV(ushort* fog);
+			internal delegate void glFogCoordhvNV(ushort* fog);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1284,7 +1284,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glSecondaryColor3hvNV(ushort* v);
+			internal delegate void glSecondaryColor3hvNV(ushort* v);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1300,7 +1300,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexWeighthvNV(ushort* weight);
+			internal delegate void glVertexWeighthvNV(ushort* weight);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1316,7 +1316,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttrib1hvNV(uint index, ushort* v);
+			internal delegate void glVertexAttrib1hvNV(uint index, ushort* v);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1332,7 +1332,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttrib2hvNV(uint index, ushort* v);
+			internal delegate void glVertexAttrib2hvNV(uint index, ushort* v);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1348,7 +1348,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttrib3hvNV(uint index, ushort* v);
+			internal delegate void glVertexAttrib3hvNV(uint index, ushort* v);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1364,7 +1364,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttrib4hvNV(uint index, ushort* v);
+			internal delegate void glVertexAttrib4hvNV(uint index, ushort* v);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1372,7 +1372,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttribs1hvNV(uint index, int n, ushort* v);
+			internal delegate void glVertexAttribs1hvNV(uint index, int n, ushort* v);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1380,7 +1380,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttribs2hvNV(uint index, int n, ushort* v);
+			internal delegate void glVertexAttribs2hvNV(uint index, int n, ushort* v);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1388,7 +1388,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttribs3hvNV(uint index, int n, ushort* v);
+			internal delegate void glVertexAttribs3hvNV(uint index, int n, ushort* v);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]
@@ -1396,7 +1396,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexAttribs4hvNV(uint index, int n, ushort* v);
+			internal delegate void glVertexAttribs4hvNV(uint index, int n, ushort* v);
 
 			[RequiredByFeature("GL_NV_half_float")]
 			[ThreadStatic]

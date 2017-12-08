@@ -159,7 +159,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_NV_bindless_multi_draw_indirect", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiDrawArraysIndirectBindlessNV(int mode, IntPtr indirect, int drawCount, int stride, int vertexBufferCount);
+			internal delegate void glMultiDrawArraysIndirectBindlessNV(int mode, IntPtr indirect, int drawCount, int stride, int vertexBufferCount);
 
 			[RequiredByFeature("GL_NV_bindless_multi_draw_indirect", Api = "gl|glcore")]
 			[ThreadStatic]
@@ -167,7 +167,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_bindless_multi_draw_indirect", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiDrawElementsIndirectBindlessNV(int mode, int type, IntPtr indirect, int drawCount, int stride, int vertexBufferCount);
+			internal delegate void glMultiDrawElementsIndirectBindlessNV(int mode, int type, IntPtr indirect, int drawCount, int stride, int vertexBufferCount);
 
 			[RequiredByFeature("GL_NV_bindless_multi_draw_indirect", Api = "gl|glcore")]
 			[ThreadStatic]

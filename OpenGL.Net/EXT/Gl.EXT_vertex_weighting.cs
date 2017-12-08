@@ -201,7 +201,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_weighting")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexWeightfvEXT(float* weight);
+			internal delegate void glVertexWeightfvEXT(float* weight);
 
 			[RequiredByFeature("GL_EXT_vertex_weighting")]
 			[ThreadStatic]
@@ -209,7 +209,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_weighting")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVertexWeightPointerEXT(int size, int type, int stride, IntPtr pointer);
+			internal delegate void glVertexWeightPointerEXT(int size, int type, int stride, IntPtr pointer);
 
 			[RequiredByFeature("GL_EXT_vertex_weighting")]
 			[ThreadStatic]

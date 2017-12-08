@@ -79,12 +79,12 @@ namespace OpenVX
 		internal unsafe static partial class Delegates
 		{
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxExportObjectsToMemory(Context context, UIntPtr numrefs, Reference* refs, int* uses, IntPtr* ptr, UIntPtr* length);
+			internal delegate Status vxExportObjectsToMemory(Context context, UIntPtr numrefs, Reference* refs, int* uses, IntPtr* ptr, UIntPtr* length);
 
 			internal static vxExportObjectsToMemory pvxExportObjectsToMemory;
 
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate Status vxReleaseExportedMemory(Context context, IntPtr* ptr);
+			internal delegate Status vxReleaseExportedMemory(Context context, IntPtr* ptr);
 
 			internal static vxReleaseExportedMemory pvxReleaseExportedMemory;
 

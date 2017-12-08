@@ -135,7 +135,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_multiview_draw_buffers", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDrawBuffersIndexedEXT(int n, int* location, int* indices);
+			internal delegate void glDrawBuffersIndexedEXT(int n, int* location, int* indices);
 
 			[RequiredByFeature("GL_EXT_multiview_draw_buffers", Api = "gles2")]
 			[ThreadStatic]
@@ -143,7 +143,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_multiview_draw_buffers", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetIntegeri_vEXT(int target, uint index, int* data);
+			internal delegate void glGetIntegeri_vEXT(int target, uint index, int* data);
 
 			[RequiredByFeature("GL_EXT_multiview_draw_buffers", Api = "gles2")]
 			[ThreadStatic]

@@ -211,42 +211,42 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GLX_NV_swap_group")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool glXJoinSwapGroupNV(IntPtr dpy, IntPtr drawable, uint group);
+			internal delegate bool glXJoinSwapGroupNV(IntPtr dpy, IntPtr drawable, uint group);
 
 			[RequiredByFeature("GLX_NV_swap_group")]
 			internal static glXJoinSwapGroupNV pglXJoinSwapGroupNV;
 
 			[RequiredByFeature("GLX_NV_swap_group")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool glXBindSwapBarrierNV(IntPtr dpy, uint group, uint barrier);
+			internal delegate bool glXBindSwapBarrierNV(IntPtr dpy, uint group, uint barrier);
 
 			[RequiredByFeature("GLX_NV_swap_group")]
 			internal static glXBindSwapBarrierNV pglXBindSwapBarrierNV;
 
 			[RequiredByFeature("GLX_NV_swap_group")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool glXQuerySwapGroupNV(IntPtr dpy, IntPtr drawable, uint* group, uint* barrier);
+			internal delegate bool glXQuerySwapGroupNV(IntPtr dpy, IntPtr drawable, uint* group, uint* barrier);
 
 			[RequiredByFeature("GLX_NV_swap_group")]
 			internal static glXQuerySwapGroupNV pglXQuerySwapGroupNV;
 
 			[RequiredByFeature("GLX_NV_swap_group")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool glXQueryMaxSwapGroupsNV(IntPtr dpy, int screen, uint* maxGroups, uint* maxBarriers);
+			internal delegate bool glXQueryMaxSwapGroupsNV(IntPtr dpy, int screen, uint* maxGroups, uint* maxBarriers);
 
 			[RequiredByFeature("GLX_NV_swap_group")]
 			internal static glXQueryMaxSwapGroupsNV pglXQueryMaxSwapGroupsNV;
 
 			[RequiredByFeature("GLX_NV_swap_group")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool glXQueryFrameCountNV(IntPtr dpy, int screen, uint* count);
+			internal delegate bool glXQueryFrameCountNV(IntPtr dpy, int screen, uint* count);
 
 			[RequiredByFeature("GLX_NV_swap_group")]
 			internal static glXQueryFrameCountNV pglXQueryFrameCountNV;
 
 			[RequiredByFeature("GLX_NV_swap_group")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool glXResetFrameCountNV(IntPtr dpy, int screen);
+			internal delegate bool glXResetFrameCountNV(IntPtr dpy, int screen);
 
 			[RequiredByFeature("GLX_NV_swap_group")]
 			internal static glXResetFrameCountNV pglXResetFrameCountNV;

@@ -1515,7 +1515,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_draw_elements_base_vertex", Api = "gles2")]
 			[RequiredByFeature("GL_OES_draw_elements_base_vertex", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDrawElementsBaseVertex(int mode, int count, int type, IntPtr indices, int basevertex);
+			internal delegate void glDrawElementsBaseVertex(int mode, int count, int type, IntPtr indices, int basevertex);
 
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -1531,7 +1531,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_draw_elements_base_vertex", Api = "gles2")]
 			[RequiredByFeature("GL_OES_draw_elements_base_vertex", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDrawRangeElementsBaseVertex(int mode, uint start, uint end, int count, int type, IntPtr indices, int basevertex);
+			internal delegate void glDrawRangeElementsBaseVertex(int mode, uint start, uint end, int count, int type, IntPtr indices, int basevertex);
 
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -1547,7 +1547,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_draw_elements_base_vertex", Api = "gles2")]
 			[RequiredByFeature("GL_OES_draw_elements_base_vertex", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glDrawElementsInstancedBaseVertex(int mode, int count, int type, IntPtr indices, int instancecount, int basevertex);
+			internal delegate void glDrawElementsInstancedBaseVertex(int mode, int count, int type, IntPtr indices, int instancecount, int basevertex);
 
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -1562,7 +1562,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_draw_elements_base_vertex", Api = "gles2")]
 			[RequiredByFeature("GL_OES_draw_elements_base_vertex", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMultiDrawElementsBaseVertex(int mode, int* count, int type, IntPtr* indices, int drawcount, int* basevertex);
+			internal delegate void glMultiDrawElementsBaseVertex(int mode, int* count, int type, IntPtr* indices, int drawcount, int* basevertex);
 
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ARB_draw_elements_base_vertex", Api = "gl|glcore")]
@@ -1659,7 +1659,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
 			[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetInteger64v(int pname, long* data);
+			internal delegate void glGetInteger64v(int pname, long* data);
 
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -1673,7 +1673,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
 			[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetSynciv(int sync, int pname, int bufSize, int* length, int* values);
+			internal delegate void glGetSynciv(int sync, int pname, int bufSize, int* length, int* values);
 
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -1685,7 +1685,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetInteger64i_v(int target, uint index, long* data);
+			internal delegate void glGetInteger64i_v(int target, uint index, long* data);
 
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -1695,7 +1695,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetBufferParameteri64v(int target, int pname, long* @params);
+			internal delegate void glGetBufferParameteri64v(int target, int pname, long* @params);
 
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -1745,7 +1745,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_texture_multisample", Api = "gl|glcore")]
 			[RequiredByFeature("GL_NV_explicit_multisample")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetMultisamplefv(int pname, uint index, float* val);
+			internal delegate void glGetMultisamplefv(int pname, uint index, float* val);
 
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]

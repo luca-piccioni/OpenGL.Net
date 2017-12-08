@@ -257,56 +257,56 @@ namespace OpenGL
 		{
 			[RequiredByFeature("WGL_NV_DX_interop")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglDXSetResourceShareHandleNV(IntPtr dxObject, IntPtr shareHandle);
+			internal delegate bool wglDXSetResourceShareHandleNV(IntPtr dxObject, IntPtr shareHandle);
 
 			[RequiredByFeature("WGL_NV_DX_interop")]
 			internal static wglDXSetResourceShareHandleNV pwglDXSetResourceShareHandleNV;
 
 			[RequiredByFeature("WGL_NV_DX_interop")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr wglDXOpenDeviceNV(IntPtr dxDevice);
+			internal delegate IntPtr wglDXOpenDeviceNV(IntPtr dxDevice);
 
 			[RequiredByFeature("WGL_NV_DX_interop")]
 			internal static wglDXOpenDeviceNV pwglDXOpenDeviceNV;
 
 			[RequiredByFeature("WGL_NV_DX_interop")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglDXCloseDeviceNV(IntPtr hDevice);
+			internal delegate bool wglDXCloseDeviceNV(IntPtr hDevice);
 
 			[RequiredByFeature("WGL_NV_DX_interop")]
 			internal static wglDXCloseDeviceNV pwglDXCloseDeviceNV;
 
 			[RequiredByFeature("WGL_NV_DX_interop")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate IntPtr wglDXRegisterObjectNV(IntPtr hDevice, IntPtr dxObject, uint name, int type, int access);
+			internal delegate IntPtr wglDXRegisterObjectNV(IntPtr hDevice, IntPtr dxObject, uint name, int type, int access);
 
 			[RequiredByFeature("WGL_NV_DX_interop")]
 			internal static wglDXRegisterObjectNV pwglDXRegisterObjectNV;
 
 			[RequiredByFeature("WGL_NV_DX_interop")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglDXUnregisterObjectNV(IntPtr hDevice, IntPtr hObject);
+			internal delegate bool wglDXUnregisterObjectNV(IntPtr hDevice, IntPtr hObject);
 
 			[RequiredByFeature("WGL_NV_DX_interop")]
 			internal static wglDXUnregisterObjectNV pwglDXUnregisterObjectNV;
 
 			[RequiredByFeature("WGL_NV_DX_interop")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglDXObjectAccessNV(IntPtr hObject, int access);
+			internal delegate bool wglDXObjectAccessNV(IntPtr hObject, int access);
 
 			[RequiredByFeature("WGL_NV_DX_interop")]
 			internal static wglDXObjectAccessNV pwglDXObjectAccessNV;
 
 			[RequiredByFeature("WGL_NV_DX_interop")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglDXLockObjectsNV(IntPtr hDevice, int count, IntPtr* hObjects);
+			internal delegate bool wglDXLockObjectsNV(IntPtr hDevice, int count, IntPtr* hObjects);
 
 			[RequiredByFeature("WGL_NV_DX_interop")]
 			internal static wglDXLockObjectsNV pwglDXLockObjectsNV;
 
 			[RequiredByFeature("WGL_NV_DX_interop")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool wglDXUnlockObjectsNV(IntPtr hDevice, int count, IntPtr* hObjects);
+			internal delegate bool wglDXUnlockObjectsNV(IntPtr hDevice, int count, IntPtr* hObjects);
 
 			[RequiredByFeature("WGL_NV_DX_interop")]
 			internal static wglDXUnlockObjectsNV pwglDXUnlockObjectsNV;

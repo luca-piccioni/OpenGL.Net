@@ -87,7 +87,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("EGL_ANDROID_native_fence_sync")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate int eglDupNativeFenceFDANDROID(IntPtr dpy, IntPtr sync);
+			internal delegate int eglDupNativeFenceFDANDROID(IntPtr dpy, IntPtr sync);
 
 			[RequiredByFeature("EGL_ANDROID_native_fence_sync")]
 			internal static eglDupNativeFenceFDANDROID peglDupNativeFenceFDANDROID;

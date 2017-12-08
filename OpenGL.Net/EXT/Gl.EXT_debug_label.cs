@@ -131,7 +131,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_debug_label", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetObjectLabelEXT(int type, uint @object, int bufSize, int* length, [Out] StringBuilder label);
+			internal delegate void glGetObjectLabelEXT(int type, uint @object, int bufSize, int* length, [Out] StringBuilder label);
 
 			[RequiredByFeature("GL_EXT_debug_label", Api = "gl|glcore|gles2")]
 			[ThreadStatic]

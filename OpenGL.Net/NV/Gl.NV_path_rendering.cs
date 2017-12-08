@@ -3476,7 +3476,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glPathCommandsNV(uint path, int numCommands, byte* commands, int numCoords, int coordType, IntPtr coords);
+			internal delegate void glPathCommandsNV(uint path, int numCommands, byte* commands, int numCoords, int coordType, IntPtr coords);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3484,7 +3484,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glPathCoordsNV(uint path, int numCoords, int coordType, IntPtr coords);
+			internal delegate void glPathCoordsNV(uint path, int numCoords, int coordType, IntPtr coords);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3492,7 +3492,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glPathSubCommandsNV(uint path, int commandStart, int commandsToDelete, int numCommands, byte* commands, int numCoords, int coordType, IntPtr coords);
+			internal delegate void glPathSubCommandsNV(uint path, int commandStart, int commandsToDelete, int numCommands, byte* commands, int numCoords, int coordType, IntPtr coords);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3500,7 +3500,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glPathSubCoordsNV(uint path, int coordStart, int numCoords, int coordType, IntPtr coords);
+			internal delegate void glPathSubCoordsNV(uint path, int coordStart, int numCoords, int coordType, IntPtr coords);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3508,7 +3508,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glPathStringNV(uint path, int format, int length, IntPtr pathString);
+			internal delegate void glPathStringNV(uint path, int format, int length, IntPtr pathString);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3516,7 +3516,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glPathGlyphsNV(uint firstPathName, int fontTarget, IntPtr fontName, uint fontStyle, int numGlyphs, int type, IntPtr charcodes, int handleMissingGlyphs, uint pathParameterTemplate, float emScale);
+			internal delegate void glPathGlyphsNV(uint firstPathName, int fontTarget, IntPtr fontName, uint fontStyle, int numGlyphs, int type, IntPtr charcodes, int handleMissingGlyphs, uint pathParameterTemplate, float emScale);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3524,7 +3524,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glPathGlyphRangeNV(uint firstPathName, int fontTarget, IntPtr fontName, uint fontStyle, uint firstGlyph, int numGlyphs, int handleMissingGlyphs, uint pathParameterTemplate, float emScale);
+			internal delegate void glPathGlyphRangeNV(uint firstPathName, int fontTarget, IntPtr fontName, uint fontStyle, uint firstGlyph, int numGlyphs, int handleMissingGlyphs, uint pathParameterTemplate, float emScale);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3532,7 +3532,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glWeightPathsNV(uint resultPath, int numPaths, uint* paths, float* weights);
+			internal delegate void glWeightPathsNV(uint resultPath, int numPaths, uint* paths, float* weights);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3556,7 +3556,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glTransformPathNV(uint resultPath, uint srcPath, int transformType, float* transformValues);
+			internal delegate void glTransformPathNV(uint resultPath, uint srcPath, int transformType, float* transformValues);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3564,7 +3564,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glPathParameterivNV(uint path, int pname, int* value);
+			internal delegate void glPathParameterivNV(uint path, int pname, int* value);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3580,7 +3580,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glPathParameterfvNV(uint path, int pname, float* value);
+			internal delegate void glPathParameterfvNV(uint path, int pname, float* value);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3596,7 +3596,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glPathDashArrayNV(uint path, int dashCount, float* dashArray);
+			internal delegate void glPathDashArrayNV(uint path, int dashCount, float* dashArray);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3636,7 +3636,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glStencilFillPathInstancedNV(int numPaths, int pathNameType, IntPtr paths, uint pathBase, int fillMode, uint mask, int transformType, float* transformValues);
+			internal delegate void glStencilFillPathInstancedNV(int numPaths, int pathNameType, IntPtr paths, uint pathBase, int fillMode, uint mask, int transformType, float* transformValues);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3644,7 +3644,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glStencilStrokePathInstancedNV(int numPaths, int pathNameType, IntPtr paths, uint pathBase, int reference, uint mask, int transformType, float* transformValues);
+			internal delegate void glStencilStrokePathInstancedNV(int numPaths, int pathNameType, IntPtr paths, uint pathBase, int reference, uint mask, int transformType, float* transformValues);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3676,7 +3676,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glCoverFillPathInstancedNV(int numPaths, int pathNameType, IntPtr paths, uint pathBase, int coverMode, int transformType, float* transformValues);
+			internal delegate void glCoverFillPathInstancedNV(int numPaths, int pathNameType, IntPtr paths, uint pathBase, int coverMode, int transformType, float* transformValues);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3684,7 +3684,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glCoverStrokePathInstancedNV(int numPaths, int pathNameType, IntPtr paths, uint pathBase, int coverMode, int transformType, float* transformValues);
+			internal delegate void glCoverStrokePathInstancedNV(int numPaths, int pathNameType, IntPtr paths, uint pathBase, int coverMode, int transformType, float* transformValues);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3692,7 +3692,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetPathParameterivNV(uint path, int pname, int* value);
+			internal delegate void glGetPathParameterivNV(uint path, int pname, int* value);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3700,7 +3700,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetPathParameterfvNV(uint path, int pname, float* value);
+			internal delegate void glGetPathParameterfvNV(uint path, int pname, float* value);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3708,7 +3708,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetPathCommandsNV(uint path, byte* commands);
+			internal delegate void glGetPathCommandsNV(uint path, byte* commands);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3716,7 +3716,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetPathCoordsNV(uint path, float* coords);
+			internal delegate void glGetPathCoordsNV(uint path, float* coords);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3724,7 +3724,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetPathDashArrayNV(uint path, float* dashArray);
+			internal delegate void glGetPathDashArrayNV(uint path, float* dashArray);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3732,7 +3732,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetPathMetricsNV(uint metricQueryMask, int numPaths, int pathNameType, IntPtr paths, uint pathBase, int stride, float* metrics);
+			internal delegate void glGetPathMetricsNV(uint metricQueryMask, int numPaths, int pathNameType, IntPtr paths, uint pathBase, int stride, float* metrics);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3740,7 +3740,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetPathMetricRangeNV(uint metricQueryMask, uint firstPathName, int numPaths, int stride, float* metrics);
+			internal delegate void glGetPathMetricRangeNV(uint metricQueryMask, uint firstPathName, int numPaths, int stride, float* metrics);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3748,7 +3748,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetPathSpacingNV(int pathListMode, int numPaths, int pathNameType, IntPtr paths, uint pathBase, float advanceScale, float kerningScale, int transformType, float* returnedSpacing);
+			internal delegate void glGetPathSpacingNV(int pathListMode, int numPaths, int pathNameType, IntPtr paths, uint pathBase, float advanceScale, float kerningScale, int transformType, float* returnedSpacing);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3783,7 +3783,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
 			[return: MarshalAs(UnmanagedType.I1)]
-			internal unsafe delegate bool glPointAlongPathNV(uint path, int startSegment, int numSegments, float distance, float* x, float* y, float* tangentX, float* tangentY);
+			internal delegate bool glPointAlongPathNV(uint path, int startSegment, int numSegments, float distance, float* x, float* y, float* tangentX, float* tangentY);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3791,7 +3791,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMatrixLoad3x2fNV(int matrixMode, float* m);
+			internal delegate void glMatrixLoad3x2fNV(int matrixMode, float* m);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3799,7 +3799,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMatrixLoad3x3fNV(int matrixMode, float* m);
+			internal delegate void glMatrixLoad3x3fNV(int matrixMode, float* m);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3807,7 +3807,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMatrixLoadTranspose3x3fNV(int matrixMode, float* m);
+			internal delegate void glMatrixLoadTranspose3x3fNV(int matrixMode, float* m);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3815,7 +3815,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMatrixMult3x2fNV(int matrixMode, float* m);
+			internal delegate void glMatrixMult3x2fNV(int matrixMode, float* m);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3823,7 +3823,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMatrixMult3x3fNV(int matrixMode, float* m);
+			internal delegate void glMatrixMult3x3fNV(int matrixMode, float* m);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3831,7 +3831,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glMatrixMultTranspose3x3fNV(int matrixMode, float* m);
+			internal delegate void glMatrixMultTranspose3x3fNV(int matrixMode, float* m);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3855,7 +3855,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glStencilThenCoverFillPathInstancedNV(int numPaths, int pathNameType, IntPtr paths, uint pathBase, int fillMode, uint mask, int coverMode, int transformType, float* transformValues);
+			internal delegate void glStencilThenCoverFillPathInstancedNV(int numPaths, int pathNameType, IntPtr paths, uint pathBase, int fillMode, uint mask, int coverMode, int transformType, float* transformValues);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3863,7 +3863,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glStencilThenCoverStrokePathInstancedNV(int numPaths, int pathNameType, IntPtr paths, uint pathBase, int reference, uint mask, int coverMode, int transformType, float* transformValues);
+			internal delegate void glStencilThenCoverStrokePathInstancedNV(int numPaths, int pathNameType, IntPtr paths, uint pathBase, int reference, uint mask, int coverMode, int transformType, float* transformValues);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3871,7 +3871,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate int glPathGlyphIndexRangeNV(int fontTarget, IntPtr fontName, uint fontStyle, uint pathParameterTemplate, float emScale, uint* baseAndCount);
+			internal delegate int glPathGlyphIndexRangeNV(int fontTarget, IntPtr fontName, uint fontStyle, uint pathParameterTemplate, float emScale, uint* baseAndCount);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3879,7 +3879,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate int glPathGlyphIndexArrayNV(uint firstPathName, int fontTarget, IntPtr fontName, uint fontStyle, uint firstGlyphIndex, int numGlyphs, uint pathParameterTemplate, float emScale);
+			internal delegate int glPathGlyphIndexArrayNV(uint firstPathName, int fontTarget, IntPtr fontName, uint fontStyle, uint firstGlyphIndex, int numGlyphs, uint pathParameterTemplate, float emScale);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3887,7 +3887,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate int glPathMemoryGlyphIndexArrayNV(uint firstPathName, int fontTarget, uint fontSize, IntPtr fontData, int faceIndex, uint firstGlyphIndex, int numGlyphs, uint pathParameterTemplate, float emScale);
+			internal delegate int glPathMemoryGlyphIndexArrayNV(uint firstPathName, int fontTarget, uint fontSize, IntPtr fontData, int faceIndex, uint firstGlyphIndex, int numGlyphs, uint pathParameterTemplate, float emScale);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3895,7 +3895,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glProgramPathFragmentInputGenNV(uint program, int location, int genMode, int components, float* coeffs);
+			internal delegate void glProgramPathFragmentInputGenNV(uint program, int location, int genMode, int components, float* coeffs);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3903,7 +3903,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetProgramResourcefvNV(uint program, int programInterface, uint index, int propCount, int* props, int bufSize, int* length, float* @params);
+			internal delegate void glGetProgramResourcefvNV(uint program, int programInterface, uint index, int propCount, int* props, int bufSize, int* length, float* @params);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
@@ -3911,7 +3911,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glPathColorGenNV(int color, int genMode, int colorFormat, float* coeffs);
+			internal delegate void glPathColorGenNV(int color, int genMode, int colorFormat, float* coeffs);
 
 			[RequiredByFeature("GL_NV_path_rendering", Profile = "compatibility")]
 			[ThreadStatic]
@@ -3919,7 +3919,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glPathTexGenNV(int texCoordSet, int genMode, int components, float* coeffs);
+			internal delegate void glPathTexGenNV(int texCoordSet, int genMode, int components, float* coeffs);
 
 			[RequiredByFeature("GL_NV_path_rendering", Profile = "compatibility")]
 			[ThreadStatic]
@@ -3935,7 +3935,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetPathColorGenivNV(int color, int pname, int* value);
+			internal delegate void glGetPathColorGenivNV(int color, int pname, int* value);
 
 			[RequiredByFeature("GL_NV_path_rendering", Profile = "compatibility")]
 			[ThreadStatic]
@@ -3943,7 +3943,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetPathColorGenfvNV(int color, int pname, float* value);
+			internal delegate void glGetPathColorGenfvNV(int color, int pname, float* value);
 
 			[RequiredByFeature("GL_NV_path_rendering", Profile = "compatibility")]
 			[ThreadStatic]
@@ -3951,7 +3951,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetPathTexGenivNV(int texCoordSet, int pname, int* value);
+			internal delegate void glGetPathTexGenivNV(int texCoordSet, int pname, int* value);
 
 			[RequiredByFeature("GL_NV_path_rendering", Profile = "compatibility")]
 			[ThreadStatic]
@@ -3959,7 +3959,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Profile = "compatibility")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetPathTexGenfvNV(int texCoordSet, int pname, float* value);
+			internal delegate void glGetPathTexGenfvNV(int texCoordSet, int pname, float* value);
 
 			[RequiredByFeature("GL_NV_path_rendering", Profile = "compatibility")]
 			[ThreadStatic]

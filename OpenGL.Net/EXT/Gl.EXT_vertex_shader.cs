@@ -1824,7 +1824,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glSetInvariantEXT(uint id, int type, IntPtr addr);
+			internal delegate void glSetInvariantEXT(uint id, int type, IntPtr addr);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -1832,7 +1832,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glSetLocalConstantEXT(uint id, int type, IntPtr addr);
+			internal delegate void glSetLocalConstantEXT(uint id, int type, IntPtr addr);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -1840,7 +1840,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVariantbvEXT(uint id, sbyte* addr);
+			internal delegate void glVariantbvEXT(uint id, sbyte* addr);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -1848,7 +1848,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVariantsvEXT(uint id, short* addr);
+			internal delegate void glVariantsvEXT(uint id, short* addr);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -1856,7 +1856,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVariantivEXT(uint id, int* addr);
+			internal delegate void glVariantivEXT(uint id, int* addr);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -1864,7 +1864,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVariantfvEXT(uint id, float* addr);
+			internal delegate void glVariantfvEXT(uint id, float* addr);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -1872,7 +1872,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVariantdvEXT(uint id, double* addr);
+			internal delegate void glVariantdvEXT(uint id, double* addr);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -1880,7 +1880,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVariantubvEXT(uint id, byte* addr);
+			internal delegate void glVariantubvEXT(uint id, byte* addr);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -1888,7 +1888,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVariantusvEXT(uint id, ushort* addr);
+			internal delegate void glVariantusvEXT(uint id, ushort* addr);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -1896,7 +1896,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVariantuivEXT(uint id, uint* addr);
+			internal delegate void glVariantuivEXT(uint id, uint* addr);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -1904,7 +1904,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glVariantPointerEXT(uint id, int type, uint stride, IntPtr addr);
+			internal delegate void glVariantPointerEXT(uint id, int type, uint stride, IntPtr addr);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -1977,7 +1977,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetVariantBooleanvEXT(uint id, int value, byte* data);
+			internal delegate void glGetVariantBooleanvEXT(uint id, int value, byte* data);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -1985,7 +1985,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetVariantIntegervEXT(uint id, int value, int* data);
+			internal delegate void glGetVariantIntegervEXT(uint id, int value, int* data);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -1993,7 +1993,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetVariantFloatvEXT(uint id, int value, float* data);
+			internal delegate void glGetVariantFloatvEXT(uint id, int value, float* data);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -2001,7 +2001,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetVariantPointervEXT(uint id, int value, IntPtr* data);
+			internal delegate void glGetVariantPointervEXT(uint id, int value, IntPtr* data);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -2009,7 +2009,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetInvariantBooleanvEXT(uint id, int value, byte* data);
+			internal delegate void glGetInvariantBooleanvEXT(uint id, int value, byte* data);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -2017,7 +2017,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetInvariantIntegervEXT(uint id, int value, int* data);
+			internal delegate void glGetInvariantIntegervEXT(uint id, int value, int* data);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -2025,7 +2025,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetInvariantFloatvEXT(uint id, int value, float* data);
+			internal delegate void glGetInvariantFloatvEXT(uint id, int value, float* data);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -2033,7 +2033,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetLocalConstantBooleanvEXT(uint id, int value, byte* data);
+			internal delegate void glGetLocalConstantBooleanvEXT(uint id, int value, byte* data);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -2041,7 +2041,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetLocalConstantIntegervEXT(uint id, int value, int* data);
+			internal delegate void glGetLocalConstantIntegervEXT(uint id, int value, int* data);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]
@@ -2049,7 +2049,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate void glGetLocalConstantFloatvEXT(uint id, int value, float* data);
+			internal delegate void glGetLocalConstantFloatvEXT(uint id, int value, float* data);
 
 			[RequiredByFeature("GL_EXT_vertex_shader")]
 			[ThreadStatic]

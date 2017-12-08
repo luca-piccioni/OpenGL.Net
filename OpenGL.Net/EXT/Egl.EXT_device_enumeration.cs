@@ -74,7 +74,7 @@ namespace OpenGL
 			[RequiredByFeature("EGL_EXT_device_base")]
 			[RequiredByFeature("EGL_EXT_device_enumeration")]
 			[SuppressUnmanagedCodeSecurity()]
-			internal unsafe delegate bool eglQueryDevicesEXT(int max_devices, IntPtr* devices, int* num_devices);
+			internal delegate bool eglQueryDevicesEXT(int max_devices, IntPtr* devices, int* num_devices);
 
 			[RequiredByFeature("EGL_EXT_device_base")]
 			[RequiredByFeature("EGL_EXT_device_enumeration")]
