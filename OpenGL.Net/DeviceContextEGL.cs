@@ -46,7 +46,7 @@ namespace OpenGL
 				throw new InvalidOperationException("no API available");
 
 			if (Array.Exists(availApis, delegate(string api) { return (api == DefaultAPI); }) == false)
-				_API = availApis[0];
+				CurrentAPI = availApis[0];
 		}
 
 		/// <summary>
@@ -710,7 +710,7 @@ namespace OpenGL
 		/// </exception>
 		public override IntPtr CreateContextAttrib(IntPtr sharedContext, int[] attribsList)
 		{
-			return (CreateContextAttrib(sharedContext, attribsList, new KhronosVersion(1, 0, _API)));
+			return (CreateContextAttrib(sharedContext, attribsList, new KhronosVersion(1, 0, CurrentAPI)));
 		}
 
 		/// <summary>

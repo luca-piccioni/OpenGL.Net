@@ -25,8 +25,13 @@ using System.Diagnostics;
 
 using Khronos;
 
+// ReSharper disable RedundantIfElseBlock
+// ReSharper disable SwitchStatementMissingSomeCases
+// ReSharper disable InheritdocConsiderUsage
+
 namespace OpenGL
 {
+	/// <inheritdoc />
 	/// <summary>
 	/// Abstract device context.
 	/// </summary>
@@ -66,24 +71,24 @@ namespace OpenGL
 			if (Egl.IsRequired == false) {
 				switch (Platform.CurrentPlatformId) {
 					case Platform.Id.WindowsNT:
-						return (new DeviceContextWGL.NativeWindow());
+						return new DeviceContextWGL.NativeWindow();
 					case Platform.Id.Linux:
-						return (new DeviceContextGLX.NativeWindow());
+						return new DeviceContextGLX.NativeWindow();
 					case Platform.Id.MacOS:
 						if (Glx.IsRequired)
-							return (new DeviceContextGLX.NativeWindow());
+							return new DeviceContextGLX.NativeWindow();
 						else
 							throw new NotSupportedException("platform MacOS not supported without Glx.IsRequired=true");
 					default:
-						throw new NotSupportedException(String.Format("platform {0} not supported", Platform.CurrentPlatformId));
+						throw new NotSupportedException($"platform {Platform.CurrentPlatformId} not supported");
 				}
 			} else {
 				Debug.Assert(DeviceContextEGL.IsPBufferSupported);
-				return (new DeviceContextEGL.NativePBuffer(new DevicePixelFormat(24), 1, 1));
+				return new DeviceContextEGL.NativePBuffer(new DevicePixelFormat(24), 1, 1);
 			}
 #else
 			Debug.Assert(DeviceContextEGL.IsPBufferSupported);
-			return (new DeviceContextEGL.NativePBuffer(new DevicePixelFormat(24), 1, 1));
+			return new DeviceContextEGL.NativePBuffer(new DevicePixelFormat(24), 1, 1);
 #endif
 		}
 
@@ -98,13 +103,13 @@ namespace OpenGL
 				if (Egl.IsRequired == false) {
 					switch (Platform.CurrentPlatformId) {
 						case Platform.Id.WindowsNT:
-							return (DeviceContextWGL.IsPBufferSupported);
+							return DeviceContextWGL.IsPBufferSupported;
 						default:
-							return (false);
+							return false;
 					}
 				} else
 #endif
-					return (DeviceContextEGL.IsPBufferSupported);
+					return DeviceContextEGL.IsPBufferSupported;
 			}
 		}
 
@@ -123,13 +128,13 @@ namespace OpenGL
 			if (Egl.IsRequired == false) {
 				switch (Platform.CurrentPlatformId) {
 					case Platform.Id.WindowsNT:
-						return (new DeviceContextWGL.NativePBuffer(pixelFormat, width, height));
+						return new DeviceContextWGL.NativePBuffer(pixelFormat, width, height);
 					default:
-						throw new NotSupportedException(String.Format("platform {0} not supported", Platform.CurrentPlatformId));
+						throw new NotSupportedException($"platform {Platform.CurrentPlatformId} not supported");
 				}
 			} else
 #endif
-				return (new DeviceContextEGL.NativePBuffer(pixelFormat, width, height));
+				return new DeviceContextEGL.NativePBuffer(pixelFormat, width, height);
 		}
 
 		/// <summary>
@@ -148,16 +153,16 @@ namespace OpenGL
 
 				switch (Platform.CurrentPlatformId) {
 					case Platform.Id.WindowsNT:
-						return (new DeviceContextWGL());
+						return new DeviceContextWGL();
 					case Platform.Id.Linux:
-						return (new DeviceContextGLX());
+						return new DeviceContextGLX();
 					case Platform.Id.MacOS:
 						if (Glx.IsRequired)
-							return (new DeviceContextGLX());
+							return new DeviceContextGLX();
 						else
 							throw new NotSupportedException("platform MacOS not supported without Glx.IsRequired=true");
 					default:
-						throw new NotSupportedException(String.Format("platform {0} not supported", Platform.CurrentPlatformId));
+						throw new NotSupportedException($"platform {Platform.CurrentPlatformId} not supported");
 				}
 			} else {
 #endif
@@ -169,15 +174,15 @@ namespace OpenGL
 
 					INativePBuffer nativeBuffer = Gl._NativeWindow as INativePBuffer;
 					if (nativeBuffer != null)
-						return (new DeviceContextEGL(nativeBuffer));
+						return new DeviceContextEGL(nativeBuffer);
 
-					INativeWindow nativeWindow = Gl._NativeWindow as INativeWindow;
+					INativeWindow nativeWindow = Gl._NativeWindow;
 					if (nativeWindow != null)
-						return (new DeviceContextEGL(nativeWindow.Handle));
+						return new DeviceContextEGL(nativeWindow.Handle);
 
 					throw new NotSupportedException("EGL surface not supported");
 				} else
-					return (new DeviceContextEGL(IntPtr.Zero));
+					return new DeviceContextEGL(IntPtr.Zero);
 #if !MONODROID
 			}
 #endif
@@ -205,20 +210,20 @@ namespace OpenGL
 			if (IsEglRequired == false) {
 				switch (Platform.CurrentPlatformId) {
 					case Platform.Id.WindowsNT:
-						return (new DeviceContextWGL(windowHandle));
+						return new DeviceContextWGL(windowHandle);
 					case Platform.Id.Linux:
-						return (new DeviceContextGLX(display, windowHandle));
+						return new DeviceContextGLX(display, windowHandle);
 					case Platform.Id.MacOS:
 						if (Glx.IsRequired)
-							return (new DeviceContextGLX(display, windowHandle));
+							return new DeviceContextGLX(display, windowHandle);
 						else
 							throw new NotSupportedException("platform MacOS not supported without Glx.IsRequired=true");
 					default:
-						throw new NotSupportedException("platform not supported");
+						throw new NotSupportedException($"platform {Platform.CurrentPlatformId} not supported");
 				}
 			} else
 #endif
-				return (new DeviceContextEGL(display, windowHandle));
+				return new DeviceContextEGL(display, windowHandle);
 		}
 
 		/// <summary>
@@ -237,13 +242,13 @@ namespace OpenGL
 			if (IsEglRequired == false) {
 				switch (Platform.CurrentPlatformId) {
 					case Platform.Id.WindowsNT:
-						return (new DeviceContextWGL(nativeBuffer));
+						return new DeviceContextWGL(nativeBuffer);
 					default:
-						throw new NotSupportedException("platform not supported");
+						throw new NotSupportedException($"platform {Platform.CurrentPlatformId} not supported");
 				}
 			} else
 #endif
-				return (new DeviceContextEGL(nativeBuffer));
+				return new DeviceContextEGL(nativeBuffer);
 		}
 
 		/// <summary>
@@ -260,46 +265,47 @@ namespace OpenGL
 				// - Select eglRequired if VG context creation
 				bool eglRequired = Egl.IsRequired;
 
-				if (eglRequired == false) {
-					switch (_DefaultAPI) {
-						case KhronosVersion.ApiGl:
-							// Leave EGL requirement to the system (i.e. ANDROID or Broadcom)
-							break;
-						case KhronosVersion.ApiGles1:
-						case KhronosVersion.ApiGles2:
-							string[] desktopAvailableApi;
+				if (eglRequired)
+					return true;
 
-							switch (Platform.CurrentPlatformId) {
-								case Platform.Id.WindowsNT:
-									desktopAvailableApi = DeviceContextWGL.GetAvailableApis();
-									break;
-								case Platform.Id.Linux:
+				switch (_DefaultAPI) {
+					case KhronosVersion.ApiGl:
+						// Leave EGL requirement to the system (i.e. ANDROID or Broadcom)
+						break;
+					case KhronosVersion.ApiGles1:
+					case KhronosVersion.ApiGles2:
+						string[] desktopAvailableApi;
+
+						switch (Platform.CurrentPlatformId) {
+							case Platform.Id.WindowsNT:
+								desktopAvailableApi = DeviceContextWGL.GetAvailableApis();
+								break;
+							case Platform.Id.Linux:
+								desktopAvailableApi = DeviceContextGLX.GetAvailableApis();
+								break;
+							case Platform.Id.MacOS:
+								if (Glx.IsRequired)
 									desktopAvailableApi = DeviceContextGLX.GetAvailableApis();
-									break;
-								case Platform.Id.MacOS:
-									if (Glx.IsRequired)
-										desktopAvailableApi = DeviceContextGLX.GetAvailableApis();
-									else
-										throw new NotSupportedException("platform MacOS not supported without Glx.IsRequired=true");
-									break;
-								default:
-									throw new NotSupportedException(String.Format("platform {0} not supported", Platform.CurrentPlatformId));
-							}
-							Debug.Assert(desktopAvailableApi != null);
+								else
+									throw new NotSupportedException("platform MacOS not supported without Glx.IsRequired=true");
+								break;
+							default:
+								throw new NotSupportedException($"platform {Platform.CurrentPlatformId} not supported");
+						}
+						Debug.Assert(desktopAvailableApi != null);
 
-							if (Array.FindIndex(desktopAvailableApi, delegate(string item) { return (item == _DefaultAPI); }) < 0)
-								eglRequired = true;
-							break;
-						case KhronosVersion.ApiVg:
-							// EGL is the only way to access to VG
+						if (Array.FindIndex(desktopAvailableApi, item => item == _DefaultAPI) < 0)
 							eglRequired = true;
-							break;
-					}
+						break;
+					case KhronosVersion.ApiVg:
+						// EGL is the only way to access to VG
+						eglRequired = true;
+						break;
 				}
 
-				return (eglRequired);
+				return eglRequired;
 #else
-				return (true);
+				return true;
 #endif
 			}
 		}
@@ -314,7 +320,7 @@ namespace OpenGL
 		/// <remarks>
 		/// The reference count shall be initially 0 on new instances.
 		/// </remarks>
-		public uint RefCount { get { return (_RefCount); } }
+		public uint RefCount { get; private set; }
 
 		/// <summary>
 		/// Increment the shared IRenderResource reference count.
@@ -324,7 +330,7 @@ namespace OpenGL
 		/// </remarks>
 		public void IncRef()
 		{
-			_RefCount++;
+			RefCount++;
 		}
 
 		/// <summary>
@@ -337,11 +343,11 @@ namespace OpenGL
 		public void DecRef()
 		{
 			// Instance could be never referenced with IncRef
-			if (_RefCount > 0)
-				_RefCount--;
+			if (RefCount > 0)
+				RefCount--;
 
 			// Automatically dispose when no references are available
-			if (_RefCount == 0)
+			if (RefCount == 0)
 				Dispose();
 		}
 
@@ -357,12 +363,7 @@ namespace OpenGL
 		/// indeed copying the reference count.
 		/// </para>
 		/// </remarks>
-		protected void ResetRefCount() { _RefCount = 0; }
-
-		/// <summary>
-		/// The count of references for this RenderResource.
-		/// </summary>
-		private uint _RefCount;
+		protected void ResetRefCount() { RefCount = 0; }
 
 		#endregion
 
@@ -374,7 +375,7 @@ namespace OpenGL
 		/// </summary>
 		public static string DefaultAPI
 		{
-			get { return (_DefaultAPI); }
+			get { return _DefaultAPI; }
 			set
 			{
 				switch (value) {
@@ -398,9 +399,9 @@ namespace OpenGL
 		private static string _DefaultAPI = KhronosVersion.ApiGl;
 
 		/// <summary>
-		/// The default API driving device context creation.
+		/// Get or set the current API driving device context creation.
 		/// </summary>
-		protected string _API = _DefaultAPI;
+		public string CurrentAPI { get; protected set; } = _DefaultAPI;
 
 		#endregion
 
@@ -431,7 +432,7 @@ namespace OpenGL
 			List<string> availableAPIs = new List<string>();
 
 			// Uses the default device
-			using (DeviceContext deviceContext = DeviceContext.Create()) {
+			using (DeviceContext deviceContext = Create()) {
 				availableAPIs.AddRange(deviceContext.AvailableAPIs);
 			}
 #if INTEGRATES_EGL
@@ -456,7 +457,7 @@ namespace OpenGL
 			}
 #endif
 
-			return (availableAPIs);
+			return availableAPIs;
 		}
 
 		/// <summary>
@@ -554,20 +555,21 @@ namespace OpenGL
 			bool current = MakeCurrentCore(ctx);
 
 			// Link OpenGL procedures on Gl
-			if ((ctx != IntPtr.Zero) && (current == true)) {
-				switch (DefaultAPI) {
-					case KhronosVersion.ApiGlsc2:
-						// Special OpenGL SC2 management: loads only SC2 requirements
-						// Note: in order to work, DefaultAPI should stay set to SC2! Otherwise user shall call BindAPI manually
-						Gl.BindAPI(Gl.Version_200_SC, null);
-						break;
-					default:
-						Gl.BindAPI();
-						break;
-				}
+			if (ctx == IntPtr.Zero || current != true)
+				return current;
+
+			switch (DefaultAPI) {
+				case KhronosVersion.ApiGlsc2:
+					// Special OpenGL SC2 management: loads only SC2 requirements
+					// Note: in order to work, DefaultAPI should stay set to SC2! Otherwise user shall call BindAPI manually
+					Gl.BindAPI(Gl.Version_200_SC, null);
+					break;
+				default:
+					Gl.BindAPI();
+					break;
 			}
 
-			return (current);
+			return true;
 		}
 
 		/// <summary>
@@ -661,16 +663,7 @@ namespace OpenGL
 		/// <summary>
 		/// Get the flag indicating whether this DeviceContext has a pixel format defined.
 		/// </summary>
-		public bool IsPixelFormatSet
-		{
-			get { return (_IsPixelFormatSet); }
-			protected set { _IsPixelFormatSet = value; }
-		}
-
-		/// <summary>
-		/// Flag indicating whether this DeviceContext has a pixel format defined.
-		/// </summary>
-		private bool _IsPixelFormatSet;
+		public bool IsPixelFormatSet { get; protected set; }
 
 		#endregion
 
@@ -689,20 +682,20 @@ namespace OpenGL
 			if (Egl.IsRequired == false) {
 				switch (Platform.CurrentPlatformId) {
 					case Platform.Id.WindowsNT:
-						return (Wgl.GetCurrentContext());
+						return Wgl.GetCurrentContext();
 					case Platform.Id.Linux:
-						return (Glx.GetCurrentContext());
+						return Glx.GetCurrentContext();
 					case Platform.Id.MacOS:
 						if (Glx.IsRequired)
-							return (Glx.GetCurrentContext());
+							return Glx.GetCurrentContext();
 						else
 							throw new NotSupportedException("platform MacOS not supported without Glx.IsRequired=true");
 					default:
-						throw new NotSupportedException(String.Format("platform {0} not supported", Platform.CurrentPlatformId));
+						throw new NotSupportedException($"platform {Platform.CurrentPlatformId} not supported");
 				}
 			} else
 #endif
-				return (Egl.GetCurrentContext());
+				return Egl.GetCurrentContext();
 		}
 
 		#endregion
@@ -720,7 +713,7 @@ namespace OpenGL
 		/// <summary>
 		/// Get whether this instance has been disposed.
 		/// </summary>
-		public bool IsDisposed { get { return (_Disposed); } }
+		public bool IsDisposed { get; private set; }
 
 		/// <summary>
 		/// Performs application-defined tasks associated with freeing, releasing, or resetting managed/unmanaged resources.
@@ -730,11 +723,12 @@ namespace OpenGL
 		/// </param>
 		protected virtual void Dispose(bool disposing)
 		{
-			if (disposing) {
-				Debug.Assert(GetCurrentContext() == IntPtr.Zero, "leaving a context current");
-				// Mark as disposed
-				_Disposed = true;
-			}
+			if (!disposing)
+				return;
+
+			Debug.Assert(GetCurrentContext() == IntPtr.Zero, "leaving a context current");
+			// Mark as disposed
+			IsDisposed = true;
 		}
 
 		/// <summary>
@@ -745,11 +739,6 @@ namespace OpenGL
 			Dispose(true);
 			GC.SuppressFinalize(this);
 		}
-
-		/// <summary>
-		/// Flag indicating that this instance has been disposed.
-		/// </summary>
-		private bool _Disposed;
 
 		#endregion
 	}

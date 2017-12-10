@@ -600,7 +600,7 @@ namespace OpenGL
 		/// </exception>
 		public override IntPtr CreateContextAttrib(IntPtr sharedContext, int[] attribsList)
 		{
-			return (CreateContextAttrib(sharedContext, attribsList, new KhronosVersion(1, 0, _API)));
+			return (CreateContextAttrib(sharedContext, attribsList, new KhronosVersion(1, 0, CurrentAPI)));
 		}
 
 		/// <summary>
