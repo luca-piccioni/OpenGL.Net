@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -76,10 +80,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="label">
-		/// A <see cref="T:String"/>.
+		/// A <see cref="T:string"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_debug_label", Api = "gl|glcore|gles2")]
-		public static void LabelObjectEXT(int type, uint @object, int length, String label)
+		public static void LabelObjectEXT(int type, uint @object, int length, string label)
 		{
 			Debug.Assert(Delegates.pglLabelObjectEXT != null, "pglLabelObjectEXT not implemented");
 			Delegates.pglLabelObjectEXT(type, @object, length, label);
@@ -106,7 +110,7 @@ namespace OpenGL
 		/// A <see cref="T:StringBuilder"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_debug_label", Api = "gl|glcore|gles2")]
-		public static void GetObjectLabelEXT(int type, uint @object, int bufSize, out int length, [Out] StringBuilder label)
+		public static void GetObjectLabelEXT(int type, uint @object, int bufSize, out int length, StringBuilder label)
 		{
 			unsafe {
 				fixed (int* p_length = &length)
@@ -119,19 +123,19 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_debug_label", Api = "gl|glcore|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glLabelObjectEXT(int type, uint @object, int length, String label);
+			[SuppressUnmanagedCodeSecurity]
+			internal delegate void glLabelObjectEXT(int type, uint @object, int length, string label);
 
 			[RequiredByFeature("GL_EXT_debug_label", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glLabelObjectEXT pglLabelObjectEXT;
 
 			[RequiredByFeature("GL_EXT_debug_label", Api = "gl|glcore|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glGetObjectLabelEXT(int type, uint @object, int bufSize, int* length, [Out] StringBuilder label);
+			[SuppressUnmanagedCodeSecurity]
+			internal delegate void glGetObjectLabelEXT(int type, uint @object, int bufSize, int* length, StringBuilder label);
 
 			[RequiredByFeature("GL_EXT_debug_label", Api = "gl|glcore|gles2")]
 			[ThreadStatic]

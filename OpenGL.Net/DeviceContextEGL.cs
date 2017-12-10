@@ -26,6 +26,12 @@ using System.Text.RegularExpressions;
 
 using Khronos;
 
+// ReSharper disable RedundantAssignment
+// ReSharper disable InvertIf
+// ReSharper disable RedundantIfElseBlock
+// ReSharper disable SwitchStatementMissingSomeCases
+// ReSharper disable InheritdocConsiderUsage
+
 namespace OpenGL
 {
 	/// <summary>
@@ -45,7 +51,7 @@ namespace OpenGL
 			if (availApis.Length == 0)
 				throw new InvalidOperationException("no API available");
 
-			if (Array.Exists(availApis, delegate(string api) { return (api == DefaultAPI); }) == false)
+			if (Array.Exists(availApis, api => api == DefaultAPI) == false)
 				CurrentAPI = availApis[0];
 		}
 
@@ -60,7 +66,7 @@ namespace OpenGL
 		/// Is thrown when an operation cannot be performed.
 		/// </exception>
 		public DeviceContextEGL(IntPtr windowHandle)
-			: this(NativeWindow.DefaultDisplay, windowHandle)
+			: this(NativeSurface.DefaultDisplay, windowHandle)
 		{
 
 		}
@@ -98,7 +104,7 @@ namespace OpenGL
 			: this()
 		{
 			if (nativeBuffer == null)
-				throw new ArgumentNullException("nativeBuffer");
+				throw new ArgumentNullException(nameof(nativeBuffer));
 
 			NativePBuffer nativePBuffer = nativeBuffer as NativePBuffer;
 			if (nativePBuffer == null)
@@ -121,12 +127,12 @@ namespace OpenGL
 		/// <summary>
 		/// Get the display connection.
 		/// </summary>
-		internal IntPtr Display { get { return (_NativeSurface != null ? _NativeSurface._Display : IntPtr.Zero); } }
+		internal IntPtr Display => _NativeSurface?._Display ?? IntPtr.Zero;
 
 		/// <summary>
 		/// Get the EGL surface handle.
 		/// </summary>
-		private IntPtr EglSurface { get { return (_NativeSurface != null ? _NativeSurface.Handle : new IntPtr(Egl.NO_DISPLAY)); } }
+		private IntPtr EglSurface => _NativeSurface?.Handle ?? new IntPtr(Egl.NO_DISPLAY);
 
 		/// <summary>
 		/// The frame buffer configuration.
@@ -140,16 +146,16 @@ namespace OpenGL
 				List<int> configAttribs = new List<int>();
 
 				if (Version >= Egl.Version_120)
-					configAttribs.AddRange(new int[] { Egl.RENDERABLE_TYPE, Egl.OPENGL_ES2_BIT });
-				configAttribs.AddRange(new int[] { Egl.SURFACE_TYPE, Egl.PBUFFER_BIT | Egl.WINDOW_BIT });
-				configAttribs.AddRange(new int[] {
+					configAttribs.AddRange(new[] { Egl.RENDERABLE_TYPE, Egl.OPENGL_ES2_BIT });
+				configAttribs.AddRange(new[] { Egl.SURFACE_TYPE, Egl.PBUFFER_BIT | Egl.WINDOW_BIT });
+				configAttribs.AddRange(new[] {
 					Egl.RED_SIZE, 8,
 					Egl.GREEN_SIZE, 8,
-					Egl.BLUE_SIZE, 8,
+					Egl.BLUE_SIZE, 8
 				});
 				configAttribs.Add(Egl.NONE);
 
-				return (configAttribs.ToArray());
+				return configAttribs.ToArray();
 			}
 		}
 
@@ -160,10 +166,10 @@ namespace OpenGL
 				List<int> contextAttribs = new List<int>();
 
 				if (Version >= Egl.Version_130)
-					contextAttribs.AddRange(new int[] { Egl.CONTEXT_CLIENT_VERSION, 2 });
+					contextAttribs.AddRange(new[] { Egl.CONTEXT_CLIENT_VERSION, 2 });
 				contextAttribs.Add(Egl.NONE);
 
-				return (contextAttribs.ToArray());
+				return contextAttribs.ToArray();
 			}
 		}
 
@@ -174,10 +180,7 @@ namespace OpenGL
 		/// <summary>
 		/// Determine whether the hosting platform is able to create a P-Buffer.
 		/// </summary>
-		public static new bool IsPBufferSupported
-		{
-			get { return (true); }
-		}
+		public new static bool IsPBufferSupported => true;
 
 		/// <summary>
 		/// Basic native EGL surface.
@@ -197,20 +200,15 @@ namespace OpenGL
 			/// </param>
 			protected NativeSurface(IntPtr display)
 			{
-				try {
-					if ((_Display = Egl.GetDisplay(display)) == IntPtr.Zero)
-						throw new InvalidOperationException("unable to get display handle");
+				if ((_Display = Egl.GetDisplay(display)) == IntPtr.Zero)
+					throw new InvalidOperationException("unable to get display handle");
 
-					int[] major = new int[1], minor = new int[1];
+				int[] major = new int[1], minor = new int[1];
 
-					if (Egl.Initialize(_Display, major, minor) == false)
-						throw new InvalidOperationException("unable to initialize the display");
+				if (Egl.Initialize(_Display, major, minor) == false)
+					throw new InvalidOperationException("unable to initialize the display");
 
-					_EglVersion = new KhronosVersion(major[0], minor[0], KhronosVersion.ApiEgl);
-				} catch {
-					Dispose();
-					throw;
-				}
+				_EglVersion = new KhronosVersion(major[0], minor[0], KhronosVersion.ApiEgl);
 			}
 
 			#endregion
@@ -272,7 +270,7 @@ namespace OpenGL
 		/// <summary>
 		/// Native window implementation for Windows.
 		/// </summary>
-		internal class NativeWindow : NativeSurface, INativeWindow
+		internal sealed class NativeWindow : NativeSurface, INativeWindow
 		{
 			#region Constructors
 
@@ -283,7 +281,7 @@ namespace OpenGL
 			/// A <see cref="IntPtr"/> that specifies the display handle to be passed to <see cref="Egl.GetDisplay(IntPtr)"/>.
 			/// </param>
 			public NativeWindow(IntPtr display)
-				: this(display, Gl._NativeWindow.Handle)
+				: this(display, Gl.NativeWindow.Handle)
 			{
 
 			}
@@ -331,7 +329,7 @@ namespace OpenGL
 						List<int> attribs = new List<int>();
 
 						if (pixelFormat.DoubleBuffer)
-							attribs.AddRange(new int[] { Egl.RENDER_BUFFER, Egl.BACK_BUFFER });
+							attribs.AddRange(new[] { Egl.RENDER_BUFFER, Egl.BACK_BUFFER });
 						attribs.Add(Egl.NONE);
 
 						CreateHandle(configId, attribs.ToArray());
@@ -354,7 +352,7 @@ namespace OpenGL
 			/// <summary>
 			/// The OS window handle.
 			/// </summary>
-			private IntPtr _WindowHandle;
+			private readonly IntPtr _WindowHandle;
 
 			#endregion
 
@@ -363,7 +361,7 @@ namespace OpenGL
 			/// <summary>
 			/// Get the EGL window handle.
 			/// </summary>
-			public override IntPtr Handle { get { return (_Handle); } }
+			public override IntPtr Handle => _Handle;
 
 			/// <summary>
 			/// Create the native surface handle.
@@ -381,7 +379,7 @@ namespace OpenGL
 			{
 				if (_Handle != IntPtr.Zero)
 					throw new InvalidOperationException("handle already created");
-				if ((_WindowHandle == IntPtr.Zero) && (Egl.CurrentExtensions.SurfacelessContext_KHR == false))
+				if (_WindowHandle == IntPtr.Zero && Egl.CurrentExtensions.SurfacelessContext_KHR == false)
 					throw new InvalidOperationException("null window handle");
 
 				if (_WindowHandle != IntPtr.Zero) {
@@ -412,12 +410,12 @@ namespace OpenGL
 			/// <summary>
 			/// Get the display handle associated this instance.
 			/// </summary>
-			IntPtr INativeWindow.Display { get { return (_Display); } }
+			IntPtr INativeWindow.Display => _Display;
 
 			/// <summary>
 			/// Get the native window handle.
 			/// </summary>
-			IntPtr INativeWindow.Handle { get { return (_Handle); } }
+			IntPtr INativeWindow.Handle => _Handle;
 
 			#endregion
 		}
@@ -425,7 +423,7 @@ namespace OpenGL
 		/// <summary>
 		/// P-Buffer implementation for EGL.
 		/// </summary>
-		internal class NativePBuffer : NativeSurface, INativePBuffer, INativeWindow
+		internal sealed class NativePBuffer : NativeSurface, INativePBuffer, INativeWindow
 		{
 			#region Constructors
 
@@ -466,7 +464,7 @@ namespace OpenGL
 				: base(display)
 			{
 				if (pixelFormat == null)
-					throw new ArgumentNullException("pixelFormat");
+					throw new ArgumentNullException(nameof(pixelFormat));
 
 				try {
 					// Choose appropriate pixel format
@@ -476,8 +474,8 @@ namespace OpenGL
 					IntPtr configId = ChoosePixelFormat(_Display, _EglVersion, pixelFormat);
 					List<int> attribs = new List<int>();
 
-					attribs.AddRange(new int[] { Egl.WIDTH, (int)width });
-					attribs.AddRange(new int[] { Egl.HEIGHT, (int)height });
+					attribs.AddRange(new[] { Egl.WIDTH, (int)width });
+					attribs.AddRange(new[] { Egl.HEIGHT, (int)height });
 					attribs.Add(Egl.NONE);
 
 					CreateHandle(configId, attribs.ToArray());
@@ -503,7 +501,7 @@ namespace OpenGL
 			/// <summary>
 			/// Get the EGL window handle.
 			/// </summary>
-			public override IntPtr Handle { get { return (_Handle); } }
+			public override IntPtr Handle => _Handle;
 
 			/// <summary>
 			/// Create the native surface handle.
@@ -547,12 +545,12 @@ namespace OpenGL
 			/// <summary>
 			/// Get the display handle associated this instance.
 			/// </summary>
-			IntPtr INativeWindow.Display { get { return (_Display); } }
+			IntPtr INativeWindow.Display => _Display;
 
 			/// <summary>
 			/// Get the native window handle.
 			/// </summary>
-			IntPtr INativeWindow.Handle { get { return (_Handle); } }
+			IntPtr INativeWindow.Handle => _Handle;
 
 			#endregion
 		}
@@ -564,7 +562,7 @@ namespace OpenGL
 		/// <summary>
 		/// Get this DeviceContext API version.
 		/// </summary>
-		public override KhronosVersion Version { get { return (new KhronosVersion(_NativeSurface._EglVersion)); } }
+		public override KhronosVersion Version => new KhronosVersion(_NativeSurface._EglVersion);
 
 		/// <summary>
 		/// Create a simple context.
@@ -587,7 +585,7 @@ namespace OpenGL
 				throw new InvalidOperationException("no available configuration");
 
 			int[] contextAttribs = DefaultContextAttribs;
-			int[] surfaceAttribs = new int[] { Egl.NONE };
+			int[] surfaceAttribs = { Egl.NONE };
 
 			if (Version >= Egl.Version_120) {
 				if (Egl.BindAPI(Egl.OPENGL_ES_API) == false)
@@ -601,13 +599,13 @@ namespace OpenGL
 				List<int> pbufferAttribs = new List<int>(surfaceAttribs);
 
 				pbufferAttribs.RemoveAt(pbufferAttribs.Count - 1);
-				pbufferAttribs.AddRange(new int[] { Egl.WIDTH, 1, Egl.HEIGHT, 1 });
+				pbufferAttribs.AddRange(new[] { Egl.WIDTH, 1, Egl.HEIGHT, 1 });
 				pbufferAttribs.Add(Egl.NONE);
 
 				_NativeSurface.CreateHandle(configs[0], pbufferAttribs.ToArray());
 			}
 
-			return (ctx);
+			return ctx;
 		}
 
 		/// <summary>
@@ -624,13 +622,12 @@ namespace OpenGL
 					string clientApisString = Egl.QueryString(Display, Egl.CLIENT_APIS);
 					string[] clientApiTokens = Regex.Split(clientApisString, " ");
 
-					foreach (string api in ConvertApiNames(clientApiTokens))
-						clientApis.Add(api);
+					clientApis.AddRange(ConvertApiNames(clientApiTokens));
 				}
 
 				clientApis.Add(KhronosVersion.ApiGlsc2);
 
-				return (clientApis);
+				return clientApis;
 			}
 		}
 
@@ -640,7 +637,7 @@ namespace OpenGL
 		/// <returns></returns>
 		internal static string[] GetAvailableApis()
 		{
-			return (ConvertApiNames(Egl.AvailableApis));
+			return ConvertApiNames(Egl.AvailableApis);
 		}
 
 		internal static string[] ConvertApiNames(IEnumerable<string> clientApis)
@@ -664,7 +661,7 @@ namespace OpenGL
 				}
 			}
 
-			return (deviceApi.ToArray());
+			return deviceApi.ToArray();
 		}
 
 		/// <summary>
@@ -684,7 +681,7 @@ namespace OpenGL
 		/// </exception>
 		public override IntPtr CreateContext(IntPtr sharedContext)
 		{
-			return (CreateContextAttrib(sharedContext, DefaultContextAttribs));
+			return CreateContextAttrib(sharedContext, DefaultContextAttribs);
 		}
 
 		/// <summary>
@@ -710,7 +707,7 @@ namespace OpenGL
 		/// </exception>
 		public override IntPtr CreateContextAttrib(IntPtr sharedContext, int[] attribsList)
 		{
-			return (CreateContextAttrib(sharedContext, attribsList, new KhronosVersion(1, 0, CurrentAPI)));
+			return CreateContextAttrib(sharedContext, attribsList, new KhronosVersion(1, 0, CurrentAPI));
 		}
 
 		/// <summary>
@@ -741,11 +738,11 @@ namespace OpenGL
 		public override IntPtr CreateContextAttrib(IntPtr sharedContext, int[] attribsList, KhronosVersion api)
 		{
 			if (attribsList == null)
-				throw new ArgumentNullException("attribsList");
+				throw new ArgumentNullException(nameof(attribsList));
 			if (attribsList.Length == 0)
-				throw new ArgumentException("zero length array", "attribsList");
+				throw new ArgumentException("zero length array", nameof(attribsList));
 			if (attribsList[attribsList.Length - 1] != Egl.NONE)
-				throw new ArgumentException("not EGL_NONE-terminated array", "attribsList");
+				throw new ArgumentException("not EGL_NONE-terminated array", nameof(attribsList));
 
 			IntPtr context;
 
@@ -777,12 +774,12 @@ namespace OpenGL
 						apiEnum = Egl.OPENVG_API;
 						break;
 					default:
-						throw new InvalidOperationException(String.Format("'{0}' API not available", api));
+						throw new InvalidOperationException($"'{api}' API not available");
 				}
 				if (Egl.BindAPI(apiEnum) == false)
 					throw new InvalidOperationException("no ES API");
 			} else if (api != null && api.Api != KhronosVersion.ApiGles2 && api.Api != KhronosVersion.ApiGles1)
-				throw new InvalidOperationException(String.Format("'{0}' API not available", api));
+				throw new InvalidOperationException($"'{api}' API not available");
 
 			// Create context
 			if ((context = Egl.CreateContext(Display, _Config, sharedContext, attribsList)) == IntPtr.Zero)
@@ -791,9 +788,9 @@ namespace OpenGL
 			// Create native surface (pixel format pending)
 			// @todo Back-buffer?
 			if (_NativeSurface != null && _NativeSurface.Handle == IntPtr.Zero)
-				_NativeSurface.CreateHandle(_Config, new int[] { Egl.NONE });
+				_NativeSurface.CreateHandle(_Config, new[] { Egl.NONE });
 
-			return (context);
+			return context;
 		}
 
 		/// <summary>
@@ -822,9 +819,9 @@ namespace OpenGL
 					}
 				}
 
-				return (Egl.MakeCurrent(Display, EglSurface, EglSurface, ctx));
+				return Egl.MakeCurrent(Display, EglSurface, EglSurface, ctx);
 			} else
-				return (Egl.MakeCurrent(Display, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero));
+				return Egl.MakeCurrent(Display, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero);
 		}
 
 		/// <summary>
@@ -848,7 +845,7 @@ namespace OpenGL
 			if (ctx == IntPtr.Zero)
 				throw new ArgumentException("ctx");
 
-			return (Egl.DestroyContext(Display, ctx));
+			return Egl.DestroyContext(Display, ctx);
 		}
 
 		/// <summary>
@@ -871,7 +868,7 @@ namespace OpenGL
 		/// </returns>
 		public override bool SwapInterval(int interval)
 		{
-			return (Egl.SwapInterval(Display, interval));
+			return Egl.SwapInterval(Display, interval);
 		}
 
 		/// <summary>
@@ -894,7 +891,7 @@ namespace OpenGL
 		/// </exception>
 		public override Exception GetPlatformException()
 		{
-			return (null);
+			return null;
 		}
 
 		/// <summary>
@@ -906,7 +903,7 @@ namespace OpenGL
 			{
 				// Use cached pixel formats
 				if (_PixelFormatCache != null)
-					return (_PixelFormatCache);
+					return _PixelFormatCache;
 
 				_PixelFormatCache = new DevicePixelFormatCollection();
 
@@ -1044,7 +1041,7 @@ namespace OpenGL
 					_PixelFormatCache.Add(pixelFormat);
 				}
 
-				return (_PixelFormatCache);
+				return _PixelFormatCache;
 			}
 		}
 
@@ -1075,9 +1072,9 @@ namespace OpenGL
 		private static IntPtr ChoosePixelFormat(IntPtr display, KhronosVersion version, DevicePixelFormat pixelFormat)
 		{
 			if (version == null)
-				throw new ArgumentNullException("version");
+				throw new ArgumentNullException(nameof(version));
 			if (pixelFormat == null)
-				throw new ArgumentNullException("pixelFormat");
+				throw new ArgumentNullException(nameof(pixelFormat));
 
 			List<int> configAttribs = new List<int>();
 			int[] configCount = new int[1];
@@ -1085,30 +1082,30 @@ namespace OpenGL
 			int surfaceType = 0;
 
 			if (version >= Egl.Version_120)
-				configAttribs.AddRange(new int[] { Egl.RENDERABLE_TYPE, Egl.OPENGL_ES2_BIT });
+				configAttribs.AddRange(new[] { Egl.RENDERABLE_TYPE, Egl.OPENGL_ES2_BIT });
 
 			if (pixelFormat.RenderWindow)
 				surfaceType |= Egl.WINDOW_BIT;
 			if (pixelFormat.RenderPBuffer)
 				surfaceType |= Egl.PBUFFER_BIT;
 			if (surfaceType != 0)
-				configAttribs.AddRange(new int[] { Egl.SURFACE_TYPE, surfaceType });
+				configAttribs.AddRange(new[] { Egl.SURFACE_TYPE, surfaceType });
 
 			switch (pixelFormat.ColorBits) {
 				case 24:
-					configAttribs.AddRange(new int[] { Egl.RED_SIZE, 8, Egl.GREEN_SIZE, 8, Egl.BLUE_SIZE, 8, });
+					configAttribs.AddRange(new[] { Egl.RED_SIZE, 8, Egl.GREEN_SIZE, 8, Egl.BLUE_SIZE, 8 });
 					break;
 				case 32:
-					configAttribs.AddRange(new int[] { Egl.RED_SIZE, 8, Egl.GREEN_SIZE, 8, Egl.BLUE_SIZE, 8, Egl.ALPHA_SIZE, 8 });
+					configAttribs.AddRange(new[] { Egl.RED_SIZE, 8, Egl.GREEN_SIZE, 8, Egl.BLUE_SIZE, 8, Egl.ALPHA_SIZE, 8 });
 					break;
 				default:
-					configAttribs.AddRange(new int[] { Egl.BUFFER_SIZE, pixelFormat.ColorBits });
+					configAttribs.AddRange(new[] { Egl.BUFFER_SIZE, pixelFormat.ColorBits });
 					break;
 			}
 			if (pixelFormat.DepthBits > 0)
-				configAttribs.AddRange(new int[] { Egl.DEPTH_SIZE, pixelFormat.DepthBits });
+				configAttribs.AddRange(new[] { Egl.DEPTH_SIZE, pixelFormat.DepthBits });
 			if (pixelFormat.StencilBits > 0)
-				configAttribs.AddRange(new int[] { Egl.STENCIL_SIZE, pixelFormat.StencilBits });
+				configAttribs.AddRange(new[] { Egl.STENCIL_SIZE, pixelFormat.StencilBits });
 
 			configAttribs.Add(Egl.NONE);
 
@@ -1117,7 +1114,7 @@ namespace OpenGL
 			if (configCount[0] == 0)
 				throw new InvalidOperationException("no available configuration");
 
-			return (configs[0]);
+			return configs[0];
 		}
 
 		private static IntPtr ChoosePixelFormat(IntPtr display, int configId)
@@ -1126,7 +1123,7 @@ namespace OpenGL
 			int[] configCount = new int[1];
 			IntPtr[] configs = new IntPtr[8];
 
-			configAttribs.AddRange(new int[] { Egl.CONFIG_ID, configId });
+			configAttribs.AddRange(new[] { Egl.CONFIG_ID, configId });
 			configAttribs.Add(Egl.NONE);
 
 			if (Egl.ChooseConfig(display, configAttribs.ToArray(), configs, configs.Length, configCount) == false)
@@ -1134,7 +1131,7 @@ namespace OpenGL
 			if (configCount[0] == 0)
 				throw new InvalidOperationException("no available configuration");
 
-			return (configs[0]);
+			return configs[0];
 		}
 
 		/// <summary>
@@ -1149,7 +1146,7 @@ namespace OpenGL
 		public override void SetPixelFormat(DevicePixelFormat pixelFormat)
 		{
 			if (pixelFormat == null)
-				throw new ArgumentNullException("pixelFormat");
+				throw new ArgumentNullException(nameof(pixelFormat));
 			if (_NativeSurface == null)
 				return; // Support EGL_KHR_surfaceless_context
 			if (_NativeSurface.Handle != IntPtr.Zero)
@@ -1158,9 +1155,9 @@ namespace OpenGL
 			List<int> configAttribs = new List<int>();
 
 			if (Version >= Egl.Version_120)
-				configAttribs.AddRange(new int[] { Egl.RENDERABLE_TYPE, Egl.OPENGL_ES2_BIT });
-			configAttribs.AddRange(new int[] {
-				Egl.CONFIG_ID, pixelFormat.FormatIndex,
+				configAttribs.AddRange(new[] { Egl.RENDERABLE_TYPE, Egl.OPENGL_ES2_BIT });
+			configAttribs.AddRange(new[] {
+				Egl.CONFIG_ID, pixelFormat.FormatIndex
 			});
 			configAttribs.Add(Egl.NONE);
 

@@ -24,6 +24,8 @@
 
 using System;
 
+// ReSharper disable InheritdocConsiderUsage
+
 namespace OpenGL
 {
 	/// <summary>
@@ -108,7 +110,7 @@ namespace OpenGL
 		/// It returns a <see cref="IntPtr"/> that specifies the function pointer. If not defined, it
 		/// returns <see cref="IntPtr.Zero"/>.
 		/// </returns>
-		protected static IntPtr GetProcAddressGL(string path, string function) { return (OpenGL.GetProcAddressGL.GetProcAddress(function)); }
+		protected static IntPtr GetProcAddressGL(string path, string function) { return OpenGL.GetProcAddressGL.GetProcAddress(function); }
 
 		/// <summary>
 		/// Utility for <see cref="GetAddressDelegate"/> for loading procedures using the GL loader, and eventually with the OS
@@ -133,7 +135,7 @@ namespace OpenGL
 			if (funcPtr == IntPtr.Zero)
 				funcPtr = Khronos.GetProcAddressOS.GetProcAddress(path, function);
 
-			return (funcPtr);
+			return funcPtr;
 		}
 
 		#endregion

@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -183,10 +187,10 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_AMD_framebuffer_sample_positions")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glFramebufferSamplePositionsfvAMD(int target, uint numsamples, uint pixelindex, float* values);
 
 			[RequiredByFeature("GL_AMD_framebuffer_sample_positions")]
@@ -194,7 +198,7 @@ namespace OpenGL
 			internal static glFramebufferSamplePositionsfvAMD pglFramebufferSamplePositionsfvAMD;
 
 			[RequiredByFeature("GL_AMD_framebuffer_sample_positions")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glNamedFramebufferSamplePositionsfvAMD(uint framebuffer, uint numsamples, uint pixelindex, float* values);
 
 			[RequiredByFeature("GL_AMD_framebuffer_sample_positions")]
@@ -202,7 +206,7 @@ namespace OpenGL
 			internal static glNamedFramebufferSamplePositionsfvAMD pglNamedFramebufferSamplePositionsfvAMD;
 
 			[RequiredByFeature("GL_AMD_framebuffer_sample_positions")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetFramebufferParameterfvAMD(int target, int pname, uint numsamples, uint pixelindex, int size, float* values);
 
 			[RequiredByFeature("GL_AMD_framebuffer_sample_positions")]
@@ -210,7 +214,7 @@ namespace OpenGL
 			internal static glGetFramebufferParameterfvAMD pglGetFramebufferParameterfvAMD;
 
 			[RequiredByFeature("GL_AMD_framebuffer_sample_positions")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetNamedFramebufferParameterfvAMD(uint framebuffer, int pname, uint numsamples, uint pixelindex, int size, float* values);
 
 			[RequiredByFeature("GL_AMD_framebuffer_sample_positions")]

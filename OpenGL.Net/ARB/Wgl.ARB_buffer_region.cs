@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -173,31 +177,31 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("WGL_ARB_buffer_region")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate IntPtr wglCreateBufferRegionARB(IntPtr hDC, int iLayerPlane, uint uType);
 
 			[RequiredByFeature("WGL_ARB_buffer_region")]
 			internal static wglCreateBufferRegionARB pwglCreateBufferRegionARB;
 
 			[RequiredByFeature("WGL_ARB_buffer_region")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void wglDeleteBufferRegionARB(IntPtr hRegion);
 
 			[RequiredByFeature("WGL_ARB_buffer_region")]
 			internal static wglDeleteBufferRegionARB pwglDeleteBufferRegionARB;
 
 			[RequiredByFeature("WGL_ARB_buffer_region")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool wglSaveBufferRegionARB(IntPtr hRegion, int x, int y, int width, int height);
 
 			[RequiredByFeature("WGL_ARB_buffer_region")]
 			internal static wglSaveBufferRegionARB pwglSaveBufferRegionARB;
 
 			[RequiredByFeature("WGL_ARB_buffer_region")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool wglRestoreBufferRegionARB(IntPtr hRegion, int x, int y, int width, int height, int xSrc, int ySrc);
 
 			[RequiredByFeature("WGL_ARB_buffer_region")]

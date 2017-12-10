@@ -36,10 +36,18 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
+// ReSharper disable once RedundantUsingDirective
 using System.Reflection;				// Do not delete me! .NET Core include extension methods
 using System.Runtime.InteropServices;
 
 using Khronos;
+
+// ReSharper disable RedundantAssignment
+// ReSharper disable InvertIf
+// ReSharper disable RedundantIfElseBlock
+// ReSharper disable SwitchStatementMissingSomeCases
+// ReSharper disable InheritdocConsiderUsage
 
 namespace OpenGL
 {
@@ -65,15 +73,15 @@ namespace OpenGL
 		/// </remarks>
 		public DeviceContextWGL()
 		{
-			if (Gl._NativeWindow == null)
-				throw new InvalidOperationException("no underlying native window", Gl._InitializationException);
+			if (Gl.NativeWindow == null)
+				throw new InvalidOperationException("no underlying native window", Gl.InitializationException);
 
-			_WindowHandle = Gl._NativeWindow.Handle;
+			_WindowHandle = Gl.NativeWindow.Handle;
 
 			IsPixelFormatSet = true;		// We do not want to reset pixel format
 
-			_DeviceContext = Wgl.GetDC(_WindowHandle);
-			if (_DeviceContext == IntPtr.Zero)
+			DeviceContext = Wgl.GetDC(_WindowHandle);
+			if (DeviceContext == IntPtr.Zero)
 				throw new InvalidOperationException("unable to get device context");
 		}
 
@@ -96,12 +104,12 @@ namespace OpenGL
 		public DeviceContextWGL(IntPtr windowHandle)
 		{
 			if (windowHandle == IntPtr.Zero)
-				throw new ArgumentException("null handle", "windowHandle");
+				throw new ArgumentException("null handle", nameof(windowHandle));
 
 			_WindowHandle = windowHandle;
 
-			_DeviceContext = Wgl.GetDC(_WindowHandle);
-			if (_DeviceContext == IntPtr.Zero)
+			DeviceContext = Wgl.GetDC(_WindowHandle);
+			if (DeviceContext == IntPtr.Zero)
 				throw new InvalidOperationException("unable to get device context");
 		}
 
@@ -124,7 +132,7 @@ namespace OpenGL
 		public DeviceContextWGL(INativePBuffer nativeBuffer)
 		{
 			if (nativeBuffer == null)
-				throw new ArgumentNullException("nativeBuffer");
+				throw new ArgumentNullException(nameof(nativeBuffer));
 
 			NativePBuffer nativePBuffer = nativeBuffer as NativePBuffer;
 			if (nativePBuffer == null)
@@ -135,12 +143,8 @@ namespace OpenGL
 
 			_WindowHandle = nativePBuffer.Handle;
 
-			if (Wgl.CurrentExtensions.Pbuffer_ARB)
-				_DeviceContext = Wgl.GetPbufferDCARB(nativePBuffer.Handle);
-			else
-				_DeviceContext = Wgl.GetPbufferDCEXT(nativePBuffer.Handle);
-
-			if (_DeviceContext == IntPtr.Zero)
+			DeviceContext = Wgl.CurrentExtensions.Pbuffer_ARB ? Wgl.GetPbufferDCARB(nativePBuffer.Handle) : Wgl.GetPbufferDCEXT(nativePBuffer.Handle);
+			if (DeviceContext == IntPtr.Zero)
 				throw new InvalidOperationException("unable to get device context");
 			_DeviceContextPBuffer = true;
 
@@ -154,7 +158,7 @@ namespace OpenGL
 		/// <summary>
 		/// The device context of the control.
 		/// </summary>
-		internal IntPtr DeviceContext { get { return (_DeviceContext); } }
+		internal IntPtr DeviceContext { get; private set; }
 
 		/// <summary>
 		/// The window handle.
@@ -162,15 +166,10 @@ namespace OpenGL
 		private IntPtr _WindowHandle;
 
 		/// <summary>
-		/// The device context of the control.
-		/// </summary>
-		internal IntPtr _DeviceContext;
-
-		/// <summary>
-		/// Flag indicating whether <see cref="_DeviceContext"/> is obtained by using GetPbufferDC* and
+		/// Flag indicating whether <see cref="DeviceContext"/> is obtained by using GetPbufferDC* and
 		/// <see cref="_WindowHandle"/> is obtained by using CreatePbuffer*.
 		/// </summary>
-		private bool _DeviceContextPBuffer;
+		private readonly bool _DeviceContextPBuffer;
 
 		#endregion
 
@@ -179,13 +178,7 @@ namespace OpenGL
 		/// <summary>
 		/// Determine whether the hosting platform is able to create a P-Buffer.
 		/// </summary>
-		public static new bool IsPBufferSupported
-		{
-			get
-			{
-				return (Wgl.CurrentExtensions.Pbuffer_ARB || Wgl.CurrentExtensions.Pbuffer_EXT);
-			}
-		}
+		public new static bool IsPBufferSupported => Wgl.CurrentExtensions.Pbuffer_ARB || Wgl.CurrentExtensions.Pbuffer_EXT;
 
 		/// <summary>
 		/// Native window implementation for Windows.
@@ -211,7 +204,7 @@ namespace OpenGL
 				try {
 					// Register window class
 					WNDCLASSEX windowClass = new WNDCLASSEX();
-					const string DefaultWindowClass = "OpenGL.Net2";
+					const string defaultWindowClass = "OpenGL.Net2";
 
 					windowClass.cbSize = Marshal.SizeOf(typeof(WNDCLASSEX));
 					windowClass.style = (int)(UnsafeNativeMethods.CS_HREDRAW | UnsafeNativeMethods.CS_VREDRAW | UnsafeNativeMethods.CS_OWNDC);
@@ -223,17 +216,17 @@ namespace OpenGL
 #else
 					windowClass.hInstance = Marshal.GetHINSTANCE(typeof(Gl).Module);
 #endif
-					windowClass.lpszClassName = DefaultWindowClass;
+					windowClass.lpszClassName = defaultWindowClass;
 
 					if ((_ClassAtom = UnsafeNativeMethods.RegisterClassEx(ref windowClass)) == 0)
 						throw new Win32Exception(Marshal.GetLastWin32Error());
 
 					// Create window
-					const uint DefaultWindowStyleEx = UnsafeNativeMethods.WS_EX_APPWINDOW | UnsafeNativeMethods.WS_EX_WINDOWEDGE;
-					const uint DefaultWindowStyle = UnsafeNativeMethods.WS_OVERLAPPED | UnsafeNativeMethods.WS_CLIPCHILDREN | UnsafeNativeMethods.WS_CLIPSIBLINGS;
+					const uint defaultWindowStyleEx = UnsafeNativeMethods.WS_EX_APPWINDOW | UnsafeNativeMethods.WS_EX_WINDOWEDGE;
+					const uint defaultWindowStyle = UnsafeNativeMethods.WS_OVERLAPPED | UnsafeNativeMethods.WS_CLIPCHILDREN | UnsafeNativeMethods.WS_CLIPSIBLINGS;
 
 					_Handle = UnsafeNativeMethods.CreateWindowEx(
-						DefaultWindowStyleEx, windowClass.lpszClassName, String.Empty, DefaultWindowStyle,
+						defaultWindowStyleEx, windowClass.lpszClassName, string.Empty, defaultWindowStyle,
 						x, y, (int)width, (int)height,
 						IntPtr.Zero, IntPtr.Zero, windowClass.hInstance, IntPtr.Zero
 					);
@@ -251,6 +244,9 @@ namespace OpenGL
 			#region P/Invoke
 
 			[StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
+			[SuppressMessage("ReSharper", "InconsistentNaming")]
+			[SuppressMessage("ReSharper", "MemberCanBePrivate.Local")]
+			[SuppressMessage("ReSharper", "FieldCanBeMadeReadOnly.Local")]
 			private struct WNDCLASSEX {
 				public int cbSize;
 				public int style;
@@ -268,21 +264,22 @@ namespace OpenGL
 				public IntPtr hIconSm;
 			}
 
-			private unsafe static partial class UnsafeNativeMethods
+			[SuppressMessage("ReSharper", "InconsistentNaming")]
+			private static class UnsafeNativeMethods
 			{
 				// CLASS STYLE
-				public const UInt32 CS_VREDRAW =	0x0001;
-				public const UInt32 CS_HREDRAW =	0x0002;
-				public const UInt32 CS_OWNDC =		0x0020;
+				public const uint CS_VREDRAW =	0x0001;
+				public const uint CS_HREDRAW =	0x0002;
+				public const uint CS_OWNDC =		0x0020;
 
 				// WINDOWS STYLE
-				public const UInt32 WS_CLIPCHILDREN =			0x2000000;
-				public const UInt32 WS_CLIPSIBLINGS =			0x4000000;
-				public const UInt32 WS_OVERLAPPED =				0x0;
+				public const uint WS_CLIPCHILDREN =			0x2000000;
+				public const uint WS_CLIPSIBLINGS =			0x4000000;
+				public const uint WS_OVERLAPPED =				0x0;
 
 				// WINDOWS STYLE EX
-				public const UInt32 WS_EX_APPWINDOW =			0x00040000;
-				public const UInt32 WS_EX_WINDOWEDGE =			0x00000100;
+				public const uint WS_EX_APPWINDOW =			0x00040000;
+				public const uint WS_EX_WINDOWEDGE =			0x00000100;
 
 				internal delegate IntPtr WndProc(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam);
 
@@ -290,10 +287,10 @@ namespace OpenGL
 				internal static extern IntPtr DefWindowProc(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam);
 
 				[DllImport("user32.dll", EntryPoint = "RegisterClassEx", SetLastError = true, CharSet = CharSet.Unicode)]
-				internal static extern UInt16 RegisterClassEx([In] ref WNDCLASSEX lpWndClass);
+				internal static extern ushort RegisterClassEx([In] ref WNDCLASSEX lpWndClass);
 
 				[DllImport("user32.dll", EntryPoint = "UnregisterClass", SetLastError = true)]
-				public static extern bool UnregisterClass(UInt16 lpClassAtom, IntPtr hInstance);
+				public static extern bool UnregisterClass(ushort lpClassAtom, IntPtr hInstance);
 
 				[DllImport("user32.dll", EntryPoint = "CreateWindowEx", SetLastError = true, CharSet = CharSet.Unicode)]
 				internal static extern IntPtr CreateWindowEx(uint dwExStyle, string lpClassName, string lpWindowName, uint dwStyle, int x, int y, int nWidth, int nHeight, IntPtr hWndParent, IntPtr hMenu, IntPtr hInstance, IntPtr lpParam);
@@ -307,10 +304,10 @@ namespace OpenGL
 
 			private static IntPtr WindowsWndProc(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
 			{
-				return (UnsafeNativeMethods.DefWindowProc(hWnd, msg, wParam, lParam));
+				return UnsafeNativeMethods.DefWindowProc(hWnd, msg, wParam, lParam);
 			}
 
-			private static readonly UnsafeNativeMethods.WndProc _WindowsWndProc = new UnsafeNativeMethods.WndProc(WindowsWndProc);
+			private static readonly UnsafeNativeMethods.WndProc _WindowsWndProc = WindowsWndProc;
 
 			#endregion
 
@@ -319,12 +316,12 @@ namespace OpenGL
 			/// <summary>
 			/// Get the display handle associated this instance.
 			/// </summary>
-			IntPtr INativeWindow.Display { get { return (IntPtr.Zero); } }
+			IntPtr INativeWindow.Display => IntPtr.Zero;
 
 			/// <summary>
 			/// Get the native window handle.
 			/// </summary>
-			IntPtr INativeWindow.Handle { get { return (_Handle); } }
+			IntPtr INativeWindow.Handle => _Handle;
 
 			/// <summary>
 			/// The native window handle.
@@ -334,7 +331,7 @@ namespace OpenGL
 			/// <summary>
 			/// The atom associated to the window class.
 			/// </summary>
-			private UInt16 _ClassAtom;
+			private ushort _ClassAtom;
 
 			/// <summary>
 			/// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
@@ -381,16 +378,16 @@ namespace OpenGL
 			public NativePBuffer(DevicePixelFormat pixelFormat, uint width, uint height)
 			{
 				if (pixelFormat == null)
-					throw new ArgumentNullException("pixelFormat");
+					throw new ArgumentNullException(nameof(pixelFormat));
 
 				if (!Wgl.CurrentExtensions.Pbuffer_ARB && !Wgl.CurrentExtensions.Pbuffer_EXT)
 					throw new NotSupportedException("WGL_(ARB|EXT)_pbuffer not implemented");
-				if (Gl._NativeWindow == null)
-					throw new InvalidOperationException("no underlying native window", Gl._InitializationException);
+				if (Gl.NativeWindow == null)
+					throw new InvalidOperationException("no underlying native window", Gl.InitializationException);
 
 				try {
 					// Uses screen device context
-					_DeviceContext = Wgl.GetDC(Gl._NativeWindow.Handle);
+					_DeviceContext = Wgl.GetDC(Gl.NativeWindow.Handle);
 
 					// Choose appropriate pixel format
 					pixelFormat.RenderWindow = false;	// XXX
@@ -399,11 +396,8 @@ namespace OpenGL
 
 					int pixelFormatIndex = ChoosePixelFormat(_DeviceContext, pixelFormat);
 
-					if (Wgl.CurrentExtensions.Pbuffer_ARB)
-						_Handle = Wgl.CreatePbufferARB(_DeviceContext, pixelFormatIndex, (int)width, (int)height, new int[] { 0 });
-					else
-						_Handle = Wgl.CreatePbufferEXT(_DeviceContext, pixelFormatIndex, (int)width, (int)height, new int[] { 0 });
-					if (_Handle == IntPtr.Zero)
+					Handle = Wgl.CurrentExtensions.Pbuffer_ARB ? Wgl.CreatePbufferARB(_DeviceContext, pixelFormatIndex, (int)width, (int)height, new[] { 0 }) : Wgl.CreatePbufferEXT(_DeviceContext, pixelFormatIndex, (int)width, (int)height, new[] { 0 });
+					if (Handle == IntPtr.Zero)
 						throw new InvalidOperationException("unable to create P-Buffer", GetPlatformExceptionCore());
 				} catch {
 					Dispose();
@@ -423,12 +417,7 @@ namespace OpenGL
 			/// <summary>
 			/// Get the P-Buffer handle.
 			/// </summary>
-			public IntPtr Handle { get { return (_Handle); } }
-
-			/// <summary>
-			/// The P-Buffer handle.
-			/// </summary>
-			private IntPtr _Handle;
+			public IntPtr Handle { get; private set; }
 
 			#endregion
 
@@ -439,16 +428,16 @@ namespace OpenGL
 			/// </summary>
 			public void Dispose()
 			{
-				if (_Handle != IntPtr.Zero) {
+				if (Handle != IntPtr.Zero) {
 					if (Wgl.CurrentExtensions.Pbuffer_ARB) {
-						bool res = Wgl.DestroyPbufferARB(_Handle);
+						bool res = Wgl.DestroyPbufferARB(Handle);
 						Debug.Assert(res);
 					} else {
-						bool res = Wgl.DestroyPbufferEXT(_Handle);
+						bool res = Wgl.DestroyPbufferEXT(Handle);
 						Debug.Assert(res);
 					}
 					
-					_Handle = IntPtr.Zero;
+					Handle = IntPtr.Zero;
 				}
 
 				if (_DeviceContext != IntPtr.Zero) {
@@ -467,7 +456,7 @@ namespace OpenGL
 		/// <summary>
 		/// Get this DeviceContext API version.
 		/// </summary>
-		public override KhronosVersion Version { get { return (new KhronosVersion(1, 0, KhronosVersion.ApiWgl)); } }
+		public override KhronosVersion Version => new KhronosVersion(1, 0, KhronosVersion.ApiWgl);
 
 		/// <summary>
 		/// Create a simple context.
@@ -478,42 +467,35 @@ namespace OpenGL
 		/// </returns>
 		internal override IntPtr CreateSimpleContext()
 		{
-			IntPtr rContext;
-
 			// Define most compatible pixel format
 			Wgl.PIXELFORMATDESCRIPTOR pfd = new Wgl.PIXELFORMATDESCRIPTOR(24);
-			int pFormat;
-			bool res;
 
 			// Find pixel format match
 			pfd.dwFlags |= Wgl.PixelFormatDescriptorFlags.DepthDontCare | Wgl.PixelFormatDescriptorFlags.DoublebufferDontCare | Wgl.PixelFormatDescriptorFlags.StereoDontCare;
 
-			pFormat = Wgl.ChoosePixelFormat(_DeviceContext, ref pfd);
+			int pFormat = Wgl.ChoosePixelFormat(DeviceContext, ref pfd);
 			Debug.Assert(pFormat != 0);
 
 			// Get exact description of the pixel format
-			res = Wgl.DescribePixelFormat(_DeviceContext, pFormat, (uint)pfd.nSize, ref pfd) != 0;
+			bool res = Wgl.DescribePixelFormat(DeviceContext, pFormat, (uint)pfd.nSize, ref pfd) != 0;
 			Debug.Assert(res);
 
 			// Set pixel format before creating OpenGL context
-			res = Wgl.SetPixelFormat(_DeviceContext, pFormat, ref pfd);
+			res = Wgl.SetPixelFormat(DeviceContext, pFormat, ref pfd);
 			Debug.Assert(res);
 
 			// Create a dummy OpenGL context to retrieve initial informations.
-			rContext = CreateContext(IntPtr.Zero);
+			IntPtr rContext = CreateContext(IntPtr.Zero);
 			Debug.Assert(rContext != IntPtr.Zero);
 
-			return (rContext);
+			return rContext;
 		}
 
 		/// <summary>
 		/// Get the APIs available on this device context. The API tokens are space separated, and they can be
 		/// found in <see cref="KhronosVersion"/> definition.
 		/// </summary>
-		public override IEnumerable<string> AvailableAPIs
-		{
-			get { return (GetAvailableApis()); }
-		}
+		public override IEnumerable<string> AvailableAPIs => GetAvailableApis();
 
 		/// <summary>
 		/// Get the APIs available on the WGL device context.
@@ -521,10 +503,8 @@ namespace OpenGL
 		/// <returns></returns>
 		internal static string[] GetAvailableApis()
 		{
-			List<string> deviceApi = new List<string>();
+			List<string> deviceApi = new List<string> { KhronosVersion.ApiGl };
 
-			// Default
-			deviceApi.Add(KhronosVersion.ApiGl);
 			// OpenGL ES via WGL_EXT_create_context_es(2)?_profile
 			if (Wgl.CurrentExtensions != null && Wgl.CurrentExtensions.CreateContextEsProfile_EXT) {
 				deviceApi.Add(KhronosVersion.ApiGles1);
@@ -533,7 +513,7 @@ namespace OpenGL
 				deviceApi.Add(KhronosVersion.ApiGlsc2);
 			}
 
-			return (deviceApi.ToArray());
+			return deviceApi.ToArray();
 		}
 
 		/// <summary>
@@ -558,13 +538,13 @@ namespace OpenGL
 			if (Wgl.CurrentExtensions == null || Wgl.CurrentExtensions.CreateContext_ARB == false) {
 				// Fallback for compatibility
 				try {
-					renderContext = Wgl.CreateContext(_DeviceContext);
-					if ((renderContext != IntPtr.Zero) && (sharedContext != IntPtr.Zero)) {
+					renderContext = Wgl.CreateContext(DeviceContext);
+					if (renderContext != IntPtr.Zero && sharedContext != IntPtr.Zero) {
 						bool res = Wgl.ShareLists(renderContext, sharedContext);
 						Debug.Assert(res);
 					}
 
-					return (renderContext);
+					return renderContext;
 				} catch {
 					if (renderContext != IntPtr.Zero) {
 						bool res = Wgl.DeleteContext(renderContext);
@@ -574,7 +554,7 @@ namespace OpenGL
 					throw;
 				}
 			} else
-				return (CreateContextAttrib(sharedContext, new int[] { Gl.NONE }));
+				return CreateContextAttrib(sharedContext, new[] { Gl.NONE });
 		}
 
 		/// <summary>
@@ -600,7 +580,7 @@ namespace OpenGL
 		/// </exception>
 		public override IntPtr CreateContextAttrib(IntPtr sharedContext, int[] attribsList)
 		{
-			return (CreateContextAttrib(sharedContext, attribsList, new KhronosVersion(1, 0, CurrentAPI)));
+			return CreateContextAttrib(sharedContext, attribsList, new KhronosVersion(1, 0, CurrentAPI));
 		}
 
 		/// <summary>
@@ -632,14 +612,14 @@ namespace OpenGL
 		{
 			if (Wgl.CurrentExtensions != null && Wgl.CurrentExtensions.CreateContext_ARB == false)
 				throw new InvalidOperationException("WGL_ARB_create_context not supported");
-			if ((attribsList != null) && (attribsList.Length == 0))
-				throw new ArgumentException("zero length array", "attribsList");
-			if ((attribsList != null) && (attribsList[attribsList.Length - 1] != Gl.NONE))
-				throw new ArgumentException("not zero-terminated array", "attribsList");
+			if (attribsList != null && attribsList.Length == 0)
+				throw new ArgumentException("zero length array", nameof(attribsList));
+			if (attribsList != null && attribsList[attribsList.Length - 1] != Gl.NONE)
+				throw new ArgumentException("not zero-terminated array", nameof(attribsList));
 
 			// Defaults null attributes
 			if (attribsList == null)
-				attribsList = new int[] { Gl.NONE };
+				attribsList = new[] { Gl.NONE };
 
 			if (api != null) {
 				List<int> adulteredAttribs = new List<int>(attribsList);
@@ -651,11 +631,11 @@ namespace OpenGL
 					case KhronosVersion.ApiGles1:
 					case KhronosVersion.ApiGles2:
 					case KhronosVersion.ApiGlsc2:
-						if (Wgl.CurrentExtensions.CreateContextEsProfile_EXT == false)
+						if (Wgl.CurrentExtensions != null && Wgl.CurrentExtensions.CreateContextEsProfile_EXT == false)
 							throw new NotSupportedException("OpenGL ES API not supported");
 						break;
 					default:
-						throw new NotSupportedException(String.Format("'{0}' API not supported", api.Api));
+						throw new NotSupportedException($"'{api.Api}' API not supported");
 				}
 
 				// Remove trailing 0
@@ -678,7 +658,7 @@ namespace OpenGL
 								// No specific profile required, leaving the default (core profile)
 								break;
 							default:
-								throw new NotSupportedException(String.Format("'{0}' Profile not supported", api.Profile));
+								throw new NotSupportedException($"'{api.Profile}' Profile not supported");
 						}
 						break;
 					case KhronosVersion.ApiGles1:
@@ -694,41 +674,36 @@ namespace OpenGL
 						profileMask |= (int)Wgl.CONTEXT_ES_PROFILE_BIT_EXT;
 						break;
 					default:
-						throw new NotSupportedException(String.Format("'{0}' API not supported", api.Api));
+						throw new NotSupportedException($"'{api.Api}' API not supported");
 				}
 
 				// Add/Replace attributes
-				int majorVersionIndex, minorVersionIndex, profileMaskIndex;
+				int majorVersionIndex, minorVersionIndex;
 
-				if ((majorVersionIndex = adulteredAttribs.FindIndex(delegate (int item) {
-					return (item == Wgl.CONTEXT_MAJOR_VERSION_ARB);
-				})) >= 0)
+				if ((majorVersionIndex = adulteredAttribs.FindIndex(item => item == Wgl.CONTEXT_MAJOR_VERSION_ARB)) >= 0)
 					adulteredAttribs[majorVersionIndex + 1] = major;
 				else
-					adulteredAttribs.AddRange(new int[] { Wgl.CONTEXT_MAJOR_VERSION_ARB, major });
+					adulteredAttribs.AddRange(new[] { Wgl.CONTEXT_MAJOR_VERSION_ARB, major });
 
-				if ((minorVersionIndex = adulteredAttribs.FindIndex(delegate (int item) {
-					return (item == Wgl.CONTEXT_MINOR_VERSION_ARB);
-				})) >= 0)
+				if ((minorVersionIndex = adulteredAttribs.FindIndex(item => item == Wgl.CONTEXT_MINOR_VERSION_ARB)) >= 0)
 					adulteredAttribs[minorVersionIndex + 1] = minor;
 				else
-					adulteredAttribs.AddRange(new int[] { Wgl.CONTEXT_MINOR_VERSION_ARB, api.Minor });
+					adulteredAttribs.AddRange(new[] { Wgl.CONTEXT_MINOR_VERSION_ARB, api.Minor });
 
 				if (profileMask != 0) {
-					if ((profileMaskIndex = adulteredAttribs.FindIndex(delegate (int item) {
-						return (item == Wgl.CONTEXT_PROFILE_MASK_ARB);
-					})) >= 0)
+					int profileMaskIndex;
+					if ((profileMaskIndex = adulteredAttribs.FindIndex(item => item == Wgl.CONTEXT_PROFILE_MASK_ARB)) >= 0)
 						adulteredAttribs[profileMaskIndex + 1] = profileMask;
 					else
-						adulteredAttribs.AddRange(new int[] { Wgl.CONTEXT_PROFILE_MASK_ARB, profileMask });
+						adulteredAttribs.AddRange(new[] { Wgl.CONTEXT_PROFILE_MASK_ARB, profileMask });
 				}
 
 				// Restore trailing 0
 				adulteredAttribs.Add(Gl.NONE);
 
-				return (Wgl.CreateContextAttribsARB(_DeviceContext, sharedContext, adulteredAttribs.ToArray()));
+				return Wgl.CreateContextAttribsARB(DeviceContext, sharedContext, adulteredAttribs.ToArray());
 			} else
-				return (Wgl.CreateContextAttribsARB(_DeviceContext, sharedContext, attribsList));
+				return Wgl.CreateContextAttribsARB(DeviceContext, sharedContext, attribsList);
 		}
 
 		/// <summary>
@@ -749,11 +724,11 @@ namespace OpenGL
 			// Avoid actual call to wglMakeCurrent if it is not necessary
 			// Efficient on simple/nominal applications
 			IntPtr currentContext = Wgl.GetCurrentContext(), currentDc = Wgl.GetCurrentDC();
-			if (ctx == currentContext && _DeviceContext == currentDc)
-				return (true);
+			if (ctx == currentContext && DeviceContext == currentDc)
+				return true;
 
 			// Base implementation
-			return (base.MakeCurrent(ctx));
+			return base.MakeCurrent(ctx);
 		}
 
 		/// <summary>
@@ -771,7 +746,7 @@ namespace OpenGL
 		/// </exception>
 		protected override bool MakeCurrentCore(IntPtr ctx)
 		{
-			return (Wgl.MakeCurrent(_DeviceContext, ctx));
+			return Wgl.MakeCurrent(DeviceContext, ctx);
 		}
 
 		/// <summary>
@@ -795,7 +770,7 @@ namespace OpenGL
 			if (ctx == IntPtr.Zero)
 				throw new ArgumentException("ctx");
 
-			return (Wgl.DeleteContext(ctx));
+			return Wgl.DeleteContext(ctx);
 		}
 
 		/// <summary>
@@ -803,7 +778,7 @@ namespace OpenGL
 		/// </summary>
 		public override void SwapBuffers()
 		{
-			Wgl.UnsafeNativeMethods.GdiSwapBuffersFast(_DeviceContext);
+			Wgl.UnsafeNativeMethods.GdiSwapBuffersFast(DeviceContext);
 		}
 
 		/// <summary>
@@ -820,10 +795,10 @@ namespace OpenGL
 		{
 			if (Wgl.CurrentExtensions.SwapControl_EXT == false)
 				throw new InvalidOperationException("WGL_EXT_swap_control not supported");
-			if ((interval == -1) && (Wgl.CurrentExtensions.SwapControlTear_EXT == false))
+			if (interval == -1 && Wgl.CurrentExtensions.SwapControlTear_EXT == false)
 				throw new InvalidOperationException("WGL_EXT_swap_control_tear not supported");
 
-			return (Wgl.SwapIntervalEXT(interval));
+			return Wgl.SwapIntervalEXT(interval);
 		}
 
 		/// <summary>
@@ -831,8 +806,8 @@ namespace OpenGL
 		/// </summary>
 		internal override void QueryPlatformExtensions()
 		{
-			Wgl._CurrentExtensions = new Wgl.Extensions();
-			Wgl._CurrentExtensions.Query(this);
+			Wgl.CurrentExtensions = new Wgl.Extensions();
+			Wgl.CurrentExtensions.Query(this);
 		}
 
 		/// <summary>
@@ -841,10 +816,10 @@ namespace OpenGL
 		/// <returns>
 		/// The platform exception relative to the last operation performed.
 		/// </returns>
-		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Interoperability", "CA1404:CallGetLastErrorImmediatelyAfterPInvoke")]
+		[SuppressMessage("Microsoft.Interoperability", "CA1404:CallGetLastErrorImmediatelyAfterPInvoke")]
 		public override Exception GetPlatformException()
 		{
-			return (GetPlatformExceptionCore());
+			return GetPlatformExceptionCore();
 		}
 
 		/// <summary>
@@ -861,7 +836,7 @@ namespace OpenGL
 			if (win32Error != 0)
 				platformException = new Win32Exception(win32Error);
 
-			return (platformException);
+			return platformException;
 		}
 
 		/// <summary>
@@ -873,7 +848,7 @@ namespace OpenGL
 			{
 				// Use cached pixel formats
 				if (_PixelFormatCache != null)
-					return (_PixelFormatCache);
+					return _PixelFormatCache;
 
 				// Query WGL extensions
 				Wgl.Extensions wglExtensions = new Wgl.Extensions();
@@ -881,41 +856,35 @@ namespace OpenGL
 				wglExtensions.Query(this);
 
 				// Query pixel formats
-				if      (wglExtensions.PixelFormat_ARB)
-					_PixelFormatCache = GetPixelFormats_ARB_pixel_format(wglExtensions);
-				else
-					_PixelFormatCache = GetPixelFormats_Win32();
+				_PixelFormatCache = wglExtensions.PixelFormat_ARB ? GetPixelFormats_ARB_pixel_format(wglExtensions) : GetPixelFormats_Win32();
 
-				return (_PixelFormatCache);
+				return _PixelFormatCache;
 			}
 		}
 
 		private DevicePixelFormatCollection GetPixelFormats_ARB_pixel_format(Wgl.Extensions wglExtensions)
 		{
 			// Get the number of pixel formats
-			int[] countFormatAttribsCodes = new int[] { Wgl.NUMBER_PIXEL_FORMATS_ARB };
+			int[] countFormatAttribsCodes = { Wgl.NUMBER_PIXEL_FORMATS_ARB };
 			int[] countFormatAttribsValues = new int[countFormatAttribsCodes.Length];
 
-			Wgl.GetPixelFormatAttribARB(_DeviceContext, 1, 0, (uint)countFormatAttribsCodes.Length, countFormatAttribsCodes, countFormatAttribsValues);
+			Wgl.GetPixelFormatAttribARB(DeviceContext, 1, 0, (uint)countFormatAttribsCodes.Length, countFormatAttribsCodes, countFormatAttribsValues);
 
 			// Request configurations
-			List<int> pixelFormatAttribsCodes = new List<int>(12);
-
-			// Minimum requirements
-			pixelFormatAttribsCodes.Add(Wgl.SUPPORT_OPENGL_ARB);      // Required to be Gl.TRUE
-			pixelFormatAttribsCodes.Add(Wgl.ACCELERATION_ARB);        // Required to be Wgl.FULL_ACCELERATION or Wgl.ACCELERATION_ARB
-			pixelFormatAttribsCodes.Add(Wgl.PIXEL_TYPE_ARB);
-			// Buffer destination
-			pixelFormatAttribsCodes.Add(Wgl.DRAW_TO_WINDOW_ARB);
-			pixelFormatAttribsCodes.Add(Wgl.DRAW_TO_BITMAP_ARB);
-			// Multiple buffers
-			pixelFormatAttribsCodes.Add(Wgl.DOUBLE_BUFFER_ARB);
-			pixelFormatAttribsCodes.Add(Wgl.SWAP_METHOD_ARB);
-			pixelFormatAttribsCodes.Add(Wgl.STEREO_ARB);
-			// Pixel description
-			pixelFormatAttribsCodes.Add(Wgl.COLOR_BITS_ARB);
-			pixelFormatAttribsCodes.Add(Wgl.DEPTH_BITS_ARB);
-			pixelFormatAttribsCodes.Add(Wgl.STENCIL_BITS_ARB);
+			List<int> pixelFormatAttribsCodes = new List<int>(12)
+			{
+				Wgl.SUPPORT_OPENGL_ARB,		// Required to be Gl.TRUE
+				Wgl.ACCELERATION_ARB,		// Required to be Wgl.FULL_ACCELERATION or Wgl.ACCELERATION_ARB
+				Wgl.PIXEL_TYPE_ARB,
+				Wgl.DRAW_TO_WINDOW_ARB,
+				Wgl.DRAW_TO_BITMAP_ARB,
+				Wgl.DOUBLE_BUFFER_ARB,
+				Wgl.SWAP_METHOD_ARB,
+				Wgl.STEREO_ARB,
+				Wgl.COLOR_BITS_ARB,
+				Wgl.DEPTH_BITS_ARB,
+				Wgl.STENCIL_BITS_ARB
+			};
 
 #if SUPPORT_MULTISAMPLE
 			// Multisample extension
@@ -949,7 +918,7 @@ namespace OpenGL
 			for (int pixelFormatIndex = 1; pixelFormatIndex < countFormatAttribsValues[0]; pixelFormatIndex++) {
 				DevicePixelFormat pixelFormat = new DevicePixelFormat();
 
-				Wgl.GetPixelFormatAttribARB(_DeviceContext, pixelFormatIndex, 0, (uint)pixelFormatAttribsCodes.Count, pixelFormatAttribsCodes.ToArray(), pixelFormatAttribValues);
+				Wgl.GetPixelFormatAttribARB(DeviceContext, pixelFormatIndex, 0, (uint)pixelFormatAttribsCodes.Count, pixelFormatAttribsCodes.ToArray(), pixelFormatAttribValues);
 
 				// Check minimum requirements
 				if (pixelFormatAttribValues[0] != Gl.TRUE)
@@ -1020,49 +989,43 @@ namespace OpenGL
 				pixelFormats.Add(pixelFormat);
 			}
 
-			return (pixelFormats);
+			return pixelFormats;
 		}
 
 		private DevicePixelFormatCollection GetPixelFormats_Win32()
 		{
 			DevicePixelFormatCollection pixelFormats = new DevicePixelFormatCollection();
 			Wgl.PIXELFORMATDESCRIPTOR pixelDescr = new Wgl.PIXELFORMATDESCRIPTOR();
-			int pixelFormatsCount = Wgl.DescribePixelFormat(_DeviceContext, 0, 0, ref pixelDescr);
+			int pixelFormatsCount = Wgl.DescribePixelFormat(DeviceContext, 0, 0, ref pixelDescr);
 
 			for (int i = 1; i <= pixelFormatsCount; i++) {
-				Wgl.DescribePixelFormat(_DeviceContext, i, (uint)Marshal.SizeOf(typeof(Wgl.PIXELFORMATDESCRIPTOR)), ref pixelDescr);
+				Wgl.DescribePixelFormat(DeviceContext, i, (uint)Marshal.SizeOf(typeof(Wgl.PIXELFORMATDESCRIPTOR)), ref pixelDescr);
 
 				if ((pixelDescr.dwFlags & Wgl.PixelFormatDescriptorFlags.SupportOpenGL) == 0)
 					continue;
 
-				DevicePixelFormat pixelFormat = new DevicePixelFormat();
-
-				pixelFormat.FormatIndex = i;
-
-				pixelFormat.RgbaUnsigned = true;
-				pixelFormat.RgbaFloat = false;
-
-				pixelFormat.RenderWindow = true;
-				pixelFormat.RenderBuffer = false;
-
-				pixelFormat.DoubleBuffer = (pixelDescr.dwFlags & Wgl.PixelFormatDescriptorFlags.Doublebuffer) != 0;
-				pixelFormat.SwapMethod = 0;
-				pixelFormat.StereoBuffer = (pixelDescr.dwFlags & Wgl.PixelFormatDescriptorFlags.Stereo) != 0;
-
-				pixelFormat.ColorBits = pixelDescr.cColorBits;
-				pixelFormat.DepthBits = pixelDescr.cDepthBits;
-				pixelFormat.StencilBits = pixelDescr.cStencilBits;
-
-				pixelFormat.MultisampleBits = 0;
-
-				pixelFormat.RenderPBuffer = false;
-
-				pixelFormat.SRGBCapable = false;
+				DevicePixelFormat pixelFormat = new DevicePixelFormat
+				{
+					FormatIndex = i,
+					RgbaUnsigned = true,
+					RgbaFloat = false,
+					RenderWindow = true,
+					RenderBuffer = false,
+					DoubleBuffer = (pixelDescr.dwFlags & Wgl.PixelFormatDescriptorFlags.Doublebuffer) != 0,
+					SwapMethod = 0,
+					StereoBuffer = (pixelDescr.dwFlags & Wgl.PixelFormatDescriptorFlags.Stereo) != 0,
+					ColorBits = pixelDescr.cColorBits,
+					DepthBits = pixelDescr.cDepthBits,
+					StencilBits = pixelDescr.cStencilBits,
+					MultisampleBits = 0,
+					RenderPBuffer = false,
+					SRGBCapable = false
+				};
 
 				pixelFormats.Add(pixelFormat);
 			}
 
-			return (pixelFormats);
+			return pixelFormats;
 		}
 
 		/// <summary>
@@ -1078,16 +1041,16 @@ namespace OpenGL
 		/// </param>
 		public override void ChoosePixelFormat(DevicePixelFormat pixelFormat)
 		{
-			if (IsPixelFormatSet == true)
+			if (IsPixelFormatSet)
 				throw new InvalidOperationException("pixel format already set");
 
 			// Choose pixel format
-			int pixelFormatIndex = ChoosePixelFormat(_DeviceContext, pixelFormat);
+			int pixelFormatIndex = ChoosePixelFormat(DeviceContext, pixelFormat);
 			
 			// Set choosen pixel format
 			Wgl.PIXELFORMATDESCRIPTOR pDescriptor = new Wgl.PIXELFORMATDESCRIPTOR();
 
-			if (Wgl.SetPixelFormat(_DeviceContext, pixelFormatIndex, ref pDescriptor) == false)
+			if (Wgl.SetPixelFormat(DeviceContext, pixelFormatIndex, ref pDescriptor) == false)
 				throw new InvalidOperationException("unable to set pixel format", GetPlatformException());
 
 			IsPixelFormatSet = true;
@@ -1102,40 +1065,40 @@ namespace OpenGL
 		private static int ChoosePixelFormat(IntPtr deviceContext, DevicePixelFormat pixelFormat)
 		{
 			if (pixelFormat == null)
-				throw new ArgumentNullException("pixelFormat");
+				throw new ArgumentNullException(nameof(pixelFormat));
 
 			List<int> attribIList = new List<int>();
 			List<float> attribFList = new List<float>();
 			uint[] countFormatAttribsValues = new uint[1];
 			int[] choosenFormats = new int[4];
 
-			attribIList.AddRange(new int[] { Wgl.SUPPORT_OPENGL_ARB, Gl.TRUE });
+			attribIList.AddRange(new[] { Wgl.SUPPORT_OPENGL_ARB, Gl.TRUE });
 			if (pixelFormat.RenderWindow)
-				attribIList.AddRange(new int[] { Wgl.DRAW_TO_WINDOW_ARB, Gl.TRUE });
+				attribIList.AddRange(new[] { Wgl.DRAW_TO_WINDOW_ARB, Gl.TRUE });
 			if (pixelFormat.RenderPBuffer)
-				attribIList.AddRange(new int[] { Wgl.DRAW_TO_PBUFFER_ARB, Gl.TRUE });
+				attribIList.AddRange(new[] { Wgl.DRAW_TO_PBUFFER_ARB, Gl.TRUE });
 
 			if (pixelFormat.RgbaUnsigned)
-				attribIList.AddRange(new int[] { Wgl.PIXEL_TYPE_ARB, Wgl.TYPE_RGBA_ARB });
+				attribIList.AddRange(new[] { Wgl.PIXEL_TYPE_ARB, Wgl.TYPE_RGBA_ARB });
 			if (pixelFormat.RgbaFloat)
-				attribIList.AddRange(new int[] { Wgl.PIXEL_TYPE_ARB, Wgl.TYPE_RGBA_FLOAT_ARB });
+				attribIList.AddRange(new[] { Wgl.PIXEL_TYPE_ARB, Wgl.TYPE_RGBA_FLOAT_ARB });
 
 			if (pixelFormat.ColorBits > 0)
-				attribIList.AddRange(new int[] { Wgl.COLOR_BITS_ARB, pixelFormat.ColorBits });
+				attribIList.AddRange(new[] { Wgl.COLOR_BITS_ARB, pixelFormat.ColorBits });
 			if (pixelFormat.DepthBits > 0)
-				attribIList.AddRange(new int[] { Wgl.DEPTH_BITS_ARB, pixelFormat.DepthBits });
+				attribIList.AddRange(new[] { Wgl.DEPTH_BITS_ARB, pixelFormat.DepthBits });
 			if (pixelFormat.StencilBits > 0)
-				attribIList.AddRange(new int[] { Wgl.STENCIL_BITS_ARB, pixelFormat.StencilBits });
+				attribIList.AddRange(new[] { Wgl.STENCIL_BITS_ARB, pixelFormat.StencilBits });
 
 			if (pixelFormat.DoubleBuffer)
-				attribIList.AddRange(new int[] { Wgl.DOUBLE_BUFFER_ARB, pixelFormat.StencilBits });
+				attribIList.AddRange(new[] { Wgl.DOUBLE_BUFFER_ARB, pixelFormat.StencilBits });
 			attribIList.Add(0);
 
 			// Let choose pixel formats
 			if (!Wgl.ChoosePixelFormatARB(deviceContext, attribIList.ToArray(), attribFList.ToArray(), (uint)choosenFormats.Length, choosenFormats, countFormatAttribsValues))
 				throw new InvalidOperationException("unable to choose pixel format", GetPlatformExceptionCore());
 
-			return (choosenFormats[0]);
+			return choosenFormats[0];
 		}
 
 		/// <summary>
@@ -1150,8 +1113,8 @@ namespace OpenGL
 		public override void SetPixelFormat(DevicePixelFormat pixelFormat)
 		{
 			if (pixelFormat == null)
-				throw new ArgumentNullException("pixelFormat");
-			if (IsPixelFormatSet == true)
+				throw new ArgumentNullException(nameof(pixelFormat));
+			if (IsPixelFormatSet)
 				throw new InvalidOperationException("pixel format already set");
 
 #if CHOOSE_PIXEL_FORMAT_FALLBACK
@@ -1163,12 +1126,12 @@ namespace OpenGL
 				// and for multithread applications, so it is not allowed. An application can only set the pixel format of a window one time. Once a
 				// window's pixel format is set, it cannot be changed.
 
-				if (Wgl.DescribePixelFormat(_DeviceContext, pixelFormat.FormatIndex, (uint)pDescriptor.nSize, ref pDescriptor) == 0)
-					throw new InvalidOperationException(String.Format("unable to describe pixel format {0}", pixelFormat.FormatIndex), GetPlatformException());
+				if (Wgl.DescribePixelFormat(DeviceContext, pixelFormat.FormatIndex, (uint)pDescriptor.nSize, ref pDescriptor) == 0)
+					throw new InvalidOperationException($"unable to describe pixel format {pixelFormat.FormatIndex}", GetPlatformException());
 
 				// Set choosen pixel format
-				if (!Wgl.SetPixelFormat(_DeviceContext, pixelFormat.FormatIndex, ref pDescriptor))
-					throw new InvalidOperationException(String.Format("unable to set pixel format {0}: {1}", pixelFormat.FormatIndex), GetPlatformException());
+				if (!Wgl.SetPixelFormat(DeviceContext, pixelFormat.FormatIndex, ref pDescriptor))
+					throw new InvalidOperationException($"unable to set pixel format {pixelFormat.FormatIndex}", GetPlatformException());
 
 #if CHOOSE_PIXEL_FORMAT_FALLBACK
 			} catch (InvalidOperationException) {
@@ -1224,16 +1187,16 @@ namespace OpenGL
 		{
 			if (disposing) {
 				// Release device context
-				if (_DeviceContext != IntPtr.Zero) {
+				if (DeviceContext != IntPtr.Zero) {
 					if (_DeviceContextPBuffer == false) {
-						bool res = Wgl.ReleaseDC(_WindowHandle, _DeviceContext);
+						bool res = Wgl.ReleaseDC(_WindowHandle, DeviceContext);
 						Debug.Assert(res);
 					} else {
-						int res = Wgl.ReleasePbufferDCARB(_WindowHandle, _DeviceContext);
+						int res = Wgl.ReleasePbufferDCARB(_WindowHandle, DeviceContext);
 						Debug.Assert(res == 1);
 					}
 
-					_DeviceContext = IntPtr.Zero;
+					DeviceContext = IntPtr.Zero;
 					_WindowHandle = IntPtr.Zero;
 				}
 			}

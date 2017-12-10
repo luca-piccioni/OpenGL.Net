@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -68,10 +72,10 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_x11_sync_object")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate int glImportSyncEXT(int external_sync_type, IntPtr external_sync, uint flags);
 
 			[RequiredByFeature("GL_EXT_x11_sync_object")]

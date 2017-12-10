@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -485,10 +489,10 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribL1i64NV(uint index, long x);
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
@@ -496,7 +500,7 @@ namespace OpenGL
 			internal static glVertexAttribL1i64NV pglVertexAttribL1i64NV;
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribL2i64NV(uint index, long x, long y);
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
@@ -504,7 +508,7 @@ namespace OpenGL
 			internal static glVertexAttribL2i64NV pglVertexAttribL2i64NV;
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribL3i64NV(uint index, long x, long y, long z);
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
@@ -512,7 +516,7 @@ namespace OpenGL
 			internal static glVertexAttribL3i64NV pglVertexAttribL3i64NV;
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribL4i64NV(uint index, long x, long y, long z, long w);
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
@@ -520,7 +524,7 @@ namespace OpenGL
 			internal static glVertexAttribL4i64NV pglVertexAttribL4i64NV;
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribL1i64vNV(uint index, long* v);
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
@@ -528,7 +532,7 @@ namespace OpenGL
 			internal static glVertexAttribL1i64vNV pglVertexAttribL1i64vNV;
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribL2i64vNV(uint index, long* v);
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
@@ -536,7 +540,7 @@ namespace OpenGL
 			internal static glVertexAttribL2i64vNV pglVertexAttribL2i64vNV;
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribL3i64vNV(uint index, long* v);
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
@@ -544,7 +548,7 @@ namespace OpenGL
 			internal static glVertexAttribL3i64vNV pglVertexAttribL3i64vNV;
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribL4i64vNV(uint index, long* v);
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
@@ -552,7 +556,7 @@ namespace OpenGL
 			internal static glVertexAttribL4i64vNV pglVertexAttribL4i64vNV;
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribL1ui64NV(uint index, ulong x);
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
@@ -560,7 +564,7 @@ namespace OpenGL
 			internal static glVertexAttribL1ui64NV pglVertexAttribL1ui64NV;
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribL2ui64NV(uint index, ulong x, ulong y);
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
@@ -568,7 +572,7 @@ namespace OpenGL
 			internal static glVertexAttribL2ui64NV pglVertexAttribL2ui64NV;
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribL3ui64NV(uint index, ulong x, ulong y, ulong z);
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
@@ -576,7 +580,7 @@ namespace OpenGL
 			internal static glVertexAttribL3ui64NV pglVertexAttribL3ui64NV;
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribL4ui64NV(uint index, ulong x, ulong y, ulong z, ulong w);
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
@@ -584,7 +588,7 @@ namespace OpenGL
 			internal static glVertexAttribL4ui64NV pglVertexAttribL4ui64NV;
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribL1ui64vNV(uint index, ulong* v);
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
@@ -592,7 +596,7 @@ namespace OpenGL
 			internal static glVertexAttribL1ui64vNV pglVertexAttribL1ui64vNV;
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribL2ui64vNV(uint index, ulong* v);
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
@@ -600,7 +604,7 @@ namespace OpenGL
 			internal static glVertexAttribL2ui64vNV pglVertexAttribL2ui64vNV;
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribL3ui64vNV(uint index, ulong* v);
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
@@ -608,7 +612,7 @@ namespace OpenGL
 			internal static glVertexAttribL3ui64vNV pglVertexAttribL3ui64vNV;
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribL4ui64vNV(uint index, ulong* v);
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
@@ -616,7 +620,7 @@ namespace OpenGL
 			internal static glVertexAttribL4ui64vNV pglVertexAttribL4ui64vNV;
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetVertexAttribLi64vNV(uint index, int pname, long* @params);
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
@@ -624,7 +628,7 @@ namespace OpenGL
 			internal static glGetVertexAttribLi64vNV pglGetVertexAttribLi64vNV;
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetVertexAttribLui64vNV(uint index, int pname, ulong* @params);
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
@@ -632,7 +636,7 @@ namespace OpenGL
 			internal static glGetVertexAttribLui64vNV pglGetVertexAttribLui64vNV;
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribLFormatNV(uint index, int size, int type, int stride);
 
 			[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]

@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -349,11 +353,11 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetUnsignedBytevEXT(int pname, byte* data);
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
@@ -363,7 +367,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetUnsignedBytei_vEXT(int target, uint index, byte* data);
 
 			[RequiredByFeature("GL_EXT_memory_object", Api = "gl|gles2")]
@@ -372,7 +376,7 @@ namespace OpenGL
 			internal static glGetUnsignedBytei_vEXT pglGetUnsignedBytei_vEXT;
 
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGenSemaphoresEXT(int n, uint* semaphores);
 
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
@@ -380,7 +384,7 @@ namespace OpenGL
 			internal static glGenSemaphoresEXT pglGenSemaphoresEXT;
 
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glDeleteSemaphoresEXT(int n, uint* semaphores);
 
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
@@ -388,7 +392,7 @@ namespace OpenGL
 			internal static glDeleteSemaphoresEXT pglDeleteSemaphoresEXT;
 
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsSemaphoreEXT(uint semaphore);
 
@@ -397,7 +401,7 @@ namespace OpenGL
 			internal static glIsSemaphoreEXT pglIsSemaphoreEXT;
 
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glSemaphoreParameterui64vEXT(uint semaphore, int pname, ulong* @params);
 
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
@@ -405,7 +409,7 @@ namespace OpenGL
 			internal static glSemaphoreParameterui64vEXT pglSemaphoreParameterui64vEXT;
 
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetSemaphoreParameterui64vEXT(uint semaphore, int pname, ulong* @params);
 
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
@@ -413,7 +417,7 @@ namespace OpenGL
 			internal static glGetSemaphoreParameterui64vEXT pglGetSemaphoreParameterui64vEXT;
 
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glWaitSemaphoreEXT(uint semaphore, uint numBufferBarriers, uint* buffers, uint numTextureBarriers, uint* textures, int* srcLayouts);
 
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
@@ -421,7 +425,7 @@ namespace OpenGL
 			internal static glWaitSemaphoreEXT pglWaitSemaphoreEXT;
 
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glSignalSemaphoreEXT(uint semaphore, uint numBufferBarriers, uint* buffers, uint numTextureBarriers, uint* textures, int* dstLayouts);
 
 			[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]

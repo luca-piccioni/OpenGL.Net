@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -135,10 +139,10 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_ATI_element_array")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glElementPointerATI(int type, IntPtr pointer);
 
 			[RequiredByFeature("GL_ATI_element_array")]
@@ -146,7 +150,7 @@ namespace OpenGL
 			internal static glElementPointerATI pglElementPointerATI;
 
 			[RequiredByFeature("GL_ATI_element_array")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glDrawElementArrayATI(int mode, int count);
 
 			[RequiredByFeature("GL_ATI_element_array")]
@@ -154,7 +158,7 @@ namespace OpenGL
 			internal static glDrawElementArrayATI pglDrawElementArrayATI;
 
 			[RequiredByFeature("GL_ATI_element_array")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glDrawRangeElementArrayATI(int mode, uint start, uint end, int count);
 
 			[RequiredByFeature("GL_ATI_element_array")]

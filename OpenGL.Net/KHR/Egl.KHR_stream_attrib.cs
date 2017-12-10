@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -213,38 +217,38 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("EGL_KHR_stream_attrib")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate IntPtr eglCreateStreamAttribKHR(IntPtr dpy, IntPtr* attrib_list);
 
 			[RequiredByFeature("EGL_KHR_stream_attrib")]
 			internal static eglCreateStreamAttribKHR peglCreateStreamAttribKHR;
 
 			[RequiredByFeature("EGL_KHR_stream_attrib")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool eglSetStreamAttribKHR(IntPtr dpy, IntPtr stream, uint attribute, IntPtr value);
 
 			[RequiredByFeature("EGL_KHR_stream_attrib")]
 			internal static eglSetStreamAttribKHR peglSetStreamAttribKHR;
 
 			[RequiredByFeature("EGL_KHR_stream_attrib")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool eglQueryStreamAttribKHR(IntPtr dpy, IntPtr stream, uint attribute, IntPtr* value);
 
 			[RequiredByFeature("EGL_KHR_stream_attrib")]
 			internal static eglQueryStreamAttribKHR peglQueryStreamAttribKHR;
 
 			[RequiredByFeature("EGL_KHR_stream_attrib")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool eglStreamConsumerAcquireAttribKHR(IntPtr dpy, IntPtr stream, IntPtr* attrib_list);
 
 			[RequiredByFeature("EGL_KHR_stream_attrib")]
 			internal static eglStreamConsumerAcquireAttribKHR peglStreamConsumerAcquireAttribKHR;
 
 			[RequiredByFeature("EGL_KHR_stream_attrib")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool eglStreamConsumerReleaseAttribKHR(IntPtr dpy, IntPtr stream, IntPtr* attrib_list);
 
 			[RequiredByFeature("EGL_KHR_stream_attrib")]

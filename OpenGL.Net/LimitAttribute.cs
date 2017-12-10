@@ -21,13 +21,15 @@
 
 using System;
 
+// ReSharper disable InheritdocConsiderUsage
+
 namespace OpenGL
 {
 	/// <summary>
 	/// Attribute indicating whether a field shall indicate an OpenGL implementation limit.
 	/// </summary>
-	[AttributeUsage(AttributeTargets.Field, AllowMultiple = false)]
-	class LimitAttribute : Attribute
+	[AttributeUsage(AttributeTargets.Field)]
+	internal class LimitAttribute : Attribute
 	{
 		/// <summary>
 		/// Construct a LimitAttribute.

@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -212,10 +216,10 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_APPLE_fence")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGenFencesAPPLE(int n, uint* fences);
 
 			[RequiredByFeature("GL_APPLE_fence")]
@@ -223,7 +227,7 @@ namespace OpenGL
 			internal static glGenFencesAPPLE pglGenFencesAPPLE;
 
 			[RequiredByFeature("GL_APPLE_fence")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glDeleteFencesAPPLE(int n, uint* fences);
 
 			[RequiredByFeature("GL_APPLE_fence")]
@@ -231,7 +235,7 @@ namespace OpenGL
 			internal static glDeleteFencesAPPLE pglDeleteFencesAPPLE;
 
 			[RequiredByFeature("GL_APPLE_fence")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glSetFenceAPPLE(uint fence);
 
 			[RequiredByFeature("GL_APPLE_fence")]
@@ -239,7 +243,7 @@ namespace OpenGL
 			internal static glSetFenceAPPLE pglSetFenceAPPLE;
 
 			[RequiredByFeature("GL_APPLE_fence")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsFenceAPPLE(uint fence);
 
@@ -248,7 +252,7 @@ namespace OpenGL
 			internal static glIsFenceAPPLE pglIsFenceAPPLE;
 
 			[RequiredByFeature("GL_APPLE_fence")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glTestFenceAPPLE(uint fence);
 
@@ -257,7 +261,7 @@ namespace OpenGL
 			internal static glTestFenceAPPLE pglTestFenceAPPLE;
 
 			[RequiredByFeature("GL_APPLE_fence")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glFinishFenceAPPLE(uint fence);
 
 			[RequiredByFeature("GL_APPLE_fence")]
@@ -265,7 +269,7 @@ namespace OpenGL
 			internal static glFinishFenceAPPLE pglFinishFenceAPPLE;
 
 			[RequiredByFeature("GL_APPLE_fence")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glTestObjectAPPLE(int @object, uint name);
 
@@ -274,7 +278,7 @@ namespace OpenGL
 			internal static glTestObjectAPPLE pglTestObjectAPPLE;
 
 			[RequiredByFeature("GL_APPLE_fence")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glFinishObjectAPPLE(int @object, int name);
 
 			[RequiredByFeature("GL_APPLE_fence")]

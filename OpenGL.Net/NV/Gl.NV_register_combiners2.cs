@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -95,10 +99,10 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_register_combiners2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glCombinerStageParameterfvNV(int stage, int pname, float* @params);
 
 			[RequiredByFeature("GL_NV_register_combiners2")]
@@ -106,7 +110,7 @@ namespace OpenGL
 			internal static glCombinerStageParameterfvNV pglCombinerStageParameterfvNV;
 
 			[RequiredByFeature("GL_NV_register_combiners2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetCombinerStageParameterfvNV(int stage, int pname, float* @params);
 
 			[RequiredByFeature("GL_NV_register_combiners2")]

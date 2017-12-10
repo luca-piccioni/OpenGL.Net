@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -77,10 +81,10 @@ namespace OpenGL
 		/// A <see cref="T:ShaderType"/>.
 		/// </param>
 		/// <param name="string">
-		/// A <see cref="T:String"/>.
+		/// A <see cref="T:string"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_separate_shader_objects")]
-		public static uint CreateShaderProgramEXT(ShaderType type, String @string)
+		public static uint CreateShaderProgramEXT(ShaderType type, string @string)
 		{
 			uint retValue;
 
@@ -135,10 +139,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="strings">
-		/// A <see cref="T:String[]"/>.
+		/// A <see cref="T:string[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-		public static uint CreateShaderProgramEXT(ShaderType type, int count, String[] strings)
+		public static uint CreateShaderProgramEXT(ShaderType type, int count, string[] strings)
 		{
 			uint retValue;
 
@@ -157,10 +161,10 @@ namespace OpenGL
 		/// A <see cref="T:ShaderType"/>.
 		/// </param>
 		/// <param name="strings">
-		/// A <see cref="T:String[]"/>.
+		/// A <see cref="T:string[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-		public static uint CreateShaderProgramEXT(ShaderType type, String[] strings)
+		public static uint CreateShaderProgramEXT(ShaderType type, string[] strings)
 		{
 			uint retValue;
 
@@ -243,7 +247,7 @@ namespace OpenGL
 		/// A <see cref="T:StringBuilder"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-		public static void GetProgramPipelineInfoLogEXT(uint pipeline, int bufSize, out int length, [Out] StringBuilder infoLog)
+		public static void GetProgramPipelineInfoLogEXT(uint pipeline, int bufSize, out int length, StringBuilder infoLog)
 		{
 			unsafe {
 				fixed (int* p_length = &length)
@@ -363,10 +367,10 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_separate_shader_objects")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glUseShaderProgramEXT(int type, uint program);
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects")]
@@ -374,7 +378,7 @@ namespace OpenGL
 			internal static glUseShaderProgramEXT pglUseShaderProgramEXT;
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glActiveProgramEXT(uint program);
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects")]
@@ -382,15 +386,15 @@ namespace OpenGL
 			internal static glActiveProgramEXT pglActiveProgramEXT;
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects")]
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate uint glCreateShaderProgramEXT(int type, String @string);
+			[SuppressUnmanagedCodeSecurity]
+			internal delegate uint glCreateShaderProgramEXT(int type, string @string);
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects")]
 			[ThreadStatic]
 			internal static glCreateShaderProgramEXT pglCreateShaderProgramEXT;
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glActiveShaderProgramEXT(uint pipeline, uint program);
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
@@ -398,7 +402,7 @@ namespace OpenGL
 			internal static glActiveShaderProgramEXT pglActiveShaderProgramEXT;
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glBindProgramPipelineEXT(uint pipeline);
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
@@ -406,15 +410,15 @@ namespace OpenGL
 			internal static glBindProgramPipelineEXT pglBindProgramPipelineEXT;
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate uint glCreateShaderProgramvEXT(int type, int count, String[] strings);
+			[SuppressUnmanagedCodeSecurity]
+			internal delegate uint glCreateShaderProgramvEXT(int type, int count, string[] strings);
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[ThreadStatic]
 			internal static glCreateShaderProgramvEXT pglCreateShaderProgramvEXT;
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glDeleteProgramPipelinesEXT(int n, uint* pipelines);
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
@@ -422,7 +426,7 @@ namespace OpenGL
 			internal static glDeleteProgramPipelinesEXT pglDeleteProgramPipelinesEXT;
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGenProgramPipelinesEXT(int n, uint* pipelines);
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
@@ -430,15 +434,15 @@ namespace OpenGL
 			internal static glGenProgramPipelinesEXT pglGenProgramPipelinesEXT;
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glGetProgramPipelineInfoLogEXT(uint pipeline, int bufSize, int* length, [Out] StringBuilder infoLog);
+			[SuppressUnmanagedCodeSecurity]
+			internal delegate void glGetProgramPipelineInfoLogEXT(uint pipeline, int bufSize, int* length, StringBuilder infoLog);
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[ThreadStatic]
 			internal static glGetProgramPipelineInfoLogEXT pglGetProgramPipelineInfoLogEXT;
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetProgramPipelineivEXT(uint pipeline, int pname, int* @params);
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
@@ -446,7 +450,7 @@ namespace OpenGL
 			internal static glGetProgramPipelineivEXT pglGetProgramPipelineivEXT;
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsProgramPipelineEXT(uint pipeline);
 
@@ -455,7 +459,7 @@ namespace OpenGL
 			internal static glIsProgramPipelineEXT pglIsProgramPipelineEXT;
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glUseProgramStagesEXT(uint pipeline, uint stages, uint program);
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
@@ -463,7 +467,7 @@ namespace OpenGL
 			internal static glUseProgramStagesEXT pglUseProgramStagesEXT;
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glValidateProgramPipelineEXT(uint pipeline);
 
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]

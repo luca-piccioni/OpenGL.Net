@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -166,31 +170,31 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("WGL_I3D_image_buffer")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate IntPtr wglCreateImageBufferI3D(IntPtr hDC, int dwSize, uint uFlags);
 
 			[RequiredByFeature("WGL_I3D_image_buffer")]
 			internal static wglCreateImageBufferI3D pwglCreateImageBufferI3D;
 
 			[RequiredByFeature("WGL_I3D_image_buffer")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool wglDestroyImageBufferI3D(IntPtr hDC, IntPtr pAddress);
 
 			[RequiredByFeature("WGL_I3D_image_buffer")]
 			internal static wglDestroyImageBufferI3D pwglDestroyImageBufferI3D;
 
 			[RequiredByFeature("WGL_I3D_image_buffer")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool wglAssociateImageBufferEventsI3D(IntPtr hDC, IntPtr* pEvent, IntPtr* pAddress, int* pSize, uint count);
 
 			[RequiredByFeature("WGL_I3D_image_buffer")]
 			internal static wglAssociateImageBufferEventsI3D pwglAssociateImageBufferEventsI3D;
 
 			[RequiredByFeature("WGL_I3D_image_buffer")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool wglReleaseImageBufferEventsI3D(IntPtr hDC, IntPtr* pAddress, uint count);
 
 			[RequiredByFeature("WGL_I3D_image_buffer")]

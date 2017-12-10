@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -139,10 +143,10 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_light_texture")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glApplyTextureEXT(int mode);
 
 			[RequiredByFeature("GL_EXT_light_texture")]
@@ -150,7 +154,7 @@ namespace OpenGL
 			internal static glApplyTextureEXT pglApplyTextureEXT;
 
 			[RequiredByFeature("GL_EXT_light_texture")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glTextureLightEXT(int pname);
 
 			[RequiredByFeature("GL_EXT_light_texture")]
@@ -158,7 +162,7 @@ namespace OpenGL
 			internal static glTextureLightEXT pglTextureLightEXT;
 
 			[RequiredByFeature("GL_EXT_light_texture")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glTextureMaterialEXT(int face, int mode);
 
 			[RequiredByFeature("GL_EXT_light_texture")]

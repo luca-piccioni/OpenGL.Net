@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenVX
 {
@@ -77,9 +81,9 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Kernel vxAddTilingKernel(Context context, string name, int enumeration, TilingKernelCallback flexible_func_ptr, TilingKernelCallback fast_func_ptr, uint num_params, KernelInputValidateCallback input, KernelOutputValidateCallback output);
 
 			internal static vxAddTilingKernel pvxAddTilingKernel;

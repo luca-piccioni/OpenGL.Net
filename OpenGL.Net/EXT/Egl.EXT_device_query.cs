@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -144,11 +148,11 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("EGL_EXT_device_base")]
 			[RequiredByFeature("EGL_EXT_device_query")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool eglQueryDeviceAttribEXT(IntPtr device, int attribute, IntPtr* value);
 
 			[RequiredByFeature("EGL_EXT_device_base")]
@@ -157,7 +161,7 @@ namespace OpenGL
 
 			[RequiredByFeature("EGL_EXT_device_base")]
 			[RequiredByFeature("EGL_EXT_device_query")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate IntPtr eglQueryDeviceStringEXT(IntPtr device, int name);
 
 			[RequiredByFeature("EGL_EXT_device_base")]
@@ -167,7 +171,7 @@ namespace OpenGL
 			[RequiredByFeature("EGL_EXT_device_base")]
 			[RequiredByFeature("EGL_EXT_device_query")]
 			[RequiredByFeature("EGL_NV_stream_metadata")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool eglQueryDisplayAttribEXT(IntPtr dpy, int attribute, IntPtr* value);
 
 			[RequiredByFeature("EGL_EXT_device_base")]

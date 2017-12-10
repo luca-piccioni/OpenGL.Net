@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -127,10 +131,10 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_IMG_framebuffer_downsample", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glFramebufferTexture2DDownsampleIMG(int target, int attachment, int textarget, uint texture, int level, int xscale, int yscale);
 
 			[RequiredByFeature("GL_IMG_framebuffer_downsample", Api = "gles2")]
@@ -138,7 +142,7 @@ namespace OpenGL
 			internal static glFramebufferTexture2DDownsampleIMG pglFramebufferTexture2DDownsampleIMG;
 
 			[RequiredByFeature("GL_IMG_framebuffer_downsample", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glFramebufferTextureLayerDownsampleIMG(int target, int attachment, uint texture, int level, int layer, int xscale, int yscale);
 
 			[RequiredByFeature("GL_IMG_framebuffer_downsample", Api = "gles2")]

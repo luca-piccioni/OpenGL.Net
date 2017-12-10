@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -164,10 +168,10 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_SGIX_async")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glAsyncMarkerSGIX(uint marker);
 
 			[RequiredByFeature("GL_SGIX_async")]
@@ -175,7 +179,7 @@ namespace OpenGL
 			internal static glAsyncMarkerSGIX pglAsyncMarkerSGIX;
 
 			[RequiredByFeature("GL_SGIX_async")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate int glFinishAsyncSGIX(uint* markerp);
 
 			[RequiredByFeature("GL_SGIX_async")]
@@ -183,7 +187,7 @@ namespace OpenGL
 			internal static glFinishAsyncSGIX pglFinishAsyncSGIX;
 
 			[RequiredByFeature("GL_SGIX_async")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate int glPollAsyncSGIX(uint* markerp);
 
 			[RequiredByFeature("GL_SGIX_async")]
@@ -191,7 +195,7 @@ namespace OpenGL
 			internal static glPollAsyncSGIX pglPollAsyncSGIX;
 
 			[RequiredByFeature("GL_SGIX_async")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate uint glGenAsyncMarkersSGIX(int range);
 
 			[RequiredByFeature("GL_SGIX_async")]
@@ -199,7 +203,7 @@ namespace OpenGL
 			internal static glGenAsyncMarkersSGIX pglGenAsyncMarkersSGIX;
 
 			[RequiredByFeature("GL_SGIX_async")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glDeleteAsyncMarkersSGIX(uint marker, int range);
 
 			[RequiredByFeature("GL_SGIX_async")]
@@ -207,7 +211,7 @@ namespace OpenGL
 			internal static glDeleteAsyncMarkersSGIX pglDeleteAsyncMarkersSGIX;
 
 			[RequiredByFeature("GL_SGIX_async")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsAsyncMarkerSGIX(uint marker);
 

@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -273,45 +277,45 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GLX_NV_video_out")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate int glXGetVideoDeviceNV(IntPtr dpy, int screen, int numVideoDevices, IntPtr pVideoDevice);
 
 			[RequiredByFeature("GLX_NV_video_out")]
 			internal static glXGetVideoDeviceNV pglXGetVideoDeviceNV;
 
 			[RequiredByFeature("GLX_NV_video_out")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate int glXReleaseVideoDeviceNV(IntPtr dpy, int screen, IntPtr VideoDevice);
 
 			[RequiredByFeature("GLX_NV_video_out")]
 			internal static glXReleaseVideoDeviceNV pglXReleaseVideoDeviceNV;
 
 			[RequiredByFeature("GLX_NV_video_out")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate int glXBindVideoImageNV(IntPtr dpy, IntPtr VideoDevice, IntPtr pbuf, int iVideoBuffer);
 
 			[RequiredByFeature("GLX_NV_video_out")]
 			internal static glXBindVideoImageNV pglXBindVideoImageNV;
 
 			[RequiredByFeature("GLX_NV_video_out")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate int glXReleaseVideoImageNV(IntPtr dpy, IntPtr pbuf);
 
 			[RequiredByFeature("GLX_NV_video_out")]
 			internal static glXReleaseVideoImageNV pglXReleaseVideoImageNV;
 
 			[RequiredByFeature("GLX_NV_video_out")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate int glXSendPbufferToVideoNV(IntPtr dpy, IntPtr pbuf, int iBufferType, uint* pulCounterPbuffer, [MarshalAs(UnmanagedType.I1)] bool bBlock);
 
 			[RequiredByFeature("GLX_NV_video_out")]
 			internal static glXSendPbufferToVideoNV pglXSendPbufferToVideoNV;
 
 			[RequiredByFeature("GLX_NV_video_out")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate int glXGetVideoInfoNV(IntPtr dpy, int screen, IntPtr VideoDevice, uint* pulCounterOutputPbuffer, uint* pulCounterOutputVideo);
 
 			[RequiredByFeature("GLX_NV_video_out")]

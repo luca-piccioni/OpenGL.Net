@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -130,24 +134,24 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("WGL_NV_present_video")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate int wglEnumerateVideoDevicesNV(IntPtr hDC, IntPtr* phDeviceList);
 
 			[RequiredByFeature("WGL_NV_present_video")]
 			internal static wglEnumerateVideoDevicesNV pwglEnumerateVideoDevicesNV;
 
 			[RequiredByFeature("WGL_NV_present_video")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool wglBindVideoDeviceNV(IntPtr hDC, uint uVideoSlot, IntPtr hVideoDevice, int* piAttribList);
 
 			[RequiredByFeature("WGL_NV_present_video")]
 			internal static wglBindVideoDeviceNV pwglBindVideoDeviceNV;
 
 			[RequiredByFeature("WGL_NV_present_video")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool wglQueryCurrentContextNV(int iAttribute, int* piValue);
 
 			[RequiredByFeature("WGL_NV_present_video")]

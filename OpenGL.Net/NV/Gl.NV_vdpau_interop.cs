@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -347,10 +351,10 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_vdpau_interop")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVDPAUInitNV(IntPtr vdpDevice, IntPtr getProcAddress);
 
 			[RequiredByFeature("GL_NV_vdpau_interop")]
@@ -358,7 +362,7 @@ namespace OpenGL
 			internal static glVDPAUInitNV pglVDPAUInitNV;
 
 			[RequiredByFeature("GL_NV_vdpau_interop")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVDPAUFiniNV();
 
 			[RequiredByFeature("GL_NV_vdpau_interop")]
@@ -366,7 +370,7 @@ namespace OpenGL
 			internal static glVDPAUFiniNV pglVDPAUFiniNV;
 
 			[RequiredByFeature("GL_NV_vdpau_interop")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate IntPtr glVDPAURegisterVideoSurfaceNV(IntPtr vdpSurface, int target, int numTextureNames, uint* textureNames);
 
 			[RequiredByFeature("GL_NV_vdpau_interop")]
@@ -374,7 +378,7 @@ namespace OpenGL
 			internal static glVDPAURegisterVideoSurfaceNV pglVDPAURegisterVideoSurfaceNV;
 
 			[RequiredByFeature("GL_NV_vdpau_interop")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate IntPtr glVDPAURegisterOutputSurfaceNV(IntPtr vdpSurface, int target, int numTextureNames, uint* textureNames);
 
 			[RequiredByFeature("GL_NV_vdpau_interop")]
@@ -382,7 +386,7 @@ namespace OpenGL
 			internal static glVDPAURegisterOutputSurfaceNV pglVDPAURegisterOutputSurfaceNV;
 
 			[RequiredByFeature("GL_NV_vdpau_interop")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glVDPAUIsSurfaceNV(IntPtr surface);
 
@@ -391,7 +395,7 @@ namespace OpenGL
 			internal static glVDPAUIsSurfaceNV pglVDPAUIsSurfaceNV;
 
 			[RequiredByFeature("GL_NV_vdpau_interop")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVDPAUUnregisterSurfaceNV(IntPtr surface);
 
 			[RequiredByFeature("GL_NV_vdpau_interop")]
@@ -399,7 +403,7 @@ namespace OpenGL
 			internal static glVDPAUUnregisterSurfaceNV pglVDPAUUnregisterSurfaceNV;
 
 			[RequiredByFeature("GL_NV_vdpau_interop")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVDPAUGetSurfaceivNV(IntPtr surface, int pname, int bufSize, int* length, int* values);
 
 			[RequiredByFeature("GL_NV_vdpau_interop")]
@@ -407,7 +411,7 @@ namespace OpenGL
 			internal static glVDPAUGetSurfaceivNV pglVDPAUGetSurfaceivNV;
 
 			[RequiredByFeature("GL_NV_vdpau_interop")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVDPAUSurfaceAccessNV(IntPtr surface, int access);
 
 			[RequiredByFeature("GL_NV_vdpau_interop")]
@@ -415,7 +419,7 @@ namespace OpenGL
 			internal static glVDPAUSurfaceAccessNV pglVDPAUSurfaceAccessNV;
 
 			[RequiredByFeature("GL_NV_vdpau_interop")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVDPAUMapSurfacesNV(int numSurfaces, IntPtr* surfaces);
 
 			[RequiredByFeature("GL_NV_vdpau_interop")]
@@ -423,7 +427,7 @@ namespace OpenGL
 			internal static glVDPAUMapSurfacesNV pglVDPAUMapSurfacesNV;
 
 			[RequiredByFeature("GL_NV_vdpau_interop")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVDPAUUnmapSurfacesNV(int numSurface, IntPtr* surfaces);
 
 			[RequiredByFeature("GL_NV_vdpau_interop")]

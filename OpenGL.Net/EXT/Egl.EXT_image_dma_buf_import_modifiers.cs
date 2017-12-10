@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -178,17 +182,17 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("EGL_EXT_image_dma_buf_import_modifiers")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool eglQueryDmaBufFormatsEXT(IntPtr dpy, int max_formats, int* formats, int* num_formats);
 
 			[RequiredByFeature("EGL_EXT_image_dma_buf_import_modifiers")]
 			internal static eglQueryDmaBufFormatsEXT peglQueryDmaBufFormatsEXT;
 
 			[RequiredByFeature("EGL_EXT_image_dma_buf_import_modifiers")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool eglQueryDmaBufModifiersEXT(IntPtr dpy, int format, int max_modifiers, ulong* modifiers, bool* external_only, int* num_modifiers);
 
 			[RequiredByFeature("EGL_EXT_image_dma_buf_import_modifiers")]

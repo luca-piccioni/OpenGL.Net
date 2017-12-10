@@ -19,7 +19,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-using System;
+// ReSharper disable InheritdocConsiderUsage
 
 namespace OpenGL
 {
@@ -40,9 +40,9 @@ namespace OpenGL
 			{
 				LogComment("Query EGL extensions.");
 
-				string eglExtensions = QueryString(deviceContext.Display, Egl.EXTENSIONS);
+				string eglExtensions = QueryString(deviceContext.Display, EXTENSIONS);
 
-				Query(deviceContext.Version, eglExtensions ?? String.Empty);
+				Query(deviceContext.Version, eglExtensions ?? string.Empty);
 			}
 
 			/// <summary>
@@ -53,7 +53,7 @@ namespace OpenGL
 			/// </returns>
 			public Extensions Clone()
 			{
-				return ((Extensions)MemberwiseClone());
+				return (Extensions)MemberwiseClone();
 			}
 		}
 	}

@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -124,24 +128,24 @@ namespace OpenGL
 			return (PtrToString(retValue));
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GLX_VERSION_1_1")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate IntPtr glXQueryExtensionsString(IntPtr dpy, int screen);
 
 			[RequiredByFeature("GLX_VERSION_1_1")]
 			internal static glXQueryExtensionsString pglXQueryExtensionsString;
 
 			[RequiredByFeature("GLX_VERSION_1_1")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate IntPtr glXQueryServerString(IntPtr dpy, int screen, int name);
 
 			[RequiredByFeature("GLX_VERSION_1_1")]
 			internal static glXQueryServerString pglXQueryServerString;
 
 			[RequiredByFeature("GLX_VERSION_1_1")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate IntPtr glXGetClientString(IntPtr dpy, int name);
 
 			[RequiredByFeature("GLX_VERSION_1_1")]

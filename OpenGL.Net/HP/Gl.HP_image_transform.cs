@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -273,10 +277,10 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_HP_image_transform")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glImageTransformParameteriHP(int target, int pname, int param);
 
 			[RequiredByFeature("GL_HP_image_transform")]
@@ -284,7 +288,7 @@ namespace OpenGL
 			internal static glImageTransformParameteriHP pglImageTransformParameteriHP;
 
 			[RequiredByFeature("GL_HP_image_transform")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glImageTransformParameterfHP(int target, int pname, float param);
 
 			[RequiredByFeature("GL_HP_image_transform")]
@@ -292,7 +296,7 @@ namespace OpenGL
 			internal static glImageTransformParameterfHP pglImageTransformParameterfHP;
 
 			[RequiredByFeature("GL_HP_image_transform")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glImageTransformParameterivHP(int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_HP_image_transform")]
@@ -300,7 +304,7 @@ namespace OpenGL
 			internal static glImageTransformParameterivHP pglImageTransformParameterivHP;
 
 			[RequiredByFeature("GL_HP_image_transform")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glImageTransformParameterfvHP(int target, int pname, float* @params);
 
 			[RequiredByFeature("GL_HP_image_transform")]
@@ -308,7 +312,7 @@ namespace OpenGL
 			internal static glImageTransformParameterfvHP pglImageTransformParameterfvHP;
 
 			[RequiredByFeature("GL_HP_image_transform")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetImageTransformParameterivHP(int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_HP_image_transform")]
@@ -316,7 +320,7 @@ namespace OpenGL
 			internal static glGetImageTransformParameterivHP pglGetImageTransformParameterivHP;
 
 			[RequiredByFeature("GL_HP_image_transform")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetImageTransformParameterfvHP(int target, int pname, float* @params);
 
 			[RequiredByFeature("GL_HP_image_transform")]

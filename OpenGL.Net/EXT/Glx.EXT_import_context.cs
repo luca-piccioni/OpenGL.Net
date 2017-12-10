@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -152,38 +156,38 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GLX_EXT_import_context")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate IntPtr glXGetCurrentDisplayEXT();
 
 			[RequiredByFeature("GLX_EXT_import_context")]
 			internal static glXGetCurrentDisplayEXT pglXGetCurrentDisplayEXT;
 
 			[RequiredByFeature("GLX_EXT_import_context")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate int glXQueryContextInfoEXT(IntPtr dpy, IntPtr context, int attribute, int* value);
 
 			[RequiredByFeature("GLX_EXT_import_context")]
 			internal static glXQueryContextInfoEXT pglXQueryContextInfoEXT;
 
 			[RequiredByFeature("GLX_EXT_import_context")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate IntPtr glXGetContextIDEXT(IntPtr context);
 
 			[RequiredByFeature("GLX_EXT_import_context")]
 			internal static glXGetContextIDEXT pglXGetContextIDEXT;
 
 			[RequiredByFeature("GLX_EXT_import_context")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate IntPtr glXImportContextEXT(IntPtr dpy, IntPtr contextID);
 
 			[RequiredByFeature("GLX_EXT_import_context")]
 			internal static glXImportContextEXT pglXImportContextEXT;
 
 			[RequiredByFeature("GLX_EXT_import_context")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glXFreeContextEXT(IntPtr dpy, IntPtr context);
 
 			[RequiredByFeature("GLX_EXT_import_context")]

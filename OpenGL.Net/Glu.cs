@@ -21,6 +21,7 @@
 
 using System;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 using System.Security;
 
@@ -31,6 +32,7 @@ namespace OpenGL
 	/// <summary>
 	/// The GL Utility library.
 	/// </summary>
+	[SuppressMessage("ReSharper", "InconsistentNaming")]
 	public class Glu : KhronosApi
 	{
 		#region Constructors

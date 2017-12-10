@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -56,10 +60,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="source">
-		/// A <see cref="T:String"/>.
+		/// A <see cref="T:string"/>.
 		/// </param>
 		[RequiredByFeature("GL_ANGLE_translated_shader_source", Api = "gles2")]
-		public static void GetTranslatedShaderSourceANGLE(uint shader, int bufsize, out int length, String source)
+		public static void GetTranslatedShaderSourceANGLE(uint shader, int bufsize, out int length, string source)
 		{
 			unsafe {
 				fixed (int* p_length = &length)
@@ -72,11 +76,11 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_ANGLE_translated_shader_source", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glGetTranslatedShaderSourceANGLE(uint shader, int bufsize, int* length, String source);
+			[SuppressUnmanagedCodeSecurity]
+			internal delegate void glGetTranslatedShaderSourceANGLE(uint shader, int bufsize, int* length, string source);
 
 			[RequiredByFeature("GL_ANGLE_translated_shader_source", Api = "gles2")]
 			[ThreadStatic]

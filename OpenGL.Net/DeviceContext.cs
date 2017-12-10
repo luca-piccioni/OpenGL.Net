@@ -148,8 +148,8 @@ namespace OpenGL
 #if !MONODROID
 			if (IsEglRequired == false) {
 				// OPENGL_NET_INIT environment set to NO?
-				if (Gl._NativeWindow == null)
-					throw new InvalidOperationException("OpenGL.Net not initialized", Gl._InitializationException);
+				if (Gl.NativeWindow == null)
+					throw new InvalidOperationException("OpenGL.Net not initialized", Gl.InitializationException);
 
 				switch (Platform.CurrentPlatformId) {
 					case Platform.Id.WindowsNT:
@@ -169,14 +169,14 @@ namespace OpenGL
 				// Create a surfaceless context
 				if (Egl.CurrentExtensions == null || Egl.CurrentExtensions.SurfacelessContext_KHR == false) {
 					// OPENGL_NET_INIT environment set to NO?
-					if (Gl._NativeWindow == null)
-						throw new InvalidOperationException("OpenGL.Net not initialized", Gl._InitializationException);
+					if (Gl.NativeWindow == null)
+						throw new InvalidOperationException("OpenGL.Net not initialized", Gl.InitializationException);
 
-					INativePBuffer nativeBuffer = Gl._NativeWindow as INativePBuffer;
+					INativePBuffer nativeBuffer = Gl.NativeWindow as INativePBuffer;
 					if (nativeBuffer != null)
 						return new DeviceContextEGL(nativeBuffer);
 
-					INativeWindow nativeWindow = Gl._NativeWindow;
+					INativeWindow nativeWindow = Gl.NativeWindow;
 					if (nativeWindow != null)
 						return new DeviceContextEGL(nativeWindow.Handle);
 
@@ -614,7 +614,7 @@ namespace OpenGL
 		/// Control the the buffers swap of a device.
 		/// </summary>
 		/// <param name="interval">
-		/// A <see cref="System.Int32"/> that specifies the minimum number of video frames that are displayed
+		/// A <see cref="Int32"/> that specifies the minimum number of video frames that are displayed
 		/// before a buffer swap will occur.
 		/// </param>
 		/// <returns>

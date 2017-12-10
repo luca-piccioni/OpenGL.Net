@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -123,10 +127,10 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_multiview_draw_buffers", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glReadBufferIndexedEXT(int src, int index);
 
 			[RequiredByFeature("GL_EXT_multiview_draw_buffers", Api = "gles2")]
@@ -134,7 +138,7 @@ namespace OpenGL
 			internal static glReadBufferIndexedEXT pglReadBufferIndexedEXT;
 
 			[RequiredByFeature("GL_EXT_multiview_draw_buffers", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glDrawBuffersIndexedEXT(int n, int* location, int* indices);
 
 			[RequiredByFeature("GL_EXT_multiview_draw_buffers", Api = "gles2")]
@@ -142,7 +146,7 @@ namespace OpenGL
 			internal static glDrawBuffersIndexedEXT pglDrawBuffersIndexedEXT;
 
 			[RequiredByFeature("GL_EXT_multiview_draw_buffers", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetIntegeri_vEXT(int target, uint index, int* data);
 
 			[RequiredByFeature("GL_EXT_multiview_draw_buffers", Api = "gles2")]

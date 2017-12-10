@@ -23,6 +23,8 @@ using System;
 
 using Khronos;
 
+// ReSharper disable InheritdocConsiderUsage
+
 namespace OpenGL
 {
 	/// <summary>
@@ -53,7 +55,7 @@ namespace OpenGL
 		/// <param name="message">
 		/// A <see cref="String"/> that specifies the exception message.
 		/// </param>
-		internal GlException(ErrorCode errorCode, String message) :
+		internal GlException(ErrorCode errorCode, string message) :
 			base((int)errorCode, message)
 		{
 
@@ -71,7 +73,7 @@ namespace OpenGL
 		/// <param name="innerException">
 		/// The <see cref="Exception"/> wrapped by this Exception.
 		/// </param>
-		internal GlException(ErrorCode errorCode, String message, Exception innerException) :
+		internal GlException(ErrorCode errorCode, string message, Exception innerException) :
 			base((int)errorCode, GetErrorMessage(errorCode) + message, innerException)
 		{
 
@@ -96,30 +98,30 @@ namespace OpenGL
 			switch (errorCode) {
 
 				default:
-					return (String.Format("unknown error code {0}", errorCode));
+					return $"unknown error code {errorCode}";
 				case ErrorCode.NoError:
-					return ("no error");
+					return "no error";
 				case ErrorCode.InvalidEnum:
-					return ("invalid enumeration");
+					return "invalid enumeration";
 				case ErrorCode.InvalidFramebufferOperation:
-					return ("invalid framebuffer operation");
+					return "invalid framebuffer operation";
 				case ErrorCode.InvalidOperation:
-					return ("invalid operation");
+					return "invalid operation";
 				case ErrorCode.InvalidValue:
-					return ("invalid value");
+					return "invalid value";
 				case ErrorCode.OutOfMemory:
-					return ("out of memory");
+					return "out of memory";
 				case ErrorCode.StackOverflow:
-					return ("stack overflow");
+					return "stack overflow";
 				case ErrorCode.StackUnderflow:
-					return ("stack underflow");
+					return "stack underflow";
 
 				// GL_ARB_imaging
 				case ErrorCode.TableTooLarge:
-					return ("table too large");
+					return "table too large";
 				// GL_EXT_texture
 				case ErrorCode.TextureTooLargeExt:
-					return ("texture too large");
+					return "texture too large";
 			}
 		}
 

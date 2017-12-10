@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -86,19 +90,19 @@ namespace OpenGL
 		/// [GL] glGetVkProcAddrNV: Binding for glGetVkProcAddrNV.
 		/// </summary>
 		/// <param name="name">
-		/// A <see cref="T:String"/>.
+		/// A <see cref="T:string"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_draw_vulkan_image", Api = "gl|glcore|gles2")]
-		public static Gl.VulkanProc GetVkProcAddrNV(String name)
+		public static VulkanProc GetVkProcAddrNV(string name)
 		{
-			IntPtr retValue;
+			VulkanProc retValue;
 
 			Debug.Assert(Delegates.pglGetVkProcAddrNV != null, "pglGetVkProcAddrNV not implemented");
 			retValue = Delegates.pglGetVkProcAddrNV(name);
-			LogCommand("glGetVkProcAddrNV", (Gl.VulkanProc)Marshal.PtrToStructure(retValue, typeof(Gl.VulkanProc)), name			);
+			LogCommand("glGetVkProcAddrNV", retValue, name			);
 			DebugCheckErrors(retValue);
 
-			return ((Gl.VulkanProc)Marshal.PtrToStructure(retValue, typeof(Gl.VulkanProc)));
+			return (retValue);
 		}
 
 		/// <summary>
@@ -146,10 +150,10 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_draw_vulkan_image", Api = "gl|glcore|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glDrawVkImageNV(ulong vkImage, uint sampler, float x0, float y0, float x1, float y1, float z, float s0, float t0, float s1, float t1);
 
 			[RequiredByFeature("GL_NV_draw_vulkan_image", Api = "gl|glcore|gles2")]
@@ -157,15 +161,15 @@ namespace OpenGL
 			internal static glDrawVkImageNV pglDrawVkImageNV;
 
 			[RequiredByFeature("GL_NV_draw_vulkan_image", Api = "gl|glcore|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate IntPtr glGetVkProcAddrNV(String name);
+			[SuppressUnmanagedCodeSecurity]
+			internal delegate VulkanProc glGetVkProcAddrNV(string name);
 
 			[RequiredByFeature("GL_NV_draw_vulkan_image", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glGetVkProcAddrNV pglGetVkProcAddrNV;
 
 			[RequiredByFeature("GL_NV_draw_vulkan_image", Api = "gl|glcore|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glWaitVkSemaphoreNV(ulong vkSemaphore);
 
 			[RequiredByFeature("GL_NV_draw_vulkan_image", Api = "gl|glcore|gles2")]
@@ -173,7 +177,7 @@ namespace OpenGL
 			internal static glWaitVkSemaphoreNV pglWaitVkSemaphoreNV;
 
 			[RequiredByFeature("GL_NV_draw_vulkan_image", Api = "gl|glcore|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glSignalVkSemaphoreNV(ulong vkSemaphore);
 
 			[RequiredByFeature("GL_NV_draw_vulkan_image", Api = "gl|glcore|gles2")]
@@ -181,7 +185,7 @@ namespace OpenGL
 			internal static glSignalVkSemaphoreNV pglSignalVkSemaphoreNV;
 
 			[RequiredByFeature("GL_NV_draw_vulkan_image", Api = "gl|glcore|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glSignalVkFenceNV(ulong vkFence);
 
 			[RequiredByFeature("GL_NV_draw_vulkan_image", Api = "gl|glcore|gles2")]

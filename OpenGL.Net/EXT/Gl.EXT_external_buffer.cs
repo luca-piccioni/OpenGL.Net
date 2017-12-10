@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -91,10 +95,10 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_external_buffer", Api = "gl|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glBufferStorageExternalEXT(int target, IntPtr offset, uint size, IntPtr clientBuffer, uint flags);
 
 			[RequiredByFeature("GL_EXT_external_buffer", Api = "gl|gles2")]
@@ -102,7 +106,7 @@ namespace OpenGL
 			internal static glBufferStorageExternalEXT pglBufferStorageExternalEXT;
 
 			[RequiredByFeature("GL_EXT_external_buffer", Api = "gl|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glNamedBufferStorageExternalEXT(uint buffer, IntPtr offset, uint size, IntPtr clientBuffer, uint flags);
 
 			[RequiredByFeature("GL_EXT_external_buffer", Api = "gl|gles2")]

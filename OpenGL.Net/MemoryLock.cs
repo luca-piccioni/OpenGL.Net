@@ -22,6 +22,8 @@
 using System;
 using System.Runtime.InteropServices;
 
+// ReSharper disable InheritdocConsiderUsage
+
 namespace OpenGL
 {
 	public sealed class MemoryLock : IDisposable
@@ -44,18 +46,12 @@ namespace OpenGL
 		/// <summary>
 		/// Address of the pinned memory.
 		/// </summary>
-		public IntPtr Address
-		{
-			get
-			{
-				return (_Handle.AddrOfPinnedObject());
-			}
-		}
+		public IntPtr Address => _Handle.AddrOfPinnedObject();
 
 		/// <summary>
 		/// Handle of the object.
 		/// </summary>
-		private readonly GCHandle _Handle;
+		private GCHandle _Handle;
 
 		#endregion
 

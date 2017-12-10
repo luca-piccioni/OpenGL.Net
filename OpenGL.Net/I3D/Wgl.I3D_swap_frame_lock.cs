@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -117,31 +121,31 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("WGL_I3D_swap_frame_lock")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool wglEnableFrameLockI3D();
 
 			[RequiredByFeature("WGL_I3D_swap_frame_lock")]
 			internal static wglEnableFrameLockI3D pwglEnableFrameLockI3D;
 
 			[RequiredByFeature("WGL_I3D_swap_frame_lock")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool wglDisableFrameLockI3D();
 
 			[RequiredByFeature("WGL_I3D_swap_frame_lock")]
 			internal static wglDisableFrameLockI3D pwglDisableFrameLockI3D;
 
 			[RequiredByFeature("WGL_I3D_swap_frame_lock")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool wglIsEnabledFrameLockI3D(bool* pFlag);
 
 			[RequiredByFeature("WGL_I3D_swap_frame_lock")]
 			internal static wglIsEnabledFrameLockI3D pwglIsEnabledFrameLockI3D;
 
 			[RequiredByFeature("WGL_I3D_swap_frame_lock")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool wglQueryFrameLockMasterI3D(bool* pFlag);
 
 			[RequiredByFeature("WGL_I3D_swap_frame_lock")]

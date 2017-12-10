@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -258,11 +262,11 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGenQueriesEXT(int n, uint* ids);
 
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
@@ -272,7 +276,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glDeleteQueriesEXT(int n, uint* ids);
 
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
@@ -282,7 +286,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsQueryEXT(uint id);
 
@@ -293,7 +297,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glBeginQueryEXT(int target, uint id);
 
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
@@ -303,7 +307,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glEndQueryEXT(int target);
 
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
@@ -313,7 +317,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetQueryivEXT(int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
@@ -323,7 +327,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_occlusion_query_boolean", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetQueryObjectuivEXT(uint id, int pname, uint* @params);
 
 			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]

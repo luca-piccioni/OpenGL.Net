@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -197,38 +201,38 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GLX_SGIX_pbuffer")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate IntPtr glXCreateGLXPbufferSGIX(IntPtr dpy, IntPtr config, uint width, uint height, int* attrib_list);
 
 			[RequiredByFeature("GLX_SGIX_pbuffer")]
 			internal static glXCreateGLXPbufferSGIX pglXCreateGLXPbufferSGIX;
 
 			[RequiredByFeature("GLX_SGIX_pbuffer")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glXDestroyGLXPbufferSGIX(IntPtr dpy, IntPtr pbuf);
 
 			[RequiredByFeature("GLX_SGIX_pbuffer")]
 			internal static glXDestroyGLXPbufferSGIX pglXDestroyGLXPbufferSGIX;
 
 			[RequiredByFeature("GLX_SGIX_pbuffer")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate int glXQueryGLXPbufferSGIX(IntPtr dpy, IntPtr pbuf, int attribute, uint* value);
 
 			[RequiredByFeature("GLX_SGIX_pbuffer")]
 			internal static glXQueryGLXPbufferSGIX pglXQueryGLXPbufferSGIX;
 
 			[RequiredByFeature("GLX_SGIX_pbuffer")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glXSelectEventSGIX(IntPtr dpy, IntPtr drawable, uint mask);
 
 			[RequiredByFeature("GLX_SGIX_pbuffer")]
 			internal static glXSelectEventSGIX pglXSelectEventSGIX;
 
 			[RequiredByFeature("GLX_SGIX_pbuffer")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glXGetSelectedEventSGIX(IntPtr dpy, IntPtr drawable, uint* mask);
 
 			[RequiredByFeature("GLX_SGIX_pbuffer")]

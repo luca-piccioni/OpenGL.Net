@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -152,10 +156,10 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_SGIX_instruments")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate int glGetInstrumentsSGIX();
 
 			[RequiredByFeature("GL_SGIX_instruments")]
@@ -163,7 +167,7 @@ namespace OpenGL
 			internal static glGetInstrumentsSGIX pglGetInstrumentsSGIX;
 
 			[RequiredByFeature("GL_SGIX_instruments")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glInstrumentsBufferSGIX(int size, int* buffer);
 
 			[RequiredByFeature("GL_SGIX_instruments")]
@@ -171,7 +175,7 @@ namespace OpenGL
 			internal static glInstrumentsBufferSGIX pglInstrumentsBufferSGIX;
 
 			[RequiredByFeature("GL_SGIX_instruments")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate int glPollInstrumentsSGIX(int* marker_p);
 
 			[RequiredByFeature("GL_SGIX_instruments")]
@@ -179,7 +183,7 @@ namespace OpenGL
 			internal static glPollInstrumentsSGIX pglPollInstrumentsSGIX;
 
 			[RequiredByFeature("GL_SGIX_instruments")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glReadInstrumentsSGIX(int marker);
 
 			[RequiredByFeature("GL_SGIX_instruments")]
@@ -187,7 +191,7 @@ namespace OpenGL
 			internal static glReadInstrumentsSGIX pglReadInstrumentsSGIX;
 
 			[RequiredByFeature("GL_SGIX_instruments")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glStartInstrumentsSGIX();
 
 			[RequiredByFeature("GL_SGIX_instruments")]
@@ -195,7 +199,7 @@ namespace OpenGL
 			internal static glStartInstrumentsSGIX pglStartInstrumentsSGIX;
 
 			[RequiredByFeature("GL_SGIX_instruments")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glStopInstrumentsSGIX(int marker);
 
 			[RequiredByFeature("GL_SGIX_instruments")]

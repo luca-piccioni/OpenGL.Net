@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -174,38 +178,38 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("WGL_NV_gpu_affinity")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool wglEnumGpusNV(uint iGpuIndex, IntPtr* phGpu);
 
 			[RequiredByFeature("WGL_NV_gpu_affinity")]
 			internal static wglEnumGpusNV pwglEnumGpusNV;
 
 			[RequiredByFeature("WGL_NV_gpu_affinity")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool wglEnumGpuDevicesNV(IntPtr hGpu, uint iDeviceIndex, IntPtr lpGpuDevice);
 
 			[RequiredByFeature("WGL_NV_gpu_affinity")]
 			internal static wglEnumGpuDevicesNV pwglEnumGpuDevicesNV;
 
 			[RequiredByFeature("WGL_NV_gpu_affinity")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate IntPtr wglCreateAffinityDCNV(IntPtr* phGpuList);
 
 			[RequiredByFeature("WGL_NV_gpu_affinity")]
 			internal static wglCreateAffinityDCNV pwglCreateAffinityDCNV;
 
 			[RequiredByFeature("WGL_NV_gpu_affinity")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool wglEnumGpusFromAffinityDCNV(IntPtr hAffinityDC, uint iGpuIndex, IntPtr* hGpu);
 
 			[RequiredByFeature("WGL_NV_gpu_affinity")]
 			internal static wglEnumGpusFromAffinityDCNV pwglEnumGpusFromAffinityDCNV;
 
 			[RequiredByFeature("WGL_NV_gpu_affinity")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool wglDeleteDCNV(IntPtr hdc);
 
 			[RequiredByFeature("WGL_NV_gpu_affinity")]

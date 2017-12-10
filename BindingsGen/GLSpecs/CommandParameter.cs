@@ -283,7 +283,7 @@ namespace BindingsGen.GLSpecs
 			if ((IsConstant == false) && implementationType.EndsWith("[]") && (Length == "1") && ((parentCommand.IsGetImplementation(ctx) || ((parentCommand.Flags & CommandFlags.OutParam) != 0))))
 				implementationType = implementationType.Substring(0, implementationType.Length - 2);
 			// String + Length!=null && !IsConst -> [Out] StringBuilder (in Get commands)
-			if ((IsConstant == false) && (implementationType == "String") && (Length != null) && ((parentCommand.IsGetImplementation(ctx) || ((parentCommand.Flags & CommandFlags.OutParam) != 0))))
+			if ((IsConstant == false) && (implementationType == "string") && (Length != null) && ((parentCommand.IsGetImplementation(ctx) || ((parentCommand.Flags & CommandFlags.OutParam) != 0))))
 				implementationType = "StringBuilder";
 			// Support 'ref' argument
 			if ((modifier == "ref" || modifier == "out") && implementationType.EndsWith("[]"))
@@ -412,7 +412,7 @@ namespace BindingsGen.GLSpecs
 			string implementationType = GetImportType(parentCommand);
 
 			// String + Length!=null -> [Out] StringBuilder
-			if ((IsConstant == false) && (implementationType == "String") && (Length != null) && ((parentCommand.IsGetImplementation(ctx) || ((parentCommand.Flags & CommandFlags.OutParam) != 0))))
+			if ((IsConstant == false) && (implementationType == "string") && (Length != null) && ((parentCommand.IsGetImplementation(ctx) || ((parentCommand.Flags & CommandFlags.OutParam) != 0))))
 				implementationType = "StringBuilder";
 			// Support 'ref' argument
 			if ((modifier == "ref" || modifier == "out") &&  implementationType.EndsWith("*"))

@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -2703,7 +2707,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_transform_feedback")]
-		public static void TransformFeedbackVaryings(uint program, String[] varyings, int bufferMode)
+		public static void TransformFeedbackVaryings(uint program, string[] varyings, int bufferMode)
 		{
 			Debug.Assert(Delegates.pglTransformFeedbackVaryings != null, "pglTransformFeedbackVaryings not implemented");
 			Delegates.pglTransformFeedbackVaryings(program, varyings.Length, varyings, bufferMode);
@@ -2742,7 +2746,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_transform_feedback")]
-		public static void GetTransformFeedbackVarying(uint program, uint index, int bufSize, out int length, out int size, out int type, [Out] StringBuilder name)
+		public static void GetTransformFeedbackVarying(uint program, uint index, int bufSize, out int length, out int size, out int type, StringBuilder name)
 		{
 			unsafe {
 				fixed (int* p_length = &length)
@@ -4263,7 +4267,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_gpu_shader4")]
-		public static void BindFragDataLocation(uint program, uint color, String name)
+		public static void BindFragDataLocation(uint program, uint color, string name)
 		{
 			Debug.Assert(Delegates.pglBindFragDataLocation != null, "pglBindFragDataLocation not implemented");
 			Delegates.pglBindFragDataLocation(program, color, name);
@@ -4285,7 +4289,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_gpu_shader4")]
-		public static int GetFragDataLocation(uint program, String name)
+		public static int GetFragDataLocation(uint program, string name)
 		{
 			int retValue;
 
@@ -5470,7 +5474,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-		public static String GetString(StringName name, uint index)
+		public static string GetString(StringName name, uint index)
 		{
 			IntPtr retValue;
 
@@ -6551,14 +6555,14 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_draw_buffers2")]
 			[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
 			[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glColorMaski(uint index, [MarshalAs(UnmanagedType.I1)] bool r, [MarshalAs(UnmanagedType.I1)] bool g, [MarshalAs(UnmanagedType.I1)] bool b, [MarshalAs(UnmanagedType.I1)] bool a);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -6573,7 +6577,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_draw_buffers2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetBooleani_v(int target, uint index, byte* data);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -6589,7 +6593,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_draw_buffers2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetIntegeri_v(int target, uint index, int* data);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -6609,7 +6613,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_NV_viewport_array", Api = "gles2")]
 			[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
 			[RequiredByFeature("GL_OES_viewport_array", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glEnablei(int target, uint index);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -6631,7 +6635,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_NV_viewport_array", Api = "gles2")]
 			[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
 			[RequiredByFeature("GL_OES_viewport_array", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glDisablei(int target, uint index);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -6653,7 +6657,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_NV_viewport_array", Api = "gles2")]
 			[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
 			[RequiredByFeature("GL_OES_viewport_array", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsEnabledi(int target, uint index);
 
@@ -6672,7 +6676,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_transform_feedback")]
 			[RequiredByFeature("GL_NV_transform_feedback")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glBeginTransformFeedback(int primitiveMode);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -6686,7 +6690,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_transform_feedback")]
 			[RequiredByFeature("GL_NV_transform_feedback")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glEndTransformFeedback();
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -6702,7 +6706,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_transform_feedback")]
 			[RequiredByFeature("GL_NV_transform_feedback")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glBindBufferRange(int target, uint index, uint buffer, IntPtr offset, uint size);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -6720,7 +6724,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_transform_feedback")]
 			[RequiredByFeature("GL_NV_transform_feedback")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glBindBufferBase(int target, uint index, uint buffer);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -6735,8 +6739,8 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_transform_feedback")]
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTransformFeedbackVaryings(uint program, int count, String[] varyings, int bufferMode);
+			[SuppressUnmanagedCodeSecurity]
+			internal delegate void glTransformFeedbackVaryings(uint program, int count, string[] varyings, int bufferMode);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -6747,8 +6751,8 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_transform_feedback")]
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glGetTransformFeedbackVarying(uint program, uint index, int bufSize, int* length, int* size, int* type, [Out] StringBuilder name);
+			[SuppressUnmanagedCodeSecurity]
+			internal delegate void glGetTransformFeedbackVarying(uint program, uint index, int bufSize, int* length, int* size, int* type, StringBuilder name);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -6758,7 +6762,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ARB_color_buffer_float")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glClampColor(int target, int clamp);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -6768,7 +6772,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_NV_conditional_render", Api = "gl|glcore|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glBeginConditionalRender(uint id, int mode);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -6779,7 +6783,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_NVX_conditional_render")]
 			[RequiredByFeature("GL_NV_conditional_render", Api = "gl|glcore|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glEndConditionalRender();
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -6791,7 +6795,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_NV_vertex_program4")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribIPointer(uint index, int size, int type, int stride, IntPtr pointer);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -6803,7 +6807,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_NV_vertex_program4")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetVertexAttribIiv(uint index, int pname, int* @params);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -6815,7 +6819,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_NV_vertex_program4")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetVertexAttribIuiv(uint index, int pname, uint* @params);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -6826,7 +6830,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_NV_vertex_program4")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribI1i(uint index, int x);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -6836,7 +6840,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_NV_vertex_program4")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribI2i(uint index, int x, int y);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -6846,7 +6850,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_NV_vertex_program4")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribI3i(uint index, int x, int y, int z);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -6857,7 +6861,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_NV_vertex_program4")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribI4i(uint index, int x, int y, int z, int w);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -6868,7 +6872,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_NV_vertex_program4")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribI1ui(uint index, uint x);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -6878,7 +6882,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_NV_vertex_program4")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribI2ui(uint index, uint x, uint y);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -6888,7 +6892,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_NV_vertex_program4")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribI3ui(uint index, uint x, uint y, uint z);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -6899,7 +6903,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_NV_vertex_program4")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribI4ui(uint index, uint x, uint y, uint z, uint w);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -6910,7 +6914,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_NV_vertex_program4")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribI1iv(uint index, int* v);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -6920,7 +6924,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_NV_vertex_program4")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribI2iv(uint index, int* v);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -6930,7 +6934,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_NV_vertex_program4")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribI3iv(uint index, int* v);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -6941,7 +6945,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_NV_vertex_program4")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribI4iv(uint index, int* v);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -6952,7 +6956,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_NV_vertex_program4")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribI1uiv(uint index, uint* v);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -6962,7 +6966,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_NV_vertex_program4")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribI2uiv(uint index, uint* v);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -6972,7 +6976,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_NV_vertex_program4")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribI3uiv(uint index, uint* v);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -6983,7 +6987,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_NV_vertex_program4")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribI4uiv(uint index, uint* v);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -6994,7 +6998,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_NV_vertex_program4")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribI4bv(uint index, sbyte* v);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -7004,7 +7008,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_NV_vertex_program4")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribI4sv(uint index, short* v);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -7014,7 +7018,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_NV_vertex_program4")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribI4ubv(uint index, byte* v);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -7024,7 +7028,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_NV_vertex_program4")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribI4usv(uint index, ushort* v);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -7035,7 +7039,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_gpu_shader4")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetUniformuiv(uint program, int location, uint* @params);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -7047,8 +7051,8 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_gpu_shader4")]
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glBindFragDataLocation(uint program, uint color, String name);
+			[SuppressUnmanagedCodeSecurity]
+			internal delegate void glBindFragDataLocation(uint program, uint color, string name);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2", EntryPoint = "glBindFragDataLocationEXT")]
@@ -7059,8 +7063,8 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_gpu_shader4")]
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate int glGetFragDataLocation(uint program, String name);
+			[SuppressUnmanagedCodeSecurity]
+			internal delegate int glGetFragDataLocation(uint program, string name);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -7071,7 +7075,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_gpu_shader4")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glUniform1ui(int location, uint v0);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -7083,7 +7087,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_gpu_shader4")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glUniform2ui(int location, uint v0, uint v1);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -7095,7 +7099,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_gpu_shader4")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glUniform3ui(int location, uint v0, uint v1, uint v2);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -7107,7 +7111,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_gpu_shader4")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glUniform4ui(int location, uint v0, uint v1, uint v2, uint v3);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -7119,7 +7123,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_gpu_shader4")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glUniform1uiv(int location, int count, uint* value);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -7131,7 +7135,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_gpu_shader4")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glUniform2uiv(int location, int count, uint* value);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -7143,7 +7147,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_gpu_shader4")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glUniform3uiv(int location, int count, uint* value);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -7155,7 +7159,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_gpu_shader4")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glUniform4uiv(int location, int count, uint* value);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -7169,7 +7173,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_texture_integer")]
 			[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glTexParameterIiv(int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -7185,7 +7189,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_texture_integer")]
 			[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glTexParameterIuiv(int target, int pname, uint* @params);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -7201,7 +7205,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_texture_integer")]
 			[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetTexParameterIiv(int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -7217,7 +7221,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_texture_integer")]
 			[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetTexParameterIuiv(int target, int pname, uint* @params);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -7230,7 +7234,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glClearBufferiv(int buffer, int drawbuffer, int* value);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -7240,7 +7244,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glClearBufferuiv(int buffer, int drawbuffer, uint* value);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -7250,7 +7254,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glClearBufferfv(int buffer, int drawbuffer, float* value);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -7260,7 +7264,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glClearBufferfi(int buffer, int drawbuffer, float depth, int stencil);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -7270,7 +7274,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate IntPtr glGetStringi(int name, uint index);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -7282,7 +7286,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_framebuffer_object")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsRenderbuffer(uint renderbuffer);
 
@@ -7297,7 +7301,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glBindRenderbuffer(int target, uint renderbuffer);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -7311,7 +7315,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_framebuffer_object")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glDeleteRenderbuffers(int n, uint* renderbuffers);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -7326,7 +7330,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_framebuffer_object")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGenRenderbuffers(int n, uint* renderbuffers);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -7342,7 +7346,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_framebuffer_object")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glRenderbufferStorage(int target, int internalformat, int width, int height);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -7358,7 +7362,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_framebuffer_object")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetRenderbufferParameteriv(int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -7373,7 +7377,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_framebuffer_object")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsFramebuffer(uint framebuffer);
 
@@ -7388,7 +7392,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glBindFramebuffer(int target, uint framebuffer);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -7402,7 +7406,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_framebuffer_object")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glDeleteFramebuffers(int n, uint* framebuffers);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -7417,7 +7421,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_framebuffer_object")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGenFramebuffers(int n, uint* framebuffers);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -7433,7 +7437,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_framebuffer_object")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate int glCheckFramebufferStatus(int target);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -7447,7 +7451,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_framebuffer_object")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glFramebufferTexture1D(int target, int attachment, int textarget, uint texture, int level);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -7461,7 +7465,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_framebuffer_object")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glFramebufferTexture2D(int target, int attachment, int textarget, uint texture, int level);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -7475,7 +7479,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_framebuffer_object")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glFramebufferTexture3D(int target, int attachment, int textarget, uint texture, int level, int zoffset);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -7489,7 +7493,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_framebuffer_object")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glFramebufferRenderbuffer(int target, int attachment, int renderbuffertarget, uint renderbuffer);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -7505,7 +7509,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_framebuffer_object")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetFramebufferAttachmentParameteriv(int target, int attachment, int pname, int* @params);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -7521,7 +7525,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_framebuffer_object")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGenerateMipmap(int target);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -7537,7 +7541,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_framebuffer_blit")]
 			[RequiredByFeature("GL_NV_framebuffer_blit", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glBlitFramebuffer(int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, uint mask, int filter);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -7554,7 +7558,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_EXT_framebuffer_multisample")]
 			[RequiredByFeature("GL_EXT_multisampled_render_to_texture", Api = "gles1|gles2")]
 			[RequiredByFeature("GL_NV_framebuffer_multisample", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glRenderbufferStorageMultisample(int target, int samples, int internalformat, int width, int height);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -7572,7 +7576,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_texture_array")]
 			[RequiredByFeature("GL_NV_geometry_program4")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glFramebufferTextureLayer(int target, int attachment, uint texture, int level, int layer);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -7588,7 +7592,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_map_buffer_range", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_map_buffer_range", Api = "gles1|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate IntPtr glMapBufferRange(int target, IntPtr offset, uint length, uint access);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -7603,7 +7607,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_APPLE_flush_buffer_range")]
 			[RequiredByFeature("GL_ARB_map_buffer_range", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_map_buffer_range", Api = "gles1|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glFlushMappedBufferRange(int target, IntPtr offset, uint length);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -7618,7 +7622,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_vertex_array_object", Api = "gl|glcore")]
 			[RequiredByFeature("GL_OES_vertex_array_object", Api = "gles1|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glBindVertexArray(uint array);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -7633,7 +7637,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_APPLE_vertex_array_object")]
 			[RequiredByFeature("GL_ARB_vertex_array_object", Api = "gl|glcore")]
 			[RequiredByFeature("GL_OES_vertex_array_object", Api = "gles1|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glDeleteVertexArrays(int n, uint* arrays);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -7649,7 +7653,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_APPLE_vertex_array_object")]
 			[RequiredByFeature("GL_ARB_vertex_array_object", Api = "gl|glcore")]
 			[RequiredByFeature("GL_OES_vertex_array_object", Api = "gles1|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGenVertexArrays(int n, uint* arrays);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
@@ -7665,7 +7669,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_APPLE_vertex_array_object")]
 			[RequiredByFeature("GL_ARB_vertex_array_object", Api = "gl|glcore")]
 			[RequiredByFeature("GL_OES_vertex_array_object", Api = "gles1|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsVertexArray(uint array);
 

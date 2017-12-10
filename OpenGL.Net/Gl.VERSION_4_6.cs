@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -182,7 +186,7 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pEntryPoint">
-		/// A <see cref="T:String"/>.
+		/// A <see cref="T:string"/>.
 		/// </param>
 		/// <param name="numSpecializationConstants">
 		/// A <see cref="T:uint"/>.
@@ -195,7 +199,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_6")]
 		[RequiredByFeature("GL_ARB_gl_spirv", Api = "gl|glcore")]
-		public static void SpecializeShader(uint shader, String pEntryPoint, uint numSpecializationConstants, uint[] pConstantIndex, uint[] pConstantValue)
+		public static void SpecializeShader(uint shader, string pEntryPoint, uint numSpecializationConstants, uint[] pConstantIndex, uint[] pConstantValue)
 		{
 			unsafe {
 				fixed (uint* p_pConstantIndex = pConstantIndex)
@@ -354,12 +358,12 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_VERSION_4_6")]
 			[RequiredByFeature("GL_ARB_gl_spirv", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glSpecializeShader(uint shader, String pEntryPoint, uint numSpecializationConstants, uint* pConstantIndex, uint* pConstantValue);
+			[SuppressUnmanagedCodeSecurity]
+			internal delegate void glSpecializeShader(uint shader, string pEntryPoint, uint numSpecializationConstants, uint* pConstantIndex, uint* pConstantValue);
 
 			[RequiredByFeature("GL_VERSION_4_6")]
 			[RequiredByFeature("GL_ARB_gl_spirv", Api = "gl|glcore", EntryPoint = "glSpecializeShaderARB")]
@@ -368,7 +372,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_6")]
 			[RequiredByFeature("GL_ARB_indirect_parameters", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glMultiDrawArraysIndirectCount(int mode, IntPtr indirect, IntPtr drawcount, int maxdrawcount, int stride);
 
 			[RequiredByFeature("GL_VERSION_4_6")]
@@ -378,7 +382,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_6")]
 			[RequiredByFeature("GL_ARB_indirect_parameters", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glMultiDrawElementsIndirectCount(int mode, int type, IntPtr indirect, IntPtr drawcount, int maxdrawcount, int stride);
 
 			[RequiredByFeature("GL_VERSION_4_6")]
@@ -389,7 +393,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_6")]
 			[RequiredByFeature("GL_ARB_polygon_offset_clamp", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_polygon_offset_clamp", Api = "gl|glcore|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glPolygonOffsetClamp(float factor, float units, float clamp);
 
 			[RequiredByFeature("GL_VERSION_4_6")]

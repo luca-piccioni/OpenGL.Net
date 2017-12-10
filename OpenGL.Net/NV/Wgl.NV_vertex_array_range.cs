@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -80,17 +84,17 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("WGL_NV_vertex_array_range")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate IntPtr wglAllocateMemoryNV(int size, float readfreq, float writefreq, float priority);
 
 			[RequiredByFeature("WGL_NV_vertex_array_range")]
 			internal static wglAllocateMemoryNV pwglAllocateMemoryNV;
 
 			[RequiredByFeature("WGL_NV_vertex_array_range")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void wglFreeMemoryNV(IntPtr pointer);
 
 			[RequiredByFeature("WGL_NV_vertex_array_range")]

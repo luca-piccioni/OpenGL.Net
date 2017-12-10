@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -228,38 +232,38 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GLX_OML_sync_control")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool glXGetSyncValuesOML(IntPtr dpy, IntPtr drawable, long* ust, long* msc, long* sbc);
 
 			[RequiredByFeature("GLX_OML_sync_control")]
 			internal static glXGetSyncValuesOML pglXGetSyncValuesOML;
 
 			[RequiredByFeature("GLX_OML_sync_control")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool glXGetMscRateOML(IntPtr dpy, IntPtr drawable, int* numerator, int* denominator);
 
 			[RequiredByFeature("GLX_OML_sync_control")]
 			internal static glXGetMscRateOML pglXGetMscRateOML;
 
 			[RequiredByFeature("GLX_OML_sync_control")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate long glXSwapBuffersMscOML(IntPtr dpy, IntPtr drawable, long target_msc, long divisor, long remainder);
 
 			[RequiredByFeature("GLX_OML_sync_control")]
 			internal static glXSwapBuffersMscOML pglXSwapBuffersMscOML;
 
 			[RequiredByFeature("GLX_OML_sync_control")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool glXWaitForMscOML(IntPtr dpy, IntPtr drawable, long target_msc, long divisor, long remainder, long* ust, long* msc, long* sbc);
 
 			[RequiredByFeature("GLX_OML_sync_control")]
 			internal static glXWaitForMscOML pglXWaitForMscOML;
 
 			[RequiredByFeature("GLX_OML_sync_control")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool glXWaitForSbcOML(IntPtr dpy, IntPtr drawable, long target_sbc, long* ust, long* msc, long* sbc);
 
 			[RequiredByFeature("GLX_OML_sync_control")]

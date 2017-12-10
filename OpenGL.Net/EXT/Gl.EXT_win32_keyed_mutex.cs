@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -84,10 +88,10 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_win32_keyed_mutex", Api = "gl|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glAcquireKeyedMutexWin32EXT(uint memory, ulong key, uint timeout);
 
@@ -96,7 +100,7 @@ namespace OpenGL
 			internal static glAcquireKeyedMutexWin32EXT pglAcquireKeyedMutexWin32EXT;
 
 			[RequiredByFeature("GL_EXT_win32_keyed_mutex", Api = "gl|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glReleaseKeyedMutexWin32EXT(uint memory, ulong key);
 

@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenVX
 {
@@ -790,309 +794,309 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuColorConvert(Context context, Image input, Image output);
 
 			internal static vxuColorConvert pvxuColorConvert;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuChannelExtract(Context context, Image input, int channel, Image output);
 
 			internal static vxuChannelExtract pvxuChannelExtract;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuChannelCombine(Context context, Image plane0, Image plane1, Image plane2, Image plane3, Image output);
 
 			internal static vxuChannelCombine pvxuChannelCombine;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuSobel3x3(Context context, Image input, Image output_x, Image output_y);
 
 			internal static vxuSobel3x3 pvxuSobel3x3;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuMagnitude(Context context, Image grad_x, Image grad_y, Image mag);
 
 			internal static vxuMagnitude pvxuMagnitude;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuPhase(Context context, Image grad_x, Image grad_y, Image orientation);
 
 			internal static vxuPhase pvxuPhase;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuScaleImage(Context context, Image src, Image dst, int type);
 
 			internal static vxuScaleImage pvxuScaleImage;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuTableLookup(Context context, Image input, Lut lut, Image output);
 
 			internal static vxuTableLookup pvxuTableLookup;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuHistogram(Context context, Image input, Distribution distribution);
 
 			internal static vxuHistogram pvxuHistogram;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuEqualizeHist(Context context, Image input, Image output);
 
 			internal static vxuEqualizeHist pvxuEqualizeHist;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuAbsDiff(Context context, Image in1, Image in2, Image @out);
 
 			internal static vxuAbsDiff pvxuAbsDiff;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuMeanStdDev(Context context, Image input, float* mean, float* stddev);
 
 			internal static vxuMeanStdDev pvxuMeanStdDev;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuThreshold(Context context, Image input, Threshold thresh, Image output);
 
 			internal static vxuThreshold pvxuThreshold;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuNonMaxSuppression(Context context, Image input, Image mask, int win_size, Image output);
 
 			internal static vxuNonMaxSuppression pvxuNonMaxSuppression;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuIntegralImage(Context context, Image input, Image output);
 
 			internal static vxuIntegralImage pvxuIntegralImage;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuErode3x3(Context context, Image input, Image output);
 
 			internal static vxuErode3x3 pvxuErode3x3;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuDilate3x3(Context context, Image input, Image output);
 
 			internal static vxuDilate3x3 pvxuDilate3x3;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuMedian3x3(Context context, Image input, Image output);
 
 			internal static vxuMedian3x3 pvxuMedian3x3;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuBox3x3(Context context, Image input, Image output);
 
 			internal static vxuBox3x3 pvxuBox3x3;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuGaussian3x3(Context context, Image input, Image output);
 
 			internal static vxuGaussian3x3 pvxuGaussian3x3;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuNonLinearFilter(Context context, int function, Image input, Matrix mask, Image output);
 
 			internal static vxuNonLinearFilter pvxuNonLinearFilter;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuConvolve(Context context, Image input, Convolution conv, Image output);
 
 			internal static vxuConvolve pvxuConvolve;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuGaussianPyramid(Context context, Image input, Pyramid gaussian);
 
 			internal static vxuGaussianPyramid pvxuGaussianPyramid;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuLaplacianPyramid(Context context, Image input, Pyramid laplacian, Image output);
 
 			internal static vxuLaplacianPyramid pvxuLaplacianPyramid;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuLaplacianReconstruct(Context context, Pyramid laplacian, Image input, Image output);
 
 			internal static vxuLaplacianReconstruct pvxuLaplacianReconstruct;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuAccumulateImage(Context context, Image input, Image accum);
 
 			internal static vxuAccumulateImage pvxuAccumulateImage;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuAccumulateWeightedImage(Context context, Image input, Scalar alpha, Image accum);
 
 			internal static vxuAccumulateWeightedImage pvxuAccumulateWeightedImage;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuAccumulateSquareImage(Context context, Image input, Scalar shift, Image accum);
 
 			internal static vxuAccumulateSquareImage pvxuAccumulateSquareImage;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuMinMaxLoc(Context context, Image input, Scalar minVal, Scalar maxVal, Array minLoc, Array maxLoc, Scalar minCount, Scalar maxCount);
 
 			internal static vxuMinMaxLoc pvxuMinMaxLoc;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuMin(Context context, Image in1, Image in2, Image @out);
 
 			internal static vxuMin pvxuMin;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuMax(Context context, Image in1, Image in2, Image @out);
 
 			internal static vxuMax pvxuMax;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuConvertDepth(Context context, Image input, Image output, int policy, int shift);
 
 			internal static vxuConvertDepth pvxuConvertDepth;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuCannyEdgeDetector(Context context, Image input, Threshold hyst, int gradient_size, int norm_type, Image output);
 
 			internal static vxuCannyEdgeDetector pvxuCannyEdgeDetector;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuHalfScaleGaussian(Context context, Image input, Image output, int kernel_size);
 
 			internal static vxuHalfScaleGaussian pvxuHalfScaleGaussian;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuAnd(Context context, Image in1, Image in2, Image @out);
 
 			internal static vxuAnd pvxuAnd;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuOr(Context context, Image in1, Image in2, Image @out);
 
 			internal static vxuOr pvxuOr;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuXor(Context context, Image in1, Image in2, Image @out);
 
 			internal static vxuXor pvxuXor;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuNot(Context context, Image input, Image output);
 
 			internal static vxuNot pvxuNot;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuMultiply(Context context, Image in1, Image in2, float scale, int overflow_policy, int rounding_policy, Image @out);
 
 			internal static vxuMultiply pvxuMultiply;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuAdd(Context context, Image in1, Image in2, int policy, Image @out);
 
 			internal static vxuAdd pvxuAdd;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuSubtract(Context context, Image in1, Image in2, int policy, Image @out);
 
 			internal static vxuSubtract pvxuSubtract;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuWarpAffine(Context context, Image input, Matrix matrix, int type, Image output);
 
 			internal static vxuWarpAffine pvxuWarpAffine;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuWarpPerspective(Context context, Image input, Matrix matrix, int type, Image output);
 
 			internal static vxuWarpPerspective pvxuWarpPerspective;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuHarrisCorners(Context context, Image input, Scalar strength_thresh, Scalar min_distance, Scalar sensitivity, int gradient_size, int block_size, Array corners, Scalar num_corners);
 
 			internal static vxuHarrisCorners pvxuHarrisCorners;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuFastCorners(Context context, Image input, Scalar strength_thresh, bool nonmax_suppression, Array corners, Scalar num_corners);
 
 			internal static vxuFastCorners pvxuFastCorners;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuOpticalFlowPyrLK(Context context, Pyramid old_images, Pyramid new_images, Array old_points, Array new_points_estimates, Array new_points, int termination, Scalar epsilon, Scalar num_iterations, Scalar use_initial_estimate, UIntPtr window_dimension);
 
 			internal static vxuOpticalFlowPyrLK pvxuOpticalFlowPyrLK;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuMatchTemplateNode(Context context, Image src, Image templateImage, int matchingMethod, Image output);
 
 			internal static vxuMatchTemplateNode pvxuMatchTemplateNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuLBPNode(Context context, Image @in, int format, sbyte kernel_size, Image @out);
 
 			internal static vxuLBPNode pvxuLBPNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuHOGFeatures(Context context, Image input, Tensor magnitudes, Tensor bins, Hog* @params, UIntPtr hog_param_size, Tensor features);
 
 			internal static vxuHOGFeatures pvxuHOGFeatures;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuHOGCells(Context context, Image input, int cell_size, int num_bins, Tensor magnitudes, Tensor bins);
 
 			internal static vxuHOGCells pvxuHOGCells;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuHoughLinesPNode(Context context, Image input, HoughLinesParams* @params, Array lines_array, Scalar num_lines);
 
 			internal static vxuHoughLinesPNode pvxuHoughLinesPNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuRemap(Context context, Image input, Remap table, int policy, Image output);
 
 			internal static vxuRemap pvxuRemap;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuBilateralFilter(Context context, Tensor src, int diameter, float sigmaSpace, float sigmaValues, Tensor dst);
 
 			internal static vxuBilateralFilter pvxuBilateralFilter;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuTensorMultiply(Context context, Tensor input1, Tensor input2, Scalar scale, int overflow_policy, int rounding_policy, Tensor output);
 
 			internal static vxuTensorMultiply pvxuTensorMultiply;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuTensorAdd(Context context, Tensor input1, Tensor input2, int policy, Tensor output);
 
 			internal static vxuTensorAdd pvxuTensorAdd;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuTensorSubtract(Context context, Tensor input1, Tensor input2, int policy, Tensor output);
 
 			internal static vxuTensorSubtract pvxuTensorSubtract;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuTensorTableLookup(Context context, Tensor input1, Lut lut, Tensor output);
 
 			internal static vxuTensorTableLookup pvxuTensorTableLookup;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuTensorTranspose(Context context, Tensor input, Tensor output, UIntPtr dimension1, UIntPtr dimension2);
 
 			internal static vxuTensorTranspose pvxuTensorTranspose;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuTensorConvertDepth(Context context, Tensor input, int policy, Scalar norm, Scalar offset, Tensor output);
 
 			internal static vxuTensorConvertDepth pvxuTensorConvertDepth;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuMatrixMultiply(Context context, Tensor input1, Tensor input2, Tensor input3, MatrixMulParams* matrix_multiply_params, Tensor output);
 
 			internal static vxuMatrixMultiply pvxuMatrixMultiply;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxuCopy(Context context, Reference input, Reference output);
 
 			internal static vxuCopy pvxuCopy;

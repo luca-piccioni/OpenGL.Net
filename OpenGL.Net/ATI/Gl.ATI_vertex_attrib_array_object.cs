@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -122,10 +126,10 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_ATI_vertex_attrib_array_object")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribArrayObjectATI(uint index, int size, int type, [MarshalAs(UnmanagedType.I1)] bool normalized, int stride, uint buffer, uint offset);
 
 			[RequiredByFeature("GL_ATI_vertex_attrib_array_object")]
@@ -133,7 +137,7 @@ namespace OpenGL
 			internal static glVertexAttribArrayObjectATI pglVertexAttribArrayObjectATI;
 
 			[RequiredByFeature("GL_ATI_vertex_attrib_array_object")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetVertexAttribArrayObjectfvATI(uint index, int pname, float* @params);
 
 			[RequiredByFeature("GL_ATI_vertex_attrib_array_object")]
@@ -141,7 +145,7 @@ namespace OpenGL
 			internal static glGetVertexAttribArrayObjectfvATI pglGetVertexAttribArrayObjectfvATI;
 
 			[RequiredByFeature("GL_ATI_vertex_attrib_array_object")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetVertexAttribArrayObjectivATI(uint index, int pname, int* @params);
 
 			[RequiredByFeature("GL_ATI_vertex_attrib_array_object")]

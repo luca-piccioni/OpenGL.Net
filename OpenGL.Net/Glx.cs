@@ -20,8 +20,8 @@
 // SOFTWARE.
 
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Reflection;
@@ -33,6 +33,7 @@ namespace OpenGL
 	/// <summary>
 	/// GLX (GL for X) window system interface.
 	/// </summary>
+	[SuppressMessage("ReSharper", "InconsistentNaming")]
 	public partial class Glx : KhronosApi
 	{
 		#region Constructors
@@ -139,7 +140,7 @@ namespace OpenGL
 		/// A <see cref="T:Object[]"/> that specifies the API command arguments, if any.
 		/// </param>
 		[Conditional("GL_DEBUG")]
-		protected static new void LogCommand(string name, object returnValue, params object[] args)
+		protected new static void LogCommand(string name, object returnValue, params object[] args)
 		{
 			if (_LogContext == null)
 				_LogContext = new KhronosLogContext(typeof(Glx));
@@ -789,7 +790,7 @@ namespace OpenGL
 						result += ", ";
 					}
 					object value = field.GetValue(ev);
-					result += field.Name + "=" + (value == null ? "<null>" : value.ToString());
+					result += field.Name + "=" + (value?.ToString() ?? "<null>");
 				}
 				return type.Name + " (" + result + ")";
 			}

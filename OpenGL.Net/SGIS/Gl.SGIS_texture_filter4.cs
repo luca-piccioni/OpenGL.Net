@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -130,10 +134,10 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_SGIS_texture_filter4")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetTexFilterFuncSGIS(int target, int filter, float* weights);
 
 			[RequiredByFeature("GL_SGIS_texture_filter4")]
@@ -141,7 +145,7 @@ namespace OpenGL
 			internal static glGetTexFilterFuncSGIS pglGetTexFilterFuncSGIS;
 
 			[RequiredByFeature("GL_SGIS_texture_filter4")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glTexFilterFuncSGIS(int target, int filter, int n, float* weights);
 
 			[RequiredByFeature("GL_SGIS_texture_filter4")]

@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -454,10 +458,10 @@ namespace OpenGL
 		/// [WGL] wglGetProcAddress: Binding for wglGetProcAddress.
 		/// </summary>
 		/// <param name="lpszProc">
-		/// A <see cref="T:String"/>.
+		/// A <see cref="T:string"/>.
 		/// </param>
 		[RequiredByFeature("WGL_VERSION_1_0")]
-		public static IntPtr GetProcAddress(String lpszProc)
+		public static IntPtr GetProcAddress(string lpszProc)
 		{
 			IntPtr retValue;
 
@@ -794,143 +798,143 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("WGL_VERSION_1_0")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool wglCopyContext(IntPtr hglrcSrc, IntPtr hglrcDst, uint mask);
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			internal static wglCopyContext pwglCopyContext;
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate IntPtr wglCreateContext(IntPtr hDc);
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			internal static wglCreateContext pwglCreateContext;
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate IntPtr wglCreateLayerContext(IntPtr hDc, int level);
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			internal static wglCreateLayerContext pwglCreateLayerContext;
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool wglDeleteContext(IntPtr oldContext);
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			internal static wglDeleteContext pwglDeleteContext;
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool wglDescribeLayerPlane(IntPtr hDc, int pixelFormat, int layerPlane, uint nBytes, IntPtr* plpd);
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			internal static wglDescribeLayerPlane pwglDescribeLayerPlane;
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate IntPtr wglGetCurrentContext();
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			internal static wglGetCurrentContext pwglGetCurrentContext;
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate IntPtr wglGetCurrentDC();
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			internal static wglGetCurrentDC pwglGetCurrentDC;
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate int wglGetLayerPaletteEntries(IntPtr hdc, int iLayerPlane, int iStart, int cEntries, IntPtr pcr);
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			internal static wglGetLayerPaletteEntries pwglGetLayerPaletteEntries;
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate IntPtr wglGetProcAddress(String lpszProc);
+			[SuppressUnmanagedCodeSecurity]
+			internal delegate IntPtr wglGetProcAddress(string lpszProc);
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			internal static wglGetProcAddress pwglGetProcAddress;
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool wglMakeCurrent(IntPtr hDc, IntPtr newContext);
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			internal static wglMakeCurrent pwglMakeCurrent;
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool wglRealizeLayerPalette(IntPtr hdc, int iLayerPlane, bool bRealize);
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			internal static wglRealizeLayerPalette pwglRealizeLayerPalette;
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate int wglSetLayerPaletteEntries(IntPtr hdc, int iLayerPlane, int iStart, int cEntries, IntPtr pcr);
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			internal static wglSetLayerPaletteEntries pwglSetLayerPaletteEntries;
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool wglShareLists(IntPtr hrcSrvShare, IntPtr hrcSrvSource);
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			internal static wglShareLists pwglShareLists;
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool wglSwapLayerBuffers(IntPtr hdc, uint fuFlags);
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			internal static wglSwapLayerBuffers pwglSwapLayerBuffers;
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool wglUseFontBitmaps(IntPtr hDC, int first, int count, int listBase);
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			internal static wglUseFontBitmaps pwglUseFontBitmaps;
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool wglUseFontBitmapsA(IntPtr hDC, int first, int count, int listBase);
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			internal static wglUseFontBitmapsA pwglUseFontBitmapsA;
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool wglUseFontBitmapsW(IntPtr hDC, int first, int count, int listBase);
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			internal static wglUseFontBitmapsW pwglUseFontBitmapsW;
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool wglUseFontOutlines(IntPtr hDC, int first, int count, int listBase, float deviation, float extrusion, int format, IntPtr lpgmf);
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			internal static wglUseFontOutlines pwglUseFontOutlines;
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool wglUseFontOutlinesA(IntPtr hDC, int first, int count, int listBase, float deviation, float extrusion, int format, IntPtr lpgmf);
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
 			internal static wglUseFontOutlinesA pwglUseFontOutlinesA;
 
 			[RequiredByFeature("WGL_VERSION_1_0")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool wglUseFontOutlinesW(IntPtr hDC, int first, int count, int listBase, float deviation, float extrusion, int format, IntPtr lpgmf);
 
 			[RequiredByFeature("WGL_VERSION_1_0")]

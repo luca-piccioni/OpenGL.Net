@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -234,38 +238,38 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GLX_SGIX_video_resize")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate int glXBindChannelToWindowSGIX(IntPtr display, int screen, int channel, IntPtr window);
 
 			[RequiredByFeature("GLX_SGIX_video_resize")]
 			internal static glXBindChannelToWindowSGIX pglXBindChannelToWindowSGIX;
 
 			[RequiredByFeature("GLX_SGIX_video_resize")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate int glXChannelRectSGIX(IntPtr display, int screen, int channel, int x, int y, int w, int h);
 
 			[RequiredByFeature("GLX_SGIX_video_resize")]
 			internal static glXChannelRectSGIX pglXChannelRectSGIX;
 
 			[RequiredByFeature("GLX_SGIX_video_resize")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate int glXQueryChannelRectSGIX(IntPtr display, int screen, int channel, int* dx, int* dy, int* dw, int* dh);
 
 			[RequiredByFeature("GLX_SGIX_video_resize")]
 			internal static glXQueryChannelRectSGIX pglXQueryChannelRectSGIX;
 
 			[RequiredByFeature("GLX_SGIX_video_resize")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate int glXQueryChannelDeltasSGIX(IntPtr display, int screen, int channel, int* x, int* y, int* w, int* h);
 
 			[RequiredByFeature("GLX_SGIX_video_resize")]
 			internal static glXQueryChannelDeltasSGIX pglXQueryChannelDeltasSGIX;
 
 			[RequiredByFeature("GLX_SGIX_video_resize")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate int glXChannelRectSyncSGIX(IntPtr display, int screen, int channel, int synctype);
 
 			[RequiredByFeature("GLX_SGIX_video_resize")]

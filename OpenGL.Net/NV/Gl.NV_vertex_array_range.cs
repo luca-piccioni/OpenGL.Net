@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -117,10 +121,10 @@ namespace OpenGL
 			}
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_vertex_array_range")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glFlushVertexArrayRangeNV();
 
 			[RequiredByFeature("GL_NV_vertex_array_range")]
@@ -128,7 +132,7 @@ namespace OpenGL
 			internal static glFlushVertexArrayRangeNV pglFlushVertexArrayRangeNV;
 
 			[RequiredByFeature("GL_NV_vertex_array_range")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexArrayRangeNV(int length, IntPtr pointer);
 
 			[RequiredByFeature("GL_NV_vertex_array_range")]

@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -487,12 +491,12 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_KHR_blend_equation_advanced", Api = "gl|glcore|gles2")]
 			[RequiredByFeature("GL_NV_blend_equation_advanced", Api = "gl|glcore|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glBlendBarrier();
 
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
@@ -505,7 +509,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_ES3_2_compatibility", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_primitive_bounding_box", Api = "gles2")]
 			[RequiredByFeature("GL_OES_primitive_bounding_box", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glPrimitiveBoundingBox(float minX, float minY, float minZ, float minW, float maxX, float maxY, float maxZ, float maxW);
 
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]

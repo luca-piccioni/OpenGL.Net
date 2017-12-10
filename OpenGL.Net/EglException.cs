@@ -23,6 +23,8 @@ using System;
 
 using Khronos;
 
+// ReSharper disable InheritdocConsiderUsage
+
 namespace OpenGL
 {
 	/// <summary>
@@ -53,7 +55,7 @@ namespace OpenGL
 		/// <param name="message">
 		/// A <see cref="String"/> that specifies the exception message.
 		/// </param>
-		public EglException(int errorCode, String message) :
+		public EglException(int errorCode, string message) :
 			base(errorCode, message)
 		{
 
@@ -71,7 +73,7 @@ namespace OpenGL
 		/// <param name="innerException">
 		/// The <see cref="Exception"/> wrapped by this Exception.
 		/// </param>
-		public EglException(int errorCode, String message, Exception innerException) :
+		public EglException(int errorCode, string message, Exception innerException) :
 			base(errorCode, message, innerException)
 		{
 
@@ -95,38 +97,38 @@ namespace OpenGL
 			switch (errorCode) {
 
 				default:
-					return (String.Format("unknown error code 0x{0}", errorCode.ToString("X8")));
+					return $"unknown error code 0x{errorCode:X8}";
 				case Egl.SUCCESS:
-					return ("no error");
+					return "no error";
 
 				case Egl.NOT_INITIALIZED:
-					return ("EGL is not initialized, or could not be initialized, for the specified EGL display connection");
+					return "EGL is not initialized, or could not be initialized, for the specified EGL display connection";
 				case Egl.BAD_ACCESS:
-					return ("EGL cannot access a requested resource");
+					return "EGL cannot access a requested resource";
 				case Egl.BAD_ALLOC:
-					return ("EGL failed to allocate resources for the requested operation");
+					return "EGL failed to allocate resources for the requested operation";
 				case Egl.BAD_ATTRIBUTE:
-					return ("an unrecognized attribute or attribute value was passed in the attribute list");
+					return "an unrecognized attribute or attribute value was passed in the attribute list";
 				case Egl.BAD_CONTEXT:
-					return ("an EGLContext argument does not name a valid EGL rendering context");
+					return "an EGLContext argument does not name a valid EGL rendering context";
 				case Egl.BAD_CONFIG:
-					return ("an EGLConfig argument does not name a valid EGL frame buffer configuration");
+					return "an EGLConfig argument does not name a valid EGL frame buffer configuration";
 				case Egl.BAD_CURRENT_SURFACE:
-					return ("the current surface of the calling thread is a window, pixel buffer or pixmap that is no longer valid");
+					return "the current surface of the calling thread is a window, pixel buffer or pixmap that is no longer valid";
 				case Egl.BAD_DISPLAY:
-					return ("an EGLDisplay argument does not name a valid EGL display connection");
+					return "an EGLDisplay argument does not name a valid EGL display connection";
 				case Egl.BAD_SURFACE:
-					return ("an EGLSurface argument does not name a valid surface configured for GL rendering");
+					return "an EGLSurface argument does not name a valid surface configured for GL rendering";
 				case Egl.BAD_MATCH:
-					return ("arguments are inconsistent");
+					return "arguments are inconsistent";
                 case Egl.BAD_PARAMETER:
-					return ("one or more argument values are invalid");
+					return "one or more argument values are invalid";
 				case Egl.BAD_NATIVE_PIXMAP:
-					return ("a NativePixmapType argument does not refer to a valid native pixmap");
+					return "a NativePixmapType argument does not refer to a valid native pixmap";
 				case Egl.BAD_NATIVE_WINDOW:
-					return ("a NativeWindowType argument does not refer to a valid native window");
+					return "a NativeWindowType argument does not refer to a valid native window";
 				case Egl.CONTEXT_LOST:
-					return ("a power management event has occurred");
+					return "a power management event has occurred";
 			}
 		}
 

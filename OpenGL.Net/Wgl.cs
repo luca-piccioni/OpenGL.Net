@@ -24,16 +24,20 @@
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InheritdocConsiderUsage
 
 namespace OpenGL
 {
 	/// <summary>
 	/// WGL (GL for Windows) window system interface.
 	/// </summary>
+	[SuppressMessage("ReSharper", "InconsistentNaming")]
 	public partial class Wgl : KhronosApi
 	{
 		#region Constructors
@@ -54,12 +58,7 @@ namespace OpenGL
 		/// <summary>
 		/// WGL extension support.
 		/// </summary>
-		public static Extensions CurrentExtensions { get { return (_CurrentExtensions); } }
-
-		/// <summary>
-		/// WGL extension support.
-		/// </summary>
-		internal static Extensions _CurrentExtensions;
+		public static Extensions CurrentExtensions { get; internal set; }
 
 		#endregion
 
@@ -95,13 +94,7 @@ namespace OpenGL
 		/// <summary>
 		/// Utility method for testing whether wglGetExtensionsStringARB is implemented on the current system.
 		/// </summary>
-		public static bool HasGetExtensionsStringARB
-		{
-			get
-			{
-				return (Delegates.pwglGetExtensionsStringARB != null);
-			}
-		}
+		public static bool HasGetExtensionsStringARB => Delegates.pwglGetExtensionsStringARB != null;
 
 		#endregion
 
@@ -151,7 +144,7 @@ namespace OpenGL
 			// Log errors returned (instead of throwing exception) in the case of successfull cases
 			ErrorHandlingMode methodErrorHandling = ErrorHandling;
 
-			if ((methodErrorHandling == ErrorHandlingMode.Normal) && (returnValue != null)) {
+			if (methodErrorHandling == ErrorHandlingMode.Normal && returnValue != null) {
 #if NETSTANDARD1_1 || NETSTANDARD1_4
 				Type returnValueType = returnValue.GetType();
 
@@ -215,7 +208,7 @@ namespace OpenGL
 		/// A <see cref="T:Object[]"/> that specifies the API command arguments, if any.
 		/// </param>
 		[Conditional("GL_DEBUG")]
-		protected static new void LogCommand(string name, object returnValue, params object[] args)
+		protected new static void LogCommand(string name, object returnValue, params object[] args)
 		{
 			if (_LogContext == null)
 				_LogContext = new KhronosLogContext(typeof(Wgl));
@@ -244,7 +237,7 @@ namespace OpenGL
 			LogCommand("ChoosePixelFormat", retValue, deviceContext, pixelFormatDescriptor);
 			DebugCheckErrors(null);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -255,14 +248,14 @@ namespace OpenGL
 		/// <param name="nBytes"></param>
 		/// <param name="pixelFormatDescriptor"></param>
 		/// <returns></returns>
-		public static int DescribePixelFormat(IntPtr hdc, int iPixelFormat, UInt32 nBytes, [In, Out] ref PIXELFORMATDESCRIPTOR pixelFormatDescriptor)
+		public static int DescribePixelFormat(IntPtr hdc, int iPixelFormat, uint nBytes, [In, Out] ref PIXELFORMATDESCRIPTOR pixelFormatDescriptor)
 		{
 			int retValue = UnsafeNativeMethods.DescribePixelFormat(hdc, iPixelFormat, nBytes, ref pixelFormatDescriptor);
 
 			LogCommand("DescribePixelFormat", retValue, hdc, iPixelFormat, nBytes, pixelFormatDescriptor);
 			DebugCheckErrors(null);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -279,7 +272,7 @@ namespace OpenGL
 			LogCommand("SetPixelFormat", retValue, deviceContext, pixelFormat, pixelFormatDescriptor);
 			DebugCheckErrors(null);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -294,7 +287,7 @@ namespace OpenGL
 			LogCommand("GetDC", retValue, windowHandle.ToString("X8"));
 			DebugCheckErrors(null);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -310,10 +303,10 @@ namespace OpenGL
 			LogCommand("ReleaseDC", windowHandle.ToString("X8"), deviceContext.ToString("X8"), retValue);
 			DebugCheckErrors(null);
 
-			return (retValue);
+			return retValue;
 		}
 
-		public unsafe static partial class UnsafeNativeMethods
+		public static class UnsafeNativeMethods
 		{
 			/// <summary>
 			/// 
@@ -333,7 +326,7 @@ namespace OpenGL
 			/// <param name="ppfd"></param>
 			/// <returns></returns>
 			[DllImport("gdi32.dll", EntryPoint = "DescribePixelFormat", ExactSpelling = true, SetLastError = true)]
-			public static extern int DescribePixelFormat(IntPtr hdc, int iPixelFormat, UInt32 nBytes, [In, Out] ref PIXELFORMATDESCRIPTOR ppfd);
+			public static extern int DescribePixelFormat(IntPtr hdc, int iPixelFormat, uint nBytes, [In, Out] ref PIXELFORMATDESCRIPTOR ppfd);
 
 			/// <summary>
 			/// 
@@ -418,7 +411,7 @@ namespace OpenGL
 		/// <remarks>
 		/// Thanks to www.pinvoke.net.
 		/// </remarks>
-		[Flags()]
+		[Flags]
 		public enum DisplayDeviceStateFlags : int
 		{
 			/// <summary>
@@ -477,7 +470,7 @@ namespace OpenGL
 			/// <summary>
 			/// Underlay plane.
 			/// </summary>
-			Underlay = unchecked((byte)PFD_UNDERLAY_PLANE),
+			Underlay = unchecked((byte)PFD_UNDERLAY_PLANE)
 		}
 
 		/// <summary>
@@ -571,35 +564,35 @@ namespace OpenGL
 			/// buffer is not affected by the swap.  <b>PFD_SWAP_COPY</b> is a hint only and
 			/// might not be provided by a driver.
 			/// </remarks>
-			SwapCopy = Wgl.PFD_SWAP_COPY,
+			SwapCopy = PFD_SWAP_COPY,
 
 			/// <summary>
 			/// Indicates whether a device can swap individual layer planes with pixel formats that include double-buffered
 			/// overlay or underlay planes. Otherwise all layer planes are swapped together as a group. When this flag is set,
 			/// wglSwapLayerBuffers is supported.
 			/// </summary>
-			SwapLayerBuffers = Wgl.PFD_SWAP_LAYER_BUFFERS,
+			SwapLayerBuffers = PFD_SWAP_LAYER_BUFFERS,
 
 			/// <summary>
 			/// The pixel format is supported by a device driver that accelerates the generic implementation. If this flag is clear
 			/// and the PFD_GENERIC_FORMAT flag is set, the pixel format is supported by the generic implementation only.
 			/// </summary>
-			GenericAccelerated = Wgl.PFD_GENERIC_ACCELERATED,
+			GenericAccelerated = PFD_GENERIC_ACCELERATED,
 
 			/// <summary>
 			/// Undocumented.
 			/// </summary>
-			SupportDirectDraw = Wgl.PFD_SUPPORT_DIRECTDRAW,
+			SupportDirectDraw = PFD_SUPPORT_DIRECTDRAW,
 
 			/// <summary>
 			/// Undocumented.
 			/// </summary>
-			Direct3dAccelerated = Wgl.PFD_DIRECT3D_ACCELERATED,
+			Direct3dAccelerated = PFD_DIRECT3D_ACCELERATED,
 
 			/// <summary>
 			/// Undocumented.
 			/// </summary>
-			SupportComposition = Wgl.PFD_SUPPORT_COMPOSITION,
+			SupportComposition = PFD_SUPPORT_COMPOSITION,
 
 			/// <summary>
 			/// The requested pixel format can either have or not have a depth buffer. To select a pixel format without
@@ -609,7 +602,7 @@ namespace OpenGL
 			/// <remarks>
 			/// This value can be used only with <see cref="ChoosePixelFormat(IntPtr, ref PIXELFORMATDESCRIPTOR)"/>.
 			/// </remarks>
-			DepthDontCare = Wgl.PFD_DEPTH_DONTCARE,
+			DepthDontCare = PFD_DEPTH_DONTCARE,
 
 			/// <summary>
 			/// The requested pixel format can be either single- or double-buffered.
@@ -617,7 +610,7 @@ namespace OpenGL
 			/// <remarks>
 			/// This value can be used only with <see cref="ChoosePixelFormat(IntPtr, ref PIXELFORMATDESCRIPTOR)"/>.
 			/// </remarks>
-			DoublebufferDontCare = Wgl.PFD_DOUBLEBUFFER_DONTCARE,
+			DoublebufferDontCare = PFD_DOUBLEBUFFER_DONTCARE,
 
 			/// <summary>
 			/// The requested pixel format can be either monoscopic or stereoscopic.
@@ -625,7 +618,7 @@ namespace OpenGL
 			/// <remarks>
 			/// This value can be used only with <see cref="ChoosePixelFormat(IntPtr, ref PIXELFORMATDESCRIPTOR)"/>.
 			/// </remarks>
-			StereoDontCare = Wgl.PFD_STEREO_DONTCARE,
+			StereoDontCare = PFD_STEREO_DONTCARE
 		}
 
 		/// <summary>
@@ -641,7 +634,7 @@ namespace OpenGL
 			/// <summary>
 			/// 
 			/// </summary>
-			ColorIndexed = PFD_TYPE_COLORINDEX,
+			ColorIndexed = PFD_TYPE_COLORINDEX
 		}
 
 		/// <summary>
@@ -651,6 +644,7 @@ namespace OpenGL
 		/// Thanks to TaoFramework.
 		/// </remarks>
 		[StructLayout(LayoutKind.Sequential)]
+		[SuppressMessage("ReSharper", "InconsistentNaming")]
 		public struct PIXELFORMATDESCRIPTOR
 		{
 			#region Constructors
@@ -662,10 +656,10 @@ namespace OpenGL
 			/// Specifies the number of color bitplanes in each color buffer. It is the size of the color buffer, excluding the alpha
 			/// bitplanes.
 			/// </param>
-			public PIXELFORMATDESCRIPTOR(Byte colorBits)
+			public PIXELFORMATDESCRIPTOR(byte colorBits)
 			{
 				nVersion = 1;
-				nSize = (short)Marshal.SizeOf(typeof(Wgl.PIXELFORMATDESCRIPTOR));
+				nSize = (short)Marshal.SizeOf(typeof(PIXELFORMATDESCRIPTOR));
 
 				iLayerType = PixelFormatDescriptorLayerType.Main;
 				dwFlags = PixelFormatDescriptorFlags.SupportOpenGL | PixelFormatDescriptorFlags.DrawToWindow | PixelFormatDescriptorFlags.Doublebuffer;
@@ -694,12 +688,12 @@ namespace OpenGL
 			/// <summary>
 			/// Specifies the size of this data structure. This value should be set to <c>sizeof(PIXELFORMATDESCRIPTOR)</c>.
 			/// </summary>
-			public Int16 nSize;
+			public short nSize;
 
 			/// <summary>
 			/// Specifies the version of this data structure. This value should be set to 1.
 			/// </summary>
-			public Int16 nVersion;
+			public short nVersion;
 
 			/// <summary>
 			/// A set of bit flags that specify properties of the pixel buffer. The properties are generally not mutually exclusive;
@@ -717,87 +711,87 @@ namespace OpenGL
 			/// of the color buffer, excluding the alpha bitplanes. For color-index pixels, it is the size of the
 			/// color-index buffer.
 			/// </summary>
-			public Byte cColorBits;
+			public byte cColorBits;
 
 			/// <summary>
 			/// Specifies the number of red bitplanes in each RGBA color buffer.
 			/// </summary>
-			public Byte cRedBits;
+			public byte cRedBits;
 
 			/// <summary>
 			/// Specifies the shift count for red bitplanes in each RGBA color buffer.
 			/// </summary>
-			public Byte cRedShift;
+			public byte cRedShift;
 
 			/// <summary>
 			/// Specifies the number of green bitplanes in each RGBA color buffer.
 			/// </summary>
-			public Byte cGreenBits;
+			public byte cGreenBits;
 
 			/// <summary>
 			/// Specifies the shift count for green bitplanes in each RGBA color buffer.
 			/// </summary>
-			public Byte cGreenShift;
+			public byte cGreenShift;
 
 			/// <summary>
 			/// Specifies the number of blue bitplanes in each RGBA color buffer.
 			/// </summary>
-			public Byte cBlueBits;
+			public byte cBlueBits;
 
 			/// <summary>
 			/// Specifies the shift count for blue bitplanes in each RGBA color buffer.
 			/// </summary>
-			public Byte cBlueShift;
+			public byte cBlueShift;
 
 			/// <summary>
 			/// Specifies the number of alpha bitplanes in each RGBA color buffer. Alpha bitplanes are not supported.
 			/// </summary>
-			public Byte cAlphaBits;
+			public byte cAlphaBits;
 
 			/// <summary>
 			/// Specifies the shift count for alpha bitplanes in each RGBA color buffer. Alpha bitplanes are not supported.
 			/// </summary>
-			public Byte cAlphaShift;
+			public byte cAlphaShift;
 
 			/// <summary>
 			/// Specifies the total number of bitplanes in the accumulation buffer.
 			/// </summary>
-			public Byte cAccumBits;
+			public byte cAccumBits;
 
 			/// <summary>
 			/// Specifies the number of red bitplanes in the accumulation buffer.
 			/// </summary>
-			public Byte cAccumRedBits;
+			public byte cAccumRedBits;
 
 			/// <summary>
 			/// Specifies the number of green bitplanes in the accumulation buffer.
 			/// </summary>
-			public Byte cAccumGreenBits;
+			public byte cAccumGreenBits;
 
 			/// <summary>
 			/// Specifies the number of blue bitplanes in the accumulation buffer.
 			/// </summary>
-			public Byte cAccumBlueBits;
+			public byte cAccumBlueBits;
 
 			/// <summary>
 			/// Specifies the number of alpha bitplanes in the accumulation buffer.
 			/// </summary>
-			public Byte cAccumAlphaBits;
+			public byte cAccumAlphaBits;
 
 			/// <summary>
 			/// Specifies the depth of the depth (z-axis) buffer.
 			/// </summary>
-			public Byte cDepthBits;
+			public byte cDepthBits;
 
 			/// <summary>
 			/// Specifies the depth of the stencil buffer.
 			/// </summary>
-			public Byte cStencilBits;
+			public byte cStencilBits;
 
 			/// <summary>
 			/// Specifies the number of auxiliary buffers. Auxiliary buffers are not supported.
 			/// </summary>
-			public Byte cAuxBuffers;
+			public byte cAuxBuffers;
 
 			/// <summary>
 			/// Ignored. Earlier implementations of OpenGL used this member, but it is no longer used.
@@ -809,23 +803,23 @@ namespace OpenGL
 			/// Specifies the number of overlay and underlay planes. Bits 0 through 3 specify up to 15 overlay planes and
 			/// bits 4 through 7 specify up to 15 underlay planes.
 			/// </summary>
-			public Byte bReserved;
+			public byte bReserved;
 
 			/// <summary>
 			/// Ignored. Earlier implementations of OpenGL used this member, but it is no longer used.
 			/// </summary>
-			public Int32 dwLayerMask;
+			public int dwLayerMask;
 
 			/// <summary>
 			/// Specifies the transparent color or index of an underlay plane. When the pixel type is RGBA, <b>dwVisibleMask</b>
 			/// is a transparent RGB color value. When the pixel type is color index, it is a transparent index value.
 			/// </summary>
-			public Int32 dwVisibleMask;
+			public int dwVisibleMask;
 
 			/// <summary>
 			/// Ignored. Earlier implementations of OpenGL used this member, but it is no longer used.
 			/// </summary>
-			public Int32 dwDamageMask;
+			public int dwDamageMask;
 
 			#endregion
 
@@ -853,7 +847,7 @@ namespace OpenGL
 				sb.Remove(sb.Length - 1, 1);
 				sb.Append("}");
 
-				return (sb.ToString());
+				return sb.ToString();
 			}
 
 			#endregion

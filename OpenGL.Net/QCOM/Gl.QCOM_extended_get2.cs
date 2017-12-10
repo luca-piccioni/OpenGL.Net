@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -116,13 +120,13 @@ namespace OpenGL
 		/// A <see cref="T:ShaderType"/>.
 		/// </param>
 		/// <param name="source">
-		/// A <see cref="T:String"/>.
+		/// A <see cref="T:string"/>.
 		/// </param>
 		/// <param name="length">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_QCOM_extended_get2", Api = "gles1|gles2")]
-		public static void ExtGetProgramBinarySourceQCOM(uint program, ShaderType shadertype, String source, int[] length)
+		public static void ExtGetProgramBinarySourceQCOM(uint program, ShaderType shadertype, string source, int[] length)
 		{
 			unsafe {
 				fixed (int* p_length = length)
@@ -135,10 +139,10 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_QCOM_extended_get2", Api = "gles1|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glExtGetShadersQCOM(uint* shaders, int maxShaders, int* numShaders);
 
 			[RequiredByFeature("GL_QCOM_extended_get2", Api = "gles1|gles2")]
@@ -146,7 +150,7 @@ namespace OpenGL
 			internal static glExtGetShadersQCOM pglExtGetShadersQCOM;
 
 			[RequiredByFeature("GL_QCOM_extended_get2", Api = "gles1|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glExtGetProgramsQCOM(uint* programs, int maxPrograms, int* numPrograms);
 
 			[RequiredByFeature("GL_QCOM_extended_get2", Api = "gles1|gles2")]
@@ -154,7 +158,7 @@ namespace OpenGL
 			internal static glExtGetProgramsQCOM pglExtGetProgramsQCOM;
 
 			[RequiredByFeature("GL_QCOM_extended_get2", Api = "gles1|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glExtIsProgramBinaryQCOM(uint program);
 
@@ -163,8 +167,8 @@ namespace OpenGL
 			internal static glExtIsProgramBinaryQCOM pglExtIsProgramBinaryQCOM;
 
 			[RequiredByFeature("GL_QCOM_extended_get2", Api = "gles1|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glExtGetProgramBinarySourceQCOM(uint program, int shadertype, String source, int* length);
+			[SuppressUnmanagedCodeSecurity]
+			internal delegate void glExtGetProgramBinarySourceQCOM(uint program, int shadertype, string source, int* length);
 
 			[RequiredByFeature("GL_QCOM_extended_get2", Api = "gles1|gles2")]
 			[ThreadStatic]

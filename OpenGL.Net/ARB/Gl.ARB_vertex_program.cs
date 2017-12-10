@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -1090,11 +1094,11 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glProgramStringARB(int target, int format, int len, IntPtr @string);
 
 			[RequiredByFeature("GL_ARB_fragment_program")]
@@ -1105,7 +1109,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
 			[RequiredByFeature("GL_NV_vertex_program")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glBindProgramARB(int target, uint program);
 
 			[RequiredByFeature("GL_ARB_fragment_program")]
@@ -1117,7 +1121,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
 			[RequiredByFeature("GL_NV_vertex_program")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glDeleteProgramsARB(int n, uint* programs);
 
 			[RequiredByFeature("GL_ARB_fragment_program")]
@@ -1129,7 +1133,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
 			[RequiredByFeature("GL_NV_vertex_program")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGenProgramsARB(int n, uint* programs);
 
 			[RequiredByFeature("GL_ARB_fragment_program")]
@@ -1140,7 +1144,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glProgramEnvParameter4dARB(int target, uint index, double x, double y, double z, double w);
 
 			[RequiredByFeature("GL_ARB_fragment_program")]
@@ -1150,7 +1154,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glProgramEnvParameter4dvARB(int target, uint index, double* @params);
 
 			[RequiredByFeature("GL_ARB_fragment_program")]
@@ -1160,7 +1164,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glProgramEnvParameter4fARB(int target, uint index, float x, float y, float z, float w);
 
 			[RequiredByFeature("GL_ARB_fragment_program")]
@@ -1170,7 +1174,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glProgramEnvParameter4fvARB(int target, uint index, float* @params);
 
 			[RequiredByFeature("GL_ARB_fragment_program")]
@@ -1180,7 +1184,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glProgramLocalParameter4dARB(int target, uint index, double x, double y, double z, double w);
 
 			[RequiredByFeature("GL_ARB_fragment_program")]
@@ -1190,7 +1194,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glProgramLocalParameter4dvARB(int target, uint index, double* @params);
 
 			[RequiredByFeature("GL_ARB_fragment_program")]
@@ -1200,7 +1204,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glProgramLocalParameter4fARB(int target, uint index, float x, float y, float z, float w);
 
 			[RequiredByFeature("GL_ARB_fragment_program")]
@@ -1210,7 +1214,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glProgramLocalParameter4fvARB(int target, uint index, float* @params);
 
 			[RequiredByFeature("GL_ARB_fragment_program")]
@@ -1220,7 +1224,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetProgramEnvParameterdvARB(int target, uint index, double* @params);
 
 			[RequiredByFeature("GL_ARB_fragment_program")]
@@ -1230,7 +1234,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetProgramEnvParameterfvARB(int target, uint index, float* @params);
 
 			[RequiredByFeature("GL_ARB_fragment_program")]
@@ -1240,7 +1244,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetProgramLocalParameterdvARB(int target, uint index, double* @params);
 
 			[RequiredByFeature("GL_ARB_fragment_program")]
@@ -1250,7 +1254,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetProgramLocalParameterfvARB(int target, uint index, float* @params);
 
 			[RequiredByFeature("GL_ARB_fragment_program")]
@@ -1260,7 +1264,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetProgramivARB(int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_ARB_fragment_program")]
@@ -1270,7 +1274,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetProgramStringARB(int target, int pname, IntPtr @string);
 
 			[RequiredByFeature("GL_ARB_fragment_program")]
@@ -1281,7 +1285,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_fragment_program")]
 			[RequiredByFeature("GL_ARB_vertex_program")]
 			[RequiredByFeature("GL_NV_vertex_program")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsProgramARB(uint program);
 

@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -77,7 +81,7 @@ namespace OpenGL
 		/// A <see cref="T:StringBuilder"/>.
 		/// </param>
 		[RequiredByFeature("GL_QCOM_driver_control", Api = "gles1|gles2")]
-		public static void GetDriverControlStringQCOM(uint driverControl, int bufSize, [Out] int[] length, [Out] StringBuilder driverControlString)
+		public static void GetDriverControlStringQCOM(uint driverControl, int bufSize, [Out] int[] length, StringBuilder driverControlString)
 		{
 			unsafe {
 				fixed (int* p_length = length)
@@ -120,10 +124,10 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_QCOM_driver_control", Api = "gles1|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetDriverControlsQCOM(int* num, int size, uint* driverControls);
 
 			[RequiredByFeature("GL_QCOM_driver_control", Api = "gles1|gles2")]
@@ -131,15 +135,15 @@ namespace OpenGL
 			internal static glGetDriverControlsQCOM pglGetDriverControlsQCOM;
 
 			[RequiredByFeature("GL_QCOM_driver_control", Api = "gles1|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glGetDriverControlStringQCOM(uint driverControl, int bufSize, int* length, [Out] StringBuilder driverControlString);
+			[SuppressUnmanagedCodeSecurity]
+			internal delegate void glGetDriverControlStringQCOM(uint driverControl, int bufSize, int* length, StringBuilder driverControlString);
 
 			[RequiredByFeature("GL_QCOM_driver_control", Api = "gles1|gles2")]
 			[ThreadStatic]
 			internal static glGetDriverControlStringQCOM pglGetDriverControlStringQCOM;
 
 			[RequiredByFeature("GL_QCOM_driver_control", Api = "gles1|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glEnableDriverControlQCOM(uint driverControl);
 
 			[RequiredByFeature("GL_QCOM_driver_control", Api = "gles1|gles2")]
@@ -147,7 +151,7 @@ namespace OpenGL
 			internal static glEnableDriverControlQCOM pglEnableDriverControlQCOM;
 
 			[RequiredByFeature("GL_QCOM_driver_control", Api = "gles1|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glDisableDriverControlQCOM(uint driverControl);
 
 			[RequiredByFeature("GL_QCOM_driver_control", Api = "gles1|gles2")]

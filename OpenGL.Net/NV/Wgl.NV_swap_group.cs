@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -189,45 +193,45 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("WGL_NV_swap_group")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool wglJoinSwapGroupNV(IntPtr hDC, uint group);
 
 			[RequiredByFeature("WGL_NV_swap_group")]
 			internal static wglJoinSwapGroupNV pwglJoinSwapGroupNV;
 
 			[RequiredByFeature("WGL_NV_swap_group")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool wglBindSwapBarrierNV(uint group, uint barrier);
 
 			[RequiredByFeature("WGL_NV_swap_group")]
 			internal static wglBindSwapBarrierNV pwglBindSwapBarrierNV;
 
 			[RequiredByFeature("WGL_NV_swap_group")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool wglQuerySwapGroupNV(IntPtr hDC, uint* group, uint* barrier);
 
 			[RequiredByFeature("WGL_NV_swap_group")]
 			internal static wglQuerySwapGroupNV pwglQuerySwapGroupNV;
 
 			[RequiredByFeature("WGL_NV_swap_group")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool wglQueryMaxSwapGroupsNV(IntPtr hDC, uint* maxGroups, uint* maxBarriers);
 
 			[RequiredByFeature("WGL_NV_swap_group")]
 			internal static wglQueryMaxSwapGroupsNV pwglQueryMaxSwapGroupsNV;
 
 			[RequiredByFeature("WGL_NV_swap_group")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool wglQueryFrameCountNV(IntPtr hDC, uint* count);
 
 			[RequiredByFeature("WGL_NV_swap_group")]
 			internal static wglQueryFrameCountNV pwglQueryFrameCountNV;
 
 			[RequiredByFeature("WGL_NV_swap_group")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool wglResetFrameCountNV(IntPtr hDC);
 
 			[RequiredByFeature("WGL_NV_swap_group")]

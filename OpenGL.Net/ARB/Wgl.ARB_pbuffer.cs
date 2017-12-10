@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -218,38 +222,38 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("WGL_ARB_pbuffer")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate IntPtr wglCreatePbufferARB(IntPtr hDC, int iPixelFormat, int iWidth, int iHeight, int* piAttribList);
 
 			[RequiredByFeature("WGL_ARB_pbuffer")]
 			internal static wglCreatePbufferARB pwglCreatePbufferARB;
 
 			[RequiredByFeature("WGL_ARB_pbuffer")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate IntPtr wglGetPbufferDCARB(IntPtr hPbuffer);
 
 			[RequiredByFeature("WGL_ARB_pbuffer")]
 			internal static wglGetPbufferDCARB pwglGetPbufferDCARB;
 
 			[RequiredByFeature("WGL_ARB_pbuffer")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate int wglReleasePbufferDCARB(IntPtr hPbuffer, IntPtr hDC);
 
 			[RequiredByFeature("WGL_ARB_pbuffer")]
 			internal static wglReleasePbufferDCARB pwglReleasePbufferDCARB;
 
 			[RequiredByFeature("WGL_ARB_pbuffer")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool wglDestroyPbufferARB(IntPtr hPbuffer);
 
 			[RequiredByFeature("WGL_ARB_pbuffer")]
 			internal static wglDestroyPbufferARB pwglDestroyPbufferARB;
 
 			[RequiredByFeature("WGL_ARB_pbuffer")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool wglQueryPbufferARB(IntPtr hPbuffer, int iAttribute, int* piValue);
 
 			[RequiredByFeature("WGL_ARB_pbuffer")]

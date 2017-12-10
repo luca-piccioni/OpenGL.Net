@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -230,10 +234,10 @@ namespace OpenGL
 			}
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_ARB_matrix_palette")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glCurrentPaletteMatrixARB(int index);
 
 			[RequiredByFeature("GL_ARB_matrix_palette")]
@@ -241,7 +245,7 @@ namespace OpenGL
 			internal static glCurrentPaletteMatrixARB pglCurrentPaletteMatrixARB;
 
 			[RequiredByFeature("GL_ARB_matrix_palette")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glMatrixIndexubvARB(int size, byte* indices);
 
 			[RequiredByFeature("GL_ARB_matrix_palette")]
@@ -249,7 +253,7 @@ namespace OpenGL
 			internal static glMatrixIndexubvARB pglMatrixIndexubvARB;
 
 			[RequiredByFeature("GL_ARB_matrix_palette")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glMatrixIndexusvARB(int size, ushort* indices);
 
 			[RequiredByFeature("GL_ARB_matrix_palette")]
@@ -257,7 +261,7 @@ namespace OpenGL
 			internal static glMatrixIndexusvARB pglMatrixIndexusvARB;
 
 			[RequiredByFeature("GL_ARB_matrix_palette")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glMatrixIndexuivARB(int size, uint* indices);
 
 			[RequiredByFeature("GL_ARB_matrix_palette")]
@@ -265,7 +269,7 @@ namespace OpenGL
 			internal static glMatrixIndexuivARB pglMatrixIndexuivARB;
 
 			[RequiredByFeature("GL_ARB_matrix_palette")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glMatrixIndexPointerARB(int size, int type, int stride, IntPtr pointer);
 
 			[RequiredByFeature("GL_ARB_matrix_palette")]

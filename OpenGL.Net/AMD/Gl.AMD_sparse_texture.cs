@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -133,10 +137,10 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_AMD_sparse_texture")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glTexStorageSparseAMD(int target, int internalFormat, int width, int height, int depth, int layers, uint flags);
 
 			[RequiredByFeature("GL_AMD_sparse_texture")]
@@ -144,7 +148,7 @@ namespace OpenGL
 			internal static glTexStorageSparseAMD pglTexStorageSparseAMD;
 
 			[RequiredByFeature("GL_AMD_sparse_texture")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glTextureStorageSparseAMD(uint texture, int target, int internalFormat, int width, int height, int depth, int layers, uint flags);
 
 			[RequiredByFeature("GL_AMD_sparse_texture")]

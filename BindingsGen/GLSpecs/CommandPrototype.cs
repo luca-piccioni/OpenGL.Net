@@ -64,7 +64,7 @@ namespace BindingsGen.GLSpecs
 				string delegateType = GetReturnTypeCore(false);
 
 				if ((Group != null) && (Group == "String"))
-					return ("String");
+					return ("string");
 
 				return (delegateType);
 			}

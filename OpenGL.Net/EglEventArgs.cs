@@ -21,6 +21,8 @@
 
 using System;
 
+// ReSharper disable InheritdocConsiderUsage
+
 namespace OpenGL
 {
 	/// <summary>

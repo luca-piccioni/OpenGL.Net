@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -138,10 +142,10 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_bindable_uniform")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glUniformBufferEXT(uint program, int location, uint buffer);
 
 			[RequiredByFeature("GL_EXT_bindable_uniform")]
@@ -149,7 +153,7 @@ namespace OpenGL
 			internal static glUniformBufferEXT pglUniformBufferEXT;
 
 			[RequiredByFeature("GL_EXT_bindable_uniform")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate int glGetUniformBufferSizeEXT(uint program, int location);
 
 			[RequiredByFeature("GL_EXT_bindable_uniform")]
@@ -157,7 +161,7 @@ namespace OpenGL
 			internal static glGetUniformBufferSizeEXT pglGetUniformBufferSizeEXT;
 
 			[RequiredByFeature("GL_EXT_bindable_uniform")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate IntPtr glGetUniformOffsetEXT(uint program, int location);
 
 			[RequiredByFeature("GL_EXT_bindable_uniform")]

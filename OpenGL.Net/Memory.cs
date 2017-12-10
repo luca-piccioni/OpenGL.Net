@@ -31,6 +31,8 @@ using System.Security;
 
 using Khronos;
 
+// ReSharper disable SwitchStatementMissingSomeCases
+
 namespace OpenGL
 {
 	/// <summary>
@@ -104,13 +106,13 @@ namespace OpenGL
 		/// <param name="src"></param>
 		/// <param name="bytes"></param>
 		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-		[SuppressUnmanagedCodeSecurity()]
+		[SuppressUnmanagedCodeSecurity]
 		private delegate void MemoryCopyDelegate(void *dst, void* src, ulong bytes);
 
 		/// <summary>
 		/// Cached delegate for copy memory.
 		/// </summary>
-		private static MemoryCopyDelegate MemoryCopyPointer;
+		private static MemoryCopyDelegate _MemoryCopyPointer;
 
 		/// <summary>
 		/// Copy memory.
@@ -120,7 +122,7 @@ namespace OpenGL
 		/// <param name="bytes"></param>
 		public static void MemoryCopy(void* dst, void* src, ulong bytes)
 		{
-			MemoryCopyPointer(dst, src, bytes);
+			_MemoryCopyPointer(dst, src, bytes);
 #if false
 			byte *dstPointer = (byte *)dst, srcPointer = (byte *)src;
 			byte *dstEnd = dstPointer + bytes;
@@ -184,7 +186,7 @@ namespace OpenGL
 				IntPtr srcArrayPtr = new IntPtr(srcArray.AddrOfPinnedObject().ToInt64() + srcOffset);
 
 				// Copy from array to aligned buffer
-				MemoryCopyPointer(dst.ToPointer(), srcArrayPtr.ToPointer(), bytes);
+				_MemoryCopyPointer(dst.ToPointer(), srcArrayPtr.ToPointer(), bytes);
 			} finally {
 				srcArray.Free();
 			}
@@ -202,7 +204,7 @@ namespace OpenGL
 
 			try {
 				// Copy from array to aligned buffer
-				MemoryCopyPointer(
+				_MemoryCopyPointer(
 					dstArray.AddrOfPinnedObject().ToPointer(), 
 					src.ToPointer(),
 					bytes
@@ -225,7 +227,7 @@ namespace OpenGL
 
 			try {
 				// Copy from array to aligned buffer
-				MemoryCopyPointer(
+				_MemoryCopyPointer(
 					dstArray.AddrOfPinnedObject().ToPointer(), 
 					srcArray.AddrOfPinnedObject().ToPointer(),
 					bytes
@@ -241,32 +243,31 @@ namespace OpenGL
 		/// </summary>
 		private static void EnsureMemoryCopy()
 		{
-			if (MemoryCopyPointer == null) {
-				IntPtr memoryCopyPtr;
+			if (_MemoryCopyPointer != null)
+				return;
 
-				switch (Platform.CurrentPlatformId) {
-					case Platform.Id.WindowsNT:
-						memoryCopyPtr = GetProcAddressOS.GetProcAddress("msvcrt.dll", "memcpy");
-						if (memoryCopyPtr != IntPtr.Zero) {
-							MemoryCopyPointer = (MemoryCopyDelegate)Marshal.GetDelegateForFunctionPointer(memoryCopyPtr, typeof(MemoryCopyDelegate));
-							return;
-						}
-						
+			IntPtr memoryCopyPtr;
+
+			switch (Platform.CurrentPlatformId) {
+				case Platform.Id.WindowsNT:
+					memoryCopyPtr = GetProcAddressOS.GetProcAddress("msvcrt.dll", "memcpy");
+					if (memoryCopyPtr == IntPtr.Zero)
 						throw new NotSupportedException("no suitable memcpy support");
-					case Platform.Id.Linux:
-						memoryCopyPtr = GetProcAddressOS.GetProcAddress("libc.so.6", "memcpy");
-						if (memoryCopyPtr != IntPtr.Zero) {
-							MemoryCopyPointer = (MemoryCopyDelegate)Marshal.GetDelegateForFunctionPointer(memoryCopyPtr, typeof(MemoryCopyDelegate));
-							return;
-						}
-						
+					_MemoryCopyPointer = (MemoryCopyDelegate)Marshal.GetDelegateForFunctionPointer(memoryCopyPtr, typeof(MemoryCopyDelegate));
+					return;
+
+				case Platform.Id.Linux:
+					memoryCopyPtr = GetProcAddressOS.GetProcAddress("libc.so.6", "memcpy");
+					if (memoryCopyPtr == IntPtr.Zero)
 						throw new NotSupportedException("no suitable memcpy support");
-					case Platform.Id.Android:
-						MemoryCopyPointer = MemoryCopyDelegate_Managed;
-						break;
-					default:
-						throw new NotSupportedException("no suitable memcpy support");
-				}
+					_MemoryCopyPointer = (MemoryCopyDelegate)Marshal.GetDelegateForFunctionPointer(memoryCopyPtr, typeof(MemoryCopyDelegate));
+					return;
+
+				case Platform.Id.Android:
+					_MemoryCopyPointer = MemoryCopyDelegate_Managed;
+					break;
+				default:
+					throw new NotSupportedException("no suitable memcpy support");
 			}
 		}
 

@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -135,10 +139,10 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_APPLE_vertex_array_range")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexArrayRangeAPPLE(int length, IntPtr pointer);
 
 			[RequiredByFeature("GL_APPLE_vertex_array_range")]
@@ -146,7 +150,7 @@ namespace OpenGL
 			internal static glVertexArrayRangeAPPLE pglVertexArrayRangeAPPLE;
 
 			[RequiredByFeature("GL_APPLE_vertex_array_range")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glFlushVertexArrayRangeAPPLE(int length, IntPtr pointer);
 
 			[RequiredByFeature("GL_APPLE_vertex_array_range")]
@@ -154,7 +158,7 @@ namespace OpenGL
 			internal static glFlushVertexArrayRangeAPPLE pglFlushVertexArrayRangeAPPLE;
 
 			[RequiredByFeature("GL_APPLE_vertex_array_range")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexArrayParameteriAPPLE(int pname, int param);
 
 			[RequiredByFeature("GL_APPLE_vertex_array_range")]

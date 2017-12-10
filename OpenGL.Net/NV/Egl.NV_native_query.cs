@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -124,24 +128,24 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("EGL_NV_native_query")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool eglQueryNativeDisplayNV(IntPtr dpy, IntPtr* display_id);
 
 			[RequiredByFeature("EGL_NV_native_query")]
 			internal static eglQueryNativeDisplayNV peglQueryNativeDisplayNV;
 
 			[RequiredByFeature("EGL_NV_native_query")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool eglQueryNativeWindowNV(IntPtr dpy, IntPtr surf, IntPtr* window);
 
 			[RequiredByFeature("EGL_NV_native_query")]
 			internal static eglQueryNativeWindowNV peglQueryNativeWindowNV;
 
 			[RequiredByFeature("EGL_NV_native_query")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool eglQueryNativePixmapNV(IntPtr dpy, IntPtr surf, IntPtr* pixmap);
 
 			[RequiredByFeature("EGL_NV_native_query")]

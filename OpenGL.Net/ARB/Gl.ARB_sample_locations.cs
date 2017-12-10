@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -156,10 +160,10 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_ARB_sample_locations", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glFramebufferSampleLocationsfvARB(int target, uint start, int count, float* v);
 
 			[RequiredByFeature("GL_ARB_sample_locations", Api = "gl|glcore")]
@@ -167,7 +171,7 @@ namespace OpenGL
 			internal static glFramebufferSampleLocationsfvARB pglFramebufferSampleLocationsfvARB;
 
 			[RequiredByFeature("GL_ARB_sample_locations", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glNamedFramebufferSampleLocationsfvARB(uint framebuffer, uint start, int count, float* v);
 
 			[RequiredByFeature("GL_ARB_sample_locations", Api = "gl|glcore")]
@@ -175,7 +179,7 @@ namespace OpenGL
 			internal static glNamedFramebufferSampleLocationsfvARB pglNamedFramebufferSampleLocationsfvARB;
 
 			[RequiredByFeature("GL_ARB_sample_locations", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glEvaluateDepthValuesARB();
 
 			[RequiredByFeature("GL_ARB_sample_locations", Api = "gl|glcore")]

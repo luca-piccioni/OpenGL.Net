@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -169,10 +173,10 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_SUN_global_alpha")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGlobalAlphaFactorbSUN(sbyte factor);
 
 			[RequiredByFeature("GL_SUN_global_alpha")]
@@ -180,7 +184,7 @@ namespace OpenGL
 			internal static glGlobalAlphaFactorbSUN pglGlobalAlphaFactorbSUN;
 
 			[RequiredByFeature("GL_SUN_global_alpha")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGlobalAlphaFactorsSUN(short factor);
 
 			[RequiredByFeature("GL_SUN_global_alpha")]
@@ -188,7 +192,7 @@ namespace OpenGL
 			internal static glGlobalAlphaFactorsSUN pglGlobalAlphaFactorsSUN;
 
 			[RequiredByFeature("GL_SUN_global_alpha")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGlobalAlphaFactoriSUN(int factor);
 
 			[RequiredByFeature("GL_SUN_global_alpha")]
@@ -196,7 +200,7 @@ namespace OpenGL
 			internal static glGlobalAlphaFactoriSUN pglGlobalAlphaFactoriSUN;
 
 			[RequiredByFeature("GL_SUN_global_alpha")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGlobalAlphaFactorfSUN(float factor);
 
 			[RequiredByFeature("GL_SUN_global_alpha")]
@@ -204,7 +208,7 @@ namespace OpenGL
 			internal static glGlobalAlphaFactorfSUN pglGlobalAlphaFactorfSUN;
 
 			[RequiredByFeature("GL_SUN_global_alpha")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGlobalAlphaFactordSUN(double factor);
 
 			[RequiredByFeature("GL_SUN_global_alpha")]
@@ -212,7 +216,7 @@ namespace OpenGL
 			internal static glGlobalAlphaFactordSUN pglGlobalAlphaFactordSUN;
 
 			[RequiredByFeature("GL_SUN_global_alpha")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGlobalAlphaFactorubSUN(byte factor);
 
 			[RequiredByFeature("GL_SUN_global_alpha")]
@@ -220,7 +224,7 @@ namespace OpenGL
 			internal static glGlobalAlphaFactorubSUN pglGlobalAlphaFactorubSUN;
 
 			[RequiredByFeature("GL_SUN_global_alpha")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGlobalAlphaFactorusSUN(ushort factor);
 
 			[RequiredByFeature("GL_SUN_global_alpha")]
@@ -228,7 +232,7 @@ namespace OpenGL
 			internal static glGlobalAlphaFactorusSUN pglGlobalAlphaFactorusSUN;
 
 			[RequiredByFeature("GL_SUN_global_alpha")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGlobalAlphaFactoruiSUN(uint factor);
 
 			[RequiredByFeature("GL_SUN_global_alpha")]

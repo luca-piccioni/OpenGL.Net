@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -387,7 +391,7 @@ namespace OpenGL
 		/// A <see cref="T:StringBuilder"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void GetInfoLogARB(uint obj, int maxLength, out int length, [Out] StringBuilder infoLog)
+		public static void GetInfoLogARB(uint obj, int maxLength, out int length, StringBuilder infoLog)
 		{
 			unsafe {
 				fixed (int* p_length = &length)
@@ -427,10 +431,10 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_ARB_shader_objects")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glDeleteObjectARB(uint obj);
 
 			[RequiredByFeature("GL_ARB_shader_objects")]
@@ -438,7 +442,7 @@ namespace OpenGL
 			internal static glDeleteObjectARB pglDeleteObjectARB;
 
 			[RequiredByFeature("GL_ARB_shader_objects")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate uint glGetHandleARB(int pname);
 
 			[RequiredByFeature("GL_ARB_shader_objects")]
@@ -446,7 +450,7 @@ namespace OpenGL
 			internal static glGetHandleARB pglGetHandleARB;
 
 			[RequiredByFeature("GL_ARB_shader_objects")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetObjectParameterfvARB(uint obj, int pname, float* @params);
 
 			[RequiredByFeature("GL_ARB_shader_objects")]
@@ -454,7 +458,7 @@ namespace OpenGL
 			internal static glGetObjectParameterfvARB pglGetObjectParameterfvARB;
 
 			[RequiredByFeature("GL_ARB_shader_objects")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetObjectParameterivARB(uint obj, int pname, int* @params);
 
 			[RequiredByFeature("GL_ARB_shader_objects")]
@@ -462,15 +466,15 @@ namespace OpenGL
 			internal static glGetObjectParameterivARB pglGetObjectParameterivARB;
 
 			[RequiredByFeature("GL_ARB_shader_objects")]
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glGetInfoLogARB(uint obj, int maxLength, int* length, [Out] StringBuilder infoLog);
+			[SuppressUnmanagedCodeSecurity]
+			internal delegate void glGetInfoLogARB(uint obj, int maxLength, int* length, StringBuilder infoLog);
 
 			[RequiredByFeature("GL_ARB_shader_objects")]
 			[ThreadStatic]
 			internal static glGetInfoLogARB pglGetInfoLogARB;
 
 			[RequiredByFeature("GL_ARB_shader_objects")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetAttachedObjectsARB(uint containerObj, int maxCount, int* count, uint* obj);
 
 			[RequiredByFeature("GL_ARB_shader_objects")]

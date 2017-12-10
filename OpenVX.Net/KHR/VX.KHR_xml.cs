@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenVX
 {
@@ -97,24 +101,24 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxExportToXML(Context context, string xmlfile);
 
 			internal static vxExportToXML pvxExportToXML;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Import vxImportFromXML(Context context, string xmlfile);
 
 			internal static vxImportFromXML pvxImportFromXML;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Reference vxGetImportReferenceByIndex(Import import, uint index);
 
 			internal static vxGetImportReferenceByIndex pvxGetImportReferenceByIndex;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxQueryImport(Import import, int attribute, void* ptr, UIntPtr size);
 
 			internal static vxQueryImport pvxQueryImport;

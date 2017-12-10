@@ -25,16 +25,22 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 using System.Security;
 
 using Khronos;
+
+// ReSharper disable InheritdocConsiderUsage
+// ReSharper disable SwitchStatementMissingSomeCases
+// ReSharper disable RedundantIfElseBlock
 
 namespace OpenGL
 {
 	/// <summary>
 	/// Modern OpenGL bindings.
 	/// </summary>
+	[SuppressMessage("ReSharper", "InconsistentNaming")]
 	public partial class Gl : KhronosApi
 	{
 		#region Constructors
@@ -62,7 +68,7 @@ namespace OpenGL
 		/// </summary>
 		public static void Initialize()
 		{
-			if (_Initialized == true)
+			if (_Initialized)
 				return; // Already initialized
 			_Initialized = true;
 #if !NETSTANDARD1_1
@@ -93,19 +99,13 @@ namespace OpenGL
 			try {
 #if !MONODROID
 				// Determine whether use EGL as device context backend
-				if (Egl.IsAvailable) {
-					switch (Platform.CurrentPlatformId) {
-						case Platform.Id.Linux:
-							if (Glx.IsAvailable == false)
-								Egl.IsRequired = true;
-							break;
-					}
-				}
+				if (Egl.IsAvailable && Platform.CurrentPlatformId == Platform.Id.Linux && Glx.IsAvailable == false)
+					Egl.IsRequired = true;
 #endif
 
 				// Create native window for getting preliminary information on desktop systems
 				// This instance will be used for creating contexts without explictly specify a window
-				_NativeWindow = DeviceContext.CreateHiddenWindow();
+				NativeWindow = DeviceContext.CreateHiddenWindow();
 
 				// Create device context
 				using (DeviceContext windowDevice = DeviceContext.Create()) {
@@ -120,13 +120,8 @@ namespace OpenGL
 
 #if !MONODROID
 					// Reload platform function pointers, if required
-					if (Egl.IsRequired == false) {
-						switch (Platform.CurrentPlatformId) {
-							case Platform.Id.WindowsNT:
-								Wgl.BindAPI();
-								break;
-						}
-					}
+					if (Egl.IsRequired == false && Platform.CurrentPlatformId == Platform.Id.WindowsNT)
+						Wgl.BindAPI();
 #endif
 
 					// Query OpenGL informations
@@ -139,7 +134,7 @@ namespace OpenGL
 					// Query platform extensions
 					windowDevice.QueryPlatformExtensions();
 					// Query OpenGL limits
-					_CurrentLimits = Limits.Query(Gl.CurrentVersion, _CurrentExtensions);
+					_CurrentLimits = Limits.Query(CurrentVersion, _CurrentExtensions);
 
 					// Obtain current OpenGL Shading Language version
 					string glslVersion = null;
@@ -175,8 +170,8 @@ namespace OpenGL
 
 				LogComment("OpenGL.Net has been initialized");
 			} catch (Exception excepton) {
-				_InitializationException = excepton;
-				LogComment("Unable to initialize OpenGL.Net: {0}", _InitializationException.ToString());
+				InitializationException = excepton;
+				LogComment("Unable to initialize OpenGL.Net: {0}", InitializationException.ToString());
 			}
 		}
 
@@ -188,12 +183,12 @@ namespace OpenGL
 		/// <summary>
 		/// Eventual exception raised during Gl initialization.
 		/// </summary>
-		internal static Exception _InitializationException;
+		internal static Exception InitializationException;
 
 		/// <summary>
 		/// The native window used for initializing the OpenGL.Net state.
 		/// </summary>
-		internal static INativeWindow _NativeWindow;
+		internal static INativeWindow NativeWindow;
 
 		#endregion
 
@@ -205,7 +200,7 @@ namespace OpenGL
 		/// <remarks>
 		/// Higher OpenGL versions versions cannot be requested to be implemented.
 		/// </remarks>
-		public static KhronosVersion CurrentVersion { get { return (_CurrentVersion); } }
+		public static KhronosVersion CurrentVersion => _CurrentVersion;
 
 		/// <summary>
 		/// OpenGL version currently implemented.
@@ -221,7 +216,7 @@ namespace OpenGL
 		/// <remarks>
 		/// Higher OpenGL Shading Language versions cannot be requested to be implemented.
 		/// </remarks>
-		public static GlslVersion CurrentShadingVersion { get { return (_CurrentShadingVersion); } }
+		public static GlslVersion CurrentShadingVersion => _CurrentShadingVersion;
 
 		/// <summary>
 		/// OpenGL Shading Language version currently implemented.
@@ -234,7 +229,7 @@ namespace OpenGL
 		/// <summary>
 		/// Get the OpenGL vendor.
 		/// </summary>
-		public static string CurrentVendor { get { return (_Vendor); } }
+		public static string CurrentVendor => _Vendor;
 
 		/// <summary>
 		/// OpenGL vendor.
@@ -244,7 +239,7 @@ namespace OpenGL
 		/// <summary>
 		/// Get the OpenGL renderer.
 		/// </summary>
-		public static string CurrentRenderer { get { return (_Renderer); } }
+		public static string CurrentRenderer => _Renderer;
 
 		/// <summary>
 		/// OpenGL renderer.
@@ -254,7 +249,7 @@ namespace OpenGL
 		/// <summary>
 		/// OpenGL extension support.
 		/// </summary>
-		public static Extensions CurrentExtensions { get { return (_CurrentExtensions); } }
+		public static Extensions CurrentExtensions => _CurrentExtensions;
 
 		/// <summary>
 		/// OpenGL extension support.
@@ -264,7 +259,7 @@ namespace OpenGL
 		/// <summary>
 		/// OpenGL limits.
 		/// </summary>
-		public static Limits CurrentLimits { get { return (_CurrentLimits); } }
+		public static Limits CurrentLimits => _CurrentLimits;
 
 		/// <summary>
 		/// OpenGL limits.
@@ -345,7 +340,7 @@ namespace OpenGL
 		public static void BindAPI(KhronosVersion version, ExtensionsCollection extensions)
 		{
 			if (version == null)
-				throw new ArgumentNullException("version");
+				throw new ArgumentNullException(nameof(version));
 
 			BindAPI<Gl>(GetPlatformLibrary(version), GetProcAddressGLOS, version, extensions);
 		}
@@ -366,25 +361,25 @@ namespace OpenGL
 				throw new InvalidOperationException("no current context");
 
 			// Parse version string (effective for detecting Desktop and ES contextes)
-			KhronosVersion glversion = KhronosVersion.Parse(Gl.GetString(StringName.Version));
+			KhronosVersion glversion = KhronosVersion.Parse(GetString(StringName.Version));
 
 			// Context profile
-			if (glversion.Api == KhronosVersion.ApiGl && glversion >= Gl.Version_320) {
-				string glProfile = null;
-				int ctxProfile = 0;
+			if (glversion.Api == KhronosVersion.ApiGl && glversion >= Version_320) {
+				string glProfile;
+				int ctxProfile;
 
-				Gl.Get(Gl.CONTEXT_PROFILE_MASK, out ctxProfile);
+				Get(CONTEXT_PROFILE_MASK, out ctxProfile);
 
-				if     ((ctxProfile & Gl.CONTEXT_COMPATIBILITY_PROFILE_BIT) != 0)
+				if     ((ctxProfile & CONTEXT_COMPATIBILITY_PROFILE_BIT) != 0)
 					glProfile = KhronosVersion.ProfileCompatibility;
-				else if ((ctxProfile & Gl.CONTEXT_CORE_PROFILE_BIT) != 0)
+				else if ((ctxProfile & CONTEXT_CORE_PROFILE_BIT) != 0)
 					glProfile = KhronosVersion.ProfileCore;
 				else
 					glProfile = KhronosVersion.ProfileCompatibility;
 
-				return (new KhronosVersion(glversion, glProfile));
+				return new KhronosVersion(glversion, glProfile);
 			} else
-				return (new KhronosVersion(glversion, KhronosVersion.ProfileCompatibility));
+				return new KhronosVersion(glversion, KhronosVersion.ProfileCompatibility);
 		}
 
 		/// <summary>
@@ -397,17 +392,17 @@ namespace OpenGL
 		{
 			// Load minimal Gl functions for querying information
 			if (Egl.IsRequired == false) {
-				BindAPIFunction(Gl.Version_100, null, "glGetError");
-				BindAPIFunction(Gl.Version_100, null, "glGetString");
-				BindAPIFunction(Gl.Version_100, null, "glGetIntegerv");
+				BindAPIFunction(Version_100, null, "glGetError");
+				BindAPIFunction(Version_100, null, "glGetString");
+				BindAPIFunction(Version_100, null, "glGetIntegerv");
 			} else {
 				// ???
-				BindAPIFunction(Gl.Version_320_ES, null, "glGetError");
-				BindAPIFunction(Gl.Version_320_ES, null, "glGetString");
-				BindAPIFunction(Gl.Version_320_ES, null, "glGetIntegerv");
+				BindAPIFunction(Version_320_ES, null, "glGetError");
+				BindAPIFunction(Version_320_ES, null, "glGetString");
+				BindAPIFunction(Version_320_ES, null, "glGetIntegerv");
 			}
 
-			return (QueryContextVersion());
+			return QueryContextVersion();
 		}
 
 		/// <summary>
@@ -443,29 +438,29 @@ namespace OpenGL
 				case KhronosVersion.ApiGlsc2:
 					switch (Platform.CurrentPlatformId) {
 						case Platform.Id.Linux:
-							return ("libGL.so.1");
+							return "libGL.so.1";
 						case Platform.Id.MacOS:
-							return ("/usr/X11/lib/libGL.1.dylib");
+							return "/usr/X11/lib/libGL.1.dylib";
 						default:
 							// EGL ignore library name
-							return (Library);
+							return Library;
 					}
 				case KhronosVersion.ApiGles1:
 					switch (Platform.CurrentPlatformId) {
 						case Platform.Id.Linux:
-							return ("libGLESv2.so");
+							return "libGLESv2.so";
 						default:
-							return (Egl.IsRequired ? LibraryEs : Library);
+							return Egl.IsRequired ? LibraryEs : Library;
 					}
 				case KhronosVersion.ApiGles2:
 					switch (Platform.CurrentPlatformId) {
 						case Platform.Id.Linux:
-							return ("libGLESv2.so");
+							return "libGLESv2.so";
 						default:
-							return (Egl.IsRequired ? LibraryEs2 : Library);
+							return Egl.IsRequired ? LibraryEs2 : Library;
 					}
 				default:
-					throw new NotSupportedException(String.Format("binding API for OpenGL {0} not supported", version));
+					throw new NotSupportedException($"binding API for OpenGL {version} not supported");
 			}
 		}
 
@@ -504,9 +499,8 @@ namespace OpenGL
 		/// </summary>
 		private static void ClearErrors()
 		{
-			ErrorCode error;
-
-			while ((error = GetError()) != ErrorCode.NoError)
+			while (GetError() != ErrorCode.NoError)
+				// ReSharper disable once EmptyEmbeddedStatement
 				;
 		}
 
@@ -517,6 +511,7 @@ namespace OpenGL
 		/// A <see cref="Object"/> that specifies the function returned value, if any.
 		/// </param>
 		[Conditional("GL_DEBUG")]
+		// ReSharper disable once UnusedParameter.Local
 		private static void DebugCheckErrors(object returnValue)
 		{
 			CheckErrors();
@@ -539,7 +534,7 @@ namespace OpenGL
 		/// A <see cref="T:Object[]"/> that specifies the API command arguments, if any.
 		/// </param>
 		[Conditional("GL_DEBUG")]
-		protected static new void LogCommand(string name, object returnValue, params object[] args)
+		protected new static void LogCommand(string name, object returnValue, params object[] args)
 		{
 			if (_LogContext == null)
 				_LogContext = new KhronosLogContext(typeof(Gl));
@@ -558,129 +553,129 @@ namespace OpenGL
 		/// <summary>
 		/// The source of the generated debug messages.
 		/// </summary>
-		public enum DebugSource : int
+		public enum DebugSource
 		{
 			/// <summary>
 			/// The source of the generated message is the OpenGL API.
 			/// </summary>
-			Api =					Gl.DEBUG_SOURCE_API,
+			Api =					DEBUG_SOURCE_API,
 
 			/// <summary>
 			/// The source of the generated message is the window system API.
 			/// </summary>
-			WindowSystem =			Gl.DEBUG_SOURCE_WINDOW_SYSTEM,
+			WindowSystem =			DEBUG_SOURCE_WINDOW_SYSTEM,
 
 			/// <summary>
 			/// The source of the generated message is a compiler for the shader language.
 			/// </summary>
-			ShaderCompiler =		Gl.DEBUG_SOURCE_SHADER_COMPILER,
+			ShaderCompiler =		DEBUG_SOURCE_SHADER_COMPILER,
 
 			/// <summary>
 			/// The source of the generated message is a third party component.
 			/// </summary>
-			ThirdParty =			Gl.DEBUG_SOURCE_THIRD_PARTY,
+			ThirdParty =			DEBUG_SOURCE_THIRD_PARTY,
 
 			/// <summary>
 			/// The source of the generated message is the application itself.
 			/// </summary>
-			Application =			Gl.DEBUG_SOURCE_APPLICATION,
+			Application =			DEBUG_SOURCE_APPLICATION,
 
 			/// <summary>
 			/// The source of the generated message is not any source not listed in enumeration.
 			/// </summary>
-			Other =					Gl.DEBUG_SOURCE_OTHER,
+			Other =					DEBUG_SOURCE_OTHER,
 
 			/// <summary>
-			/// Special value for <see cref="Gl.DebugMessageControl"/>.
+			/// Special value for <see cref="DebugMessageControl"/>.
 			/// </summary>
-			DontCare =				Gl.DONT_CARE,
+			DontCare =				DONT_CARE
 		}
 
 		/// <summary>
 		/// The type of the generated debug messages.
 		/// </summary>
-		public enum DebugType : int
+		public enum DebugType
 		{
 			/// <summary>
 			/// An error, typically from the API.
 			/// </summary>
-			Error =					Gl.DEBUG_TYPE_ERROR,
+			Error =					DEBUG_TYPE_ERROR,
 
 			/// <summary>
 			/// Some behavior marked deprecated has been used.
 			/// </summary>
-			DeprecatedBehavior =	Gl.DEBUG_TYPE_DEPRECATED_BEHAVIOR,
+			DeprecatedBehavior =	DEBUG_TYPE_DEPRECATED_BEHAVIOR,
 
 			/// <summary>
 			/// Something has invoked undefined behavior.
 			/// </summary>
-			UndefinedBehavior =		Gl.DEBUG_TYPE_UNDEFINED_BEHAVIOR,
+			UndefinedBehavior =		DEBUG_TYPE_UNDEFINED_BEHAVIOR,
 
 			/// <summary>
 			/// Some functionality the user relies upon is not portable.
 			/// </summary>
-			Portability =			Gl.DEBUG_TYPE_PORTABILITY,
+			Portability =			DEBUG_TYPE_PORTABILITY,
 
 			/// <summary>
 			/// Code has triggered possible performance issues.
 			/// </summary>
-			Performance =			Gl.DEBUG_TYPE_PERFORMANCE,
+			Performance =			DEBUG_TYPE_PERFORMANCE,
 
 			/// <summary>
 			/// Command stream annotation.
 			/// </summary>
-			Marker =				Gl.DEBUG_TYPE_MARKER,
+			Marker =				DEBUG_TYPE_MARKER,
 
 			/// <summary>
 			/// Scoped group push.
 			/// </summary>
-			PushGroup =				Gl.DEBUG_TYPE_PUSH_GROUP,
+			PushGroup =				DEBUG_TYPE_PUSH_GROUP,
 
 			/// <summary>
 			/// Scoped group pop.
 			/// </summary>
-			PopGroup =				Gl.DEBUG_TYPE_POP_GROUP,
+			PopGroup =				DEBUG_TYPE_POP_GROUP,
 
 			/// <summary>
 			/// The type of the generated message is not any type not listed in enumeration.
 			/// </summary>
-			Other =					Gl.DEBUG_TYPE_OTHER,
+			Other =					DEBUG_TYPE_OTHER,
 
 			/// <summary>
-			/// Special value for <see cref="Gl.DebugMessageControl"/>.
+			/// Special value for <see cref="DebugMessageControl"/>.
 			/// </summary>
-			DontCare =				Gl.DONT_CARE,
+			DontCare =				DONT_CARE
 		}
 
 		/// <summary>
 		/// The severity of the generated debug messages.
 		/// </summary>
-		public enum DebugSeverity : int
+		public enum DebugSeverity
 		{
 			/// <summary>
 			/// All OpenGL Errors, shader compilation/linking errors, or highly-dangerous undefined behavior.
 			/// </summary>
-			High =					Gl.DEBUG_SEVERITY_HIGH,
+			High =					DEBUG_SEVERITY_HIGH,
 
 			/// <summary>
 			/// Major performance warnings, shader compilation/linking warnings, or the use of deprecated functionality.
 			/// </summary>
-			Medium =				Gl.DEBUG_SEVERITY_MEDIUM,
+			Medium =				DEBUG_SEVERITY_MEDIUM,
 
 			/// <summary>
 			/// Redundant state change performance warning, or unimportant undefined behavior.
 			/// </summary>
-			Low =					Gl.DEBUG_SEVERITY_LOW,
+			Low =					DEBUG_SEVERITY_LOW,
 
 			/// <summary>
 			/// Anything that isn't an error or performance issue.
 			/// </summary>
-			Notification =			Gl.DEBUG_SEVERITY_NOTIFICATION,
+			Notification =			DEBUG_SEVERITY_NOTIFICATION,
 
 			/// <summary>
-			/// Special value for <see cref="Gl.DebugMessageControl"/>.
+			/// Special value for <see cref="DebugMessageControl"/>.
 			/// </summary>
-			DontCare =				Gl.DONT_CARE,
+			DontCare =				DONT_CARE
 		}
 
 		/// <summary>
@@ -745,24 +740,24 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_transform_feedback")]
-		public static void TransformFeedbackVaryings(UInt32 program, IntPtr[] varyings, Int32 bufferMode)
+		public static void TransformFeedbackVaryings(uint program, IntPtr[] varyings, int bufferMode)
 		{
 			unsafe
 			{
 				fixed (IntPtr* p_varyings = varyings)
 				{
 					Debug.Assert(Delegates.pglTransformFeedbackVaryings_Unmanaged != null, "pglTransformFeedbackVaryings not implemented");
-					Delegates.pglTransformFeedbackVaryings_Unmanaged(program, (Int32)varyings.Length, p_varyings, bufferMode);
+					Delegates.pglTransformFeedbackVaryings_Unmanaged(program, varyings.Length, p_varyings, bufferMode);
 					LogCommand("glTransformFeedbackVaryings", null, program, varyings.Length, varyings, bufferMode);
 				}
 			}
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glTransformFeedbackVaryings_Unmanaged(UInt32 program, Int32 count, IntPtr* varyings, Int32 bufferMode);
+			[SuppressUnmanagedCodeSecurity]
+			internal delegate void glTransformFeedbackVaryings_Unmanaged(uint program, int count, IntPtr* varyings, int bufferMode);
 
 			[RequiredByFeature("GL_VERSION_3_0", EntryPoint = "glTransformFeedbackVaryings")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2", EntryPoint = "glTransformFeedbackVaryings")]

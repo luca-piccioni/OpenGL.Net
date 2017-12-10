@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -88,17 +92,17 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GLX_SGIX_swap_barrier")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glXBindSwapBarrierSGIX(IntPtr dpy, IntPtr drawable, int barrier);
 
 			[RequiredByFeature("GLX_SGIX_swap_barrier")]
 			internal static glXBindSwapBarrierSGIX pglXBindSwapBarrierSGIX;
 
 			[RequiredByFeature("GLX_SGIX_swap_barrier")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool glXQueryMaxSwapBarriersSGIX(IntPtr dpy, int screen, int* max);
 
 			[RequiredByFeature("GLX_SGIX_swap_barrier")]

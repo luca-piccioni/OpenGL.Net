@@ -144,19 +144,19 @@ namespace OpenGL
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if no pattern is recognized in <paramref name="input"/>.
 		/// </exception>
-		public static new GlslVersion Parse(string input)
+		public new static GlslVersion Parse(string input)
 		{
 			if (input == null)
-				throw new ArgumentNullException("input");
+				throw new ArgumentNullException(nameof(input));
 
 			// Determine version value (support up to 3 version numbers)
 			Match versionMatch = Regex.Match(input, @"(?<Major>\d+)\.(?<Minor>\d+)(\.(?<Rev>\d+))?( .*)?");
 			if (versionMatch.Success == false)
-				throw new ArgumentException("unrecognized pattern", "input");
+				throw new ArgumentException("unrecognized pattern", nameof(input));
 
-			int versionMajor = Int32.Parse(versionMatch.Groups["Major"].Value);
-			int versionMinor = Int32.Parse(versionMatch.Groups["Minor"].Value);
-			int versionRev = versionMatch.Groups["Rev"].Success ? Int32.Parse(versionMatch.Groups["Rev"].Value) : 0;
+			int versionMajor = int.Parse(versionMatch.Groups["Major"].Value);
+			int versionMinor = int.Parse(versionMatch.Groups["Minor"].Value);
+			int versionRev = versionMatch.Groups["Rev"].Success ? int.Parse(versionMatch.Groups["Rev"].Value) : 0;
 
 			string api = ApiGlsl;
 
@@ -184,10 +184,10 @@ namespace OpenGL
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if no pattern is recognized in <paramref name="input"/>.
 		/// </exception>
-		public static new GlslVersion Parse(string input, string api)
+		public new static GlslVersion Parse(string input, string api)
 		{
 			if (input == null)
-				throw new ArgumentNullException("input");
+				throw new ArgumentNullException(nameof(input));
 
 			GlslVersion glslVersion = Parse(input);
 
@@ -216,10 +216,7 @@ namespace OpenGL
 		/// <summary>
 		/// Get the version identifier of this KhronosVersion.
 		/// </summary>
-		public override int VersionId
-		{
-			get { return (Major * 100 + Minor); }
-		}
+		public override int VersionId => (Major * 100 + Minor);
 
 		#endregion
 	}

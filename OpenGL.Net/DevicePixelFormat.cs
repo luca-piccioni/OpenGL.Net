@@ -205,7 +205,7 @@ namespace OpenGL
 		/// </returns>
 		public DevicePixelFormat Copy()
 		{
-			return ((DevicePixelFormat)MemberwiseClone());
+			return (DevicePixelFormat)MemberwiseClone();
 		}
 
 		#endregion
@@ -232,12 +232,7 @@ namespace OpenGL
 			if (RenderBuffer) surfaceType.Append("B");
 			if (RenderPBuffer) surfaceType.Append("P");
 
-			return (String.Format(
-				"Idx={0} Pixel={1} Color={2} Depth={3} Stencil={4} Ms={5} DB={6}, Surface={7}",
-				FormatIndex,
-				pixelType.ToString(), ColorBits, DepthBits, StencilBits, MultisampleBits, DoubleBuffer,
-				surfaceType.ToString()
-			));
+			return $"Idx={FormatIndex} Pixel={pixelType} Color={ColorBits} Depth={DepthBits} Stencil={StencilBits} Ms={MultisampleBits} DB={DoubleBuffer}, Surface={surfaceType}";
 		}
 
 		#endregion

@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -53,11 +57,11 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_ARB_parallel_shader_compile", Api = "gl|glcore")]
 			[RequiredByFeature("GL_KHR_parallel_shader_compile", Api = "gl|glcore|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glMaxShaderCompilerThreadsKHR(uint count);
 
 			[RequiredByFeature("GL_ARB_parallel_shader_compile", Api = "gl|glcore", EntryPoint = "glMaxShaderCompilerThreadsARB")]

@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -157,10 +161,10 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_texture_object")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glAreTexturesResidentEXT(int n, uint* textures, byte* residences);
 
@@ -169,7 +173,7 @@ namespace OpenGL
 			internal static glAreTexturesResidentEXT pglAreTexturesResidentEXT;
 
 			[RequiredByFeature("GL_EXT_texture_object")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glDeleteTexturesEXT(int n, uint* textures);
 
 			[RequiredByFeature("GL_EXT_texture_object")]
@@ -177,7 +181,7 @@ namespace OpenGL
 			internal static glDeleteTexturesEXT pglDeleteTexturesEXT;
 
 			[RequiredByFeature("GL_EXT_texture_object")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGenTexturesEXT(int n, uint* textures);
 
 			[RequiredByFeature("GL_EXT_texture_object")]
@@ -185,7 +189,7 @@ namespace OpenGL
 			internal static glGenTexturesEXT pglGenTexturesEXT;
 
 			[RequiredByFeature("GL_EXT_texture_object")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsTextureEXT(uint texture);
 

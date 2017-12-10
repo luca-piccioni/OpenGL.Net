@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -152,10 +156,10 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_APPLE_object_purgeable")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate int glObjectPurgeableAPPLE(int objectType, uint name, int option);
 
 			[RequiredByFeature("GL_APPLE_object_purgeable")]
@@ -163,7 +167,7 @@ namespace OpenGL
 			internal static glObjectPurgeableAPPLE pglObjectPurgeableAPPLE;
 
 			[RequiredByFeature("GL_APPLE_object_purgeable")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate int glObjectUnpurgeableAPPLE(int objectType, uint name, int option);
 
 			[RequiredByFeature("GL_APPLE_object_purgeable")]
@@ -171,7 +175,7 @@ namespace OpenGL
 			internal static glObjectUnpurgeableAPPLE pglObjectUnpurgeableAPPLE;
 
 			[RequiredByFeature("GL_APPLE_object_purgeable")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetObjectParameterivAPPLE(int objectType, uint name, int pname, int* @params);
 
 			[RequiredByFeature("GL_APPLE_object_purgeable")]

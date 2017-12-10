@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -161,10 +165,10 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_SGIX_sprite")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glSpriteParameterfSGIX(int pname, float param);
 
 			[RequiredByFeature("GL_SGIX_sprite")]
@@ -172,7 +176,7 @@ namespace OpenGL
 			internal static glSpriteParameterfSGIX pglSpriteParameterfSGIX;
 
 			[RequiredByFeature("GL_SGIX_sprite")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glSpriteParameterfvSGIX(int pname, float* @params);
 
 			[RequiredByFeature("GL_SGIX_sprite")]
@@ -180,7 +184,7 @@ namespace OpenGL
 			internal static glSpriteParameterfvSGIX pglSpriteParameterfvSGIX;
 
 			[RequiredByFeature("GL_SGIX_sprite")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glSpriteParameteriSGIX(int pname, int param);
 
 			[RequiredByFeature("GL_SGIX_sprite")]
@@ -188,7 +192,7 @@ namespace OpenGL
 			internal static glSpriteParameteriSGIX pglSpriteParameteriSGIX;
 
 			[RequiredByFeature("GL_SGIX_sprite")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glSpriteParameterivSGIX(int pname, int* @params);
 
 			[RequiredByFeature("GL_SGIX_sprite")]

@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -117,10 +121,10 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("WGL_EXT_display_color_table")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool wglCreateDisplayColorTableEXT(ushort id);
 
@@ -128,7 +132,7 @@ namespace OpenGL
 			internal static wglCreateDisplayColorTableEXT pwglCreateDisplayColorTableEXT;
 
 			[RequiredByFeature("WGL_EXT_display_color_table")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool wglLoadDisplayColorTableEXT(ushort* table, uint length);
 
@@ -136,7 +140,7 @@ namespace OpenGL
 			internal static wglLoadDisplayColorTableEXT pwglLoadDisplayColorTableEXT;
 
 			[RequiredByFeature("WGL_EXT_display_color_table")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool wglBindDisplayColorTableEXT(ushort id);
 
@@ -144,7 +148,7 @@ namespace OpenGL
 			internal static wglBindDisplayColorTableEXT pwglBindDisplayColorTableEXT;
 
 			[RequiredByFeature("WGL_EXT_display_color_table")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void wglDestroyDisplayColorTableEXT(ushort id);
 
 			[RequiredByFeature("WGL_EXT_display_color_table")]

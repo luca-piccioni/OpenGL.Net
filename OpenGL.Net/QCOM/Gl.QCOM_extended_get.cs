@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -326,10 +330,10 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glExtGetTexturesQCOM(uint* textures, int maxTextures, int* numTextures);
 
 			[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
@@ -337,7 +341,7 @@ namespace OpenGL
 			internal static glExtGetTexturesQCOM pglExtGetTexturesQCOM;
 
 			[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glExtGetBuffersQCOM(uint* buffers, int maxBuffers, int* numBuffers);
 
 			[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
@@ -345,7 +349,7 @@ namespace OpenGL
 			internal static glExtGetBuffersQCOM pglExtGetBuffersQCOM;
 
 			[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glExtGetRenderbuffersQCOM(uint* renderbuffers, int maxRenderbuffers, int* numRenderbuffers);
 
 			[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
@@ -353,7 +357,7 @@ namespace OpenGL
 			internal static glExtGetRenderbuffersQCOM pglExtGetRenderbuffersQCOM;
 
 			[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glExtGetFramebuffersQCOM(uint* framebuffers, int maxFramebuffers, int* numFramebuffers);
 
 			[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
@@ -361,7 +365,7 @@ namespace OpenGL
 			internal static glExtGetFramebuffersQCOM pglExtGetFramebuffersQCOM;
 
 			[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glExtGetTexLevelParameterivQCOM(uint texture, int face, int level, int pname, int* @params);
 
 			[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
@@ -369,7 +373,7 @@ namespace OpenGL
 			internal static glExtGetTexLevelParameterivQCOM pglExtGetTexLevelParameterivQCOM;
 
 			[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glExtTexObjectStateOverrideiQCOM(int target, int pname, int param);
 
 			[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
@@ -377,7 +381,7 @@ namespace OpenGL
 			internal static glExtTexObjectStateOverrideiQCOM pglExtTexObjectStateOverrideiQCOM;
 
 			[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glExtGetTexSubImageQCOM(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, IntPtr texels);
 
 			[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
@@ -385,7 +389,7 @@ namespace OpenGL
 			internal static glExtGetTexSubImageQCOM pglExtGetTexSubImageQCOM;
 
 			[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glExtGetBufferPointervQCOM(int target, IntPtr* @params);
 
 			[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]

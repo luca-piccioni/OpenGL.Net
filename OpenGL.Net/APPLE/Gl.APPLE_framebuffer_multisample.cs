@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -76,10 +80,10 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_APPLE_framebuffer_multisample", Api = "gles1|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glRenderbufferStorageMultisampleAPPLE(int target, int samples, int internalformat, int width, int height);
 
 			[RequiredByFeature("GL_APPLE_framebuffer_multisample", Api = "gles1|gles2")]
@@ -87,7 +91,7 @@ namespace OpenGL
 			internal static glRenderbufferStorageMultisampleAPPLE pglRenderbufferStorageMultisampleAPPLE;
 
 			[RequiredByFeature("GL_APPLE_framebuffer_multisample", Api = "gles1|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glResolveMultisampleFramebufferAPPLE();
 
 			[RequiredByFeature("GL_APPLE_framebuffer_multisample", Api = "gles1|gles2")]

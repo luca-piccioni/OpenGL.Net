@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -1478,12 +1482,12 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ARB_base_instance", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_base_instance", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glDrawArraysInstancedBaseInstance(int mode, int first, int count, int instancecount, uint baseinstance);
 
 			[RequiredByFeature("GL_VERSION_4_2")]
@@ -1495,7 +1499,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ARB_base_instance", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_base_instance", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glDrawElementsInstancedBaseInstance(int mode, int count, int type, IntPtr indices, int instancecount, uint baseinstance);
 
 			[RequiredByFeature("GL_VERSION_4_2")]
@@ -1507,7 +1511,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ARB_base_instance", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_base_instance", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glDrawElementsInstancedBaseVertexBaseInstance(int mode, int count, int type, IntPtr indices, int instancecount, int basevertex, uint baseinstance);
 
 			[RequiredByFeature("GL_VERSION_4_2")]
@@ -1519,7 +1523,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_internalformat_query", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetInternalformativ(int target, int internalformat, int pname, int bufSize, int* @params);
 
 			[RequiredByFeature("GL_VERSION_4_2")]
@@ -1530,7 +1534,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ARB_shader_atomic_counters", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetActiveAtomicCounterBufferiv(uint program, uint bufferIndex, int pname, int* @params);
 
 			[RequiredByFeature("GL_VERSION_4_2")]
@@ -1541,7 +1545,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glBindImageTexture(uint unit, uint texture, int level, [MarshalAs(UnmanagedType.I1)] bool layered, int layer, int access, int format);
 
 			[RequiredByFeature("GL_VERSION_4_2")]
@@ -1554,7 +1558,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_shader_image_load_store", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_shader_image_load_store")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glMemoryBarrier(uint barriers);
 
 			[RequiredByFeature("GL_VERSION_4_2")]
@@ -1567,7 +1571,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ARB_texture_storage", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glTexStorage1D(int target, int levels, int internalformat, int width);
 
 			[RequiredByFeature("GL_VERSION_4_2")]
@@ -1581,7 +1585,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_texture_storage", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glTexStorage2D(int target, int levels, int internalformat, int width, int height);
 
 			[RequiredByFeature("GL_VERSION_4_2")]
@@ -1596,7 +1600,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_texture_storage", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glTexStorage3D(int target, int levels, int internalformat, int width, int height, int depth);
 
 			[RequiredByFeature("GL_VERSION_4_2")]
@@ -1609,7 +1613,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ARB_transform_feedback_instanced", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_draw_transform_feedback", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glDrawTransformFeedbackInstanced(int mode, uint id, int instancecount);
 
 			[RequiredByFeature("GL_VERSION_4_2")]
@@ -1620,7 +1624,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ARB_transform_feedback_instanced", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glDrawTransformFeedbackStreamInstanced(int mode, uint id, uint stream, int instancecount);
 
 			[RequiredByFeature("GL_VERSION_4_2")]

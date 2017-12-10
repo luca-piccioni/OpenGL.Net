@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -273,10 +277,10 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_present_video")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glPresentFrameKeyedNV(uint video_slot, ulong minPresentTime, uint beginPresentTimeId, uint presentDurationId, int type, int target0, uint fill0, uint key0, int target1, uint fill1, uint key1);
 
 			[RequiredByFeature("GL_NV_present_video")]
@@ -284,7 +288,7 @@ namespace OpenGL
 			internal static glPresentFrameKeyedNV pglPresentFrameKeyedNV;
 
 			[RequiredByFeature("GL_NV_present_video")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glPresentFrameDualFillNV(uint video_slot, ulong minPresentTime, uint beginPresentTimeId, uint presentDurationId, int type, int target0, uint fill0, int target1, uint fill1, int target2, uint fill2, int target3, uint fill3);
 
 			[RequiredByFeature("GL_NV_present_video")]
@@ -292,7 +296,7 @@ namespace OpenGL
 			internal static glPresentFrameDualFillNV pglPresentFrameDualFillNV;
 
 			[RequiredByFeature("GL_NV_present_video")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetVideoivNV(uint video_slot, int pname, int* @params);
 
 			[RequiredByFeature("GL_NV_present_video")]
@@ -300,7 +304,7 @@ namespace OpenGL
 			internal static glGetVideoivNV pglGetVideoivNV;
 
 			[RequiredByFeature("GL_NV_present_video")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetVideouivNV(uint video_slot, int pname, uint* @params);
 
 			[RequiredByFeature("GL_NV_present_video")]
@@ -308,7 +312,7 @@ namespace OpenGL
 			internal static glGetVideouivNV pglGetVideouivNV;
 
 			[RequiredByFeature("GL_NV_present_video")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetVideoi64vNV(uint video_slot, int pname, long* @params);
 
 			[RequiredByFeature("GL_NV_present_video")]
@@ -316,7 +320,7 @@ namespace OpenGL
 			internal static glGetVideoi64vNV pglGetVideoi64vNV;
 
 			[RequiredByFeature("GL_NV_present_video")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetVideoui64vNV(uint video_slot, int pname, ulong* @params);
 
 			[RequiredByFeature("GL_NV_present_video")]

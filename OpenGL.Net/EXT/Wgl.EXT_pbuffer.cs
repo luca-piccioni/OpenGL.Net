@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -175,38 +179,38 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("WGL_EXT_pbuffer")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate IntPtr wglCreatePbufferEXT(IntPtr hDC, int iPixelFormat, int iWidth, int iHeight, int* piAttribList);
 
 			[RequiredByFeature("WGL_EXT_pbuffer")]
 			internal static wglCreatePbufferEXT pwglCreatePbufferEXT;
 
 			[RequiredByFeature("WGL_EXT_pbuffer")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate IntPtr wglGetPbufferDCEXT(IntPtr hPbuffer);
 
 			[RequiredByFeature("WGL_EXT_pbuffer")]
 			internal static wglGetPbufferDCEXT pwglGetPbufferDCEXT;
 
 			[RequiredByFeature("WGL_EXT_pbuffer")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate int wglReleasePbufferDCEXT(IntPtr hPbuffer, IntPtr hDC);
 
 			[RequiredByFeature("WGL_EXT_pbuffer")]
 			internal static wglReleasePbufferDCEXT pwglReleasePbufferDCEXT;
 
 			[RequiredByFeature("WGL_EXT_pbuffer")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool wglDestroyPbufferEXT(IntPtr hPbuffer);
 
 			[RequiredByFeature("WGL_EXT_pbuffer")]
 			internal static wglDestroyPbufferEXT pwglDestroyPbufferEXT;
 
 			[RequiredByFeature("WGL_EXT_pbuffer")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool wglQueryPbufferEXT(IntPtr hPbuffer, int iAttribute, int* piValue);
 
 			[RequiredByFeature("WGL_EXT_pbuffer")]

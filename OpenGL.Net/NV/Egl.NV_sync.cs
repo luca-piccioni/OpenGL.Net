@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -242,45 +246,45 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("EGL_NV_sync")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate IntPtr eglCreateFenceSyncNV(IntPtr dpy, uint condition, int* attrib_list);
 
 			[RequiredByFeature("EGL_NV_sync")]
 			internal static eglCreateFenceSyncNV peglCreateFenceSyncNV;
 
 			[RequiredByFeature("EGL_NV_sync")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool eglDestroySyncNV(IntPtr sync);
 
 			[RequiredByFeature("EGL_NV_sync")]
 			internal static eglDestroySyncNV peglDestroySyncNV;
 
 			[RequiredByFeature("EGL_NV_sync")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool eglFenceNV(IntPtr sync);
 
 			[RequiredByFeature("EGL_NV_sync")]
 			internal static eglFenceNV peglFenceNV;
 
 			[RequiredByFeature("EGL_NV_sync")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate int eglClientWaitSyncNV(IntPtr sync, int flags, ulong timeout);
 
 			[RequiredByFeature("EGL_NV_sync")]
 			internal static eglClientWaitSyncNV peglClientWaitSyncNV;
 
 			[RequiredByFeature("EGL_NV_sync")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool eglSignalSyncNV(IntPtr sync, uint mode);
 
 			[RequiredByFeature("EGL_NV_sync")]
 			internal static eglSignalSyncNV peglSignalSyncNV;
 
 			[RequiredByFeature("EGL_NV_sync")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool eglGetSyncAttribNV(IntPtr sync, int attribute, int* value);
 
 			[RequiredByFeature("EGL_NV_sync")]

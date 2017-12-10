@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -205,10 +209,10 @@ namespace OpenGL
 			}
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_convolution")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetConvolutionFilterEXT(int target, int format, int type, IntPtr image);
 
 			[RequiredByFeature("GL_EXT_convolution")]
@@ -216,7 +220,7 @@ namespace OpenGL
 			internal static glGetConvolutionFilterEXT pglGetConvolutionFilterEXT;
 
 			[RequiredByFeature("GL_EXT_convolution")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetConvolutionParameterfvEXT(int target, int pname, float* @params);
 
 			[RequiredByFeature("GL_EXT_convolution")]
@@ -224,7 +228,7 @@ namespace OpenGL
 			internal static glGetConvolutionParameterfvEXT pglGetConvolutionParameterfvEXT;
 
 			[RequiredByFeature("GL_EXT_convolution")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetConvolutionParameterivEXT(int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_EXT_convolution")]
@@ -232,7 +236,7 @@ namespace OpenGL
 			internal static glGetConvolutionParameterivEXT pglGetConvolutionParameterivEXT;
 
 			[RequiredByFeature("GL_EXT_convolution")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetSeparableFilterEXT(int target, int format, int type, IntPtr row, IntPtr column, IntPtr span);
 
 			[RequiredByFeature("GL_EXT_convolution")]

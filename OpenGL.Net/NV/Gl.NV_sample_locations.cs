@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -107,10 +111,10 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_sample_locations", Api = "gl|glcore|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glFramebufferSampleLocationsfvNV(int target, uint start, int count, float* v);
 
 			[RequiredByFeature("GL_NV_sample_locations", Api = "gl|glcore|gles2")]
@@ -118,7 +122,7 @@ namespace OpenGL
 			internal static glFramebufferSampleLocationsfvNV pglFramebufferSampleLocationsfvNV;
 
 			[RequiredByFeature("GL_NV_sample_locations", Api = "gl|glcore|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glNamedFramebufferSampleLocationsfvNV(uint framebuffer, uint start, int count, float* v);
 
 			[RequiredByFeature("GL_NV_sample_locations", Api = "gl|glcore|gles2")]
@@ -126,7 +130,7 @@ namespace OpenGL
 			internal static glNamedFramebufferSampleLocationsfvNV pglNamedFramebufferSampleLocationsfvNV;
 
 			[RequiredByFeature("GL_NV_sample_locations", Api = "gl|glcore|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glResolveDepthValuesNV();
 
 			[RequiredByFeature("GL_NV_sample_locations", Api = "gl|glcore|gles2")]

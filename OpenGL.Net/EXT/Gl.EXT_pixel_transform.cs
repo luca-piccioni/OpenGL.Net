@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -239,10 +243,10 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_pixel_transform")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glPixelTransformParameteriEXT(int target, int pname, int param);
 
 			[RequiredByFeature("GL_EXT_pixel_transform")]
@@ -250,7 +254,7 @@ namespace OpenGL
 			internal static glPixelTransformParameteriEXT pglPixelTransformParameteriEXT;
 
 			[RequiredByFeature("GL_EXT_pixel_transform")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glPixelTransformParameterfEXT(int target, int pname, float param);
 
 			[RequiredByFeature("GL_EXT_pixel_transform")]
@@ -258,7 +262,7 @@ namespace OpenGL
 			internal static glPixelTransformParameterfEXT pglPixelTransformParameterfEXT;
 
 			[RequiredByFeature("GL_EXT_pixel_transform")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glPixelTransformParameterivEXT(int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_EXT_pixel_transform")]
@@ -266,7 +270,7 @@ namespace OpenGL
 			internal static glPixelTransformParameterivEXT pglPixelTransformParameterivEXT;
 
 			[RequiredByFeature("GL_EXT_pixel_transform")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glPixelTransformParameterfvEXT(int target, int pname, float* @params);
 
 			[RequiredByFeature("GL_EXT_pixel_transform")]
@@ -274,7 +278,7 @@ namespace OpenGL
 			internal static glPixelTransformParameterfvEXT pglPixelTransformParameterfvEXT;
 
 			[RequiredByFeature("GL_EXT_pixel_transform")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetPixelTransformParameterivEXT(int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_EXT_pixel_transform")]
@@ -282,7 +286,7 @@ namespace OpenGL
 			internal static glGetPixelTransformParameterivEXT pglGetPixelTransformParameterivEXT;
 
 			[RequiredByFeature("GL_EXT_pixel_transform")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetPixelTransformParameterfvEXT(int target, int pname, float* @params);
 
 			[RequiredByFeature("GL_EXT_pixel_transform")]

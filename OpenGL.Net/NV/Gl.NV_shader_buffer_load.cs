@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -349,10 +353,10 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glMakeBufferResidentNV(int target, int access);
 
 			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
@@ -360,7 +364,7 @@ namespace OpenGL
 			internal static glMakeBufferResidentNV pglMakeBufferResidentNV;
 
 			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glMakeBufferNonResidentNV(int target);
 
 			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
@@ -368,7 +372,7 @@ namespace OpenGL
 			internal static glMakeBufferNonResidentNV pglMakeBufferNonResidentNV;
 
 			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsBufferResidentNV(int target);
 
@@ -377,7 +381,7 @@ namespace OpenGL
 			internal static glIsBufferResidentNV pglIsBufferResidentNV;
 
 			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glMakeNamedBufferResidentNV(uint buffer, int access);
 
 			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
@@ -385,7 +389,7 @@ namespace OpenGL
 			internal static glMakeNamedBufferResidentNV pglMakeNamedBufferResidentNV;
 
 			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glMakeNamedBufferNonResidentNV(uint buffer);
 
 			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
@@ -393,7 +397,7 @@ namespace OpenGL
 			internal static glMakeNamedBufferNonResidentNV pglMakeNamedBufferNonResidentNV;
 
 			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsNamedBufferResidentNV(uint buffer);
 
@@ -402,7 +406,7 @@ namespace OpenGL
 			internal static glIsNamedBufferResidentNV pglIsNamedBufferResidentNV;
 
 			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetBufferParameterui64vNV(int target, int pname, ulong* @params);
 
 			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
@@ -410,7 +414,7 @@ namespace OpenGL
 			internal static glGetBufferParameterui64vNV pglGetBufferParameterui64vNV;
 
 			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetNamedBufferParameterui64vNV(uint buffer, int pname, ulong* @params);
 
 			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
@@ -418,7 +422,7 @@ namespace OpenGL
 			internal static glGetNamedBufferParameterui64vNV pglGetNamedBufferParameterui64vNV;
 
 			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetIntegerui64vNV(int value, ulong* result);
 
 			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
@@ -426,7 +430,7 @@ namespace OpenGL
 			internal static glGetIntegerui64vNV pglGetIntegerui64vNV;
 
 			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glUniformui64NV(int location, ulong value);
 
 			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
@@ -434,7 +438,7 @@ namespace OpenGL
 			internal static glUniformui64NV pglUniformui64NV;
 
 			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glUniformui64vNV(int location, int count, ulong* value);
 
 			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
@@ -443,7 +447,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
 			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetUniformui64vNV(uint program, int location, ulong* @params);
 
 			[RequiredByFeature("GL_AMD_gpu_shader_int64")]
@@ -452,7 +456,7 @@ namespace OpenGL
 			internal static glGetUniformui64vNV pglGetUniformui64vNV;
 
 			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glProgramUniformui64NV(uint program, int location, ulong value);
 
 			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
@@ -460,7 +464,7 @@ namespace OpenGL
 			internal static glProgramUniformui64NV pglProgramUniformui64NV;
 
 			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glProgramUniformui64vNV(uint program, int location, int count, ulong* value);
 
 			[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]

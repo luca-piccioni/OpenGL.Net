@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -141,10 +145,10 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_AMD_name_gen_delete")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGenNamesAMD(int identifier, uint num, uint* names);
 
 			[RequiredByFeature("GL_AMD_name_gen_delete")]
@@ -152,7 +156,7 @@ namespace OpenGL
 			internal static glGenNamesAMD pglGenNamesAMD;
 
 			[RequiredByFeature("GL_AMD_name_gen_delete")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glDeleteNamesAMD(int identifier, uint num, uint* names);
 
 			[RequiredByFeature("GL_AMD_name_gen_delete")]
@@ -160,7 +164,7 @@ namespace OpenGL
 			internal static glDeleteNamesAMD pglDeleteNamesAMD;
 
 			[RequiredByFeature("GL_AMD_name_gen_delete")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsNameAMD(int identifier, uint name);
 

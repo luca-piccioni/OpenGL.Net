@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -162,10 +166,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="buf">
-		/// A <see cref="T:String"/>.
+		/// A <see cref="T:string"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_debug_output")]
-		public static void DebugMessageInsertAMD(int category, DebugSeverity severity, uint id, int length, String buf)
+		public static void DebugMessageInsertAMD(int category, DebugSeverity severity, uint id, int length, string buf)
 		{
 			Debug.Assert(Delegates.pglDebugMessageInsertAMD != null, "pglDebugMessageInsertAMD not implemented");
 			Delegates.pglDebugMessageInsertAMD(category, (int)severity, id, length, buf);
@@ -177,13 +181,13 @@ namespace OpenGL
 		/// [GL] glDebugMessageCallbackAMD: Binding for glDebugMessageCallbackAMD.
 		/// </summary>
 		/// <param name="callback">
-		/// A <see cref="T:Gl.DebugProc"/>.
+		/// A <see cref="T:DebugProc"/>.
 		/// </param>
 		/// <param name="userParam">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_debug_output")]
-		public static void DebugMessageCallbackAMD(Gl.DebugProc callback, IntPtr userParam)
+		public static void DebugMessageCallbackAMD(DebugProc callback, IntPtr userParam)
 		{
 			Debug.Assert(Delegates.pglDebugMessageCallbackAMD != null, "pglDebugMessageCallbackAMD not implemented");
 			Delegates.pglDebugMessageCallbackAMD(callback, userParam);
@@ -213,7 +217,7 @@ namespace OpenGL
 		/// A <see cref="T:StringBuilder"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_debug_output")]
-		public static uint GetDebugMessageLogAMD(int bufsize, [Out] int[] categories, [Out] uint[] severities, [Out] uint[] ids, [Out] int[] lengths, [Out] StringBuilder message)
+		public static uint GetDebugMessageLogAMD(int bufsize, [Out] int[] categories, [Out] uint[] severities, [Out] uint[] ids, [Out] int[] lengths, StringBuilder message)
 		{
 			uint retValue;
 
@@ -233,10 +237,10 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_AMD_debug_output")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glDebugMessageEnableAMD(int category, int severity, int count, uint* ids, [MarshalAs(UnmanagedType.I1)] bool enabled);
 
 			[RequiredByFeature("GL_AMD_debug_output")]
@@ -244,24 +248,24 @@ namespace OpenGL
 			internal static glDebugMessageEnableAMD pglDebugMessageEnableAMD;
 
 			[RequiredByFeature("GL_AMD_debug_output")]
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glDebugMessageInsertAMD(int category, int severity, uint id, int length, String buf);
+			[SuppressUnmanagedCodeSecurity]
+			internal delegate void glDebugMessageInsertAMD(int category, int severity, uint id, int length, string buf);
 
 			[RequiredByFeature("GL_AMD_debug_output")]
 			[ThreadStatic]
 			internal static glDebugMessageInsertAMD pglDebugMessageInsertAMD;
 
 			[RequiredByFeature("GL_AMD_debug_output")]
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glDebugMessageCallbackAMD(Gl.DebugProc callback, IntPtr userParam);
+			[SuppressUnmanagedCodeSecurity]
+			internal delegate void glDebugMessageCallbackAMD(DebugProc callback, IntPtr userParam);
 
 			[RequiredByFeature("GL_AMD_debug_output")]
 			[ThreadStatic]
 			internal static glDebugMessageCallbackAMD pglDebugMessageCallbackAMD;
 
 			[RequiredByFeature("GL_AMD_debug_output")]
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate uint glGetDebugMessageLogAMD(uint count, int bufsize, int* categories, uint* severities, uint* ids, int* lengths, [Out] StringBuilder message);
+			[SuppressUnmanagedCodeSecurity]
+			internal delegate uint glGetDebugMessageLogAMD(uint count, int bufsize, int* categories, uint* severities, uint* ids, int* lengths, StringBuilder message);
 
 			[RequiredByFeature("GL_AMD_debug_output")]
 			[ThreadStatic]

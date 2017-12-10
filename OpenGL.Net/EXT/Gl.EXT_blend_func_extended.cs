@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -47,10 +51,10 @@ namespace OpenGL
 		/// A <see cref="T:ProgramInterface"/>.
 		/// </param>
 		/// <param name="name">
-		/// A <see cref="T:String"/>.
+		/// A <see cref="T:string"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2")]
-		public static int GetProgramResourceLocationIndexEXT(uint program, ProgramInterface programInterface, String name)
+		public static int GetProgramResourceLocationIndexEXT(uint program, ProgramInterface programInterface, string name)
 		{
 			int retValue;
 
@@ -62,11 +66,11 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate int glGetProgramResourceLocationIndexEXT(uint program, int programInterface, String name);
+			[SuppressUnmanagedCodeSecurity]
+			internal delegate int glGetProgramResourceLocationIndexEXT(uint program, int programInterface, string name);
 
 			[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2")]
 			[ThreadStatic]

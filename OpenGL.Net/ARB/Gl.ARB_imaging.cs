@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -1929,12 +1933,12 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_paletted_texture")]
 			[RequiredByFeature("GL_SGI_color_table")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glColorTable(int target, int internalformat, int width, int format, int type, IntPtr table);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
@@ -1945,7 +1949,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_SGI_color_table")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glColorTableParameterfv(int target, int pname, float* @params);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
@@ -1955,7 +1959,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_SGI_color_table")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glColorTableParameteriv(int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
@@ -1965,7 +1969,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_SGI_color_table")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glCopyColorTable(int target, int internalformat, int x, int y, int width);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
@@ -1975,7 +1979,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_paletted_texture")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetColorTable(int target, int format, int type, IntPtr table);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
@@ -1985,7 +1989,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_paletted_texture")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetColorTableParameterfv(int target, int pname, float* @params);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
@@ -1995,7 +1999,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_paletted_texture")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetColorTableParameteriv(int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
@@ -2005,7 +2009,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_color_subtable")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glColorSubTable(int target, int start, int count, int format, int type, IntPtr data);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
@@ -2015,7 +2019,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_color_subtable")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glCopyColorSubTable(int target, int start, int x, int y, int width);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
@@ -2025,7 +2029,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_convolution")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glConvolutionFilter1D(int target, int internalformat, int width, int format, int type, IntPtr image);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
@@ -2035,7 +2039,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_convolution")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glConvolutionFilter2D(int target, int internalformat, int width, int height, int format, int type, IntPtr image);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
@@ -2045,7 +2049,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_convolution")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glConvolutionParameterf(int target, int pname, float @params);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
@@ -2055,7 +2059,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_convolution")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glConvolutionParameterfv(int target, int pname, float* @params);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
@@ -2065,7 +2069,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_convolution")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glConvolutionParameteri(int target, int pname, int @params);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
@@ -2075,7 +2079,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_convolution")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glConvolutionParameteriv(int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
@@ -2085,7 +2089,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_convolution")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glCopyConvolutionFilter1D(int target, int internalformat, int x, int y, int width);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
@@ -2095,7 +2099,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_convolution")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glCopyConvolutionFilter2D(int target, int internalformat, int x, int y, int width, int height);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
@@ -2104,7 +2108,7 @@ namespace OpenGL
 			internal static glCopyConvolutionFilter2D pglCopyConvolutionFilter2D;
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetConvolutionFilter(int target, int format, int type, IntPtr image);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
@@ -2112,7 +2116,7 @@ namespace OpenGL
 			internal static glGetConvolutionFilter pglGetConvolutionFilter;
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetConvolutionParameterfv(int target, int pname, float* @params);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
@@ -2120,7 +2124,7 @@ namespace OpenGL
 			internal static glGetConvolutionParameterfv pglGetConvolutionParameterfv;
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetConvolutionParameteriv(int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
@@ -2128,7 +2132,7 @@ namespace OpenGL
 			internal static glGetConvolutionParameteriv pglGetConvolutionParameteriv;
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetSeparableFilter(int target, int format, int type, IntPtr row, IntPtr column, IntPtr span);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
@@ -2137,7 +2141,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_convolution")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glSeparableFilter2D(int target, int internalformat, int width, int height, int format, int type, IntPtr row, IntPtr column);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
@@ -2146,7 +2150,7 @@ namespace OpenGL
 			internal static glSeparableFilter2D pglSeparableFilter2D;
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetHistogram(int target, [MarshalAs(UnmanagedType.I1)] bool reset, int format, int type, IntPtr values);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
@@ -2154,7 +2158,7 @@ namespace OpenGL
 			internal static glGetHistogram pglGetHistogram;
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetHistogramParameterfv(int target, int pname, float* @params);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
@@ -2162,7 +2166,7 @@ namespace OpenGL
 			internal static glGetHistogramParameterfv pglGetHistogramParameterfv;
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetHistogramParameteriv(int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
@@ -2170,7 +2174,7 @@ namespace OpenGL
 			internal static glGetHistogramParameteriv pglGetHistogramParameteriv;
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetMinmax(int target, [MarshalAs(UnmanagedType.I1)] bool reset, int format, int type, IntPtr values);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
@@ -2178,7 +2182,7 @@ namespace OpenGL
 			internal static glGetMinmax pglGetMinmax;
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetMinmaxParameterfv(int target, int pname, float* @params);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
@@ -2186,7 +2190,7 @@ namespace OpenGL
 			internal static glGetMinmaxParameterfv pglGetMinmaxParameterfv;
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetMinmaxParameteriv(int target, int pname, int* @params);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
@@ -2195,7 +2199,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_histogram")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glHistogram(int target, int width, int internalformat, [MarshalAs(UnmanagedType.I1)] bool sink);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
@@ -2205,7 +2209,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_histogram")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glMinmax(int target, int internalformat, [MarshalAs(UnmanagedType.I1)] bool sink);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
@@ -2215,7 +2219,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_histogram")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glResetHistogram(int target);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
@@ -2225,7 +2229,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_histogram")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glResetMinmax(int target);
 
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]

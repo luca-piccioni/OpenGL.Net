@@ -267,7 +267,7 @@ namespace BindingsGen.GLSpecs
 				sw.WriteLine(feature.GenerateRemovedByAttribute(classDefaultApi));
 
 			// Not yet sure if it is really necessary
-			sw.WriteLine("[SuppressUnmanagedCodeSecurity()]");
+			sw.WriteLine("[SuppressUnmanagedCodeSecurity]");
 
 			// return: MarshalAs
 			switch (Prototype.Type) {

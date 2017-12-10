@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenVX
 {
@@ -189,39 +193,39 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxConvolutionLayer(Graph graph, Tensor inputs, Tensor weights, Tensor biases, NnConvolutionParams* convolution_params, UIntPtr size_of_convolution_params, Tensor outputs);
 
 			internal static vxConvolutionLayer pvxConvolutionLayer;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxFullyConnectedLayer(Graph graph, Tensor inputs, Tensor weights, Tensor biases, int overflow_policy, int rounding_policy, Tensor outputs);
 
 			internal static vxFullyConnectedLayer pvxFullyConnectedLayer;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxPoolingLayer(Graph graph, Tensor inputs, int pooling_type, UIntPtr pooling_size_x, UIntPtr pooling_size_y, UIntPtr pooling_padding_x, UIntPtr pooling_padding_y, int rounding, Tensor outputs);
 
 			internal static vxPoolingLayer pvxPoolingLayer;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxSoftmaxLayer(Graph graph, Tensor inputs, Tensor outputs);
 
 			internal static vxSoftmaxLayer pvxSoftmaxLayer;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxNormalizationLayer(Graph graph, Tensor inputs, int type, UIntPtr normalization_size, float alpha, float beta, Tensor outputs);
 
 			internal static vxNormalizationLayer pvxNormalizationLayer;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxActivationLayer(Graph graph, Tensor inputs, int function, float a, float b, Tensor outputs);
 
 			internal static vxActivationLayer pvxActivationLayer;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxDeconvolutionLayer(Graph graph, Tensor inputs, Tensor weights, Tensor biases, NnDeconvolutionParams* deconvolution_params, UIntPtr size_of_deconv_params, Tensor outputs);
 
 			internal static vxDeconvolutionLayer pvxDeconvolutionLayer;

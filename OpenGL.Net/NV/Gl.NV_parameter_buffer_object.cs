@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -154,10 +158,10 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_parameter_buffer_object")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glProgramBufferParametersfvNV(int target, uint bindingIndex, uint wordIndex, int count, float* @params);
 
 			[RequiredByFeature("GL_NV_parameter_buffer_object")]
@@ -165,7 +169,7 @@ namespace OpenGL
 			internal static glProgramBufferParametersfvNV pglProgramBufferParametersfvNV;
 
 			[RequiredByFeature("GL_NV_parameter_buffer_object")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glProgramBufferParametersIivNV(int target, uint bindingIndex, uint wordIndex, int count, int* @params);
 
 			[RequiredByFeature("GL_NV_parameter_buffer_object")]
@@ -173,7 +177,7 @@ namespace OpenGL
 			internal static glProgramBufferParametersIivNV pglProgramBufferParametersIivNV;
 
 			[RequiredByFeature("GL_NV_parameter_buffer_object")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glProgramBufferParametersIuivNV(int target, uint bindingIndex, uint wordIndex, int count, uint* @params);
 
 			[RequiredByFeature("GL_NV_parameter_buffer_object")]

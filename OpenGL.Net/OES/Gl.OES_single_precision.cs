@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -145,10 +149,10 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_OES_single_precision", Api = "gl|gles1")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glClipPlanefOES(int plane, float* equation);
 
 			[RequiredByFeature("GL_OES_single_precision", Api = "gl|gles1")]
@@ -156,7 +160,7 @@ namespace OpenGL
 			internal static glClipPlanefOES pglClipPlanefOES;
 
 			[RequiredByFeature("GL_OES_single_precision", Api = "gl|gles1")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glFrustumfOES(float l, float r, float b, float t, float n, float f);
 
 			[RequiredByFeature("GL_OES_single_precision", Api = "gl|gles1")]
@@ -164,7 +168,7 @@ namespace OpenGL
 			internal static glFrustumfOES pglFrustumfOES;
 
 			[RequiredByFeature("GL_OES_single_precision", Api = "gl|gles1")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetClipPlanefOES(int plane, float* equation);
 
 			[RequiredByFeature("GL_OES_single_precision", Api = "gl|gles1")]
@@ -172,7 +176,7 @@ namespace OpenGL
 			internal static glGetClipPlanefOES pglGetClipPlanefOES;
 
 			[RequiredByFeature("GL_OES_single_precision", Api = "gl|gles1")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glOrthofOES(float l, float r, float b, float t, float n, float f);
 
 			[RequiredByFeature("GL_OES_single_precision", Api = "gl|gles1")]

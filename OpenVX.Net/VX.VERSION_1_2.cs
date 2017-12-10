@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenVX
 {
@@ -3827,1114 +3831,1114 @@ namespace OpenVX
 			return (retValue);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Context vxCreateContext();
 
 			internal static vxCreateContext pvxCreateContext;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxReleaseContext(ref Context context);
 
 			internal static vxReleaseContext pvxReleaseContext;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Context vxGetContext(Reference reference);
 
 			internal static vxGetContext pvxGetContext;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxQueryContext(Context context, ContextAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxQueryContext pvxQueryContext;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxSetContextAttribute(Context context, ContextAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxSetContextAttribute pvxSetContextAttribute;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxHint(Reference reference, Hint hint, void* data, UIntPtr data_size);
 
 			internal static vxHint pvxHint;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxDirective(Reference reference, Directive directive);
 
 			internal static vxDirective pvxDirective;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxGetStatus(Reference reference);
 
 			internal static vxGetStatus pvxGetStatus;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Type vxRegisterUserStruct(Context context, UIntPtr size);
 
 			internal static vxRegisterUserStruct pvxRegisterUserStruct;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxAllocateUserKernelId(Context context, Type* pKernelEnumId);
 
 			internal static vxAllocateUserKernelId pvxAllocateUserKernelId;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxAllocateUserKernelLibraryId(Context context, int* pLibraryId);
 
 			internal static vxAllocateUserKernelLibraryId pvxAllocateUserKernelLibraryId;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxSetImmediateModeTarget(Context context, Target target_enum, string target_string);
 
 			internal static vxSetImmediateModeTarget pvxSetImmediateModeTarget;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Image vxCreateImage(Context context, uint width, uint height, DfImage color);
 
 			internal static vxCreateImage pvxCreateImage;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Image vxCreateImageFromROI(Image img, Rectangle* rect);
 
 			internal static vxCreateImageFromROI pvxCreateImageFromROI;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Image vxCreateUniformImage(Context context, uint width, uint height, DfImage color, PixelValue value);
 
 			internal static vxCreateUniformImage pvxCreateUniformImage;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Image vxCreateVirtualImage(Graph graph, uint width, uint height, DfImage color);
 
 			internal static vxCreateVirtualImage pvxCreateVirtualImage;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Image vxCreateImageFromHandle(Context context, DfImage color, ImagePatchAddressing* addrs, IntPtr* ptrs, MemoryType memory_type);
 
 			internal static vxCreateImageFromHandle pvxCreateImageFromHandle;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxSwapImageHandle(Image image, IntPtr* new_ptrs, IntPtr* prev_ptrs, UIntPtr num_planes);
 
 			internal static vxSwapImageHandle pvxSwapImageHandle;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxQueryImage(Image image, ImageAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxQueryImage pvxQueryImage;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxSetImageAttribute(Image image, ImageAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxSetImageAttribute pvxSetImageAttribute;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxSetImagePixelValues(Image image, PixelValue pixel_value);
 
 			internal static vxSetImagePixelValues pvxSetImagePixelValues;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxReleaseImage(ref Image image);
 
 			internal static vxReleaseImage pvxReleaseImage;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate IntPtr vxFormatImagePatchAddress1d(void* ptr, uint index, ImagePatchAddressing* addr);
 
 			internal static vxFormatImagePatchAddress1d pvxFormatImagePatchAddress1d;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate IntPtr vxFormatImagePatchAddress2d(void* ptr, uint x, uint y, ImagePatchAddressing* addr);
 
 			internal static vxFormatImagePatchAddress2d pvxFormatImagePatchAddress2d;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxGetValidRegionImage(Image image, Rectangle* rect);
 
 			internal static vxGetValidRegionImage pvxGetValidRegionImage;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxCopyImagePatch(Image image, ref Rectangle image_rect, uint image_plane_index, ref ImagePatchAddressing user_addr, void* user_ptr, Accessor usage, MemoryType user_mem_type);
 
 			internal static vxCopyImagePatch pvxCopyImagePatch;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxMapImagePatch(Image image, Rectangle* rect, uint plane_index, MapId* map_id, ImagePatchAddressing* addr, IntPtr* ptr, Accessor usage, MemoryType mem_type, MapFlag flags);
 
 			internal static vxMapImagePatch pvxMapImagePatch;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxUnmapImagePatch(Image image, MapId map_id);
 
 			internal static vxUnmapImagePatch pvxUnmapImagePatch;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Image vxCreateImageFromChannel(Image img, Channel channel);
 
 			internal static vxCreateImageFromChannel pvxCreateImageFromChannel;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxSetImageValidRectangle(Image image, Rectangle* rect);
 
 			internal static vxSetImageValidRectangle pvxSetImageValidRectangle;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxLoadKernels(Context context, string module);
 
 			internal static vxLoadKernels pvxLoadKernels;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxUnloadKernels(Context context, string module);
 
 			internal static vxUnloadKernels pvxUnloadKernels;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Kernel vxGetKernelByName(Context context, string name);
 
 			internal static vxGetKernelByName pvxGetKernelByName;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Kernel vxGetKernelByEnum(Context context, KernelType kernel);
 
 			internal static vxGetKernelByEnum pvxGetKernelByEnum;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxQueryKernel(Kernel kernel, KernelAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxQueryKernel pvxQueryKernel;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxReleaseKernel(ref Kernel kernel);
 
 			internal static vxReleaseKernel pvxReleaseKernel;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Kernel vxAddUserKernel(Context context, string name, int enumeration, KernelCallback func_ptr, uint numParams, KernelValidateCallbackCallback validate, KernelInitializeCallback init, KernelDeinitializeCallback deinit);
 
 			internal static vxAddUserKernel pvxAddUserKernel;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxFinalizeKernel(Kernel kernel);
 
 			internal static vxFinalizeKernel pvxFinalizeKernel;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxAddParameterToKernel(Kernel kernel, uint index, Direction dir, Type data_type, ParameterState state);
 
 			internal static vxAddParameterToKernel pvxAddParameterToKernel;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxRemoveKernel(Kernel kernel);
 
 			internal static vxRemoveKernel pvxRemoveKernel;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxSetKernelAttribute(Kernel kernel, KernelAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxSetKernelAttribute pvxSetKernelAttribute;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Parameter vxGetKernelParameterByIndex(Kernel kernel, uint index);
 
 			internal static vxGetKernelParameterByIndex pvxGetKernelParameterByIndex;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Graph vxCreateGraph(Context context);
 
 			internal static vxCreateGraph pvxCreateGraph;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxReleaseGraph(ref Graph graph);
 
 			internal static vxReleaseGraph pvxReleaseGraph;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxVerifyGraph(Graph graph);
 
 			internal static vxVerifyGraph pvxVerifyGraph;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxProcessGraph(Graph graph);
 
 			internal static vxProcessGraph pvxProcessGraph;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxScheduleGraph(Graph graph);
 
 			internal static vxScheduleGraph pvxScheduleGraph;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxWaitGraph(Graph graph);
 
 			internal static vxWaitGraph pvxWaitGraph;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxQueryGraph(Graph graph, GraphAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxQueryGraph pvxQueryGraph;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxSetGraphAttribute(Graph graph, GraphAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxSetGraphAttribute pvxSetGraphAttribute;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxAddParameterToGraph(Graph graph, Parameter parameter);
 
 			internal static vxAddParameterToGraph pvxAddParameterToGraph;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxSetGraphParameterByIndex(Graph graph, uint index, Reference value);
 
 			internal static vxSetGraphParameterByIndex pvxSetGraphParameterByIndex;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Parameter vxGetGraphParameterByIndex(Graph graph, uint index);
 
 			internal static vxGetGraphParameterByIndex pvxGetGraphParameterByIndex;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool vxIsGraphVerified(Graph graph);
 
 			internal static vxIsGraphVerified pvxIsGraphVerified;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxCreateGenericNode(Graph graph, Kernel kernel);
 
 			internal static vxCreateGenericNode pvxCreateGenericNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxQueryNode(Node node, NodeAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxQueryNode pvxQueryNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxSetNodeAttribute(Node node, NodeAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxSetNodeAttribute pvxSetNodeAttribute;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxReleaseNode(ref Node node);
 
 			internal static vxReleaseNode pvxReleaseNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxRemoveNode(Node* node);
 
 			internal static vxRemoveNode pvxRemoveNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxAssignNodeCallback(Node node, NodeCompleteCallback callback);
 
 			internal static vxAssignNodeCallback pvxAssignNodeCallback;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate NodeCompleteCallback vxRetrieveNodeCallback(Node node);
 
 			internal static vxRetrieveNodeCallback pvxRetrieveNodeCallback;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxSetNodeTarget(Node node, Target target_enum, string target_string);
 
 			internal static vxSetNodeTarget pvxSetNodeTarget;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxReplicateNode(Graph graph, Node first_node, bool* replicate, uint number_of_parameters);
 
 			internal static vxReplicateNode pvxReplicateNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Parameter vxGetParameterByIndex(Node node, uint index);
 
 			internal static vxGetParameterByIndex pvxGetParameterByIndex;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxReleaseParameter(ref Parameter param);
 
 			internal static vxReleaseParameter pvxReleaseParameter;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxSetParameterByIndex(Node node, uint index, Reference value);
 
 			internal static vxSetParameterByIndex pvxSetParameterByIndex;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxSetParameterByReference(Parameter parameter, Reference value);
 
 			internal static vxSetParameterByReference pvxSetParameterByReference;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxQueryParameter(Parameter parameter, ParameterAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxQueryParameter pvxQueryParameter;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Scalar vxCreateScalar(Context context, Type data_type, void* ptr);
 
 			internal static vxCreateScalar pvxCreateScalar;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Scalar vxCreateScalarWithSize(Context context, Type data_type, void* ptr, UIntPtr size);
 
 			internal static vxCreateScalarWithSize pvxCreateScalarWithSize;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Scalar vxCreateVirtualScalar(Graph graph, Type data_type);
 
 			internal static vxCreateVirtualScalar pvxCreateVirtualScalar;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxReleaseScalar(ref Scalar scalar);
 
 			internal static vxReleaseScalar pvxReleaseScalar;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxQueryScalar(Scalar scalar, ScalarAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxQueryScalar pvxQueryScalar;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxCopyScalar(Scalar scalar, void* user_ptr, Accessor usage, MemoryType user_mem_type);
 
 			internal static vxCopyScalar pvxCopyScalar;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxQueryReference(Reference @ref, ReferenceAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxQueryReference pvxQueryReference;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxReleaseReference(ref Reference ref_ptr);
 
 			internal static vxReleaseReference pvxReleaseReference;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxRetainReference(Reference @ref);
 
 			internal static vxRetainReference pvxRetainReference;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxSetReferenceName(Reference @ref, string name);
 
 			internal static vxSetReferenceName pvxSetReferenceName;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxQueryDelay(Delay delay, DelayAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxQueryDelay pvxQueryDelay;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxReleaseDelay(ref Delay delay);
 
 			internal static vxReleaseDelay pvxReleaseDelay;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Delay vxCreateDelay(Context context, Reference exemplar, UIntPtr num_slots);
 
 			internal static vxCreateDelay pvxCreateDelay;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Reference vxGetReferenceFromDelay(Delay delay, int index);
 
 			internal static vxGetReferenceFromDelay pvxGetReferenceFromDelay;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxAgeDelay(Delay delay);
 
 			internal static vxAgeDelay pvxAgeDelay;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxRegisterAutoAging(Graph graph, Delay delay);
 
 			internal static vxRegisterAutoAging pvxRegisterAutoAging;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void vxAddLogEntry(Reference @ref, Status status, string message, int vaArgs);
 
 			internal static vxAddLogEntry pvxAddLogEntry;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void vxRegisterLogCallback(Context context, LogCallback callback, bool reentrant);
 
 			internal static vxRegisterLogCallback pvxRegisterLogCallback;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Lut vxCreateLUT(Context context, Type data_type, UIntPtr count);
 
 			internal static vxCreateLUT pvxCreateLUT;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Lut vxCreateVirtualLUT(Graph graph, Type data_type, UIntPtr count);
 
 			internal static vxCreateVirtualLUT pvxCreateVirtualLUT;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxReleaseLUT(ref Lut lut);
 
 			internal static vxReleaseLUT pvxReleaseLUT;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxQueryLUT(Lut lut, LutAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxQueryLUT pvxQueryLUT;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxCopyLUT(Lut lut, void* user_ptr, Accessor usage, MemoryType user_mem_type);
 
 			internal static vxCopyLUT pvxCopyLUT;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxMapLUT(Lut lut, MapId* map_id, IntPtr* ptr, Accessor usage, MemoryType mem_type, uint flags);
 
 			internal static vxMapLUT pvxMapLUT;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxUnmapLUT(Lut lut, MapId map_id);
 
 			internal static vxUnmapLUT pvxUnmapLUT;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Distribution vxCreateDistribution(Context context, UIntPtr numBins, int offset, uint range);
 
 			internal static vxCreateDistribution pvxCreateDistribution;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Distribution vxCreateVirtualDistribution(Graph graph, UIntPtr numBins, int offset, uint range);
 
 			internal static vxCreateVirtualDistribution pvxCreateVirtualDistribution;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxReleaseDistribution(ref Distribution distribution);
 
 			internal static vxReleaseDistribution pvxReleaseDistribution;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxQueryDistribution(Distribution distribution, DistributionAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxQueryDistribution pvxQueryDistribution;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxCopyDistribution(Distribution distribution, void* user_ptr, Accessor usage, MemoryType user_mem_type);
 
 			internal static vxCopyDistribution pvxCopyDistribution;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxMapDistribution(Distribution distribution, MapId* map_id, IntPtr* ptr, Accessor usage, MemoryType mem_type, uint flags);
 
 			internal static vxMapDistribution pvxMapDistribution;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxUnmapDistribution(Distribution distribution, MapId map_id);
 
 			internal static vxUnmapDistribution pvxUnmapDistribution;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Threshold vxCreateThresholdForImage(Context context, int thresh_type, DfImage input_format, DfImage output_format);
 
 			internal static vxCreateThresholdForImage pvxCreateThresholdForImage;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Threshold vxCreateVirtualThresholdForImage(Graph graph, int thresh_type, DfImage input_format, DfImage output_format);
 
 			internal static vxCreateVirtualThresholdForImage pvxCreateVirtualThresholdForImage;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxCopyThresholdValue(Threshold thresh, PixelValue value_ptr, Accessor usage, MemoryType user_mem_type);
 
 			internal static vxCopyThresholdValue pvxCopyThresholdValue;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxCopyThresholdRange(Threshold thresh, PixelValue lower_value_ptr, PixelValue upper_value_ptr, Accessor usage, MemoryType user_mem_type);
 
 			internal static vxCopyThresholdRange pvxCopyThresholdRange;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxCopyThresholdOutput(Threshold thresh, PixelValue true_value_ptr, PixelValue false_value_ptr, Accessor usage, MemoryType user_mem_type);
 
 			internal static vxCopyThresholdOutput pvxCopyThresholdOutput;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxReleaseThreshold(ref Threshold thresh);
 
 			internal static vxReleaseThreshold pvxReleaseThreshold;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxSetThresholdAttribute(Threshold thresh, ThresholdAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxSetThresholdAttribute pvxSetThresholdAttribute;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxQueryThreshold(Threshold thresh, ThresholdAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxQueryThreshold pvxQueryThreshold;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Matrix vxCreateMatrix(Context c, Type data_type, UIntPtr columns, UIntPtr rows);
 
 			internal static vxCreateMatrix pvxCreateMatrix;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Matrix vxCreateVirtualMatrix(Graph graph, Type data_type, UIntPtr columns, UIntPtr rows);
 
 			internal static vxCreateVirtualMatrix pvxCreateVirtualMatrix;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxReleaseMatrix(ref Matrix mat);
 
 			internal static vxReleaseMatrix pvxReleaseMatrix;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxQueryMatrix(Matrix mat, MatrixAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxQueryMatrix pvxQueryMatrix;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxCopyMatrix(Matrix matrix, void* user_ptr, Accessor usage, MemoryType user_mem_type);
 
 			internal static vxCopyMatrix pvxCopyMatrix;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Matrix vxCreateMatrixFromPattern(Context context, MatrixAttribute pattern, UIntPtr columns, UIntPtr rows);
 
 			internal static vxCreateMatrixFromPattern pvxCreateMatrixFromPattern;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Matrix vxCreateMatrixFromPatternAndOrigin(Context context, Pattern pattern, UIntPtr columns, UIntPtr rows, UIntPtr origin_col, UIntPtr origin_row);
 
 			internal static vxCreateMatrixFromPatternAndOrigin pvxCreateMatrixFromPatternAndOrigin;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Convolution vxCreateConvolution(Context context, UIntPtr columns, UIntPtr rows);
 
 			internal static vxCreateConvolution pvxCreateConvolution;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Convolution vxCreateVirtualConvolution(Graph graph, UIntPtr columns, UIntPtr rows);
 
 			internal static vxCreateVirtualConvolution pvxCreateVirtualConvolution;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxReleaseConvolution(ref Convolution conv);
 
 			internal static vxReleaseConvolution pvxReleaseConvolution;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxQueryConvolution(Convolution conv, ConvolutionAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxQueryConvolution pvxQueryConvolution;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxSetConvolutionAttribute(Convolution conv, ConvolutionAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxSetConvolutionAttribute pvxSetConvolutionAttribute;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxCopyConvolutionCoefficients(Convolution conv, void* user_ptr, Accessor usage, MemoryType user_mem_type);
 
 			internal static vxCopyConvolutionCoefficients pvxCopyConvolutionCoefficients;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Pyramid vxCreatePyramid(Context context, UIntPtr levels, float scale, uint width, uint height, DfImage format);
 
 			internal static vxCreatePyramid pvxCreatePyramid;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Pyramid vxCreateVirtualPyramid(Graph graph, UIntPtr levels, float scale, uint width, uint height, DfImage format);
 
 			internal static vxCreateVirtualPyramid pvxCreateVirtualPyramid;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxReleasePyramid(ref Pyramid pyr);
 
 			internal static vxReleasePyramid pvxReleasePyramid;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxQueryPyramid(Pyramid pyr, PyramidAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxQueryPyramid pvxQueryPyramid;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Image vxGetPyramidLevel(Pyramid pyr, uint index);
 
 			internal static vxGetPyramidLevel pvxGetPyramidLevel;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Remap vxCreateRemap(Context context, uint src_width, uint src_height, uint dst_width, uint dst_height);
 
 			internal static vxCreateRemap pvxCreateRemap;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Remap vxCreateVirtualRemap(Graph graph, uint src_width, uint src_height, uint dst_width, uint dst_height);
 
 			internal static vxCreateVirtualRemap pvxCreateVirtualRemap;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxReleaseRemap(ref Remap table);
 
 			internal static vxReleaseRemap pvxReleaseRemap;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxMapRemapPatch(Remap remap, Rectangle* rect, MapId* map_id, UIntPtr* stride_y, IntPtr* ptr, Type coordinate_type, Accessor usage, MemoryType mem_type);
 
 			internal static vxMapRemapPatch pvxMapRemapPatch;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxUnmapRemapPatch(Remap remap, MapId map_id);
 
 			internal static vxUnmapRemapPatch pvxUnmapRemapPatch;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxCopyRemapPatch(Remap remap, Rectangle* rect, UIntPtr user_stride_y, void* user_ptr, Type user_coordinate_type, Accessor usage, MemoryType user_mem_type);
 
 			internal static vxCopyRemapPatch pvxCopyRemapPatch;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxQueryRemap(Remap table, RemapAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxQueryRemap pvxQueryRemap;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Array vxCreateArray(Context context, Type item_type, UIntPtr capacity);
 
 			internal static vxCreateArray pvxCreateArray;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Array vxCreateVirtualArray(Graph graph, Type item_type, UIntPtr capacity);
 
 			internal static vxCreateVirtualArray pvxCreateVirtualArray;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxReleaseArray(ref Array arr);
 
 			internal static vxReleaseArray pvxReleaseArray;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxQueryArray(Array arr, ArrayAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxQueryArray pvxQueryArray;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxAddArrayItems(Array arr, UIntPtr count, void* ptr, UIntPtr stride);
 
 			internal static vxAddArrayItems pvxAddArrayItems;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxTruncateArray(Array arr, UIntPtr new_num_items);
 
 			internal static vxTruncateArray pvxTruncateArray;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxCopyArrayRange(Array array, UIntPtr range_start, UIntPtr range_end, UIntPtr user_stride, void* user_ptr, Accessor usage, MemoryType user_mem_type);
 
 			internal static vxCopyArrayRange pvxCopyArrayRange;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxMapArrayRange(Array array, UIntPtr range_start, UIntPtr range_end, ref MapId map_id, ref UIntPtr stride, out IntPtr ptr, Accessor usage, MemoryType mem_type, uint flags);
 
 			internal static vxMapArrayRange pvxMapArrayRange;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxUnmapArrayRange(Array array, MapId map_id);
 
 			internal static vxUnmapArrayRange pvxUnmapArrayRange;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate ObjectArray vxCreateObjectArray(Context context, Reference exemplar, UIntPtr count);
 
 			internal static vxCreateObjectArray pvxCreateObjectArray;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate ObjectArray vxCreateVirtualObjectArray(Graph graph, Reference exemplar, UIntPtr count);
 
 			internal static vxCreateVirtualObjectArray pvxCreateVirtualObjectArray;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Reference vxGetObjectArrayItem(ObjectArray arr, uint index);
 
 			internal static vxGetObjectArrayItem pvxGetObjectArrayItem;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxReleaseObjectArray(ref ObjectArray arr);
 
 			internal static vxReleaseObjectArray pvxReleaseObjectArray;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxQueryObjectArray(ObjectArray arr, ObjectArrayAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxQueryObjectArray pvxQueryObjectArray;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxSetMetaFormatAttribute(MetaFormat meta, int attribute, void* ptr, UIntPtr size);
 
 			internal static vxSetMetaFormatAttribute pvxSetMetaFormatAttribute;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxSetMetaFormatFromReference(MetaFormat meta, Reference exemplar);
 
 			internal static vxSetMetaFormatFromReference pvxSetMetaFormatFromReference;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Tensor vxCreateTensor(Context context, UIntPtr number_of_dims, UIntPtr* dims, Type data_type, sbyte fixed_point_position);
 
 			internal static vxCreateTensor pvxCreateTensor;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate ObjectArray vxCreateImageObjectArrayFromTensor(Tensor tensor, Rectangle* rect, UIntPtr array_size, UIntPtr jump, DfImage image_format);
 
 			internal static vxCreateImageObjectArrayFromTensor pvxCreateImageObjectArrayFromTensor;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Tensor vxCreateTensorFromView(Tensor tensor, UIntPtr number_of_dims, UIntPtr* view_start, UIntPtr* view_end);
 
 			internal static vxCreateTensorFromView pvxCreateTensorFromView;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Tensor vxCreateVirtualTensor(Graph graph, UIntPtr number_of_dims, UIntPtr* dims, Type data_type, sbyte fixed_point_position);
 
 			internal static vxCreateVirtualTensor pvxCreateVirtualTensor;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxCopyTensorPatch(Tensor tensor, UIntPtr number_of_dims, UIntPtr* view_start, UIntPtr* view_end, UIntPtr* user_stride, void* user_ptr, Accessor usage, MemoryType user_memory_type);
 
 			internal static vxCopyTensorPatch pvxCopyTensorPatch;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxQueryTensor(Tensor tensor, TensorAttribute attribute, void* ptr, UIntPtr size);
 
 			internal static vxQueryTensor pvxQueryTensor;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxReleaseTensor(ref Tensor tensor);
 
 			internal static vxReleaseTensor pvxReleaseTensor;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxColorConvertNode(Graph graph, Image input, Image output);
 
 			internal static vxColorConvertNode pvxColorConvertNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxChannelExtractNode(Graph graph, Image input, Channel channel, Image output);
 
 			internal static vxChannelExtractNode pvxChannelExtractNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxChannelCombineNode(Graph graph, Image plane0, Image plane1, Image plane2, Image plane3, Image output);
 
 			internal static vxChannelCombineNode pvxChannelCombineNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxPhaseNode(Graph graph, Image grad_x, Image grad_y, Image orientation);
 
 			internal static vxPhaseNode pvxPhaseNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxSobel3x3Node(Graph graph, Image input, Image output_x, Image output_y);
 
 			internal static vxSobel3x3Node pvxSobel3x3Node;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxMagnitudeNode(Graph graph, Image grad_x, Image grad_y, Image mag);
 
 			internal static vxMagnitudeNode pvxMagnitudeNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxScaleImageNode(Graph graph, Image src, Image dst, InterpolationType type);
 
 			internal static vxScaleImageNode pvxScaleImageNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxTableLookupNode(Graph graph, Image input, Lut lut, Image output);
 
 			internal static vxTableLookupNode pvxTableLookupNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxHistogramNode(Graph graph, Image input, Distribution distribution);
 
 			internal static vxHistogramNode pvxHistogramNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxEqualizeHistNode(Graph graph, Image input, Image output);
 
 			internal static vxEqualizeHistNode pvxEqualizeHistNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxAbsDiffNode(Graph graph, Image in1, Image in2, Image @out);
 
 			internal static vxAbsDiffNode pvxAbsDiffNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxMeanStdDevNode(Graph graph, Image input, Scalar mean, Scalar stddev);
 
 			internal static vxMeanStdDevNode pvxMeanStdDevNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxThresholdNode(Graph graph, Image input, Threshold thresh, Image output);
 
 			internal static vxThresholdNode pvxThresholdNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxNonMaxSuppressionNode(Graph graph, Image input, Image mask, int win_size, Image output);
 
 			internal static vxNonMaxSuppressionNode pvxNonMaxSuppressionNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxIntegralImageNode(Graph graph, Image input, Image output);
 
 			internal static vxIntegralImageNode pvxIntegralImageNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxErode3x3Node(Graph graph, Image input, Image output);
 
 			internal static vxErode3x3Node pvxErode3x3Node;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxDilate3x3Node(Graph graph, Image input, Image output);
 
 			internal static vxDilate3x3Node pvxDilate3x3Node;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxMedian3x3Node(Graph graph, Image input, Image output);
 
 			internal static vxMedian3x3Node pvxMedian3x3Node;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxBox3x3Node(Graph graph, Image input, Image output);
 
 			internal static vxBox3x3Node pvxBox3x3Node;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxGaussian3x3Node(Graph graph, Image input, Image output);
 
 			internal static vxGaussian3x3Node pvxGaussian3x3Node;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxNonLinearFilterNode(Graph graph, NonLinearFilter function, Image input, Matrix mask, Image output);
 
 			internal static vxNonLinearFilterNode pvxNonLinearFilterNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxConvolveNode(Graph graph, Image input, Convolution conv, Image output);
 
 			internal static vxConvolveNode pvxConvolveNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxGaussianPyramidNode(Graph graph, Image input, Pyramid gaussian);
 
 			internal static vxGaussianPyramidNode pvxGaussianPyramidNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxLaplacianPyramidNode(Graph graph, Image input, Pyramid laplacian, Image output);
 
 			internal static vxLaplacianPyramidNode pvxLaplacianPyramidNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxLaplacianReconstructNode(Graph graph, Pyramid laplacian, Image input, Image output);
 
 			internal static vxLaplacianReconstructNode pvxLaplacianReconstructNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxAccumulateImageNode(Graph graph, Image input, Image accum);
 
 			internal static vxAccumulateImageNode pvxAccumulateImageNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxAccumulateWeightedImageNode(Graph graph, Image input, Scalar alpha, Image accum);
 
 			internal static vxAccumulateWeightedImageNode pvxAccumulateWeightedImageNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxAccumulateSquareImageNode(Graph graph, Image input, Scalar shift, Image accum);
 
 			internal static vxAccumulateSquareImageNode pvxAccumulateSquareImageNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxMinMaxLocNode(Graph graph, Image input, Scalar minVal, Scalar maxVal, Array minLoc, Array maxLoc, Scalar minCount, Scalar maxCount);
 
 			internal static vxMinMaxLocNode pvxMinMaxLocNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxMinNode(Graph graph, Image in1, Image in2, Image @out);
 
 			internal static vxMinNode pvxMinNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxMaxNode(Graph graph, Image in1, Image in2, Image @out);
 
 			internal static vxMaxNode pvxMaxNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxAndNode(Graph graph, Image in1, Image in2, Image @out);
 
 			internal static vxAndNode pvxAndNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxOrNode(Graph graph, Image in1, Image in2, Image @out);
 
 			internal static vxOrNode pvxOrNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxXorNode(Graph graph, Image in1, Image in2, Image @out);
 
 			internal static vxXorNode pvxXorNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxNotNode(Graph graph, Image input, Image output);
 
 			internal static vxNotNode pvxNotNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxScalarOperationNode(Graph graph, ScalarOperation scalar_operation, Scalar a, Scalar b, Scalar output);
 
 			internal static vxScalarOperationNode pvxScalarOperationNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxSelectNode(Graph graph, Scalar condition, Reference true_value, Reference false_value, Reference output);
 
 			internal static vxSelectNode pvxSelectNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxMultiplyNode(Graph graph, Image in1, Image in2, Scalar scale, ConvertPolicy overflow_policy, RoundPolicy rounding_policy, Image @out);
 
 			internal static vxMultiplyNode pvxMultiplyNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxAddNode(Graph graph, Image in1, Image in2, ConvertPolicy policy, Image @out);
 
 			internal static vxAddNode pvxAddNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxSubtractNode(Graph graph, Image in1, Image in2, ConvertPolicy policy, Image @out);
 
 			internal static vxSubtractNode pvxSubtractNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxConvertDepthNode(Graph graph, Image input, Image output, ConvertPolicy policy, Scalar shift);
 
 			internal static vxConvertDepthNode pvxConvertDepthNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxCannyEdgeDetectorNode(Graph graph, Image input, Threshold hyst, int gradient_size, NormType norm_type, Image output);
 
 			internal static vxCannyEdgeDetectorNode pvxCannyEdgeDetectorNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxWarpAffineNode(Graph graph, Image input, Matrix matrix, InterpolationType type, Image output);
 
 			internal static vxWarpAffineNode pvxWarpAffineNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxWarpPerspectiveNode(Graph graph, Image input, Matrix matrix, InterpolationType type, Image output);
 
 			internal static vxWarpPerspectiveNode pvxWarpPerspectiveNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxHarrisCornersNode(Graph graph, Image input, Scalar strength_thresh, Scalar min_distance, Scalar sensitivity, int gradient_size, int block_size, Array corners, Scalar num_corners);
 
 			internal static vxHarrisCornersNode pvxHarrisCornersNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxFastCornersNode(Graph graph, Image input, Scalar strength_thresh, bool nonmax_suppression, Array corners, Scalar num_corners);
 
 			internal static vxFastCornersNode pvxFastCornersNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxOpticalFlowPyrLKNode(Graph graph, Pyramid old_images, Pyramid new_images, Array old_points, Array new_points_estimates, Array new_points, TerminationCriteria termination, Scalar epsilon, Scalar num_iterations, Scalar use_initial_estimate, UIntPtr window_dimension);
 
 			internal static vxOpticalFlowPyrLKNode pvxOpticalFlowPyrLKNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxRemapNode(Graph graph, Image input, Remap table, InterpolationType policy, Image output);
 
 			internal static vxRemapNode pvxRemapNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxHalfScaleGaussianNode(Graph graph, Image input, Image output, int kernel_size);
 
 			internal static vxHalfScaleGaussianNode pvxHalfScaleGaussianNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxMatchTemplateNode(Graph graph, Image src, Image templateImage, CompareMetric matchingMethod, Image output);
 
 			internal static vxMatchTemplateNode pvxMatchTemplateNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxLBPNode(Graph graph, Image @in, LbpFormat format, sbyte kernel_size, Image @out);
 
 			internal static vxLBPNode pvxLBPNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxHOGFeaturesNode(Graph graph, Image input, Tensor magnitudes, Tensor bins, Hog* @params, UIntPtr hog_param_size, Tensor features);
 
 			internal static vxHOGFeaturesNode pvxHOGFeaturesNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxHOGCellsNode(Graph graph, Image input, int cell_width, int cell_height, int num_bins, Tensor magnitudes, Tensor bins);
 
 			internal static vxHOGCellsNode pvxHOGCellsNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxHoughLinesPNode(Graph graph, Image input, HoughLinesParams* @params, Array lines_array, Scalar num_lines);
 
 			internal static vxHoughLinesPNode pvxHoughLinesPNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxBilateralFilterNode(Graph graph, Tensor src, int diameter, float sigmaSpace, float sigmaValues, Tensor dst);
 
 			internal static vxBilateralFilterNode pvxBilateralFilterNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxTensorMultiplyNode(Graph graph, Tensor input1, Tensor input2, Scalar scale, ConvertPolicy overflow_policy, RoundPolicy rounding_policy, Tensor output);
 
 			internal static vxTensorMultiplyNode pvxTensorMultiplyNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxTensorAddNode(Graph graph, Tensor input1, Tensor input2, ConvertPolicy policy, Tensor output);
 
 			internal static vxTensorAddNode pvxTensorAddNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxTensorSubtractNode(Graph graph, Tensor input1, Tensor input2, ConvertPolicy policy, Tensor output);
 
 			internal static vxTensorSubtractNode pvxTensorSubtractNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxTensorTableLookupNode(Graph graph, Tensor input1, Lut lut, Tensor output);
 
 			internal static vxTensorTableLookupNode pvxTensorTableLookupNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxTensorTransposeNode(Graph graph, Tensor input, Tensor output, UIntPtr dimension1, UIntPtr dimension2);
 
 			internal static vxTensorTransposeNode pvxTensorTransposeNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxTensorConvertDepthNode(Graph graph, Tensor input, ConvertPolicy policy, Scalar norm, Scalar offset, Tensor output);
 
 			internal static vxTensorConvertDepthNode pvxTensorConvertDepthNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxMatrixMultiplyNode(Graph graph, Tensor input1, Tensor input2, Tensor input3, MatrixMulParams* matrix_multiply_params, Tensor output);
 
 			internal static vxMatrixMultiplyNode pvxMatrixMultiplyNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Node vxCopyNode(Graph graph, Reference input, Reference output);
 
 			internal static vxCopyNode pvxCopyNode;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Import vxImportObjectsFromMemory(Context context, UIntPtr numrefs, Reference* refs, int* uses, byte* ptr, UIntPtr length);
 
 			internal static vxImportObjectsFromMemory pvxImportObjectsFromMemory;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Status vxReleaseImport(ref Import import);
 
 			internal static vxReleaseImport pvxReleaseImport;
 
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate Reference vxGetImportReferenceByName(Import import, string name);
 
 			internal static vxGetImportReferenceByName pvxGetImportReferenceByName;

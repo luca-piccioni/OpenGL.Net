@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -217,10 +221,10 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_MESA_window_pos")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glWindowPos4dMESA(double x, double y, double z, double w);
 
 			[RequiredByFeature("GL_MESA_window_pos")]
@@ -228,7 +232,7 @@ namespace OpenGL
 			internal static glWindowPos4dMESA pglWindowPos4dMESA;
 
 			[RequiredByFeature("GL_MESA_window_pos")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glWindowPos4dvMESA(double* v);
 
 			[RequiredByFeature("GL_MESA_window_pos")]
@@ -236,7 +240,7 @@ namespace OpenGL
 			internal static glWindowPos4dvMESA pglWindowPos4dvMESA;
 
 			[RequiredByFeature("GL_MESA_window_pos")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glWindowPos4fMESA(float x, float y, float z, float w);
 
 			[RequiredByFeature("GL_MESA_window_pos")]
@@ -244,7 +248,7 @@ namespace OpenGL
 			internal static glWindowPos4fMESA pglWindowPos4fMESA;
 
 			[RequiredByFeature("GL_MESA_window_pos")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glWindowPos4fvMESA(float* v);
 
 			[RequiredByFeature("GL_MESA_window_pos")]
@@ -252,7 +256,7 @@ namespace OpenGL
 			internal static glWindowPos4fvMESA pglWindowPos4fvMESA;
 
 			[RequiredByFeature("GL_MESA_window_pos")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glWindowPos4iMESA(int x, int y, int z, int w);
 
 			[RequiredByFeature("GL_MESA_window_pos")]
@@ -260,7 +264,7 @@ namespace OpenGL
 			internal static glWindowPos4iMESA pglWindowPos4iMESA;
 
 			[RequiredByFeature("GL_MESA_window_pos")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glWindowPos4ivMESA(int* v);
 
 			[RequiredByFeature("GL_MESA_window_pos")]
@@ -268,7 +272,7 @@ namespace OpenGL
 			internal static glWindowPos4ivMESA pglWindowPos4ivMESA;
 
 			[RequiredByFeature("GL_MESA_window_pos")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glWindowPos4sMESA(short x, short y, short z, short w);
 
 			[RequiredByFeature("GL_MESA_window_pos")]
@@ -276,7 +280,7 @@ namespace OpenGL
 			internal static glWindowPos4sMESA pglWindowPos4sMESA;
 
 			[RequiredByFeature("GL_MESA_window_pos")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glWindowPos4svMESA(short* v);
 
 			[RequiredByFeature("GL_MESA_window_pos")]

@@ -274,7 +274,7 @@ namespace BindingsGen
 
 		private static void GenerateCommandsDelegates(RegistryContext ctx, SourceStreamWriter sw, IEnumerable<Command> commands)
 		{
-			sw.WriteLine("internal unsafe static partial class Delegates");
+			sw.WriteLine("internal static unsafe partial class Delegates");
 			sw.WriteLine("{");
 			sw.Indent();
 
@@ -454,7 +454,8 @@ namespace BindingsGen
 			using (SourceStreamWriter sw = new SourceStreamWriter(Path.Combine(Program.BasePath, path), false)) {
 				GenerateLicensePreamble(sw);
 
-				sw.WriteLine("using System;");
+				sw.WriteLine("// ReSharper disable InconsistentNaming");
+				sw.WriteLine("// ReSharper disable InheritdocConsiderUsage");
 				sw.WriteLine();
 
 				sw.WriteLine("namespace {0}", Namespace);
@@ -468,7 +469,7 @@ namespace BindingsGen
 				sw.WriteLine("/// <summary>");
 				sw.WriteLine("/// Extension support listing.");
 				sw.WriteLine("/// </summary>");
-				sw.WriteLine("public partial class Extensions : ExtensionsCollection");
+				sw.WriteLine("public partial class Extensions");
 				sw.WriteLine("{");
 				sw.Indent();
 
@@ -749,6 +750,7 @@ namespace BindingsGen
 				sw.WriteLine("#pragma warning disable 649, 1572, 1573");
 				sw.WriteLine();
 
+				sw.WriteLine("// ReSharper disable RedundantUsingDirective");
 				sw.WriteLine("using System;");
 				sw.WriteLine("using System.Diagnostics;");
 				sw.WriteLine("using System.Runtime.InteropServices;");
@@ -756,6 +758,10 @@ namespace BindingsGen
 				sw.WriteLine("using System.Text;");
 				sw.WriteLine();
 				sw.WriteLine("using Khronos;");
+				sw.WriteLine();
+
+				sw.WriteLine("// ReSharper disable InconsistentNaming");
+				sw.WriteLine("// ReSharper disable JoinDeclarationAndInitializer");
 				sw.WriteLine();
 
 				sw.WriteLine("namespace {0}", Namespace);

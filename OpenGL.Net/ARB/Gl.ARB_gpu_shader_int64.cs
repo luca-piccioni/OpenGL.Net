@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -992,10 +996,10 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glUniform1i64ARB(int location, long x);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
@@ -1003,7 +1007,7 @@ namespace OpenGL
 			internal static glUniform1i64ARB pglUniform1i64ARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glUniform2i64ARB(int location, long x, long y);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
@@ -1011,7 +1015,7 @@ namespace OpenGL
 			internal static glUniform2i64ARB pglUniform2i64ARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glUniform3i64ARB(int location, long x, long y, long z);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
@@ -1019,7 +1023,7 @@ namespace OpenGL
 			internal static glUniform3i64ARB pglUniform3i64ARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glUniform4i64ARB(int location, long x, long y, long z, long w);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
@@ -1027,7 +1031,7 @@ namespace OpenGL
 			internal static glUniform4i64ARB pglUniform4i64ARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glUniform1i64vARB(int location, int count, long* value);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
@@ -1035,7 +1039,7 @@ namespace OpenGL
 			internal static glUniform1i64vARB pglUniform1i64vARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glUniform2i64vARB(int location, int count, long* value);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
@@ -1043,7 +1047,7 @@ namespace OpenGL
 			internal static glUniform2i64vARB pglUniform2i64vARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glUniform3i64vARB(int location, int count, long* value);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
@@ -1051,7 +1055,7 @@ namespace OpenGL
 			internal static glUniform3i64vARB pglUniform3i64vARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glUniform4i64vARB(int location, int count, long* value);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
@@ -1059,7 +1063,7 @@ namespace OpenGL
 			internal static glUniform4i64vARB pglUniform4i64vARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glUniform1ui64ARB(int location, ulong x);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
@@ -1067,7 +1071,7 @@ namespace OpenGL
 			internal static glUniform1ui64ARB pglUniform1ui64ARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glUniform2ui64ARB(int location, ulong x, ulong y);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
@@ -1075,7 +1079,7 @@ namespace OpenGL
 			internal static glUniform2ui64ARB pglUniform2ui64ARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glUniform3ui64ARB(int location, ulong x, ulong y, ulong z);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
@@ -1083,7 +1087,7 @@ namespace OpenGL
 			internal static glUniform3ui64ARB pglUniform3ui64ARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glUniform4ui64ARB(int location, ulong x, ulong y, ulong z, ulong w);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
@@ -1091,7 +1095,7 @@ namespace OpenGL
 			internal static glUniform4ui64ARB pglUniform4ui64ARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glUniform1ui64vARB(int location, int count, ulong* value);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
@@ -1099,7 +1103,7 @@ namespace OpenGL
 			internal static glUniform1ui64vARB pglUniform1ui64vARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glUniform2ui64vARB(int location, int count, ulong* value);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
@@ -1107,7 +1111,7 @@ namespace OpenGL
 			internal static glUniform2ui64vARB pglUniform2ui64vARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glUniform3ui64vARB(int location, int count, ulong* value);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
@@ -1115,7 +1119,7 @@ namespace OpenGL
 			internal static glUniform3ui64vARB pglUniform3ui64vARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glUniform4ui64vARB(int location, int count, ulong* value);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
@@ -1123,7 +1127,7 @@ namespace OpenGL
 			internal static glUniform4ui64vARB pglUniform4ui64vARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetUniformi64vARB(uint program, int location, long* @params);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
@@ -1131,7 +1135,7 @@ namespace OpenGL
 			internal static glGetUniformi64vARB pglGetUniformi64vARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetUniformui64vARB(uint program, int location, ulong* @params);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
@@ -1139,7 +1143,7 @@ namespace OpenGL
 			internal static glGetUniformui64vARB pglGetUniformui64vARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetnUniformi64vARB(uint program, int location, int bufSize, long* @params);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
@@ -1147,7 +1151,7 @@ namespace OpenGL
 			internal static glGetnUniformi64vARB pglGetnUniformi64vARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetnUniformui64vARB(uint program, int location, int bufSize, ulong* @params);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
@@ -1155,7 +1159,7 @@ namespace OpenGL
 			internal static glGetnUniformui64vARB pglGetnUniformui64vARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glProgramUniform1i64ARB(uint program, int location, long x);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
@@ -1163,7 +1167,7 @@ namespace OpenGL
 			internal static glProgramUniform1i64ARB pglProgramUniform1i64ARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glProgramUniform2i64ARB(uint program, int location, long x, long y);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
@@ -1171,7 +1175,7 @@ namespace OpenGL
 			internal static glProgramUniform2i64ARB pglProgramUniform2i64ARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glProgramUniform3i64ARB(uint program, int location, long x, long y, long z);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
@@ -1179,7 +1183,7 @@ namespace OpenGL
 			internal static glProgramUniform3i64ARB pglProgramUniform3i64ARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glProgramUniform4i64ARB(uint program, int location, long x, long y, long z, long w);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
@@ -1187,7 +1191,7 @@ namespace OpenGL
 			internal static glProgramUniform4i64ARB pglProgramUniform4i64ARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glProgramUniform1i64vARB(uint program, int location, int count, long* value);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
@@ -1195,7 +1199,7 @@ namespace OpenGL
 			internal static glProgramUniform1i64vARB pglProgramUniform1i64vARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glProgramUniform2i64vARB(uint program, int location, int count, long* value);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
@@ -1203,7 +1207,7 @@ namespace OpenGL
 			internal static glProgramUniform2i64vARB pglProgramUniform2i64vARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glProgramUniform3i64vARB(uint program, int location, int count, long* value);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
@@ -1211,7 +1215,7 @@ namespace OpenGL
 			internal static glProgramUniform3i64vARB pglProgramUniform3i64vARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glProgramUniform4i64vARB(uint program, int location, int count, long* value);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
@@ -1219,7 +1223,7 @@ namespace OpenGL
 			internal static glProgramUniform4i64vARB pglProgramUniform4i64vARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glProgramUniform1ui64ARB(uint program, int location, ulong x);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
@@ -1227,7 +1231,7 @@ namespace OpenGL
 			internal static glProgramUniform1ui64ARB pglProgramUniform1ui64ARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glProgramUniform2ui64ARB(uint program, int location, ulong x, ulong y);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
@@ -1235,7 +1239,7 @@ namespace OpenGL
 			internal static glProgramUniform2ui64ARB pglProgramUniform2ui64ARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glProgramUniform3ui64ARB(uint program, int location, ulong x, ulong y, ulong z);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
@@ -1243,7 +1247,7 @@ namespace OpenGL
 			internal static glProgramUniform3ui64ARB pglProgramUniform3ui64ARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glProgramUniform4ui64ARB(uint program, int location, ulong x, ulong y, ulong z, ulong w);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
@@ -1251,7 +1255,7 @@ namespace OpenGL
 			internal static glProgramUniform4ui64ARB pglProgramUniform4ui64ARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glProgramUniform1ui64vARB(uint program, int location, int count, ulong* value);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
@@ -1259,7 +1263,7 @@ namespace OpenGL
 			internal static glProgramUniform1ui64vARB pglProgramUniform1ui64vARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glProgramUniform2ui64vARB(uint program, int location, int count, ulong* value);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
@@ -1267,7 +1271,7 @@ namespace OpenGL
 			internal static glProgramUniform2ui64vARB pglProgramUniform2ui64vARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glProgramUniform3ui64vARB(uint program, int location, int count, ulong* value);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
@@ -1275,7 +1279,7 @@ namespace OpenGL
 			internal static glProgramUniform3ui64vARB pglProgramUniform3ui64vARB;
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glProgramUniform4ui64vARB(uint program, int location, int count, ulong* value);
 
 			[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]

@@ -25,10 +25,14 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+// ReSharper disable once RedundantUsingDirective
 using System.Reflection;
 using System.Runtime.InteropServices;
 
 using Khronos;
+
+// ReSharper disable InheritdocConsiderUsage
+// ReSharper disable SwitchStatementMissingSomeCases
 
 namespace OpenGL
 {
@@ -135,8 +139,7 @@ namespace OpenGL
 					string clientApisString = QueryString(eglDisplay, CLIENT_APIS);
 					string[] clientApiTokens = System.Text.RegularExpressions.Regex.Split(clientApisString, " ");
 
-					foreach (string api in DeviceContextEGL.ConvertApiNames(clientApiTokens))
-						clientApis.Add(api);
+					clientApis.AddRange(DeviceContextEGL.ConvertApiNames(clientApiTokens));
 				}
 
 				AvailableApis = clientApis.ToArray();
@@ -188,7 +191,7 @@ namespace OpenGL
 		/// <summary>
 		/// Get whether EGL layer is avaialable.
 		/// </summary>
-		public static bool IsAvailable { get { return (Delegates.peglInitialize != null); } }
+		public static bool IsAvailable => Delegates.peglInitialize != null;
 
 		/// <summary>
 		/// Get or set whether <see cref="DeviceContext"/> should create an EGL handles, if available.
@@ -198,9 +201,9 @@ namespace OpenGL
 			get
 			{
 				if (Platform.CurrentPlatformId == Platform.Id.Android)
-					return (true);
+					return true;
 
-				return ((_IsRequired && IsAvailable) || _IsInitializing);
+				return _IsRequired && IsAvailable || _IsInitializing;
 			}
 			set { _IsRequired = value; }
 		}
@@ -239,10 +242,7 @@ namespace OpenGL
 		/// </returns>
 		private static string GetPlatformLibrary()
 		{
-			if (Platform.CurrentPlatformId == Platform.Id.Linux)
-				return ("libEGL.so");
-
-			return (Library);
+			return Platform.CurrentPlatformId == Platform.Id.Linux ? "libEGL.so" : Library;
 		}
 
 		/// <summary>
@@ -261,6 +261,7 @@ namespace OpenGL
 		/// A <see cref="Object"/> that specifies the returned value of the function called before checking the error.
 		/// </paramref>
 		[Conditional("GL_DEBUG")]
+		// ReSharper disable once UnusedParameter.Local
 		private static void DebugCheckErrors(object returnValue)
 		{
 			int error = GetError();
@@ -336,7 +337,7 @@ namespace OpenGL
 		/// <param name="keySize"></param>
 		/// <param name="value"></param>
 		/// <param name="valueSize"></param>
-		public delegate void SetBlobFuncDelegate(IntPtr key, UInt32 keySize, IntPtr value, UInt32 valueSize);
+		public delegate void SetBlobFuncDelegate(IntPtr key, uint keySize, IntPtr value, uint valueSize);
 
 		/// <summary>
 		/// Delegate corresponding to EGLGetBlobFuncANDROID.
@@ -345,7 +346,7 @@ namespace OpenGL
 		/// <param name="keySize"></param>
 		/// <param name="value"></param>
 		/// <param name="valueSize"></param>
-		public delegate void GetBlobFuncDelegate(IntPtr key, UInt32 keySize, [Out] IntPtr value, UInt32 valueSize);
+		public delegate void GetBlobFuncDelegate(IntPtr key, uint keySize, [Out] IntPtr value, uint valueSize);
 
 		/// <summary>
 		/// Delegate corresponding to EGLDEBUGPROCKHR.

@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -262,10 +266,10 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_texture_multisample")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glTexImage2DMultisampleCoverageNV(int target, int coverageSamples, int colorSamples, int internalFormat, int width, int height, [MarshalAs(UnmanagedType.I1)] bool fixedSampleLocations);
 
 			[RequiredByFeature("GL_NV_texture_multisample")]
@@ -273,7 +277,7 @@ namespace OpenGL
 			internal static glTexImage2DMultisampleCoverageNV pglTexImage2DMultisampleCoverageNV;
 
 			[RequiredByFeature("GL_NV_texture_multisample")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glTexImage3DMultisampleCoverageNV(int target, int coverageSamples, int colorSamples, int internalFormat, int width, int height, int depth, [MarshalAs(UnmanagedType.I1)] bool fixedSampleLocations);
 
 			[RequiredByFeature("GL_NV_texture_multisample")]
@@ -281,7 +285,7 @@ namespace OpenGL
 			internal static glTexImage3DMultisampleCoverageNV pglTexImage3DMultisampleCoverageNV;
 
 			[RequiredByFeature("GL_NV_texture_multisample")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glTextureImage2DMultisampleNV(uint texture, int target, int samples, int internalFormat, int width, int height, [MarshalAs(UnmanagedType.I1)] bool fixedSampleLocations);
 
 			[RequiredByFeature("GL_NV_texture_multisample")]
@@ -289,7 +293,7 @@ namespace OpenGL
 			internal static glTextureImage2DMultisampleNV pglTextureImage2DMultisampleNV;
 
 			[RequiredByFeature("GL_NV_texture_multisample")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glTextureImage3DMultisampleNV(uint texture, int target, int samples, int internalFormat, int width, int height, int depth, [MarshalAs(UnmanagedType.I1)] bool fixedSampleLocations);
 
 			[RequiredByFeature("GL_NV_texture_multisample")]
@@ -297,7 +301,7 @@ namespace OpenGL
 			internal static glTextureImage3DMultisampleNV pglTextureImage3DMultisampleNV;
 
 			[RequiredByFeature("GL_NV_texture_multisample")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glTextureImage2DMultisampleCoverageNV(uint texture, int target, int coverageSamples, int colorSamples, int internalFormat, int width, int height, [MarshalAs(UnmanagedType.I1)] bool fixedSampleLocations);
 
 			[RequiredByFeature("GL_NV_texture_multisample")]
@@ -305,7 +309,7 @@ namespace OpenGL
 			internal static glTextureImage2DMultisampleCoverageNV pglTextureImage2DMultisampleCoverageNV;
 
 			[RequiredByFeature("GL_NV_texture_multisample")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glTextureImage3DMultisampleCoverageNV(uint texture, int target, int coverageSamples, int colorSamples, int internalFormat, int width, int height, int depth, [MarshalAs(UnmanagedType.I1)] bool fixedSampleLocations);
 
 			[RequiredByFeature("GL_NV_texture_multisample")]

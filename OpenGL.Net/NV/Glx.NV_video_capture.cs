@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -179,38 +183,38 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GLX_NV_video_capture")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate int glXBindVideoCaptureDeviceNV(IntPtr dpy, uint video_capture_slot, IntPtr device);
 
 			[RequiredByFeature("GLX_NV_video_capture")]
 			internal static glXBindVideoCaptureDeviceNV pglXBindVideoCaptureDeviceNV;
 
 			[RequiredByFeature("GLX_NV_video_capture")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate IntPtr glXEnumerateVideoCaptureDevicesNV(IntPtr dpy, int screen, int* nelements);
 
 			[RequiredByFeature("GLX_NV_video_capture")]
 			internal static glXEnumerateVideoCaptureDevicesNV pglXEnumerateVideoCaptureDevicesNV;
 
 			[RequiredByFeature("GLX_NV_video_capture")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glXLockVideoCaptureDeviceNV(IntPtr dpy, IntPtr device);
 
 			[RequiredByFeature("GLX_NV_video_capture")]
 			internal static glXLockVideoCaptureDeviceNV pglXLockVideoCaptureDeviceNV;
 
 			[RequiredByFeature("GLX_NV_video_capture")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate int glXQueryVideoCaptureDeviceNV(IntPtr dpy, IntPtr device, int attribute, int* value);
 
 			[RequiredByFeature("GLX_NV_video_capture")]
 			internal static glXQueryVideoCaptureDeviceNV pglXQueryVideoCaptureDeviceNV;
 
 			[RequiredByFeature("GLX_NV_video_capture")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glXReleaseVideoCaptureDeviceNV(IntPtr dpy, IntPtr device);
 
 			[RequiredByFeature("GLX_NV_video_capture")]

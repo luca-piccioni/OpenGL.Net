@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -96,10 +100,10 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_SGIS_fog_function")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glFogFuncSGIS(int n, float* points);
 
 			[RequiredByFeature("GL_SGIS_fog_function")]
@@ -107,7 +111,7 @@ namespace OpenGL
 			internal static glFogFuncSGIS pglFogFuncSGIS;
 
 			[RequiredByFeature("GL_SGIS_fog_function")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetFogFuncSGIS(float* points);
 
 			[RequiredByFeature("GL_SGIS_fog_function")]

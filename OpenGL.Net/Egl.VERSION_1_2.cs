@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -362,38 +366,38 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("EGL_VERSION_1_2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool eglBindAPI(uint api);
 
 			[RequiredByFeature("EGL_VERSION_1_2")]
 			internal static eglBindAPI peglBindAPI;
 
 			[RequiredByFeature("EGL_VERSION_1_2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate uint eglQueryAPI();
 
 			[RequiredByFeature("EGL_VERSION_1_2")]
 			internal static eglQueryAPI peglQueryAPI;
 
 			[RequiredByFeature("EGL_VERSION_1_2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate IntPtr eglCreatePbufferFromClientBuffer(IntPtr dpy, uint buftype, IntPtr buffer, IntPtr config, int* attrib_list);
 
 			[RequiredByFeature("EGL_VERSION_1_2")]
 			internal static eglCreatePbufferFromClientBuffer peglCreatePbufferFromClientBuffer;
 
 			[RequiredByFeature("EGL_VERSION_1_2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool eglReleaseThread();
 
 			[RequiredByFeature("EGL_VERSION_1_2")]
 			internal static eglReleaseThread peglReleaseThread;
 
 			[RequiredByFeature("EGL_VERSION_1_2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool eglWaitClient();
 
 			[RequiredByFeature("EGL_VERSION_1_2")]

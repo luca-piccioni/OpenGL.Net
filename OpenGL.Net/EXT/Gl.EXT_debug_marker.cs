@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -44,10 +48,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="marker">
-		/// A <see cref="T:String"/>.
+		/// A <see cref="T:string"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_debug_marker", Api = "gl|glcore|gles2")]
-		public static void InsertEventMarkerEXT(int length, String marker)
+		public static void InsertEventMarkerEXT(int length, string marker)
 		{
 			Debug.Assert(Delegates.pglInsertEventMarkerEXT != null, "pglInsertEventMarkerEXT not implemented");
 			Delegates.pglInsertEventMarkerEXT(length, marker);
@@ -62,10 +66,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="marker">
-		/// A <see cref="T:String"/>.
+		/// A <see cref="T:string"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_debug_marker", Api = "gl|glcore|gles2")]
-		public static void PushGroupMarkerEXT(int length, String marker)
+		public static void PushGroupMarkerEXT(int length, string marker)
 		{
 			Debug.Assert(Delegates.pglPushGroupMarkerEXT != null, "pglPushGroupMarkerEXT not implemented");
 			Delegates.pglPushGroupMarkerEXT(length, marker);
@@ -85,26 +89,26 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_debug_marker", Api = "gl|glcore|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glInsertEventMarkerEXT(int length, String marker);
+			[SuppressUnmanagedCodeSecurity]
+			internal delegate void glInsertEventMarkerEXT(int length, string marker);
 
 			[RequiredByFeature("GL_EXT_debug_marker", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glInsertEventMarkerEXT pglInsertEventMarkerEXT;
 
 			[RequiredByFeature("GL_EXT_debug_marker", Api = "gl|glcore|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glPushGroupMarkerEXT(int length, String marker);
+			[SuppressUnmanagedCodeSecurity]
+			internal delegate void glPushGroupMarkerEXT(int length, string marker);
 
 			[RequiredByFeature("GL_EXT_debug_marker", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glPushGroupMarkerEXT pglPushGroupMarkerEXT;
 
 			[RequiredByFeature("GL_EXT_debug_marker", Api = "gl|glcore|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glPopGroupMarkerEXT();
 
 			[RequiredByFeature("GL_EXT_debug_marker", Api = "gl|glcore|gles2")]

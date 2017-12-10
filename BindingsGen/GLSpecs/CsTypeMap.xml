@@ -37,9 +37,9 @@
 	
     <type name="char*" value="string" />
 	<type name="GLchar" value="char" />
-	<type name="GLchar*" value="String" />
-	<type name="GLchar*const*" value="String[]" />
-	<type name="GLchar**" value="String[]" />
+	<type name="GLchar*" value="string" />
+	<type name="GLchar*const*" value="string[]" />
+	<type name="GLchar**" value="string[]" />
 	
 	<type name="GLbyte" value="sbyte" />
 	<type name="GLbyte*" value="sbyte*" />
@@ -65,7 +65,7 @@
 	<type name="GLdouble" value="double" />
 	<type name="GLdouble*" value="double*" />
 	
-	<type name="GLstring" value="String" />
+	<type name="GLstring" value="string" />
 	
 	<type name="GLsync" value="int" />
 	
@@ -77,6 +77,7 @@
 	
 	<type name="GLuint64" value="ulong" />
 	<type name="GLuint64EXT" value="ulong" />
+	<type name="GLuint64*" value="ulong*" />
 	<type name="GLuint64*" value="ulong*" />
 
 	<type name="GLfixed*" value="IntPtr*" />
@@ -99,8 +100,8 @@
 	<type name="GLhalfNV" value="ushort" />
 	<type name="GLhalfNV*" value="ushort*" />
 	<type name="GLcharARB" value="char" />
-	<type name="GLcharARB*" value="String" />
-	<type name="GLcharARB**" value="String[]" />
+	<type name="GLcharARB*" value="string" />
+	<type name="GLcharARB**" value="string[]" />
 	
 	<!-- WGL types -->
 	<type name="unsigned int" value="uint" />
@@ -130,7 +131,7 @@
 	<type name="INT32*" value="int*" />
 	<type name="INT64" value="long" />
 	<type name="INT64*" value="long*" />
-	<type name="LPCSTR" value="String" />
+	<type name="LPCSTR" value="string" />
 	<type name="PROC" value="IntPtr" />
 	<type name="VoidPointer" value="IntPtr" />
 	<type name="IntPtr" value="int" />
@@ -170,12 +171,11 @@
 	<!-- Various -->
 	<type name="GLvdpauSurfaceNV" value="IntPtr" />
 	<type name="GLvdpauSurfaceNV*" value="IntPtr*" />
-	<type name="GLDEBUGPROC" value="Gl.DebugProc" />
-	<type name="GLDEBUGPROCKHR" value="Gl.DebugProc" />
-	<type name="GLDEBUGPROCARB" value="Gl.DebugProc" />
-	<type name="GLDEBUGPROCAMD" value="Gl.DebugProc" />
-	<type name="GLVULKANPROCNV" value="Gl.VulkanProc" />
-	
+	<type name="GLDEBUGPROC" value="DebugProc" />
+	<type name="GLDEBUGPROCKHR" value="DebugProc" />
+	<type name="GLDEBUGPROCARB" value="DebugProc" />
+	<type name="GLDEBUGPROCAMD" value="DebugProc" />
+	<type name="GLVULKANPROCNV" value="VulkanProc" />
 
 	<!-- GLX types -->
 	<type name="Void" value="void" />

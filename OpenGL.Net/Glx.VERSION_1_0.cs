@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -826,122 +830,122 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GLX_VERSION_1_0")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate IntPtr glXChooseVisual(IntPtr dpy, int screen, int* attribList);
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
 			internal static glXChooseVisual pglXChooseVisual;
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate IntPtr glXCreateContext(IntPtr dpy, IntPtr vis, IntPtr shareList, bool direct);
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
 			internal static glXCreateContext pglXCreateContext;
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glXDestroyContext(IntPtr dpy, IntPtr ctx);
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
 			internal static glXDestroyContext pglXDestroyContext;
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool glXMakeCurrent(IntPtr dpy, IntPtr drawable, IntPtr ctx);
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
 			internal static glXMakeCurrent pglXMakeCurrent;
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glXCopyContext(IntPtr dpy, IntPtr src, IntPtr dst, uint mask);
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
 			internal static glXCopyContext pglXCopyContext;
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glXSwapBuffers(IntPtr dpy, IntPtr drawable);
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
 			internal static glXSwapBuffers pglXSwapBuffers;
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate IntPtr glXCreateGLXPixmap(IntPtr dpy, IntPtr visual, IntPtr pixmap);
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
 			internal static glXCreateGLXPixmap pglXCreateGLXPixmap;
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glXDestroyGLXPixmap(IntPtr dpy, IntPtr pixmap);
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
 			internal static glXDestroyGLXPixmap pglXDestroyGLXPixmap;
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool glXQueryExtension(IntPtr dpy, int* errorb, int* @event);
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
 			internal static glXQueryExtension pglXQueryExtension;
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool glXQueryVersion(IntPtr dpy, int* maj, int* min);
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
 			internal static glXQueryVersion pglXQueryVersion;
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool glXIsDirect(IntPtr dpy, IntPtr ctx);
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
 			internal static glXIsDirect pglXIsDirect;
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate int glXGetConfig(IntPtr dpy, IntPtr visual, int attrib, int* value);
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
 			internal static glXGetConfig pglXGetConfig;
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate IntPtr glXGetCurrentContext();
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
 			internal static glXGetCurrentContext pglXGetCurrentContext;
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate IntPtr glXGetCurrentDrawable();
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
 			internal static glXGetCurrentDrawable pglXGetCurrentDrawable;
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glXWaitGL();
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
 			internal static glXWaitGL pglXWaitGL;
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glXWaitX();
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
 			internal static glXWaitX pglXWaitX;
 
 			[RequiredByFeature("GLX_VERSION_1_0")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glXUseXFont(int font, int first, int count, int list);
 
 			[RequiredByFeature("GLX_VERSION_1_0")]

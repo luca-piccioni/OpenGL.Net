@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -133,11 +137,11 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("EGL_KHR_fence_sync")]
 			[RequiredByFeature("EGL_KHR_reusable_sync")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate IntPtr eglCreateSyncKHR(IntPtr dpy, uint type, int* attrib_list);
 
 			[RequiredByFeature("EGL_KHR_fence_sync")]
@@ -145,7 +149,7 @@ namespace OpenGL
 			internal static eglCreateSyncKHR peglCreateSyncKHR;
 
 			[RequiredByFeature("EGL_KHR_reusable_sync")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool eglSignalSyncKHR(IntPtr dpy, IntPtr sync, uint mode);
 
 			[RequiredByFeature("EGL_KHR_reusable_sync")]
@@ -153,7 +157,7 @@ namespace OpenGL
 
 			[RequiredByFeature("EGL_KHR_fence_sync")]
 			[RequiredByFeature("EGL_KHR_reusable_sync")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool eglGetSyncAttribKHR(IntPtr dpy, IntPtr sync, int attribute, int* value);
 
 			[RequiredByFeature("EGL_KHR_fence_sync")]

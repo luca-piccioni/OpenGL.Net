@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -172,10 +176,10 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_INTEL_parallel_arrays")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexPointervINTEL(int size, int type, IntPtr* pointer);
 
 			[RequiredByFeature("GL_INTEL_parallel_arrays")]
@@ -183,7 +187,7 @@ namespace OpenGL
 			internal static glVertexPointervINTEL pglVertexPointervINTEL;
 
 			[RequiredByFeature("GL_INTEL_parallel_arrays")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glNormalPointervINTEL(int type, IntPtr* pointer);
 
 			[RequiredByFeature("GL_INTEL_parallel_arrays")]
@@ -191,7 +195,7 @@ namespace OpenGL
 			internal static glNormalPointervINTEL pglNormalPointervINTEL;
 
 			[RequiredByFeature("GL_INTEL_parallel_arrays")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glColorPointervINTEL(int size, int type, IntPtr* pointer);
 
 			[RequiredByFeature("GL_INTEL_parallel_arrays")]
@@ -199,7 +203,7 @@ namespace OpenGL
 			internal static glColorPointervINTEL pglColorPointervINTEL;
 
 			[RequiredByFeature("GL_INTEL_parallel_arrays")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glTexCoordPointervINTEL(int size, int type, IntPtr* pointer);
 
 			[RequiredByFeature("GL_INTEL_parallel_arrays")]

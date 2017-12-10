@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -456,10 +460,10 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glTexImage3DOES(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, IntPtr pixels);
 
 			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
@@ -467,7 +471,7 @@ namespace OpenGL
 			internal static glTexImage3DOES pglTexImage3DOES;
 
 			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glTexSubImage3DOES(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, IntPtr pixels);
 
 			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
@@ -475,7 +479,7 @@ namespace OpenGL
 			internal static glTexSubImage3DOES pglTexSubImage3DOES;
 
 			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glCopyTexSubImage3DOES(int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height);
 
 			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
@@ -483,7 +487,7 @@ namespace OpenGL
 			internal static glCopyTexSubImage3DOES pglCopyTexSubImage3DOES;
 
 			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glCompressedTexImage3DOES(int target, int level, int internalformat, int width, int height, int depth, int border, int imageSize, IntPtr data);
 
 			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
@@ -491,7 +495,7 @@ namespace OpenGL
 			internal static glCompressedTexImage3DOES pglCompressedTexImage3DOES;
 
 			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glCompressedTexSubImage3DOES(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int imageSize, IntPtr data);
 
 			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
@@ -499,7 +503,7 @@ namespace OpenGL
 			internal static glCompressedTexSubImage3DOES pglCompressedTexSubImage3DOES;
 
 			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glFramebufferTexture3DOES(int target, int attachment, int textarget, uint texture, int level, int zoffset);
 
 			[RequiredByFeature("GL_OES_texture_3D", Api = "gles2")]

@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -99,10 +103,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="tagString">
-		/// A <see cref="T:String"/>.
+		/// A <see cref="T:string"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_query_resource_tag")]
-		public static void QueryResourceTagNV(int tagId, String tagString)
+		public static void QueryResourceTagNV(int tagId, string tagString)
 		{
 			Debug.Assert(Delegates.pglQueryResourceTagNV != null, "pglQueryResourceTagNV not implemented");
 			Delegates.pglQueryResourceTagNV(tagId, tagString);
@@ -110,10 +114,10 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_NV_query_resource_tag")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGenQueryResourceTagNV(int n, int* tagIds);
 
 			[RequiredByFeature("GL_NV_query_resource_tag")]
@@ -121,7 +125,7 @@ namespace OpenGL
 			internal static glGenQueryResourceTagNV pglGenQueryResourceTagNV;
 
 			[RequiredByFeature("GL_NV_query_resource_tag")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glDeleteQueryResourceTagNV(int n, int* tagIds);
 
 			[RequiredByFeature("GL_NV_query_resource_tag")]
@@ -129,8 +133,8 @@ namespace OpenGL
 			internal static glDeleteQueryResourceTagNV pglDeleteQueryResourceTagNV;
 
 			[RequiredByFeature("GL_NV_query_resource_tag")]
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glQueryResourceTagNV(int tagId, String tagString);
+			[SuppressUnmanagedCodeSecurity]
+			internal delegate void glQueryResourceTagNV(int tagId, string tagString);
 
 			[RequiredByFeature("GL_NV_query_resource_tag")]
 			[ThreadStatic]

@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -189,10 +193,10 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_SGIX_list_priority")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetListParameterfvSGIX(uint list, int pname, float* @params);
 
 			[RequiredByFeature("GL_SGIX_list_priority")]
@@ -200,7 +204,7 @@ namespace OpenGL
 			internal static glGetListParameterfvSGIX pglGetListParameterfvSGIX;
 
 			[RequiredByFeature("GL_SGIX_list_priority")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetListParameterivSGIX(uint list, int pname, int* @params);
 
 			[RequiredByFeature("GL_SGIX_list_priority")]
@@ -208,7 +212,7 @@ namespace OpenGL
 			internal static glGetListParameterivSGIX pglGetListParameterivSGIX;
 
 			[RequiredByFeature("GL_SGIX_list_priority")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glListParameterfSGIX(uint list, int pname, float param);
 
 			[RequiredByFeature("GL_SGIX_list_priority")]
@@ -216,7 +220,7 @@ namespace OpenGL
 			internal static glListParameterfSGIX pglListParameterfSGIX;
 
 			[RequiredByFeature("GL_SGIX_list_priority")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glListParameterfvSGIX(uint list, int pname, float* @params);
 
 			[RequiredByFeature("GL_SGIX_list_priority")]
@@ -224,7 +228,7 @@ namespace OpenGL
 			internal static glListParameterfvSGIX pglListParameterfvSGIX;
 
 			[RequiredByFeature("GL_SGIX_list_priority")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glListParameteriSGIX(uint list, int pname, int param);
 
 			[RequiredByFeature("GL_SGIX_list_priority")]
@@ -232,7 +236,7 @@ namespace OpenGL
 			internal static glListParameteriSGIX pglListParameteriSGIX;
 
 			[RequiredByFeature("GL_SGIX_list_priority")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glListParameterivSGIX(uint list, int pname, int* @params);
 
 			[RequiredByFeature("GL_SGIX_list_priority")]

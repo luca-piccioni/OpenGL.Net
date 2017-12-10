@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -1832,14 +1836,14 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_EXT_blend_func_separate")]
 			[RequiredByFeature("GL_INGR_blend_func_separate")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glBlendFuncSeparate(int sfactorRGB, int dfactorRGB, int sfactorAlpha, int dfactorAlpha);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -1852,7 +1856,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_multi_draw_arrays", Api = "gl|gles1|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glMultiDrawArrays(int mode, int* first, int* count, int drawcount);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -1862,7 +1866,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_multi_draw_arrays", Api = "gl|gles1|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glMultiDrawElements(int mode, int* count, int type, IntPtr* indices, int drawcount);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -1875,7 +1879,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_point_parameters")]
 			[RequiredByFeature("GL_EXT_point_parameters")]
 			[RequiredByFeature("GL_SGIS_point_parameters")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glPointParameterf(int pname, float param);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -1891,7 +1895,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_point_parameters")]
 			[RequiredByFeature("GL_EXT_point_parameters")]
 			[RequiredByFeature("GL_SGIS_point_parameters")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glPointParameterfv(int pname, float* @params);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -1904,7 +1908,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_NV_point_sprite")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glPointParameteri(int pname, int param);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -1914,7 +1918,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_NV_point_sprite")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glPointParameteriv(int pname, int* @params);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -1925,7 +1929,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_fog_coord")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glFogCoordf(float coord);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -1937,7 +1941,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_fog_coord")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glFogCoordfv(float* coord);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -1949,7 +1953,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_fog_coord")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glFogCoordd(double coord);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -1961,7 +1965,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_fog_coord")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glFogCoorddv(double* coord);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -1973,7 +1977,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_fog_coord")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glFogCoordPointer(int type, int stride, IntPtr pointer);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -1985,7 +1989,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_secondary_color")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glSecondaryColor3b(sbyte red, sbyte green, sbyte blue);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -1997,7 +2001,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_secondary_color")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glSecondaryColor3bv(sbyte* v);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2009,7 +2013,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_secondary_color")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glSecondaryColor3d(double red, double green, double blue);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2021,7 +2025,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_secondary_color")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glSecondaryColor3dv(double* v);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2033,7 +2037,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_secondary_color")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glSecondaryColor3f(float red, float green, float blue);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2045,7 +2049,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_secondary_color")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glSecondaryColor3fv(float* v);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2057,7 +2061,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_secondary_color")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glSecondaryColor3i(int red, int green, int blue);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2069,7 +2073,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_secondary_color")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glSecondaryColor3iv(int* v);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2081,7 +2085,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_secondary_color")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glSecondaryColor3s(short red, short green, short blue);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2093,7 +2097,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_secondary_color")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glSecondaryColor3sv(short* v);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2105,7 +2109,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_secondary_color")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glSecondaryColor3ub(byte red, byte green, byte blue);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2117,7 +2121,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_secondary_color")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glSecondaryColor3ubv(byte* v);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2129,7 +2133,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_secondary_color")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glSecondaryColor3ui(uint red, uint green, uint blue);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2141,7 +2145,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_secondary_color")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glSecondaryColor3uiv(uint* v);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2153,7 +2157,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_secondary_color")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glSecondaryColor3us(ushort red, ushort green, ushort blue);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2165,7 +2169,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_secondary_color")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glSecondaryColor3usv(ushort* v);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2177,7 +2181,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_1_4")]
 			[RequiredByFeature("GL_EXT_secondary_color")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glSecondaryColorPointer(int size, int type, int stride, IntPtr pointer);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2190,7 +2194,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_window_pos")]
 			[RequiredByFeature("GL_MESA_window_pos")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glWindowPos2d(double x, double y);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2204,7 +2208,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_window_pos")]
 			[RequiredByFeature("GL_MESA_window_pos")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glWindowPos2dv(double* v);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2218,7 +2222,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_window_pos")]
 			[RequiredByFeature("GL_MESA_window_pos")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glWindowPos2f(float x, float y);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2232,7 +2236,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_window_pos")]
 			[RequiredByFeature("GL_MESA_window_pos")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glWindowPos2fv(float* v);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2246,7 +2250,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_window_pos")]
 			[RequiredByFeature("GL_MESA_window_pos")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glWindowPos2i(int x, int y);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2260,7 +2264,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_window_pos")]
 			[RequiredByFeature("GL_MESA_window_pos")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glWindowPos2iv(int* v);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2274,7 +2278,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_window_pos")]
 			[RequiredByFeature("GL_MESA_window_pos")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glWindowPos2s(short x, short y);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2288,7 +2292,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_window_pos")]
 			[RequiredByFeature("GL_MESA_window_pos")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glWindowPos2sv(short* v);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2302,7 +2306,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_window_pos")]
 			[RequiredByFeature("GL_MESA_window_pos")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glWindowPos3d(double x, double y, double z);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2316,7 +2320,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_window_pos")]
 			[RequiredByFeature("GL_MESA_window_pos")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glWindowPos3dv(double* v);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2330,7 +2334,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_window_pos")]
 			[RequiredByFeature("GL_MESA_window_pos")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glWindowPos3f(float x, float y, float z);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2344,7 +2348,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_window_pos")]
 			[RequiredByFeature("GL_MESA_window_pos")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glWindowPos3fv(float* v);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2358,7 +2362,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_window_pos")]
 			[RequiredByFeature("GL_MESA_window_pos")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glWindowPos3i(int x, int y, int z);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2372,7 +2376,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_window_pos")]
 			[RequiredByFeature("GL_MESA_window_pos")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glWindowPos3iv(int* v);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2386,7 +2390,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_window_pos")]
 			[RequiredByFeature("GL_MESA_window_pos")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glWindowPos3s(short x, short y, short z);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2400,7 +2404,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_window_pos")]
 			[RequiredByFeature("GL_MESA_window_pos")]
 			[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glWindowPos3sv(short* v);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2415,7 +2419,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_blend_color")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glBlendColor(float red, float green, float blue, float alpha);
 
 			[RequiredByFeature("GL_VERSION_1_4")]
@@ -2431,7 +2435,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_blend_minmax")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glBlendEquation(int mode);
 
 			[RequiredByFeature("GL_VERSION_1_4")]

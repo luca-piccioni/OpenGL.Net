@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -65,16 +69,16 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="name">
-		/// A <see cref="T:String"/>.
+		/// A <see cref="T:string"/>.
 		/// </param>
 		/// <param name="stringlen">
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="string">
-		/// A <see cref="T:String"/>.
+		/// A <see cref="T:string"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_shading_language_include", Api = "gl|glcore")]
-		public static void NamedStringARB(int type, int namelen, String name, int stringlen, String @string)
+		public static void NamedStringARB(int type, int namelen, string name, int stringlen, string @string)
 		{
 			Debug.Assert(Delegates.pglNamedStringARB != null, "pglNamedStringARB not implemented");
 			Delegates.pglNamedStringARB(type, namelen, name, stringlen, @string);
@@ -89,10 +93,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="name">
-		/// A <see cref="T:String"/>.
+		/// A <see cref="T:string"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_shading_language_include", Api = "gl|glcore")]
-		public static void DeleteNamedStringARB(int namelen, String name)
+		public static void DeleteNamedStringARB(int namelen, string name)
 		{
 			Debug.Assert(Delegates.pglDeleteNamedStringARB != null, "pglDeleteNamedStringARB not implemented");
 			Delegates.pglDeleteNamedStringARB(namelen, name);
@@ -107,13 +111,13 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="path">
-		/// A <see cref="T:String[]"/>.
+		/// A <see cref="T:string[]"/>.
 		/// </param>
 		/// <param name="length">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_shading_language_include", Api = "gl|glcore")]
-		public static void CompileShaderIncludeARB(uint shader, String[] path, int[] length)
+		public static void CompileShaderIncludeARB(uint shader, string[] path, int[] length)
 		{
 			unsafe {
 				fixed (int* p_length = length)
@@ -133,10 +137,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="name">
-		/// A <see cref="T:String"/>.
+		/// A <see cref="T:string"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_shading_language_include", Api = "gl|glcore")]
-		public static bool IsNamedStringARB(int namelen, String name)
+		public static bool IsNamedStringARB(int namelen, string name)
 		{
 			bool retValue;
 
@@ -155,7 +159,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="name">
-		/// A <see cref="T:String"/>.
+		/// A <see cref="T:string"/>.
 		/// </param>
 		/// <param name="bufSize">
 		/// A <see cref="T:int"/>.
@@ -167,7 +171,7 @@ namespace OpenGL
 		/// A <see cref="T:StringBuilder"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_shading_language_include", Api = "gl|glcore")]
-		public static void GetNamedStringARB(int namelen, String name, int bufSize, out int stringlen, [Out] StringBuilder @string)
+		public static void GetNamedStringARB(int namelen, string name, int bufSize, out int stringlen, StringBuilder @string)
 		{
 			unsafe {
 				fixed (int* p_stringlen = &stringlen)
@@ -187,7 +191,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="name">
-		/// A <see cref="T:String"/>.
+		/// A <see cref="T:string"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:int"/>.
@@ -196,7 +200,7 @@ namespace OpenGL
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_shading_language_include", Api = "gl|glcore")]
-		public static void GetNamedStringARB(int namelen, String name, int pname, [Out] int[] @params)
+		public static void GetNamedStringARB(int namelen, string name, int pname, [Out] int[] @params)
 		{
 			unsafe {
 				fixed (int* p_params = @params)
@@ -216,7 +220,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="name">
-		/// A <see cref="T:String"/>.
+		/// A <see cref="T:string"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:int"/>.
@@ -225,7 +229,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_shading_language_include", Api = "gl|glcore")]
-		public static void GetNamedStringARB(int namelen, String name, int pname, out int @params)
+		public static void GetNamedStringARB(int namelen, string name, int pname, out int @params)
 		{
 			unsafe {
 				fixed (int* p_params = &@params)
@@ -238,52 +242,52 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_ARB_shading_language_include", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glNamedStringARB(int type, int namelen, String name, int stringlen, String @string);
+			[SuppressUnmanagedCodeSecurity]
+			internal delegate void glNamedStringARB(int type, int namelen, string name, int stringlen, string @string);
 
 			[RequiredByFeature("GL_ARB_shading_language_include", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glNamedStringARB pglNamedStringARB;
 
 			[RequiredByFeature("GL_ARB_shading_language_include", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glDeleteNamedStringARB(int namelen, String name);
+			[SuppressUnmanagedCodeSecurity]
+			internal delegate void glDeleteNamedStringARB(int namelen, string name);
 
 			[RequiredByFeature("GL_ARB_shading_language_include", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glDeleteNamedStringARB pglDeleteNamedStringARB;
 
 			[RequiredByFeature("GL_ARB_shading_language_include", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glCompileShaderIncludeARB(uint shader, int count, String[] path, int* length);
+			[SuppressUnmanagedCodeSecurity]
+			internal delegate void glCompileShaderIncludeARB(uint shader, int count, string[] path, int* length);
 
 			[RequiredByFeature("GL_ARB_shading_language_include", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glCompileShaderIncludeARB pglCompileShaderIncludeARB;
 
 			[RequiredByFeature("GL_ARB_shading_language_include", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			[return: MarshalAs(UnmanagedType.I1)]
-			internal delegate bool glIsNamedStringARB(int namelen, String name);
+			internal delegate bool glIsNamedStringARB(int namelen, string name);
 
 			[RequiredByFeature("GL_ARB_shading_language_include", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glIsNamedStringARB pglIsNamedStringARB;
 
 			[RequiredByFeature("GL_ARB_shading_language_include", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glGetNamedStringARB(int namelen, String name, int bufSize, int* stringlen, [Out] StringBuilder @string);
+			[SuppressUnmanagedCodeSecurity]
+			internal delegate void glGetNamedStringARB(int namelen, string name, int bufSize, int* stringlen, StringBuilder @string);
 
 			[RequiredByFeature("GL_ARB_shading_language_include", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glGetNamedStringARB pglGetNamedStringARB;
 
 			[RequiredByFeature("GL_ARB_shading_language_include", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glGetNamedStringivARB(int namelen, String name, int pname, int* @params);
+			[SuppressUnmanagedCodeSecurity]
+			internal delegate void glGetNamedStringivARB(int namelen, string name, int pname, int* @params);
 
 			[RequiredByFeature("GL_ARB_shading_language_include", Api = "gl|glcore")]
 			[ThreadStatic]

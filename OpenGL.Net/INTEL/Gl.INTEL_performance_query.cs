@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -283,13 +287,13 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="counterName">
-		/// A <see cref="T:String"/>.
+		/// A <see cref="T:string"/>.
 		/// </param>
 		/// <param name="counterDescLength">
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="counterDesc">
-		/// A <see cref="T:String"/>.
+		/// A <see cref="T:string"/>.
 		/// </param>
 		/// <param name="counterOffset">
 		/// A <see cref="T:uint[]"/>.
@@ -307,7 +311,7 @@ namespace OpenGL
 		/// A <see cref="T:ulong[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
-		public static void GetPerfCounterInfoINTEL(uint queryId, uint counterId, uint counterNameLength, String counterName, uint counterDescLength, String counterDesc, [Out] uint[] counterOffset, [Out] uint[] counterDataSize, [Out] uint[] counterTypeEnum, [Out] uint[] counterDataTypeEnum, [Out] ulong[] rawCounterMaxValue)
+		public static void GetPerfCounterInfoINTEL(uint queryId, uint counterId, uint counterNameLength, string counterName, uint counterDescLength, string counterDesc, [Out] uint[] counterOffset, [Out] uint[] counterDataSize, [Out] uint[] counterTypeEnum, [Out] uint[] counterDataTypeEnum, [Out] ulong[] rawCounterMaxValue)
 		{
 			unsafe {
 				fixed (uint* p_counterOffset = counterOffset)
@@ -389,13 +393,13 @@ namespace OpenGL
 		/// [GL] glGetPerfQueryIdByNameINTEL: Binding for glGetPerfQueryIdByNameINTEL.
 		/// </summary>
 		/// <param name="queryName">
-		/// A <see cref="T:String"/>.
+		/// A <see cref="T:string"/>.
 		/// </param>
 		/// <param name="queryId">
 		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
-		public static void GetPerfQueryIdByNameINTEL(String queryName, [Out] uint[] queryId)
+		public static void GetPerfQueryIdByNameINTEL(string queryName, [Out] uint[] queryId)
 		{
 			unsafe {
 				fixed (uint* p_queryId = queryId)
@@ -418,7 +422,7 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="queryName">
-		/// A <see cref="T:String"/>.
+		/// A <see cref="T:string"/>.
 		/// </param>
 		/// <param name="dataSize">
 		/// A <see cref="T:uint[]"/>.
@@ -433,7 +437,7 @@ namespace OpenGL
 		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
-		public static void GetPerfQueryInfoINTEL(uint queryId, uint queryNameLength, String queryName, [Out] uint[] dataSize, [Out] uint[] noCounters, [Out] uint[] noInstances, [Out] uint[] capsMask)
+		public static void GetPerfQueryInfoINTEL(uint queryId, uint queryNameLength, string queryName, [Out] uint[] dataSize, [Out] uint[] noCounters, [Out] uint[] noInstances, [Out] uint[] capsMask)
 		{
 			unsafe {
 				fixed (uint* p_dataSize = dataSize)
@@ -449,10 +453,10 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glBeginPerfQueryINTEL(uint queryHandle);
 
 			[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
@@ -460,7 +464,7 @@ namespace OpenGL
 			internal static glBeginPerfQueryINTEL pglBeginPerfQueryINTEL;
 
 			[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glCreatePerfQueryINTEL(uint queryId, uint* queryHandle);
 
 			[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
@@ -468,7 +472,7 @@ namespace OpenGL
 			internal static glCreatePerfQueryINTEL pglCreatePerfQueryINTEL;
 
 			[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glDeletePerfQueryINTEL(uint queryHandle);
 
 			[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
@@ -476,7 +480,7 @@ namespace OpenGL
 			internal static glDeletePerfQueryINTEL pglDeletePerfQueryINTEL;
 
 			[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glEndPerfQueryINTEL(uint queryHandle);
 
 			[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
@@ -484,7 +488,7 @@ namespace OpenGL
 			internal static glEndPerfQueryINTEL pglEndPerfQueryINTEL;
 
 			[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetFirstPerfQueryIdINTEL(uint* queryId);
 
 			[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
@@ -492,7 +496,7 @@ namespace OpenGL
 			internal static glGetFirstPerfQueryIdINTEL pglGetFirstPerfQueryIdINTEL;
 
 			[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetNextPerfQueryIdINTEL(uint queryId, uint* nextQueryId);
 
 			[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
@@ -500,15 +504,15 @@ namespace OpenGL
 			internal static glGetNextPerfQueryIdINTEL pglGetNextPerfQueryIdINTEL;
 
 			[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glGetPerfCounterInfoINTEL(uint queryId, uint counterId, uint counterNameLength, String counterName, uint counterDescLength, String counterDesc, uint* counterOffset, uint* counterDataSize, uint* counterTypeEnum, uint* counterDataTypeEnum, ulong* rawCounterMaxValue);
+			[SuppressUnmanagedCodeSecurity]
+			internal delegate void glGetPerfCounterInfoINTEL(uint queryId, uint counterId, uint counterNameLength, string counterName, uint counterDescLength, string counterDesc, uint* counterOffset, uint* counterDataSize, uint* counterTypeEnum, uint* counterDataTypeEnum, ulong* rawCounterMaxValue);
 
 			[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glGetPerfCounterInfoINTEL pglGetPerfCounterInfoINTEL;
 
 			[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetPerfQueryDataINTEL(uint queryHandle, uint flags, int dataSize, void* data, uint* bytesWritten);
 
 			[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
@@ -516,16 +520,16 @@ namespace OpenGL
 			internal static glGetPerfQueryDataINTEL pglGetPerfQueryDataINTEL;
 
 			[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glGetPerfQueryIdByNameINTEL(String queryName, uint* queryId);
+			[SuppressUnmanagedCodeSecurity]
+			internal delegate void glGetPerfQueryIdByNameINTEL(string queryName, uint* queryId);
 
 			[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glGetPerfQueryIdByNameINTEL pglGetPerfQueryIdByNameINTEL;
 
 			[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
-			[SuppressUnmanagedCodeSecurity()]
-			internal delegate void glGetPerfQueryInfoINTEL(uint queryId, uint queryNameLength, String queryName, uint* dataSize, uint* noCounters, uint* noInstances, uint* capsMask);
+			[SuppressUnmanagedCodeSecurity]
+			internal delegate void glGetPerfQueryInfoINTEL(uint queryId, uint queryNameLength, string queryName, uint* dataSize, uint* noCounters, uint* noInstances, uint* capsMask);
 
 			[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
 			[ThreadStatic]

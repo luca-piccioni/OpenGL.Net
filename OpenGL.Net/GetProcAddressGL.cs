@@ -27,12 +27,17 @@ using System.Runtime.InteropServices;
 
 using Khronos;
 
+// ReSharper disable InheritdocConsiderUsage
+// ReSharper disable SwitchStatementMissingSomeCases
+// ReSharper disable RedundantIfElseBlock
+// ReSharper disable InconsistentNaming
+
 namespace OpenGL
 {
 	/// <summary>
 	/// Interface implemented by those classes which are able to get OpenGK function pointers.
 	/// </summary>
-	interface IGetGLProcAddress
+	internal interface IGetGLProcAddress
 	{
 		/// <summary>
 		/// Get a function pointer from the OpenGL driver.
@@ -63,19 +68,16 @@ namespace OpenGL
 			if (Egl.IsRequired == false) {
 				switch (Platform.CurrentPlatformId) {
 					case Platform.Id.WindowsNT:
-						return (GetGLProcAddressWGL.Instance.GetProcAddress(function));
+						return GetGLProcAddressWGL.Instance.GetProcAddress(function);
 					case Platform.Id.Linux:
-						return (GetGLProcAddressGLX.Instance.GetProcAddress(function));
+						return GetGLProcAddressGLX.Instance.GetProcAddress(function);
 					case Platform.Id.MacOS:
-						if (Glx.IsRequired)
-							return (GetGLProcAddressGLX.Instance.GetProcAddress(function));
-						else
-							return (GetProcAddressOSX.Instance.GetProcAddress(function));
+						return !Glx.IsRequired ? GetProcAddressOSX.Instance.GetProcAddress(function) : GetGLProcAddressGLX.Instance.GetProcAddress(function);
 					default:
 						throw new NotSupportedException();
 				}
 			} else
-				return (GetGLProcAddressEGL.Instance.GetProcAddress(function));
+				return GetGLProcAddressEGL.Instance.GetProcAddress(function);
 #else
 			return (GetGLProcAddressEGL.Instance.GetProcAddress(function));
 #endif
@@ -87,7 +89,7 @@ namespace OpenGL
 	/// <summary>
 	/// Class able to get OpenGL function pointers on Windows platform.
 	/// </summary>
-	class GetGLProcAddressWGL : IGetGLProcAddress
+	internal class GetGLProcAddressWGL : IGetGLProcAddress
 	{
 		#region Singleton
 
@@ -100,10 +102,10 @@ namespace OpenGL
 
 		#region Windows Platform Imports
 
-		unsafe static class UnsafeNativeMethods
+		private static class UnsafeNativeMethods
 		{
 			[DllImport(Library, EntryPoint = "wglGetProcAddress", ExactSpelling = true, SetLastError = true)]
-			public static extern IntPtr wglGetProcAddress(String lpszProc);
+			public static extern IntPtr wglGetProcAddress(string lpszProc);
 		}
 
 		#endregion
@@ -126,7 +128,7 @@ namespace OpenGL
 			KhronosApi.LogFunction("wglGetProcAddress({0}) = 0x{1}", function, procAddress.ToString("X8"));
 #endif
 
-			return (procAddress);
+			return procAddress;
 		}
 
 		/// <summary>
@@ -140,7 +142,7 @@ namespace OpenGL
 	/// <summary>
 	/// Class able to get OpenGL function pointers on X11 platform.
 	/// </summary>
-	class GetGLProcAddressGLX : IGetGLProcAddress
+	internal class GetGLProcAddressGLX : IGetGLProcAddress
 	{
 		#region Constructors
 
@@ -167,10 +169,10 @@ namespace OpenGL
 
 		#region X11 Platform Imports
 
-		unsafe static partial class Delegates
+		private static class Delegates
 		{
 			[RequiredByFeature("GLX_VERSION_1_4")]
-			public unsafe delegate IntPtr glXGetProcAddress(string procName);
+			public delegate IntPtr glXGetProcAddress(string procName);
 
 			public static glXGetProcAddress pglXGetProcAddress;
 		}
@@ -190,10 +192,7 @@ namespace OpenGL
 		/// </returns>
 		public IntPtr GetProcAddress(string function)
 		{
-			if (Delegates.pglXGetProcAddress != null)
-				return (Delegates.pglXGetProcAddress(function));
-			else
-				return (IntPtr.Zero);
+			return Delegates.pglXGetProcAddress != null ? Delegates.pglXGetProcAddress(function) : IntPtr.Zero;
 		}
 
 		/// <summary>
@@ -207,7 +206,7 @@ namespace OpenGL
 	/// <summary>
 	/// Class able to get function pointers on different platforms supporting EGL.
 	/// </summary>
-	class GetGLProcAddressEGL : IGetGLProcAddress
+	internal class GetGLProcAddressEGL : IGetGLProcAddress
 	{
 		#region Singleton
 
@@ -231,7 +230,7 @@ namespace OpenGL
 		/// </returns>
 		public IntPtr GetProcAddress(string function)
 		{
-			return (GetProcAddressCore(function));
+			return GetProcAddressCore(function);
 		}
 
 		/// <summary>
@@ -248,7 +247,7 @@ namespace OpenGL
 	/// <summary>
 	/// Class able to get function pointers on OSX platform.
 	/// </summary>
-	class GetGLProcAddressOSX : IGetGLProcAddress
+	internal class GetGLProcAddressOSX : IGetGLProcAddress
 	{
 		#region Singleton
 
@@ -261,7 +260,7 @@ namespace OpenGL
 
 		#region OSX Platform Imports
 
-		unsafe static class UnsafeNativeMethods
+		private static class UnsafeNativeMethods
 		{
 			[DllImport(Library, EntryPoint = "NSIsSymbolNameDefined")]
 			public static extern bool NSIsSymbolNameDefined(string s);
@@ -303,7 +302,7 @@ namespace OpenGL
 		/// </returns>
 		public IntPtr GetProcAddress(string library, string function)
 		{
-			return (GetProcAddressCore(function));
+			return GetProcAddressCore(function);
 		}
 
 		/// <summary>
@@ -325,7 +324,7 @@ namespace OpenGL
 			if (symbol != IntPtr.Zero)
 				symbol = UnsafeNativeMethods.NSAddressOfSymbol(symbol);
 
-			return (symbol);
+			return symbol;
 		}
 
 		/// <summary>
@@ -349,7 +348,7 @@ namespace OpenGL
 		/// </returns>
 		public IntPtr GetProcAddress(string function)
 		{
-			return (GetProcAddressCore(function));
+			return GetProcAddressCore(function);
 		}
 
 		#endregion

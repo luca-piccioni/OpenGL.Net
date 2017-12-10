@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -223,10 +227,10 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_SGIX_polynomial_ffd")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glDeformationMap3dSGIX(int target, double u1, double u2, int ustride, int uorder, double v1, double v2, int vstride, int vorder, double w1, double w2, int wstride, int worder, double* points);
 
 			[RequiredByFeature("GL_SGIX_polynomial_ffd")]
@@ -234,7 +238,7 @@ namespace OpenGL
 			internal static glDeformationMap3dSGIX pglDeformationMap3dSGIX;
 
 			[RequiredByFeature("GL_SGIX_polynomial_ffd")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glDeformationMap3fSGIX(int target, float u1, float u2, int ustride, int uorder, float v1, float v2, int vstride, int vorder, float w1, float w2, int wstride, int worder, float* points);
 
 			[RequiredByFeature("GL_SGIX_polynomial_ffd")]
@@ -242,7 +246,7 @@ namespace OpenGL
 			internal static glDeformationMap3fSGIX pglDeformationMap3fSGIX;
 
 			[RequiredByFeature("GL_SGIX_polynomial_ffd")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glDeformSGIX(uint mask);
 
 			[RequiredByFeature("GL_SGIX_polynomial_ffd")]
@@ -250,7 +254,7 @@ namespace OpenGL
 			internal static glDeformSGIX pglDeformSGIX;
 
 			[RequiredByFeature("GL_SGIX_polynomial_ffd")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glLoadIdentityDeformationMapSGIX(uint mask);
 
 			[RequiredByFeature("GL_SGIX_polynomial_ffd")]

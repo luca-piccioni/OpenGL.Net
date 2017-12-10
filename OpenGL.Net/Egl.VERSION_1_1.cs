@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -292,31 +296,31 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("EGL_VERSION_1_1")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool eglBindTexImage(IntPtr dpy, IntPtr surface, int buffer);
 
 			[RequiredByFeature("EGL_VERSION_1_1")]
 			internal static eglBindTexImage peglBindTexImage;
 
 			[RequiredByFeature("EGL_VERSION_1_1")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool eglReleaseTexImage(IntPtr dpy, IntPtr surface, int buffer);
 
 			[RequiredByFeature("EGL_VERSION_1_1")]
 			internal static eglReleaseTexImage peglReleaseTexImage;
 
 			[RequiredByFeature("EGL_VERSION_1_1")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool eglSurfaceAttrib(IntPtr dpy, IntPtr surface, int attribute, int value);
 
 			[RequiredByFeature("EGL_VERSION_1_1")]
 			internal static eglSurfaceAttrib peglSurfaceAttrib;
 
 			[RequiredByFeature("EGL_VERSION_1_1")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool eglSwapInterval(IntPtr dpy, int interval);
 
 			[RequiredByFeature("EGL_VERSION_1_1")]

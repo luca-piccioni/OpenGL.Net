@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -282,11 +286,11 @@ namespace OpenGL
 			return (retValue);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("EGL_KHR_lock_surface")]
 			[RequiredByFeature("EGL_KHR_lock_surface3")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool eglLockSurfaceKHR(IntPtr dpy, IntPtr surface, int* attrib_list);
 
 			[RequiredByFeature("EGL_KHR_lock_surface")]
@@ -295,7 +299,7 @@ namespace OpenGL
 
 			[RequiredByFeature("EGL_KHR_lock_surface")]
 			[RequiredByFeature("EGL_KHR_lock_surface3")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool eglUnlockSurfaceKHR(IntPtr dpy, IntPtr surface);
 
 			[RequiredByFeature("EGL_KHR_lock_surface")]
@@ -303,7 +307,7 @@ namespace OpenGL
 			internal static eglUnlockSurfaceKHR peglUnlockSurfaceKHR;
 
 			[RequiredByFeature("EGL_KHR_lock_surface3")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate bool eglQuerySurface64KHR(IntPtr dpy, IntPtr surface, int attribute, IntPtr* value);
 
 			[RequiredByFeature("EGL_KHR_lock_surface3")]

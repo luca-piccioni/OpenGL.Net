@@ -25,6 +25,7 @@
 
 #pragma warning disable 649, 1572, 1573
 
+// ReSharper disable RedundantUsingDirective
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -32,6 +33,9 @@ using System.Security;
 using System.Text;
 
 using Khronos;
+
+// ReSharper disable InconsistentNaming
+// ReSharper disable JoinDeclarationAndInitializer
 
 namespace OpenGL
 {
@@ -381,11 +385,11 @@ namespace OpenGL
 			DebugCheckErrors(null);
 		}
 
-		internal unsafe static partial class Delegates
+		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
 			[RequiredByFeature("GL_IMG_bindless_texture", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate ulong glGetTextureHandleARB(uint texture);
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
@@ -395,7 +399,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
 			[RequiredByFeature("GL_IMG_bindless_texture", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate ulong glGetTextureSamplerHandleARB(uint texture, uint sampler);
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
@@ -404,7 +408,7 @@ namespace OpenGL
 			internal static glGetTextureSamplerHandleARB pglGetTextureSamplerHandleARB;
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glMakeTextureHandleResidentARB(ulong handle);
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
@@ -412,7 +416,7 @@ namespace OpenGL
 			internal static glMakeTextureHandleResidentARB pglMakeTextureHandleResidentARB;
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glMakeTextureHandleNonResidentARB(ulong handle);
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
@@ -420,7 +424,7 @@ namespace OpenGL
 			internal static glMakeTextureHandleNonResidentARB pglMakeTextureHandleNonResidentARB;
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate ulong glGetImageHandleARB(uint texture, int level, [MarshalAs(UnmanagedType.I1)] bool layered, int layer, int format);
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
@@ -428,7 +432,7 @@ namespace OpenGL
 			internal static glGetImageHandleARB pglGetImageHandleARB;
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glMakeImageHandleResidentARB(ulong handle, int access);
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
@@ -436,7 +440,7 @@ namespace OpenGL
 			internal static glMakeImageHandleResidentARB pglMakeImageHandleResidentARB;
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glMakeImageHandleNonResidentARB(ulong handle);
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
@@ -445,7 +449,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
 			[RequiredByFeature("GL_IMG_bindless_texture", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glUniformHandleui64ARB(int location, ulong value);
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
@@ -455,7 +459,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
 			[RequiredByFeature("GL_IMG_bindless_texture", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glUniformHandleui64vARB(int location, int count, ulong* value);
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
@@ -465,7 +469,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
 			[RequiredByFeature("GL_IMG_bindless_texture", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glProgramUniformHandleui64ARB(uint program, int location, ulong value);
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
@@ -475,7 +479,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
 			[RequiredByFeature("GL_IMG_bindless_texture", Api = "gles2")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glProgramUniformHandleui64vARB(uint program, int location, int count, ulong* values);
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
@@ -484,7 +488,7 @@ namespace OpenGL
 			internal static glProgramUniformHandleui64vARB pglProgramUniformHandleui64vARB;
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsTextureHandleResidentARB(ulong handle);
 
@@ -493,7 +497,7 @@ namespace OpenGL
 			internal static glIsTextureHandleResidentARB pglIsTextureHandleResidentARB;
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			[return: MarshalAs(UnmanagedType.I1)]
 			internal delegate bool glIsImageHandleResidentARB(ulong handle);
 
@@ -502,7 +506,7 @@ namespace OpenGL
 			internal static glIsImageHandleResidentARB pglIsImageHandleResidentARB;
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribL1ui64ARB(uint index, ulong x);
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
@@ -510,7 +514,7 @@ namespace OpenGL
 			internal static glVertexAttribL1ui64ARB pglVertexAttribL1ui64ARB;
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribL1ui64vARB(uint index, ulong* v);
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
@@ -518,7 +522,7 @@ namespace OpenGL
 			internal static glVertexAttribL1ui64vARB pglVertexAttribL1ui64vARB;
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
-			[SuppressUnmanagedCodeSecurity()]
+			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetVertexAttribLui64vARB(uint index, int pname, ulong* @params);
 
 			[RequiredByFeature("GL_ARB_bindless_texture", Api = "gl|glcore")]
