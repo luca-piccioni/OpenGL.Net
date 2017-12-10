@@ -722,7 +722,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_draw_instanced", Api = "gl|glcore|gles2")]
 		[RequiredByFeature("GL_EXT_instanced_arrays", Api = "gles2")]
 		[RequiredByFeature("GL_NV_draw_instanced", Api = "gles2")]
-		public static void DrawElementsInstanced(PrimitiveType mode, int count, DrawElementsType type, Object indices, int primcount)
+		public static void DrawElementsInstanced(PrimitiveType mode, int count, DrawElementsType type, object indices, int primcount)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
 			try {

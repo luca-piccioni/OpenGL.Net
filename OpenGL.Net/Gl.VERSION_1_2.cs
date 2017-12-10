@@ -557,7 +557,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_EXT_draw_range_elements")]
-		public static void DrawRangeElements(PrimitiveType mode, uint start, uint end, int count, DrawElementsType type, Object indices)
+		public static void DrawRangeElements(PrimitiveType mode, uint start, uint end, int count, DrawElementsType type, object indices)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
 			try {
@@ -685,7 +685,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture3D")]
-		public static void TexImage3D(TextureTarget target, int level, InternalFormat internalFormat, int width, int height, int depth, int border, PixelFormat format, PixelType type, Object data)
+		public static void TexImage3D(TextureTarget target, int level, InternalFormat internalFormat, int width, int height, int depth, int border, PixelFormat format, PixelType type, object data)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -795,7 +795,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture3D")]
-		public static void TexSubImage3D(TextureTarget target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, PixelFormat format, PixelType type, Object pixels)
+		public static void TexSubImage3D(TextureTarget target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, PixelFormat format, PixelType type, object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {

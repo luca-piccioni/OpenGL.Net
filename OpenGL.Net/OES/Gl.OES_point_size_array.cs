@@ -117,7 +117,7 @@ namespace OpenGL
 		/// Specifies a pointer to the point size of the first vertex in the array. The initial value is Gl..
 		/// </param>
 		[RequiredByFeature("GL_OES_point_size_array", Api = "gles1")]
-		public static void PointSizePointerOES(int type, int stride, Object pointer)
+		public static void PointSizePointerOES(int type, int stride, object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {

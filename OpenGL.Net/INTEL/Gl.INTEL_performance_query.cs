@@ -369,13 +369,13 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="data">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		/// <param name="bytesWritten">
 		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_INTEL_performance_query", Api = "gl|glcore|gles2")]
-		public static void GetPerfQueryDataINTEL(uint queryHandle, uint flags, int dataSize, Object data, [Out] uint[] bytesWritten)
+		public static void GetPerfQueryDataINTEL(uint queryHandle, uint flags, int dataSize, object data, [Out] uint[] bytesWritten)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {

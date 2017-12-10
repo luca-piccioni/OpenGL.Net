@@ -494,10 +494,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_vertex_blend")]
-		public static void WeightPointerARB(int size, int type, int stride, Object pointer)
+		public static void WeightPointerARB(int size, int type, int stride, object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {

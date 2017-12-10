@@ -5950,7 +5950,7 @@ namespace OpenGL
 		/// Specifies a pointer to the image data in memory.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void TexImage1D(TextureTarget target, int level, InternalFormat internalFormat, int width, int border, PixelFormat format, PixelType type, Object data)
+		public static void TexImage1D(TextureTarget target, int level, InternalFormat internalFormat, int width, int border, PixelFormat format, PixelType type, object data)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -6076,7 +6076,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		public static void TexImage2D(TextureTarget target, int level, InternalFormat internalFormat, int width, int height, int border, PixelFormat format, PixelType type, Object data)
+		public static void TexImage2D(TextureTarget target, int level, InternalFormat internalFormat, int width, int height, int border, PixelFormat format, PixelType type, object data)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -7137,10 +7137,10 @@ namespace OpenGL
 		/// Gl.UNSIGNED_INT_10_10_10_2, and Gl.UNSIGNED_INT_2_10_10_10_REV.
 		/// </param>
 		/// <param name="pixels">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void GetTexImage(TextureTarget target, int level, PixelFormat format, PixelType type, Object pixels)
+		public static void GetTexImage(TextureTarget target, int level, PixelFormat format, PixelType type, object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -7997,7 +7997,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void CallLists(int n, ListNameType type, Object lists)
+		public static void CallLists(int n, ListNameType type, object lists)
 		{
 			GCHandle pin_lists = GCHandle.Alloc(lists, GCHandleType.Pinned);
 			try {
@@ -13164,11 +13164,11 @@ namespace OpenGL
 		/// Gl.UNSIGNED_INT_10_10_10_2, and Gl.UNSIGNED_INT_2_10_10_10_REV are accepted.
 		/// </param>
 		/// <param name="pixels">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void DrawPixels(int width, int height, PixelFormat format, PixelType type, Object pixels)
+		public static void DrawPixels(int width, int height, PixelFormat format, PixelType type, object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {

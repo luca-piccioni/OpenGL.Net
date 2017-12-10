@@ -62,10 +62,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="string">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_GREMEDY_string_marker")]
-		public static void StringMarkerGREMEDY(int len, Object @string)
+		public static void StringMarkerGREMEDY(int len, object @string)
 		{
 			GCHandle pin_string = GCHandle.Alloc(@string, GCHandleType.Pinned);
 			try {

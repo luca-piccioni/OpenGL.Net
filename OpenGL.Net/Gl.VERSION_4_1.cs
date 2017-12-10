@@ -511,7 +511,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility", Api = "gl|glcore")]
-		public static void ShaderBinary(int count, uint[] shaders, int binaryformat, Object binary, int length)
+		public static void ShaderBinary(int count, uint[] shaders, int binaryformat, object binary, int length)
 		{
 			GCHandle pin_binary = GCHandle.Alloc(binary, GCHandleType.Pinned);
 			try {
@@ -736,7 +736,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_get_program_binary", Api = "gl|glcore")]
 		[RequiredByFeature("GL_OES_get_program_binary", Api = "gles2")]
-		public static void GetProgramBinary(uint program, int bufSize, out int length, out int binaryFormat, Object binary)
+		public static void GetProgramBinary(uint program, int bufSize, out int length, out int binaryFormat, object binary)
 		{
 			GCHandle pin_binary = GCHandle.Alloc(binary, GCHandleType.Pinned);
 			try {
@@ -798,7 +798,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_get_program_binary", Api = "gl|glcore")]
 		[RequiredByFeature("GL_OES_get_program_binary", Api = "gles2")]
-		public static void ProgramBinary(uint program, int binaryFormat, Object binary, int length)
+		public static void ProgramBinary(uint program, int binaryFormat, object binary, int length)
 		{
 			GCHandle pin_binary = GCHandle.Alloc(binary, GCHandleType.Pinned);
 			try {
@@ -5930,7 +5930,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_vertex_attrib_64bit")]
-		public static void VertexAttribLPointer(uint index, int size, VertexAttribType type, int stride, Object pointer)
+		public static void VertexAttribLPointer(uint index, int size, VertexAttribType type, int stride, object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {

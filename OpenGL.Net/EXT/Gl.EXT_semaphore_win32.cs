@@ -136,10 +136,10 @@ namespace OpenGL
 		/// A <see cref="T:ExternalHandleType"/>.
 		/// </param>
 		/// <param name="name">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_semaphore_win32", Api = "gl|gles2")]
-		public static void ImportSemaphoreWin32NameEXT(uint semaphore, ExternalHandleType handleType, Object name)
+		public static void ImportSemaphoreWin32NameEXT(uint semaphore, ExternalHandleType handleType, object name)
 		{
 			GCHandle pin_name = GCHandle.Alloc(name, GCHandleType.Pinned);
 			try {

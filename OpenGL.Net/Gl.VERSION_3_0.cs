@@ -2880,7 +2880,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
-		public static void VertexAttribIPointer(uint index, int size, VertexAttribType type, int stride, Object pointer)
+		public static void VertexAttribIPointer(uint index, int size, VertexAttribType type, int stride, object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {

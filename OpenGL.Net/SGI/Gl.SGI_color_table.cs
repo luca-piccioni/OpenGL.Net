@@ -74,10 +74,10 @@ namespace OpenGL
 		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="table">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGI_color_table")]
-		public static void GetColorTableSGI(ColorTableTarget target, PixelFormat format, PixelType type, Object table)
+		public static void GetColorTableSGI(ColorTableTarget target, PixelFormat format, PixelType type, object table)
 		{
 			GCHandle pin_table = GCHandle.Alloc(table, GCHandleType.Pinned);
 			try {

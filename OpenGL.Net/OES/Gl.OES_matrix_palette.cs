@@ -117,7 +117,7 @@ namespace OpenGL
 		/// Specifies a pointer to the first matrix index of the first vertex in the array. The initial value is Gl..
 		/// </param>
 		[RequiredByFeature("GL_OES_matrix_palette", Api = "gles1")]
-		public static void MatrixIndexPointerOES(int size, int type, int stride, Object pointer)
+		public static void MatrixIndexPointerOES(int size, int type, int stride, object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -175,7 +175,7 @@ namespace OpenGL
 		/// Specifies a pointer to the first weight of the first vertex in the array. The initial value is Gl..
 		/// </param>
 		[RequiredByFeature("GL_OES_matrix_palette", Api = "gles1")]
-		public static void WeightPointerOES(int size, int type, int stride, Object pointer)
+		public static void WeightPointerOES(int size, int type, int stride, object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {

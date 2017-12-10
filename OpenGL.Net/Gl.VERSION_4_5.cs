@@ -514,7 +514,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void NamedBufferStorage(uint buffer, uint size, Object data, uint flags)
+		public static void NamedBufferStorage(uint buffer, uint size, object data, uint flags)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -570,7 +570,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void NamedBufferData(uint buffer, uint size, Object data, BufferUsage usage)
+		public static void NamedBufferData(uint buffer, uint size, object data, BufferUsage usage)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -624,7 +624,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void NamedBufferSubData(uint buffer, IntPtr offset, uint size, Object data)
+		public static void NamedBufferSubData(uint buffer, IntPtr offset, uint size, object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -714,7 +714,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void ClearNamedBufferData(uint buffer, InternalFormat internalformat, PixelFormat format, PixelType type, Object data)
+		public static void ClearNamedBufferData(uint buffer, InternalFormat internalformat, PixelFormat format, PixelType type, object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -784,7 +784,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void ClearNamedBufferSubData(uint buffer, InternalFormat internalformat, IntPtr offset, uint size, PixelFormat format, PixelType type, Object data)
+		public static void ClearNamedBufferSubData(uint buffer, InternalFormat internalformat, IntPtr offset, uint size, PixelFormat format, PixelType type, object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -1100,7 +1100,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void GetNamedBufferSubData(uint buffer, IntPtr offset, uint size, Object data)
+		public static void GetNamedBufferSubData(uint buffer, IntPtr offset, uint size, object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -2369,7 +2369,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void TextureSubImage1D(uint texture, int level, int xoffset, int width, PixelFormat format, PixelType type, Object pixels)
+		public static void TextureSubImage1D(uint texture, int level, int xoffset, int width, PixelFormat format, PixelType type, object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -2463,7 +2463,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void TextureSubImage2D(uint texture, int level, int xoffset, int yoffset, int width, int height, PixelFormat format, PixelType type, Object pixels)
+		public static void TextureSubImage2D(uint texture, int level, int xoffset, int yoffset, int width, int height, PixelFormat format, PixelType type, object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -2569,7 +2569,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void TextureSubImage3D(uint texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, PixelFormat format, PixelType type, Object pixels)
+		public static void TextureSubImage3D(uint texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, PixelFormat format, PixelType type, object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -2639,7 +2639,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void CompressedTextureSubImage1D(uint texture, int level, int xoffset, int width, PixelFormat format, int imageSize, Object data)
+		public static void CompressedTextureSubImage1D(uint texture, int level, int xoffset, int width, PixelFormat format, int imageSize, object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -2721,7 +2721,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void CompressedTextureSubImage2D(uint texture, int level, int xoffset, int yoffset, int width, int height, PixelFormat format, int imageSize, Object data)
+		public static void CompressedTextureSubImage2D(uint texture, int level, int xoffset, int yoffset, int width, int height, PixelFormat format, int imageSize, object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -2815,7 +2815,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void CompressedTextureSubImage3D(uint texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, PixelFormat format, int imageSize, Object data)
+		public static void CompressedTextureSubImage3D(uint texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, PixelFormat format, int imageSize, object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -3410,11 +3410,11 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pixels">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void GetTextureImage(uint texture, int level, PixelFormat format, PixelType type, int bufSize, Object pixels)
+		public static void GetTextureImage(uint texture, int level, PixelFormat format, PixelType type, int bufSize, object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -3470,7 +3470,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void GetCompressedTextureImage(uint texture, int level, int bufSize, Object pixels)
+		public static void GetCompressedTextureImage(uint texture, int level, int bufSize, object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -5086,7 +5086,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_get_texture_sub_image", Api = "gl|glcore")]
-		public static void GetTextureSubImage(uint texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, PixelFormat format, PixelType type, int bufSize, Object pixels)
+		public static void GetTextureSubImage(uint texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, PixelFormat format, PixelType type, int bufSize, object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -5186,7 +5186,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_get_texture_sub_image", Api = "gl|glcore")]
-		public static void GetCompressedTextureSubImage(uint texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int bufSize, Object pixels)
+		public static void GetCompressedTextureSubImage(uint texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int bufSize, object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -5270,7 +5270,7 @@ namespace OpenGL
 		/// Returns the compressed texture image.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		public static void GetnCompressedTexImage(TextureTarget target, int lod, int bufSize, Object pixels)
+		public static void GetnCompressedTexImage(TextureTarget target, int lod, int bufSize, object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -5329,10 +5329,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pixels">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		public static void GetnTexImage(TextureTarget target, int level, PixelFormat format, PixelType type, int bufSize, Object pixels)
+		public static void GetnTexImage(TextureTarget target, int level, PixelFormat format, PixelType type, int bufSize, object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -5750,10 +5750,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="table">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
-		public static void GetnColorTable(ColorTableTarget target, PixelFormat format, PixelType type, int bufSize, Object table)
+		public static void GetnColorTable(ColorTableTarget target, PixelFormat format, PixelType type, int bufSize, object table)
 		{
 			GCHandle pin_table = GCHandle.Alloc(table, GCHandleType.Pinned);
 			try {
@@ -5806,10 +5806,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="image">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
-		public static void GetnConvolutionFilter(ConvolutionTarget target, PixelFormat format, PixelType type, int bufSize, Object image)
+		public static void GetnConvolutionFilter(ConvolutionTarget target, PixelFormat format, PixelType type, int bufSize, object image)
 		{
 			GCHandle pin_image = GCHandle.Alloc(image, GCHandleType.Pinned);
 			try {
@@ -5871,19 +5871,19 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="row">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		/// <param name="columnBufSize">
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="column">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		/// <param name="span">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
-		public static void GetnSeparableFilter(SeparableTarget target, PixelFormat format, PixelType type, int rowBufSize, Object row, int columnBufSize, Object column, Object span)
+		public static void GetnSeparableFilter(SeparableTarget target, PixelFormat format, PixelType type, int rowBufSize, object row, int columnBufSize, object column, object span)
 		{
 			GCHandle pin_row = GCHandle.Alloc(row, GCHandleType.Pinned);
 			GCHandle pin_column = GCHandle.Alloc(column, GCHandleType.Pinned);
@@ -5946,10 +5946,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="values">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
-		public static void GetnHistogram(HistogramTarget target, bool reset, PixelFormat format, PixelType type, int bufSize, Object values)
+		public static void GetnHistogram(HistogramTarget target, bool reset, PixelFormat format, PixelType type, int bufSize, object values)
 		{
 			GCHandle pin_values = GCHandle.Alloc(values, GCHandleType.Pinned);
 			try {
@@ -6008,10 +6008,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="values">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5", Profile = "compatibility")]
-		public static void GetnMinmax(MinmaxTarget target, bool reset, PixelFormat format, PixelType type, int bufSize, Object values)
+		public static void GetnMinmax(MinmaxTarget target, bool reset, PixelFormat format, PixelType type, int bufSize, object values)
 		{
 			GCHandle pin_values = GCHandle.Alloc(values, GCHandleType.Pinned);
 			try {

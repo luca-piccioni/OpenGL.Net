@@ -102,10 +102,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="img">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
-		public static void GetnTexImageARB(TextureTarget target, int level, PixelFormat format, PixelType type, int bufSize, Object img)
+		public static void GetnTexImageARB(TextureTarget target, int level, PixelFormat format, PixelType type, int bufSize, object img)
 		{
 			GCHandle pin_img = GCHandle.Alloc(img, GCHandleType.Pinned);
 			try {
@@ -152,10 +152,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="img">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness", Api = "gl|glcore")]
-		public static void GetnCompressedTexImageARB(TextureTarget target, int lod, int bufSize, Object img)
+		public static void GetnCompressedTexImageARB(TextureTarget target, int lod, int bufSize, object img)
 		{
 			GCHandle pin_img = GCHandle.Alloc(img, GCHandleType.Pinned);
 			try {
@@ -644,10 +644,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="table">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-		public static void GetnColorTableARB(ColorTableTarget target, PixelFormat format, PixelType type, int bufSize, Object table)
+		public static void GetnColorTableARB(ColorTableTarget target, PixelFormat format, PixelType type, int bufSize, object table)
 		{
 			GCHandle pin_table = GCHandle.Alloc(table, GCHandleType.Pinned);
 			try {
@@ -700,10 +700,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="image">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-		public static void GetnConvolutionFilterARB(ConvolutionTarget target, PixelFormat format, PixelType type, int bufSize, Object image)
+		public static void GetnConvolutionFilterARB(ConvolutionTarget target, PixelFormat format, PixelType type, int bufSize, object image)
 		{
 			GCHandle pin_image = GCHandle.Alloc(image, GCHandleType.Pinned);
 			try {
@@ -765,19 +765,19 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="row">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		/// <param name="columnBufSize">
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="column">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		/// <param name="span">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-		public static void GetnSeparableFilterARB(SeparableTarget target, PixelFormat format, PixelType type, int rowBufSize, Object row, int columnBufSize, Object column, Object span)
+		public static void GetnSeparableFilterARB(SeparableTarget target, PixelFormat format, PixelType type, int rowBufSize, object row, int columnBufSize, object column, object span)
 		{
 			GCHandle pin_row = GCHandle.Alloc(row, GCHandleType.Pinned);
 			GCHandle pin_column = GCHandle.Alloc(column, GCHandleType.Pinned);
@@ -840,10 +840,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="values">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-		public static void GetnHistogramARB(HistogramTarget target, bool reset, PixelFormat format, PixelType type, int bufSize, Object values)
+		public static void GetnHistogramARB(HistogramTarget target, bool reset, PixelFormat format, PixelType type, int bufSize, object values)
 		{
 			GCHandle pin_values = GCHandle.Alloc(values, GCHandleType.Pinned);
 			try {
@@ -902,10 +902,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="values">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_robustness", Profile = "compatibility")]
-		public static void GetnMinmaxARB(MinmaxTarget target, bool reset, PixelFormat format, PixelType type, int bufSize, Object values)
+		public static void GetnMinmaxARB(MinmaxTarget target, bool reset, PixelFormat format, PixelType type, int bufSize, object values)
 		{
 			GCHandle pin_values = GCHandle.Alloc(values, GCHandleType.Pinned);
 			try {

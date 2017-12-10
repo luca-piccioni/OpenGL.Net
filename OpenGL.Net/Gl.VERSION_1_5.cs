@@ -936,7 +936,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
-		public static void BufferData(BufferTarget target, uint size, Object data, BufferUsage usage)
+		public static void BufferData(BufferTarget target, uint size, object data, BufferUsage usage)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -1000,7 +1000,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
-		public static void BufferSubData(BufferTarget target, IntPtr offset, uint size, Object data)
+		public static void BufferSubData(BufferTarget target, IntPtr offset, uint size, object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -1054,7 +1054,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_5")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
-		public static void GetBufferSubData(BufferTarget target, IntPtr offset, uint size, Object data)
+		public static void GetBufferSubData(BufferTarget target, IntPtr offset, uint size, object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -1308,7 +1308,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		[RequiredByFeature("GL_OES_mapbuffer", Api = "gles1|gles2")]
-		public static void GetBufferPointer(BufferTarget target, int pname, Object @params)
+		public static void GetBufferPointer(BufferTarget target, int pname, object @params)
 		{
 			GCHandle pin_params = GCHandle.Alloc(@params, GCHandleType.Pinned);
 			try {

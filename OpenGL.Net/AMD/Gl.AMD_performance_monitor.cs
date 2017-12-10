@@ -232,10 +232,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="data">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
-		public static void GetPerfMonitorCounterInfoAMD(uint group, uint counter, int pname, Object data)
+		public static void GetPerfMonitorCounterInfoAMD(uint group, uint counter, int pname, object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {

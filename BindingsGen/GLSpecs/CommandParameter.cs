@@ -255,7 +255,7 @@ namespace BindingsGen.GLSpecs
 		/// <returns></returns>
 		internal bool IsPinned(RegistryContext ctx, Command parentCommand)
 		{
-			return (Type == "Object");
+			return (Type == "object");
 		}
 
 		/// <summary>

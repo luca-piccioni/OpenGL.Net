@@ -248,10 +248,10 @@ namespace OpenGL
 		/// A <see cref="T:bool"/>.
 		/// </param>
 		/// <param name="points">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_evaluators")]
-		public static void MapControlPointNV(int target, uint index, int type, int ustride, int vstride, int uorder, int vorder, bool packed, Object points)
+		public static void MapControlPointNV(int target, uint index, int type, int ustride, int vstride, int uorder, int vorder, bool packed, object points)
 		{
 			GCHandle pin_points = GCHandle.Alloc(points, GCHandleType.Pinned);
 			try {
@@ -368,10 +368,10 @@ namespace OpenGL
 		/// A <see cref="T:bool"/>.
 		/// </param>
 		/// <param name="points">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_evaluators")]
-		public static void GetMapControlPointNV(int target, uint index, int type, int ustride, int vstride, bool packed, Object points)
+		public static void GetMapControlPointNV(int target, uint index, int type, int ustride, int vstride, bool packed, object points)
 		{
 			GCHandle pin_points = GCHandle.Alloc(points, GCHandleType.Pinned);
 			try {

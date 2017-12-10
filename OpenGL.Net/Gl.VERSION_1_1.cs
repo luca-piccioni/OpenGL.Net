@@ -1191,7 +1191,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		public static void DrawElements(PrimitiveType mode, int count, DrawElementsType type, Object indices)
+		public static void DrawElements(PrimitiveType mode, int count, DrawElementsType type, object indices)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
 			try {
@@ -1254,7 +1254,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_KHR_debug")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void GetPointer(GetPointervPName pname, Object @params)
+		public static void GetPointer(GetPointervPName pname, object @params)
 		{
 			GCHandle pin_params = GCHandle.Alloc(@params, GCHandleType.Pinned);
 			try {
@@ -1531,7 +1531,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_EXT_subtexture")]
-		public static void TexSubImage1D(TextureTarget target, int level, int xoffset, int width, PixelFormat format, PixelType type, Object pixels)
+		public static void TexSubImage1D(TextureTarget target, int level, int xoffset, int width, PixelFormat format, PixelType type, object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -1637,7 +1637,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_EXT_subtexture")]
-		public static void TexSubImage2D(TextureTarget target, int level, int xoffset, int yoffset, int width, int height, PixelFormat format, PixelType type, Object pixels)
+		public static void TexSubImage2D(TextureTarget target, int level, int xoffset, int yoffset, int width, int height, PixelFormat format, PixelType type, object pixels)
 		{
 			GCHandle pin_pixels = GCHandle.Alloc(pixels, GCHandleType.Pinned);
 			try {
@@ -1833,7 +1833,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void ColorPointer(int size, ColorPointerType type, int stride, Object pointer)
+		public static void ColorPointer(int size, ColorPointerType type, int stride, object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -1894,7 +1894,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void EdgeFlagPointer(int stride, Object pointer)
+		public static void EdgeFlagPointer(int stride, object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -1963,7 +1963,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void IndexPointer(IndexPointerType type, int stride, Object pointer)
+		public static void IndexPointer(IndexPointerType type, int stride, object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -2009,11 +2009,11 @@ namespace OpenGL
 		/// Specifies the offset in bytes between each aggregate array element.
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void InterleavedArrays(InterleavedArrayFormat format, int stride, Object pointer)
+		public static void InterleavedArrays(InterleavedArrayFormat format, int stride, object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -2069,7 +2069,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void NormalPointer(NormalPointerType type, int stride, Object pointer)
+		public static void NormalPointer(NormalPointerType type, int stride, object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -2131,7 +2131,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void TexCoordPointer(int size, TexCoordPointerType type, int stride, Object pointer)
+		public static void TexCoordPointer(int size, TexCoordPointerType type, int stride, object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -2199,7 +2199,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void VertexPointer(int size, VertexPointerType type, int stride, Object pointer)
+		public static void VertexPointer(int size, VertexPointerType type, int stride, object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {

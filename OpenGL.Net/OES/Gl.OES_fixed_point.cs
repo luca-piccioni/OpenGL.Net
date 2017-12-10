@@ -1351,10 +1351,10 @@ namespace OpenGL
 		/// A <see cref="T:MaterialParameter"/>.
 		/// </param>
 		/// <param name="param">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void GetMaterialOES(MaterialFace face, MaterialParameter pname, Object param)
+		public static void GetMaterialOES(MaterialFace face, MaterialParameter pname, object param)
 		{
 			GCHandle pin_param = GCHandle.Alloc(param, GCHandleType.Pinned);
 			try {

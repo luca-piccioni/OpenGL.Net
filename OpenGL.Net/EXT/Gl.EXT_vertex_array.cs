@@ -116,10 +116,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_array")]
-		public static void ColorPointerEXT(int size, ColorPointerType type, int stride, int count, Object pointer)
+		public static void ColorPointerEXT(int size, ColorPointerType type, int stride, int count, object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -192,10 +192,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_array")]
-		public static void IndexPointerEXT(IndexPointerType type, int stride, int count, Object pointer)
+		public static void IndexPointerEXT(IndexPointerType type, int stride, int count, object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -242,10 +242,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_array")]
-		public static void NormalPointerEXT(NormalPointerType type, int stride, int count, Object pointer)
+		public static void NormalPointerEXT(NormalPointerType type, int stride, int count, object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -298,10 +298,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_array")]
-		public static void TexCoordPointerEXT(int size, TexCoordPointerType type, int stride, int count, Object pointer)
+		public static void TexCoordPointerEXT(int size, TexCoordPointerType type, int stride, int count, object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -354,10 +354,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_array")]
-		public static void VertexPointerEXT(int size, VertexPointerType type, int stride, int count, Object pointer)
+		public static void VertexPointerEXT(int size, VertexPointerType type, int stride, int count, object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {

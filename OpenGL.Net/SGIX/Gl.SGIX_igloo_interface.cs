@@ -62,10 +62,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="params">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIX_igloo_interface")]
-		public static void IglooInterfaceSGIX(int pname, Object @params)
+		public static void IglooInterfaceSGIX(int pname, object @params)
 		{
 			GCHandle pin_params = GCHandle.Alloc(@params, GCHandleType.Pinned);
 			try {

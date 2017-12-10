@@ -1067,10 +1067,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="coords">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void PathCommandsNV(uint path, int numCommands, byte[] commands, int numCoords, int coordType, Object coords)
+		public static void PathCommandsNV(uint path, int numCommands, byte[] commands, int numCoords, int coordType, object coords)
 		{
 			GCHandle pin_coords = GCHandle.Alloc(coords, GCHandleType.Pinned);
 			try {
@@ -1149,10 +1149,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="coords">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void PathCoordsNV(uint path, int numCoords, int coordType, Object coords)
+		public static void PathCoordsNV(uint path, int numCoords, int coordType, object coords)
 		{
 			GCHandle pin_coords = GCHandle.Alloc(coords, GCHandleType.Pinned);
 			try {
@@ -1187,10 +1187,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="coords">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void PathSubCommandsNV(uint path, int commandStart, int commandsToDelete, int numCommands, byte[] commands, int numCoords, int coordType, Object coords)
+		public static void PathSubCommandsNV(uint path, int commandStart, int commandsToDelete, int numCommands, byte[] commands, int numCoords, int coordType, object coords)
 		{
 			GCHandle pin_coords = GCHandle.Alloc(coords, GCHandleType.Pinned);
 			try {
@@ -1281,10 +1281,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="coords">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void PathSubCoordNV(uint path, int coordStart, int numCoords, int coordType, Object coords)
+		public static void PathSubCoordNV(uint path, int coordStart, int numCoords, int coordType, object coords)
 		{
 			GCHandle pin_coords = GCHandle.Alloc(coords, GCHandleType.Pinned);
 			try {
@@ -1331,10 +1331,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pathString">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void PathStringNV(uint path, PathStringFormat format, int length, Object pathString)
+		public static void PathStringNV(uint path, PathStringFormat format, int length, object pathString)
 		{
 			GCHandle pin_pathString = GCHandle.Alloc(pathString, GCHandleType.Pinned);
 			try {
@@ -1396,7 +1396,7 @@ namespace OpenGL
 		/// A <see cref="T:PathFontTarget"/>.
 		/// </param>
 		/// <param name="fontName">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		/// <param name="fontStyle">
 		/// A <see cref="T:PathFontStyle"/>.
@@ -1408,7 +1408,7 @@ namespace OpenGL
 		/// A <see cref="T:PathElementType"/>.
 		/// </param>
 		/// <param name="charcodes">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		/// <param name="handleMissingGlyphs">
 		/// A <see cref="T:PathHandleMissingGlyphs"/>.
@@ -1420,7 +1420,7 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void PathGlyphsNV(uint firstPathName, PathFontTarget fontTarget, Object fontName, PathFontStyle fontStyle, int numGlyphs, PathElementType type, Object charcodes, PathHandleMissingGlyphs handleMissingGlyphs, uint pathParameterTemplate, float emScale)
+		public static void PathGlyphsNV(uint firstPathName, PathFontTarget fontTarget, object fontName, PathFontStyle fontStyle, int numGlyphs, PathElementType type, object charcodes, PathHandleMissingGlyphs handleMissingGlyphs, uint pathParameterTemplate, float emScale)
 		{
 			GCHandle pin_fontName = GCHandle.Alloc(fontName, GCHandleType.Pinned);
 			GCHandle pin_charcodes = GCHandle.Alloc(charcodes, GCHandleType.Pinned);
@@ -1481,7 +1481,7 @@ namespace OpenGL
 		/// A <see cref="T:PathFontTarget"/>.
 		/// </param>
 		/// <param name="fontName">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		/// <param name="fontStyle">
 		/// A <see cref="T:PathFontStyle"/>.
@@ -1502,7 +1502,7 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void PathGlyphRangeNV(uint firstPathName, PathFontTarget fontTarget, Object fontName, PathFontStyle fontStyle, uint firstGlyph, int numGlyphs, PathHandleMissingGlyphs handleMissingGlyphs, uint pathParameterTemplate, float emScale)
+		public static void PathGlyphRangeNV(uint firstPathName, PathFontTarget fontTarget, object fontName, PathFontStyle fontStyle, uint firstGlyph, int numGlyphs, PathHandleMissingGlyphs handleMissingGlyphs, uint pathParameterTemplate, float emScale)
 		{
 			GCHandle pin_fontName = GCHandle.Alloc(fontName, GCHandleType.Pinned);
 			try {
@@ -1859,7 +1859,7 @@ namespace OpenGL
 		/// A <see cref="T:PathElementType"/>.
 		/// </param>
 		/// <param name="paths">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		/// <param name="pathBase">
 		/// A <see cref="T:uint"/>.
@@ -1877,7 +1877,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void StencilFillPathInstancedNV(int numPaths, PathElementType pathNameType, Object paths, uint pathBase, PathFillMode fillMode, uint mask, PathTransformType transformType, float[] transformValues)
+		public static void StencilFillPathInstancedNV(int numPaths, PathElementType pathNameType, object paths, uint pathBase, PathFillMode fillMode, uint mask, PathTransformType transformType, float[] transformValues)
 		{
 			GCHandle pin_paths = GCHandle.Alloc(paths, GCHandleType.Pinned);
 			try {
@@ -1938,7 +1938,7 @@ namespace OpenGL
 		/// A <see cref="T:PathElementType"/>.
 		/// </param>
 		/// <param name="paths">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		/// <param name="pathBase">
 		/// A <see cref="T:uint"/>.
@@ -1956,7 +1956,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void StencilStrokePathInstancedNV(int numPaths, PathElementType pathNameType, Object paths, uint pathBase, int reference, uint mask, PathTransformType transformType, float[] transformValues)
+		public static void StencilStrokePathInstancedNV(int numPaths, PathElementType pathNameType, object paths, uint pathBase, int reference, uint mask, PathTransformType transformType, float[] transformValues)
 		{
 			GCHandle pin_paths = GCHandle.Alloc(paths, GCHandleType.Pinned);
 			try {
@@ -2065,7 +2065,7 @@ namespace OpenGL
 		/// A <see cref="T:PathElementType"/>.
 		/// </param>
 		/// <param name="paths">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		/// <param name="pathBase">
 		/// A <see cref="T:uint"/>.
@@ -2080,7 +2080,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void CoverFillPathInstancedNV(int numPaths, PathElementType pathNameType, Object paths, uint pathBase, PathCoverMode coverMode, PathTransformType transformType, float[] transformValues)
+		public static void CoverFillPathInstancedNV(int numPaths, PathElementType pathNameType, object paths, uint pathBase, PathCoverMode coverMode, PathTransformType transformType, float[] transformValues)
 		{
 			GCHandle pin_paths = GCHandle.Alloc(paths, GCHandleType.Pinned);
 			try {
@@ -2138,7 +2138,7 @@ namespace OpenGL
 		/// A <see cref="T:PathElementType"/>.
 		/// </param>
 		/// <param name="paths">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		/// <param name="pathBase">
 		/// A <see cref="T:uint"/>.
@@ -2153,7 +2153,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void CoverStrokePathInstancedNV(int numPaths, PathElementType pathNameType, Object paths, uint pathBase, PathCoverMode coverMode, PathTransformType transformType, float[] transformValues)
+		public static void CoverStrokePathInstancedNV(int numPaths, PathElementType pathNameType, object paths, uint pathBase, PathCoverMode coverMode, PathTransformType transformType, float[] transformValues)
 		{
 			GCHandle pin_paths = GCHandle.Alloc(paths, GCHandleType.Pinned);
 			try {
@@ -2337,7 +2337,7 @@ namespace OpenGL
 		/// A <see cref="T:PathElementType"/>.
 		/// </param>
 		/// <param name="paths">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		/// <param name="pathBase">
 		/// A <see cref="T:uint"/>.
@@ -2349,7 +2349,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void GetPathMetricsNV(PathMetricMask metricQueryMask, int numPaths, PathElementType pathNameType, Object paths, uint pathBase, int stride, [Out] float[] metrics)
+		public static void GetPathMetricsNV(PathMetricMask metricQueryMask, int numPaths, PathElementType pathNameType, object paths, uint pathBase, int stride, [Out] float[] metrics)
 		{
 			GCHandle pin_paths = GCHandle.Alloc(paths, GCHandleType.Pinned);
 			try {
@@ -2448,7 +2448,7 @@ namespace OpenGL
 		/// A <see cref="T:PathElementType"/>.
 		/// </param>
 		/// <param name="paths">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		/// <param name="pathBase">
 		/// A <see cref="T:uint"/>.
@@ -2466,7 +2466,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void GetPathSpacingNV(PathListMode pathListMode, int numPaths, PathElementType pathNameType, Object paths, uint pathBase, float advanceScale, float kerningScale, PathTransformType transformType, [Out] float[] returnedSpacing)
+		public static void GetPathSpacingNV(PathListMode pathListMode, int numPaths, PathElementType pathNameType, object paths, uint pathBase, float advanceScale, float kerningScale, PathTransformType transformType, [Out] float[] returnedSpacing)
 		{
 			GCHandle pin_paths = GCHandle.Alloc(paths, GCHandleType.Pinned);
 			try {
@@ -2846,7 +2846,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="paths">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		/// <param name="pathBase">
 		/// A <see cref="T:uint"/>.
@@ -2867,7 +2867,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void StencilThenCoverFillPathInstancedNV(int numPaths, int pathNameType, Object paths, uint pathBase, int fillMode, uint mask, int coverMode, int transformType, float[] transformValues)
+		public static void StencilThenCoverFillPathInstancedNV(int numPaths, int pathNameType, object paths, uint pathBase, int fillMode, uint mask, int coverMode, int transformType, float[] transformValues)
 		{
 			GCHandle pin_paths = GCHandle.Alloc(paths, GCHandleType.Pinned);
 			try {
@@ -2931,7 +2931,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="paths">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		/// <param name="pathBase">
 		/// A <see cref="T:uint"/>.
@@ -2952,7 +2952,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void StencilThenCoverStrokePathInstancedNV(int numPaths, int pathNameType, Object paths, uint pathBase, int reference, uint mask, int coverMode, int transformType, float[] transformValues)
+		public static void StencilThenCoverStrokePathInstancedNV(int numPaths, int pathNameType, object paths, uint pathBase, int reference, uint mask, int coverMode, int transformType, float[] transformValues)
 		{
 			GCHandle pin_paths = GCHandle.Alloc(paths, GCHandleType.Pinned);
 			try {
@@ -3008,7 +3008,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="fontName">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		/// <param name="fontStyle">
 		/// A <see cref="T:uint"/>.
@@ -3023,7 +3023,7 @@ namespace OpenGL
 		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static int PathGlyphIndexRangeNV(int fontTarget, Object fontName, uint fontStyle, uint pathParameterTemplate, float emScale, uint[] baseAndCount)
+		public static int PathGlyphIndexRangeNV(int fontTarget, object fontName, uint fontStyle, uint pathParameterTemplate, float emScale, uint[] baseAndCount)
 		{
 			GCHandle pin_fontName = GCHandle.Alloc(fontName, GCHandleType.Pinned);
 			try {
@@ -3083,7 +3083,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="fontName">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		/// <param name="fontStyle">
 		/// A <see cref="T:uint"/>.
@@ -3101,7 +3101,7 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static int PathGlyphIndexArrayNV(uint firstPathName, int fontTarget, Object fontName, uint fontStyle, uint firstGlyphIndex, int numGlyphs, uint pathParameterTemplate, float emScale)
+		public static int PathGlyphIndexArrayNV(uint firstPathName, int fontTarget, object fontName, uint fontStyle, uint firstGlyphIndex, int numGlyphs, uint pathParameterTemplate, float emScale)
 		{
 			GCHandle pin_fontName = GCHandle.Alloc(fontName, GCHandleType.Pinned);
 			try {
@@ -3167,7 +3167,7 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="fontData">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		/// <param name="faceIndex">
 		/// A <see cref="T:int"/>.
@@ -3185,7 +3185,7 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static int PathMemoryGlyphIndexArrayNV(uint firstPathName, int fontTarget, uint fontSize, Object fontData, int faceIndex, uint firstGlyphIndex, int numGlyphs, uint pathParameterTemplate, float emScale)
+		public static int PathMemoryGlyphIndexArrayNV(uint firstPathName, int fontTarget, uint fontSize, object fontData, int faceIndex, uint firstGlyphIndex, int numGlyphs, uint pathParameterTemplate, float emScale)
 		{
 			GCHandle pin_fontData = GCHandle.Alloc(fontData, GCHandleType.Pinned);
 			try {

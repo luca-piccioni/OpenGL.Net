@@ -2479,7 +2479,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_clear_buffer_object", Api = "gl|glcore")]
-		public static void ClearBufferData(BufferTarget target, InternalFormat internalformat, PixelFormat format, PixelType type, Object data)
+		public static void ClearBufferData(BufferTarget target, InternalFormat internalformat, PixelFormat format, PixelType type, object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -2551,7 +2551,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_clear_buffer_object", Api = "gl|glcore")]
-		public static void ClearBufferSubData(int target, InternalFormat internalformat, IntPtr offset, uint size, PixelFormat format, PixelType type, Object data)
+		public static void ClearBufferSubData(int target, InternalFormat internalformat, IntPtr offset, uint size, PixelFormat format, PixelType type, object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -3152,7 +3152,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_AMD_multi_draw_indirect")]
 		[RequiredByFeature("GL_ARB_multi_draw_indirect", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_multi_draw_indirect", Api = "gles2")]
-		public static void MultiDrawArraysIndirect(PrimitiveType mode, Object indirect, int drawcount, int stride)
+		public static void MultiDrawArraysIndirect(PrimitiveType mode, object indirect, int drawcount, int stride)
 		{
 			GCHandle pin_indirect = GCHandle.Alloc(indirect, GCHandleType.Pinned);
 			try {
@@ -3218,7 +3218,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_AMD_multi_draw_indirect")]
 		[RequiredByFeature("GL_ARB_multi_draw_indirect", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_multi_draw_indirect", Api = "gles2")]
-		public static void MultiDrawElementsIndirect(PrimitiveType mode, DrawElementsType type, Object indirect, int drawcount, int stride)
+		public static void MultiDrawElementsIndirect(PrimitiveType mode, DrawElementsType type, object indirect, int drawcount, int stride)
 		{
 			GCHandle pin_indirect = GCHandle.Alloc(indirect, GCHandleType.Pinned);
 			try {
@@ -3997,7 +3997,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
 		[RequiredByFeature("GL_KHR_debug")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
-		public static void DebugMessageCallback(Gl.DebugProc callback, Object userParam)
+		public static void DebugMessageCallback(Gl.DebugProc callback, object userParam)
 		{
 			GCHandle pin_userParam = GCHandle.Alloc(userParam, GCHandleType.Pinned);
 			try {
@@ -4215,7 +4215,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
-		public static void ObjectPtrLabel(Object ptr, int length, String label)
+		public static void ObjectPtrLabel(object ptr, int length, String label)
 		{
 			GCHandle pin_ptr = GCHandle.Alloc(ptr, GCHandleType.Pinned);
 			try {
@@ -4280,7 +4280,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
-		public static void GetObjectPtrLabel(Object ptr, int bufSize, out int length, [Out] StringBuilder label)
+		public static void GetObjectPtrLabel(object ptr, int bufSize, out int length, [Out] StringBuilder label)
 		{
 			GCHandle pin_ptr = GCHandle.Alloc(ptr, GCHandleType.Pinned);
 			try {

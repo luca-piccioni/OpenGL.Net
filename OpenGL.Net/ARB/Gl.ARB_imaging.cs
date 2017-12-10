@@ -646,7 +646,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_paletted_texture")]
 		[RequiredByFeature("GL_SGI_color_table")]
-		public static void ColorTable(ColorTableTarget target, InternalFormat internalformat, int width, PixelFormat format, PixelType type, Object data)
+		public static void ColorTable(ColorTableTarget target, InternalFormat internalformat, int width, PixelFormat format, PixelType type, object data)
 		{
 			GCHandle pin_table = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -795,7 +795,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_paletted_texture")]
-		public static void GetColorTable(ColorTableTarget target, PixelFormat format, PixelType type, Object table)
+		public static void GetColorTable(ColorTableTarget target, PixelFormat format, PixelType type, object table)
 		{
 			GCHandle pin_table = GCHandle.Alloc(table, GCHandleType.Pinned);
 			try {
@@ -929,7 +929,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_color_subtable")]
-		public static void ColorSubTable(ColorTableTarget target, int start, int count, PixelFormat format, PixelType type, Object data)
+		public static void ColorSubTable(ColorTableTarget target, int start, int count, PixelFormat format, PixelType type, object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -1041,7 +1041,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_convolution")]
-		public static void ConvolutionFilter1D(ConvolutionTarget target, InternalFormat internalformat, int width, PixelFormat format, PixelType type, Object data)
+		public static void ConvolutionFilter1D(ConvolutionTarget target, InternalFormat internalformat, int width, PixelFormat format, PixelType type, object data)
 		{
 			GCHandle pin_image = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -1131,7 +1131,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_convolution")]
-		public static void ConvolutionFilter2D(ConvolutionTarget target, InternalFormat internalformat, int width, int height, PixelFormat format, PixelType type, Object data)
+		public static void ConvolutionFilter2D(ConvolutionTarget target, InternalFormat internalformat, int width, int height, PixelFormat format, PixelType type, object data)
 		{
 			GCHandle pin_image = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -1358,7 +1358,7 @@ namespace OpenGL
 		/// Pointer to storage for the output image.
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-		public static void GetConvolutionFilter(ConvolutionTarget target, PixelFormat format, PixelType type, Object image)
+		public static void GetConvolutionFilter(ConvolutionTarget target, PixelFormat format, PixelType type, object image)
 		{
 			GCHandle pin_image = GCHandle.Alloc(image, GCHandleType.Pinned);
 			try {
@@ -1488,7 +1488,7 @@ namespace OpenGL
 		/// Pointer to storage for the span filter image (currently unused).
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-		public static void GetSeparableFilter(SeparableTarget target, PixelFormat format, PixelType type, Object row, Object column, Object span)
+		public static void GetSeparableFilter(SeparableTarget target, PixelFormat format, PixelType type, object row, object column, object span)
 		{
 			GCHandle pin_row = GCHandle.Alloc(row, GCHandleType.Pinned);
 			GCHandle pin_column = GCHandle.Alloc(column, GCHandleType.Pinned);
@@ -1592,7 +1592,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_convolution")]
-		public static void SeparableFilter2D(SeparableTarget target, InternalFormat internalformat, int width, int height, PixelFormat format, PixelType type, Object row, Object column)
+		public static void SeparableFilter2D(SeparableTarget target, InternalFormat internalformat, int width, int height, PixelFormat format, PixelType type, object row, object column)
 		{
 			GCHandle pin_row = GCHandle.Alloc(row, GCHandleType.Pinned);
 			GCHandle pin_column = GCHandle.Alloc(column, GCHandleType.Pinned);
@@ -1662,7 +1662,7 @@ namespace OpenGL
 		/// A pointer to storage for the returned histogram table.
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-		public static void GetHistogram(HistogramTarget target, bool reset, PixelFormat format, PixelType type, Object values)
+		public static void GetHistogram(HistogramTarget target, bool reset, PixelFormat format, PixelType type, object values)
 		{
 			GCHandle pin_values = GCHandle.Alloc(values, GCHandleType.Pinned);
 			try {
@@ -1778,7 +1778,7 @@ namespace OpenGL
 		/// A pointer to storage for the returned values.
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-		public static void GetMinmax(MinmaxTarget target, bool reset, PixelFormat format, PixelType type, Object values)
+		public static void GetMinmax(MinmaxTarget target, bool reset, PixelFormat format, PixelType type, object values)
 		{
 			GCHandle pin_values = GCHandle.Alloc(values, GCHandleType.Pinned);
 			try {

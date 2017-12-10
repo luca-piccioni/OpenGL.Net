@@ -71,7 +71,7 @@ namespace OpenGL
 		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="indirect">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		/// <param name="drawCount">
 		/// A <see cref="T:int"/>.
@@ -83,7 +83,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_bindless_multi_draw_indirect", Api = "gl|glcore")]
-		public static void MultiDrawArraysIndirectBindNV(PrimitiveType mode, Object indirect, int drawCount, int stride, int vertexBufferCount)
+		public static void MultiDrawArraysIndirectBindNV(PrimitiveType mode, object indirect, int drawCount, int stride, int vertexBufferCount)
 		{
 			GCHandle pin_indirect = GCHandle.Alloc(indirect, GCHandleType.Pinned);
 			try {
@@ -133,7 +133,7 @@ namespace OpenGL
 		/// A <see cref="T:DrawElementsType"/>.
 		/// </param>
 		/// <param name="indirect">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		/// <param name="drawCount">
 		/// A <see cref="T:int"/>.
@@ -145,7 +145,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_bindless_multi_draw_indirect", Api = "gl|glcore")]
-		public static void MultiDrawElementsIndirectBindNV(PrimitiveType mode, DrawElementsType type, Object indirect, int drawCount, int stride, int vertexBufferCount)
+		public static void MultiDrawElementsIndirectBindNV(PrimitiveType mode, DrawElementsType type, object indirect, int drawCount, int stride, int vertexBufferCount)
 		{
 			GCHandle pin_indirect = GCHandle.Alloc(indirect, GCHandleType.Pinned);
 			try {

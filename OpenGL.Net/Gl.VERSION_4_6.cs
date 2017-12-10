@@ -244,7 +244,7 @@ namespace OpenGL
 		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="indirect">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		/// <param name="drawcount">
 		/// A <see cref="T:IntPtr"/>.
@@ -257,7 +257,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_6")]
 		[RequiredByFeature("GL_ARB_indirect_parameters", Api = "gl|glcore")]
-		public static void MultiDrawArraysIndirect(PrimitiveType mode, Object indirect, IntPtr drawcount, int maxdrawcount, int stride)
+		public static void MultiDrawArraysIndirect(PrimitiveType mode, object indirect, IntPtr drawcount, int maxdrawcount, int stride)
 		{
 			GCHandle pin_indirect = GCHandle.Alloc(indirect, GCHandleType.Pinned);
 			try {
@@ -308,7 +308,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="indirect">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		/// <param name="drawcount">
 		/// A <see cref="T:IntPtr"/>.
@@ -321,7 +321,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_6")]
 		[RequiredByFeature("GL_ARB_indirect_parameters", Api = "gl|glcore")]
-		public static void MultiDrawElementsIndirect(PrimitiveType mode, int type, Object indirect, IntPtr drawcount, int maxdrawcount, int stride)
+		public static void MultiDrawElementsIndirect(PrimitiveType mode, int type, object indirect, IntPtr drawcount, int maxdrawcount, int stride)
 		{
 			GCHandle pin_indirect = GCHandle.Alloc(indirect, GCHandleType.Pinned);
 			try {

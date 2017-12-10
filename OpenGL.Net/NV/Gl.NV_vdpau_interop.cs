@@ -83,13 +83,13 @@ namespace OpenGL
 		/// [GL] glVDPAUInitNV: Binding for glVDPAUInitNV.
 		/// </summary>
 		/// <param name="vdpDevice">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		/// <param name="getProcAddress">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vdpau_interop")]
-		public static void VDPAUInitNV(Object vdpDevice, Object getProcAddress)
+		public static void VDPAUInitNV(object vdpDevice, object getProcAddress)
 		{
 			GCHandle pin_vdpDevice = GCHandle.Alloc(vdpDevice, GCHandleType.Pinned);
 			GCHandle pin_getProcAddress = GCHandle.Alloc(getProcAddress, GCHandleType.Pinned);
@@ -117,7 +117,7 @@ namespace OpenGL
 		/// [GL] glVDPAURegisterVideoSurfaceNV: Binding for glVDPAURegisterVideoSurfaceNV.
 		/// </summary>
 		/// <param name="vdpSurface">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:int"/>.
@@ -129,7 +129,7 @@ namespace OpenGL
 		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vdpau_interop")]
-		public static IntPtr VDPAURegisterVideoSurfaceNV(Object vdpSurface, int target, int numTextureNames, uint[] textureNames)
+		public static IntPtr VDPAURegisterVideoSurfaceNV(object vdpSurface, int target, int numTextureNames, uint[] textureNames)
 		{
 			GCHandle pin_vdpSurface = GCHandle.Alloc(vdpSurface, GCHandleType.Pinned);
 			try {
@@ -173,7 +173,7 @@ namespace OpenGL
 		/// [GL] glVDPAURegisterOutputSurfaceNV: Binding for glVDPAURegisterOutputSurfaceNV.
 		/// </summary>
 		/// <param name="vdpSurface">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		/// <param name="target">
 		/// A <see cref="T:int"/>.
@@ -185,7 +185,7 @@ namespace OpenGL
 		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vdpau_interop")]
-		public static IntPtr VDPAURegisterOutputSurfaceNV(Object vdpSurface, int target, int numTextureNames, uint[] textureNames)
+		public static IntPtr VDPAURegisterOutputSurfaceNV(object vdpSurface, int target, int numTextureNames, uint[] textureNames)
 		{
 			GCHandle pin_vdpSurface = GCHandle.Alloc(vdpSurface, GCHandleType.Pinned);
 			try {

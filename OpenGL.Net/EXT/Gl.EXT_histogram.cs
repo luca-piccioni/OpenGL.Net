@@ -80,10 +80,10 @@ namespace OpenGL
 		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="values">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_histogram")]
-		public static void GetHistogramEXT(HistogramTarget target, bool reset, PixelFormat format, PixelType type, Object values)
+		public static void GetHistogramEXT(HistogramTarget target, bool reset, PixelFormat format, PixelType type, object values)
 		{
 			GCHandle pin_values = GCHandle.Alloc(values, GCHandleType.Pinned);
 			try {
@@ -188,10 +188,10 @@ namespace OpenGL
 		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="values">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_histogram")]
-		public static void GetMinmaxEXT(MinmaxTarget target, bool reset, PixelFormat format, PixelType type, Object values)
+		public static void GetMinmaxEXT(MinmaxTarget target, bool reset, PixelFormat format, PixelType type, object values)
 		{
 			GCHandle pin_values = GCHandle.Alloc(values, GCHandleType.Pinned);
 			try {

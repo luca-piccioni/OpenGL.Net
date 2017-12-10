@@ -93,10 +93,10 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="data">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_NVX_linked_gpu_multicast")]
-		public static void LGPUNamedBufferSubDataNVX(uint gpuMask, uint buffer, IntPtr offset, uint size, Object data)
+		public static void LGPUNamedBufferSubDataNVX(uint gpuMask, uint buffer, IntPtr offset, uint size, object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {

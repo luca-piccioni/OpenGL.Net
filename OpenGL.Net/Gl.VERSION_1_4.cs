@@ -982,7 +982,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_fog_coord")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void FogCoordPointer(FogCoordinatePointerType type, int stride, Object pointer)
+		public static void FogCoordPointer(FogCoordinatePointerType type, int stride, object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -1400,7 +1400,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_secondary_color")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void SecondaryColorPointer(int size, ColorPointerType type, int stride, Object pointer)
+		public static void SecondaryColorPointer(int size, ColorPointerType type, int stride, object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {

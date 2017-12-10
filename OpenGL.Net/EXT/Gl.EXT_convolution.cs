@@ -74,10 +74,10 @@ namespace OpenGL
 		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="image">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_convolution")]
-		public static void GetConvolutionFilterEXT(ConvolutionTarget target, PixelFormat format, PixelType type, Object image)
+		public static void GetConvolutionFilterEXT(ConvolutionTarget target, PixelFormat format, PixelType type, object image)
 		{
 			GCHandle pin_image = GCHandle.Alloc(image, GCHandleType.Pinned);
 			try {
@@ -182,16 +182,16 @@ namespace OpenGL
 		/// A <see cref="T:PixelType"/>.
 		/// </param>
 		/// <param name="row">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		/// <param name="column">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		/// <param name="span">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_convolution")]
-		public static void GetSeparableFilterEXT(SeparableTarget target, PixelFormat format, PixelType type, Object row, Object column, Object span)
+		public static void GetSeparableFilterEXT(SeparableTarget target, PixelFormat format, PixelType type, object row, object column, object span)
 		{
 			GCHandle pin_row = GCHandle.Alloc(row, GCHandleType.Pinned);
 			GCHandle pin_column = GCHandle.Alloc(column, GCHandleType.Pinned);

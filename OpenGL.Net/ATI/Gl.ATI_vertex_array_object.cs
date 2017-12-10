@@ -117,13 +117,13 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		/// <param name="usage">
 		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_array_object")]
-		public static uint NewObjectBufferATI(int size, Object pointer, int usage)
+		public static uint NewObjectBufferATI(int size, object pointer, int usage)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -192,13 +192,13 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="pointer">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		/// <param name="preserve">
 		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_array_object")]
-		public static void UpdateObjectBufferATI(uint buffer, uint offset, int size, Object pointer, int preserve)
+		public static void UpdateObjectBufferATI(uint buffer, uint offset, int size, object pointer, int preserve)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {

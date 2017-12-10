@@ -252,7 +252,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_buffer_storage", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_buffer_storage", Api = "gles2")]
-		public static void BufferStorage(BufferTarget target, uint size, Object data, uint flags)
+		public static void BufferStorage(BufferTarget target, uint size, object data, uint flags)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -312,7 +312,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_clear_texture", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_clear_texture", Api = "gles2")]
-		public static void ClearTexImage(uint texture, int level, PixelFormat format, PixelType type, Object data)
+		public static void ClearTexImage(uint texture, int level, PixelFormat format, PixelType type, object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -408,7 +408,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_clear_texture", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_clear_texture", Api = "gles2")]
-		public static void ClearTexSubImage(uint texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, PixelFormat format, PixelType type, Object data)
+		public static void ClearTexSubImage(uint texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, PixelFormat format, PixelType type, object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {

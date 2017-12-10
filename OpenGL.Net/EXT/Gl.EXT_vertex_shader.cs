@@ -1003,10 +1003,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="addr">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void SetInvariantEXT(uint id, int type, Object addr)
+		public static void SetInvariantEXT(uint id, int type, object addr)
 		{
 			GCHandle pin_addr = GCHandle.Alloc(addr, GCHandleType.Pinned);
 			try {
@@ -1047,10 +1047,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="addr">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void SetLocalConstantEXT(uint id, int type, Object addr)
+		public static void SetLocalConstantEXT(uint id, int type, object addr)
 		{
 			GCHandle pin_addr = GCHandle.Alloc(addr, GCHandleType.Pinned);
 			try {
@@ -1281,10 +1281,10 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="addr">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_shader")]
-		public static void VariantPointerEXT(uint id, int type, uint stride, Object addr)
+		public static void VariantPointerEXT(uint id, int type, uint stride, object addr)
 		{
 			GCHandle pin_addr = GCHandle.Alloc(addr, GCHandleType.Pinned);
 			try {

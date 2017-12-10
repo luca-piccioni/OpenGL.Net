@@ -1078,7 +1078,7 @@ namespace OpenGL
 		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="indices">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		/// <param name="primcount">
 		/// A <see cref="T:int"/>.
@@ -1089,7 +1089,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_base_instance", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_base_instance", Api = "gles2")]
-		public static void DrawElementsInstancedBaseInstance(PrimitiveType mode, int count, PrimitiveType type, Object indices, int primcount, uint baseinstance)
+		public static void DrawElementsInstancedBaseInstance(PrimitiveType mode, int count, PrimitiveType type, object indices, int primcount, uint baseinstance)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
 			try {
@@ -1147,7 +1147,7 @@ namespace OpenGL
 		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="indices">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		/// <param name="primcount">
 		/// A <see cref="T:int"/>.
@@ -1161,7 +1161,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_base_instance", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_base_instance", Api = "gles2")]
-		public static void DrawElementsInstancedBaseVertexBaseInstance(PrimitiveType mode, int count, PrimitiveType type, Object indices, int primcount, int basevertex, uint baseinstance)
+		public static void DrawElementsInstancedBaseVertexBaseInstance(PrimitiveType mode, int count, PrimitiveType type, object indices, int primcount, int basevertex, uint baseinstance)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
 			try {

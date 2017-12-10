@@ -122,10 +122,10 @@ namespace OpenGL
 		/// A <see cref="T:ExternalHandleType"/>.
 		/// </param>
 		/// <param name="name">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_memory_object_win32", Api = "gl|gles2")]
-		public static void ImportMemoryWin32NameEXT(uint memory, ulong size, ExternalHandleType handleType, Object name)
+		public static void ImportMemoryWin32NameEXT(uint memory, ulong size, ExternalHandleType handleType, object name)
 		{
 			GCHandle pin_name = GCHandle.Alloc(name, GCHandleType.Pinned);
 			try {

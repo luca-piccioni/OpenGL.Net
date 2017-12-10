@@ -2120,7 +2120,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void GetVertexAttribPointer(uint index, int pname, Object pointer)
+		public static void GetVertexAttribPointer(uint index, int pname, object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -6092,7 +6092,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static void VertexAttribPointer(uint index, int size, VertexAttribType type, bool normalized, int stride, Object pointer)
+		public static void VertexAttribPointer(uint index, int size, VertexAttribType type, bool normalized, int stride, object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {

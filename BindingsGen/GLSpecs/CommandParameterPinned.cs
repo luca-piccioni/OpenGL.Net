@@ -41,7 +41,7 @@ namespace BindingsGen.GLSpecs
 				throw new ArgumentNullException("otherParam");
 
 			if (IsCompatible(ctx, parentCommand, otherParam)) {
-				Type = "Object";
+				Type = "object";
 				TypeDecorators.Clear();
 				mIsPinned = true;
 			} else if (strong && CommandParameterStrong.IsCompatible(ctx, parentCommand, otherParam)) {
@@ -116,13 +116,13 @@ namespace BindingsGen.GLSpecs
 
 		public override void WritePinnedVariable(SourceStreamWriter sw, RegistryContext ctx, Command parentCommand)
 		{
-			if (GetImplementationType(ctx, parentCommand) == "Object")
+			if (GetImplementationType(ctx, parentCommand) == "object")
 				sw.WriteLine("GCHandle {0} = GCHandle.Alloc({1}, GCHandleType.Pinned);", PinnedLocalVarName, ImplementationName);
 		}
 
 		public override void WriteUnpinCommand(SourceStreamWriter sw, RegistryContext ctx, Command parentCommand)
 		{
-			if (GetImplementationType(ctx, parentCommand) == "Object")
+			if (GetImplementationType(ctx, parentCommand) == "object")
 				sw.WriteLine("{0}.Free();", PinnedLocalVarName);
 		}
 

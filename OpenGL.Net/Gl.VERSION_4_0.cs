@@ -946,7 +946,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_draw_indirect", Api = "gl|glcore")]
-		public static void DrawArraysIndirect(PrimitiveType mode, Object indirect)
+		public static void DrawArraysIndirect(PrimitiveType mode, object indirect)
 		{
 			GCHandle pin_indirect = GCHandle.Alloc(indirect, GCHandleType.Pinned);
 			try {
@@ -1002,7 +1002,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_draw_indirect", Api = "gl|glcore")]
-		public static void DrawElementsIndirect(PrimitiveType mode, DrawElementsType type, Object indirect)
+		public static void DrawElementsIndirect(PrimitiveType mode, DrawElementsType type, object indirect)
 		{
 			GCHandle pin_indirect = GCHandle.Alloc(indirect, GCHandleType.Pinned);
 			try {

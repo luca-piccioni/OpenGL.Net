@@ -553,11 +553,11 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="string">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
-		public static void ProgramStringARB(int target, int format, int len, Object @string)
+		public static void ProgramStringARB(int target, int format, int len, object @string)
 		{
 			GCHandle pin_string = GCHandle.Alloc(@string, GCHandleType.Pinned);
 			try {
@@ -1055,11 +1055,11 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="string">
-		/// A <see cref="T:Object"/>.
+		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_fragment_program")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
-		public static void GetProgramStringARB(int target, int pname, Object @string)
+		public static void GetProgramStringARB(int target, int pname, object @string)
 		{
 			GCHandle pin_string = GCHandle.Alloc(@string, GCHandleType.Pinned);
 			try {
