@@ -99,6 +99,18 @@ The following environments can be used:
 
 Go to the [wiki](https://github.com/luca-piccioni/OpenGL.Net/wiki) to look for information about the project. There is also a [Samples](https://github.com/luca-piccioni/OpenGL.Net/tree/master/Samples) directory, where application skeleton are implemented for various platforms.
 
+# Acknowledgements
+
+Many tools and services are required to build and run OpenGL.Net.
+
+[<img src="https://github.com/luca-piccioni/OpenGL.Net/blob/master/Wiki/Supporter-AppVeyor.png" width="335" height="70">](https://www.appveyor.com/)[<img src="https://github.com/luca-piccioni/OpenGL.Net/blob/master/Wiki/Supporter-TravisCI.png" width="125" height="124">](https://travis-ci.org/)[<img src="https://files.readme.io/9d08c4c-back.png" width="125" height="125">](https://codecov.io/)
+
+[<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Visual_Studio_2017_logo_and_wordmark.svg/640px-Visual_Studio_2017_logo_and_wordmark.svg.png" width="640" height="108">](https://www.visualstudio.com/)
+[<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Xamarin_logo_and_wordmark.png/320px-Xamarin_logo_and_wordmark.png" width="320" height="87">](https://www.xamarin.com/)
+[<img src="https://github.com/luca-piccioni/OpenGL.Net/blob/master/Wiki/Supporter-Resharper.png" width="125" height="125">](https://www.jetbrains.com/resharper/)[<img src="https://raw.githubusercontent.com/nunit/resources/master/images/icon/nunit_256.png" width="125" height="125">](https://github.com/nunit/nunit)
+
+
+
 # Licensing
 
 The project is released under the [MIT](https://opensource.org/licenses/MIT) license. Previous revisions of the project were licensed under the _LGPL2_ licence; this kind of license seems limiting the deployment of the binary forms on some platform (ironic, isn't it?). Since the project is maintained to be useful on the widest range of platforms/user-cases, and considering the spirit of the technology used to build it ([.NET Fundation](https://dotnetfoundation.org/)), the MIT license was preferred. The [WTFPL](http://www.wtfpl.net/about/) license was considered also, but it has not met all requirements.
