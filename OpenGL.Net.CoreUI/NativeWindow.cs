@@ -1057,8 +1057,8 @@ namespace OpenGL.CoreUI
 		/// </summary>
 		protected virtual void OnKeyUp(KeyCode key)
 		{
-			KeyUp?.Invoke(this, new NativeWindowKeyEventArgs(_DeviceContext, _RenderContext, key));
 			_KeysPressed[(int)key] = false;
+			KeyUp?.Invoke(this, new NativeWindowKeyEventArgs(_DeviceContext, _RenderContext, key));
 		}
 
 		#endregion
