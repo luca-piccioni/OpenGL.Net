@@ -96,6 +96,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nuget", "Nuget", "{0483B87E-5DFD-4E7C-A581-46CB9E719D0C}"
 	ProjectSection(SolutionItems) = preProject
 		OpenGL.Net.CoreProfile.nuspec = OpenGL.Net.CoreProfile.nuspec
+		OpenGL.Net.CoreUI.nuspec = OpenGL.Net.CoreUI.nuspec
 		OpenGL.Net.Debug.nuspec = OpenGL.Net.Debug.nuspec
 		OpenGL.Net.ES2Profile.nuspec = OpenGL.Net.ES2Profile.nuspec
 		OpenGL.Net.Math.nuspec = OpenGL.Net.Math.nuspec
