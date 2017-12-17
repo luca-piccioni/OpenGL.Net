@@ -44,7 +44,7 @@ namespace Khronos
 		public RequiredByFeatureAttribute(string featureName)
 		{
 			if (String.IsNullOrEmpty(featureName))
-				throw new ArgumentException("null or empty feature not allowed", "featureName");
+				throw new ArgumentException("null or empty feature not allowed", nameof(featureName));
 			FeatureName = featureName;
 			FeatureVersion = KhronosVersion.ParseFeature(FeatureName, false);
 		}
@@ -87,7 +87,7 @@ namespace Khronos
 		internal bool IsSupportedApi(string api)
 		{
 			if (api == null)
-				throw new ArgumentNullException("api");
+				throw new ArgumentNullException(nameof(api));
 
 			if (FeatureVersion != null)
 				return (false);
@@ -114,7 +114,7 @@ namespace Khronos
 		public bool IsSupported(KhronosVersion version, KhronosApi.ExtensionsCollection extensions)
 		{
 			if (version == null)
-				throw new ArgumentNullException("version");
+				throw new ArgumentNullException(nameof(version));
 
 			// Feature is an API version?
 			if (FeatureVersion != null) {

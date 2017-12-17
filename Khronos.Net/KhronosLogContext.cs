@@ -83,7 +83,7 @@ namespace Khronos
 		private void QueryLogContext(Type khronoApiType)
 		{
 			if (khronoApiType == null)
-				throw new ArgumentNullException("khronoApiType");
+				throw new ArgumentNullException(nameof(khronoApiType));
 
 			Dictionary<Int64, string> enumNames = new Dictionary<Int64, string>();
 			Dictionary<string, Dictionary<Int64, string>> enumBitmasks = new Dictionary<string, Dictionary<Int64, string>>();

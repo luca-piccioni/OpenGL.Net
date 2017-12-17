@@ -154,7 +154,7 @@ namespace Khronos
 		internal static void BindAPIFunction<T>(string path, string functionName, GetAddressDelegate getProcAddress, KhronosVersion version, ExtensionsCollection extensions)
 		{
 			if (path == null)
-				throw new ArgumentNullException("path");
+				throw new ArgumentNullException(nameof(path));
 			if (functionName == null)
 				throw new ArgumentNullException("function");
 			if (getProcAddress == null)
@@ -222,9 +222,9 @@ namespace Khronos
 		internal static void BindAPI<T>(string path, GetAddressDelegate getAddress, KhronosVersion version, ExtensionsCollection extensions)
 		{
 			if (path == null)
-				throw new ArgumentNullException("path");
+				throw new ArgumentNullException(nameof(path));
 			if (getAddress == null)
-				throw new ArgumentNullException("getAddress");
+				throw new ArgumentNullException(nameof(getAddress));
 
 			FunctionContext functionContext = GetFunctionContext(typeof(T));
 
@@ -257,13 +257,13 @@ namespace Khronos
 		private static void BindAPIFunction(string path, GetAddressDelegate getAddress, FunctionContext functionContext, FieldInfo function, KhronosVersion version, ExtensionsCollection extensions)
 		{
 			if (path == null)
-				throw new ArgumentNullException("path");
+				throw new ArgumentNullException(nameof(path));
 			if (functionContext == null)
-				throw new ArgumentNullException("functionContext");
+				throw new ArgumentNullException(nameof(functionContext));
 			if (function == null)
-				throw new ArgumentNullException("function");
+				throw new ArgumentNullException(nameof(function));
 			if (getAddress == null)
-				throw new ArgumentNullException("getAddress");
+				throw new ArgumentNullException(nameof(getAddress));
 
 			RequiredByFeatureAttribute requiredByFeature = null;
 			List<RequiredByFeatureAttribute> requiredByExtensions = new List<RequiredByFeatureAttribute>();
@@ -406,9 +406,9 @@ namespace Khronos
 		internal static bool IsCompatibleField(FieldInfo function, KhronosVersion version, ExtensionsCollection extensions)
 		{
 			if (function == null)
-				throw new ArgumentNullException("function");
+				throw new ArgumentNullException(nameof(function));
 			if (version == null)
-				throw new ArgumentNullException("version");
+				throw new ArgumentNullException(nameof(version));
 
 #if NETSTANDARD1_1 || NETSTANDARD1_4 || NETCORE
 			Attribute[] attrRequired = new List<Attribute>(function.GetCustomAttributes(typeof(RequiredByFeatureAttribute))).ToArray(); // XXX
@@ -478,7 +478,7 @@ namespace Khronos
 		private static DelegateList GetDelegateList(Type type)
 		{
 			if (type == null)
-				throw new ArgumentNullException("type");
+				throw new ArgumentNullException(nameof(type));
 
 #if NETSTANDARD1_1 || NETSTANDARD1_4
 			TypeInfo delegatesClass = type.GetTypeInfo().GetDeclaredNestedType("Delegates");
@@ -529,7 +529,7 @@ namespace Khronos
 			public FunctionContext(Type type)
 			{
 				if (type == null)
-					throw new ArgumentNullException("type");
+					throw new ArgumentNullException(nameof(type));
 
 				Delegates = GetDelegateList(type);
 			}
@@ -567,7 +567,7 @@ namespace Khronos
 			public ExtensionAttribute(string extensionName)
 			{
 				if (String.IsNullOrEmpty(extensionName))
-					throw new ArgumentException("null or empty feature not allowed", "extensionName");
+					throw new ArgumentException("null or empty feature not allowed", nameof(extensionName));
 				ExtensionName = extensionName;
 			}
 
@@ -711,7 +711,7 @@ namespace Khronos
 			public ExtensionSupportAttribute(string support)
 			{
 				if (String.IsNullOrEmpty(support))
-					throw new ArgumentException("null or empty feature not allowed", "support");
+					throw new ArgumentException("null or empty feature not allowed", nameof(support));
 				Support = support;
 			}
 
@@ -744,7 +744,7 @@ namespace Khronos
 			public bool HasExtensions(string extensionName)
 			{
 				if (extensionName == null)
-					throw new ArgumentNullException("extensionName");
+					throw new ArgumentNullException(nameof(extensionName));
 
 				return (_ExtensionsRegistry.ContainsKey(extensionName));
 			}
@@ -758,7 +758,7 @@ namespace Khronos
 			internal void EnableExtension(string extensionName)
 			{
 				if (extensionName == null)
-					throw new ArgumentNullException("extensionName");
+					throw new ArgumentNullException(nameof(extensionName));
 
 				_ExtensionsRegistry[extensionName] = true;
 			}
@@ -778,7 +778,7 @@ namespace Khronos
 			protected void Query(KhronosVersion version, string extensionsString)
 			{
 				if (extensionsString == null)
-					throw new ArgumentNullException("extensionsString");
+					throw new ArgumentNullException(nameof(extensionsString));
 
 				Query(version, extensionsString.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries));
 			}
@@ -798,9 +798,9 @@ namespace Khronos
 			protected void Query(KhronosVersion version, string[] extensions)
 			{
 				if (version == null)
-					throw new ArgumentNullException("version");
+					throw new ArgumentNullException(nameof(version));
 				if (extensions == null)
-					throw new ArgumentNullException("extensions");
+					throw new ArgumentNullException(nameof(extensions));
 
 				// Cache extension names in registry
 				_ExtensionsRegistry.Clear();
@@ -815,7 +815,7 @@ namespace Khronos
 			protected internal void SyncMembers(KhronosVersion version)
 			{
 				if (version == null)
-					throw new ArgumentNullException("version");
+					throw new ArgumentNullException(nameof(version));
 
 				Type thisType = GetType();
 #if NETSTANDARD1_1 || NETSTANDARD1_4 || NETCORE
@@ -884,12 +884,12 @@ namespace Khronos
 			protected static string GetVendor(string extensionName)
 			{
 				if (extensionName == null)
-					throw new ArgumentNullException("extensionName");
+					throw new ArgumentNullException(nameof(extensionName));
 
 				Match vendorMatch = Regex.Match(extensionName, @"^(GL|WGL|GLX|GLU|EGL)_(?<Vendor>[^_]+).*");
 
 				if (vendorMatch.Success == false)
-					throw new ArgumentException("non conformant extension name", "extensionName");
+					throw new ArgumentException("non conformant extension name", nameof(extensionName));
 
 				return (vendorMatch.Groups["Vendor"].Value);
 			}
@@ -920,9 +920,9 @@ namespace Khronos
 		protected static void CheckExtensionCommands<T>(KhronosVersion version, ExtensionsCollection extensions, bool enableExtensions) where T : KhronosApi
 		{
 			if (version == null)
-				throw new ArgumentNullException("version");
+				throw new ArgumentNullException(nameof(version));
 			if (extensions == null)
-				throw new ArgumentNullException("extensions");
+				throw new ArgumentNullException(nameof(extensions));
 
 #if NETSTANDARD1_1 || NETSTANDARD1_4 || NETCORE
 			throw new NotImplementedException();
@@ -1064,7 +1064,7 @@ namespace Khronos
 		protected static void RaiseLog(KhronosLogEventArgs args)
 		{
 			if (args == null)
-				throw new ArgumentNullException("args");
+				throw new ArgumentNullException(nameof(args));
 
 			if (_ProcLogEnabled && Log != null) {
 				foreach (EventHandler<KhronosLogEventArgs> eventHandler in Log.GetInvocationList()) {

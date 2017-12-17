@@ -44,7 +44,7 @@ namespace Khronos
 		public RemovedByFeatureAttribute(string featureName)
 		{
 			if (String.IsNullOrEmpty(featureName))
-				throw new ArgumentException("null or empty feature not allowed", "featureName");
+				throw new ArgumentException("null or empty feature not allowed", nameof(featureName));
 			FeatureName = featureName;
 			FeatureVersion = KhronosVersion.ParseFeature(FeatureName, false);
 		}
@@ -96,7 +96,7 @@ namespace Khronos
 		public bool IsRemoved(KhronosVersion version, KhronosApi.ExtensionsCollection extensions)
 		{
 			if (version == null)
-				throw new ArgumentNullException("version");
+				throw new ArgumentNullException(nameof(version));
 
 			// Feature is an API version?
 			if (FeatureVersion != null) {

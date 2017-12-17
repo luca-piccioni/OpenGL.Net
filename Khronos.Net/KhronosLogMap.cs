@@ -127,7 +127,7 @@ namespace Khronos
 		public static KhronosLogMap Load(string resourcePath)
 		{
 			if (resourcePath == null)
-				throw new ArgumentNullException("resourcePath");
+				throw new ArgumentNullException(nameof(resourcePath));
 
 #if NETFRAMEWORK
 			using (Stream xmlStream = Assembly.GetCallingAssembly().GetManifestResourceStream(resourcePath)) {
@@ -150,9 +150,9 @@ namespace Khronos
 		public static void Save(string resourcePath, KhronosLogMap logMap)
 		{
 			if (resourcePath == null)
-				throw new ArgumentNullException("resourcePath");
+				throw new ArgumentNullException(nameof(resourcePath));
 			if (logMap == null)
-				throw new ArgumentNullException("logMap");
+				throw new ArgumentNullException(nameof(logMap));
 
 #if NETFRAMEWORK
 			using (FileStream fs = new FileStream(resourcePath, FileMode.Create, FileAccess.Write)) {
@@ -195,7 +195,7 @@ namespace Khronos
 		private Command GetCommand(string commandName)
 		{
 			if (commandName == null)
-				throw new ArgumentNullException("commandName");
+				throw new ArgumentNullException(nameof(commandName));
 
 			Command command;
 
@@ -208,14 +208,14 @@ namespace Khronos
 		private CommandParam GetCommandParam(string commandName, int paramIndex)
 		{
 			if (paramIndex < 0)
-				throw new ArgumentOutOfRangeException("paramIndex", paramIndex, "it cannot be negative");
+				throw new ArgumentOutOfRangeException(nameof(paramIndex), paramIndex, "it cannot be negative");
 
 			Command command = GetCommand(commandName);
 			if (command == null)
 				return (null);
 
 			if (paramIndex >= command.Params.Length)
-				throw new ArgumentOutOfRangeException("paramIndex", paramIndex, "greater than the number of parameters");
+				throw new ArgumentOutOfRangeException(nameof(paramIndex), paramIndex, "greater than the number of parameters");
 
 			 return (command.Params[paramIndex]);
 		}

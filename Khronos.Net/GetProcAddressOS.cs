@@ -265,9 +265,9 @@ namespace Khronos
 		private IntPtr GetProcAddress(IntPtr library, string function)
 		{
 			if (library == IntPtr.Zero)
-				throw new ArgumentNullException("library");
+				throw new ArgumentNullException(nameof(library));
 			if (function == null)
-				throw new ArgumentNullException("function");
+				throw new ArgumentNullException(nameof(function));
 
 			IntPtr procAddress = UnsafeNativeMethods.Win32GetProcAddress(library, function);
 #if PLATFORM_LOG_ENABLED
@@ -399,9 +399,9 @@ namespace Khronos
 		private IntPtr GetProcAddress(IntPtr library, string function)
 		{
 			if (library == IntPtr.Zero)
-				throw new ArgumentNullException("library");
+				throw new ArgumentNullException(nameof(library));
 			if (function == null)
-				throw new ArgumentNullException("function");
+				throw new ArgumentNullException(nameof(function));
 
 			return (UnsafeNativeMethods.dlsym(library, function));
 		}

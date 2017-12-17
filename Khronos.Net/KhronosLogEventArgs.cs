@@ -67,7 +67,7 @@ namespace Khronos
 		internal KhronosLogEventArgs(KhronosLogContext logContext, string name, object[] args, object retvalue)
 		{
 			if (name == null)
-				throw new ArgumentNullException("name");
+				throw new ArgumentNullException(nameof(name));
 			Name = name;
 			Args = args;
 			ReturnValue = retvalue;

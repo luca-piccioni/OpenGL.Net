@@ -122,13 +122,13 @@ namespace Khronos
 		public KhronosVersion(int major, int minor, int revision, string api, string profile)
 		{
 			if (major <= 0)
-				throw new ArgumentException("less or equal to 0 not allowed", "major");
+				throw new ArgumentException("less or equal to 0 not allowed", nameof(major));
 			if (minor < 0)
-				throw new ArgumentException("less than 0 not allowed", "minor");
+				throw new ArgumentException("less than 0 not allowed", nameof(minor));
 			if (revision < 0)
-				throw new ArgumentException("less than 0 not allowed", "revision");
+				throw new ArgumentException("less than 0 not allowed", nameof(revision));
 			if (api == null)
-				throw new ArgumentNullException("api");
+				throw new ArgumentNullException(nameof(api));
 
 			Major = major;
 			Minor = minor;
@@ -146,7 +146,7 @@ namespace Khronos
 		public KhronosVersion(KhronosVersion other)
 		{
 			if (other == null)
-				throw new ArgumentNullException("other");
+				throw new ArgumentNullException(nameof(other));
 
 			Major = other.Major;
 			Minor = other.Minor;
@@ -460,7 +460,7 @@ namespace Khronos
 		internal static KhronosVersion ParseFeature(string featureName, bool throwException)
 		{
 			if (featureName == null)
-				throw new ArgumentNullException("featureName");
+				throw new ArgumentNullException(nameof(featureName));
 
 			// Shortcut for ES1
 			if (featureName == "GL_VERSION_ES_CM_1_0")
@@ -473,7 +473,7 @@ namespace Khronos
 			Match versionMatch = Regex.Match(featureName, @"(?<Api>GL|GL_ES|GL_SC|WGL|GLX|EGL)_VERSION_(?<Major>\d+)_(?<Minor>\d+)");
 			if (versionMatch.Success == false) {
 				if (throwException)
-					throw new ArgumentException("unrecognized pattern", "featureName");
+					throw new ArgumentException("unrecognized pattern", nameof(featureName));
 				return (null);
 			}
 			
@@ -547,12 +547,12 @@ namespace Khronos
 		public static KhronosVersion Parse(string input, string api)
 		{
 			if (input == null)
-				throw new ArgumentNullException("input");
+				throw new ArgumentNullException(nameof(input));
 
 			// Determine version value (support up to 3 version numbers)
 			Match versionMatch = Regex.Match(input, @"(?<Major>\d+)\.(?<Minor>\d+)(\.(?<Rev>\d+))?");
 			if (versionMatch.Success == false)
-				throw new ArgumentException(String.Format("unrecognized pattern '{0}'", input), "input");
+				throw new ArgumentException(String.Format("unrecognized pattern '{0}'", input), nameof(input));
 
 			int versionMajor = Int32.Parse(versionMatch.Groups["Major"].Value);
 			int versionMinor = Int32.Parse(versionMatch.Groups["Minor"].Value);
@@ -595,7 +595,7 @@ namespace Khronos
 		public bool IsCompatible(KhronosVersion other)
 		{
 			if (other == null)
-				throw new ArgumentNullException("other");
+				throw new ArgumentNullException(nameof(other));
 
 			// Different API are incompatible
 			if (Api != other.Api)
