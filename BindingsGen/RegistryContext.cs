@@ -17,6 +17,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Xml.Serialization;
 
@@ -34,8 +35,8 @@ namespace BindingsGen
 		/// </summary>
 		static RegistryContext()
 		{
-			SpecSerializer.UnknownAttribute += SpecSerializer_UnknownAttribute;
-			SpecSerializer.UnknownElement += SpecSerializer_UnknownElement;
+			_SpecSerializer.UnknownAttribute += SpecSerializer_UnknownAttribute;
+			_SpecSerializer.UnknownElement += SpecSerializer_UnknownElement;
 		}
 
 		/// <summary>
@@ -46,14 +47,16 @@ namespace BindingsGen
 		/// - The name of the class to be generated (i.e. Gl, Wgl, Glx);
 		/// - The features selection to include in the generated sources
 		/// </param>
+		/// <param name="wordsClass">
+		/// A <see cref="String"/> that specifies the name of the words dictionary used for semplifying
+		/// names in this context. If it is null, it is automatically determined with <paramref name="class"/>.
+		/// </param>
 		private RegistryContext(string @class, string wordsClass)
 		{
 			// Store the class
 			Class = @class;
 			// Set supported APIs
-			List<string> apis = new List<string>();
-
-			apis.Add(Class.ToLower());
+			List<string> apis = new List<string> { Class.ToLower() };
 
 			if (Class == "Gl") {
 				// No need to add glcore, since gl is still a superset of glcore
@@ -68,7 +71,7 @@ namespace BindingsGen
 			// Loads the extension dictionary
 			ExtensionsDictionary = SpecWordsDictionary.Load("BindingsGen.GLSpecs.ExtWords.xml");
 			// Loads the words dictionary
-			WordsDictionary = SpecWordsDictionary.Load(String.Format("BindingsGen.GLSpecs.{0}Words.xml", wordsClass ?? @class));
+			WordsDictionary = SpecWordsDictionary.Load($"BindingsGen.GLSpecs.{wordsClass ?? @class}Words.xml");
 		}
 
 		/// <summary>
@@ -79,6 +82,10 @@ namespace BindingsGen
 		/// - The name of the class to be generated (i.e. Gl, Wgl, Glx);
 		/// - The features selection to include in the generated sources
 		/// </param>
+		/// <param name="wordsClass">
+		/// A <see cref="String"/> that specifies the name of the words dictionary used for semplifying
+		/// names in this context. If it is null, it is automatically determined with <paramref name="class"/>.
+		/// </param>
 		/// <param name="registryPath">
 		/// A <see cref="String"/> that specifies the path of the OpenGL specification to parse.
 		/// </param>
@@ -86,7 +93,7 @@ namespace BindingsGen
 			this(@class, wordsClass)
 		{
 			using (StreamReader sr = new StreamReader(registryPath)) {
-				Registry specRegistry = (Registry)SpecSerializer.Deserialize(sr);
+				Registry specRegistry = (Registry)_SpecSerializer.Deserialize(sr);
 				Registry = specRegistry;
 				specRegistry.Link(this);
 
@@ -101,6 +108,10 @@ namespace BindingsGen
 		/// A <see cref="String"/> that specifies the actual specification to build. It determines:
 		/// - The name of the class to be generated (i.e. Gl, Wgl, Glx);
 		/// - The features selection to include in the generated sources
+		/// </param>
+		/// <param name="wordsClass">
+		/// A <see cref="String"/> that specifies the name of the words dictionary used for semplifying
+		/// names in this context. If it is null, it is automatically determined with <paramref name="class"/>.
 		/// </param>
 		/// <param name="registry">
 		/// A <see cref="IRegistry"/> that specifies the elements of the OpenGL specification.
@@ -123,17 +134,11 @@ namespace BindingsGen
 		public bool IsSupportedApi(string api)
 		{
 			if (api == null)
-				throw new ArgumentNullException("api");
+				throw new ArgumentNullException(nameof(api));
 
-			string regexApi = String.Format("^{0}$", api);
+			string regexApi = $"^{api}$";
 
-			foreach (string supportedApi in SupportedApi) {
-				if (Regex.IsMatch(supportedApi, regexApi))
-					return (true);
-			}
-				
-
-			return (false);
+			return SupportedApi.Any(supportedApi => Regex.IsMatch(supportedApi, regexApi));
 		}
 
 		/// <summary>
@@ -154,7 +159,7 @@ namespace BindingsGen
 		/// <summary>
 		/// The Khronos reference pages.
 		/// </summary>
-		public readonly List<IRegistryDocumentation> RefPages = new List<IRegistryDocumentation>();
+		internal readonly List<IRegistryDocumentation> RefPages = new List<IRegistryDocumentation>();
 
 		/// <summary>
 		/// The extension names dictionary.
@@ -199,6 +204,6 @@ namespace BindingsGen
 		/// <summary>
 		/// OpenGL specification parser.
 		/// </summary>
-		private static readonly XmlSerializer SpecSerializer = new XmlSerializer(typeof(Registry));
+		private static readonly XmlSerializer _SpecSerializer = new XmlSerializer(typeof(Registry));
 	}
 }

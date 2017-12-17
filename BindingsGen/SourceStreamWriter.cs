@@ -74,7 +74,7 @@ namespace BindingsGen
 		/// </summary>
 		public void Indent()
 		{
-			mIdentation = mIdentation + '\t';
+			_Identation = _Identation + '\t';
 		}
 
 		/// <summary>
@@ -82,9 +82,9 @@ namespace BindingsGen
 		/// </summary>
 		public void Unindent()
 		{
-			if (mIdentation.Length == 0)
+			if (_Identation.Length == 0)
 				return;
-			mIdentation = mIdentation.Substring(1);
+			_Identation = _Identation.Substring(1);
 		}
 
 		/// <summary>
@@ -92,13 +92,13 @@ namespace BindingsGen
 		/// </summary>
 		public void WriteIdentation()
 		{
-			base.Write(mIdentation);
+			Write(_Identation);
 		}
 
 		/// <summary>
 		/// The string representing the current identation.
 		/// </summary>
-		private string mIdentation = string.Empty;
+		private string _Identation = string.Empty;
 
 		#endregion
 
@@ -120,7 +120,7 @@ namespace BindingsGen
 				return;
 
 			if (!value.StartsWith("\t"))
-				base.WriteLine(mIdentation + value);
+				base.WriteLine(_Identation + value);
 			else {
 				base.WriteLine(value);
 			}
@@ -130,28 +130,28 @@ namespace BindingsGen
 		{
 			if (Program.DummyStream)
 				return;
-			base.WriteLine(mIdentation + format, arg0);
+			base.WriteLine(_Identation + format, arg0);
 		}
 
 		public override void WriteLine(string format, object arg0, object arg1)
 		{
 			if (Program.DummyStream)
 				return;
-			base.WriteLine(mIdentation + format, arg0, arg1);
+			base.WriteLine(_Identation + format, arg0, arg1);
 		}
 
 		public override void WriteLine(string format, object arg0, object arg1, object arg2)
 		{
 			if (Program.DummyStream)
 				return;
-			base.WriteLine(mIdentation + format, arg0, arg1, arg2);
+			base.WriteLine(_Identation + format, arg0, arg1, arg2);
 		}
 		
 		public override void WriteLine(string format, params object[] arg)
 		{
 			if (Program.DummyStream)
 				return;
-			base.WriteLine(mIdentation + format, arg);
+			base.WriteLine(_Identation + format, arg);
 		}
 
 		#endregion

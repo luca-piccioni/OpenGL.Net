@@ -38,7 +38,7 @@ namespace BindingsGen.GLSpecs
 			: base(otherParam, ctx, parentCommand)
 		{
 			if (otherParam == null)
-				throw new ArgumentNullException("otherParam");
+				throw new ArgumentNullException(nameof(otherParam));
 
 			
 		}

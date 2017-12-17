@@ -84,7 +84,7 @@ namespace BindingsGen.GLSpecs
 		public string GetOverridableName(RegistryContext ctx, string specificationName)
 		{
 			if (String.IsNullOrEmpty(specificationName))
-				throw new ArgumentNullException("specificationName");
+				throw new ArgumentNullException(nameof(specificationName));
 
 			// Extract extension
 			string nameExtension = null;

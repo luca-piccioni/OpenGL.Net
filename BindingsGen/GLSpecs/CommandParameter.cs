@@ -47,7 +47,7 @@ namespace BindingsGen.GLSpecs
 		public CommandParameter(CommandParameter otherParam)
 		{
 			if (otherParam == null)
-				throw new ArgumentNullException("otherParam");
+				throw new ArgumentNullException(nameof(otherParam));
 
 			Group = otherParam.Group;
 			Length = otherParam.Length;

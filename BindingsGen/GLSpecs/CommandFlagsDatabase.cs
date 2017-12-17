@@ -131,7 +131,7 @@ namespace BindingsGen.GLSpecs
 		public static EnumerantItem FindEnumerant(string enumName)
 		{
 			if (enumName == null)
-				throw new ArgumentNullException("enumName");
+				throw new ArgumentNullException(nameof(enumName));
 
 			return (_CommandFlagsDatabase.Enumerants.Find(delegate (EnumerantItem item) {
 				return (Regex.IsMatch(enumName, item.Name) || (item.Alias != null && Regex.IsMatch(enumName, "^" + item.Alias + "$")));
@@ -310,9 +310,9 @@ namespace BindingsGen.GLSpecs
 		public static string GetCommandArgumentAlternativeName(Command command, CommandParameter arg)
 		{
 			if (command == null)
-				throw new ArgumentNullException("command");
+				throw new ArgumentNullException(nameof(command));
 			if (arg == null)
-				throw new ArgumentNullException("arg");
+				throw new ArgumentNullException(nameof(arg));
 
 			foreach (CommandItem commandItem in _CommandFlagsDatabase.Commands) {
 				if (Regex.IsMatch(command.Prototype.Name, commandItem.Name)) {
@@ -330,9 +330,9 @@ namespace BindingsGen.GLSpecs
 		public static string GetCommandArgumentAlternativeType(Command command, CommandParameter arg)
 		{
 			if (command == null)
-				throw new ArgumentNullException("command");
+				throw new ArgumentNullException(nameof(command));
 			if (arg == null)
-				throw new ArgumentNullException("arg");
+				throw new ArgumentNullException(nameof(arg));
 
 			foreach (CommandItem commandItem in _CommandFlagsDatabase.Commands) {
 				if (Regex.IsMatch(command.Prototype.Name, commandItem.Name)) {
@@ -350,9 +350,9 @@ namespace BindingsGen.GLSpecs
 		public static string GetCommandArgumentModifier(Command command, CommandParameter arg)
 		{
 			if (command == null)
-				throw new ArgumentNullException("command");
+				throw new ArgumentNullException(nameof(command));
 			if (arg == null)
-				throw new ArgumentNullException("arg");
+				throw new ArgumentNullException(nameof(arg));
 
 			foreach (CommandItem commandItem in _CommandFlagsDatabase.Commands) {
 				if (Regex.IsMatch(command.Prototype.Name, commandItem.Name)) {
@@ -374,9 +374,9 @@ namespace BindingsGen.GLSpecs
 		public static CommandItem.ParameterItemFlags GetCommandParameterFlags(Command command, CommandParameter arg)
 		{
 			if (command == null)
-				throw new ArgumentNullException("command");
+				throw new ArgumentNullException(nameof(command));
 			if (arg == null)
-				throw new ArgumentNullException("arg");
+				throw new ArgumentNullException(nameof(arg));
 
 			CommandItem.ParameterItemFlags parameterFlags = CommandItem.ParameterItemFlags.None;
 

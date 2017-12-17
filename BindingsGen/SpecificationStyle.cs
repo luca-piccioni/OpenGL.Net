@@ -24,7 +24,7 @@ namespace BindingsGen
 	/// <summary>
 	/// Class determining the OpenGL bindings style.
 	/// </summary>
-	static class SpecificationStyle
+	internal static class SpecificationStyle
 	{
 		/// <summary>
 		/// Convert a camel-case style for OpenGL specification tokens.
@@ -38,7 +38,7 @@ namespace BindingsGen
 		public static string GetCamelCase(string token)
 		{
 			if (token == null)
-				throw new ArgumentNullException("token");
+				throw new ArgumentNullException(nameof(token));
 
 			StringBuilder sb = new StringBuilder(token.Length);
 			string[] tokens = Regex.Split(token, "_");
@@ -55,7 +55,7 @@ namespace BindingsGen
 		public static string GetCamelCase(RegistryContext ctx, string token)
 		{
 			if (token == null)
-				throw new ArgumentNullException("token");
+				throw new ArgumentNullException(nameof(token));
 
 			StringBuilder sb = new StringBuilder(token.Length);
 			string[] tokens = Regex.Split(token, "_");
@@ -92,7 +92,7 @@ namespace BindingsGen
 		public static string GetEnumBindingName(string specificationName)
 		{
 			if (specificationName == null)
-				throw new ArgumentNullException("specificationName");
+				throw new ArgumentNullException(nameof(specificationName));
 
 			if      (specificationName.StartsWith("GL_"))
 				specificationName = specificationName.Substring(3, specificationName.Length - 3);
@@ -124,15 +124,15 @@ namespace BindingsGen
 		public static string GetExtensionBindingName(string specificationName)
 		{
 			if (specificationName == null)
-				throw new ArgumentNullException("specificationName");
+				throw new ArgumentNullException(nameof(specificationName));
 
-			int namespaceIndex = specificationName.IndexOf("_");
-			int extIndex = specificationName.IndexOf("_", namespaceIndex + 1);
+			int namespaceIndex = specificationName.IndexOf("_", StringComparison.Ordinal);
+			int extIndex = specificationName.IndexOf("_", namespaceIndex + 1, StringComparison.Ordinal);
 			List<int> wordsIndices = new List<int>();
 			int wordsIndex = extIndex;
 
 			wordsIndices.Add(extIndex + 1);
-			while ((wordsIndex = specificationName.IndexOf("_", wordsIndex + 1)) >= 0)
+			while ((wordsIndex = specificationName.IndexOf("_", wordsIndex + 1, StringComparison.Ordinal)) >= 0)
 				wordsIndices.Add(wordsIndex + 1);
 			wordsIndices.Add(specificationName.Length + 1);
 
@@ -141,7 +141,7 @@ namespace BindingsGen
 			for (int i = 0; i < wordsIndices.Count - 1; i++) {
 				string token = specificationName.Substring(wordsIndices[i], wordsIndices[i+1] - wordsIndices[i] - 1);
 
-				sb.Append(SpecificationStyle.EnsureFirstUpperCase(token));
+				sb.Append(EnsureFirstUpperCase(token));
 			}
 
 			sb.Append("_");
@@ -163,7 +163,7 @@ namespace BindingsGen
 		public static string GetKhronosVersionHumanReadable(string token)
 		{
 			if (token == null)
-				throw new ArgumentNullException("token");
+				throw new ArgumentNullException(nameof(token));
 
 			Match match;
 
@@ -225,7 +225,7 @@ namespace BindingsGen
 		private static string GetLegalCsField(string token)
 		{
 			if (token == null)
-				throw new ArgumentNullException("token");
+				throw new ArgumentNullException(nameof(token));
 
 			if (Char.IsDigit(token[0]))
 				return ("_" + token);

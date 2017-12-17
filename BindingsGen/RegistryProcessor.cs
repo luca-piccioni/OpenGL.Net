@@ -44,7 +44,7 @@ namespace BindingsGen
 		public RegistryProcessor(IRegistry registry, string @namespace)
 		{
 			if (registry == null)
-				throw new ArgumentNullException("registry");
+				throw new ArgumentNullException(nameof(registry));
 
 			_Registry = registry;
 			Namespace = @namespace;
@@ -71,7 +71,7 @@ namespace BindingsGen
 		public void GenerateStronglyTypedEnums(RegistryContext ctx, string path)
 		{
 			if (path == null)
-				throw new ArgumentNullException("path");
+				throw new ArgumentNullException(nameof(path));
 
 			if (_Registry.Groups.Count == 0)
 				return;
@@ -736,7 +736,7 @@ namespace BindingsGen
 		public void GenerateSource(RegistryContext ctx, string path, CommandSerializerDelegate filter)
 		{
 			if (path == null)
-				throw new ArgumentNullException("path");
+				throw new ArgumentNullException(nameof(path));
 
 			Console.WriteLine("Generate registry commands to {0}.", path);
 

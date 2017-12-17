@@ -78,6 +78,7 @@
   <ItemGroup>
     <Compile Include="GLSpecs\CommandParameterLengthMode.cs" />
     <Compile Include="GLSpecs\IFeatureExtensions.cs" />
+    <Compile Include="IRegistryDocumentation.cs" />
     <Compile Include="RegistryAssembly.cs" />
     <Compile Include="GLSpecs\Command.cs" />
     <Compile Include="GLSpecs\CommandBlock.cs" />
@@ -105,6 +106,10 @@
     <Compile Include="GLSpecs\Header.cs" />
     <Compile Include="RegistryAssemblyConfiguration.cs" />
     <Compile Include="RegistryDocumentationHandler.cs" />
+    <Compile Include="RegistryDocumentationHandlerDefault.cs" />
+    <Compile Include="RegistryDocumentationHandlerEGL.cs" />
+    <Compile Include="RegistryDocumentationHandlerGL2.cs" />
+    <Compile Include="RegistryDocumentationHandlerGL4.cs" />
     <Compile Include="SpecificationStyle.cs" />
     <Compile Include="GLSpecs\SpecWordsDictionary.cs" />
     <Compile Include="GLSpecs\Type.cs" />

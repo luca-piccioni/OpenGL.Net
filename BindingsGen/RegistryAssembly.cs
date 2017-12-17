@@ -97,7 +97,7 @@ namespace BindingsGen
 			string baseDirPath = Path.GetDirectoryName(path);
 
 			if (overwrite == false) {
-				assembly.Write(Path.Combine(baseDirPath, String.Format("OpenGL.Net-{0}.dll", cfg.Name)));
+				assembly.Write(Path.Combine(baseDirPath, $"OpenGL.Net-{cfg.Name}.dll"));
 			} else {
 				assembly.Write(Path.Combine(baseDirPath, "OpenGL.Net.dll"));
 			}
@@ -165,7 +165,7 @@ namespace BindingsGen
 			// Note: code should test actual method existence, since  they may not loaded for specific profiles
 			switch (field.Name) {
 				case "glGetStringi":
-					return (true);
+					return true;
 			}
 
 			bool compatible = false;
@@ -179,12 +179,12 @@ namespace BindingsGen
 						break;
 					case "RemovedByFeatureAttribute":
 						if (IsCompatible_RemovedAttribute(cfg, customAttrib) == false)
-							return (false);
+							return false;
 						break;
 				}
 			}
 
-			return (compatible || featureAttribCount == 0);
+			return compatible || featureAttribCount == 0;
 		}
 
 		private static bool IsCompatibleField(RegistryAssemblyConfiguration cfg, FieldDefinition field)
@@ -193,7 +193,7 @@ namespace BindingsGen
 			// Note: code should test actual method existence, since  they may not loaded for specific profiles
 			switch (field.Name) {
 				case "pglGetStringi":
-					return (true);
+					return true;
 			}
 
 			bool compatible = false;
@@ -207,12 +207,12 @@ namespace BindingsGen
 						break;
 					case "RemovedByFeatureAttribute":
 						if (IsCompatible_RemovedAttribute(cfg, customAttrib) == false)
-							return (false);
+							return false;
 						break;
 				}
 			}
 
-			return (compatible || featureAttribCount == 0);
+			return compatible || featureAttribCount == 0;
 		}
 
 		private static bool IsCompatibleMethod(RegistryAssemblyConfiguration cfg, MethodDefinition method)
@@ -221,7 +221,7 @@ namespace BindingsGen
 			// Note: code should test actual method existence, since  they may not loaded for specific profiles
 			switch (method.Name) {
 				case "GetString":
-					return (true);
+					return true;
 			}
 
 			bool compatible = false;
@@ -235,13 +235,13 @@ namespace BindingsGen
 						break;
 					case "RemovedByFeatureAttribute":
 						if (IsCompatible_RemovedAttribute(cfg, customAttrib) == false)
-							return (false);
+							return false;
 						featureAttribCount++;
 						break;
 				}
 			}
 
-			return (compatible || featureAttribCount == 0);
+			return compatible || featureAttribCount == 0;
 		}
 
 		private static bool IsCompatible_RequiredAttribute(RegistryAssemblyConfiguration cfg, CustomAttribute customAttrib)
@@ -254,16 +254,16 @@ namespace BindingsGen
 
 			foreach (RegistryAssemblyConfiguration.VersionRange cfgFeature in cfg.Features) {
 				if (cfgFeature.Api != null) {
-					CustomAttributeNamedArgument apiArg = customAttrib.Fields.FirstOrDefault(delegate(CustomAttributeNamedArgument item) { return (item.Name == "Api"); });
+					CustomAttributeNamedArgument apiArg = customAttrib.Fields.FirstOrDefault(delegate(CustomAttributeNamedArgument item) { return item.Name == "Api"; });
 					string apiRegex = apiArg.Argument.Value != null ? apiArg.Argument.Value as string : "gl";
 
 					if (Regex.IsMatch(cfgFeature.Api, "^(" + apiRegex + ")$"))
-						compatible |= true;
+						compatible = true;
 				}
 
 				if (cfgFeature.Profile != null) {
-					CustomAttributeNamedArgument apiArg = customAttrib.Fields.FirstOrDefault(delegate(CustomAttributeNamedArgument item) { return (item.Name == "Profile"); });
-					string apiRegex = apiArg.Argument.Value != null ? apiArg.Argument.Value as string : null;
+					CustomAttributeNamedArgument apiArg = customAttrib.Fields.FirstOrDefault(delegate(CustomAttributeNamedArgument item) { return item.Name == "Profile"; });
+					string apiRegex = apiArg.Argument.Value as string;
 
 					if (apiRegex != null)
 						compatible &= Regex.IsMatch(cfgFeature.Profile, "^(" + apiRegex + ")$");
@@ -274,9 +274,9 @@ namespace BindingsGen
 					KhronosVersion maxVersion = /*cfgFeature.MaxApiVersion != null ? KhronosVersion.Parse(cfgFeature.MaxApiVersion) :*/ null;
 					// API version
 					if (minVersion != null && attribVersion < minVersion)
-						return (false);
+						return false;
 					if (maxVersion != null && attribVersion > maxVersion)
-						return (false);
+						return false;
 				} else {
 					// Extension (Api must match)
 					if (compatible)
@@ -284,7 +284,7 @@ namespace BindingsGen
 				}
 			}
 
-			return (compatible);
+			return compatible;
 		}
 
 		private static bool IsCompatible_RemovedAttribute(RegistryAssemblyConfiguration cfg, CustomAttribute customAttrib)
@@ -292,14 +292,10 @@ namespace BindingsGen
 			string featureName = customAttrib.ConstructorArguments[0].Value as string;
 			KhronosVersion attribVersion = KhronosVersion.ParseFeature(featureName, false);
 
-			if (attribVersion != null) {
-				foreach (RegistryAssemblyConfiguration.VersionRange cfgFeature in cfg.Features) {
-					if (cfgFeature.Api != null && cfgFeature.Api == attribVersion.Api)
-						return (false);
-				}
-			}
+			if (attribVersion == null)
+				return true;
 
-			return (true);
+			return cfg.Features.All(cfgFeature => cfgFeature.Api == null || cfgFeature.Api != attribVersion.Api);
 		}
 	}
 
@@ -307,12 +303,7 @@ namespace BindingsGen
 	{
 		public static TypeDefinition GetNestedType(this Collection<TypeDefinition> typeCollection, string name)
 		{
-			foreach (TypeDefinition nestedType in typeCollection) {
-				if (nestedType.Name == name)
-					return (nestedType);
-			}
-
-			return (null);
+			return typeCollection.FirstOrDefault(nestedType => nestedType.Name == name);
 		}
 	}
 }

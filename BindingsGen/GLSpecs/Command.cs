@@ -1545,7 +1545,7 @@ namespace BindingsGen.GLSpecs
 		internal void Link(RegistryContext ctx)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			RequiredBy.Clear();
 			RequiredBy.AddRange(GetFeaturesRequiringCommand(ctx));

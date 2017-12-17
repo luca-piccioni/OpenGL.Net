@@ -145,7 +145,7 @@ namespace BindingsGen.GLSpecs
 		internal void Link(RegistryContext ctx)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			RequiredBy.Clear();
 			RequiredBy.AddRange(GetFeaturesRequiringEnum(ctx));
@@ -276,7 +276,7 @@ namespace BindingsGen.GLSpecs
 		internal void GenerateSource(SourceStreamWriter sw, RegistryContext ctx)
 		{
 			if (sw == null)
-				throw new ArgumentNullException("sw");
+				throw new ArgumentNullException(nameof(sw));
 
 			GenerateDocumentation(sw, ctx);
 

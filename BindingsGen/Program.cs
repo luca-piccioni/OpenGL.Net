@@ -27,7 +27,7 @@ namespace BindingsGen
 	/// <summary>
 	/// OpenGL bindings generator.
 	/// </summary>
-	class Program
+	internal class Program
 	{
 		/// <summary>
 		/// Application entry point.
@@ -35,7 +35,7 @@ namespace BindingsGen
 		/// <param name="args">
 		/// The command line invocation arguments.
 		/// </param>
-		static void Main(string[] args)
+		private static void Main(string[] args)
 		{
 			RegistryContext ctx;
 			RegistryProcessor glRegistryProcessor;
@@ -123,8 +123,8 @@ namespace BindingsGen
 			bool genEGL = (args.Length == 0) || (Array.FindIndex(args, item => item == "--egl") >= 0);
 
 			// (Common) Documentation
-			RegistryDocumentation<RegistryDocumentationHandler_GL4> gl4Documentation = new RegistryDocumentation<RegistryDocumentationHandler_GL4>();
-			RegistryDocumentation<RegistryDocumentationHandler_GL2> gl2Documentation = new RegistryDocumentation<RegistryDocumentationHandler_GL2>();
+			RegistryDocumentation<RegistryDocumentationHandlerGL4> gl4Documentation = new RegistryDocumentation<RegistryDocumentationHandlerGL4>();
+			RegistryDocumentation<RegistryDocumentationHandlerGL2> gl2Documentation = new RegistryDocumentation<RegistryDocumentationHandlerGL2>();
 
 			if (genGL || genWGL || genGLX) {
 				gl4Documentation.Api = "GL4";
@@ -158,13 +158,13 @@ namespace BindingsGen
 				}
 
 				// Additional ES documentation
-				RegistryDocumentation<RegistryDocumentationHandler_GL4> gles3Documentation =
-					new RegistryDocumentation<RegistryDocumentationHandler_GL4> { Api = "GLES3.2" };
+				RegistryDocumentation<RegistryDocumentationHandlerGL4> gles3Documentation =
+					new RegistryDocumentation<RegistryDocumentationHandlerGL4> { Api = "GLES3.2" };
 				if (DocDisabled == false)
 					gles3Documentation.ScanDocumentation(Path.Combine(BasePath, "RefPages/OpenGL/es3"));
 
-				RegistryDocumentation<RegistryDocumentationHandler_GL2> gles1Documentation =
-					new RegistryDocumentation<RegistryDocumentationHandler_GL2> { Api = "GLES1.1" };
+				RegistryDocumentation<RegistryDocumentationHandlerGL2> gles1Documentation =
+					new RegistryDocumentation<RegistryDocumentationHandlerGL2> { Api = "GLES1.1" };
 				if (DocDisabled == false)
 					gles1Documentation.ScanDocumentation(Path.Combine(BasePath, "RefPages/OpenGL/es1.1"));
 
@@ -176,7 +176,7 @@ namespace BindingsGen
 				ctx.RefPages.Add(gles1Documentation);
 
 				glRegistryProcessor = new RegistryProcessor(ctx.Registry);
-				glRegistryProcessor.GenerateStronglyTypedEnums(ctx, Path.Combine(BasePath, String.Format("{0}/{1}.Enums.cs", OutputBasePath, ctx.Class)));
+				glRegistryProcessor.GenerateStronglyTypedEnums(ctx, Path.Combine(BasePath, $"{OutputBasePath}/{ctx.Class}.Enums.cs"));
 				if (genGL_Features || genGL_Commands)
 					glRegistryProcessor.GenerateCommandsAndEnums(ctx);
 				if (genGL_Features || genGL_Extensions)
@@ -195,7 +195,7 @@ namespace BindingsGen
 				ctx.RefPages.Add(gl2Documentation);
 
 				glRegistryProcessor = new RegistryProcessor(ctx.Registry);
-				glRegistryProcessor.GenerateStronglyTypedEnums(ctx, Path.Combine(BasePath, String.Format("{0}/{1}.Enums.cs", OutputBasePath, ctx.Class)));
+				glRegistryProcessor.GenerateStronglyTypedEnums(ctx, Path.Combine(BasePath, $"{OutputBasePath}/{ctx.Class}.Enums.cs"));
 				glRegistryProcessor.GenerateCommandsAndEnums(ctx);
 				glRegistryProcessor.GenerateExtensionsSupportClass(ctx);
 				glRegistryProcessor.GenerateVersionsSupportClass(ctx);
@@ -210,7 +210,7 @@ namespace BindingsGen
 				ctx.RefPages.Add(gl2Documentation);
 
 				glRegistryProcessor = new RegistryProcessor(ctx.Registry);
-				glRegistryProcessor.GenerateStronglyTypedEnums(ctx, Path.Combine(BasePath, String.Format("{0}/{1}.Enums.cs", OutputBasePath, ctx.Class)));
+				glRegistryProcessor.GenerateStronglyTypedEnums(ctx, Path.Combine(BasePath, $"{OutputBasePath}/{ctx.Class}.Enums.cs"));
 				glRegistryProcessor.GenerateCommandsAndEnums(ctx);
 				glRegistryProcessor.GenerateExtensionsSupportClass(ctx);
 				glRegistryProcessor.GenerateVersionsSupportClass(ctx);
@@ -220,15 +220,15 @@ namespace BindingsGen
 
 			// EGL
 			if (genEGL) {
-				RegistryDocumentation<RegistryDocumentationHandler_EGL> eglDocumentation =
-					new RegistryDocumentation<RegistryDocumentationHandler_EGL> { Api = "EGL" };
+				RegistryDocumentation<RegistryDocumentationHandlerEGL> eglDocumentation =
+					new RegistryDocumentation<RegistryDocumentationHandlerEGL> { Api = "EGL" };
 				eglDocumentation.ScanDocumentation(Path.Combine(BasePath, "RefPages/EGL-Registry/sdk/docs/man"));
 
 				ctx = new RegistryContext("Egl", "Egl", Path.Combine(BasePath, "GLSpecs/egl.xml"));
 				ctx.RefPages.Add(eglDocumentation);
 
 				glRegistryProcessor = new RegistryProcessor(ctx.Registry);
-				glRegistryProcessor.GenerateStronglyTypedEnums(ctx, Path.Combine(BasePath, String.Format("{0}/{1}.Enums.cs", OutputBasePath, ctx.Class)));
+				glRegistryProcessor.GenerateStronglyTypedEnums(ctx, Path.Combine(BasePath, $"{OutputBasePath}/{ctx.Class}.Enums.cs"));
 				glRegistryProcessor.GenerateCommandsAndEnums(ctx);
 				glRegistryProcessor.GenerateExtensionsSupportClass(ctx);
 				glRegistryProcessor.GenerateVersionsSupportClass(ctx);
@@ -253,7 +253,7 @@ namespace BindingsGen
 
 				ctx = new RegistryContext("Wfc", "Wfc", headRegistry);
 				glRegistryProcessor = new RegistryProcessor(ctx.Registry, "OpenWF");
-				glRegistryProcessor.GenerateStronglyTypedEnums(ctx, Path.Combine(BasePath, String.Format("{0}/{1}.Enums.cs", OutputBasePath, ctx.Class)));
+				glRegistryProcessor.GenerateStronglyTypedEnums(ctx, Path.Combine(BasePath, $"{OutputBasePath}/{ctx.Class}.Enums.cs"));
 				glRegistryProcessor.GenerateCommandsAndEnums(ctx);
 				glRegistryProcessor.GenerateExtensionsSupportClass(ctx);
 				glRegistryProcessor.GenerateVersionsSupportClass( ctx);
@@ -272,7 +272,7 @@ namespace BindingsGen
 
 				ctx = new RegistryContext("Wfd", "Wfd", headRegistry);
 				glRegistryProcessor = new RegistryProcessor(ctx.Registry, "OpenWF");
-				glRegistryProcessor.GenerateStronglyTypedEnums(ctx, Path.Combine(BasePath, String.Format("{0}/{1}.Enums.cs", OutputBasePath, ctx.Class)));
+				glRegistryProcessor.GenerateStronglyTypedEnums(ctx, Path.Combine(BasePath, $"{OutputBasePath}/{ctx.Class}.Enums.cs"));
 				glRegistryProcessor.GenerateCommandsAndEnums(ctx);
 				glRegistryProcessor.GenerateExtensionsSupportClass(ctx);
 				glRegistryProcessor.GenerateVersionsSupportClass(ctx);
@@ -304,7 +304,7 @@ namespace BindingsGen
 
 				ctx = new RegistryContext("VX", "VX", vxRegistry);
 				glRegistryProcessor = new RegistryProcessor(ctx.Registry, "OpenVX");
-				glRegistryProcessor.GenerateStronglyTypedEnums(ctx, Path.Combine(BasePath, String.Format("{0}/{1}.Enums.cs", OutputBasePath, ctx.Class)));
+				glRegistryProcessor.GenerateStronglyTypedEnums(ctx, Path.Combine(BasePath, $"{OutputBasePath}/{ctx.Class}.Enums.cs"));
 				glRegistryProcessor.GenerateCommandsAndEnums(ctx);
 				//glRegistryProcessor.GenerateExtensionsSupportClass(ctx);
 				//glRegistryProcessor.GenerateVersionsSupportClass(ctx);

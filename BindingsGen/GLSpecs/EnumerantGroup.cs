@@ -25,7 +25,7 @@ namespace BindingsGen.GLSpecs
 	/// <summary>
 	/// Each EnumerantGroup defines a single group annotation.
 	/// </summary>
-	[DebuggerDisplay("EnumerantGroup: Name={Name}")]
+	[DebuggerDisplay("EnumerantGroup: Name={" + nameof(Name) + "}")]
 	public class EnumerantGroup
 	{
 		#region Specification
@@ -57,9 +57,9 @@ namespace BindingsGen.GLSpecs
 		internal void GenerateSource(SourceStreamWriter sw, RegistryContext ctx)
 		{
 			if (sw == null)
-				throw new ArgumentNullException("sw");
+				throw new ArgumentNullException(nameof(sw));
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			bool bitmask = Enums.TrueForAll(delegate(Enumerant item) {
 				Enumerant actualEnumerant = ctx.Registry.GetEnumerant(item.Name);

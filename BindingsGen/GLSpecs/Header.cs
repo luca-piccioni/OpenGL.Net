@@ -34,7 +34,7 @@ namespace BindingsGen.GLSpecs
 		public Header(string @class)
 		{
 			if (@class == null)
-				throw new ArgumentNullException("class");
+				throw new ArgumentNullException(nameof(@class));
 			Class = @class;
 		}
 
@@ -76,7 +76,7 @@ namespace BindingsGen.GLSpecs
 		public void AppendHeader(string path, string headerFeatureName)
 		{
 			if (path == null)
-				throw new ArgumentNullException("path");
+				throw new ArgumentNullException(nameof(path));
 
 			string headerText;
 

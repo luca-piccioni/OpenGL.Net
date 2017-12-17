@@ -38,7 +38,7 @@ namespace BindingsGen.GLSpecs
 			: base(otherParam)
 		{
 			if (otherParam == null)
-				throw new ArgumentNullException("otherParam");
+				throw new ArgumentNullException(nameof(otherParam));
 
 			if (IsCompatible(ctx, parentCommand, otherParam))
 				Length = "1";
