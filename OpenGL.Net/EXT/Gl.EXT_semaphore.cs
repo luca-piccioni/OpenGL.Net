@@ -112,6 +112,18 @@ namespace OpenGL
 		public const int LAYOUT_TRANSFER_DST_EXT = 0x9593;
 
 		/// <summary>
+		/// [GL] Value of GL_LAYOUT_DEPTH_READ_ONLY_STENCIL_ATTACHMENT_EXT symbol.
+		/// </summary>
+		[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
+		public const int LAYOUT_DEPTH_READ_ONLY_STENCIL_ATTACHMENT_EXT = 0x9530;
+
+		/// <summary>
+		/// [GL] Value of GL_LAYOUT_DEPTH_ATTACHMENT_STENCIL_READ_ONLY_EXT symbol.
+		/// </summary>
+		[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
+		public const int LAYOUT_DEPTH_ATTACHMENT_STENCIL_READ_ONLY_EXT = 0x9531;
+
+		/// <summary>
 		/// [GL] glGetUnsignedBytevEXT: Binding for glGetUnsignedBytevEXT.
 		/// </summary>
 		/// <param name="pname">
@@ -165,44 +177,53 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] glGenSemaphoresEXT: Binding for glGenSemaphoresEXT.
 		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:int"/>.
-		/// </param>
 		/// <param name="semaphores">
 		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
-		public static void GenSemaphoreEXT(int n, uint[] semaphores)
+		public static void GenSemaphoreEXT(uint[] semaphores)
 		{
 			unsafe {
 				fixed (uint* p_semaphores = semaphores)
 				{
 					Debug.Assert(Delegates.pglGenSemaphoresEXT != null, "pglGenSemaphoresEXT not implemented");
-					Delegates.pglGenSemaphoresEXT(n, p_semaphores);
-					LogCommand("glGenSemaphoresEXT", null, n, semaphores					);
+					Delegates.pglGenSemaphoresEXT(semaphores.Length, p_semaphores);
+					LogCommand("glGenSemaphoresEXT", null, semaphores.Length, semaphores					);
 				}
 			}
 			DebugCheckErrors(null);
 		}
 
 		/// <summary>
+		/// [GL] glGenSemaphoresEXT: Binding for glGenSemaphoresEXT.
+		/// </summary>
+		[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
+		public static uint GenSemaphoreEXT()
+		{
+			uint retValue;
+			unsafe {
+				Delegates.pglGenSemaphoresEXT(1, &retValue);
+				LogCommand("glGenSemaphoresEXT", null, 1, "{ " + retValue + " }"				);
+			}
+			DebugCheckErrors(null);
+			return (retValue);
+		}
+
+		/// <summary>
 		/// [GL] glDeleteSemaphoresEXT: Binding for glDeleteSemaphoresEXT.
 		/// </summary>
-		/// <param name="n">
-		/// A <see cref="T:int"/>.
-		/// </param>
 		/// <param name="semaphores">
 		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_semaphore", Api = "gl|gles2")]
-		public static void DeleteSemaphoreEXT(int n, uint[] semaphores)
+		public static void DeleteSemaphoreEXT(uint[] semaphores)
 		{
 			unsafe {
 				fixed (uint* p_semaphores = semaphores)
 				{
 					Debug.Assert(Delegates.pglDeleteSemaphoresEXT != null, "pglDeleteSemaphoresEXT not implemented");
-					Delegates.pglDeleteSemaphoresEXT(n, p_semaphores);
-					LogCommand("glDeleteSemaphoresEXT", null, n, semaphores					);
+					Delegates.pglDeleteSemaphoresEXT(semaphores.Length, p_semaphores);
+					LogCommand("glDeleteSemaphoresEXT", null, semaphores.Length, semaphores					);
 				}
 			}
 			DebugCheckErrors(null);

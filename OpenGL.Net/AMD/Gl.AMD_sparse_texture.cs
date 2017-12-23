@@ -90,13 +90,13 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="flags">
-		/// A <see cref="T:uint"/>.
+		/// A <see cref="T:TextureStorageMaskAMD"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_sparse_texture")]
-		public static void TexStorageAMD(TextureTarget target, InternalFormat internalFormat, int width, int height, int depth, int layers, uint flags)
+		public static void TexStorageAMD(TextureTarget target, InternalFormat internalFormat, int width, int height, int depth, int layers, TextureStorageMaskAMD flags)
 		{
 			Debug.Assert(Delegates.pglTexStorageSparseAMD != null, "pglTexStorageSparseAMD not implemented");
-			Delegates.pglTexStorageSparseAMD((int)target, (int)internalFormat, width, height, depth, layers, flags);
+			Delegates.pglTexStorageSparseAMD((int)target, (int)internalFormat, width, height, depth, layers, (uint)flags);
 			LogCommand("glTexStorageSparseAMD", null, target, internalFormat, width, height, depth, layers, flags			);
 			DebugCheckErrors(null);
 		}
@@ -126,13 +126,13 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="flags">
-		/// A <see cref="T:uint"/>.
+		/// A <see cref="T:TextureStorageMaskAMD"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_sparse_texture")]
-		public static void TextureStorageAMD(uint texture, int target, InternalFormat internalFormat, int width, int height, int depth, int layers, uint flags)
+		public static void TextureStorageAMD(uint texture, int target, InternalFormat internalFormat, int width, int height, int depth, int layers, TextureStorageMaskAMD flags)
 		{
 			Debug.Assert(Delegates.pglTextureStorageSparseAMD != null, "pglTextureStorageSparseAMD not implemented");
-			Delegates.pglTextureStorageSparseAMD(texture, target, (int)internalFormat, width, height, depth, layers, flags);
+			Delegates.pglTextureStorageSparseAMD(texture, target, (int)internalFormat, width, height, depth, layers, (uint)flags);
 			LogCommand("glTextureStorageSparseAMD", null, texture, target, internalFormat, width, height, depth, layers, flags			);
 			DebugCheckErrors(null);
 		}

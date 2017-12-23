@@ -44,19 +44,19 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_VIEWPORT_POSITION_W_SCALE_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_clip_space_w_scaling", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_clip_space_w_scaling", Api = "gl|glcore|gles2")]
 		public const int VIEWPORT_POSITION_W_SCALE_NV = 0x937C;
 
 		/// <summary>
 		/// [GL] Value of GL_VIEWPORT_POSITION_W_SCALE_X_COEFF_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_clip_space_w_scaling", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_clip_space_w_scaling", Api = "gl|glcore|gles2")]
 		public const int VIEWPORT_POSITION_W_SCALE_X_COEFF_NV = 0x937D;
 
 		/// <summary>
 		/// [GL] Value of GL_VIEWPORT_POSITION_W_SCALE_Y_COEFF_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_clip_space_w_scaling", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_clip_space_w_scaling", Api = "gl|glcore|gles2")]
 		public const int VIEWPORT_POSITION_W_SCALE_Y_COEFF_NV = 0x937E;
 
 		/// <summary>
@@ -71,7 +71,7 @@ namespace OpenGL
 		/// <param name="ycoeff">
 		/// A <see cref="T:float"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_clip_space_w_scaling", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_clip_space_w_scaling", Api = "gl|glcore|gles2")]
 		public static void ViewportPositionWScaleNV(uint index, float xcoeff, float ycoeff)
 		{
 			Debug.Assert(Delegates.pglViewportPositionWScaleNV != null, "pglViewportPositionWScaleNV not implemented");
@@ -82,11 +82,11 @@ namespace OpenGL
 
 		internal static unsafe partial class Delegates
 		{
-			[RequiredByFeature("GL_NV_clip_space_w_scaling", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_clip_space_w_scaling", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glViewportPositionWScaleNV(uint index, float xcoeff, float ycoeff);
 
-			[RequiredByFeature("GL_NV_clip_space_w_scaling", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_clip_space_w_scaling", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glViewportPositionWScaleNV pglViewportPositionWScaleNV;
 

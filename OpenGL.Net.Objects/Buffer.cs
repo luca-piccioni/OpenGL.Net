@@ -229,7 +229,7 @@ namespace OpenGL.Objects
 				throw new InvalidOperationException("buffer is immutable");
 
 			if (Immutable && ctx.Extensions.BufferStorage_ARB) {
-				Gl.BufferStorage(Target, size, data, (uint)_UsageMask);
+				Gl.BufferStorage(Target, size, data, _UsageMask);
 				Gl.CheckErrors();
 			} else {
 				Gl.BufferData(Target, size, data, Hint);

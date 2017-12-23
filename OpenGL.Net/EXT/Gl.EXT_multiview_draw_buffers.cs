@@ -105,7 +105,7 @@ namespace OpenGL
 		/// [GL] glGetIntegeri_vEXT: Binding for glGetIntegeri_vEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:GetPName"/>.
 		/// </param>
 		/// <param name="index">
 		/// A <see cref="T:uint"/>.
@@ -114,13 +114,13 @@ namespace OpenGL
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_multiview_draw_buffers", Api = "gles2")]
-		public static void GetIntegerEXT(int target, uint index, [Out] int[] data)
+		public static void GetIntegerEXT(GetPName target, uint index, [Out] int[] data)
 		{
 			unsafe {
 				fixed (int* p_data = data)
 				{
 					Debug.Assert(Delegates.pglGetIntegeri_vEXT != null, "pglGetIntegeri_vEXT not implemented");
-					Delegates.pglGetIntegeri_vEXT(target, index, p_data);
+					Delegates.pglGetIntegeri_vEXT((int)target, index, p_data);
 					LogCommand("glGetIntegeri_vEXT", null, target, index, data					);
 				}
 			}

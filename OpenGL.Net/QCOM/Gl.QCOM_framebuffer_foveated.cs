@@ -42,20 +42,6 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// [GL] Value of GL_FOVEATION_ENABLE_BIT_QCOM symbol.
-		/// </summary>
-		[RequiredByFeature("GL_QCOM_framebuffer_foveated", Api = "gles2")]
-		[Log(BitmaskName = "GL")]
-		public const uint FOVEATION_ENABLE_BIT_QCOM = 0x00000001;
-
-		/// <summary>
-		/// [GL] Value of GL_FOVEATION_SCALED_BIN_METHOD_BIT_QCOM symbol.
-		/// </summary>
-		[RequiredByFeature("GL_QCOM_framebuffer_foveated", Api = "gles2")]
-		[Log(BitmaskName = "GL")]
-		public const uint FOVEATION_SCALED_BIN_METHOD_BIT_QCOM = 0x00000002;
-
-		/// <summary>
 		/// [GL] glFramebufferFoveationConfigQCOM: Binding for glFramebufferFoveationConfigQCOM.
 		/// </summary>
 		/// <param name="framebuffer">

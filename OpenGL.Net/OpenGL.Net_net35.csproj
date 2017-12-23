@@ -498,7 +498,9 @@
     <Compile Include="MESA\Egl.MESA_drm_image.cs" />
     <Compile Include="MESA\Egl.MESA_platform_surfaceless.cs" />
     <Compile Include="MESA\Gl.MESA_pack_invert.cs" />
+    <Compile Include="MESA\Gl.MESA_program_binary_formats.cs" />
     <Compile Include="MESA\Gl.MESA_resize_buffers.cs" />
+    <Compile Include="MESA\Gl.MESA_tile_raster_order.cs" />
     <Compile Include="MESA\Gl.MESA_window_pos.cs" />
     <Compile Include="MESA\Gl.MESA_ycbcr_texture.cs" />
     <Compile Include="MESA\Glx.MESA_agp_offset.cs" />
@@ -508,6 +510,7 @@
     <Compile Include="MESA\Glx.MESA_release_buffers.cs" />
     <Compile Include="MESA\Glx.MESA_set_3dfx_mode.cs" />
     <Compile Include="DeviceContextEGL.cs" />
+    <Compile Include="MESA\Glx.MESA_swap_control.cs" />
     <Compile Include="NOK\Egl.NOK_texture_from_pixmap.cs" />
     <Compile Include="NVX\Gl.NVX_conditional_render.cs" />
     <Compile Include="NVX\Gl.NVX_gpu_memory_info.cs" />
@@ -547,6 +550,7 @@
     <Compile Include="NV\Gl.NV_compute_program5.cs" />
     <Compile Include="NV\Gl.NV_conservative_raster.cs" />
     <Compile Include="NV\Gl.NV_conservative_raster_dilate.cs" />
+    <Compile Include="NV\Gl.NV_conservative_raster_pre_snap.cs" />
     <Compile Include="NV\Gl.NV_copy_depth_to_color.cs" />
     <Compile Include="NV\Gl.NV_copy_image.cs" />
     <Compile Include="NV\Gl.NV_coverage_sample.cs" />
@@ -654,7 +658,7 @@
     <Compile Include="OES\Gl.OES_texture_3D.cs" />
     <Compile Include="OES\Gl.OES_texture_compression_astc.cs" />
     <Compile Include="OES\Gl.OES_texture_cube_map.cs" />
-    <Compile Include="OES\Gl.OES_vertex_half_float.cs" />
+    <Compile Include="OES\Gl.OES_texture_half_float.cs" />
     <Compile Include="OES\Gl.OES_vertex_type_10_10_10_2.cs" />
     <Compile Include="OML\Gl.OML_interlace.cs" />
     <Compile Include="OML\Gl.OML_resample.cs" />

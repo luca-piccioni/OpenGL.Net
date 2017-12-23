@@ -219,19 +219,19 @@ namespace OpenGL
 		/// [GL] glGetIntegerui64vNV: Binding for glGetIntegerui64vNV.
 		/// </summary>
 		/// <param name="value">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:GetPName"/>.
 		/// </param>
 		/// <param name="result">
 		/// A <see cref="T:ulong[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_shader_buffer_load", Api = "gl|glcore")]
-		public static void GetIntegerNV(int value, [Out] ulong[] result)
+		public static void GetIntegerNV(GetPName value, [Out] ulong[] result)
 		{
 			unsafe {
 				fixed (ulong* p_result = result)
 				{
 					Debug.Assert(Delegates.pglGetIntegerui64vNV != null, "pglGetIntegerui64vNV not implemented");
-					Delegates.pglGetIntegerui64vNV(value, p_result);
+					Delegates.pglGetIntegerui64vNV((int)value, p_result);
 					LogCommand("glGetIntegerui64vNV", null, value, result					);
 				}
 			}

@@ -371,6 +371,7 @@
     <Compile Include="MESA\Egl.MESA_image_dma_buf_export.cs" />
     <Compile Include="MESA\Egl.MESA_platform_surfaceless.cs" />
     <Compile Include="MESA\Gl.MESA_pack_invert.cs" />
+    <Compile Include="MESA\Gl.MESA_program_binary_formats.cs" />
     <Compile Include="MESA\Gl.MESA_resize_buffers.cs" />
     <Compile Include="MESA\Gl.MESA_window_pos.cs" />
     <Compile Include="MESA\Gl.MESA_ycbcr_texture.cs" />
@@ -508,7 +509,7 @@
     <Compile Include="OES\Gl.OES_texture_3D.cs" />
     <Compile Include="OES\Gl.OES_texture_compression_astc.cs" />
     <Compile Include="OES\Gl.OES_texture_cube_map.cs" />
-    <Compile Include="OES\Gl.OES_vertex_half_float.cs" />
+    <Compile Include="OES\Gl.OES_texture_half_float.cs" />
     <Compile Include="OES\Gl.OES_vertex_type_10_10_10_2.cs" />
     <Compile Include="OES\Gl.OES_viewport_array.cs" />
     <Compile Include="OML\Gl.OML_interlace.cs" />

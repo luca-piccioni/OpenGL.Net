@@ -69,6 +69,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 		public static void MatrixLoadEXT(MatrixMode mode, float[] m)
 		{
 			Debug.Assert(m.Length >= 16);
@@ -93,6 +94,7 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 		public static void MatrixLoadEXT(MatrixMode mode, double[] m)
 		{
 			Debug.Assert(m.Length >= 16);
@@ -117,6 +119,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 		public static void MatrixMultEXT(MatrixMode mode, float[] m)
 		{
 			Debug.Assert(m.Length >= 16);
@@ -141,6 +144,7 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 		public static void MatrixMultEXT(MatrixMode mode, double[] m)
 		{
 			Debug.Assert(m.Length >= 16);
@@ -162,6 +166,7 @@ namespace OpenGL
 		/// A <see cref="T:MatrixMode"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 		public static void MatrixLoadIdentityEXT(MatrixMode mode)
 		{
 			Debug.Assert(Delegates.pglMatrixLoadIdentityEXT != null, "pglMatrixLoadIdentityEXT not implemented");
@@ -189,6 +194,7 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 		public static void MatrixRotateEXT(MatrixMode mode, float angle, float x, float y, float z)
 		{
 			Debug.Assert(Delegates.pglMatrixRotatefEXT != null, "pglMatrixRotatefEXT not implemented");
@@ -216,6 +222,7 @@ namespace OpenGL
 		/// A <see cref="T:double"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 		public static void MatrixRotateEXT(MatrixMode mode, double angle, double x, double y, double z)
 		{
 			Debug.Assert(Delegates.pglMatrixRotatedEXT != null, "pglMatrixRotatedEXT not implemented");
@@ -240,6 +247,7 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 		public static void MatrixScaleEXT(MatrixMode mode, float x, float y, float z)
 		{
 			Debug.Assert(Delegates.pglMatrixScalefEXT != null, "pglMatrixScalefEXT not implemented");
@@ -264,6 +272,7 @@ namespace OpenGL
 		/// A <see cref="T:double"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 		public static void MatrixScaleEXT(MatrixMode mode, double x, double y, double z)
 		{
 			Debug.Assert(Delegates.pglMatrixScaledEXT != null, "pglMatrixScaledEXT not implemented");
@@ -288,6 +297,7 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 		public static void MatrixTranslateEXT(MatrixMode mode, float x, float y, float z)
 		{
 			Debug.Assert(Delegates.pglMatrixTranslatefEXT != null, "pglMatrixTranslatefEXT not implemented");
@@ -312,6 +322,7 @@ namespace OpenGL
 		/// A <see cref="T:double"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 		public static void MatrixTranslateEXT(MatrixMode mode, double x, double y, double z)
 		{
 			Debug.Assert(Delegates.pglMatrixTranslatedEXT != null, "pglMatrixTranslatedEXT not implemented");
@@ -345,6 +356,7 @@ namespace OpenGL
 		/// A <see cref="T:double"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 		public static void MatrixFrustumEXT(MatrixMode mode, double left, double right, double bottom, double top, double zNear, double zFar)
 		{
 			Debug.Assert(Delegates.pglMatrixFrustumEXT != null, "pglMatrixFrustumEXT not implemented");
@@ -378,6 +390,7 @@ namespace OpenGL
 		/// A <see cref="T:double"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 		public static void MatrixOrthoEXT(MatrixMode mode, double left, double right, double bottom, double top, double zNear, double zFar)
 		{
 			Debug.Assert(Delegates.pglMatrixOrthoEXT != null, "pglMatrixOrthoEXT not implemented");
@@ -393,6 +406,7 @@ namespace OpenGL
 		/// A <see cref="T:MatrixMode"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 		public static void MatrixPopEXT(MatrixMode mode)
 		{
 			Debug.Assert(Delegates.pglMatrixPopEXT != null, "pglMatrixPopEXT not implemented");
@@ -408,6 +422,7 @@ namespace OpenGL
 		/// A <see cref="T:MatrixMode"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 		public static void MatrixPushEXT(MatrixMode mode)
 		{
 			Debug.Assert(Delegates.pglMatrixPushEXT != null, "pglMatrixPushEXT not implemented");
@@ -4632,6 +4647,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 		public static void MatrixLoadTransposeEXT(MatrixMode mode, float[] m)
 		{
 			Debug.Assert(m.Length >= 16);
@@ -4656,6 +4672,7 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 		public static void MatrixLoadTransposeEXT(MatrixMode mode, double[] m)
 		{
 			Debug.Assert(m.Length >= 16);
@@ -4680,6 +4697,7 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 		public static void MatrixMultTransposeEXT(MatrixMode mode, float[] m)
 		{
 			Debug.Assert(m.Length >= 16);
@@ -4704,6 +4722,7 @@ namespace OpenGL
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 		public static void MatrixMultTransposeEXT(MatrixMode mode, double[] m)
 		{
 			Debug.Assert(m.Length >= 16);
@@ -7634,15 +7653,15 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="access">
-		/// A <see cref="T:uint"/>.
+		/// A <see cref="T:BufferAccessMask"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static IntPtr MapNamedBufferRangeEXT(uint buffer, IntPtr offset, uint length, uint access)
+		public static IntPtr MapNamedBufferRangeEXT(uint buffer, IntPtr offset, uint length, BufferAccessMask access)
 		{
 			IntPtr retValue;
 
 			Debug.Assert(Delegates.pglMapNamedBufferRangeEXT != null, "pglMapNamedBufferRangeEXT not implemented");
-			retValue = Delegates.pglMapNamedBufferRangeEXT(buffer, offset, length, access);
+			retValue = Delegates.pglMapNamedBufferRangeEXT(buffer, offset, length, (uint)access);
 			LogCommand("glMapNamedBufferRangeEXT", retValue, buffer, offset, length, access			);
 			DebugCheckErrors(retValue);
 
@@ -8845,122 +8864,152 @@ namespace OpenGL
 		internal static unsafe partial class Delegates
 		{
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glMatrixLoadfEXT(int mode, float* m);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glMatrixLoadfEXT pglMatrixLoadfEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glMatrixLoaddEXT(int mode, double* m);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glMatrixLoaddEXT pglMatrixLoaddEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glMatrixMultfEXT(int mode, float* m);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glMatrixMultfEXT pglMatrixMultfEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glMatrixMultdEXT(int mode, double* m);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glMatrixMultdEXT pglMatrixMultdEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glMatrixLoadIdentityEXT(int mode);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glMatrixLoadIdentityEXT pglMatrixLoadIdentityEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glMatrixRotatefEXT(int mode, float angle, float x, float y, float z);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glMatrixRotatefEXT pglMatrixRotatefEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glMatrixRotatedEXT(int mode, double angle, double x, double y, double z);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glMatrixRotatedEXT pglMatrixRotatedEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glMatrixScalefEXT(int mode, float x, float y, float z);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glMatrixScalefEXT pglMatrixScalefEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glMatrixScaledEXT(int mode, double x, double y, double z);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glMatrixScaledEXT pglMatrixScaledEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glMatrixTranslatefEXT(int mode, float x, float y, float z);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glMatrixTranslatefEXT pglMatrixTranslatefEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glMatrixTranslatedEXT(int mode, double x, double y, double z);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glMatrixTranslatedEXT pglMatrixTranslatedEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glMatrixFrustumEXT(int mode, double left, double right, double bottom, double top, double zNear, double zFar);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glMatrixFrustumEXT pglMatrixFrustumEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glMatrixOrthoEXT(int mode, double left, double right, double bottom, double top, double zNear, double zFar);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glMatrixOrthoEXT pglMatrixOrthoEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glMatrixPopEXT(int mode);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glMatrixPopEXT pglMatrixPopEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glMatrixPushEXT(int mode);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glMatrixPushEXT pglMatrixPushEXT;
 
@@ -9573,34 +9622,42 @@ namespace OpenGL
 			internal static glGetCompressedMultiTexImageEXT pglGetCompressedMultiTexImageEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glMatrixLoadTransposefEXT(int mode, float* m);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glMatrixLoadTransposefEXT pglMatrixLoadTransposefEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glMatrixLoadTransposedEXT(int mode, double* m);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glMatrixLoadTransposedEXT pglMatrixLoadTransposedEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glMatrixMultTransposefEXT(int mode, float* m);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glMatrixMultTransposefEXT pglMatrixMultTransposefEXT;
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glMatrixMultTransposedEXT(int mode, double* m);
 
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glMatrixMultTransposedEXT pglMatrixMultTransposedEXT;
 

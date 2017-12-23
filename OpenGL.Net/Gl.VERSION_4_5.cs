@@ -489,10 +489,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void NamedBufferStorage(uint buffer, uint size, IntPtr data, uint flags)
+		public static void NamedBufferStorage(uint buffer, uint size, IntPtr data, MapBufferUsageMask flags)
 		{
 			Debug.Assert(Delegates.pglNamedBufferStorage != null, "pglNamedBufferStorage not implemented");
-			Delegates.pglNamedBufferStorage(buffer, size, data, flags);
+			Delegates.pglNamedBufferStorage(buffer, size, data, (uint)flags);
 			LogCommand("glNamedBufferStorage", null, buffer, size, data, flags			);
 			DebugCheckErrors(null);
 		}
@@ -518,7 +518,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void NamedBufferStorage(uint buffer, uint size, object data, uint flags)
+		public static void NamedBufferStorage(uint buffer, uint size, object data, MapBufferUsageMask flags)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -840,12 +840,12 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static IntPtr MapNamedBufferRange(uint buffer, IntPtr offset, uint length, uint access)
+		public static IntPtr MapNamedBufferRange(uint buffer, IntPtr offset, uint length, BufferAccessMask access)
 		{
 			IntPtr retValue;
 
 			Debug.Assert(Delegates.pglMapNamedBufferRange != null, "pglMapNamedBufferRange not implemented");
-			retValue = Delegates.pglMapNamedBufferRange(buffer, offset, length, access);
+			retValue = Delegates.pglMapNamedBufferRange(buffer, offset, length, (uint)access);
 			LogCommand("glMapNamedBufferRange", retValue, buffer, offset, length, access			);
 			DebugCheckErrors(retValue);
 
@@ -1551,10 +1551,10 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void BlitNamedFramebuffer(uint readFramebuffer, uint drawFramebuffer, int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, uint mask, BlitFramebufferFilter filter)
+		public static void BlitNamedFramebuffer(uint readFramebuffer, uint drawFramebuffer, int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, ClearBufferMask mask, BlitFramebufferFilter filter)
 		{
 			Debug.Assert(Delegates.pglBlitNamedFramebuffer != null, "pglBlitNamedFramebuffer not implemented");
-			Delegates.pglBlitNamedFramebuffer(readFramebuffer, drawFramebuffer, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, (int)filter);
+			Delegates.pglBlitNamedFramebuffer(readFramebuffer, drawFramebuffer, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, (uint)mask, (int)filter);
 			LogCommand("glBlitNamedFramebuffer", null, readFramebuffer, drawFramebuffer, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter			);
 			DebugCheckErrors(null);
 		}

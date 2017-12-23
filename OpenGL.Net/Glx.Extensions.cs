@@ -367,6 +367,12 @@ namespace OpenGL
 			public bool Multisample_3DFX;
 
 			/// <summary>
+			/// Support for extension GLX_MESA_swap_control.
+			/// </summary>
+			[Extension("GLX_MESA_swap_control")]
+			public bool SwapControl_MESA;
+
+			/// <summary>
 			/// Support for extension GLX_NV_float_buffer.
 			/// </summary>
 			[Extension("GLX_NV_float_buffer")]
@@ -397,10 +403,10 @@ namespace OpenGL
 			public bool Dmbuffer_SGIX;
 
 			/// <summary>
-			/// Support for extension GLX_EXT_libglvnd.
+			/// Support for extension GLX_EXT_swap_control.
 			/// </summary>
-			[Extension("GLX_EXT_libglvnd")]
-			public bool Libglvnd_EXT;
+			[Extension("GLX_EXT_swap_control")]
+			public bool SwapControl_EXT;
 
 			/// <summary>
 			/// Support for extension GLX_EXT_stereo_tree.
@@ -409,10 +415,16 @@ namespace OpenGL
 			public bool StereoTree_EXT;
 
 			/// <summary>
-			/// Support for extension GLX_EXT_swap_control.
+			/// Support for extension GLX_EXT_no_config_context.
 			/// </summary>
-			[Extension("GLX_EXT_swap_control")]
-			public bool SwapControl_EXT;
+			[Extension("GLX_EXT_no_config_context")]
+			public bool NoConfigContext_EXT;
+
+			/// <summary>
+			/// Support for extension GLX_EXT_libglvnd.
+			/// </summary>
+			[Extension("GLX_EXT_libglvnd")]
+			public bool Libglvnd_EXT;
 
 		}
 }

@@ -338,16 +338,16 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="stages">
-		/// A <see cref="T:uint"/>.
+		/// A <see cref="T:UseProgramStageMask"/>.
 		/// </param>
 		/// <param name="program">
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-		public static void UseProgramStageEXT(uint pipeline, uint stages, uint program)
+		public static void UseProgramStageEXT(uint pipeline, UseProgramStageMask stages, uint program)
 		{
 			Debug.Assert(Delegates.pglUseProgramStagesEXT != null, "pglUseProgramStagesEXT not implemented");
-			Delegates.pglUseProgramStagesEXT(pipeline, stages, program);
+			Delegates.pglUseProgramStagesEXT(pipeline, (uint)stages, program);
 			LogCommand("glUseProgramStagesEXT", null, pipeline, stages, program			);
 			DebugCheckErrors(null);
 		}

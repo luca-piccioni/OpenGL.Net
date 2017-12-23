@@ -303,7 +303,7 @@ namespace OpenGL
 			[Limit(MAX_DEBUG_GROUP_STACK_DEPTH)]
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles1|gles2")]
 			public int MaxDebugGroupStackDepth;
 
 			/// <summary>
@@ -356,7 +356,7 @@ namespace OpenGL
 			[Limit(MAX_LABEL_LENGTH)]
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles1|gles2")]
 			public int MaxLabelLength;
 
 			/// <summary>
@@ -2136,7 +2136,7 @@ namespace OpenGL
 			[Limit(MAX_DEBUG_MESSAGE_LENGTH)]
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles1|gles2")]
 			[RequiredByFeature("GL_AMD_debug_output")]
 			[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
 			public int MaxDebugMessageLength;
@@ -2147,7 +2147,7 @@ namespace OpenGL
 			[Limit(MAX_DEBUG_LOGGED_MESSAGES)]
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
-			[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles2")]
+			[RequiredByFeature("GL_KHR_debug", Api = "gl|glcore|gles1|gles2")]
 			[RequiredByFeature("GL_AMD_debug_output")]
 			[RequiredByFeature("GL_ARB_debug_output", Api = "gl|glcore")]
 			public int MaxDebugLoggedMessages;

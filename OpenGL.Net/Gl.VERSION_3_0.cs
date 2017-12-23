@@ -1028,7 +1028,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
-		[RequiredByFeature("GL_OES_surfaceless_context", Api = "gles2")]
+		[RequiredByFeature("GL_OES_surfaceless_context", Api = "gles1|gles2")]
 		public const int FRAMEBUFFER_UNDEFINED = 0x8219;
 
 		/// <summary>
@@ -2492,6 +2492,40 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_draw_buffers2")]
+		public static void Get(GetPName target, uint index, [Out] int[] data)
+		{
+			unsafe {
+				fixed (int* p_data = data)
+				{
+					Debug.Assert(Delegates.pglGetIntegeri_v != null, "pglGetIntegeri_v not implemented");
+					Delegates.pglGetIntegeri_v((int)target, index, p_data);
+					LogCommand("glGetIntegeri_v", null, target, index, data					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glGetIntegeri_v: return the value or values of a selected parameter
+		/// </para>
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the parameter value to be returned for indexed versions of Gl.Get. The symbolic constants in the list below 
+		/// are accepted.
+		/// </param>
+		/// <param name="index">
+		/// Specifies the index of the particular element being queried.
+		/// </param>
+		/// <param name="data">
+		/// Returns the value or values of the specified parameter.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_VERSION_3_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_draw_buffers2")]
 		public static void Get(int target, uint index, out int data)
 		{
 			unsafe {
@@ -2499,6 +2533,40 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetIntegeri_v != null, "pglGetIntegeri_v not implemented");
 					Delegates.pglGetIntegeri_v(target, index, p_data);
+					LogCommand("glGetIntegeri_v", null, target, index, data					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glGetIntegeri_v: return the value or values of a selected parameter
+		/// </para>
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the parameter value to be returned for indexed versions of Gl.Get. The symbolic constants in the list below 
+		/// are accepted.
+		/// </param>
+		/// <param name="index">
+		/// Specifies the index of the particular element being queried.
+		/// </param>
+		/// <param name="data">
+		/// Returns the value or values of the specified parameter.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_VERSION_3_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_draw_buffers2")]
+		public static void Get(GetPName target, uint index, out int data)
+		{
+			unsafe {
+				fixed (int* p_data = &data)
+				{
+					Debug.Assert(Delegates.pglGetIntegeri_v != null, "pglGetIntegeri_v not implemented");
+					Delegates.pglGetIntegeri_v((int)target, index, p_data);
 					LogCommand("glGetIntegeri_v", null, target, index, data					);
 				}
 			}
@@ -2792,10 +2860,10 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_NV_conditional_render", Api = "gl|glcore|gles2")]
-		public static void BeginConditionalRender(uint id, int mode)
+		public static void BeginConditionalRender(uint id, ConditionalQueryMode mode)
 		{
 			Debug.Assert(Delegates.pglBeginConditionalRender != null, "pglBeginConditionalRender not implemented");
-			Delegates.pglBeginConditionalRender(id, mode);
+			Delegates.pglBeginConditionalRender(id, (int)mode);
 			LogCommand("glBeginConditionalRender", null, id, mode			);
 			DebugCheckErrors(null);
 		}
@@ -6397,12 +6465,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_map_buffer_range", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_map_buffer_range", Api = "gles1|gles2")]
-		public static IntPtr MapBufferRange(BufferTarget target, IntPtr offset, uint length, uint access)
+		public static IntPtr MapBufferRange(BufferTarget target, IntPtr offset, uint length, BufferAccessMask access)
 		{
 			IntPtr retValue;
 
 			Debug.Assert(Delegates.pglMapBufferRange != null, "pglMapBufferRange not implemented");
-			retValue = Delegates.pglMapBufferRange((int)target, offset, length, access);
+			retValue = Delegates.pglMapBufferRange((int)target, offset, length, (uint)access);
 			LogCommand("glMapBufferRange", retValue, target, offset, length, access			);
 			DebugCheckErrors(retValue);
 

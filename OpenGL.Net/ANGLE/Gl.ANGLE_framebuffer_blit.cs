@@ -69,16 +69,16 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="mask">
-		/// A <see cref="T:uint"/>.
+		/// A <see cref="T:ClearBufferMask"/>.
 		/// </param>
 		/// <param name="filter">
 		/// A <see cref="T:BlitFramebufferFilter"/>.
 		/// </param>
 		[RequiredByFeature("GL_ANGLE_framebuffer_blit", Api = "gles2")]
-		public static void BlitFramebufferANGLE(int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, uint mask, BlitFramebufferFilter filter)
+		public static void BlitFramebufferANGLE(int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, ClearBufferMask mask, BlitFramebufferFilter filter)
 		{
 			Debug.Assert(Delegates.pglBlitFramebufferANGLE != null, "pglBlitFramebufferANGLE not implemented");
-			Delegates.pglBlitFramebufferANGLE(srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, (int)filter);
+			Delegates.pglBlitFramebufferANGLE(srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, (uint)mask, (int)filter);
 			LogCommand("glBlitFramebufferANGLE", null, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter			);
 			DebugCheckErrors(null);
 		}

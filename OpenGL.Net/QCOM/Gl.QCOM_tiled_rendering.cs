@@ -281,13 +281,13 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="preserveMask">
-		/// A <see cref="T:uint"/>.
+		/// A <see cref="T:BufferBitQCOM"/>.
 		/// </param>
 		[RequiredByFeature("GL_QCOM_tiled_rendering", Api = "gles1|gles2")]
-		public static void StartQCOM(uint x, uint y, uint width, uint height, uint preserveMask)
+		public static void StartQCOM(uint x, uint y, uint width, uint height, BufferBitQCOM preserveMask)
 		{
 			Debug.Assert(Delegates.pglStartTilingQCOM != null, "pglStartTilingQCOM not implemented");
-			Delegates.pglStartTilingQCOM(x, y, width, height, preserveMask);
+			Delegates.pglStartTilingQCOM(x, y, width, height, (uint)preserveMask);
 			LogCommand("glStartTilingQCOM", null, x, y, width, height, preserveMask			);
 			DebugCheckErrors(null);
 		}
@@ -296,13 +296,13 @@ namespace OpenGL
 		/// [GL] glEndTilingQCOM: Binding for glEndTilingQCOM.
 		/// </summary>
 		/// <param name="preserveMask">
-		/// A <see cref="T:uint"/>.
+		/// A <see cref="T:BufferBitQCOM"/>.
 		/// </param>
 		[RequiredByFeature("GL_QCOM_tiled_rendering", Api = "gles1|gles2")]
-		public static void EndQCOM(uint preserveMask)
+		public static void EndQCOM(BufferBitQCOM preserveMask)
 		{
 			Debug.Assert(Delegates.pglEndTilingQCOM != null, "pglEndTilingQCOM not implemented");
-			Delegates.pglEndTilingQCOM(preserveMask);
+			Delegates.pglEndTilingQCOM((uint)preserveMask);
 			LogCommand("glEndTilingQCOM", null, preserveMask			);
 			DebugCheckErrors(null);
 		}

@@ -42,13 +42,22 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// [GL] Value of GL_FRAMEBUFFER_INCOMPLETE_DIMENSIONS symbol.
+		/// [GL] Value of GL_TILE_RASTER_ORDER_FIXED_MESA symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		[RequiredByFeature("GL_EXT_framebuffer_object")]
-		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
-		public const int FRAMEBUFFER_INCOMPLETE_DIMENSIONS = 0x8CD9;
+		[RequiredByFeature("GL_MESA_tile_raster_order")]
+		public const int TILE_RASTER_ORDER_FIXED_MESA = 0x8BB8;
+
+		/// <summary>
+		/// [GL] Value of GL_TILE_RASTER_ORDER_INCREASING_X_MESA symbol.
+		/// </summary>
+		[RequiredByFeature("GL_MESA_tile_raster_order")]
+		public const int TILE_RASTER_ORDER_INCREASING_X_MESA = 0x8BB9;
+
+		/// <summary>
+		/// [GL] Value of GL_TILE_RASTER_ORDER_INCREASING_Y_MESA symbol.
+		/// </summary>
+		[RequiredByFeature("GL_MESA_tile_raster_order")]
+		public const int TILE_RASTER_ORDER_INCREASING_Y_MESA = 0x8BBA;
 
 	}
 

@@ -556,65 +556,26 @@ namespace OpenGL
 		public const int COMPARE_R_TO_TEXTURE = 0x884E;
 
 		/// <summary>
-		/// [GL] Value of GL_FUNC_ADD symbol.
+		/// [GL4|GLES3.2] Gl.Get: data returns four values, the red, green, blue, and alpha values which are the components of the 
+		/// blend color. See Gl.BlendColor.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
-		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
-		[RequiredByFeature("GL_EXT_blend_minmax", Api = "gl|gles1|gles2")]
-		[RequiredByFeature("GL_OES_blend_subtract", Api = "gles1")]
-		public const int FUNC_ADD = 0x8006;
+		[RequiredByFeature("GL_EXT_blend_color")]
+		public const int BLEND_COLOR = 0x8005;
 
 		/// <summary>
-		/// [GL] Value of GL_FUNC_SUBTRACT symbol.
+		/// [GL] Value of GL_BLEND_EQUATION symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
-		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
-		[RequiredByFeature("GL_EXT_blend_subtract")]
-		[RequiredByFeature("GL_OES_blend_subtract", Api = "gles1")]
-		public const int FUNC_SUBTRACT = 0x800A;
-
-		/// <summary>
-		/// [GL] Value of GL_FUNC_REVERSE_SUBTRACT symbol.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_4")]
-		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
-		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
-		[RequiredByFeature("GL_EXT_blend_subtract")]
-		[RequiredByFeature("GL_OES_blend_subtract", Api = "gles1")]
-		public const int FUNC_REVERSE_SUBTRACT = 0x800B;
-
-		/// <summary>
-		/// [GL] Value of GL_MIN symbol.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_4")]
-		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
-		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_blend_minmax", Api = "gl|gles1|gles2")]
-		public const int MIN = 0x8007;
-
-		/// <summary>
-		/// [GL] Value of GL_MAX symbol.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_1_4")]
-		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
-		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
-		[RequiredByFeature("GL_EXT_blend_minmax", Api = "gl|gles1|gles2")]
-		public const int MAX = 0x8008;
+		[RequiredByFeature("GL_OES_blend_subtract", Api = "gles1")]
+		public const int BLEND_EQUATION = 0x8009;
 
 		/// <summary>
 		/// [GL] Value of GL_CONSTANT_COLOR symbol.
@@ -663,6 +624,67 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_blend_color")]
 		public const int ONE_MINUS_CONSTANT_ALPHA = 0x8004;
+
+		/// <summary>
+		/// [GL] Value of GL_FUNC_ADD symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
+		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_blend_minmax", Api = "gl|gles1|gles2")]
+		[RequiredByFeature("GL_OES_blend_subtract", Api = "gles1")]
+		public const int FUNC_ADD = 0x8006;
+
+		/// <summary>
+		/// [GL] Value of GL_FUNC_REVERSE_SUBTRACT symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
+		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_blend_subtract")]
+		[RequiredByFeature("GL_OES_blend_subtract", Api = "gles1")]
+		public const int FUNC_REVERSE_SUBTRACT = 0x800B;
+
+		/// <summary>
+		/// [GL] Value of GL_FUNC_SUBTRACT symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
+		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_blend_subtract")]
+		[RequiredByFeature("GL_OES_blend_subtract", Api = "gles1")]
+		public const int FUNC_SUBTRACT = 0x800A;
+
+		/// <summary>
+		/// [GL] Value of GL_MIN symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
+		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_blend_minmax", Api = "gl|gles1|gles2")]
+		public const int MIN = 0x8007;
+
+		/// <summary>
+		/// [GL] Value of GL_MAX symbol.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_draw_buffers_indexed", Api = "gles2")]
+		[RequiredByFeature("GL_OES_draw_buffers_indexed", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_blend_minmax", Api = "gl|gles1|gles2")]
+		public const int MAX = 0x8008;
 
 		/// <summary>
 		/// [GL2.1] glBlendFuncSeparate: specify pixel arithmetic for RGB and alpha components separately

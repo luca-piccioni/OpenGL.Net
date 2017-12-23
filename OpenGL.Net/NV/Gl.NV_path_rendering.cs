@@ -2976,7 +2976,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="fontStyle">
-		/// A <see cref="T:uint"/>.
+		/// A <see cref="T:PathFontStyle"/>.
 		/// </param>
 		/// <param name="pathParameterTemplate">
 		/// A <see cref="T:uint"/>.
@@ -2988,7 +2988,7 @@ namespace OpenGL
 		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static int PathGlyphIndexRangeNV(int fontTarget, IntPtr fontName, uint fontStyle, uint pathParameterTemplate, float emScale, uint[] baseAndCount)
+		public static int PathGlyphIndexRangeNV(int fontTarget, IntPtr fontName, PathFontStyle fontStyle, uint pathParameterTemplate, float emScale, uint[] baseAndCount)
 		{
 			int retValue;
 
@@ -2996,7 +2996,7 @@ namespace OpenGL
 				fixed (uint* p_baseAndCount = baseAndCount)
 				{
 					Debug.Assert(Delegates.pglPathGlyphIndexRangeNV != null, "pglPathGlyphIndexRangeNV not implemented");
-					retValue = Delegates.pglPathGlyphIndexRangeNV(fontTarget, fontName, fontStyle, pathParameterTemplate, emScale, p_baseAndCount);
+					retValue = Delegates.pglPathGlyphIndexRangeNV(fontTarget, fontName, (uint)fontStyle, pathParameterTemplate, emScale, p_baseAndCount);
 					LogCommand("glPathGlyphIndexRangeNV", retValue, fontTarget, fontName, fontStyle, pathParameterTemplate, emScale, baseAndCount					);
 				}
 			}
@@ -3015,7 +3015,7 @@ namespace OpenGL
 		/// A <see cref="T:object"/>.
 		/// </param>
 		/// <param name="fontStyle">
-		/// A <see cref="T:uint"/>.
+		/// A <see cref="T:PathFontStyle"/>.
 		/// </param>
 		/// <param name="pathParameterTemplate">
 		/// A <see cref="T:uint"/>.
@@ -3027,7 +3027,7 @@ namespace OpenGL
 		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static int PathGlyphIndexRangeNV(int fontTarget, object fontName, uint fontStyle, uint pathParameterTemplate, float emScale, uint[] baseAndCount)
+		public static int PathGlyphIndexRangeNV(int fontTarget, object fontName, PathFontStyle fontStyle, uint pathParameterTemplate, float emScale, uint[] baseAndCount)
 		{
 			GCHandle pin_fontName = GCHandle.Alloc(fontName, GCHandleType.Pinned);
 			try {
@@ -3050,7 +3050,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="fontStyle">
-		/// A <see cref="T:uint"/>.
+		/// A <see cref="T:PathFontStyle"/>.
 		/// </param>
 		/// <param name="firstGlyphIndex">
 		/// A <see cref="T:uint"/>.
@@ -3065,12 +3065,12 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static int PathGlyphIndexArrayNV(uint firstPathName, int fontTarget, IntPtr fontName, uint fontStyle, uint firstGlyphIndex, int numGlyphs, uint pathParameterTemplate, float emScale)
+		public static int PathGlyphIndexArrayNV(uint firstPathName, int fontTarget, IntPtr fontName, PathFontStyle fontStyle, uint firstGlyphIndex, int numGlyphs, uint pathParameterTemplate, float emScale)
 		{
 			int retValue;
 
 			Debug.Assert(Delegates.pglPathGlyphIndexArrayNV != null, "pglPathGlyphIndexArrayNV not implemented");
-			retValue = Delegates.pglPathGlyphIndexArrayNV(firstPathName, fontTarget, fontName, fontStyle, firstGlyphIndex, numGlyphs, pathParameterTemplate, emScale);
+			retValue = Delegates.pglPathGlyphIndexArrayNV(firstPathName, fontTarget, fontName, (uint)fontStyle, firstGlyphIndex, numGlyphs, pathParameterTemplate, emScale);
 			LogCommand("glPathGlyphIndexArrayNV", retValue, firstPathName, fontTarget, fontName, fontStyle, firstGlyphIndex, numGlyphs, pathParameterTemplate, emScale			);
 			DebugCheckErrors(retValue);
 
@@ -3090,7 +3090,7 @@ namespace OpenGL
 		/// A <see cref="T:object"/>.
 		/// </param>
 		/// <param name="fontStyle">
-		/// A <see cref="T:uint"/>.
+		/// A <see cref="T:PathFontStyle"/>.
 		/// </param>
 		/// <param name="firstGlyphIndex">
 		/// A <see cref="T:uint"/>.
@@ -3105,7 +3105,7 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static int PathGlyphIndexArrayNV(uint firstPathName, int fontTarget, object fontName, uint fontStyle, uint firstGlyphIndex, int numGlyphs, uint pathParameterTemplate, float emScale)
+		public static int PathGlyphIndexArrayNV(uint firstPathName, int fontTarget, object fontName, PathFontStyle fontStyle, uint firstGlyphIndex, int numGlyphs, uint pathParameterTemplate, float emScale)
 		{
 			GCHandle pin_fontName = GCHandle.Alloc(fontName, GCHandleType.Pinned);
 			try {

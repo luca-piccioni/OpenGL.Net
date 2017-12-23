@@ -1036,12 +1036,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
 		[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
-		public static SyncStatus ClientWaitSync(int sync, uint flags, ulong timeout)
+		public static SyncStatus ClientWaitSync(int sync, SyncObjectMask flags, ulong timeout)
 		{
 			int retValue;
 
 			Debug.Assert(Delegates.pglClientWaitSync != null, "pglClientWaitSync not implemented");
-			retValue = Delegates.pglClientWaitSync(sync, flags, timeout);
+			retValue = Delegates.pglClientWaitSync(sync, (uint)flags, timeout);
 			LogCommand("glClientWaitSync", (SyncStatus)retValue, sync, flags, timeout			);
 			DebugCheckErrors(retValue);
 
@@ -1311,6 +1311,36 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		public static void Get(GetPName target, uint index, [Out] long[] data)
+		{
+			unsafe {
+				fixed (long* p_data = data)
+				{
+					Debug.Assert(Delegates.pglGetInteger64i_v != null, "pglGetInteger64i_v not implemented");
+					Delegates.pglGetInteger64i_v((int)target, index, p_data);
+					LogCommand("glGetInteger64i_v", null, target, index, data					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glGetInteger64i_v: return the value or values of a selected parameter
+		/// </para>
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the parameter value to be returned for indexed versions of Gl.Get. The symbolic constants in the list below 
+		/// are accepted.
+		/// </param>
+		/// <param name="index">
+		/// Specifies the index of the particular element being queried.
+		/// </param>
+		/// <param name="data">
+		/// Returns the value or values of the specified parameter.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		public static void Get(int target, uint index, out long data)
 		{
 			unsafe {
@@ -1318,6 +1348,36 @@ namespace OpenGL
 				{
 					Debug.Assert(Delegates.pglGetInteger64i_v != null, "pglGetInteger64i_v not implemented");
 					Delegates.pglGetInteger64i_v(target, index, p_data);
+					LogCommand("glGetInteger64i_v", null, target, index, data					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glGetInteger64i_v: return the value or values of a selected parameter
+		/// </para>
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the parameter value to be returned for indexed versions of Gl.Get. The symbolic constants in the list below 
+		/// are accepted.
+		/// </param>
+		/// <param name="index">
+		/// Specifies the index of the particular element being queried.
+		/// </param>
+		/// <param name="data">
+		/// Returns the value or values of the specified parameter.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		public static void Get(GetPName target, uint index, out long data)
+		{
+			unsafe {
+				fixed (long* p_data = &data)
+				{
+					Debug.Assert(Delegates.pglGetInteger64i_v != null, "pglGetInteger64i_v not implemented");
+					Delegates.pglGetInteger64i_v((int)target, index, p_data);
 					LogCommand("glGetInteger64i_v", null, target, index, data					);
 				}
 			}

@@ -202,6 +202,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_texture_mirror_clamp_to_edge", Api = "gl|glcore")]
 		[RequiredByFeature("GL_ATI_texture_mirror_once")]
 		[RequiredByFeature("GL_EXT_texture_mirror_clamp")]
+		[RequiredByFeature("GL_EXT_texture_mirror_clamp_to_edge", Api = "gles2")]
 		public const int MIRROR_CLAMP_TO_EDGE = 0x8743;
 
 		/// <summary>
@@ -226,10 +227,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_buffer_storage", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_buffer_storage", Api = "gles2")]
-		public static void BufferStorage(BufferTarget target, uint size, IntPtr data, uint flags)
+		public static void BufferStorage(BufferTarget target, uint size, IntPtr data, MapBufferUsageMask flags)
 		{
 			Debug.Assert(Delegates.pglBufferStorage != null, "pglBufferStorage not implemented");
-			Delegates.pglBufferStorage((int)target, size, data, flags);
+			Delegates.pglBufferStorage((int)target, size, data, (uint)flags);
 			LogCommand("glBufferStorage", null, target, size, data, flags			);
 			DebugCheckErrors(null);
 		}
@@ -256,7 +257,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_buffer_storage", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_buffer_storage", Api = "gles2")]
-		public static void BufferStorage(BufferTarget target, uint size, object data, uint flags)
+		public static void BufferStorage(BufferTarget target, uint size, object data, MapBufferUsageMask flags)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {

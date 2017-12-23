@@ -42,13 +42,10 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// [GL] Value of GL_FRAMEBUFFER_INCOMPLETE_DIMENSIONS symbol.
+		/// [GL] Value of GL_PROGRAM_BINARY_FORMAT_MESA symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		[RequiredByFeature("GL_EXT_framebuffer_object")]
-		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
-		public const int FRAMEBUFFER_INCOMPLETE_DIMENSIONS = 0x8CD9;
+		[RequiredByFeature("GL_MESA_program_binary_formats", Api = "gl|gles2")]
+		public const int PROGRAM_BINARY_FORMAT_MESA = 0x875F;
 
 	}
 

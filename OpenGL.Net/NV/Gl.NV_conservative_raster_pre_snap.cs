@@ -42,13 +42,10 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// [GL] Value of GL_FRAMEBUFFER_INCOMPLETE_DIMENSIONS symbol.
+		/// [GL] Value of GL_CONSERVATIVE_RASTER_MODE_PRE_SNAP_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
-		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		[RequiredByFeature("GL_EXT_framebuffer_object")]
-		[RequiredByFeature("GL_OES_framebuffer_object", Api = "gles1")]
-		public const int FRAMEBUFFER_INCOMPLETE_DIMENSIONS = 0x8CD9;
+		[RequiredByFeature("GL_NV_conservative_raster_pre_snap", Api = "gl|glcore|gles2")]
+		public const int CONSERVATIVE_RASTER_MODE_PRE_SNAP_NV = 0x9550;
 
 	}
 
