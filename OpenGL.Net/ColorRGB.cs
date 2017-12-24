@@ -19,7 +19,6 @@
 // SOFTWARE.
 
 using System;
-using System.Diagnostics;
 #if HAVE_SYSTEM_DRAWING
 using System.Drawing;
 #endif
@@ -100,7 +99,7 @@ namespace OpenGL
 		/// <summary>
 		/// White color.
 		/// </summary>
-		public static readonly ColorRGB8 ColorWhite = new ColorRGB8(Byte.MaxValue, Byte.MaxValue, Byte.MaxValue);
+		public static readonly ColorRGB8 ColorWhite = new ColorRGB8(byte.MaxValue, byte.MaxValue, byte.MaxValue);
 
 		/// <summary>
 		/// Black color.
@@ -110,32 +109,32 @@ namespace OpenGL
 		/// <summary>
 		/// Red color.
 		/// </summary>
-		public static readonly ColorRGB8 ColorRed = new ColorRGB8(Byte.MaxValue, 0, 0);
+		public static readonly ColorRGB8 ColorRed = new ColorRGB8(byte.MaxValue, 0, 0);
 
 		/// <summary>
 		/// Green color.
 		/// </summary>
-		public static readonly ColorRGB8 ColorGreen = new ColorRGB8(0, Byte.MaxValue, 0);
+		public static readonly ColorRGB8 ColorGreen = new ColorRGB8(0, byte.MaxValue, 0);
 
 		/// <summary>
 		/// Blue color.
 		/// </summary>
-		public static readonly ColorRGB8 ColorBlue = new ColorRGB8(0, 0, Byte.MaxValue);
+		public static readonly ColorRGB8 ColorBlue = new ColorRGB8(0, 0, byte.MaxValue);
 
 		/// <summary>
 		/// Yellow color.
 		/// </summary>
-		public static readonly ColorRGB8 ColorYellow = new ColorRGB8(Byte.MaxValue, Byte.MaxValue, 0);
+		public static readonly ColorRGB8 ColorYellow = new ColorRGB8(byte.MaxValue, byte.MaxValue, 0);
 
 		/// <summary>
 		/// Magenta color.
 		/// </summary>
-		public static readonly ColorRGB8 ColorMagenta = new ColorRGB8(Byte.MaxValue, 0, Byte.MaxValue);
+		public static readonly ColorRGB8 ColorMagenta = new ColorRGB8(byte.MaxValue, 0, byte.MaxValue);
 
 		/// <summary>
 		/// Cyan color.
 		/// </summary>
-		public static readonly ColorRGB8 ColorCyan = new ColorRGB8(0, Byte.MaxValue, Byte.MaxValue);
+		public static readonly ColorRGB8 ColorCyan = new ColorRGB8(0, byte.MaxValue, byte.MaxValue);
 
 		#endregion
 
@@ -146,7 +145,7 @@ namespace OpenGL
 		/// </summary>
 		public byte Red
 		{
-			get { return (byte)(((rgb >> 5) & 0x07) << 5); }
+			get { return (byte)((((rgb >> 5) & 0x07) / (float)0x07) * byte.MaxValue); }
 			set { rgb = (byte)unchecked((rgb & ~0xE0) | (value >> 5) << 5); }
 		}
 
@@ -155,7 +154,7 @@ namespace OpenGL
 		/// </summary>
 		public byte Green
 		{
-			get { return (byte)(((rgb >> 3) & 0x07) << 5); }
+			get { return (byte)((((rgb >> 3) & 0x07) / (float)0x07) * byte.MaxValue); }
 			set { rgb = (byte)unchecked((rgb & ~0x38) | (value >> 5) << 3); }
 		}
 
@@ -164,7 +163,7 @@ namespace OpenGL
 		/// </summary>
 		public byte Blue
 		{
-			get { return (byte)(((rgb >> 0) & 0x03) << 6); }
+			get { return (byte)((((rgb >> 0) & 0x03) / (float)0x03) * byte.MaxValue); }
 			set { rgb = (byte)unchecked((rgb & ~0x03) | (value >> 6)); }
 		}
 
@@ -291,7 +290,7 @@ namespace OpenGL
 		/// <summary>
 		/// White color.
 		/// </summary>
-		public static readonly ColorRGB15 ColorWhite = new ColorRGB15(Byte.MaxValue, Byte.MaxValue, Byte.MaxValue);
+		public static readonly ColorRGB15 ColorWhite = new ColorRGB15(byte.MaxValue, byte.MaxValue, byte.MaxValue);
 
 		/// <summary>
 		/// Black color.
@@ -301,32 +300,32 @@ namespace OpenGL
 		/// <summary>
 		/// Red color.
 		/// </summary>
-		public static readonly ColorRGB15 ColorRed = new ColorRGB15(Byte.MaxValue, 0, 0);
+		public static readonly ColorRGB15 ColorRed = new ColorRGB15(byte.MaxValue, 0, 0);
 
 		/// <summary>
 		/// Green color.
 		/// </summary>
-		public static readonly ColorRGB15 ColorGreen = new ColorRGB15(0, Byte.MaxValue, 0);
+		public static readonly ColorRGB15 ColorGreen = new ColorRGB15(0, byte.MaxValue, 0);
 
 		/// <summary>
 		/// Blue color.
 		/// </summary>
-		public static readonly ColorRGB15 ColorBlue = new ColorRGB15(0, 0, Byte.MaxValue);
+		public static readonly ColorRGB15 ColorBlue = new ColorRGB15(0, 0, byte.MaxValue);
 
 		/// <summary>
 		/// Yellow color.
 		/// </summary>
-		public static readonly ColorRGB15 ColorYellow = new ColorRGB15(Byte.MaxValue, Byte.MaxValue, 0);
+		public static readonly ColorRGB15 ColorYellow = new ColorRGB15(byte.MaxValue, byte.MaxValue, 0);
 
 		/// <summary>
 		/// Magenta color.
 		/// </summary>
-		public static readonly ColorRGB15 ColorMagenta = new ColorRGB15(Byte.MaxValue, 0, Byte.MaxValue);
+		public static readonly ColorRGB15 ColorMagenta = new ColorRGB15(byte.MaxValue, 0, byte.MaxValue);
 
 		/// <summary>
 		/// Cyan color.
 		/// </summary>
-		public static readonly ColorRGB15 ColorCyan = new ColorRGB15(0, Byte.MaxValue, Byte.MaxValue);
+		public static readonly ColorRGB15 ColorCyan = new ColorRGB15(0, byte.MaxValue, byte.MaxValue);
 
 		#endregion
 
@@ -337,7 +336,7 @@ namespace OpenGL
 		/// </summary>
 		public byte Red
 		{
-			get { return (byte)(((rgb >> 10) & 0x1F) << 3); }
+			get { return (byte)((((rgb >> 10) & 0x1F) / (float)0x1F) * byte.MaxValue); }
 			set { rgb = (ushort)unchecked((rgb & ~0x7C00) | (value >> 3) << 10); }
 		}
 
@@ -346,7 +345,7 @@ namespace OpenGL
 		/// </summary>
 		public byte Green
 		{
-			get { return (byte)(((rgb >> 5) & 0x1F) << 3); }
+			get { return (byte)((((rgb >> 5) & 0x1F) / (float)0x1F) * byte.MaxValue); }
 			set { rgb = (ushort)unchecked((rgb & ~0x3E0) | (value >> 3) << 5); }
 		}
 
@@ -355,7 +354,7 @@ namespace OpenGL
 		/// </summary>
 		public byte Blue
 		{
-			get { return (byte)(((rgb >> 0) & 0x1F) << 3); }
+			get { return (byte)((((rgb >> 0) & 0x1F) / (float)0x1F) * byte.MaxValue); }
 			set { rgb = (ushort)unchecked((rgb & ~0x1F) | (value >> 3)); }
 		}
 
@@ -482,7 +481,7 @@ namespace OpenGL
 		/// <summary>
 		/// White color.
 		/// </summary>
-		public static readonly ColorRGB16 ColorWhite = new ColorRGB16(Byte.MaxValue, Byte.MaxValue, Byte.MaxValue);
+		public static readonly ColorRGB16 ColorWhite = new ColorRGB16(byte.MaxValue, byte.MaxValue, byte.MaxValue);
 
 		/// <summary>
 		/// Black color.
@@ -492,32 +491,32 @@ namespace OpenGL
 		/// <summary>
 		/// Red color.
 		/// </summary>
-		public static readonly ColorRGB16 ColorRed = new ColorRGB16(Byte.MaxValue, 0, 0);
+		public static readonly ColorRGB16 ColorRed = new ColorRGB16(byte.MaxValue, 0, 0);
 
 		/// <summary>
 		/// Green color.
 		/// </summary>
-		public static readonly ColorRGB16 ColorGreen = new ColorRGB16(0, Byte.MaxValue, 0);
+		public static readonly ColorRGB16 ColorGreen = new ColorRGB16(0, byte.MaxValue, 0);
 
 		/// <summary>
 		/// Blue color.
 		/// </summary>
-		public static readonly ColorRGB16 ColorBlue = new ColorRGB16(0, 0, Byte.MaxValue);
+		public static readonly ColorRGB16 ColorBlue = new ColorRGB16(0, 0, byte.MaxValue);
 
 		/// <summary>
 		/// Yellow color.
 		/// </summary>
-		public static readonly ColorRGB16 ColorYellow = new ColorRGB16(Byte.MaxValue, Byte.MaxValue, 0);
+		public static readonly ColorRGB16 ColorYellow = new ColorRGB16(byte.MaxValue, byte.MaxValue, 0);
 
 		/// <summary>
 		/// Magenta color.
 		/// </summary>
-		public static readonly ColorRGB16 ColorMagenta = new ColorRGB16(Byte.MaxValue, 0, Byte.MaxValue);
+		public static readonly ColorRGB16 ColorMagenta = new ColorRGB16(byte.MaxValue, 0, byte.MaxValue);
 
 		/// <summary>
 		/// Cyan color.
 		/// </summary>
-		public static readonly ColorRGB16 ColorCyan = new ColorRGB16(0, Byte.MaxValue, Byte.MaxValue);
+		public static readonly ColorRGB16 ColorCyan = new ColorRGB16(0, byte.MaxValue, byte.MaxValue);
 
 		#endregion
 
@@ -528,7 +527,7 @@ namespace OpenGL
 		/// </summary>
 		public byte Red
 		{
-			get { return (byte)(((rgb >> 11) & 0x1F) << 3); }
+			get { return (byte)((((rgb >> 11) & 0x1F) / (float)0x1F) * byte.MaxValue); }
 			set { rgb = (ushort)unchecked((rgb & ~0xF800) | (value >> 3) << 11); }
 		}
 
@@ -537,7 +536,7 @@ namespace OpenGL
 		/// </summary>
 		public byte Green
 		{
-			get { return (byte)(((rgb >> 5) & 0x3F) << 2); }
+			get { return (byte)((((rgb >> 5) & 0x3F) / (float)0x3F) * byte.MaxValue); }
 			set { rgb = (ushort)unchecked((rgb & ~0x7E0) | (value >> 2) << 5); }
 		}
 
@@ -546,7 +545,7 @@ namespace OpenGL
 		/// </summary>
 		public byte Blue
 		{
-			get { return (byte)(((rgb >> 0) & 0x1F) << 3); }
+			get { return (byte)((((rgb >> 0) & 0x1F) / (float)0x1F) * byte.MaxValue); }
 			set { rgb = (ushort)unchecked((rgb & ~0x1F) | (value >> 3)); }
 		}
 
@@ -660,7 +659,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator ColorRGBA32(ColorRGB24 a)
 		{
-			return (new ColorRGBA32(a.r, a.g, a.b, Byte.MaxValue));
+			return (new ColorRGBA32(a.r, a.g, a.b, byte.MaxValue));
 		}
 		/// <summary>
 		/// Cast to byte[] operator.
@@ -727,7 +726,7 @@ namespace OpenGL
 		/// <summary>
 		/// White color.
 		/// </summary>
-		public static readonly ColorRGB24 ColorWhite = new ColorRGB24(Byte.MaxValue, Byte.MaxValue, Byte.MaxValue);
+		public static readonly ColorRGB24 ColorWhite = new ColorRGB24(byte.MaxValue, byte.MaxValue, byte.MaxValue);
 
 		/// <summary>
 		/// Black color.
@@ -737,32 +736,32 @@ namespace OpenGL
 		/// <summary>
 		/// Red color.
 		/// </summary>
-		public static readonly ColorRGB24 ColorRed = new ColorRGB24(Byte.MaxValue, 0, 0);
+		public static readonly ColorRGB24 ColorRed = new ColorRGB24(byte.MaxValue, 0, 0);
 
 		/// <summary>
 		/// Green color.
 		/// </summary>
-		public static readonly ColorRGB24 ColorGreen = new ColorRGB24(0, Byte.MaxValue, 0);
+		public static readonly ColorRGB24 ColorGreen = new ColorRGB24(0, byte.MaxValue, 0);
 
 		/// <summary>
 		/// Blue color.
 		/// </summary>
-		public static readonly ColorRGB24 ColorBlue = new ColorRGB24(0, 0, Byte.MaxValue);
+		public static readonly ColorRGB24 ColorBlue = new ColorRGB24(0, 0, byte.MaxValue);
 
 		/// <summary>
 		/// Yellow color.
 		/// </summary>
-		public static readonly ColorRGB24 ColorYellow = new ColorRGB24(Byte.MaxValue, Byte.MaxValue, 0);
+		public static readonly ColorRGB24 ColorYellow = new ColorRGB24(byte.MaxValue, byte.MaxValue, 0);
 
 		/// <summary>
 		/// Magenta color.
 		/// </summary>
-		public static readonly ColorRGB24 ColorMagenta = new ColorRGB24(Byte.MaxValue, 0, Byte.MaxValue);
+		public static readonly ColorRGB24 ColorMagenta = new ColorRGB24(byte.MaxValue, 0, byte.MaxValue);
 
 		/// <summary>
 		/// Cyan color.
 		/// </summary>
-		public static readonly ColorRGB24 ColorCyan = new ColorRGB24(0, Byte.MaxValue, Byte.MaxValue);
+		public static readonly ColorRGB24 ColorCyan = new ColorRGB24(0, byte.MaxValue, byte.MaxValue);
 
 		#endregion
 
@@ -905,7 +904,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator ColorRGBA64(ColorRGB48 a)
 		{
-			return (new ColorRGBA64(a.r, a.g, a.b, UInt16.MaxValue));
+			return (new ColorRGBA64(a.r, a.g, a.b, ushort.MaxValue));
 		}
 		/// <summary>
 		/// Cast to ushort[] operator.
@@ -972,7 +971,7 @@ namespace OpenGL
 		/// <summary>
 		/// White color.
 		/// </summary>
-		public static readonly ColorRGB48 ColorWhite = new ColorRGB48(UInt16.MaxValue, UInt16.MaxValue, UInt16.MaxValue);
+		public static readonly ColorRGB48 ColorWhite = new ColorRGB48(ushort.MaxValue, ushort.MaxValue, ushort.MaxValue);
 
 		/// <summary>
 		/// Black color.
@@ -982,32 +981,32 @@ namespace OpenGL
 		/// <summary>
 		/// Red color.
 		/// </summary>
-		public static readonly ColorRGB48 ColorRed = new ColorRGB48(UInt16.MaxValue, 0, 0);
+		public static readonly ColorRGB48 ColorRed = new ColorRGB48(ushort.MaxValue, 0, 0);
 
 		/// <summary>
 		/// Green color.
 		/// </summary>
-		public static readonly ColorRGB48 ColorGreen = new ColorRGB48(0, UInt16.MaxValue, 0);
+		public static readonly ColorRGB48 ColorGreen = new ColorRGB48(0, ushort.MaxValue, 0);
 
 		/// <summary>
 		/// Blue color.
 		/// </summary>
-		public static readonly ColorRGB48 ColorBlue = new ColorRGB48(0, 0, UInt16.MaxValue);
+		public static readonly ColorRGB48 ColorBlue = new ColorRGB48(0, 0, ushort.MaxValue);
 
 		/// <summary>
 		/// Yellow color.
 		/// </summary>
-		public static readonly ColorRGB48 ColorYellow = new ColorRGB48(UInt16.MaxValue, UInt16.MaxValue, 0);
+		public static readonly ColorRGB48 ColorYellow = new ColorRGB48(ushort.MaxValue, ushort.MaxValue, 0);
 
 		/// <summary>
 		/// Magenta color.
 		/// </summary>
-		public static readonly ColorRGB48 ColorMagenta = new ColorRGB48(UInt16.MaxValue, 0, UInt16.MaxValue);
+		public static readonly ColorRGB48 ColorMagenta = new ColorRGB48(ushort.MaxValue, 0, ushort.MaxValue);
 
 		/// <summary>
 		/// Cyan color.
 		/// </summary>
-		public static readonly ColorRGB48 ColorCyan = new ColorRGB48(0, UInt16.MaxValue, UInt16.MaxValue);
+		public static readonly ColorRGB48 ColorCyan = new ColorRGB48(0, ushort.MaxValue, ushort.MaxValue);
 
 		#endregion
 
@@ -1204,7 +1203,7 @@ namespace OpenGL
 		/// <summary>
 		/// White color.
 		/// </summary>
-		public static readonly ColorRGB96 ColorWhite = new ColorRGB96(UInt32.MaxValue, UInt32.MaxValue, UInt32.MaxValue);
+		public static readonly ColorRGB96 ColorWhite = new ColorRGB96(uint.MaxValue, uint.MaxValue, uint.MaxValue);
 
 		/// <summary>
 		/// Black color.
@@ -1214,32 +1213,32 @@ namespace OpenGL
 		/// <summary>
 		/// Red color.
 		/// </summary>
-		public static readonly ColorRGB96 ColorRed = new ColorRGB96(UInt32.MaxValue, 0, 0);
+		public static readonly ColorRGB96 ColorRed = new ColorRGB96(uint.MaxValue, 0, 0);
 
 		/// <summary>
 		/// Green color.
 		/// </summary>
-		public static readonly ColorRGB96 ColorGreen = new ColorRGB96(0, UInt32.MaxValue, 0);
+		public static readonly ColorRGB96 ColorGreen = new ColorRGB96(0, uint.MaxValue, 0);
 
 		/// <summary>
 		/// Blue color.
 		/// </summary>
-		public static readonly ColorRGB96 ColorBlue = new ColorRGB96(0, 0, UInt32.MaxValue);
+		public static readonly ColorRGB96 ColorBlue = new ColorRGB96(0, 0, uint.MaxValue);
 
 		/// <summary>
 		/// Yellow color.
 		/// </summary>
-		public static readonly ColorRGB96 ColorYellow = new ColorRGB96(UInt32.MaxValue, UInt32.MaxValue, 0);
+		public static readonly ColorRGB96 ColorYellow = new ColorRGB96(uint.MaxValue, uint.MaxValue, 0);
 
 		/// <summary>
 		/// Magenta color.
 		/// </summary>
-		public static readonly ColorRGB96 ColorMagenta = new ColorRGB96(UInt32.MaxValue, 0, UInt32.MaxValue);
+		public static readonly ColorRGB96 ColorMagenta = new ColorRGB96(uint.MaxValue, 0, uint.MaxValue);
 
 		/// <summary>
 		/// Cyan color.
 		/// </summary>
-		public static readonly ColorRGB96 ColorCyan = new ColorRGB96(0, UInt32.MaxValue, UInt32.MaxValue);
+		public static readonly ColorRGB96 ColorCyan = new ColorRGB96(0, uint.MaxValue, uint.MaxValue);
 
 		#endregion
 

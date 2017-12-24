@@ -26,7 +26,6 @@
 // SOFTWARE.
 
 using System;
-using System.Diagnostics;
 #if HAVE_SYSTEM_DRAWING
 using System.Drawing;
 #endif
@@ -47,7 +46,7 @@ namespace OpenGL
 	int[] structMembersCount =	new[] {  1,      1,        1,        3,       3,        3,       3,       3,        3          };
 	int[][] bitss =				new[] {  bits8,  bits15,   bits16,   null,    null,     null,    null,    null,     null,      };
 	string[] zeroes =			new[] { "0",    "0",     "0",      "0",      "0",    "0",   "0.0f",  "0.0",     null };
-	string[] ones =				new[] { "Byte.MaxValue", "Byte.MaxValue", "Byte.MaxValue", "Byte.MaxValue","UInt16.MaxValue", "UInt32.MaxValue", "1.0f", "1.0", "(HalfFloat)1.0f" };
+	string[] ones =				new[] { "byte.MaxValue", "byte.MaxValue", "byte.MaxValue", "byte.MaxValue","ushort.MaxValue", "uint.MaxValue", "1.0f", "1.0", "(HalfFloat)1.0f" };
 	string[] castSuffixes =		new[] { null,   null,    null,       "ub",     "us",     "ui",    "f",     "d",       "hf" };
 	string[] colorSuffixes =	new[] { null,   null,    null,       "32",     "64",     null,    "F",     null,       "HF" };
 
@@ -272,7 +271,7 @@ namespace OpenGL
 		/// </summary>
 		public <#= interfaceType #> Red
 		{
-			get { return (<#= interfaceType #>)(((rgb >> <#= rOffset #>) & 0x<#= rMask.ToString("X2") #>) << <#= 8 - rWidth #>); }
+			get { return (<#= interfaceType #>)((((rgb >> <#= rOffset #>) & 0x<#= rMask.ToString("X2") #>) / (float)0x<#= rMask.ToString("X2") #>) * <#= interfaceType #>.MaxValue); }
 			set { rgb = (<#= componentType #>)unchecked((rgb & ~0x<#= rResetMask.ToString("X2") #>) | (value >> <#= 8 - rWidth #>) << <#= rOffset #>); }
 		}
 
@@ -298,7 +297,7 @@ if (structMembersCount[i] == 1) {
 		/// </summary>
 		public <#= interfaceType #> Green
 		{
-			get { return (<#= interfaceType #>)(((rgb >> <#= gOffset #>) & 0x<#= gMask.ToString("X2") #>) << <#= 8 - gWidth #>); }
+			get { return (<#= interfaceType #>)((((rgb >> <#= gOffset #>) & 0x<#= gMask.ToString("X2") #>) / (float)0x<#= gMask.ToString("X2") #>) * <#= interfaceType #>.MaxValue); }
 			set { rgb = (<#= componentType #>)unchecked((rgb & ~0x<#= gResetMask.ToString("X2") #>) | (value >> <#= 8 - gWidth #>) << <#= gOffset #>); }
 		}
 
@@ -325,7 +324,7 @@ if (structMembersCount[i] == 1) {
 		/// </summary>
 		public <#= interfaceType #> Blue
 		{
-			get { return (<#= interfaceType #>)(((rgb >> <#= bOffset #>) & 0x<#= bMask.ToString("X2") #>) << <#= 8 - bWidth #>); }
+			get { return (<#= interfaceType #>)((((rgb >> <#= bOffset #>) & 0x<#= bMask.ToString("X2") #>) / (float)0x<#= bMask.ToString("X2") #>) * <#= interfaceType #>.MaxValue); }
 			set { rgb = (<#= componentType #>)unchecked((rgb & ~0x<#= bResetMask.ToString("X2") #>) | (value >> <#= 8 - bWidth #>)); }
 		}
 
