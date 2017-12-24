@@ -22,10 +22,23 @@
 namespace OpenGL
 {
 	/// <summary>
-	/// Generic fragment interface.
+	/// RGB color interface.
 	/// </summary>
-	public interface IFragment
+	public interface IColorRGB<T> : IColor
 	{
-
+		/// <summary>
+		/// Red component property.
+		/// </summary>
+		T Red { get; set; }
+		
+		/// <summary>
+		/// Green component property.
+		/// </summary>
+		T Green { get; set; }
+		
+		/// <summary>
+		/// Blue component property.
+		/// </summary>
+		T Blue { get; set; }
 	}
 }

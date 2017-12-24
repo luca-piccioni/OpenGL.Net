@@ -22,24 +22,13 @@
 namespace OpenGL
 {
 	/// <summary>
-	/// Generic color interface.
+	/// RGBA color interface.
 	/// </summary>
-	public interface IColor
+	public interface IColorRGBA<T> : IColorRGB<T>
 	{
 		/// <summary>
-		/// Get the correponding PixelLayout of this IColor.
+		/// Alpha component property. 
 		/// </summary>
-		PixelLayout PixelType { get; }
-
-		/// <summary>
-		/// Color component access.
-		/// </summary>
-		/// <param name="c">
-		/// A <see cref="int"/> indicating the color component index.
-		/// </param>
-		/// <returns>
-		/// The color component is converted to/from a normalized floating point number.
-		/// </returns>
-		float this[int c] { get; set; }
+		T Alpha { get; set; }
 	}
 }

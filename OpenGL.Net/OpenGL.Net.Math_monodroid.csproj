@@ -56,8 +56,9 @@
     <Compile Include="ColorRGBARef.cs" />
     <Compile Include="HalfFloat.cs" />
     <Compile Include="IColor.cs" />
+    <Compile Include="IColorRGB.cs" />
+    <Compile Include="IColorRGBA.cs" />
     <Compile Include="ICopiable.cs" />
-    <Compile Include="IFragment.cs" />
     <Compile Include="IMatrix.cs" />
     <Compile Include="IMatrix3x3.cs" />
     <Compile Include="IMatrix4x4.cs" />

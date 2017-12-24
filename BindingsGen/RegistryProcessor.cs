@@ -760,6 +760,7 @@ namespace BindingsGen
 				sw.WriteLine("using Khronos;");
 				sw.WriteLine();
 
+				sw.WriteLine("// ReSharper disable CheckNamespace");
 				sw.WriteLine("// ReSharper disable InconsistentNaming");
 				sw.WriteLine("// ReSharper disable JoinDeclarationAndInitializer");
 				sw.WriteLine();

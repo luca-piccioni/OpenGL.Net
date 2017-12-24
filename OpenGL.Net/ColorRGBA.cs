@@ -152,10 +152,10 @@ namespace OpenGL
 		{
 			ColorRGBA32 c = new ColorRGBA32();
 
-			c[0] = (float)a.R / Byte.MaxValue;
-			c[1] = (float)a.G / Byte.MaxValue;
-			c[2] = (float)a.B / Byte.MaxValue;
-			c[3] = (float)a.A / Byte.MaxValue;
+			c[0] = (float)a.R / byte.MaxValue;
+			c[1] = (float)a.G / byte.MaxValue;
+			c[2] = (float)a.B / byte.MaxValue;
+			c[3] = (float)a.A / byte.MaxValue;
 
 			return (c);
 		}
@@ -450,10 +450,10 @@ namespace OpenGL
 		{
 			ColorRGBA64 c = new ColorRGBA64();
 
-			c[0] = (float)a.R / Byte.MaxValue;
-			c[1] = (float)a.G / Byte.MaxValue;
-			c[2] = (float)a.B / Byte.MaxValue;
-			c[3] = (float)a.A / Byte.MaxValue;
+			c[0] = (float)a.R / byte.MaxValue;
+			c[1] = (float)a.G / byte.MaxValue;
+			c[2] = (float)a.B / byte.MaxValue;
+			c[3] = (float)a.A / byte.MaxValue;
 
 			return (c);
 		}
@@ -748,10 +748,10 @@ namespace OpenGL
 		{
 			ColorRGBAF c = new ColorRGBAF();
 
-			c[0] = (float)a.R / Byte.MaxValue;
-			c[1] = (float)a.G / Byte.MaxValue;
-			c[2] = (float)a.B / Byte.MaxValue;
-			c[3] = (float)a.A / Byte.MaxValue;
+			c[0] = (float)a.R / byte.MaxValue;
+			c[1] = (float)a.G / byte.MaxValue;
+			c[2] = (float)a.B / byte.MaxValue;
+			c[3] = (float)a.A / byte.MaxValue;
 
 			return (c);
 		}
@@ -1046,10 +1046,10 @@ namespace OpenGL
 		{
 			ColorRGBAHF c = new ColorRGBAHF();
 
-			c[0] = (float)a.R / Byte.MaxValue;
-			c[1] = (float)a.G / Byte.MaxValue;
-			c[2] = (float)a.B / Byte.MaxValue;
-			c[3] = (float)a.A / Byte.MaxValue;
+			c[0] = (float)a.R / byte.MaxValue;
+			c[1] = (float)a.G / byte.MaxValue;
+			c[2] = (float)a.B / byte.MaxValue;
+			c[3] = (float)a.A / byte.MaxValue;
 
 			return (c);
 		}

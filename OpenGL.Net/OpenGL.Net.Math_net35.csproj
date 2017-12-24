@@ -38,7 +38,7 @@
     <Optimize>false</Optimize>
     <OutputPath>bin\net35\Debug\</OutputPath>
     <BaseIntermediateOutputPath>obj\net35</BaseIntermediateOutputPath>
-    <DefineConstants>TRACE;DEBUG;GL_DEBUG;NETFRAMEWORK;NET35</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;GL_DEBUG;HAVE_SYSTEM_DRAWING;NETFRAMEWORK;NET35</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -52,7 +52,7 @@
     <Optimize>true</Optimize>
     <OutputPath>bin\net35\Release\</OutputPath>
     <BaseIntermediateOutputPath>obj\net35</BaseIntermediateOutputPath>
-    <DefineConstants>NETFRAMEWORK;NET35</DefineConstants>
+    <DefineConstants>HAVE_SYSTEM_DRAWING;NETFRAMEWORK;NET35</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -65,7 +65,7 @@
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\net35\x86\Debug\</OutputPath>
     <BaseIntermediateOutputPath>obj\net35</BaseIntermediateOutputPath>
-    <DefineConstants>TRACE;DEBUG;GL_DEBUG;NETFRAMEWORK;NET35</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;GL_DEBUG;HAVE_SYSTEM_DRAWING;NETFRAMEWORK;NET35</DefineConstants>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <DebugType>full</DebugType>
     <PlatformTarget>x86</PlatformTarget>
@@ -79,7 +79,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\net35\x86\Release\</OutputPath>
     <BaseIntermediateOutputPath>obj\net35</BaseIntermediateOutputPath>
-    <DefineConstants>TRACE;NETFRAMEWORK;NET35</DefineConstants>
+    <DefineConstants>TRACE;HAVE_SYSTEM_DRAWING;NETFRAMEWORK;NET35</DefineConstants>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <DocumentationFile>bin\net35\x86\Release\OpenGL.Net.Math.xml</DocumentationFile>
     <Optimize>true</Optimize>
@@ -94,7 +94,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\net35\x64\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;GL_DEBUG;NETFRAMEWORK;NET35</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;GL_DEBUG;HAVE_SYSTEM_DRAWING;NETFRAMEWORK;NET35</DefineConstants>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <NoWarn>419,1570,1572,1573,1574,1591</NoWarn>
     <DebugType>full</DebugType>
@@ -105,7 +105,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\net35\x64\Release\</OutputPath>
-    <DefineConstants>NETFRAMEWORK;NET35</DefineConstants>
+    <DefineConstants>HAVE_SYSTEM_DRAWING;NETFRAMEWORK;NET35</DefineConstants>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <DocumentationFile>bin\net35\x64\Release\OpenGL.Net.Math.xml</DocumentationFile>
     <Optimize>true</Optimize>
@@ -117,6 +117,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -149,8 +150,9 @@
     <Compile Include="ColorRGBARef.cs" />
     <Compile Include="HalfFloat.cs" />
     <Compile Include="IColor.cs" />
+    <Compile Include="IColorRGB.cs" />
+    <Compile Include="IColorRGBA.cs" />
     <Compile Include="ICopiable.cs" />
-    <Compile Include="IFragment.cs" />
     <Compile Include="IMatrix.cs" />
     <Compile Include="IMatrix3x3.cs" />
     <Compile Include="IMatrix4x4.cs" />

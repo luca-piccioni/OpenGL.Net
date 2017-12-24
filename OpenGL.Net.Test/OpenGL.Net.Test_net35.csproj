@@ -24,7 +24,7 @@
     <Optimize>false</Optimize>
     <OutputPath>bin\net35\Debug\</OutputPath>
     <BaseIntermediateOutputPath>obj\net35</BaseIntermediateOutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;HAVE_SYSTEM_DRAWING</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -34,7 +34,7 @@
     <Optimize>true</Optimize>
     <OutputPath>bin\net35\Release\</OutputPath>
     <BaseIntermediateOutputPath>obj\net35</BaseIntermediateOutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>TRACE;HAVE_SYSTEM_DRAWING</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -43,7 +43,7 @@
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\net35\x86\Debug\</OutputPath>
     <BaseIntermediateOutputPath>obj\net35</BaseIntermediateOutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;HAVE_SYSTEM_DRAWING</DefineConstants>
     <DebugType>full</DebugType>
     <PlatformTarget>x86</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
@@ -55,7 +55,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\net35\x86\Release\</OutputPath>
     <BaseIntermediateOutputPath>obj\net35</BaseIntermediateOutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>TRACE;HAVE_SYSTEM_DRAWING</DefineConstants>
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>x86</PlatformTarget>
@@ -67,7 +67,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\x64\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;HAVE_SYSTEM_DRAWING</DefineConstants>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <DebugType>full</DebugType>
     <PlatformTarget>x64</PlatformTarget>
@@ -76,7 +76,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutputPath>bin\x64\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>TRACE;HAVE_SYSTEM_DRAWING</DefineConstants>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
@@ -90,14 +90,21 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ARB\Wgl.ARB_extensions_string.cs" />
     <Compile Include="ARB\Wgl.ARB_pixel_format.cs" />
+    <Compile Include="ColorRGBA.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ColorRGBA.tt</DependentUpon>
+    </Compile>
     <Compile Include="BenchmarkAttribute.cs" />
     <Compile Include="BenchmarkPInvoke.cs" />
+    <Compile Include="ColorTestBase.cs" />
     <Compile Include="DeviceContext.cs" />
     <Compile Include="Gl.VERSION_1_0.cs" />
     <Compile Include="Gl.VERSION_1_5.cs" />
@@ -168,6 +175,10 @@
     <Content Include="Vertex3.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Vertex3.cs</LastGenOutput>
+    </Content>
+    <Content Include="ColorRGBA.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ColorRGBA.cs</LastGenOutput>
     </Content>
     <Content Include="Vertex4.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

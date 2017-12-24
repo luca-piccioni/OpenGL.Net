@@ -1,5 +1,5 @@
 ﻿
-// Copyright (C) 2009-2017 Luca Piccioni
+// Copyright (C) 2017 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -19,27 +19,28 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-namespace OpenGL
+using System;
+
+namespace OpenGL.Test
 {
 	/// <summary>
-	/// Generic color interface.
+	/// Base class for Color tests.
 	/// </summary>
-	public interface IColor
+	internal class ColorTestBase
 	{
-		/// <summary>
-		/// Get the correponding PixelLayout of this IColor.
-		/// </summary>
-		PixelLayout PixelType { get; }
+		protected static double NextComponent(Random random, double maxValue)
+		{
+			return Next(random, 0.0, maxValue);
+		}
 
-		/// <summary>
-		/// Color component access.
-		/// </summary>
-		/// <param name="c">
-		/// A <see cref="int"/> indicating the color component index.
-		/// </param>
-		/// <returns>
-		/// The color component is converted to/from a normalized floating point number.
-		/// </returns>
-		float this[int c] { get; set; }
+		protected static double Next(Random random)
+		{
+			return Next(random, 0.0, 1.0);
+		}
+
+		protected static double Next(Random random, double minValue, double maxValue)
+		{
+			return random.NextDouble() * (maxValue - minValue) + minValue;
+		}
 	}
 }
