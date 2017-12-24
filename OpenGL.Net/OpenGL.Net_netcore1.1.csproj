@@ -74,6 +74,8 @@
     <Compile Remove="Gl.NvOptmimus.cs" />
     <Compile Remove="HalfFloat.cs" />
     <Compile Remove="IColor.cs" />
+    <Compile Remove="IColorRGB.cs" />
+    <Compile Remove="IColorRGBA.cs" />
     <Compile Remove="ICopiable.cs" />
     <Compile Remove="IFragment.cs" />
     <Compile Remove="IMatrix.cs" />
