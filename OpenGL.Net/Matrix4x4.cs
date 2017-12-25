@@ -65,7 +65,7 @@ namespace OpenGL
 		/// Exception throw if <paramref name="values"/> length differs from 16.
 		/// </exception>
 		public Matrix4x4(float[] values) :
-			base(values, 4, 4)
+			base(4, 4, values)
 		{
 		
 		}

@@ -26,9 +26,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-using System;
-using System.Diagnostics;
 using System.Runtime.InteropServices;
+
+// ReSharper disable InconsistentNaming
 
 namespace OpenGL
 {
@@ -106,9 +106,9 @@ namespace OpenGL
 		public <#= matrixType #> ToMatrix()
 		{
 <# if (r == c && c >= 3 && r >= 3) {#>
-			return (new <#= matrixType #>(new <#= underlyingType[i] #>[] { <#= matrixArrayStr #> }));
+			return (new <#= matrixType #>(new[] { <#= matrixArrayStr #> }));
 <#} else {#>
-			return (new <#= matrixType #>(new <#= underlyingType[i] #>[] { <#= matrixArrayStr #> }, <#= c #>, <#= r #>));
+			return (new <#= matrixType #>(<#= c #>, <#= r #>, <#= matrixArrayStr #>));
 <#}#>
 		}
 

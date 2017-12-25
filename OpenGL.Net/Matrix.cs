@@ -19,9 +19,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-using System;
-using System.Diagnostics;
 using System.Runtime.InteropServices;
+
+// ReSharper disable InconsistentNaming
 
 namespace OpenGL
 {
@@ -65,7 +65,7 @@ namespace OpenGL
 		/// </summary>
 		public Matrix ToMatrix()
 		{
-			return (new Matrix(new float[] { Column0.x, Column0.y, Column1.x, Column1.y }, 2, 2));
+			return (new Matrix(2, 2, Column0.x, Column0.y, Column1.x, Column1.y));
 		}
 
 		#endregion
@@ -111,7 +111,7 @@ namespace OpenGL
 		/// </summary>
 		public Matrix ToMatrix()
 		{
-			return (new Matrix(new float[] { Column0.x, Column0.y, Column0.z, Column1.x, Column1.y, Column1.z }, 2, 3));
+			return (new Matrix(2, 3, Column0.x, Column0.y, Column0.z, Column1.x, Column1.y, Column1.z));
 		}
 
 		#endregion
@@ -157,7 +157,7 @@ namespace OpenGL
 		/// </summary>
 		public Matrix ToMatrix()
 		{
-			return (new Matrix(new float[] { Column0.x, Column0.y, Column0.z, Column0.w, Column1.x, Column1.y, Column1.z, Column1.w }, 2, 4));
+			return (new Matrix(2, 4, Column0.x, Column0.y, Column0.z, Column0.w, Column1.x, Column1.y, Column1.z, Column1.w));
 		}
 
 		#endregion
@@ -209,7 +209,7 @@ namespace OpenGL
 		/// </summary>
 		public Matrix ToMatrix()
 		{
-			return (new Matrix(new float[] { Column0.x, Column0.y, Column1.x, Column1.y, Column2.x, Column2.y }, 3, 2));
+			return (new Matrix(3, 2, Column0.x, Column0.y, Column1.x, Column1.y, Column2.x, Column2.y));
 		}
 
 		#endregion
@@ -261,7 +261,7 @@ namespace OpenGL
 		/// </summary>
 		public Matrix3x3 ToMatrix()
 		{
-			return (new Matrix3x3(new float[] { Column0.x, Column0.y, Column0.z, Column1.x, Column1.y, Column1.z, Column2.x, Column2.y, Column2.z }));
+			return (new Matrix3x3(new[] { Column0.x, Column0.y, Column0.z, Column1.x, Column1.y, Column1.z, Column2.x, Column2.y, Column2.z }));
 		}
 
 		#endregion
@@ -313,7 +313,7 @@ namespace OpenGL
 		/// </summary>
 		public Matrix ToMatrix()
 		{
-			return (new Matrix(new float[] { Column0.x, Column0.y, Column0.z, Column0.w, Column1.x, Column1.y, Column1.z, Column1.w, Column2.x, Column2.y, Column2.z, Column2.w }, 3, 4));
+			return (new Matrix(3, 4, Column0.x, Column0.y, Column0.z, Column0.w, Column1.x, Column1.y, Column1.z, Column1.w, Column2.x, Column2.y, Column2.z, Column2.w));
 		}
 
 		#endregion
@@ -371,7 +371,7 @@ namespace OpenGL
 		/// </summary>
 		public Matrix ToMatrix()
 		{
-			return (new Matrix(new float[] { Column0.x, Column0.y, Column1.x, Column1.y, Column2.x, Column2.y, Column3.x, Column3.y }, 4, 2));
+			return (new Matrix(4, 2, Column0.x, Column0.y, Column1.x, Column1.y, Column2.x, Column2.y, Column3.x, Column3.y));
 		}
 
 		#endregion
@@ -429,7 +429,7 @@ namespace OpenGL
 		/// </summary>
 		public Matrix ToMatrix()
 		{
-			return (new Matrix(new float[] { Column0.x, Column0.y, Column0.z, Column1.x, Column1.y, Column1.z, Column2.x, Column2.y, Column2.z, Column3.x, Column3.y, Column3.z }, 4, 3));
+			return (new Matrix(4, 3, Column0.x, Column0.y, Column0.z, Column1.x, Column1.y, Column1.z, Column2.x, Column2.y, Column2.z, Column3.x, Column3.y, Column3.z));
 		}
 
 		#endregion
@@ -487,7 +487,7 @@ namespace OpenGL
 		/// </summary>
 		public Matrix4x4 ToMatrix()
 		{
-			return (new Matrix4x4(new float[] { Column0.x, Column0.y, Column0.z, Column0.w, Column1.x, Column1.y, Column1.z, Column1.w, Column2.x, Column2.y, Column2.z, Column2.w, Column3.x, Column3.y, Column3.z, Column3.w }));
+			return (new Matrix4x4(new[] { Column0.x, Column0.y, Column0.z, Column0.w, Column1.x, Column1.y, Column1.z, Column1.w, Column2.x, Column2.y, Column2.z, Column2.w, Column3.x, Column3.y, Column3.z, Column3.w }));
 		}
 
 		#endregion
@@ -533,7 +533,7 @@ namespace OpenGL
 		/// </summary>
 		public MatrixDouble ToMatrix()
 		{
-			return (new MatrixDouble(new double[] { Column0.x, Column0.y, Column1.x, Column1.y }, 2, 2));
+			return (new MatrixDouble(2, 2, Column0.x, Column0.y, Column1.x, Column1.y));
 		}
 
 		#endregion
@@ -579,7 +579,7 @@ namespace OpenGL
 		/// </summary>
 		public MatrixDouble ToMatrix()
 		{
-			return (new MatrixDouble(new double[] { Column0.x, Column0.y, Column0.z, Column1.x, Column1.y, Column1.z }, 2, 3));
+			return (new MatrixDouble(2, 3, Column0.x, Column0.y, Column0.z, Column1.x, Column1.y, Column1.z));
 		}
 
 		#endregion
@@ -625,7 +625,7 @@ namespace OpenGL
 		/// </summary>
 		public MatrixDouble ToMatrix()
 		{
-			return (new MatrixDouble(new double[] { Column0.x, Column0.y, Column0.z, Column0.w, Column1.x, Column1.y, Column1.z, Column1.w }, 2, 4));
+			return (new MatrixDouble(2, 4, Column0.x, Column0.y, Column0.z, Column0.w, Column1.x, Column1.y, Column1.z, Column1.w));
 		}
 
 		#endregion
@@ -677,7 +677,7 @@ namespace OpenGL
 		/// </summary>
 		public MatrixDouble ToMatrix()
 		{
-			return (new MatrixDouble(new double[] { Column0.x, Column0.y, Column1.x, Column1.y, Column2.x, Column2.y }, 3, 2));
+			return (new MatrixDouble(3, 2, Column0.x, Column0.y, Column1.x, Column1.y, Column2.x, Column2.y));
 		}
 
 		#endregion
@@ -729,7 +729,7 @@ namespace OpenGL
 		/// </summary>
 		public MatrixDouble3x3 ToMatrix()
 		{
-			return (new MatrixDouble3x3(new double[] { Column0.x, Column0.y, Column0.z, Column1.x, Column1.y, Column1.z, Column2.x, Column2.y, Column2.z }));
+			return (new MatrixDouble3x3(new[] { Column0.x, Column0.y, Column0.z, Column1.x, Column1.y, Column1.z, Column2.x, Column2.y, Column2.z }));
 		}
 
 		#endregion
@@ -781,7 +781,7 @@ namespace OpenGL
 		/// </summary>
 		public MatrixDouble ToMatrix()
 		{
-			return (new MatrixDouble(new double[] { Column0.x, Column0.y, Column0.z, Column0.w, Column1.x, Column1.y, Column1.z, Column1.w, Column2.x, Column2.y, Column2.z, Column2.w }, 3, 4));
+			return (new MatrixDouble(3, 4, Column0.x, Column0.y, Column0.z, Column0.w, Column1.x, Column1.y, Column1.z, Column1.w, Column2.x, Column2.y, Column2.z, Column2.w));
 		}
 
 		#endregion
@@ -839,7 +839,7 @@ namespace OpenGL
 		/// </summary>
 		public MatrixDouble ToMatrix()
 		{
-			return (new MatrixDouble(new double[] { Column0.x, Column0.y, Column1.x, Column1.y, Column2.x, Column2.y, Column3.x, Column3.y }, 4, 2));
+			return (new MatrixDouble(4, 2, Column0.x, Column0.y, Column1.x, Column1.y, Column2.x, Column2.y, Column3.x, Column3.y));
 		}
 
 		#endregion
@@ -897,7 +897,7 @@ namespace OpenGL
 		/// </summary>
 		public MatrixDouble ToMatrix()
 		{
-			return (new MatrixDouble(new double[] { Column0.x, Column0.y, Column0.z, Column1.x, Column1.y, Column1.z, Column2.x, Column2.y, Column2.z, Column3.x, Column3.y, Column3.z }, 4, 3));
+			return (new MatrixDouble(4, 3, Column0.x, Column0.y, Column0.z, Column1.x, Column1.y, Column1.z, Column2.x, Column2.y, Column2.z, Column3.x, Column3.y, Column3.z));
 		}
 
 		#endregion
@@ -955,7 +955,7 @@ namespace OpenGL
 		/// </summary>
 		public MatrixDouble4x4 ToMatrix()
 		{
-			return (new MatrixDouble4x4(new double[] { Column0.x, Column0.y, Column0.z, Column0.w, Column1.x, Column1.y, Column1.z, Column1.w, Column2.x, Column2.y, Column2.z, Column2.w, Column3.x, Column3.y, Column3.z, Column3.w }));
+			return (new MatrixDouble4x4(new[] { Column0.x, Column0.y, Column0.z, Column0.w, Column1.x, Column1.y, Column1.z, Column1.w, Column2.x, Column2.y, Column2.z, Column2.w, Column3.x, Column3.y, Column3.z, Column3.w }));
 		}
 
 		#endregion

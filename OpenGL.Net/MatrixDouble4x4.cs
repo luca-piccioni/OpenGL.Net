@@ -52,7 +52,7 @@ namespace OpenGL
 		/// Exception throw if <paramref name="values"/> length differs from 16.
 		/// </exception>
 		public MatrixDouble4x4(double[] values)
-			: base(values, 4, 4)
+			: base(4, 4, values)
 		{
 		
 		}

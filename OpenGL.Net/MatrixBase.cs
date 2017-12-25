@@ -31,23 +31,15 @@ using System.Numerics;
 namespace OpenGL
 {
 	/// <summary>
-	/// Generic matrix.
+	/// Single-precision matrix base class. Use <see cref="Matrix3x3"/>, <see cref="Matrix4x4"/> or any derived class for better performance.
 	/// </summary>
-	/// <remarks>
-	/// <para>
-	/// This class defines a generic matrix and the most common operations on it.
-	/// </para>
-	/// </remarks>
 	public class Matrix : IMatrix, IEquatable<Matrix>
 	{
 		#region Constructors
 
 		/// <summary>
-		/// Construct a matrix.
+		/// Construct a zero matrix.
 		/// </summary>
-		/// <remarks>
-		/// The matrix components are all zeroes.
-		/// </remarks>
 		/// <param name="c">
 		/// A <see cref="UInt32"/> that specify the matrix colum count.
 		/// </param>
@@ -57,17 +49,50 @@ namespace OpenGL
 		/// <exception cref="ArgumentException">
 		/// Exception throw is <paramref name="c"/> or <paramref name="r"/> equals to 0.
 		/// </exception>
+		/// <remarks>
+		/// The matrix components are all zeroes.
+		/// </remarks>
 		public Matrix(uint c, uint r)
 		{
 			if (c == 0)
-				throw new ArgumentException("invalid", "c");
+				throw new ArgumentException("invalid", nameof(c));
 			if (r == 0)
-				throw new ArgumentException("invalid", "r");
+				throw new ArgumentException("invalid", nameof(r));
 
 			// Store matrix extents
 			_Width = c; _Height = r;
 			// Allocate matrix
 			MatrixBuffer = new float[_Width * _Height];
+		}
+
+		/// <summary>
+		/// Construct a matrix.
+		/// </summary>
+		/// <param name="c">
+		/// A <see cref="UInt32"/> that specify the matrix colum count.
+		/// </param>
+		/// <param name="r">
+		/// A <see cref="UInt32"/> that specify the matrix row count.
+		/// </param>
+		/// <param name="components">
+		/// A <see cref="T:float[]"/> that specifies the matrix components.
+		/// </param>
+		/// <exception cref="ArgumentException">
+		/// Exception throw if <paramref name="c"/> or <paramref name="r"/> equals to 0, of if <paramref name="components"/>
+		/// length is less then the required matrix components count.
+		/// </exception>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="components"/> is null.
+		/// </exception>
+		public Matrix(uint c, uint r, params float[] components) :
+			this(c, r)
+		{
+			if (components == null)
+				throw new ArgumentNullException(nameof(components));
+			if (components.Length < c * r)
+				throw new ArgumentException("invalid length", nameof(components));
+
+			Array.Copy(components, MatrixBuffer, (int)(r * c));
 		}
 
 		/// <summary>
@@ -97,13 +122,13 @@ namespace OpenGL
 		public Matrix(Matrix m, uint c, uint r)
 		{
 			if (m == null)
-				throw new ArgumentNullException("m");
+				throw new ArgumentNullException(nameof(m));
 			if ((m._Width <= 1) || (m._Height <= 1))
-				throw new ArgumentException("too small", "m");
+				throw new ArgumentException("too small", nameof(m));
 			if (c >= m._Width)
-				throw new ArgumentOutOfRangeException("c", c, "column index greater than matrix width");
+				throw new ArgumentOutOfRangeException(nameof(c), c, "column index greater than matrix width");
 			if (r >= m._Height)
-				throw new ArgumentOutOfRangeException("r", r, "row index greater than matrix height");
+				throw new ArgumentOutOfRangeException(nameof(r), r, "row index greater than matrix height");
 
 			// Store matrix extents
 			_Width = m._Width - 1; _Height = m._Height - 1;
@@ -112,47 +137,7 @@ namespace OpenGL
 			// Copy complement matrix components (exclude colum c and row r)
 			for (uint ic = 0; ic < _Width; ic++)
 				for (uint ir = 0; ir < _Height; ir++)
-					this[ic,ir] = m[(ic<c)?ic:ic+1,(ir<r)?ir:ir+1];
-		}
-
-		/// <summary>
-		/// Construct a matrix from a sequence of components.
-		/// </summary>
-		/// <param name="values">
-		/// An array of <see cref="Single"/>, representing the matrix components in column-major order.
-		/// </param>
-		/// <param name="c">
-		/// A <see cref="UInt32"/> that specify the matrix colums count.
-		/// </param>
-		/// <param name="r">
-		/// A <see cref="UInt32"/> that specify the matrix rows count.
-		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// Exception throw if <paramref name="values"/> is null.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception throw if <paramref name="c"/> or <paramref name="r"/> are zero.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception throw if <paramref name="values"/> length differs from <paramref name="c"/> multiplied with <paramref name="r"/>.
-		/// </exception>
-		public Matrix(float[] values, uint c, uint r)
-		{
-			if (values == null)
-				throw new ArgumentNullException("values");
-			if (c == 0)
-				throw new ArgumentException("too small", "c");
-			if (r == 0)
-				throw new ArgumentException("too small", "r");
-			if (values.Length != c * r)
-				throw new ArgumentException("array length mismatch");
-
-			// Store matrix extents
-			_Width = c; _Height = r;
-			// Allocate matrix
-			MatrixBuffer = new float[values.Length];
-			// Copy complement matrix components (exclude colum c and row r)
-			Array.Copy(values, MatrixBuffer, values.Length);
+					this[ic, ir] = m[ic < c ? ic : ic + 1, ir < r ? ir : ir + 1];
 		}
 
 		/// <summary>
@@ -167,7 +152,7 @@ namespace OpenGL
 		public Matrix(Matrix m)
 		{
 			if (m == null)
-				throw new ArgumentNullException("m");
+				throw new ArgumentNullException(nameof(m));
 
 			// Store matrix extents
 			_Width = m._Width; _Height = m._Height;
@@ -199,7 +184,7 @@ namespace OpenGL
 		public Matrix(IMatrix m)
 		{
 			if (m == null)
-				throw new ArgumentNullException("m");
+				throw new ArgumentNullException(nameof(m));
 
 			// Store matrix extents
 			_Width = m.Width; _Height = m.Height;
@@ -257,10 +242,16 @@ namespace OpenGL
 		/// </exception>
 		public float this[uint c, uint r]
 		{
-			get {
-				return (MatrixBuffer[c * _Height + r]);
+			get
+			{
+				if (c >= _Width || r >= _Height)
+					throw new ArgumentException("out of range");
+				return MatrixBuffer[c * _Height + r];
 			}
-			set {
+			set
+			{
+				if (c >= _Width || r >= _Height)
+					throw new ArgumentException("out of range");
 				MatrixBuffer[c * _Height + r] = value;
 			}
 		}
@@ -286,15 +277,14 @@ namespace OpenGL
 		public static Matrix operator+(Matrix m1, Matrix m2)
 		{
 			if (m1 == null)
-				throw new ArgumentNullException("m1");
+				throw new ArgumentNullException(nameof(m1));
 			if (m2 == null)
-				throw new ArgumentNullException("m2");
+				throw new ArgumentNullException(nameof(m2));
 			if (m1._Width != m2._Width)
 				throw new ArgumentException("matrices width mismatch");
 			if (m1._Height != m2._Height)
 				throw new ArgumentException("matrices height mismatch");
 
-			// Allocate product matrix
 			Matrix sum = new Matrix(m1._Width, m1._Height);
 
 			unsafe {
@@ -302,10 +292,10 @@ namespace OpenGL
 				fixed (float* matrix2 = m2.MatrixBuffer)
 				fixed (float* sumMatrix = sum.MatrixBuffer)
 				{
-					uint length = m1._Width * m1.Height;
+					uint length = m1._Width * m1._Height;
 
 					for (uint i = 0; i < length; i++)
-						sumMatrix[i] = matrix1[i] + matrix2[i];	
+						sumMatrix[i] = matrix1[i] + matrix2[i];
 				}
 			}
 
@@ -330,7 +320,7 @@ namespace OpenGL
 		public static Matrix operator*(Matrix m, float scalar)
 		{
 			if (m == null)
-				throw new ArgumentNullException("m");
+				throw new ArgumentNullException(nameof(m));
 
 			// Allocate product matrix
 			Matrix prod = new Matrix(m._Width, m._Height);
@@ -366,7 +356,7 @@ namespace OpenGL
 		public static Matrix operator/(Matrix m, float scalar)
 		{
 			if (m == null)
-				throw new ArgumentNullException("m");
+				throw new ArgumentNullException(nameof(m));
 
 			// Allocate product matrix
 			Matrix div = new Matrix(m._Width, m._Height);
@@ -406,9 +396,9 @@ namespace OpenGL
 		public static Matrix operator*(Matrix m, Matrix n)
 		{
 			if (m == null)
-				throw new ArgumentNullException("m");
+				throw new ArgumentNullException(nameof(m));
 			if (n == null)
-				throw new ArgumentNullException("n");
+				throw new ArgumentNullException(nameof(n));
 			if (m._Width != n._Height)
 				throw new ArgumentException("matrices width/height mismatch");
 
@@ -508,7 +498,7 @@ namespace OpenGL
 		public void Set(Matrix m)
 		{
 			if (m == null)
-				throw new ArgumentNullException("m");
+				throw new ArgumentNullException(nameof(m));
 			if (m._Width != Width)
 				throw new ArgumentException("matrix width mismatch");
 			if (m._Height != Height)
@@ -557,7 +547,7 @@ namespace OpenGL
 		/// </returns>
 		public virtual Matrix Clone()
 		{
-			return (new Matrix(this));
+			return new Matrix(this);
 		}
 
 		/// <summary>
@@ -571,12 +561,15 @@ namespace OpenGL
 		/// </returns>
 		public float[] GetColumn(uint index)
 		{
+			if (index >= Width)
+				throw new ArgumentOutOfRangeException(nameof(index));
+
 			float[] column = new float[Height];
 
 			for (uint i = 0; i < Height; i++)
 				column[i] = this[index, i];
 
-			return (column);
+			return column;
 		}
 
 		/// <summary>
@@ -590,12 +583,15 @@ namespace OpenGL
 		/// </returns>
 		public float[] GetRow(uint index)
 		{
+			if (index >= Height)
+				throw new ArgumentOutOfRangeException(nameof(index));
+
 			float[] row = new float[Width];
 
 			for (uint i = 0; i < Width; i++)
 				row[i] = this[i, index];
 
-			return (row);
+			return row;
 		}
 
 		/// <summary>
@@ -610,7 +606,7 @@ namespace OpenGL
 
 			Array.Copy(MatrixBuffer, matrixArray, matrixArray.Length);
 
-			return (matrixArray);
+			return matrixArray;
 		}
 
 		#endregion
@@ -716,13 +712,13 @@ namespace OpenGL
 			float sign;
 
 			if (m == null)
-				throw new ArgumentNullException("m");
+				throw new ArgumentNullException(nameof(m));
 			if (m.IsSquare == false)
 				throw new InvalidOperationException("non-square");
 			if (c >= m._Width)
-				throw new ArgumentException("out of bounds", "c");
+				throw new ArgumentException("out of bounds", nameof(c));
 			if (r >= m._Height)
-				throw new ArgumentException("out of bounds", "r");
+				throw new ArgumentException("out of bounds", nameof(r));
 
 			// Determine complement sign
 			if (((c + r) % 2) == 0) sign = 1.0f; else sign = -1.0f;
@@ -798,18 +794,12 @@ namespace OpenGL
 		/// <summary>
 		/// Matrix width (column count).
 		/// </summary>
-		public uint Width
-		{
-			get { return (_Width); }
-		}
+		public uint Width => (_Width);
 
 		/// <summary>
 		/// Matrix height (row count).
 		/// </summary>
-		public uint Height
-		{
-			get { return (_Height); }
-		}
+		public uint Height => (_Height);
 
 		/// <summary>
 		/// Set IMatrix components.
@@ -820,11 +810,11 @@ namespace OpenGL
 		public void Set(IMatrix matrix)
 		{
 			if (matrix == null)
-				throw new ArgumentNullException("matrix");
+				throw new ArgumentNullException(nameof(matrix));
 			if (matrix.Width != Width)
-				throw new ArgumentException("width mismatch", "matrix");
+				throw new ArgumentException("width mismatch", nameof(matrix));
 			if (matrix.Height != Height)
-				throw new ArgumentException("height mismatch", "matrix");
+				throw new ArgumentException("height mismatch", nameof(matrix));
 
 			Matrix amatrix = matrix as Matrix;
 

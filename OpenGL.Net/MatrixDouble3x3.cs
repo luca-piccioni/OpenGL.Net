@@ -79,7 +79,7 @@ namespace OpenGL
 		/// Exception throw if <paramref name="values"/> length differs from 9.
 		/// </exception>
 		public MatrixDouble3x3(double[] values)
-			: base(values, 3, 3)
+			: base(3, 3, values)
 		{
 		
 		}

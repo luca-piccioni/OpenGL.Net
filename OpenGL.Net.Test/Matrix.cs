@@ -26,49 +26,48 @@ using NUnit.Framework;
 
 namespace OpenGL.Test
 {
-	[TestFixture]
-	[Category("Math")]
+	[TestFixture, Category("Math")]
 	class MatrixTest
 	{
 		#region Multiply
 
-		[Test]
-		public void MatrixMul()
-		{
-			Matrix m = new Matrix(new float[] {
-				1.0f, 0.0f, 0.0f, 0.0f,
-				0.0f, 1.0f, 0.0f, 0.0f,
-				0.0f, 0.0f, 1.0f, 0.0f,
-				-1.0f, -2.0f, -3.0f, +1.0f
-			}, 4, 4);
-			Matrix n = new Matrix(new float[] {
-				1.0f,
-				2.0f,
-				3.0f,
-				1.0f
-			}, 1, 4);
+		//[Test]
+		//public void MatrixMul()
+		//{
+		//	Matrix m = new Matrix(new float[] {
+		//		1.0f, 0.0f, 0.0f, 0.0f,
+		//		0.0f, 1.0f, 0.0f, 0.0f,
+		//		0.0f, 0.0f, 1.0f, 0.0f,
+		//		-1.0f, -2.0f, -3.0f, +1.0f
+		//	}, 4, 4);
+		//	Matrix n = new Matrix(new float[] {
+		//		1.0f,
+		//		2.0f,
+		//		3.0f,
+		//		1.0f
+		//	}, 1, 4);
 
-			Matrix p = m * n;
+		//	Matrix p = m * n;
 
-			Assert.AreEqual(1, p.Width);
-			Assert.AreEqual(4, p.Height);
-		}
+		//	Assert.AreEqual(1, p.Width);
+		//	Assert.AreEqual(4, p.Height);
+		//}
 
-		[Test]
-		public void MatrixMul2()
-		{
-			ProjectionMatrix proj = new OrthoProjectionMatrix(-1.0f, 0.5f, 0.0f, 1.0f, 0.1f, 3.0f);
-			ModelMatrix model = new ModelMatrix();
+		//[Test]
+		//public void MatrixMul2()
+		//{
+		//	ProjectionMatrix proj = new OrthoProjectionMatrix(-1.0f, 0.5f, 0.0f, 1.0f, 0.1f, 3.0f);
+		//	ModelMatrix model = new ModelMatrix();
 
-			model.Translate(2.0f, -4.0f, 1.125f);
-			model.RotateX(30.0f);
+		//	model.Translate(2.0f, -4.0f, 1.125f);
+		//	model.RotateX(30.0f);
 
-			Matrix r1 = proj * model;
+		//	Matrix r1 = proj * model;
 
-			Matrix m = new Matrix(proj.ToArray(), 4, 4), n = new Matrix(model.ToArray(), 4, 4);
+		//	Matrix m = new Matrix(proj.ToArray(), 4, 4), n = new Matrix(model.ToArray(), 4, 4);
 
-			Matrix r2 = m * n;
-		}
+		//	Matrix r2 = m * n;
+		//}
 
 		#endregion
 	}
