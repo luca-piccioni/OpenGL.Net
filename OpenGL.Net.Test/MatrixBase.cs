@@ -106,25 +106,25 @@ namespace OpenGL.Test
 		{
 			Matrix m = CreateRandomMatrix(3, 3);
 
-			AssertComplement(0, 0);
-			AssertComplement(1, 2);
-			AssertComplement(2, 1);
+			AssertComplement(m, 0, 0);
+			AssertComplement(m, 1, 2);
+			AssertComplement(m, 2, 1);
+		}
 
-			void AssertComplement(uint c, uint r)
+		private void AssertComplement(Matrix m, uint c, uint r)
+		{
+			Matrix cm = new Matrix(m, c, r);
+
+			Assert.AreEqual(m.Width - 1, cm.Width);
+			Assert.AreEqual(m.Height - 1, cm.Height);
+
+			for (uint ic = 0; ic < cm.Width; ic++)
+			for (uint ir = 0; ir < cm.Height; ir++)
 			{
-				Matrix cm = new Matrix(m, c, r);
-
-				Assert.AreEqual(m.Width - 1, cm.Width);
-				Assert.AreEqual(m.Height - 1, cm.Height);
-
-				for (uint ic = 0; ic < cm.Width; ic++)
-					for (uint ir = 0; ir < cm.Height; ir++)
-					{
-						uint cx = ic < c ? ic : ic + 1;
-						uint cy = ir < r ? ir : ir + 1;
+				uint cx = ic < c ? ic : ic + 1;
+				uint cy = ir < r ? ir : ir + 1;
 					
-						Assert.AreEqual(m[cx, cy], cm[ic, ir]);
-					}
+				Assert.AreEqual(m[cx, cy], cm[ic, ir]);
 			}
 		}
 
