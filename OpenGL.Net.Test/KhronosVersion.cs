@@ -28,7 +28,7 @@ using NUnit.Framework;
 
 namespace OpenGL.Test
 {
-	[TestFixture(Category = "Framework_KhronosVersion")]
+	[TestFixture, Category("Framework")]
 	class KhronosVersionTest
 	{
 		[Test(Description = "Test KhronosVersion(int major, int minor, string api)")]
@@ -310,6 +310,7 @@ namespace OpenGL.Test
 			Assert.AreNotEqual(v, 1);
 			Assert.AreNotEqual(v, new Vertex4f());
 			Assert.AreEqual(v,new DerivedVersion());
+			Assert.AreEqual(v, v);
 		}
 
 #if !MONODROID

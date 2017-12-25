@@ -30,7 +30,7 @@ using NUnit.Framework;
 
 namespace OpenGL.Test
 {
-	[TestFixture(Category = "Framework_KhronosApi")]
+	[TestFixture, Category("Framework")]
 	class KhronosApiTest
 	{
 		[RequiredByFeature("GL_VERSION_1_1")]

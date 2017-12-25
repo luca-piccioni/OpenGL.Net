@@ -58,11 +58,7 @@ test:
     only:
       - GL_VERSION_1_0
       - Math
-      - Framework_KhronosApi
-      - Framework_KhronosVersion
-      - Framework_RemovedByFeatureAttribute
-      - Framework_RequiredByFeatureAttribute
-      - Framework_DeviceContext
+      - Framework
       - Toolkit_CoreUI
 
 after_test:
