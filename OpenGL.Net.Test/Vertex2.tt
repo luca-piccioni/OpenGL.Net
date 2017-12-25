@@ -504,7 +504,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test <#= className #>.Min(<#= className #>[]) ArgumentNullException")]
-		public void T<#= className #>_TestMin_ArgumentNullException()
+		public void <#= className #>_TestMin_ArgumentNullException()
 		{
 			Assert.Throws<ArgumentNullException>(() => <#= className #>.Min(null));
 		}
@@ -533,7 +533,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test <#= className #>.Min(<#= className #>*) ArgumentNullException")]
-		public void T<#= className #>_TestMin_Unsafe_ArgumentNullException()
+		public void <#= className #>_TestMin_Unsafe_ArgumentNullException()
 		{
 			unsafe {
 				Assert.Throws<ArgumentNullException>(() => <#= className #>.Min(null, 0));
@@ -558,7 +558,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test <#= className #>.Max(<#= className #>[]) ArgumentNullException")]
-		public void T<#= className #>_TestMax_ArgumentNullException()
+		public void <#= className #>_TestMax_ArgumentNullException()
 		{
 			Assert.Throws<ArgumentNullException>(() => <#= className #>.Max(null));
 		}
@@ -587,7 +587,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test <#= className #>.Max(<#= className #>*) ArgumentNullException")]
-		public void T<#= className #>_TestMax_Unsafe_ArgumentNullException()
+		public void <#= className #>_TestMax_Unsafe_ArgumentNullException()
 		{
 			unsafe {
 				Assert.Throws<ArgumentNullException>(() => <#= className #>.Max(null, 0));
@@ -618,7 +618,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test <#= className #>.Max(<#= className #>[]) ArgumentNullException")]
-		public void T<#= className #>_TestMinMax_ArgumentNullException()
+		public void <#= className #>_TestMinMax_ArgumentNullException()
 		{
 			<#= className #> min, max;
 
@@ -653,7 +653,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test <#= className #>.MinMax(<#= className #>*) ArgumentNullException")]
-		public void T<#= className #>_TestMinMax_Unsafe_ArgumentNullException()
+		public void <#= className #>_TestMinMax_Unsafe_ArgumentNullException()
 		{
 			<#= className #> min, max;
 

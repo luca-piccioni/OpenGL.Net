@@ -53,7 +53,7 @@ namespace OpenGL.Test
 		[TestCase("GL_ES_VERSION_3_1", 3, 1, 0, KhronosVersion.ApiGles2)]
 		[TestCase("GL_ES_VERSION_3_2", 3, 2, 0, KhronosVersion.ApiGles2)]
 		[TestCase("GL_SC_VERSION_2_0", 2, 0, 0, KhronosVersion.ApiGlsc2)]
-		public void TestConstructor1(string feature, int major, int minor, int revision, string api)
+		public void RemovedByFeatureAttribute_Constructor1(string feature, int major, int minor, int revision, string api)
 		{
 			RemovedByFeatureAttribute a = new RemovedByFeatureAttribute(feature);
 
@@ -70,7 +70,7 @@ namespace OpenGL.Test
 		[TestCase("GL_3DFX_multisample")]
 		[TestCase("GL_ARB_multisample")]
 		[TestCase("AnythingThanFeatures")]
-		public void TestConstructor2(string feature)
+		public void RemovedByFeatureAttribute_Constructor2(string feature)
 		{
 			RemovedByFeatureAttribute a = new RemovedByFeatureAttribute(feature);
 
@@ -85,13 +85,13 @@ namespace OpenGL.Test
 		[Test(Description = "Test RemovedByFeatureAttribute(string featureName) ArgumentException")]
 		[TestCase(null)]
 		[TestCase("")]
-		public void TestConstructor1_ArgumentException(string feature)
+		public void RemovedByFeatureAttribute_Constructor1_ArgumentException(string feature)
 		{
 			Assert.Throws<ArgumentException>(() => new RemovedByFeatureAttribute(feature));
 		}
 
 		[Test(Description = "Test IsRemoved(KhronosVersion version, KhronosApi.ExtensionsCollection extensions)")]
-		public void TestIsRemoved()
+		public void RemovedByFeatureAttribute_IsRemoved()
 		{
 			RemovedByFeatureAttribute a;
 
@@ -141,7 +141,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test IsSupported(KhronosVersion version, KhronosApi.ExtensionsCollection extensions) ArgumentNullException")]
-		public void TestIsSupported_ArgumentNullException()
+		public void RemovedByFeatureAttribute_IsSupported_ArgumentNullException()
 		{
 			RemovedByFeatureAttribute a = new RemovedByFeatureAttribute("GL_VERSION_1_0");
 			Gl.Extensions extensions = new Gl.Extensions();
