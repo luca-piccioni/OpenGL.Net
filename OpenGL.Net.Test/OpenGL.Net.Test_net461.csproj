@@ -120,6 +120,9 @@
       <DependentUpon>ColorRGBA.tt</DependentUpon>
     </Compile>
     <Compile Include="ColorTestBase.cs" />
+    <Compile Include="DevicePixelFormatCollection.cs" />
+    <Compile Include="DevicePixelFormat.cs" />
+    <Compile Include="MatrixBase.cs" />
     <Compile Include="Vertex4.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

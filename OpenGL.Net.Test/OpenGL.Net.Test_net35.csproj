@@ -111,6 +111,8 @@
     <Compile Include="BenchmarkPInvoke.cs" />
     <Compile Include="ColorTestBase.cs" />
     <Compile Include="DeviceContext.cs" />
+    <Compile Include="DevicePixelFormat.cs" />
+    <Compile Include="DevicePixelFormatCollection.cs" />
     <Compile Include="Gl.VERSION_1_0.cs" />
     <Compile Include="Gl.VERSION_1_5.cs" />
     <Compile Include="Gl.VERSION_2_0.cs" />
@@ -124,6 +126,7 @@
     <Compile Include="KhronosApi.cs" />
     <Compile Include="KhronosVersion.cs" />
     <Compile Include="Matrix.cs" />
+    <Compile Include="MatrixBase.cs" />
     <Compile Include="Memory.cs" />
     <Compile Include="Plane.cs" />
     <Compile Include="RemovedByFeatureAttribute.cs" />
