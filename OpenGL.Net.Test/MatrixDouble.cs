@@ -26,59 +26,59 @@ using NUnit.Framework;
 namespace OpenGL.Test
 {
 	[TestFixture, Category("Math")]
-	internal class MatrixBaseTest
+	internal class MatrixDoubleTest
 	{
-		private Matrix CreateRandomMatrix(uint w, uint h)
+		private MatrixDouble CreateRandomMatrix(uint w, uint h)
 		{
 			return CreateRandomMatrix(new Random(), w, h);
 		}
 
-		private Matrix CreateRandomMatrix(Random random, uint w, uint h)
+		private MatrixDouble CreateRandomMatrix(Random random, uint w, uint h)
 		{
-			float[] components = new float[w * h];
+			double[] components = new double[w * h];
 
 			for (int i = 0; i < components.Length; i++)
-				components[i] = (float)random.NextDouble();
+				components[i] = random.NextDouble();
 
-			return new Matrix(w, h, components);
+			return new MatrixDouble(w, h, components);
 		}
 
 		#region Constructors
 
 		[Test]
 		[TestCase(1u, 2u), TestCase(2u, 1u), TestCase(2u, 2u)]
-		public void Matrix_Constructor1(uint w, uint h)
+		public void MatrixDouble_Constructor1(uint w, uint h)
 		{
-			Matrix m = new Matrix(w, h);
+			MatrixDouble m = new MatrixDouble(w, h);
 
 			Assert.AreEqual(w, m.Width);
 			Assert.AreEqual(h, m.Height);
 
 			for (uint c = 0; c < w; c++)
 				for (uint r = 0; r < h; r++)
-					Assert.AreEqual(0.0f, m[c, r]);
+					Assert.AreEqual(0.0, m[c, r]);
 		}
 
 		[Test]
-		public void Matrix_Constructor1_Exceptions()
+		public void MatrixDouble_Constructor1_Exceptions()
 		{
 			// ReSharper disable once NotAccessedVariable
-			Matrix m;
+			MatrixDouble m;
 
-			Assert.Throws<ArgumentException>(() => m = new Matrix(0, 2));
-			Assert.Throws<ArgumentException>(() => m = new Matrix(2, 0));
+			Assert.Throws<ArgumentException>(() => m = new MatrixDouble(0, 2));
+			Assert.Throws<ArgumentException>(() => m = new MatrixDouble(2, 0));
 		}
 
 		[Test]
 		[TestCase(1u, 2u), TestCase(2u, 1u), TestCase(2u, 2u)]
-		public void Matrix_Constructor2(uint w, uint h)
+		public void MatrixDouble_Constructor2(uint w, uint h)
 		{
 			Random random = new Random();
-			float[] components = new float[w * h];
+			double[] components = new double[w * h];
 			for (int i = 0; i < components.Length; i++)
-				components[i] = (float)random.NextDouble();
+				components[i] = random.NextDouble();
 
-			Matrix m = new Matrix(w, h, components);
+			MatrixDouble m = new MatrixDouble(w, h, components);
 
 			Assert.AreEqual(w, m.Width);
 			Assert.AreEqual(h, m.Height);
@@ -89,31 +89,31 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix_Constructor2_Exceptions()
+		public void MatrixDouble_Constructor2_Exceptions()
 		{
 			// ReSharper disable once NotAccessedVariable
-			Matrix m;
+			MatrixDouble m;
 
-			Assert.Throws<ArgumentException>(() => m = new Matrix(0, 2, null));
-			Assert.Throws<ArgumentException>(() => m = new Matrix(2, 0, null));
-			Assert.Throws<ArgumentNullException>(() => m = new Matrix(2, 2, null));
-			Assert.Throws<ArgumentException>(() => m = new Matrix(2, 2, 1.0f, 2.0f, 3.0f));
-			Assert.DoesNotThrow(() => m = new Matrix(2, 2, 1.0f, 2.0f, 3.0f, 4.0f, 5.0f));
+			Assert.Throws<ArgumentException>(() => m = new MatrixDouble(0, 2, null));
+			Assert.Throws<ArgumentException>(() => m = new MatrixDouble(2, 0, null));
+			Assert.Throws<ArgumentNullException>(() => m = new MatrixDouble(2, 2, null));
+			Assert.Throws<ArgumentException>(() => m = new MatrixDouble(2, 2, 1.0f, 2.0f, 3.0f));
+			Assert.DoesNotThrow(() => m = new MatrixDouble(2, 2, 1.0f, 2.0f, 3.0f, 4.0f, 5.0f));
 		}
 
 		[Test]
-		public void Matrix_Constructor3()
+		public void MatrixDouble_Constructor3()
 		{
-			Matrix m = CreateRandomMatrix(3, 3);
+			MatrixDouble m = CreateRandomMatrix(3, 3);
 
 			AssertComplement(m, 0, 0);
 			AssertComplement(m, 1, 2);
 			AssertComplement(m, 2, 1);
 		}
 
-		private void AssertComplement(Matrix m, uint c, uint r)
+		private void AssertComplement(MatrixDouble m, uint c, uint r)
 		{
-			Matrix cm = new Matrix(m, c, r);
+			MatrixDouble cm = new MatrixDouble(m, c, r);
 
 			Assert.AreEqual(m.Width - 1, cm.Width);
 			Assert.AreEqual(m.Height - 1, cm.Height);
@@ -129,23 +129,23 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix_Constructor3_Exceptions()
+		public void MatrixDouble_Constructor3_Exceptions()
 		{
 			// ReSharper disable once NotAccessedVariable
-			Matrix m;
+			MatrixDouble m;
 
-			Assert.Throws<ArgumentNullException>(() => m = new Matrix(null, 0, 0));
-			Assert.Throws<ArgumentException>(() => m = new Matrix(new Matrix(1, 1), 0, 0));
-			Assert.Throws<ArgumentOutOfRangeException>(() => m = new Matrix(new Matrix(2, 2), 2, 0));
-			Assert.Throws<ArgumentOutOfRangeException>(() => m = new Matrix(new Matrix(2, 2), 0, 2));
+			Assert.Throws<ArgumentNullException>(() => m = new MatrixDouble(null, 0, 0));
+			Assert.Throws<ArgumentException>(() => m = new MatrixDouble(new MatrixDouble(1, 1), 0, 0));
+			Assert.Throws<ArgumentOutOfRangeException>(() => m = new MatrixDouble(new MatrixDouble(2, 2), 2, 0));
+			Assert.Throws<ArgumentOutOfRangeException>(() => m = new MatrixDouble(new MatrixDouble(2, 2), 0, 2));
 		}
 
 		[Test]
 		[TestCase(1u, 2u), TestCase(2u, 1u), TestCase(2u, 2u)]
-		public void Matrix_Constructor4(uint w, uint h)
+		public void MatrixDouble_Constructor4(uint w, uint h)
 		{
-			Matrix m = CreateRandomMatrix(w, h);
-			Matrix cm = new Matrix(m);
+			MatrixDouble m = CreateRandomMatrix(w, h);
+			MatrixDouble cm = new MatrixDouble(m);
 
 			Assert.AreEqual(m.Width, cm.Width);
 			Assert.AreEqual(m.Height, cm.Height);
@@ -155,27 +155,27 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix_Constructor4_Exceptions()
+		public void MatrixDouble_Constructor4_Exceptions()
 		{
 			// ReSharper disable once NotAccessedVariable
-			Matrix m;
+			MatrixDouble m;
 
-			Assert.Throws<ArgumentNullException>(() => m = new Matrix(null));
+			Assert.Throws<ArgumentNullException>(() => m = new MatrixDouble(null));
 		}
 
 		[Test]
-		public void Matrix_Constructor5()
+		public void MatrixDouble_Constructor5()
 		{
 			// TODO
 		}
 
 		[Test]
-		public void Matrix_Constructor5_Exceptions()
+		public void MatrixDouble_Constructor5_Exceptions()
 		{
 			// ReSharper disable once NotAccessedVariable
-			Matrix m;
+			MatrixDouble m;
 
-			Assert.Throws<ArgumentNullException>(() => m = new Matrix((IMatrix)null));
+			Assert.Throws<ArgumentNullException>(() => m = new MatrixDouble((IMatrix)null));
 		}
 
 		#endregion
@@ -183,19 +183,19 @@ namespace OpenGL.Test
 		#region Buffer
 
 		[Test]
-		public void Matrix_Buffer()
+		public void MatrixDouble_Buffer()
 		{
 			// ReSharper disable once NotAccessedVariable
-			Matrix m = CreateRandomMatrix(2, 2);
-			float[] buffer = m.Buffer;
+			MatrixDouble m = CreateRandomMatrix(2, 2);
+			double[] buffer = m.Buffer;
 
 			Assert.IsNotNull(buffer);
 			Assert.AreNotSame(m.Buffer, buffer);
 			Assert.AreEqual(buffer[0], m[0, 0]);
 			Assert.AreEqual(buffer[0], m.Buffer[0]);
 
-			Assert.AreNotEqual(float.NaN, buffer[0]);
-			buffer[0] = float.NaN;
+			Assert.AreNotEqual(double.NaN, buffer[0]);
+			buffer[0] = double.NaN;
 			Assert.AreNotEqual(buffer[0], m[0, 0]);
 			Assert.AreNotEqual(buffer[0], m.Buffer[0]);
 		}
@@ -205,10 +205,10 @@ namespace OpenGL.Test
 		#region Operators
 
 		[Test]
-		public void Matrix_Accessor()
+		public void MatrixDouble_Accessor()
 		{
-			Matrix m = CreateRandomMatrix(2, 2);
-			float[] buffer = m.Buffer;
+			MatrixDouble m = CreateRandomMatrix(2, 2);
+			double[] buffer = m.Buffer;
 
 			for (uint c = 0, i = 0; c < m.Width; c++)
 				for (uint r = 0; r < m.Height; r++, i++)
@@ -217,30 +217,30 @@ namespace OpenGL.Test
 			for (uint c = 0; c < m.Width; c++)
 				for (uint r = 0; r < m.Height; r++)
 				{
-					m[c, r] = float.NaN;
+					m[c, r] = double.NaN;
 					Assert.AreEqual(float.NaN, m[c, r]);
 				}
 		}
 
 		[Test]
-		public void Matrix_Accessor_Exceptions()
+		public void MatrixDouble_Accessor_Exceptions()
 		{
-			Matrix m = CreateRandomMatrix(2, 2);
+			MatrixDouble m = CreateRandomMatrix(2, 2);
 			// ReSharper disable once NotAccessedVariable
-			float c;
+			double c;
 
 			Assert.Throws<ArgumentException>(() => c = m[2, 0]);
 			Assert.Throws<ArgumentException>(() => c = m[0, 2]);
-			Assert.Throws<ArgumentException>(() => m[2, 0] = float.NaN);
-			Assert.Throws<ArgumentException>(() => m[0, 2] = float.NaN);
+			Assert.Throws<ArgumentException>(() => m[2, 0] = double.NaN);
+			Assert.Throws<ArgumentException>(() => m[0, 2] = double.NaN);
 		}
 
 		[Test]
-		public void Matrix_OperatorAdd()
+		public void MatrixDouble_OperatorAdd()
 		{
-			Matrix m = new Matrix(2, 2, +1.0f, -0.5f, +2.0f, -1.5f);
-			Matrix n = new Matrix(2, 2, -1.0f, +0.5f, -2.0f, +1.5f);
-			Matrix o = m + n;
+			MatrixDouble m = new MatrixDouble(2, 2, +1.0, -0.5, +2.0, -1.5);
+			MatrixDouble n = new MatrixDouble(2, 2, -1.0, +0.5, -2.0, +1.5);
+			MatrixDouble o = m + n;
 
 			for (uint c = 0; c < m.Width; c++)
 				for (uint r = 0; r < m.Height; r++)
@@ -248,23 +248,23 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix_OperatorAdd_Exceptions()
+		public void MatrixDouble_OperatorAdd_Exceptions()
 		{
 			// ReSharper disable once NotAccessedVariable
-			Matrix m = CreateRandomMatrix(2, 2), r;
+			MatrixDouble m = CreateRandomMatrix(2, 2), r;
 
 			Assert.Throws<ArgumentNullException>(() => r = m + null);
 			Assert.Throws<ArgumentNullException>(() => r = null + m);
-			Assert.Throws<ArgumentException>(() => r = m + new Matrix(1, 2));
-			Assert.Throws<ArgumentException>(() => r = m + new Matrix(2, 1));
+			Assert.Throws<ArgumentException>(() => r = m + new MatrixDouble(1, 2));
+			Assert.Throws<ArgumentException>(() => r = m + new MatrixDouble(2, 1));
 		}
 
 		[Test]
-		public void Matrix_OperatorMulScalar()
+		public void MatrixDouble_OperatorMulScalar()
 		{
-			Matrix m = new Matrix(2, 2, 1.0f, 1.0f, 1.0f, 1.0f);
-			Matrix m05 = m * 0.5f;
-			Matrix m20 = m * 2.0f;
+			MatrixDouble m = new MatrixDouble(2, 2, 1.0, 1.0, 1.0, 1.0);
+			MatrixDouble m05 = m * 0.5;
+			MatrixDouble m20 = m * 2.0;
 
 			Assert.AreEqual(m.Width, m05.Width);
 			Assert.AreEqual(m.Width, m20.Width);
@@ -275,26 +275,26 @@ namespace OpenGL.Test
 			for (uint c = 0; c < m.Width; c++)
 				for (uint r = 0; r < m.Height; r++)
 				{
-					Assert.AreEqual(0.5f, m05[c, r]);
-					Assert.AreEqual(2.0f, m20[c, r]);
+					Assert.AreEqual(0.5, m05[c, r]);
+					Assert.AreEqual(2.0, m20[c, r]);
 				}
 		}
 
 		[Test]
-		public void Matrix_OperatorMulScalar_Exceptions()
+		public void MatrixDouble_OperatorMulScalar_Exceptions()
 		{
 			// ReSharper disable once NotAccessedVariable
-			Matrix r;
+			MatrixDouble r;
 
-			Assert.Throws<ArgumentNullException>(() => r = (Matrix)null * 0.5f);
+			Assert.Throws<ArgumentNullException>(() => r = (MatrixDouble)null * 0.5);
 		}
 
 		[Test]
-		public void Matrix_OperatorDiv()
+		public void MatrixDouble_OperatorDiv()
 		{
-			Matrix m = new Matrix(2, 2, 1.0f, 1.0f, 1.0f, 1.0f);
-			Matrix m05 = m / 0.5f;
-			Matrix m20 = m / 2.0f;
+			MatrixDouble m = new MatrixDouble(2, 2, 1.0f, 1.0f, 1.0f, 1.0f);
+			MatrixDouble m05 = m / 0.5;
+			MatrixDouble m20 = m / 2.0;
 
 			Assert.AreEqual(m.Width, m05.Width);
 			Assert.AreEqual(m.Width, m20.Width);
@@ -305,28 +305,28 @@ namespace OpenGL.Test
 			for (uint c = 0; c < m.Width; c++)
 				for (uint r = 0; r < m.Height; r++)
 				{
-					Assert.AreEqual(2.0f, m05[c, r]);
-					Assert.AreEqual(0.5f, m20[c, r]);
+					Assert.AreEqual(2.0, m05[c, r]);
+					Assert.AreEqual(0.5, m20[c, r]);
 				}
 		}
 
 		[Test]
-		public void Matrix_OperatorDiv_Exceptions()
+		public void MatrixDouble_OperatorDiv_Exceptions()
 		{
 			// ReSharper disable once NotAccessedVariable
-			Matrix r;
+			MatrixDouble r;
 
-			Assert.Throws<ArgumentNullException>(() => r = (Matrix)null / 0.5f);
+			Assert.Throws<ArgumentNullException>(() => r = (MatrixDouble)null / 0.5);
 		}
 
 		[Test]
-		public void Matrix_OperatorMulMatrix()
+		public void MatrixDouble_OperatorMulMatrix()
 		{
 
 		}
 
 		[Test]
-		public void Matrix_OperatorMulMatrix_Exceptions()
+		public void MatrixDouble_OperatorMulMatrix_Exceptions()
 		{
 			
 		}
@@ -336,44 +336,44 @@ namespace OpenGL.Test
 		#region Matrix Functions
 
 		[Test]
-		public virtual void Matrix_Set()
+		public virtual void MatrixDouble_Set()
 		{
-			Matrix m = CreateRandomMatrix(2, 3);
-			Matrix z = new Matrix(2, 3);
+			MatrixDouble m = CreateRandomMatrix(2, 3);
+			MatrixDouble z = new MatrixDouble(2, 3);
 
 			m.Set(z);
 
 			for (uint c = 0; c < 2; c++)
 				for (uint r = 0; r < 2; r++)
-					Assert.AreEqual(0.0f, m[c, r]);
+					Assert.AreEqual(0.0, m[c, r]);
 
 			m = CreateRandomMatrix(2, 3);
 			m.Set((IMatrix)z);
 
 			for (uint c = 0; c < 2; c++)
 				for (uint r = 0; r < 2; r++)
-					Assert.AreEqual(0.0f, m[c, r]);
+					Assert.AreEqual(0.0, m[c, r]);
 		}
 
 		[Test]
-		public virtual void Matrix_Set_Exceptions()
+		public virtual void MatrixDouble_Set_Exceptions()
 		{
-			Matrix m = CreateRandomMatrix(2, 3);
+			MatrixDouble m = CreateRandomMatrix(2, 3);
 
 			Assert.Throws<ArgumentNullException>(() => m.Set(null));
 			Assert.Throws<ArgumentNullException>(() => m.Set((IMatrix)null));
 
-			Assert.Throws<ArgumentException>(() => m.Set(new Matrix(3, 3)));
-			Assert.Throws<ArgumentException>(() => m.Set((IMatrix)new Matrix(3, 3)));
+			Assert.Throws<ArgumentException>(() => m.Set(new MatrixDouble(3, 3)));
+			Assert.Throws<ArgumentException>(() => m.Set((IMatrix)new MatrixDouble(3, 3)));
 
-			Assert.Throws<ArgumentException>(() => m.Set(new Matrix(2, 2)));
-			Assert.Throws<ArgumentException>(() => m.Set((IMatrix)new Matrix(2, 2)));
+			Assert.Throws<ArgumentException>(() => m.Set(new MatrixDouble(2, 2)));
+			Assert.Throws<ArgumentException>(() => m.Set((IMatrix)new MatrixDouble(2, 2)));
 		}
 
 		[Test]
-		public virtual void Matrix_SetVoid()
+		public virtual void MatrixDouble_SetVoid()
 		{
-			Matrix m = CreateRandomMatrix(2, 3);
+			MatrixDouble m = CreateRandomMatrix(2, 3);
 
 			m.SetVoid();
 
@@ -383,20 +383,20 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix_Transpose()
+		public void MatrixDouble_Transpose()
 		{
-			Matrix m = CreateRandomMatrix(2, 3);
-			Matrix t = m.Transpose();
+			MatrixDouble m = CreateRandomMatrix(2, 3);
+			MatrixDouble t = m.Transpose();
 
 			Assert.AreEqual(m.Width, t.Height);
 			Assert.AreEqual(m.Height, t.Width);
 		}
 
 		[Test]
-		public void Matrix_Clone()
+		public void MatrixDouble_Clone()
 		{
-			Matrix m = CreateRandomMatrix(2, 2);
-			Matrix c = null;
+			MatrixDouble m = CreateRandomMatrix(2, 2);
+			MatrixDouble c = null;
 
 			Assert.DoesNotThrow(() => c = m.Clone());
 			Assert.AreNotSame(m, c);
@@ -404,10 +404,10 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix_GetColumn()
+		public void MatrixDouble_GetColumn()
 		{
-			Matrix m = CreateRandomMatrix(2, 2);
-			float[] c;
+			MatrixDouble m = CreateRandomMatrix(2, 2);
+			double[] c;
 
 			c = m.GetColumn(0);
 			Assert.IsNotNull(c);
@@ -419,18 +419,18 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix_GetColumn_Exceptions()
+		public void MatrixDouble_GetColumn_Exceptions()
 		{
-			Matrix m = CreateRandomMatrix(2, 2);
+			MatrixDouble m = CreateRandomMatrix(2, 2);
 
 			Assert.Throws<ArgumentOutOfRangeException>(() => m.GetColumn(2));
 		}
 
 		[Test]
-		public void Matrix_GetRow()
+		public void MatrixDouble_GetRow()
 		{
-			Matrix m = CreateRandomMatrix(2, 2);
-			float[] c;
+			MatrixDouble m = CreateRandomMatrix(2, 2);
+			double[] c;
 
 			c = m.GetRow(0);
 			Assert.IsNotNull(c);
@@ -442,19 +442,19 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix_GetRow_Exceptions()
+		public void MatrixDouble_GetRow_Exceptions()
 		{
-			Matrix m = CreateRandomMatrix(2, 2);
+			MatrixDouble m = CreateRandomMatrix(2, 2);
 
 			Assert.Throws<ArgumentOutOfRangeException>(() => m.GetRow(2));
 		}
 
 		[Test]
 		[TestCase(1u, 2u), TestCase(2u, 1u), TestCase(2u, 2u)]
-		public void Matrix_ToArray(uint w, uint h)
+		public void MatrixDouble_ToArray(uint w, uint h)
 		{
-			Matrix m = CreateRandomMatrix(w, h);
-			float[] mArray = m.ToArray();
+			MatrixDouble m = CreateRandomMatrix(w, h);
+			double[] mArray = m.ToArray();
 
 			Assert.IsNotNull(mArray);
 			Assert.AreEqual(w * h, (uint)mArray.Length);
@@ -467,16 +467,16 @@ namespace OpenGL.Test
 		#region Square Matrix Functions
 
 		[Test]
-		public void Matrix_IsSquare()
+		public void MatrixDouble_IsSquare()
 		{
-			Assert.IsTrue(new Matrix(2, 2).IsSquare);
-			Assert.IsFalse(new Matrix(2, 3).IsSquare);
+			Assert.IsTrue(new MatrixDouble(2, 2).IsSquare);
+			Assert.IsFalse(new MatrixDouble(2, 3).IsSquare);
 		}
 
 		[Test]
-		public void Matrix_IsIdentity()
+		public void MatrixDouble_IsIdentity()
 		{
-			Matrix m = new Matrix(5, 5);
+			MatrixDouble m = new MatrixDouble(5, 5);
 			Assert.IsFalse(m.IsIdentity());
 
 			m.SetIdentity();
@@ -484,13 +484,13 @@ namespace OpenGL.Test
 
 			const float epsilon = 0.1f;
 
-			m[0, 0] = 1.0f - epsilon / 2.0f;
+			m[0, 0] = 1.0 + epsilon / 2.0;
 			Assert.IsFalse(m.IsIdentity());
 			Assert.IsTrue(m.IsIdentity(epsilon));
 			Assert.IsTrue(m.IsIdentity((double)epsilon));
 
 			m.SetIdentity();
-			Matrix inv = m.GetInverseMatrix();
+			MatrixDouble inv = m.GetInverseMatrix();
 			Assert.IsTrue(inv.IsIdentity());
 		}
 
@@ -499,9 +499,9 @@ namespace OpenGL.Test
 		#region Object Overrides
 
 		[Test]
-		public void Matrix_ToString()
+		public void MatrixDouble_ToString()
 		{
-			Matrix m = CreateRandomMatrix(3, 3);
+			MatrixDouble m = CreateRandomMatrix(3, 3);
 
 			// ReSharper disable once ReturnValueOfPureMethodIsNotUsed
 			Assert.DoesNotThrow(() => m.ToString());
@@ -512,9 +512,9 @@ namespace OpenGL.Test
 		#region IEquatable<Matrix> Implementation
 
 		[Test]
-		public void Matrix_EqualsMatrix()
+		public void MatrixDouble_EqualsMatrix()
 		{
-			Matrix m = CreateRandomMatrix(3, 3);
+			MatrixDouble m = CreateRandomMatrix(3, 3);
 			m[0, 0] = 0.0f;
 
 			Assert.IsTrue(m.Equals(m));
@@ -522,7 +522,7 @@ namespace OpenGL.Test
 			Assert.IsFalse(m.Equals(new Matrix(3, 2)));
 			Assert.IsFalse(m.Equals(new Matrix(2, 2)));
 
-			Matrix c = m.Clone();
+			MatrixDouble c = m.Clone();
 
 			Assert.IsTrue(m.Equals(c));
 
@@ -531,9 +531,9 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix_EqualsObject()
+		public void MatrixDouble_EqualsObject()
 		{
-			Matrix m = CreateRandomMatrix(3, 3);
+			MatrixDouble m = CreateRandomMatrix(3, 3);
 
 			Assert.IsTrue(m.Equals((object)m));
 			Assert.IsFalse(m.Equals((object)null));
@@ -542,14 +542,14 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix_GetHashCode()
+		public void MatrixDouble_GetHashCode()
 		{
-			Matrix m = CreateRandomMatrix(3, 3);
+			MatrixDouble m = CreateRandomMatrix(3, 3);
 
 			// ReSharper disable once ReturnValueOfPureMethodIsNotUsed
 			Assert.DoesNotThrow(() => m.GetHashCode());
 
-			Matrix c = m.Clone();
+			MatrixDouble c = m.Clone();
 			Assert.AreNotEqual(m.GetHashCode(), c.GetHashCode());
 		}
 

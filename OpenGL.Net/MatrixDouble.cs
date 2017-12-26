@@ -933,6 +933,9 @@ namespace OpenGL
 		/// </returns>
 		public double[] GetColumn(uint index)
 		{
+			if (index >= Width)
+				throw new ArgumentOutOfRangeException(nameof(index));
+
 			double[] column = new double[Height];
 
 			for (uint i = 0; i < Height; i++)
@@ -952,6 +955,9 @@ namespace OpenGL
 		/// </returns>
 		public double[] GetRow(uint index)
 		{
+			if (index >= Height)
+				throw new ArgumentOutOfRangeException(nameof(index));
+
 			double[] row = new double[Width];
 
 			for (uint i = 0; i < Width; i++)

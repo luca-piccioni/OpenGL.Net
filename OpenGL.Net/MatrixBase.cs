@@ -221,7 +221,7 @@ namespace OpenGL
 		/// <summary>
 		/// Matrix components.
 		/// </summary>
-		protected internal float[] MatrixBuffer;
+		protected internal readonly float[] MatrixBuffer;
 
 		#endregion
 
@@ -616,10 +616,7 @@ namespace OpenGL
 		/// <summary>
 		/// Determine whether this matrix is square.
 		/// </summary>
-		public bool IsSquare
-		{
-			get { return (Width == Height); }
-		}
+		public bool IsSquare => Width == Height;
 
 		/// <summary>
 		/// Determine whether this matrix is an identity.
@@ -645,9 +642,9 @@ namespace OpenGL
 						for (uint r = 0; r < _Height; r++) {
 							float value = matrix[c * _Width + r];
 
-							if ((c != r) && (Math.Abs(value) > precision))
+							if (c != r && Math.Abs(value) > precision)
 								return (false);
-							if ((c == r) && (Math.Abs(1.0f - value) > precision))
+							if (c == r && Math.Abs(1.0f - value) > precision)
 								return (false);
 						}
 					}
@@ -1124,7 +1121,7 @@ namespace OpenGL
 			unsafe {
 				fixed (float* m1 = MatrixBuffer)
 				fixed (float* m2 = other.MatrixBuffer) {
-					const float Epsilon = 1e-6f;
+					const float epsilon = 1e-6f;
 
 					float* m1Ptr = m1, m2Ptr = m2;
 					uint w = _Width, h = Height, l = w * h;
@@ -1144,7 +1141,7 @@ namespace OpenGL
 #endif
 					// Compare (remaining) matrix elements
 					for (uint i = 0; i < l; i++) {
-						if (Math.Abs(m1Ptr[i] - m2Ptr[i]) > Epsilon)
+						if (Math.Abs(m1Ptr[i] - m2Ptr[i]) > epsilon)
 							return (false);
 					}
 				}
@@ -1184,7 +1181,6 @@ namespace OpenGL
 				int result = MatrixBuffer.GetHashCode();
 
 				result = (result * 397) ^ _Width.GetHashCode();
-
 				result = (result * 397) ^ _Height.GetHashCode();
 
 				return result;

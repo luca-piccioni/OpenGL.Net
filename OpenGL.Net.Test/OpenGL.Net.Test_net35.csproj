@@ -137,6 +137,7 @@
     <Compile Include="KhronosVersion.cs" />
     <Compile Include="Matrix.cs" />
     <Compile Include="MatrixBase.cs" />
+    <Compile Include="MatrixDouble.cs" />
     <Compile Include="Memory.cs" />
     <Compile Include="Plane.cs" />
     <Compile Include="RemovedByFeatureAttribute.cs" />
