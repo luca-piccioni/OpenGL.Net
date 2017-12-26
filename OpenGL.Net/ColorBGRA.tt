@@ -28,6 +28,9 @@
 
 using System;
 using System.Diagnostics;
+#if HAVE_SYSTEM_DRAWING
+using System.Drawing;
+#endif
 using System.Runtime.InteropServices;
 
 namespace OpenGL
@@ -38,9 +41,9 @@ namespace OpenGL
 	string[] pixelTypes =		new[] { "BGRA32", "BGRA64", "BGRAF", "BGRAHF"     };
 	string[] structType =		new[] { "byte",   "ushort", "float", "HalfFloat" };
 	string[] vertexBaseType =	new[] { "UByte",  "UShort", "Float", "Half" };
-	int[] structMembersCount =	new[] {  4,        4,        4,       4          };
 	string[] ones =				new[] { null,     null,     "1.0f",  "(HalfFloat)1.0f"};
 	int[][] bitss =				new[] {  new[] { 1 },    null,     null,     null,      };
+	string[] castSuffixes =		new[] { "ub",   "us", "f", "hf" };
 
 	for (int i = 0; i < postfixes.Length; i++) {
 		string className = String.Format("ColorBGRA{0}", postfixes[i]);
@@ -49,6 +52,7 @@ namespace OpenGL
 		string pixelType = pixelTypes[i];
 		int[] bits = bitss[i];
 		string one = ones[i];
+		string castSuffix = castSuffixes[i];
 
 		if (one == null)
 			one = componentType + ".MaxValue";
@@ -96,31 +100,17 @@ namespace OpenGL
 		/// </param>
 		public <#= className #>(<#= interfaceType #> r, <#= interfaceType #> g, <#= interfaceType #> b, <#= interfaceType #> a)
 		{
-<# if (structMembersCount[i] == 1) { #>
-			// Reset structure
-			rgb = 0;
-			// Setup RGBA components
-			Red = r; Green = g; Blue = b; Alpha = a;
-<# } else { #>
 			// Setup RGBA components
 			this.r = r;
 			this.g = g;
 			this.b = b;
 			this.a = a;
-<# } #>
 		}
 
 		#endregion
 
 		#region Structure
 
-<# if (structMembersCount[i] == 1) { #>
-		/// <summary>
-		/// RGB color components (packed).
-		/// </summary>
-		public <#= componentType #> bgra;
-
-<# } else { #>
 		/// <summary>
 		/// Blue color components.
 		/// </summary>
@@ -141,7 +131,98 @@ namespace OpenGL
 		/// </summary>
 		public <#= componentType #> a;
 
-<# } #>
+		#endregion
+
+		#region Cast Operators
+
+		/// <summary>
+		/// Cast to <#= componentType #>[] operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="<#= className #>"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:<#= componentType #>[]"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator <#= componentType #>[](<#= className #> a)
+		{
+			<#= componentType #>[] v = new <#= componentType #>[4];
+
+			v[0] = a.r;
+			v[1] = a.g;
+			v[2] = a.b;
+			v[3] = a.a;
+
+			return (v);
+		}
+
+		/// <summary>
+		/// Cast to Vertex4<#= castSuffix #> operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="<#= className #>"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex4<#= castSuffix #>"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator Vertex4<#= castSuffix #>(<#= className #> a)
+		{
+			return (new Vertex4<#= castSuffix #>(a.r, a.g, a.b, a.a));
+		}
+
+#if HAVE_SYSTEM_DRAWING
+
+		/// <summary>
+		/// Cast from Color operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Color"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:<#= className #>"/> initialized with the color components.
+		/// </returns>
+		public static explicit operator <#= className #>(Color a)
+		{
+			<#= className #> c = new <#= className #>();
+
+			c[0] = (float)a.R / byte.MaxValue;
+			c[1] = (float)a.G / byte.MaxValue;
+			c[2] = (float)a.B / byte.MaxValue;
+			c[3] = (float)a.A / byte.MaxValue;
+
+			return (c);
+		}
+
+#endif
+
+		#endregion
+
+		#region Arithmetic Operators
+
+		/// <summary>
+		/// Scalar multiply operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="<#= className #>"/> to be casted.
+		/// </param>
+		/// <param name="scalar">
+		/// A <see cref="Single"/> that specify the right operand.
+		/// </param>
+		/// <returns>
+		/// A <see cref="<#= className #>"/> that equals to the multiplication of <paramref name="a"/> with <paramref name="scalar"/>.
+		/// </returns>
+		public static <#= className #> operator*(<#= className #> a, float scalar)
+		{
+			<#= className #> v = new <#= className #>();
+
+			v.b = (<#= componentType #>)(a.b * scalar);
+			v.g = (<#= componentType #>)(a.g * scalar);
+			v.r = (<#= componentType #>)(a.r * scalar);
+			v.a = (<#= componentType #>)(a.a * scalar);
+
+			return (v);
+		}
+
 		#endregion
 
 		#region IColorRGBA<<#= interfaceType #>> Implementation
@@ -151,17 +232,8 @@ namespace OpenGL
 		/// </summary>
 		public <#= interfaceType #> Red
 		{
-<# if (structMembersCount[i] == 1) {
-	int rOffset = bits[0], rWidth = bits[1];
-	int rMask = 1;								for (int b = 1; b < rWidth; b++) rMask = (rMask << 1) | 1;
-	int rResetMask = rMask << rOffset;
-#>
-			get { return (<#= interfaceType #>)(((rgb >> <#= rOffset #>) & 0x<#= rMask.ToString("X2") #>) << <#= 8 - rWidth #>); }
-			set { rgb = (<#= componentType #>)unchecked((rgb & ~0x<#= rResetMask.ToString("X2") #>) | (value >> <#= 8 - rWidth #>) << <#= rOffset #>); }
-<# } else { #>
 			get { return (r); }
 			set { r = value; }
-<# } #>
 		}
 		
 		/// <summary>
@@ -169,17 +241,8 @@ namespace OpenGL
 		/// </summary>
 		public <#= interfaceType #> Green
 		{
-<# if (structMembersCount[i] == 1) {
-	int gOffset = bits[2], gWidth = bits[3];
-	int gMask = 1;							for (int b = 1; b < gWidth; b++) gMask = (gMask << 1) | 1;
-	int gResetMask = gMask << gOffset;
-#>
-			get { return (<#= interfaceType #>)(((rgb >> <#= gOffset #>) & 0x<#= gMask.ToString("X2") #>) << <#= 8 - gWidth #>); }
-			set { rgb = (<#= componentType #>)unchecked((rgb & ~0x<#= gResetMask.ToString("X2") #>) | (value >> <#= 8 - gWidth #>) << <#= gOffset #>); }
-<# } else { #>
 			get { return (g); }
 			set { g = value; }
-<# } #>
 		}
 		
 		/// <summary>
@@ -187,18 +250,8 @@ namespace OpenGL
 		/// </summary>
 		public <#= interfaceType #> Blue
 		{
-<# if (structMembersCount[i] == 1) {
-	int bOffset = bits[4], bWidth = bits[5];
-	int bMask = 1;							
-	for (int b = 1; b < bWidth; b++) bMask = (bMask << 1) | 1;
-	int bResetMask = bMask << bOffset;
-#>
-			get { return (<#= interfaceType #>)(((rgb >> <#= bOffset #>) & 0x<#= bMask.ToString("X2") #>) << <#= 8 - bWidth #>); }
-			set { rgb = (<#= componentType #>)unchecked((rgb & ~0x<#= bResetMask.ToString("X2") #>) | (value >> <#= 8 - bWidth #>)); }
-<# } else { #>
 			get { return (b); }
 			set { b = value; }
-<# } #>
 		}
 
 		/// <summary>
@@ -206,18 +259,8 @@ namespace OpenGL
 		/// </summary>
 		public <#= interfaceType #> Alpha
 		{
-<# if (structMembersCount[i] == 1) {
-	int aOffset = bits[6], aWidth = bits[7];
-	int aMask = 1;							
-	for (int b = 1; b < aWidth; b++) aMask = (aMask << 1) | 1;
-	int aResetMask = aMask << aOffset;
-#>
-			get { return (<#= interfaceType #>)(((rgb >> <#= aOffset #>) & 0x<#= aMask.ToString("X2") #>) << <#= 8 - aWidth #>); }
-			set { rgb = (<#= componentType #>)unchecked((rgb & ~0x<#= aResetMask.ToString("X2") #>) | (value >> <#= 8 - aWidth #>)); }
-<# } else { #>
 			get { return (a); }
 			set { a = value; }
-<# } #>
 		}
 		
 		#endregion

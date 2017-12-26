@@ -46,7 +46,7 @@ namespace OpenGL.Test
 	string[] colorSuffixes =	new[] { null,   null,    null,       "32",    "64",     null,    "F",     null,     "HF" };
 
 	for (int i = 0; i < postfixes.Length; i++) {
-		string className = String.Format("ColorRGB{0}", postfixes[i]);
+		string className = String.Format("ColorBGR{0}", postfixes[i]);
 		string interfaceType = interfaceTypes[i];
 		string componentType = structType[i];
 		string castSuffix = castSuffixes[i];
@@ -81,8 +81,8 @@ namespace OpenGL.Test
 		#region Cast Operators
 <# if (colorSuffix != null) { #>
 
-		[Test(Description = "Test (ColorRGBA<#= colorSuffix #>)<#= className #>")]
-		public void <#= className #>_CastToRGBA()
+		[Test(Description = "Test (ColorBGRA<#= colorSuffix #>)<#= className #>")]
+		public void <#= className #>_CastToBGRA()
 		{
 			Random random = new Random();
 			<#= interfaceType #> r = (<#= interfaceType #>)NextComponent(random, <#= one #>);
@@ -90,12 +90,12 @@ namespace OpenGL.Test
 			<#= interfaceType #> b = (<#= interfaceType #>)NextComponent(random, <#= one #>);
 
 			<#= className #> v = new <#= className #>(r, g, b);
-			ColorRGBA<#= colorSuffix #> vRGBA = v;
+			ColorBGRA<#= colorSuffix #> vBGRA = v;
 
-			Assert.AreEqual(v.Red, vRGBA.Red);
-			Assert.AreEqual(v.Green, vRGBA.Green);
-			Assert.AreEqual(v.Blue, vRGBA.Blue);
-			Assert.AreEqual(<#= one #>, vRGBA.Alpha);
+			Assert.AreEqual(v.Red, vBGRA.Red);
+			Assert.AreEqual(v.Green, vBGRA.Green);
+			Assert.AreEqual(v.Blue, vBGRA.Blue);
+			Assert.AreEqual(<#= one #>, vBGRA.Alpha);
 		}
 <# } #>
 
@@ -112,9 +112,9 @@ namespace OpenGL.Test
 			<#= componentType #>[] vArray = v;
 
 			Assert.AreEqual(3, vArray.Length);
-			Assert.AreEqual(r, vArray[0]);
+			Assert.AreEqual(b, vArray[0]);
 			Assert.AreEqual(g, vArray[1]);
-			Assert.AreEqual(b, vArray[2]);
+			Assert.AreEqual(r, vArray[2]);
 		}
 
 		[Test(Description = "Test (Vertex4ub)<#= className #>")]
@@ -128,9 +128,9 @@ namespace OpenGL.Test
 			<#= className #> v = new <#= className #>(r, g, b);
 			Vertex3<#= castSuffix #> vArray = v;
 
-			Assert.AreEqual(r, vArray.x);
+			Assert.AreEqual(b, vArray.x);
 			Assert.AreEqual(g, vArray.y);
-			Assert.AreEqual(b, vArray.z);
+			Assert.AreEqual(r, vArray.z);
 		}
 <# } #>
 

@@ -5,6 +5,7 @@
 <#@ Import Namespace="System.Collections.Generic" #>
 <#@ Import Namespace="System.Linq" #>
 <#@ Import Namespace="System.Runtime.InteropServices" #>
+
 // Copyright (C) 2009-2017 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -33,7 +34,8 @@ using System.Drawing;
 using System.Runtime.InteropServices;
 
 namespace OpenGL
-{<#
+{
+<#
 	string[] postfixes =			new[] { "32",     "64",     "F",     "HF"        };
 	string[] interfaceTypes =		new[] { "byte",   "ushort", "float", "HalfFloat" };
 	string[] pixelTypes =			new[] { "RGBA32", "RGBA64", "RGBAF", "RGBAHF"     };
@@ -99,16 +101,6 @@ namespace OpenGL
 		/// <param name="a">
 		/// A <see cref="<#= interfaceType #>"/> that specify the alpha component.
 		/// </param>
-<#
-if (structMembersCount[i] == 1) { #>
-		public <#= className #>(<#= interfaceType #> r, <#= interfaceType #> g, <#= interfaceType #> b, <#= interfaceType #> a)
-		{
-			// Reset structure
-			rgb = 0;
-			// Setup RGBA components
-			Red = r; Green = g; Blue = b; Alpha = a;
-		}
-<# } else { #>
 		public <#= className #>(<#= interfaceType #> r, <#= interfaceType #> g, <#= interfaceType #> b, <#= interfaceType #> a)
 		{
 			// Setup RGBA components
@@ -117,17 +109,11 @@ if (structMembersCount[i] == 1) { #>
 			this.b = b;
 			this.a = a;
 		}
-<# } #>
 
 		#endregion
 
 		#region Structure
-<# if (structMembersCount[i] == 1) { #>
-		/// <summary>
-		/// RGB color components (packed).
-		/// </summary>
-		public <#= componentType #> rgba;
-<# } else { #>
+
 		/// <summary>
 		/// Red color components.
 		/// </summary>
@@ -147,7 +133,7 @@ if (structMembersCount[i] == 1) { #>
 		/// Alpha color components.
 		/// </summary>
 		public <#= componentType #> a;
-<# } #>
+
 		#endregion
 
 		#region Cast Operators
@@ -291,91 +277,38 @@ if (structMembersCount[i] == 1) { #>
 		/// <summary>
 		/// Get or set the red component.
 		/// </summary>
-<# if (structMembersCount[i] == 1) {
-	int rOffset = bits[0], rWidth = bits[1];
-	int rMask = 1;								for (int b = 1; b < rWidth; b++) rMask = (rMask << 1) | 1;
-	int rResetMask = rMask << rOffset;
-#>
-		public <#= interfaceType #> Red
-		{
-			get { return (<#= interfaceType #>)(((rgb >> <#= rOffset #>) & 0x<#= rMask.ToString("X2") #>) << <#= 8 - rWidth #>); }
-			set { rgb = (<#= componentType #>)unchecked((rgb & ~0x<#= rResetMask.ToString("X2") #>) | (value >> <#= 8 - rWidth #>) << <#= rOffset #>); }
-		}
-<# } else { #>
 		public <#= interfaceType #> Red
 		{
 			get { return (r); }
 			set { r = value; }
 		}
-<# } #>
 
 		/// <summary>
 		/// Get or set the green component.
 		/// </summary>
-<#
-if (structMembersCount[i] == 1) {
-	int gOffset = bits[2], gWidth = bits[3];
-	int gMask = 1;							for (int b = 1; b < gWidth; b++) gMask = (gMask << 1) | 1;
-	int gResetMask = gMask << gOffset;
-#>
-		public <#= interfaceType #> Green
-		{
-			get { return (<#= interfaceType #>)(((rgb >> <#= gOffset #>) & 0x<#= gMask.ToString("X2") #>) << <#= 8 - gWidth #>); }
-			set { rgb = (<#= componentType #>)unchecked((rgb & ~0x<#= gResetMask.ToString("X2") #>) | (value >> <#= 8 - gWidth #>) << <#= gOffset #>); }
-		}
-<# } else { #>
 		public <#= interfaceType #> Green
 		{
 			get { return (g); }
 			set { g = value; }
 		}
-<# } #>
 
 		/// <summary>
 		/// Get or set the blue component.
 		/// </summary>
-<#
-if (structMembersCount[i] == 1) {
-	int bOffset = bits[4], bWidth = bits[5];
-	int bMask = 1;							
-	for (int b = 1; b < bWidth; b++) bMask = (bMask << 1) | 1;
-	int bResetMask = bMask << bOffset;
-#>
-		public <#= interfaceType #> Blue
-		{
-			get { return (<#= interfaceType #>)(((rgb >> <#= bOffset #>) & 0x<#= bMask.ToString("X2") #>) << <#= 8 - bWidth #>); }
-			set { rgb = (<#= componentType #>)unchecked((rgb & ~0x<#= bResetMask.ToString("X2") #>) | (value >> <#= 8 - bWidth #>)); }
-		}
-<# } else { #>
 		public <#= interfaceType #> Blue
 		{
 			get { return (b); }
 			set { b = value; }
 		}
-<# } #>
 
 		/// <summary>
 		/// Get or set the alpha component.
 		/// </summary>
-<#
-if (structMembersCount[i] == 1) {
-	int aOffset = bits[6], aWidth = bits[7];
-	int aMask = 1;							
-	for (int b = 1; b < aWidth; b++) aMask = (aMask << 1) | 1;
-	int aResetMask = aMask << aOffset;
-#>
-		public <#= interfaceType #> Alpha
-		{
-			get { return (<#= interfaceType #>)(((rgb >> <#= aOffset #>) & 0x<#= aMask.ToString("X2") #>) << <#= 8 - aWidth #>); }
-			set { rgb = (<#= componentType #>)unchecked((rgb & ~0x<#= aResetMask.ToString("X2") #>) | (value >> <#= 8 - aWidth #>)); }
-		}
-<# } else { #>
 		public <#= interfaceType #> Alpha
 		{
 			get { return (a); }
 			set { a = value; }
 		}
-<# } #>
 
 		#endregion
 

@@ -233,6 +233,7 @@ namespace OpenGL.Test
 
 		#endregion
 	}
+
 <#
 	}
 #>

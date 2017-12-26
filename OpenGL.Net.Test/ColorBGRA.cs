@@ -32,19 +32,19 @@ namespace OpenGL.Test
 {
 	[TestFixture]
 	[Category("Math")]
-	internal class ColorRGBA32Test : ColorTestBase
+	internal class ColorBGRA32Test : ColorTestBase
 	{
 		#region Constructors
 
-		[Test(Description = "Test ColorRGBA32(byte, byte, byte)")]
-		public void ColorRGBA32_TestConstructor1()
+		[Test(Description = "Test ColorBGRA32(byte, byte, byte)")]
+		public void ColorBGRA32_TestConstructor1()
 		{
 			Random random = new Random();
 			byte r = (byte)NextComponent(random, byte.MaxValue);
 			byte g = (byte)NextComponent(random, byte.MaxValue);
 			byte b = (byte)NextComponent(random, byte.MaxValue);
 			
-			ColorRGBA32 v = new ColorRGBA32(r, g, b);
+			ColorBGRA32 v = new ColorBGRA32(r, g, b);
 
 			Assert.AreEqual(r, v.r);
 			Assert.AreEqual(g, v.g);
@@ -52,8 +52,8 @@ namespace OpenGL.Test
 			Assert.AreEqual(byte.MaxValue, v.a);
 		}
 
-		[Test(Description = "Test ColorRGBA32(byte, byte, byte, byte)")]
-		public void ColorRGBA32_TestConstructor2()
+		[Test(Description = "Test ColorBGRA32(byte, byte, byte, byte)")]
+		public void ColorBGRA32_TestConstructor2()
 		{
 			Random random = new Random();
 			byte r = (byte)NextComponent(random, byte.MaxValue);
@@ -61,7 +61,7 @@ namespace OpenGL.Test
 			byte b = (byte)NextComponent(random, byte.MaxValue);
 			byte a = (byte)NextComponent(random, byte.MaxValue);
 			
-			ColorRGBA32 v = new ColorRGBA32(r, g, b, a);
+			ColorBGRA32 v = new ColorBGRA32(r, g, b, a);
 
 			Assert.AreEqual(r, v.r);
 			Assert.AreEqual(g, v.g);
@@ -73,8 +73,8 @@ namespace OpenGL.Test
 
 		#region Cast Operators
 
-		[Test(Description = "Test (byte[])ColorRGBA32")]
-		public void ColorRGBA32_CastToArray()
+		[Test(Description = "Test (byte[])ColorBGRA32")]
+		public void ColorBGRA32_CastToArray()
 		{
 			Random random = new Random();
 			byte r = (byte)NextComponent(random, byte.MaxValue);
@@ -82,7 +82,7 @@ namespace OpenGL.Test
 			byte b = (byte)NextComponent(random, byte.MaxValue);
 			byte a = (byte)NextComponent(random, byte.MaxValue);
 			
-			ColorRGBA32 v = new ColorRGBA32(r, g, b, a);
+			ColorBGRA32 v = new ColorBGRA32(r, g, b, a);
 			byte[] vArray = v;
 
 			Assert.AreEqual(4, vArray.Length);
@@ -92,8 +92,8 @@ namespace OpenGL.Test
 			Assert.AreEqual(a, vArray[3]);
 		}
 
-		[Test(Description = "Test (Vertex4ub)ColorRGBA32")]
-		public void ColorRGBA32_CastToVertex4()
+		[Test(Description = "Test (Vertex4ub)ColorBGRA32")]
+		public void ColorBGRA32_CastToVertex4()
 		{
 			Random random = new Random();
 			byte r = (byte)NextComponent(random, byte.MaxValue);
@@ -101,7 +101,7 @@ namespace OpenGL.Test
 			byte b = (byte)NextComponent(random, byte.MaxValue);
 			byte a = (byte)NextComponent(random, byte.MaxValue);
 			
-			ColorRGBA32 v = new ColorRGBA32(r, g, b, a);
+			ColorBGRA32 v = new ColorBGRA32(r, g, b, a);
 			Vertex4ub vArray = v;
 
 			Assert.AreEqual(r, vArray.x);
@@ -112,8 +112,8 @@ namespace OpenGL.Test
 
 #if HAVE_SYSTEM_DRAWING
 
-		[Test(Description = "Test (ColorRGBA32)Color")]
-		public void ColorRGBA32_CastFromColor()
+		[Test(Description = "Test (ColorBGRA32)Color")]
+		public void ColorBGRA32_CastFromColor()
 		{
 			const double Epsilon = 1e-2;
 
@@ -125,7 +125,7 @@ namespace OpenGL.Test
 
 			Color c = Color.FromArgb((int)(a * byte.MaxValue), (int)(r * byte.MaxValue), (int)(g * byte.MaxValue), (int)(b * byte.MaxValue));
 			
-			ColorRGBA32 v = (ColorRGBA32)c;
+			ColorBGRA32 v = (ColorBGRA32)c;
 
 			Assert.AreEqual((float)r, v[0], Epsilon);
 			Assert.AreEqual((float)g, v[1], Epsilon);
@@ -139,8 +139,8 @@ namespace OpenGL.Test
 
 		#region Arithmetic Operators
 
-		[Test(Description = "Test ColorRGBA32.operator*")]
-		public void ColorRGBA32_Multiply()
+		[Test(Description = "Test ColorBGRA32.operator*")]
+		public void ColorBGRA32_Multiply()
 		{
 			Random random = new Random();
 			byte r = (byte)NextComponent(random, byte.MaxValue);
@@ -148,8 +148,8 @@ namespace OpenGL.Test
 			byte b = (byte)NextComponent(random, byte.MaxValue);
 			byte a = (byte)NextComponent(random, byte.MaxValue);
 
-			ColorRGBA32 v = new ColorRGBA32(r, g, b, a);
-			ColorRGBA32 c = v * 0.5f;
+			ColorBGRA32 v = new ColorBGRA32(r, g, b, a);
+			ColorBGRA32 c = v * 0.5f;
 
 			c = c * 2.0f;
 
@@ -163,8 +163,8 @@ namespace OpenGL.Test
 
 		#region IColor Implementation
 
-		[Test(Description = "Test ColorRGBA32.PixelType")]
-		public void ColorRGBA32_PixelType()
+		[Test(Description = "Test ColorBGRA32.PixelType")]
+		public void ColorBGRA32_PixelType()
 		{
 			Random random = new Random();
 			byte r = (byte)NextComponent(random, byte.MaxValue);
@@ -172,13 +172,13 @@ namespace OpenGL.Test
 			byte b = (byte)NextComponent(random, byte.MaxValue);
 			byte a = (byte)NextComponent(random, byte.MaxValue);
 
-			ColorRGBA32 v = new ColorRGBA32(r, g, b, a);
+			ColorBGRA32 v = new ColorBGRA32(r, g, b, a);
 
 			Assert.AreNotEqual(PixelLayout.None, v.PixelType);
 		}
 
-		[Test(Description = "Test ColorRGBA32int]")]
-		public void ColorRGBA32_Accessor()
+		[Test(Description = "Test ColorBGRA32int]")]
+		public void ColorBGRA32_Accessor()
 		{
 			Random random = new Random();
 			byte r = (byte)NextComponent(random, byte.MaxValue);
@@ -186,7 +186,7 @@ namespace OpenGL.Test
 			byte b = (byte)NextComponent(random, byte.MaxValue);
 			byte a = (byte)NextComponent(random, byte.MaxValue);
 
-			ColorRGBA32 v = new ColorRGBA32(r, g, b, a);
+			ColorBGRA32 v = new ColorBGRA32(r, g, b, a);
 			float c;
 
 			Assert.DoesNotThrow(() => c = v[0]);
@@ -214,19 +214,19 @@ namespace OpenGL.Test
 
 	[TestFixture]
 	[Category("Math")]
-	internal class ColorRGBA64Test : ColorTestBase
+	internal class ColorBGRA64Test : ColorTestBase
 	{
 		#region Constructors
 
-		[Test(Description = "Test ColorRGBA64(ushort, ushort, ushort)")]
-		public void ColorRGBA64_TestConstructor1()
+		[Test(Description = "Test ColorBGRA64(ushort, ushort, ushort)")]
+		public void ColorBGRA64_TestConstructor1()
 		{
 			Random random = new Random();
 			ushort r = (ushort)NextComponent(random, ushort.MaxValue);
 			ushort g = (ushort)NextComponent(random, ushort.MaxValue);
 			ushort b = (ushort)NextComponent(random, ushort.MaxValue);
 			
-			ColorRGBA64 v = new ColorRGBA64(r, g, b);
+			ColorBGRA64 v = new ColorBGRA64(r, g, b);
 
 			Assert.AreEqual(r, v.r);
 			Assert.AreEqual(g, v.g);
@@ -234,8 +234,8 @@ namespace OpenGL.Test
 			Assert.AreEqual(ushort.MaxValue, v.a);
 		}
 
-		[Test(Description = "Test ColorRGBA64(ushort, ushort, ushort, ushort)")]
-		public void ColorRGBA64_TestConstructor2()
+		[Test(Description = "Test ColorBGRA64(ushort, ushort, ushort, ushort)")]
+		public void ColorBGRA64_TestConstructor2()
 		{
 			Random random = new Random();
 			ushort r = (ushort)NextComponent(random, ushort.MaxValue);
@@ -243,7 +243,7 @@ namespace OpenGL.Test
 			ushort b = (ushort)NextComponent(random, ushort.MaxValue);
 			ushort a = (ushort)NextComponent(random, ushort.MaxValue);
 			
-			ColorRGBA64 v = new ColorRGBA64(r, g, b, a);
+			ColorBGRA64 v = new ColorBGRA64(r, g, b, a);
 
 			Assert.AreEqual(r, v.r);
 			Assert.AreEqual(g, v.g);
@@ -255,8 +255,8 @@ namespace OpenGL.Test
 
 		#region Cast Operators
 
-		[Test(Description = "Test (ushort[])ColorRGBA64")]
-		public void ColorRGBA64_CastToArray()
+		[Test(Description = "Test (ushort[])ColorBGRA64")]
+		public void ColorBGRA64_CastToArray()
 		{
 			Random random = new Random();
 			ushort r = (ushort)NextComponent(random, ushort.MaxValue);
@@ -264,7 +264,7 @@ namespace OpenGL.Test
 			ushort b = (ushort)NextComponent(random, ushort.MaxValue);
 			ushort a = (ushort)NextComponent(random, ushort.MaxValue);
 			
-			ColorRGBA64 v = new ColorRGBA64(r, g, b, a);
+			ColorBGRA64 v = new ColorBGRA64(r, g, b, a);
 			ushort[] vArray = v;
 
 			Assert.AreEqual(4, vArray.Length);
@@ -274,8 +274,8 @@ namespace OpenGL.Test
 			Assert.AreEqual(a, vArray[3]);
 		}
 
-		[Test(Description = "Test (Vertex4ub)ColorRGBA64")]
-		public void ColorRGBA64_CastToVertex4()
+		[Test(Description = "Test (Vertex4ub)ColorBGRA64")]
+		public void ColorBGRA64_CastToVertex4()
 		{
 			Random random = new Random();
 			ushort r = (ushort)NextComponent(random, ushort.MaxValue);
@@ -283,7 +283,7 @@ namespace OpenGL.Test
 			ushort b = (ushort)NextComponent(random, ushort.MaxValue);
 			ushort a = (ushort)NextComponent(random, ushort.MaxValue);
 			
-			ColorRGBA64 v = new ColorRGBA64(r, g, b, a);
+			ColorBGRA64 v = new ColorBGRA64(r, g, b, a);
 			Vertex4us vArray = v;
 
 			Assert.AreEqual(r, vArray.x);
@@ -294,8 +294,8 @@ namespace OpenGL.Test
 
 #if HAVE_SYSTEM_DRAWING
 
-		[Test(Description = "Test (ColorRGBA64)Color")]
-		public void ColorRGBA64_CastFromColor()
+		[Test(Description = "Test (ColorBGRA64)Color")]
+		public void ColorBGRA64_CastFromColor()
 		{
 			const double Epsilon = 1e-2;
 
@@ -307,7 +307,7 @@ namespace OpenGL.Test
 
 			Color c = Color.FromArgb((int)(a * byte.MaxValue), (int)(r * byte.MaxValue), (int)(g * byte.MaxValue), (int)(b * byte.MaxValue));
 			
-			ColorRGBA64 v = (ColorRGBA64)c;
+			ColorBGRA64 v = (ColorBGRA64)c;
 
 			Assert.AreEqual((float)r, v[0], Epsilon);
 			Assert.AreEqual((float)g, v[1], Epsilon);
@@ -321,8 +321,8 @@ namespace OpenGL.Test
 
 		#region Arithmetic Operators
 
-		[Test(Description = "Test ColorRGBA64.operator*")]
-		public void ColorRGBA64_Multiply()
+		[Test(Description = "Test ColorBGRA64.operator*")]
+		public void ColorBGRA64_Multiply()
 		{
 			Random random = new Random();
 			ushort r = (ushort)NextComponent(random, ushort.MaxValue);
@@ -330,8 +330,8 @@ namespace OpenGL.Test
 			ushort b = (ushort)NextComponent(random, ushort.MaxValue);
 			ushort a = (ushort)NextComponent(random, ushort.MaxValue);
 
-			ColorRGBA64 v = new ColorRGBA64(r, g, b, a);
-			ColorRGBA64 c = v * 0.5f;
+			ColorBGRA64 v = new ColorBGRA64(r, g, b, a);
+			ColorBGRA64 c = v * 0.5f;
 
 			c = c * 2.0f;
 
@@ -345,8 +345,8 @@ namespace OpenGL.Test
 
 		#region IColor Implementation
 
-		[Test(Description = "Test ColorRGBA64.PixelType")]
-		public void ColorRGBA64_PixelType()
+		[Test(Description = "Test ColorBGRA64.PixelType")]
+		public void ColorBGRA64_PixelType()
 		{
 			Random random = new Random();
 			ushort r = (ushort)NextComponent(random, ushort.MaxValue);
@@ -354,13 +354,13 @@ namespace OpenGL.Test
 			ushort b = (ushort)NextComponent(random, ushort.MaxValue);
 			ushort a = (ushort)NextComponent(random, ushort.MaxValue);
 
-			ColorRGBA64 v = new ColorRGBA64(r, g, b, a);
+			ColorBGRA64 v = new ColorBGRA64(r, g, b, a);
 
 			Assert.AreNotEqual(PixelLayout.None, v.PixelType);
 		}
 
-		[Test(Description = "Test ColorRGBA64int]")]
-		public void ColorRGBA64_Accessor()
+		[Test(Description = "Test ColorBGRA64int]")]
+		public void ColorBGRA64_Accessor()
 		{
 			Random random = new Random();
 			ushort r = (ushort)NextComponent(random, ushort.MaxValue);
@@ -368,7 +368,7 @@ namespace OpenGL.Test
 			ushort b = (ushort)NextComponent(random, ushort.MaxValue);
 			ushort a = (ushort)NextComponent(random, ushort.MaxValue);
 
-			ColorRGBA64 v = new ColorRGBA64(r, g, b, a);
+			ColorBGRA64 v = new ColorBGRA64(r, g, b, a);
 			float c;
 
 			Assert.DoesNotThrow(() => c = v[0]);
@@ -396,19 +396,19 @@ namespace OpenGL.Test
 
 	[TestFixture]
 	[Category("Math")]
-	internal class ColorRGBAFTest : ColorTestBase
+	internal class ColorBGRAFTest : ColorTestBase
 	{
 		#region Constructors
 
-		[Test(Description = "Test ColorRGBAF(float, float, float)")]
-		public void ColorRGBAF_TestConstructor1()
+		[Test(Description = "Test ColorBGRAF(float, float, float)")]
+		public void ColorBGRAF_TestConstructor1()
 		{
 			Random random = new Random();
 			float r = (float)NextComponent(random, 1.0f);
 			float g = (float)NextComponent(random, 1.0f);
 			float b = (float)NextComponent(random, 1.0f);
 			
-			ColorRGBAF v = new ColorRGBAF(r, g, b);
+			ColorBGRAF v = new ColorBGRAF(r, g, b);
 
 			Assert.AreEqual(r, v.r);
 			Assert.AreEqual(g, v.g);
@@ -416,8 +416,8 @@ namespace OpenGL.Test
 			Assert.AreEqual(1.0f, v.a);
 		}
 
-		[Test(Description = "Test ColorRGBAF(float, float, float, float)")]
-		public void ColorRGBAF_TestConstructor2()
+		[Test(Description = "Test ColorBGRAF(float, float, float, float)")]
+		public void ColorBGRAF_TestConstructor2()
 		{
 			Random random = new Random();
 			float r = (float)NextComponent(random, 1.0f);
@@ -425,7 +425,7 @@ namespace OpenGL.Test
 			float b = (float)NextComponent(random, 1.0f);
 			float a = (float)NextComponent(random, 1.0f);
 			
-			ColorRGBAF v = new ColorRGBAF(r, g, b, a);
+			ColorBGRAF v = new ColorBGRAF(r, g, b, a);
 
 			Assert.AreEqual(r, v.r);
 			Assert.AreEqual(g, v.g);
@@ -437,8 +437,8 @@ namespace OpenGL.Test
 
 		#region Cast Operators
 
-		[Test(Description = "Test (float[])ColorRGBAF")]
-		public void ColorRGBAF_CastToArray()
+		[Test(Description = "Test (float[])ColorBGRAF")]
+		public void ColorBGRAF_CastToArray()
 		{
 			Random random = new Random();
 			float r = (float)NextComponent(random, 1.0f);
@@ -446,7 +446,7 @@ namespace OpenGL.Test
 			float b = (float)NextComponent(random, 1.0f);
 			float a = (float)NextComponent(random, 1.0f);
 			
-			ColorRGBAF v = new ColorRGBAF(r, g, b, a);
+			ColorBGRAF v = new ColorBGRAF(r, g, b, a);
 			float[] vArray = v;
 
 			Assert.AreEqual(4, vArray.Length);
@@ -456,8 +456,8 @@ namespace OpenGL.Test
 			Assert.AreEqual(a, vArray[3]);
 		}
 
-		[Test(Description = "Test (Vertex4ub)ColorRGBAF")]
-		public void ColorRGBAF_CastToVertex4()
+		[Test(Description = "Test (Vertex4ub)ColorBGRAF")]
+		public void ColorBGRAF_CastToVertex4()
 		{
 			Random random = new Random();
 			float r = (float)NextComponent(random, 1.0f);
@@ -465,7 +465,7 @@ namespace OpenGL.Test
 			float b = (float)NextComponent(random, 1.0f);
 			float a = (float)NextComponent(random, 1.0f);
 			
-			ColorRGBAF v = new ColorRGBAF(r, g, b, a);
+			ColorBGRAF v = new ColorBGRAF(r, g, b, a);
 			Vertex4f vArray = v;
 
 			Assert.AreEqual(r, vArray.x);
@@ -476,8 +476,8 @@ namespace OpenGL.Test
 
 #if HAVE_SYSTEM_DRAWING
 
-		[Test(Description = "Test (ColorRGBAF)Color")]
-		public void ColorRGBAF_CastFromColor()
+		[Test(Description = "Test (ColorBGRAF)Color")]
+		public void ColorBGRAF_CastFromColor()
 		{
 			const double Epsilon = 1e-2;
 
@@ -489,7 +489,7 @@ namespace OpenGL.Test
 
 			Color c = Color.FromArgb((int)(a * byte.MaxValue), (int)(r * byte.MaxValue), (int)(g * byte.MaxValue), (int)(b * byte.MaxValue));
 			
-			ColorRGBAF v = (ColorRGBAF)c;
+			ColorBGRAF v = (ColorBGRAF)c;
 
 			Assert.AreEqual((float)r, v[0], Epsilon);
 			Assert.AreEqual((float)g, v[1], Epsilon);
@@ -503,8 +503,8 @@ namespace OpenGL.Test
 
 		#region Arithmetic Operators
 
-		[Test(Description = "Test ColorRGBAF.operator*")]
-		public void ColorRGBAF_Multiply()
+		[Test(Description = "Test ColorBGRAF.operator*")]
+		public void ColorBGRAF_Multiply()
 		{
 			Random random = new Random();
 			float r = (float)NextComponent(random, 1.0f);
@@ -512,8 +512,8 @@ namespace OpenGL.Test
 			float b = (float)NextComponent(random, 1.0f);
 			float a = (float)NextComponent(random, 1.0f);
 
-			ColorRGBAF v = new ColorRGBAF(r, g, b, a);
-			ColorRGBAF c = v * 0.5f;
+			ColorBGRAF v = new ColorBGRAF(r, g, b, a);
+			ColorBGRAF c = v * 0.5f;
 
 			c = c * 2.0f;
 
@@ -527,8 +527,8 @@ namespace OpenGL.Test
 
 		#region IColor Implementation
 
-		[Test(Description = "Test ColorRGBAF.PixelType")]
-		public void ColorRGBAF_PixelType()
+		[Test(Description = "Test ColorBGRAF.PixelType")]
+		public void ColorBGRAF_PixelType()
 		{
 			Random random = new Random();
 			float r = (float)NextComponent(random, 1.0f);
@@ -536,13 +536,13 @@ namespace OpenGL.Test
 			float b = (float)NextComponent(random, 1.0f);
 			float a = (float)NextComponent(random, 1.0f);
 
-			ColorRGBAF v = new ColorRGBAF(r, g, b, a);
+			ColorBGRAF v = new ColorBGRAF(r, g, b, a);
 
 			Assert.AreNotEqual(PixelLayout.None, v.PixelType);
 		}
 
-		[Test(Description = "Test ColorRGBAFint]")]
-		public void ColorRGBAF_Accessor()
+		[Test(Description = "Test ColorBGRAFint]")]
+		public void ColorBGRAF_Accessor()
 		{
 			Random random = new Random();
 			float r = (float)NextComponent(random, 1.0f);
@@ -550,7 +550,7 @@ namespace OpenGL.Test
 			float b = (float)NextComponent(random, 1.0f);
 			float a = (float)NextComponent(random, 1.0f);
 
-			ColorRGBAF v = new ColorRGBAF(r, g, b, a);
+			ColorBGRAF v = new ColorBGRAF(r, g, b, a);
 			float c;
 
 			Assert.DoesNotThrow(() => c = v[0]);
@@ -578,19 +578,19 @@ namespace OpenGL.Test
 
 	[TestFixture]
 	[Category("Math")]
-	internal class ColorRGBAHFTest : ColorTestBase
+	internal class ColorBGRAHFTest : ColorTestBase
 	{
 		#region Constructors
 
-		[Test(Description = "Test ColorRGBAHF(HalfFloat, HalfFloat, HalfFloat)")]
-		public void ColorRGBAHF_TestConstructor1()
+		[Test(Description = "Test ColorBGRAHF(HalfFloat, HalfFloat, HalfFloat)")]
+		public void ColorBGRAHF_TestConstructor1()
 		{
 			Random random = new Random();
 			HalfFloat r = (HalfFloat)NextComponent(random, (HalfFloat)1.0f);
 			HalfFloat g = (HalfFloat)NextComponent(random, (HalfFloat)1.0f);
 			HalfFloat b = (HalfFloat)NextComponent(random, (HalfFloat)1.0f);
 			
-			ColorRGBAHF v = new ColorRGBAHF(r, g, b);
+			ColorBGRAHF v = new ColorBGRAHF(r, g, b);
 
 			Assert.AreEqual(r, v.r);
 			Assert.AreEqual(g, v.g);
@@ -598,8 +598,8 @@ namespace OpenGL.Test
 			Assert.AreEqual((HalfFloat)1.0f, v.a);
 		}
 
-		[Test(Description = "Test ColorRGBAHF(HalfFloat, HalfFloat, HalfFloat, HalfFloat)")]
-		public void ColorRGBAHF_TestConstructor2()
+		[Test(Description = "Test ColorBGRAHF(HalfFloat, HalfFloat, HalfFloat, HalfFloat)")]
+		public void ColorBGRAHF_TestConstructor2()
 		{
 			Random random = new Random();
 			HalfFloat r = (HalfFloat)NextComponent(random, (HalfFloat)1.0f);
@@ -607,7 +607,7 @@ namespace OpenGL.Test
 			HalfFloat b = (HalfFloat)NextComponent(random, (HalfFloat)1.0f);
 			HalfFloat a = (HalfFloat)NextComponent(random, (HalfFloat)1.0f);
 			
-			ColorRGBAHF v = new ColorRGBAHF(r, g, b, a);
+			ColorBGRAHF v = new ColorBGRAHF(r, g, b, a);
 
 			Assert.AreEqual(r, v.r);
 			Assert.AreEqual(g, v.g);
@@ -619,8 +619,8 @@ namespace OpenGL.Test
 
 		#region Cast Operators
 
-		[Test(Description = "Test (HalfFloat[])ColorRGBAHF")]
-		public void ColorRGBAHF_CastToArray()
+		[Test(Description = "Test (HalfFloat[])ColorBGRAHF")]
+		public void ColorBGRAHF_CastToArray()
 		{
 			Random random = new Random();
 			HalfFloat r = (HalfFloat)NextComponent(random, (HalfFloat)1.0f);
@@ -628,7 +628,7 @@ namespace OpenGL.Test
 			HalfFloat b = (HalfFloat)NextComponent(random, (HalfFloat)1.0f);
 			HalfFloat a = (HalfFloat)NextComponent(random, (HalfFloat)1.0f);
 			
-			ColorRGBAHF v = new ColorRGBAHF(r, g, b, a);
+			ColorBGRAHF v = new ColorBGRAHF(r, g, b, a);
 			HalfFloat[] vArray = v;
 
 			Assert.AreEqual(4, vArray.Length);
@@ -638,8 +638,8 @@ namespace OpenGL.Test
 			Assert.AreEqual(a, vArray[3]);
 		}
 
-		[Test(Description = "Test (Vertex4ub)ColorRGBAHF")]
-		public void ColorRGBAHF_CastToVertex4()
+		[Test(Description = "Test (Vertex4ub)ColorBGRAHF")]
+		public void ColorBGRAHF_CastToVertex4()
 		{
 			Random random = new Random();
 			HalfFloat r = (HalfFloat)NextComponent(random, (HalfFloat)1.0f);
@@ -647,7 +647,7 @@ namespace OpenGL.Test
 			HalfFloat b = (HalfFloat)NextComponent(random, (HalfFloat)1.0f);
 			HalfFloat a = (HalfFloat)NextComponent(random, (HalfFloat)1.0f);
 			
-			ColorRGBAHF v = new ColorRGBAHF(r, g, b, a);
+			ColorBGRAHF v = new ColorBGRAHF(r, g, b, a);
 			Vertex4hf vArray = v;
 
 			Assert.AreEqual(r, vArray.x);
@@ -658,8 +658,8 @@ namespace OpenGL.Test
 
 #if HAVE_SYSTEM_DRAWING
 
-		[Test(Description = "Test (ColorRGBAHF)Color")]
-		public void ColorRGBAHF_CastFromColor()
+		[Test(Description = "Test (ColorBGRAHF)Color")]
+		public void ColorBGRAHF_CastFromColor()
 		{
 			const double Epsilon = 1e-2;
 
@@ -671,7 +671,7 @@ namespace OpenGL.Test
 
 			Color c = Color.FromArgb((int)(a * byte.MaxValue), (int)(r * byte.MaxValue), (int)(g * byte.MaxValue), (int)(b * byte.MaxValue));
 			
-			ColorRGBAHF v = (ColorRGBAHF)c;
+			ColorBGRAHF v = (ColorBGRAHF)c;
 
 			Assert.AreEqual((float)r, v[0], Epsilon);
 			Assert.AreEqual((float)g, v[1], Epsilon);
@@ -685,8 +685,8 @@ namespace OpenGL.Test
 
 		#region Arithmetic Operators
 
-		[Test(Description = "Test ColorRGBAHF.operator*")]
-		public void ColorRGBAHF_Multiply()
+		[Test(Description = "Test ColorBGRAHF.operator*")]
+		public void ColorBGRAHF_Multiply()
 		{
 			Random random = new Random();
 			HalfFloat r = (HalfFloat)NextComponent(random, (HalfFloat)1.0f);
@@ -694,8 +694,8 @@ namespace OpenGL.Test
 			HalfFloat b = (HalfFloat)NextComponent(random, (HalfFloat)1.0f);
 			HalfFloat a = (HalfFloat)NextComponent(random, (HalfFloat)1.0f);
 
-			ColorRGBAHF v = new ColorRGBAHF(r, g, b, a);
-			ColorRGBAHF c = v * 0.5f;
+			ColorBGRAHF v = new ColorBGRAHF(r, g, b, a);
+			ColorBGRAHF c = v * 0.5f;
 
 			c = c * 2.0f;
 
@@ -709,8 +709,8 @@ namespace OpenGL.Test
 
 		#region IColor Implementation
 
-		[Test(Description = "Test ColorRGBAHF.PixelType")]
-		public void ColorRGBAHF_PixelType()
+		[Test(Description = "Test ColorBGRAHF.PixelType")]
+		public void ColorBGRAHF_PixelType()
 		{
 			Random random = new Random();
 			HalfFloat r = (HalfFloat)NextComponent(random, (HalfFloat)1.0f);
@@ -718,13 +718,13 @@ namespace OpenGL.Test
 			HalfFloat b = (HalfFloat)NextComponent(random, (HalfFloat)1.0f);
 			HalfFloat a = (HalfFloat)NextComponent(random, (HalfFloat)1.0f);
 
-			ColorRGBAHF v = new ColorRGBAHF(r, g, b, a);
+			ColorBGRAHF v = new ColorBGRAHF(r, g, b, a);
 
 			Assert.AreNotEqual(PixelLayout.None, v.PixelType);
 		}
 
-		[Test(Description = "Test ColorRGBAHFint]")]
-		public void ColorRGBAHF_Accessor()
+		[Test(Description = "Test ColorBGRAHFint]")]
+		public void ColorBGRAHF_Accessor()
 		{
 			Random random = new Random();
 			HalfFloat r = (HalfFloat)NextComponent(random, (HalfFloat)1.0f);
@@ -732,7 +732,7 @@ namespace OpenGL.Test
 			HalfFloat b = (HalfFloat)NextComponent(random, (HalfFloat)1.0f);
 			HalfFloat a = (HalfFloat)NextComponent(random, (HalfFloat)1.0f);
 
-			ColorRGBAHF v = new ColorRGBAHF(r, g, b, a);
+			ColorBGRAHF v = new ColorBGRAHF(r, g, b, a);
 			float c;
 
 			Assert.DoesNotThrow(() => c = v[0]);

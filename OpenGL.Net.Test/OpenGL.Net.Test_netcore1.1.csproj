@@ -43,4 +43,86 @@
     <ProjectReference Include="..\OpenGL.Net\OpenGL.Net_netcore1.1.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="ColorBGR.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ColorBGR.cs</LastGenOutput>
+    </None>
+    <None Update="ColorBGRA.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ColorBGRA.cs</LastGenOutput>
+    </None>
+    <None Update="ColorRGB.tt">
+        <Generator>TextTemplatingFileGenerator</Generator>
+        <LastGenOutput>ColorRGB.cs</LastGenOutput>
+    </None>
+    <None Update="ColorRGBA.tt">
+        <Generator>TextTemplatingFileGenerator</Generator>
+        <LastGenOutput>ColorRGBA.cs</LastGenOutput>
+    </None>
+    <None Update="Gl.Version_2_0.Uniform.tt">
+        <Generator>TextTemplatingFileGenerator</Generator>
+        <LastGenOutput>Gl.VERSION_2_0.Uniform.cs</LastGenOutput>
+    </None>
+    <None Update="Vertex2.tt">
+        <Generator>TextTemplatingFileGenerator</Generator>
+        <LastGenOutput>Vertex2.cs</LastGenOutput>
+    </None>
+    <None Update="Vertex3.tt">
+        <Generator>TextTemplatingFileGenerator</Generator>
+        <LastGenOutput>Vertex3.cs</LastGenOutput>
+    </None>
+    <None Update="Vertex4.tt">
+        <Generator>TextTemplatingFileGenerator</Generator>
+        <LastGenOutput>Vertex4.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+    
+  <ItemGroup>
+    <Compile Update="ColorBGR.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ColorBGR.tt</DependentUpon>
+    </Compile>
+    <Compile Update="ColorBGRA.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ColorBGRA.tt</DependentUpon>
+    </Compile>
+    <Compile Update="ColorRGB.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ColorRGB.tt</DependentUpon>
+    </Compile>
+    <Compile Update="ColorRGBA.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ColorRGBA.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Gl.Version_2_0.Uniform.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Gl.VERSION_2_0.Uniform.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Vertex2.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Vertex2.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Vertex3.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Vertex3.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Vertex4.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Vertex4.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
 </Project>

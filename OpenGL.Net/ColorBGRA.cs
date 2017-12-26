@@ -21,6 +21,9 @@
 
 using System;
 using System.Diagnostics;
+#if HAVE_SYSTEM_DRAWING
+using System.Drawing;
+#endif
 using System.Runtime.InteropServices;
 
 namespace OpenGL
@@ -98,6 +101,98 @@ namespace OpenGL
 		/// Alpha color components.
 		/// </summary>
 		public byte a;
+
+		#endregion
+
+		#region Cast Operators
+
+		/// <summary>
+		/// Cast to byte[] operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="ColorBGRA32"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:byte[]"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator byte[](ColorBGRA32 a)
+		{
+			byte[] v = new byte[4];
+
+			v[0] = a.r;
+			v[1] = a.g;
+			v[2] = a.b;
+			v[3] = a.a;
+
+			return (v);
+		}
+
+		/// <summary>
+		/// Cast to Vertex4ub operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="ColorBGRA32"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex4ub"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator Vertex4ub(ColorBGRA32 a)
+		{
+			return (new Vertex4ub(a.r, a.g, a.b, a.a));
+		}
+
+#if HAVE_SYSTEM_DRAWING
+
+		/// <summary>
+		/// Cast from Color operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Color"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:ColorBGRA32"/> initialized with the color components.
+		/// </returns>
+		public static explicit operator ColorBGRA32(Color a)
+		{
+			ColorBGRA32 c = new ColorBGRA32();
+
+			c[0] = (float)a.R / byte.MaxValue;
+			c[1] = (float)a.G / byte.MaxValue;
+			c[2] = (float)a.B / byte.MaxValue;
+			c[3] = (float)a.A / byte.MaxValue;
+
+			return (c);
+		}
+
+#endif
+
+		#endregion
+
+		#region Arithmetic Operators
+
+		/// <summary>
+		/// Scalar multiply operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="ColorBGRA32"/> to be casted.
+		/// </param>
+		/// <param name="scalar">
+		/// A <see cref="Single"/> that specify the right operand.
+		/// </param>
+		/// <returns>
+		/// A <see cref="ColorBGRA32"/> that equals to the multiplication of <paramref name="a"/> with <paramref name="scalar"/>.
+		/// </returns>
+		public static ColorBGRA32 operator*(ColorBGRA32 a, float scalar)
+		{
+			ColorBGRA32 v = new ColorBGRA32();
+
+			v.b = (byte)(a.b * scalar);
+			v.g = (byte)(a.g * scalar);
+			v.r = (byte)(a.r * scalar);
+			v.a = (byte)(a.a * scalar);
+
+			return (v);
+		}
 
 		#endregion
 
@@ -267,6 +362,98 @@ namespace OpenGL
 
 		#endregion
 
+		#region Cast Operators
+
+		/// <summary>
+		/// Cast to ushort[] operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="ColorBGRA64"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:ushort[]"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator ushort[](ColorBGRA64 a)
+		{
+			ushort[] v = new ushort[4];
+
+			v[0] = a.r;
+			v[1] = a.g;
+			v[2] = a.b;
+			v[3] = a.a;
+
+			return (v);
+		}
+
+		/// <summary>
+		/// Cast to Vertex4us operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="ColorBGRA64"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex4us"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator Vertex4us(ColorBGRA64 a)
+		{
+			return (new Vertex4us(a.r, a.g, a.b, a.a));
+		}
+
+#if HAVE_SYSTEM_DRAWING
+
+		/// <summary>
+		/// Cast from Color operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Color"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:ColorBGRA64"/> initialized with the color components.
+		/// </returns>
+		public static explicit operator ColorBGRA64(Color a)
+		{
+			ColorBGRA64 c = new ColorBGRA64();
+
+			c[0] = (float)a.R / byte.MaxValue;
+			c[1] = (float)a.G / byte.MaxValue;
+			c[2] = (float)a.B / byte.MaxValue;
+			c[3] = (float)a.A / byte.MaxValue;
+
+			return (c);
+		}
+
+#endif
+
+		#endregion
+
+		#region Arithmetic Operators
+
+		/// <summary>
+		/// Scalar multiply operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="ColorBGRA64"/> to be casted.
+		/// </param>
+		/// <param name="scalar">
+		/// A <see cref="Single"/> that specify the right operand.
+		/// </param>
+		/// <returns>
+		/// A <see cref="ColorBGRA64"/> that equals to the multiplication of <paramref name="a"/> with <paramref name="scalar"/>.
+		/// </returns>
+		public static ColorBGRA64 operator*(ColorBGRA64 a, float scalar)
+		{
+			ColorBGRA64 v = new ColorBGRA64();
+
+			v.b = (ushort)(a.b * scalar);
+			v.g = (ushort)(a.g * scalar);
+			v.r = (ushort)(a.r * scalar);
+			v.a = (ushort)(a.a * scalar);
+
+			return (v);
+		}
+
+		#endregion
+
 		#region IColorRGBA<ushort> Implementation
 
 		/// <summary>
@@ -433,6 +620,98 @@ namespace OpenGL
 
 		#endregion
 
+		#region Cast Operators
+
+		/// <summary>
+		/// Cast to float[] operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="ColorBGRAF"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:float[]"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator float[](ColorBGRAF a)
+		{
+			float[] v = new float[4];
+
+			v[0] = a.r;
+			v[1] = a.g;
+			v[2] = a.b;
+			v[3] = a.a;
+
+			return (v);
+		}
+
+		/// <summary>
+		/// Cast to Vertex4f operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="ColorBGRAF"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex4f"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator Vertex4f(ColorBGRAF a)
+		{
+			return (new Vertex4f(a.r, a.g, a.b, a.a));
+		}
+
+#if HAVE_SYSTEM_DRAWING
+
+		/// <summary>
+		/// Cast from Color operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Color"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:ColorBGRAF"/> initialized with the color components.
+		/// </returns>
+		public static explicit operator ColorBGRAF(Color a)
+		{
+			ColorBGRAF c = new ColorBGRAF();
+
+			c[0] = (float)a.R / byte.MaxValue;
+			c[1] = (float)a.G / byte.MaxValue;
+			c[2] = (float)a.B / byte.MaxValue;
+			c[3] = (float)a.A / byte.MaxValue;
+
+			return (c);
+		}
+
+#endif
+
+		#endregion
+
+		#region Arithmetic Operators
+
+		/// <summary>
+		/// Scalar multiply operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="ColorBGRAF"/> to be casted.
+		/// </param>
+		/// <param name="scalar">
+		/// A <see cref="Single"/> that specify the right operand.
+		/// </param>
+		/// <returns>
+		/// A <see cref="ColorBGRAF"/> that equals to the multiplication of <paramref name="a"/> with <paramref name="scalar"/>.
+		/// </returns>
+		public static ColorBGRAF operator*(ColorBGRAF a, float scalar)
+		{
+			ColorBGRAF v = new ColorBGRAF();
+
+			v.b = (float)(a.b * scalar);
+			v.g = (float)(a.g * scalar);
+			v.r = (float)(a.r * scalar);
+			v.a = (float)(a.a * scalar);
+
+			return (v);
+		}
+
+		#endregion
+
 		#region IColorRGBA<float> Implementation
 
 		/// <summary>
@@ -596,6 +875,98 @@ namespace OpenGL
 		/// Alpha color components.
 		/// </summary>
 		public HalfFloat a;
+
+		#endregion
+
+		#region Cast Operators
+
+		/// <summary>
+		/// Cast to HalfFloat[] operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="ColorBGRAHF"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:HalfFloat[]"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator HalfFloat[](ColorBGRAHF a)
+		{
+			HalfFloat[] v = new HalfFloat[4];
+
+			v[0] = a.r;
+			v[1] = a.g;
+			v[2] = a.b;
+			v[3] = a.a;
+
+			return (v);
+		}
+
+		/// <summary>
+		/// Cast to Vertex4hf operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="ColorBGRAHF"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex4hf"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator Vertex4hf(ColorBGRAHF a)
+		{
+			return (new Vertex4hf(a.r, a.g, a.b, a.a));
+		}
+
+#if HAVE_SYSTEM_DRAWING
+
+		/// <summary>
+		/// Cast from Color operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Color"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:ColorBGRAHF"/> initialized with the color components.
+		/// </returns>
+		public static explicit operator ColorBGRAHF(Color a)
+		{
+			ColorBGRAHF c = new ColorBGRAHF();
+
+			c[0] = (float)a.R / byte.MaxValue;
+			c[1] = (float)a.G / byte.MaxValue;
+			c[2] = (float)a.B / byte.MaxValue;
+			c[3] = (float)a.A / byte.MaxValue;
+
+			return (c);
+		}
+
+#endif
+
+		#endregion
+
+		#region Arithmetic Operators
+
+		/// <summary>
+		/// Scalar multiply operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="ColorBGRAHF"/> to be casted.
+		/// </param>
+		/// <param name="scalar">
+		/// A <see cref="Single"/> that specify the right operand.
+		/// </param>
+		/// <returns>
+		/// A <see cref="ColorBGRAHF"/> that equals to the multiplication of <paramref name="a"/> with <paramref name="scalar"/>.
+		/// </returns>
+		public static ColorBGRAHF operator*(ColorBGRAHF a, float scalar)
+		{
+			ColorBGRAHF v = new ColorBGRAHF();
+
+			v.b = (HalfFloat)(a.b * scalar);
+			v.g = (HalfFloat)(a.g * scalar);
+			v.r = (HalfFloat)(a.r * scalar);
+			v.a = (HalfFloat)(a.a * scalar);
+
+			return (v);
+		}
 
 		#endregion
 
