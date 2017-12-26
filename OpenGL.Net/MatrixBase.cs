@@ -1115,7 +1115,7 @@ namespace OpenGL
 				return (false);
 			if (ReferenceEquals(this, other))
 				return (true);
-			if ((_Width != other.Width) || (_Height != other._Height))
+			if (_Width != other.Width || _Height != other._Height)
 				return (false);
 
 			unsafe {
@@ -1142,12 +1142,12 @@ namespace OpenGL
 					// Compare (remaining) matrix elements
 					for (uint i = 0; i < l; i++) {
 						if (Math.Abs(m1Ptr[i] - m2Ptr[i]) > epsilon)
-							return (false);
+							return false;
 					}
 				}
 			}
 
-			return (true);
+			return true;
 		}
 
 		/// <summary>

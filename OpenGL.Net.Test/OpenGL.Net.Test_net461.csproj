@@ -161,7 +161,7 @@
     <Compile Include="TestBaseGL.cs" />
     <Compile Include="KhronosApi.cs" />
     <None Include="Matrix.cs" />
-    <None Include="Matrix4x4.cs" />
+    <Compile Include="Matrix4x4.cs" />
     <None Include="Memory.cs" />
     <Compile Include="Plane.cs" />
     <Compile Include="TestBase.cs" />

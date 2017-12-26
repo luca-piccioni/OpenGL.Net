@@ -113,7 +113,19 @@ namespace OpenGL
 		/// </returns>
 		public static Vertex4f operator *(Matrix4x4 m, Vertex4f v)
 		{
-			return (ComputeMatrixProduct(m, v));
+			float x, y, z, w;
+
+			unsafe {
+				fixed (float* pm = m.MatrixBuffer)
+				{
+					x = pm[0x0] * v.x + pm[0x4] * v.y + pm[0x8] * v.z + pm[0xC] * v.w;
+					y = pm[0x1] * v.x + pm[0x5] * v.y + pm[0x9] * v.z + pm[0xD] * v.w;
+					z = pm[0x2] * v.x + pm[0x6] * v.y + pm[0xA] * v.z + pm[0xE] * v.w;
+					w = pm[0x3] * v.x + pm[0x7] * v.y + pm[0xB] * v.z + pm[0xF] * v.w;
+				}
+			}
+
+			return (new Vertex4f(x, y, z, w));
 		}
 
 		/// <summary>
@@ -153,32 +165,6 @@ namespace OpenGL
 			ComputeMatrixProduct(prod, m, (Matrix4x4) q);
 
 			return (prod);
-		}
-
-		/// <summary>
-		/// Compute the product between Matrix4x4 and Vertex4f.
-		/// </summary>
-		/// <param name="m">
-		/// A <see cref="Matrix4x4"/> that specify the left multiplication operand.
-		/// </param>
-		/// <param name="v">
-		/// A <see cref="Vertex4f"/> that specify the right multiplication operand.
-		/// </param>
-		protected static Vertex4f ComputeMatrixProduct(Matrix4x4 m, Vertex4f v)
-		{
-			float x, y, z, w;
-
-			unsafe {
-				fixed (float* pm = m.MatrixBuffer)
-				{
-					x = pm[0x0] * v.x + pm[0x4] * v.y + pm[0x8] * v.z + pm[0xC] * v.w;
-					y = pm[0x1] * v.x + pm[0x5] * v.y + pm[0x9] * v.z + pm[0xD] * v.w;
-					z = pm[0x2] * v.x + pm[0x6] * v.y + pm[0xA] * v.z + pm[0xE] * v.w;
-					w = pm[0x3] * v.x + pm[0x7] * v.y + pm[0xB] * v.z + pm[0xF] * v.w;
-				}
-			}
-
-			return (new Vertex4f(x, y, z, w));
 		}
 
 		/// <summary>
@@ -255,11 +241,11 @@ namespace OpenGL
 		protected static void ComputeMatrixProduct(Matrix4x4 result, Matrix4x4 m, MatrixDouble4x4 n)
 		{
 			if (result == null)
-				throw new ArgumentNullException("result");
+				throw new ArgumentNullException(nameof(result));
 			if (m == null)
-				throw new ArgumentNullException("m");
+				throw new ArgumentNullException(nameof(m));
 			if (n == null)
-				throw new ArgumentNullException("n");
+				throw new ArgumentNullException(nameof(n));
 
 			unsafe {
 				fixed (float* prodFix = result.MatrixBuffer)
@@ -526,7 +512,7 @@ namespace OpenGL
 
 			det = m[0x0] * inv[0x0] + m[0x1] * inv[0x4] + m[0x2] * inv[0x8] + m[0x3] * inv[0xC];
 
-			if (det == 0)
+			if (Math.Abs(det) < 1e-6f)
 				throw new InvalidOperationException("not invertible");
 
 			det = 1.0f / det;
