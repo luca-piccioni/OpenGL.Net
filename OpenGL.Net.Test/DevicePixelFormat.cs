@@ -19,6 +19,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+using System.Diagnostics.CodeAnalysis;
+
 using NUnit.Framework;
 
 namespace OpenGL.Test
@@ -56,12 +58,17 @@ namespace OpenGL.Test
 		}
 
 		[Test]
+		[SuppressMessage("ReSharper", "ReturnValueOfPureMethodIsNotUsed")]
 		public void DevicePixelFormat_ToString()
 		{
-			DevicePixelFormat pf1 = new DevicePixelFormat(24);
-			
 			// ReSharper disable once ReturnValueOfPureMethodIsNotUsed
-			Assert.DoesNotThrow(() => pf1.ToString());
+			Assert.DoesNotThrow(() => new DevicePixelFormat().ToString());
+			Assert.DoesNotThrow(() => new DevicePixelFormat{ RgbaUnsigned = true }.ToString());
+			Assert.DoesNotThrow(() => new DevicePixelFormat{ RgbaFloat = true }.ToString());
+			Assert.DoesNotThrow(() => new DevicePixelFormat{ SRGBCapable = true }.ToString());
+			Assert.DoesNotThrow(() => new DevicePixelFormat{ RenderWindow = true }.ToString());
+			Assert.DoesNotThrow(() => new DevicePixelFormat{ RenderBuffer = true }.ToString());
+			Assert.DoesNotThrow(() => new DevicePixelFormat{ RenderPBuffer = true }.ToString());
 		}
 	}
 }

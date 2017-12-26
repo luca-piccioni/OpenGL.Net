@@ -25,17 +25,19 @@ using NUnit.Framework;
 
 namespace OpenGL.Test
 {
-	[TestFixture]
-	[Category("GL")]
-	class GlTest
+	[TestFixture, Category("GL")]
+	internal class GlTest
 	{
 		/// <summary>
 		/// Test Gl.QueryContextVersion.
 		/// </summary>
-		[Test(Description = "Test QueryContextVersion")]
-		public void TestQueryContextVersion()
+		[Test]
+		public void Gl_BindAPI_Exceptions()
 		{
-			
+			Assert.Throws<ArgumentNullException>(() => Gl.BindAPI(null, null));
+			Assert.Throws<ArgumentNullException>(() => Gl.BindAPI(null, new Gl.Extensions()));
+
+			Assert.Throws<InvalidOperationException>(() => Gl.QueryContextVersion());
 		}
 	}
 }

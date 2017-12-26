@@ -56,6 +56,7 @@ test:
     - OpenGL.Net.CoreUI.Test\bin\**\Release\OpenGL.Net.CoreUI.Test.dll
   categories:
     only:
+      - GL
       - GL_VERSION_1_0
       - Math
       - Framework

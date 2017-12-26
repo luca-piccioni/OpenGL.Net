@@ -35,6 +35,13 @@ namespace OpenGL.Test
 		}
 
 		[Test]
+		public void DevicePixelFormat_Choose_Exceptions()
+		{
+			// ReSharper disable once ObjectCreationAsStatement
+			Assert.Throws<ArgumentNullException>(() => new DevicePixelFormatCollection().Choose(null));
+		}
+
+		[Test]
 		public void DevicePixelFormat_GuessChooseError()
 		{
 			DevicePixelFormatCollection pixelFormatCollection = new DevicePixelFormatCollection {
@@ -131,6 +138,20 @@ namespace OpenGL.Test
 			DevicePixelFormatCollection pixelFormatCollection = new DevicePixelFormatCollection();
 
 			Assert.Throws<ArgumentNullException>(() => pixelFormatCollection.GuessChooseError(null));
+		}
+
+		[Test]
+		public void DevicePixelFormat_Copy()
+		{
+			DevicePixelFormatCollection c1 = new DevicePixelFormatCollection {
+				new DevicePixelFormat { ColorBits = 32 },
+				new DevicePixelFormat { ColorBits = 24 }
+			};
+			DevicePixelFormatCollection c2 = c1.Copy();
+
+			Assert.AreNotSame(c1, c2);
+			Assert.AreEqual(c1.Count, c2.Count);
+			CollectionAssert.AllItemsAreNotNull(c2);
 		}
 	}
 }
