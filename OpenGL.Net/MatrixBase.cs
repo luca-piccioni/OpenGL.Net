@@ -665,25 +665,26 @@ namespace OpenGL
 			if (IsSquare == false)
 				throw new InvalidOperationException("not square");
 
-			if (_Width > 2) {
-				float d = 0.0f;
+			switch (_Width) {
+				case 1:
+					return this[0, 0];
+				case 2:
+					//     | a b |
+					// m = | c d |
+					//
+					// det = ad - bc
+					return this[0, 0] * this[1, 1] - this[1, 0] * this[0, 1];
+				default:
+					float d = 0.0f;
 
-				for (uint r = 0; r < Height; r++) {
-					Matrix complement = new Matrix(this, 0, r);
-					float sng = ((r % 2) == 0) ? +1.0f : -1.0f;
+					for (uint r = 0; r < Height; r++) {
+						Matrix complement = new Matrix(this, 0, r);
+						float sng = ((r % 2) == 0) ? +1.0f : -1.0f;
 
-					d +=  sng * this[0, r] * complement.GetDeterminant();
-				}
+						d +=  sng * this[0, r] * complement.GetDeterminant();
+					}
 
-				return (d);
-			} else {
-
-				//     | a b |
-				// m = | c d |
-				//
-				// det = ad - bc
-
-				return (this[0, 0] * this[1, 1] - this[1, 0] * this[0, 1]);
+					return d;
 			}
 		}
 
@@ -721,12 +722,16 @@ namespace OpenGL
 			if (((c + r) % 2) == 0) sign = 1.0f; else sign = -1.0f;
 
 			// Compute matrix component complement
-			if (m._Width > 2) {
-				Matrix complement = new Matrix(m, c, r);
+			switch (m._Width) {
+				case 1:
+					return 1.0f;
+				case 2:
+					return sign * m[c == 0 ? 1 : (uint)0, r == 0 ? 1 : (uint)0];
+				default:
+					Matrix complement = new Matrix(m, c, r);
 
-				return (sign * complement.GetDeterminant());
-			} else
-				return (sign * m[(c==0)?1:(uint)0,(r==0)?1:(uint)0]);
+					return (sign * complement.GetDeterminant());
+			}
 		}
 
 		/// <summary>
@@ -746,7 +751,7 @@ namespace OpenGL
 
 			// Matrix shall not be singular
 			float d = GetDeterminant();
-			if (Math.Abs(d) < Single.Epsilon)
+			if (Math.Abs(d) < float.Epsilon)
 				throw new InvalidOperationException("singular");
 
 			// Compute inverse matrix

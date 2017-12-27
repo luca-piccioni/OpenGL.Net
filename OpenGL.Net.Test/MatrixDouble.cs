@@ -383,6 +383,17 @@ namespace OpenGL.Test
 		}
 
 		[Test]
+		public void Matrix_SetIdentity()
+		{
+			MatrixDouble m = CreateRandomMatrix(3, 3);
+
+			Assert.IsFalse(m.IsIdentity());
+
+			m.SetIdentity();
+			Assert.IsTrue(m.IsIdentity());
+		}
+
+		[Test]
 		public void MatrixDouble_Transpose()
 		{
 			MatrixDouble m = CreateRandomMatrix(2, 3);
@@ -492,6 +503,46 @@ namespace OpenGL.Test
 			m.SetIdentity();
 			MatrixDouble inv = m.GetInverseMatrix();
 			Assert.IsTrue(inv.IsIdentity());
+		}
+
+		[Test]
+		public void Matrix_GetDeterminant()
+		{
+			Assert.AreNotEqual(0.0f, CreateRandomMatrix(2, 2).GetDeterminant());
+			Assert.AreNotEqual(0.0f, CreateRandomMatrix(3, 3).GetDeterminant());
+			Assert.AreNotEqual(0.0f, CreateRandomMatrix(4, 4).GetDeterminant());
+			Assert.AreNotEqual(0.0f, CreateRandomMatrix(1, 1).GetDeterminant());
+			Assert.AreEqual(0.0f, new Matrix(4, 4).GetDeterminant());
+		}
+
+		[Test]
+		public void Matrix_GetDeterminant_Exceptions()
+		{
+			Assert.Throws<InvalidOperationException>(() => new Matrix(2, 3).GetInverseMatrix());
+			Assert.Throws<InvalidOperationException>(() => new Matrix(3, 2).GetInverseMatrix());
+		}
+
+		[Test, TestCase(4u), TestCase(3u), TestCase(2u), TestCase(1u)]
+		public void Matrix_GetInverseMatrix(uint size)
+		{
+			MatrixDouble m = CreateRandomMatrix(size, size);
+			MatrixDouble i = m.GetInverseMatrix();
+
+			Assert.AreEqual(m.Width, i.Width);
+			Assert.AreEqual(m.Height, i.Height);
+
+			MatrixDouble r = m * i;
+
+			Assert.IsTrue(r.IsIdentity(1e-4));
+		}
+
+		[Test]
+		public void Matrix_GetInverseMatrix_Exceptions()
+		{
+			// Non-square
+			Assert.Throws<InvalidOperationException>(() => new Matrix(2, 3).GetInverseMatrix());
+			// Singular
+			Assert.Throws<InvalidOperationException>(() => new Matrix(3, 3).GetInverseMatrix());
 		}
 
 		#endregion

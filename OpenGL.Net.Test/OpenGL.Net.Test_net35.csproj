@@ -136,6 +136,7 @@
     <Compile Include="KhronosApi.cs" />
     <Compile Include="KhronosVersion.cs" />
     <Compile Include="Matrix.cs" />
+    <Compile Include="Matrix4x4.cs" />
     <Compile Include="MatrixBase.cs" />
     <Compile Include="MatrixDouble.cs" />
     <Compile Include="Memory.cs" />

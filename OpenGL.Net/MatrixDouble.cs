@@ -591,25 +591,27 @@ namespace OpenGL
 			if (IsSquare == false)
 				throw new InvalidOperationException("not square");
 
-			if (_Width > 2) {
-				double d = 0.0f;
+			switch (_Width) {
+				case 1:
+					return this[0, 0];
+				case 2:
+					//     | a b |
+					// m = | c d |
+					//
+					// det = ad - bc
 
-				for (uint r = 0; r < Height; r++) {
-					MatrixDouble complement = new MatrixDouble(this, 0, r);
-					double sng = ((r % 2) == 0) ? +1.0 : -1.0;
+					return (this[0, 0] * this[1, 1] - this[1, 0] * this[0, 1]);
+				default:
+					double d = 0.0f;
+						
+					for (uint r = 0; r < Height; r++) {
+						MatrixDouble complement = new MatrixDouble(this, 0, r);
+						double sng = ((r % 2) == 0) ? +1.0 : -1.0;
 
-					d +=  sng * this[0, r] * complement.GetDeterminant();
-				}
+						d +=  sng * this[0, r] * complement.GetDeterminant();
+					}
 
-				return (d);
-			} else {
-
-				//     | a b |
-				// m = | c d |
-				//
-				// det = ad - bc
-
-				return (this[0, 0] * this[1, 1] - this[1, 0] * this[0, 1]);
+					return (d);
 			}
 		}
 
@@ -647,12 +649,16 @@ namespace OpenGL
 			if (((c + r) % 2) == 0) sign = 1.0f; else sign = -1.0f;
 
 			// Compute matrix component complement
-			if (m._Width > 2) {
-				MatrixDouble complement = new MatrixDouble(m, c, r);
+			switch (m._Width) {
+				case 1:
+					return 1.0f;
+				case 2:
+					return (sign * m[(c==0)?1:(uint)0,(r==0)?1:(uint)0]);
+				default:
+					MatrixDouble complement = new MatrixDouble(m, c, r);
 
-				return (sign * complement.GetDeterminant());
-			} else
-				return (sign * m[(c==0)?1:(uint)0,(r==0)?1:(uint)0]);
+					return (sign * complement.GetDeterminant());
+			}
 		}
 
 		/// <summary>
