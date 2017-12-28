@@ -335,7 +335,7 @@ namespace OpenGL
 		/// A <see cref="KhronosVersion"/> that specifies the API to bind.
 		/// </param>
 		/// <param name="extensions">
-		/// A <see cref="KhronosApi.ExtensionsCollection"/> that specifies the extensions supported. It can be null.
+		/// A <see cref="Khronos.KhronosApi.ExtensionsCollection"/> that specifies the extensions supported. It can be null.
 		/// </param>
 		public static void BindAPI(KhronosVersion version, ExtensionsCollection extensions)
 		{
@@ -356,10 +356,6 @@ namespace OpenGL
 		/// </exception>
 		public static KhronosVersion QueryContextVersion()
 		{
-			IntPtr ctx = DeviceContext.GetCurrentContext();
-			if (ctx == IntPtr.Zero)
-				throw new InvalidOperationException("no current context");
-
 			// Parse version string (effective for detecting Desktop and ES contextes)
 			KhronosVersion glversion = KhronosVersion.Parse(GetString(StringName.Version));
 
@@ -412,7 +408,7 @@ namespace OpenGL
 		/// A <see cref="KhronosVersion"/> that specifies the API to bind.
 		/// </param>
 		/// <param name="extensions">
-		/// A <see cref="KhronosApi.ExtensionsCollection"/> that specifies the extensions supported. It can be null.
+		/// A <see cref="Khronos.KhronosApi.ExtensionsCollection"/> that specifies the extensions supported. It can be null.
 		/// </param>
 		/// <param name="functionName">
 		/// A <see cref="String"/> that specifies the name of the function to bind.
