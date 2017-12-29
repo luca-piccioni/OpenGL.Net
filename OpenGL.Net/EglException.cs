@@ -30,7 +30,7 @@ namespace OpenGL
 	/// <summary>
 	/// Exception thrown by Egl class.
 	/// </summary>
-	class EglException : KhronosException
+	public sealed class EglException : KhronosException
 	{
 		#region Constructors
 
@@ -40,41 +40,8 @@ namespace OpenGL
 		/// <param name="errorCode">
 		/// A <see cref="Int32"/> that specifies the error code.
 		/// </param>
-		public EglException(int errorCode) :
+		internal EglException(int errorCode) :
 			base(errorCode, GetErrorMessage(errorCode))
-		{
-
-		}
-
-		/// <summary>
-		/// Construct a EglException.
-		/// </summary>
-		/// <param name="errorCode">
-		/// A <see cref="Int32"/> that specifies the error code.
-		/// </param>
-		/// <param name="message">
-		/// A <see cref="String"/> that specifies the exception message.
-		/// </param>
-		public EglException(int errorCode, string message) :
-			base(errorCode, message)
-		{
-
-		}
-
-		/// <summary>
-		/// Construct a EglException.
-		/// </summary>
-		/// <param name="errorCode">
-		/// A <see cref="Int32"/> that specifies the error code.
-		/// </param>
-		/// <param name="message">
-		/// A <see cref="String"/> that specifies the exception message.
-		/// </param>
-		/// <param name="innerException">
-		/// The <see cref="Exception"/> wrapped by this Exception.
-		/// </param>
-		public EglException(int errorCode, string message, Exception innerException) :
-			base(errorCode, message, innerException)
 		{
 
 		}
@@ -121,7 +88,7 @@ namespace OpenGL
 					return "an EGLSurface argument does not name a valid surface configured for GL rendering";
 				case Egl.BAD_MATCH:
 					return "arguments are inconsistent";
-                case Egl.BAD_PARAMETER:
+				case Egl.BAD_PARAMETER:
 					return "one or more argument values are invalid";
 				case Egl.BAD_NATIVE_PIXMAP:
 					return "a NativePixmapType argument does not refer to a valid native pixmap";

@@ -30,7 +30,7 @@ namespace OpenGL
 	/// <summary>
 	/// Exception thrown by Glx class.
 	/// </summary>
-	class GlxException : KhronosException
+	public sealed class GlxException : KhronosException
 	{
 		#region Constructors
 
@@ -40,50 +40,11 @@ namespace OpenGL
 		/// <param name="displayHandle">
 		/// A <see cref="IntPtr"/> that specifies the handle of the display on which the error occurred.
 		/// </param>
-		/// <param name="error_event">
+		/// <param name="errorEvent">
 		/// A <see cref="Glx.XErrorEvent"/> that describe the error.
 		/// </param>
-		public GlxException(IntPtr displayHandle, ref Glx.XErrorEvent error_event) :
-			base(error_event.error_code, GetErrorMessage(displayHandle, ref error_event), new Win32Exception(error_event.error_code, GetErrorMessage(displayHandle, ref error_event)))
-		{
-
-		}
-
-		/// <summary>
-		/// Construct a GlxException.
-		/// </summary>
-		/// <param name="displayHandle">
-		/// A <see cref="IntPtr"/> that specifies the handle of the display on which the error occurred.
-		/// </param>
-		/// <param name="error_event">
-		/// A <see cref="Glx.XErrorEvent"/> that describe the error.
-		/// </param>
-		/// <param name="message">
-		/// A <see cref="String"/> that specifies the exception message.
-		/// </param>
-		public GlxException(IntPtr displayHandle, ref Glx.XErrorEvent error_event, String message) :
-			base(error_event.error_code, message, new Win32Exception(error_event.error_code, GetErrorMessage(displayHandle, ref error_event)))
-		{
-
-		}
-
-		/// <summary>
-		/// Construct a GlxException.
-		/// </summary>
-		/// <param name="displayHandle">
-		/// A <see cref="IntPtr"/> that specifies the handle of the display on which the error occurred.
-		/// </param>
-		/// <param name="error_event">
-		/// A <see cref="Glx.XErrorEvent"/> that describe the error.
-		/// </param>
-		/// <param name="message">
-		/// A <see cref="String"/> that specifies the exception message.
-		/// </param>
-		/// <param name="innerException">
-		/// The <see cref="Exception"/> wrapped by this Exception.
-		/// </param>
-		public GlxException(IntPtr displayHandle, ref Glx.XErrorEvent error_event, String message, Exception innerException) :
-			base(error_event.error_code, message, innerException)
+		internal GlxException(IntPtr displayHandle, ref Glx.XErrorEvent errorEvent) :
+			base(errorEvent.error_code, GetErrorMessage(displayHandle, ref errorEvent), new Win32Exception(errorEvent.error_code, GetErrorMessage(displayHandle, ref errorEvent)))
 		{
 
 		}
@@ -95,36 +56,36 @@ namespace OpenGL
 		/// <summary>
 		/// Returns a description of the error code.
 		/// </summary>
-		/// <param name="DisplayHandle">
+		/// <param name="displayHandle">
 		/// A <see cref="IntPtr"/> that specifies the handle of the display on which the error occurred.
 		/// </param>
-		/// <param name="error_event">
+		/// <param name="errorEvent">
 		/// A <see cref="Glx.XErrorEvent"/> that describe the error.
 		/// </param>
 		/// <returns>
-		/// It returns a description of <paramref name="error_event"/>.
+		/// It returns a description of <paramref name="errorEvent"/>.
 		/// </returns>
-		private static string GetErrorMessage(IntPtr DisplayHandle, ref Glx.XErrorEvent error_event)
+		private static string GetErrorMessage(IntPtr displayHandle, ref Glx.XErrorEvent errorEvent)
 		{
 			StringBuilder sb = new StringBuilder(1024);
-			Glx.UnsafeNativeMethods.XGetErrorText(DisplayHandle, error_event.error_code, sb, 1024);
+			Glx.UnsafeNativeMethods.XGetErrorText(displayHandle, errorEvent.error_code, sb, 1024);
 
-			string eventName = Enum.GetName(typeof(Glx.XEventName), error_event.type);
-			string requestName = Enum.GetName(typeof(Glx.XRequest), error_event.request_code);
+			string eventName = Enum.GetName(typeof(Glx.XEventName), errorEvent.type);
+			string requestName = Enum.GetName(typeof(Glx.XRequest), errorEvent.request_code);
 
-			if (String.IsNullOrEmpty(eventName))
+			if (string.IsNullOrEmpty(eventName))
 				eventName = "Unknown";
-			if (String.IsNullOrEmpty(requestName))
+			if (string.IsNullOrEmpty(requestName))
 				requestName = "Unknown";
 
 			// Additional details
 			sb.AppendLine("\nX error details:");
-			sb.AppendFormat("	X event name: '{0}' ({1})\n", eventName, error_event.type);
-			sb.AppendFormat("	Display: 0x{0}\n", error_event.display.ToInt64().ToString("x"));
-			sb.AppendFormat("	Resource ID: {0}\n", error_event.resourceid.ToInt64().ToString("x"));
-			sb.AppendFormat("	Error code: {0}\n", error_event.error_code);
-			sb.AppendFormat("	Major code: '{0}' ({1})\n", requestName, error_event.request_code);
-			sb.AppendFormat("	Minor code: {0}", error_event.minor_code);
+			sb.AppendFormat("	X event name: '{0}' ({1})\n", eventName, errorEvent.type);
+			sb.AppendFormat("	Display: 0x{0:x}\n", errorEvent.display.ToInt64());
+			sb.AppendFormat("	Resource ID: {0:x}\n", errorEvent.resourceid.ToInt64());
+			sb.AppendFormat("	Error code: {0}\n", errorEvent.error_code);
+			sb.AppendFormat("	Major code: '{0}' ({1})\n", requestName, errorEvent.request_code);
+			sb.AppendFormat("	Minor code: {0}", errorEvent.minor_code);
 
 			return (sb.ToString());
 		}

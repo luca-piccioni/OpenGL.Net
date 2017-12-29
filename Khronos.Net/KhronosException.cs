@@ -26,7 +26,7 @@ namespace Khronos
 	/// <summary>
 	/// Basic exception thrown by KhronosApi classes.
 	/// </summary>
-	public class KhronosException : InvalidOperationException
+	public abstract class KhronosException : InvalidOperationException
 	{
 		#region Constructors
 
@@ -36,9 +36,9 @@ namespace Khronos
 		/// <param name="errorCode">
 		/// A <see cref="Int32"/> that specifies the error code.
 		/// </param>
-		public KhronosException(int errorCode)
+		protected KhronosException(int errorCode)
 		{
-
+			ErrorCode = errorCode;
 		}
 
 		/// <summary>
@@ -50,10 +50,10 @@ namespace Khronos
 		/// <param name="message">
 		/// A <see cref="String"/> that specifies the exception message.
 		/// </param>
-		public KhronosException(int errorCode, String message) :
+		protected KhronosException(int errorCode, string message) :
 			base(message)
 		{
-
+			ErrorCode = errorCode;
 		}
 
 		/// <summary>
@@ -68,10 +68,10 @@ namespace Khronos
 		/// <param name="innerException">
 		/// The <see cref="Exception"/> wrapped by this Exception.
 		/// </param>
-		public KhronosException(int errorCode, String message, Exception innerException) :
+		protected KhronosException(int errorCode, string message, Exception innerException) :
 			base(message, innerException)
 		{
-
+			ErrorCode = errorCode;
 		}
 
 		#endregion
@@ -81,7 +81,7 @@ namespace Khronos
 		/// <summary>
 		/// Khronos error code.
 		/// </summary>
-		public readonly int ErrCode;
+		public readonly int ErrorCode;
 
 		#endregion
 	}

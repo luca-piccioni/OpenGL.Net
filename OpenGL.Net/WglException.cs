@@ -19,7 +19,6 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-using System;
 using System.ComponentModel;
 
 using Khronos;
@@ -29,51 +28,18 @@ namespace OpenGL
 	/// <summary>
 	/// Exception thrown by Wgl class.
 	/// </summary>
-	class WglException : KhronosException
+	public sealed class WglException : KhronosException
 	{
 		#region Constructors
 
 		/// <summary>
-		/// Construct a GlException.
+		/// Construct a WglException.
 		/// </summary>
 		/// <param name="errorCode">
 		/// A <see cref="ErrorCode"/> that specifies the error code.
 		/// </param>
-		public WglException(int errorCode) :
+		internal WglException(int errorCode) :
 			base(errorCode, GetErrorMessage(errorCode), new Win32Exception(errorCode))
-		{
-
-		}
-
-		/// <summary>
-		/// Construct a GlException.
-		/// </summary>
-		/// <param name="errorCode">
-		/// A <see cref="ErrorCode"/> that specifies the error code.
-		/// </param>
-		/// <param name="message">
-		/// A <see cref="String"/> that specifies the exception message.
-		/// </param>
-		public WglException(int errorCode, String message) :
-			base(errorCode, message, new Win32Exception(errorCode))
-		{
-
-		}
-
-		/// <summary>
-		/// Construct a GlException.
-		/// </summary>
-		/// <param name="errorCode">
-		/// A <see cref="ErrorCode"/> that specifies the error code.
-		/// </param>
-		/// <param name="message">
-		/// A <see cref="String"/> that specifies the exception message.
-		/// </param>
-		/// <param name="innerException">
-		/// The <see cref="Exception"/> wrapped by this Exception.
-		/// </param>
-		public WglException(int errorCode, String message, Exception innerException) :
-			base(errorCode, message, innerException)
 		{
 
 		}
@@ -95,26 +61,26 @@ namespace OpenGL
 			switch (errorCode) {
 
 				default:
-					return (String.Format("unknown error code 0x{0:X8}", errorCode));
+					return $"unknown error code 0x{errorCode:X8}";
 				case Gl.NO_ERROR:
-					return ("no error");
+					return "no error";
 
 				// WGL_ARB_create_context
 				case Wgl.ERROR_INVALID_VERSION_ARB:
-					return ("invalid version");
+					return "invalid version";
 				// WGL_ARB_create_context_profile
 				case Wgl.ERROR_INVALID_PROFILE_ARB:
-					return ("invalid profile");
+					return "invalid profile";
 				// WGL_ARB_make_current_read
 				case Wgl.ERROR_INVALID_PIXEL_TYPE_ARB:
-					return ("invalid pixel type");
+					return "invalid pixel type";
 				case Wgl.ERROR_INCOMPATIBLE_DEVICE_CONTEXTS_ARB:
-					return ("incompatible device contexts");
+					return "incompatible device contexts";
 				// WGL_NV_gpu_affinity
 				case Wgl.ERROR_INCOMPATIBLE_AFFINITY_MASKS_NV:
-					return ("incompatible affinity mask");
+					return "incompatible affinity mask";
 				case Wgl.ERROR_MISSING_AFFINITY_MASK_NV:
-					return ("missing affinity mask");
+					return "missing affinity mask";
 			}
 		}
 

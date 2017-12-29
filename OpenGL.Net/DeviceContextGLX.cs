@@ -368,11 +368,9 @@ namespace OpenGL
 		/// <returns></returns>
 		internal static string[] GetAvailableApis()
 		{
-			List<string> deviceApi = new List<string>();
+			List<string> deviceApi = new List<string> { KhronosVersion.ApiGl };
 
 			// Default
-			deviceApi.Add(KhronosVersion.ApiGl);
-			deviceApi.Add(KhronosVersion.ApiGlsc2);
 			// OpenGL ES via GLX_EXT_create_context_es(2)?_profile
 			if (Glx.CurrentExtensions != null && Glx.CurrentExtensions.CreateContextEsProfile_EXT) {
 				deviceApi.Add(KhronosVersion.ApiGles1);

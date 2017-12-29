@@ -1,5 +1,5 @@
-
-// Copyright (C) 2011-2017 Luca Piccioni
+﻿
+// Copyright (C) 2017 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -19,46 +19,45 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-using System;
+using NUnit.Framework;
 
-using Khronos;
-
-namespace OpenGL.Objects
+namespace OpenGL.Test
 {
-	/// <summary>
-	/// Exception thrown from classed used for shader operations.
-	/// </summary>
-	public class ShaderException : KhronosException
+	[TestFixture, Category("GL")]
+	internal class EglExceptionTest
 	{
-		#region Constructors
-
 		/// <summary>
-		/// Construct a RenderException specifying a message.
+		/// Test Gl.QueryContextVersion.
 		/// </summary>
-		/// <param name="message">
-		/// A <see cref="String"/> that specify an additional message.
-		/// </param>
-		public ShaderException(string message) :
-			base((int)OpenGL.ErrorCode.InvalidOperation, message)
+		[Test, TestCaseSource(nameof(EglErrorCodes))]
+		public void EglException_Constructor1(int errorCode)
 		{
-			
+			EglException eglException = null;
+
+			Assert.DoesNotThrow(() => eglException = new EglException(errorCode));
+			Assert.AreEqual(errorCode, eglException.ErrorCode);
+			Assert.IsNotNull(eglException.Message);
 		}
 
-		/// <summary>
-		/// Construct a ShaderException specifying the message to format.
-		/// </summary>
-		/// <param name="format">
-		/// A <see cref="String"/> that specify an additional message format string.
-		/// </param>
-		/// <param name="args">
-		/// A <see cref="T:System.Object[]"/> that specify formatted arguments in <paramref name="format"/>.
-		/// </param>
-		public ShaderException(string format, params object[] args) :
-			this(String.Format(format, args))
+		private static int[] EglErrorCodes => new[]
 		{
-			
-		}
+			Egl.SUCCESS,
+			Egl.NOT_INITIALIZED,
+			Egl.BAD_ACCESS,
+			Egl.BAD_ALLOC,
+			Egl.BAD_ATTRIBUTE,
+			Egl.BAD_CONTEXT,
+			Egl.BAD_CONFIG,
+			Egl.BAD_CURRENT_SURFACE,
+			Egl.BAD_DISPLAY,
+			Egl.BAD_SURFACE,
+			Egl.BAD_MATCH,
+			Egl.BAD_PARAMETER,
+			Egl.BAD_NATIVE_PIXMAP,
+			Egl.BAD_NATIVE_WINDOW,
+			Egl.CONTEXT_LOST,
 
-		#endregion
+			0x2999,				// Not existing error code
+		};
 	}
 }
