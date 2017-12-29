@@ -34,18 +34,29 @@ namespace OpenGL.Test
 		[Test(Description = "Test CreatePBuffer")]
 		public void DeviceContext_CreatePBuffer()
 		{
+			EnsurePlatform();
+			DeviceContext_CreatePBuffer_Core();
+		}
+
+		[Test(Description = "Test CreatePBuffer [EGL]")]
+		public void DeviceContext_CreatePBuffer_EGL()
+		{
+			EnsureEGL();
+			try {
+				DeviceContext_CreatePBuffer_Core();
+			} finally {
+				Egl.IsRequired = false;
+			}
+		}
+
+		public void DeviceContext_CreatePBuffer_Core()
+		{
 			if (DeviceContext.IsPBufferSupported == false)
 				Assert.Inconclusive("platform don't support P-Buffers");
 
-			// Inconclusive test?
-			switch (Platform.CurrentPlatformId) {
-				case Platform.Id.WindowsNT:
-					if (Wgl.CurrentExtensions.Pbuffer_ARB == false && Wgl.CurrentExtensions.Pbuffer_EXT == false)
-						Assert.Inconclusive("no WGL_ARB_pbuffer or WGL_EXT_pbuffer support");
-					break;
-			}
-
 			INativePBuffer nativePBuffer = null;
+
+			Assert.Throws<ArgumentNullException>(() => DeviceContext.CreatePBuffer(null, 64, 64));
 
 			// P-Buffer creation should be possible on every platform
 			Assert.DoesNotThrow(() => nativePBuffer = DeviceContext.CreatePBuffer(new DevicePixelFormat(24), 64, 64));

@@ -32,13 +32,13 @@ namespace OpenGL.Test
 		/// Test Gl.QueryContextVersion.
 		/// </summary>
 		[Test, TestCaseSource(nameof(GlxErrorCodes)), Ignore("need X display handle")]
-		public void WglException_Constructor1(Glx.XErrorEvent errorCode)
+		public void GlxException_Constructor1(Glx.XErrorEvent errorCode)
 		{
-			GlxException wglException = null;
+			GlxException glxException = null;
 
-			Assert.DoesNotThrow(() => wglException = new GlxException(IntPtr.Zero, ref errorCode));
-			Assert.AreEqual(errorCode, wglException.ErrorCode);
-			Assert.IsNotNull(wglException.Message);
+			Assert.DoesNotThrow(() => glxException = new GlxException(IntPtr.Zero, ref errorCode));
+			Assert.AreEqual(errorCode, glxException.ErrorCode);
+			Assert.IsNotNull(glxException.Message);
 		}
 
 		private static Glx.XErrorEvent[] GlxErrorCodes => new[]
