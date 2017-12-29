@@ -465,7 +465,10 @@ namespace OpenGL
 		/// found in <see cref="KhronosVersion"/> definition. The returned value can be null; in this case only
 		/// the explicit API is implemented.
 		/// </summary>
-		public virtual IEnumerable<string> AvailableAPIs => throw new NotImplementedException();
+		public virtual IEnumerable<string> AvailableAPIs
+		{
+			get { throw new NotImplementedException(); }
+		}
 
 		/// <summary>
 		/// Creates a compatible context.
