@@ -383,7 +383,7 @@ namespace OpenGL.Test
 			}
 		}
 
-		private static IEnumerable<string> TestDefaultAPIs => (DeviceContext.GetAvailableAPIs());
+		private static IEnumerable<string> TestDefaultAPIs { get { return DeviceContext.GetAvailableAPIs(); } }
 
 		private void DeviceContext_CreateContext_DefaultAPI_Core(string api)
 		{
