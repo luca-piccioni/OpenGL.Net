@@ -66,7 +66,11 @@ namespace OpenGL.Test
 		public void DeviceContext_Create1_EGL()
 		{
 			EnsureEGL();
-			DeviceContext_Create1_Core();
+			try {
+				DeviceContext_Create1_Core();
+			} finally {
+				Egl.IsRequired = false;
+			}
 		}
 
 		private void DeviceContext_Create1_Core()
@@ -98,7 +102,11 @@ namespace OpenGL.Test
 		public void DeviceContext_Create3_EGL()
 		{
 			EnsureEGL();
-			DeviceContext_Create3_Core();
+			try {
+				DeviceContext_Create3_Core();
+			} finally {
+				Egl.IsRequired = false;
+			}
 		}
 
 		private void DeviceContext_Create3_Core()
@@ -156,7 +164,11 @@ namespace OpenGL.Test
 		public void DeviceContext_UserCase1_EGL()
 		{
 			EnsureEGL();
-			DeviceContext_UserCase1_Core();
+			try {
+				DeviceContext_UserCase1_Core();
+			} finally {
+				Egl.IsRequired = false;
+			}
 		}
 
 		private void DeviceContext_UserCase1_Core()
@@ -185,7 +197,11 @@ namespace OpenGL.Test
 		public void DeviceContext_UserCase3_EGL()
 		{
 			EnsureEGL();
-			DeviceContext_UserCase3_Core();
+			try {
+				DeviceContext_UserCase3_Core();
+			} finally {
+				Egl.IsRequired = false;
+			}
 		}
 
 		private void DeviceContext_UserCase3_Core()
@@ -219,7 +235,11 @@ namespace OpenGL.Test
 		public void DeviceContext_AvailableAPIs_EGL()
 		{
 			EnsureEGL();
-			DeviceContext_AvailableAPIs_Core();
+			try {
+				DeviceContext_AvailableAPIs_Core();
+			} finally {
+				Egl.IsRequired = false;
+			}
 		}
 
 		private void DeviceContext_AvailableAPIs_Core()
@@ -244,7 +264,11 @@ namespace OpenGL.Test
 		public void DeviceContext_GetAvailableAPIs_EGL()
 		{
 			EnsureEGL();
-			DeviceContext_GetAvailableAPIs_Core();
+			try {
+				DeviceContext_GetAvailableAPIs_Core();
+			} finally {
+				Egl.IsRequired = false;
+			}
 		}
 
 		private static void DeviceContext_GetAvailableAPIs_Core()
@@ -298,7 +322,11 @@ namespace OpenGL.Test
 		public void DeviceContext_CreateContext_EGL()
 		{
 			EnsureEGL();
-			DeviceContext_CreateContext_Core();
+			try {
+				DeviceContext_CreateContext_Core();
+			} finally {
+				Egl.IsRequired = false;
+			}
 		}
 
 		private void DeviceContext_CreateContext_Core()
@@ -336,8 +364,12 @@ namespace OpenGL.Test
 		public void DeviceContext_CreateContext_DefaultAPI_EGL(string api)
 		{
 			EnsureEGL();
-			DeviceContext.DefaultAPI = api;
-			DeviceContext_CreateContext_DefaultAPI_Core(api);
+			try {
+				DeviceContext.DefaultAPI = api;
+				DeviceContext_CreateContext_DefaultAPI_Core(api);
+			} finally {
+				Egl.IsRequired = false;
+			}
 		}
 
 		private static IEnumerable<string> TestDefaultAPIs => (DeviceContext.GetAvailableAPIs());
@@ -413,7 +445,11 @@ namespace OpenGL.Test
 		public void DeviceContext_GetCurrentContext_EGL()
 		{
 			EnsureEGL();
-			DeviceContext_GetCurrentContext_Core();
+			try {
+				DeviceContext_GetCurrentContext_Core();
+			} finally {
+				Egl.IsRequired = false;
+			}
 		}
 
 		private void DeviceContext_GetCurrentContext_Core()

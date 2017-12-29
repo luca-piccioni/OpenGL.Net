@@ -123,6 +123,7 @@
     <Compile Include="DeviceContext.cs" />
     <Compile Include="DevicePixelFormat.cs" />
     <Compile Include="DevicePixelFormatCollection.cs" />
+    <Compile Include="Egl.cs" />
     <Compile Include="EglException.cs" />
     <Compile Include="Gl.VERSION_1_0.cs" />
     <Compile Include="Gl.VERSION_1_5.cs" />
@@ -134,6 +135,7 @@
     </Compile>
     <Compile Include="Gl.VERSION_3_0.cs" />
     <Compile Include="Gl.VERSION_4_3.cs" />
+    <Compile Include="GlxException.cs" />
     <Compile Include="KhronosApi.cs" />
     <Compile Include="KhronosVersion.cs" />
     <Compile Include="Matrix.cs" />
@@ -163,6 +165,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Vertex4.tt</DependentUpon>
     </Compile>
+    <Compile Include="WglException.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OpenGL.Net\OpenGL.Net.Math_net35.csproj">

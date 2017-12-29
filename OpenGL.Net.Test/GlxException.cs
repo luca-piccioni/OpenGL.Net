@@ -19,45 +19,31 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+using System;
+
 using NUnit.Framework;
 
 namespace OpenGL.Test
 {
-	[TestFixture, Category("EGL")]
-	internal class EglExceptionTest
+	[TestFixture, Category("GLX")]
+	internal class GlxExceptionTest
 	{
 		/// <summary>
 		/// Test Gl.QueryContextVersion.
 		/// </summary>
-		[Test, TestCaseSource(nameof(EglErrorCodes))]
-		public void EglException_Constructor1(int errorCode)
+		[Test, TestCaseSource(nameof(GlxErrorCodes)), Ignore("need X display handle")]
+		public void WglException_Constructor1(Glx.XErrorEvent errorCode)
 		{
-			EglException eglException = null;
+			GlxException wglException = null;
 
-			Assert.DoesNotThrow(() => eglException = new EglException(errorCode));
-			Assert.AreEqual(errorCode, eglException.ErrorCode);
-			Assert.IsNotNull(eglException.Message);
+			Assert.DoesNotThrow(() => wglException = new GlxException(IntPtr.Zero, ref errorCode));
+			Assert.AreEqual(errorCode, wglException.ErrorCode);
+			Assert.IsNotNull(wglException.Message);
 		}
 
-		private static int[] EglErrorCodes => new[]
+		private static Glx.XErrorEvent[] GlxErrorCodes => new[]
 		{
-			Egl.SUCCESS,
-			Egl.NOT_INITIALIZED,
-			Egl.BAD_ACCESS,
-			Egl.BAD_ALLOC,
-			Egl.BAD_ATTRIBUTE,
-			Egl.BAD_CONTEXT,
-			Egl.BAD_CONFIG,
-			Egl.BAD_CURRENT_SURFACE,
-			Egl.BAD_DISPLAY,
-			Egl.BAD_SURFACE,
-			Egl.BAD_MATCH,
-			Egl.BAD_PARAMETER,
-			Egl.BAD_NATIVE_PIXMAP,
-			Egl.BAD_NATIVE_WINDOW,
-			Egl.CONTEXT_LOST,
-
-			0x2999,				// Not existing error code
+			new Glx.XErrorEvent { error_code = 0 }
 		};
 	}
 }

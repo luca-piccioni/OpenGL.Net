@@ -58,14 +58,16 @@ test:
     only:
       - GL
       - GL_VERSION_1_0
+      - EGL
+      - WGL
       - Math
       - Framework
       - Toolkit_CoreUI
 
 after_test:
   - pip install codecov
-  - packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -target:"packages\NUnit.ConsoleRunner.3.7.0\tools\nunit3-console.exe" -targetargs:"OpenGL.Net.Test\bin\net461\Release\OpenGL.Net.Test.dll" -excludebyfile:"*OpenGL.Net.Test*;*OpenGL.Net\DeviceContextGLX.cs;*OpenGL.Net\Glx.cs" -excludebyattribute:OpenGL.RequiredByFeatureAttribute -hideskipped:All -output:.\OpenGL.Net_net461.xml
-  - packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -target:"packages\NUnit.ConsoleRunner.3.7.0\tools\nunit3-console.exe" -targetargs:"OpenGL.Net.Test\bin\net35\Release\OpenGL.Net.Test.dll" -excludebyfile:"*OpenGL.Net.Test*;*OpenGL.Net\DeviceContextGLX.cs;*OpenGL.Net\Glx.cs" -excludebyattribute:OpenGL.RequiredByFeatureAttribute -hideskipped:All -output:.\OpenGL.Net_net35.xml
+  - packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -target:"packages\NUnit.ConsoleRunner.3.7.0\tools\nunit3-console.exe" -targetargs:"OpenGL.Net.Test\bin\net461\Release\OpenGL.Net.Test.dll" -excludebyfile:"*OpenGL.Net*.Test*" -excludebyattribute:OpenGL.RequiredByFeatureAttribute -hideskipped:All -output:.\OpenGL.Net_net461.xml
+  - packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -target:"packages\NUnit.ConsoleRunner.3.7.0\tools\nunit3-console.exe" -targetargs:"OpenGL.Net.Test\bin\net35\Release\OpenGL.Net.Test.dll"  -excludebyfile:"*OpenGL.Net*.Test*" -excludebyattribute:OpenGL.RequiredByFeatureAttribute -hideskipped:All -output:.\OpenGL.Net_net35.xml
   - packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -target:"packages\NUnit.ConsoleRunner.3.7.0\tools\nunit3-console.exe" -targetargs:"OpenGL.Net.CoreUI.Test\bin\net461\Release\OpenGL.Net.CoreUI.Test.dll" -hideskipped:All -output:.\OpenGL.Net.CoreUI_net461.xml
 # Note: ATM coverage for .NET Core is 0 %: do not run
 #  - IF "%HAS_NETCORE%"=="true" packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -target:"C:\Program Files\dotnet\dotnet.exe" -targetargs:"test OpenGL.Net.Test\OpenGL.Net.Test_netcore1.1.csproj" -excludebyfile:"*OpenGL.Net.Test*;*OpenGL.Net\DeviceContextGLX.cs;*OpenGL.Net\Glx.cs" -excludebyattribute:OpenGL.RequiredByFeatureAttribute -hideskipped:All -output:.\OpenGL.Net_netcore1.1.xml

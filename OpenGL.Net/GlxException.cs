@@ -68,6 +68,7 @@ namespace OpenGL
 		private static string GetErrorMessage(IntPtr displayHandle, ref Glx.XErrorEvent errorEvent)
 		{
 			StringBuilder sb = new StringBuilder(1024);
+
 			Glx.UnsafeNativeMethods.XGetErrorText(displayHandle, errorEvent.error_code, sb, 1024);
 
 			string eventName = Enum.GetName(typeof(Glx.XEventName), errorEvent.type);

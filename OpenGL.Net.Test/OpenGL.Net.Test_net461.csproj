@@ -132,6 +132,9 @@
     <Compile Include="ColorTestBase.cs" />
     <Compile Include="DevicePixelFormatCollection.cs" />
     <Compile Include="DevicePixelFormat.cs" />
+    <Compile Include="Egl.cs" />
+    <Compile Include="GlxException.cs" />
+    <Compile Include="WglException.cs" />
     <Compile Include="EglException.cs" />
     <Compile Include="MatrixDouble.cs" />
     <Compile Include="MatrixBase.cs" />

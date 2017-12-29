@@ -24,40 +24,49 @@ using NUnit.Framework;
 namespace OpenGL.Test
 {
 	[TestFixture, Category("EGL")]
-	internal class EglExceptionTest
+	internal class EglTest
 	{
-		/// <summary>
-		/// Test Gl.QueryContextVersion.
-		/// </summary>
-		[Test, TestCaseSource(nameof(EglErrorCodes))]
-		public void EglException_Constructor1(int errorCode)
+		[Test]
+		public void Egl_Initialize()
 		{
-			EglException eglException = null;
-
-			Assert.DoesNotThrow(() => eglException = new EglException(errorCode));
-			Assert.AreEqual(errorCode, eglException.ErrorCode);
-			Assert.IsNotNull(eglException.Message);
+			// It shall not throw any exception, even if it is not available
+			Assert.DoesNotThrow(Egl.Initialize);
+			// It shall not throw any exception, even if called multiple times
+			Assert.DoesNotThrow(Egl.Initialize);
 		}
 
-		private static int[] EglErrorCodes => new[]
+		[Test]
+		public void Egl_Available()
 		{
-			Egl.SUCCESS,
-			Egl.NOT_INITIALIZED,
-			Egl.BAD_ACCESS,
-			Egl.BAD_ALLOC,
-			Egl.BAD_ATTRIBUTE,
-			Egl.BAD_CONTEXT,
-			Egl.BAD_CONFIG,
-			Egl.BAD_CURRENT_SURFACE,
-			Egl.BAD_DISPLAY,
-			Egl.BAD_SURFACE,
-			Egl.BAD_MATCH,
-			Egl.BAD_PARAMETER,
-			Egl.BAD_NATIVE_PIXMAP,
-			Egl.BAD_NATIVE_WINDOW,
-			Egl.CONTEXT_LOST,
+			if (Egl.IsAvailable == false)
+				Assert.Inconclusive("EGL not available");
 
-			0x2999,				// Not existing error code
-		};
+			Assert.IsNotNull(Egl.CurrentVersion);
+			Assert.IsNotNull(Egl.CurrentVendor);
+			Assert.IsNotNull(Egl.CurrentExtensions);
+		}
+
+		[Test]
+		public void Egl_NotAvailable()
+		{
+			if (Egl.IsAvailable)
+				Assert.Inconclusive("EGL available");
+
+			Assert.IsNull(Egl.CurrentVersion);
+			Assert.IsNull(Egl.CurrentVendor);
+			Assert.IsNull(Egl.CurrentExtensions);
+		}
+
+		[Test]
+		public void Egl_IsRequired()
+		{
+			Assert.IsFalse(Egl.IsRequired);
+
+			Egl.IsRequired = true;
+			Assert.AreEqual(Egl.IsAvailable, Egl.IsRequired);
+
+			Egl.IsRequired = false;
+			Assert.IsFalse(Egl.IsRequired);
+		}
 	}
 }
