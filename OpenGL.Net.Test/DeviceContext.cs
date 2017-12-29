@@ -28,7 +28,7 @@ using NUnit.Framework;
 
 namespace OpenGL.Test
 {
-	[TestFixture, Category("Framework")]
+	[TestFixture, Category("GL")]
 	internal class DeviceContextTest
 	{
 		[Test(Description = "Test CreatePBuffer")]
@@ -361,8 +361,7 @@ namespace OpenGL.Test
 			}
 		}
 
-		[Test(Description = "Test CreateContext(IntPtr)")]
-		[TestCaseSource(nameof(TestDefaultAPIs))]
+		[Test(Description = "Test CreateContext(IntPtr)"), TestCaseSource(nameof(TestDefaultAPIs))]
 		public void DeviceContext_CreateContext_DefaultAPI(string api)
 		{
 			EnsurePlatform();
@@ -370,8 +369,7 @@ namespace OpenGL.Test
 			DeviceContext_CreateContext_DefaultAPI_Core(api);
 		}
 
-		[Test(Description = "Test CreateContext(IntPtr) [EGL]")]
-		[TestCaseSource(nameof(TestDefaultAPIs))]
+		[Test(Description = "Test CreateContext(IntPtr) [EGL]"), TestCaseSource(nameof(TestDefaultAPIs))]
 		public void DeviceContext_CreateContext_DefaultAPI_EGL(string api)
 		{
 			EnsureEGL();
