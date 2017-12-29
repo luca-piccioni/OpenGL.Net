@@ -19,4 +19,5 @@ script:
   - xbuild /p:Configuration=Release OpenGL.Net_Mono.sln
   - glxinfo
   - mono ./packages/NUnit.ConsoleRunner.3.7.0/tools/nunit3-console.exe --where="cat=Framework || cat=Math" ./OpenGL.Net.Test/bin/net461/Release/OpenGL.Net.Test.dll
-#  - mono ./packages/NUnit.ConsoleRunner.3.7.0/tools/nunit3-console.exe --where="cat=Framework || cat=Math" ./OpenGL.Net.Test/bin/net35/Release/OpenGL.Net.Test.dll
+  - mono ./packages/OpenCover.4.6.519/tools/OpenCover.Console.exe -register:user -target:"packages/NUnit.ConsoleRunner.3.7.0/tools/nunit3-console.exe" -targetargs:"OpenGL.Net.Test/bin/net461/Release/OpenGL.Net.Test.dll" -excludebyfile:"*OpenGL.Net*.Test*" -excludebyattribute:OpenGL.RequiredByFeatureAttribute -hideskipped:All -output:./OpenGL.Net_net461.xml
+  - mono ./packages/Codecov.1.0.3/codecov.exe -f "OpenGL.Net_net461.xml" -F net461_Linux
