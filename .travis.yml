@@ -16,5 +16,5 @@ before_script:
   - sleep 6 # give xvfb some time to start
 script:
   - xbuild /p:Configuration=Release OpenGL.Net_Mono.sln
-#  - mono ./packages/NUnit.ConsoleRunner.3.7.0/tools/nunit3-console.exe --where="cat=GL || cat=Framework || cat=Math" ./OpenGL.Net.Test/bin/net461/Release/OpenGL.Net.Test.dll
-#  - mono ./packages/NUnit.ConsoleRunner.3.7.0/tools/nunit3-console.exe --where="cat=GL || cat=Framework || cat=Math" ./OpenGL.Net.Test/bin/net35/Release/OpenGL.Net.Test.dll
+  - mono ./packages/NUnit.ConsoleRunner.3.7.0/tools/nunit3-console.exe --where="cat=Framework || cat=Math" ./OpenGL.Net.Test/bin/net461/Release/OpenGL.Net.Test.dll
+  - mono ./packages/NUnit.ConsoleRunner.3.7.0/tools/nunit3-console.exe --where="cat=Framework || cat=Math" ./OpenGL.Net.Test/bin/net35/Release/OpenGL.Net.Test.dll
