@@ -6,8 +6,6 @@ addons:
         - xserver-xorg-video-dummy
         - xpra
         - mesa-utils
-before_install:
-  - pip install --user codecov
 install:
   - sudo nuget update -self
   - sudo nuget restore OpenGL.Net_Mono.sln
@@ -20,7 +18,7 @@ script:
   - mono --version
   - xbuild /p:Configuration=Release OpenGL.Net_Mono.sln
   - glxinfo
-#  - mono ./packages/NUnit.ConsoleRunner.3.7.0/tools/nunit3-console.exe --where="cat=Framework || cat=Math" ./OpenGL.Net.Test/bin/net461/Release/OpenGL.Net.Test.dll
-  - mono ./packages/OpenCover.4.6.519/tools/OpenCover.Console.exe -register:user -target:"packages/NUnit.ConsoleRunner.3.7.0/tools/nunit3-console.exe" -targetargs:"OpenGL.Net.Test/bin/net461/Release/OpenGL.Net.Test.dll" -excludebyfile:"*OpenGL.Net*.Test*" -excludebyattribute:OpenGL.RequiredByFeatureAttribute -hideskipped:All -output:./OpenGL.Net_net461.xml
-after_success:
-  - codecov -f "OpenGL.Net_net461.xml" -F net461_Linux
+after_script:
+  - mono --debug --profile=log:coverage,covfilter=+OpenGL,covfilter=-OpenGL.Tests "packages/NUnit.ConsoleRunner.3.7.0/tools/nunit3-console.exe" "OpenGL.Net.Test\bin\net461\Release\OpenGL.Net.Test.dll" -parallel none
+  - mprof-report --reports=coverage --coverage-out=coverage.xml output.mlpd
+  - bash <(curl -s https://codecov.io/bash) -F net461_Linux
