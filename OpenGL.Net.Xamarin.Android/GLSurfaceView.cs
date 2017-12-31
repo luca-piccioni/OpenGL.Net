@@ -183,18 +183,8 @@ namespace OpenGL
 		/// </summary>
 		protected virtual void OnContextCreated()
 		{
-			if (_ContextCreated != null) {
-				GLSurfaceViewEventArgs glControlEventArgs = new GLSurfaceViewEventArgs(_DeviceContext, _RenderContext);
-
-				foreach(EventHandler<GLSurfaceViewEventArgs> handler in _ContextCreated.GetInvocationList()) {
-					try {
-						handler(this, glControlEventArgs);
-					} catch (Exception e) {
-						// Fail-safe
-					}
-				}
-			}
-
+			if (_ContextCreated != null)
+				_ContextCreated(this, new GLSurfaceViewEventArgs(_DeviceContext, _RenderContext));
 			Invalidate();
 		}
 
