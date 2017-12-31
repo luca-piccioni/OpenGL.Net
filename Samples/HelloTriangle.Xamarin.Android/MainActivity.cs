@@ -80,8 +80,6 @@ namespace HelloTriangle.Xamarin
 
 		private void Es2_ContextCreated()
 		{
-			int compilationStatus;
-
 			// Vertex shader
 			uint vertexShader = Gl.CreateShader(ShaderType.VertexShader);
 			Gl.ShaderSource(vertexShader, _Es2_ShaderVertexSource);
