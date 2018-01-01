@@ -64,19 +64,19 @@ build_script:
 test: off
 
 test_script:
-  - packages\%NUNIT_RUN% "%NUNIT_WHERE%" "%NUNIT_OPTS%"     --out=TestOpenGL.Net_net461.xml            OpenGL.Net.Test\bin\net461\Release\OpenGL.Net.Test.dll
-  - packages\%NUNIT_RUN% %NUNIT_WHERE% %NUNIT_OPTS%         --out=TestOpenGL.Net_net35.xml             OpenGL.Net.Test\bin\net35\Release\OpenGL.Net.Test.dll
-  - packages\%NUNIT_RUN% %NUNIT_WHERE% %NUNIT_OPTS%         --out=TestOpenGL.Net.CoreUI_net461.xml     OpenGL.Net.CoreUI.Test\bin\net461\Release\OpenGL.Net.CoreUI.Test.dll
-  - packages\"%NUNIT_RUN%" %NUNIT_WHERE% %NUNIT_OPTS% --x86 --out=TestOpenGL.Net_net461_x86.xml        OpenGL.Net.Test\bin\net461\Release\OpenGL.Net.Test.dll
-  - packages\"%NUNIT_RUN%" %NUNIT_WHERE% %NUNIT_OPTS% --x86 --out=TestOpenGL.Net_net35_x86.xml         OpenGL.Net.Test\bin\net35\Release\OpenGL.Net.Test.dll
+  - packages\%NUNIT_RUN% "%NUNIT_WHERE%" "%NUNIT_OPTS%" --out=TestOpenGL.Net_net461.xml OpenGL.Net.Test\bin\net461\Release\OpenGL.Net.Test.dll
+  - packages\%NUNIT_RUN% %NUNIT_WHERE% %NUNIT_OPTS% --out=TestOpenGL.Net_net35.xml OpenGL.Net.Test\bin\net35\Release\OpenGL.Net.Test.dll
+  - packages\%NUNIT_RUN% %NUNIT_WHERE% %NUNIT_OPTS% --out=TestOpenGL.Net.CoreUI_net461.xml OpenGL.Net.CoreUI.Test\bin\net461\Release\OpenGL.Net.CoreUI.Test.dll
+  - packages\"%NUNIT_RUN%" %NUNIT_WHERE% %NUNIT_OPTS% --x86 --out=TestOpenGL.Net_net461_x86.xml OpenGL.Net.Test\bin\net461\Release\OpenGL.Net.Test.dll
+  - packages\"%NUNIT_RUN%" %NUNIT_WHERE% %NUNIT_OPTS% --x86 --out=TestOpenGL.Net_net35_x86.xml OpenGL.Net.Test\bin\net35\Release\OpenGL.Net.Test.dll
   - packages\"%NUNIT_RUN%" %NUNIT_WHERE% %NUNIT_OPTS% --x86 --out=TestOpenGL.Net.CoreUI_net461_x86.xml OpenGL.Net.CoreUI.Test\bin\net461\Release\OpenGL.Net.CoreUI.Test.dll
 
 after_test:
   - pip install codecov
   - packages\%COVER_RUN% %COVER_OPTS% %COVER_EXCLUDE% -targetargs:"OpenGL.Net.Test\bin\net461\Release\OpenGL.Net.Test.dll" -output:.\CovOpenGL.Net_net461.xml
   - packages\%COVER_RUN% %COVER_OPTS% %COVER_EXCLUDE% -targetargs:"--x86 OpenGL.Net.Test\bin\net461\Release\OpenGL.Net.Test.dll" -output:.\CovOpenGL.Net_net461_x86.xml
-  - packages\%COVER_RUN% %COVER_OPTS% %COVER_EXCLUDE% -targetargs:"OpenGL.Net.Test\bin\net35\Release\OpenGL.Net.Test.dll"  -output:.\CovOpenGL.Net_net35.xml
-  - packages\%COVER_RUN% %COVER_OPTS% %COVER_EXCLUDE% -targetargs:"--x86 OpenGL.Net.Test\bin\net35\Release\OpenGL.Net.Test.dll"  -output:.\CovOpenGL.Net_net35_x86.xml
+  - packages\%COVER_RUN% %COVER_OPTS% %COVER_EXCLUDE% -targetargs:"OpenGL.Net.Test\bin\net35\Release\OpenGL.Net.Test.dll" -output:.\CovOpenGL.Net_net35.xml
+  - packages\%COVER_RUN% %COVER_OPTS% %COVER_EXCLUDE% -targetargs:"--x86 OpenGL.Net.Test\bin\net35\Release\OpenGL.Net.Test.dll" -output:.\CovOpenGL.Net_net35_x86.xml
   - packages\%COVER_RUN% %COVER_OPTS% %COVER_EXCLUDE% -targetargs:"OpenGL.Net.CoreUI.Test\bin\net461\Release\OpenGL.Net.Test.dll" -output:.\CovOpenGL.Net.CoreUI_net461_x86.xml
   - packages\%COVER_RUN% %COVER_OPTS% %COVER_EXCLUDE% -targetargs:"--x86 OpenGL.Net.CoreUI.Test\bin\net461\Release\OpenGL.Net.Test.dll" -output:.\CovOpenGL.Net.CoreUI_net461_x86.xml
   - codecov -f "CovOpenGL.Net_net461.xml" -F net461_Win32
