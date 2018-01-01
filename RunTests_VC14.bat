@@ -5,11 +5,17 @@
 @SET SLN_BUILD_OPTS=/verbosity:minimal
 
 msbuild %SLN_PATH% %SLN_BUILD_OPTS% /property:Configuration=Release /p:Platform="Any CPU"
+IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 msbuild %SLN_PATH% %SLN_BUILD_OPTS% /property:Configuration=Release /p:Platform="x86"
+IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 msbuild %SLN_PATH% %SLN_BUILD_OPTS% /property:Configuration=Release /p:Platform="x64"
+IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 msbuild %SLN_PATH% %SLN_BUILD_OPTS% /property:Configuration=Debug   /p:Platform="Any CPU"
+IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 msbuild %SLN_PATH% %SLN_BUILD_OPTS% /property:Configuration=Debug   /p:Platform="x86"
+IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 msbuild %SLN_PATH% %SLN_BUILD_OPTS% /property:Configuration=Debug   /p:Platform="x64"
+IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
 @SET TEST_RUN=packages\NUnit.ConsoleRunner.3.7.0\tools\nunit3-console.exe
 @SET TEST_OPTS=--noheader
@@ -21,5 +27,7 @@ msbuild %SLN_PATH% %SLN_BUILD_OPTS% /property:Configuration=Debug   /p:Platform=
 %TEST_RUN% %TEST_WHERE% %TEST_OPTS% --x86 --out=OpenGL.Net_net461_x86.xml        OpenGL.Net.Test\bin\net461\Release\OpenGL.Net.Test.dll
 %TEST_RUN% %TEST_WHERE% %TEST_OPTS% --x86 --out=OpenGL.Net_net35_x86.xml         OpenGL.Net.Test\bin\net35\Release\OpenGL.Net.Test.dll
 %TEST_RUN% %TEST_WHERE% %TEST_OPTS% --x86 --out=OpenGL.Net.CoreUI_net461_x86.xml OpenGL.Net.CoreUI.Test\bin\net461\Release\OpenGL.Net.CoreUI.Test.dll
+
+:ERROR
 
 pause
