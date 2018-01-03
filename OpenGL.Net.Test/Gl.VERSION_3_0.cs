@@ -41,20 +41,26 @@ namespace OpenGL.Test
 			if (!HasVersion(3, 0) && !HasEsVersion(3, 0))
 				Assert.Inconclusive("OpenGL 3.0 or OpenGL ES 3.0");
 
-			#region Gl.EXTENSIONS
+			using (Device device = new Device())
+			using (new GLContext(device))
+			{
 
-			int numExtensions;
+				#region Gl.EXTENSIONS
 
-			Gl.Get(GetPName.NumExtensions, out numExtensions);
+				int numExtensions;
 
-			Console.WriteLine("Found {0} GL extensions:", numExtensions);
+				Gl.Get(GetPName.NumExtensions, out numExtensions);
 
-			for (uint i = 0; i < (uint)numExtensions; i++) {
-				string extensionName = Gl.GetString(StringName.Extensions, i);
-				Console.WriteLine("- {0}", extensionName);
+				Console.WriteLine("Found {0} GL extensions:", numExtensions);
+
+				for (uint i = 0; i < (uint) numExtensions; i++) {
+					string extensionName = Gl.GetString(StringName.Extensions, i);
+					Console.WriteLine("- {0}", extensionName);
+				}
+
+				#endregion
+
 			}
-
-			#endregion
 		}
 	}
 }

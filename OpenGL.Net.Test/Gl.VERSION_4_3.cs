@@ -41,19 +41,25 @@ namespace OpenGL.Test
 			if (!HasVersion(4, 3))
 				Assert.Inconclusive("OpenGL 4.3 not implemented");
 
-			#region Gl.SHADING_LANGUAGE_VERSION
+			using (Device device = new Device())
+			using (new GLContext(device))
+			{
 
-			int numShadingLanguage;
+				#region Gl.SHADING_LANGUAGE_VERSION
 
-			Gl.Get(GetPName.NumShadingLanguageVersions, out numShadingLanguage);
+				int numShadingLanguage;
 
-			Console.WriteLine("Found {0} GL Shading Language versions:", numShadingLanguage);
-			for (uint i = 0; i < (uint)numShadingLanguage; i++) {
-				string shadingLanguageVersion = Gl.GetString(StringName.ShadingLanguageVersion, i);
-				Console.WriteLine("- {0}", shadingLanguageVersion);
+				Gl.Get(GetPName.NumShadingLanguageVersions, out numShadingLanguage);
+
+				Console.WriteLine("Found {0} GL Shading Language versions:", numShadingLanguage);
+				for (uint i = 0; i < (uint)numShadingLanguage; i++) {
+					string shadingLanguageVersion = Gl.GetString(StringName.ShadingLanguageVersion, i);
+					Console.WriteLine("- {0}", shadingLanguageVersion);
+				}
+
+				#endregion
+
 			}
-
-			#endregion
 		}
 	}
 }

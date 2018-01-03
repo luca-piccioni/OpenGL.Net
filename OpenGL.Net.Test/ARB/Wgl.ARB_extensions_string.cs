@@ -37,26 +37,30 @@ namespace OpenGL.Test
 			if (Wgl.HasGetExtensionsStringARB == false)
 				Assert.Inconclusive("WGL_ARB_extensions_string not supported");
 
-			DeviceContextWGL winDeviceContext = (DeviceContextWGL)_DeviceContext;
+			using (Device device = new Device())
+			using (new GLContext(device))
+			{
+				DeviceContextWGL winDeviceContext = (DeviceContextWGL)device.Context;
 
-			string extensions = Wgl.GetExtensionsStringARB(winDeviceContext.DeviceContext);
+				string extensions = Wgl.GetExtensionsStringARB(winDeviceContext.DeviceContext);
 
-			Assert.IsNotNull(extensions);
+				Assert.IsNotNull(extensions);
 
-			// No exposed extensions? No more assertion
-			if (extensions == String.Empty)
-				return;
+				// No exposed extensions? No more assertion
+				if (extensions == String.Empty)
+					return;
 
-			string[] extensionIds = Regex.Split(extensions, " ");
+				string[] extensionIds = Regex.Split(extensions, " ");
 
-			// Filter empty IDs
-			extensionIds = Array.FindAll(extensionIds, delegate(string item) { return (item.Trim().Length > 0); });
+				// Filter empty IDs
+				extensionIds = Array.FindAll(extensionIds, delegate(string item) { return (item.Trim().Length > 0); });
 
-			Console.WriteLine("Found {0} WGL extensions:", extensionIds.Length);
-			foreach (string extensionId in extensionIds)
-				Console.WriteLine("- {0}", extensionId);
+				Console.WriteLine("Found {0} WGL extensions:", extensionIds.Length);
+				foreach (string extensionId in extensionIds)
+					Console.WriteLine("- {0}", extensionId);
 
-			// Assert.IsTrue(Regex.IsMatch(extensions, @"(WGL_(\w+)( +)?)+"));
+				// Assert.IsTrue(Regex.IsMatch(extensions, @"(WGL_(\w+)( +)?)+"));
+			}
 		}
 	}
 }

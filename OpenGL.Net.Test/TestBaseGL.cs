@@ -20,9 +20,7 @@
 // SOFTWARE.
 
 using System;
-using System.Collections.Generic;
 using System.Threading;
-using System.Reflection;
 
 using Khronos;
 
@@ -33,124 +31,112 @@ namespace OpenGL.Test
 	/// <summary>
 	/// Abstract base test creating an OpenGL context used for testing.
 	/// </summary>
-	[TestFixture]
 #if !NETCORE
 	[Apartment(ApartmentState.STA)]
 #endif
 	[Category("Graphics")]
-	abstract class TestBaseGL : TestBase
+	internal abstract class TestBaseGL : TestBase
 	{
-		#region Setup & Tear Down
+		#region Context
 
-		/// <summary>
-		/// Create a an OpenGL context, and get the OpenGL extensions supported.
-		/// </summary>
-		[OneTimeSetUp]
-		public new void FixtureSetUp()
+		protected class GLContext : IDisposable
 		{
-			try {
-				// Create compatibility profile context
-				if ((_Context = _DeviceContext.CreateContext(IntPtr.Zero)) == IntPtr.Zero)
-					throw new InvalidOperationException("unable to create compatibility profile OpenGL context");
+			public GLContext(Device device)
+			{
+				_Device = device;
+				Context = device.Context.CreateContext(IntPtr.Zero);
 
 				// Make OpenGL context current
-				if (_DeviceContext.MakeCurrent(_Context) == false)
+				if (_Device.Context.MakeCurrent(Context) == false)
 					throw new InvalidOperationException("unable to make current the OpenGL context");
+			}
 
-				// Get OpenGL version
-				if ((_VersionString = Gl.GetString(StringName.Version)) == null)
-					throw new InvalidOperationException("unable to get the OpenGL version");
-				// Extract OpenGL version numbers
-				_Version = KhronosVersion.Parse(_VersionString);
-				// Get OpenGL extensions
-				_GlExtensions.Query();
-				// Get OpenGL window system extensions
-				// Windows OpenGL extensions
-				DeviceContextWGL windowsDeviceContext = _DeviceContext as DeviceContextWGL;
-				if (windowsDeviceContext != null)
-					_WglExtensions.Query(windowsDeviceContext);
-				// GLX OpenGL extensions
-				DeviceContextGLX xserverDeviceContext = _DeviceContext as DeviceContextGLX;
-				if (xserverDeviceContext != null)
-					_GlxExtensions.Query(xserverDeviceContext);
-				// EGL OpenGL extensions
-				DeviceContextEGL nativeDeviceContext = _DeviceContext as DeviceContextEGL;
-				if (nativeDeviceContext != null)
-					_EglExtensions.Query(nativeDeviceContext);
+			private readonly Device _Device;
+
+			public readonly IntPtr Context;
+
+			public void Dispose()
+			{
+				if (Context != IntPtr.Zero)
+					_Device.Context.DeleteContext(Context);
+			}
+		}
+
+		///// <summary>
+		///// Create a an OpenGL context, and get the OpenGL extensions supported.
+		///// </summary>
+		//[OneTimeSetUp]
+		//public new void FixtureSetUp()
+		//{
+		//	try {
+		//		// Create compatibility profile context
+		//		_Context = _DeviceContext.CreateContext(IntPtr.Zero);
+
+		//		// Make OpenGL context current
+		//		if (_DeviceContext.MakeCurrent(_Context) == false)
+		//			throw new InvalidOperationException("unable to make current the OpenGL context");
+
+		//		// Get OpenGL version
+		//		if ((_VersionString = Gl.GetString(StringName.Version)) == null)
+		//			throw new InvalidOperationException("unable to get the OpenGL version");
+		//		// Extract OpenGL version numbers
+		//		_Version = KhronosVersion.Parse(_VersionString);
+		//		// Get OpenGL extensions
+		//		_GlExtensions.Query();
+		//		// Get OpenGL window system extensions
+		//		// Windows OpenGL extensions
+		//		DeviceContextWGL windowsDeviceContext = _DeviceContext as DeviceContextWGL;
+		//		if (windowsDeviceContext != null)
+		//			_WglExtensions.Query(windowsDeviceContext);
+		//		// GLX OpenGL extensions
+		//		DeviceContextGLX xserverDeviceContext = _DeviceContext as DeviceContextGLX;
+		//		if (xserverDeviceContext != null)
+		//			_GlxExtensions.Query(xserverDeviceContext);
+		//		// EGL OpenGL extensions
+		//		DeviceContextEGL nativeDeviceContext = _DeviceContext as DeviceContextEGL;
+		//		if (nativeDeviceContext != null)
+		//			_EglExtensions.Query(nativeDeviceContext);
 				
-			} catch (Exception exception) {
-				Console.WriteLine("Unable to initialize Fixture for OpenGL: " + exception.ToString());
+		//	} catch (Exception exception) {
+		//		Console.WriteLine("Unable to initialize Fixture for OpenGL: " + exception.ToString());
 
-				// Release resources manually
-				FixtureTearDown();
-				throw;
-			}
-		}
+		//		// Release resources manually
+		//		FixtureTearDown();
+		//		throw;
+		//	}
+		//}
 
-		/// <summary>
-		/// Synchronize thread-local delegates.
-		/// </summary>
-		[SetUp]
-		public void SetUp()
-		{
-			// Make OpenGL context current
-			if (_DeviceContext.MakeCurrent(_Context) == false)
-				throw new InvalidOperationException("unable to make current the OpenGL context");
-		}
+		///// <summary>
+		///// Synchronize thread-local delegates.
+		///// </summary>
+		//[SetUp]
+		//public void SetUp()
+		//{
+		//	// Make OpenGL context current
+		//	if (_DeviceContext.MakeCurrent(_Context) == false)
+		//		throw new InvalidOperationException("unable to make current the OpenGL context");
+		//}
 
-		/// <summary>
-		/// Release resources allocated by <see cref="FixtureSetUp"/>.
-		/// </summary>
-		[OneTimeTearDown]
-		public new void FixtureTearDown()
-		{
-			// Detroy context
-			if (_Context != IntPtr.Zero)
-				_DeviceContext.DeleteContext(_Context);
-			_Context = IntPtr.Zero;
-		}
+		///// <summary>
+		///// Release resources allocated by <see cref="FixtureSetUp"/>.
+		///// </summary>
+		//[OneTimeTearDown]
+		//public new void FixtureTearDown()
+		//{
+		//	// Detroy context
+		//	if (_Context != IntPtr.Zero)
+		//		_DeviceContext.DeleteContext(_Context);
+		//	_Context = IntPtr.Zero;
+		//}
 
-		/// <summary>
-		/// The OpenGL context for this tst fixture.
-		/// </summary>
-		protected IntPtr _Context;
-
-		#endregion
-
-		#region Context Creation
-
-		private IntPtr CreateContext()
-		{
-			IntPtr context;
-
-#if NETCOREAPP1_1
-			ContextAttribute contextAttribute = null;
-#else
-			ContextAttribute contextAttribute = (ContextAttribute)Attribute.GetCustomAttribute(GetType(), typeof(ContextAttribute));
-#endif
-
-			if (contextAttribute == null) {
-				// Create compatibility profile context
-				if ((context = _DeviceContext.CreateContext(IntPtr.Zero)) == IntPtr.Zero)
-					throw new InvalidOperationException("unable to create compatibility profile OpenGL context");
-			} else {
-				List<int> contextAttribs = new List<int>();
-
-				if ((context = _DeviceContext.CreateContextAttrib(IntPtr.Zero, contextAttribs.ToArray())) == IntPtr.Zero)
-					throw new InvalidOperationException("unable to create core profile OpenGL context");
-			}
-
-			return (context);
-		}
+		///// <summary>
+		///// The OpenGL context for this tst fixture.
+		///// </summary>
+		//protected IntPtr _Context;
 
 		#endregion
 
 		#region Version/Extension Support
-
-		/// <summary>
-		/// Get the OpenGL version of the OpenGL context.
-		/// </summary>
-		protected string Version { get { return (_VersionString); } }
 
 		/// <summary>
 		/// Check whether a specific OpenGL version is supported.
@@ -186,7 +172,7 @@ namespace OpenGL.Test
 		/// </returns>
 		protected bool HasVersion(int major, int minor, int revision)
 		{
-			return (_Version.Api == KhronosVersion.ApiGl && _Version >= new KhronosVersion(major, minor, revision, KhronosVersion.ApiGl));
+			return (Gl.CurrentVersion.Api == KhronosVersion.ApiGl && Gl.CurrentVersion >= new KhronosVersion(major, minor, revision, KhronosVersion.ApiGl));
 		}
 
 		/// <summary>
@@ -203,11 +189,11 @@ namespace OpenGL.Test
 		/// </returns>
 		protected bool HasEsVersion(int major, int minor)
 		{
-			switch (_Version.Api) {
+			switch (Gl.CurrentVersion.Api) {
 				case KhronosVersion.ApiGles1:
-					return (_Version >= new KhronosVersion(major, minor, 0, KhronosVersion.ApiGles1));
+					return (Gl.CurrentVersion >= new KhronosVersion(major, minor, 0, KhronosVersion.ApiGles1));
 				case KhronosVersion.ApiGles2:
-					return (_Version >= new KhronosVersion(major, minor, 0, KhronosVersion.ApiGles2));
+					return (Gl.CurrentVersion >= new KhronosVersion(major, minor, 0, KhronosVersion.ApiGles2));
 				default:
 					return (false);
 			}
@@ -266,16 +252,6 @@ namespace OpenGL.Test
 		{
 			return (_GlxExtensions.HasExtensions(extension));
 		}
-
-		/// <summary>
-		/// The OpenGL version of the OpenGL context.
-		/// </summary>
-		private string _VersionString;
-
-		/// <summary>
-		/// The OpenGL version of the OpenGL context.
-		/// </summary>
-		private KhronosVersion _Version;
 
 		/// <summary>
 		/// OpenGL extensions support.

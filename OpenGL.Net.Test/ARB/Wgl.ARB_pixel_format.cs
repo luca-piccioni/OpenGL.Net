@@ -37,46 +37,54 @@ namespace OpenGL.Test
 			if (IsWglExtensionSupported("WGL_ARB_pixel_format") == false)
 				Assert.Inconclusive("OpenGL extension WGL_ARB_pixel_format not supported");
 
-			DeviceContextWGL winDeviceContext = (DeviceContextWGL)_DeviceContext;
+			using (Device device = new Device())
+			using (new GLContext(device))
+			{
+				DeviceContextWGL winDeviceContext = (DeviceContextWGL)device.Context;
 
-			#region List the attributes to query
+				#region List the attributes to query
 
-			List<int> pfAttributesCodes = new List<int>();
+				List<int> pfAttributesCodes = new List<int>();
 
-			// Minimum requirements
-			pfAttributesCodes.Add(Wgl.SUPPORT_OPENGL_ARB);		// Required to be Gl.TRUE
-			pfAttributesCodes.Add(Wgl.ACCELERATION_ARB);		// Required to be Wgl.FULL_ACCELERATION or Wgl.ACCELERATION_ARB
-			pfAttributesCodes.Add(Wgl.PIXEL_TYPE_ARB);
-			// Buffer destination
-			pfAttributesCodes.Add(Wgl.DRAW_TO_WINDOW_ARB);
-			pfAttributesCodes.Add(Wgl.DRAW_TO_BITMAP_ARB);
-			pfAttributesCodes.Add(Wgl.DRAW_TO_PBUFFER_ARB);
-			// Multiple buffers
-			pfAttributesCodes.Add(Wgl.DOUBLE_BUFFER_ARB);
-			pfAttributesCodes.Add(Wgl.SWAP_METHOD_ARB);
-			pfAttributesCodes.Add(Wgl.STEREO_ARB);
-			// Pixel description
-			pfAttributesCodes.Add(Wgl.COLOR_BITS_ARB);
-			pfAttributesCodes.Add(Wgl.DEPTH_BITS_ARB);
-			pfAttributesCodes.Add(Wgl.STENCIL_BITS_ARB);
-			// Multisample extension
-			if (IsGlExtensionSupported("GL_ARB_multisample") || IsGlExtensionSupported("WGL_ARB_multisample") || IsGlExtensionSupported("GLX_ARB_multisample")) {
-				pfAttributesCodes.Add(Wgl.SAMPLE_BUFFERS_ARB);
-				pfAttributesCodes.Add(Wgl.SAMPLES_ARB);
+				// Minimum requirements
+				pfAttributesCodes.Add(Wgl.SUPPORT_OPENGL_ARB); // Required to be Gl.TRUE
+				pfAttributesCodes.Add(Wgl.ACCELERATION_ARB); // Required to be Wgl.FULL_ACCELERATION or Wgl.ACCELERATION_ARB
+				pfAttributesCodes.Add(Wgl.PIXEL_TYPE_ARB);
+				// Buffer destination
+				pfAttributesCodes.Add(Wgl.DRAW_TO_WINDOW_ARB);
+				pfAttributesCodes.Add(Wgl.DRAW_TO_BITMAP_ARB);
+				pfAttributesCodes.Add(Wgl.DRAW_TO_PBUFFER_ARB);
+				// Multiple buffers
+				pfAttributesCodes.Add(Wgl.DOUBLE_BUFFER_ARB);
+				pfAttributesCodes.Add(Wgl.SWAP_METHOD_ARB);
+				pfAttributesCodes.Add(Wgl.STEREO_ARB);
+				// Pixel description
+				pfAttributesCodes.Add(Wgl.COLOR_BITS_ARB);
+				pfAttributesCodes.Add(Wgl.DEPTH_BITS_ARB);
+				pfAttributesCodes.Add(Wgl.STENCIL_BITS_ARB);
+				// Multisample extension
+				if (IsGlExtensionSupported("GL_ARB_multisample") || IsGlExtensionSupported("WGL_ARB_multisample") ||
+				    IsGlExtensionSupported("GLX_ARB_multisample"))
+				{
+					pfAttributesCodes.Add(Wgl.SAMPLE_BUFFERS_ARB);
+					pfAttributesCodes.Add(Wgl.SAMPLES_ARB);
+				}
+
+				#endregion
+
+				#region Query Attributes
+
+				int[] pfAttributesValue = new int[pfAttributesCodes.Count];
+				int formatIndex = 1;
+
+				while (Wgl.GetPixelFormatAttribARB(winDeviceContext.DeviceContext, formatIndex++, 0, (uint) pfAttributesCodes.Count,
+					pfAttributesCodes.ToArray(), pfAttributesValue))
+				{
+
+				}
+
+				#endregion
 			}
-
-			#endregion
-
-			#region Query Attributes
-
-			int[] pfAttributesValue = new int[pfAttributesCodes.Count];
-			int formatIndex = 1;
-
-			while (Wgl.GetPixelFormatAttribARB(winDeviceContext.DeviceContext, formatIndex++, 0, (uint)pfAttributesCodes.Count, pfAttributesCodes.ToArray(), pfAttributesValue)) {
-
-			}
-
-			#endregion
 		}
 	}
 }

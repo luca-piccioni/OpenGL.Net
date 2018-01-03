@@ -29,7 +29,7 @@ using NUnit.Framework;
 namespace OpenGL.Test
 {
 	[TestFixture, Category("GL")]
-	internal class DeviceContextTest
+	internal class DeviceContextTest : TestBase
 	{
 		[Test(Description = "Test CreatePBuffer")]
 		public void DeviceContext_CreatePBuffer()
@@ -321,11 +321,7 @@ namespace OpenGL.Test
 		[Test(Description = "Test CreateContext(IntPtr)")]
 		public void DeviceContext_CreateContext()
 		{
-			// Ensure running without EGL
-			Egl.IsRequired = false;
-			if (Egl.IsRequired)
-				Assert.Inconclusive("EGL-only platform");
-
+			EnsurePlatform();
 			DeviceContext_CreateContext_Core();
 		}
 
@@ -342,21 +338,19 @@ namespace OpenGL.Test
 
 		private void DeviceContext_CreateContext_Core()
 		{
-			using (DeviceContext deviceContext = DeviceContext.Create()) {
-				if (deviceContext.IsPixelFormatSet == false)
-					deviceContext.ChoosePixelFormat(new DevicePixelFormat(24));
-
+			using (Device device = new Device())
+			{
 				IntPtr glContext = IntPtr.Zero;
 
-				Assert.DoesNotThrow(() => glContext = deviceContext.CreateContext(IntPtr.Zero));
+				Assert.DoesNotThrow(() => glContext = device.Context.CreateContext(IntPtr.Zero));
 				try {
 					Assert.AreNotEqual(IntPtr.Zero, glContext);
-					Assert.DoesNotThrow(() => { deviceContext.MakeCurrent(glContext); });
+					Assert.DoesNotThrow(() => { device.Context.MakeCurrent(glContext); });
 
-					Assert.DoesNotThrow(() => { deviceContext.MakeCurrent(IntPtr.Zero); });
+					Assert.DoesNotThrow(() => { device.Context.MakeCurrent(IntPtr.Zero); });
 				} finally {
 					if (glContext != IntPtr.Zero)
-						deviceContext.DeleteContext(glContext);
+						device.Context.DeleteContext(glContext);
 				}
 			}
 		}
@@ -385,7 +379,9 @@ namespace OpenGL.Test
 
 		private void DeviceContext_CreateContext_DefaultAPI_Core(string api)
 		{
-			using (DeviceContext deviceContext = DeviceContext.Create()) {
+			using (Device device = new Device())
+			{
+				DeviceContext deviceContext = device.Context;
 				List<string> availableAPIs = new List<string>(deviceContext.AvailableAPIs);
 
 				if (availableAPIs.Contains(api) == false)

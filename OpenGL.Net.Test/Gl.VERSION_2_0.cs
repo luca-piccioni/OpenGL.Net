@@ -41,13 +41,19 @@ namespace OpenGL.Test
 			if (!HasVersion(2, 0) && !HasEsVersion(2, 0))
 				Assert.Inconclusive("OpenGL 2.0 or OpenGL ES 2.0");
 
-			#region Gl.SHADING_LANGUAGE_VERSION
+			using (Device device = new Device())
+			using (new GLContext(device))
+			{
 
-			string shadingLanguageVersion = Gl.GetString(StringName.ShadingLanguageVersion);
+				#region Gl.SHADING_LANGUAGE_VERSION
 
-			Console.WriteLine("Shading Language version: {0}", shadingLanguageVersion);
+				string shadingLanguageVersion = Gl.GetString(StringName.ShadingLanguageVersion);
 
-			#endregion
+				Console.WriteLine("Shading Language version: {0}", shadingLanguageVersion);
+
+				#endregion
+
+			}
 		}
 
 		/// <summary>
@@ -59,15 +65,19 @@ namespace OpenGL.Test
 			if (!HasVersion(2, 0) && !HasEsVersion(2, 0))
 				Assert.Inconclusive("OpenGL 2.0 or OpenGL ES 2.0");
 
-			uint program = Gl.CreateProgram();
-			Assert.AreNotEqual(0, program, "Gl.CreateProgram failure");
+			using (Device device = new Device())
+			using (new GLContext(device))
+			{
+				uint program = Gl.CreateProgram();
+				Assert.AreNotEqual(0, program, "Gl.CreateProgram failure");
 
-			try {
-				Assert.IsTrue(Gl.IsProgram(program));
-			} finally {
-				if (program != 0) {
-					Gl.DeleteProgram(program);
-					Assert.IsFalse(Gl.IsProgram(program), "Gl.DeleteProgram failure");
+				try {
+					Assert.IsTrue(Gl.IsProgram(program));
+				} finally {
+					if (program != 0) {
+						Gl.DeleteProgram(program);
+						Assert.IsFalse(Gl.IsProgram(program), "Gl.DeleteProgram failure");
+					}
 				}
 			}
 		}
@@ -81,24 +91,28 @@ namespace OpenGL.Test
 			if (!HasVersion(2, 0) && !HasEsVersion(2, 0))
 				Assert.Inconclusive("OpenGL 2.0 or OpenGL ES 2.0");
 
-			uint shader = Gl.CreateShader(ShaderType.VertexShader);
-			try {
-				Assert.AreNotEqual(0, shader, "Gl.CreateShader failure");
-				Assert.IsTrue(Gl.IsShader(shader));
+			using (Device device = new Device())
+			using (new GLContext(device))
+			{
+				uint shader = Gl.CreateShader(ShaderType.VertexShader);
+				try {
+					Assert.AreNotEqual(0, shader, "Gl.CreateShader failure");
+					Assert.IsTrue(Gl.IsShader(shader));
 
-				int shaderGet;
+					int shaderGet;
 
-				Gl.GetShader(shader, ShaderParameterName.ShaderType, out shaderGet);
-				Assert.AreEqual(Gl.VERTEX_SHADER, shaderGet);
-				Gl.GetShader(shader, ShaderParameterName.DeleteStatus, out shaderGet);
-				Assert.AreEqual(Gl.FALSE, shaderGet);
-				Gl.GetShader(shader, ShaderParameterName.CompileStatus, out shaderGet);
-				Assert.AreEqual(Gl.FALSE, shaderGet);
+					Gl.GetShader(shader, ShaderParameterName.ShaderType, out shaderGet);
+					Assert.AreEqual(Gl.VERTEX_SHADER, shaderGet);
+					Gl.GetShader(shader, ShaderParameterName.DeleteStatus, out shaderGet);
+					Assert.AreEqual(Gl.FALSE, shaderGet);
+					Gl.GetShader(shader, ShaderParameterName.CompileStatus, out shaderGet);
+					Assert.AreEqual(Gl.FALSE, shaderGet);
 
-			} finally {
-				if (shader != 0) {
-					Gl.DeleteShader(shader);
-					Assert.IsFalse(Gl.IsShader(shader), "Gl.DeleteShader failure");
+				} finally {
+					if (shader != 0) {
+						Gl.DeleteShader(shader);
+						Assert.IsFalse(Gl.IsShader(shader), "Gl.DeleteShader failure");
+					}
 				}
 			}
 		}

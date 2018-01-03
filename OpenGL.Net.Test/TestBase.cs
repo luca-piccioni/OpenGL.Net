@@ -30,66 +30,48 @@ namespace OpenGL.Test
 	/// <summary>
 	/// Abstract base test creating a device context used for testing.
 	/// </summary>
-	[TestFixture]
 #if !NETCORE
 	[Apartment(ApartmentState.STA)]
 #endif
-	abstract class TestBase
+	internal abstract class TestBase
 	{
-		#region Setup & Tear Down
+		#region Device
 
-		/// <summary>
-		/// Create a window, create the device context and set a basic pixel format.
-		/// </summary>
-		[OneTimeSetUp]
-		public void FixtureSetUp()
+		protected class Device : IDisposable
 		{
-			try {
-				// Support ES tests
-				Egl.IsRequired = IsEsTest;
+			public Device() :
+				this(new DevicePixelFormat(24))
+			{
 
-				// Create device context
-				_DeviceContext = DeviceContext.Create();
-				List<DevicePixelFormat> pixelFormats = _DeviceContext.PixelsFormats.Choose(new DevicePixelFormat(24));
-
-				if (pixelFormats.Count == 0)
-					throw new NotSupportedException("unable to find suitable pixel format");
-			} catch (Exception exception) {
-				Console.WriteLine("Unable to initialize base Fixture: " + exception.ToString());
-
-				// Release resources manually
-				FixtureTearDown();
-				throw;
 			}
-		}
 
-		/// <summary>
-		/// Release resources allocated by <see cref="FixtureSetUp"/>.
-		/// </summary>
-		[OneTimeTearDown]
-		public void FixtureTearDown()
-		{
-			// Dispose device context
-			if (_DeviceContext != null)
-				_DeviceContext.Dispose();
-			_DeviceContext = null;
-		}
+			public Device(DevicePixelFormat pixelFormat)
+			{
+				if (DeviceContext.IsPBufferSupported)
+				{
+					_NativePBuffer = DeviceContext.CreatePBuffer(pixelFormat, 64, 64);
+					Context = DeviceContext.Create(_NativePBuffer);
+				} else {
+					_NativeWindow = DeviceContext.CreateHiddenWindow();
+					Context = DeviceContext.Create(_NativeWindow.Display, _NativeWindow.Handle);
+					List<DevicePixelFormat> pixelFormats = Context.PixelsFormats.Choose(pixelFormat);
 
-		/// <summary>
-		/// The device context.
-		/// </summary>
-		protected DeviceContext _DeviceContext;
+					Context.SetPixelFormat(pixelFormats[0]);
+				}
+			}
 
-		#endregion
+			private readonly INativePBuffer _NativePBuffer;
 
-		#region ES Testing
+			private readonly INativeWindow _NativeWindow;
 
-		/// <summary>
-		/// Determine whether this test is testing OpenGL ES API.
-		/// </summary>
-		protected virtual bool IsEsTest
-		{
-			get { return (false); }
+			public readonly DeviceContext Context;
+
+			public void Dispose()
+			{
+				Context?.Dispose();
+				_NativePBuffer?.Dispose();
+				_NativeWindow?.Dispose();
+			}
 		}
 
 		#endregion

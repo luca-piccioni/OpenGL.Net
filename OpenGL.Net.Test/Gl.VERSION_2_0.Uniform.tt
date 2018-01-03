@@ -125,46 +125,50 @@ namespace OpenGL.Test
 				Assert.Inconclusive("required features not implemented");
 
 <# } #>
-			uint program = <#= functCreateProgram #>();
+			using (Device device = new Device())
+			using (new GLContext(device))
+			{
+				uint program = <#= functCreateProgram #>();
 
-			try {
-				<#= uniformStructType #> uniformStruct;
-				<#= baseType #>[] uniformValue;
+				try {
+					<#= uniformStructType #> uniformStruct;
+					<#= baseType #>[] uniformValue;
 
-				int uniformLoc = Gl.GetUniformLocation(program, "uVec");
-				if (uniformLoc < 0)
-					throw new InvalidOperationException("no uniform variable");
+					int uniformLoc = Gl.GetUniformLocation(program, "uVec");
+					if (uniformLoc < 0)
+						throw new InvalidOperationException("no uniform variable");
 
-				// glGetUniform<#= postfix #>v
-				uniformValue = <#= functArray #>(<#= one #>);
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(<#= functArray #>(<#= zero #>), uniformValue);
+					// glGetUniform<#= postfix #>v
+					uniformValue = <#= functArray #>(<#= one #>);
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(<#= functArray #>(<#= zero #>), uniformValue);
 
-				// glGetUniform<#= postfix #>v (ref)
-				uniformStruct = <#= GetUniformStructConstructor(ordinal, postfix, one) #>;
-				Gl.<#= glGetUniformT #>(program, uniformLoc, ref uniformStruct);
-				Assert.AreEqual(<#= uniformStructZero #>, uniformStruct);
+					// glGetUniform<#= postfix #>v (ref)
+					uniformStruct = <#= GetUniformStructConstructor(ordinal, postfix, one) #>;
+					Gl.<#= glGetUniformT #>(program, uniformLoc, ref uniformStruct);
+					Assert.AreEqual(<#= uniformStructZero #>, uniformStruct);
 				
-				// glUniform<#= ordinal #><#= postfix #>
-				uniformValue = <#= functArray #>(<#= zero #>);
-				Gl.<#= glUniformX #>(uniformLoc, <#= functArray #>(<#= min #>));
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(<#= functArray #>(<#= min #>), uniformValue);
+					// glUniform<#= ordinal #><#= postfix #>
+					uniformValue = <#= functArray #>(<#= zero #>);
+					Gl.<#= glUniformX #>(uniformLoc, <#= functArray #>(<#= min #>));
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(<#= functArray #>(<#= min #>), uniformValue);
 
-				// glUniform<#= ordinal #><#= postfix #>v
-				uniformValue = <#= functArray #>(<#= zero #>);
-				Gl.<#= glUniformX #>(uniformLoc, <#= functArray #>(<#= max #>));
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(<#= functArray #>(<#= max #>), uniformValue);
+					// glUniform<#= ordinal #><#= postfix #>v
+					uniformValue = <#= functArray #>(<#= zero #>);
+					Gl.<#= glUniformX #>(uniformLoc, <#= functArray #>(<#= max #>));
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(<#= functArray #>(<#= max #>), uniformValue);
 
-				// glUniform<#= ordinal #><#= postfix #>v (ref)
-				uniformValue = <#= functArray #>(<#= zero #>);
-				uniformStruct = <#= GetUniformStructConstructor(ordinal, postfix, med) #>;
-				Gl.<#= glUniformXRef #>(uniformLoc, 1, ref uniformStruct);
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(<#= functArray #>(<#= med #>), uniformValue);
-			} finally {
-				Gl.DeleteProgram(program);
+					// glUniform<#= ordinal #><#= postfix #>v (ref)
+					uniformValue = <#= functArray #>(<#= zero #>);
+					uniformStruct = <#= GetUniformStructConstructor(ordinal, postfix, med) #>;
+					Gl.<#= glUniformXRef #>(uniformLoc, 1, ref uniformStruct);
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(<#= functArray #>(<#= med #>), uniformValue);
+				} finally {
+					Gl.DeleteProgram(program);
+				}
 			}
 		}
 

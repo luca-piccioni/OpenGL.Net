@@ -53,46 +53,50 @@ namespace OpenGL.Test
 			if (!HasVersion(2, 0) && !HasEsVersion(2, 0) && !IsGlExtensionSupported("GL_ARB_shader_objects"))
 				Assert.Inconclusive("required features not implemented");
 
-			uint program = CreateProgramUniform1f();
+			using (Device device = new Device())
+			using (new GLContext(device))
+			{
+				uint program = CreateProgramUniform1f();
 
-			try {
-				float uniformStruct;
-				float[] uniformValue;
+				try {
+					float uniformStruct;
+					float[] uniformValue;
 
-				int uniformLoc = Gl.GetUniformLocation(program, "uVec");
-				if (uniformLoc < 0)
-					throw new InvalidOperationException("no uniform variable");
+					int uniformLoc = Gl.GetUniformLocation(program, "uVec");
+					if (uniformLoc < 0)
+						throw new InvalidOperationException("no uniform variable");
 
-				// glGetUniformfv
-				uniformValue = Array1(1.0f);
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array1(0.0f), uniformValue);
+					// glGetUniformfv
+					uniformValue = Array1(1.0f);
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array1(0.0f), uniformValue);
 
-				// glGetUniformfv (ref)
-				uniformStruct = 1.0f;
-				Gl.GetUniformf(program, uniformLoc, ref uniformStruct);
-				Assert.AreEqual(0.0f, uniformStruct);
+					// glGetUniformfv (ref)
+					uniformStruct = 1.0f;
+					Gl.GetUniformf(program, uniformLoc, ref uniformStruct);
+					Assert.AreEqual(0.0f, uniformStruct);
 				
-				// glUniform1f
-				uniformValue = Array1(0.0f);
-				Gl.Uniform1(uniformLoc, Array1(1.0f));
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array1(1.0f), uniformValue);
+					// glUniform1f
+					uniformValue = Array1(0.0f);
+					Gl.Uniform1(uniformLoc, Array1(1.0f));
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array1(1.0f), uniformValue);
 
-				// glUniform1fv
-				uniformValue = Array1(0.0f);
-				Gl.Uniform1(uniformLoc, Array1(9.0f));
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array1(9.0f), uniformValue);
+					// glUniform1fv
+					uniformValue = Array1(0.0f);
+					Gl.Uniform1(uniformLoc, Array1(9.0f));
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array1(9.0f), uniformValue);
 
-				// glUniform1fv (ref)
-				uniformValue = Array1(0.0f);
-				uniformStruct = 5.0f;
-				Gl.Uniform1f(uniformLoc, 1, ref uniformStruct);
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array1(5.0f), uniformValue);
-			} finally {
-				Gl.DeleteProgram(program);
+					// glUniform1fv (ref)
+					uniformValue = Array1(0.0f);
+					uniformStruct = 5.0f;
+					Gl.Uniform1f(uniformLoc, 1, ref uniformStruct);
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array1(5.0f), uniformValue);
+				} finally {
+					Gl.DeleteProgram(program);
+				}
 			}
 		}
 
@@ -122,46 +126,50 @@ namespace OpenGL.Test
 			if (!HasVersion(2, 0) && !HasEsVersion(2, 0) && !IsGlExtensionSupported("GL_ARB_shader_objects"))
 				Assert.Inconclusive("required features not implemented");
 
-			uint program = CreateProgramUniform1i();
+			using (Device device = new Device())
+			using (new GLContext(device))
+			{
+				uint program = CreateProgramUniform1i();
 
-			try {
-				int uniformStruct;
-				int[] uniformValue;
+				try {
+					int uniformStruct;
+					int[] uniformValue;
 
-				int uniformLoc = Gl.GetUniformLocation(program, "uVec");
-				if (uniformLoc < 0)
-					throw new InvalidOperationException("no uniform variable");
+					int uniformLoc = Gl.GetUniformLocation(program, "uVec");
+					if (uniformLoc < 0)
+						throw new InvalidOperationException("no uniform variable");
 
-				// glGetUniformiv
-				uniformValue = Array1(1);
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array1(0), uniformValue);
+					// glGetUniformiv
+					uniformValue = Array1(1);
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array1(0), uniformValue);
 
-				// glGetUniformiv (ref)
-				uniformStruct = 1;
-				Gl.GetUniformi(program, uniformLoc, ref uniformStruct);
-				Assert.AreEqual(0, uniformStruct);
+					// glGetUniformiv (ref)
+					uniformStruct = 1;
+					Gl.GetUniformi(program, uniformLoc, ref uniformStruct);
+					Assert.AreEqual(0, uniformStruct);
 				
-				// glUniform1i
-				uniformValue = Array1(0);
-				Gl.Uniform1(uniformLoc, Array1(1));
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array1(1), uniformValue);
+					// glUniform1i
+					uniformValue = Array1(0);
+					Gl.Uniform1(uniformLoc, Array1(1));
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array1(1), uniformValue);
 
-				// glUniform1iv
-				uniformValue = Array1(0);
-				Gl.Uniform1(uniformLoc, Array1(9));
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array1(9), uniformValue);
+					// glUniform1iv
+					uniformValue = Array1(0);
+					Gl.Uniform1(uniformLoc, Array1(9));
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array1(9), uniformValue);
 
-				// glUniform1iv (ref)
-				uniformValue = Array1(0);
-				uniformStruct = 5;
-				Gl.Uniform1i(uniformLoc, 1, ref uniformStruct);
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array1(5), uniformValue);
-			} finally {
-				Gl.DeleteProgram(program);
+					// glUniform1iv (ref)
+					uniformValue = Array1(0);
+					uniformStruct = 5;
+					Gl.Uniform1i(uniformLoc, 1, ref uniformStruct);
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array1(5), uniformValue);
+				} finally {
+					Gl.DeleteProgram(program);
+				}
 			}
 		}
 
@@ -191,46 +199,50 @@ namespace OpenGL.Test
 			if (!HasVersion(3, 0) && !HasEsVersion(3, 0) && !IsGlExtensionSupported("GL_EXT_gpu_shader4"))
 				Assert.Inconclusive("required features not implemented");
 
-			uint program = CreateProgramUniform1ui();
+			using (Device device = new Device())
+			using (new GLContext(device))
+			{
+				uint program = CreateProgramUniform1ui();
 
-			try {
-				uint uniformStruct;
-				uint[] uniformValue;
+				try {
+					uint uniformStruct;
+					uint[] uniformValue;
 
-				int uniformLoc = Gl.GetUniformLocation(program, "uVec");
-				if (uniformLoc < 0)
-					throw new InvalidOperationException("no uniform variable");
+					int uniformLoc = Gl.GetUniformLocation(program, "uVec");
+					if (uniformLoc < 0)
+						throw new InvalidOperationException("no uniform variable");
 
-				// glGetUniformuiv
-				uniformValue = Array1(1u);
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array1(0u), uniformValue);
+					// glGetUniformuiv
+					uniformValue = Array1(1u);
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array1(0u), uniformValue);
 
-				// glGetUniformuiv (ref)
-				uniformStruct = 1u;
-				Gl.GetUniformui(program, uniformLoc, ref uniformStruct);
-				Assert.AreEqual(0u, uniformStruct);
+					// glGetUniformuiv (ref)
+					uniformStruct = 1u;
+					Gl.GetUniformui(program, uniformLoc, ref uniformStruct);
+					Assert.AreEqual(0u, uniformStruct);
 				
-				// glUniform1ui
-				uniformValue = Array1(0u);
-				Gl.Uniform1(uniformLoc, Array1(1u));
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array1(1u), uniformValue);
+					// glUniform1ui
+					uniformValue = Array1(0u);
+					Gl.Uniform1(uniformLoc, Array1(1u));
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array1(1u), uniformValue);
 
-				// glUniform1uiv
-				uniformValue = Array1(0u);
-				Gl.Uniform1(uniformLoc, Array1(9u));
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array1(9u), uniformValue);
+					// glUniform1uiv
+					uniformValue = Array1(0u);
+					Gl.Uniform1(uniformLoc, Array1(9u));
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array1(9u), uniformValue);
 
-				// glUniform1uiv (ref)
-				uniformValue = Array1(0u);
-				uniformStruct = 5u;
-				Gl.Uniform1ui(uniformLoc, 1, ref uniformStruct);
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array1(5u), uniformValue);
-			} finally {
-				Gl.DeleteProgram(program);
+					// glUniform1uiv (ref)
+					uniformValue = Array1(0u);
+					uniformStruct = 5u;
+					Gl.Uniform1ui(uniformLoc, 1, ref uniformStruct);
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array1(5u), uniformValue);
+				} finally {
+					Gl.DeleteProgram(program);
+				}
 			}
 		}
 
@@ -261,46 +273,50 @@ namespace OpenGL.Test
 			if (!HasVersion(4, 0) && !IsGlExtensionSupported("GL_ARB_gpu_shader_fp64"))
 				Assert.Inconclusive("required features not implemented");
 
-			uint program = CreateProgramUniform1d();
+			using (Device device = new Device())
+			using (new GLContext(device))
+			{
+				uint program = CreateProgramUniform1d();
 
-			try {
-				double uniformStruct;
-				double[] uniformValue;
+				try {
+					double uniformStruct;
+					double[] uniformValue;
 
-				int uniformLoc = Gl.GetUniformLocation(program, "uVec");
-				if (uniformLoc < 0)
-					throw new InvalidOperationException("no uniform variable");
+					int uniformLoc = Gl.GetUniformLocation(program, "uVec");
+					if (uniformLoc < 0)
+						throw new InvalidOperationException("no uniform variable");
 
-				// glGetUniformdv
-				uniformValue = Array1(1.0);
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array1(0.0), uniformValue);
+					// glGetUniformdv
+					uniformValue = Array1(1.0);
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array1(0.0), uniformValue);
 
-				// glGetUniformdv (ref)
-				uniformStruct = 1.0;
-				Gl.GetUniformd(program, uniformLoc, ref uniformStruct);
-				Assert.AreEqual(0.0, uniformStruct);
+					// glGetUniformdv (ref)
+					uniformStruct = 1.0;
+					Gl.GetUniformd(program, uniformLoc, ref uniformStruct);
+					Assert.AreEqual(0.0, uniformStruct);
 				
-				// glUniform1d
-				uniformValue = Array1(0.0);
-				Gl.Uniform1(uniformLoc, Array1(1.0));
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array1(1.0), uniformValue);
+					// glUniform1d
+					uniformValue = Array1(0.0);
+					Gl.Uniform1(uniformLoc, Array1(1.0));
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array1(1.0), uniformValue);
 
-				// glUniform1dv
-				uniformValue = Array1(0.0);
-				Gl.Uniform1(uniformLoc, Array1(9.0));
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array1(9.0), uniformValue);
+					// glUniform1dv
+					uniformValue = Array1(0.0);
+					Gl.Uniform1(uniformLoc, Array1(9.0));
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array1(9.0), uniformValue);
 
-				// glUniform1dv (ref)
-				uniformValue = Array1(0.0);
-				uniformStruct = 5.0;
-				Gl.Uniform1d(uniformLoc, 1, ref uniformStruct);
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array1(5.0), uniformValue);
-			} finally {
-				Gl.DeleteProgram(program);
+					// glUniform1dv (ref)
+					uniformValue = Array1(0.0);
+					uniformStruct = 5.0;
+					Gl.Uniform1d(uniformLoc, 1, ref uniformStruct);
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array1(5.0), uniformValue);
+				} finally {
+					Gl.DeleteProgram(program);
+				}
 			}
 		}
 
@@ -330,46 +346,50 @@ namespace OpenGL.Test
 			if (!HasVersion(2, 0) && !HasEsVersion(2, 0) && !IsGlExtensionSupported("GL_ARB_shader_objects"))
 				Assert.Inconclusive("required features not implemented");
 
-			uint program = CreateProgramUniform2f();
+			using (Device device = new Device())
+			using (new GLContext(device))
+			{
+				uint program = CreateProgramUniform2f();
 
-			try {
-				Vertex2f uniformStruct;
-				float[] uniformValue;
+				try {
+					Vertex2f uniformStruct;
+					float[] uniformValue;
 
-				int uniformLoc = Gl.GetUniformLocation(program, "uVec");
-				if (uniformLoc < 0)
-					throw new InvalidOperationException("no uniform variable");
+					int uniformLoc = Gl.GetUniformLocation(program, "uVec");
+					if (uniformLoc < 0)
+						throw new InvalidOperationException("no uniform variable");
 
-				// glGetUniformfv
-				uniformValue = Array2(1.0f);
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array2(0.0f), uniformValue);
+					// glGetUniformfv
+					uniformValue = Array2(1.0f);
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array2(0.0f), uniformValue);
 
-				// glGetUniformfv (ref)
-				uniformStruct = new Vertex2f(1.0f);
-				Gl.GetUniformf(program, uniformLoc, ref uniformStruct);
-				Assert.AreEqual(Vertex2f.Zero, uniformStruct);
+					// glGetUniformfv (ref)
+					uniformStruct = new Vertex2f(1.0f);
+					Gl.GetUniformf(program, uniformLoc, ref uniformStruct);
+					Assert.AreEqual(Vertex2f.Zero, uniformStruct);
 				
-				// glUniform2f
-				uniformValue = Array2(0.0f);
-				Gl.Uniform2(uniformLoc, Array2(1.0f));
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array2(1.0f), uniformValue);
+					// glUniform2f
+					uniformValue = Array2(0.0f);
+					Gl.Uniform2(uniformLoc, Array2(1.0f));
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array2(1.0f), uniformValue);
 
-				// glUniform2fv
-				uniformValue = Array2(0.0f);
-				Gl.Uniform2(uniformLoc, Array2(9.0f));
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array2(9.0f), uniformValue);
+					// glUniform2fv
+					uniformValue = Array2(0.0f);
+					Gl.Uniform2(uniformLoc, Array2(9.0f));
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array2(9.0f), uniformValue);
 
-				// glUniform2fv (ref)
-				uniformValue = Array2(0.0f);
-				uniformStruct = new Vertex2f(5.0f);
-				Gl.Uniform2f(uniformLoc, 1, ref uniformStruct);
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array2(5.0f), uniformValue);
-			} finally {
-				Gl.DeleteProgram(program);
+					// glUniform2fv (ref)
+					uniformValue = Array2(0.0f);
+					uniformStruct = new Vertex2f(5.0f);
+					Gl.Uniform2f(uniformLoc, 1, ref uniformStruct);
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array2(5.0f), uniformValue);
+				} finally {
+					Gl.DeleteProgram(program);
+				}
 			}
 		}
 
@@ -399,46 +419,50 @@ namespace OpenGL.Test
 			if (!HasVersion(2, 0) && !HasEsVersion(2, 0) && !IsGlExtensionSupported("GL_ARB_shader_objects"))
 				Assert.Inconclusive("required features not implemented");
 
-			uint program = CreateProgramUniform2i();
+			using (Device device = new Device())
+			using (new GLContext(device))
+			{
+				uint program = CreateProgramUniform2i();
 
-			try {
-				Vertex2i uniformStruct;
-				int[] uniformValue;
+				try {
+					Vertex2i uniformStruct;
+					int[] uniformValue;
 
-				int uniformLoc = Gl.GetUniformLocation(program, "uVec");
-				if (uniformLoc < 0)
-					throw new InvalidOperationException("no uniform variable");
+					int uniformLoc = Gl.GetUniformLocation(program, "uVec");
+					if (uniformLoc < 0)
+						throw new InvalidOperationException("no uniform variable");
 
-				// glGetUniformiv
-				uniformValue = Array2(1);
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array2(0), uniformValue);
+					// glGetUniformiv
+					uniformValue = Array2(1);
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array2(0), uniformValue);
 
-				// glGetUniformiv (ref)
-				uniformStruct = new Vertex2i(1);
-				Gl.GetUniformi(program, uniformLoc, ref uniformStruct);
-				Assert.AreEqual(Vertex2i.Zero, uniformStruct);
+					// glGetUniformiv (ref)
+					uniformStruct = new Vertex2i(1);
+					Gl.GetUniformi(program, uniformLoc, ref uniformStruct);
+					Assert.AreEqual(Vertex2i.Zero, uniformStruct);
 				
-				// glUniform2i
-				uniformValue = Array2(0);
-				Gl.Uniform2(uniformLoc, Array2(1));
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array2(1), uniformValue);
+					// glUniform2i
+					uniformValue = Array2(0);
+					Gl.Uniform2(uniformLoc, Array2(1));
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array2(1), uniformValue);
 
-				// glUniform2iv
-				uniformValue = Array2(0);
-				Gl.Uniform2(uniformLoc, Array2(9));
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array2(9), uniformValue);
+					// glUniform2iv
+					uniformValue = Array2(0);
+					Gl.Uniform2(uniformLoc, Array2(9));
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array2(9), uniformValue);
 
-				// glUniform2iv (ref)
-				uniformValue = Array2(0);
-				uniformStruct = new Vertex2i(5);
-				Gl.Uniform2i(uniformLoc, 1, ref uniformStruct);
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array2(5), uniformValue);
-			} finally {
-				Gl.DeleteProgram(program);
+					// glUniform2iv (ref)
+					uniformValue = Array2(0);
+					uniformStruct = new Vertex2i(5);
+					Gl.Uniform2i(uniformLoc, 1, ref uniformStruct);
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array2(5), uniformValue);
+				} finally {
+					Gl.DeleteProgram(program);
+				}
 			}
 		}
 
@@ -468,46 +492,50 @@ namespace OpenGL.Test
 			if (!HasVersion(3, 0) && !HasEsVersion(3, 0) && !IsGlExtensionSupported("GL_EXT_gpu_shader4"))
 				Assert.Inconclusive("required features not implemented");
 
-			uint program = CreateProgramUniform2ui();
+			using (Device device = new Device())
+			using (new GLContext(device))
+			{
+				uint program = CreateProgramUniform2ui();
 
-			try {
-				Vertex2ui uniformStruct;
-				uint[] uniformValue;
+				try {
+					Vertex2ui uniformStruct;
+					uint[] uniformValue;
 
-				int uniformLoc = Gl.GetUniformLocation(program, "uVec");
-				if (uniformLoc < 0)
-					throw new InvalidOperationException("no uniform variable");
+					int uniformLoc = Gl.GetUniformLocation(program, "uVec");
+					if (uniformLoc < 0)
+						throw new InvalidOperationException("no uniform variable");
 
-				// glGetUniformuiv
-				uniformValue = Array2(1u);
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array2(0u), uniformValue);
+					// glGetUniformuiv
+					uniformValue = Array2(1u);
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array2(0u), uniformValue);
 
-				// glGetUniformuiv (ref)
-				uniformStruct = new Vertex2ui(1u);
-				Gl.GetUniformui(program, uniformLoc, ref uniformStruct);
-				Assert.AreEqual(Vertex2ui.Zero, uniformStruct);
+					// glGetUniformuiv (ref)
+					uniformStruct = new Vertex2ui(1u);
+					Gl.GetUniformui(program, uniformLoc, ref uniformStruct);
+					Assert.AreEqual(Vertex2ui.Zero, uniformStruct);
 				
-				// glUniform2ui
-				uniformValue = Array2(0u);
-				Gl.Uniform2(uniformLoc, Array2(1u));
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array2(1u), uniformValue);
+					// glUniform2ui
+					uniformValue = Array2(0u);
+					Gl.Uniform2(uniformLoc, Array2(1u));
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array2(1u), uniformValue);
 
-				// glUniform2uiv
-				uniformValue = Array2(0u);
-				Gl.Uniform2(uniformLoc, Array2(9u));
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array2(9u), uniformValue);
+					// glUniform2uiv
+					uniformValue = Array2(0u);
+					Gl.Uniform2(uniformLoc, Array2(9u));
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array2(9u), uniformValue);
 
-				// glUniform2uiv (ref)
-				uniformValue = Array2(0u);
-				uniformStruct = new Vertex2ui(5u);
-				Gl.Uniform2ui(uniformLoc, 1, ref uniformStruct);
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array2(5u), uniformValue);
-			} finally {
-				Gl.DeleteProgram(program);
+					// glUniform2uiv (ref)
+					uniformValue = Array2(0u);
+					uniformStruct = new Vertex2ui(5u);
+					Gl.Uniform2ui(uniformLoc, 1, ref uniformStruct);
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array2(5u), uniformValue);
+				} finally {
+					Gl.DeleteProgram(program);
+				}
 			}
 		}
 
@@ -538,46 +566,50 @@ namespace OpenGL.Test
 			if (!HasVersion(4, 0) && !IsGlExtensionSupported("GL_ARB_gpu_shader_fp64"))
 				Assert.Inconclusive("required features not implemented");
 
-			uint program = CreateProgramUniform2d();
+			using (Device device = new Device())
+			using (new GLContext(device))
+			{
+				uint program = CreateProgramUniform2d();
 
-			try {
-				Vertex2d uniformStruct;
-				double[] uniformValue;
+				try {
+					Vertex2d uniformStruct;
+					double[] uniformValue;
 
-				int uniformLoc = Gl.GetUniformLocation(program, "uVec");
-				if (uniformLoc < 0)
-					throw new InvalidOperationException("no uniform variable");
+					int uniformLoc = Gl.GetUniformLocation(program, "uVec");
+					if (uniformLoc < 0)
+						throw new InvalidOperationException("no uniform variable");
 
-				// glGetUniformdv
-				uniformValue = Array2(1.0);
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array2(0.0), uniformValue);
+					// glGetUniformdv
+					uniformValue = Array2(1.0);
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array2(0.0), uniformValue);
 
-				// glGetUniformdv (ref)
-				uniformStruct = new Vertex2d(1.0);
-				Gl.GetUniformd(program, uniformLoc, ref uniformStruct);
-				Assert.AreEqual(Vertex2d.Zero, uniformStruct);
+					// glGetUniformdv (ref)
+					uniformStruct = new Vertex2d(1.0);
+					Gl.GetUniformd(program, uniformLoc, ref uniformStruct);
+					Assert.AreEqual(Vertex2d.Zero, uniformStruct);
 				
-				// glUniform2d
-				uniformValue = Array2(0.0);
-				Gl.Uniform2(uniformLoc, Array2(1.0));
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array2(1.0), uniformValue);
+					// glUniform2d
+					uniformValue = Array2(0.0);
+					Gl.Uniform2(uniformLoc, Array2(1.0));
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array2(1.0), uniformValue);
 
-				// glUniform2dv
-				uniformValue = Array2(0.0);
-				Gl.Uniform2(uniformLoc, Array2(9.0));
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array2(9.0), uniformValue);
+					// glUniform2dv
+					uniformValue = Array2(0.0);
+					Gl.Uniform2(uniformLoc, Array2(9.0));
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array2(9.0), uniformValue);
 
-				// glUniform2dv (ref)
-				uniformValue = Array2(0.0);
-				uniformStruct = new Vertex2d(5.0);
-				Gl.Uniform2d(uniformLoc, 1, ref uniformStruct);
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array2(5.0), uniformValue);
-			} finally {
-				Gl.DeleteProgram(program);
+					// glUniform2dv (ref)
+					uniformValue = Array2(0.0);
+					uniformStruct = new Vertex2d(5.0);
+					Gl.Uniform2d(uniformLoc, 1, ref uniformStruct);
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array2(5.0), uniformValue);
+				} finally {
+					Gl.DeleteProgram(program);
+				}
 			}
 		}
 
@@ -607,46 +639,50 @@ namespace OpenGL.Test
 			if (!HasVersion(2, 0) && !HasEsVersion(2, 0) && !IsGlExtensionSupported("GL_ARB_shader_objects"))
 				Assert.Inconclusive("required features not implemented");
 
-			uint program = CreateProgramUniform3f();
+			using (Device device = new Device())
+			using (new GLContext(device))
+			{
+				uint program = CreateProgramUniform3f();
 
-			try {
-				Vertex3f uniformStruct;
-				float[] uniformValue;
+				try {
+					Vertex3f uniformStruct;
+					float[] uniformValue;
 
-				int uniformLoc = Gl.GetUniformLocation(program, "uVec");
-				if (uniformLoc < 0)
-					throw new InvalidOperationException("no uniform variable");
+					int uniformLoc = Gl.GetUniformLocation(program, "uVec");
+					if (uniformLoc < 0)
+						throw new InvalidOperationException("no uniform variable");
 
-				// glGetUniformfv
-				uniformValue = Array3(1.0f);
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array3(0.0f), uniformValue);
+					// glGetUniformfv
+					uniformValue = Array3(1.0f);
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array3(0.0f), uniformValue);
 
-				// glGetUniformfv (ref)
-				uniformStruct = new Vertex3f(1.0f);
-				Gl.GetUniformf(program, uniformLoc, ref uniformStruct);
-				Assert.AreEqual(Vertex3f.Zero, uniformStruct);
+					// glGetUniformfv (ref)
+					uniformStruct = new Vertex3f(1.0f);
+					Gl.GetUniformf(program, uniformLoc, ref uniformStruct);
+					Assert.AreEqual(Vertex3f.Zero, uniformStruct);
 				
-				// glUniform3f
-				uniformValue = Array3(0.0f);
-				Gl.Uniform3(uniformLoc, Array3(1.0f));
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array3(1.0f), uniformValue);
+					// glUniform3f
+					uniformValue = Array3(0.0f);
+					Gl.Uniform3(uniformLoc, Array3(1.0f));
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array3(1.0f), uniformValue);
 
-				// glUniform3fv
-				uniformValue = Array3(0.0f);
-				Gl.Uniform3(uniformLoc, Array3(9.0f));
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array3(9.0f), uniformValue);
+					// glUniform3fv
+					uniformValue = Array3(0.0f);
+					Gl.Uniform3(uniformLoc, Array3(9.0f));
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array3(9.0f), uniformValue);
 
-				// glUniform3fv (ref)
-				uniformValue = Array3(0.0f);
-				uniformStruct = new Vertex3f(5.0f);
-				Gl.Uniform3f(uniformLoc, 1, ref uniformStruct);
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array3(5.0f), uniformValue);
-			} finally {
-				Gl.DeleteProgram(program);
+					// glUniform3fv (ref)
+					uniformValue = Array3(0.0f);
+					uniformStruct = new Vertex3f(5.0f);
+					Gl.Uniform3f(uniformLoc, 1, ref uniformStruct);
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array3(5.0f), uniformValue);
+				} finally {
+					Gl.DeleteProgram(program);
+				}
 			}
 		}
 
@@ -676,46 +712,50 @@ namespace OpenGL.Test
 			if (!HasVersion(2, 0) && !HasEsVersion(2, 0) && !IsGlExtensionSupported("GL_ARB_shader_objects"))
 				Assert.Inconclusive("required features not implemented");
 
-			uint program = CreateProgramUniform3i();
+			using (Device device = new Device())
+			using (new GLContext(device))
+			{
+				uint program = CreateProgramUniform3i();
 
-			try {
-				Vertex3i uniformStruct;
-				int[] uniformValue;
+				try {
+					Vertex3i uniformStruct;
+					int[] uniformValue;
 
-				int uniformLoc = Gl.GetUniformLocation(program, "uVec");
-				if (uniformLoc < 0)
-					throw new InvalidOperationException("no uniform variable");
+					int uniformLoc = Gl.GetUniformLocation(program, "uVec");
+					if (uniformLoc < 0)
+						throw new InvalidOperationException("no uniform variable");
 
-				// glGetUniformiv
-				uniformValue = Array3(1);
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array3(0), uniformValue);
+					// glGetUniformiv
+					uniformValue = Array3(1);
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array3(0), uniformValue);
 
-				// glGetUniformiv (ref)
-				uniformStruct = new Vertex3i(1);
-				Gl.GetUniformi(program, uniformLoc, ref uniformStruct);
-				Assert.AreEqual(Vertex3i.Zero, uniformStruct);
+					// glGetUniformiv (ref)
+					uniformStruct = new Vertex3i(1);
+					Gl.GetUniformi(program, uniformLoc, ref uniformStruct);
+					Assert.AreEqual(Vertex3i.Zero, uniformStruct);
 				
-				// glUniform3i
-				uniformValue = Array3(0);
-				Gl.Uniform3(uniformLoc, Array3(1));
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array3(1), uniformValue);
+					// glUniform3i
+					uniformValue = Array3(0);
+					Gl.Uniform3(uniformLoc, Array3(1));
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array3(1), uniformValue);
 
-				// glUniform3iv
-				uniformValue = Array3(0);
-				Gl.Uniform3(uniformLoc, Array3(9));
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array3(9), uniformValue);
+					// glUniform3iv
+					uniformValue = Array3(0);
+					Gl.Uniform3(uniformLoc, Array3(9));
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array3(9), uniformValue);
 
-				// glUniform3iv (ref)
-				uniformValue = Array3(0);
-				uniformStruct = new Vertex3i(5);
-				Gl.Uniform3i(uniformLoc, 1, ref uniformStruct);
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array3(5), uniformValue);
-			} finally {
-				Gl.DeleteProgram(program);
+					// glUniform3iv (ref)
+					uniformValue = Array3(0);
+					uniformStruct = new Vertex3i(5);
+					Gl.Uniform3i(uniformLoc, 1, ref uniformStruct);
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array3(5), uniformValue);
+				} finally {
+					Gl.DeleteProgram(program);
+				}
 			}
 		}
 
@@ -745,46 +785,50 @@ namespace OpenGL.Test
 			if (!HasVersion(3, 0) && !HasEsVersion(3, 0) && !IsGlExtensionSupported("GL_EXT_gpu_shader4"))
 				Assert.Inconclusive("required features not implemented");
 
-			uint program = CreateProgramUniform3ui();
+			using (Device device = new Device())
+			using (new GLContext(device))
+			{
+				uint program = CreateProgramUniform3ui();
 
-			try {
-				Vertex3ui uniformStruct;
-				uint[] uniformValue;
+				try {
+					Vertex3ui uniformStruct;
+					uint[] uniformValue;
 
-				int uniformLoc = Gl.GetUniformLocation(program, "uVec");
-				if (uniformLoc < 0)
-					throw new InvalidOperationException("no uniform variable");
+					int uniformLoc = Gl.GetUniformLocation(program, "uVec");
+					if (uniformLoc < 0)
+						throw new InvalidOperationException("no uniform variable");
 
-				// glGetUniformuiv
-				uniformValue = Array3(1u);
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array3(0u), uniformValue);
+					// glGetUniformuiv
+					uniformValue = Array3(1u);
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array3(0u), uniformValue);
 
-				// glGetUniformuiv (ref)
-				uniformStruct = new Vertex3ui(1u);
-				Gl.GetUniformui(program, uniformLoc, ref uniformStruct);
-				Assert.AreEqual(Vertex3ui.Zero, uniformStruct);
+					// glGetUniformuiv (ref)
+					uniformStruct = new Vertex3ui(1u);
+					Gl.GetUniformui(program, uniformLoc, ref uniformStruct);
+					Assert.AreEqual(Vertex3ui.Zero, uniformStruct);
 				
-				// glUniform3ui
-				uniformValue = Array3(0u);
-				Gl.Uniform3(uniformLoc, Array3(1u));
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array3(1u), uniformValue);
+					// glUniform3ui
+					uniformValue = Array3(0u);
+					Gl.Uniform3(uniformLoc, Array3(1u));
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array3(1u), uniformValue);
 
-				// glUniform3uiv
-				uniformValue = Array3(0u);
-				Gl.Uniform3(uniformLoc, Array3(9u));
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array3(9u), uniformValue);
+					// glUniform3uiv
+					uniformValue = Array3(0u);
+					Gl.Uniform3(uniformLoc, Array3(9u));
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array3(9u), uniformValue);
 
-				// glUniform3uiv (ref)
-				uniformValue = Array3(0u);
-				uniformStruct = new Vertex3ui(5u);
-				Gl.Uniform3ui(uniformLoc, 1, ref uniformStruct);
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array3(5u), uniformValue);
-			} finally {
-				Gl.DeleteProgram(program);
+					// glUniform3uiv (ref)
+					uniformValue = Array3(0u);
+					uniformStruct = new Vertex3ui(5u);
+					Gl.Uniform3ui(uniformLoc, 1, ref uniformStruct);
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array3(5u), uniformValue);
+				} finally {
+					Gl.DeleteProgram(program);
+				}
 			}
 		}
 
@@ -815,46 +859,50 @@ namespace OpenGL.Test
 			if (!HasVersion(4, 0) && !IsGlExtensionSupported("GL_ARB_gpu_shader_fp64"))
 				Assert.Inconclusive("required features not implemented");
 
-			uint program = CreateProgramUniform3d();
+			using (Device device = new Device())
+			using (new GLContext(device))
+			{
+				uint program = CreateProgramUniform3d();
 
-			try {
-				Vertex3d uniformStruct;
-				double[] uniformValue;
+				try {
+					Vertex3d uniformStruct;
+					double[] uniformValue;
 
-				int uniformLoc = Gl.GetUniformLocation(program, "uVec");
-				if (uniformLoc < 0)
-					throw new InvalidOperationException("no uniform variable");
+					int uniformLoc = Gl.GetUniformLocation(program, "uVec");
+					if (uniformLoc < 0)
+						throw new InvalidOperationException("no uniform variable");
 
-				// glGetUniformdv
-				uniformValue = Array3(1.0);
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array3(0.0), uniformValue);
+					// glGetUniformdv
+					uniformValue = Array3(1.0);
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array3(0.0), uniformValue);
 
-				// glGetUniformdv (ref)
-				uniformStruct = new Vertex3d(1.0);
-				Gl.GetUniformd(program, uniformLoc, ref uniformStruct);
-				Assert.AreEqual(Vertex3d.Zero, uniformStruct);
+					// glGetUniformdv (ref)
+					uniformStruct = new Vertex3d(1.0);
+					Gl.GetUniformd(program, uniformLoc, ref uniformStruct);
+					Assert.AreEqual(Vertex3d.Zero, uniformStruct);
 				
-				// glUniform3d
-				uniformValue = Array3(0.0);
-				Gl.Uniform3(uniformLoc, Array3(1.0));
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array3(1.0), uniformValue);
+					// glUniform3d
+					uniformValue = Array3(0.0);
+					Gl.Uniform3(uniformLoc, Array3(1.0));
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array3(1.0), uniformValue);
 
-				// glUniform3dv
-				uniformValue = Array3(0.0);
-				Gl.Uniform3(uniformLoc, Array3(9.0));
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array3(9.0), uniformValue);
+					// glUniform3dv
+					uniformValue = Array3(0.0);
+					Gl.Uniform3(uniformLoc, Array3(9.0));
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array3(9.0), uniformValue);
 
-				// glUniform3dv (ref)
-				uniformValue = Array3(0.0);
-				uniformStruct = new Vertex3d(5.0);
-				Gl.Uniform3d(uniformLoc, 1, ref uniformStruct);
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array3(5.0), uniformValue);
-			} finally {
-				Gl.DeleteProgram(program);
+					// glUniform3dv (ref)
+					uniformValue = Array3(0.0);
+					uniformStruct = new Vertex3d(5.0);
+					Gl.Uniform3d(uniformLoc, 1, ref uniformStruct);
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array3(5.0), uniformValue);
+				} finally {
+					Gl.DeleteProgram(program);
+				}
 			}
 		}
 
@@ -884,46 +932,50 @@ namespace OpenGL.Test
 			if (!HasVersion(2, 0) && !HasEsVersion(2, 0) && !IsGlExtensionSupported("GL_ARB_shader_objects"))
 				Assert.Inconclusive("required features not implemented");
 
-			uint program = CreateProgramUniform4f();
+			using (Device device = new Device())
+			using (new GLContext(device))
+			{
+				uint program = CreateProgramUniform4f();
 
-			try {
-				Vertex4f uniformStruct;
-				float[] uniformValue;
+				try {
+					Vertex4f uniformStruct;
+					float[] uniformValue;
 
-				int uniformLoc = Gl.GetUniformLocation(program, "uVec");
-				if (uniformLoc < 0)
-					throw new InvalidOperationException("no uniform variable");
+					int uniformLoc = Gl.GetUniformLocation(program, "uVec");
+					if (uniformLoc < 0)
+						throw new InvalidOperationException("no uniform variable");
 
-				// glGetUniformfv
-				uniformValue = Array4(1.0f);
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array4(0.0f), uniformValue);
+					// glGetUniformfv
+					uniformValue = Array4(1.0f);
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array4(0.0f), uniformValue);
 
-				// glGetUniformfv (ref)
-				uniformStruct = new Vertex4f(1.0f);
-				Gl.GetUniformf(program, uniformLoc, ref uniformStruct);
-				Assert.AreEqual(Vertex4f.Zero, uniformStruct);
+					// glGetUniformfv (ref)
+					uniformStruct = new Vertex4f(1.0f);
+					Gl.GetUniformf(program, uniformLoc, ref uniformStruct);
+					Assert.AreEqual(Vertex4f.Zero, uniformStruct);
 				
-				// glUniform4f
-				uniformValue = Array4(0.0f);
-				Gl.Uniform4(uniformLoc, Array4(1.0f));
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array4(1.0f), uniformValue);
+					// glUniform4f
+					uniformValue = Array4(0.0f);
+					Gl.Uniform4(uniformLoc, Array4(1.0f));
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array4(1.0f), uniformValue);
 
-				// glUniform4fv
-				uniformValue = Array4(0.0f);
-				Gl.Uniform4(uniformLoc, Array4(9.0f));
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array4(9.0f), uniformValue);
+					// glUniform4fv
+					uniformValue = Array4(0.0f);
+					Gl.Uniform4(uniformLoc, Array4(9.0f));
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array4(9.0f), uniformValue);
 
-				// glUniform4fv (ref)
-				uniformValue = Array4(0.0f);
-				uniformStruct = new Vertex4f(5.0f);
-				Gl.Uniform4f(uniformLoc, 1, ref uniformStruct);
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array4(5.0f), uniformValue);
-			} finally {
-				Gl.DeleteProgram(program);
+					// glUniform4fv (ref)
+					uniformValue = Array4(0.0f);
+					uniformStruct = new Vertex4f(5.0f);
+					Gl.Uniform4f(uniformLoc, 1, ref uniformStruct);
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array4(5.0f), uniformValue);
+				} finally {
+					Gl.DeleteProgram(program);
+				}
 			}
 		}
 
@@ -953,46 +1005,50 @@ namespace OpenGL.Test
 			if (!HasVersion(2, 0) && !HasEsVersion(2, 0) && !IsGlExtensionSupported("GL_ARB_shader_objects"))
 				Assert.Inconclusive("required features not implemented");
 
-			uint program = CreateProgramUniform4i();
+			using (Device device = new Device())
+			using (new GLContext(device))
+			{
+				uint program = CreateProgramUniform4i();
 
-			try {
-				Vertex4i uniformStruct;
-				int[] uniformValue;
+				try {
+					Vertex4i uniformStruct;
+					int[] uniformValue;
 
-				int uniformLoc = Gl.GetUniformLocation(program, "uVec");
-				if (uniformLoc < 0)
-					throw new InvalidOperationException("no uniform variable");
+					int uniformLoc = Gl.GetUniformLocation(program, "uVec");
+					if (uniformLoc < 0)
+						throw new InvalidOperationException("no uniform variable");
 
-				// glGetUniformiv
-				uniformValue = Array4(1);
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array4(0), uniformValue);
+					// glGetUniformiv
+					uniformValue = Array4(1);
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array4(0), uniformValue);
 
-				// glGetUniformiv (ref)
-				uniformStruct = new Vertex4i(1);
-				Gl.GetUniformi(program, uniformLoc, ref uniformStruct);
-				Assert.AreEqual(Vertex4i.Zero, uniformStruct);
+					// glGetUniformiv (ref)
+					uniformStruct = new Vertex4i(1);
+					Gl.GetUniformi(program, uniformLoc, ref uniformStruct);
+					Assert.AreEqual(Vertex4i.Zero, uniformStruct);
 				
-				// glUniform4i
-				uniformValue = Array4(0);
-				Gl.Uniform4(uniformLoc, Array4(1));
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array4(1), uniformValue);
+					// glUniform4i
+					uniformValue = Array4(0);
+					Gl.Uniform4(uniformLoc, Array4(1));
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array4(1), uniformValue);
 
-				// glUniform4iv
-				uniformValue = Array4(0);
-				Gl.Uniform4(uniformLoc, Array4(9));
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array4(9), uniformValue);
+					// glUniform4iv
+					uniformValue = Array4(0);
+					Gl.Uniform4(uniformLoc, Array4(9));
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array4(9), uniformValue);
 
-				// glUniform4iv (ref)
-				uniformValue = Array4(0);
-				uniformStruct = new Vertex4i(5);
-				Gl.Uniform4i(uniformLoc, 1, ref uniformStruct);
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array4(5), uniformValue);
-			} finally {
-				Gl.DeleteProgram(program);
+					// glUniform4iv (ref)
+					uniformValue = Array4(0);
+					uniformStruct = new Vertex4i(5);
+					Gl.Uniform4i(uniformLoc, 1, ref uniformStruct);
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array4(5), uniformValue);
+				} finally {
+					Gl.DeleteProgram(program);
+				}
 			}
 		}
 
@@ -1022,46 +1078,50 @@ namespace OpenGL.Test
 			if (!HasVersion(3, 0) && !HasEsVersion(3, 0) && !IsGlExtensionSupported("GL_EXT_gpu_shader4"))
 				Assert.Inconclusive("required features not implemented");
 
-			uint program = CreateProgramUniform4ui();
+			using (Device device = new Device())
+			using (new GLContext(device))
+			{
+				uint program = CreateProgramUniform4ui();
 
-			try {
-				Vertex4ui uniformStruct;
-				uint[] uniformValue;
+				try {
+					Vertex4ui uniformStruct;
+					uint[] uniformValue;
 
-				int uniformLoc = Gl.GetUniformLocation(program, "uVec");
-				if (uniformLoc < 0)
-					throw new InvalidOperationException("no uniform variable");
+					int uniformLoc = Gl.GetUniformLocation(program, "uVec");
+					if (uniformLoc < 0)
+						throw new InvalidOperationException("no uniform variable");
 
-				// glGetUniformuiv
-				uniformValue = Array4(1u);
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array4(0u), uniformValue);
+					// glGetUniformuiv
+					uniformValue = Array4(1u);
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array4(0u), uniformValue);
 
-				// glGetUniformuiv (ref)
-				uniformStruct = new Vertex4ui(1u);
-				Gl.GetUniformui(program, uniformLoc, ref uniformStruct);
-				Assert.AreEqual(Vertex4ui.Zero, uniformStruct);
+					// glGetUniformuiv (ref)
+					uniformStruct = new Vertex4ui(1u);
+					Gl.GetUniformui(program, uniformLoc, ref uniformStruct);
+					Assert.AreEqual(Vertex4ui.Zero, uniformStruct);
 				
-				// glUniform4ui
-				uniformValue = Array4(0u);
-				Gl.Uniform4(uniformLoc, Array4(1u));
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array4(1u), uniformValue);
+					// glUniform4ui
+					uniformValue = Array4(0u);
+					Gl.Uniform4(uniformLoc, Array4(1u));
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array4(1u), uniformValue);
 
-				// glUniform4uiv
-				uniformValue = Array4(0u);
-				Gl.Uniform4(uniformLoc, Array4(9u));
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array4(9u), uniformValue);
+					// glUniform4uiv
+					uniformValue = Array4(0u);
+					Gl.Uniform4(uniformLoc, Array4(9u));
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array4(9u), uniformValue);
 
-				// glUniform4uiv (ref)
-				uniformValue = Array4(0u);
-				uniformStruct = new Vertex4ui(5u);
-				Gl.Uniform4ui(uniformLoc, 1, ref uniformStruct);
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array4(5u), uniformValue);
-			} finally {
-				Gl.DeleteProgram(program);
+					// glUniform4uiv (ref)
+					uniformValue = Array4(0u);
+					uniformStruct = new Vertex4ui(5u);
+					Gl.Uniform4ui(uniformLoc, 1, ref uniformStruct);
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array4(5u), uniformValue);
+				} finally {
+					Gl.DeleteProgram(program);
+				}
 			}
 		}
 
@@ -1092,46 +1152,50 @@ namespace OpenGL.Test
 			if (!HasVersion(4, 0) && !IsGlExtensionSupported("GL_ARB_gpu_shader_fp64"))
 				Assert.Inconclusive("required features not implemented");
 
-			uint program = CreateProgramUniform4d();
+			using (Device device = new Device())
+			using (new GLContext(device))
+			{
+				uint program = CreateProgramUniform4d();
 
-			try {
-				Vertex4d uniformStruct;
-				double[] uniformValue;
+				try {
+					Vertex4d uniformStruct;
+					double[] uniformValue;
 
-				int uniformLoc = Gl.GetUniformLocation(program, "uVec");
-				if (uniformLoc < 0)
-					throw new InvalidOperationException("no uniform variable");
+					int uniformLoc = Gl.GetUniformLocation(program, "uVec");
+					if (uniformLoc < 0)
+						throw new InvalidOperationException("no uniform variable");
 
-				// glGetUniformdv
-				uniformValue = Array4(1.0);
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array4(0.0), uniformValue);
+					// glGetUniformdv
+					uniformValue = Array4(1.0);
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array4(0.0), uniformValue);
 
-				// glGetUniformdv (ref)
-				uniformStruct = new Vertex4d(1.0);
-				Gl.GetUniformd(program, uniformLoc, ref uniformStruct);
-				Assert.AreEqual(Vertex4d.Zero, uniformStruct);
+					// glGetUniformdv (ref)
+					uniformStruct = new Vertex4d(1.0);
+					Gl.GetUniformd(program, uniformLoc, ref uniformStruct);
+					Assert.AreEqual(Vertex4d.Zero, uniformStruct);
 				
-				// glUniform4d
-				uniformValue = Array4(0.0);
-				Gl.Uniform4(uniformLoc, Array4(1.0));
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array4(1.0), uniformValue);
+					// glUniform4d
+					uniformValue = Array4(0.0);
+					Gl.Uniform4(uniformLoc, Array4(1.0));
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array4(1.0), uniformValue);
 
-				// glUniform4dv
-				uniformValue = Array4(0.0);
-				Gl.Uniform4(uniformLoc, Array4(9.0));
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array4(9.0), uniformValue);
+					// glUniform4dv
+					uniformValue = Array4(0.0);
+					Gl.Uniform4(uniformLoc, Array4(9.0));
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array4(9.0), uniformValue);
 
-				// glUniform4dv (ref)
-				uniformValue = Array4(0.0);
-				uniformStruct = new Vertex4d(5.0);
-				Gl.Uniform4d(uniformLoc, 1, ref uniformStruct);
-				Gl.GetUniform(program, uniformLoc, uniformValue);
-				CollectionAssert.AreEqual(Array4(5.0), uniformValue);
-			} finally {
-				Gl.DeleteProgram(program);
+					// glUniform4dv (ref)
+					uniformValue = Array4(0.0);
+					uniformStruct = new Vertex4d(5.0);
+					Gl.Uniform4d(uniformLoc, 1, ref uniformStruct);
+					Gl.GetUniform(program, uniformLoc, uniformValue);
+					CollectionAssert.AreEqual(Array4(5.0), uniformValue);
+				} finally {
+					Gl.DeleteProgram(program);
+				}
 			}
 		}
 
