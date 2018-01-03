@@ -137,8 +137,6 @@ namespace OpenGL.Objects.Test
 				List<ObjectContext> objectIds = new List<ObjectContext>();
 
 				foreach (ShadersLibrary.Object obj in ShadersLibrary.Instance.Objects) {
-					ObjectContext objContext;
-
 					foreach (ShaderType objStage in obj.Stages)
 						objectIds.Add(new ObjectContext(obj.Path, objStage));
 				}

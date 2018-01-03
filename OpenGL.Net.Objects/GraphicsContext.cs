@@ -1985,7 +1985,7 @@ namespace OpenGL.Objects
 					foreach (IGraphicsResource graphicsResource in graphicResources) {
 						try {
 							graphicsResource.Create(_ResourceContext);
-						} catch (Exception exception) {
+						} catch {
 
 						}
 					}
