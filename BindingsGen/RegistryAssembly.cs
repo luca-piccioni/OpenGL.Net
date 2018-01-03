@@ -34,7 +34,7 @@ namespace BindingsGen
 	{
 		public static void CleanAssembly(string path, RegistryAssemblyConfiguration cfg, bool overwrite)
 		{
-			Console.WriteLine("*** Generate assembly {0}", cfg.Name);
+			Console.WriteLine("- {0} -> {1}", path, cfg.Name);
 
 			AssemblyDefinition assembly = AssemblyDefinition.ReadAssembly(path);
 
@@ -65,7 +65,7 @@ namespace BindingsGen
 						removedTypes.Add(type);
 				}
 
-				Console.WriteLine("- Removing {0} enum types", removedTypes.Count);
+				// Console.WriteLine("- Removing {0} enum types", removedTypes.Count);
 				foreach (TypeDefinition type in removedTypes) {
 					// Console.WriteLine("  - {0}", field.Name);
 					module.Types.Remove(type);
@@ -116,7 +116,7 @@ namespace BindingsGen
 			}
 
 			if (removedFields.Count > 0) {
-				Console.WriteLine("- Removed {0} constants from {1}", removedFields.Count, type.FullName);
+				// Console.WriteLine("- Removed {0} constants from {1}", removedFields.Count, type.FullName);
 				foreach (FieldDefinition field in removedFields) {
 					type.Fields.Remove(field);
 				}

@@ -232,4 +232,7 @@
   <PropertyGroup Condition=" '$(OS)' == 'Windows_NT' ">
     <PostBuildEvent>xcopy /S /Y "$(SolutionDir)\ANGLE" "$(TargetDir)\ANGLE\"</PostBuildEvent>
   </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>IF NOT EXIST "$(TargetDir)\ANGLE\" xcopy /Q /S /Y "$(SolutionDir)\ANGLE" "$(TargetDir)\ANGLE\"</PostBuildEvent>
+  </PropertyGroup>
 </Project>

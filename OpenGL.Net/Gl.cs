@@ -99,8 +99,17 @@ namespace OpenGL
 			try {
 #if !MONODROID
 				// Determine whether use EGL as device context backend
-				if (Egl.IsAvailable && Platform.CurrentPlatformId == Platform.Id.Linux && Glx.IsAvailable == false)
-					Egl.IsRequired = true;
+				if (Egl.IsAvailable) {
+					// Note: on Linux without GLX
+					if (Platform.CurrentPlatformId == Platform.Id.Linux && Glx.IsAvailable == false)
+						Egl.IsRequired = true;
+#if !NETSTANDARD1_1
+					// Explict initialization
+					string envPlatform = Environment.GetEnvironmentVariable("OPENGL_NET_PLATFORM");
+					if (envPlatform != null && envPlatform == "EGL")
+						Egl.IsRequired = true;
+#endif
+				}
 #endif
 
 				// Create native window for getting preliminary information on desktop systems
