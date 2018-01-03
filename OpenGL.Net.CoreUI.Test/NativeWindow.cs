@@ -54,20 +54,6 @@ namespace OpenGL.CoreUI.Test
 			}
 		}
 
-		[Test(Description = "Test NativeWindow.Create(): no Dispose()")]
-		public void TestFactory_Leak()
-		{
-			NativeWindow nativeWindow = NativeWindow.Create();
-
-			Assert.AreEqual(IntPtr.Zero, nativeWindow.Handle);
-
-			// Do not dispose
-			nativeWindow = null;
-			GC.Collect();
-
-			// Note: no exception should be thrown by finalizer
-		}
-
 		[Test(Description = "Test NativeWindow.ContextVersion")]
 		public void TestContextVersion()
 		{

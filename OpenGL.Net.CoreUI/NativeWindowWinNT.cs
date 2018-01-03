@@ -2517,33 +2517,39 @@ namespace OpenGL.CoreUI
 
 			// Register window class
 			WNDCLASSEX windowClass = new WNDCLASSEX();
-			const string DefaultWindowClass = "OpenGL.CoreUI2";
+			const string defaultWindowClass = "OpenGL.CoreUI2";
 
 			windowClass.cbSize = Marshal.SizeOf(typeof(WNDCLASSEX));
 			windowClass.style = (int)(UnsafeNativeMethods.CS_HREDRAW | UnsafeNativeMethods.CS_VREDRAW | UnsafeNativeMethods.CS_OWNDC);
 			windowClass.lpfnWndProc = Marshal.GetFunctionPointerForDelegate(_WindowsWndProc);
 			windowClass.hInstance = _HInstance;
-			windowClass.lpszClassName = DefaultWindowClass;
+			windowClass.lpszClassName = defaultWindowClass;
 
 			if ((_ClassAtom = UnsafeNativeMethods.RegisterClassEx(ref windowClass)) == 0)
 				throw new Win32Exception(Marshal.GetLastWin32Error());
 
-			WindowStyles windowStyle = FromNativeWindowStyle(style);
+			try {
+				WindowStyles windowStyle = FromNativeWindowStyle(style);
 
-			// Note: window size is meant as client area, but CreateWindowEx width/height specifies the external
-			// frame size: compute offset for frame borders
-			RECT clientSize = GetClientToFrameRect(x, y, width, height, windowStyle);
-			// Create window
-			_Handle = UnsafeNativeMethods.CreateWindowEx(
-				(uint)0, windowClass.lpszClassName, String.Empty, (uint)windowStyle,
-				clientSize.left, clientSize.top, clientSize.right - clientSize.left, clientSize.bottom - clientSize.top,
-				IntPtr.Zero, IntPtr.Zero, windowClass.hInstance, IntPtr.Zero
-			);
+				// Note: window size is meant as client area, but CreateWindowEx width/height specifies the external
+				// frame size: compute offset for frame borders
+				RECT clientSize = GetClientToFrameRect(x, y, width, height, windowStyle);
+				// Create window
+				_Handle = UnsafeNativeMethods.CreateWindowEx(
+					0, windowClass.lpszClassName, string.Empty, (uint)windowStyle,
+					clientSize.left, clientSize.top, clientSize.right - clientSize.left, clientSize.bottom - clientSize.top,
+					IntPtr.Zero, IntPtr.Zero, windowClass.hInstance, IntPtr.Zero
+				);
 
-			if (_Handle == IntPtr.Zero)
-				throw new Win32Exception(Marshal.GetLastWin32Error());
+				if (_Handle == IntPtr.Zero)
+					throw new Win32Exception(Marshal.GetLastWin32Error());
 
-			_OwnerThread = GetCurrentThreadId();
+				_OwnerThread = GetCurrentThreadId();
+			} catch {
+				Dispose();
+				throw;
+			}
+			
 		}
 
 		/// <summary>
@@ -2983,22 +2989,20 @@ namespace OpenGL.CoreUI
 		/// </param>
 		protected override void Dispose(bool disposing)
 		{
-			if (disposing) {
-				DeleteContext();
-				DestroyDeviceContext();
+			DeleteContext();
+			DestroyDeviceContext();
 
-				if (_Handle != IntPtr.Zero) {
-					CheckThread();
+			if (_Handle != IntPtr.Zero) {
+				CheckThread();
 
-					UnsafeNativeMethods.DestroyWindow(_Handle);
-					_Handle = IntPtr.Zero;
-					_OwnerThread = 0;
-				}
+				UnsafeNativeMethods.DestroyWindow(_Handle);
+				_Handle = IntPtr.Zero;
+				_OwnerThread = 0;
+			}
 
-				if (_ClassAtom != 0) {
-					UnsafeNativeMethods.UnregisterClass(_ClassAtom, _HInstance);
-					_ClassAtom = 0;
-				}
+			if (_ClassAtom != 0) {
+				UnsafeNativeMethods.UnregisterClass(_ClassAtom, _HInstance);
+				_ClassAtom = 0;
 			}
 
 			// Base implementation
