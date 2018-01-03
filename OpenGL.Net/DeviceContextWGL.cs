@@ -178,7 +178,7 @@ namespace OpenGL
 		/// <summary>
 		/// Determine whether the hosting platform is able to create a P-Buffer.
 		/// </summary>
-		public new static bool IsPBufferSupported => Wgl.CurrentExtensions.Pbuffer_ARB || Wgl.CurrentExtensions.Pbuffer_EXT;
+		public new static bool IsPBufferSupported => Wgl.CurrentExtensions != null && (Wgl.CurrentExtensions.Pbuffer_ARB || Wgl.CurrentExtensions.Pbuffer_EXT);
 
 		/// <summary>
 		/// Native window implementation for Windows.
@@ -533,26 +533,18 @@ namespace OpenGL
 		/// </exception>
 		public override IntPtr CreateContext(IntPtr sharedContext)
 		{
-			IntPtr renderContext = IntPtr.Zero;
-
 			if (Wgl.CurrentExtensions == null || Wgl.CurrentExtensions.CreateContext_ARB == false) {
-				// Fallback for compatibility
-				try {
-					renderContext = Wgl.CreateContext(DeviceContext);
-					if (renderContext != IntPtr.Zero && sharedContext != IntPtr.Zero) {
-						bool res = Wgl.ShareLists(renderContext, sharedContext);
-						Debug.Assert(res);
-					}
+				IntPtr renderContext = Wgl.CreateContext(DeviceContext);
+				if (renderContext == IntPtr.Zero)
+					throw new WglException(Marshal.GetLastWin32Error());
 
-					return renderContext;
-				} catch {
-					if (renderContext != IntPtr.Zero) {
-						bool res = Wgl.DeleteContext(renderContext);
-						Debug.Assert(res);
-					}
-
-					throw;
+				if (sharedContext != IntPtr.Zero) {
+					bool res = Wgl.ShareLists(renderContext, sharedContext);
+					if (res == false)
+						throw new WglException(Marshal.GetLastWin32Error());
 				}
+
+				return renderContext;
 			} else
 				return CreateContextAttrib(sharedContext, new[] { Gl.NONE });
 		}
@@ -620,6 +612,8 @@ namespace OpenGL
 			// Defaults null attributes
 			if (attribsList == null)
 				attribsList = new[] { Gl.NONE };
+
+			IntPtr ctx;
 
 			if (api != null) {
 				List<int> adulteredAttribs = new List<int>(attribsList);
@@ -701,9 +695,14 @@ namespace OpenGL
 				// Restore trailing 0
 				adulteredAttribs.Add(Gl.NONE);
 
-				return Wgl.CreateContextAttribsARB(DeviceContext, sharedContext, adulteredAttribs.ToArray());
+				ctx = Wgl.CreateContextAttribsARB(DeviceContext, sharedContext, adulteredAttribs.ToArray());
 			} else
-				return Wgl.CreateContextAttribsARB(DeviceContext, sharedContext, attribsList);
+				ctx = Wgl.CreateContextAttribsARB(DeviceContext, sharedContext, attribsList);
+
+			if (ctx == IntPtr.Zero)
+				throw new WglException(Marshal.GetLastWin32Error());
+
+			return (ctx);
 		}
 
 		/// <summary>
