@@ -31,11 +31,9 @@ namespace OpenGL.Test
 	/// <summary>
 	/// Abstract base test creating benchmarking methods.
 	/// </summary>
-	[TestFixture]
-//#if !NETCORE
-//	[Apartment(ApartmentState.STA)]
-//#endif
-	[Category("Benchmark")]
+	// [TestFixture]
+	// [Category("Benchmark")]
+	[Ignore("Benchmarks exluded")]
 	abstract class TestBaseBenchmark
 	{
 		public static void RunBenchmarks<T>(string prefix) where T : class

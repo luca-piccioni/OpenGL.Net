@@ -33,7 +33,7 @@ using NUnit.Framework;
 namespace OpenGL.Test
 {
 	//[TestFixture]
-	[Category("Benchmark")]
+	//[Category("Benchmark")]
 	class BenchmarkPInvoke : TestBaseGL
 	{
 		#region Setup & Tear Down

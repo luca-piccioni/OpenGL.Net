@@ -25,7 +25,7 @@ using NUnit.Framework;
 
 namespace OpenGL.Test
 {
-	//[TestFixture]
+	[TestFixture, Ignore("")]
 	class TestMemory : TestBaseBenchmark
 	{
 		#region Constructors

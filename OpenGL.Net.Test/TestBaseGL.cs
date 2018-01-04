@@ -34,7 +34,6 @@ namespace OpenGL.Test
 #if !NETCORE
 	[Apartment(ApartmentState.STA)]
 #endif
-	[Category("Graphics")]
 	internal abstract class TestBaseGL : TestBase
 	{
 		#region Context
