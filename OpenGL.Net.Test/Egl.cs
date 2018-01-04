@@ -60,10 +60,16 @@ namespace OpenGL.Test
 		[Test]
 		public void Egl_IsRequired()
 		{
+			if (Egl.IsAvailable == false)
+				Assert.Inconclusive("EGL not available");
+
+			Egl.IsRequired = false;
+			if (Egl.IsRequired)
+				Assert.Inconclusive("EGL is mandatory");
 			Assert.IsFalse(Egl.IsRequired);
 
 			Egl.IsRequired = true;
-			Assert.AreEqual(Egl.IsAvailable, Egl.IsRequired);
+			Assert.IsTrue(Egl.IsRequired);
 
 			Egl.IsRequired = false;
 			Assert.IsFalse(Egl.IsRequired);
