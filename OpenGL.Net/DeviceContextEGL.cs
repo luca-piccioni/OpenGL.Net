@@ -46,7 +46,7 @@ namespace OpenGL
 		/// </summary>
 		private DeviceContextEGL()
 		{
-			string[] availApis = GetAvailableApis();
+			string[] availApis = Egl.AvailableApis;
 
 			if (availApis.Length == 0)
 				throw new InvalidOperationException("no API available");
@@ -614,54 +614,7 @@ namespace OpenGL
 		/// </summary>
 		public override IEnumerable<string> AvailableAPIs
 		{
-			get
-			{
-				List<string> clientApis = new List<string>();
-
-				if (Version >= Egl.Version_120) {
-					string clientApisString = Egl.QueryString(Display, Egl.CLIENT_APIS);
-					string[] clientApiTokens = Regex.Split(clientApisString, " ");
-
-					clientApis.AddRange(ConvertApiNames(clientApiTokens));
-				}
-
-				clientApis.Add(KhronosVersion.ApiGlsc2);
-
-				return clientApis;
-			}
-		}
-
-		/// <summary>
-		/// Get the APIs available on the EGL device context.
-		/// </summary>
-		/// <returns></returns>
-		internal static string[] GetAvailableApis()
-		{
-			return ConvertApiNames(Egl.AvailableApis);
-		}
-
-		internal static string[] ConvertApiNames(IEnumerable<string> clientApis)
-		{
-			List<string> deviceApi = new List<string>();
-
-			foreach (string clientApi in clientApis) {
-				switch (clientApi) {
-					case "OpenGL":
-						deviceApi.Add(KhronosVersion.ApiGl);
-						break;
-					case "OpenGL_ES":
-						deviceApi.Add(KhronosVersion.ApiGles2);
-						break;
-					case "OpenVG":
-						deviceApi.Add(KhronosVersion.ApiVg);
-						break;
-					default:
-						deviceApi.Add(clientApi);
-						break;
-				}
-			}
-
-			return deviceApi.ToArray();
+			get { return Egl.AvailableApis; }
 		}
 
 		/// <summary>
@@ -783,7 +736,7 @@ namespace OpenGL
 
 			// Create context
 			if ((context = Egl.CreateContext(Display, _Config, sharedContext, attribsList)) == IntPtr.Zero)
-				throw new InvalidOperationException("unable to create context");
+				throw new EglException(Egl.GetError());
 
 			// Create native surface (pixel format pending)
 			// @todo Back-buffer?
@@ -877,7 +830,7 @@ namespace OpenGL
 		internal override void QueryPlatformExtensions()
 		{
 			Egl.CurrentExtensions = new Egl.Extensions();
-			Egl.CurrentExtensions.Query(this);
+			Egl.CurrentExtensions.Query(Display, Version);
 		}
 
 		/// <summary>

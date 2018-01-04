@@ -19,6 +19,10 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+using System;
+
+using Khronos;
+
 // ReSharper disable InheritdocConsiderUsage
 
 namespace OpenGL
@@ -33,16 +37,19 @@ namespace OpenGL
 			/// <summary>
 			/// Query the extensions supported by current platform.
 			/// </summary>
-			/// <param name="deviceContext">
-			/// A <see cref="DeviceContextEGL"/> that specifies the device context to query extensions for.
+			/// <param name="eglDisplay">
+			/// A <see cref="IntPtr"/> that specifies the EGL display handle.
 			/// </param>
-			internal void Query(DeviceContextEGL deviceContext)
+			/// <param name="eglVersion">
+			/// A <see cref="KhronosVersion"/> that specifies the EGL version.
+			/// </param>
+			internal void Query(IntPtr eglDisplay, KhronosVersion eglVersion)
 			{
 				LogComment("Query EGL extensions.");
 
-				string eglExtensions = QueryString(deviceContext.Display, EXTENSIONS);
+				string eglExtensions = QueryString(eglDisplay, EXTENSIONS);
 
-				Query(deviceContext.Version, eglExtensions ?? string.Empty);
+				Query(eglVersion, eglExtensions ?? string.Empty);
 			}
 
 			/// <summary>

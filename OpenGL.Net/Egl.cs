@@ -139,16 +139,29 @@ namespace OpenGL
 					string clientApisString = QueryString(eglDisplay, CLIENT_APIS);
 					string[] clientApiTokens = System.Text.RegularExpressions.Regex.Split(clientApisString, " ");
 
-					clientApis.AddRange(DeviceContextEGL.ConvertApiNames(clientApiTokens));
+					foreach (string clientApi in clientApiTokens) {
+						switch (clientApi) {
+							case "OpenGL":
+								clientApis.Add(KhronosVersion.ApiGl);
+								break;
+							case "OpenGL_ES":
+								clientApis.Add(KhronosVersion.ApiGles2);
+								break;
+							case "OpenVG":
+								clientApis.Add(KhronosVersion.ApiVg);
+								break;
+							default:
+								clientApis.Add(clientApi);
+								break;
+						}
+					}
 				}
 
 				AvailableApis = clientApis.ToArray();
 
 				// Null device context for querying extensions
-				using (DeviceContextEGL deviceContext = new DeviceContextEGL(args.Display, IntPtr.Zero)) {
-					CurrentExtensions = new Extensions();
-					CurrentExtensions.Query(deviceContext);
-				}
+				CurrentExtensions = new Extensions();
+				CurrentExtensions.Query(eglDisplay, CurrentVersion);
 			} finally {
 				Terminate(eglDisplay);
 				_IsInitializing = false;
