@@ -248,6 +248,8 @@ namespace OpenGL.Test
 
 		#endregion
 
+#if !MONODROID
+
 		#region glUniform1dv
 
 		private uint CreateProgramUniform1d()
@@ -322,6 +324,7 @@ namespace OpenGL.Test
 
 		#endregion
 
+#endif
 		#region glUniform2fv
 
 		private uint CreateProgramUniform2f()
@@ -541,6 +544,8 @@ namespace OpenGL.Test
 
 		#endregion
 
+#if !MONODROID
+
 		#region glUniform2dv
 
 		private uint CreateProgramUniform2d()
@@ -615,6 +620,7 @@ namespace OpenGL.Test
 
 		#endregion
 
+#endif
 		#region glUniform3fv
 
 		private uint CreateProgramUniform3f()
@@ -834,6 +840,8 @@ namespace OpenGL.Test
 
 		#endregion
 
+#if !MONODROID
+
 		#region glUniform3dv
 
 		private uint CreateProgramUniform3d()
@@ -908,6 +916,7 @@ namespace OpenGL.Test
 
 		#endregion
 
+#endif
 		#region glUniform4fv
 
 		private uint CreateProgramUniform4f()
@@ -1127,6 +1136,8 @@ namespace OpenGL.Test
 
 		#endregion
 
+#if !MONODROID
+
 		#region glUniform4dv
 
 		private uint CreateProgramUniform4d()
@@ -1201,6 +1212,7 @@ namespace OpenGL.Test
 
 		#endregion
 
+#endif
 		#region Common
 
 		private static T[] Array1<T>(T value) { return new T[] { value }; }

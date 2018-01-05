@@ -31,7 +31,7 @@ namespace OpenGL.Test
 	/// <summary>
 	/// Abstract base test creating an OpenGL context used for testing.
 	/// </summary>
-#if !NETCORE
+#if !NETCORE && !MONODROID
 	[Apartment(ApartmentState.STA)]
 #endif
 	internal abstract class TestBaseGL : TestBase
@@ -217,6 +217,13 @@ namespace OpenGL.Test
 		}
 
 		/// <summary>
+		/// OpenGL extensions support.
+		/// </summary>
+		private readonly Gl.Extensions _GlExtensions = new Gl.Extensions();
+
+#if !MONODROID
+
+		/// <summary>
 		/// Check whether an OpenGL for Windows extension is supported by the OpenGL context.
 		/// </summary>
 		/// <param name="extension">
@@ -233,6 +240,11 @@ namespace OpenGL.Test
 		{
 			return (_WglExtensions.HasExtensions(extension));
 		}
+
+		/// <summary>
+		/// Windows OpenGL extensions support.
+		/// </summary>
+		private readonly Wgl.Extensions _WglExtensions = new Wgl.Extensions();
 
 		/// <summary>
 		/// Check whether an OpenGL for X extension is supported by the OpenGL context.
@@ -253,19 +265,11 @@ namespace OpenGL.Test
 		}
 
 		/// <summary>
-		/// OpenGL extensions support.
-		/// </summary>
-		private readonly Gl.Extensions _GlExtensions = new Gl.Extensions();
-
-		/// <summary>
-		/// Windows OpenGL extensions support.
-		/// </summary>
-		private readonly Wgl.Extensions _WglExtensions = new Wgl.Extensions();
-
-		/// <summary>
 		/// Windows OpenGL extensions support.
 		/// </summary>
 		private readonly Glx.Extensions _GlxExtensions = new Glx.Extensions();
+
+#endif
 
 		/// <summary>
 		/// Windows OpenGL extensions support.

@@ -26,6 +26,8 @@ namespace HelloObjects_monodroid
 		
 		public static void UpdateIdValues()
 		{
+			global::OpenGL.Resource.String.ApplicationName = global::HelloObjects_monodroid.Resource.String.ApplicationName;
+			global::OpenGL.Resource.String.Hello = global::HelloObjects_monodroid.Resource.String.Hello;
 		}
 		
 		public partial class Attribute

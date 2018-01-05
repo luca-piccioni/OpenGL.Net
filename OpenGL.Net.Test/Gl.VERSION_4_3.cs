@@ -45,6 +45,8 @@ namespace OpenGL.Test
 			using (new GLContext(device))
 			{
 
+#if !MONODROID
+
 				#region Gl.SHADING_LANGUAGE_VERSION
 
 				int numShadingLanguage;
@@ -58,6 +60,8 @@ namespace OpenGL.Test
 				}
 
 				#endregion
+
+#endif
 
 			}
 		}

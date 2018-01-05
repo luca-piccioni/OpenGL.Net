@@ -103,11 +103,13 @@ namespace OpenGL.Test
 					Gl.GetBufferParameter(BufferTarget.ArrayBuffer, Gl.BUFFER_USAGE, out arrayBufferDataParam);
 					Assert.AreEqual((int)BufferUsage.StaticDraw, arrayBufferDataParam);
 
+#if !MONODROID
 					if (HasVersion(1, 5) || IsGlExtensionSupported("GL_ARB_vertex_buffer_object")) {
 						Gl.GetBufferSubData(BufferTarget.ArrayBuffer, IntPtr.Zero, (uint)arrayBufferData.Length, arrayBufferDataGet);
 						for (int i = 0; i < arrayBufferDataGet.Length; i++)
 							Assert.AreEqual(arrayBufferData[i], arrayBufferDataGet[i]);
 					}
+#endif
 
 					Gl.BindBuffer(BufferTarget.ArrayBuffer, 0);
 					Gl.Get(Gl.ARRAY_BUFFER_BINDING, out arrayBufferGet);

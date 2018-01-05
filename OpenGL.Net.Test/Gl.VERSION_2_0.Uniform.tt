@@ -63,6 +63,7 @@ namespace OpenGL.Test
 			string functArray = "Array" + ordinal;
 
 			string glRequisites = null;
+			bool monodroidConditional = false;
 
 			switch (postfix) {
 				case "f":
@@ -74,6 +75,7 @@ namespace OpenGL.Test
 					break;
 				case "d":
 					glRequisites = "!HasVersion(4, 0) && !IsGlExtensionSupported(\"GL_ARB_gpu_shader_fp64\")";
+					monodroidConditional = true;
 					break;
 			}
 
@@ -96,6 +98,10 @@ namespace OpenGL.Test
 
 			string glUniformVarName = "uVec";
 #>
+<# if (monodroidConditional) { #>
+#if !MONODROID
+
+<# } #>
 		#region <#= glUniform #>
 
 		private uint <#= functCreateProgram #>()
@@ -174,6 +180,9 @@ namespace OpenGL.Test
 
 		#endregion
 
+<# if (monodroidConditional) { #>
+#endif
+<# } #>
 <#
 		}
 	}

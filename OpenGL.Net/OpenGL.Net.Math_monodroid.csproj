@@ -63,8 +63,6 @@
     <Compile Include="IMatrix3x3.cs" />
     <Compile Include="IMatrix4x4.cs" />
     <Compile Include="IModelMatrix.cs" />
-    <Compile Include="INativePBuffer.cs" />
-    <Compile Include="INativeWindow.cs" />
     <Compile Include="IProjectionMatrix.cs" />
     <Compile Include="Matrix.cs" />
     <Compile Include="Matrix3x3.cs" />
