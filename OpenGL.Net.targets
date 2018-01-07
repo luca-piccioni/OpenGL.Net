@@ -2,10 +2,12 @@
     <PropertyGroup>
         <OPENGL_NET_PLATFORM Condition="'$(OPENGL_NET_PLATFORM)' == ''">WGL</OPENGL_NET_PLATFORM>
     </PropertyGroup>
+    
     <PropertyGroup>
         <NUnitConsole>$(ProjectDir)..\packages\NUnit.ConsoleRunner.3.7.0\tools\nunit3-console.exe</NUnitConsole>
         <NUnitOptions>--where="cat=EGL||cat=WGL||cat=Math||cat=Framework||cat=Toolkit_CoreUI" --noheader --labels=All</NUnitOptions>
-        <NUnitResult>--result=$(ProjectDir)..\Tst$(OPENGL_NET_PLATFORM)$(ProjectName)_$(Platform)_$(Configuration).xml</NUnitResult>
+        <NUnitResultFormat /> <!-- ;format=AppVeyor -->
+        <NUnitResult>--result=$(ProjectDir)..\Tst$(OPENGL_NET_PLATFORM)$(ProjectName)_$(Platform)_$(Configuration).xml$(NUnitResultFormat)</NUnitResult>
     </PropertyGroup>
     <Target Name="UnitTest">
         <Exec Command="$(NUnitConsole) &quot;$(TargetPath)&quot; $(NUnitResult) $(NUnitOptions)"/>
