@@ -22,12 +22,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Assets\**" />
     <Compile Remove="obj\**" />
+    <Compile Remove="Resources\**" />
+    <EmbeddedResource Remove="Assets\**" />
     <EmbeddedResource Remove="obj\**" />
+    <EmbeddedResource Remove="Resources\**" />
+    <None Remove="Assets\**" />
     <None Remove="obj\**" />
+    <None Remove="Resources\**" />
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="MainActivity.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="app.config" />
+    <None Remove="MainActivity.cs.txt" />
     <None Remove="OpenGL.Net.nunit" />
     <None Remove="packages.config" />
   </ItemGroup>
