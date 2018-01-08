@@ -224,9 +224,6 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(ProjectDir)..\OpenGL.Net.targets" />
   <PropertyGroup Condition=" '$(OS)' == 'Windows_NT' ">
-    <PostBuildEvent>xcopy /S /Y "$(SolutionDir)\ANGLE" "$(TargetDir)\ANGLE\"</PostBuildEvent>
-  </PropertyGroup>
-  <PropertyGroup>
-    <PostBuildEvent>IF NOT EXIST "$(TargetDir)\ANGLE\" xcopy /Q /S /Y "$(SolutionDir)\ANGLE" "$(TargetDir)\ANGLE\"</PostBuildEvent>
+    <PostBuildEvent>IF NOT EXIST "$(TargetDir)ANGLE\" xcopy /Q /S /Y "$(SolutionDir)ANGLE" "$(TargetDir)ANGLE\"</PostBuildEvent>
   </PropertyGroup>
 </Project>
