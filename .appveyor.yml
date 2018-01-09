@@ -92,9 +92,8 @@ after_test:
         $idx = $covFile.IndexOf("_")
         $covPlatform = $covFile.SubString(3, 3)
         $covFilter =  $covPlatform + "_" + $covFile.SubString($idx + 1).TrimEnd(".xml")
-        $command = "codecov -f " + $covFile + " -F " + $covFilter
-        Out-Host -InputObject $command
-        & $command
+        $command = "-f " + $covFile + " -F " + $covFilter
+        & codecov $command
       }
   - IF "%PUBLISH_NUGET%"=="true" nuget pack OpenGL.Net.nuspec -Version %APPVEYOR_BUILD_VERSION%
   - IF "%PUBLISH_NUGET%"=="true" nuget pack OpenGL.Net.Math.nuspec -Version %APPVEYOR_BUILD_VERSION%
