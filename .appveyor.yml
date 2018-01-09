@@ -86,14 +86,20 @@ after_test:
   - cmd: msbuild OpenGL.Net.CoreUI.Test\OpenGL.Net.CoreUI.Test_net461.csproj %SLN_BUILD_OPTS% /t:Coverage /p:Configuration=Debug /p:Platform="x64"
   - pip install codecov
   - ps: |
-      $covFiles = Get-ChildItem -Name -Path .\ -Include Cov*.xml
-      for ($i=0; $i -lt $covFiles.Count; $i++) {
-        $covFile = $covFiles[$i]
-        $idx = $covFile.IndexOf("_")
-        $covPlatform = $covFile.SubString(3, 3)
-        $covFilter =  $covPlatform + "_" + $covFile.SubString($idx + 1).TrimEnd(".xml")
-        $command = "-f " + $covFile + " -F " + $covFilter
-        & codecov $command
+      $covFiles = Get-ChildItem -Filter cov*.xml
+      foreach ($file in $covFiles) {
+        $path = $file.FullName
+        $idxTag = $path.IndexOf("_")
+        $idxPlatform = $path.LastIndexOf("\")
+    
+        $platform = $path.Substring($idxPlatform + 4, 3)
+        $filter = "${platform}_$($path.Substring($idxTag+1).TrimEnd('.xml'))"
+
+        $ArgList = @(
+          '-f',"`"$path`""
+          '-F',"`"$filter`""
+        )
+        Start-Process -FilePath codecov -ArgumentList $ArgList
       }
   - IF "%PUBLISH_NUGET%"=="true" nuget pack OpenGL.Net.nuspec -Version %APPVEYOR_BUILD_VERSION%
   - IF "%PUBLISH_NUGET%"=="true" nuget pack OpenGL.Net.Math.nuspec -Version %APPVEYOR_BUILD_VERSION%
