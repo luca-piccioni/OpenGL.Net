@@ -18,7 +18,7 @@ script:
   - mono --version
   - xbuild /p:Configuration=Release OpenGL.Net_Mono.sln
   - glxinfo
-after_script:
-  - mono --debug --profile=log:coverage,covfilter=+OpenGL,covfilter=-OpenGL.Tests "packages/NUnit.ConsoleRunner.3.7.0/tools/nunit3-console.exe" "OpenGL.Net.Test\bin\net461\Release\OpenGL.Net.Test.dll" -parallel none
-  - mprof-report --reports=coverage --coverage-out=coverage.xml output.mlpd
-  - bash <(curl -s https://codecov.io/bash) -F net461_Linux
+#after_script:
+#  - mono --debug --profile=log:coverage,covfilter=+OpenGL,covfilter=-OpenGL.Tests "packages/NUnit.ConsoleRunner.3.7.0/tools/nunit3-console.exe" "OpenGL.Net.Test\bin\net461\Release\OpenGL.Net.Test.dll" -parallel none
+#  - mprof-report --reports=coverage --coverage-out=coverage.xml output.mlpd
+#  - bash <(curl -s https://codecov.io/bash) -F net461_Linux
