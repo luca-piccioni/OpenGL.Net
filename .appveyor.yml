@@ -10,7 +10,7 @@ init:
 
 environment:
   global:
-    SLN_BUILD_OPTS: /verbosity:quiet /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+    SLN_BUILD_OPTS: /nologo /verbosity:quiet /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
   matrix:
     - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
       SLN_PATH: OpenGL.Net_VC14.sln
@@ -72,12 +72,6 @@ test_script:
   - cmd: msbuild OpenGL.Net.CoreUI.Test\OpenGL.Net.CoreUI.Test_net461.csproj %SLN_BUILD_OPTS% /t:UnitTest /p:NUnitConsole=nunit3-console /p:NUnitResultFormat=;format=AppVeyor /p:Configuration=Debug /p:Platform="x64"
 
 after_test:
-  - ps: |
-      $tstFiles = Get-ChildItem -Name -Path .\ -Include Tst*.xml
-      $wc = New-Object 'System.Net.WebClient'
-      for ($i=0; $i -lt $tstFiles.Count; $i++) {
-        $wc.UploadFile("https://ci.appveyor.com/api/testresults/nunit3/$($env:APPVEYOR_JOB_ID)", (Resolve-Path $tstFiles[$i]))
-      }
   - cmd: msbuild OpenGL.Net.Test\OpenGL.Net.Test_net461.csproj %SLN_BUILD_OPTS% /t:Coverage /p:Configuration=Release /p:Platform="x86"
   - cmd: msbuild OpenGL.Net.Test\OpenGL.Net.Test_net461.csproj %SLN_BUILD_OPTS% /t:Coverage /p:Configuration=Release /p:Platform="x64"
   - cmd: msbuild OpenGL.Net.Test\OpenGL.Net.Test_net461.csproj %SLN_BUILD_OPTS% /t:Coverage /p:Configuration=Debug /p:Platform="x86"
@@ -98,7 +92,9 @@ after_test:
         $idx = $covFile.IndexOf("_")
         $covPlatform = $covFile.SubString(3, 3)
         $covFilter =  $covPlatform + "_" + $covFile.SubString($idx + 1).TrimEnd(".xml")
-        & codecov -f $covFile -F $covFilter
+        $command = "codecov -f " + $covFile + " -F " + $covFilter
+        Out-Host -InputObject $command
+        & $command
       }
   - IF "%PUBLISH_NUGET%"=="true" nuget pack OpenGL.Net.nuspec -Version %APPVEYOR_BUILD_VERSION%
   - IF "%PUBLISH_NUGET%"=="true" nuget pack OpenGL.Net.Math.nuspec -Version %APPVEYOR_BUILD_VERSION%
