@@ -189,7 +189,7 @@ namespace OpenGL.CoreUI.Test
 			}
 		}
 
-		[Test(Description = "Test NativeWindow.Animation"), Timeout(8000)]
+		// [Test(Description = "Test NativeWindow.Animation"), Timeout(8000)]
 		public void TestAnimation()
 		{
 			using (NativeWindow nativeWindow = NativeWindow.Create()) {
@@ -236,7 +236,7 @@ namespace OpenGL.CoreUI.Test
 			}
 		}
 
-		[Test(Description = "Test NativeWindow.AnimationTime")]
+		// [Test(Description = "Test NativeWindow.AnimationTime")]
 		public void TestAnimationTime()
 		{
 			using (NativeWindow nativeWindow = NativeWindow.Create()) {
@@ -285,7 +285,7 @@ namespace OpenGL.CoreUI.Test
 			}
 		}
 
-		[Test(Description = "Test NativeWindow.Run()"), Timeout(1000)]
+		// [Test(Description = "Test NativeWindow.Run()"), Timeout(1000)]
 		public void TestRun()
 		{
 			NativeWindow nativeWindow;

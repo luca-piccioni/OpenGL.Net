@@ -32,6 +32,18 @@ namespace OpenGL.CoreUI
 	/// </summary>
 	public abstract class NativeWindow : IDisposable
 	{
+		#region Constructors
+
+		/// <summary>
+		/// Static constructor.
+		/// </summary>
+		static NativeWindow()
+		{
+			Gl.Initialize();
+		}
+
+		#endregion
+
 		#region Factory
 
 		/// <summary>
