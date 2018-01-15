@@ -60,30 +60,18 @@ test: off
 test_script:
   - cmd: msbuild OpenGL.Net.Test\OpenGL.Net.Test_net461.csproj %SLN_BUILD_OPTS% /t:UnitTest /p:NUnitConsole=nunit3-console /p:NUnitResultFormat=;format=AppVeyor /p:Configuration=Release /p:Platform="x86"
   - cmd: msbuild OpenGL.Net.Test\OpenGL.Net.Test_net461.csproj %SLN_BUILD_OPTS% /t:UnitTest /p:NUnitConsole=nunit3-console /p:NUnitResultFormat=;format=AppVeyor /p:Configuration=Release /p:Platform="x64"
-  - cmd: msbuild OpenGL.Net.Test\OpenGL.Net.Test_net461.csproj %SLN_BUILD_OPTS% /t:UnitTest /p:NUnitConsole=nunit3-console /p:NUnitResultFormat=;format=AppVeyor /p:Configuration=Debug /p:Platform="x86"
-  - cmd: msbuild OpenGL.Net.Test\OpenGL.Net.Test_net461.csproj %SLN_BUILD_OPTS% /t:UnitTest /p:NUnitConsole=nunit3-console /p:NUnitResultFormat=;format=AppVeyor /p:Configuration=Debug /p:Platform="x64"
   - cmd: msbuild OpenGL.Net.Test\OpenGL.Net.Test_net35.csproj %SLN_BUILD_OPTS% /t:UnitTest /p:NUnitConsole=nunit3-console /p:NUnitResultFormat=;format=AppVeyor /p:Configuration=Release /p:Platform="x86"
   - cmd: msbuild OpenGL.Net.Test\OpenGL.Net.Test_net35.csproj %SLN_BUILD_OPTS% /t:UnitTest /p:NUnitConsole=nunit3-console /p:NUnitResultFormat=;format=AppVeyor /p:Configuration=Release /p:Platform="x64"
-  - cmd: msbuild OpenGL.Net.Test\OpenGL.Net.Test_net35.csproj %SLN_BUILD_OPTS% /t:UnitTest /p:NUnitConsole=nunit3-console /p:NUnitResultFormat=;format=AppVeyor /p:Configuration=Debug /p:Platform="x86"
-  - cmd: msbuild OpenGL.Net.Test\OpenGL.Net.Test_net35.csproj %SLN_BUILD_OPTS% /t:UnitTest /p:NUnitConsole=nunit3-console /p:NUnitResultFormat=;format=AppVeyor /p:Configuration=Debug /p:Platform="x64"
   - cmd: msbuild OpenGL.Net.CoreUI.Test\OpenGL.Net.CoreUI.Test_net461.csproj %SLN_BUILD_OPTS% /t:UnitTest /p:NUnitConsole=nunit3-console /p:NUnitResultFormat=;format=AppVeyor /p:Configuration=Release /p:Platform="x86"
   - cmd: msbuild OpenGL.Net.CoreUI.Test\OpenGL.Net.CoreUI.Test_net461.csproj %SLN_BUILD_OPTS% /t:UnitTest /p:NUnitConsole=nunit3-console /p:NUnitResultFormat=;format=AppVeyor /p:Configuration=Release /p:Platform="x64"
-  - cmd: msbuild OpenGL.Net.CoreUI.Test\OpenGL.Net.CoreUI.Test_net461.csproj %SLN_BUILD_OPTS% /t:UnitTest /p:NUnitConsole=nunit3-console /p:NUnitResultFormat=;format=AppVeyor /p:Configuration=Debug /p:Platform="x86"
-  - cmd: msbuild OpenGL.Net.CoreUI.Test\OpenGL.Net.CoreUI.Test_net461.csproj %SLN_BUILD_OPTS% /t:UnitTest /p:NUnitConsole=nunit3-console /p:NUnitResultFormat=;format=AppVeyor /p:Configuration=Debug /p:Platform="x64"
 
 after_test:
   - cmd: msbuild OpenGL.Net.Test\OpenGL.Net.Test_net461.csproj %SLN_BUILD_OPTS% /t:Coverage /p:Configuration=Release /p:Platform="x86"
   - cmd: msbuild OpenGL.Net.Test\OpenGL.Net.Test_net461.csproj %SLN_BUILD_OPTS% /t:Coverage /p:Configuration=Release /p:Platform="x64"
-  - cmd: msbuild OpenGL.Net.Test\OpenGL.Net.Test_net461.csproj %SLN_BUILD_OPTS% /t:Coverage /p:Configuration=Debug /p:Platform="x86"
-  - cmd: msbuild OpenGL.Net.Test\OpenGL.Net.Test_net461.csproj %SLN_BUILD_OPTS% /t:Coverage /p:Configuration=Debug /p:Platform="x64"
   - cmd: msbuild OpenGL.Net.Test\OpenGL.Net.Test_net35.csproj %SLN_BUILD_OPTS% /t:Coverage /p:Configuration=Release /p:Platform="x86"
   - cmd: msbuild OpenGL.Net.Test\OpenGL.Net.Test_net35.csproj %SLN_BUILD_OPTS% /t:Coverage /p:Configuration=Release /p:Platform="x64"
-  - cmd: msbuild OpenGL.Net.Test\OpenGL.Net.Test_net35.csproj %SLN_BUILD_OPTS% /t:Coverage /p:Configuration=Debug /p:Platform="x86"
-  - cmd: msbuild OpenGL.Net.Test\OpenGL.Net.Test_net35.csproj %SLN_BUILD_OPTS% /t:Coverage /p:Configuration=Debug /p:Platform="x64"
   - cmd: msbuild OpenGL.Net.CoreUI.Test\OpenGL.Net.CoreUI.Test_net461.csproj %SLN_BUILD_OPTS% /t:Coverage /p:Configuration=Release /p:Platform="x86"
   - cmd: msbuild OpenGL.Net.CoreUI.Test\OpenGL.Net.CoreUI.Test_net461.csproj %SLN_BUILD_OPTS% /t:Coverage /p:Configuration=Release /p:Platform="x64"
-  - cmd: msbuild OpenGL.Net.CoreUI.Test\OpenGL.Net.CoreUI.Test_net461.csproj %SLN_BUILD_OPTS% /t:Coverage /p:Configuration=Debug /p:Platform="x86"
-  - cmd: msbuild OpenGL.Net.CoreUI.Test\OpenGL.Net.CoreUI.Test_net461.csproj %SLN_BUILD_OPTS% /t:Coverage /p:Configuration=Debug /p:Platform="x64"
   - pip install codecov
   - ps: |
       $covFiles = Get-ChildItem -Filter cov*.xml
