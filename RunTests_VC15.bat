@@ -6,7 +6,7 @@ cd %CWD%
 @SET SLN_PATH=OpenGL.Net_VC15.sln
 @SET SLN_BUILD_OPTS=/verbosity:minimal
 
-.\nuget.exe restore %SLN_PATH%
+dotnet restore %SLN_PATH%
 
 msbuild %SLN_PATH% %SLN_BUILD_OPTS% /property:Configuration=Release /p:Platform="Any CPU"
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR

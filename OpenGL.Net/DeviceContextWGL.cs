@@ -298,8 +298,8 @@ namespace OpenGL
 				[DllImport("user32.dll", SetLastError = true)]
 				internal static extern bool DestroyWindow(IntPtr hWnd);
 
-				//[DllImport("Kernel32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
-				//internal static extern IntPtr GetModuleHandle(string lpModuleName);
+				[DllImport("Kernel32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
+				internal static extern IntPtr GetModuleHandle(string lpModuleName);
 			}
 
 			private static IntPtr WindowsWndProc(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
