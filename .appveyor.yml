@@ -97,6 +97,7 @@ after_test:
   - IF "%PUBLISH_NUGET%"=="true" nuget pack OpenGL.Net.CoreProfile.nuspec -Version %APPVEYOR_BUILD_VERSION%
   - IF "%PUBLISH_NUGET%"=="true" nuget pack OpenGL.Net.ES2Profile.nuspec -Version %APPVEYOR_BUILD_VERSION%
   - IF "%PUBLISH_NUGET%"=="true" nuget pack OpenGL.Net.CoreUI.nuspec -Version %APPVEYOR_BUILD_VERSION%
+#  - IF "%PUBLISH_NUGET%"=="true" nuget pack OpenGL.Net.Objects.nuspec -Version %APPVEYOR_BUILD_VERSION%
 
 artifacts:
   - path: '*.nupkg'
