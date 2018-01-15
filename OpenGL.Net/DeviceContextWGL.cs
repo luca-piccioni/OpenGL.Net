@@ -298,8 +298,8 @@ namespace OpenGL
 				[DllImport("user32.dll", SetLastError = true)]
 				internal static extern bool DestroyWindow(IntPtr hWnd);
 
-				[DllImport("Kernel32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
-				internal static extern IntPtr GetModuleHandle(string lpModuleName);
+				//[DllImport("Kernel32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
+				//internal static extern IntPtr GetModuleHandle(string lpModuleName);
 			}
 
 			private static IntPtr WindowsWndProc(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
@@ -849,13 +849,8 @@ namespace OpenGL
 				if (_PixelFormatCache != null)
 					return _PixelFormatCache;
 
-				// Query WGL extensions
-				Wgl.Extensions wglExtensions = new Wgl.Extensions();
-
-				wglExtensions.Query(this);
-
 				// Query pixel formats
-				_PixelFormatCache = wglExtensions.PixelFormat_ARB ? GetPixelFormats_ARB_pixel_format(wglExtensions) : GetPixelFormats_Win32();
+				_PixelFormatCache = Wgl.CurrentExtensions != null && Wgl.CurrentExtensions.PixelFormat_ARB ? GetPixelFormats_ARB_pixel_format(Wgl.CurrentExtensions) : GetPixelFormats_Win32();
 
 				return _PixelFormatCache;
 			}
@@ -1040,6 +1035,9 @@ namespace OpenGL
 		/// </param>
 		public override void ChoosePixelFormat(DevicePixelFormat pixelFormat)
 		{
+			if (pixelFormat == null)
+				throw new ArgumentNullException(nameof(pixelFormat));
+
 			if (IsPixelFormatSet)
 				throw new InvalidOperationException("pixel format already set");
 
@@ -1067,7 +1065,6 @@ namespace OpenGL
 				throw new ArgumentNullException(nameof(pixelFormat));
 
 			List<int> attribIList = new List<int>();
-			List<float> attribFList = new List<float>();
 			uint[] countFormatAttribsValues = new uint[1];
 			int[] choosenFormats = new int[4];
 
@@ -1090,11 +1087,11 @@ namespace OpenGL
 				attribIList.AddRange(new[] { Wgl.STENCIL_BITS_ARB, pixelFormat.StencilBits });
 
 			if (pixelFormat.DoubleBuffer)
-				attribIList.AddRange(new[] { Wgl.DOUBLE_BUFFER_ARB, pixelFormat.StencilBits });
+				attribIList.AddRange(new[] { Wgl.DOUBLE_BUFFER_ARB, 1 });
 			attribIList.Add(0);
 
 			// Let choose pixel formats
-			if (!Wgl.ChoosePixelFormatARB(deviceContext, attribIList.ToArray(), attribFList.ToArray(), (uint)choosenFormats.Length, choosenFormats, countFormatAttribsValues))
+			if (!Wgl.ChoosePixelFormatARB(deviceContext, attribIList.ToArray(), new List<float>().ToArray(), (uint)choosenFormats.Length, choosenFormats, countFormatAttribsValues))
 				throw new InvalidOperationException("unable to choose pixel format", GetPlatformExceptionCore());
 
 			return choosenFormats[0];

@@ -728,8 +728,6 @@ namespace OpenGL
 		{
 			if (!disposing)
 				return;
-
-			Debug.Assert(GetCurrentContext() == IntPtr.Zero, "leaving a context current");
 			// Mark as disposed
 			IsDisposed = true;
 		}
