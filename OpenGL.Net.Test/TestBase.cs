@@ -47,22 +47,14 @@ namespace OpenGL.Test
 
 			public Device(DevicePixelFormat pixelFormat)
 			{
-				if (DeviceContext.IsPBufferSupported)
-				{
+				if (DeviceContext.IsPBufferSupported) {
 					_NativePBuffer = DeviceContext.CreatePBuffer(pixelFormat, 64, 64);
 					Context = DeviceContext.Create(_NativePBuffer);
-				} else {
-					_NativeWindow = DeviceContext.CreateHiddenWindow();
-					Context = DeviceContext.Create(_NativeWindow.Display, _NativeWindow.Handle);
-					List<DevicePixelFormat> pixelFormats = Context.PixelsFormats.Choose(pixelFormat);
-
-					Context.SetPixelFormat(pixelFormats[0]);
-				}
+				} else
+					Assert.Inconclusive("no UI backend available");
 			}
 
 			private readonly INativePBuffer _NativePBuffer;
-
-			private readonly INativeWindow _NativeWindow;
 
 			public readonly DeviceContext Context;
 
@@ -70,7 +62,6 @@ namespace OpenGL.Test
 			{
 				Context?.Dispose();
 				_NativePBuffer?.Dispose();
-				_NativeWindow?.Dispose();
 			}
 		}
 

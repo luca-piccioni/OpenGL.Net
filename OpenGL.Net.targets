@@ -5,7 +5,7 @@
     
     <PropertyGroup>
         <NUnitConsole>$(ProjectDir)..\packages\NUnit.ConsoleRunner.3.7.0\tools\nunit3-console.exe</NUnitConsole>
-        <NUnitOptions>--where="cat=EGL||cat=WGL||cat=Math||cat=Framework||cat=Toolkit_CoreUI" --noheader --labels=All</NUnitOptions>
+        <NUnitOptions>--where="cat=GL||cat=GL_VERSION_1_0||cat=EGL||cat=WGL||cat=Math||cat=Framework||cat=Toolkit_CoreUI" --noheader --labels=All --workers=1</NUnitOptions>
         <NUnitResultFormat /> <!-- ;format=AppVeyor -->
         <NUnitResult>--result=$(ProjectDir)..\Tst$(OPENGL_NET_PLATFORM)$(ProjectName)_$(Platform)_$(Configuration).xml$(NUnitResultFormat)</NUnitResult>
     </PropertyGroup>
@@ -16,7 +16,7 @@
     <PropertyGroup>
         <OpenCoverConsole>$(ProjectDir)..\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe</OpenCoverConsole>
         <OpenCoverOptions>-register:user -target:"$(NUnitConsole)" -hideskipped:All -excludebyattribute:*.RequiredByFeature*</OpenCoverOptions>
-        <OpenCoverTargetArgs>-targetargs:"$(TargetPath) --where=cat=EGL||cat=WGL||cat=Math||cat=Framework||cat=Toolkit_CoreUI --noheader --noresult"</OpenCoverTargetArgs>
+        <OpenCoverTargetArgs>-targetargs:"$(TargetPath) --where=cat=GL||cat=GL_VERSION_1_0||EGL||cat=WGL||cat=Math||cat=Framework||cat=Toolkit_CoreUI --noheader --noresult"</OpenCoverTargetArgs>
         <OpenCoverResult>-output:$(ProjectDir)..\Cov$(OPENGL_NET_PLATFORM)$(ProjectName)_$(Platform)_$(Configuration).xml</OpenCoverResult>
     </PropertyGroup>
     <Target Name="Coverage">

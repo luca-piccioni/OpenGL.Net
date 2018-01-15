@@ -457,7 +457,7 @@ namespace OpenGL.Test
 			}
 		}
 
-		private void DeviceContext_GetCurrentContext_Core()
+		private static void DeviceContext_GetCurrentContext_Core()
 		{
 			using (DeviceContext deviceContext = DeviceContext.Create()) {
 				if (deviceContext.IsPixelFormatSet == false)
@@ -483,10 +483,70 @@ namespace OpenGL.Test
 			}
 		}
 
+		[Test(Description = "Test DeleteContext(IntPtr)")]
+		public void DeviceContext_DeleteContext()
+		{
+			EnsurePlatform();
+			DeviceContext_DeleteContext_Core();
+		}
+
+		[Test(Description = "Test DeleteContext(IntPtr) [EGL]")]
+		public void DeviceContext_DeleteContext_EGL()
+		{
+			EnsureEGL();
+			try {
+				DeviceContext_DeleteContext_Core();
+			} finally {
+				Egl.IsRequired = false;
+			}
+		}
+
+		private void DeviceContext_DeleteContext_Core()
+		{
+			using (Device device = new Device())
+				Assert.Throws<ArgumentException>(() => device.Context.DeleteContext(IntPtr.Zero));
+		}
+
+		// P-Buffer backend has pixel format already set...
+		//[Test(Description = "Test ChoosePixelFormat()")]
+		//public void DeviceContext_ChoosePixelFormat()
+		//{
+		//	EnsurePlatform();
+		//	DeviceContext_ChoosePixelFormat_Core();
+		//}
+
+		//[Test(Description = "Test ChoosePixelFormat() [EGL]")]
+		//public void DeviceContext_ChoosePixelFormat_EGL()
+		//{
+		//	EnsureEGL();
+		//	try {
+		//		DeviceContext_ChoosePixelFormat_Core();
+		//	} finally {
+		//		Egl.IsRequired = false;
+		//	}
+		//}
+
+		//private void DeviceContext_ChoosePixelFormat_Core()
+		//{
+		//	using (Device device = new Device()) {
+		//		Assert.Throws<ArgumentNullException>(() => device.Context.ChoosePixelFormat(null));
+		//	}
+		//}
+
 		#region Common
 
 		private static void EnsurePlatform()
 		{
+#if !MONODROID
+			// Determine whether use EGL as device context backend
+			if (Egl.IsAvailable) {
+				// Explict initialization? WGL backend is not available
+				string envPlatform = Environment.GetEnvironmentVariable("OPENGL_NET_PLATFORM");
+				if (envPlatform != null && envPlatform == "EGL")
+					Assert.Inconclusive("WGL not available when OPENGL_NET_PLATFORM=EGL");
+			}
+#endif
+
 			// Ensure running without EGL
 			Egl.IsRequired = false;
 			if (Egl.IsRequired)
