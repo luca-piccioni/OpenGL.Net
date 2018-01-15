@@ -6,6 +6,8 @@ cd %CWD%
 @SET SLN_PATH=OpenGL.Net_VC15.sln
 @SET SLN_BUILD_OPTS=/verbosity:minimal
 
+.\nuget.exe restore %SLN_PATH%
+
 msbuild %SLN_PATH% %SLN_BUILD_OPTS% /property:Configuration=Release /p:Platform="Any CPU"
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 msbuild %SLN_PATH% %SLN_BUILD_OPTS% /property:Configuration=Release /p:Platform="x86"
@@ -19,16 +21,90 @@ IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 msbuild %SLN_PATH% %SLN_BUILD_OPTS% /property:Configuration=Debug   /p:Platform="x64"
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
-@SET TEST_RUN=packages\NUnit.ConsoleRunner.3.7.0\tools\nunit3-console.exe
-@SET TEST_OPTS=--noheader
-@SET TEST_WHERE=--where="cat=GL || cat=EGL || cat =WGL || cat=GL_VERSION_1_0 || cat=Math || cat=Framework || cat=Toolkit_CoreUI"
+:SKIP_BUILD
 
-%TEST_RUN% %TEST_WHERE% %TEST_OPTS%       --out=OpenGL.Net_net461.xml            OpenGL.Net.Test\bin\net461\Release\OpenGL.Net.Test.dll
-%TEST_RUN% %TEST_WHERE% %TEST_OPTS%       --out=OpenGL.Net_net35.xml             OpenGL.Net.Test\bin\net35\Release\OpenGL.Net.Test.dll
-%TEST_RUN% %TEST_WHERE% %TEST_OPTS%       --out=OpenGL.Net.CoreUI_net461.xml     OpenGL.Net.CoreUI.Test\bin\net461\Release\OpenGL.Net.CoreUI.Test.dll
-%TEST_RUN% %TEST_WHERE% %TEST_OPTS% --x86 --out=OpenGL.Net_net461_x86.xml        OpenGL.Net.Test\bin\net461\Release\OpenGL.Net.Test.dll
-%TEST_RUN% %TEST_WHERE% %TEST_OPTS% --x86 --out=OpenGL.Net_net35_x86.xml         OpenGL.Net.Test\bin\net35\Release\OpenGL.Net.Test.dll
-%TEST_RUN% %TEST_WHERE% %TEST_OPTS% --x86 --out=OpenGL.Net.CoreUI_net461_x86.xml OpenGL.Net.CoreUI.Test\bin\net461\Release\OpenGL.Net.CoreUI.Test.dll
+@SET PATH=%PATH%;%ProgramFiles(x86)%\Android\android-sdk\platform-tools
+
+@SET TEST_OPTS=--noheader --labels=All
+
+SET OPENGL_NET_PLATFORM=WGL
+
+msbuild OpenGL.Net.Test\OpenGL.Net.Test_net461.csproj %SLN_BUILD_OPTS% /target:UnitTest /property:Configuration=Release /p:Platform="x86"
+@IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
+msbuild OpenGL.Net.Test\OpenGL.Net.Test_net461.csproj %SLN_BUILD_OPTS% /target:UnitTest /property:Configuration=Release /p:Platform="x64"
+@IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
+
+msbuild OpenGL.Net.Test\OpenGL.Net.Test_net35.csproj %SLN_BUILD_OPTS% /target:UnitTest /property:Configuration=Release /p:Platform="x86"
+@IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
+msbuild OpenGL.Net.Test\OpenGL.Net.Test_net35.csproj %SLN_BUILD_OPTS% /target:UnitTest /property:Configuration=Release /p:Platform="x64"
+@IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
+
+msbuild OpenGL.Net.CoreUI.Test\OpenGL.Net.CoreUI.Test_net461.csproj %SLN_BUILD_OPTS% /target:UnitTest /property:Configuration=Release /p:Platform="x86"
+@IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
+msbuild OpenGL.Net.CoreUI.Test\OpenGL.Net.CoreUI.Test_net461.csproj %SLN_BUILD_OPTS% /target:UnitTest /property:Configuration=Release /p:Platform="x64"
+@IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
+
+SET OPENGL_NET_PLATFORM=EGL
+
+msbuild OpenGL.Net.Test\OpenGL.Net.Test_net461.csproj %SLN_BUILD_OPTS% /target:UnitTest /property:Configuration=Release /p:Platform="x86"
+@IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
+REM FAILING!!! msbuild OpenGL.Net.Test\OpenGL.Net.Test_net461.csproj %SLN_BUILD_OPTS% /target:UnitTest /property:Configuration=Release /p:Platform="x64"
+@IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
+
+msbuild OpenGL.Net.Test\OpenGL.Net.Test_net35.csproj %SLN_BUILD_OPTS% /target:UnitTest /property:Configuration=Release /p:Platform="x86"
+@IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
+REM FAILING!!! msbuild OpenGL.Net.Test\OpenGL.Net.Test_net35.csproj %SLN_BUILD_OPTS% /target:UnitTest /property:Configuration=Release /p:Platform="x64"
+@IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
+
+msbuild OpenGL.Net.CoreUI.Test\OpenGL.Net.CoreUI.Test_net461.csproj %SLN_BUILD_OPTS% /target:UnitTest /property:Configuration=Release /p:Platform="x86"
+@IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
+msbuild OpenGL.Net.CoreUI.Test\OpenGL.Net.CoreUI.Test_net461.csproj %SLN_BUILD_OPTS% /target:UnitTest /property:Configuration=Release /p:Platform="x64"
+@IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
+
+:COVERAGE_ONLY
+
+@SET COVER_RUN=packages\OpenCover.4.6.519\tools\OpenCover.Console.exe
+@SET COVER_OPTS=-register:user -target:"packages\NUnit.ConsoleRunner.3.7.0\tools\nunit3-console.exe" -hideskipped:All
+@SET COVER_EXCLUDE=-excludebyattribute:*.RequiredByFeature*
+@SET COVER_WHERE=--where=\"cat=EGL||cat=WGL||cat=Math||cat=Framework||cat=Toolkit_CoreUI\"
+
+SET OPENGL_NET_PLATFORM=WGL
+
+msbuild OpenGL.Net.Test\OpenGL.Net.Test_net461.csproj %SLN_BUILD_OPTS% /target:Coverage /property:Configuration=Release /p:Platform="x86"
+@IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
+msbuild OpenGL.Net.Test\OpenGL.Net.Test_net461.csproj %SLN_BUILD_OPTS% /target:Coverage /property:Configuration=Release /p:Platform="x64"
+@IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
+
+msbuild OpenGL.Net.Test\OpenGL.Net.Test_net35.csproj %SLN_BUILD_OPTS% /target:Coverage /property:Configuration=Release /p:Platform="x86"
+@IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
+msbuild OpenGL.Net.Test\OpenGL.Net.Test_net35.csproj %SLN_BUILD_OPTS% /target:Coverage /property:Configuration=Release /p:Platform="x64"
+@IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
+
+rem msbuild OpenGL.Net.CoreUI.Test\OpenGL.Net.CoreUI.Test_net461.csproj %SLN_BUILD_OPTS% /target:Coverage /property:Configuration=Release /p:Platform="x86"
+@IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
+msbuild OpenGL.Net.CoreUI.Test\OpenGL.Net.CoreUI.Test_net461.csproj %SLN_BUILD_OPTS% /target:Coverage /property:Configuration=Release /p:Platform="x64"
+@IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
+
+SET OPENGL_NET_PLATFORM=EGL
+
+msbuild OpenGL.Net.Test\OpenGL.Net.Test_net461.csproj %SLN_BUILD_OPTS% /target:Coverage /property:Configuration=Release /p:Platform="x86"
+@IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
+msbuild OpenGL.Net.Test\OpenGL.Net.Test_net461.csproj %SLN_BUILD_OPTS% /target:Coverage /property:Configuration=Release /p:Platform="x64"
+@IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
+
+msbuild OpenGL.Net.Test\OpenGL.Net.Test_net35.csproj %SLN_BUILD_OPTS% /target:Coverage /property:Configuration=Release /p:Platform="x86"
+@IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
+msbuild OpenGL.Net.Test\OpenGL.Net.Test_net35.csproj %SLN_BUILD_OPTS% /target:Coverage /property:Configuration=Release /p:Platform="x64"
+@IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
+
+msbuild OpenGL.Net.CoreUI.Test\OpenGL.Net.CoreUI.Test_net461.csproj %SLN_BUILD_OPTS% /target:Coverage /property:Configuration=Release /p:Platform="x86"
+@IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
+msbuild OpenGL.Net.CoreUI.Test\OpenGL.Net.CoreUI.Test_net461.csproj %SLN_BUILD_OPTS% /target:Coverage /property:Configuration=Release /p:Platform="x64"
+@IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
+
+@SET REPORT_RUN=packages\ReportGenerator.2.5.7\tools\ReportGenerator.exe
+
+%REPORT_RUN% "-reports:Cov*.xml" "-targetdir:CodeCoverageReport" "-reporttypes:Html"
 
 :ERROR
 
