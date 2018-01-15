@@ -307,3 +307,5 @@ dds.cr.usgs.gov
 /ANGLE
 /nuget.exe
 /nuget-push.bat
+/*.xml
+/CodeCoverageReport
