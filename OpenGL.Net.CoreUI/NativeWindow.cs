@@ -1078,6 +1078,32 @@ namespace OpenGL.CoreUI
 		#region Mouse
 
 		/// <summary>
+		/// Mouse has been moved inside the window.
+		/// </summary>
+		public event EventHandler<NativeWindowMouseEventArgs> MouseEnter;
+
+		/// <summary>
+		/// Raise the event <see cref="MouseEnter"/>.
+		/// </summary>
+		protected virtual void OnMouseEnter(Point location, MouseButton buttons)
+		{
+			MouseEnter?.Invoke(this, new NativeWindowMouseEventArgs(_DeviceContext, _RenderContext, location, buttons));
+		}
+
+		/// <summary>
+		/// Mouse has been moved outside the window.
+		/// </summary>
+		public event EventHandler<NativeWindowEventArgs> MouseLeave;
+
+		/// <summary>
+		/// Raise the event <see cref="MouseLeave"/>.
+		/// </summary>
+		protected virtual void OnMouseLeave()
+		{
+			MouseLeave?.Invoke(this, new NativeWindowEventArgs(_DeviceContext, _RenderContext));
+		}
+
+		/// <summary>
 		/// Mouse has been moved over the window.
 		/// </summary>
 		public event EventHandler<NativeWindowMouseEventArgs> MouseMove;

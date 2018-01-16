@@ -19,6 +19,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+// ReSharper disable UnusedMember.Local
+// ReSharper disable InconsistentNaming
+
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -72,6 +75,8 @@ namespace OpenGL.CoreUI
 				case WM.KEYUP:
 					return (WindowsWndProc_KEYUP(hWnd, msg, wParam, lParam));
 
+				case WM.MOUSELEAVE:
+					return (WindowsWndProc_MOUSELEAVE(hWnd, msg, wParam, lParam));
 				case WM.MOUSEMOVE:
 					return (WindowsWndProc_MOUSEMOVE(hWnd, msg, wParam, lParam));
 				case WM.LBUTTONDOWN:
@@ -185,9 +190,37 @@ namespace OpenGL.CoreUI
 			return (IntPtr.Zero);
 		}
 
+		private IntPtr WindowsWndProc_MOUSELEAVE(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
+		{
+			// Next mouse event can track again mouse leave
+			_TrackingMouseLeave = false;
+
+			OnMouseLeave();
+
+			return (IntPtr.Zero);
+		}
+
+		/// <summary>
+		/// Flag indicating whether the system is tracking the mouse leave.
+		/// </summary>
+		private bool _TrackingMouseLeave;
+
 		private IntPtr WindowsWndProc_MOUSEMOVE(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
 		{
-			OnMouseMove(WindowsWndProc_GetMouseLocation(lParam), WindowsWndProc_GetMouseButtons(wParam));
+			Point mouseLocation = WindowsWndProc_GetMouseLocation(lParam);
+			MouseButton mouseButton = WindowsWndProc_GetMouseButtons(wParam);
+
+			if (_TrackingMouseLeave == false) {
+				// Emulates 'WM_MOUSEENTER'
+				OnMouseEnter(mouseLocation, mouseButton);
+				// Keep tracking WM_MOUSELEAVE
+				TRACKMOUSEEVENT tme = new TRACKMOUSEEVENT(TME.LEAVE, hWnd);
+				_TrackingMouseLeave = UnsafeNativeMethods.TrackMouseEvent(ref tme);
+				Debug.Assert(_TrackingMouseLeave, new Win32Exception(Marshal.GetLastWin32Error()).Message);
+			}
+
+			// Note: WM_MOUSEMOVE is execute just after 'WM_MOUSEENTER'
+			OnMouseMove(mouseLocation, mouseButton);
 
 			return (IntPtr.Zero);
 		}
@@ -2341,6 +2374,41 @@ namespace OpenGL.CoreUI
 			}
 		}
 
+		[Flags]
+		private enum TME : uint
+		{
+			CANCEL = 0x80000000,
+			HOVER = 0x00000001,
+			LEAVE = 0x00000002,
+			NONCLIENT = 0x00000010,
+			QUERY = 0x40000000
+		}
+
+		[StructLayout(LayoutKind.Sequential)]
+		private struct TRACKMOUSEEVENT
+		{
+			/// <summary>
+			/// 
+			/// </summary>
+			/// <param name="flags"></param>
+			/// <param name="hwndTrack"></param>
+			public TRACKMOUSEEVENT(TME flags, IntPtr hwndTrack)
+			{
+				Size = Marshal.SizeOf(typeof(TRACKMOUSEEVENT));
+				Flags = flags;
+				HwndTrack = hwndTrack;
+				HoverTime = unchecked((int)0xFFFFFFFF);		// HOVER_DEFAULT
+			}
+
+			public int Size;
+
+			public TME Flags;
+
+			public IntPtr HwndTrack;
+
+			public int HoverTime;
+		}
+
 		private unsafe static partial class UnsafeNativeMethods
 		{
 			// CLASS STYLE
@@ -2428,6 +2496,9 @@ namespace OpenGL.CoreUI
 
 			[DllImport("user32.dll", SetLastError = false)]
 			public static extern void PostQuitMessage(int nExitCode);
+
+			[DllImport("user32.dll", SetLastError = true)]
+			public static extern bool TrackMouseEvent(ref TRACKMOUSEEVENT lpEventTrack);
 		}
 
 		#endregion
