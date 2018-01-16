@@ -62,7 +62,7 @@ namespace OpenGL.CoreUI
 		/// <summary>
 		/// Tests whether this Size structure has width and height of 0.
 		/// </summary>
-		public bool IsEmpty { get { return (Width == 0 && Height == 0); } }
+		public bool IsEmpty { get { return Width == 0 && Height == 0; } }
 
 		#endregion
 
@@ -85,7 +85,7 @@ namespace OpenGL.CoreUI
 		/// <returns></returns>
 		public static bool operator ==(Size v1, Size v2)
 		{
-			return (v1.Equals(v2));
+			return v1.Equals(v2);
 		}
 
 		/// <summary>
@@ -96,7 +96,7 @@ namespace OpenGL.CoreUI
 		/// <returns></returns>
 		public static bool operator !=(Size v1, Size v2)
 		{
-			return (!v1.Equals(v2));
+			return !v1.Equals(v2);
 		}
 
 		#endregion
@@ -114,7 +114,7 @@ namespace OpenGL.CoreUI
 		/// </returns>
 		public bool Equals(Size other)
 		{
-			return (Width == other.Width && Height == other.Height);
+			return Width == other.Width && Height == other.Height;
 		}
 
 		/// <summary>
@@ -129,11 +129,11 @@ namespace OpenGL.CoreUI
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
-				return (false);
+				return false;
 			if (obj.GetType() != typeof(Size))
-				return (false);
+				return false;
 			
-			return (Equals((Size)obj));
+			return Equals((Size)obj);
 		}
 
 		/// <summary>
@@ -165,7 +165,7 @@ namespace OpenGL.CoreUI
 		/// </returns>
 		public override string ToString()
 		{
-			return (String.Format("Size: {0}x{1}", Width, Height));
+			return String.Format("Size: {0}x{1}", Width, Height);
 		}
 
 		#endregion

@@ -85,7 +85,7 @@ namespace OpenGL.CoreUI
 		/// <summary>
 		/// Gets a value indicating whether this Point is empty.
 		/// </summary>
-		public bool IsEmpty { get { return (X == 0 && Y == 0); } }
+		public bool IsEmpty { get { return X == 0 && Y == 0; } }
 
 		#endregion
 
@@ -108,7 +108,7 @@ namespace OpenGL.CoreUI
 		/// <returns></returns>
 		public static bool operator ==(Point v1, Point v2)
 		{
-			return (v1.Equals(v2));
+			return v1.Equals(v2);
 		}
 
 		/// <summary>
@@ -119,7 +119,7 @@ namespace OpenGL.CoreUI
 		/// <returns></returns>
 		public static bool operator !=(Point v1, Point v2)
 		{
-			return (!v1.Equals(v2));
+			return !v1.Equals(v2);
 		}
 
 		#endregion
@@ -137,7 +137,7 @@ namespace OpenGL.CoreUI
 		/// </returns>
 		public bool Equals(Point other)
 		{
-			return (X == other.X && Y == other.Y);
+			return X == other.X && Y == other.Y;
 		}
 
 		/// <summary>
@@ -152,11 +152,11 @@ namespace OpenGL.CoreUI
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
-				return (false);
+				return false;
 			if (obj.GetType() != typeof(Point))
-				return (false);
+				return false;
 			
-			return (Equals((Point)obj));
+			return Equals((Point)obj);
 		}
 
 		/// <summary>
@@ -188,7 +188,7 @@ namespace OpenGL.CoreUI
 		/// </returns>
 		public override string ToString()
 		{
-			return (String.Format("Point: {0}x{1}", X, Y));
+			return String.Format("Point: {0}x{1}", X, Y);
 		}
 
 		#endregion

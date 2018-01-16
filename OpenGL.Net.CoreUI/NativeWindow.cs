@@ -59,7 +59,7 @@ namespace OpenGL.CoreUI
 		{
 			switch (Platform.CurrentPlatformId) {
 				case Platform.Id.WindowsNT:
-					return (new NativeWindowWinNT());
+					return new NativeWindowWinNT();
 				default:
 					throw new NotSupportedException();
 			}
@@ -121,7 +121,7 @@ namespace OpenGL.CoreUI
 		/// </summary>
 		public ProfileType ContextProfile
 		{
-			get { return (_ProfileType); }
+			get { return _ProfileType; }
 			set { _ProfileType = value; }
 		}
 
@@ -161,7 +161,7 @@ namespace OpenGL.CoreUI
 		/// </summary>
 		public AttributePermission DebugContext
 		{
-			get { return (_DebugContextBit); }
+			get { return _DebugContextBit; }
 			set { _DebugContextBit = value; }
 		}
 
@@ -175,7 +175,7 @@ namespace OpenGL.CoreUI
 		/// </summary>
 		public AttributePermission ForwardCompatibleContext
 		{
-			get { return (_ForwardCompatibleContextBit); }
+			get { return _ForwardCompatibleContextBit; }
 			set { _ForwardCompatibleContextBit = value; }
 		}
 
@@ -189,7 +189,7 @@ namespace OpenGL.CoreUI
 		/// </summary>
 		public AttributePermission RobustContext
 		{
-			get { return (_RobustContextBit); }
+			get { return _RobustContextBit; }
 			set { _RobustContextBit = value; }
 		}
 
@@ -207,7 +207,7 @@ namespace OpenGL.CoreUI
 		/// </summary>
 		public uint ColorBits
 		{
-			get { return (_ColorBits); }
+			get { return _ColorBits; }
 			set
 			{
 				_ColorBits = value;
@@ -224,7 +224,7 @@ namespace OpenGL.CoreUI
 		/// </summary>
 		public uint DepthBits
 		{
-			get { return (_DepthBits); }
+			get { return _DepthBits; }
 			set
 			{
 				_DepthBits = value;
@@ -241,7 +241,7 @@ namespace OpenGL.CoreUI
 		/// </summary>
 		public uint StencilBits
 		{
-			get { return (_StencilBits); }
+			get { return _StencilBits; }
 			set
 			{
 				_StencilBits = value;
@@ -258,7 +258,7 @@ namespace OpenGL.CoreUI
 		/// </summary>
 		public uint MultisampleBits
 		{
-			get { return (_MultisampleBits); }
+			get { return _MultisampleBits; }
 			set
 			{
 				_MultisampleBits = value;
@@ -275,7 +275,7 @@ namespace OpenGL.CoreUI
 		/// </summary>
 		public bool DoubleBuffer
 		{
-			get { return (_DoubleBuffer); }
+			get { return _DoubleBuffer; }
 			set
 			{
 				_DoubleBuffer = value;
@@ -295,7 +295,7 @@ namespace OpenGL.CoreUI
 		/// </summary>
 		public int SwapInterval
 		{
-			get { return (_SwapInterval); }
+			get { return _SwapInterval; }
 			set { _SwapInterval = value; }
 		}
 
@@ -320,9 +320,9 @@ namespace OpenGL.CoreUI
 				controlReqFormat.DepthBits = (int)DepthBits;
 				controlReqFormat.StencilBits = (int)StencilBits;
 				controlReqFormat.MultisampleBits = (int)MultisampleBits;
-				controlReqFormat.DoubleBuffer = DoubleBuffer && (_ProfileType != ProfileType.Embedded);     // DB not yet managed using ANGLE
+				controlReqFormat.DoubleBuffer = DoubleBuffer && _ProfileType != ProfileType.Embedded;     // DB not yet managed using ANGLE
 
-				return (controlReqFormat);
+				return controlReqFormat;
 			}
 		}
 
@@ -335,7 +335,7 @@ namespace OpenGL.CoreUI
 		/// </summary>
 		public bool Animation
 		{
-			get { return (_Animation); }
+			get { return _Animation; }
 			set
 			{
 				_Animation = value;
@@ -383,7 +383,7 @@ namespace OpenGL.CoreUI
 		/// </summary>
 		public ContextSharingOption ContextSharing
 		{
-			get { return (_ContextSharing); }
+			get { return _ContextSharing; }
 			set
 			{
 				if (_RenderContext != IntPtr.Zero)
@@ -402,7 +402,7 @@ namespace OpenGL.CoreUI
 		/// </summary>
 		public string ContextSharingGroup
 		{
-			get { return (_ContextSharingGroup); }
+			get { return _ContextSharingGroup; }
 			set
 			{
 				if (_RenderContext != IntPtr.Zero)
@@ -476,7 +476,7 @@ namespace OpenGL.CoreUI
 			DevicePixelFormatCollection pixelFormats = _DeviceContext.PixelsFormats;
 			List<DevicePixelFormat> matchingPixelFormats = pixelFormats.Choose(controlReqFormat);
 
-			if ((matchingPixelFormats.Count == 0) && controlReqFormat.MultisampleBits > 0) {
+			if (matchingPixelFormats.Count == 0 && controlReqFormat.MultisampleBits > 0) {
 				// Try to select the maximum multisample configuration
 				int multisampleBits = 0;
 
@@ -487,7 +487,7 @@ namespace OpenGL.CoreUI
 				matchingPixelFormats = pixelFormats.Choose(controlReqFormat);
 			}
 
-			if ((matchingPixelFormats.Count == 0) && controlReqFormat.DoubleBuffer) {
+			if (matchingPixelFormats.Count == 0 && controlReqFormat.DoubleBuffer) {
 				// Try single buffered pixel formats
 				controlReqFormat.DoubleBuffer = false;
 
@@ -591,12 +591,12 @@ namespace OpenGL.CoreUI
 					});
 				}
 
-				if ((_DebugContextBit == AttributePermission.Enabled) || (debuggerAttached && _DebugContextBit == AttributePermission.EnabledInDebugger)) {
+				if (_DebugContextBit == AttributePermission.Enabled || debuggerAttached && _DebugContextBit == AttributePermission.EnabledInDebugger) {
 					Debug.Assert(Wgl.CONTEXT_DEBUG_BIT_ARB == Glx.CONTEXT_DEBUG_BIT_ARB);
 					contextFlags |= Wgl.CONTEXT_DEBUG_BIT_ARB;
 				}
 
-				if ((_ForwardCompatibleContextBit == AttributePermission.Enabled) || (debuggerAttached && _ForwardCompatibleContextBit == AttributePermission.EnabledInDebugger)) {
+				if (_ForwardCompatibleContextBit == AttributePermission.Enabled || debuggerAttached && _ForwardCompatibleContextBit == AttributePermission.EnabledInDebugger) {
 					Debug.Assert(Wgl.CONTEXT_FORWARD_COMPATIBLE_BIT_ARB == Glx.CONTEXT_FORWARD_COMPATIBLE_BIT_ARB);
 					contextFlags |= Wgl.CONTEXT_FORWARD_COMPATIBLE_BIT_ARB;
 				}
@@ -625,7 +625,7 @@ namespace OpenGL.CoreUI
 
 				if (Gl.PlatformExtensions.CreateContextRobustness_ARB) {
 
-					if ((_RobustContextBit == AttributePermission.Enabled) || (debuggerAttached && _RobustContextBit == AttributePermission.EnabledInDebugger)) {
+					if (_RobustContextBit == AttributePermission.Enabled || debuggerAttached && _RobustContextBit == AttributePermission.EnabledInDebugger) {
 						Debug.Assert(Wgl.CONTEXT_ROBUST_ACCESS_BIT_ARB == Glx.CONTEXT_ROBUST_ACCESS_BIT_ARB);
 						contextFlags |= Wgl.CONTEXT_ROBUST_ACCESS_BIT_ARB;
 					}
@@ -782,7 +782,7 @@ namespace OpenGL.CoreUI
 		/// </summary>
 		public uint Width
 		{
-			get { return ((uint)Math.Max(0, ClientSize.Width)); }
+			get { return (uint)Math.Max(0, ClientSize.Width); }
 		}
 
 		/// <summary>
@@ -790,7 +790,7 @@ namespace OpenGL.CoreUI
 		/// </summary>
 		public uint Height
 		{
-			get { return ((uint)Math.Max(0, ClientSize.Height)); }
+			get { return (uint)Math.Max(0, ClientSize.Height); }
 		}
 
 		/// <summary>
@@ -865,7 +865,7 @@ namespace OpenGL.CoreUI
 		/// </returns>
 		public bool IsKeyPressed(KeyCode key)
 		{
-			return (_KeysPressed[(int)key]);
+			return _KeysPressed[(int)key];
 		}
 
 		/// <summary>
@@ -1185,7 +1185,7 @@ namespace OpenGL.CoreUI
 		/// <summary>
 		/// Get whether this instance has been disposed.
 		/// </summary>
-		public bool IsDisposed { get { return (_Disposed); } }
+		public bool IsDisposed { get { return _Disposed; } }
 
 		/// <summary>
 		/// Performs application-defined tasks associated with freeing, releasing, or resetting managed/unmanaged resources.

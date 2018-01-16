@@ -1,4 +1,5 @@
-﻿
+﻿// ReSharper disable RedundantUsingDirective
+
 // Copyright (c) 2017 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -42,7 +43,7 @@ namespace OpenGL.CoreUI
 		/// </summary>
 		public NativeWindowWinNT()
 		{
-			_WindowsWndProc = new UnsafeNativeMethods.WndProc(WindowsWndProc);
+			_WindowsWndProc = WindowsWndProc;
 
 #if NETCORE
 			_HInstance = UnsafeNativeMethods.GetModuleHandle(typeof(Gl).GetTypeInfo().Assembly.Location);
@@ -59,56 +60,56 @@ namespace OpenGL.CoreUI
 		{
 			switch ((WM)msg) {
 				case WM.CREATE:
-					return (WindowsWndProc_CREATE(hWnd, msg, wParam, lParam));
+					return WindowsWndProc_CREATE(hWnd, msg, wParam, lParam);
 				case WM.DESTROY:
-					return (WindowsWndProc_DESTROY(hWnd, msg, wParam, lParam));
+					return WindowsWndProc_DESTROY(hWnd, msg, wParam, lParam);
 				case WM.PAINT:
-					return (WindowsWndProc_PAINT(hWnd, msg, wParam, lParam));
+					return WindowsWndProc_PAINT(hWnd, msg, wParam, lParam);
 				case WM.SIZE:
-					return (WindowsWndProc_SIZE(hWnd, msg, wParam, lParam));
+					return WindowsWndProc_SIZE(hWnd, msg, wParam, lParam);
 
 				case WM.SYSCOMMAND:
 					break;
 
 				case WM.KEYDOWN:
-					return (WindowsWndProc_KEYDOWN(hWnd, msg, wParam, lParam));
+					return WindowsWndProc_KEYDOWN(hWnd, msg, wParam, lParam);
 				case WM.KEYUP:
-					return (WindowsWndProc_KEYUP(hWnd, msg, wParam, lParam));
+					return WindowsWndProc_KEYUP(hWnd, msg, wParam, lParam);
 
 				case WM.MOUSELEAVE:
-					return (WindowsWndProc_MOUSELEAVE(hWnd, msg, wParam, lParam));
+					return WindowsWndProc_MOUSELEAVE(hWnd, msg, wParam, lParam);
 				case WM.MOUSEMOVE:
-					return (WindowsWndProc_MOUSEMOVE(hWnd, msg, wParam, lParam));
+					return WindowsWndProc_MOUSEMOVE(hWnd, msg, wParam, lParam);
 				case WM.LBUTTONDOWN:
-					return (WindowsWndProc_BUTTONDOWN(hWnd, msg, wParam, lParam));
+					return WindowsWndProc_BUTTONDOWN(hWnd, msg, wParam, lParam);
 				case WM.LBUTTONUP:
-					return (WindowsWndProc_BUTTONUP(hWnd, msg, wParam, lParam));
+					return WindowsWndProc_BUTTONUP(hWnd, msg, wParam, lParam);
 				case WM.LBUTTONDBLCLK:
-					return (WindowsWndProc_BUTTONDOUBLECLICK(hWnd, msg, wParam, lParam));
+					return WindowsWndProc_BUTTONDOUBLECLICK(hWnd, msg, wParam, lParam);
 				case WM.RBUTTONDOWN:
-					return (WindowsWndProc_BUTTONDOWN(hWnd, msg, wParam, lParam));
+					return WindowsWndProc_BUTTONDOWN(hWnd, msg, wParam, lParam);
 				case WM.RBUTTONUP:
-					return (WindowsWndProc_BUTTONUP(hWnd, msg, wParam, lParam));
+					return WindowsWndProc_BUTTONUP(hWnd, msg, wParam, lParam);
 				case WM.RBUTTONDBLCLK:
-					return (WindowsWndProc_BUTTONDOUBLECLICK(hWnd, msg, wParam, lParam));
+					return WindowsWndProc_BUTTONDOUBLECLICK(hWnd, msg, wParam, lParam);
 				case WM.MBUTTONDOWN:
-					return (WindowsWndProc_BUTTONDOWN(hWnd, msg, wParam, lParam));
+					return WindowsWndProc_BUTTONDOWN(hWnd, msg, wParam, lParam);
 				case WM.MBUTTONUP:
-					return (WindowsWndProc_BUTTONUP(hWnd, msg, wParam, lParam));
+					return WindowsWndProc_BUTTONUP(hWnd, msg, wParam, lParam);
 				case WM.MBUTTONDBLCLK:
-					return (WindowsWndProc_BUTTONDOUBLECLICK(hWnd, msg, wParam, lParam));
+					return WindowsWndProc_BUTTONDOUBLECLICK(hWnd, msg, wParam, lParam);
 				case WM.MOUSEWHEEL:
-					return (WindowsWndProc_MOUSEWHEEL(hWnd, msg, wParam, lParam));
+					return WindowsWndProc_MOUSEWHEEL(hWnd, msg, wParam, lParam);
 				case WM.XBUTTONDOWN:
-					return (WindowsWndProc_BUTTONDOWN(hWnd, msg, wParam, lParam));
+					return WindowsWndProc_BUTTONDOWN(hWnd, msg, wParam, lParam);
 				case WM.XBUTTONUP:
-					return (WindowsWndProc_BUTTONUP(hWnd, msg, wParam, lParam));
+					return WindowsWndProc_BUTTONUP(hWnd, msg, wParam, lParam);
 				case WM.XBUTTONDBLCLK:
-					return (WindowsWndProc_BUTTONDOUBLECLICK(hWnd, msg, wParam, lParam));
+					return WindowsWndProc_BUTTONDOUBLECLICK(hWnd, msg, wParam, lParam);
 			}
 
 			// Callback default window procedure.
-			return (UnsafeNativeMethods.DefWindowProc(hWnd, msg, wParam, lParam));
+			return UnsafeNativeMethods.DefWindowProc(hWnd, msg, wParam, lParam);
 		}
 
 		private IntPtr WindowsWndProc_CREATE(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
@@ -122,7 +123,7 @@ namespace OpenGL.CoreUI
 			// Event handling
 			OnContextCreated();
 
-			return (IntPtr.Zero);
+			return IntPtr.Zero;
 		}
 
 		private IntPtr WindowsWndProc_DESTROY(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
@@ -130,7 +131,7 @@ namespace OpenGL.CoreUI
 			DeleteContext();
 			DestroyDeviceContext();
 
-			return (IntPtr.Zero);
+			return IntPtr.Zero;
 		}
 
 		private IntPtr WindowsWndProc_PAINT(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
@@ -150,7 +151,7 @@ namespace OpenGL.CoreUI
 				}
 			}
 
-			return (IntPtr.Zero);
+			return IntPtr.Zero;
 		}
 
 		private IntPtr WindowsWndProc_SIZE(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
@@ -159,35 +160,35 @@ namespace OpenGL.CoreUI
 			// Note: 
 			OnResize();
 
-			return (IntPtr.Zero);
+			return IntPtr.Zero;
 		}
 
 		private IntPtr WindowsWndProc_KEYDOWN(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
 		{
-			VirtualKeys virtualKeyDown = (VirtualKeys)(wParam.ToInt32());
+			VirtualKeys virtualKeyDown = (VirtualKeys)wParam.ToInt32();
 			// bool extendedKeyDown = ((lParam.ToInt64() >> 24) & 1) != 0);
 			KeyCode key = ToKeyCode(virtualKeyDown);
 
 			if (key == KeyCode.None)
-				return (IntPtr.Zero);
+				return IntPtr.Zero;
 
 			OnKeyDown(key);
 
-			return (IntPtr.Zero);
+			return IntPtr.Zero;
 		}
 
 		private IntPtr WindowsWndProc_KEYUP(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
 		{
-			VirtualKeys virtualKeyUp = (VirtualKeys)(wParam.ToInt32());
+			VirtualKeys virtualKeyUp = (VirtualKeys)wParam.ToInt32();
 			// bool extendedKeyUp = ((lParam.ToInt64() >> 24) & 1) != 0);
 			KeyCode key = ToKeyCode(virtualKeyUp);
 
 			if (key == KeyCode.None)
-				return (IntPtr.Zero);
+				return IntPtr.Zero;
 
 			OnKeyUp(key);
 
-			return (IntPtr.Zero);
+			return IntPtr.Zero;
 		}
 
 		private IntPtr WindowsWndProc_MOUSELEAVE(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
@@ -197,7 +198,7 @@ namespace OpenGL.CoreUI
 
 			OnMouseLeave();
 
-			return (IntPtr.Zero);
+			return IntPtr.Zero;
 		}
 
 		/// <summary>
@@ -222,28 +223,28 @@ namespace OpenGL.CoreUI
 			// Note: WM_MOUSEMOVE is execute just after 'WM_MOUSEENTER'
 			OnMouseMove(mouseLocation, mouseButton);
 
-			return (IntPtr.Zero);
+			return IntPtr.Zero;
 		}
 
 		private IntPtr WindowsWndProc_BUTTONDOWN(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
 		{
 			OnMouseDown(WindowsWndProc_GetMouseLocation(lParam), WindowsWndProc_GetMouseButtons(wParam));
 
-			return (IntPtr.Zero);
+			return IntPtr.Zero;
 		}
 
 		private IntPtr WindowsWndProc_BUTTONUP(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
 		{
 			OnMouseUp(WindowsWndProc_GetMouseLocation(lParam), WindowsWndProc_GetMouseButtons(wParam));
 
-			return (IntPtr.Zero);
+			return IntPtr.Zero;
 		}
 
 		private IntPtr WindowsWndProc_BUTTONDOUBLECLICK(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
 		{
 			OnMouseDoubleClick(WindowsWndProc_GetMouseLocation(lParam), WindowsWndProc_GetMouseButtons(wParam));
 
-			return (IntPtr.Zero);
+			return IntPtr.Zero;
 		}
 
 		private IntPtr WindowsWndProc_MOUSEWHEEL(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
@@ -252,7 +253,7 @@ namespace OpenGL.CoreUI
 
 			OnMouseWheel(WindowsWndProc_GetMouseLocation(lParam), WindowsWndProc_GetMouseButtons(wParam), wheelTicks);
 
-			return (IntPtr.Zero);
+			return IntPtr.Zero;
 		}
 
 		private Point WindowsWndProc_GetMouseLocation(IntPtr lParam)
@@ -260,7 +261,7 @@ namespace OpenGL.CoreUI
 			int x = lParam.ToInt32() & 0xFFFF;
 			int y = (lParam.ToInt32() >> 16) & 0xFFFF;
 
-			return (new Point(x, (int)Height - y - 1));
+			return new Point(x, (int)Height - y - 1);
 		}
 
 		private static MouseButton WindowsWndProc_GetMouseButtons(IntPtr wParam)
@@ -279,7 +280,7 @@ namespace OpenGL.CoreUI
 			if ((wParamValue & 0x0040) != 0)
 				buttons |= MouseButton.X2;
 
-			return (buttons);
+			return buttons;
 		}
 
 		/// <summary>
@@ -354,12 +355,12 @@ namespace OpenGL.CoreUI
 
 			public static explicit operator Point(RECT rect)
 			{
-				return (new Point(rect.left, rect.top));
+				return new Point(rect.left, rect.top);
 			}
 
 			public static explicit operator Size(RECT rect)
 			{
-				return (new Size(rect.right - rect.left, rect.bottom - rect.top));
+				return new Size(rect.right - rect.left, rect.bottom - rect.top);
 			}
 		}
 
@@ -1414,13 +1415,13 @@ namespace OpenGL.CoreUI
 
 		private enum SetWindowLongIndex
 		{
-			GWL_WNDPROC = (-4),
-			GWL_HINSTANCE = (-6),
-			GWL_HWNDPARENT = (-8),
-			GWL_STYLE = (-16),
-			GWL_EXSTYLE = (-20),
-			GWL_USERDATA = (-21),
-			GWL_ID = (-12)
+			GWL_WNDPROC = -4,
+			GWL_HINSTANCE = -6,
+			GWL_HWNDPARENT = -8,
+			GWL_STYLE = -16,
+			GWL_EXSTYLE = -20,
+			GWL_USERDATA = -21,
+			GWL_ID = -12
 		}
 
 		[Flags]
@@ -1456,17 +1457,17 @@ namespace OpenGL.CoreUI
 			// Common Window Styles
 
 			WS_OVERLAPPEDWINDOW =
-				(WS_OVERLAPPED |
-				  WS_CAPTION |
-				  WS_SYSMENU |
-				  WS_THICKFRAME |
-				  WS_MINIMIZEBOX |
-				  WS_MAXIMIZEBOX),
+				WS_OVERLAPPED |
+				WS_CAPTION |
+				WS_SYSMENU |
+				WS_THICKFRAME |
+				WS_MINIMIZEBOX |
+				WS_MAXIMIZEBOX,
 
 			WS_POPUPWINDOW =
-				(WS_POPUP |
-				  WS_BORDER |
-				  WS_SYSMENU),
+				WS_POPUP |
+				WS_BORDER |
+				WS_SYSMENU,
 
 			WS_CHILDWINDOW = WS_CHILD,
 
@@ -1496,8 +1497,8 @@ namespace OpenGL.CoreUI
 			WS_EX_STATICEDGE = 0x00020000,
 			WS_EX_APPWINDOW = 0x00040000,
 
-			WS_EX_OVERLAPPEDWINDOW = (WS_EX_WINDOWEDGE | WS_EX_CLIENTEDGE),
-			WS_EX_PALETTEWINDOW = (WS_EX_WINDOWEDGE | WS_EX_TOOLWINDOW | WS_EX_TOPMOST),
+			WS_EX_OVERLAPPEDWINDOW = WS_EX_WINDOWEDGE | WS_EX_CLIENTEDGE,
+			WS_EX_PALETTEWINDOW = WS_EX_WINDOWEDGE | WS_EX_TOOLWINDOW | WS_EX_TOPMOST,
 			//#endif /* WINVER >= 0x0400 */
 
 			//#if(_WIN32_WINNT >= 0x0500)
@@ -1526,7 +1527,7 @@ namespace OpenGL.CoreUI
 			if ((styles & WindowStyles.WS_THICKFRAME) != 0)
 				windowStyles |= NativeWindowStyle.Resizeable;
 
-			return (windowStyles);
+			return windowStyles;
 		}
 
 		private static WindowStyles FromNativeWindowStyle(NativeWindowStyle styles)
@@ -1540,7 +1541,7 @@ namespace OpenGL.CoreUI
 			if ((styles & NativeWindowStyle.Resizeable) == NativeWindowStyle.Resizeable)
 				windowStyles |= WindowStyles.WS_THICKFRAME;
 
-			return (windowStyles);
+			return windowStyles;
 		}
 
 		/// <summary>
@@ -2549,7 +2550,7 @@ namespace OpenGL.CoreUI
 		public override IntPtr Display
 		{
 			get {
-				return (IntPtr.Zero);
+				return IntPtr.Zero;
 			}
 		}
 
@@ -2559,7 +2560,7 @@ namespace OpenGL.CoreUI
 		public override IntPtr Handle
 		{
 			get {
-				return (_Handle);
+				return _Handle;
 			}
 		}
 
@@ -2698,7 +2699,7 @@ namespace OpenGL.CoreUI
 				if (UnsafeNativeMethods.GetWindowRect(_Handle, out windowRect) == false)
 					throw new Win32Exception(Marshal.GetLastWin32Error());
 
-				return ((Point)windowRect);
+				return (Point)windowRect;
 			}
 			set {
 				CheckHandle();
@@ -2729,7 +2730,7 @@ namespace OpenGL.CoreUI
 				if (UnsafeNativeMethods.GetClientRect(_Handle, out clientSize) == false)
 					throw new Win32Exception(Marshal.GetLastWin32Error());
 
-				return ((Size)clientSize);
+				return (Size)clientSize;
 			}
 			set {
 				CheckHandle();
@@ -2773,7 +2774,7 @@ namespace OpenGL.CoreUI
 				clientSize.bottom += cySizeCaption;
 			}
 
-			return (clientSize);
+			return clientSize;
 		}
 
 		private RECT GetClientToFrameRect(int x, int y, uint width, uint height)
@@ -2781,7 +2782,7 @@ namespace OpenGL.CoreUI
 			WindowStyles windowStyle = (WindowStyles)UnsafeNativeMethods.GetWindowLong(_Handle, SetWindowLongIndex.GWL_STYLE);
 			WindowStyles windowStyleEx = (WindowStyles)UnsafeNativeMethods.GetWindowLong(_Handle, SetWindowLongIndex.GWL_EXSTYLE);
 
-			return (GetClientToFrameRect(x, y, width, height, windowStyle | windowStyleEx));
+			return GetClientToFrameRect(x, y, width, height, windowStyle | windowStyleEx);
 		}
 
 		/// <summary>
@@ -2812,7 +2813,7 @@ namespace OpenGL.CoreUI
 		/// </summary>
 		public override NativeWindowStyle SupportedStyles
 		{
-			get { return (NativeWindowStyle.Border | NativeWindowStyle.Caption | NativeWindowStyle.Resizeable); }
+			get { return NativeWindowStyle.Border | NativeWindowStyle.Caption | NativeWindowStyle.Resizeable; }
 		}
 
 		/// <summary>
@@ -2827,7 +2828,7 @@ namespace OpenGL.CoreUI
 
 				WindowStyles win32Style = (WindowStyles)UnsafeNativeMethods.GetWindowLong(_Handle, SetWindowLongIndex.GWL_STYLE);
 
-				return (ToNativeWindowStyle(win32Style));
+				return ToNativeWindowStyle(win32Style);
 			}
 			set
 			{
@@ -2861,7 +2862,7 @@ namespace OpenGL.CoreUI
 				CheckHandle();
 				CheckThread();
 
-				return (_Fullscreen);
+				return _Fullscreen;
 			}
 			set {
 				CheckHandle();
@@ -2978,7 +2979,7 @@ namespace OpenGL.CoreUI
 		/// </summary>
 		public override bool CursorVisible
 		{
-			get { return (_CursorVisible); }
+			get { return _CursorVisible; }
 			set { _CursorVisible = value; }
 		}
 
