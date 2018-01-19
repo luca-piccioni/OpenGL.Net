@@ -493,9 +493,9 @@ namespace OpenGL.CoreUI
 
 				matchingPixelFormats = pixelFormats.Choose(controlReqFormat);
 				if (matchingPixelFormats.Count == 0)
-					throw new InvalidOperationException(String.Format("unable to find a suitable pixel format: {0}", pixelFormats.GuessChooseError(controlReqFormat)));
+					throw new InvalidOperationException(string.Format("unable to find a suitable pixel format: {0}", pixelFormats.GuessChooseError(controlReqFormat)));
 			} else if (matchingPixelFormats.Count == 0)
-				throw new InvalidOperationException(String.Format("unable to find a suitable pixel format: {0}", pixelFormats.GuessChooseError(controlReqFormat)));
+				throw new InvalidOperationException(string.Format("unable to find a suitable pixel format: {0}", pixelFormats.GuessChooseError(controlReqFormat)));
 
 			_DeviceContext.SetPixelFormat(matchingPixelFormats[0]);
 
@@ -646,7 +646,7 @@ namespace OpenGL.CoreUI
 				attributes.Add(0);
 
 				if ((_RenderContext = _DeviceContext.CreateContextAttrib(sharingContext, attributes.ToArray())) == IntPtr.Zero)
-					throw new InvalidOperationException(String.Format("unable to create render context ({0})", Gl.GetError()));
+					throw new InvalidOperationException(string.Format("unable to create render context ({0})", Gl.GetError()));
 			} else {
 				// Create OpenGL context using compatibility profile
 				if ((_RenderContext = _DeviceContext.CreateContext(sharingContext)) == IntPtr.Zero)
@@ -656,7 +656,7 @@ namespace OpenGL.CoreUI
 			// Allow other GlControl instances to reuse this GlControl context
 			if (shareResources) {
 				if (_SharingWindows.ContainsKey(ContextSharingGroup))
-					throw new InvalidOperationException(String.Format("another GlControl has created sharing group {0}", ContextSharingGroup));
+					throw new InvalidOperationException(string.Format("another GlControl has created sharing group {0}", ContextSharingGroup));
 				_SharingWindows.Add(ContextSharingGroup, this);
 			}
 
@@ -962,6 +962,8 @@ namespace OpenGL.CoreUI
 		/// </summary>
 		protected virtual void OnContextCreated()
 		{
+			Trace.TraceInformation("NativeWindow.OnContextCreated()");
+
 			ContextCreated?.Invoke(this, new NativeWindowEventArgs(_DeviceContext, _RenderContext));
 			_IsContextCreated = true;
 		}

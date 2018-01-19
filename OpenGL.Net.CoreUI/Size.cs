@@ -165,7 +165,7 @@ namespace OpenGL.CoreUI
 		/// </returns>
 		public override string ToString()
 		{
-			return String.Format("Size: {0}x{1}", Width, Height);
+			return string.Format("Size: {0}x{1}", Width, Height);
 		}
 
 		#endregion

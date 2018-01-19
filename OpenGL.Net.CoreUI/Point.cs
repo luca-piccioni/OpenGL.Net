@@ -188,7 +188,7 @@ namespace OpenGL.CoreUI
 		/// </returns>
 		public override string ToString()
 		{
-			return String.Format("Point: {0}x{1}", X, Y);
+			return string.Format("Point: {0}x{1}", X, Y);
 		}
 
 		#endregion

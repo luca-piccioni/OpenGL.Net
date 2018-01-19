@@ -1,5 +1,4 @@
-﻿// ReSharper disable RedundantUsingDirective
-
+﻿
 // Copyright (c) 2017 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,6 +19,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+// ReSharper disable RedundantUsingDirective
 // ReSharper disable UnusedMember.Local
 // ReSharper disable InconsistentNaming
 
@@ -296,7 +296,7 @@ namespace OpenGL.CoreUI
 		/// <summary>
 		/// The atom associated to the window class.
 		/// </summary>
-		private UInt16 _ClassAtom;
+		private ushort _ClassAtom;
 
 		/// <summary>
 		/// Windows procedure.
@@ -330,28 +330,28 @@ namespace OpenGL.CoreUI
 		private struct MSG
 		{
 			public IntPtr hwnd;
-			public UInt32 message;
+			public uint message;
 			public UIntPtr wParam;
 			public UIntPtr lParam;
-			public UInt32 time;
+			public uint time;
 			public POINT pt;
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
 		private struct POINT
 		{
-			public Int32 x;
-			public Int32 y;
+			public int x;
+			public int y;
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
 		[DebuggerDisplay("RECT: left={left} right={right} top={top} bottom={bottom}")]
 		private struct RECT
 		{
-			public Int32 left;
-			public Int32 top;
-			public Int32 right;
-			public Int32 bottom;
+			public int left;
+			public int top;
+			public int right;
+			public int bottom;
 
 			public static explicit operator Point(RECT rect)
 			{
@@ -433,7 +433,7 @@ namespace OpenGL.CoreUI
 				Monitor = new RECT();
 				WorkArea = new RECT();
 				Flags = 0;
-				DeviceName = deviceName ?? String.Empty;
+				DeviceName = deviceName ?? string.Empty;
 			}
 
 			/// <summary>
@@ -2413,9 +2413,9 @@ namespace OpenGL.CoreUI
 		private unsafe static partial class UnsafeNativeMethods
 		{
 			// CLASS STYLE
-			public const UInt32 CS_VREDRAW = 0x0001;
-			public const UInt32 CS_HREDRAW = 0x0002;
-			public const UInt32 CS_OWNDC = 0x0020;
+			public const uint CS_VREDRAW = 0x0001;
+			public const uint CS_HREDRAW = 0x0002;
+			public const uint CS_OWNDC = 0x0020;
 
 			internal delegate IntPtr WndProc(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam);
 
@@ -2426,10 +2426,10 @@ namespace OpenGL.CoreUI
 			internal static extern IntPtr DefWindowProc(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam);
 
 			[DllImport("user32.dll", EntryPoint = "RegisterClassEx", SetLastError = true, CharSet = CharSet.Unicode)]
-			internal static extern UInt16 RegisterClassEx([In] ref WNDCLASSEX lpWndClass);
+			internal static extern ushort RegisterClassEx([In] ref WNDCLASSEX lpWndClass);
 
 			[DllImport("user32.dll", EntryPoint = "UnregisterClass", SetLastError = true)]
-			internal static extern bool UnregisterClass(UInt16 lpClassAtom, IntPtr hInstance);
+			internal static extern bool UnregisterClass(ushort lpClassAtom, IntPtr hInstance);
 
 			[DllImport("user32.dll", EntryPoint = "CreateWindowEx", SetLastError = true, CharSet = CharSet.Unicode)]
 			internal static extern IntPtr CreateWindowEx(uint dwExStyle, string lpClassName, string lpWindowName, uint dwStyle, int x, int y, int nWidth, int nHeight, IntPtr hWndParent, IntPtr hMenu, IntPtr hInstance, IntPtr lpParam);
@@ -2474,7 +2474,7 @@ namespace OpenGL.CoreUI
 			internal static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, SetWindowPosFlags uFlags);
 
 			[DllImport("user32.dll", SetLastError = true)]
-			internal static extern int SetWindowLong(IntPtr hWnd, SetWindowLongIndex nIndex, UInt32 dwNewLong);
+			internal static extern int SetWindowLong(IntPtr hWnd, SetWindowLongIndex nIndex, uint dwNewLong);
 
 			[DllImport("user32.dll", SetLastError = true)]
 			internal static extern int GetWindowLong(IntPtr hWnd, SetWindowLongIndex nIndex);
@@ -2873,7 +2873,7 @@ namespace OpenGL.CoreUI
 
 				if (value == true) {
 					// Get monitor size
-					MONITORINFOEX monitorInfo = new MONITORINFOEX(String.Empty);
+					MONITORINFOEX monitorInfo = new MONITORINFOEX(string.Empty);
 					IntPtr monitor = UnsafeNativeMethods.MonitorFromWindow(_Handle, UnsafeNativeMethods.MONITOR_DEFAULTTONEAREST);
 
 					if (UnsafeNativeMethods.GetMonitorInfo(monitor, ref monitorInfo) == false)
