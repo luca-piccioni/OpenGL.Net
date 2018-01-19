@@ -26,6 +26,7 @@
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;                // Do not delete me! .NET Core include extension methods
 using System.Runtime.InteropServices;
 
@@ -60,59 +61,52 @@ namespace OpenGL.CoreUI
 		{
 			switch ((WM)msg) {
 				case WM.CREATE:
-					return WindowsWndProc_CREATE(hWnd, msg, wParam, lParam);
+					return WindowsWndProc_CREATE(hWnd, wParam, lParam);
 				case WM.DESTROY:
-					return WindowsWndProc_DESTROY(hWnd, msg, wParam, lParam);
+					return WindowsWndProc_DESTROY(hWnd, wParam, lParam);
 				case WM.PAINT:
-					return WindowsWndProc_PAINT(hWnd, msg, wParam, lParam);
+					return WindowsWndProc_PAINT(hWnd, wParam, lParam);
 				case WM.SIZE:
-					return WindowsWndProc_SIZE(hWnd, msg, wParam, lParam);
+					return WindowsWndProc_SIZE(hWnd, wParam, lParam);
 
 				case WM.SYSCOMMAND:
 					break;
 
 				case WM.KEYDOWN:
-					return WindowsWndProc_KEYDOWN(hWnd, msg, wParam, lParam);
+					return WindowsWndProc_KEYDOWN(hWnd, wParam, lParam);
 				case WM.KEYUP:
-					return WindowsWndProc_KEYUP(hWnd, msg, wParam, lParam);
+					return WindowsWndProc_KEYUP(hWnd, wParam, lParam);
 
 				case WM.MOUSELEAVE:
-					return WindowsWndProc_MOUSELEAVE(hWnd, msg, wParam, lParam);
+					return WindowsWndProc_MOUSELEAVE(hWnd, wParam, lParam);
 				case WM.MOUSEMOVE:
-					return WindowsWndProc_MOUSEMOVE(hWnd, msg, wParam, lParam);
+					return WindowsWndProc_MOUSEMOVE(hWnd, wParam, lParam);
 				case WM.LBUTTONDOWN:
-					return WindowsWndProc_BUTTONDOWN(hWnd, msg, wParam, lParam);
-				case WM.LBUTTONUP:
-					return WindowsWndProc_BUTTONUP(hWnd, msg, wParam, lParam);
-				case WM.LBUTTONDBLCLK:
-					return WindowsWndProc_BUTTONDOUBLECLICK(hWnd, msg, wParam, lParam);
 				case WM.RBUTTONDOWN:
-					return WindowsWndProc_BUTTONDOWN(hWnd, msg, wParam, lParam);
-				case WM.RBUTTONUP:
-					return WindowsWndProc_BUTTONUP(hWnd, msg, wParam, lParam);
-				case WM.RBUTTONDBLCLK:
-					return WindowsWndProc_BUTTONDOUBLECLICK(hWnd, msg, wParam, lParam);
 				case WM.MBUTTONDOWN:
-					return WindowsWndProc_BUTTONDOWN(hWnd, msg, wParam, lParam);
-				case WM.MBUTTONUP:
-					return WindowsWndProc_BUTTONUP(hWnd, msg, wParam, lParam);
-				case WM.MBUTTONDBLCLK:
-					return WindowsWndProc_BUTTONDOUBLECLICK(hWnd, msg, wParam, lParam);
-				case WM.MOUSEWHEEL:
-					return WindowsWndProc_MOUSEWHEEL(hWnd, msg, wParam, lParam);
 				case WM.XBUTTONDOWN:
-					return WindowsWndProc_BUTTONDOWN(hWnd, msg, wParam, lParam);
+					return WindowsWndProc_BUTTONDOWN(hWnd, wParam, lParam);
+				case WM.LBUTTONUP:
+				case WM.RBUTTONUP:
+				case WM.MBUTTONUP:
 				case WM.XBUTTONUP:
-					return WindowsWndProc_BUTTONUP(hWnd, msg, wParam, lParam);
+					return WindowsWndProc_BUTTONUP(hWnd, wParam, lParam);
+				case WM.LBUTTONDBLCLK:
+				case WM.RBUTTONDBLCLK:
+				case WM.MBUTTONDBLCLK:
 				case WM.XBUTTONDBLCLK:
-					return WindowsWndProc_BUTTONDOUBLECLICK(hWnd, msg, wParam, lParam);
+					return WindowsWndProc_BUTTONDOUBLECLICK(hWnd, wParam, lParam);
+				case WM.MOUSEWHEEL:
+					return WindowsWndProc_MOUSEWHEEL(hWnd, wParam, lParam);
 			}
 
 			// Callback default window procedure.
 			return UnsafeNativeMethods.DefWindowProc(hWnd, msg, wParam, lParam);
 		}
 
-		private IntPtr WindowsWndProc_CREATE(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
+		// ReSharper disable UnusedParameter.Local
+		
+		private IntPtr WindowsWndProc_CREATE(IntPtr hWnd, IntPtr wParam, IntPtr lParam)
 		{
 			// Create device context
 			CreateDeviceContext(IntPtr.Zero, hWnd);
@@ -125,16 +119,16 @@ namespace OpenGL.CoreUI
 
 			return IntPtr.Zero;
 		}
-
-		private IntPtr WindowsWndProc_DESTROY(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
+		
+		private IntPtr WindowsWndProc_DESTROY(IntPtr hWnd, IntPtr wParam, IntPtr lParam)
 		{
 			DeleteContext();
 			DestroyDeviceContext();
 
 			return IntPtr.Zero;
 		}
-
-		private IntPtr WindowsWndProc_PAINT(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
+		
+		private IntPtr WindowsWndProc_PAINT(IntPtr hWnd, IntPtr wParam, IntPtr lParam)
 		{
 			MakeCurrentContext();
 			OnRender();
@@ -153,8 +147,8 @@ namespace OpenGL.CoreUI
 
 			return IntPtr.Zero;
 		}
-
-		private IntPtr WindowsWndProc_SIZE(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
+		
+		private IntPtr WindowsWndProc_SIZE(IntPtr hWnd, IntPtr wParam, IntPtr lParam)
 		{
 			// Notify about client area size changed
 			// Note: 
@@ -162,8 +156,8 @@ namespace OpenGL.CoreUI
 
 			return IntPtr.Zero;
 		}
-
-		private IntPtr WindowsWndProc_KEYDOWN(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
+		
+		private IntPtr WindowsWndProc_KEYDOWN(IntPtr hWnd, IntPtr wParam, IntPtr lParam)
 		{
 			VirtualKeys virtualKeyDown = (VirtualKeys)wParam.ToInt32();
 			// bool extendedKeyDown = ((lParam.ToInt64() >> 24) & 1) != 0);
@@ -176,8 +170,8 @@ namespace OpenGL.CoreUI
 
 			return IntPtr.Zero;
 		}
-
-		private IntPtr WindowsWndProc_KEYUP(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
+		
+		private IntPtr WindowsWndProc_KEYUP(IntPtr hWnd, IntPtr wParam, IntPtr lParam)
 		{
 			VirtualKeys virtualKeyUp = (VirtualKeys)wParam.ToInt32();
 			// bool extendedKeyUp = ((lParam.ToInt64() >> 24) & 1) != 0);
@@ -190,8 +184,8 @@ namespace OpenGL.CoreUI
 
 			return IntPtr.Zero;
 		}
-
-		private IntPtr WindowsWndProc_MOUSELEAVE(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
+		
+		private IntPtr WindowsWndProc_MOUSELEAVE(IntPtr hWnd, IntPtr wParam, IntPtr lParam)
 		{
 			// Next mouse event can track again mouse leave
 			_TrackingMouseLeave = false;
@@ -206,7 +200,7 @@ namespace OpenGL.CoreUI
 		/// </summary>
 		private bool _TrackingMouseLeave;
 
-		private IntPtr WindowsWndProc_MOUSEMOVE(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
+		private IntPtr WindowsWndProc_MOUSEMOVE(IntPtr hWnd, IntPtr wParam, IntPtr lParam)
 		{
 			Point mouseLocation = WindowsWndProc_GetMouseLocation(lParam);
 			MouseButton mouseButton = WindowsWndProc_GetMouseButtons(wParam);
@@ -226,28 +220,28 @@ namespace OpenGL.CoreUI
 			return IntPtr.Zero;
 		}
 
-		private IntPtr WindowsWndProc_BUTTONDOWN(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
+		private IntPtr WindowsWndProc_BUTTONDOWN(IntPtr hWnd, IntPtr wParam, IntPtr lParam)
 		{
 			OnMouseDown(WindowsWndProc_GetMouseLocation(lParam), WindowsWndProc_GetMouseButtons(wParam));
 
 			return IntPtr.Zero;
 		}
 
-		private IntPtr WindowsWndProc_BUTTONUP(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
+		private IntPtr WindowsWndProc_BUTTONUP(IntPtr hWnd, IntPtr wParam, IntPtr lParam)
 		{
 			OnMouseUp(WindowsWndProc_GetMouseLocation(lParam), WindowsWndProc_GetMouseButtons(wParam));
 
 			return IntPtr.Zero;
 		}
 
-		private IntPtr WindowsWndProc_BUTTONDOUBLECLICK(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
+		private IntPtr WindowsWndProc_BUTTONDOUBLECLICK(IntPtr hWnd, IntPtr wParam, IntPtr lParam)
 		{
 			OnMouseDoubleClick(WindowsWndProc_GetMouseLocation(lParam), WindowsWndProc_GetMouseButtons(wParam));
 
 			return IntPtr.Zero;
 		}
-
-		private IntPtr WindowsWndProc_MOUSEWHEEL(IntPtr hWnd, uint msg, IntPtr wParam, IntPtr lParam)
+		
+		private IntPtr WindowsWndProc_MOUSEWHEEL(IntPtr hWnd, IntPtr wParam, IntPtr lParam)
 		{
 			short wheelTicks = (short)(((wParam.ToInt32() >> 16) & 0xFFFF) / /* WHEEL_DELTA */ 120);
 
@@ -255,6 +249,8 @@ namespace OpenGL.CoreUI
 
 			return IntPtr.Zero;
 		}
+
+		// ReSharper restore UnusedParameter.Local
 
 		private Point WindowsWndProc_GetMouseLocation(IntPtr lParam)
 		{
@@ -286,7 +282,7 @@ namespace OpenGL.CoreUI
 		/// <summary>
 		/// Application instance handle.
 		/// </summary>
-		private IntPtr _HInstance;
+		private readonly IntPtr _HInstance;
 
 		/// <summary>
 		/// The native window handle.
@@ -307,23 +303,26 @@ namespace OpenGL.CoreUI
 
 		#region P/Invoke
 
+		// ReSharper disable FieldCanBeMadeReadOnly.Local
+		// ReSharper disable PrivateFieldCanBeConvertedToLocalVariable
+
 		[StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
 		private struct WNDCLASSEX
 		{
 			public int cbSize;
 			public int style;
 			public IntPtr lpfnWndProc;
-			public int cbClsExtra;
-			public int cbWndExtra;
+			private int _ClsExtra;
+			private int _WndExtra;
 			public IntPtr hInstance;
-			public IntPtr hIcon;
-			public IntPtr hCursor;
-			public IntPtr hbrBackground;
+			private IntPtr _Icon;
+			private IntPtr _Cursor;
+			private IntPtr _Background;
 			[MarshalAs(UnmanagedType.LPTStr)]
-			public string lpszMenuName;
+			private string _MenuName;
 			[MarshalAs(UnmanagedType.LPTStr)]
 			public string lpszClassName;
-			public IntPtr hIconSm;
+			private IntPtr _IconSm;
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
@@ -429,18 +428,18 @@ namespace OpenGL.CoreUI
 			/// <param name="deviceName"></param>
 			public MONITORINFOEX(string deviceName)
 			{
-				Size = Marshal.SizeOf(typeof(MONITORINFOEX));
+				_Size = Marshal.SizeOf(typeof(MONITORINFOEX));
 				Monitor = new RECT();
 				WorkArea = new RECT();
-				Flags = 0;
-				DeviceName = deviceName ?? string.Empty;
+				_Flags = 0;
+				_DeviceName = deviceName ?? string.Empty;
 			}
 
 			/// <summary>
 			/// The size, in bytes, of the structure. Set this member to sizeof(MONITORINFOEX) (72) before calling the GetMonitorInfo function. 
 			/// Doing so lets the function determine the type of structure you are passing to it.
 			/// </summary>
-			public int Size;
+			private int _Size;
 
 			/// <summary>
 			/// A RECT structure that specifies the display monitor rectangle, expressed in virtual-screen coordinates. 
@@ -462,7 +461,7 @@ namespace OpenGL.CoreUI
 			/// This member can be the following value:
 			///   1 : MONITORINFOF_PRIMARY
 			/// </summary>
-			public uint Flags;
+			private uint _Flags;
 
 			// size of a device name string
 			private const int CCHDEVICENAME = 32;
@@ -472,8 +471,11 @@ namespace OpenGL.CoreUI
 			/// and so can save some bytes by using a MONITORINFO structure.
 			/// </summary>
 			[MarshalAs(UnmanagedType.ByValTStr, SizeConst = CCHDEVICENAME)]
-			public string DeviceName;
+			private string _DeviceName;
 		}
+
+		// ReSharper restore FieldCanBeMadeReadOnly.Local
+		// ReSharper restore PrivateFieldCanBeConvertedToLocalVariable
 
 		/// <summary>
 		/// Windows Messages
@@ -655,7 +657,7 @@ namespace OpenGL.CoreUI
 		/// <summary>
 		/// Enumeration of the different ways of showing a window using ShowWindow.
 		/// </summary>
-		private enum WindowShowStyle : int
+		private enum WindowShowStyle
 		{
 			/// <summary>Hides the window and activates another window.</summary>
 			/// <remarks>See SW_HIDE</remarks>
@@ -786,7 +788,7 @@ namespace OpenGL.CoreUI
 		/// ai_productions@verizon.net or osirisgothra@hotmail.com
 		/// Obtained on pinvoke.net, please contribute your code to support the wiki!
 		/// </summary>
-		private enum SystemMetric : int
+		private enum SystemMetric
 		{
 			/// <summary>
 			/// The flags that specify how the system arranged minimized windows. For more information, see the Remarks section in this topic.
@@ -2370,6 +2372,7 @@ namespace OpenGL.CoreUI
 					return VirtualKeys.NumLock;
 				case KeyCode.ScrollLock:
 					return VirtualKeys.ScrollLock;
+
 				default:
 					throw new NotSupportedException("unsupported key code " + key);
 			}
@@ -2386,6 +2389,7 @@ namespace OpenGL.CoreUI
 		}
 
 		[StructLayout(LayoutKind.Sequential)]
+		[SuppressMessage("ReSharper", "PrivateFieldCanBeConvertedToLocalVariable")]
 		private struct TRACKMOUSEEVENT
 		{
 			/// <summary>
@@ -2395,22 +2399,22 @@ namespace OpenGL.CoreUI
 			/// <param name="hwndTrack"></param>
 			public TRACKMOUSEEVENT(TME flags, IntPtr hwndTrack)
 			{
-				Size = Marshal.SizeOf(typeof(TRACKMOUSEEVENT));
-				Flags = flags;
-				HwndTrack = hwndTrack;
-				HoverTime = unchecked((int)0xFFFFFFFF);		// HOVER_DEFAULT
+				_Size = Marshal.SizeOf(typeof(TRACKMOUSEEVENT));
+				_Flags = flags;
+				_HwndTrack = hwndTrack;
+				_HoverTime = unchecked((int)0xFFFFFFFF);		// HOVER_DEFAULT
 			}
 
-			public int Size;
+			private readonly int _Size;
 
-			public TME Flags;
+			private readonly TME _Flags;
 
-			public IntPtr HwndTrack;
+			private readonly IntPtr _HwndTrack;
 
-			public int HoverTime;
+			private readonly int _HoverTime;
 		}
 
-		private unsafe static partial class UnsafeNativeMethods
+		private static class UnsafeNativeMethods
 		{
 			// CLASS STYLE
 			public const uint CS_VREDRAW = 0x0001;
@@ -2641,16 +2645,15 @@ namespace OpenGL.CoreUI
 		/// </summary>
 		public override void Run()
 		{
-			if (_LoopRunning == true)
+			if (_LoopRunning)
 				throw new InvalidOperationException("loop running");
-
-			MSG msg;
 
 			_LoopRunning = true;
 
 			try {
+				MSG msg;
 				int ret;
-
+				
 				while ((ret = UnsafeNativeMethods.GetMessage(out msg, IntPtr.Zero, 0, 0)) != 0) {
 					if (ret < 0)
 						throw new Win32Exception(Marshal.GetLastWin32Error());
@@ -2725,7 +2728,7 @@ namespace OpenGL.CoreUI
 				CheckHandle();
 				CheckThread();
 
-				RECT clientSize = new RECT();
+				RECT clientSize;
 
 				if (UnsafeNativeMethods.GetClientRect(_Handle, out clientSize) == false)
 					throw new Win32Exception(Marshal.GetLastWin32Error());
@@ -2751,12 +2754,12 @@ namespace OpenGL.CoreUI
 
 		private static RECT GetClientToFrameRect(int x, int y, uint width, uint height, WindowStyles windowStyles)
 		{
-			RECT clientSize = new RECT();
-
-			clientSize.left = x;
-			clientSize.right = x + (int)width;
-			clientSize.top = y;
-			clientSize.bottom = y + (int)height;
+			RECT clientSize = new RECT {
+				left = x,
+				right = x + (int) width,
+				top = y,
+				bottom = y + (int) height
+			};
 
 			if ((windowStyles & WindowStyles.WS_THICKFRAME) != 0) {
 				int cxSizeFrame = UnsafeNativeMethods.GetSystemMetrics(SystemMetric.CXSizeFrame) * 2;
@@ -2871,7 +2874,7 @@ namespace OpenGL.CoreUI
 				if (_Fullscreen == value)
 					return;
 
-				if (value == true) {
+				if (value) {
 					// Get monitor size
 					MONITORINFOEX monitorInfo = new MONITORINFOEX(string.Empty);
 					IntPtr monitor = UnsafeNativeMethods.MonitorFromWindow(_Handle, UnsafeNativeMethods.MONITOR_DEFAULTTONEAREST);
@@ -2977,16 +2980,7 @@ namespace OpenGL.CoreUI
 		/// <summary>
 		/// Get or set the cursor visibility.
 		/// </summary>
-		public override bool CursorVisible
-		{
-			get { return _CursorVisible; }
-			set { _CursorVisible = value; }
-		}
-
-		/// <summary>
-		/// Flag indicating the cursor visibility.
-		/// </summary>
-		private bool _CursorVisible;
+		public override bool CursorVisible { get; set; }
 
 		/// <summary>
 		/// Emulates the mouse move event.

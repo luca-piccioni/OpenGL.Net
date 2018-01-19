@@ -466,14 +466,14 @@ namespace OpenGL.CoreUI
 
 			#region Create device context
 
-			_DeviceContext = DeviceContext.Create(displayHandle, windowHandle);
-			_DeviceContext.IncRef();
+			DeviceContext = DeviceContext.Create(displayHandle, windowHandle);
+			DeviceContext.IncRef();
 
 			#endregion
 
 			#region Set pixel format
 
-			DevicePixelFormatCollection pixelFormats = _DeviceContext.PixelsFormats;
+			DevicePixelFormatCollection pixelFormats = DeviceContext.PixelsFormats;
 			List<DevicePixelFormat> matchingPixelFormats = pixelFormats.Choose(controlReqFormat);
 
 			if (matchingPixelFormats.Count == 0 && controlReqFormat.MultisampleBits > 0) {
@@ -493,11 +493,13 @@ namespace OpenGL.CoreUI
 
 				matchingPixelFormats = pixelFormats.Choose(controlReqFormat);
 				if (matchingPixelFormats.Count == 0)
-					throw new InvalidOperationException(string.Format("unable to find a suitable pixel format: {0}", pixelFormats.GuessChooseError(controlReqFormat)));
+					throw new InvalidOperationException(
+						$"unable to find a suitable pixel format: {pixelFormats.GuessChooseError(controlReqFormat)}");
 			} else if (matchingPixelFormats.Count == 0)
-				throw new InvalidOperationException(string.Format("unable to find a suitable pixel format: {0}", pixelFormats.GuessChooseError(controlReqFormat)));
+				throw new InvalidOperationException(
+					$"unable to find a suitable pixel format: {pixelFormats.GuessChooseError(controlReqFormat)}");
 
-			_DeviceContext.SetPixelFormat(matchingPixelFormats[0]);
+			DeviceContext.SetPixelFormat(matchingPixelFormats[0]);
 
 			#endregion
 
@@ -510,7 +512,7 @@ namespace OpenGL.CoreUI
 				if (!Gl.PlatformExtensions.SwapControlTear && swapInterval == -1)
 					swapInterval = 1;
 
-				_DeviceContext.SwapInterval(swapInterval);
+				DeviceContext.SwapInterval(swapInterval);
 			}
 
 			#endregion
@@ -521,9 +523,9 @@ namespace OpenGL.CoreUI
 		/// </summary>
 		protected void DestroyDeviceContext()
 		{
-			if (_DeviceContext != null) {
-				_DeviceContext.Dispose();
-				_DeviceContext = null;
+			if (DeviceContext != null) {
+				DeviceContext.Dispose();
+				DeviceContext = null;
 			}
 		}
 
@@ -532,13 +534,13 @@ namespace OpenGL.CoreUI
 		/// </summary>
 		protected void SwapBuffers()
 		{
-			_DeviceContext.SwapBuffers();
+			DeviceContext.SwapBuffers();
 		}
 		
 		/// <summary>
 		/// The device context.
 		/// </summary>
-		protected DeviceContext _DeviceContext;
+		protected DeviceContext DeviceContext;
 
 		#endregion
 
@@ -645,23 +647,23 @@ namespace OpenGL.CoreUI
 
 				attributes.Add(0);
 
-				if ((_RenderContext = _DeviceContext.CreateContextAttrib(sharingContext, attributes.ToArray())) == IntPtr.Zero)
-					throw new InvalidOperationException(string.Format("unable to create render context ({0})", Gl.GetError()));
+				if ((_RenderContext = DeviceContext.CreateContextAttrib(sharingContext, attributes.ToArray())) == IntPtr.Zero)
+					throw new InvalidOperationException($"unable to create render context ({Gl.GetError()})");
 			} else {
 				// Create OpenGL context using compatibility profile
-				if ((_RenderContext = _DeviceContext.CreateContext(sharingContext)) == IntPtr.Zero)
+				if ((_RenderContext = DeviceContext.CreateContext(sharingContext)) == IntPtr.Zero)
 					throw new InvalidOperationException("unable to create render context");
 			}
 
 			// Allow other GlControl instances to reuse this GlControl context
 			if (shareResources) {
 				if (_SharingWindows.ContainsKey(ContextSharingGroup))
-					throw new InvalidOperationException(string.Format("another GlControl has created sharing group {0}", ContextSharingGroup));
+					throw new InvalidOperationException($"another GlControl has created sharing group {ContextSharingGroup}");
 				_SharingWindows.Add(ContextSharingGroup, this);
 			}
 
 			// Allow other GlControl instances to share resources with this context
-			if (shareResources == true) {
+			if (shareResources) {
 				List<IntPtr> sharingContextes;
 
 				// Get the list previously created
@@ -689,12 +691,12 @@ namespace OpenGL.CoreUI
 				// Get the list previously created
 				_SharingGroups.TryGetValue(ContextSharingGroup, out sharingContextes);
 				// Remove this context
-				bool res = sharingContextes.Remove(_RenderContext);
+				bool res = sharingContextes != null && sharingContextes.Remove(_RenderContext);
 				Debug.Assert(res);
 			}
 
 			// Delete OpenGL context
-			_DeviceContext.DeleteContext(_RenderContext);
+			DeviceContext.DeleteContext(_RenderContext);
 			_RenderContext = IntPtr.Zero;
 		}
 
@@ -704,7 +706,7 @@ namespace OpenGL.CoreUI
 		protected void MakeCurrentContext()
 		{
 			// Make context current
-			if (_DeviceContext.MakeCurrent(_RenderContext) == false)
+			if (DeviceContext.MakeCurrent(_RenderContext) == false)
 				throw new InvalidOperationException("unable to make context current");
 		}
 
@@ -964,7 +966,7 @@ namespace OpenGL.CoreUI
 		{
 			Trace.TraceInformation("NativeWindow.OnContextCreated()");
 
-			ContextCreated?.Invoke(this, new NativeWindowEventArgs(_DeviceContext, _RenderContext));
+			ContextCreated?.Invoke(this, new NativeWindowEventArgs(DeviceContext, _RenderContext));
 			_IsContextCreated = true;
 		}
 
@@ -988,7 +990,7 @@ namespace OpenGL.CoreUI
 		protected virtual void OnContextDestroying()
 		{
 			_IsContextCreated = false;
-			ContextDestroying?.Invoke(this, new NativeWindowEventArgs(_DeviceContext, _RenderContext));
+			ContextDestroying?.Invoke(this, new NativeWindowEventArgs(DeviceContext, _RenderContext));
 		}
 
 		#endregion
@@ -1005,7 +1007,7 @@ namespace OpenGL.CoreUI
 		/// </summary>
 		protected virtual void OnRender()
 		{
-			Render?.Invoke(this, new NativeWindowEventArgs(_DeviceContext, _RenderContext));
+			Render?.Invoke(this, new NativeWindowEventArgs(DeviceContext, _RenderContext));
 		}
 
 		#endregion
@@ -1023,7 +1025,7 @@ namespace OpenGL.CoreUI
 		/// </summary>
 		protected virtual void OnContextUpdate()
 		{
-			ContextUpdate?.Invoke(this, new NativeWindowEventArgs(_DeviceContext, _RenderContext));
+			ContextUpdate?.Invoke(this, new NativeWindowEventArgs(DeviceContext, _RenderContext));
 		}
 
 		#endregion
@@ -1058,7 +1060,7 @@ namespace OpenGL.CoreUI
 		protected virtual void OnKeyDown(KeyCode key)
 		{
 			_KeysPressed[(int)key] = true;
-			KeyDown?.Invoke(this, new NativeWindowKeyEventArgs(_DeviceContext, _RenderContext, key));
+			KeyDown?.Invoke(this, new NativeWindowKeyEventArgs(DeviceContext, _RenderContext, key));
 		}
 
 		/// <summary>
@@ -1072,7 +1074,7 @@ namespace OpenGL.CoreUI
 		protected virtual void OnKeyUp(KeyCode key)
 		{
 			_KeysPressed[(int)key] = false;
-			KeyUp?.Invoke(this, new NativeWindowKeyEventArgs(_DeviceContext, _RenderContext, key));
+			KeyUp?.Invoke(this, new NativeWindowKeyEventArgs(DeviceContext, _RenderContext, key));
 		}
 
 		#endregion
@@ -1089,7 +1091,7 @@ namespace OpenGL.CoreUI
 		/// </summary>
 		protected virtual void OnMouseEnter(Point location, MouseButton buttons)
 		{
-			MouseEnter?.Invoke(this, new NativeWindowMouseEventArgs(_DeviceContext, _RenderContext, location, buttons));
+			MouseEnter?.Invoke(this, new NativeWindowMouseEventArgs(DeviceContext, _RenderContext, location, buttons));
 		}
 
 		/// <summary>
@@ -1102,7 +1104,7 @@ namespace OpenGL.CoreUI
 		/// </summary>
 		protected virtual void OnMouseLeave()
 		{
-			MouseLeave?.Invoke(this, new NativeWindowEventArgs(_DeviceContext, _RenderContext));
+			MouseLeave?.Invoke(this, new NativeWindowEventArgs(DeviceContext, _RenderContext));
 		}
 
 		/// <summary>
@@ -1115,7 +1117,7 @@ namespace OpenGL.CoreUI
 		/// </summary>
 		protected virtual void OnMouseMove(Point location, MouseButton buttons)
 		{
-			MouseMove?.Invoke(this, new NativeWindowMouseEventArgs(_DeviceContext, _RenderContext, location, buttons));
+			MouseMove?.Invoke(this, new NativeWindowMouseEventArgs(DeviceContext, _RenderContext, location, buttons));
 		}
 
 		/// <summary>
@@ -1128,7 +1130,7 @@ namespace OpenGL.CoreUI
 		/// </summary>
 		protected virtual void OnMouseDown(Point location, MouseButton buttons)
 		{
-			MouseDown?.Invoke(this, new NativeWindowMouseEventArgs(_DeviceContext, _RenderContext, location, buttons));
+			MouseDown?.Invoke(this, new NativeWindowMouseEventArgs(DeviceContext, _RenderContext, location, buttons));
 		}
 
 		/// <summary>
@@ -1141,7 +1143,7 @@ namespace OpenGL.CoreUI
 		/// </summary>
 		protected virtual void OnMouseUp(Point location, MouseButton buttons)
 		{
-			MouseUp?.Invoke(this, new NativeWindowMouseEventArgs(_DeviceContext, _RenderContext, location, buttons));
+			MouseUp?.Invoke(this, new NativeWindowMouseEventArgs(DeviceContext, _RenderContext, location, buttons));
 		}
 
 		/// <summary>
@@ -1154,7 +1156,7 @@ namespace OpenGL.CoreUI
 		/// </summary>
 		protected virtual void OnMouseWheel(Point location, MouseButton buttons, short ticks)
 		{
-			MouseWheel?.Invoke(this, new NativeWindowMouseEventArgs(_DeviceContext, _RenderContext, location, buttons, ticks));
+			MouseWheel?.Invoke(this, new NativeWindowMouseEventArgs(DeviceContext, _RenderContext, location, buttons, ticks));
 		}
 
 		/// <summary>
@@ -1167,7 +1169,7 @@ namespace OpenGL.CoreUI
 		/// </summary>
 		protected virtual void OnMouseDoubleClick(Point location, MouseButton buttons)
 		{
-			MouseDoubleClick?.Invoke(this, new NativeWindowMouseEventArgs(_DeviceContext, _RenderContext, location, buttons));
+			MouseDoubleClick?.Invoke(this, new NativeWindowMouseEventArgs(DeviceContext, _RenderContext, location, buttons));
 		}
 
 		#endregion
