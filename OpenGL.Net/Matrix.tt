@@ -5,6 +5,7 @@
 <#@ Import Namespace="System.Collections.Generic" #>
 <#@ Import Namespace="System.Linq" #>
 <#@ Import Namespace="System.Runtime.InteropServices" #>
+<#@ Import Namespace="System.Text" #>
 
 // Copyright (C) 2009-2017 Luca Piccioni
 // 
@@ -26,9 +27,12 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+using System;
 using System.Runtime.InteropServices;
+using System.Threading;
 
 // ReSharper disable InconsistentNaming
+// ReSharper disable CompareOfFloatsByEqualityOperator
 
 namespace OpenGL
 {
@@ -37,13 +41,360 @@ namespace OpenGL
 	string[] postfixes =		new[] { "f",     "d"};
 	string[] zeroes =			new[] { "0.0f",  "0.0" };
 	string[] ones =				new[] { "1.0f",  "1.0",     null };
-	string[] vertexBaseType =	new[] { "UByte","Byte",  "UShort", "Short", "UInt", "Int", "Float", "Double",  "Half" };
+	string[] matrixBaseTypes =	new[] { "float", "double" };
+	string[] columnTypeComps =	new[] { "x", "y", "z", "w" };
+	string[] literals		 =	new[] { "f", "" };
+	string[] vliterals		 =	new[] { "f", "d" };
 
 	for (int i = 0; i < 2; i++) for (int c = 2; c <= 4; c++) for (int r = 2; r <= 4; r++) {
 		string className = String.Format("Matrix{0}x{1}{2}", c, r, postfixes[i]);
+		string loworderClassName = String.Format("Matrix{0}x{1}{2}", c - 1, r - 1, postfixes[i]);
+		string highorderClassName = String.Format("Matrix{0}x{1}{2}", c + 1, r + 1, postfixes[i]);
+		string matrixBaseType = matrixBaseTypes[i];
 		string columnType = String.Format("Vertex{0}{1}", r, postfixes[i]);
 		string matrixType = "Matrix";
+		string one = ones[i], zero = zeroes[i];
+		string tranposedClassName = String.Format("Matrix{0}x{1}{2}", r, c, postfixes[i]);
+		string literal = literals[i];
+		string vertex3 = "Vertex3" + vliterals[i];
+		string vertex4 = "Vertex4" + vliterals[i];
+#>
+	/// <summary>
+	/// Matrix composed by <#= c #> columns and <#= r #> rows.
+	/// </summary>
+	[StructLayout(LayoutKind.Sequential, Pack = 4)]
+	public struct <#= className #> : IEquatable<<#= className #>>
+	{
+		#region Constructors
 
+		/// <summary>
+		/// Construct a <#= className #> specifying the matrix components.
+		/// </summary>
+<# for (int c1 = 0; c1 < c; c1++) for (int r1 = 0; r1 < r; r1++) {#>
+		/// <param name="c<#= c1 #><#= r1 #>">
+		/// A <see cref="<#= matrixBaseType #>" /> that specifies the matrix component at column <#= c1 #> and row <#= r1 #>.
+		/// </param>
+<#}#>
+		public <#= className #>(<#for (int c1 = 0; c1 < c; c1++) for (int r1 = 0; r1 < r; r1++){#><#= matrixBaseType #> c<#= c1 #><#= r1 #><# if (c1 < c - 1 || r1 < r - 1) { #>, <#}#><#}#>)
+		{
+<# for (int c1 = 0; c1 < c; c1++) for (int r1 = 0; r1 < r; r1++) {#>
+			_M<#= c1 #><#= r1 #> = c<#= c1 #><#= r1 #>;
+<#}#>
+		}
+
+		/// <summary>
+		/// Construct a <#= className #> specifying the matrix components.
+		/// </summary>
+		/// <param name="c">
+		/// An array holding the matrix components.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="c"/> is null.
+		/// </exception>
+		public <#= className #>(<#= matrixBaseType #>[] c) :
+			this(c, 0)
+		{
+		
+		}
+
+		/// <summary>
+		/// Construct a <#= className #> specifying the matrix components.
+		/// </summary>
+		/// <param name="c">
+		/// An array holding the matrix components.
+		/// </param>
+		/// <param name="offset">
+		/// A <see cref="uint" /> that specifies the index of the first matrix component.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="c"/> is null.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="c"/> is does not contains enought elements.
+		/// </exception>
+		public <#= className #>(<#= matrixBaseType #>[] c, uint offset)
+		{
+			if (c == null)
+				throw new ArgumentNullException(nameof(c));
+			if (c.Length - offset < <#= c * r #>)
+				throw new ArgumentException("length must be at least <#= c * r #>", nameof(c));
+
+<# for (int c1 = 0; c1 < c; c1++) for (int r1 = 0; r1 < r; r1++) {#>
+			_M<#= c1 #><#= r1 #> = c[offset + <#= c1 * r + r1 #>];
+<#}#>
+		}
+
+		/// <summary>
+		/// Construct a <#= className #> specifying another matrix.
+		/// </summary>
+		/// <param name="other">
+		/// The other <#= className #> to be copied into this instance.
+		/// </param>
+		public <#= className #>(<#= className #> other)
+		{
+<# for (int c1 = 0; c1 < c; c1++) for (int r1 = 0; r1 < r; r1++) { #>
+			_M<#= c1 #><#= r1 #> = other._M<#= c1 #><#= r1 #>;
+<# } #>
+		}
+
+<# if (c == r && c == 3) { #>
+		/// <summary>
+		/// Construct the complement matrix of a <#= highorderClassName #>.
+		/// </summary>
+		/// <param name="other">
+		/// The <#= highorderClassName #> to be copied into this instance.
+		/// </param>
+		/// <param name="c">
+		/// The index of column to be excluded to construct the complement matrix.
+		/// </param>
+		/// <param name="r">
+		/// The index of row to be excluded to construct the complement matrix.
+		/// </param>
+		public <#= className #>(<#= highorderClassName #> other, uint c, uint r)
+		{
+			if (c >= <#= c+1 #>)
+				throw new ArgumentOutOfRangeException(nameof(c));
+			if (r >= <#= r+1 #>)
+				throw new ArgumentOutOfRangeException(nameof(r));
+
+			<# for (int c1 = 0; c1 < c; c1++) for (int r1 = 0; r1 < r; r1++) { #>_M<#= c1 #><#= r1 #> = <# } #> <#= zero #>;
+			for (uint ic = 0; ic < <#= c #>; ic++)
+				for (uint ir = 0; ir < <#= r #>; ir++)
+					this[ic, ir] = other[ic < c ? ic : ic + 1, ir < r ? ir : ir + 1];
+		}
+<# } #>
+
+		#endregion
+
+		#region Structure
+
+<#
+		for (int j = 0; j < c; j++) for (int k = 0; k < r; k++) {
+#>
+		/// <summary>
+		/// <#= className #> component: column <#= j+1 #>, row <#= k+1 #>.
+		/// </summary>
+		internal <#= matrixBaseType #> _M<#= j #><#= k #>;
+
+<#
+		}
+#>
+		#endregion
+
+		#region Operators
+
+		/// <summary>
+		/// Matrix component indexer.
+		/// </summary>
+		/// <param name="c">
+		/// A <see cref="Int32"/> the specify the column index (zero based).
+		/// </param>
+		/// <param name="r">
+		/// A <see cref="Int32"/> the specify the row index (zero based).
+		/// </param>
+		/// <exception cref="ArgumentOutOfRangeException">
+		/// Exception throw if <paramref name="c"/> is greater than <#= c #> column count, or if <paramref name="r"/>
+		/// is greater than <#= r #> row count.
+		/// </exception>
+		public <#= matrixBaseType #> this[uint c, uint r]
+		{
+			get
+			{
+				switch (c) {
+<# for (int j = 0; j < c; j++) { #>
+					case <#= j #>:
+						switch (r) {
+<# for (int k = 0; k < r; k++) { #>
+							case <#= k #>: return _M<#= j #><#= k #>;
+<# } #>
+							default:
+								throw new ArgumentOutOfRangeException(nameof(r));
+						}
+<# } #>
+					default:
+						throw new ArgumentOutOfRangeException(nameof(c));
+				}
+			}
+			set
+			{
+				switch (c) {
+<# for (int j = 0; j < c; j++) { #>
+					case <#= j #>:
+						switch (r) {
+<# for (int k = 0; k < r; k++) { #>
+							case <#= k #>: _M<#= j #><#= k #> = value; break;
+<# } #>
+							default:
+								throw new ArgumentOutOfRangeException(nameof(r));
+						}
+						break;
+<# } #>
+					default:
+						throw new ArgumentOutOfRangeException(nameof(c));
+				}
+			}
+		}
+
+		/// <summary>
+		/// Multiply a <#= className #> with a <#= matrixBaseType #>.
+		/// </summary>
+		/// <param name="m">
+		/// A <see cref="<#= className #>"/> that specify the left multiplication operand.
+		/// </param>
+		/// <param name="v">
+		/// A <see cref="<#= matrixBaseType #>"/> that specify the right multiplication operand.
+		/// </param>
+		/// <returns>
+		/// A <see cref="<#= className #>"/> resulting from the product of the matrix <paramref name="m"/> and the scalar <paramref name="v"/>.
+		/// </returns>
+		public static <#= className #> operator*(<#= className #> m, <#= matrixBaseType #> v)
+		{
+			<#= className #> r = new <#= className #>();
+
+<# for (int j = 0; j < c; j++) for (int k = 0; k < r; k++) { #>
+			r._M<#= j #><#= k #> = m._M<#= j #><#= k #> * v;
+<# } #>
+
+			return r;
+		}
+
+<# if (c == r) { #>
+		/// <summary>
+		/// Multiply a <#= className #> with a <#= columnType #>.
+		/// </summary>
+		/// <param name="m">
+		/// A <see cref="<#= className #>"/> that specify the left multiplication operand.
+		/// </param>
+		/// <param name="v">
+		/// A <see cref="<#= columnType #>"/> that specify the right multiplication operand.
+		/// </param>
+		/// <returns>
+		/// A <see cref="<#= columnType #>"/> resulting from the product of the matrix <paramref name="m"/> and the vertex <paramref name="v"/>.
+		/// </returns>
+		public static <#= columnType #> operator*(<#= className #> m, <#= columnType #> v)
+		{
+<#
+List<string> vectorMulExps = new List<string>();
+
+for (int j = 0; j < r; j++) {
+	StringBuilder sb = new StringBuilder();
+
+	sb.AppendFormat("r.{0} = ", columnTypeComps[j]);
+	for (int k = 0; k < r; k++)
+		sb.AppendFormat("m._M{0}{1} * v.{2} + ", k, j, columnTypeComps[k]);
+	sb.Remove(sb.Length - 3, 3);
+
+	vectorMulExps.Add(sb.ToString());
+} #>
+			<#= columnType #> r = new <#= columnType #>();
+
+<# foreach (string s in vectorMulExps) {#>
+			<#= s #>;
+<#}#>
+
+			return r;
+		}
+
+		/// <summary>
+		/// Multiply two <#= className #>.
+		/// </summary>
+		/// <param name="m">
+		/// A <see cref="<#= className #>"/> that specify the left multiplication operand.
+		/// </param>
+		/// <param name="n">
+		/// A <see cref="<#= className #>"/> that specify the right multiplication operand.
+		/// </param>
+		/// <returns>
+		/// A <see cref="<#= className #>"/> resulting from the product of the matrix <paramref name="m"/> and the matrix <paramref name="n"/>.
+		/// </returns>
+		public static <#= className #> operator*(<#= className #> m, <#= className #> n)
+		{
+<#
+List<string> rItemInit = new List<string>();
+
+for (int c1 = 0; c1 < c; c1++) for (int r1 = 0; r1 < r; r1++) {
+	StringBuilder sb = new StringBuilder();
+
+	sb.AppendFormat("r._M{0}{1} = ", c1, r1);
+	for (int j = 0; j < r; j++)
+		sb.AppendFormat("m._M{0}{1} * n._M{2}{0} + ", j, r1, c1);
+	sb.Remove(sb.Length - 3, 3);
+
+	rItemInit.Add(sb.ToString());
+} #>
+			<#= className #> r = new <#= className #>();
+
+<# foreach (string s in rItemInit) {#>
+			<#= s #>;
+<#}#>
+
+			return r;
+		}
+
+<# } #>
+		#endregion
+
+		#region Equality Operators
+
+		/// <summary>
+		/// Equality operator.
+		/// </summary>
+		/// <param name="m1">
+		/// A <see cref="<#= className #>"/> that specify the left operand.
+		/// </param>
+		/// <param name="m2">
+		/// A <see cref="<#= className #>"/> that specify the left operand.
+		/// </param>
+		/// <returns>
+		/// It returns true if <paramref name="m1"/> equals <paramref name="m2"/>.
+		/// </returns>
+		public static bool operator ==(<#= className #> m1, <#= className #> m2)
+		{
+			return m1.Equals(m2);
+		}
+
+		/// <summary>
+		/// Inequality operator.
+		/// </summary>
+		/// <param name="m1">
+		/// A <see cref="<#= className #>"/> that specify the left operand.
+		/// </param>
+		/// <param name="m2">
+		/// A <see cref="<#= className #>"/> that specify the left operand.
+		/// </param>
+		/// <returns>
+		/// It returns true if <paramref name="m1"/> not equals <paramref name="m2"/>.
+		/// </returns>
+		public static bool operator !=(<#= className #> m1, <#= className #> m2)
+		{
+			return !m1.Equals(m2);
+		}
+
+		#endregion
+
+		#region Cast Operators
+
+		/// <summary>
+		/// Operator casting to <#= matrixBaseType #>[] .
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="<#= className #>"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:float[]"/> initialized with the matrix components.
+		/// </returns>
+		public static explicit operator <#= matrixBaseType #>[](<#= className #> a)
+		{
+			<#= matrixBaseType #>[] m = new <#= matrixBaseType #>[<#= c * r #>];
+
+<#		for (int c1 = 0; c1 < c; c1++) for (int r1 = 0; r1 < r; r1++) {#>
+			m[<#= c1 * c + r1 #>] = a._M<#= c1 #><#= r1 #>;
+<#		}#>
+
+			return m;
+		}
+
+<#
 		if (i == 0) {
 			if (r == c && c >= 3 && r >= 3)
 				matrixType = String.Format("Matrix{0}x{0}", r);
@@ -56,60 +407,827 @@ namespace OpenGL
 		System.Text.StringBuilder matrixArray = new System.Text.StringBuilder();
 		string[] vertexComponents = new string[] { "x", "y", "z", "w" };
 
-		for (int c1 = 0; c1 < c; c1++) for (int r1 = 0; r1 < r; r1++) {
-			matrixArray.AppendFormat("Column{0}.{1}, ", c1, vertexComponents[r1]);
-		}
+		for (int c1 = 0; c1 < c; c1++) for (int r1 = 0; r1 < r; r1++)
+			matrixArray.AppendFormat("m._M{0}{1}, ", c1, r1);
 		matrixArray.Remove(matrixArray.Length - 2, 2);
 
 		string matrixArrayStr = matrixArray.ToString();
 #>
-	/// <summary>
-	/// Matrix composed by <#= c #> columns and <#= r #> rows.
-	/// </summary>
-	[StructLayout(LayoutKind.Sequential, Pack = 4)]
-	public struct <#= className #>
-	{
-		#region Structure
-
 		/// <summary>
-		/// Construct a <#= className #> specifying the matrix columns.
+		/// Operator casting to <#= matrixType #>.
 		/// </summary>
-		public <#= className #>(<#for (int j = 0; j < c; j++){#><#= columnType #> c<#= j #><# if (j < c - 1) { #>, <#}#><#}#>)
-		{
-<# for (int j = 0; j < c; j++) {#>
-			Column<#= j #> = c<#= j #>;
-<#}#>
-		}
-
-		#endregion
-
-		#region Structure
-
-<#
-		for (int j = 0; j < c; j++) {
-#>
-		/// <summary>
-		/// <#= className #> column n. <#= j+1 #>.
-		/// </summary>
-		public <#= columnType #> Column<#= j #>;
-
-<#
-		}
-#>
-		#endregion
-
-		#region ToMatrix
-
-		/// <summary>
-		/// Convert this <#= className #> to <#= matrixType #>.
-		/// </summary>
-		public <#= matrixType #> ToMatrix()
+		/// <param name="m">
+		/// A <see cref="<#= className #>"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:<#= matrixType #>[]"/> initialized with <paramref name="m"/>.
+		/// </returns>
+		public static implicit operator <#= matrixType #>(<#= className #> m)
 		{
 <# if (r == c && c >= 3 && r >= 3) {#>
 			return (new <#= matrixType #>(new[] { <#= matrixArrayStr #> }));
 <#} else {#>
 			return (new <#= matrixType #>(<#= c #>, <#= r #>, <#= matrixArrayStr #>));
 <#}#>
+		}
+
+		#endregion
+
+<# if (c == 4 && r == 4) { #>
+		#region Projections
+
+		/// <summary>
+		/// Construct a <#= className #> modelling an orthographic projection.
+		/// </summary>
+		/// <param name="left">
+		/// A <see cref="<#= matrixBaseType #>"/> indicating the distance of the left plane, in world units.
+		/// </param>
+		/// <param name="right">
+		/// A <see cref="<#= matrixBaseType #>"/> indicating the distance of the right plane, in world units
+		/// </param>
+		/// <param name="bottom">
+		/// A <see cref="<#= matrixBaseType #>"/> indicating the distance of the bottom plane, in world units
+		/// </param>
+		/// <param name="top">
+		/// A <see cref="<#= matrixBaseType #>"/> indicating the distance of the top plane, in world units
+		/// </param>
+		/// <param name="near">
+		/// A <see cref="<#= matrixBaseType #>"/> indicating the distance of the near plane, in world units
+		/// </param>
+		/// <param name="far">
+		/// A <see cref="<#= matrixBaseType #>"/> indicating the distance of the far plane, in world units
+		/// </param>
+		/// <returns>
+		/// A <see cref="<#= className #>"/> representing an orthographic projection matrix.
+		/// </returns>
+		public static <#= className #> Ortho(<#= matrixBaseType #> left, <#= matrixBaseType #> right, <#= matrixBaseType #> bottom, <#= matrixBaseType #> top, <#= matrixBaseType #> near, <#= matrixBaseType #> far)
+		{
+			<#= className #> r = new <#= className #>();
+
+			r._M00 = 2.0<#= literal #> / (right - left);
+			r._M11 = 2.0<#= literal #> / (top - bottom);
+			r._M22 = -2.0<#= literal #> / (far - near);
+			r._M30 = -(right + left) / (right - left);
+			r._M31 = -(top + bottom) / (top - bottom);
+			r._M32 = -(far + near) / (far - near);
+			r._M33 = 1.0<#= literal #>;
+
+			return r;
+		}
+
+		/// <summary>
+		/// Construct a <#= className #> modelling a 2D orthographic projection.
+		/// </summary>
+		/// <param name="left">
+		/// A <see cref="<#= matrixBaseType #>"/> indicating the distance of the left plane, in world units.
+		/// </param>
+		/// <param name="right">
+		/// A <see cref="<#= matrixBaseType #>"/> indicating the distance of the right plane, in world units
+		/// </param>
+		/// <param name="bottom">
+		/// A <see cref="<#= matrixBaseType #>"/> indicating the distance of the bottom plane, in world units
+		/// </param>
+		/// <param name="top">
+		/// A <see cref="<#= matrixBaseType #>"/> indicating the distance of the top plane, in world units
+		/// </param>
+		/// <returns>
+		/// A <see cref="<#= className #>"/> representing a 2D orthographic projection matrix.
+		/// </returns>
+		public static <#= className #> Ortho2D(<#= matrixBaseType #> left, <#= matrixBaseType #> right, <#= matrixBaseType #> bottom, <#= matrixBaseType #> top)
+		{
+			return Ortho(left, right, bottom, top, -1.0<#= literal #>, +1.0<#= literal #>);
+		}
+
+		/// <summary>
+		/// Construct a <#= className #> modelling a frustrum perspective projection matrix.
+		/// </summary>
+		/// <param name="left">
+		/// A <see cref="<#= matrixBaseType #>"/> that specifies the frustum left plane distance.
+		/// </param>
+		/// <param name="right">
+		/// A <see cref="<#= matrixBaseType #>"/> that specifies the frustum right plane distance.
+		/// </param>
+		/// <param name="bottom">
+		/// A <see cref="<#= matrixBaseType #>"/> that specifies the frustum bottom plane distance.
+		/// </param>
+		/// <param name="top">
+		/// A <see cref="<#= matrixBaseType #>"/> that specifies the frustum top plane distance.
+		/// </param>
+		/// <param name="near">
+		/// A <see cref="<#= matrixBaseType #>"/> that specifies the frustum near plane distance.
+		/// </param>
+		/// <param name="far">
+		/// A <see cref="<#= matrixBaseType #>"/> that specifies the frustum far plane distance.
+		/// </param>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if the parameter have an invalid set of values.
+		/// </exception>
+		public static <#= className #> Frustrum(<#= matrixBaseType #> left, <#= matrixBaseType #> right, <#= matrixBaseType #> bottom, <#= matrixBaseType #> top, <#= matrixBaseType #> near, <#= matrixBaseType #> far)
+		{
+			if (Math.Abs(right - left) < <#= matrixBaseType #>.Epsilon)
+				throw new ArgumentException("left/right planes are coincident");
+			if (Math.Abs(top - bottom) < <#= matrixBaseType #>.Epsilon)
+				throw new ArgumentException("top/bottom planes are coincident");
+			if (Math.Abs(far - near) < <#= matrixBaseType #>.Epsilon)
+				throw new ArgumentException("far/near planes are coincident");
+
+			<#= className #> r = new <#= className #>();
+
+			r._M00 = 2.0<#= literal #> * near / (right - left);
+			r._M11 = 2.0<#= literal #> * near / (top - bottom);
+			r._M20 = (right + left) / (right - left);
+			r._M21 = (top + bottom) / (top - bottom);
+			r._M22 = (-far - near) / (far - near);
+			r._M23 = -1.0<#= literal #>;
+			r._M32 = -2.0<#= literal #> * far * near / (far - near);
+
+			return r;
+		}
+
+		/// <summary>
+		/// Construct a <#= className #> modelling a frustrum perspective projection matrix, using FOV angle.
+		/// </summary>
+		/// <param name="fovy">
+		/// A <see cref="<#= matrixBaseType #>"/> that specifies the vertical Field Of View angle, in degrees.
+		/// </param>
+		/// <param name="aspectRatio">
+		/// A <see cref="<#= matrixBaseType #>"/> that specifies the view aspect ratio (i.e. the width / height ratio).
+		/// </param>
+		/// <param name="near">
+		/// A <see cref="<#= matrixBaseType #>"/> that specifies the distance of the frustum near plane.
+		/// </param>
+		/// <param name="far">
+		/// A <see cref="<#= matrixBaseType #>"/> that specifies the distance of the frustum far plane.
+		/// </param>
+		/// <exception cref="ArgumentOutOfRangeException">
+		/// Exception thrown if at least one parameter has an invalid value.
+		/// </exception>
+		public static <#= className #> Perspective(<#= matrixBaseType #> fovy, <#= matrixBaseType #> aspectRatio, <#= matrixBaseType #> near, <#= matrixBaseType #> far)
+		{
+			if (fovy <= 0.0<#= literal #> || fovy > 180.0<#= literal #>)
+				throw new ArgumentOutOfRangeException(nameof(fovy), "not in range [0, 180)");
+			if (Math.Abs(near) < <#= matrixBaseType #>.Epsilon)
+				throw new ArgumentOutOfRangeException(nameof(near), "zero not allowed");
+			if (Math.Abs(far) < Math.Abs(near))
+				throw new ArgumentOutOfRangeException(nameof(far), "less than near");
+
+			<#= matrixBaseType #> ymax = near * (<#= matrixBaseType #>)Math.Tan(Angle.ToRadians(fovy / 2.0<#= literal #>));
+			<#= matrixBaseType #> xmax = ymax * aspectRatio;
+
+			return Frustrum(-xmax, +xmax, -ymax, +ymax, near, far);
+		}
+
+		/// <summary>
+		/// Construct a <#= className #> modelling an asymmetric frustrum perspective projection matrix, using FOV angles.
+		/// </summary>
+		/// <param name="leftFov">
+		/// A <see cref="<#= matrixBaseType #>"/> that specifies the left plane FOV angle, in degrees.
+		/// </param>
+		/// <param name="rightFov">
+		/// A <see cref="<#= matrixBaseType #>"/> that specifies the right plane FOV angle, in degrees.
+		/// </param>
+		/// <param name="bottomFov">
+		/// A <see cref="<#= matrixBaseType #>"/> that specifies the bottom plane FOV angle, in degrees.
+		/// </param>
+		/// <param name="topFov">
+		/// A <see cref="<#= matrixBaseType #>"/> that specifies the top plane FOV angle, in degrees.
+		/// </param>
+		/// <param name="near">
+		/// A <see cref="<#= matrixBaseType #>"/> that specifies the distance of the frustum near plane.
+		/// </param>
+		/// <param name="far">
+		/// A <see cref="<#= matrixBaseType #>"/> that specifies the distance of the frustum far plane.
+		/// </param>
+		/// <exception cref="ArgumentOutOfRangeException">
+		/// Exception thrown if at least one parameter has an invalid value.
+		/// </exception>
+		public static <#= className #> Perspective(<#= matrixBaseType #> leftFov, <#= matrixBaseType #> rightFov, <#= matrixBaseType #> bottomFov, <#= matrixBaseType #> topFov, <#= matrixBaseType #> near, <#= matrixBaseType #> far)
+		{
+			return Frustrum(
+				-near * (<#= matrixBaseType #>)Math.Tan(Angle.ToRadians(leftFov)),
+				+near * (<#= matrixBaseType #>)Math.Tan(Angle.ToRadians(rightFov)),
+				-near * (<#= matrixBaseType #>)Math.Tan(Angle.ToRadians(bottomFov)),
+				+near * (<#= matrixBaseType #>)Math.Tan(Angle.ToRadians(topFov)),
+				near, far
+			);
+		}
+
+		#endregion
+
+		#region View Model
+
+		/// <summary>
+		/// Get the translation of this <#= className #>.
+		/// </summary>
+		public <#= vertex3 #> Position
+		{
+			get
+			{
+				return ((<#= vertex3 #>)new <#= vertex4 #>(_M30, _M31, _M32, _M33));
+			}
+		}
+
+		/// <summary>
+		/// Get the forward vector of this <#= className #>.
+		/// </summary>
+		public <#= vertex3 #> ForwardVector
+		{
+			get
+			{
+				<#= vertex3 #> forwardVector;
+
+				forwardVector.x = _M20;
+				forwardVector.y = _M21;
+				forwardVector.z = _M23;
+
+				return ((-forwardVector).Normalized);
+			}
+		}
+
+		/// <summary>
+		/// Get the right vector of this <#= className #>.
+		/// </summary>
+		public <#= vertex3 #> RightVector
+		{
+			get
+			{
+				<#= vertex3 #> rightVector;
+
+				rightVector.x = _M00;
+				rightVector.y = _M01;
+				rightVector.z = _M02;
+
+				return (rightVector.Normalized);
+			}
+		}
+
+		/// <summary>
+		/// Get the up vector of this <#= className #>.
+		/// </summary>
+		public <#= vertex3 #> UpVector
+		{
+			get
+			{
+				<#= vertex3 #> upVector;
+
+				upVector.x = _M10;
+				upVector.y = _M11;
+				upVector.z = _M12;
+
+				return (upVector.Normalized);
+			}
+		}
+
+		/// <summary>
+		/// Construct a <#= className #> modelling a view transformation.
+		/// </summary>
+		/// <param name="eyePosition">
+		/// A <see cref="<#= vertex3 #>"/> that specify the eye position, in local coordinates.
+		/// </param>
+		/// <param name="targetPosition">
+		/// A <see cref="<#= vertex3 #>"/> that specify the eye target position, in local coordinates.
+		/// </param>
+		/// <param name="upVector">
+		/// A <see cref="<#= vertex3 #>"/> that specify the up vector of the view camera abstraction.
+		/// </param>
+		/// <returns>
+		/// It returns a view transformation matrix used to transform the world coordinate, in order to view
+		/// the world from <paramref name="eyePosition"/>, looking at <paramref name="targetPosition"/> having
+		/// an up direction equal to <paramref name="upVector"/>.
+		/// </returns>
+		public static <#= className #> LookAt(<#= vertex3 #> eyePosition, <#= vertex3 #> targetPosition, <#= vertex3 #> upVector)
+		{
+			return LookAtDirection(eyePosition, targetPosition - eyePosition, upVector);
+		}
+
+		/// <summary>
+		/// Construct a <#= className #> modelling a view transformation.
+		/// </summary>
+		/// <param name="eyePosition">
+		/// A <see cref="<#= vertex3 #>"/> that specify the eye position, in local coordinates.
+		/// </param>
+		/// <param name="forwardVector">
+		/// A <see cref="<#= vertex3 #>"/> that specify the direction of the view. It will be normalized.
+		/// </param>
+		/// <param name="upVector">
+		/// A <see cref="<#= vertex3 #>"/> that specify the up vector of the view camera abstraction. It will be normalized
+		/// </param>
+		/// <returns>
+		/// It returns a view transformation matrix used to transform the world coordinate, in order to view
+		/// the world from <paramref name="eyePosition"/>, looking at <paramref name="forwardVector"/> having
+		/// an up direction equal to <paramref name="upVector"/>.
+		/// </returns>
+		public static <#= className #> LookAtDirection(<#= vertex3 #> eyePosition, <#= vertex3 #> forwardVector, <#= vertex3 #> upVector)
+		{
+			<#= vertex3 #> rightVector;
+
+			forwardVector.Normalize();
+			upVector.Normalize();
+			rightVector = forwardVector ^ upVector;
+			if (rightVector.Module() <= <#= zero #>)
+				rightVector = <#= vertex3 #>.UnitX;
+			rightVector.Normalize();
+			upVector = rightVector ^ forwardVector;
+			upVector.Normalize();
+
+			// Compute view matrix
+			<#= className #> r = new <#= className #>();
+
+			// Row 0: right vector
+			r._M00 = rightVector.x;
+			r._M10 = rightVector.y;
+			r._M20 = rightVector.z;
+			// Row 1: up vector
+			r._M01 = upVector.x;
+			r._M11 = upVector.y;
+			r._M21 = upVector.z;
+			// Row 2: opposite of forward vector
+			r._M02 = -forwardVector.x;
+			r._M12 = -forwardVector.y;
+			r._M22 = -forwardVector.z;
+
+			r._M33 = <#= one #>;
+
+			// Eye position
+			r.Translate(-eyePosition.x, -eyePosition.y, -eyePosition.z);
+
+			return (r);
+		}
+
+		#endregion
+
+		#region Translation
+
+		/// <summary>
+		/// Construct a <#= className #> modelling a translation.
+		/// </summary>
+		/// <param name="x">
+		/// A <see cref="<#= matrixBaseType #>"/> that specifies the translation on X axis.
+		/// </param>
+		/// <param name="y">
+		/// A <see cref="<#= matrixBaseType #>"/> that specifies the translation on Y axis.
+		/// </param>
+		/// <param name="z">
+		/// A <see cref="<#= matrixBaseType #>"/> that specifies the translation on Z axis.
+		/// </param>
+		/// <returns>
+		/// A <see cref="<#= className #>"/> representing a translation matrix.
+		/// </returns>
+		public static <#= className #> Translated(<#= matrixBaseType #> x, <#= matrixBaseType #> y, <#= matrixBaseType #> z)
+		{
+			<#= className #> r = new <#= className #>();
+
+			r._M00 = r._M11 = r._M22 = r._M33 = <#= one #>;
+			r._M30 = x;
+			r._M31 = y;
+			r._M32 = z;
+
+			return r;
+		}
+
+		/// <summary>
+		/// Translates this <#= className #>.
+		/// </summary>
+		/// <param name="x">
+		/// A <see cref="<#= matrixBaseType #>"/> that specifies the translation on X axis.
+		/// </param>
+		public void Translate(<#= matrixBaseType #> x, <#= matrixBaseType #> y, <#= matrixBaseType #> z)
+		{
+			this = this * Translated(x, y, z);
+		}
+
+		#endregion
+
+<# } #>
+<# if (c == r) { #>
+		#region Rotation
+
+<# if (c > 2) { #>
+		/// <summary>
+		/// Construct a <#= className #> modelling a rotation around the X axis.
+		/// </summary>
+		/// <param name="angle">
+		/// A <see cref="<#= matrixBaseType #>"/> that specifies the rotation angle, in degrees.
+		/// </param>
+		/// <returns>
+		/// A <see cref="<#= className #>"/> representing a matrix rotating on X axis.
+		/// </returns>
+		public static <#= className #> RotatedX(<#= matrixBaseType #> angle)
+		{
+			<#= matrixBaseType #> a = Angle.ToRadians(angle);
+			<#= matrixBaseType #> cosa = (<#= matrixBaseType #>)Math.Cos(a);
+			<#= matrixBaseType #> sina = (<#= matrixBaseType #>)Math.Sin(a);
+			<#= className #> r = new <#= className #>();
+
+			r._M11 = +cosa;
+			r._M21 = -sina;
+			r._M12 = +sina;
+			r._M22 = +cosa;
+<# if (c == 4) { #>
+			r._M00 = r._M33 = <#= one #>;
+<# } else { #>
+			r._M00 = <#= one #>;
+<# } #>
+
+			return r;
+		}
+
+		/// <summary>
+		/// Rotates this <#= className #> around the X axis.
+		/// </summary>
+		/// <param name="angle">
+		/// A <see cref="<#= matrixBaseType #>"/> that specifies the rotation angle, in degrees.
+		/// </param>
+		public void RotateX(<#= matrixBaseType #> angle)
+		{
+			this = this * RotatedX(angle);
+		}
+
+		/// <summary>
+		/// Construct a <#= className #> modelling a rotation around the Y axis.
+		/// </summary>
+		/// <param name="angle">
+		/// A <see cref="<#= matrixBaseType #>"/> that specifies the rotation angle, in degrees.
+		/// </param>
+		/// <returns>
+		/// A <see cref="<#= className #>"/> representing a matrix rotating on Y axis.
+		/// </returns>
+		public static <#= className #> RotatedY(<#= matrixBaseType #> angle)
+		{
+			<#= matrixBaseType #> a = Angle.ToRadians(angle);
+			<#= matrixBaseType #> cosa = (<#= matrixBaseType #>)Math.Cos(a);
+			<#= matrixBaseType #> sina = (<#= matrixBaseType #>)Math.Sin(a);
+			<#= className #> r = new <#= className #>();
+
+			r._M00 = +cosa;
+			r._M20 = +sina;
+			r._M02 = -sina;
+			r._M22 = +cosa;
+<# if (c == 4) { #>
+			r._M11 = r._M33 = <#= one #>;
+<# } else { #>
+			r._M11 = <#= one #>;
+<# } #>
+
+			return r;
+		}
+
+		/// <summary>
+		/// Rotates this <#= className #> around the Y axis.
+		/// </summary>
+		/// <param name="angle">
+		/// A <see cref="<#= matrixBaseType #>"/> that specifies the rotation angle, in degrees.
+		/// </param>
+		public void RotateY(<#= matrixBaseType #> angle)
+		{
+			this = this * RotatedY(angle);
+		}
+
+<# } #>
+		/// <summary>
+		/// Construct a <#= className #> modelling a rotation around the Z axis.
+		/// </summary>
+		/// <param name="angle">
+		/// A <see cref="<#= matrixBaseType #>"/> that specifies the rotation angle, in degrees.
+		/// </param>
+		/// <returns>
+		/// A <see cref="<#= className #>"/> representing a matrix rotating on Z axis.
+		/// </returns>
+		public static <#= className #> RotatedZ(<#= matrixBaseType #> angle)
+		{
+			<#= matrixBaseType #> a = Angle.ToRadians(angle);
+			<#= matrixBaseType #> cosa = (<#= matrixBaseType #>)Math.Cos(a);
+			<#= matrixBaseType #> sina = (<#= matrixBaseType #>)Math.Sin(a);
+			<#= className #> r = new <#= className #>();
+		
+			r._M00 = +cosa;
+			r._M10 = -sina;
+			r._M01 = +sina;
+			r._M11 = +cosa;
+<# if        (c == 4) { #>
+			r._M22 = r._M33 = <#= one #>;
+<# } else if (c == 3) { #>
+			r._M22 = <#= one #>;
+<# } #>
+
+			return r;
+		}
+
+		/// <summary>
+		/// Rotates this <#= className #> around the Z axis.
+		/// </summary>
+		/// <param name="angle">
+		/// A <see cref="<#= matrixBaseType #>"/> that specifies the rotation angle, in degrees.
+		/// </param>
+		public void RotateZ(<#= matrixBaseType #> angle)
+		{
+			this = this * RotatedZ(angle);
+		}
+
+		#endregion
+
+<# } #>
+<# if (c == r && c >= 3) { #>
+		#region Scaling
+
+		/// <summary>
+		/// Compute the scaled of this <#= className #>.
+		/// </summary>
+		/// <param name="x">
+		/// A <see cref="<#= matrixBaseType #>"/> that specifies the scale on X axis.
+		/// </param>
+		/// <param name="y">
+		/// A <see cref="<#= matrixBaseType #>"/> that specifies the scale on Y axis.
+		/// </param>
+		/// <param name="z">
+		/// A <see cref="<#= matrixBaseType #>"/> that specifies the scale on Z axis.
+		/// </param>
+		/// <returns>
+		/// A <see cref="<#= className #>"/> representing a scaling matrix.
+		/// </returns>
+		public static <#= className #> Scaled(<#= matrixBaseType #> x, <#= matrixBaseType #> y, <#= matrixBaseType #> z)
+		{
+			<#= className #> scaled = new <#= className #>();
+
+			scaled._M00 = x;
+			scaled._M11 = y;
+			scaled._M22 = z;
+<# if (c == r && c > 3) { #>
+			scaled._M33 = <#= one #>;
+<# } #>
+
+			return scaled;
+		}
+
+		/// <summary>
+		/// Scale this <#= className #>.
+		/// </summary>
+		/// <param name="x">
+		/// A <see cref="<#= matrixBaseType #>"/> that specifies the scale on X axis.
+		/// </param>
+		/// <param name="y">
+		/// A <see cref="<#= matrixBaseType #>"/> that specifies the scale on Y axis.
+		/// </param>
+		/// <param name="z">
+		/// A <see cref="<#= matrixBaseType #>"/> that specifies the scale on Z axis.
+		/// </param>
+		public void Scale(<#= matrixBaseType #> x, <#= matrixBaseType #> y, <#= matrixBaseType #> z)
+		{
+			this = this * Scaled(x, y, z);
+		}
+
+		#endregion
+
+<# } #>
+		#region Tranposition
+
+		/// <summary>
+		/// Compute the transpose of this <#= className #>.
+		/// </summary>
+		public <#= tranposedClassName #> Transposed
+		{
+			get
+			{
+				<#= tranposedClassName #> tranposed = new <#= tranposedClassName #>();
+
+<# for (int c1 = 0; c1 < c; c1++) for (int r1 = 0; r1 < r; r1++) { #>
+				tranposed._M<#= r1 #><#= c1 #> = _M<#= c1 #><#= r1 #>;
+<# }#>
+
+				return tranposed;
+			}
+		}
+
+<# if (c == r) { #>
+		/// <summary>
+		/// Transpose this <#= className #>.
+		/// </summary>
+		public void Transpose()
+		{
+<# for (int c1 = 0; c1 < c; c1++) for (int r1 = 0; r1 < r; r1++) if (c1 != r1) { #>
+			_M<#= r1 #><#= c1 #> = Interlocked.Exchange(ref _M<#= c1 #><#= r1 #>, _M<#= r1 #><#= c1 #>);
+<# } #>
+		}
+<# } #>
+
+		#endregion
+
+<# if (c == r) { #>
+		#region Inversion
+
+		/// <summary>
+		/// Compute the determinant of this <#= className #>.
+		/// </summary>
+		public <#= matrixBaseType #> Determinant
+		{
+			get
+			{
+<# if        (c == 2) { #>
+				return _M00 * _M11 - _M10 * _M01;
+<# } else if (c == 3) { #>
+				<#= matrixBaseType #> d0 = _M11 * _M22 - _M21 * _M12;
+				<#= matrixBaseType #> d1 = _M00 * _M22 - _M20 * _M02;
+				<#= matrixBaseType #> d2 = _M00 * _M11 - _M10 * _M01;
+
+				return +d0 * _M00 + -d1 * _M01 + +d2 * _M02;
+<# } else if (c == 4) { #>
+				<#= loworderClassName #> c0 = new <#= loworderClassName #>(this, 0, 0);
+				<#= loworderClassName #> c1 = new <#= loworderClassName #>(this, 0, 1);
+				<#= loworderClassName #> c2 = new <#= loworderClassName #>(this, 0, 2);
+				<#= loworderClassName #> c3 = new <#= loworderClassName #>(this, 0, 3);
+
+				return +c0.Determinant * _M00 + -c1.Determinant * _M01 + +c2.Determinant * _M02 + -c3.Determinant * _M03;
+<# } #>
+			}
+		}
+
+		/// <summary>
+		/// Compute the inverse of this <#= className #>.
+		/// </summary>
+		public <#= className #> Inverse
+		{
+			get
+			{
+<# if        (c == 2) { #>
+				<#= matrixBaseType #> det = Determinant;
+				if (Math.Abs(det) < 1e-6f)
+					throw new InvalidOperationException("not invertible");
+				det = <#= one #> / det;
+				
+				return new <#= className #>(
+					+_M11 * det, -_M10 * det,
+					-_M01 * det, +_M00 * det
+				);
+<# } else if (c == 3) { #>
+
+				<#= matrixBaseType #> det = Determinant;
+				if (Math.Abs(det) < 1e-6f)
+					throw new InvalidOperationException("not invertible");
+				det = <#= one #> / det;
+
+				<#= matrixBaseType #> a = _M00, b = _M10, c = _M20;
+				<#= matrixBaseType #> d = _M01, e = _M11, f = _M21;
+				<#= matrixBaseType #> g = _M02, h = _M12, k = _M22;
+
+				return new <#= className #>(
+					(e * k - f * h) * det, (f * g - d * k) * det, (d * h - e * g) * det,
+					(c * h - b * k) * det, (a * k - c * g) * det, (b * g - a * h) * det,
+					(b * f - c * e) * det, (c * d - a * f) * det, (a * e - b * d) * det
+				);
+<# } else if (c == 4) { #>
+				<#= matrixBaseType #> inv00 =  _M11 * _M22 * _M33 - _M11 * _M23 * _M32 - _M21 * _M12 * _M33 + _M21 * _M13 * _M32 + _M31 * _M12 * _M23 - _M31 * _M13 * _M22;
+				<#= matrixBaseType #> inv10 = -_M10 * _M22 * _M33 + _M10 * _M23 * _M32 + _M20 * _M12 * _M33 - _M20 * _M13 * _M32 - _M30 * _M12 * _M23 + _M30 * _M13 * _M22;
+				<#= matrixBaseType #> inv20 =  _M10 * _M21 * _M33 - _M10 * _M23 * _M31 - _M20 * _M11 * _M33 + _M20 * _M13 * _M31 + _M30 * _M11 * _M23 - _M30 * _M13 * _M21;
+				<#= matrixBaseType #> inv30 = -_M10 * _M21 * _M32 + _M10 * _M22 * _M31 + _M20 * _M11 * _M32 - _M20 * _M12 * _M31 - _M30 * _M11 * _M22 + _M30 * _M12 * _M21;
+				<#= matrixBaseType #> inv01 = -_M01 * _M22 * _M33 + _M01 * _M23 * _M32 + _M21 * _M02 * _M33 - _M21 * _M03 * _M32 - _M31 * _M02 * _M23 + _M31 * _M03 * _M22;
+				<#= matrixBaseType #> inv11 =  _M00 * _M22 * _M33 - _M00 * _M23 * _M32 - _M20 * _M02 * _M33 + _M20 * _M03 * _M32 + _M30 * _M02 * _M23 - _M30 * _M03 * _M22;
+				<#= matrixBaseType #> inv21 = -_M00 * _M21 * _M33 + _M00 * _M23 * _M31 + _M20 * _M01 * _M33 - _M20 * _M03 * _M31 - _M30 * _M01 * _M23 + _M30 * _M03 * _M21;
+				<#= matrixBaseType #> inv31 =  _M00 * _M21 * _M32 - _M00 * _M22 * _M31 - _M20 * _M01 * _M32 + _M20 * _M02 * _M31 + _M30 * _M01 * _M22 - _M30 * _M02 * _M21;
+				<#= matrixBaseType #> inv02 =  _M01 * _M12 * _M33 - _M01 * _M13 * _M32 - _M11 * _M02 * _M33 + _M11 * _M03 * _M32 + _M31 * _M02 * _M13 - _M31 * _M03 * _M12;
+				<#= matrixBaseType #> inv12 = -_M00 * _M12 * _M33 + _M00 * _M13 * _M32 + _M10 * _M02 * _M33 - _M10 * _M03 * _M32 - _M30 * _M02 * _M13 + _M30 * _M03 * _M12;
+				<#= matrixBaseType #> inv22 =  _M00 * _M11 * _M33 - _M00 * _M13 * _M31 - _M10 * _M01 * _M33 + _M10 * _M03 * _M31 + _M30 * _M01 * _M13 - _M30 * _M03 * _M11;
+				<#= matrixBaseType #> inv32 = -_M00 * _M11 * _M32 + _M00 * _M12 * _M31 + _M10 * _M01 * _M32 - _M10 * _M02 * _M31 - _M30 * _M01 * _M12 + _M30 * _M02 * _M11;
+				<#= matrixBaseType #> inv03 = -_M01 * _M12 * _M23 + _M01 * _M13 * _M22 + _M11 * _M02 * _M23 - _M11 * _M03 * _M22 - _M21 * _M02 * _M13 + _M21 * _M03 * _M12;
+				<#= matrixBaseType #> inv13 =  _M00 * _M12 * _M23 - _M00 * _M13 * _M22 - _M10 * _M02 * _M23 + _M10 * _M03 * _M22 + _M20 * _M02 * _M13 - _M20 * _M03 * _M12;
+				<#= matrixBaseType #> inv23 = -_M00 * _M11 * _M23 + _M00 * _M13 * _M21 + _M10 * _M01 * _M23 - _M10 * _M03 * _M21 - _M20 * _M01 * _M13 + _M20 * _M03 * _M11;
+				<#= matrixBaseType #> inv33 =  _M00 * _M11 * _M22 - _M00 * _M12 * _M21 - _M10 * _M01 * _M22 + _M10 * _M02 * _M21 + _M20 * _M01 * _M12 - _M20 * _M02 * _M11;
+
+				<#= matrixBaseType #> det = _M00 * inv00 + _M01 * inv10 + _M02 * inv20 + _M03 * inv30;
+
+				if (Math.Abs(det) < 1e-6f)
+					throw new InvalidOperationException("not invertible");
+
+				det = <#= one #> / det;
+
+				return new <#= className #>(
+<# for (int c1 = 0; c1 < c; c1++) { #>
+					<# for (int r1 = 0; r1 < r; r1++) { #>det * inv<#= c1 #><#= r1 #><# if (c1 < c - 1 || r1 < r - 1) { #>, <# } #><# } #>
+
+<# } #>
+				);
+<# } #>
+			}
+		}
+
+		/// <summary>
+		/// Invert this <#= className #>.
+		/// </summary>
+		public void Invert()
+		{
+			this = Inverse;
+		}
+
+		#endregion
+
+<# } #>
+		#region Notable Matrices
+
+		/// <summary>
+		/// Zero matrix.
+		/// </summary>
+		public static readonly <#= className #> Zero;
+
+<#		if (c == r) {#>
+		/// <summary>
+		/// Identity matrix.
+		/// </summary>
+		public static readonly <#= className #> Identity = new <#= className #>(
+<#			for (int c1 = 0; c1 < c; c1++) {#>
+			<# for (int r1 = 0; r1 < r; r1++) {#><#= c1 == r1 ? one : zero #><# if (c1 < c - 1 || r1 < r - 1) { #>, <#}#>
+<#				}#>
+
+<#			}#>
+		);
+
+<#		}#>
+		#endregion
+
+		#region IEquatable Implementation
+
+		/// <summary>
+		/// Indicates whether the this <#= className #> is equal to another <#= className #>.
+		/// </summary>
+		/// <param name="other">
+		/// The <see cref="<#= className #>"/> to compare with this <#= className #>.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this <#= className #> is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(<#= className #> other)
+		{
+<# string equalsRet = "";
+
+for (int c1 = 0; c1 < c; c1++) for (int r1 = 0; r1 < r; r1++) {
+	equalsRet += string.Format("_M{0}{1} == other._M{0}{1}", c1, r1);
+	if (c1 < c - 1 || r1 < r - 1) equalsRet += " && ";
+}#>
+			return <#= equalsRet #>;
+		}
+
+		/// <summary>
+		/// Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+		/// </summary>
+		/// <param name="obj">
+		/// The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>.
+		/// </param>
+		/// <returns>
+		/// It returns true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+		/// </returns>
+		public override bool Equals(object obj)
+		{
+			if (ReferenceEquals(null, obj))
+				return (false);
+			if (obj.GetType() != typeof(<#= className #>))
+				return (false);
+			
+			return (Equals((<#= className #>)obj));
+		}
+
+		/// <summary>
+		/// Serves as a hash function for a particular type. <see cref="M:System.Object.GetHashCode"/> is suitable for
+		/// use in hashing algorithms and data structures like a hash table.
+		/// </summary>
+		/// <returns>
+		/// A hash code for the current <see cref="T:System.Object"/>.
+		/// </returns>
+		public override int GetHashCode()
+		{
+			unchecked {
+				int result = 0;
+
+<# for (int c1 = 0; c1 < c; c1++) for (int r1 = 0; r1 < r; r1++) {#>
+				result = (result * 397) ^ _M<#= c1 #><#= r1 #>.GetHashCode();
+<#}#>
+
+				return result;
+			}
+		}
+
+		#endregion
+
+		#region Object Overrides
+
+		/// <summary>
+		/// Stringify this <#= className #>.
+		/// </summary>
+		/// <returns>
+		/// Returns a <see cref="string"/> that represents this <#= className #>.
+		/// </returns>
+		public override string ToString()
+		{
+<#
+string toStringRet = "";
+
+for (int c1 = 0; c1 < c; c1++) {
+	toStringRet += "|";
+	for (int r1 = 0; r1 < r; r1++) {
+		toStringRet += string.Format("{{_M{0}{1}}}", c1, r1);
+		if (r1 < r - 1) toStringRet += ", ";
+	}
+	toStringRet += "|";
+}
+#>
+			return $"|<#= toStringRet #>|";
 		}
 
 		#endregion
