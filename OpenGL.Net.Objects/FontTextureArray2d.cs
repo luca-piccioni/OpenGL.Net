@@ -133,11 +133,12 @@ namespace OpenGL.Objects
 					continue;
 
 				// Set instance information
+				float[] c0 = charModel.GetColumn(0), c1 = charModel.GetColumn(1), c2 = charModel.GetColumn(2), c3 = charModel.GetColumn(3);
 				Matrix4x4f modelViewProjection = new Matrix4x4f(
-					new Vertex4f(charModel.GetColumn(0)),
-					new Vertex4f(charModel.GetColumn(1)),
-					new Vertex4f(charModel.GetColumn(2)),
-					new Vertex4f(charModel.GetColumn(3))
+					c0[0], c0[1], c0[2], c0[3],
+					c1[0], c1[1], c1[2], c1[3],
+					c2[0], c2[1], c2[2], c2[3],
+					c3[0], c3[1], c3[2], c3[3]
 				);
 				Vertex3f glyphVertexParams = new Vertex3f(
 					glyph.GlyphSize.Width, glyph.GlyphSize.Height,

@@ -1234,7 +1234,7 @@ namespace OpenGL.Objects
 				return;
 
 #if ENABLE_LAZY_UNIFORM_VALUE
-			Matrix3x3 v = m.ToMatrix();
+			Matrix3x3 v = m;
 			if (uniform.IsValueChanged(v) == false)
 				return;
 #endif
@@ -1309,7 +1309,7 @@ namespace OpenGL.Objects
 				return;
 
 #if ENABLE_LAZY_UNIFORM_VALUE
-			Matrix4x4 v = m.ToMatrix();
+			Matrix4x4 v = m;
 			if (uniform.IsValueChanged(v) == false)
 				return;
 #endif
