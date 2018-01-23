@@ -499,11 +499,11 @@ namespace OpenGL
 		public void SetPerspective(float fovy, float aspectRatio, float near, float far)
 		{
 			if (fovy <= 0.0f || fovy > 180.0f)
-				throw new ArgumentOutOfRangeException("not in range (0, 180)", "fovy");
+				throw new ArgumentOutOfRangeException("fovy", "not in range [0, 180]");
 			if (Math.Abs(near) < Single.Epsilon)
-				throw new ArgumentOutOfRangeException("zero not allowed", "near");
+				throw new ArgumentOutOfRangeException("near", "zero not allowed");
 			if (Math.Abs(far) < Math.Abs(near))
-				throw new ArgumentOutOfRangeException("less than near", "far");
+				throw new ArgumentOutOfRangeException("far", "less than near");
 
 			float ymax = near * (float)Math.Tan(Angle.ToRadians(fovy / 2.0f));
 			float xmax = ymax * aspectRatio;
