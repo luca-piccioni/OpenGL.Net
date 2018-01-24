@@ -34,7 +34,7 @@ namespace OpenGL.Test
 #if !NETCORE && !MONODROID
 	[Apartment(ApartmentState.STA)]
 #endif
-	internal abstract class TestBaseGL : TestBase
+	internal abstract class TestBaseGL : TestBaseDevice
 	{
 		#region Context
 

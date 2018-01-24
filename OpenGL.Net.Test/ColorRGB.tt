@@ -58,7 +58,7 @@ namespace OpenGL.Test
 #>
 	[TestFixture]
 	[Category("Math")]
-	internal class <#= className #>Test : ColorTestBase
+	internal class <#= className #>Test : TestBase
 	{
 		#region Constructors
 
@@ -84,10 +84,9 @@ namespace OpenGL.Test
 		[Test(Description = "Test (ColorRGBA<#= colorSuffix #>)<#= className #>")]
 		public void <#= className #>_CastToRGBA()
 		{
-			Random random = new Random();
-			<#= interfaceType #> r = (<#= interfaceType #>)NextComponent(random, <#= one #>);
-			<#= interfaceType #> g = (<#= interfaceType #>)NextComponent(random, <#= one #>);
-			<#= interfaceType #> b = (<#= interfaceType #>)NextComponent(random, <#= one #>);
+			<#= interfaceType #> r = (<#= interfaceType #>)NextComponent(<#= one #>);
+			<#= interfaceType #> g = (<#= interfaceType #>)NextComponent(<#= one #>);
+			<#= interfaceType #> b = (<#= interfaceType #>)NextComponent(<#= one #>);
 
 			<#= className #> v = new <#= className #>(r, g, b);
 			ColorRGBA<#= colorSuffix #> vRGBA = v;
@@ -103,10 +102,9 @@ namespace OpenGL.Test
 		[Test(Description = "Test (Vertex4ub)<#= className #>")]
 		public void <#= className #>_CastToArray()
 		{
-			Random random = new Random();
-			<#= interfaceType #> r = (<#= interfaceType #>)NextComponent(random, <#= one #>);
-			<#= interfaceType #> g = (<#= interfaceType #>)NextComponent(random, <#= one #>);
-			<#= interfaceType #> b = (<#= interfaceType #>)NextComponent(random, <#= one #>);
+			<#= interfaceType #> r = (<#= interfaceType #>)NextComponent(<#= one #>);
+			<#= interfaceType #> g = (<#= interfaceType #>)NextComponent(<#= one #>);
+			<#= interfaceType #> b = (<#= interfaceType #>)NextComponent(<#= one #>);
 
 			<#= className #> v = new <#= className #>(r, g, b);
 			<#= componentType #>[] vArray = v;
@@ -120,10 +118,9 @@ namespace OpenGL.Test
 		[Test(Description = "Test (Vertex4ub)<#= className #>")]
 		public void <#= className #>_CastToVertex4()
 		{
-			Random random = new Random();
-			<#= interfaceType #> r = (<#= interfaceType #>)NextComponent(random, <#= one #>);
-			<#= interfaceType #> g = (<#= interfaceType #>)NextComponent(random, <#= one #>);
-			<#= interfaceType #> b = (<#= interfaceType #>)NextComponent(random, <#= one #>);
+			<#= interfaceType #> r = (<#= interfaceType #>)NextComponent(<#= one #>);
+			<#= interfaceType #> g = (<#= interfaceType #>)NextComponent(<#= one #>);
+			<#= interfaceType #> b = (<#= interfaceType #>)NextComponent(<#= one #>);
 			
 			<#= className #> v = new <#= className #>(r, g, b);
 			Vertex3<#= castSuffix #> vArray = v;
@@ -141,10 +138,9 @@ namespace OpenGL.Test
 		{
 			const double Epsilon = 0.25;
 
-			Random random = new Random();
-			double r = NextComponent(random, 1.0);
-			double g = NextComponent(random, 1.0);
-			double b = NextComponent(random, 1.0);
+			double r = NextComponent(1.0);
+			double g = NextComponent(1.0);
+			double b = NextComponent(1.0);
 
 			Color c = Color.FromArgb(byte.MaxValue, (int)(r * byte.MaxValue), (int)(g * byte.MaxValue), (int)(b * byte.MaxValue));
 			
@@ -172,10 +168,9 @@ namespace OpenGL.Test
 		[Test(Description = "Test <#= className #>.PixelType")]
 		public void <#= className #>_PixelType()
 		{
-			Random random = new Random();
-			<#= interfaceType #> r = (<#= interfaceType #>)NextComponent(random, <#= one #>);
-			<#= interfaceType #> g = (<#= interfaceType #>)NextComponent(random, <#= one #>);
-			<#= interfaceType #> b = (<#= interfaceType #>)NextComponent(random, <#= one #>);
+			<#= interfaceType #> r = (<#= interfaceType #>)NextComponent(<#= one #>);
+			<#= interfaceType #> g = (<#= interfaceType #>)NextComponent(<#= one #>);
+			<#= interfaceType #> b = (<#= interfaceType #>)NextComponent(<#= one #>);
 
 			<#= className #> v = new <#= className #>(r, g, b);
 
@@ -185,10 +180,9 @@ namespace OpenGL.Test
 		[Test(Description = "Test <#= className #>int]")]
 		public void <#= className #>_Accessor()
 		{
-			Random random = new Random();
-			<#= interfaceType #> r = (<#= interfaceType #>)NextComponent(random, <#= one #>);
-			<#= interfaceType #> g = (<#= interfaceType #>)NextComponent(random, <#= one #>);
-			<#= interfaceType #> b = (<#= interfaceType #>)NextComponent(random, <#= one #>);
+			<#= interfaceType #> r = (<#= interfaceType #>)NextComponent(<#= one #>);
+			<#= interfaceType #> g = (<#= interfaceType #>)NextComponent(<#= one #>);
+			<#= interfaceType #> b = (<#= interfaceType #>)NextComponent(<#= one #>);
 
 			<#= className #> v = new <#= className #>(r, g, b);
 			float c;

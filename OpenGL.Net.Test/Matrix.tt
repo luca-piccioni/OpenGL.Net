@@ -1,0 +1,76 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ output extension=".cs" #>
+<#@ Assembly Name="System.Core" #>
+<#@ Import Namespace="System" #>
+<#@ Import Namespace="System.Collections.Generic" #>
+<#@ Import Namespace="System.Linq" #>
+<#@ Import Namespace="System.Runtime.InteropServices" #>
+
+// Copyright (C) 2018 Luca Piccioni
+// 
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+// 
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+// 
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+
+using System;
+
+using NUnit.Framework;
+
+// ReSharper disable InconsistentNaming
+
+namespace OpenGL.Test
+{
+<#
+	string[] underlyingType =	new[] { "float", "double" };
+	string[] postfixes =		new[] { "f",     "d"};
+	string[] zeroes =			new[] { "0.0f",  "0.0" };
+	string[] ones =				new[] { "1.0f",  "1.0",     null };
+	string[] matrixBaseTypes =	new[] { "float", "double" };
+	string[] columnTypeComps =	new[] { "x", "y", "z", "w" };
+	string[] literals		 =	new[] { "f", "" };
+	string[] vliterals		 =	new[] { "f", "d" };
+
+	for (int i = 0; i < 2; i++) for (int c = 2; c <= 4; c++) for (int r = 2; r <= 4; r++) {
+		string className = String.Format("Matrix{0}x{1}{2}", c, r, postfixes[i]);
+		string loworderClassName = String.Format("Matrix{0}x{1}{2}", c - 1, r - 1, postfixes[i]);
+		string highorderClassName = String.Format("Matrix{0}x{1}{2}", c + 1, r + 1, postfixes[i]);
+		string matrixBaseType = matrixBaseTypes[i];
+		string columnType = String.Format("Vertex{0}{1}", r, postfixes[i]);
+		string matrixType = "Matrix";
+		string one = ones[i], zero = zeroes[i];
+		string tranposedClassName = String.Format("Matrix{0}x{1}{2}", r, c, postfixes[i]);
+		string literal = literals[i];
+		string vertex3 = "Vertex3" + vliterals[i];
+		string vertex4 = "Vertex4" + vliterals[i];
+#>
+	[TestFixture]
+	[Category("Math")]
+	internal class <#= className #>Test
+	{
+		#region Constructors
+
+		[Test]
+		public void <#= className #>_TestConstructor1()
+		{
+			
+		}
+
+		#endregion
+	}
+
+<# } #>
+}

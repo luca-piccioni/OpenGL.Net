@@ -1,5 +1,5 @@
 ﻿
-// Copyright (C) 2017 Luca Piccioni
+// Copyright (C) 2015-2017 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -20,27 +20,51 @@
 // SOFTWARE.
 
 using System;
+using System.Collections.Generic;
+using System.Threading;
+
+using NUnit.Framework;
 
 namespace OpenGL.Test
 {
 	/// <summary>
-	/// Base class for Color tests.
+	/// Abstract base test creating a device context used for testing.
 	/// </summary>
-	internal class ColorTestBase
+#if !NETCORE && !MONODROID
+	[Apartment(ApartmentState.STA)]
+#endif
+	internal abstract class TestBaseDevice
 	{
-		protected static double NextComponent(Random random, double maxValue)
+		#region Device
+
+		protected class Device : IDisposable
 		{
-			return Next(random, 0.0, maxValue);
+			public Device() :
+				this(new DevicePixelFormat(24))
+			{
+
+			}
+
+			public Device(DevicePixelFormat pixelFormat)
+			{
+				if (DeviceContext.IsPBufferSupported) {
+					_NativePBuffer = DeviceContext.CreatePBuffer(pixelFormat, 64, 64);
+					Context = DeviceContext.Create(_NativePBuffer);
+				} else
+					Assert.Inconclusive("no UI backend available");
+			}
+
+			private readonly INativePBuffer _NativePBuffer;
+
+			public readonly DeviceContext Context;
+
+			public void Dispose()
+			{
+				Context?.Dispose();
+				_NativePBuffer?.Dispose();
+			}
 		}
 
-		protected static double Next(Random random)
-		{
-			return Next(random, 0.0, 1.0);
-		}
-
-		protected static double Next(Random random, double minValue, double maxValue)
-		{
-			return random.NextDouble() * (maxValue - minValue) + minValue;
-		}
+		#endregion
 	}
 }

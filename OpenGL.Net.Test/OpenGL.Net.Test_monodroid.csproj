@@ -123,13 +123,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ColorRGBA.tt</DependentUpon>
     </Compile>
-    <Compile Include="ColorTestBase.cs" />
     <Compile Include="DevicePixelFormatCollection.cs" />
     <Compile Include="DevicePixelFormat.cs" />
     <Compile Include="Egl.cs" />
     <Compile Include="EglException.cs" />
     <Compile Include="MatrixDouble.cs" />
     <Compile Include="MatrixBase.cs" />
+    <Compile Include="TestBase.cs" />
+    <Compile Include="TestBaseDevice.cs" />
     <Compile Include="Vertex4.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -159,7 +160,6 @@
     <Compile Include="Matrix4x4.cs" />
     <None Include="Memory.cs" />
     <Compile Include="Plane.cs" />
-    <Compile Include="TestBase.cs" />
     <Compile Include="Vertex2.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -218,6 +218,9 @@
       <Project>{6981be72-a39a-4534-bd3f-132d813a461f}</Project>
       <Name>OpenGL.Net_monodroid</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

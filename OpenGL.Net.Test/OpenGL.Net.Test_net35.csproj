@@ -119,7 +119,6 @@
     </Compile>
     <Compile Include="BenchmarkAttribute.cs" />
     <Compile Include="BenchmarkPInvoke.cs" />
-    <Compile Include="ColorTestBase.cs" />
     <Compile Include="DeviceContext.cs" />
     <Compile Include="DevicePixelFormat.cs" />
     <Compile Include="DevicePixelFormatCollection.cs" />
@@ -145,9 +144,10 @@
     <Compile Include="Plane.cs" />
     <Compile Include="RemovedByFeatureAttribute.cs" />
     <Compile Include="RequiredByFeatureAttribute.cs" />
-    <Compile Include="TestBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestBase.cs" />
     <Compile Include="TestBaseBenchmark.cs" />
+    <Compile Include="TestBaseDevice.cs" />
     <Compile Include="TestBaseGL.cs" />
     <Compile Include="Vertex2.cs">
       <AutoGen>True</AutoGen>

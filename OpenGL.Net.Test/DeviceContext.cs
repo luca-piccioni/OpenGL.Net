@@ -29,7 +29,7 @@ using NUnit.Framework;
 namespace OpenGL.Test
 {
 	[TestFixture, Category("GL")]
-	internal class DeviceContextTest : TestBase
+	internal class DeviceContextTest : TestBaseDevice
 	{
 		[Test(Description = "Test CreatePBuffer")]
 		public void DeviceContext_CreatePBuffer()

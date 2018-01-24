@@ -129,12 +129,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ColorRGBA.tt</DependentUpon>
     </Compile>
-    <Compile Include="ColorTestBase.cs" />
+    <Compile Include="TestBase.cs" />
     <Compile Include="DevicePixelFormatCollection.cs" />
     <Compile Include="DevicePixelFormat.cs" />
     <Compile Include="Egl.cs" />
     <Compile Include="GlxException.cs" />
     <Compile Include="EglException.cs" />
+    <Compile Include="Matrix.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Matrix.tt</DependentUpon>
+    </Compile>
     <Compile Include="MatrixDouble.cs" />
     <Compile Include="MatrixBase.cs" />
     <Compile Include="Vertex4.cs">
@@ -167,7 +172,7 @@
     <Compile Include="Matrix4x4.cs" />
     <None Include="Memory.cs" />
     <Compile Include="Plane.cs" />
-    <Compile Include="TestBase.cs" />
+    <Compile Include="TestBaseDevice.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vertex2.cs">
       <AutoGen>True</AutoGen>
@@ -194,6 +199,10 @@
     <Content Include="ColorRGBA.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ColorRGBA.cs</LastGenOutput>
+    </Content>
+    <Content Include="Matrix.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Matrix.cs</LastGenOutput>
     </Content>
     <Content Include="Vertex4.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

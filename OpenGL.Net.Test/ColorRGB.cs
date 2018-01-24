@@ -32,7 +32,7 @@ namespace OpenGL.Test
 {
 	[TestFixture]
 	[Category("Math")]
-	internal class ColorRGB8Test : ColorTestBase
+	internal class ColorRGB8Test : TestBase
 	{
 		#region Constructors
 
@@ -62,10 +62,9 @@ namespace OpenGL.Test
 		{
 			const double Epsilon = 0.25;
 
-			Random random = new Random();
-			double r = NextComponent(random, 1.0);
-			double g = NextComponent(random, 1.0);
-			double b = NextComponent(random, 1.0);
+			double r = NextComponent(1.0);
+			double g = NextComponent(1.0);
+			double b = NextComponent(1.0);
 
 			Color c = Color.FromArgb(byte.MaxValue, (int)(r * byte.MaxValue), (int)(g * byte.MaxValue), (int)(b * byte.MaxValue));
 			
@@ -93,10 +92,9 @@ namespace OpenGL.Test
 		[Test(Description = "Test ColorRGB8.PixelType")]
 		public void ColorRGB8_PixelType()
 		{
-			Random random = new Random();
-			byte r = (byte)NextComponent(random, byte.MaxValue);
-			byte g = (byte)NextComponent(random, byte.MaxValue);
-			byte b = (byte)NextComponent(random, byte.MaxValue);
+			byte r = (byte)NextComponent(byte.MaxValue);
+			byte g = (byte)NextComponent(byte.MaxValue);
+			byte b = (byte)NextComponent(byte.MaxValue);
 
 			ColorRGB8 v = new ColorRGB8(r, g, b);
 
@@ -106,10 +104,9 @@ namespace OpenGL.Test
 		[Test(Description = "Test ColorRGB8int]")]
 		public void ColorRGB8_Accessor()
 		{
-			Random random = new Random();
-			byte r = (byte)NextComponent(random, byte.MaxValue);
-			byte g = (byte)NextComponent(random, byte.MaxValue);
-			byte b = (byte)NextComponent(random, byte.MaxValue);
+			byte r = (byte)NextComponent(byte.MaxValue);
+			byte g = (byte)NextComponent(byte.MaxValue);
+			byte b = (byte)NextComponent(byte.MaxValue);
 
 			ColorRGB8 v = new ColorRGB8(r, g, b);
 			float c;
@@ -137,7 +134,7 @@ namespace OpenGL.Test
 
 	[TestFixture]
 	[Category("Math")]
-	internal class ColorRGB15Test : ColorTestBase
+	internal class ColorRGB15Test : TestBase
 	{
 		#region Constructors
 
@@ -167,10 +164,9 @@ namespace OpenGL.Test
 		{
 			const double Epsilon = 0.25;
 
-			Random random = new Random();
-			double r = NextComponent(random, 1.0);
-			double g = NextComponent(random, 1.0);
-			double b = NextComponent(random, 1.0);
+			double r = NextComponent(1.0);
+			double g = NextComponent(1.0);
+			double b = NextComponent(1.0);
 
 			Color c = Color.FromArgb(byte.MaxValue, (int)(r * byte.MaxValue), (int)(g * byte.MaxValue), (int)(b * byte.MaxValue));
 			
@@ -198,10 +194,9 @@ namespace OpenGL.Test
 		[Test(Description = "Test ColorRGB15.PixelType")]
 		public void ColorRGB15_PixelType()
 		{
-			Random random = new Random();
-			byte r = (byte)NextComponent(random, byte.MaxValue);
-			byte g = (byte)NextComponent(random, byte.MaxValue);
-			byte b = (byte)NextComponent(random, byte.MaxValue);
+			byte r = (byte)NextComponent(byte.MaxValue);
+			byte g = (byte)NextComponent(byte.MaxValue);
+			byte b = (byte)NextComponent(byte.MaxValue);
 
 			ColorRGB15 v = new ColorRGB15(r, g, b);
 
@@ -211,10 +206,9 @@ namespace OpenGL.Test
 		[Test(Description = "Test ColorRGB15int]")]
 		public void ColorRGB15_Accessor()
 		{
-			Random random = new Random();
-			byte r = (byte)NextComponent(random, byte.MaxValue);
-			byte g = (byte)NextComponent(random, byte.MaxValue);
-			byte b = (byte)NextComponent(random, byte.MaxValue);
+			byte r = (byte)NextComponent(byte.MaxValue);
+			byte g = (byte)NextComponent(byte.MaxValue);
+			byte b = (byte)NextComponent(byte.MaxValue);
 
 			ColorRGB15 v = new ColorRGB15(r, g, b);
 			float c;
@@ -242,7 +236,7 @@ namespace OpenGL.Test
 
 	[TestFixture]
 	[Category("Math")]
-	internal class ColorRGB16Test : ColorTestBase
+	internal class ColorRGB16Test : TestBase
 	{
 		#region Constructors
 
@@ -272,10 +266,9 @@ namespace OpenGL.Test
 		{
 			const double Epsilon = 0.25;
 
-			Random random = new Random();
-			double r = NextComponent(random, 1.0);
-			double g = NextComponent(random, 1.0);
-			double b = NextComponent(random, 1.0);
+			double r = NextComponent(1.0);
+			double g = NextComponent(1.0);
+			double b = NextComponent(1.0);
 
 			Color c = Color.FromArgb(byte.MaxValue, (int)(r * byte.MaxValue), (int)(g * byte.MaxValue), (int)(b * byte.MaxValue));
 			
@@ -303,10 +296,9 @@ namespace OpenGL.Test
 		[Test(Description = "Test ColorRGB16.PixelType")]
 		public void ColorRGB16_PixelType()
 		{
-			Random random = new Random();
-			byte r = (byte)NextComponent(random, byte.MaxValue);
-			byte g = (byte)NextComponent(random, byte.MaxValue);
-			byte b = (byte)NextComponent(random, byte.MaxValue);
+			byte r = (byte)NextComponent(byte.MaxValue);
+			byte g = (byte)NextComponent(byte.MaxValue);
+			byte b = (byte)NextComponent(byte.MaxValue);
 
 			ColorRGB16 v = new ColorRGB16(r, g, b);
 
@@ -316,10 +308,9 @@ namespace OpenGL.Test
 		[Test(Description = "Test ColorRGB16int]")]
 		public void ColorRGB16_Accessor()
 		{
-			Random random = new Random();
-			byte r = (byte)NextComponent(random, byte.MaxValue);
-			byte g = (byte)NextComponent(random, byte.MaxValue);
-			byte b = (byte)NextComponent(random, byte.MaxValue);
+			byte r = (byte)NextComponent(byte.MaxValue);
+			byte g = (byte)NextComponent(byte.MaxValue);
+			byte b = (byte)NextComponent(byte.MaxValue);
 
 			ColorRGB16 v = new ColorRGB16(r, g, b);
 			float c;
@@ -347,7 +338,7 @@ namespace OpenGL.Test
 
 	[TestFixture]
 	[Category("Math")]
-	internal class ColorRGB24Test : ColorTestBase
+	internal class ColorRGB24Test : TestBase
 	{
 		#region Constructors
 
@@ -372,10 +363,9 @@ namespace OpenGL.Test
 		[Test(Description = "Test (ColorRGBA32)ColorRGB24")]
 		public void ColorRGB24_CastToRGBA()
 		{
-			Random random = new Random();
-			byte r = (byte)NextComponent(random, byte.MaxValue);
-			byte g = (byte)NextComponent(random, byte.MaxValue);
-			byte b = (byte)NextComponent(random, byte.MaxValue);
+			byte r = (byte)NextComponent(byte.MaxValue);
+			byte g = (byte)NextComponent(byte.MaxValue);
+			byte b = (byte)NextComponent(byte.MaxValue);
 
 			ColorRGB24 v = new ColorRGB24(r, g, b);
 			ColorRGBA32 vRGBA = v;
@@ -389,10 +379,9 @@ namespace OpenGL.Test
 		[Test(Description = "Test (Vertex4ub)ColorRGB24")]
 		public void ColorRGB24_CastToArray()
 		{
-			Random random = new Random();
-			byte r = (byte)NextComponent(random, byte.MaxValue);
-			byte g = (byte)NextComponent(random, byte.MaxValue);
-			byte b = (byte)NextComponent(random, byte.MaxValue);
+			byte r = (byte)NextComponent(byte.MaxValue);
+			byte g = (byte)NextComponent(byte.MaxValue);
+			byte b = (byte)NextComponent(byte.MaxValue);
 
 			ColorRGB24 v = new ColorRGB24(r, g, b);
 			byte[] vArray = v;
@@ -406,10 +395,9 @@ namespace OpenGL.Test
 		[Test(Description = "Test (Vertex4ub)ColorRGB24")]
 		public void ColorRGB24_CastToVertex4()
 		{
-			Random random = new Random();
-			byte r = (byte)NextComponent(random, byte.MaxValue);
-			byte g = (byte)NextComponent(random, byte.MaxValue);
-			byte b = (byte)NextComponent(random, byte.MaxValue);
+			byte r = (byte)NextComponent(byte.MaxValue);
+			byte g = (byte)NextComponent(byte.MaxValue);
+			byte b = (byte)NextComponent(byte.MaxValue);
 			
 			ColorRGB24 v = new ColorRGB24(r, g, b);
 			Vertex3ub vArray = v;
@@ -426,10 +414,9 @@ namespace OpenGL.Test
 		{
 			const double Epsilon = 0.25;
 
-			Random random = new Random();
-			double r = NextComponent(random, 1.0);
-			double g = NextComponent(random, 1.0);
-			double b = NextComponent(random, 1.0);
+			double r = NextComponent(1.0);
+			double g = NextComponent(1.0);
+			double b = NextComponent(1.0);
 
 			Color c = Color.FromArgb(byte.MaxValue, (int)(r * byte.MaxValue), (int)(g * byte.MaxValue), (int)(b * byte.MaxValue));
 			
@@ -457,10 +444,9 @@ namespace OpenGL.Test
 		[Test(Description = "Test ColorRGB24.PixelType")]
 		public void ColorRGB24_PixelType()
 		{
-			Random random = new Random();
-			byte r = (byte)NextComponent(random, byte.MaxValue);
-			byte g = (byte)NextComponent(random, byte.MaxValue);
-			byte b = (byte)NextComponent(random, byte.MaxValue);
+			byte r = (byte)NextComponent(byte.MaxValue);
+			byte g = (byte)NextComponent(byte.MaxValue);
+			byte b = (byte)NextComponent(byte.MaxValue);
 
 			ColorRGB24 v = new ColorRGB24(r, g, b);
 
@@ -470,10 +456,9 @@ namespace OpenGL.Test
 		[Test(Description = "Test ColorRGB24int]")]
 		public void ColorRGB24_Accessor()
 		{
-			Random random = new Random();
-			byte r = (byte)NextComponent(random, byte.MaxValue);
-			byte g = (byte)NextComponent(random, byte.MaxValue);
-			byte b = (byte)NextComponent(random, byte.MaxValue);
+			byte r = (byte)NextComponent(byte.MaxValue);
+			byte g = (byte)NextComponent(byte.MaxValue);
+			byte b = (byte)NextComponent(byte.MaxValue);
 
 			ColorRGB24 v = new ColorRGB24(r, g, b);
 			float c;
@@ -501,7 +486,7 @@ namespace OpenGL.Test
 
 	[TestFixture]
 	[Category("Math")]
-	internal class ColorRGB48Test : ColorTestBase
+	internal class ColorRGB48Test : TestBase
 	{
 		#region Constructors
 
@@ -526,10 +511,9 @@ namespace OpenGL.Test
 		[Test(Description = "Test (ColorRGBA64)ColorRGB48")]
 		public void ColorRGB48_CastToRGBA()
 		{
-			Random random = new Random();
-			ushort r = (ushort)NextComponent(random, ushort.MaxValue);
-			ushort g = (ushort)NextComponent(random, ushort.MaxValue);
-			ushort b = (ushort)NextComponent(random, ushort.MaxValue);
+			ushort r = (ushort)NextComponent(ushort.MaxValue);
+			ushort g = (ushort)NextComponent(ushort.MaxValue);
+			ushort b = (ushort)NextComponent(ushort.MaxValue);
 
 			ColorRGB48 v = new ColorRGB48(r, g, b);
 			ColorRGBA64 vRGBA = v;
@@ -543,10 +527,9 @@ namespace OpenGL.Test
 		[Test(Description = "Test (Vertex4ub)ColorRGB48")]
 		public void ColorRGB48_CastToArray()
 		{
-			Random random = new Random();
-			ushort r = (ushort)NextComponent(random, ushort.MaxValue);
-			ushort g = (ushort)NextComponent(random, ushort.MaxValue);
-			ushort b = (ushort)NextComponent(random, ushort.MaxValue);
+			ushort r = (ushort)NextComponent(ushort.MaxValue);
+			ushort g = (ushort)NextComponent(ushort.MaxValue);
+			ushort b = (ushort)NextComponent(ushort.MaxValue);
 
 			ColorRGB48 v = new ColorRGB48(r, g, b);
 			ushort[] vArray = v;
@@ -560,10 +543,9 @@ namespace OpenGL.Test
 		[Test(Description = "Test (Vertex4ub)ColorRGB48")]
 		public void ColorRGB48_CastToVertex4()
 		{
-			Random random = new Random();
-			ushort r = (ushort)NextComponent(random, ushort.MaxValue);
-			ushort g = (ushort)NextComponent(random, ushort.MaxValue);
-			ushort b = (ushort)NextComponent(random, ushort.MaxValue);
+			ushort r = (ushort)NextComponent(ushort.MaxValue);
+			ushort g = (ushort)NextComponent(ushort.MaxValue);
+			ushort b = (ushort)NextComponent(ushort.MaxValue);
 			
 			ColorRGB48 v = new ColorRGB48(r, g, b);
 			Vertex3us vArray = v;
@@ -580,10 +562,9 @@ namespace OpenGL.Test
 		{
 			const double Epsilon = 0.25;
 
-			Random random = new Random();
-			double r = NextComponent(random, 1.0);
-			double g = NextComponent(random, 1.0);
-			double b = NextComponent(random, 1.0);
+			double r = NextComponent(1.0);
+			double g = NextComponent(1.0);
+			double b = NextComponent(1.0);
 
 			Color c = Color.FromArgb(byte.MaxValue, (int)(r * byte.MaxValue), (int)(g * byte.MaxValue), (int)(b * byte.MaxValue));
 			
@@ -611,10 +592,9 @@ namespace OpenGL.Test
 		[Test(Description = "Test ColorRGB48.PixelType")]
 		public void ColorRGB48_PixelType()
 		{
-			Random random = new Random();
-			ushort r = (ushort)NextComponent(random, ushort.MaxValue);
-			ushort g = (ushort)NextComponent(random, ushort.MaxValue);
-			ushort b = (ushort)NextComponent(random, ushort.MaxValue);
+			ushort r = (ushort)NextComponent(ushort.MaxValue);
+			ushort g = (ushort)NextComponent(ushort.MaxValue);
+			ushort b = (ushort)NextComponent(ushort.MaxValue);
 
 			ColorRGB48 v = new ColorRGB48(r, g, b);
 
@@ -624,10 +604,9 @@ namespace OpenGL.Test
 		[Test(Description = "Test ColorRGB48int]")]
 		public void ColorRGB48_Accessor()
 		{
-			Random random = new Random();
-			ushort r = (ushort)NextComponent(random, ushort.MaxValue);
-			ushort g = (ushort)NextComponent(random, ushort.MaxValue);
-			ushort b = (ushort)NextComponent(random, ushort.MaxValue);
+			ushort r = (ushort)NextComponent(ushort.MaxValue);
+			ushort g = (ushort)NextComponent(ushort.MaxValue);
+			ushort b = (ushort)NextComponent(ushort.MaxValue);
 
 			ColorRGB48 v = new ColorRGB48(r, g, b);
 			float c;
@@ -655,7 +634,7 @@ namespace OpenGL.Test
 
 	[TestFixture]
 	[Category("Math")]
-	internal class ColorRGB96Test : ColorTestBase
+	internal class ColorRGB96Test : TestBase
 	{
 		#region Constructors
 
@@ -680,10 +659,9 @@ namespace OpenGL.Test
 		[Test(Description = "Test (Vertex4ub)ColorRGB96")]
 		public void ColorRGB96_CastToArray()
 		{
-			Random random = new Random();
-			uint r = (uint)NextComponent(random, uint.MaxValue);
-			uint g = (uint)NextComponent(random, uint.MaxValue);
-			uint b = (uint)NextComponent(random, uint.MaxValue);
+			uint r = (uint)NextComponent(uint.MaxValue);
+			uint g = (uint)NextComponent(uint.MaxValue);
+			uint b = (uint)NextComponent(uint.MaxValue);
 
 			ColorRGB96 v = new ColorRGB96(r, g, b);
 			uint[] vArray = v;
@@ -697,10 +675,9 @@ namespace OpenGL.Test
 		[Test(Description = "Test (Vertex4ub)ColorRGB96")]
 		public void ColorRGB96_CastToVertex4()
 		{
-			Random random = new Random();
-			uint r = (uint)NextComponent(random, uint.MaxValue);
-			uint g = (uint)NextComponent(random, uint.MaxValue);
-			uint b = (uint)NextComponent(random, uint.MaxValue);
+			uint r = (uint)NextComponent(uint.MaxValue);
+			uint g = (uint)NextComponent(uint.MaxValue);
+			uint b = (uint)NextComponent(uint.MaxValue);
 			
 			ColorRGB96 v = new ColorRGB96(r, g, b);
 			Vertex3ui vArray = v;
@@ -717,10 +694,9 @@ namespace OpenGL.Test
 		{
 			const double Epsilon = 0.25;
 
-			Random random = new Random();
-			double r = NextComponent(random, 1.0);
-			double g = NextComponent(random, 1.0);
-			double b = NextComponent(random, 1.0);
+			double r = NextComponent(1.0);
+			double g = NextComponent(1.0);
+			double b = NextComponent(1.0);
 
 			Color c = Color.FromArgb(byte.MaxValue, (int)(r * byte.MaxValue), (int)(g * byte.MaxValue), (int)(b * byte.MaxValue));
 			
@@ -748,10 +724,9 @@ namespace OpenGL.Test
 		[Test(Description = "Test ColorRGB96.PixelType")]
 		public void ColorRGB96_PixelType()
 		{
-			Random random = new Random();
-			uint r = (uint)NextComponent(random, uint.MaxValue);
-			uint g = (uint)NextComponent(random, uint.MaxValue);
-			uint b = (uint)NextComponent(random, uint.MaxValue);
+			uint r = (uint)NextComponent(uint.MaxValue);
+			uint g = (uint)NextComponent(uint.MaxValue);
+			uint b = (uint)NextComponent(uint.MaxValue);
 
 			ColorRGB96 v = new ColorRGB96(r, g, b);
 
@@ -761,10 +736,9 @@ namespace OpenGL.Test
 		[Test(Description = "Test ColorRGB96int]")]
 		public void ColorRGB96_Accessor()
 		{
-			Random random = new Random();
-			uint r = (uint)NextComponent(random, uint.MaxValue);
-			uint g = (uint)NextComponent(random, uint.MaxValue);
-			uint b = (uint)NextComponent(random, uint.MaxValue);
+			uint r = (uint)NextComponent(uint.MaxValue);
+			uint g = (uint)NextComponent(uint.MaxValue);
+			uint b = (uint)NextComponent(uint.MaxValue);
 
 			ColorRGB96 v = new ColorRGB96(r, g, b);
 			float c;
@@ -792,7 +766,7 @@ namespace OpenGL.Test
 
 	[TestFixture]
 	[Category("Math")]
-	internal class ColorRGBFTest : ColorTestBase
+	internal class ColorRGBFTest : TestBase
 	{
 		#region Constructors
 
@@ -817,10 +791,9 @@ namespace OpenGL.Test
 		[Test(Description = "Test (ColorRGBAF)ColorRGBF")]
 		public void ColorRGBF_CastToRGBA()
 		{
-			Random random = new Random();
-			float r = (float)NextComponent(random, 1.0f);
-			float g = (float)NextComponent(random, 1.0f);
-			float b = (float)NextComponent(random, 1.0f);
+			float r = (float)NextComponent(1.0f);
+			float g = (float)NextComponent(1.0f);
+			float b = (float)NextComponent(1.0f);
 
 			ColorRGBF v = new ColorRGBF(r, g, b);
 			ColorRGBAF vRGBA = v;
@@ -834,10 +807,9 @@ namespace OpenGL.Test
 		[Test(Description = "Test (Vertex4ub)ColorRGBF")]
 		public void ColorRGBF_CastToArray()
 		{
-			Random random = new Random();
-			float r = (float)NextComponent(random, 1.0f);
-			float g = (float)NextComponent(random, 1.0f);
-			float b = (float)NextComponent(random, 1.0f);
+			float r = (float)NextComponent(1.0f);
+			float g = (float)NextComponent(1.0f);
+			float b = (float)NextComponent(1.0f);
 
 			ColorRGBF v = new ColorRGBF(r, g, b);
 			float[] vArray = v;
@@ -851,10 +823,9 @@ namespace OpenGL.Test
 		[Test(Description = "Test (Vertex4ub)ColorRGBF")]
 		public void ColorRGBF_CastToVertex4()
 		{
-			Random random = new Random();
-			float r = (float)NextComponent(random, 1.0f);
-			float g = (float)NextComponent(random, 1.0f);
-			float b = (float)NextComponent(random, 1.0f);
+			float r = (float)NextComponent(1.0f);
+			float g = (float)NextComponent(1.0f);
+			float b = (float)NextComponent(1.0f);
 			
 			ColorRGBF v = new ColorRGBF(r, g, b);
 			Vertex3f vArray = v;
@@ -871,10 +842,9 @@ namespace OpenGL.Test
 		{
 			const double Epsilon = 0.25;
 
-			Random random = new Random();
-			double r = NextComponent(random, 1.0);
-			double g = NextComponent(random, 1.0);
-			double b = NextComponent(random, 1.0);
+			double r = NextComponent(1.0);
+			double g = NextComponent(1.0);
+			double b = NextComponent(1.0);
 
 			Color c = Color.FromArgb(byte.MaxValue, (int)(r * byte.MaxValue), (int)(g * byte.MaxValue), (int)(b * byte.MaxValue));
 			
@@ -902,10 +872,9 @@ namespace OpenGL.Test
 		[Test(Description = "Test ColorRGBF.PixelType")]
 		public void ColorRGBF_PixelType()
 		{
-			Random random = new Random();
-			float r = (float)NextComponent(random, 1.0f);
-			float g = (float)NextComponent(random, 1.0f);
-			float b = (float)NextComponent(random, 1.0f);
+			float r = (float)NextComponent(1.0f);
+			float g = (float)NextComponent(1.0f);
+			float b = (float)NextComponent(1.0f);
 
 			ColorRGBF v = new ColorRGBF(r, g, b);
 
@@ -915,10 +884,9 @@ namespace OpenGL.Test
 		[Test(Description = "Test ColorRGBFint]")]
 		public void ColorRGBF_Accessor()
 		{
-			Random random = new Random();
-			float r = (float)NextComponent(random, 1.0f);
-			float g = (float)NextComponent(random, 1.0f);
-			float b = (float)NextComponent(random, 1.0f);
+			float r = (float)NextComponent(1.0f);
+			float g = (float)NextComponent(1.0f);
+			float b = (float)NextComponent(1.0f);
 
 			ColorRGBF v = new ColorRGBF(r, g, b);
 			float c;
@@ -946,7 +914,7 @@ namespace OpenGL.Test
 
 	[TestFixture]
 	[Category("Math")]
-	internal class ColorRGBDTest : ColorTestBase
+	internal class ColorRGBDTest : TestBase
 	{
 		#region Constructors
 
@@ -971,10 +939,9 @@ namespace OpenGL.Test
 		[Test(Description = "Test (Vertex4ub)ColorRGBD")]
 		public void ColorRGBD_CastToArray()
 		{
-			Random random = new Random();
-			double r = (double)NextComponent(random, 1.0);
-			double g = (double)NextComponent(random, 1.0);
-			double b = (double)NextComponent(random, 1.0);
+			double r = (double)NextComponent(1.0);
+			double g = (double)NextComponent(1.0);
+			double b = (double)NextComponent(1.0);
 
 			ColorRGBD v = new ColorRGBD(r, g, b);
 			double[] vArray = v;
@@ -988,10 +955,9 @@ namespace OpenGL.Test
 		[Test(Description = "Test (Vertex4ub)ColorRGBD")]
 		public void ColorRGBD_CastToVertex4()
 		{
-			Random random = new Random();
-			double r = (double)NextComponent(random, 1.0);
-			double g = (double)NextComponent(random, 1.0);
-			double b = (double)NextComponent(random, 1.0);
+			double r = (double)NextComponent(1.0);
+			double g = (double)NextComponent(1.0);
+			double b = (double)NextComponent(1.0);
 			
 			ColorRGBD v = new ColorRGBD(r, g, b);
 			Vertex3d vArray = v;
@@ -1008,10 +974,9 @@ namespace OpenGL.Test
 		{
 			const double Epsilon = 0.25;
 
-			Random random = new Random();
-			double r = NextComponent(random, 1.0);
-			double g = NextComponent(random, 1.0);
-			double b = NextComponent(random, 1.0);
+			double r = NextComponent(1.0);
+			double g = NextComponent(1.0);
+			double b = NextComponent(1.0);
 
 			Color c = Color.FromArgb(byte.MaxValue, (int)(r * byte.MaxValue), (int)(g * byte.MaxValue), (int)(b * byte.MaxValue));
 			
@@ -1039,10 +1004,9 @@ namespace OpenGL.Test
 		[Test(Description = "Test ColorRGBD.PixelType")]
 		public void ColorRGBD_PixelType()
 		{
-			Random random = new Random();
-			double r = (double)NextComponent(random, 1.0);
-			double g = (double)NextComponent(random, 1.0);
-			double b = (double)NextComponent(random, 1.0);
+			double r = (double)NextComponent(1.0);
+			double g = (double)NextComponent(1.0);
+			double b = (double)NextComponent(1.0);
 
 			ColorRGBD v = new ColorRGBD(r, g, b);
 
@@ -1052,10 +1016,9 @@ namespace OpenGL.Test
 		[Test(Description = "Test ColorRGBDint]")]
 		public void ColorRGBD_Accessor()
 		{
-			Random random = new Random();
-			double r = (double)NextComponent(random, 1.0);
-			double g = (double)NextComponent(random, 1.0);
-			double b = (double)NextComponent(random, 1.0);
+			double r = (double)NextComponent(1.0);
+			double g = (double)NextComponent(1.0);
+			double b = (double)NextComponent(1.0);
 
 			ColorRGBD v = new ColorRGBD(r, g, b);
 			float c;
@@ -1083,7 +1046,7 @@ namespace OpenGL.Test
 
 	[TestFixture]
 	[Category("Math")]
-	internal class ColorRGBHFTest : ColorTestBase
+	internal class ColorRGBHFTest : TestBase
 	{
 		#region Constructors
 
@@ -1108,10 +1071,9 @@ namespace OpenGL.Test
 		[Test(Description = "Test (ColorRGBAHF)ColorRGBHF")]
 		public void ColorRGBHF_CastToRGBA()
 		{
-			Random random = new Random();
-			HalfFloat r = (HalfFloat)NextComponent(random, (HalfFloat)1.0f);
-			HalfFloat g = (HalfFloat)NextComponent(random, (HalfFloat)1.0f);
-			HalfFloat b = (HalfFloat)NextComponent(random, (HalfFloat)1.0f);
+			HalfFloat r = (HalfFloat)NextComponent((HalfFloat)1.0f);
+			HalfFloat g = (HalfFloat)NextComponent((HalfFloat)1.0f);
+			HalfFloat b = (HalfFloat)NextComponent((HalfFloat)1.0f);
 
 			ColorRGBHF v = new ColorRGBHF(r, g, b);
 			ColorRGBAHF vRGBA = v;
@@ -1125,10 +1087,9 @@ namespace OpenGL.Test
 		[Test(Description = "Test (Vertex4ub)ColorRGBHF")]
 		public void ColorRGBHF_CastToArray()
 		{
-			Random random = new Random();
-			HalfFloat r = (HalfFloat)NextComponent(random, (HalfFloat)1.0f);
-			HalfFloat g = (HalfFloat)NextComponent(random, (HalfFloat)1.0f);
-			HalfFloat b = (HalfFloat)NextComponent(random, (HalfFloat)1.0f);
+			HalfFloat r = (HalfFloat)NextComponent((HalfFloat)1.0f);
+			HalfFloat g = (HalfFloat)NextComponent((HalfFloat)1.0f);
+			HalfFloat b = (HalfFloat)NextComponent((HalfFloat)1.0f);
 
 			ColorRGBHF v = new ColorRGBHF(r, g, b);
 			HalfFloat[] vArray = v;
@@ -1142,10 +1103,9 @@ namespace OpenGL.Test
 		[Test(Description = "Test (Vertex4ub)ColorRGBHF")]
 		public void ColorRGBHF_CastToVertex4()
 		{
-			Random random = new Random();
-			HalfFloat r = (HalfFloat)NextComponent(random, (HalfFloat)1.0f);
-			HalfFloat g = (HalfFloat)NextComponent(random, (HalfFloat)1.0f);
-			HalfFloat b = (HalfFloat)NextComponent(random, (HalfFloat)1.0f);
+			HalfFloat r = (HalfFloat)NextComponent((HalfFloat)1.0f);
+			HalfFloat g = (HalfFloat)NextComponent((HalfFloat)1.0f);
+			HalfFloat b = (HalfFloat)NextComponent((HalfFloat)1.0f);
 			
 			ColorRGBHF v = new ColorRGBHF(r, g, b);
 			Vertex3hf vArray = v;
@@ -1162,10 +1122,9 @@ namespace OpenGL.Test
 		{
 			const double Epsilon = 0.25;
 
-			Random random = new Random();
-			double r = NextComponent(random, 1.0);
-			double g = NextComponent(random, 1.0);
-			double b = NextComponent(random, 1.0);
+			double r = NextComponent(1.0);
+			double g = NextComponent(1.0);
+			double b = NextComponent(1.0);
 
 			Color c = Color.FromArgb(byte.MaxValue, (int)(r * byte.MaxValue), (int)(g * byte.MaxValue), (int)(b * byte.MaxValue));
 			
@@ -1193,10 +1152,9 @@ namespace OpenGL.Test
 		[Test(Description = "Test ColorRGBHF.PixelType")]
 		public void ColorRGBHF_PixelType()
 		{
-			Random random = new Random();
-			HalfFloat r = (HalfFloat)NextComponent(random, (HalfFloat)1.0f);
-			HalfFloat g = (HalfFloat)NextComponent(random, (HalfFloat)1.0f);
-			HalfFloat b = (HalfFloat)NextComponent(random, (HalfFloat)1.0f);
+			HalfFloat r = (HalfFloat)NextComponent((HalfFloat)1.0f);
+			HalfFloat g = (HalfFloat)NextComponent((HalfFloat)1.0f);
+			HalfFloat b = (HalfFloat)NextComponent((HalfFloat)1.0f);
 
 			ColorRGBHF v = new ColorRGBHF(r, g, b);
 
@@ -1206,10 +1164,9 @@ namespace OpenGL.Test
 		[Test(Description = "Test ColorRGBHFint]")]
 		public void ColorRGBHF_Accessor()
 		{
-			Random random = new Random();
-			HalfFloat r = (HalfFloat)NextComponent(random, (HalfFloat)1.0f);
-			HalfFloat g = (HalfFloat)NextComponent(random, (HalfFloat)1.0f);
-			HalfFloat b = (HalfFloat)NextComponent(random, (HalfFloat)1.0f);
+			HalfFloat r = (HalfFloat)NextComponent((HalfFloat)1.0f);
+			HalfFloat g = (HalfFloat)NextComponent((HalfFloat)1.0f);
+			HalfFloat b = (HalfFloat)NextComponent((HalfFloat)1.0f);
 
 			ColorRGBHF v = new ColorRGBHF(r, g, b);
 			float c;
