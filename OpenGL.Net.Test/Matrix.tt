@@ -31,6 +31,8 @@ using System;
 using NUnit.Framework;
 
 // ReSharper disable InconsistentNaming
+// ReSharper disable RedundantCast
+// ReSharper disable ReturnValueOfPureMethodIsNotUsed
 
 namespace OpenGL.Test
 {
@@ -43,6 +45,7 @@ namespace OpenGL.Test
 	string[] columnTypeComps =	new[] { "x", "y", "z", "w" };
 	string[] literals		 =	new[] { "f", "" };
 	string[] vliterals		 =	new[] { "f", "d" };
+	string[] epsilons		 =	new[] { "1e-5f", "1e-10" };
 
 	for (int i = 0; i < 2; i++) for (int c = 2; c <= 4; c++) for (int r = 2; r <= 4; r++) {
 		string className = String.Format("Matrix{0}x{1}{2}", c, r, postfixes[i]);
@@ -54,19 +57,96 @@ namespace OpenGL.Test
 		string one = ones[i], zero = zeroes[i];
 		string tranposedClassName = String.Format("Matrix{0}x{1}{2}", r, c, postfixes[i]);
 		string literal = literals[i];
-		string vertex3 = "Vertex3" + vliterals[i];
+		string epsilon = epsilons[i];
 		string vertex4 = "Vertex4" + vliterals[i];
+		string vertex3 = "Vertex3" + vliterals[i];
 #>
 	[TestFixture]
 	[Category("Math")]
-	internal class <#= className #>Test
+	internal class <#= className #>Test : TestBase
 	{
 		#region Constructors
 
 		[Test]
 		public void <#= className #>_TestConstructor1()
 		{
-			
+			<#= className #> m = new <#= className #>(
+<# for (int c1 = 0, idx = 0; c1 < c; c1++) { #>
+				<# for (int r1 = 0; r1 < r; r1++, idx++) { #>(<#= matrixBaseType #>)<#= idx #><# if (c1 < c - 1 || r1 < r - 1) { #>, <# } #><# } #>
+
+<# } #>
+			);
+
+			for (uint c = 0, idx = 0; c < <#= c #>; c++) for (uint r = 0; r < <#= r #>; r++, idx++)
+				Assert.That(m[c, r], Is.EqualTo(idx).Within(<#= epsilon #>));
+		}
+
+		[Test]
+		public void <#= className #>_TestConstructor2()
+		{
+			<#= className #> m = new <#= className #>(new[] {
+<# for (int c1 = 0, idx = 0; c1 < c; c1++) { #>
+				<# for (int r1 = 0; r1 < r; r1++, idx++) { #>(<#= matrixBaseType #>)<#= idx #><# if (c1 < c - 1 || r1 < r - 1) { #>, <# } #><# } #>
+
+<# } #>
+			});
+
+			for (uint c = 0, idx = 0; c < <#= c #>; c++) for (uint r = 0; r < <#= r #>; r++, idx++)
+				Assert.That(m[c, r], Is.EqualTo(idx).Within(<#= epsilon #>));
+		}
+
+		[Test]
+		public void <#= className #>_TestConstructor3()
+		{
+			<#= className #> m1 = new <#= className #>(new[] {
+<# for (int c1 = 0, idx = 0; c1 < c; c1++) { #>
+				<# for (int r1 = 0; r1 < r; r1++, idx++) { #>Next(0.0<#= literal #>, 1.0<#= literal #>)<# if (c1 < c - 1 || r1 < r - 1) { #>, <# } #><# } #>
+
+<# } #>
+			});
+			<#= className #> m2 = new <#= className #>(m1);
+
+			for (uint c = 0; c < <#= c #>; c++) for (uint r = 0; r < <#= r #>; r++)
+				Assert.That(m1[c, r], Is.EqualTo(m2[c, r]).Within(<#= epsilon #>));
+		}
+
+		#endregion
+
+		#region Cast Operators
+
+		[Test]
+		public void <#= className #>_TestCastToArray()
+		{
+			<#= className #> m = new <#= className #>(new[] {
+<# for (int c1 = 0, idx = 0; c1 < c; c1++) { #>
+				<# for (int r1 = 0; r1 < r; r1++, idx++) { #>(<#= matrixBaseType #>)<#= idx #><# if (c1 < c - 1 || r1 < r - 1) { #>, <# } #><# } #>
+
+<# } #>
+			});
+			<#= matrixBaseType #>[] mArray = (<#= matrixBaseType #>[])m;
+
+			Assert.IsNotNull(mArray);
+			Assert.AreEqual(mArray.Length, <#= c * r #>);
+			for (uint c = 0, idx = 0; c < <#= c #>; c++) for (uint r = 0; r < <#= r #>; r++, idx++)
+				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(<#= epsilon #>));
+		}
+
+		#endregion
+
+		#region Object Overrides
+
+		[Test]
+		public void <#= className #>_TestToString()
+		{
+			<#= className #> m = new <#= className #>(new[] {
+<# for (int c1 = 0, idx = 0; c1 < c; c1++) { #>
+				<# for (int r1 = 0; r1 < r; r1++, idx++) { #>Next(0.0<#= literal #>, 1.0<#= literal #>)<# if (c1 < c - 1 || r1 < r - 1) { #>, <# } #><# } #>
+
+<# } #>
+			});
+
+			Assert.DoesNotThrow(() => m.ToString());
+			Assert.IsNotNull(m.ToString());
 		}
 
 		#endregion

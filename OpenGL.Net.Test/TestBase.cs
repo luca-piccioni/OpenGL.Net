@@ -44,5 +44,10 @@ namespace OpenGL.Test
 		{
 			return TestContext.CurrentContext.Random.NextDouble(minValue, maxValue);
 		}
+
+		protected static float Next(float minValue, float maxValue)
+		{
+			return TestContext.CurrentContext.Random.NextFloat(minValue, maxValue);
+		}
 	}
 }
