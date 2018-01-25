@@ -964,8 +964,6 @@ namespace OpenGL.CoreUI
 		/// </summary>
 		protected virtual void OnContextCreated()
 		{
-			Trace.TraceInformation("NativeWindow.OnContextCreated()");
-
 			ContextCreated?.Invoke(this, new NativeWindowEventArgs(DeviceContext, GLContext));
 			_IsContextCreated = true;
 		}
