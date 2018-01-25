@@ -42,6 +42,7 @@ namespace HelloTriangle.GTK
 			glWidget.Vexpand = true;
 
 			glWidget.SetSizeRequest(100, 100);
+			glWidget.SizeAllocated += GlWidget_SizeAllocated;
 			glWidget.ContextCreated += GlWidget_ContextCreated;
 			glWidget.Render += GlWidget_Render;
 
@@ -49,11 +50,13 @@ namespace HelloTriangle.GTK
 			ShowAll();
 		}
 
+		private void GlWidget_SizeAllocated(object o, SizeAllocatedArgs args)
+		{
+			Gl.Viewport(0, 0, args.Allocation.Width, args.Allocation.Height);
+		}
+
 		private void GlWidget_Render(object sender, GlWidgetEventArgs e)
 		{
-			GlWidget senderControl = (GlWidget)sender;
-
-			Gl.Viewport(0, 0, senderControl.WidthRequest, senderControl.HeightRequest);
 			Gl.Clear(ClearBufferMask.ColorBufferBit);
 
 			// Animate triangle
