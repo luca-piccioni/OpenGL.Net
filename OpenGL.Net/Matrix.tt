@@ -638,7 +638,7 @@ for (int c1 = 0; c1 < c; c1++) for (int r1 = 0; r1 < r; r1++) {
 
 				forwardVector.x = _M20;
 				forwardVector.y = _M21;
-				forwardVector.z = _M23;
+				forwardVector.z = _M22;
 
 				return ((-forwardVector).Normalized);
 			}
@@ -1004,7 +1004,7 @@ for (int c1 = 0; c1 < c; c1++) for (int r1 = 0; r1 < r; r1++) {
 		/// </summary>
 		public void Transpose()
 		{
-<# for (int c1 = 0; c1 < c; c1++) for (int r1 = 0; r1 < r; r1++) if (c1 != r1) { #>
+<# for (int c1 = 0; c1 < c; c1++) for (int r1 = 0; r1 < c1; r1++) if (c1 != r1) { #>
 			_M<#= r1 #><#= c1 #> = Interlocked.Exchange(ref _M<#= c1 #><#= r1 #>, _M<#= r1 #><#= c1 #>);
 <# } #>
 		}

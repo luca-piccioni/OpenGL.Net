@@ -419,7 +419,6 @@ namespace OpenGL
 		/// </summary>
 		public void Transpose()
 		{
-			_M10 = Interlocked.Exchange(ref _M01, _M10);
 			_M01 = Interlocked.Exchange(ref _M10, _M01);
 		}
 
@@ -2498,10 +2497,7 @@ namespace OpenGL
 		/// </summary>
 		public void Transpose()
 		{
-			_M10 = Interlocked.Exchange(ref _M01, _M10);
-			_M20 = Interlocked.Exchange(ref _M02, _M20);
 			_M01 = Interlocked.Exchange(ref _M10, _M01);
-			_M21 = Interlocked.Exchange(ref _M12, _M21);
 			_M02 = Interlocked.Exchange(ref _M20, _M02);
 			_M12 = Interlocked.Exchange(ref _M21, _M12);
 		}
@@ -4960,7 +4956,7 @@ namespace OpenGL
 
 				forwardVector.x = _M20;
 				forwardVector.y = _M21;
-				forwardVector.z = _M23;
+				forwardVector.z = _M22;
 
 				return ((-forwardVector).Normalized);
 			}
@@ -5317,15 +5313,9 @@ namespace OpenGL
 		/// </summary>
 		public void Transpose()
 		{
-			_M10 = Interlocked.Exchange(ref _M01, _M10);
-			_M20 = Interlocked.Exchange(ref _M02, _M20);
-			_M30 = Interlocked.Exchange(ref _M03, _M30);
 			_M01 = Interlocked.Exchange(ref _M10, _M01);
-			_M21 = Interlocked.Exchange(ref _M12, _M21);
-			_M31 = Interlocked.Exchange(ref _M13, _M31);
 			_M02 = Interlocked.Exchange(ref _M20, _M02);
 			_M12 = Interlocked.Exchange(ref _M21, _M12);
-			_M32 = Interlocked.Exchange(ref _M23, _M32);
 			_M03 = Interlocked.Exchange(ref _M30, _M03);
 			_M13 = Interlocked.Exchange(ref _M31, _M13);
 			_M23 = Interlocked.Exchange(ref _M32, _M23);
@@ -5897,7 +5887,6 @@ namespace OpenGL
 		/// </summary>
 		public void Transpose()
 		{
-			_M10 = Interlocked.Exchange(ref _M01, _M10);
 			_M01 = Interlocked.Exchange(ref _M10, _M01);
 		}
 
@@ -7976,10 +7965,7 @@ namespace OpenGL
 		/// </summary>
 		public void Transpose()
 		{
-			_M10 = Interlocked.Exchange(ref _M01, _M10);
-			_M20 = Interlocked.Exchange(ref _M02, _M20);
 			_M01 = Interlocked.Exchange(ref _M10, _M01);
-			_M21 = Interlocked.Exchange(ref _M12, _M21);
 			_M02 = Interlocked.Exchange(ref _M20, _M02);
 			_M12 = Interlocked.Exchange(ref _M21, _M12);
 		}
@@ -10438,7 +10424,7 @@ namespace OpenGL
 
 				forwardVector.x = _M20;
 				forwardVector.y = _M21;
-				forwardVector.z = _M23;
+				forwardVector.z = _M22;
 
 				return ((-forwardVector).Normalized);
 			}
@@ -10795,15 +10781,9 @@ namespace OpenGL
 		/// </summary>
 		public void Transpose()
 		{
-			_M10 = Interlocked.Exchange(ref _M01, _M10);
-			_M20 = Interlocked.Exchange(ref _M02, _M20);
-			_M30 = Interlocked.Exchange(ref _M03, _M30);
 			_M01 = Interlocked.Exchange(ref _M10, _M01);
-			_M21 = Interlocked.Exchange(ref _M12, _M21);
-			_M31 = Interlocked.Exchange(ref _M13, _M31);
 			_M02 = Interlocked.Exchange(ref _M20, _M02);
 			_M12 = Interlocked.Exchange(ref _M21, _M12);
-			_M32 = Interlocked.Exchange(ref _M23, _M32);
 			_M03 = Interlocked.Exchange(ref _M30, _M03);
 			_M13 = Interlocked.Exchange(ref _M31, _M13);
 			_M23 = Interlocked.Exchange(ref _M32, _M23);
