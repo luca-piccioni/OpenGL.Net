@@ -525,14 +525,14 @@ namespace OpenGL
 		/// </returns>
 		public bool RelativelyEquals(Matrix2x2f other, float precision)
 		{
-			if (Math.Abs(_M00 - other._M00) > precision * (Math.Abs(_M00) + Math.Abs(other._M00)))
-				return (false);
-			if (Math.Abs(_M01 - other._M01) > precision * (Math.Abs(_M01) + Math.Abs(other._M01)))
-				return (false);
-			if (Math.Abs(_M10 - other._M10) > precision * (Math.Abs(_M10) + Math.Abs(other._M10)))
-				return (false);
-			if (Math.Abs(_M11 - other._M11) > precision * (Math.Abs(_M11) + Math.Abs(other._M11)))
-				return (false);
+			if (!_M00.RelativelyEquals(other._M00, precision))
+				return false;
+			if (!_M01.RelativelyEquals(other._M01, precision))
+				return false;
+			if (!_M10.RelativelyEquals(other._M10, precision))
+				return false;
+			if (!_M11.RelativelyEquals(other._M11, precision))
+				return false;
 
 			return (true);
 		}
@@ -1000,18 +1000,18 @@ namespace OpenGL
 		/// </returns>
 		public bool RelativelyEquals(Matrix2x3f other, float precision)
 		{
-			if (Math.Abs(_M00 - other._M00) > precision * (Math.Abs(_M00) + Math.Abs(other._M00)))
-				return (false);
-			if (Math.Abs(_M01 - other._M01) > precision * (Math.Abs(_M01) + Math.Abs(other._M01)))
-				return (false);
-			if (Math.Abs(_M02 - other._M02) > precision * (Math.Abs(_M02) + Math.Abs(other._M02)))
-				return (false);
-			if (Math.Abs(_M10 - other._M10) > precision * (Math.Abs(_M10) + Math.Abs(other._M10)))
-				return (false);
-			if (Math.Abs(_M11 - other._M11) > precision * (Math.Abs(_M11) + Math.Abs(other._M11)))
-				return (false);
-			if (Math.Abs(_M12 - other._M12) > precision * (Math.Abs(_M12) + Math.Abs(other._M12)))
-				return (false);
+			if (!_M00.RelativelyEquals(other._M00, precision))
+				return false;
+			if (!_M01.RelativelyEquals(other._M01, precision))
+				return false;
+			if (!_M02.RelativelyEquals(other._M02, precision))
+				return false;
+			if (!_M10.RelativelyEquals(other._M10, precision))
+				return false;
+			if (!_M11.RelativelyEquals(other._M11, precision))
+				return false;
+			if (!_M12.RelativelyEquals(other._M12, precision))
+				return false;
 
 			return (true);
 		}
@@ -1517,22 +1517,22 @@ namespace OpenGL
 		/// </returns>
 		public bool RelativelyEquals(Matrix2x4f other, float precision)
 		{
-			if (Math.Abs(_M00 - other._M00) > precision * (Math.Abs(_M00) + Math.Abs(other._M00)))
-				return (false);
-			if (Math.Abs(_M01 - other._M01) > precision * (Math.Abs(_M01) + Math.Abs(other._M01)))
-				return (false);
-			if (Math.Abs(_M02 - other._M02) > precision * (Math.Abs(_M02) + Math.Abs(other._M02)))
-				return (false);
-			if (Math.Abs(_M03 - other._M03) > precision * (Math.Abs(_M03) + Math.Abs(other._M03)))
-				return (false);
-			if (Math.Abs(_M10 - other._M10) > precision * (Math.Abs(_M10) + Math.Abs(other._M10)))
-				return (false);
-			if (Math.Abs(_M11 - other._M11) > precision * (Math.Abs(_M11) + Math.Abs(other._M11)))
-				return (false);
-			if (Math.Abs(_M12 - other._M12) > precision * (Math.Abs(_M12) + Math.Abs(other._M12)))
-				return (false);
-			if (Math.Abs(_M13 - other._M13) > precision * (Math.Abs(_M13) + Math.Abs(other._M13)))
-				return (false);
+			if (!_M00.RelativelyEquals(other._M00, precision))
+				return false;
+			if (!_M01.RelativelyEquals(other._M01, precision))
+				return false;
+			if (!_M02.RelativelyEquals(other._M02, precision))
+				return false;
+			if (!_M03.RelativelyEquals(other._M03, precision))
+				return false;
+			if (!_M10.RelativelyEquals(other._M10, precision))
+				return false;
+			if (!_M11.RelativelyEquals(other._M11, precision))
+				return false;
+			if (!_M12.RelativelyEquals(other._M12, precision))
+				return false;
+			if (!_M13.RelativelyEquals(other._M13, precision))
+				return false;
 
 			return (true);
 		}
@@ -2015,18 +2015,18 @@ namespace OpenGL
 		/// </returns>
 		public bool RelativelyEquals(Matrix3x2f other, float precision)
 		{
-			if (Math.Abs(_M00 - other._M00) > precision * (Math.Abs(_M00) + Math.Abs(other._M00)))
-				return (false);
-			if (Math.Abs(_M01 - other._M01) > precision * (Math.Abs(_M01) + Math.Abs(other._M01)))
-				return (false);
-			if (Math.Abs(_M10 - other._M10) > precision * (Math.Abs(_M10) + Math.Abs(other._M10)))
-				return (false);
-			if (Math.Abs(_M11 - other._M11) > precision * (Math.Abs(_M11) + Math.Abs(other._M11)))
-				return (false);
-			if (Math.Abs(_M20 - other._M20) > precision * (Math.Abs(_M20) + Math.Abs(other._M20)))
-				return (false);
-			if (Math.Abs(_M21 - other._M21) > precision * (Math.Abs(_M21) + Math.Abs(other._M21)))
-				return (false);
+			if (!_M00.RelativelyEquals(other._M00, precision))
+				return false;
+			if (!_M01.RelativelyEquals(other._M01, precision))
+				return false;
+			if (!_M10.RelativelyEquals(other._M10, precision))
+				return false;
+			if (!_M11.RelativelyEquals(other._M11, precision))
+				return false;
+			if (!_M20.RelativelyEquals(other._M20, precision))
+				return false;
+			if (!_M21.RelativelyEquals(other._M21, precision))
+				return false;
 
 			return (true);
 		}
@@ -2865,24 +2865,24 @@ namespace OpenGL
 		/// </returns>
 		public bool RelativelyEquals(Matrix3x3f other, float precision)
 		{
-			if (Math.Abs(_M00 - other._M00) > precision * (Math.Abs(_M00) + Math.Abs(other._M00)))
-				return (false);
-			if (Math.Abs(_M01 - other._M01) > precision * (Math.Abs(_M01) + Math.Abs(other._M01)))
-				return (false);
-			if (Math.Abs(_M02 - other._M02) > precision * (Math.Abs(_M02) + Math.Abs(other._M02)))
-				return (false);
-			if (Math.Abs(_M10 - other._M10) > precision * (Math.Abs(_M10) + Math.Abs(other._M10)))
-				return (false);
-			if (Math.Abs(_M11 - other._M11) > precision * (Math.Abs(_M11) + Math.Abs(other._M11)))
-				return (false);
-			if (Math.Abs(_M12 - other._M12) > precision * (Math.Abs(_M12) + Math.Abs(other._M12)))
-				return (false);
-			if (Math.Abs(_M20 - other._M20) > precision * (Math.Abs(_M20) + Math.Abs(other._M20)))
-				return (false);
-			if (Math.Abs(_M21 - other._M21) > precision * (Math.Abs(_M21) + Math.Abs(other._M21)))
-				return (false);
-			if (Math.Abs(_M22 - other._M22) > precision * (Math.Abs(_M22) + Math.Abs(other._M22)))
-				return (false);
+			if (!_M00.RelativelyEquals(other._M00, precision))
+				return false;
+			if (!_M01.RelativelyEquals(other._M01, precision))
+				return false;
+			if (!_M02.RelativelyEquals(other._M02, precision))
+				return false;
+			if (!_M10.RelativelyEquals(other._M10, precision))
+				return false;
+			if (!_M11.RelativelyEquals(other._M11, precision))
+				return false;
+			if (!_M12.RelativelyEquals(other._M12, precision))
+				return false;
+			if (!_M20.RelativelyEquals(other._M20, precision))
+				return false;
+			if (!_M21.RelativelyEquals(other._M21, precision))
+				return false;
+			if (!_M22.RelativelyEquals(other._M22, precision))
+				return false;
 
 			return (true);
 		}
@@ -3474,30 +3474,30 @@ namespace OpenGL
 		/// </returns>
 		public bool RelativelyEquals(Matrix3x4f other, float precision)
 		{
-			if (Math.Abs(_M00 - other._M00) > precision * (Math.Abs(_M00) + Math.Abs(other._M00)))
-				return (false);
-			if (Math.Abs(_M01 - other._M01) > precision * (Math.Abs(_M01) + Math.Abs(other._M01)))
-				return (false);
-			if (Math.Abs(_M02 - other._M02) > precision * (Math.Abs(_M02) + Math.Abs(other._M02)))
-				return (false);
-			if (Math.Abs(_M03 - other._M03) > precision * (Math.Abs(_M03) + Math.Abs(other._M03)))
-				return (false);
-			if (Math.Abs(_M10 - other._M10) > precision * (Math.Abs(_M10) + Math.Abs(other._M10)))
-				return (false);
-			if (Math.Abs(_M11 - other._M11) > precision * (Math.Abs(_M11) + Math.Abs(other._M11)))
-				return (false);
-			if (Math.Abs(_M12 - other._M12) > precision * (Math.Abs(_M12) + Math.Abs(other._M12)))
-				return (false);
-			if (Math.Abs(_M13 - other._M13) > precision * (Math.Abs(_M13) + Math.Abs(other._M13)))
-				return (false);
-			if (Math.Abs(_M20 - other._M20) > precision * (Math.Abs(_M20) + Math.Abs(other._M20)))
-				return (false);
-			if (Math.Abs(_M21 - other._M21) > precision * (Math.Abs(_M21) + Math.Abs(other._M21)))
-				return (false);
-			if (Math.Abs(_M22 - other._M22) > precision * (Math.Abs(_M22) + Math.Abs(other._M22)))
-				return (false);
-			if (Math.Abs(_M23 - other._M23) > precision * (Math.Abs(_M23) + Math.Abs(other._M23)))
-				return (false);
+			if (!_M00.RelativelyEquals(other._M00, precision))
+				return false;
+			if (!_M01.RelativelyEquals(other._M01, precision))
+				return false;
+			if (!_M02.RelativelyEquals(other._M02, precision))
+				return false;
+			if (!_M03.RelativelyEquals(other._M03, precision))
+				return false;
+			if (!_M10.RelativelyEquals(other._M10, precision))
+				return false;
+			if (!_M11.RelativelyEquals(other._M11, precision))
+				return false;
+			if (!_M12.RelativelyEquals(other._M12, precision))
+				return false;
+			if (!_M13.RelativelyEquals(other._M13, precision))
+				return false;
+			if (!_M20.RelativelyEquals(other._M20, precision))
+				return false;
+			if (!_M21.RelativelyEquals(other._M21, precision))
+				return false;
+			if (!_M22.RelativelyEquals(other._M22, precision))
+				return false;
+			if (!_M23.RelativelyEquals(other._M23, precision))
+				return false;
 
 			return (true);
 		}
@@ -4031,22 +4031,22 @@ namespace OpenGL
 		/// </returns>
 		public bool RelativelyEquals(Matrix4x2f other, float precision)
 		{
-			if (Math.Abs(_M00 - other._M00) > precision * (Math.Abs(_M00) + Math.Abs(other._M00)))
-				return (false);
-			if (Math.Abs(_M01 - other._M01) > precision * (Math.Abs(_M01) + Math.Abs(other._M01)))
-				return (false);
-			if (Math.Abs(_M10 - other._M10) > precision * (Math.Abs(_M10) + Math.Abs(other._M10)))
-				return (false);
-			if (Math.Abs(_M11 - other._M11) > precision * (Math.Abs(_M11) + Math.Abs(other._M11)))
-				return (false);
-			if (Math.Abs(_M20 - other._M20) > precision * (Math.Abs(_M20) + Math.Abs(other._M20)))
-				return (false);
-			if (Math.Abs(_M21 - other._M21) > precision * (Math.Abs(_M21) + Math.Abs(other._M21)))
-				return (false);
-			if (Math.Abs(_M30 - other._M30) > precision * (Math.Abs(_M30) + Math.Abs(other._M30)))
-				return (false);
-			if (Math.Abs(_M31 - other._M31) > precision * (Math.Abs(_M31) + Math.Abs(other._M31)))
-				return (false);
+			if (!_M00.RelativelyEquals(other._M00, precision))
+				return false;
+			if (!_M01.RelativelyEquals(other._M01, precision))
+				return false;
+			if (!_M10.RelativelyEquals(other._M10, precision))
+				return false;
+			if (!_M11.RelativelyEquals(other._M11, precision))
+				return false;
+			if (!_M20.RelativelyEquals(other._M20, precision))
+				return false;
+			if (!_M21.RelativelyEquals(other._M21, precision))
+				return false;
+			if (!_M30.RelativelyEquals(other._M30, precision))
+				return false;
+			if (!_M31.RelativelyEquals(other._M31, precision))
+				return false;
 
 			return (true);
 		}
@@ -4648,30 +4648,30 @@ namespace OpenGL
 		/// </returns>
 		public bool RelativelyEquals(Matrix4x3f other, float precision)
 		{
-			if (Math.Abs(_M00 - other._M00) > precision * (Math.Abs(_M00) + Math.Abs(other._M00)))
-				return (false);
-			if (Math.Abs(_M01 - other._M01) > precision * (Math.Abs(_M01) + Math.Abs(other._M01)))
-				return (false);
-			if (Math.Abs(_M02 - other._M02) > precision * (Math.Abs(_M02) + Math.Abs(other._M02)))
-				return (false);
-			if (Math.Abs(_M10 - other._M10) > precision * (Math.Abs(_M10) + Math.Abs(other._M10)))
-				return (false);
-			if (Math.Abs(_M11 - other._M11) > precision * (Math.Abs(_M11) + Math.Abs(other._M11)))
-				return (false);
-			if (Math.Abs(_M12 - other._M12) > precision * (Math.Abs(_M12) + Math.Abs(other._M12)))
-				return (false);
-			if (Math.Abs(_M20 - other._M20) > precision * (Math.Abs(_M20) + Math.Abs(other._M20)))
-				return (false);
-			if (Math.Abs(_M21 - other._M21) > precision * (Math.Abs(_M21) + Math.Abs(other._M21)))
-				return (false);
-			if (Math.Abs(_M22 - other._M22) > precision * (Math.Abs(_M22) + Math.Abs(other._M22)))
-				return (false);
-			if (Math.Abs(_M30 - other._M30) > precision * (Math.Abs(_M30) + Math.Abs(other._M30)))
-				return (false);
-			if (Math.Abs(_M31 - other._M31) > precision * (Math.Abs(_M31) + Math.Abs(other._M31)))
-				return (false);
-			if (Math.Abs(_M32 - other._M32) > precision * (Math.Abs(_M32) + Math.Abs(other._M32)))
-				return (false);
+			if (!_M00.RelativelyEquals(other._M00, precision))
+				return false;
+			if (!_M01.RelativelyEquals(other._M01, precision))
+				return false;
+			if (!_M02.RelativelyEquals(other._M02, precision))
+				return false;
+			if (!_M10.RelativelyEquals(other._M10, precision))
+				return false;
+			if (!_M11.RelativelyEquals(other._M11, precision))
+				return false;
+			if (!_M12.RelativelyEquals(other._M12, precision))
+				return false;
+			if (!_M20.RelativelyEquals(other._M20, precision))
+				return false;
+			if (!_M21.RelativelyEquals(other._M21, precision))
+				return false;
+			if (!_M22.RelativelyEquals(other._M22, precision))
+				return false;
+			if (!_M30.RelativelyEquals(other._M30, precision))
+				return false;
+			if (!_M31.RelativelyEquals(other._M31, precision))
+				return false;
+			if (!_M32.RelativelyEquals(other._M32, precision))
+				return false;
 
 			return (true);
 		}
@@ -6023,38 +6023,38 @@ namespace OpenGL
 		/// </returns>
 		public bool RelativelyEquals(Matrix4x4f other, float precision)
 		{
-			if (Math.Abs(_M00 - other._M00) > precision * (Math.Abs(_M00) + Math.Abs(other._M00)))
-				return (false);
-			if (Math.Abs(_M01 - other._M01) > precision * (Math.Abs(_M01) + Math.Abs(other._M01)))
-				return (false);
-			if (Math.Abs(_M02 - other._M02) > precision * (Math.Abs(_M02) + Math.Abs(other._M02)))
-				return (false);
-			if (Math.Abs(_M03 - other._M03) > precision * (Math.Abs(_M03) + Math.Abs(other._M03)))
-				return (false);
-			if (Math.Abs(_M10 - other._M10) > precision * (Math.Abs(_M10) + Math.Abs(other._M10)))
-				return (false);
-			if (Math.Abs(_M11 - other._M11) > precision * (Math.Abs(_M11) + Math.Abs(other._M11)))
-				return (false);
-			if (Math.Abs(_M12 - other._M12) > precision * (Math.Abs(_M12) + Math.Abs(other._M12)))
-				return (false);
-			if (Math.Abs(_M13 - other._M13) > precision * (Math.Abs(_M13) + Math.Abs(other._M13)))
-				return (false);
-			if (Math.Abs(_M20 - other._M20) > precision * (Math.Abs(_M20) + Math.Abs(other._M20)))
-				return (false);
-			if (Math.Abs(_M21 - other._M21) > precision * (Math.Abs(_M21) + Math.Abs(other._M21)))
-				return (false);
-			if (Math.Abs(_M22 - other._M22) > precision * (Math.Abs(_M22) + Math.Abs(other._M22)))
-				return (false);
-			if (Math.Abs(_M23 - other._M23) > precision * (Math.Abs(_M23) + Math.Abs(other._M23)))
-				return (false);
-			if (Math.Abs(_M30 - other._M30) > precision * (Math.Abs(_M30) + Math.Abs(other._M30)))
-				return (false);
-			if (Math.Abs(_M31 - other._M31) > precision * (Math.Abs(_M31) + Math.Abs(other._M31)))
-				return (false);
-			if (Math.Abs(_M32 - other._M32) > precision * (Math.Abs(_M32) + Math.Abs(other._M32)))
-				return (false);
-			if (Math.Abs(_M33 - other._M33) > precision * (Math.Abs(_M33) + Math.Abs(other._M33)))
-				return (false);
+			if (!_M00.RelativelyEquals(other._M00, precision))
+				return false;
+			if (!_M01.RelativelyEquals(other._M01, precision))
+				return false;
+			if (!_M02.RelativelyEquals(other._M02, precision))
+				return false;
+			if (!_M03.RelativelyEquals(other._M03, precision))
+				return false;
+			if (!_M10.RelativelyEquals(other._M10, precision))
+				return false;
+			if (!_M11.RelativelyEquals(other._M11, precision))
+				return false;
+			if (!_M12.RelativelyEquals(other._M12, precision))
+				return false;
+			if (!_M13.RelativelyEquals(other._M13, precision))
+				return false;
+			if (!_M20.RelativelyEquals(other._M20, precision))
+				return false;
+			if (!_M21.RelativelyEquals(other._M21, precision))
+				return false;
+			if (!_M22.RelativelyEquals(other._M22, precision))
+				return false;
+			if (!_M23.RelativelyEquals(other._M23, precision))
+				return false;
+			if (!_M30.RelativelyEquals(other._M30, precision))
+				return false;
+			if (!_M31.RelativelyEquals(other._M31, precision))
+				return false;
+			if (!_M32.RelativelyEquals(other._M32, precision))
+				return false;
+			if (!_M33.RelativelyEquals(other._M33, precision))
+				return false;
 
 			return (true);
 		}
@@ -6640,14 +6640,14 @@ namespace OpenGL
 		/// </returns>
 		public bool RelativelyEquals(Matrix2x2d other, double precision)
 		{
-			if (Math.Abs(_M00 - other._M00) > precision * (Math.Abs(_M00) + Math.Abs(other._M00)))
-				return (false);
-			if (Math.Abs(_M01 - other._M01) > precision * (Math.Abs(_M01) + Math.Abs(other._M01)))
-				return (false);
-			if (Math.Abs(_M10 - other._M10) > precision * (Math.Abs(_M10) + Math.Abs(other._M10)))
-				return (false);
-			if (Math.Abs(_M11 - other._M11) > precision * (Math.Abs(_M11) + Math.Abs(other._M11)))
-				return (false);
+			if (!_M00.RelativelyEquals(other._M00, precision))
+				return false;
+			if (!_M01.RelativelyEquals(other._M01, precision))
+				return false;
+			if (!_M10.RelativelyEquals(other._M10, precision))
+				return false;
+			if (!_M11.RelativelyEquals(other._M11, precision))
+				return false;
 
 			return (true);
 		}
@@ -7115,18 +7115,18 @@ namespace OpenGL
 		/// </returns>
 		public bool RelativelyEquals(Matrix2x3d other, double precision)
 		{
-			if (Math.Abs(_M00 - other._M00) > precision * (Math.Abs(_M00) + Math.Abs(other._M00)))
-				return (false);
-			if (Math.Abs(_M01 - other._M01) > precision * (Math.Abs(_M01) + Math.Abs(other._M01)))
-				return (false);
-			if (Math.Abs(_M02 - other._M02) > precision * (Math.Abs(_M02) + Math.Abs(other._M02)))
-				return (false);
-			if (Math.Abs(_M10 - other._M10) > precision * (Math.Abs(_M10) + Math.Abs(other._M10)))
-				return (false);
-			if (Math.Abs(_M11 - other._M11) > precision * (Math.Abs(_M11) + Math.Abs(other._M11)))
-				return (false);
-			if (Math.Abs(_M12 - other._M12) > precision * (Math.Abs(_M12) + Math.Abs(other._M12)))
-				return (false);
+			if (!_M00.RelativelyEquals(other._M00, precision))
+				return false;
+			if (!_M01.RelativelyEquals(other._M01, precision))
+				return false;
+			if (!_M02.RelativelyEquals(other._M02, precision))
+				return false;
+			if (!_M10.RelativelyEquals(other._M10, precision))
+				return false;
+			if (!_M11.RelativelyEquals(other._M11, precision))
+				return false;
+			if (!_M12.RelativelyEquals(other._M12, precision))
+				return false;
 
 			return (true);
 		}
@@ -7632,22 +7632,22 @@ namespace OpenGL
 		/// </returns>
 		public bool RelativelyEquals(Matrix2x4d other, double precision)
 		{
-			if (Math.Abs(_M00 - other._M00) > precision * (Math.Abs(_M00) + Math.Abs(other._M00)))
-				return (false);
-			if (Math.Abs(_M01 - other._M01) > precision * (Math.Abs(_M01) + Math.Abs(other._M01)))
-				return (false);
-			if (Math.Abs(_M02 - other._M02) > precision * (Math.Abs(_M02) + Math.Abs(other._M02)))
-				return (false);
-			if (Math.Abs(_M03 - other._M03) > precision * (Math.Abs(_M03) + Math.Abs(other._M03)))
-				return (false);
-			if (Math.Abs(_M10 - other._M10) > precision * (Math.Abs(_M10) + Math.Abs(other._M10)))
-				return (false);
-			if (Math.Abs(_M11 - other._M11) > precision * (Math.Abs(_M11) + Math.Abs(other._M11)))
-				return (false);
-			if (Math.Abs(_M12 - other._M12) > precision * (Math.Abs(_M12) + Math.Abs(other._M12)))
-				return (false);
-			if (Math.Abs(_M13 - other._M13) > precision * (Math.Abs(_M13) + Math.Abs(other._M13)))
-				return (false);
+			if (!_M00.RelativelyEquals(other._M00, precision))
+				return false;
+			if (!_M01.RelativelyEquals(other._M01, precision))
+				return false;
+			if (!_M02.RelativelyEquals(other._M02, precision))
+				return false;
+			if (!_M03.RelativelyEquals(other._M03, precision))
+				return false;
+			if (!_M10.RelativelyEquals(other._M10, precision))
+				return false;
+			if (!_M11.RelativelyEquals(other._M11, precision))
+				return false;
+			if (!_M12.RelativelyEquals(other._M12, precision))
+				return false;
+			if (!_M13.RelativelyEquals(other._M13, precision))
+				return false;
 
 			return (true);
 		}
@@ -8130,18 +8130,18 @@ namespace OpenGL
 		/// </returns>
 		public bool RelativelyEquals(Matrix3x2d other, double precision)
 		{
-			if (Math.Abs(_M00 - other._M00) > precision * (Math.Abs(_M00) + Math.Abs(other._M00)))
-				return (false);
-			if (Math.Abs(_M01 - other._M01) > precision * (Math.Abs(_M01) + Math.Abs(other._M01)))
-				return (false);
-			if (Math.Abs(_M10 - other._M10) > precision * (Math.Abs(_M10) + Math.Abs(other._M10)))
-				return (false);
-			if (Math.Abs(_M11 - other._M11) > precision * (Math.Abs(_M11) + Math.Abs(other._M11)))
-				return (false);
-			if (Math.Abs(_M20 - other._M20) > precision * (Math.Abs(_M20) + Math.Abs(other._M20)))
-				return (false);
-			if (Math.Abs(_M21 - other._M21) > precision * (Math.Abs(_M21) + Math.Abs(other._M21)))
-				return (false);
+			if (!_M00.RelativelyEquals(other._M00, precision))
+				return false;
+			if (!_M01.RelativelyEquals(other._M01, precision))
+				return false;
+			if (!_M10.RelativelyEquals(other._M10, precision))
+				return false;
+			if (!_M11.RelativelyEquals(other._M11, precision))
+				return false;
+			if (!_M20.RelativelyEquals(other._M20, precision))
+				return false;
+			if (!_M21.RelativelyEquals(other._M21, precision))
+				return false;
 
 			return (true);
 		}
@@ -8980,24 +8980,24 @@ namespace OpenGL
 		/// </returns>
 		public bool RelativelyEquals(Matrix3x3d other, double precision)
 		{
-			if (Math.Abs(_M00 - other._M00) > precision * (Math.Abs(_M00) + Math.Abs(other._M00)))
-				return (false);
-			if (Math.Abs(_M01 - other._M01) > precision * (Math.Abs(_M01) + Math.Abs(other._M01)))
-				return (false);
-			if (Math.Abs(_M02 - other._M02) > precision * (Math.Abs(_M02) + Math.Abs(other._M02)))
-				return (false);
-			if (Math.Abs(_M10 - other._M10) > precision * (Math.Abs(_M10) + Math.Abs(other._M10)))
-				return (false);
-			if (Math.Abs(_M11 - other._M11) > precision * (Math.Abs(_M11) + Math.Abs(other._M11)))
-				return (false);
-			if (Math.Abs(_M12 - other._M12) > precision * (Math.Abs(_M12) + Math.Abs(other._M12)))
-				return (false);
-			if (Math.Abs(_M20 - other._M20) > precision * (Math.Abs(_M20) + Math.Abs(other._M20)))
-				return (false);
-			if (Math.Abs(_M21 - other._M21) > precision * (Math.Abs(_M21) + Math.Abs(other._M21)))
-				return (false);
-			if (Math.Abs(_M22 - other._M22) > precision * (Math.Abs(_M22) + Math.Abs(other._M22)))
-				return (false);
+			if (!_M00.RelativelyEquals(other._M00, precision))
+				return false;
+			if (!_M01.RelativelyEquals(other._M01, precision))
+				return false;
+			if (!_M02.RelativelyEquals(other._M02, precision))
+				return false;
+			if (!_M10.RelativelyEquals(other._M10, precision))
+				return false;
+			if (!_M11.RelativelyEquals(other._M11, precision))
+				return false;
+			if (!_M12.RelativelyEquals(other._M12, precision))
+				return false;
+			if (!_M20.RelativelyEquals(other._M20, precision))
+				return false;
+			if (!_M21.RelativelyEquals(other._M21, precision))
+				return false;
+			if (!_M22.RelativelyEquals(other._M22, precision))
+				return false;
 
 			return (true);
 		}
@@ -9589,30 +9589,30 @@ namespace OpenGL
 		/// </returns>
 		public bool RelativelyEquals(Matrix3x4d other, double precision)
 		{
-			if (Math.Abs(_M00 - other._M00) > precision * (Math.Abs(_M00) + Math.Abs(other._M00)))
-				return (false);
-			if (Math.Abs(_M01 - other._M01) > precision * (Math.Abs(_M01) + Math.Abs(other._M01)))
-				return (false);
-			if (Math.Abs(_M02 - other._M02) > precision * (Math.Abs(_M02) + Math.Abs(other._M02)))
-				return (false);
-			if (Math.Abs(_M03 - other._M03) > precision * (Math.Abs(_M03) + Math.Abs(other._M03)))
-				return (false);
-			if (Math.Abs(_M10 - other._M10) > precision * (Math.Abs(_M10) + Math.Abs(other._M10)))
-				return (false);
-			if (Math.Abs(_M11 - other._M11) > precision * (Math.Abs(_M11) + Math.Abs(other._M11)))
-				return (false);
-			if (Math.Abs(_M12 - other._M12) > precision * (Math.Abs(_M12) + Math.Abs(other._M12)))
-				return (false);
-			if (Math.Abs(_M13 - other._M13) > precision * (Math.Abs(_M13) + Math.Abs(other._M13)))
-				return (false);
-			if (Math.Abs(_M20 - other._M20) > precision * (Math.Abs(_M20) + Math.Abs(other._M20)))
-				return (false);
-			if (Math.Abs(_M21 - other._M21) > precision * (Math.Abs(_M21) + Math.Abs(other._M21)))
-				return (false);
-			if (Math.Abs(_M22 - other._M22) > precision * (Math.Abs(_M22) + Math.Abs(other._M22)))
-				return (false);
-			if (Math.Abs(_M23 - other._M23) > precision * (Math.Abs(_M23) + Math.Abs(other._M23)))
-				return (false);
+			if (!_M00.RelativelyEquals(other._M00, precision))
+				return false;
+			if (!_M01.RelativelyEquals(other._M01, precision))
+				return false;
+			if (!_M02.RelativelyEquals(other._M02, precision))
+				return false;
+			if (!_M03.RelativelyEquals(other._M03, precision))
+				return false;
+			if (!_M10.RelativelyEquals(other._M10, precision))
+				return false;
+			if (!_M11.RelativelyEquals(other._M11, precision))
+				return false;
+			if (!_M12.RelativelyEquals(other._M12, precision))
+				return false;
+			if (!_M13.RelativelyEquals(other._M13, precision))
+				return false;
+			if (!_M20.RelativelyEquals(other._M20, precision))
+				return false;
+			if (!_M21.RelativelyEquals(other._M21, precision))
+				return false;
+			if (!_M22.RelativelyEquals(other._M22, precision))
+				return false;
+			if (!_M23.RelativelyEquals(other._M23, precision))
+				return false;
 
 			return (true);
 		}
@@ -10146,22 +10146,22 @@ namespace OpenGL
 		/// </returns>
 		public bool RelativelyEquals(Matrix4x2d other, double precision)
 		{
-			if (Math.Abs(_M00 - other._M00) > precision * (Math.Abs(_M00) + Math.Abs(other._M00)))
-				return (false);
-			if (Math.Abs(_M01 - other._M01) > precision * (Math.Abs(_M01) + Math.Abs(other._M01)))
-				return (false);
-			if (Math.Abs(_M10 - other._M10) > precision * (Math.Abs(_M10) + Math.Abs(other._M10)))
-				return (false);
-			if (Math.Abs(_M11 - other._M11) > precision * (Math.Abs(_M11) + Math.Abs(other._M11)))
-				return (false);
-			if (Math.Abs(_M20 - other._M20) > precision * (Math.Abs(_M20) + Math.Abs(other._M20)))
-				return (false);
-			if (Math.Abs(_M21 - other._M21) > precision * (Math.Abs(_M21) + Math.Abs(other._M21)))
-				return (false);
-			if (Math.Abs(_M30 - other._M30) > precision * (Math.Abs(_M30) + Math.Abs(other._M30)))
-				return (false);
-			if (Math.Abs(_M31 - other._M31) > precision * (Math.Abs(_M31) + Math.Abs(other._M31)))
-				return (false);
+			if (!_M00.RelativelyEquals(other._M00, precision))
+				return false;
+			if (!_M01.RelativelyEquals(other._M01, precision))
+				return false;
+			if (!_M10.RelativelyEquals(other._M10, precision))
+				return false;
+			if (!_M11.RelativelyEquals(other._M11, precision))
+				return false;
+			if (!_M20.RelativelyEquals(other._M20, precision))
+				return false;
+			if (!_M21.RelativelyEquals(other._M21, precision))
+				return false;
+			if (!_M30.RelativelyEquals(other._M30, precision))
+				return false;
+			if (!_M31.RelativelyEquals(other._M31, precision))
+				return false;
 
 			return (true);
 		}
@@ -10763,30 +10763,30 @@ namespace OpenGL
 		/// </returns>
 		public bool RelativelyEquals(Matrix4x3d other, double precision)
 		{
-			if (Math.Abs(_M00 - other._M00) > precision * (Math.Abs(_M00) + Math.Abs(other._M00)))
-				return (false);
-			if (Math.Abs(_M01 - other._M01) > precision * (Math.Abs(_M01) + Math.Abs(other._M01)))
-				return (false);
-			if (Math.Abs(_M02 - other._M02) > precision * (Math.Abs(_M02) + Math.Abs(other._M02)))
-				return (false);
-			if (Math.Abs(_M10 - other._M10) > precision * (Math.Abs(_M10) + Math.Abs(other._M10)))
-				return (false);
-			if (Math.Abs(_M11 - other._M11) > precision * (Math.Abs(_M11) + Math.Abs(other._M11)))
-				return (false);
-			if (Math.Abs(_M12 - other._M12) > precision * (Math.Abs(_M12) + Math.Abs(other._M12)))
-				return (false);
-			if (Math.Abs(_M20 - other._M20) > precision * (Math.Abs(_M20) + Math.Abs(other._M20)))
-				return (false);
-			if (Math.Abs(_M21 - other._M21) > precision * (Math.Abs(_M21) + Math.Abs(other._M21)))
-				return (false);
-			if (Math.Abs(_M22 - other._M22) > precision * (Math.Abs(_M22) + Math.Abs(other._M22)))
-				return (false);
-			if (Math.Abs(_M30 - other._M30) > precision * (Math.Abs(_M30) + Math.Abs(other._M30)))
-				return (false);
-			if (Math.Abs(_M31 - other._M31) > precision * (Math.Abs(_M31) + Math.Abs(other._M31)))
-				return (false);
-			if (Math.Abs(_M32 - other._M32) > precision * (Math.Abs(_M32) + Math.Abs(other._M32)))
-				return (false);
+			if (!_M00.RelativelyEquals(other._M00, precision))
+				return false;
+			if (!_M01.RelativelyEquals(other._M01, precision))
+				return false;
+			if (!_M02.RelativelyEquals(other._M02, precision))
+				return false;
+			if (!_M10.RelativelyEquals(other._M10, precision))
+				return false;
+			if (!_M11.RelativelyEquals(other._M11, precision))
+				return false;
+			if (!_M12.RelativelyEquals(other._M12, precision))
+				return false;
+			if (!_M20.RelativelyEquals(other._M20, precision))
+				return false;
+			if (!_M21.RelativelyEquals(other._M21, precision))
+				return false;
+			if (!_M22.RelativelyEquals(other._M22, precision))
+				return false;
+			if (!_M30.RelativelyEquals(other._M30, precision))
+				return false;
+			if (!_M31.RelativelyEquals(other._M31, precision))
+				return false;
+			if (!_M32.RelativelyEquals(other._M32, precision))
+				return false;
 
 			return (true);
 		}
@@ -12138,38 +12138,38 @@ namespace OpenGL
 		/// </returns>
 		public bool RelativelyEquals(Matrix4x4d other, double precision)
 		{
-			if (Math.Abs(_M00 - other._M00) > precision * (Math.Abs(_M00) + Math.Abs(other._M00)))
-				return (false);
-			if (Math.Abs(_M01 - other._M01) > precision * (Math.Abs(_M01) + Math.Abs(other._M01)))
-				return (false);
-			if (Math.Abs(_M02 - other._M02) > precision * (Math.Abs(_M02) + Math.Abs(other._M02)))
-				return (false);
-			if (Math.Abs(_M03 - other._M03) > precision * (Math.Abs(_M03) + Math.Abs(other._M03)))
-				return (false);
-			if (Math.Abs(_M10 - other._M10) > precision * (Math.Abs(_M10) + Math.Abs(other._M10)))
-				return (false);
-			if (Math.Abs(_M11 - other._M11) > precision * (Math.Abs(_M11) + Math.Abs(other._M11)))
-				return (false);
-			if (Math.Abs(_M12 - other._M12) > precision * (Math.Abs(_M12) + Math.Abs(other._M12)))
-				return (false);
-			if (Math.Abs(_M13 - other._M13) > precision * (Math.Abs(_M13) + Math.Abs(other._M13)))
-				return (false);
-			if (Math.Abs(_M20 - other._M20) > precision * (Math.Abs(_M20) + Math.Abs(other._M20)))
-				return (false);
-			if (Math.Abs(_M21 - other._M21) > precision * (Math.Abs(_M21) + Math.Abs(other._M21)))
-				return (false);
-			if (Math.Abs(_M22 - other._M22) > precision * (Math.Abs(_M22) + Math.Abs(other._M22)))
-				return (false);
-			if (Math.Abs(_M23 - other._M23) > precision * (Math.Abs(_M23) + Math.Abs(other._M23)))
-				return (false);
-			if (Math.Abs(_M30 - other._M30) > precision * (Math.Abs(_M30) + Math.Abs(other._M30)))
-				return (false);
-			if (Math.Abs(_M31 - other._M31) > precision * (Math.Abs(_M31) + Math.Abs(other._M31)))
-				return (false);
-			if (Math.Abs(_M32 - other._M32) > precision * (Math.Abs(_M32) + Math.Abs(other._M32)))
-				return (false);
-			if (Math.Abs(_M33 - other._M33) > precision * (Math.Abs(_M33) + Math.Abs(other._M33)))
-				return (false);
+			if (!_M00.RelativelyEquals(other._M00, precision))
+				return false;
+			if (!_M01.RelativelyEquals(other._M01, precision))
+				return false;
+			if (!_M02.RelativelyEquals(other._M02, precision))
+				return false;
+			if (!_M03.RelativelyEquals(other._M03, precision))
+				return false;
+			if (!_M10.RelativelyEquals(other._M10, precision))
+				return false;
+			if (!_M11.RelativelyEquals(other._M11, precision))
+				return false;
+			if (!_M12.RelativelyEquals(other._M12, precision))
+				return false;
+			if (!_M13.RelativelyEquals(other._M13, precision))
+				return false;
+			if (!_M20.RelativelyEquals(other._M20, precision))
+				return false;
+			if (!_M21.RelativelyEquals(other._M21, precision))
+				return false;
+			if (!_M22.RelativelyEquals(other._M22, precision))
+				return false;
+			if (!_M23.RelativelyEquals(other._M23, precision))
+				return false;
+			if (!_M30.RelativelyEquals(other._M30, precision))
+				return false;
+			if (!_M31.RelativelyEquals(other._M31, precision))
+				return false;
+			if (!_M32.RelativelyEquals(other._M32, precision))
+				return false;
+			if (!_M33.RelativelyEquals(other._M33, precision))
+				return false;
 
 			return (true);
 		}

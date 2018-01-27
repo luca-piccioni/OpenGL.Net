@@ -1180,8 +1180,8 @@ for (int c1 = 0; c1 < c; c1++) for (int r1 = 0; r1 < r; r1++) {
 		public bool RelativelyEquals(<#= className #> other, <#= matrixBaseType #> precision)
 		{
 <# for (int c1 = 0; c1 < c; c1++) for (int r1 = 0; r1 < r; r1++) { #>
-			if (Math.Abs(_M<#= c1 #><#= r1 #> - other._M<#= c1 #><#= r1 #>) > precision * (Math.Abs(_M<#= c1 #><#= r1 #>) + Math.Abs(other._M<#= c1 #><#= r1 #>)))
-				return (false);
+			if (!_M<#= c1 #><#= r1 #>.RelativelyEquals(other._M<#= c1 #><#= r1 #>, precision))
+				return false;
 <# } #>
 
 			return (true);
