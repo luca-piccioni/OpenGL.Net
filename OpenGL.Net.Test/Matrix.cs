@@ -199,12 +199,33 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix2x2f_TestRotatedZ()
 		{
+			Matrix2x2f m = Matrix2x2f.RotatedZ(0.0f);
+			Assert.IsTrue(m.Equals(Matrix2x2f.Identity, 1e-5f));
+
+			Matrix2x2f r1 = Matrix2x2f.RotatedZ(+90.0f);
+			Matrix2x2f r2 = Matrix2x2f.RotatedZ(-90.0f);
+			Assert.IsTrue((r1 * r2).Equals(Matrix2x2f.Identity, 1e-5f));
+
+			r1 = Matrix2x2f.RotatedZ(+90.0f);
+			r2 = Matrix2x2f.RotatedZ(+180.0f);
+			Assert.IsTrue((r1 * r1).Equals(r2, 1e-5f));
 
 		}
 
 		[Test]
 		public void Matrix2x2f_TestRotateZ()
 		{
+			Matrix2x2f m = Matrix2x2f.Identity;
+			
+			m.RotateZ(0.0f);
+			Assert.IsTrue(m.Equals(Matrix2x2f.Identity, 1e-5f));
+
+			m.RotateZ(+90.0f);
+			m.RotateZ(-90.0f);
+			Assert.IsTrue(m.Equals(Matrix2x2f.Identity, 1e-5f));
+
+			m.RotateZ(+180.0f);
+			Assert.IsTrue(m.Equals(Matrix2x2f.RotatedZ(+180.0f), 1e-5f));
 
 		}
 
@@ -251,9 +272,14 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix2x2f_TestInverse()
 		{
+			Matrix2x2f r;
+
+			Assert.Throws<InvalidOperationException>(() => r = new Matrix2x2f().Inverse);
+
 			Matrix2x2f m = CreateInvertibleMatrix();
 			Matrix2x2f n = m.Inverse;
-			Matrix2x2f r = m * n;
+			
+			r = m * n;
 
 			Assert.IsTrue(r.Equals(Matrix2x2f.Identity, 1e-2f));
 		}
@@ -261,6 +287,8 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix2x2f_TestInvert()
 		{
+			Assert.Throws<InvalidOperationException>(() => new Matrix2x2f().Invert());
+
 			Matrix2x2f m = CreateInvertibleMatrix();
 			Matrix2x2f n = m;
 
@@ -275,6 +303,31 @@ namespace OpenGL.Test
 
 
 		#region IEquatable Implementation
+
+		[Test]
+		public void Matrix2x2f_TestAbsoluteEqualsToMatrix2x2f()
+		{
+			Matrix2x2f m = new Matrix2x2f();
+
+			m[0, 0] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix2x2f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix2x2f.Zero, 0.50f));
+			m[0, 1] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix2x2f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix2x2f.Zero, 0.50f));
+			m[1, 0] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix2x2f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix2x2f.Zero, 0.50f));
+			m[1, 1] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix2x2f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix2x2f.Zero, 0.50f));
+		}
+
+		[Test]
+		public void Matrix2x2f_TestRelativelyEqualsToMatrix2x2f()
+		{
+			
+		}
 
 		[Test]
 		public void Matrix2x2f_TestEqualsToMatrix2x2f()
@@ -548,6 +601,37 @@ namespace OpenGL.Test
 
 
 		#region IEquatable Implementation
+
+		[Test]
+		public void Matrix2x3f_TestAbsoluteEqualsToMatrix2x3f()
+		{
+			Matrix2x3f m = new Matrix2x3f();
+
+			m[0, 0] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix2x3f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix2x3f.Zero, 0.50f));
+			m[0, 1] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix2x3f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix2x3f.Zero, 0.50f));
+			m[0, 2] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix2x3f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix2x3f.Zero, 0.50f));
+			m[1, 0] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix2x3f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix2x3f.Zero, 0.50f));
+			m[1, 1] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix2x3f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix2x3f.Zero, 0.50f));
+			m[1, 2] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix2x3f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix2x3f.Zero, 0.50f));
+		}
+
+		[Test]
+		public void Matrix2x3f_TestRelativelyEqualsToMatrix2x3f()
+		{
+			
+		}
 
 		[Test]
 		public void Matrix2x3f_TestEqualsToMatrix2x3f()
@@ -831,6 +915,43 @@ namespace OpenGL.Test
 		#region IEquatable Implementation
 
 		[Test]
+		public void Matrix2x4f_TestAbsoluteEqualsToMatrix2x4f()
+		{
+			Matrix2x4f m = new Matrix2x4f();
+
+			m[0, 0] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix2x4f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix2x4f.Zero, 0.50f));
+			m[0, 1] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix2x4f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix2x4f.Zero, 0.50f));
+			m[0, 2] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix2x4f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix2x4f.Zero, 0.50f));
+			m[0, 3] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix2x4f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix2x4f.Zero, 0.50f));
+			m[1, 0] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix2x4f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix2x4f.Zero, 0.50f));
+			m[1, 1] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix2x4f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix2x4f.Zero, 0.50f));
+			m[1, 2] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix2x4f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix2x4f.Zero, 0.50f));
+			m[1, 3] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix2x4f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix2x4f.Zero, 0.50f));
+		}
+
+		[Test]
+		public void Matrix2x4f_TestRelativelyEqualsToMatrix2x4f()
+		{
+			
+		}
+
+		[Test]
 		public void Matrix2x4f_TestEqualsToMatrix2x4f()
 		{
 			Matrix2x4f m1 = CreateRandomMatrix();
@@ -1109,6 +1230,37 @@ namespace OpenGL.Test
 
 
 		#region IEquatable Implementation
+
+		[Test]
+		public void Matrix3x2f_TestAbsoluteEqualsToMatrix3x2f()
+		{
+			Matrix3x2f m = new Matrix3x2f();
+
+			m[0, 0] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix3x2f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix3x2f.Zero, 0.50f));
+			m[0, 1] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix3x2f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix3x2f.Zero, 0.50f));
+			m[1, 0] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix3x2f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix3x2f.Zero, 0.50f));
+			m[1, 1] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix3x2f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix3x2f.Zero, 0.50f));
+			m[2, 0] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix3x2f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix3x2f.Zero, 0.50f));
+			m[2, 1] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix3x2f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix3x2f.Zero, 0.50f));
+		}
+
+		[Test]
+		public void Matrix3x2f_TestRelativelyEqualsToMatrix3x2f()
+		{
+			
+		}
 
 		[Test]
 		public void Matrix3x2f_TestEqualsToMatrix3x2f()
@@ -1398,37 +1550,102 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix3x3f_TestRotatedX()
 		{
+			Matrix3x3f m = Matrix3x3f.RotatedX(0.0f);
+			Assert.IsTrue(m.Equals(Matrix3x3f.Identity, 1e-5f));
 
+			Matrix3x3f r1 = Matrix3x3f.RotatedX(+90.0f);
+			Matrix3x3f r2 = Matrix3x3f.RotatedX(-90.0f);
+			Assert.IsTrue((r1 * r2).Equals(Matrix3x3f.Identity, 1e-5f));
+
+			r1 = Matrix3x3f.RotatedX(+90.0f);
+			r2 = Matrix3x3f.RotatedX(+180.0f);
+			Assert.IsTrue((r1 * r1).Equals(r2, 1e-5f));
 		}
 
 		[Test]
 		public void Matrix3x3f_TestRotateX()
 		{
+			Matrix3x3f m = Matrix3x3f.Identity;
+			
+			m.RotateX(0.0f);
+			Assert.IsTrue(m.Equals(Matrix3x3f.Identity, 1e-5f));
 
+			m.RotateX(+90.0f);
+			m.RotateX(-90.0f);
+			Assert.IsTrue(m.Equals(Matrix3x3f.Identity, 1e-5f));
+
+			m.RotateX(+180.0f);
+			Assert.IsTrue(m.Equals(Matrix3x3f.RotatedX(+180.0f), 1e-5f));
 		}
 
 		[Test]
 		public void Matrix3x3f_TestRotatedY()
 		{
+			Matrix3x3f m = Matrix3x3f.RotatedY(0.0f);
+			Assert.IsTrue(m.Equals(Matrix3x3f.Identity, 1e-5f));
 
+			Matrix3x3f r1 = Matrix3x3f.RotatedY(+90.0f);
+			Matrix3x3f r2 = Matrix3x3f.RotatedY(-90.0f);
+			Assert.IsTrue((r1 * r2).Equals(Matrix3x3f.Identity, 1e-5f));
+
+			r1 = Matrix3x3f.RotatedY(+90.0f);
+			r2 = Matrix3x3f.RotatedY(+180.0f);
+			Assert.IsTrue((r1 * r1).Equals(r2, 1e-5f));
 		}
 
 		[Test]
 		public void Matrix3x3f_TestRotateY()
 		{
+			Matrix3x3f m = Matrix3x3f.Identity;
+			
+			m.RotateY(0.0f);
+			Assert.IsTrue(m.Equals(Matrix3x3f.Identity, 1e-5f));
 
+			m.RotateY(+90.0f);
+			m.RotateY(-90.0f);
+			Assert.IsTrue(m.Equals(Matrix3x3f.Identity, 1e-5f));
+
+			m.RotateY(+180.0f);
+			Assert.IsTrue(m.Equals(Matrix3x3f.RotatedY(+180.0f), 1e-5f));
 		}
 
 		[Test]
 		public void Matrix3x3f_TestRotatedZ()
 		{
+			Matrix3x3f m = Matrix3x3f.RotatedZ(0.0f);
+			Assert.IsTrue(m.Equals(Matrix3x3f.Identity, 1e-5f));
 
+			Matrix3x3f r1 = Matrix3x3f.RotatedZ(+90.0f);
+			Matrix3x3f r2 = Matrix3x3f.RotatedZ(-90.0f);
+			Assert.IsTrue((r1 * r2).Equals(Matrix3x3f.Identity, 1e-5f));
+
+			r1 = Matrix3x3f.RotatedZ(+90.0f);
+			r2 = Matrix3x3f.RotatedZ(+180.0f);
+			Assert.IsTrue((r1 * r1).Equals(r2, 1e-5f));
+
+			Vertex3f v = Matrix3x3f.RotatedZ(+90.0f) * Vertex3f.UnitX;
+			Assert.IsTrue(v.Equals(Vertex3f.UnitY, 1e-5f));
 		}
 
 		[Test]
 		public void Matrix3x3f_TestRotateZ()
 		{
+			Matrix3x3f m = Matrix3x3f.Identity;
+			
+			m.RotateZ(0.0f);
+			Assert.IsTrue(m.Equals(Matrix3x3f.Identity, 1e-5f));
 
+			m.RotateZ(+90.0f);
+			m.RotateZ(-90.0f);
+			Assert.IsTrue(m.Equals(Matrix3x3f.Identity, 1e-5f));
+
+			m.RotateZ(+180.0f);
+			Assert.IsTrue(m.Equals(Matrix3x3f.RotatedZ(+180.0f), 1e-5f));
+
+			m = Matrix3x3f.Identity;
+			m.RotateZ(+90.0f);
+			Vertex3f v = m * Vertex3f.UnitX;
+			Assert.IsTrue(v.Equals(Vertex3f.UnitY, 1e-5f));
 		}
 
 		#endregion
@@ -1500,9 +1717,14 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix3x3f_TestInverse()
 		{
+			Matrix3x3f r;
+
+			Assert.Throws<InvalidOperationException>(() => r = new Matrix3x3f().Inverse);
+
 			Matrix3x3f m = CreateInvertibleMatrix();
 			Matrix3x3f n = m.Inverse;
-			Matrix3x3f r = m * n;
+			
+			r = m * n;
 
 			Assert.IsTrue(r.Equals(Matrix3x3f.Identity, 1e-2f));
 		}
@@ -1510,6 +1732,8 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix3x3f_TestInvert()
 		{
+			Assert.Throws<InvalidOperationException>(() => new Matrix3x3f().Invert());
+
 			Matrix3x3f m = CreateInvertibleMatrix();
 			Matrix3x3f n = m;
 
@@ -1524,6 +1748,46 @@ namespace OpenGL.Test
 
 
 		#region IEquatable Implementation
+
+		[Test]
+		public void Matrix3x3f_TestAbsoluteEqualsToMatrix3x3f()
+		{
+			Matrix3x3f m = new Matrix3x3f();
+
+			m[0, 0] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix3x3f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix3x3f.Zero, 0.50f));
+			m[0, 1] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix3x3f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix3x3f.Zero, 0.50f));
+			m[0, 2] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix3x3f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix3x3f.Zero, 0.50f));
+			m[1, 0] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix3x3f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix3x3f.Zero, 0.50f));
+			m[1, 1] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix3x3f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix3x3f.Zero, 0.50f));
+			m[1, 2] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix3x3f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix3x3f.Zero, 0.50f));
+			m[2, 0] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix3x3f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix3x3f.Zero, 0.50f));
+			m[2, 1] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix3x3f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix3x3f.Zero, 0.50f));
+			m[2, 2] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix3x3f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix3x3f.Zero, 0.50f));
+		}
+
+		[Test]
+		public void Matrix3x3f_TestRelativelyEqualsToMatrix3x3f()
+		{
+			
+		}
 
 		[Test]
 		public void Matrix3x3f_TestEqualsToMatrix3x3f()
@@ -1863,6 +2127,55 @@ namespace OpenGL.Test
 		#region IEquatable Implementation
 
 		[Test]
+		public void Matrix3x4f_TestAbsoluteEqualsToMatrix3x4f()
+		{
+			Matrix3x4f m = new Matrix3x4f();
+
+			m[0, 0] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix3x4f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix3x4f.Zero, 0.50f));
+			m[0, 1] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix3x4f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix3x4f.Zero, 0.50f));
+			m[0, 2] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix3x4f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix3x4f.Zero, 0.50f));
+			m[0, 3] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix3x4f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix3x4f.Zero, 0.50f));
+			m[1, 0] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix3x4f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix3x4f.Zero, 0.50f));
+			m[1, 1] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix3x4f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix3x4f.Zero, 0.50f));
+			m[1, 2] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix3x4f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix3x4f.Zero, 0.50f));
+			m[1, 3] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix3x4f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix3x4f.Zero, 0.50f));
+			m[2, 0] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix3x4f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix3x4f.Zero, 0.50f));
+			m[2, 1] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix3x4f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix3x4f.Zero, 0.50f));
+			m[2, 2] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix3x4f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix3x4f.Zero, 0.50f));
+			m[2, 3] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix3x4f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix3x4f.Zero, 0.50f));
+		}
+
+		[Test]
+		public void Matrix3x4f_TestRelativelyEqualsToMatrix3x4f()
+		{
+			
+		}
+
+		[Test]
 		public void Matrix3x4f_TestEqualsToMatrix3x4f()
 		{
 			Matrix3x4f m1 = CreateRandomMatrix();
@@ -2174,6 +2487,43 @@ namespace OpenGL.Test
 
 
 		#region IEquatable Implementation
+
+		[Test]
+		public void Matrix4x2f_TestAbsoluteEqualsToMatrix4x2f()
+		{
+			Matrix4x2f m = new Matrix4x2f();
+
+			m[0, 0] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix4x2f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix4x2f.Zero, 0.50f));
+			m[0, 1] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix4x2f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix4x2f.Zero, 0.50f));
+			m[1, 0] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix4x2f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix4x2f.Zero, 0.50f));
+			m[1, 1] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix4x2f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix4x2f.Zero, 0.50f));
+			m[2, 0] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix4x2f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix4x2f.Zero, 0.50f));
+			m[2, 1] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix4x2f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix4x2f.Zero, 0.50f));
+			m[3, 0] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix4x2f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix4x2f.Zero, 0.50f));
+			m[3, 1] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix4x2f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix4x2f.Zero, 0.50f));
+		}
+
+		[Test]
+		public void Matrix4x2f_TestRelativelyEqualsToMatrix4x2f()
+		{
+			
+		}
 
 		[Test]
 		public void Matrix4x2f_TestEqualsToMatrix4x2f()
@@ -2495,6 +2845,55 @@ namespace OpenGL.Test
 
 
 		#region IEquatable Implementation
+
+		[Test]
+		public void Matrix4x3f_TestAbsoluteEqualsToMatrix4x3f()
+		{
+			Matrix4x3f m = new Matrix4x3f();
+
+			m[0, 0] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix4x3f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix4x3f.Zero, 0.50f));
+			m[0, 1] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix4x3f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix4x3f.Zero, 0.50f));
+			m[0, 2] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix4x3f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix4x3f.Zero, 0.50f));
+			m[1, 0] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix4x3f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix4x3f.Zero, 0.50f));
+			m[1, 1] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix4x3f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix4x3f.Zero, 0.50f));
+			m[1, 2] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix4x3f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix4x3f.Zero, 0.50f));
+			m[2, 0] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix4x3f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix4x3f.Zero, 0.50f));
+			m[2, 1] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix4x3f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix4x3f.Zero, 0.50f));
+			m[2, 2] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix4x3f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix4x3f.Zero, 0.50f));
+			m[3, 0] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix4x3f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix4x3f.Zero, 0.50f));
+			m[3, 1] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix4x3f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix4x3f.Zero, 0.50f));
+			m[3, 2] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix4x3f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix4x3f.Zero, 0.50f));
+		}
+
+		[Test]
+		public void Matrix4x3f_TestRelativelyEqualsToMatrix4x3f()
+		{
+			
+		}
 
 		[Test]
 		public void Matrix4x3f_TestEqualsToMatrix4x3f()
@@ -2945,37 +3344,102 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix4x4f_TestRotatedX()
 		{
+			Matrix4x4f m = Matrix4x4f.RotatedX(0.0f);
+			Assert.IsTrue(m.Equals(Matrix4x4f.Identity, 1e-5f));
 
+			Matrix4x4f r1 = Matrix4x4f.RotatedX(+90.0f);
+			Matrix4x4f r2 = Matrix4x4f.RotatedX(-90.0f);
+			Assert.IsTrue((r1 * r2).Equals(Matrix4x4f.Identity, 1e-5f));
+
+			r1 = Matrix4x4f.RotatedX(+90.0f);
+			r2 = Matrix4x4f.RotatedX(+180.0f);
+			Assert.IsTrue((r1 * r1).Equals(r2, 1e-5f));
 		}
 
 		[Test]
 		public void Matrix4x4f_TestRotateX()
 		{
+			Matrix4x4f m = Matrix4x4f.Identity;
+			
+			m.RotateX(0.0f);
+			Assert.IsTrue(m.Equals(Matrix4x4f.Identity, 1e-5f));
 
+			m.RotateX(+90.0f);
+			m.RotateX(-90.0f);
+			Assert.IsTrue(m.Equals(Matrix4x4f.Identity, 1e-5f));
+
+			m.RotateX(+180.0f);
+			Assert.IsTrue(m.Equals(Matrix4x4f.RotatedX(+180.0f), 1e-5f));
 		}
 
 		[Test]
 		public void Matrix4x4f_TestRotatedY()
 		{
+			Matrix4x4f m = Matrix4x4f.RotatedY(0.0f);
+			Assert.IsTrue(m.Equals(Matrix4x4f.Identity, 1e-5f));
 
+			Matrix4x4f r1 = Matrix4x4f.RotatedY(+90.0f);
+			Matrix4x4f r2 = Matrix4x4f.RotatedY(-90.0f);
+			Assert.IsTrue((r1 * r2).Equals(Matrix4x4f.Identity, 1e-5f));
+
+			r1 = Matrix4x4f.RotatedY(+90.0f);
+			r2 = Matrix4x4f.RotatedY(+180.0f);
+			Assert.IsTrue((r1 * r1).Equals(r2, 1e-5f));
 		}
 
 		[Test]
 		public void Matrix4x4f_TestRotateY()
 		{
+			Matrix4x4f m = Matrix4x4f.Identity;
+			
+			m.RotateY(0.0f);
+			Assert.IsTrue(m.Equals(Matrix4x4f.Identity, 1e-5f));
 
+			m.RotateY(+90.0f);
+			m.RotateY(-90.0f);
+			Assert.IsTrue(m.Equals(Matrix4x4f.Identity, 1e-5f));
+
+			m.RotateY(+180.0f);
+			Assert.IsTrue(m.Equals(Matrix4x4f.RotatedY(+180.0f), 1e-5f));
 		}
 
 		[Test]
 		public void Matrix4x4f_TestRotatedZ()
 		{
+			Matrix4x4f m = Matrix4x4f.RotatedZ(0.0f);
+			Assert.IsTrue(m.Equals(Matrix4x4f.Identity, 1e-5f));
 
+			Matrix4x4f r1 = Matrix4x4f.RotatedZ(+90.0f);
+			Matrix4x4f r2 = Matrix4x4f.RotatedZ(-90.0f);
+			Assert.IsTrue((r1 * r2).Equals(Matrix4x4f.Identity, 1e-5f));
+
+			r1 = Matrix4x4f.RotatedZ(+90.0f);
+			r2 = Matrix4x4f.RotatedZ(+180.0f);
+			Assert.IsTrue((r1 * r1).Equals(r2, 1e-5f));
+
+			Vertex4f v = Matrix4x4f.RotatedZ(+90.0f) * Vertex4f.UnitX;
+			Assert.IsTrue(v.Equals(Vertex4f.UnitY, 1e-5f));
 		}
 
 		[Test]
 		public void Matrix4x4f_TestRotateZ()
 		{
+			Matrix4x4f m = Matrix4x4f.Identity;
+			
+			m.RotateZ(0.0f);
+			Assert.IsTrue(m.Equals(Matrix4x4f.Identity, 1e-5f));
 
+			m.RotateZ(+90.0f);
+			m.RotateZ(-90.0f);
+			Assert.IsTrue(m.Equals(Matrix4x4f.Identity, 1e-5f));
+
+			m.RotateZ(+180.0f);
+			Assert.IsTrue(m.Equals(Matrix4x4f.RotatedZ(+180.0f), 1e-5f));
+
+			m = Matrix4x4f.Identity;
+			m.RotateZ(+90.0f);
+			Vertex4f v = m * Vertex4f.UnitX;
+			Assert.IsTrue(v.Equals(Vertex4f.UnitY, 1e-5f));
 		}
 
 		#endregion
@@ -3061,9 +3525,14 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix4x4f_TestInverse()
 		{
+			Matrix4x4f r;
+
+			Assert.Throws<InvalidOperationException>(() => r = new Matrix4x4f().Inverse);
+
 			Matrix4x4f m = CreateInvertibleMatrix();
 			Matrix4x4f n = m.Inverse;
-			Matrix4x4f r = m * n;
+			
+			r = m * n;
 
 			Assert.IsTrue(r.Equals(Matrix4x4f.Identity, 1e-2f));
 		}
@@ -3071,6 +3540,8 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix4x4f_TestInvert()
 		{
+			Assert.Throws<InvalidOperationException>(() => new Matrix4x4f().Invert());
+
 			Matrix4x4f m = CreateInvertibleMatrix();
 			Matrix4x4f n = m;
 
@@ -3085,6 +3556,67 @@ namespace OpenGL.Test
 
 
 		#region IEquatable Implementation
+
+		[Test]
+		public void Matrix4x4f_TestAbsoluteEqualsToMatrix4x4f()
+		{
+			Matrix4x4f m = new Matrix4x4f();
+
+			m[0, 0] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix4x4f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix4x4f.Zero, 0.50f));
+			m[0, 1] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix4x4f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix4x4f.Zero, 0.50f));
+			m[0, 2] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix4x4f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix4x4f.Zero, 0.50f));
+			m[0, 3] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix4x4f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix4x4f.Zero, 0.50f));
+			m[1, 0] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix4x4f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix4x4f.Zero, 0.50f));
+			m[1, 1] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix4x4f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix4x4f.Zero, 0.50f));
+			m[1, 2] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix4x4f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix4x4f.Zero, 0.50f));
+			m[1, 3] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix4x4f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix4x4f.Zero, 0.50f));
+			m[2, 0] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix4x4f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix4x4f.Zero, 0.50f));
+			m[2, 1] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix4x4f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix4x4f.Zero, 0.50f));
+			m[2, 2] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix4x4f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix4x4f.Zero, 0.50f));
+			m[2, 3] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix4x4f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix4x4f.Zero, 0.50f));
+			m[3, 0] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix4x4f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix4x4f.Zero, 0.50f));
+			m[3, 1] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix4x4f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix4x4f.Zero, 0.50f));
+			m[3, 2] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix4x4f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix4x4f.Zero, 0.50f));
+			m[3, 3] = 0.5f;
+			Assert.IsFalse(m.Equals(Matrix4x4f.Zero, 0.25f));
+			Assert.IsTrue(m.Equals(Matrix4x4f.Zero, 0.50f));
+		}
+
+		[Test]
+		public void Matrix4x4f_TestRelativelyEqualsToMatrix4x4f()
+		{
+			
+		}
 
 		[Test]
 		public void Matrix4x4f_TestEqualsToMatrix4x4f()
@@ -3413,12 +3945,33 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix2x2d_TestRotatedZ()
 		{
+			Matrix2x2d m = Matrix2x2d.RotatedZ(0.0);
+			Assert.IsTrue(m.Equals(Matrix2x2d.Identity, 1e-10));
+
+			Matrix2x2d r1 = Matrix2x2d.RotatedZ(+90.0);
+			Matrix2x2d r2 = Matrix2x2d.RotatedZ(-90.0);
+			Assert.IsTrue((r1 * r2).Equals(Matrix2x2d.Identity, 1e-10));
+
+			r1 = Matrix2x2d.RotatedZ(+90.0);
+			r2 = Matrix2x2d.RotatedZ(+180.0);
+			Assert.IsTrue((r1 * r1).Equals(r2, 1e-10));
 
 		}
 
 		[Test]
 		public void Matrix2x2d_TestRotateZ()
 		{
+			Matrix2x2d m = Matrix2x2d.Identity;
+			
+			m.RotateZ(0.0);
+			Assert.IsTrue(m.Equals(Matrix2x2d.Identity, 1e-10));
+
+			m.RotateZ(+90.0);
+			m.RotateZ(-90.0);
+			Assert.IsTrue(m.Equals(Matrix2x2d.Identity, 1e-10));
+
+			m.RotateZ(+180.0);
+			Assert.IsTrue(m.Equals(Matrix2x2d.RotatedZ(+180.0), 1e-10));
 
 		}
 
@@ -3465,9 +4018,14 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix2x2d_TestInverse()
 		{
+			Matrix2x2d r;
+
+			Assert.Throws<InvalidOperationException>(() => r = new Matrix2x2d().Inverse);
+
 			Matrix2x2d m = CreateInvertibleMatrix();
 			Matrix2x2d n = m.Inverse;
-			Matrix2x2d r = m * n;
+			
+			r = m * n;
 
 			Assert.IsTrue(r.Equals(Matrix2x2d.Identity, 1e-2));
 		}
@@ -3475,6 +4033,8 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix2x2d_TestInvert()
 		{
+			Assert.Throws<InvalidOperationException>(() => new Matrix2x2d().Invert());
+
 			Matrix2x2d m = CreateInvertibleMatrix();
 			Matrix2x2d n = m;
 
@@ -3489,6 +4049,31 @@ namespace OpenGL.Test
 
 
 		#region IEquatable Implementation
+
+		[Test]
+		public void Matrix2x2d_TestAbsoluteEqualsToMatrix2x2d()
+		{
+			Matrix2x2d m = new Matrix2x2d();
+
+			m[0, 0] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix2x2d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix2x2d.Zero, 0.50));
+			m[0, 1] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix2x2d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix2x2d.Zero, 0.50));
+			m[1, 0] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix2x2d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix2x2d.Zero, 0.50));
+			m[1, 1] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix2x2d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix2x2d.Zero, 0.50));
+		}
+
+		[Test]
+		public void Matrix2x2d_TestRelativelyEqualsToMatrix2x2d()
+		{
+			
+		}
 
 		[Test]
 		public void Matrix2x2d_TestEqualsToMatrix2x2d()
@@ -3762,6 +4347,37 @@ namespace OpenGL.Test
 
 
 		#region IEquatable Implementation
+
+		[Test]
+		public void Matrix2x3d_TestAbsoluteEqualsToMatrix2x3d()
+		{
+			Matrix2x3d m = new Matrix2x3d();
+
+			m[0, 0] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix2x3d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix2x3d.Zero, 0.50));
+			m[0, 1] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix2x3d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix2x3d.Zero, 0.50));
+			m[0, 2] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix2x3d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix2x3d.Zero, 0.50));
+			m[1, 0] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix2x3d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix2x3d.Zero, 0.50));
+			m[1, 1] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix2x3d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix2x3d.Zero, 0.50));
+			m[1, 2] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix2x3d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix2x3d.Zero, 0.50));
+		}
+
+		[Test]
+		public void Matrix2x3d_TestRelativelyEqualsToMatrix2x3d()
+		{
+			
+		}
 
 		[Test]
 		public void Matrix2x3d_TestEqualsToMatrix2x3d()
@@ -4045,6 +4661,43 @@ namespace OpenGL.Test
 		#region IEquatable Implementation
 
 		[Test]
+		public void Matrix2x4d_TestAbsoluteEqualsToMatrix2x4d()
+		{
+			Matrix2x4d m = new Matrix2x4d();
+
+			m[0, 0] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix2x4d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix2x4d.Zero, 0.50));
+			m[0, 1] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix2x4d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix2x4d.Zero, 0.50));
+			m[0, 2] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix2x4d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix2x4d.Zero, 0.50));
+			m[0, 3] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix2x4d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix2x4d.Zero, 0.50));
+			m[1, 0] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix2x4d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix2x4d.Zero, 0.50));
+			m[1, 1] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix2x4d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix2x4d.Zero, 0.50));
+			m[1, 2] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix2x4d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix2x4d.Zero, 0.50));
+			m[1, 3] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix2x4d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix2x4d.Zero, 0.50));
+		}
+
+		[Test]
+		public void Matrix2x4d_TestRelativelyEqualsToMatrix2x4d()
+		{
+			
+		}
+
+		[Test]
 		public void Matrix2x4d_TestEqualsToMatrix2x4d()
 		{
 			Matrix2x4d m1 = CreateRandomMatrix();
@@ -4323,6 +4976,37 @@ namespace OpenGL.Test
 
 
 		#region IEquatable Implementation
+
+		[Test]
+		public void Matrix3x2d_TestAbsoluteEqualsToMatrix3x2d()
+		{
+			Matrix3x2d m = new Matrix3x2d();
+
+			m[0, 0] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix3x2d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix3x2d.Zero, 0.50));
+			m[0, 1] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix3x2d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix3x2d.Zero, 0.50));
+			m[1, 0] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix3x2d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix3x2d.Zero, 0.50));
+			m[1, 1] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix3x2d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix3x2d.Zero, 0.50));
+			m[2, 0] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix3x2d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix3x2d.Zero, 0.50));
+			m[2, 1] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix3x2d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix3x2d.Zero, 0.50));
+		}
+
+		[Test]
+		public void Matrix3x2d_TestRelativelyEqualsToMatrix3x2d()
+		{
+			
+		}
 
 		[Test]
 		public void Matrix3x2d_TestEqualsToMatrix3x2d()
@@ -4612,37 +5296,102 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix3x3d_TestRotatedX()
 		{
+			Matrix3x3d m = Matrix3x3d.RotatedX(0.0);
+			Assert.IsTrue(m.Equals(Matrix3x3d.Identity, 1e-10));
 
+			Matrix3x3d r1 = Matrix3x3d.RotatedX(+90.0);
+			Matrix3x3d r2 = Matrix3x3d.RotatedX(-90.0);
+			Assert.IsTrue((r1 * r2).Equals(Matrix3x3d.Identity, 1e-10));
+
+			r1 = Matrix3x3d.RotatedX(+90.0);
+			r2 = Matrix3x3d.RotatedX(+180.0);
+			Assert.IsTrue((r1 * r1).Equals(r2, 1e-10));
 		}
 
 		[Test]
 		public void Matrix3x3d_TestRotateX()
 		{
+			Matrix3x3d m = Matrix3x3d.Identity;
+			
+			m.RotateX(0.0);
+			Assert.IsTrue(m.Equals(Matrix3x3d.Identity, 1e-10));
 
+			m.RotateX(+90.0);
+			m.RotateX(-90.0);
+			Assert.IsTrue(m.Equals(Matrix3x3d.Identity, 1e-10));
+
+			m.RotateX(+180.0);
+			Assert.IsTrue(m.Equals(Matrix3x3d.RotatedX(+180.0), 1e-10));
 		}
 
 		[Test]
 		public void Matrix3x3d_TestRotatedY()
 		{
+			Matrix3x3d m = Matrix3x3d.RotatedY(0.0);
+			Assert.IsTrue(m.Equals(Matrix3x3d.Identity, 1e-10));
 
+			Matrix3x3d r1 = Matrix3x3d.RotatedY(+90.0);
+			Matrix3x3d r2 = Matrix3x3d.RotatedY(-90.0);
+			Assert.IsTrue((r1 * r2).Equals(Matrix3x3d.Identity, 1e-10));
+
+			r1 = Matrix3x3d.RotatedY(+90.0);
+			r2 = Matrix3x3d.RotatedY(+180.0);
+			Assert.IsTrue((r1 * r1).Equals(r2, 1e-10));
 		}
 
 		[Test]
 		public void Matrix3x3d_TestRotateY()
 		{
+			Matrix3x3d m = Matrix3x3d.Identity;
+			
+			m.RotateY(0.0);
+			Assert.IsTrue(m.Equals(Matrix3x3d.Identity, 1e-10));
 
+			m.RotateY(+90.0);
+			m.RotateY(-90.0);
+			Assert.IsTrue(m.Equals(Matrix3x3d.Identity, 1e-10));
+
+			m.RotateY(+180.0);
+			Assert.IsTrue(m.Equals(Matrix3x3d.RotatedY(+180.0), 1e-10));
 		}
 
 		[Test]
 		public void Matrix3x3d_TestRotatedZ()
 		{
+			Matrix3x3d m = Matrix3x3d.RotatedZ(0.0);
+			Assert.IsTrue(m.Equals(Matrix3x3d.Identity, 1e-10));
 
+			Matrix3x3d r1 = Matrix3x3d.RotatedZ(+90.0);
+			Matrix3x3d r2 = Matrix3x3d.RotatedZ(-90.0);
+			Assert.IsTrue((r1 * r2).Equals(Matrix3x3d.Identity, 1e-10));
+
+			r1 = Matrix3x3d.RotatedZ(+90.0);
+			r2 = Matrix3x3d.RotatedZ(+180.0);
+			Assert.IsTrue((r1 * r1).Equals(r2, 1e-10));
+
+			Vertex3d v = Matrix3x3d.RotatedZ(+90.0) * Vertex3d.UnitX;
+			Assert.IsTrue(v.Equals(Vertex3d.UnitY, 1e-10));
 		}
 
 		[Test]
 		public void Matrix3x3d_TestRotateZ()
 		{
+			Matrix3x3d m = Matrix3x3d.Identity;
+			
+			m.RotateZ(0.0);
+			Assert.IsTrue(m.Equals(Matrix3x3d.Identity, 1e-10));
 
+			m.RotateZ(+90.0);
+			m.RotateZ(-90.0);
+			Assert.IsTrue(m.Equals(Matrix3x3d.Identity, 1e-10));
+
+			m.RotateZ(+180.0);
+			Assert.IsTrue(m.Equals(Matrix3x3d.RotatedZ(+180.0), 1e-10));
+
+			m = Matrix3x3d.Identity;
+			m.RotateZ(+90.0);
+			Vertex3d v = m * Vertex3d.UnitX;
+			Assert.IsTrue(v.Equals(Vertex3d.UnitY, 1e-10));
 		}
 
 		#endregion
@@ -4714,9 +5463,14 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix3x3d_TestInverse()
 		{
+			Matrix3x3d r;
+
+			Assert.Throws<InvalidOperationException>(() => r = new Matrix3x3d().Inverse);
+
 			Matrix3x3d m = CreateInvertibleMatrix();
 			Matrix3x3d n = m.Inverse;
-			Matrix3x3d r = m * n;
+			
+			r = m * n;
 
 			Assert.IsTrue(r.Equals(Matrix3x3d.Identity, 1e-2));
 		}
@@ -4724,6 +5478,8 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix3x3d_TestInvert()
 		{
+			Assert.Throws<InvalidOperationException>(() => new Matrix3x3d().Invert());
+
 			Matrix3x3d m = CreateInvertibleMatrix();
 			Matrix3x3d n = m;
 
@@ -4738,6 +5494,46 @@ namespace OpenGL.Test
 
 
 		#region IEquatable Implementation
+
+		[Test]
+		public void Matrix3x3d_TestAbsoluteEqualsToMatrix3x3d()
+		{
+			Matrix3x3d m = new Matrix3x3d();
+
+			m[0, 0] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix3x3d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix3x3d.Zero, 0.50));
+			m[0, 1] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix3x3d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix3x3d.Zero, 0.50));
+			m[0, 2] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix3x3d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix3x3d.Zero, 0.50));
+			m[1, 0] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix3x3d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix3x3d.Zero, 0.50));
+			m[1, 1] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix3x3d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix3x3d.Zero, 0.50));
+			m[1, 2] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix3x3d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix3x3d.Zero, 0.50));
+			m[2, 0] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix3x3d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix3x3d.Zero, 0.50));
+			m[2, 1] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix3x3d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix3x3d.Zero, 0.50));
+			m[2, 2] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix3x3d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix3x3d.Zero, 0.50));
+		}
+
+		[Test]
+		public void Matrix3x3d_TestRelativelyEqualsToMatrix3x3d()
+		{
+			
+		}
 
 		[Test]
 		public void Matrix3x3d_TestEqualsToMatrix3x3d()
@@ -5077,6 +5873,55 @@ namespace OpenGL.Test
 		#region IEquatable Implementation
 
 		[Test]
+		public void Matrix3x4d_TestAbsoluteEqualsToMatrix3x4d()
+		{
+			Matrix3x4d m = new Matrix3x4d();
+
+			m[0, 0] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix3x4d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix3x4d.Zero, 0.50));
+			m[0, 1] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix3x4d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix3x4d.Zero, 0.50));
+			m[0, 2] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix3x4d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix3x4d.Zero, 0.50));
+			m[0, 3] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix3x4d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix3x4d.Zero, 0.50));
+			m[1, 0] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix3x4d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix3x4d.Zero, 0.50));
+			m[1, 1] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix3x4d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix3x4d.Zero, 0.50));
+			m[1, 2] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix3x4d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix3x4d.Zero, 0.50));
+			m[1, 3] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix3x4d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix3x4d.Zero, 0.50));
+			m[2, 0] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix3x4d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix3x4d.Zero, 0.50));
+			m[2, 1] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix3x4d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix3x4d.Zero, 0.50));
+			m[2, 2] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix3x4d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix3x4d.Zero, 0.50));
+			m[2, 3] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix3x4d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix3x4d.Zero, 0.50));
+		}
+
+		[Test]
+		public void Matrix3x4d_TestRelativelyEqualsToMatrix3x4d()
+		{
+			
+		}
+
+		[Test]
 		public void Matrix3x4d_TestEqualsToMatrix3x4d()
 		{
 			Matrix3x4d m1 = CreateRandomMatrix();
@@ -5388,6 +6233,43 @@ namespace OpenGL.Test
 
 
 		#region IEquatable Implementation
+
+		[Test]
+		public void Matrix4x2d_TestAbsoluteEqualsToMatrix4x2d()
+		{
+			Matrix4x2d m = new Matrix4x2d();
+
+			m[0, 0] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix4x2d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix4x2d.Zero, 0.50));
+			m[0, 1] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix4x2d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix4x2d.Zero, 0.50));
+			m[1, 0] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix4x2d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix4x2d.Zero, 0.50));
+			m[1, 1] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix4x2d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix4x2d.Zero, 0.50));
+			m[2, 0] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix4x2d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix4x2d.Zero, 0.50));
+			m[2, 1] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix4x2d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix4x2d.Zero, 0.50));
+			m[3, 0] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix4x2d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix4x2d.Zero, 0.50));
+			m[3, 1] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix4x2d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix4x2d.Zero, 0.50));
+		}
+
+		[Test]
+		public void Matrix4x2d_TestRelativelyEqualsToMatrix4x2d()
+		{
+			
+		}
 
 		[Test]
 		public void Matrix4x2d_TestEqualsToMatrix4x2d()
@@ -5709,6 +6591,55 @@ namespace OpenGL.Test
 
 
 		#region IEquatable Implementation
+
+		[Test]
+		public void Matrix4x3d_TestAbsoluteEqualsToMatrix4x3d()
+		{
+			Matrix4x3d m = new Matrix4x3d();
+
+			m[0, 0] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix4x3d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix4x3d.Zero, 0.50));
+			m[0, 1] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix4x3d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix4x3d.Zero, 0.50));
+			m[0, 2] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix4x3d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix4x3d.Zero, 0.50));
+			m[1, 0] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix4x3d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix4x3d.Zero, 0.50));
+			m[1, 1] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix4x3d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix4x3d.Zero, 0.50));
+			m[1, 2] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix4x3d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix4x3d.Zero, 0.50));
+			m[2, 0] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix4x3d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix4x3d.Zero, 0.50));
+			m[2, 1] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix4x3d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix4x3d.Zero, 0.50));
+			m[2, 2] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix4x3d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix4x3d.Zero, 0.50));
+			m[3, 0] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix4x3d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix4x3d.Zero, 0.50));
+			m[3, 1] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix4x3d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix4x3d.Zero, 0.50));
+			m[3, 2] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix4x3d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix4x3d.Zero, 0.50));
+		}
+
+		[Test]
+		public void Matrix4x3d_TestRelativelyEqualsToMatrix4x3d()
+		{
+			
+		}
 
 		[Test]
 		public void Matrix4x3d_TestEqualsToMatrix4x3d()
@@ -6159,37 +7090,102 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix4x4d_TestRotatedX()
 		{
+			Matrix4x4d m = Matrix4x4d.RotatedX(0.0);
+			Assert.IsTrue(m.Equals(Matrix4x4d.Identity, 1e-10));
 
+			Matrix4x4d r1 = Matrix4x4d.RotatedX(+90.0);
+			Matrix4x4d r2 = Matrix4x4d.RotatedX(-90.0);
+			Assert.IsTrue((r1 * r2).Equals(Matrix4x4d.Identity, 1e-10));
+
+			r1 = Matrix4x4d.RotatedX(+90.0);
+			r2 = Matrix4x4d.RotatedX(+180.0);
+			Assert.IsTrue((r1 * r1).Equals(r2, 1e-10));
 		}
 
 		[Test]
 		public void Matrix4x4d_TestRotateX()
 		{
+			Matrix4x4d m = Matrix4x4d.Identity;
+			
+			m.RotateX(0.0);
+			Assert.IsTrue(m.Equals(Matrix4x4d.Identity, 1e-10));
 
+			m.RotateX(+90.0);
+			m.RotateX(-90.0);
+			Assert.IsTrue(m.Equals(Matrix4x4d.Identity, 1e-10));
+
+			m.RotateX(+180.0);
+			Assert.IsTrue(m.Equals(Matrix4x4d.RotatedX(+180.0), 1e-10));
 		}
 
 		[Test]
 		public void Matrix4x4d_TestRotatedY()
 		{
+			Matrix4x4d m = Matrix4x4d.RotatedY(0.0);
+			Assert.IsTrue(m.Equals(Matrix4x4d.Identity, 1e-10));
 
+			Matrix4x4d r1 = Matrix4x4d.RotatedY(+90.0);
+			Matrix4x4d r2 = Matrix4x4d.RotatedY(-90.0);
+			Assert.IsTrue((r1 * r2).Equals(Matrix4x4d.Identity, 1e-10));
+
+			r1 = Matrix4x4d.RotatedY(+90.0);
+			r2 = Matrix4x4d.RotatedY(+180.0);
+			Assert.IsTrue((r1 * r1).Equals(r2, 1e-10));
 		}
 
 		[Test]
 		public void Matrix4x4d_TestRotateY()
 		{
+			Matrix4x4d m = Matrix4x4d.Identity;
+			
+			m.RotateY(0.0);
+			Assert.IsTrue(m.Equals(Matrix4x4d.Identity, 1e-10));
 
+			m.RotateY(+90.0);
+			m.RotateY(-90.0);
+			Assert.IsTrue(m.Equals(Matrix4x4d.Identity, 1e-10));
+
+			m.RotateY(+180.0);
+			Assert.IsTrue(m.Equals(Matrix4x4d.RotatedY(+180.0), 1e-10));
 		}
 
 		[Test]
 		public void Matrix4x4d_TestRotatedZ()
 		{
+			Matrix4x4d m = Matrix4x4d.RotatedZ(0.0);
+			Assert.IsTrue(m.Equals(Matrix4x4d.Identity, 1e-10));
 
+			Matrix4x4d r1 = Matrix4x4d.RotatedZ(+90.0);
+			Matrix4x4d r2 = Matrix4x4d.RotatedZ(-90.0);
+			Assert.IsTrue((r1 * r2).Equals(Matrix4x4d.Identity, 1e-10));
+
+			r1 = Matrix4x4d.RotatedZ(+90.0);
+			r2 = Matrix4x4d.RotatedZ(+180.0);
+			Assert.IsTrue((r1 * r1).Equals(r2, 1e-10));
+
+			Vertex4d v = Matrix4x4d.RotatedZ(+90.0) * Vertex4d.UnitX;
+			Assert.IsTrue(v.Equals(Vertex4d.UnitY, 1e-10));
 		}
 
 		[Test]
 		public void Matrix4x4d_TestRotateZ()
 		{
+			Matrix4x4d m = Matrix4x4d.Identity;
+			
+			m.RotateZ(0.0);
+			Assert.IsTrue(m.Equals(Matrix4x4d.Identity, 1e-10));
 
+			m.RotateZ(+90.0);
+			m.RotateZ(-90.0);
+			Assert.IsTrue(m.Equals(Matrix4x4d.Identity, 1e-10));
+
+			m.RotateZ(+180.0);
+			Assert.IsTrue(m.Equals(Matrix4x4d.RotatedZ(+180.0), 1e-10));
+
+			m = Matrix4x4d.Identity;
+			m.RotateZ(+90.0);
+			Vertex4d v = m * Vertex4d.UnitX;
+			Assert.IsTrue(v.Equals(Vertex4d.UnitY, 1e-10));
 		}
 
 		#endregion
@@ -6275,9 +7271,14 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix4x4d_TestInverse()
 		{
+			Matrix4x4d r;
+
+			Assert.Throws<InvalidOperationException>(() => r = new Matrix4x4d().Inverse);
+
 			Matrix4x4d m = CreateInvertibleMatrix();
 			Matrix4x4d n = m.Inverse;
-			Matrix4x4d r = m * n;
+			
+			r = m * n;
 
 			Assert.IsTrue(r.Equals(Matrix4x4d.Identity, 1e-2));
 		}
@@ -6285,6 +7286,8 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix4x4d_TestInvert()
 		{
+			Assert.Throws<InvalidOperationException>(() => new Matrix4x4d().Invert());
+
 			Matrix4x4d m = CreateInvertibleMatrix();
 			Matrix4x4d n = m;
 
@@ -6299,6 +7302,67 @@ namespace OpenGL.Test
 
 
 		#region IEquatable Implementation
+
+		[Test]
+		public void Matrix4x4d_TestAbsoluteEqualsToMatrix4x4d()
+		{
+			Matrix4x4d m = new Matrix4x4d();
+
+			m[0, 0] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix4x4d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix4x4d.Zero, 0.50));
+			m[0, 1] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix4x4d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix4x4d.Zero, 0.50));
+			m[0, 2] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix4x4d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix4x4d.Zero, 0.50));
+			m[0, 3] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix4x4d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix4x4d.Zero, 0.50));
+			m[1, 0] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix4x4d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix4x4d.Zero, 0.50));
+			m[1, 1] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix4x4d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix4x4d.Zero, 0.50));
+			m[1, 2] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix4x4d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix4x4d.Zero, 0.50));
+			m[1, 3] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix4x4d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix4x4d.Zero, 0.50));
+			m[2, 0] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix4x4d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix4x4d.Zero, 0.50));
+			m[2, 1] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix4x4d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix4x4d.Zero, 0.50));
+			m[2, 2] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix4x4d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix4x4d.Zero, 0.50));
+			m[2, 3] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix4x4d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix4x4d.Zero, 0.50));
+			m[3, 0] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix4x4d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix4x4d.Zero, 0.50));
+			m[3, 1] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix4x4d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix4x4d.Zero, 0.50));
+			m[3, 2] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix4x4d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix4x4d.Zero, 0.50));
+			m[3, 3] = 0.5;
+			Assert.IsFalse(m.Equals(Matrix4x4d.Zero, 0.25));
+			Assert.IsTrue(m.Equals(Matrix4x4d.Zero, 0.50));
+		}
+
+		[Test]
+		public void Matrix4x4d_TestRelativelyEqualsToMatrix4x4d()
+		{
+			
+		}
 
 		[Test]
 		public void Matrix4x4d_TestEqualsToMatrix4x4d()

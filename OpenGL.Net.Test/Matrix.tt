@@ -346,38 +346,107 @@ namespace OpenGL.Test
 		[Test]
 		public void <#= className #>_TestRotatedX()
 		{
+			<#= className #> m = <#= className #>.RotatedX(0.0<#= literal #>);
+			Assert.IsTrue(m.Equals(<#= className #>.Identity, <#= epsilon #>));
 
+			<#= className #> r1 = <#= className #>.RotatedX(+90.0<#= literal #>);
+			<#= className #> r2 = <#= className #>.RotatedX(-90.0<#= literal #>);
+			Assert.IsTrue((r1 * r2).Equals(<#= className #>.Identity, <#= epsilon #>));
+
+			r1 = <#= className #>.RotatedX(+90.0<#= literal #>);
+			r2 = <#= className #>.RotatedX(+180.0<#= literal #>);
+			Assert.IsTrue((r1 * r1).Equals(r2, <#= epsilon #>));
 		}
 
 		[Test]
 		public void <#= className #>_TestRotateX()
 		{
+			<#= className #> m = <#= className #>.Identity;
+			
+			m.RotateX(0.0<#= literal #>);
+			Assert.IsTrue(m.Equals(<#= className #>.Identity, <#= epsilon #>));
 
+			m.RotateX(+90.0<#= literal #>);
+			m.RotateX(-90.0<#= literal #>);
+			Assert.IsTrue(m.Equals(<#= className #>.Identity, <#= epsilon #>));
+
+			m.RotateX(+180.0<#= literal #>);
+			Assert.IsTrue(m.Equals(<#= className #>.RotatedX(+180.0<#= literal #>), <#= epsilon #>));
 		}
 
 		[Test]
 		public void <#= className #>_TestRotatedY()
 		{
+			<#= className #> m = <#= className #>.RotatedY(0.0<#= literal #>);
+			Assert.IsTrue(m.Equals(<#= className #>.Identity, <#= epsilon #>));
 
+			<#= className #> r1 = <#= className #>.RotatedY(+90.0<#= literal #>);
+			<#= className #> r2 = <#= className #>.RotatedY(-90.0<#= literal #>);
+			Assert.IsTrue((r1 * r2).Equals(<#= className #>.Identity, <#= epsilon #>));
+
+			r1 = <#= className #>.RotatedY(+90.0<#= literal #>);
+			r2 = <#= className #>.RotatedY(+180.0<#= literal #>);
+			Assert.IsTrue((r1 * r1).Equals(r2, <#= epsilon #>));
 		}
 
 		[Test]
 		public void <#= className #>_TestRotateY()
 		{
+			<#= className #> m = <#= className #>.Identity;
+			
+			m.RotateY(0.0<#= literal #>);
+			Assert.IsTrue(m.Equals(<#= className #>.Identity, <#= epsilon #>));
 
+			m.RotateY(+90.0<#= literal #>);
+			m.RotateY(-90.0<#= literal #>);
+			Assert.IsTrue(m.Equals(<#= className #>.Identity, <#= epsilon #>));
+
+			m.RotateY(+180.0<#= literal #>);
+			Assert.IsTrue(m.Equals(<#= className #>.RotatedY(+180.0<#= literal #>), <#= epsilon #>));
 		}
 
 <# } #>
 		[Test]
 		public void <#= className #>_TestRotatedZ()
 		{
+			<#= className #> m = <#= className #>.RotatedZ(0.0<#= literal #>);
+			Assert.IsTrue(m.Equals(<#= className #>.Identity, <#= epsilon #>));
 
+			<#= className #> r1 = <#= className #>.RotatedZ(+90.0<#= literal #>);
+			<#= className #> r2 = <#= className #>.RotatedZ(-90.0<#= literal #>);
+			Assert.IsTrue((r1 * r2).Equals(<#= className #>.Identity, <#= epsilon #>));
+
+			r1 = <#= className #>.RotatedZ(+90.0<#= literal #>);
+			r2 = <#= className #>.RotatedZ(+180.0<#= literal #>);
+			Assert.IsTrue((r1 * r1).Equals(r2, <#= epsilon #>));
+
+<# if (c > 2) { #>
+			<#= columnType #> v = <#= className #>.RotatedZ(+90.0<#= literal #>) * <#= columnType #>.UnitX;
+			Assert.IsTrue(v.Equals(<#= columnType #>.UnitY, <#= epsilon #>));
+<# } #>
 		}
 
 		[Test]
 		public void <#= className #>_TestRotateZ()
 		{
+			<#= className #> m = <#= className #>.Identity;
+			
+			m.RotateZ(0.0<#= literal #>);
+			Assert.IsTrue(m.Equals(<#= className #>.Identity, <#= epsilon #>));
 
+			m.RotateZ(+90.0<#= literal #>);
+			m.RotateZ(-90.0<#= literal #>);
+			Assert.IsTrue(m.Equals(<#= className #>.Identity, <#= epsilon #>));
+
+			m.RotateZ(+180.0<#= literal #>);
+			Assert.IsTrue(m.Equals(<#= className #>.RotatedZ(+180.0<#= literal #>), <#= epsilon #>));
+
+<# if (c > 2) { #>
+			m = <#= className #>.Identity;
+			m.RotateZ(+90.0<#= literal #>);
+			<#= columnType #> v = m * <#= columnType #>.UnitX;
+			Assert.IsTrue(v.Equals(<#= columnType #>.UnitY, <#= epsilon #>));
+<# } #>
 		}
 
 		#endregion
@@ -443,9 +512,14 @@ namespace OpenGL.Test
 		[Test]
 		public void <#= className #>_TestInverse()
 		{
+			<#= className #> r;
+
+			Assert.Throws<InvalidOperationException>(() => r = new <#= className #>().Inverse);
+
 			<#= className #> m = CreateInvertibleMatrix();
 			<#= className #> n = m.Inverse;
-			<#= className #> r = m * n;
+			
+			r = m * n;
 
 			Assert.IsTrue(r.Equals(<#= className #>.Identity, <#= epsilonLP #>));
 		}
@@ -453,6 +527,8 @@ namespace OpenGL.Test
 		[Test]
 		public void <#= className #>_TestInvert()
 		{
+			Assert.Throws<InvalidOperationException>(() => new <#= className #>().Invert());
+
 			<#= className #> m = CreateInvertibleMatrix();
 			<#= className #> n = m;
 
@@ -468,6 +544,24 @@ namespace OpenGL.Test
 <# } #>
 
 		#region IEquatable Implementation
+
+		[Test]
+		public void <#= className #>_TestAbsoluteEqualsTo<#= className #>()
+		{
+			<#= className #> m = new <#= className #>();
+
+<# for (int c1 = 0; c1 < c; c1++) for (int r1 = 0; r1 < r; r1++) { #>
+			m[<#= c1 #>, <#= r1 #>] = 0.5<#= literal #>;
+			Assert.IsFalse(m.Equals(<#= className #>.Zero, 0.25<#= literal #>));
+			Assert.IsTrue(m.Equals(<#= className #>.Zero, 0.50<#= literal #>));
+<# } #>
+		}
+
+		[Test]
+		public void <#= className #>_TestRelativelyEqualsTo<#= className #>()
+		{
+			
+		}
 
 		[Test]
 		public void <#= className #>_TestEqualsTo<#= className #>()
