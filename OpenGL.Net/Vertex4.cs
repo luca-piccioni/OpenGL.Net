@@ -690,6 +690,45 @@ namespace OpenGL
 		#region IEquatable Implementation
 
 		/// <summary>
+		/// Indicates whether the this Vertex4ub is equal to another Vertex4ub, tolerating an absolute error.
+		/// </summary>
+		/// <param name="other">
+		/// The <see cref="Vertex4ub"/> to compare with this Vertex4ub.
+		/// </param>
+		/// <param name="precision">
+		/// The <see cref="byte"/> that specifies the maximum absolute error tollerance.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this Vertex4ub is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(Vertex4ub other, byte precision)
+		{
+			bool undefined = Math.Abs(w) <= 0;
+			bool otherUndefined = Math.Abs(other.w) <= 0;
+
+			if (undefined != otherUndefined)
+				return (false);
+
+			if (undefined == false) {
+				if (Math.Abs(x / w - other.x / w) > precision)
+					return (false);
+				if (Math.Abs(y / w - other.y / w) > precision)
+					return (false);
+				if (Math.Abs(z / w - other.z / w) > precision)
+					return (false);
+			} else {
+				if (Math.Abs(x / w - other.x / w) > precision)
+					return (false);
+				if (Math.Abs(y / w - other.y / w) > precision)
+					return (false);
+				if (Math.Abs(z / w - other.z / w) > precision)
+					return (false);
+			}
+
+			return (true);
+		}
+
+		/// <summary>
 		/// Indicates whether the this Vertex4ub is equal to another Vertex4ub.
 		/// </summary>
 		/// <param name="other">
@@ -1442,6 +1481,45 @@ namespace OpenGL
 		#region IEquatable Implementation
 
 		/// <summary>
+		/// Indicates whether the this Vertex4b is equal to another Vertex4b, tolerating an absolute error.
+		/// </summary>
+		/// <param name="other">
+		/// The <see cref="Vertex4b"/> to compare with this Vertex4b.
+		/// </param>
+		/// <param name="precision">
+		/// The <see cref="sbyte"/> that specifies the maximum absolute error tollerance.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this Vertex4b is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(Vertex4b other, sbyte precision)
+		{
+			bool undefined = Math.Abs(w) <= 0;
+			bool otherUndefined = Math.Abs(other.w) <= 0;
+
+			if (undefined != otherUndefined)
+				return (false);
+
+			if (undefined == false) {
+				if (Math.Abs(x / w - other.x / w) > precision)
+					return (false);
+				if (Math.Abs(y / w - other.y / w) > precision)
+					return (false);
+				if (Math.Abs(z / w - other.z / w) > precision)
+					return (false);
+			} else {
+				if (Math.Abs(x / w - other.x / w) > precision)
+					return (false);
+				if (Math.Abs(y / w - other.y / w) > precision)
+					return (false);
+				if (Math.Abs(z / w - other.z / w) > precision)
+					return (false);
+			}
+
+			return (true);
+		}
+
+		/// <summary>
 		/// Indicates whether the this Vertex4b is equal to another Vertex4b.
 		/// </summary>
 		/// <param name="other">
@@ -2179,6 +2257,45 @@ namespace OpenGL
 		#endregion
 
 		#region IEquatable Implementation
+
+		/// <summary>
+		/// Indicates whether the this Vertex4us is equal to another Vertex4us, tolerating an absolute error.
+		/// </summary>
+		/// <param name="other">
+		/// The <see cref="Vertex4us"/> to compare with this Vertex4us.
+		/// </param>
+		/// <param name="precision">
+		/// The <see cref="ushort"/> that specifies the maximum absolute error tollerance.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this Vertex4us is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(Vertex4us other, ushort precision)
+		{
+			bool undefined = Math.Abs(w) <= 0;
+			bool otherUndefined = Math.Abs(other.w) <= 0;
+
+			if (undefined != otherUndefined)
+				return (false);
+
+			if (undefined == false) {
+				if (Math.Abs(x / w - other.x / w) > precision)
+					return (false);
+				if (Math.Abs(y / w - other.y / w) > precision)
+					return (false);
+				if (Math.Abs(z / w - other.z / w) > precision)
+					return (false);
+			} else {
+				if (Math.Abs(x / w - other.x / w) > precision)
+					return (false);
+				if (Math.Abs(y / w - other.y / w) > precision)
+					return (false);
+				if (Math.Abs(z / w - other.z / w) > precision)
+					return (false);
+			}
+
+			return (true);
+		}
 
 		/// <summary>
 		/// Indicates whether the this Vertex4us is equal to another Vertex4us.
@@ -2933,6 +3050,45 @@ namespace OpenGL
 		#region IEquatable Implementation
 
 		/// <summary>
+		/// Indicates whether the this Vertex4s is equal to another Vertex4s, tolerating an absolute error.
+		/// </summary>
+		/// <param name="other">
+		/// The <see cref="Vertex4s"/> to compare with this Vertex4s.
+		/// </param>
+		/// <param name="precision">
+		/// The <see cref="short"/> that specifies the maximum absolute error tollerance.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this Vertex4s is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(Vertex4s other, short precision)
+		{
+			bool undefined = Math.Abs(w) <= 0;
+			bool otherUndefined = Math.Abs(other.w) <= 0;
+
+			if (undefined != otherUndefined)
+				return (false);
+
+			if (undefined == false) {
+				if (Math.Abs(x / w - other.x / w) > precision)
+					return (false);
+				if (Math.Abs(y / w - other.y / w) > precision)
+					return (false);
+				if (Math.Abs(z / w - other.z / w) > precision)
+					return (false);
+			} else {
+				if (Math.Abs(x / w - other.x / w) > precision)
+					return (false);
+				if (Math.Abs(y / w - other.y / w) > precision)
+					return (false);
+				if (Math.Abs(z / w - other.z / w) > precision)
+					return (false);
+			}
+
+			return (true);
+		}
+
+		/// <summary>
 		/// Indicates whether the this Vertex4s is equal to another Vertex4s.
 		/// </summary>
 		/// <param name="other">
@@ -3670,6 +3826,45 @@ namespace OpenGL
 		#endregion
 
 		#region IEquatable Implementation
+
+		/// <summary>
+		/// Indicates whether the this Vertex4ui is equal to another Vertex4ui, tolerating an absolute error.
+		/// </summary>
+		/// <param name="other">
+		/// The <see cref="Vertex4ui"/> to compare with this Vertex4ui.
+		/// </param>
+		/// <param name="precision">
+		/// The <see cref="uint"/> that specifies the maximum absolute error tollerance.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this Vertex4ui is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(Vertex4ui other, uint precision)
+		{
+			bool undefined = Math.Abs(w) <= 0;
+			bool otherUndefined = Math.Abs(other.w) <= 0;
+
+			if (undefined != otherUndefined)
+				return (false);
+
+			if (undefined == false) {
+				if (Math.Abs(x / w - other.x / w) > precision)
+					return (false);
+				if (Math.Abs(y / w - other.y / w) > precision)
+					return (false);
+				if (Math.Abs(z / w - other.z / w) > precision)
+					return (false);
+			} else {
+				if (Math.Abs(x / w - other.x / w) > precision)
+					return (false);
+				if (Math.Abs(y / w - other.y / w) > precision)
+					return (false);
+				if (Math.Abs(z / w - other.z / w) > precision)
+					return (false);
+			}
+
+			return (true);
+		}
 
 		/// <summary>
 		/// Indicates whether the this Vertex4ui is equal to another Vertex4ui.
@@ -4422,6 +4617,45 @@ namespace OpenGL
 		#endregion
 
 		#region IEquatable Implementation
+
+		/// <summary>
+		/// Indicates whether the this Vertex4i is equal to another Vertex4i, tolerating an absolute error.
+		/// </summary>
+		/// <param name="other">
+		/// The <see cref="Vertex4i"/> to compare with this Vertex4i.
+		/// </param>
+		/// <param name="precision">
+		/// The <see cref="int"/> that specifies the maximum absolute error tollerance.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this Vertex4i is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(Vertex4i other, int precision)
+		{
+			bool undefined = Math.Abs(w) <= 0;
+			bool otherUndefined = Math.Abs(other.w) <= 0;
+
+			if (undefined != otherUndefined)
+				return (false);
+
+			if (undefined == false) {
+				if (Math.Abs(x / w - other.x / w) > precision)
+					return (false);
+				if (Math.Abs(y / w - other.y / w) > precision)
+					return (false);
+				if (Math.Abs(z / w - other.z / w) > precision)
+					return (false);
+			} else {
+				if (Math.Abs(x / w - other.x / w) > precision)
+					return (false);
+				if (Math.Abs(y / w - other.y / w) > precision)
+					return (false);
+				if (Math.Abs(z / w - other.z / w) > precision)
+					return (false);
+			}
+
+			return (true);
+		}
 
 		/// <summary>
 		/// Indicates whether the this Vertex4i is equal to another Vertex4i.
@@ -5212,6 +5446,45 @@ namespace OpenGL
 		#region IEquatable Implementation
 
 		/// <summary>
+		/// Indicates whether the this Vertex4f is equal to another Vertex4f, tolerating an absolute error.
+		/// </summary>
+		/// <param name="other">
+		/// The <see cref="Vertex4f"/> to compare with this Vertex4f.
+		/// </param>
+		/// <param name="precision">
+		/// The <see cref="float"/> that specifies the maximum absolute error tollerance.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this Vertex4f is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(Vertex4f other, float precision)
+		{
+			bool undefined = Math.Abs(w) <= 0.0f;
+			bool otherUndefined = Math.Abs(other.w) <= 0.0f;
+
+			if (undefined != otherUndefined)
+				return (false);
+
+			if (undefined == false) {
+				if (Math.Abs(x / w - other.x / w) > precision)
+					return (false);
+				if (Math.Abs(y / w - other.y / w) > precision)
+					return (false);
+				if (Math.Abs(z / w - other.z / w) > precision)
+					return (false);
+			} else {
+				if (Math.Abs(x / w - other.x / w) > precision)
+					return (false);
+				if (Math.Abs(y / w - other.y / w) > precision)
+					return (false);
+				if (Math.Abs(z / w - other.z / w) > precision)
+					return (false);
+			}
+
+			return (true);
+		}
+
+		/// <summary>
 		/// Indicates whether the this Vertex4f is equal to another Vertex4f.
 		/// </summary>
 		/// <param name="other">
@@ -5929,6 +6202,45 @@ namespace OpenGL
 		#endregion
 
 		#region IEquatable Implementation
+
+		/// <summary>
+		/// Indicates whether the this Vertex4d is equal to another Vertex4d, tolerating an absolute error.
+		/// </summary>
+		/// <param name="other">
+		/// The <see cref="Vertex4d"/> to compare with this Vertex4d.
+		/// </param>
+		/// <param name="precision">
+		/// The <see cref="double"/> that specifies the maximum absolute error tollerance.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this Vertex4d is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(Vertex4d other, double precision)
+		{
+			bool undefined = Math.Abs(w) <= 0.0;
+			bool otherUndefined = Math.Abs(other.w) <= 0.0;
+
+			if (undefined != otherUndefined)
+				return (false);
+
+			if (undefined == false) {
+				if (Math.Abs(x / w - other.x / w) > precision)
+					return (false);
+				if (Math.Abs(y / w - other.y / w) > precision)
+					return (false);
+				if (Math.Abs(z / w - other.z / w) > precision)
+					return (false);
+			} else {
+				if (Math.Abs(x / w - other.x / w) > precision)
+					return (false);
+				if (Math.Abs(y / w - other.y / w) > precision)
+					return (false);
+				if (Math.Abs(z / w - other.z / w) > precision)
+					return (false);
+			}
+
+			return (true);
+		}
 
 		/// <summary>
 		/// Indicates whether the this Vertex4d is equal to another Vertex4d.
@@ -6681,6 +6993,45 @@ namespace OpenGL
 		#endregion
 
 		#region IEquatable Implementation
+
+		/// <summary>
+		/// Indicates whether the this Vertex4hf is equal to another Vertex4hf, tolerating an absolute error.
+		/// </summary>
+		/// <param name="other">
+		/// The <see cref="Vertex4hf"/> to compare with this Vertex4hf.
+		/// </param>
+		/// <param name="precision">
+		/// The <see cref="HalfFloat"/> that specifies the maximum absolute error tollerance.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this Vertex4hf is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(Vertex4hf other, HalfFloat precision)
+		{
+			bool undefined = Math.Abs(w) <= (HalfFloat)0.0f;
+			bool otherUndefined = Math.Abs(other.w) <= (HalfFloat)0.0f;
+
+			if (undefined != otherUndefined)
+				return (false);
+
+			if (undefined == false) {
+				if (Math.Abs(x / w - other.x / w) > precision)
+					return (false);
+				if (Math.Abs(y / w - other.y / w) > precision)
+					return (false);
+				if (Math.Abs(z / w - other.z / w) > precision)
+					return (false);
+			} else {
+				if (Math.Abs(x / w - other.x / w) > precision)
+					return (false);
+				if (Math.Abs(y / w - other.y / w) > precision)
+					return (false);
+				if (Math.Abs(z / w - other.z / w) > precision)
+					return (false);
+			}
+
+			return (true);
+		}
 
 		/// <summary>
 		/// Indicates whether the this Vertex4hf is equal to another Vertex4hf.

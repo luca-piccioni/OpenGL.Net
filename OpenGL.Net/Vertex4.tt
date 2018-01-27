@@ -886,6 +886,45 @@ namespace OpenGL
 		#region IEquatable Implementation
 
 		/// <summary>
+		/// Indicates whether the this <#= className #> is equal to another <#= className #>, tolerating an absolute error.
+		/// </summary>
+		/// <param name="other">
+		/// The <see cref="<#= className #>"/> to compare with this <#= className #>.
+		/// </param>
+		/// <param name="precision">
+		/// The <see cref="<#= baseType #>"/> that specifies the maximum absolute error tollerance.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this <#= className #> is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(<#= className #> other, <#= baseType #> precision)
+		{
+			bool undefined = Math.Abs(w) <= <#= zero #>;
+			bool otherUndefined = Math.Abs(other.w) <= <#= zero #>;
+
+			if (undefined != otherUndefined)
+				return (false);
+
+			if (undefined == false) {
+				if (Math.Abs(x / w - other.x / w) > precision)
+					return (false);
+				if (Math.Abs(y / w - other.y / w) > precision)
+					return (false);
+				if (Math.Abs(z / w - other.z / w) > precision)
+					return (false);
+			} else {
+				if (Math.Abs(x / w - other.x / w) > precision)
+					return (false);
+				if (Math.Abs(y / w - other.y / w) > precision)
+					return (false);
+				if (Math.Abs(z / w - other.z / w) > precision)
+					return (false);
+			}
+
+			return (true);
+		}
+
+		/// <summary>
 		/// Indicates whether the this <#= className #> is equal to another <#= className #>.
 		/// </summary>
 		/// <param name="other">
