@@ -33,14 +33,14 @@ namespace OpenGL
 		/// <summary>
 		/// Indicates whether the this <see cref="float"/> is relatively equal to another <see cref="float"/>.
 		/// </summary>
-		/// <param name="other">
+		/// <param name="value">
 		/// The <see cref="float"/> to compare with this float.
 		/// </param>
 		/// <param name="precision">
 		/// The <see cref="float"/> that specifies the relative error tollerance, intended as fraction of the range.
 		/// </param>
 		/// <returns>
-		/// It returns true if the this float is relatively equal to <paramref name="other"/>; otherwise, false.
+		/// It returns true if the this float is relatively equal to <paramref name="value"/>; otherwise, false.
 		/// </returns>
 		public static bool RelativelyEquals(this float thisValue, float value, float epsilon)
 		{
