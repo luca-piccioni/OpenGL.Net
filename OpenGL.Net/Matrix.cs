@@ -5325,8 +5325,18 @@ namespace OpenGL
 		/// <returns>
 		/// A <see cref="Matrix4x4f"/> representing an orthographic projection matrix.
 		/// </returns>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if the parameter have an invalid set of values.
+		/// </exception>
 		public static Matrix4x4f Ortho(float left, float right, float bottom, float top, float near, float far)
 		{
+			if (Math.Abs(right - left) < float.Epsilon)
+				throw new ArgumentException("left/right planes are coincident");
+			if (Math.Abs(top - bottom) < float.Epsilon)
+				throw new ArgumentException("top/bottom planes are coincident");
+			if (Math.Abs(far - near) < float.Epsilon)
+				throw new ArgumentException("far/near planes are coincident");
+
 			Matrix4x4f r = new Matrix4x4f();
 
 			r._M00 = 2.0f / (right - left);
@@ -5429,8 +5439,8 @@ namespace OpenGL
 		/// </exception>
 		public static Matrix4x4f Perspective(float fovy, float aspectRatio, float near, float far)
 		{
-			if (fovy <= 0.0f || fovy > 180.0f)
-				throw new ArgumentOutOfRangeException(nameof(fovy), "not in range [0, 180)");
+			if (fovy <= 0.0f || fovy >= 180.0f)
+				throw new ArgumentOutOfRangeException(nameof(fovy), "not in range (0, 180)");
 			if (Math.Abs(near) < float.Epsilon)
 				throw new ArgumentOutOfRangeException(nameof(near), "zero not allowed");
 			if (Math.Abs(far) < Math.Abs(near))
@@ -5469,10 +5479,10 @@ namespace OpenGL
 		public static Matrix4x4f Perspective(float leftFov, float rightFov, float bottomFov, float topFov, float near, float far)
 		{
 			return Frustrum(
-				-near * (float)Math.Tan(Angle.ToRadians(leftFov)),
-				+near * (float)Math.Tan(Angle.ToRadians(rightFov)),
-				-near * (float)Math.Tan(Angle.ToRadians(bottomFov)),
-				+near * (float)Math.Tan(Angle.ToRadians(topFov)),
+				near * (float)Math.Tan(Angle.ToRadians(leftFov)),
+				near * (float)Math.Tan(Angle.ToRadians(rightFov)),
+				near * (float)Math.Tan(Angle.ToRadians(bottomFov)),
+				near * (float)Math.Tan(Angle.ToRadians(topFov)),
 				near, far
 			);
 		}
@@ -11440,8 +11450,18 @@ namespace OpenGL
 		/// <returns>
 		/// A <see cref="Matrix4x4d"/> representing an orthographic projection matrix.
 		/// </returns>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if the parameter have an invalid set of values.
+		/// </exception>
 		public static Matrix4x4d Ortho(double left, double right, double bottom, double top, double near, double far)
 		{
+			if (Math.Abs(right - left) < double.Epsilon)
+				throw new ArgumentException("left/right planes are coincident");
+			if (Math.Abs(top - bottom) < double.Epsilon)
+				throw new ArgumentException("top/bottom planes are coincident");
+			if (Math.Abs(far - near) < double.Epsilon)
+				throw new ArgumentException("far/near planes are coincident");
+
 			Matrix4x4d r = new Matrix4x4d();
 
 			r._M00 = 2.0 / (right - left);
@@ -11544,8 +11564,8 @@ namespace OpenGL
 		/// </exception>
 		public static Matrix4x4d Perspective(double fovy, double aspectRatio, double near, double far)
 		{
-			if (fovy <= 0.0 || fovy > 180.0)
-				throw new ArgumentOutOfRangeException(nameof(fovy), "not in range [0, 180)");
+			if (fovy <= 0.0 || fovy >= 180.0)
+				throw new ArgumentOutOfRangeException(nameof(fovy), "not in range (0, 180)");
 			if (Math.Abs(near) < double.Epsilon)
 				throw new ArgumentOutOfRangeException(nameof(near), "zero not allowed");
 			if (Math.Abs(far) < Math.Abs(near))
@@ -11584,10 +11604,10 @@ namespace OpenGL
 		public static Matrix4x4d Perspective(double leftFov, double rightFov, double bottomFov, double topFov, double near, double far)
 		{
 			return Frustrum(
-				-near * (double)Math.Tan(Angle.ToRadians(leftFov)),
-				+near * (double)Math.Tan(Angle.ToRadians(rightFov)),
-				-near * (double)Math.Tan(Angle.ToRadians(bottomFov)),
-				+near * (double)Math.Tan(Angle.ToRadians(topFov)),
+				near * (double)Math.Tan(Angle.ToRadians(leftFov)),
+				near * (double)Math.Tan(Angle.ToRadians(rightFov)),
+				near * (double)Math.Tan(Angle.ToRadians(bottomFov)),
+				near * (double)Math.Tan(Angle.ToRadians(topFov)),
 				near, far
 			);
 		}

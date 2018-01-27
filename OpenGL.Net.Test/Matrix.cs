@@ -3244,31 +3244,51 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix4x4f_TestOrtho()
 		{
+			Assert.Throws<ArgumentException>(() => Matrix4x4f.Ortho(0.0f, 0.0f, -1.0f, +1.0f, -1.0f, +1.0f));
+			Assert.Throws<ArgumentException>(() => Matrix4x4f.Ortho(-1.0f, +1.0f, 0.0f, 0.0f, -1.0f, +1.0f));
+			Assert.Throws<ArgumentException>(() => Matrix4x4f.Ortho(-1.0f, +1.0f, -1.0f, +1.0f, 0.0f, 0.0f));
 
+			Assert.DoesNotThrow(() => Matrix4x4f.Ortho(-1.0f, +1.0f, -1.0f, +1.0f, -1.0f, +1.0f));
 		}
 
 		[Test]
 		public void Matrix4x4f_TestOrtho2D()
 		{
+			Assert.Throws<ArgumentException>(() => Matrix4x4f.Ortho2D(0.0f, 0.0f, -1.0f, +1.0f));
+			Assert.Throws<ArgumentException>(() => Matrix4x4f.Ortho2D(-1.0f, +1.0f, 0.0f, 0.0f));
 
+			Assert.DoesNotThrow(() => Matrix4x4f.Ortho2D(-1.0f, +1.0f, -1.0f, +1.0f));
 		}
 
 		[Test]
 		public void Matrix4x4f_TestFrustrum()
 		{
+			Assert.Throws<ArgumentException>(() => Matrix4x4f.Frustrum(0.0f, 0.0f, -1.0f, +1.0f, -1.0f, +1.0f));
+			Assert.Throws<ArgumentException>(() => Matrix4x4f.Frustrum(-1.0f, +1.0f, 0.0f, 0.0f, -1.0f, +1.0f));
+			Assert.Throws<ArgumentException>(() => Matrix4x4f.Frustrum(-1.0f, +1.0f, -1.0f, +1.0f, 0.0f, 0.0f));
 
+			Assert.DoesNotThrow(() => Matrix4x4f.Frustrum(-1.0f, +1.0f, -1.0f, +1.0f, -1.0f, +1.0f));
 		}
 
 		[Test]
 		public void Matrix4x4f_TestPerspectiveSymmetric()
 		{
+			Assert.Throws<ArgumentOutOfRangeException>(() => Matrix4x4f.Perspective(-1.0f, 1.0f, 0.1f, 1000.0f));
+			Assert.Throws<ArgumentOutOfRangeException>(() => Matrix4x4f.Perspective(+180.0f, 1.0f, 0.1f, 1000.0f));
+			Assert.Throws<ArgumentOutOfRangeException>(() => Matrix4x4f.Perspective(+1.0f, 1.0f, 0.0f, 1000.0f));
+			Assert.Throws<ArgumentOutOfRangeException>(() => Matrix4x4f.Perspective(+1.0f, 1.0f, 10.0f, 1.0f));
 
+			Assert.DoesNotThrow(() => Matrix4x4f.Perspective(+1.0f, 1.0f, 1.0f, 10.0f));
 		}
 
 		[Test]
 		public void Matrix4x4f_TestPerspectiveAsymmetric()
 		{
+			Assert.Throws<ArgumentException>(() => Matrix4x4f.Perspective(0.0f, 0.0f, -1.0f, +1.0f, 0.1f, 1000.0f));
+			Assert.Throws<ArgumentException>(() => Matrix4x4f.Perspective(-1.0f, +1.0f, 0.0f, 0.0f, 0.1f, 1000.0f));
+			// Assert.Throws<ArgumentException>(() => Matrix4x4f.Perspective(-1.0f, +1.0f, -1.0f, +1.0f, 10.0f, 1.0f));
 
+			Assert.DoesNotThrow(() => Matrix4x4f.Perspective(-1.0f, +1.0f, -1.0f, +1.0f, 1.0f, 10.0f));
 		}
 
 		#endregion
@@ -6990,31 +7010,51 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix4x4d_TestOrtho()
 		{
+			Assert.Throws<ArgumentException>(() => Matrix4x4d.Ortho(0.0f, 0.0f, -1.0f, +1.0f, -1.0f, +1.0f));
+			Assert.Throws<ArgumentException>(() => Matrix4x4d.Ortho(-1.0f, +1.0f, 0.0f, 0.0f, -1.0f, +1.0f));
+			Assert.Throws<ArgumentException>(() => Matrix4x4d.Ortho(-1.0f, +1.0f, -1.0f, +1.0f, 0.0f, 0.0f));
 
+			Assert.DoesNotThrow(() => Matrix4x4d.Ortho(-1.0f, +1.0f, -1.0f, +1.0f, -1.0f, +1.0f));
 		}
 
 		[Test]
 		public void Matrix4x4d_TestOrtho2D()
 		{
+			Assert.Throws<ArgumentException>(() => Matrix4x4d.Ortho2D(0.0f, 0.0f, -1.0f, +1.0f));
+			Assert.Throws<ArgumentException>(() => Matrix4x4d.Ortho2D(-1.0f, +1.0f, 0.0f, 0.0f));
 
+			Assert.DoesNotThrow(() => Matrix4x4d.Ortho2D(-1.0f, +1.0f, -1.0f, +1.0f));
 		}
 
 		[Test]
 		public void Matrix4x4d_TestFrustrum()
 		{
+			Assert.Throws<ArgumentException>(() => Matrix4x4d.Frustrum(0.0f, 0.0f, -1.0f, +1.0f, -1.0f, +1.0f));
+			Assert.Throws<ArgumentException>(() => Matrix4x4d.Frustrum(-1.0f, +1.0f, 0.0f, 0.0f, -1.0f, +1.0f));
+			Assert.Throws<ArgumentException>(() => Matrix4x4d.Frustrum(-1.0f, +1.0f, -1.0f, +1.0f, 0.0f, 0.0f));
 
+			Assert.DoesNotThrow(() => Matrix4x4d.Frustrum(-1.0f, +1.0f, -1.0f, +1.0f, -1.0f, +1.0f));
 		}
 
 		[Test]
 		public void Matrix4x4d_TestPerspectiveSymmetric()
 		{
+			Assert.Throws<ArgumentOutOfRangeException>(() => Matrix4x4d.Perspective(-1.0f, 1.0f, 0.1f, 1000.0f));
+			Assert.Throws<ArgumentOutOfRangeException>(() => Matrix4x4d.Perspective(+180.0f, 1.0f, 0.1f, 1000.0f));
+			Assert.Throws<ArgumentOutOfRangeException>(() => Matrix4x4d.Perspective(+1.0f, 1.0f, 0.0f, 1000.0f));
+			Assert.Throws<ArgumentOutOfRangeException>(() => Matrix4x4d.Perspective(+1.0f, 1.0f, 10.0f, 1.0f));
 
+			Assert.DoesNotThrow(() => Matrix4x4d.Perspective(+1.0f, 1.0f, 1.0f, 10.0f));
 		}
 
 		[Test]
 		public void Matrix4x4d_TestPerspectiveAsymmetric()
 		{
+			Assert.Throws<ArgumentException>(() => Matrix4x4d.Perspective(0.0f, 0.0f, -1.0f, +1.0f, 0.1f, 1000.0f));
+			Assert.Throws<ArgumentException>(() => Matrix4x4d.Perspective(-1.0f, +1.0f, 0.0f, 0.0f, 0.1f, 1000.0f));
+			// Assert.Throws<ArgumentException>(() => Matrix4x4d.Perspective(-1.0f, +1.0f, -1.0f, +1.0f, 10.0f, 1.0f));
 
+			Assert.DoesNotThrow(() => Matrix4x4d.Perspective(-1.0f, +1.0f, -1.0f, +1.0f, 1.0f, 10.0f));
 		}
 
 		#endregion

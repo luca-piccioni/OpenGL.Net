@@ -243,31 +243,51 @@ namespace OpenGL.Test
 		[Test]
 		public void <#= className #>_TestOrtho()
 		{
+			Assert.Throws<ArgumentException>(() => <#= className #>.Ortho(0.0f, 0.0f, -1.0f, +1.0f, -1.0f, +1.0f));
+			Assert.Throws<ArgumentException>(() => <#= className #>.Ortho(-1.0f, +1.0f, 0.0f, 0.0f, -1.0f, +1.0f));
+			Assert.Throws<ArgumentException>(() => <#= className #>.Ortho(-1.0f, +1.0f, -1.0f, +1.0f, 0.0f, 0.0f));
 
+			Assert.DoesNotThrow(() => <#= className #>.Ortho(-1.0f, +1.0f, -1.0f, +1.0f, -1.0f, +1.0f));
 		}
 
 		[Test]
 		public void <#= className #>_TestOrtho2D()
 		{
+			Assert.Throws<ArgumentException>(() => <#= className #>.Ortho2D(0.0f, 0.0f, -1.0f, +1.0f));
+			Assert.Throws<ArgumentException>(() => <#= className #>.Ortho2D(-1.0f, +1.0f, 0.0f, 0.0f));
 
+			Assert.DoesNotThrow(() => <#= className #>.Ortho2D(-1.0f, +1.0f, -1.0f, +1.0f));
 		}
 
 		[Test]
 		public void <#= className #>_TestFrustrum()
 		{
+			Assert.Throws<ArgumentException>(() => <#= className #>.Frustrum(0.0f, 0.0f, -1.0f, +1.0f, -1.0f, +1.0f));
+			Assert.Throws<ArgumentException>(() => <#= className #>.Frustrum(-1.0f, +1.0f, 0.0f, 0.0f, -1.0f, +1.0f));
+			Assert.Throws<ArgumentException>(() => <#= className #>.Frustrum(-1.0f, +1.0f, -1.0f, +1.0f, 0.0f, 0.0f));
 
+			Assert.DoesNotThrow(() => <#= className #>.Frustrum(-1.0f, +1.0f, -1.0f, +1.0f, -1.0f, +1.0f));
 		}
 
 		[Test]
 		public void <#= className #>_TestPerspectiveSymmetric()
 		{
+			Assert.Throws<ArgumentOutOfRangeException>(() => <#= className #>.Perspective(-1.0f, 1.0f, 0.1f, 1000.0f));
+			Assert.Throws<ArgumentOutOfRangeException>(() => <#= className #>.Perspective(+180.0f, 1.0f, 0.1f, 1000.0f));
+			Assert.Throws<ArgumentOutOfRangeException>(() => <#= className #>.Perspective(+1.0f, 1.0f, 0.0f, 1000.0f));
+			Assert.Throws<ArgumentOutOfRangeException>(() => <#= className #>.Perspective(+1.0f, 1.0f, 10.0f, 1.0f));
 
+			Assert.DoesNotThrow(() => <#= className #>.Perspective(+1.0f, 1.0f, 1.0f, 10.0f));
 		}
 
 		[Test]
 		public void <#= className #>_TestPerspectiveAsymmetric()
 		{
+			Assert.Throws<ArgumentException>(() => <#= className #>.Perspective(0.0f, 0.0f, -1.0f, +1.0f, 0.1f, 1000.0f));
+			Assert.Throws<ArgumentException>(() => <#= className #>.Perspective(-1.0f, +1.0f, 0.0f, 0.0f, 0.1f, 1000.0f));
+			// Assert.Throws<ArgumentException>(() => <#= className #>.Perspective(-1.0f, +1.0f, -1.0f, +1.0f, 10.0f, 1.0f));
 
+			Assert.DoesNotThrow(() => <#= className #>.Perspective(-1.0f, +1.0f, -1.0f, +1.0f, 1.0f, 10.0f));
 		}
 
 		#endregion

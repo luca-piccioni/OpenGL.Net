@@ -460,8 +460,18 @@ for (int c1 = 0; c1 < c; c1++) for (int r1 = 0; r1 < r; r1++) {
 		/// <returns>
 		/// A <see cref="<#= className #>"/> representing an orthographic projection matrix.
 		/// </returns>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if the parameter have an invalid set of values.
+		/// </exception>
 		public static <#= className #> Ortho(<#= matrixBaseType #> left, <#= matrixBaseType #> right, <#= matrixBaseType #> bottom, <#= matrixBaseType #> top, <#= matrixBaseType #> near, <#= matrixBaseType #> far)
 		{
+			if (Math.Abs(right - left) < <#= matrixBaseType #>.Epsilon)
+				throw new ArgumentException("left/right planes are coincident");
+			if (Math.Abs(top - bottom) < <#= matrixBaseType #>.Epsilon)
+				throw new ArgumentException("top/bottom planes are coincident");
+			if (Math.Abs(far - near) < <#= matrixBaseType #>.Epsilon)
+				throw new ArgumentException("far/near planes are coincident");
+
 			<#= className #> r = new <#= className #>();
 
 			r._M00 = 2.0<#= literal #> / (right - left);
@@ -564,8 +574,8 @@ for (int c1 = 0; c1 < c; c1++) for (int r1 = 0; r1 < r; r1++) {
 		/// </exception>
 		public static <#= className #> Perspective(<#= matrixBaseType #> fovy, <#= matrixBaseType #> aspectRatio, <#= matrixBaseType #> near, <#= matrixBaseType #> far)
 		{
-			if (fovy <= 0.0<#= literal #> || fovy > 180.0<#= literal #>)
-				throw new ArgumentOutOfRangeException(nameof(fovy), "not in range [0, 180)");
+			if (fovy <= 0.0<#= literal #> || fovy >= 180.0<#= literal #>)
+				throw new ArgumentOutOfRangeException(nameof(fovy), "not in range (0, 180)");
 			if (Math.Abs(near) < <#= matrixBaseType #>.Epsilon)
 				throw new ArgumentOutOfRangeException(nameof(near), "zero not allowed");
 			if (Math.Abs(far) < Math.Abs(near))
@@ -604,10 +614,10 @@ for (int c1 = 0; c1 < c; c1++) for (int r1 = 0; r1 < r; r1++) {
 		public static <#= className #> Perspective(<#= matrixBaseType #> leftFov, <#= matrixBaseType #> rightFov, <#= matrixBaseType #> bottomFov, <#= matrixBaseType #> topFov, <#= matrixBaseType #> near, <#= matrixBaseType #> far)
 		{
 			return Frustrum(
-				-near * (<#= matrixBaseType #>)Math.Tan(Angle.ToRadians(leftFov)),
-				+near * (<#= matrixBaseType #>)Math.Tan(Angle.ToRadians(rightFov)),
-				-near * (<#= matrixBaseType #>)Math.Tan(Angle.ToRadians(bottomFov)),
-				+near * (<#= matrixBaseType #>)Math.Tan(Angle.ToRadians(topFov)),
+				near * (<#= matrixBaseType #>)Math.Tan(Angle.ToRadians(leftFov)),
+				near * (<#= matrixBaseType #>)Math.Tan(Angle.ToRadians(rightFov)),
+				near * (<#= matrixBaseType #>)Math.Tan(Angle.ToRadians(bottomFov)),
+				near * (<#= matrixBaseType #>)Math.Tan(Angle.ToRadians(topFov)),
 				near, far
 			);
 		}
