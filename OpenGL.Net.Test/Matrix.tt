@@ -49,6 +49,7 @@ namespace OpenGL.Test
 	string[] literals		 =	new[] { "f", "" };
 	string[] vliterals		 =	new[] { "f", "d" };
 	string[] epsilons		 =	new[] { "1e-5f", "1e-10" };
+	string[] epsilonsLP		 =	new[] { "1e-2f", "1e-2" };
 
 	for (int i = 0; i < 2; i++) for (int c = 2; c <= 4; c++) for (int r = 2; r <= 4; r++) {
 		string className = String.Format("Matrix{0}x{1}{2}", c, r, postfixes[i]);
@@ -60,7 +61,7 @@ namespace OpenGL.Test
 		string one = ones[i], zero = zeroes[i];
 		string tranposedClassName = String.Format("Matrix{0}x{1}{2}", r, c, postfixes[i]);
 		string literal = literals[i];
-		string epsilon = epsilons[i];
+		string epsilon = epsilons[i], epsilonLP = epsilonsLP[i];
 		string vertex4 = "Vertex4" + vliterals[i];
 		string vertex3 = "Vertex3" + vliterals[i];
 #>
@@ -73,7 +74,12 @@ namespace OpenGL.Test
 		[Test]
 		public void <#= className #>_TestConstructor1()
 		{
-			<#= className #> m = CreateSequenceMatrix();
+			<#= className #> m = new <#= className #>(
+<# for (int c1 = 0, idx = 0; c1 < c; c1++) { #>
+				<# for (int r1 = 0; r1 < r; r1++, idx++) { #>(<#= matrixBaseType #>)<#= idx #><# if (c1 < c - 1 || r1 < r - 1) { #>, <# } #><# } #>
+
+<# } #>
+			);
 
 			for (uint c = 0, idx = 0; c < <#= c #>; c++) for (uint r = 0; r < <#= r #>; r++, idx++)
 				Assert.That(m[c, r], Is.EqualTo(idx).Within(<#= epsilon #>));
@@ -315,7 +321,7 @@ namespace OpenGL.Test
 			<#= vertex3 #> v = new <#= vertex3 #>(0.0<#= literal #>, 1.0<#= literal #>, 2.0<#= literal #>);
 
 			Assert.AreEqual(v, m.Position);
-			Assert.IsTrue(v.RelativelyEquals((<#= vertex3 #>)(m * <#= columnType #>.Zero), <#= epsilon #>));
+			Assert.IsTrue(v.Equals((<#= vertex3 #>)(m * <#= columnType #>.Zero), <#= epsilon #>));
 		}
 
 		[Test]
@@ -327,7 +333,7 @@ namespace OpenGL.Test
 			m.Translate(0.0<#= literal #>, 1.0<#= literal #>, 2.0<#= literal #>);
 			
 			Assert.AreEqual(v, m.Position);
-			Assert.IsTrue(v.RelativelyEquals((<#= vertex3 #>)(m * <#= vertex3 #>.Zero), <#= epsilon #>));
+			Assert.IsTrue(v.Equals((<#= vertex3 #>)(m * <#= vertex3 #>.Zero), <#= epsilon #>));
 		}
 
 		#endregion
@@ -431,19 +437,30 @@ namespace OpenGL.Test
 		[Test]
 		public void <#= className #>_TestDeterminant()
 		{
-
+			Assert.AreEqual(1.0<#= literal #>, <#= className #>.Identity.Determinant);
 		}
 
 		[Test]
 		public void <#= className #>_TestInverse()
 		{
+			<#= className #> m = CreateInvertibleMatrix();
+			<#= className #> n = m.Inverse;
+			<#= className #> r = m * n;
 
+			Assert.IsTrue(r.Equals(<#= className #>.Identity, <#= epsilonLP #>));
 		}
 
 		[Test]
 		public void <#= className #>_TestInvert()
 		{
+			<#= className #> m = CreateInvertibleMatrix();
+			<#= className #> n = m;
 
+			m.Invert();
+
+			<#= className #> r = m * n;
+
+			Assert.IsTrue(r.Equals(<#= className #>.Identity, <#= epsilonLP #>));
 		}
 
 		#endregion
@@ -527,6 +544,23 @@ namespace OpenGL.Test
 			});
 		}
 
+<# if (c == r) { #>
+		private static <#= className #> CreateInvertibleMatrix()
+		{
+			<#= className #> m = new <#= className #>();
+
+<# for (int c1 = 0, idx = 0; c1 < c; c1++) for (int r1 = 0; r1 < r; r1++, idx++) { #>
+<# if (c1 == r1) { #>
+			m[<#= c1 #>, <#= r1 #>] = Next(1.0<#= literal #>, 2.0<#= literal #>);
+<# } else { #>
+			m[<#= c1 #>, <#= r1 #>] = Next(0.0<#= literal #>, 0.5<#= literal #>);
+<# } #>
+<# } #>
+
+			return m;
+		}
+
+<# } #>
 		#endregion
 	}
 

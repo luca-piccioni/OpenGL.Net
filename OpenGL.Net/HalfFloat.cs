@@ -54,6 +54,7 @@
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 #if NETFRAMEWORK
 using System.Runtime.Serialization;
@@ -69,6 +70,7 @@ namespace OpenGL
 	[Serializable]
 #endif
 	[StructLayout(LayoutKind.Sequential)]
+	[SuppressMessage("ReSharper", "CompareOfFloatsByEqualityOperator")]
 	public struct HalfFloat : IComparable<HalfFloat>, IFormattable, IEquatable<HalfFloat>
 #if NETFRAMEWORK
 		, ISerializable
@@ -577,6 +579,33 @@ namespace OpenGL
 		#region IEquatable<HalfFloat> Implementation
 
 		/// <summary>
+		/// Indicates whether the this <see cref="float"/> is relatively equal to another <see cref="float"/>.
+		/// </summary>
+		/// <param name="other">
+		/// The <see cref="float"/> to compare with this float.
+		/// </param>
+		/// <param name="precision">
+		/// The <see cref="float"/> that specifies the relative error tollerance, intended as fraction of the range.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this float is relatively equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool RelativelyEquals(HalfFloat value, float epsilon)
+		{
+			float absA = Math.Abs(this);
+			float absB = Math.Abs(value);
+			float diff = Math.Abs(this - value);
+
+			if (this == value)
+				return true;
+
+			if (this == 0.0f || value == 0.0f || diff < float.Epsilon) 
+				return diff < epsilon;
+			
+			return diff / (absA + absB) < epsilon;
+		}
+
+		/// <summary>
 		/// Returns a boolean value indicating whether this instance is equal to <paramref name="other"/>.
 		/// </summary>
 		/// <param name="other">
@@ -601,7 +630,7 @@ namespace OpenGL
 			if (bInt < 0)
 				bInt = (short)(0x8000 - bInt);
 
-			short intDiff = System.Math.Abs((short)(aInt - bInt));
+			short intDiff = Math.Abs((short)(aInt - bInt));
 
 			if (intDiff <= maxUlps)
 				return true;

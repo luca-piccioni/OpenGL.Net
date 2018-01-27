@@ -1025,11 +1025,11 @@ for (int c1 = 0; c1 < c; c1++) for (int r1 = 0; r1 < r; r1++) {
 <# if        (c == 2) { #>
 				return _M00 * _M11 - _M10 * _M01;
 <# } else if (c == 3) { #>
-				<#= matrixBaseType #> d0 = _M11 * _M22 - _M21 * _M12;
-				<#= matrixBaseType #> d1 = _M00 * _M22 - _M20 * _M02;
-				<#= matrixBaseType #> d2 = _M00 * _M11 - _M10 * _M01;
+				<#= matrixBaseType #> a = _M00, b = _M10, c = _M20;
+				<#= matrixBaseType #> d = _M01, e = _M11, f = _M21;
+				<#= matrixBaseType #> g = _M02, h = _M12, k = _M22;
 
-				return +d0 * _M00 + -d1 * _M01 + +d2 * _M02;
+				return (e * k - f * h) * a + -(d * k - f * g) * b + (d * h - e * g) * c;
 <# } else if (c == 4) { #>
 				<#= loworderClassName #> c0 = new <#= loworderClassName #>(this, 0, 0);
 				<#= loworderClassName #> c1 = new <#= loworderClassName #>(this, 0, 1);
@@ -1055,11 +1055,10 @@ for (int c1 = 0; c1 < c; c1++) for (int r1 = 0; r1 < r; r1++) {
 				det = <#= one #> / det;
 				
 				return new <#= className #>(
-					+_M11 * det, -_M10 * det,
-					-_M01 * det, +_M00 * det
+					+_M11 * det, -_M01 * det,
+					-_M10 * det, +_M00 * det
 				);
 <# } else if (c == 3) { #>
-
 				<#= matrixBaseType #> det = Determinant;
 				if (Math.Abs(det) < 1e-6f)
 					throw new InvalidOperationException("not invertible");
@@ -1070,9 +1069,9 @@ for (int c1 = 0; c1 < c; c1++) for (int r1 = 0; r1 < r; r1++) {
 				<#= matrixBaseType #> g = _M02, h = _M12, k = _M22;
 
 				return new <#= className #>(
-					(e * k - f * h) * det, (f * g - d * k) * det, (d * h - e * g) * det,
-					(c * h - b * k) * det, (a * k - c * g) * det, (b * g - a * h) * det,
-					(b * f - c * e) * det, (c * d - a * f) * det, (a * e - b * d) * det
+					 (e * k - f * h) * det, -(d * k - f * g) * det,  (d * h - e * g) * det,
+					-(b * k - c * h) * det,  (a * k - c * g) * det, -(a * h - b * g) * det,
+					 (b * f - c * e) * det, -(a * f - c * d) * det,  (a * e - b * d) * det
 				);
 <# } else if (c == 4) { #>
 				<#= matrixBaseType #> inv00 =  _M11 * _M22 * _M33 - _M11 * _M23 * _M32 - _M21 * _M12 * _M33 + _M21 * _M13 * _M32 + _M31 * _M12 * _M23 - _M31 * _M13 * _M22;
@@ -1143,6 +1142,50 @@ for (int c1 = 0; c1 < c; c1++) for (int r1 = 0; r1 < r; r1++) {
 		#endregion
 
 		#region IEquatable Implementation
+
+		/// <summary>
+		/// Indicates whether the this <#= className #> is equal to another <#= className #>, tolerating an absolute error.
+		/// </summary>
+		/// <param name="other">
+		/// The <see cref="<#= className #>"/> to compare with this <#= className #>.
+		/// </param>
+		/// <param name="precision">
+		/// The <see cref="<#= matrixBaseType #>"/> that specifies the maximum absolute error tollerance.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this <#= className #> is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(<#= className #> other, <#= matrixBaseType #> precision)
+		{
+<# for (int c1 = 0; c1 < c; c1++) for (int r1 = 0; r1 < r; r1++) { #>
+			if (Math.Abs(_M<#= c1 #><#= r1 #> - other._M<#= c1 #><#= r1 #>) > precision)
+				return (false);
+<# } #>
+
+			return (true);
+		}
+
+		/// <summary>
+		/// Indicates whether the this <#= className #> is relatively equal to another <#= className #>.
+		/// </summary>
+		/// <param name="other">
+		/// The <see cref="<#= className #>"/> to compare with this <#= className #>.
+		/// </param>
+		/// <param name="precision">
+		/// The <see cref="<#= matrixBaseType #>"/> that specifies the relative error tollerance, intended as fraction of the range.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this <#= className #> is relatively equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool RelativelyEquals(<#= className #> other, <#= matrixBaseType #> precision)
+		{
+<# for (int c1 = 0; c1 < c; c1++) for (int r1 = 0; r1 < r; r1++) { #>
+			if (Math.Abs(_M<#= c1 #><#= r1 #> - other._M<#= c1 #><#= r1 #>) > precision * (Math.Abs(_M<#= c1 #><#= r1 #>) + Math.Abs(other._M<#= c1 #><#= r1 #>)))
+				return (false);
+<# } #>
+
+			return (true);
+		}
 
 		/// <summary>
 		/// Indicates whether the this <#= className #> is equal to another <#= className #>.

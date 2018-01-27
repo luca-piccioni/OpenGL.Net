@@ -54,6 +54,7 @@
     <Compile Include="ColorRGB.cs" />
     <Compile Include="ColorRGBA.cs" />
     <Compile Include="ColorRGBARef.cs" />
+    <Compile Include="DoubleExtensions.cs" />
     <Compile Include="HalfFloat.cs" />
     <Compile Include="IColor.cs" />
     <Compile Include="IColorRGB.cs" />
@@ -80,6 +81,7 @@
     <Compile Include="ProjectionMatrixDouble.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Quaternion.cs" />
+    <Compile Include="SingleExtensions.cs" />
     <Compile Include="Vertex2.cs" />
     <Compile Include="Vertex3.cs" />
     <Compile Include="Vertex3Ref.cs" />

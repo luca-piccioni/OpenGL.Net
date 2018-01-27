@@ -5328,12 +5328,12 @@ namespace OpenGL
 		/// </returns>
 		public bool RelativelyEquals(Vertex3f other, float precision)
 		{
-			if (Math.Abs(x - other.x) > precision * (Math.Abs(x) + Math.Abs(other.x)))
-				return (false);
-			if (Math.Abs(y - other.y) > precision * (Math.Abs(y) + Math.Abs(other.y)))
-				return (false);
-			if (Math.Abs(z - other.z) > precision * (Math.Abs(z) + Math.Abs(other.z)))
-				return (false);
+			if (!x.RelativelyEquals(other.x, precision))
+				return false;
+			if (!y.RelativelyEquals(other.y, precision))
+				return false;
+			if (!z.RelativelyEquals(other.z, precision))
+				return false;
 
 			return (true);
 		}
@@ -6092,12 +6092,12 @@ namespace OpenGL
 		/// </returns>
 		public bool RelativelyEquals(Vertex3d other, double precision)
 		{
-			if (Math.Abs(x - other.x) > precision * (Math.Abs(x) + Math.Abs(other.x)))
-				return (false);
-			if (Math.Abs(y - other.y) > precision * (Math.Abs(y) + Math.Abs(other.y)))
-				return (false);
-			if (Math.Abs(z - other.z) > precision * (Math.Abs(z) + Math.Abs(other.z)))
-				return (false);
+			if (!x.RelativelyEquals(other.x, precision))
+				return false;
+			if (!y.RelativelyEquals(other.y, precision))
+				return false;
+			if (!z.RelativelyEquals(other.z, precision))
+				return false;
 
 			return (true);
 		}
@@ -6870,12 +6870,12 @@ namespace OpenGL
 		/// </returns>
 		public bool RelativelyEquals(Vertex3hf other, HalfFloat precision)
 		{
-			if (Math.Abs(x - other.x) > precision * (Math.Abs(x) + Math.Abs(other.x)))
-				return (false);
-			if (Math.Abs(y - other.y) > precision * (Math.Abs(y) + Math.Abs(other.y)))
-				return (false);
-			if (Math.Abs(z - other.z) > precision * (Math.Abs(z) + Math.Abs(other.z)))
-				return (false);
+			if (!x.RelativelyEquals(other.x, precision))
+				return false;
+			if (!y.RelativelyEquals(other.y, precision))
+				return false;
+			if (!z.RelativelyEquals(other.z, precision))
+				return false;
 
 			return (true);
 		}

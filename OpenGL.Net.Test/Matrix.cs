@@ -41,7 +41,10 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix2x2f_TestConstructor1()
 		{
-			Matrix2x2f m = CreateSequenceMatrix();
+			Matrix2x2f m = new Matrix2x2f(
+				(float)0, (float)1, 
+				(float)2, (float)3
+			);
 
 			for (uint c = 0, idx = 0; c < 2; c++) for (uint r = 0; r < 2; r++, idx++)
 				Assert.That(m[c, r], Is.EqualTo(idx).Within(1e-5f));
@@ -242,19 +245,30 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix2x2f_TestDeterminant()
 		{
-
+			Assert.AreEqual(1.0f, Matrix2x2f.Identity.Determinant);
 		}
 
 		[Test]
 		public void Matrix2x2f_TestInverse()
 		{
+			Matrix2x2f m = CreateInvertibleMatrix();
+			Matrix2x2f n = m.Inverse;
+			Matrix2x2f r = m * n;
 
+			Assert.IsTrue(r.Equals(Matrix2x2f.Identity, 1e-2f));
 		}
 
 		[Test]
 		public void Matrix2x2f_TestInvert()
 		{
+			Matrix2x2f m = CreateInvertibleMatrix();
+			Matrix2x2f n = m;
 
+			m.Invert();
+
+			Matrix2x2f r = m * n;
+
+			Assert.IsTrue(r.Equals(Matrix2x2f.Identity, 1e-2f));
 		}
 
 		#endregion
@@ -343,6 +357,18 @@ namespace OpenGL.Test
 			});
 		}
 
+		private static Matrix2x2f CreateInvertibleMatrix()
+		{
+			Matrix2x2f m = new Matrix2x2f();
+
+			m[0, 0] = Next(1.0f, 2.0f);
+			m[0, 1] = Next(0.0f, 0.5f);
+			m[1, 0] = Next(0.0f, 0.5f);
+			m[1, 1] = Next(1.0f, 2.0f);
+
+			return m;
+		}
+
 		#endregion
 	}
 
@@ -355,7 +381,10 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix2x3f_TestConstructor1()
 		{
-			Matrix2x3f m = CreateSequenceMatrix();
+			Matrix2x3f m = new Matrix2x3f(
+				(float)0, (float)1, (float)2, 
+				(float)3, (float)4, (float)5
+			);
 
 			for (uint c = 0, idx = 0; c < 2; c++) for (uint r = 0; r < 3; r++, idx++)
 				Assert.That(m[c, r], Is.EqualTo(idx).Within(1e-5f));
@@ -621,7 +650,10 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix2x4f_TestConstructor1()
 		{
-			Matrix2x4f m = CreateSequenceMatrix();
+			Matrix2x4f m = new Matrix2x4f(
+				(float)0, (float)1, (float)2, (float)3, 
+				(float)4, (float)5, (float)6, (float)7
+			);
 
 			for (uint c = 0, idx = 0; c < 2; c++) for (uint r = 0; r < 4; r++, idx++)
 				Assert.That(m[c, r], Is.EqualTo(idx).Within(1e-5f));
@@ -907,7 +939,11 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix3x2f_TestConstructor1()
 		{
-			Matrix3x2f m = CreateSequenceMatrix();
+			Matrix3x2f m = new Matrix3x2f(
+				(float)0, (float)1, 
+				(float)2, (float)3, 
+				(float)4, (float)5
+			);
 
 			for (uint c = 0, idx = 0; c < 3; c++) for (uint r = 0; r < 2; r++, idx++)
 				Assert.That(m[c, r], Is.EqualTo(idx).Within(1e-5f));
@@ -1177,7 +1213,11 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix3x3f_TestConstructor1()
 		{
-			Matrix3x3f m = CreateSequenceMatrix();
+			Matrix3x3f m = new Matrix3x3f(
+				(float)0, (float)1, (float)2, 
+				(float)3, (float)4, (float)5, 
+				(float)6, (float)7, (float)8
+			);
 
 			for (uint c = 0, idx = 0; c < 3; c++) for (uint r = 0; r < 3; r++, idx++)
 				Assert.That(m[c, r], Is.EqualTo(idx).Within(1e-5f));
@@ -1454,19 +1494,30 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix3x3f_TestDeterminant()
 		{
-
+			Assert.AreEqual(1.0f, Matrix3x3f.Identity.Determinant);
 		}
 
 		[Test]
 		public void Matrix3x3f_TestInverse()
 		{
+			Matrix3x3f m = CreateInvertibleMatrix();
+			Matrix3x3f n = m.Inverse;
+			Matrix3x3f r = m * n;
 
+			Assert.IsTrue(r.Equals(Matrix3x3f.Identity, 1e-2f));
 		}
 
 		[Test]
 		public void Matrix3x3f_TestInvert()
 		{
+			Matrix3x3f m = CreateInvertibleMatrix();
+			Matrix3x3f n = m;
 
+			m.Invert();
+
+			Matrix3x3f r = m * n;
+
+			Assert.IsTrue(r.Equals(Matrix3x3f.Identity, 1e-2f));
 		}
 
 		#endregion
@@ -1577,6 +1628,23 @@ namespace OpenGL.Test
 			});
 		}
 
+		private static Matrix3x3f CreateInvertibleMatrix()
+		{
+			Matrix3x3f m = new Matrix3x3f();
+
+			m[0, 0] = Next(1.0f, 2.0f);
+			m[0, 1] = Next(0.0f, 0.5f);
+			m[0, 2] = Next(0.0f, 0.5f);
+			m[1, 0] = Next(0.0f, 0.5f);
+			m[1, 1] = Next(1.0f, 2.0f);
+			m[1, 2] = Next(0.0f, 0.5f);
+			m[2, 0] = Next(0.0f, 0.5f);
+			m[2, 1] = Next(0.0f, 0.5f);
+			m[2, 2] = Next(1.0f, 2.0f);
+
+			return m;
+		}
+
 		#endregion
 	}
 
@@ -1589,7 +1657,11 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix3x4f_TestConstructor1()
 		{
-			Matrix3x4f m = CreateSequenceMatrix();
+			Matrix3x4f m = new Matrix3x4f(
+				(float)0, (float)1, (float)2, (float)3, 
+				(float)4, (float)5, (float)6, (float)7, 
+				(float)8, (float)9, (float)10, (float)11
+			);
 
 			for (uint c = 0, idx = 0; c < 3; c++) for (uint r = 0; r < 4; r++, idx++)
 				Assert.That(m[c, r], Is.EqualTo(idx).Within(1e-5f));
@@ -1917,7 +1989,12 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix4x2f_TestConstructor1()
 		{
-			Matrix4x2f m = CreateSequenceMatrix();
+			Matrix4x2f m = new Matrix4x2f(
+				(float)0, (float)1, 
+				(float)2, (float)3, 
+				(float)4, (float)5, 
+				(float)6, (float)7
+			);
 
 			for (uint c = 0, idx = 0; c < 4; c++) for (uint r = 0; r < 2; r++, idx++)
 				Assert.That(m[c, r], Is.EqualTo(idx).Within(1e-5f));
@@ -2211,7 +2288,12 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix4x3f_TestConstructor1()
 		{
-			Matrix4x3f m = CreateSequenceMatrix();
+			Matrix4x3f m = new Matrix4x3f(
+				(float)0, (float)1, (float)2, 
+				(float)3, (float)4, (float)5, 
+				(float)6, (float)7, (float)8, 
+				(float)9, (float)10, (float)11
+			);
 
 			for (uint c = 0, idx = 0; c < 4; c++) for (uint r = 0; r < 3; r++, idx++)
 				Assert.That(m[c, r], Is.EqualTo(idx).Within(1e-5f));
@@ -2543,7 +2625,12 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix4x4f_TestConstructor1()
 		{
-			Matrix4x4f m = CreateSequenceMatrix();
+			Matrix4x4f m = new Matrix4x4f(
+				(float)0, (float)1, (float)2, (float)3, 
+				(float)4, (float)5, (float)6, (float)7, 
+				(float)8, (float)9, (float)10, (float)11, 
+				(float)12, (float)13, (float)14, (float)15
+			);
 
 			for (uint c = 0, idx = 0; c < 4; c++) for (uint r = 0; r < 4; r++, idx++)
 				Assert.That(m[c, r], Is.EqualTo(idx).Within(1e-5f));
@@ -2836,7 +2923,7 @@ namespace OpenGL.Test
 			Vertex3f v = new Vertex3f(0.0f, 1.0f, 2.0f);
 
 			Assert.AreEqual(v, m.Position);
-			Assert.IsTrue(v.RelativelyEquals((Vertex3f)(m * Vertex4f.Zero), 1e-5f));
+			Assert.IsTrue(v.Equals((Vertex3f)(m * Vertex4f.Zero), 1e-5f));
 		}
 
 		[Test]
@@ -2848,7 +2935,7 @@ namespace OpenGL.Test
 			m.Translate(0.0f, 1.0f, 2.0f);
 			
 			Assert.AreEqual(v, m.Position);
-			Assert.IsTrue(v.RelativelyEquals((Vertex3f)(m * Vertex3f.Zero), 1e-5f));
+			Assert.IsTrue(v.Equals((Vertex3f)(m * Vertex3f.Zero), 1e-5f));
 		}
 
 		#endregion
@@ -2968,19 +3055,30 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix4x4f_TestDeterminant()
 		{
-
+			Assert.AreEqual(1.0f, Matrix4x4f.Identity.Determinant);
 		}
 
 		[Test]
 		public void Matrix4x4f_TestInverse()
 		{
+			Matrix4x4f m = CreateInvertibleMatrix();
+			Matrix4x4f n = m.Inverse;
+			Matrix4x4f r = m * n;
 
+			Assert.IsTrue(r.Equals(Matrix4x4f.Identity, 1e-2f));
 		}
 
 		[Test]
 		public void Matrix4x4f_TestInvert()
 		{
+			Matrix4x4f m = CreateInvertibleMatrix();
+			Matrix4x4f n = m;
 
+			m.Invert();
+
+			Matrix4x4f r = m * n;
+
+			Assert.IsTrue(r.Equals(Matrix4x4f.Identity, 1e-2f));
 		}
 
 		#endregion
@@ -3121,6 +3219,30 @@ namespace OpenGL.Test
 			});
 		}
 
+		private static Matrix4x4f CreateInvertibleMatrix()
+		{
+			Matrix4x4f m = new Matrix4x4f();
+
+			m[0, 0] = Next(1.0f, 2.0f);
+			m[0, 1] = Next(0.0f, 0.5f);
+			m[0, 2] = Next(0.0f, 0.5f);
+			m[0, 3] = Next(0.0f, 0.5f);
+			m[1, 0] = Next(0.0f, 0.5f);
+			m[1, 1] = Next(1.0f, 2.0f);
+			m[1, 2] = Next(0.0f, 0.5f);
+			m[1, 3] = Next(0.0f, 0.5f);
+			m[2, 0] = Next(0.0f, 0.5f);
+			m[2, 1] = Next(0.0f, 0.5f);
+			m[2, 2] = Next(1.0f, 2.0f);
+			m[2, 3] = Next(0.0f, 0.5f);
+			m[3, 0] = Next(0.0f, 0.5f);
+			m[3, 1] = Next(0.0f, 0.5f);
+			m[3, 2] = Next(0.0f, 0.5f);
+			m[3, 3] = Next(1.0f, 2.0f);
+
+			return m;
+		}
+
 		#endregion
 	}
 
@@ -3133,7 +3255,10 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix2x2d_TestConstructor1()
 		{
-			Matrix2x2d m = CreateSequenceMatrix();
+			Matrix2x2d m = new Matrix2x2d(
+				(double)0, (double)1, 
+				(double)2, (double)3
+			);
 
 			for (uint c = 0, idx = 0; c < 2; c++) for (uint r = 0; r < 2; r++, idx++)
 				Assert.That(m[c, r], Is.EqualTo(idx).Within(1e-10));
@@ -3334,19 +3459,30 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix2x2d_TestDeterminant()
 		{
-
+			Assert.AreEqual(1.0, Matrix2x2d.Identity.Determinant);
 		}
 
 		[Test]
 		public void Matrix2x2d_TestInverse()
 		{
+			Matrix2x2d m = CreateInvertibleMatrix();
+			Matrix2x2d n = m.Inverse;
+			Matrix2x2d r = m * n;
 
+			Assert.IsTrue(r.Equals(Matrix2x2d.Identity, 1e-2));
 		}
 
 		[Test]
 		public void Matrix2x2d_TestInvert()
 		{
+			Matrix2x2d m = CreateInvertibleMatrix();
+			Matrix2x2d n = m;
 
+			m.Invert();
+
+			Matrix2x2d r = m * n;
+
+			Assert.IsTrue(r.Equals(Matrix2x2d.Identity, 1e-2));
 		}
 
 		#endregion
@@ -3435,6 +3571,18 @@ namespace OpenGL.Test
 			});
 		}
 
+		private static Matrix2x2d CreateInvertibleMatrix()
+		{
+			Matrix2x2d m = new Matrix2x2d();
+
+			m[0, 0] = Next(1.0, 2.0);
+			m[0, 1] = Next(0.0, 0.5);
+			m[1, 0] = Next(0.0, 0.5);
+			m[1, 1] = Next(1.0, 2.0);
+
+			return m;
+		}
+
 		#endregion
 	}
 
@@ -3447,7 +3595,10 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix2x3d_TestConstructor1()
 		{
-			Matrix2x3d m = CreateSequenceMatrix();
+			Matrix2x3d m = new Matrix2x3d(
+				(double)0, (double)1, (double)2, 
+				(double)3, (double)4, (double)5
+			);
 
 			for (uint c = 0, idx = 0; c < 2; c++) for (uint r = 0; r < 3; r++, idx++)
 				Assert.That(m[c, r], Is.EqualTo(idx).Within(1e-10));
@@ -3713,7 +3864,10 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix2x4d_TestConstructor1()
 		{
-			Matrix2x4d m = CreateSequenceMatrix();
+			Matrix2x4d m = new Matrix2x4d(
+				(double)0, (double)1, (double)2, (double)3, 
+				(double)4, (double)5, (double)6, (double)7
+			);
 
 			for (uint c = 0, idx = 0; c < 2; c++) for (uint r = 0; r < 4; r++, idx++)
 				Assert.That(m[c, r], Is.EqualTo(idx).Within(1e-10));
@@ -3999,7 +4153,11 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix3x2d_TestConstructor1()
 		{
-			Matrix3x2d m = CreateSequenceMatrix();
+			Matrix3x2d m = new Matrix3x2d(
+				(double)0, (double)1, 
+				(double)2, (double)3, 
+				(double)4, (double)5
+			);
 
 			for (uint c = 0, idx = 0; c < 3; c++) for (uint r = 0; r < 2; r++, idx++)
 				Assert.That(m[c, r], Is.EqualTo(idx).Within(1e-10));
@@ -4269,7 +4427,11 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix3x3d_TestConstructor1()
 		{
-			Matrix3x3d m = CreateSequenceMatrix();
+			Matrix3x3d m = new Matrix3x3d(
+				(double)0, (double)1, (double)2, 
+				(double)3, (double)4, (double)5, 
+				(double)6, (double)7, (double)8
+			);
 
 			for (uint c = 0, idx = 0; c < 3; c++) for (uint r = 0; r < 3; r++, idx++)
 				Assert.That(m[c, r], Is.EqualTo(idx).Within(1e-10));
@@ -4546,19 +4708,30 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix3x3d_TestDeterminant()
 		{
-
+			Assert.AreEqual(1.0, Matrix3x3d.Identity.Determinant);
 		}
 
 		[Test]
 		public void Matrix3x3d_TestInverse()
 		{
+			Matrix3x3d m = CreateInvertibleMatrix();
+			Matrix3x3d n = m.Inverse;
+			Matrix3x3d r = m * n;
 
+			Assert.IsTrue(r.Equals(Matrix3x3d.Identity, 1e-2));
 		}
 
 		[Test]
 		public void Matrix3x3d_TestInvert()
 		{
+			Matrix3x3d m = CreateInvertibleMatrix();
+			Matrix3x3d n = m;
 
+			m.Invert();
+
+			Matrix3x3d r = m * n;
+
+			Assert.IsTrue(r.Equals(Matrix3x3d.Identity, 1e-2));
 		}
 
 		#endregion
@@ -4669,6 +4842,23 @@ namespace OpenGL.Test
 			});
 		}
 
+		private static Matrix3x3d CreateInvertibleMatrix()
+		{
+			Matrix3x3d m = new Matrix3x3d();
+
+			m[0, 0] = Next(1.0, 2.0);
+			m[0, 1] = Next(0.0, 0.5);
+			m[0, 2] = Next(0.0, 0.5);
+			m[1, 0] = Next(0.0, 0.5);
+			m[1, 1] = Next(1.0, 2.0);
+			m[1, 2] = Next(0.0, 0.5);
+			m[2, 0] = Next(0.0, 0.5);
+			m[2, 1] = Next(0.0, 0.5);
+			m[2, 2] = Next(1.0, 2.0);
+
+			return m;
+		}
+
 		#endregion
 	}
 
@@ -4681,7 +4871,11 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix3x4d_TestConstructor1()
 		{
-			Matrix3x4d m = CreateSequenceMatrix();
+			Matrix3x4d m = new Matrix3x4d(
+				(double)0, (double)1, (double)2, (double)3, 
+				(double)4, (double)5, (double)6, (double)7, 
+				(double)8, (double)9, (double)10, (double)11
+			);
 
 			for (uint c = 0, idx = 0; c < 3; c++) for (uint r = 0; r < 4; r++, idx++)
 				Assert.That(m[c, r], Is.EqualTo(idx).Within(1e-10));
@@ -5009,7 +5203,12 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix4x2d_TestConstructor1()
 		{
-			Matrix4x2d m = CreateSequenceMatrix();
+			Matrix4x2d m = new Matrix4x2d(
+				(double)0, (double)1, 
+				(double)2, (double)3, 
+				(double)4, (double)5, 
+				(double)6, (double)7
+			);
 
 			for (uint c = 0, idx = 0; c < 4; c++) for (uint r = 0; r < 2; r++, idx++)
 				Assert.That(m[c, r], Is.EqualTo(idx).Within(1e-10));
@@ -5303,7 +5502,12 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix4x3d_TestConstructor1()
 		{
-			Matrix4x3d m = CreateSequenceMatrix();
+			Matrix4x3d m = new Matrix4x3d(
+				(double)0, (double)1, (double)2, 
+				(double)3, (double)4, (double)5, 
+				(double)6, (double)7, (double)8, 
+				(double)9, (double)10, (double)11
+			);
 
 			for (uint c = 0, idx = 0; c < 4; c++) for (uint r = 0; r < 3; r++, idx++)
 				Assert.That(m[c, r], Is.EqualTo(idx).Within(1e-10));
@@ -5635,7 +5839,12 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix4x4d_TestConstructor1()
 		{
-			Matrix4x4d m = CreateSequenceMatrix();
+			Matrix4x4d m = new Matrix4x4d(
+				(double)0, (double)1, (double)2, (double)3, 
+				(double)4, (double)5, (double)6, (double)7, 
+				(double)8, (double)9, (double)10, (double)11, 
+				(double)12, (double)13, (double)14, (double)15
+			);
 
 			for (uint c = 0, idx = 0; c < 4; c++) for (uint r = 0; r < 4; r++, idx++)
 				Assert.That(m[c, r], Is.EqualTo(idx).Within(1e-10));
@@ -5928,7 +6137,7 @@ namespace OpenGL.Test
 			Vertex3d v = new Vertex3d(0.0, 1.0, 2.0);
 
 			Assert.AreEqual(v, m.Position);
-			Assert.IsTrue(v.RelativelyEquals((Vertex3d)(m * Vertex4d.Zero), 1e-10));
+			Assert.IsTrue(v.Equals((Vertex3d)(m * Vertex4d.Zero), 1e-10));
 		}
 
 		[Test]
@@ -5940,7 +6149,7 @@ namespace OpenGL.Test
 			m.Translate(0.0, 1.0, 2.0);
 			
 			Assert.AreEqual(v, m.Position);
-			Assert.IsTrue(v.RelativelyEquals((Vertex3d)(m * Vertex3d.Zero), 1e-10));
+			Assert.IsTrue(v.Equals((Vertex3d)(m * Vertex3d.Zero), 1e-10));
 		}
 
 		#endregion
@@ -6060,19 +6269,30 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix4x4d_TestDeterminant()
 		{
-
+			Assert.AreEqual(1.0, Matrix4x4d.Identity.Determinant);
 		}
 
 		[Test]
 		public void Matrix4x4d_TestInverse()
 		{
+			Matrix4x4d m = CreateInvertibleMatrix();
+			Matrix4x4d n = m.Inverse;
+			Matrix4x4d r = m * n;
 
+			Assert.IsTrue(r.Equals(Matrix4x4d.Identity, 1e-2));
 		}
 
 		[Test]
 		public void Matrix4x4d_TestInvert()
 		{
+			Matrix4x4d m = CreateInvertibleMatrix();
+			Matrix4x4d n = m;
 
+			m.Invert();
+
+			Matrix4x4d r = m * n;
+
+			Assert.IsTrue(r.Equals(Matrix4x4d.Identity, 1e-2));
 		}
 
 		#endregion
@@ -6211,6 +6431,30 @@ namespace OpenGL.Test
 				(double)8, (double)9, (double)10, (double)11, 
 				(double)12, (double)13, (double)14, (double)15
 			});
+		}
+
+		private static Matrix4x4d CreateInvertibleMatrix()
+		{
+			Matrix4x4d m = new Matrix4x4d();
+
+			m[0, 0] = Next(1.0, 2.0);
+			m[0, 1] = Next(0.0, 0.5);
+			m[0, 2] = Next(0.0, 0.5);
+			m[0, 3] = Next(0.0, 0.5);
+			m[1, 0] = Next(0.0, 0.5);
+			m[1, 1] = Next(1.0, 2.0);
+			m[1, 2] = Next(0.0, 0.5);
+			m[1, 3] = Next(0.0, 0.5);
+			m[2, 0] = Next(0.0, 0.5);
+			m[2, 1] = Next(0.0, 0.5);
+			m[2, 2] = Next(1.0, 2.0);
+			m[2, 3] = Next(0.0, 0.5);
+			m[3, 0] = Next(0.0, 0.5);
+			m[3, 1] = Next(0.0, 0.5);
+			m[3, 2] = Next(0.0, 0.5);
+			m[3, 3] = Next(1.0, 2.0);
+
+			return m;
 		}
 
 		#endregion

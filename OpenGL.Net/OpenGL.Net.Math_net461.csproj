@@ -181,6 +181,8 @@
     <Compile Include="ProjectionMatrixDouble.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Quaternion.cs" />
+    <Compile Include="DoubleExtensions.cs" />
+    <Compile Include="SingleExtensions.cs" />
     <Compile Include="Vertex2.cs">
       <DependentUpon>Vertex2.tt</DependentUpon>
       <AutoGen>True</AutoGen>
