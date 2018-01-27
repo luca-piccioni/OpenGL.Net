@@ -127,6 +127,11 @@
     <Compile Include="DevicePixelFormat.cs" />
     <Compile Include="Egl.cs" />
     <Compile Include="EglException.cs" />
+	<Compile Include="Matrix.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Matrix.tt</DependentUpon>
+    </Compile>
     <Compile Include="MatrixDouble.cs" />
     <Compile Include="MatrixBase.cs" />
     <Compile Include="TestBase.cs" />
@@ -185,6 +190,10 @@
     <Content Include="ColorRGBA.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ColorRGBA.cs</LastGenOutput>
+    </Content>
+	<Content Include="Matrix.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Matrix.cs</LastGenOutput>
     </Content>
     <Content Include="Vertex4.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
