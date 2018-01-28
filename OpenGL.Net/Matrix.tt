@@ -1176,28 +1176,6 @@ for (int c1 = 0; c1 < c; c1++) for (int r1 = 0; r1 < r; r1++) {
 		}
 
 		/// <summary>
-		/// Indicates whether the this <#= className #> is relatively equal to another <#= className #>.
-		/// </summary>
-		/// <param name="other">
-		/// The <see cref="<#= className #>"/> to compare with this <#= className #>.
-		/// </param>
-		/// <param name="precision">
-		/// The <see cref="<#= matrixBaseType #>"/> that specifies the relative error tollerance, intended as fraction of the range.
-		/// </param>
-		/// <returns>
-		/// It returns true if the this <#= className #> is relatively equal to <paramref name="other"/>; otherwise, false.
-		/// </returns>
-		public bool RelativelyEquals(<#= className #> other, <#= matrixBaseType #> precision)
-		{
-<# for (int c1 = 0; c1 < c; c1++) for (int r1 = 0; r1 < r; r1++) { #>
-			if (!_M<#= c1 #><#= r1 #>.RelativelyEquals(other._M<#= c1 #><#= r1 #>, precision))
-				return false;
-<# } #>
-
-			return (true);
-		}
-
-		/// <summary>
 		/// Indicates whether the this <#= className #> is equal to another <#= className #>.
 		/// </summary>
 		/// <param name="other">

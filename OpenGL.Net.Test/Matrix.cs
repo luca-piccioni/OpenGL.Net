@@ -312,21 +312,19 @@ namespace OpenGL.Test
 			m[0, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix2x2f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix2x2f.Zero, 0.50f));
+			m[0, 0] = 0.0f;
 			m[0, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix2x2f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix2x2f.Zero, 0.50f));
+			m[0, 1] = 0.0f;
 			m[1, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix2x2f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix2x2f.Zero, 0.50f));
+			m[1, 0] = 0.0f;
 			m[1, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix2x2f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix2x2f.Zero, 0.50f));
-		}
-
-		[Test]
-		public void Matrix2x2f_TestRelativelyEqualsToMatrix2x2f()
-		{
-			
+			m[1, 1] = 0.0f;
 		}
 
 		[Test]
@@ -610,27 +608,27 @@ namespace OpenGL.Test
 			m[0, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix2x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix2x3f.Zero, 0.50f));
+			m[0, 0] = 0.0f;
 			m[0, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix2x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix2x3f.Zero, 0.50f));
+			m[0, 1] = 0.0f;
 			m[0, 2] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix2x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix2x3f.Zero, 0.50f));
+			m[0, 2] = 0.0f;
 			m[1, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix2x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix2x3f.Zero, 0.50f));
+			m[1, 0] = 0.0f;
 			m[1, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix2x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix2x3f.Zero, 0.50f));
+			m[1, 1] = 0.0f;
 			m[1, 2] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix2x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix2x3f.Zero, 0.50f));
-		}
-
-		[Test]
-		public void Matrix2x3f_TestRelativelyEqualsToMatrix2x3f()
-		{
-			
+			m[1, 2] = 0.0f;
 		}
 
 		[Test]
@@ -922,33 +920,35 @@ namespace OpenGL.Test
 			m[0, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix2x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix2x4f.Zero, 0.50f));
+			m[0, 0] = 0.0f;
 			m[0, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix2x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix2x4f.Zero, 0.50f));
+			m[0, 1] = 0.0f;
 			m[0, 2] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix2x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix2x4f.Zero, 0.50f));
+			m[0, 2] = 0.0f;
 			m[0, 3] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix2x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix2x4f.Zero, 0.50f));
+			m[0, 3] = 0.0f;
 			m[1, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix2x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix2x4f.Zero, 0.50f));
+			m[1, 0] = 0.0f;
 			m[1, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix2x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix2x4f.Zero, 0.50f));
+			m[1, 1] = 0.0f;
 			m[1, 2] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix2x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix2x4f.Zero, 0.50f));
+			m[1, 2] = 0.0f;
 			m[1, 3] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix2x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix2x4f.Zero, 0.50f));
-		}
-
-		[Test]
-		public void Matrix2x4f_TestRelativelyEqualsToMatrix2x4f()
-		{
-			
+			m[1, 3] = 0.0f;
 		}
 
 		[Test]
@@ -1239,27 +1239,27 @@ namespace OpenGL.Test
 			m[0, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x2f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x2f.Zero, 0.50f));
+			m[0, 0] = 0.0f;
 			m[0, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x2f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x2f.Zero, 0.50f));
+			m[0, 1] = 0.0f;
 			m[1, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x2f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x2f.Zero, 0.50f));
+			m[1, 0] = 0.0f;
 			m[1, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x2f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x2f.Zero, 0.50f));
+			m[1, 1] = 0.0f;
 			m[2, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x2f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x2f.Zero, 0.50f));
+			m[2, 0] = 0.0f;
 			m[2, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x2f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x2f.Zero, 0.50f));
-		}
-
-		[Test]
-		public void Matrix3x2f_TestRelativelyEqualsToMatrix3x2f()
-		{
-			
+			m[2, 1] = 0.0f;
 		}
 
 		[Test]
@@ -1757,36 +1757,39 @@ namespace OpenGL.Test
 			m[0, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x3f.Zero, 0.50f));
+			m[0, 0] = 0.0f;
 			m[0, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x3f.Zero, 0.50f));
+			m[0, 1] = 0.0f;
 			m[0, 2] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x3f.Zero, 0.50f));
+			m[0, 2] = 0.0f;
 			m[1, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x3f.Zero, 0.50f));
+			m[1, 0] = 0.0f;
 			m[1, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x3f.Zero, 0.50f));
+			m[1, 1] = 0.0f;
 			m[1, 2] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x3f.Zero, 0.50f));
+			m[1, 2] = 0.0f;
 			m[2, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x3f.Zero, 0.50f));
+			m[2, 0] = 0.0f;
 			m[2, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x3f.Zero, 0.50f));
+			m[2, 1] = 0.0f;
 			m[2, 2] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x3f.Zero, 0.50f));
-		}
-
-		[Test]
-		public void Matrix3x3f_TestRelativelyEqualsToMatrix3x3f()
-		{
-			
+			m[2, 2] = 0.0f;
 		}
 
 		[Test]
@@ -2134,45 +2137,51 @@ namespace OpenGL.Test
 			m[0, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x4f.Zero, 0.50f));
+			m[0, 0] = 0.0f;
 			m[0, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x4f.Zero, 0.50f));
+			m[0, 1] = 0.0f;
 			m[0, 2] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x4f.Zero, 0.50f));
+			m[0, 2] = 0.0f;
 			m[0, 3] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x4f.Zero, 0.50f));
+			m[0, 3] = 0.0f;
 			m[1, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x4f.Zero, 0.50f));
+			m[1, 0] = 0.0f;
 			m[1, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x4f.Zero, 0.50f));
+			m[1, 1] = 0.0f;
 			m[1, 2] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x4f.Zero, 0.50f));
+			m[1, 2] = 0.0f;
 			m[1, 3] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x4f.Zero, 0.50f));
+			m[1, 3] = 0.0f;
 			m[2, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x4f.Zero, 0.50f));
+			m[2, 0] = 0.0f;
 			m[2, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x4f.Zero, 0.50f));
+			m[2, 1] = 0.0f;
 			m[2, 2] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x4f.Zero, 0.50f));
+			m[2, 2] = 0.0f;
 			m[2, 3] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x4f.Zero, 0.50f));
-		}
-
-		[Test]
-		public void Matrix3x4f_TestRelativelyEqualsToMatrix3x4f()
-		{
-			
+			m[2, 3] = 0.0f;
 		}
 
 		[Test]
@@ -2496,33 +2505,35 @@ namespace OpenGL.Test
 			m[0, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x2f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x2f.Zero, 0.50f));
+			m[0, 0] = 0.0f;
 			m[0, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x2f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x2f.Zero, 0.50f));
+			m[0, 1] = 0.0f;
 			m[1, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x2f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x2f.Zero, 0.50f));
+			m[1, 0] = 0.0f;
 			m[1, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x2f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x2f.Zero, 0.50f));
+			m[1, 1] = 0.0f;
 			m[2, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x2f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x2f.Zero, 0.50f));
+			m[2, 0] = 0.0f;
 			m[2, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x2f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x2f.Zero, 0.50f));
+			m[2, 1] = 0.0f;
 			m[3, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x2f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x2f.Zero, 0.50f));
+			m[3, 0] = 0.0f;
 			m[3, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x2f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x2f.Zero, 0.50f));
-		}
-
-		[Test]
-		public void Matrix4x2f_TestRelativelyEqualsToMatrix4x2f()
-		{
-			
+			m[3, 1] = 0.0f;
 		}
 
 		[Test]
@@ -2854,45 +2865,51 @@ namespace OpenGL.Test
 			m[0, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x3f.Zero, 0.50f));
+			m[0, 0] = 0.0f;
 			m[0, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x3f.Zero, 0.50f));
+			m[0, 1] = 0.0f;
 			m[0, 2] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x3f.Zero, 0.50f));
+			m[0, 2] = 0.0f;
 			m[1, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x3f.Zero, 0.50f));
+			m[1, 0] = 0.0f;
 			m[1, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x3f.Zero, 0.50f));
+			m[1, 1] = 0.0f;
 			m[1, 2] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x3f.Zero, 0.50f));
+			m[1, 2] = 0.0f;
 			m[2, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x3f.Zero, 0.50f));
+			m[2, 0] = 0.0f;
 			m[2, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x3f.Zero, 0.50f));
+			m[2, 1] = 0.0f;
 			m[2, 2] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x3f.Zero, 0.50f));
+			m[2, 2] = 0.0f;
 			m[3, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x3f.Zero, 0.50f));
+			m[3, 0] = 0.0f;
 			m[3, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x3f.Zero, 0.50f));
+			m[3, 1] = 0.0f;
 			m[3, 2] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x3f.Zero, 0.50f));
-		}
-
-		[Test]
-		public void Matrix4x3f_TestRelativelyEqualsToMatrix4x3f()
-		{
-			
+			m[3, 2] = 0.0f;
 		}
 
 		[Test]
@@ -3585,57 +3602,67 @@ namespace OpenGL.Test
 			m[0, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x4f.Zero, 0.50f));
+			m[0, 0] = 0.0f;
 			m[0, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x4f.Zero, 0.50f));
+			m[0, 1] = 0.0f;
 			m[0, 2] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x4f.Zero, 0.50f));
+			m[0, 2] = 0.0f;
 			m[0, 3] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x4f.Zero, 0.50f));
+			m[0, 3] = 0.0f;
 			m[1, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x4f.Zero, 0.50f));
+			m[1, 0] = 0.0f;
 			m[1, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x4f.Zero, 0.50f));
+			m[1, 1] = 0.0f;
 			m[1, 2] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x4f.Zero, 0.50f));
+			m[1, 2] = 0.0f;
 			m[1, 3] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x4f.Zero, 0.50f));
+			m[1, 3] = 0.0f;
 			m[2, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x4f.Zero, 0.50f));
+			m[2, 0] = 0.0f;
 			m[2, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x4f.Zero, 0.50f));
+			m[2, 1] = 0.0f;
 			m[2, 2] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x4f.Zero, 0.50f));
+			m[2, 2] = 0.0f;
 			m[2, 3] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x4f.Zero, 0.50f));
+			m[2, 3] = 0.0f;
 			m[3, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x4f.Zero, 0.50f));
+			m[3, 0] = 0.0f;
 			m[3, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x4f.Zero, 0.50f));
+			m[3, 1] = 0.0f;
 			m[3, 2] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x4f.Zero, 0.50f));
+			m[3, 2] = 0.0f;
 			m[3, 3] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x4f.Zero, 0.50f));
-		}
-
-		[Test]
-		public void Matrix4x4f_TestRelativelyEqualsToMatrix4x4f()
-		{
-			
+			m[3, 3] = 0.0f;
 		}
 
 		[Test]
@@ -4078,21 +4105,19 @@ namespace OpenGL.Test
 			m[0, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix2x2d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix2x2d.Zero, 0.50));
+			m[0, 0] = 0.0;
 			m[0, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix2x2d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix2x2d.Zero, 0.50));
+			m[0, 1] = 0.0;
 			m[1, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix2x2d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix2x2d.Zero, 0.50));
+			m[1, 0] = 0.0;
 			m[1, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix2x2d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix2x2d.Zero, 0.50));
-		}
-
-		[Test]
-		public void Matrix2x2d_TestRelativelyEqualsToMatrix2x2d()
-		{
-			
+			m[1, 1] = 0.0;
 		}
 
 		[Test]
@@ -4376,27 +4401,27 @@ namespace OpenGL.Test
 			m[0, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix2x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix2x3d.Zero, 0.50));
+			m[0, 0] = 0.0;
 			m[0, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix2x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix2x3d.Zero, 0.50));
+			m[0, 1] = 0.0;
 			m[0, 2] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix2x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix2x3d.Zero, 0.50));
+			m[0, 2] = 0.0;
 			m[1, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix2x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix2x3d.Zero, 0.50));
+			m[1, 0] = 0.0;
 			m[1, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix2x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix2x3d.Zero, 0.50));
+			m[1, 1] = 0.0;
 			m[1, 2] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix2x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix2x3d.Zero, 0.50));
-		}
-
-		[Test]
-		public void Matrix2x3d_TestRelativelyEqualsToMatrix2x3d()
-		{
-			
+			m[1, 2] = 0.0;
 		}
 
 		[Test]
@@ -4688,33 +4713,35 @@ namespace OpenGL.Test
 			m[0, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix2x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix2x4d.Zero, 0.50));
+			m[0, 0] = 0.0;
 			m[0, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix2x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix2x4d.Zero, 0.50));
+			m[0, 1] = 0.0;
 			m[0, 2] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix2x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix2x4d.Zero, 0.50));
+			m[0, 2] = 0.0;
 			m[0, 3] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix2x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix2x4d.Zero, 0.50));
+			m[0, 3] = 0.0;
 			m[1, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix2x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix2x4d.Zero, 0.50));
+			m[1, 0] = 0.0;
 			m[1, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix2x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix2x4d.Zero, 0.50));
+			m[1, 1] = 0.0;
 			m[1, 2] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix2x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix2x4d.Zero, 0.50));
+			m[1, 2] = 0.0;
 			m[1, 3] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix2x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix2x4d.Zero, 0.50));
-		}
-
-		[Test]
-		public void Matrix2x4d_TestRelativelyEqualsToMatrix2x4d()
-		{
-			
+			m[1, 3] = 0.0;
 		}
 
 		[Test]
@@ -5005,27 +5032,27 @@ namespace OpenGL.Test
 			m[0, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x2d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x2d.Zero, 0.50));
+			m[0, 0] = 0.0;
 			m[0, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x2d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x2d.Zero, 0.50));
+			m[0, 1] = 0.0;
 			m[1, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x2d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x2d.Zero, 0.50));
+			m[1, 0] = 0.0;
 			m[1, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x2d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x2d.Zero, 0.50));
+			m[1, 1] = 0.0;
 			m[2, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x2d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x2d.Zero, 0.50));
+			m[2, 0] = 0.0;
 			m[2, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x2d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x2d.Zero, 0.50));
-		}
-
-		[Test]
-		public void Matrix3x2d_TestRelativelyEqualsToMatrix3x2d()
-		{
-			
+			m[2, 1] = 0.0;
 		}
 
 		[Test]
@@ -5523,36 +5550,39 @@ namespace OpenGL.Test
 			m[0, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x3d.Zero, 0.50));
+			m[0, 0] = 0.0;
 			m[0, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x3d.Zero, 0.50));
+			m[0, 1] = 0.0;
 			m[0, 2] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x3d.Zero, 0.50));
+			m[0, 2] = 0.0;
 			m[1, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x3d.Zero, 0.50));
+			m[1, 0] = 0.0;
 			m[1, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x3d.Zero, 0.50));
+			m[1, 1] = 0.0;
 			m[1, 2] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x3d.Zero, 0.50));
+			m[1, 2] = 0.0;
 			m[2, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x3d.Zero, 0.50));
+			m[2, 0] = 0.0;
 			m[2, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x3d.Zero, 0.50));
+			m[2, 1] = 0.0;
 			m[2, 2] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x3d.Zero, 0.50));
-		}
-
-		[Test]
-		public void Matrix3x3d_TestRelativelyEqualsToMatrix3x3d()
-		{
-			
+			m[2, 2] = 0.0;
 		}
 
 		[Test]
@@ -5900,45 +5930,51 @@ namespace OpenGL.Test
 			m[0, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x4d.Zero, 0.50));
+			m[0, 0] = 0.0;
 			m[0, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x4d.Zero, 0.50));
+			m[0, 1] = 0.0;
 			m[0, 2] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x4d.Zero, 0.50));
+			m[0, 2] = 0.0;
 			m[0, 3] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x4d.Zero, 0.50));
+			m[0, 3] = 0.0;
 			m[1, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x4d.Zero, 0.50));
+			m[1, 0] = 0.0;
 			m[1, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x4d.Zero, 0.50));
+			m[1, 1] = 0.0;
 			m[1, 2] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x4d.Zero, 0.50));
+			m[1, 2] = 0.0;
 			m[1, 3] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x4d.Zero, 0.50));
+			m[1, 3] = 0.0;
 			m[2, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x4d.Zero, 0.50));
+			m[2, 0] = 0.0;
 			m[2, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x4d.Zero, 0.50));
+			m[2, 1] = 0.0;
 			m[2, 2] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x4d.Zero, 0.50));
+			m[2, 2] = 0.0;
 			m[2, 3] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x4d.Zero, 0.50));
-		}
-
-		[Test]
-		public void Matrix3x4d_TestRelativelyEqualsToMatrix3x4d()
-		{
-			
+			m[2, 3] = 0.0;
 		}
 
 		[Test]
@@ -6262,33 +6298,35 @@ namespace OpenGL.Test
 			m[0, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x2d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x2d.Zero, 0.50));
+			m[0, 0] = 0.0;
 			m[0, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x2d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x2d.Zero, 0.50));
+			m[0, 1] = 0.0;
 			m[1, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x2d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x2d.Zero, 0.50));
+			m[1, 0] = 0.0;
 			m[1, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x2d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x2d.Zero, 0.50));
+			m[1, 1] = 0.0;
 			m[2, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x2d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x2d.Zero, 0.50));
+			m[2, 0] = 0.0;
 			m[2, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x2d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x2d.Zero, 0.50));
+			m[2, 1] = 0.0;
 			m[3, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x2d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x2d.Zero, 0.50));
+			m[3, 0] = 0.0;
 			m[3, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x2d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x2d.Zero, 0.50));
-		}
-
-		[Test]
-		public void Matrix4x2d_TestRelativelyEqualsToMatrix4x2d()
-		{
-			
+			m[3, 1] = 0.0;
 		}
 
 		[Test]
@@ -6620,45 +6658,51 @@ namespace OpenGL.Test
 			m[0, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x3d.Zero, 0.50));
+			m[0, 0] = 0.0;
 			m[0, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x3d.Zero, 0.50));
+			m[0, 1] = 0.0;
 			m[0, 2] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x3d.Zero, 0.50));
+			m[0, 2] = 0.0;
 			m[1, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x3d.Zero, 0.50));
+			m[1, 0] = 0.0;
 			m[1, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x3d.Zero, 0.50));
+			m[1, 1] = 0.0;
 			m[1, 2] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x3d.Zero, 0.50));
+			m[1, 2] = 0.0;
 			m[2, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x3d.Zero, 0.50));
+			m[2, 0] = 0.0;
 			m[2, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x3d.Zero, 0.50));
+			m[2, 1] = 0.0;
 			m[2, 2] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x3d.Zero, 0.50));
+			m[2, 2] = 0.0;
 			m[3, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x3d.Zero, 0.50));
+			m[3, 0] = 0.0;
 			m[3, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x3d.Zero, 0.50));
+			m[3, 1] = 0.0;
 			m[3, 2] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x3d.Zero, 0.50));
-		}
-
-		[Test]
-		public void Matrix4x3d_TestRelativelyEqualsToMatrix4x3d()
-		{
-			
+			m[3, 2] = 0.0;
 		}
 
 		[Test]
@@ -7351,57 +7395,67 @@ namespace OpenGL.Test
 			m[0, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x4d.Zero, 0.50));
+			m[0, 0] = 0.0;
 			m[0, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x4d.Zero, 0.50));
+			m[0, 1] = 0.0;
 			m[0, 2] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x4d.Zero, 0.50));
+			m[0, 2] = 0.0;
 			m[0, 3] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x4d.Zero, 0.50));
+			m[0, 3] = 0.0;
 			m[1, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x4d.Zero, 0.50));
+			m[1, 0] = 0.0;
 			m[1, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x4d.Zero, 0.50));
+			m[1, 1] = 0.0;
 			m[1, 2] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x4d.Zero, 0.50));
+			m[1, 2] = 0.0;
 			m[1, 3] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x4d.Zero, 0.50));
+			m[1, 3] = 0.0;
 			m[2, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x4d.Zero, 0.50));
+			m[2, 0] = 0.0;
 			m[2, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x4d.Zero, 0.50));
+			m[2, 1] = 0.0;
 			m[2, 2] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x4d.Zero, 0.50));
+			m[2, 2] = 0.0;
 			m[2, 3] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x4d.Zero, 0.50));
+			m[2, 3] = 0.0;
 			m[3, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x4d.Zero, 0.50));
+			m[3, 0] = 0.0;
 			m[3, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x4d.Zero, 0.50));
+			m[3, 1] = 0.0;
 			m[3, 2] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x4d.Zero, 0.50));
+			m[3, 2] = 0.0;
 			m[3, 3] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x4d.Zero, 0.50));
-		}
-
-		[Test]
-		public void Matrix4x4d_TestRelativelyEqualsToMatrix4x4d()
-		{
-			
+			m[3, 3] = 0.0;
 		}
 
 		[Test]

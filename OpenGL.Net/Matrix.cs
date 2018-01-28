@@ -512,32 +512,6 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Indicates whether the this Matrix2x2f is relatively equal to another Matrix2x2f.
-		/// </summary>
-		/// <param name="other">
-		/// The <see cref="Matrix2x2f"/> to compare with this Matrix2x2f.
-		/// </param>
-		/// <param name="precision">
-		/// The <see cref="float"/> that specifies the relative error tollerance, intended as fraction of the range.
-		/// </param>
-		/// <returns>
-		/// It returns true if the this Matrix2x2f is relatively equal to <paramref name="other"/>; otherwise, false.
-		/// </returns>
-		public bool RelativelyEquals(Matrix2x2f other, float precision)
-		{
-			if (!_M00.RelativelyEquals(other._M00, precision))
-				return false;
-			if (!_M01.RelativelyEquals(other._M01, precision))
-				return false;
-			if (!_M10.RelativelyEquals(other._M10, precision))
-				return false;
-			if (!_M11.RelativelyEquals(other._M11, precision))
-				return false;
-
-			return (true);
-		}
-
-		/// <summary>
 		/// Indicates whether the this Matrix2x2f is equal to another Matrix2x2f.
 		/// </summary>
 		/// <param name="other">
@@ -982,36 +956,6 @@ namespace OpenGL
 				return (false);
 			if (Math.Abs(_M12 - other._M12) > precision)
 				return (false);
-
-			return (true);
-		}
-
-		/// <summary>
-		/// Indicates whether the this Matrix2x3f is relatively equal to another Matrix2x3f.
-		/// </summary>
-		/// <param name="other">
-		/// The <see cref="Matrix2x3f"/> to compare with this Matrix2x3f.
-		/// </param>
-		/// <param name="precision">
-		/// The <see cref="float"/> that specifies the relative error tollerance, intended as fraction of the range.
-		/// </param>
-		/// <returns>
-		/// It returns true if the this Matrix2x3f is relatively equal to <paramref name="other"/>; otherwise, false.
-		/// </returns>
-		public bool RelativelyEquals(Matrix2x3f other, float precision)
-		{
-			if (!_M00.RelativelyEquals(other._M00, precision))
-				return false;
-			if (!_M01.RelativelyEquals(other._M01, precision))
-				return false;
-			if (!_M02.RelativelyEquals(other._M02, precision))
-				return false;
-			if (!_M10.RelativelyEquals(other._M10, precision))
-				return false;
-			if (!_M11.RelativelyEquals(other._M11, precision))
-				return false;
-			if (!_M12.RelativelyEquals(other._M12, precision))
-				return false;
 
 			return (true);
 		}
@@ -1504,40 +1448,6 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Indicates whether the this Matrix2x4f is relatively equal to another Matrix2x4f.
-		/// </summary>
-		/// <param name="other">
-		/// The <see cref="Matrix2x4f"/> to compare with this Matrix2x4f.
-		/// </param>
-		/// <param name="precision">
-		/// The <see cref="float"/> that specifies the relative error tollerance, intended as fraction of the range.
-		/// </param>
-		/// <returns>
-		/// It returns true if the this Matrix2x4f is relatively equal to <paramref name="other"/>; otherwise, false.
-		/// </returns>
-		public bool RelativelyEquals(Matrix2x4f other, float precision)
-		{
-			if (!_M00.RelativelyEquals(other._M00, precision))
-				return false;
-			if (!_M01.RelativelyEquals(other._M01, precision))
-				return false;
-			if (!_M02.RelativelyEquals(other._M02, precision))
-				return false;
-			if (!_M03.RelativelyEquals(other._M03, precision))
-				return false;
-			if (!_M10.RelativelyEquals(other._M10, precision))
-				return false;
-			if (!_M11.RelativelyEquals(other._M11, precision))
-				return false;
-			if (!_M12.RelativelyEquals(other._M12, precision))
-				return false;
-			if (!_M13.RelativelyEquals(other._M13, precision))
-				return false;
-
-			return (true);
-		}
-
-		/// <summary>
 		/// Indicates whether the this Matrix2x4f is equal to another Matrix2x4f.
 		/// </summary>
 		/// <param name="other">
@@ -1997,36 +1907,6 @@ namespace OpenGL
 				return (false);
 			if (Math.Abs(_M21 - other._M21) > precision)
 				return (false);
-
-			return (true);
-		}
-
-		/// <summary>
-		/// Indicates whether the this Matrix3x2f is relatively equal to another Matrix3x2f.
-		/// </summary>
-		/// <param name="other">
-		/// The <see cref="Matrix3x2f"/> to compare with this Matrix3x2f.
-		/// </param>
-		/// <param name="precision">
-		/// The <see cref="float"/> that specifies the relative error tollerance, intended as fraction of the range.
-		/// </param>
-		/// <returns>
-		/// It returns true if the this Matrix3x2f is relatively equal to <paramref name="other"/>; otherwise, false.
-		/// </returns>
-		public bool RelativelyEquals(Matrix3x2f other, float precision)
-		{
-			if (!_M00.RelativelyEquals(other._M00, precision))
-				return false;
-			if (!_M01.RelativelyEquals(other._M01, precision))
-				return false;
-			if (!_M10.RelativelyEquals(other._M10, precision))
-				return false;
-			if (!_M11.RelativelyEquals(other._M11, precision))
-				return false;
-			if (!_M20.RelativelyEquals(other._M20, precision))
-				return false;
-			if (!_M21.RelativelyEquals(other._M21, precision))
-				return false;
 
 			return (true);
 		}
@@ -2852,42 +2732,6 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Indicates whether the this Matrix3x3f is relatively equal to another Matrix3x3f.
-		/// </summary>
-		/// <param name="other">
-		/// The <see cref="Matrix3x3f"/> to compare with this Matrix3x3f.
-		/// </param>
-		/// <param name="precision">
-		/// The <see cref="float"/> that specifies the relative error tollerance, intended as fraction of the range.
-		/// </param>
-		/// <returns>
-		/// It returns true if the this Matrix3x3f is relatively equal to <paramref name="other"/>; otherwise, false.
-		/// </returns>
-		public bool RelativelyEquals(Matrix3x3f other, float precision)
-		{
-			if (!_M00.RelativelyEquals(other._M00, precision))
-				return false;
-			if (!_M01.RelativelyEquals(other._M01, precision))
-				return false;
-			if (!_M02.RelativelyEquals(other._M02, precision))
-				return false;
-			if (!_M10.RelativelyEquals(other._M10, precision))
-				return false;
-			if (!_M11.RelativelyEquals(other._M11, precision))
-				return false;
-			if (!_M12.RelativelyEquals(other._M12, precision))
-				return false;
-			if (!_M20.RelativelyEquals(other._M20, precision))
-				return false;
-			if (!_M21.RelativelyEquals(other._M21, precision))
-				return false;
-			if (!_M22.RelativelyEquals(other._M22, precision))
-				return false;
-
-			return (true);
-		}
-
-		/// <summary>
 		/// Indicates whether the this Matrix3x3f is equal to another Matrix3x3f.
 		/// </summary>
 		/// <param name="other">
@@ -3461,48 +3305,6 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Indicates whether the this Matrix3x4f is relatively equal to another Matrix3x4f.
-		/// </summary>
-		/// <param name="other">
-		/// The <see cref="Matrix3x4f"/> to compare with this Matrix3x4f.
-		/// </param>
-		/// <param name="precision">
-		/// The <see cref="float"/> that specifies the relative error tollerance, intended as fraction of the range.
-		/// </param>
-		/// <returns>
-		/// It returns true if the this Matrix3x4f is relatively equal to <paramref name="other"/>; otherwise, false.
-		/// </returns>
-		public bool RelativelyEquals(Matrix3x4f other, float precision)
-		{
-			if (!_M00.RelativelyEquals(other._M00, precision))
-				return false;
-			if (!_M01.RelativelyEquals(other._M01, precision))
-				return false;
-			if (!_M02.RelativelyEquals(other._M02, precision))
-				return false;
-			if (!_M03.RelativelyEquals(other._M03, precision))
-				return false;
-			if (!_M10.RelativelyEquals(other._M10, precision))
-				return false;
-			if (!_M11.RelativelyEquals(other._M11, precision))
-				return false;
-			if (!_M12.RelativelyEquals(other._M12, precision))
-				return false;
-			if (!_M13.RelativelyEquals(other._M13, precision))
-				return false;
-			if (!_M20.RelativelyEquals(other._M20, precision))
-				return false;
-			if (!_M21.RelativelyEquals(other._M21, precision))
-				return false;
-			if (!_M22.RelativelyEquals(other._M22, precision))
-				return false;
-			if (!_M23.RelativelyEquals(other._M23, precision))
-				return false;
-
-			return (true);
-		}
-
-		/// <summary>
 		/// Indicates whether the this Matrix3x4f is equal to another Matrix3x4f.
 		/// </summary>
 		/// <param name="other">
@@ -4013,40 +3815,6 @@ namespace OpenGL
 				return (false);
 			if (Math.Abs(_M31 - other._M31) > precision)
 				return (false);
-
-			return (true);
-		}
-
-		/// <summary>
-		/// Indicates whether the this Matrix4x2f is relatively equal to another Matrix4x2f.
-		/// </summary>
-		/// <param name="other">
-		/// The <see cref="Matrix4x2f"/> to compare with this Matrix4x2f.
-		/// </param>
-		/// <param name="precision">
-		/// The <see cref="float"/> that specifies the relative error tollerance, intended as fraction of the range.
-		/// </param>
-		/// <returns>
-		/// It returns true if the this Matrix4x2f is relatively equal to <paramref name="other"/>; otherwise, false.
-		/// </returns>
-		public bool RelativelyEquals(Matrix4x2f other, float precision)
-		{
-			if (!_M00.RelativelyEquals(other._M00, precision))
-				return false;
-			if (!_M01.RelativelyEquals(other._M01, precision))
-				return false;
-			if (!_M10.RelativelyEquals(other._M10, precision))
-				return false;
-			if (!_M11.RelativelyEquals(other._M11, precision))
-				return false;
-			if (!_M20.RelativelyEquals(other._M20, precision))
-				return false;
-			if (!_M21.RelativelyEquals(other._M21, precision))
-				return false;
-			if (!_M30.RelativelyEquals(other._M30, precision))
-				return false;
-			if (!_M31.RelativelyEquals(other._M31, precision))
-				return false;
 
 			return (true);
 		}
@@ -4630,48 +4398,6 @@ namespace OpenGL
 				return (false);
 			if (Math.Abs(_M32 - other._M32) > precision)
 				return (false);
-
-			return (true);
-		}
-
-		/// <summary>
-		/// Indicates whether the this Matrix4x3f is relatively equal to another Matrix4x3f.
-		/// </summary>
-		/// <param name="other">
-		/// The <see cref="Matrix4x3f"/> to compare with this Matrix4x3f.
-		/// </param>
-		/// <param name="precision">
-		/// The <see cref="float"/> that specifies the relative error tollerance, intended as fraction of the range.
-		/// </param>
-		/// <returns>
-		/// It returns true if the this Matrix4x3f is relatively equal to <paramref name="other"/>; otherwise, false.
-		/// </returns>
-		public bool RelativelyEquals(Matrix4x3f other, float precision)
-		{
-			if (!_M00.RelativelyEquals(other._M00, precision))
-				return false;
-			if (!_M01.RelativelyEquals(other._M01, precision))
-				return false;
-			if (!_M02.RelativelyEquals(other._M02, precision))
-				return false;
-			if (!_M10.RelativelyEquals(other._M10, precision))
-				return false;
-			if (!_M11.RelativelyEquals(other._M11, precision))
-				return false;
-			if (!_M12.RelativelyEquals(other._M12, precision))
-				return false;
-			if (!_M20.RelativelyEquals(other._M20, precision))
-				return false;
-			if (!_M21.RelativelyEquals(other._M21, precision))
-				return false;
-			if (!_M22.RelativelyEquals(other._M22, precision))
-				return false;
-			if (!_M30.RelativelyEquals(other._M30, precision))
-				return false;
-			if (!_M31.RelativelyEquals(other._M31, precision))
-				return false;
-			if (!_M32.RelativelyEquals(other._M32, precision))
-				return false;
 
 			return (true);
 		}
@@ -6020,56 +5746,6 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Indicates whether the this Matrix4x4f is relatively equal to another Matrix4x4f.
-		/// </summary>
-		/// <param name="other">
-		/// The <see cref="Matrix4x4f"/> to compare with this Matrix4x4f.
-		/// </param>
-		/// <param name="precision">
-		/// The <see cref="float"/> that specifies the relative error tollerance, intended as fraction of the range.
-		/// </param>
-		/// <returns>
-		/// It returns true if the this Matrix4x4f is relatively equal to <paramref name="other"/>; otherwise, false.
-		/// </returns>
-		public bool RelativelyEquals(Matrix4x4f other, float precision)
-		{
-			if (!_M00.RelativelyEquals(other._M00, precision))
-				return false;
-			if (!_M01.RelativelyEquals(other._M01, precision))
-				return false;
-			if (!_M02.RelativelyEquals(other._M02, precision))
-				return false;
-			if (!_M03.RelativelyEquals(other._M03, precision))
-				return false;
-			if (!_M10.RelativelyEquals(other._M10, precision))
-				return false;
-			if (!_M11.RelativelyEquals(other._M11, precision))
-				return false;
-			if (!_M12.RelativelyEquals(other._M12, precision))
-				return false;
-			if (!_M13.RelativelyEquals(other._M13, precision))
-				return false;
-			if (!_M20.RelativelyEquals(other._M20, precision))
-				return false;
-			if (!_M21.RelativelyEquals(other._M21, precision))
-				return false;
-			if (!_M22.RelativelyEquals(other._M22, precision))
-				return false;
-			if (!_M23.RelativelyEquals(other._M23, precision))
-				return false;
-			if (!_M30.RelativelyEquals(other._M30, precision))
-				return false;
-			if (!_M31.RelativelyEquals(other._M31, precision))
-				return false;
-			if (!_M32.RelativelyEquals(other._M32, precision))
-				return false;
-			if (!_M33.RelativelyEquals(other._M33, precision))
-				return false;
-
-			return (true);
-		}
-
-		/// <summary>
 		/// Indicates whether the this Matrix4x4f is equal to another Matrix4x4f.
 		/// </summary>
 		/// <param name="other">
@@ -6637,32 +6313,6 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Indicates whether the this Matrix2x2d is relatively equal to another Matrix2x2d.
-		/// </summary>
-		/// <param name="other">
-		/// The <see cref="Matrix2x2d"/> to compare with this Matrix2x2d.
-		/// </param>
-		/// <param name="precision">
-		/// The <see cref="double"/> that specifies the relative error tollerance, intended as fraction of the range.
-		/// </param>
-		/// <returns>
-		/// It returns true if the this Matrix2x2d is relatively equal to <paramref name="other"/>; otherwise, false.
-		/// </returns>
-		public bool RelativelyEquals(Matrix2x2d other, double precision)
-		{
-			if (!_M00.RelativelyEquals(other._M00, precision))
-				return false;
-			if (!_M01.RelativelyEquals(other._M01, precision))
-				return false;
-			if (!_M10.RelativelyEquals(other._M10, precision))
-				return false;
-			if (!_M11.RelativelyEquals(other._M11, precision))
-				return false;
-
-			return (true);
-		}
-
-		/// <summary>
 		/// Indicates whether the this Matrix2x2d is equal to another Matrix2x2d.
 		/// </summary>
 		/// <param name="other">
@@ -7107,36 +6757,6 @@ namespace OpenGL
 				return (false);
 			if (Math.Abs(_M12 - other._M12) > precision)
 				return (false);
-
-			return (true);
-		}
-
-		/// <summary>
-		/// Indicates whether the this Matrix2x3d is relatively equal to another Matrix2x3d.
-		/// </summary>
-		/// <param name="other">
-		/// The <see cref="Matrix2x3d"/> to compare with this Matrix2x3d.
-		/// </param>
-		/// <param name="precision">
-		/// The <see cref="double"/> that specifies the relative error tollerance, intended as fraction of the range.
-		/// </param>
-		/// <returns>
-		/// It returns true if the this Matrix2x3d is relatively equal to <paramref name="other"/>; otherwise, false.
-		/// </returns>
-		public bool RelativelyEquals(Matrix2x3d other, double precision)
-		{
-			if (!_M00.RelativelyEquals(other._M00, precision))
-				return false;
-			if (!_M01.RelativelyEquals(other._M01, precision))
-				return false;
-			if (!_M02.RelativelyEquals(other._M02, precision))
-				return false;
-			if (!_M10.RelativelyEquals(other._M10, precision))
-				return false;
-			if (!_M11.RelativelyEquals(other._M11, precision))
-				return false;
-			if (!_M12.RelativelyEquals(other._M12, precision))
-				return false;
 
 			return (true);
 		}
@@ -7629,40 +7249,6 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Indicates whether the this Matrix2x4d is relatively equal to another Matrix2x4d.
-		/// </summary>
-		/// <param name="other">
-		/// The <see cref="Matrix2x4d"/> to compare with this Matrix2x4d.
-		/// </param>
-		/// <param name="precision">
-		/// The <see cref="double"/> that specifies the relative error tollerance, intended as fraction of the range.
-		/// </param>
-		/// <returns>
-		/// It returns true if the this Matrix2x4d is relatively equal to <paramref name="other"/>; otherwise, false.
-		/// </returns>
-		public bool RelativelyEquals(Matrix2x4d other, double precision)
-		{
-			if (!_M00.RelativelyEquals(other._M00, precision))
-				return false;
-			if (!_M01.RelativelyEquals(other._M01, precision))
-				return false;
-			if (!_M02.RelativelyEquals(other._M02, precision))
-				return false;
-			if (!_M03.RelativelyEquals(other._M03, precision))
-				return false;
-			if (!_M10.RelativelyEquals(other._M10, precision))
-				return false;
-			if (!_M11.RelativelyEquals(other._M11, precision))
-				return false;
-			if (!_M12.RelativelyEquals(other._M12, precision))
-				return false;
-			if (!_M13.RelativelyEquals(other._M13, precision))
-				return false;
-
-			return (true);
-		}
-
-		/// <summary>
 		/// Indicates whether the this Matrix2x4d is equal to another Matrix2x4d.
 		/// </summary>
 		/// <param name="other">
@@ -8122,36 +7708,6 @@ namespace OpenGL
 				return (false);
 			if (Math.Abs(_M21 - other._M21) > precision)
 				return (false);
-
-			return (true);
-		}
-
-		/// <summary>
-		/// Indicates whether the this Matrix3x2d is relatively equal to another Matrix3x2d.
-		/// </summary>
-		/// <param name="other">
-		/// The <see cref="Matrix3x2d"/> to compare with this Matrix3x2d.
-		/// </param>
-		/// <param name="precision">
-		/// The <see cref="double"/> that specifies the relative error tollerance, intended as fraction of the range.
-		/// </param>
-		/// <returns>
-		/// It returns true if the this Matrix3x2d is relatively equal to <paramref name="other"/>; otherwise, false.
-		/// </returns>
-		public bool RelativelyEquals(Matrix3x2d other, double precision)
-		{
-			if (!_M00.RelativelyEquals(other._M00, precision))
-				return false;
-			if (!_M01.RelativelyEquals(other._M01, precision))
-				return false;
-			if (!_M10.RelativelyEquals(other._M10, precision))
-				return false;
-			if (!_M11.RelativelyEquals(other._M11, precision))
-				return false;
-			if (!_M20.RelativelyEquals(other._M20, precision))
-				return false;
-			if (!_M21.RelativelyEquals(other._M21, precision))
-				return false;
 
 			return (true);
 		}
@@ -8977,42 +8533,6 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Indicates whether the this Matrix3x3d is relatively equal to another Matrix3x3d.
-		/// </summary>
-		/// <param name="other">
-		/// The <see cref="Matrix3x3d"/> to compare with this Matrix3x3d.
-		/// </param>
-		/// <param name="precision">
-		/// The <see cref="double"/> that specifies the relative error tollerance, intended as fraction of the range.
-		/// </param>
-		/// <returns>
-		/// It returns true if the this Matrix3x3d is relatively equal to <paramref name="other"/>; otherwise, false.
-		/// </returns>
-		public bool RelativelyEquals(Matrix3x3d other, double precision)
-		{
-			if (!_M00.RelativelyEquals(other._M00, precision))
-				return false;
-			if (!_M01.RelativelyEquals(other._M01, precision))
-				return false;
-			if (!_M02.RelativelyEquals(other._M02, precision))
-				return false;
-			if (!_M10.RelativelyEquals(other._M10, precision))
-				return false;
-			if (!_M11.RelativelyEquals(other._M11, precision))
-				return false;
-			if (!_M12.RelativelyEquals(other._M12, precision))
-				return false;
-			if (!_M20.RelativelyEquals(other._M20, precision))
-				return false;
-			if (!_M21.RelativelyEquals(other._M21, precision))
-				return false;
-			if (!_M22.RelativelyEquals(other._M22, precision))
-				return false;
-
-			return (true);
-		}
-
-		/// <summary>
 		/// Indicates whether the this Matrix3x3d is equal to another Matrix3x3d.
 		/// </summary>
 		/// <param name="other">
@@ -9586,48 +9106,6 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Indicates whether the this Matrix3x4d is relatively equal to another Matrix3x4d.
-		/// </summary>
-		/// <param name="other">
-		/// The <see cref="Matrix3x4d"/> to compare with this Matrix3x4d.
-		/// </param>
-		/// <param name="precision">
-		/// The <see cref="double"/> that specifies the relative error tollerance, intended as fraction of the range.
-		/// </param>
-		/// <returns>
-		/// It returns true if the this Matrix3x4d is relatively equal to <paramref name="other"/>; otherwise, false.
-		/// </returns>
-		public bool RelativelyEquals(Matrix3x4d other, double precision)
-		{
-			if (!_M00.RelativelyEquals(other._M00, precision))
-				return false;
-			if (!_M01.RelativelyEquals(other._M01, precision))
-				return false;
-			if (!_M02.RelativelyEquals(other._M02, precision))
-				return false;
-			if (!_M03.RelativelyEquals(other._M03, precision))
-				return false;
-			if (!_M10.RelativelyEquals(other._M10, precision))
-				return false;
-			if (!_M11.RelativelyEquals(other._M11, precision))
-				return false;
-			if (!_M12.RelativelyEquals(other._M12, precision))
-				return false;
-			if (!_M13.RelativelyEquals(other._M13, precision))
-				return false;
-			if (!_M20.RelativelyEquals(other._M20, precision))
-				return false;
-			if (!_M21.RelativelyEquals(other._M21, precision))
-				return false;
-			if (!_M22.RelativelyEquals(other._M22, precision))
-				return false;
-			if (!_M23.RelativelyEquals(other._M23, precision))
-				return false;
-
-			return (true);
-		}
-
-		/// <summary>
 		/// Indicates whether the this Matrix3x4d is equal to another Matrix3x4d.
 		/// </summary>
 		/// <param name="other">
@@ -10138,40 +9616,6 @@ namespace OpenGL
 				return (false);
 			if (Math.Abs(_M31 - other._M31) > precision)
 				return (false);
-
-			return (true);
-		}
-
-		/// <summary>
-		/// Indicates whether the this Matrix4x2d is relatively equal to another Matrix4x2d.
-		/// </summary>
-		/// <param name="other">
-		/// The <see cref="Matrix4x2d"/> to compare with this Matrix4x2d.
-		/// </param>
-		/// <param name="precision">
-		/// The <see cref="double"/> that specifies the relative error tollerance, intended as fraction of the range.
-		/// </param>
-		/// <returns>
-		/// It returns true if the this Matrix4x2d is relatively equal to <paramref name="other"/>; otherwise, false.
-		/// </returns>
-		public bool RelativelyEquals(Matrix4x2d other, double precision)
-		{
-			if (!_M00.RelativelyEquals(other._M00, precision))
-				return false;
-			if (!_M01.RelativelyEquals(other._M01, precision))
-				return false;
-			if (!_M10.RelativelyEquals(other._M10, precision))
-				return false;
-			if (!_M11.RelativelyEquals(other._M11, precision))
-				return false;
-			if (!_M20.RelativelyEquals(other._M20, precision))
-				return false;
-			if (!_M21.RelativelyEquals(other._M21, precision))
-				return false;
-			if (!_M30.RelativelyEquals(other._M30, precision))
-				return false;
-			if (!_M31.RelativelyEquals(other._M31, precision))
-				return false;
 
 			return (true);
 		}
@@ -10755,48 +10199,6 @@ namespace OpenGL
 				return (false);
 			if (Math.Abs(_M32 - other._M32) > precision)
 				return (false);
-
-			return (true);
-		}
-
-		/// <summary>
-		/// Indicates whether the this Matrix4x3d is relatively equal to another Matrix4x3d.
-		/// </summary>
-		/// <param name="other">
-		/// The <see cref="Matrix4x3d"/> to compare with this Matrix4x3d.
-		/// </param>
-		/// <param name="precision">
-		/// The <see cref="double"/> that specifies the relative error tollerance, intended as fraction of the range.
-		/// </param>
-		/// <returns>
-		/// It returns true if the this Matrix4x3d is relatively equal to <paramref name="other"/>; otherwise, false.
-		/// </returns>
-		public bool RelativelyEquals(Matrix4x3d other, double precision)
-		{
-			if (!_M00.RelativelyEquals(other._M00, precision))
-				return false;
-			if (!_M01.RelativelyEquals(other._M01, precision))
-				return false;
-			if (!_M02.RelativelyEquals(other._M02, precision))
-				return false;
-			if (!_M10.RelativelyEquals(other._M10, precision))
-				return false;
-			if (!_M11.RelativelyEquals(other._M11, precision))
-				return false;
-			if (!_M12.RelativelyEquals(other._M12, precision))
-				return false;
-			if (!_M20.RelativelyEquals(other._M20, precision))
-				return false;
-			if (!_M21.RelativelyEquals(other._M21, precision))
-				return false;
-			if (!_M22.RelativelyEquals(other._M22, precision))
-				return false;
-			if (!_M30.RelativelyEquals(other._M30, precision))
-				return false;
-			if (!_M31.RelativelyEquals(other._M31, precision))
-				return false;
-			if (!_M32.RelativelyEquals(other._M32, precision))
-				return false;
 
 			return (true);
 		}
@@ -12140,56 +11542,6 @@ namespace OpenGL
 				return (false);
 			if (Math.Abs(_M33 - other._M33) > precision)
 				return (false);
-
-			return (true);
-		}
-
-		/// <summary>
-		/// Indicates whether the this Matrix4x4d is relatively equal to another Matrix4x4d.
-		/// </summary>
-		/// <param name="other">
-		/// The <see cref="Matrix4x4d"/> to compare with this Matrix4x4d.
-		/// </param>
-		/// <param name="precision">
-		/// The <see cref="double"/> that specifies the relative error tollerance, intended as fraction of the range.
-		/// </param>
-		/// <returns>
-		/// It returns true if the this Matrix4x4d is relatively equal to <paramref name="other"/>; otherwise, false.
-		/// </returns>
-		public bool RelativelyEquals(Matrix4x4d other, double precision)
-		{
-			if (!_M00.RelativelyEquals(other._M00, precision))
-				return false;
-			if (!_M01.RelativelyEquals(other._M01, precision))
-				return false;
-			if (!_M02.RelativelyEquals(other._M02, precision))
-				return false;
-			if (!_M03.RelativelyEquals(other._M03, precision))
-				return false;
-			if (!_M10.RelativelyEquals(other._M10, precision))
-				return false;
-			if (!_M11.RelativelyEquals(other._M11, precision))
-				return false;
-			if (!_M12.RelativelyEquals(other._M12, precision))
-				return false;
-			if (!_M13.RelativelyEquals(other._M13, precision))
-				return false;
-			if (!_M20.RelativelyEquals(other._M20, precision))
-				return false;
-			if (!_M21.RelativelyEquals(other._M21, precision))
-				return false;
-			if (!_M22.RelativelyEquals(other._M22, precision))
-				return false;
-			if (!_M23.RelativelyEquals(other._M23, precision))
-				return false;
-			if (!_M30.RelativelyEquals(other._M30, precision))
-				return false;
-			if (!_M31.RelativelyEquals(other._M31, precision))
-				return false;
-			if (!_M32.RelativelyEquals(other._M32, precision))
-				return false;
-			if (!_M33.RelativelyEquals(other._M33, precision))
-				return false;
 
 			return (true);
 		}

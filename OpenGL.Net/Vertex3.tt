@@ -842,29 +842,6 @@ namespace OpenGL
 			return (true);
 		}
 
-		/// <summary>
-		/// Indicates whether the this <#= className #> is relatively equal to another <#= className #>.
-		/// </summary>
-		/// <param name="other">
-		/// The <see cref="<#= className #>"/> to compare with this <#= className #>.
-		/// </param>
-		/// <param name="precision">
-		/// The <see cref="<#= baseType #>"/> that specifies the relative error tollerance, intended as fraction of the range.
-		/// </param>
-		/// <returns>
-		/// It returns true if the this <#= className #> is relatively equal to <paramref name="other"/>; otherwise, false.
-		/// </returns>
-		public bool RelativelyEquals(<#= className #> other, <#= baseType #> precision)
-		{
-			if (!x.RelativelyEquals(other.x, precision))
-				return false;
-			if (!y.RelativelyEquals(other.y, precision))
-				return false;
-			if (!z.RelativelyEquals(other.z, precision))
-				return false;
-
-			return (true);
-		}
 <#
 		}
 #>

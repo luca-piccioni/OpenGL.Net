@@ -574,13 +574,8 @@ namespace OpenGL.Test
 			m[<#= c1 #>, <#= r1 #>] = 0.5<#= literal #>;
 			Assert.IsFalse(m.Equals(<#= className #>.Zero, 0.25<#= literal #>));
 			Assert.IsTrue(m.Equals(<#= className #>.Zero, 0.50<#= literal #>));
+			m[<#= c1 #>, <#= r1 #>] = 0.0<#= literal #>;
 <# } #>
-		}
-
-		[Test]
-		public void <#= className #>_TestRelativelyEqualsTo<#= className #>()
-		{
-			
 		}
 
 		[Test]

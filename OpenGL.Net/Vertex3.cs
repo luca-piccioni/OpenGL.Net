@@ -5314,29 +5314,6 @@ namespace OpenGL
 			return (true);
 		}
 
-		/// <summary>
-		/// Indicates whether the this Vertex3f is relatively equal to another Vertex3f.
-		/// </summary>
-		/// <param name="other">
-		/// The <see cref="Vertex3f"/> to compare with this Vertex3f.
-		/// </param>
-		/// <param name="precision">
-		/// The <see cref="float"/> that specifies the relative error tollerance, intended as fraction of the range.
-		/// </param>
-		/// <returns>
-		/// It returns true if the this Vertex3f is relatively equal to <paramref name="other"/>; otherwise, false.
-		/// </returns>
-		public bool RelativelyEquals(Vertex3f other, float precision)
-		{
-			if (!x.RelativelyEquals(other.x, precision))
-				return false;
-			if (!y.RelativelyEquals(other.y, precision))
-				return false;
-			if (!z.RelativelyEquals(other.z, precision))
-				return false;
-
-			return (true);
-		}
 
 		/// <summary>
 		/// Indicates whether the this Vertex3f is equal to another Vertex3f.
@@ -6078,29 +6055,6 @@ namespace OpenGL
 			return (true);
 		}
 
-		/// <summary>
-		/// Indicates whether the this Vertex3d is relatively equal to another Vertex3d.
-		/// </summary>
-		/// <param name="other">
-		/// The <see cref="Vertex3d"/> to compare with this Vertex3d.
-		/// </param>
-		/// <param name="precision">
-		/// The <see cref="double"/> that specifies the relative error tollerance, intended as fraction of the range.
-		/// </param>
-		/// <returns>
-		/// It returns true if the this Vertex3d is relatively equal to <paramref name="other"/>; otherwise, false.
-		/// </returns>
-		public bool RelativelyEquals(Vertex3d other, double precision)
-		{
-			if (!x.RelativelyEquals(other.x, precision))
-				return false;
-			if (!y.RelativelyEquals(other.y, precision))
-				return false;
-			if (!z.RelativelyEquals(other.z, precision))
-				return false;
-
-			return (true);
-		}
 
 		/// <summary>
 		/// Indicates whether the this Vertex3d is equal to another Vertex3d.
@@ -6856,29 +6810,6 @@ namespace OpenGL
 			return (true);
 		}
 
-		/// <summary>
-		/// Indicates whether the this Vertex3hf is relatively equal to another Vertex3hf.
-		/// </summary>
-		/// <param name="other">
-		/// The <see cref="Vertex3hf"/> to compare with this Vertex3hf.
-		/// </param>
-		/// <param name="precision">
-		/// The <see cref="HalfFloat"/> that specifies the relative error tollerance, intended as fraction of the range.
-		/// </param>
-		/// <returns>
-		/// It returns true if the this Vertex3hf is relatively equal to <paramref name="other"/>; otherwise, false.
-		/// </returns>
-		public bool RelativelyEquals(Vertex3hf other, HalfFloat precision)
-		{
-			if (!x.RelativelyEquals(other.x, precision))
-				return false;
-			if (!y.RelativelyEquals(other.y, precision))
-				return false;
-			if (!z.RelativelyEquals(other.z, precision))
-				return false;
-
-			return (true);
-		}
 
 		/// <summary>
 		/// Indicates whether the this Vertex3hf is equal to another Vertex3hf.
