@@ -1,433 +1,433 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <command_overrides>
-	
-	<!-- GL - Missing enumerants -->
-
-	<enumerant name="^EnableCap$">
-		<add_enum>GL_FRAMEBUFFER_SRGB</add_enum>
-		<add_enum>GL_PRIMITIVE_RESTART</add_enum>
-		<add_enum>GL_PRIMITIVE_RESTART_NV</add_enum>
-        <add_enum>GL_PRIMITIVE_RESTART_FIXED_INDEX</add_enum>
-		<add_enum>GL_RASTERIZER_DISCARD</add_enum>
-	</enumerant>
-	
-	<enumerant name="^ErrorCode$">
-		<add_enum_value value="Wgl.ERROR_INVALID_PIXEL_TYPE_ARB">GL_ERROR_INVALID_PIXEL_TYPE_ARB</add_enum_value>
-		<add_enum_value value="Wgl.ERROR_INVALID_PROFILE_ARB">GL_ERROR_INVALID_PROFILE_ARB</add_enum_value>
-		<add_enum_value value="Wgl.ERROR_INVALID_VERSION_ARB">GL_ERROR_INVALID_VERSION_ARB</add_enum_value>
-		<add_enum_value value="Wgl.ERROR_INCOMPATIBLE_DEVICE_CONTEXTS_ARB">GL_ERROR_INCOMPATIBLE_DEVICE_CONTEXTS_ARB</add_enum_value>
-	</enumerant>
-
-	<enumerant name="^GetPName$">
-		<add_enum>GL_NUM_EXTENSIONS</add_enum>
-		<add_enum>GL_NUM_SHADING_LANGUAGE_VERSIONS</add_enum>
-	</enumerant>
-
-	<enumerant name="^OcclusionQueryEventMaskAMD$" type="bitmask">
-		
-	</enumerant>
-
-	<enumerant name="ReadBufferMode">
-		<add_enum>GL_COLOR_ATTACHMENT0</add_enum>
-		<add_enum>GL_COLOR_ATTACHMENT1</add_enum>
-		<add_enum>GL_COLOR_ATTACHMENT2</add_enum>
-		<add_enum>GL_COLOR_ATTACHMENT3</add_enum>
-		<add_enum>GL_COLOR_ATTACHMENT4</add_enum>
-		<add_enum>GL_COLOR_ATTACHMENT5</add_enum>
-		<add_enum>GL_COLOR_ATTACHMENT6</add_enum>
-		<add_enum>GL_COLOR_ATTACHMENT7</add_enum>
-		<add_enum>GL_COLOR_ATTACHMENT8</add_enum>
-		<add_enum>GL_COLOR_ATTACHMENT9</add_enum>
-		<add_enum>GL_COLOR_ATTACHMENT10</add_enum>
-		<add_enum>GL_COLOR_ATTACHMENT11</add_enum>
-		<add_enum>GL_COLOR_ATTACHMENT12</add_enum>
-		<add_enum>GL_COLOR_ATTACHMENT13</add_enum>
-		<add_enum>GL_COLOR_ATTACHMENT14</add_enum>
-		<add_enum>GL_COLOR_ATTACHMENT15</add_enum>
-		<add_enum>GL_COLOR_ATTACHMENT16</add_enum>
-		<add_enum>GL_COLOR_ATTACHMENT17</add_enum>
-		<add_enum>GL_COLOR_ATTACHMENT18</add_enum>
-		<add_enum>GL_COLOR_ATTACHMENT19</add_enum>
-		<add_enum>GL_COLOR_ATTACHMENT20</add_enum>
-		<add_enum>GL_COLOR_ATTACHMENT21</add_enum>
-		<add_enum>GL_COLOR_ATTACHMENT22</add_enum>
-		<add_enum>GL_COLOR_ATTACHMENT23</add_enum>
-		<add_enum>GL_COLOR_ATTACHMENT24</add_enum>
-		<add_enum>GL_COLOR_ATTACHMENT25</add_enum>
-		<add_enum>GL_COLOR_ATTACHMENT26</add_enum>
-		<add_enum>GL_COLOR_ATTACHMENT27</add_enum>
-		<add_enum>GL_COLOR_ATTACHMENT28</add_enum>
-		<add_enum>GL_COLOR_ATTACHMENT29</add_enum>
-		<add_enum>GL_COLOR_ATTACHMENT30</add_enum>
-		<add_enum>GL_COLOR_ATTACHMENT31</add_enum>
-	</enumerant>
-	
-	<enumerant name="^PixelFormat$">
-		<add_enum>GL_BGR</add_enum>
-		<add_enum>GL_BGRA</add_enum>
-		<add_enum>GL_RG</add_enum>
-		<add_enum>GL_DEPTH_STENCIL</add_enum>
-		<add_enum>GL_RED_INTEGER</add_enum>
-		<add_enum>GL_RG_INTEGER</add_enum>
-		<add_enum>GL_RGB_INTEGER</add_enum>
-		<add_enum>GL_RGBA_INTEGER</add_enum>
-	</enumerant>
-	
-	<enumerant name="^PixelType$">
-		<add_enum>GL_DOUBLE</add_enum>
-		<add_enum>GL_HALF_FLOAT</add_enum>
-		<add_enum>GL_UNSIGNED_BYTE_2_3_3_REV</add_enum>
-		<add_enum>GL_UNSIGNED_SHORT_5_6_5</add_enum>
-		<add_enum>GL_UNSIGNED_SHORT_1_5_5_5_REV</add_enum>
-		<add_enum>GL_UNSIGNED_SHORT_5_6_5_REV</add_enum>
-		<add_enum>GL_UNSIGNED_INT_8_8_8_8</add_enum>
-		<add_enum>GL_UNSIGNED_INT_10_10_10_2</add_enum>
-		<add_enum>GL_UNSIGNED_INT_2_10_10_10_REV</add_enum>
-	</enumerant>
-
-	<enumerant name="^StringName$">
-		<add_enum>GL_SHADING_LANGUAGE_VERSION</add_enum>
-	</enumerant>
-
-	<enumerant name="^TextureTarget$">
-		<add_enum>GL_TEXTURE_RECTANGLE</add_enum>
-		<add_enum>GL_TEXTURE_CUBE_MAP</add_enum>
-		<add_enum>GL_TEXTURE_CUBE_MAP_POSITIVE_X</add_enum>
-		<add_enum>GL_TEXTURE_CUBE_MAP_NEGATIVE_X</add_enum>
-		<add_enum>GL_TEXTURE_CUBE_MAP_POSITIVE_Y</add_enum>
-		<add_enum>GL_TEXTURE_CUBE_MAP_NEGATIVE_Y</add_enum>
-		<add_enum>GL_TEXTURE_CUBE_MAP_POSITIVE_Z</add_enum>
-		<add_enum>GL_TEXTURE_CUBE_MAP_NEGATIVE_Z</add_enum>
-		<add_enum>GL_TEXTURE_1D_ARRAY</add_enum>
-		<add_enum>GL_TEXTURE_2D_ARRAY</add_enum>
-		<add_enum>GL_TEXTURE_2D_MULTISAMPLE</add_enum>
-		<add_enum>GL_TEXTURE_2D_MULTISAMPLE_ARRAY</add_enum>
-		<add_enum>GL_PROXY_TEXTURE_1D_ARRAY</add_enum>
-		<add_enum>GL_PROXY_TEXTURE_2D_ARRAY</add_enum>
-		<add_enum>GL_PROXY_TEXTURE_2D_MULTISAMPLE</add_enum>
-		<add_enum>GL_PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY</add_enum>
-	</enumerant>
-
-	<enumerant name="^TextureParameterName$">
-		<add_enum>GL_TEXTURE_BASE_LEVEL</add_enum>
-		<add_enum>GL_TEXTURE_COMPARE_MODE</add_enum>
-		<add_enum>GL_TEXTURE_COMPARE_FUNC</add_enum>
-		<add_enum>GL_TEXTURE_LOD_BIAS</add_enum>
-		<add_enum>GL_TEXTURE_MIN_LOD</add_enum>
-		<add_enum>GL_TEXTURE_MAX_LOD</add_enum>
-		<add_enum>GL_TEXTURE_MAX_LEVEL</add_enum>
-		<add_enum>GL_TEXTURE_SWIZZLE_R</add_enum>
-		<add_enum>GL_TEXTURE_SWIZZLE_G</add_enum>
-		<add_enum>GL_TEXTURE_SWIZZLE_B</add_enum>
-		<add_enum>GL_TEXTURE_SWIZZLE_A</add_enum>
-		<add_enum>GL_TEXTURE_SWIZZLE_RGBA</add_enum>
-		<add_enum>GL_DEPTH_STENCIL_TEXTURE_MODE</add_enum>
-	</enumerant>
-
-	<enumerant name="^MapBufferUsageMask$">
-		<add_enum>GL_NONE</add_enum>
-	</enumerant>
-	
-	<!-- GL - Special Cases -->
-
-	<command name="^gl(Begin|Vertex(Attrib)?|(Secondary)?Color|Index|Normal|(Fog|Tex|MultiTex|Eval)Coord|EvalPoint|ArrayElement|Material|EdgeFlag|CallList(s)?)[1-4]?N?u?(b|s|i|f|d)?$">
-		<!-- Commands allowed between glBegin and glEnd cannot be checked for errors -->
-		<flags>NoGetError</flags>
-	</command>
-	
-	<command name="(e)?glGetError$">
-		<!-- Avoid stack overflow -->
-		<flags>NoGetError</flags>
-	</command>
-	
-	<!-- glGet* commands (even indexed) -->
-	<command name="^glGet((Integer(64)?|Float|Double|Boolean)(v|i_v))$">
-		<rename>Get</rename>
-		<!-- Generate "out" overloads -->
-		<flags>OutParam ForcePlainParams</flags>
-	</command>
-	
-	<!-- Don't collaps automatically... -->
-	<command name="^glGetQueryObjectu?iv$">
-		<rename>GetQueryObject</rename>
-	</command>
-
-	<!-- GetQueryBufferObject signature collides with each other -->
-	<command name="^glGetQueryBufferObjectiv$">
-		<rename>GetQueryBufferObject32i</rename>
-	</command>
-	<command name="^glGetQueryBufferObjectuiv$">
-		<rename>GetQueryBufferObject32ui</rename>
-	</command>
-	<command name="^glGetQueryBufferObjecti64v$">
-		<rename>GetQueryBufferObject64i</rename>
-	</command>
-	<command name="^glGetQueryBufferObjectui64v$">
-		<rename>GetQueryBufferObject64ui</rename>
-	</command>
-
-	<!-- GL - Out Parameter -->
-
-	<!-- Get "object" -->
-	<command name="^glGet(Named)?(Active(UniformBlock|SubroutineUniform)|Program(Interface|Pipeline|Stage)?|Query(Object)?|Shader|String|VertexAttrib)(i|f|ui)?(64)?v(ARB|EXT)?$">
-		<!-- Generate "out" overloads -->
-		<flags>OutParam</flags>
-	</command>
-
-	<!-- Get or set "object parameter" -->
-	<command name="^gl(Get)?(Named)?(Buffer|Framebuffer(Attachment)?|Object|Renderbuffer|Sampler|Tex(ture)?(Level)?)Parameter(I)?(i|f|ui)v(ARB|EXT)?$">
-		<!-- Generate "out" overloads -->
-		<flags>OutParam UnsafeParams GenericParams</flags>
-	</command>
-
-	<!-- glGetShaderPrecisionFormat specific -->
-	<command name="^glGetShaderPrecisionFormat$">
-		<!-- Generate "out" overloads -->
-		<flags>OutParam</flags>
-	</command>
-	
-	<command name="^(gl\w+TexImage(1-4)|glBufferData)$">
-		<!-- Let the application handles the *TexImage* and glBufferData errors (proxy texture targets, out of memory) -->
-		<flags>NoGetError</flags>
-	</command>
-	
-	<!-- GL - Variadic Commands -->
-
-	<command name="^gl(Feedback|Select)Buffer$">
-		<flags>VariadicParams</flags>
-	</command>
-
-	<command name="^glPrioritize(Textures)$">
-		<flags>VariadicParams</flags>
-	</command>
-
-	<command name="^glBind(Textures|Samplers|ImageTextures|VertexBuffers|PerfMonitorsAMD)$">
-		<flags>VariadicParams</flags>
-	</command>
-
-	<command name="^glDelete(Buffers|Queries|Textures|Renderbuffers|Framebuffers|VertexArrays|Samplers|TransformFeedbacks|ProgramPipelines)(ARB|EXT)?$">
-		<flags>VariadicParams</flags>
-	</command>
-
-	<command name="^glDelete(Fences)APPLE$">
-		<flags>VariadicParams</flags>
-	</command>
-
-	<command name="^glDelete(Name|PerfMonitors)AMD$">
-		<flags>VariadicParams</flags>
-	</command>
-
-	<command name="^glDelete(Fences|OcclusionQueries)NV$">
-		<flags>VariadicParams</flags>
-	</command>
-
-	<command name="^gl(DrawBuffers|UniformSubroutines|CreateShaderProgramv|InvalidateFramebuffer)$">
-		<flags>VariadicParams</flags>
-	</command>
-	
-	<!-- Unsafe/Generic parameters -->
-
-	<!-- gl*Uniform* -->
-	<command name="^gl(Get)?(Program)?Uniform(Matrix)?(1|2|3|4|2x3|2x4|3x2|3x4|4x2|4x3)?(d|f|i|ui)v$">
-		<flags>UnsafeParams GenericParams</flags>
-	</command>
-
-	<!-- glVertexAttrib* -->
-	<command name="^glVertexAttrib(I|L)?(1|2|3|4)(N|I)?(b|s|d|f|i|ub|ui|us)v$">
-		<flags>UnsafeParams GenericParams</flags>
-	</command>
-
-	<!-- glTexParameter* -->
-	<!-- > GenericParams desiderable for GL_TEXTURE_BORDER_COLOR -->
-	<command name="^glTexParameter(I)?(b|s|d|f|i|ub|ui|us)v$">
-		<flags>UnsafeParams GenericParams</flags>
-	</command>
-
-	<!-- Argument renaming for better documentation -->
-	
-	<command name="^glColorMaski$">
-		<param id="index"><rename>buf</rename></param>
-		<param id="r"><rename>red</rename></param>
-		<param id="g"><rename>green</rename></param>
-		<param id="b"><rename>blue</rename></param>
-		<param id="a"><rename>alpha</rename></param>
-	</command>
     
-	<command name="^glColorTable$">
-		<param id="table"><rename>data</rename></param>
-	</command>
+    <!-- GL - Missing enumerants -->
+
+    <enumerant name="^EnableCap$">
+        <add_enum>GL_FRAMEBUFFER_SRGB</add_enum>
+        <add_enum>GL_PRIMITIVE_RESTART</add_enum>
+        <add_enum>GL_PRIMITIVE_RESTART_NV</add_enum>
+        <add_enum>GL_PRIMITIVE_RESTART_FIXED_INDEX</add_enum>
+        <add_enum>GL_RASTERIZER_DISCARD</add_enum>
+    </enumerant>
+    
+    <enumerant name="^ErrorCode$">
+        <add_enum_value value="Wgl.ERROR_INVALID_PIXEL_TYPE_ARB">GL_ERROR_INVALID_PIXEL_TYPE_ARB</add_enum_value>
+        <add_enum_value value="Wgl.ERROR_INVALID_PROFILE_ARB">GL_ERROR_INVALID_PROFILE_ARB</add_enum_value>
+        <add_enum_value value="Wgl.ERROR_INVALID_VERSION_ARB">GL_ERROR_INVALID_VERSION_ARB</add_enum_value>
+        <add_enum_value value="Wgl.ERROR_INCOMPATIBLE_DEVICE_CONTEXTS_ARB">GL_ERROR_INCOMPATIBLE_DEVICE_CONTEXTS_ARB</add_enum_value>
+    </enumerant>
+
+    <enumerant name="^GetPName$">
+        <add_enum>GL_NUM_EXTENSIONS</add_enum>
+        <add_enum>GL_NUM_SHADING_LANGUAGE_VERSIONS</add_enum>
+    </enumerant>
+
+    <enumerant name="^OcclusionQueryEventMaskAMD$" type="bitmask">
+        
+    </enumerant>
+
+    <enumerant name="ReadBufferMode">
+        <add_enum>GL_COLOR_ATTACHMENT0</add_enum>
+        <add_enum>GL_COLOR_ATTACHMENT1</add_enum>
+        <add_enum>GL_COLOR_ATTACHMENT2</add_enum>
+        <add_enum>GL_COLOR_ATTACHMENT3</add_enum>
+        <add_enum>GL_COLOR_ATTACHMENT4</add_enum>
+        <add_enum>GL_COLOR_ATTACHMENT5</add_enum>
+        <add_enum>GL_COLOR_ATTACHMENT6</add_enum>
+        <add_enum>GL_COLOR_ATTACHMENT7</add_enum>
+        <add_enum>GL_COLOR_ATTACHMENT8</add_enum>
+        <add_enum>GL_COLOR_ATTACHMENT9</add_enum>
+        <add_enum>GL_COLOR_ATTACHMENT10</add_enum>
+        <add_enum>GL_COLOR_ATTACHMENT11</add_enum>
+        <add_enum>GL_COLOR_ATTACHMENT12</add_enum>
+        <add_enum>GL_COLOR_ATTACHMENT13</add_enum>
+        <add_enum>GL_COLOR_ATTACHMENT14</add_enum>
+        <add_enum>GL_COLOR_ATTACHMENT15</add_enum>
+        <add_enum>GL_COLOR_ATTACHMENT16</add_enum>
+        <add_enum>GL_COLOR_ATTACHMENT17</add_enum>
+        <add_enum>GL_COLOR_ATTACHMENT18</add_enum>
+        <add_enum>GL_COLOR_ATTACHMENT19</add_enum>
+        <add_enum>GL_COLOR_ATTACHMENT20</add_enum>
+        <add_enum>GL_COLOR_ATTACHMENT21</add_enum>
+        <add_enum>GL_COLOR_ATTACHMENT22</add_enum>
+        <add_enum>GL_COLOR_ATTACHMENT23</add_enum>
+        <add_enum>GL_COLOR_ATTACHMENT24</add_enum>
+        <add_enum>GL_COLOR_ATTACHMENT25</add_enum>
+        <add_enum>GL_COLOR_ATTACHMENT26</add_enum>
+        <add_enum>GL_COLOR_ATTACHMENT27</add_enum>
+        <add_enum>GL_COLOR_ATTACHMENT28</add_enum>
+        <add_enum>GL_COLOR_ATTACHMENT29</add_enum>
+        <add_enum>GL_COLOR_ATTACHMENT30</add_enum>
+        <add_enum>GL_COLOR_ATTACHMENT31</add_enum>
+    </enumerant>
+    
+    <enumerant name="^PixelFormat$">
+        <add_enum>GL_BGR</add_enum>
+        <add_enum>GL_BGRA</add_enum>
+        <add_enum>GL_RG</add_enum>
+        <add_enum>GL_DEPTH_STENCIL</add_enum>
+        <add_enum>GL_RED_INTEGER</add_enum>
+        <add_enum>GL_RG_INTEGER</add_enum>
+        <add_enum>GL_RGB_INTEGER</add_enum>
+        <add_enum>GL_RGBA_INTEGER</add_enum>
+    </enumerant>
+    
+    <enumerant name="^PixelType$">
+        <add_enum>GL_DOUBLE</add_enum>
+        <add_enum>GL_HALF_FLOAT</add_enum>
+        <add_enum>GL_UNSIGNED_BYTE_2_3_3_REV</add_enum>
+        <add_enum>GL_UNSIGNED_SHORT_5_6_5</add_enum>
+        <add_enum>GL_UNSIGNED_SHORT_1_5_5_5_REV</add_enum>
+        <add_enum>GL_UNSIGNED_SHORT_5_6_5_REV</add_enum>
+        <add_enum>GL_UNSIGNED_INT_8_8_8_8</add_enum>
+        <add_enum>GL_UNSIGNED_INT_10_10_10_2</add_enum>
+        <add_enum>GL_UNSIGNED_INT_2_10_10_10_REV</add_enum>
+    </enumerant>
+
+    <enumerant name="^StringName$">
+        <add_enum>GL_SHADING_LANGUAGE_VERSION</add_enum>
+    </enumerant>
+
+    <enumerant name="^TextureTarget$">
+        <add_enum>GL_TEXTURE_RECTANGLE</add_enum>
+        <add_enum>GL_TEXTURE_CUBE_MAP</add_enum>
+        <add_enum>GL_TEXTURE_CUBE_MAP_POSITIVE_X</add_enum>
+        <add_enum>GL_TEXTURE_CUBE_MAP_NEGATIVE_X</add_enum>
+        <add_enum>GL_TEXTURE_CUBE_MAP_POSITIVE_Y</add_enum>
+        <add_enum>GL_TEXTURE_CUBE_MAP_NEGATIVE_Y</add_enum>
+        <add_enum>GL_TEXTURE_CUBE_MAP_POSITIVE_Z</add_enum>
+        <add_enum>GL_TEXTURE_CUBE_MAP_NEGATIVE_Z</add_enum>
+        <add_enum>GL_TEXTURE_1D_ARRAY</add_enum>
+        <add_enum>GL_TEXTURE_2D_ARRAY</add_enum>
+        <add_enum>GL_TEXTURE_2D_MULTISAMPLE</add_enum>
+        <add_enum>GL_TEXTURE_2D_MULTISAMPLE_ARRAY</add_enum>
+        <add_enum>GL_PROXY_TEXTURE_1D_ARRAY</add_enum>
+        <add_enum>GL_PROXY_TEXTURE_2D_ARRAY</add_enum>
+        <add_enum>GL_PROXY_TEXTURE_2D_MULTISAMPLE</add_enum>
+        <add_enum>GL_PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY</add_enum>
+    </enumerant>
+
+    <enumerant name="^TextureParameterName$">
+        <add_enum>GL_TEXTURE_BASE_LEVEL</add_enum>
+        <add_enum>GL_TEXTURE_COMPARE_MODE</add_enum>
+        <add_enum>GL_TEXTURE_COMPARE_FUNC</add_enum>
+        <add_enum>GL_TEXTURE_LOD_BIAS</add_enum>
+        <add_enum>GL_TEXTURE_MIN_LOD</add_enum>
+        <add_enum>GL_TEXTURE_MAX_LOD</add_enum>
+        <add_enum>GL_TEXTURE_MAX_LEVEL</add_enum>
+        <add_enum>GL_TEXTURE_SWIZZLE_R</add_enum>
+        <add_enum>GL_TEXTURE_SWIZZLE_G</add_enum>
+        <add_enum>GL_TEXTURE_SWIZZLE_B</add_enum>
+        <add_enum>GL_TEXTURE_SWIZZLE_A</add_enum>
+        <add_enum>GL_TEXTURE_SWIZZLE_RGBA</add_enum>
+        <add_enum>GL_DEPTH_STENCIL_TEXTURE_MODE</add_enum>
+    </enumerant>
+
+    <enumerant name="^MapBufferUsageMask$">
+        <add_enum>GL_NONE</add_enum>
+    </enumerant>
+    
+    <!-- GL - Special Cases -->
+
+    <command name="^gl(Begin|Vertex(Attrib)?|(Secondary)?Color|Index|Normal|(Fog|Tex|MultiTex|Eval)Coord|EvalPoint|ArrayElement|Material|EdgeFlag|CallList(s)?)[1-4]?N?u?(b|s|i|f|d)?$">
+        <!-- Commands allowed between glBegin and glEnd cannot be checked for errors -->
+        <flags>NoGetError</flags>
+    </command>
+    
+    <command name="(e)?glGetError$">
+        <!-- Avoid stack overflow -->
+        <flags>NoGetError</flags>
+    </command>
+    
+    <!-- glGet* commands (even indexed) -->
+    <command name="^glGet((Integer(64)?|Float|Double|Boolean)(v|i_v))$">
+        <rename>Get</rename>
+        <!-- Generate "out" overloads -->
+        <flags>OutParam ForcePlainParams</flags>
+    </command>
+    
+    <!-- Don't collaps automatically... -->
+    <command name="^glGetQueryObjectu?iv$">
+        <rename>GetQueryObject</rename>
+    </command>
+
+    <!-- GetQueryBufferObject signature collides with each other -->
+    <command name="^glGetQueryBufferObjectiv$">
+        <rename>GetQueryBufferObject32i</rename>
+    </command>
+    <command name="^glGetQueryBufferObjectuiv$">
+        <rename>GetQueryBufferObject32ui</rename>
+    </command>
+    <command name="^glGetQueryBufferObjecti64v$">
+        <rename>GetQueryBufferObject64i</rename>
+    </command>
+    <command name="^glGetQueryBufferObjectui64v$">
+        <rename>GetQueryBufferObject64ui</rename>
+    </command>
+
+    <!-- GL - Out Parameter -->
+
+    <!-- Get "object" -->
+    <command name="^glGet(Named)?(Active(UniformBlock|SubroutineUniform)|Program(Interface|Pipeline|Stage)?|Query(Object)?|Shader|String|VertexAttrib)(i|f|ui)?(64)?v(ARB|EXT)?$">
+        <!-- Generate "out" overloads -->
+        <flags>OutParam</flags>
+    </command>
+
+    <!-- Get or set "object parameter" -->
+    <command name="^gl(Get)?(Named)?(Buffer|Framebuffer(Attachment)?|Object|Renderbuffer|Sampler|Tex(ture)?(Level)?)Parameter(I)?(i|f|ui)v(ARB|EXT)?$">
+        <!-- Generate "out" overloads -->
+        <flags>OutParam UnsafeParams GenericParams</flags>
+    </command>
+
+    <!-- glGetShaderPrecisionFormat specific -->
+    <command name="^glGetShaderPrecisionFormat$">
+        <!-- Generate "out" overloads -->
+        <flags>OutParam</flags>
+    </command>
+    
+    <command name="^(gl\w+TexImage(1-4)|glBufferData)$">
+        <!-- Let the application handles the *TexImage* and glBufferData errors (proxy texture targets, out of memory) -->
+        <flags>NoGetError</flags>
+    </command>
+    
+    <!-- GL - Variadic Commands -->
+
+    <command name="^gl(Feedback|Select)Buffer$">
+        <flags>VariadicParams</flags>
+    </command>
+
+    <command name="^glPrioritize(Textures)$">
+        <flags>VariadicParams</flags>
+    </command>
+
+    <command name="^glBind(Textures|Samplers|ImageTextures|VertexBuffers|PerfMonitorsAMD)$">
+        <flags>VariadicParams</flags>
+    </command>
+
+    <command name="^glDelete(Buffers|Queries|Textures|Renderbuffers|Framebuffers|VertexArrays|Samplers|TransformFeedbacks|ProgramPipelines)(ARB|EXT)?$">
+        <flags>VariadicParams</flags>
+    </command>
+
+    <command name="^glDelete(Fences)APPLE$">
+        <flags>VariadicParams</flags>
+    </command>
+
+    <command name="^glDelete(Name|PerfMonitors)AMD$">
+        <flags>VariadicParams</flags>
+    </command>
+
+    <command name="^glDelete(Fences|OcclusionQueries)NV$">
+        <flags>VariadicParams</flags>
+    </command>
+
+    <command name="^gl(DrawBuffers|UniformSubroutines|CreateShaderProgramv|InvalidateFramebuffer)$">
+        <flags>VariadicParams</flags>
+    </command>
+    
+    <!-- Unsafe/Generic parameters -->
+
+    <!-- gl*Uniform* -->
+    <command name="^gl(Get)?(Program)?Uniform(Matrix)?(1|2|3|4|2x3|2x4|3x2|3x4|4x2|4x3)?(d|f|i|ui)v$">
+        <flags>UnsafeParams GenericParams</flags>
+    </command>
+
+    <!-- glVertexAttrib* -->
+    <command name="^glVertexAttrib(I|L)?(1|2|3|4)(N|I)?(b|s|d|f|i|ub|ui|us)v$">
+        <flags>UnsafeParams GenericParams</flags>
+    </command>
+
+    <!-- glTexParameter* -->
+    <!-- > GenericParams desiderable for GL_TEXTURE_BORDER_COLOR -->
+    <command name="^glTexParameter(I)?(b|s|d|f|i|ub|ui|us)v$">
+        <flags>UnsafeParams GenericParams</flags>
+    </command>
+
+    <!-- Argument renaming for better documentation -->
+    
+    <command name="^glColorMaski$">
+        <param id="index"><rename>buf</rename></param>
+        <param id="r"><rename>red</rename></param>
+        <param id="g"><rename>green</rename></param>
+        <param id="b"><rename>blue</rename></param>
+        <param id="a"><rename>alpha</rename></param>
+    </command>
+    
+    <command name="^glColorTable$">
+        <param id="table"><rename>data</rename></param>
+    </command>
     
     <command name="^glConvolutionFilter[123]D">
-		<param id="image"><rename>data</rename></param>
-	</command>
+        <param id="image"><rename>data</rename></param>
+    </command>
 
-	<command name="^glDepthRange$">
-		<param id="near"><rename>nearVal</rename></param>
-		<param id="far"><rename>farVal</rename></param>
-	</command>
-	
-	<command name="^glDraw(Arrays|Elements)Instanced(BaseVertex|BaseInstance|BaseVertexBaseInstance)?$">
-		<param id="instancecount"><rename>primcount</rename></param>
-	</command>
-	
-	<command name="^glDrawTransformFeedback(Stream)?Instanced$">
-		<param id="instancecount"><rename>primcount</rename></param>
-	</command>
-	
-	<command name="^gl(Enable|Disable|IsEnabled)i$">
-		<param id="target"><rename>cap</rename></param>
-	</command>
-	
-	<command name="^glFramebufferTexture3D$">
-		<param id="zoffset"><rename>layer</rename></param>
-	</command>
+    <command name="^glDepthRange$">
+        <param id="near"><rename>nearVal</rename></param>
+        <param id="far"><rename>farVal</rename></param>
+    </command>
+    
+    <command name="^glDraw(Arrays|Elements)Instanced(BaseVertex|BaseInstance|BaseVertexBaseInstance)?$">
+        <param id="instancecount"><rename>primcount</rename></param>
+    </command>
+    
+    <command name="^glDrawTransformFeedback(Stream)?Instanced$">
+        <param id="instancecount"><rename>primcount</rename></param>
+    </command>
+    
+    <command name="^gl(Enable|Disable|IsEnabled)i$">
+        <param id="target"><rename>cap</rename></param>
+    </command>
+    
+    <command name="^glFramebufferTexture3D$">
+        <param id="zoffset"><rename>layer</rename></param>
+    </command>
     
     <command name="^gl(Frustum|Ortho)[fx]$">
-		<param id="l"><rename>left</rename></param>
+        <param id="l"><rename>left</rename></param>
         <param id="r"><rename>right</rename></param>
         <param id="t"><rename>top</rename></param>
         <param id="b"><rename>bottom</rename></param>
         <param id="n"><rename>near</rename></param>
         <param id="f"><rename>far</rename></param>
-	</command>
-
-	<command name="^glGetMinMax$">
-		<param id="type"><rename>types</rename></param>
-	</command>
-	
-	<command name="^glGet(Program|Shader)InfoLog$">
-		<param id="bufSize"><rename>maxLength</rename></param>
-	</command>
-	
-	<command name="^glGet(Named)?BufferParameter(iv|i64v)$">
-		<param id="pname"><rename>value</rename></param>
-		<param id="params"><rename>data</rename></param>
-	</command>
-	
-	<command name="^gl(NamedFramebuffer)?ReadBuffer$">
-		<param id="src"><rename>mode</rename></param>
-	</command>
-
-	<command name="^glProvokingVertex$">
-		<param id="mode"><rename>provokeMode</rename></param>
-	</command>
-
-	<command name="^gl(Read(n)?Pixels|TexImage3D)$">
-		<param id="pixels"><rename>data</rename></param>
-	</command>
-
-	<command name="^glStencilOp$">
-		<param id="fail"><rename>sfail</rename></param>
-		<param id="zfail"><rename>dpfail</rename></param>
-		<param id="zpass"><rename>dppass</rename></param>
-	</command>
-    
-    <command name="^glTexImage[123]D$">
-		<param id="internalformat"><rename>internalFormat</rename></param>
-        <param id="pixels"><rename>data</rename></param>
-	</command>
-	
-	<!-- WGL -->
-	
-	<command name="^wglMakeCurrent$">
-		<!-- WGL commands errors won't be automatically checked by bindings -->
-		<flags>NoGetError</flags>
-	</command>
-
-	<command name="^wglCreateContextAttribsARB$">
-		<param id="attribList"><flags>LogAsEnum</flags></param>
-	</command>
-
-	<command name="^wglGetPixelFormatAttribivARB$">
-		<param id="piAttributes"><flags>LogAsEnum</flags></param>
-		<param id="piValues"><flags>LogAsEnum</flags></param>
-	</command>
-
-	<command name="^wgl.+">
-		<!-- WGL commands errors won't be automatically checked by bindings -->
-		<flags>SetLastError</flags>
-	</command>
-	
-	<!--<command name="^glX.+">
-		--><!-- WGL commands errors won't be automatically checked by bindings --><!--
-		<flags>NoGetError</flags>
-	</command>-->
-	
-	<command name="^(ChoosePixelFormat|DescribePixelFormat|GetEnhMetaFilePixelFormat|GetPixelFormat|SetPixelFormat|SwapBuffers)$">
-		<!-- GDI functions are implemented manually -->
-		<flags>Disable</flags>
-	</command>
-
-	<!-- GLX -->
-
-	<command name="^glXGet(FBConfigs|FBConfigAttrib)$">
-		<!-- Generate "out" overloads -->
-		<flags>OutParamLast</flags>
-	</command>
-
-	<command name="^glXCreateContextAttribsARB$">
-		<param id="attrib_list"><flags>LogAsEnum</flags></param>
     </command>
 
-	<command name="^glXChooseFBConfig$">
+    <command name="^glGetMinMax$">
+        <param id="type"><rename>types</rename></param>
+    </command>
+    
+    <command name="^glGet(Program|Shader)InfoLog$">
+        <param id="bufSize"><rename>maxLength</rename></param>
+    </command>
+    
+    <command name="^glGet(Named)?BufferParameter(iv|i64v)$">
+        <param id="pname"><rename>value</rename></param>
+        <param id="params"><rename>data</rename></param>
+    </command>
+    
+    <command name="^gl(NamedFramebuffer)?ReadBuffer$">
+        <param id="src"><rename>mode</rename></param>
+    </command>
+
+    <command name="^glProvokingVertex$">
+        <param id="mode"><rename>provokeMode</rename></param>
+    </command>
+
+    <command name="^gl(Read(n)?Pixels|TexImage3D)$">
+        <param id="pixels"><rename>data</rename></param>
+    </command>
+
+    <command name="^glStencilOp$">
+        <param id="fail"><rename>sfail</rename></param>
+        <param id="zfail"><rename>dpfail</rename></param>
+        <param id="zpass"><rename>dppass</rename></param>
+    </command>
+    
+    <command name="^glTexImage[123]D$">
+        <param id="internalformat"><rename>internalFormat</rename></param>
+        <param id="pixels"><rename>data</rename></param>
+    </command>
+    
+    <!-- WGL -->
+    
+    <command name="^wglMakeCurrent$">
+        <!-- WGL commands errors won't be automatically checked by bindings -->
+        <flags>NoGetError</flags>
+    </command>
+
+    <command name="^wglCreateContextAttribsARB$">
+        <param id="attribList"><flags>LogAsEnum</flags></param>
+    </command>
+
+    <command name="^wglGetPixelFormatAttribivARB$">
+        <param id="piAttributes"><flags>LogAsEnum</flags></param>
+        <param id="piValues"><flags>LogAsEnum</flags></param>
+    </command>
+
+    <command name="^wgl.+">
+        <!-- WGL commands errors won't be automatically checked by bindings -->
+        <flags>SetLastError</flags>
+    </command>
+    
+    <!--<command name="^glX.+">
+        --><!-- WGL commands errors won't be automatically checked by bindings --><!--
+        <flags>NoGetError</flags>
+    </command>-->
+    
+    <command name="^(ChoosePixelFormat|DescribePixelFormat|GetEnhMetaFilePixelFormat|GetPixelFormat|SetPixelFormat|SwapBuffers)$">
+        <!-- GDI functions are implemented manually -->
+        <flags>Disable</flags>
+    </command>
+
+    <!-- GLX -->
+
+    <command name="^glXGet(FBConfigs|FBConfigAttrib)$">
+        <!-- Generate "out" overloads -->
+        <flags>OutParamLast</flags>
+    </command>
+
+    <command name="^glXCreateContextAttribsARB$">
         <param id="attrib_list"><flags>LogAsEnum</flags></param>
     </command>
 
-	<command name="^glXGetFBConfigAttrib$">
+    <command name="^glXChooseFBConfig$">
+        <param id="attrib_list"><flags>LogAsEnum</flags></param>
+    </command>
+
+    <command name="^glXGetFBConfigAttrib$">
         <param id="attribute"><flags>LogAsEnum</flags></param>
     </command>
 
-	<command name="^glXChooseVisual$">
-		<rename>ChooseVisualCore</rename>
-		<visibility>private</visibility>
-	</command>
+    <command name="^glXChooseVisual$">
+        <rename>ChooseVisualCore</rename>
+        <visibility>private</visibility>
+    </command>
 
-	<command name="^glXCreateContext$">
-		<visibility>private</visibility>
-	</command>
+    <command name="^glXCreateContext$">
+        <visibility>private</visibility>
+    </command>
 
-	<command name="^glXCreateGLXPixmap$">
-		<visibility>private</visibility>
-	</command>
+    <command name="^glXCreateGLXPixmap$">
+        <visibility>private</visibility>
+    </command>
 
-	<command name="^glXCreateGLXPixmapMESA$">
-		<visibility>private</visibility>
-	</command>
+    <command name="^glXCreateGLXPixmapMESA$">
+        <visibility>private</visibility>
+    </command>
 
-	<command name="^glXGetConfig$">
-		<visibility>private</visibility>
-	</command>
+    <command name="^glXGetConfig$">
+        <visibility>private</visibility>
+    </command>
 
-	<command name="^glXGetFBConfigFromVisualSGIX$">
-		<rename>GetFBConfigFromVisualSGIXCore</rename>
-		<visibility>private</visibility>
-	</command>
+    <command name="^glXGetFBConfigFromVisualSGIX$">
+        <rename>GetFBConfigFromVisualSGIXCore</rename>
+        <visibility>private</visibility>
+    </command>
 
-	<command name="^glXGetVisualFromFBConfig$">
-		<rename>GetVisualFromFBConfigCore</rename>
-		<visibility>private</visibility>
-	</command>
+    <command name="^glXGetVisualFromFBConfig$">
+        <rename>GetVisualFromFBConfigCore</rename>
+        <visibility>private</visibility>
+    </command>
 
-	<command name="^glXGetVisualFromFBConfigSGIX$">
-		<rename>GetVisualFromFBConfigSGIXCore</rename>
-		<visibility>private</visibility>
-	</command>
+    <command name="^glXGetVisualFromFBConfigSGIX$">
+        <rename>GetVisualFromFBConfigSGIXCore</rename>
+        <visibility>private</visibility>
+    </command>
 
-	<!-- EGL -->
+    <!-- EGL -->
 
-	<command name="^eglGetDisplay$">
-		<flags>NoGetError</flags>
-	</command>
+    <command name="^eglGetDisplay$">
+        <flags>NoGetError</flags>
+    </command>
 
-	<command name="^eglGetConfig(s|Attrib)$">
-		<flags>OutParamLast</flags>
-	</command>
+    <command name="^eglGetConfig(s|Attrib)$">
+        <flags>OutParamLast</flags>
+    </command>
 
-	<!-- OpenWF -->
+    <!-- OpenWF -->
 
-	<command name="^wf(c|d)Get(Element)Attrib(f|i)v?$">
-		<flags>ReturnAsOutParam</flags>
-	</command>
+    <command name="^wf(c|d)Get(Element)Attrib(f|i)v?$">
+        <flags>ReturnAsOutParam</flags>
+    </command>
     
     <!-- GL Limits -->
 
