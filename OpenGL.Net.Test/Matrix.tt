@@ -376,6 +376,9 @@ namespace OpenGL.Test
 			r1 = <#= className #>.RotatedX(+90.0<#= literal #>);
 			r2 = <#= className #>.RotatedX(+180.0<#= literal #>);
 			Assert.IsTrue((r1 * r1).Equals(r2, <#= epsilon #>));
+
+			<#= columnType #> v = <#= className #>.RotatedX(+90.0<#= literal #>) * <#= columnType #>.UnitY;
+			Assert.IsTrue(v.Equals(<#= columnType #>.UnitZ, <#= epsilon #>));
 		}
 
 		[Test]
@@ -392,6 +395,11 @@ namespace OpenGL.Test
 
 			m.RotateX(+180.0<#= literal #>);
 			Assert.IsTrue(m.Equals(<#= className #>.RotatedX(+180.0<#= literal #>), <#= epsilon #>));
+
+			m = <#= className #>.Identity;
+			m.RotateX(+90.0<#= literal #>);
+			<#= columnType #> v = m * <#= columnType #>.UnitY;
+			Assert.IsTrue(v.Equals(<#= columnType #>.UnitZ, <#= epsilon #>));
 		}
 
 		[Test]
@@ -407,6 +415,9 @@ namespace OpenGL.Test
 			r1 = <#= className #>.RotatedY(+90.0<#= literal #>);
 			r2 = <#= className #>.RotatedY(+180.0<#= literal #>);
 			Assert.IsTrue((r1 * r1).Equals(r2, <#= epsilon #>));
+
+			<#= columnType #> v = <#= className #>.RotatedY(+90.0<#= literal #>) * <#= columnType #>.UnitZ;
+			Assert.IsTrue(v.Equals(<#= columnType #>.UnitX, <#= epsilon #>));
 		}
 
 		[Test]
@@ -423,6 +434,11 @@ namespace OpenGL.Test
 
 			m.RotateY(+180.0<#= literal #>);
 			Assert.IsTrue(m.Equals(<#= className #>.RotatedY(+180.0<#= literal #>), <#= epsilon #>));
+
+			m = <#= className #>.Identity;
+			m.RotateY(+90.0<#= literal #>);
+			<#= columnType #> v = m * <#= columnType #>.UnitZ;
+			Assert.IsTrue(v.Equals(<#= columnType #>.UnitX, <#= epsilon #>));
 		}
 
 <# } #>

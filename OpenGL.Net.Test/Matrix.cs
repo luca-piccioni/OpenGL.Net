@@ -1560,6 +1560,9 @@ namespace OpenGL.Test
 			r1 = Matrix3x3f.RotatedX(+90.0f);
 			r2 = Matrix3x3f.RotatedX(+180.0f);
 			Assert.IsTrue((r1 * r1).Equals(r2, 1e-5f));
+
+			Vertex3f v = Matrix3x3f.RotatedX(+90.0f) * Vertex3f.UnitY;
+			Assert.IsTrue(v.Equals(Vertex3f.UnitZ, 1e-5f));
 		}
 
 		[Test]
@@ -1576,6 +1579,11 @@ namespace OpenGL.Test
 
 			m.RotateX(+180.0f);
 			Assert.IsTrue(m.Equals(Matrix3x3f.RotatedX(+180.0f), 1e-5f));
+
+			m = Matrix3x3f.Identity;
+			m.RotateX(+90.0f);
+			Vertex3f v = m * Vertex3f.UnitY;
+			Assert.IsTrue(v.Equals(Vertex3f.UnitZ, 1e-5f));
 		}
 
 		[Test]
@@ -1591,6 +1599,9 @@ namespace OpenGL.Test
 			r1 = Matrix3x3f.RotatedY(+90.0f);
 			r2 = Matrix3x3f.RotatedY(+180.0f);
 			Assert.IsTrue((r1 * r1).Equals(r2, 1e-5f));
+
+			Vertex3f v = Matrix3x3f.RotatedY(+90.0f) * Vertex3f.UnitZ;
+			Assert.IsTrue(v.Equals(Vertex3f.UnitX, 1e-5f));
 		}
 
 		[Test]
@@ -1607,6 +1618,11 @@ namespace OpenGL.Test
 
 			m.RotateY(+180.0f);
 			Assert.IsTrue(m.Equals(Matrix3x3f.RotatedY(+180.0f), 1e-5f));
+
+			m = Matrix3x3f.Identity;
+			m.RotateY(+90.0f);
+			Vertex3f v = m * Vertex3f.UnitZ;
+			Assert.IsTrue(v.Equals(Vertex3f.UnitX, 1e-5f));
 		}
 
 		[Test]
@@ -3391,6 +3407,9 @@ namespace OpenGL.Test
 			r1 = Matrix4x4f.RotatedX(+90.0f);
 			r2 = Matrix4x4f.RotatedX(+180.0f);
 			Assert.IsTrue((r1 * r1).Equals(r2, 1e-5f));
+
+			Vertex4f v = Matrix4x4f.RotatedX(+90.0f) * Vertex4f.UnitY;
+			Assert.IsTrue(v.Equals(Vertex4f.UnitZ, 1e-5f));
 		}
 
 		[Test]
@@ -3407,6 +3426,11 @@ namespace OpenGL.Test
 
 			m.RotateX(+180.0f);
 			Assert.IsTrue(m.Equals(Matrix4x4f.RotatedX(+180.0f), 1e-5f));
+
+			m = Matrix4x4f.Identity;
+			m.RotateX(+90.0f);
+			Vertex4f v = m * Vertex4f.UnitY;
+			Assert.IsTrue(v.Equals(Vertex4f.UnitZ, 1e-5f));
 		}
 
 		[Test]
@@ -3422,6 +3446,9 @@ namespace OpenGL.Test
 			r1 = Matrix4x4f.RotatedY(+90.0f);
 			r2 = Matrix4x4f.RotatedY(+180.0f);
 			Assert.IsTrue((r1 * r1).Equals(r2, 1e-5f));
+
+			Vertex4f v = Matrix4x4f.RotatedY(+90.0f) * Vertex4f.UnitZ;
+			Assert.IsTrue(v.Equals(Vertex4f.UnitX, 1e-5f));
 		}
 
 		[Test]
@@ -3438,6 +3465,11 @@ namespace OpenGL.Test
 
 			m.RotateY(+180.0f);
 			Assert.IsTrue(m.Equals(Matrix4x4f.RotatedY(+180.0f), 1e-5f));
+
+			m = Matrix4x4f.Identity;
+			m.RotateY(+90.0f);
+			Vertex4f v = m * Vertex4f.UnitZ;
+			Assert.IsTrue(v.Equals(Vertex4f.UnitX, 1e-5f));
 		}
 
 		[Test]
@@ -5353,6 +5385,9 @@ namespace OpenGL.Test
 			r1 = Matrix3x3d.RotatedX(+90.0);
 			r2 = Matrix3x3d.RotatedX(+180.0);
 			Assert.IsTrue((r1 * r1).Equals(r2, 1e-10));
+
+			Vertex3d v = Matrix3x3d.RotatedX(+90.0) * Vertex3d.UnitY;
+			Assert.IsTrue(v.Equals(Vertex3d.UnitZ, 1e-10));
 		}
 
 		[Test]
@@ -5369,6 +5404,11 @@ namespace OpenGL.Test
 
 			m.RotateX(+180.0);
 			Assert.IsTrue(m.Equals(Matrix3x3d.RotatedX(+180.0), 1e-10));
+
+			m = Matrix3x3d.Identity;
+			m.RotateX(+90.0);
+			Vertex3d v = m * Vertex3d.UnitY;
+			Assert.IsTrue(v.Equals(Vertex3d.UnitZ, 1e-10));
 		}
 
 		[Test]
@@ -5384,6 +5424,9 @@ namespace OpenGL.Test
 			r1 = Matrix3x3d.RotatedY(+90.0);
 			r2 = Matrix3x3d.RotatedY(+180.0);
 			Assert.IsTrue((r1 * r1).Equals(r2, 1e-10));
+
+			Vertex3d v = Matrix3x3d.RotatedY(+90.0) * Vertex3d.UnitZ;
+			Assert.IsTrue(v.Equals(Vertex3d.UnitX, 1e-10));
 		}
 
 		[Test]
@@ -5400,6 +5443,11 @@ namespace OpenGL.Test
 
 			m.RotateY(+180.0);
 			Assert.IsTrue(m.Equals(Matrix3x3d.RotatedY(+180.0), 1e-10));
+
+			m = Matrix3x3d.Identity;
+			m.RotateY(+90.0);
+			Vertex3d v = m * Vertex3d.UnitZ;
+			Assert.IsTrue(v.Equals(Vertex3d.UnitX, 1e-10));
 		}
 
 		[Test]
@@ -7184,6 +7232,9 @@ namespace OpenGL.Test
 			r1 = Matrix4x4d.RotatedX(+90.0);
 			r2 = Matrix4x4d.RotatedX(+180.0);
 			Assert.IsTrue((r1 * r1).Equals(r2, 1e-10));
+
+			Vertex4d v = Matrix4x4d.RotatedX(+90.0) * Vertex4d.UnitY;
+			Assert.IsTrue(v.Equals(Vertex4d.UnitZ, 1e-10));
 		}
 
 		[Test]
@@ -7200,6 +7251,11 @@ namespace OpenGL.Test
 
 			m.RotateX(+180.0);
 			Assert.IsTrue(m.Equals(Matrix4x4d.RotatedX(+180.0), 1e-10));
+
+			m = Matrix4x4d.Identity;
+			m.RotateX(+90.0);
+			Vertex4d v = m * Vertex4d.UnitY;
+			Assert.IsTrue(v.Equals(Vertex4d.UnitZ, 1e-10));
 		}
 
 		[Test]
@@ -7215,6 +7271,9 @@ namespace OpenGL.Test
 			r1 = Matrix4x4d.RotatedY(+90.0);
 			r2 = Matrix4x4d.RotatedY(+180.0);
 			Assert.IsTrue((r1 * r1).Equals(r2, 1e-10));
+
+			Vertex4d v = Matrix4x4d.RotatedY(+90.0) * Vertex4d.UnitZ;
+			Assert.IsTrue(v.Equals(Vertex4d.UnitX, 1e-10));
 		}
 
 		[Test]
@@ -7231,6 +7290,11 @@ namespace OpenGL.Test
 
 			m.RotateY(+180.0);
 			Assert.IsTrue(m.Equals(Matrix4x4d.RotatedY(+180.0), 1e-10));
+
+			m = Matrix4x4d.Identity;
+			m.RotateY(+90.0);
+			Vertex4d v = m * Vertex4d.UnitZ;
+			Assert.IsTrue(v.Equals(Vertex4d.UnitX, 1e-10));
 		}
 
 		[Test]
