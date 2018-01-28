@@ -297,25 +297,51 @@ namespace OpenGL.Test
 		[Test]
 		public void <#= className #>_TestPosition()
 		{
-			Assert.AreEqual(<#= vertex3 #>.Zero, <#= className #>.Identity.Position);
+			<#= className #> m = <#= className #>.Identity;
+
+			Assert.AreEqual(<#= vertex3 #>.Zero, m.Position);
+			
+			m.Translate(1.0f, 0.0f, 0.0f);
+			Assert.AreEqual(<#= vertex3 #>.UnitX, m.Position);
+
+			m.Translate(0.0f, 1.0f, 0.0f);
+			Assert.AreEqual(<#= vertex3 #>.UnitX + <#= vertex3 #>.UnitY, m.Position);
+
+			m.Translate(0.0f, 0.0f, 1.0f);
+			Assert.AreEqual(<#= vertex3 #>.UnitX + <#= vertex3 #>.UnitY + <#= vertex3 #>.UnitZ, m.Position);
 		}
 
 		[Test]
 		public void <#= className #>_TestForwardVector()
 		{
-			Assert.AreEqual(-<#= vertex3 #>.UnitZ, <#= className #>.Identity.ForwardVector);
+			<#= className #> m = <#= className #>.Identity;
+
+			Assert.AreEqual(-<#= vertex3 #>.UnitZ, m.ForwardVector);
+
+			m.RotateY(-90.0f);
+			Assert.IsTrue(<#= vertex3 #>.UnitX.Equals(m.ForwardVector, <#= epsilon #>));
 		}
 
 		[Test]
 		public void <#= className #>_TestRightVector()
 		{
-			Assert.AreEqual(<#= vertex3 #>.UnitX, <#= className #>.Identity.RightVector);
+			<#= className #> m = <#= className #>.Identity;
+
+			Assert.AreEqual(<#= vertex3 #>.UnitX, m.RightVector);
+
+			m.RotateY(-90.0f);
+			Assert.IsTrue(<#= vertex3 #>.UnitZ.Equals(m.RightVector, <#= epsilon #>));
 		}
 
 		[Test]
 		public void <#= className #>_TestUpVector()
 		{
-			Assert.AreEqual(<#= vertex3 #>.UnitY, <#= className #>.Identity.UpVector);
+			<#= className #> m = <#= className #>.Identity;
+
+			Assert.AreEqual(<#= vertex3 #>.UnitY, m.UpVector);
+
+			m.RotateX(+90.0f);
+			Assert.IsTrue(<#= vertex3 #>.UnitZ.Equals(m.UpVector, <#= epsilon #>));
 		}
 
 		[Test]
@@ -494,13 +520,57 @@ namespace OpenGL.Test
 		[Test]
 		public void <#= className #>_TestScaled()
 		{
+			<#= className #> m = <#= className #>.Scaled(1.0f, 1.0f, 1.0f);
+			<#= columnType #> v;
+			
+			v = m * <#= columnType #>.UnitX;
+			Assert.IsTrue(<#= columnType #>.UnitX.Equals(v, <#= epsilon #>));
 
+			v = m * <#= columnType #>.UnitY;
+			Assert.IsTrue(<#= columnType #>.UnitY.Equals(v, <#= epsilon #>));
+
+			v = m * <#= columnType #>.UnitZ;
+			Assert.IsTrue(<#= columnType #>.UnitZ.Equals(v, <#= epsilon #>));
+
+			m = <#= className #>.Scaled(0.5f, 2.0f, 3.0f);
+
+			v = m * <#= columnType #>.UnitX;
+			Assert.IsTrue((<#= columnType #>.UnitX * 0.5f).Equals(v, <#= epsilon #>));
+
+			v = m * <#= columnType #>.UnitY;
+			Assert.IsTrue((<#= columnType #>.UnitY * 2.0f).Equals(v, <#= epsilon #>));
+
+			v = m * <#= columnType #>.UnitZ;
+			Assert.IsTrue((<#= columnType #>.UnitZ * 3.0f).Equals(v, <#= epsilon #>));
 		}
 
 		[Test]
 		public void <#= className #>_TestScale()
 		{
+			<#= className #> m = <#= className #>.Identity;
+			<#= columnType #> v;
 
+			m.Scale(1.0f, 1.0f, 1.0f);
+
+			v = m * <#= columnType #>.UnitX;
+			Assert.IsTrue(<#= columnType #>.UnitX.Equals(v, <#= epsilon #>));
+
+			v = m * <#= columnType #>.UnitY;
+			Assert.IsTrue(<#= columnType #>.UnitY.Equals(v, <#= epsilon #>));
+
+			v = m * <#= columnType #>.UnitZ;
+			Assert.IsTrue(<#= columnType #>.UnitZ.Equals(v, <#= epsilon #>));
+
+			m.Scale(0.5f, 2.0f, 3.0f);
+
+			v = m * <#= columnType #>.UnitX;
+			Assert.IsTrue((<#= columnType #>.UnitX * 0.5f).Equals(v, <#= epsilon #>));
+
+			v = m * <#= columnType #>.UnitY;
+			Assert.IsTrue((<#= columnType #>.UnitY * 2.0f).Equals(v, <#= epsilon #>));
+
+			v = m * <#= columnType #>.UnitZ;
+			Assert.IsTrue((<#= columnType #>.UnitZ * 3.0f).Equals(v, <#= epsilon #>));
 		}
 
 		#endregion

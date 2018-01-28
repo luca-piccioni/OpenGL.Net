@@ -1671,13 +1671,57 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix3x3f_TestScaled()
 		{
+			Matrix3x3f m = Matrix3x3f.Scaled(1.0f, 1.0f, 1.0f);
+			Vertex3f v;
+			
+			v = m * Vertex3f.UnitX;
+			Assert.IsTrue(Vertex3f.UnitX.Equals(v, 1e-5f));
 
+			v = m * Vertex3f.UnitY;
+			Assert.IsTrue(Vertex3f.UnitY.Equals(v, 1e-5f));
+
+			v = m * Vertex3f.UnitZ;
+			Assert.IsTrue(Vertex3f.UnitZ.Equals(v, 1e-5f));
+
+			m = Matrix3x3f.Scaled(0.5f, 2.0f, 3.0f);
+
+			v = m * Vertex3f.UnitX;
+			Assert.IsTrue((Vertex3f.UnitX * 0.5f).Equals(v, 1e-5f));
+
+			v = m * Vertex3f.UnitY;
+			Assert.IsTrue((Vertex3f.UnitY * 2.0f).Equals(v, 1e-5f));
+
+			v = m * Vertex3f.UnitZ;
+			Assert.IsTrue((Vertex3f.UnitZ * 3.0f).Equals(v, 1e-5f));
 		}
 
 		[Test]
 		public void Matrix3x3f_TestScale()
 		{
+			Matrix3x3f m = Matrix3x3f.Identity;
+			Vertex3f v;
 
+			m.Scale(1.0f, 1.0f, 1.0f);
+
+			v = m * Vertex3f.UnitX;
+			Assert.IsTrue(Vertex3f.UnitX.Equals(v, 1e-5f));
+
+			v = m * Vertex3f.UnitY;
+			Assert.IsTrue(Vertex3f.UnitY.Equals(v, 1e-5f));
+
+			v = m * Vertex3f.UnitZ;
+			Assert.IsTrue(Vertex3f.UnitZ.Equals(v, 1e-5f));
+
+			m.Scale(0.5f, 2.0f, 3.0f);
+
+			v = m * Vertex3f.UnitX;
+			Assert.IsTrue((Vertex3f.UnitX * 0.5f).Equals(v, 1e-5f));
+
+			v = m * Vertex3f.UnitY;
+			Assert.IsTrue((Vertex3f.UnitY * 2.0f).Equals(v, 1e-5f));
+
+			v = m * Vertex3f.UnitZ;
+			Assert.IsTrue((Vertex3f.UnitZ * 3.0f).Equals(v, 1e-5f));
 		}
 
 		#endregion
@@ -3331,25 +3375,51 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix4x4f_TestPosition()
 		{
-			Assert.AreEqual(Vertex3f.Zero, Matrix4x4f.Identity.Position);
+			Matrix4x4f m = Matrix4x4f.Identity;
+
+			Assert.AreEqual(Vertex3f.Zero, m.Position);
+			
+			m.Translate(1.0f, 0.0f, 0.0f);
+			Assert.AreEqual(Vertex3f.UnitX, m.Position);
+
+			m.Translate(0.0f, 1.0f, 0.0f);
+			Assert.AreEqual(Vertex3f.UnitX + Vertex3f.UnitY, m.Position);
+
+			m.Translate(0.0f, 0.0f, 1.0f);
+			Assert.AreEqual(Vertex3f.UnitX + Vertex3f.UnitY + Vertex3f.UnitZ, m.Position);
 		}
 
 		[Test]
 		public void Matrix4x4f_TestForwardVector()
 		{
-			Assert.AreEqual(-Vertex3f.UnitZ, Matrix4x4f.Identity.ForwardVector);
+			Matrix4x4f m = Matrix4x4f.Identity;
+
+			Assert.AreEqual(-Vertex3f.UnitZ, m.ForwardVector);
+
+			m.RotateY(-90.0f);
+			Assert.IsTrue(Vertex3f.UnitX.Equals(m.ForwardVector, 1e-5f));
 		}
 
 		[Test]
 		public void Matrix4x4f_TestRightVector()
 		{
-			Assert.AreEqual(Vertex3f.UnitX, Matrix4x4f.Identity.RightVector);
+			Matrix4x4f m = Matrix4x4f.Identity;
+
+			Assert.AreEqual(Vertex3f.UnitX, m.RightVector);
+
+			m.RotateY(-90.0f);
+			Assert.IsTrue(Vertex3f.UnitZ.Equals(m.RightVector, 1e-5f));
 		}
 
 		[Test]
 		public void Matrix4x4f_TestUpVector()
 		{
-			Assert.AreEqual(Vertex3f.UnitY, Matrix4x4f.Identity.UpVector);
+			Matrix4x4f m = Matrix4x4f.Identity;
+
+			Assert.AreEqual(Vertex3f.UnitY, m.UpVector);
+
+			m.RotateX(+90.0f);
+			Assert.IsTrue(Vertex3f.UnitZ.Equals(m.UpVector, 1e-5f));
 		}
 
 		[Test]
@@ -3518,13 +3588,57 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix4x4f_TestScaled()
 		{
+			Matrix4x4f m = Matrix4x4f.Scaled(1.0f, 1.0f, 1.0f);
+			Vertex4f v;
+			
+			v = m * Vertex4f.UnitX;
+			Assert.IsTrue(Vertex4f.UnitX.Equals(v, 1e-5f));
 
+			v = m * Vertex4f.UnitY;
+			Assert.IsTrue(Vertex4f.UnitY.Equals(v, 1e-5f));
+
+			v = m * Vertex4f.UnitZ;
+			Assert.IsTrue(Vertex4f.UnitZ.Equals(v, 1e-5f));
+
+			m = Matrix4x4f.Scaled(0.5f, 2.0f, 3.0f);
+
+			v = m * Vertex4f.UnitX;
+			Assert.IsTrue((Vertex4f.UnitX * 0.5f).Equals(v, 1e-5f));
+
+			v = m * Vertex4f.UnitY;
+			Assert.IsTrue((Vertex4f.UnitY * 2.0f).Equals(v, 1e-5f));
+
+			v = m * Vertex4f.UnitZ;
+			Assert.IsTrue((Vertex4f.UnitZ * 3.0f).Equals(v, 1e-5f));
 		}
 
 		[Test]
 		public void Matrix4x4f_TestScale()
 		{
+			Matrix4x4f m = Matrix4x4f.Identity;
+			Vertex4f v;
 
+			m.Scale(1.0f, 1.0f, 1.0f);
+
+			v = m * Vertex4f.UnitX;
+			Assert.IsTrue(Vertex4f.UnitX.Equals(v, 1e-5f));
+
+			v = m * Vertex4f.UnitY;
+			Assert.IsTrue(Vertex4f.UnitY.Equals(v, 1e-5f));
+
+			v = m * Vertex4f.UnitZ;
+			Assert.IsTrue(Vertex4f.UnitZ.Equals(v, 1e-5f));
+
+			m.Scale(0.5f, 2.0f, 3.0f);
+
+			v = m * Vertex4f.UnitX;
+			Assert.IsTrue((Vertex4f.UnitX * 0.5f).Equals(v, 1e-5f));
+
+			v = m * Vertex4f.UnitY;
+			Assert.IsTrue((Vertex4f.UnitY * 2.0f).Equals(v, 1e-5f));
+
+			v = m * Vertex4f.UnitZ;
+			Assert.IsTrue((Vertex4f.UnitZ * 3.0f).Equals(v, 1e-5f));
 		}
 
 		#endregion
@@ -5496,13 +5610,57 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix3x3d_TestScaled()
 		{
+			Matrix3x3d m = Matrix3x3d.Scaled(1.0f, 1.0f, 1.0f);
+			Vertex3d v;
+			
+			v = m * Vertex3d.UnitX;
+			Assert.IsTrue(Vertex3d.UnitX.Equals(v, 1e-10));
 
+			v = m * Vertex3d.UnitY;
+			Assert.IsTrue(Vertex3d.UnitY.Equals(v, 1e-10));
+
+			v = m * Vertex3d.UnitZ;
+			Assert.IsTrue(Vertex3d.UnitZ.Equals(v, 1e-10));
+
+			m = Matrix3x3d.Scaled(0.5f, 2.0f, 3.0f);
+
+			v = m * Vertex3d.UnitX;
+			Assert.IsTrue((Vertex3d.UnitX * 0.5f).Equals(v, 1e-10));
+
+			v = m * Vertex3d.UnitY;
+			Assert.IsTrue((Vertex3d.UnitY * 2.0f).Equals(v, 1e-10));
+
+			v = m * Vertex3d.UnitZ;
+			Assert.IsTrue((Vertex3d.UnitZ * 3.0f).Equals(v, 1e-10));
 		}
 
 		[Test]
 		public void Matrix3x3d_TestScale()
 		{
+			Matrix3x3d m = Matrix3x3d.Identity;
+			Vertex3d v;
 
+			m.Scale(1.0f, 1.0f, 1.0f);
+
+			v = m * Vertex3d.UnitX;
+			Assert.IsTrue(Vertex3d.UnitX.Equals(v, 1e-10));
+
+			v = m * Vertex3d.UnitY;
+			Assert.IsTrue(Vertex3d.UnitY.Equals(v, 1e-10));
+
+			v = m * Vertex3d.UnitZ;
+			Assert.IsTrue(Vertex3d.UnitZ.Equals(v, 1e-10));
+
+			m.Scale(0.5f, 2.0f, 3.0f);
+
+			v = m * Vertex3d.UnitX;
+			Assert.IsTrue((Vertex3d.UnitX * 0.5f).Equals(v, 1e-10));
+
+			v = m * Vertex3d.UnitY;
+			Assert.IsTrue((Vertex3d.UnitY * 2.0f).Equals(v, 1e-10));
+
+			v = m * Vertex3d.UnitZ;
+			Assert.IsTrue((Vertex3d.UnitZ * 3.0f).Equals(v, 1e-10));
 		}
 
 		#endregion
@@ -7156,25 +7314,51 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix4x4d_TestPosition()
 		{
-			Assert.AreEqual(Vertex3d.Zero, Matrix4x4d.Identity.Position);
+			Matrix4x4d m = Matrix4x4d.Identity;
+
+			Assert.AreEqual(Vertex3d.Zero, m.Position);
+			
+			m.Translate(1.0f, 0.0f, 0.0f);
+			Assert.AreEqual(Vertex3d.UnitX, m.Position);
+
+			m.Translate(0.0f, 1.0f, 0.0f);
+			Assert.AreEqual(Vertex3d.UnitX + Vertex3d.UnitY, m.Position);
+
+			m.Translate(0.0f, 0.0f, 1.0f);
+			Assert.AreEqual(Vertex3d.UnitX + Vertex3d.UnitY + Vertex3d.UnitZ, m.Position);
 		}
 
 		[Test]
 		public void Matrix4x4d_TestForwardVector()
 		{
-			Assert.AreEqual(-Vertex3d.UnitZ, Matrix4x4d.Identity.ForwardVector);
+			Matrix4x4d m = Matrix4x4d.Identity;
+
+			Assert.AreEqual(-Vertex3d.UnitZ, m.ForwardVector);
+
+			m.RotateY(-90.0f);
+			Assert.IsTrue(Vertex3d.UnitX.Equals(m.ForwardVector, 1e-10));
 		}
 
 		[Test]
 		public void Matrix4x4d_TestRightVector()
 		{
-			Assert.AreEqual(Vertex3d.UnitX, Matrix4x4d.Identity.RightVector);
+			Matrix4x4d m = Matrix4x4d.Identity;
+
+			Assert.AreEqual(Vertex3d.UnitX, m.RightVector);
+
+			m.RotateY(-90.0f);
+			Assert.IsTrue(Vertex3d.UnitZ.Equals(m.RightVector, 1e-10));
 		}
 
 		[Test]
 		public void Matrix4x4d_TestUpVector()
 		{
-			Assert.AreEqual(Vertex3d.UnitY, Matrix4x4d.Identity.UpVector);
+			Matrix4x4d m = Matrix4x4d.Identity;
+
+			Assert.AreEqual(Vertex3d.UnitY, m.UpVector);
+
+			m.RotateX(+90.0f);
+			Assert.IsTrue(Vertex3d.UnitZ.Equals(m.UpVector, 1e-10));
 		}
 
 		[Test]
@@ -7343,13 +7527,57 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix4x4d_TestScaled()
 		{
+			Matrix4x4d m = Matrix4x4d.Scaled(1.0f, 1.0f, 1.0f);
+			Vertex4d v;
+			
+			v = m * Vertex4d.UnitX;
+			Assert.IsTrue(Vertex4d.UnitX.Equals(v, 1e-10));
 
+			v = m * Vertex4d.UnitY;
+			Assert.IsTrue(Vertex4d.UnitY.Equals(v, 1e-10));
+
+			v = m * Vertex4d.UnitZ;
+			Assert.IsTrue(Vertex4d.UnitZ.Equals(v, 1e-10));
+
+			m = Matrix4x4d.Scaled(0.5f, 2.0f, 3.0f);
+
+			v = m * Vertex4d.UnitX;
+			Assert.IsTrue((Vertex4d.UnitX * 0.5f).Equals(v, 1e-10));
+
+			v = m * Vertex4d.UnitY;
+			Assert.IsTrue((Vertex4d.UnitY * 2.0f).Equals(v, 1e-10));
+
+			v = m * Vertex4d.UnitZ;
+			Assert.IsTrue((Vertex4d.UnitZ * 3.0f).Equals(v, 1e-10));
 		}
 
 		[Test]
 		public void Matrix4x4d_TestScale()
 		{
+			Matrix4x4d m = Matrix4x4d.Identity;
+			Vertex4d v;
 
+			m.Scale(1.0f, 1.0f, 1.0f);
+
+			v = m * Vertex4d.UnitX;
+			Assert.IsTrue(Vertex4d.UnitX.Equals(v, 1e-10));
+
+			v = m * Vertex4d.UnitY;
+			Assert.IsTrue(Vertex4d.UnitY.Equals(v, 1e-10));
+
+			v = m * Vertex4d.UnitZ;
+			Assert.IsTrue(Vertex4d.UnitZ.Equals(v, 1e-10));
+
+			m.Scale(0.5f, 2.0f, 3.0f);
+
+			v = m * Vertex4d.UnitX;
+			Assert.IsTrue((Vertex4d.UnitX * 0.5f).Equals(v, 1e-10));
+
+			v = m * Vertex4d.UnitY;
+			Assert.IsTrue((Vertex4d.UnitY * 2.0f).Equals(v, 1e-10));
+
+			v = m * Vertex4d.UnitZ;
+			Assert.IsTrue((Vertex4d.UnitZ * 3.0f).Equals(v, 1e-10));
 		}
 
 		#endregion
