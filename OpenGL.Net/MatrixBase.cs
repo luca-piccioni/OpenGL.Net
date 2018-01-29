@@ -304,6 +304,7 @@ namespace OpenGL
 
 		/// <summary>
 		/// Multiply a matrix with a scalar value.
+		/// 
 		/// </summary>
 		/// <param name="m">
 		/// A <see cref="Matrix"/> that specify the left Matrix.
