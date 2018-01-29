@@ -34,6 +34,7 @@ using System.Text;
 
 using Khronos;
 
+// ReSharper disable CheckNamespace
 // ReSharper disable InconsistentNaming
 // ReSharper disable JoinDeclarationAndInitializer
 
@@ -662,6 +663,37 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// [GLES1.1] glLoadMatrixx: replace the current matrix with the specified matrix
+		/// </summary>
+		/// <param name="m">
+		/// Specifies a pointer to 16 consecutive values, which are used as the elements of a 4x4 column-major matrix.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		public static void LoadMatrixx<T>(ref T m) where T : struct
+		{
+			Debug.Assert(Delegates.pglLoadMatrixx != null, "pglLoadMatrixx not implemented");
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(m);
+			try {
+				unsafe {
+					Delegates.pglLoadMatrixx((IntPtr*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refM = __makeref(m);
+				IntPtr refMPtr = *(IntPtr*)(&refM);
+
+				Delegates.pglLoadMatrixx((IntPtr*)refMPtr.ToPointer());
+			}
+			#endif
+			LogCommand("glLoadMatrixx", null, m			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// [GLES1.1] glMaterialx: specify material parameters for the lighting model
 		/// </summary>
 		/// <param name="face">
@@ -726,6 +758,37 @@ namespace OpenGL
 					LogCommand("glMultMatrixx", null, m					);
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GLES1.1] glMultMatrixx: multiply the current matrix with the specified matrix
+		/// </summary>
+		/// <param name="m">
+		/// Points to 16 consecutive values that are used as the elements of a 4x4 column-major matrix.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		public static void MultMatrixx<T>(ref T m) where T : struct
+		{
+			Debug.Assert(Delegates.pglMultMatrixx != null, "pglMultMatrixx not implemented");
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(m);
+			try {
+				unsafe {
+					Delegates.pglMultMatrixx((IntPtr*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refM = __makeref(m);
+				IntPtr refMPtr = *(IntPtr*)(&refM);
+
+				Delegates.pglMultMatrixx((IntPtr*)refMPtr.ToPointer());
+			}
+			#endif
+			LogCommand("glMultMatrixx", null, m			);
 			DebugCheckErrors(null);
 		}
 

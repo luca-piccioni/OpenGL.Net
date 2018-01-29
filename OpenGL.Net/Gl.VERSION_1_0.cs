@@ -34,6 +34,7 @@ using System.Text;
 
 using Khronos;
 
+// ReSharper disable CheckNamespace
 // ReSharper disable InconsistentNaming
 // ReSharper disable JoinDeclarationAndInitializer
 
@@ -13771,6 +13772,41 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// <para>
+		/// [GL2.1|GLES1.1] glLoadMatrixf: replace the current matrix with the specified matrix
+		/// </para>
+		/// </summary>
+		/// <param name="m">
+		/// Specifies a pointer to 16 consecutive values, which are used as the elements of a 4×4 column-major matrix.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
+		public static void LoadMatrixf<T>(ref T m) where T : struct
+		{
+			Debug.Assert(Delegates.pglLoadMatrixf != null, "pglLoadMatrixf not implemented");
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(m);
+			try {
+				unsafe {
+					Delegates.pglLoadMatrixf((float*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refM = __makeref(m);
+				IntPtr refMPtr = *(IntPtr*)(&refM);
+
+				Delegates.pglLoadMatrixf((float*)refMPtr.ToPointer());
+			}
+			#endif
+			LogCommand("glLoadMatrixf", null, m			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// [GL2.1] glLoadMatrixd: replace the current matrix with the specified matrix
 		/// </summary>
 		/// <param name="m">
@@ -13789,6 +13825,38 @@ namespace OpenGL
 					LogCommand("glLoadMatrixd", null, m					);
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL2.1] glLoadMatrixd: replace the current matrix with the specified matrix
+		/// </summary>
+		/// <param name="m">
+		/// Specifies a pointer to 16 consecutive values, which are used as the elements of a 4×4 column-major matrix.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
+		public static void LoadMatrixd<T>(ref T m) where T : struct
+		{
+			Debug.Assert(Delegates.pglLoadMatrixd != null, "pglLoadMatrixd not implemented");
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(m);
+			try {
+				unsafe {
+					Delegates.pglLoadMatrixd((double*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refM = __makeref(m);
+				IntPtr refMPtr = *(IntPtr*)(&refM);
+
+				Delegates.pglLoadMatrixd((double*)refMPtr.ToPointer());
+			}
+			#endif
+			LogCommand("glLoadMatrixd", null, m			);
 			DebugCheckErrors(null);
 		}
 
@@ -13839,6 +13907,41 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// <para>
+		/// [GL2.1|GLES1.1] glMultMatrixf: multiply the current matrix with the specified matrix
+		/// </para>
+		/// </summary>
+		/// <param name="m">
+		/// Points to 16 consecutive values that are used as the elements of a 4×4 column-major matrix.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
+		public static void MultMatrixf<T>(ref T m) where T : struct
+		{
+			Debug.Assert(Delegates.pglMultMatrixf != null, "pglMultMatrixf not implemented");
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(m);
+			try {
+				unsafe {
+					Delegates.pglMultMatrixf((float*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refM = __makeref(m);
+				IntPtr refMPtr = *(IntPtr*)(&refM);
+
+				Delegates.pglMultMatrixf((float*)refMPtr.ToPointer());
+			}
+			#endif
+			LogCommand("glMultMatrixf", null, m			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// [GL2.1] glMultMatrixd: multiply the current matrix with the specified matrix
 		/// </summary>
 		/// <param name="m">
@@ -13857,6 +13960,38 @@ namespace OpenGL
 					LogCommand("glMultMatrixd", null, m					);
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL2.1] glMultMatrixd: multiply the current matrix with the specified matrix
+		/// </summary>
+		/// <param name="m">
+		/// Points to 16 consecutive values that are used as the elements of a 4×4 column-major matrix.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
+		public static void MultMatrixd<T>(ref T m) where T : struct
+		{
+			Debug.Assert(Delegates.pglMultMatrixd != null, "pglMultMatrixd not implemented");
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(m);
+			try {
+				unsafe {
+					Delegates.pglMultMatrixd((double*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refM = __makeref(m);
+				IntPtr refMPtr = *(IntPtr*)(&refM);
+
+				Delegates.pglMultMatrixd((double*)refMPtr.ToPointer());
+			}
+			#endif
+			LogCommand("glMultMatrixd", null, m			);
 			DebugCheckErrors(null);
 		}
 

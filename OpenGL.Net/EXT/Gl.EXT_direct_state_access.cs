@@ -34,6 +34,7 @@ using System.Text;
 
 using Khronos;
 
+// ReSharper disable CheckNamespace
 // ReSharper disable InconsistentNaming
 // ReSharper disable JoinDeclarationAndInitializer
 
@@ -85,6 +86,41 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// [GL] glMatrixLoadfEXT: Binding for glMatrixLoadfEXT.
+		/// </summary>
+		/// <param name="mode">
+		/// A <see cref="T:MatrixMode"/>.
+		/// </param>
+		/// <param name="m">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		public static void MatrixLoadfEXT<T>(MatrixMode mode, ref T m) where T : struct
+		{
+			Debug.Assert(Delegates.pglMatrixLoadfEXT != null, "pglMatrixLoadfEXT not implemented");
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(m);
+			try {
+				unsafe {
+					Delegates.pglMatrixLoadfEXT((int)mode, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refM = __makeref(m);
+				IntPtr refMPtr = *(IntPtr*)(&refM);
+
+				Delegates.pglMatrixLoadfEXT((int)mode, (float*)refMPtr.ToPointer());
+			}
+			#endif
+			LogCommand("glMatrixLoadfEXT", null, mode, m			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// [GL] glMatrixLoaddEXT: Binding for glMatrixLoaddEXT.
 		/// </summary>
 		/// <param name="mode">
@@ -106,6 +142,41 @@ namespace OpenGL
 					LogCommand("glMatrixLoaddEXT", null, mode, m					);
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL] glMatrixLoaddEXT: Binding for glMatrixLoaddEXT.
+		/// </summary>
+		/// <param name="mode">
+		/// A <see cref="T:MatrixMode"/>.
+		/// </param>
+		/// <param name="m">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		public static void MatrixLoaddEXT<T>(MatrixMode mode, ref T m) where T : struct
+		{
+			Debug.Assert(Delegates.pglMatrixLoaddEXT != null, "pglMatrixLoaddEXT not implemented");
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(m);
+			try {
+				unsafe {
+					Delegates.pglMatrixLoaddEXT((int)mode, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refM = __makeref(m);
+				IntPtr refMPtr = *(IntPtr*)(&refM);
+
+				Delegates.pglMatrixLoaddEXT((int)mode, (double*)refMPtr.ToPointer());
+			}
+			#endif
+			LogCommand("glMatrixLoaddEXT", null, mode, m			);
 			DebugCheckErrors(null);
 		}
 
@@ -135,6 +206,41 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// [GL] glMatrixMultfEXT: Binding for glMatrixMultfEXT.
+		/// </summary>
+		/// <param name="mode">
+		/// A <see cref="T:MatrixMode"/>.
+		/// </param>
+		/// <param name="m">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		public static void MatrixMultfEXT<T>(MatrixMode mode, ref T m) where T : struct
+		{
+			Debug.Assert(Delegates.pglMatrixMultfEXT != null, "pglMatrixMultfEXT not implemented");
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(m);
+			try {
+				unsafe {
+					Delegates.pglMatrixMultfEXT((int)mode, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refM = __makeref(m);
+				IntPtr refMPtr = *(IntPtr*)(&refM);
+
+				Delegates.pglMatrixMultfEXT((int)mode, (float*)refMPtr.ToPointer());
+			}
+			#endif
+			LogCommand("glMatrixMultfEXT", null, mode, m			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// [GL] glMatrixMultdEXT: Binding for glMatrixMultdEXT.
 		/// </summary>
 		/// <param name="mode">
@@ -156,6 +262,41 @@ namespace OpenGL
 					LogCommand("glMatrixMultdEXT", null, mode, m					);
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL] glMatrixMultdEXT: Binding for glMatrixMultdEXT.
+		/// </summary>
+		/// <param name="mode">
+		/// A <see cref="T:MatrixMode"/>.
+		/// </param>
+		/// <param name="m">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		public static void MatrixMultdEXT<T>(MatrixMode mode, ref T m) where T : struct
+		{
+			Debug.Assert(Delegates.pglMatrixMultdEXT != null, "pglMatrixMultdEXT not implemented");
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(m);
+			try {
+				unsafe {
+					Delegates.pglMatrixMultdEXT((int)mode, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refM = __makeref(m);
+				IntPtr refMPtr = *(IntPtr*)(&refM);
+
+				Delegates.pglMatrixMultdEXT((int)mode, (double*)refMPtr.ToPointer());
+			}
+			#endif
+			LogCommand("glMatrixMultdEXT", null, mode, m			);
 			DebugCheckErrors(null);
 		}
 
@@ -4663,6 +4804,41 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// [GL] glMatrixLoadTransposefEXT: Binding for glMatrixLoadTransposefEXT.
+		/// </summary>
+		/// <param name="mode">
+		/// A <see cref="T:MatrixMode"/>.
+		/// </param>
+		/// <param name="m">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		public static void MatrixLoadTransposefEXT<T>(MatrixMode mode, ref T m) where T : struct
+		{
+			Debug.Assert(Delegates.pglMatrixLoadTransposefEXT != null, "pglMatrixLoadTransposefEXT not implemented");
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(m);
+			try {
+				unsafe {
+					Delegates.pglMatrixLoadTransposefEXT((int)mode, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refM = __makeref(m);
+				IntPtr refMPtr = *(IntPtr*)(&refM);
+
+				Delegates.pglMatrixLoadTransposefEXT((int)mode, (float*)refMPtr.ToPointer());
+			}
+			#endif
+			LogCommand("glMatrixLoadTransposefEXT", null, mode, m			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// [GL] glMatrixLoadTransposedEXT: Binding for glMatrixLoadTransposedEXT.
 		/// </summary>
 		/// <param name="mode">
@@ -4684,6 +4860,41 @@ namespace OpenGL
 					LogCommand("glMatrixLoadTransposedEXT", null, mode, m					);
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL] glMatrixLoadTransposedEXT: Binding for glMatrixLoadTransposedEXT.
+		/// </summary>
+		/// <param name="mode">
+		/// A <see cref="T:MatrixMode"/>.
+		/// </param>
+		/// <param name="m">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		public static void MatrixLoadTransposedEXT<T>(MatrixMode mode, ref T m) where T : struct
+		{
+			Debug.Assert(Delegates.pglMatrixLoadTransposedEXT != null, "pglMatrixLoadTransposedEXT not implemented");
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(m);
+			try {
+				unsafe {
+					Delegates.pglMatrixLoadTransposedEXT((int)mode, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refM = __makeref(m);
+				IntPtr refMPtr = *(IntPtr*)(&refM);
+
+				Delegates.pglMatrixLoadTransposedEXT((int)mode, (double*)refMPtr.ToPointer());
+			}
+			#endif
+			LogCommand("glMatrixLoadTransposedEXT", null, mode, m			);
 			DebugCheckErrors(null);
 		}
 
@@ -4713,6 +4924,41 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// [GL] glMatrixMultTransposefEXT: Binding for glMatrixMultTransposefEXT.
+		/// </summary>
+		/// <param name="mode">
+		/// A <see cref="T:MatrixMode"/>.
+		/// </param>
+		/// <param name="m">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		public static void MatrixMultTransposefEXT<T>(MatrixMode mode, ref T m) where T : struct
+		{
+			Debug.Assert(Delegates.pglMatrixMultTransposefEXT != null, "pglMatrixMultTransposefEXT not implemented");
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(m);
+			try {
+				unsafe {
+					Delegates.pglMatrixMultTransposefEXT((int)mode, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refM = __makeref(m);
+				IntPtr refMPtr = *(IntPtr*)(&refM);
+
+				Delegates.pglMatrixMultTransposefEXT((int)mode, (float*)refMPtr.ToPointer());
+			}
+			#endif
+			LogCommand("glMatrixMultTransposefEXT", null, mode, m			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// [GL] glMatrixMultTransposedEXT: Binding for glMatrixMultTransposedEXT.
 		/// </summary>
 		/// <param name="mode">
@@ -4734,6 +4980,41 @@ namespace OpenGL
 					LogCommand("glMatrixMultTransposedEXT", null, mode, m					);
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL] glMatrixMultTransposedEXT: Binding for glMatrixMultTransposedEXT.
+		/// </summary>
+		/// <param name="mode">
+		/// A <see cref="T:MatrixMode"/>.
+		/// </param>
+		/// <param name="m">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		public static void MatrixMultTransposedEXT<T>(MatrixMode mode, ref T m) where T : struct
+		{
+			Debug.Assert(Delegates.pglMatrixMultTransposedEXT != null, "pglMatrixMultTransposedEXT not implemented");
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(m);
+			try {
+				unsafe {
+					Delegates.pglMatrixMultTransposedEXT((int)mode, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refM = __makeref(m);
+				IntPtr refMPtr = *(IntPtr*)(&refM);
+
+				Delegates.pglMatrixMultTransposedEXT((int)mode, (double*)refMPtr.ToPointer());
+			}
+			#endif
+			LogCommand("glMatrixMultTransposedEXT", null, mode, m			);
 			DebugCheckErrors(null);
 		}
 

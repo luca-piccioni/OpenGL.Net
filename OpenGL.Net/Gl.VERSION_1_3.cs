@@ -34,6 +34,7 @@ using System.Text;
 
 using Khronos;
 
+// ReSharper disable CheckNamespace
 // ReSharper disable InconsistentNaming
 // ReSharper disable JoinDeclarationAndInitializer
 
@@ -2699,6 +2700,39 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// [GL2.1] glLoadTransposeMatrixf: replace the current matrix with the specified row-major ordered matrix
+		/// </summary>
+		/// <param name="m">
+		/// Specifies a pointer to 16 consecutive values, which are used as the elements of a 4×4 row-major matrix.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_transpose_matrix")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
+		public static void LoadTransposeMatrixf<T>(ref T m) where T : struct
+		{
+			Debug.Assert(Delegates.pglLoadTransposeMatrixf != null, "pglLoadTransposeMatrixf not implemented");
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(m);
+			try {
+				unsafe {
+					Delegates.pglLoadTransposeMatrixf((float*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refM = __makeref(m);
+				IntPtr refMPtr = *(IntPtr*)(&refM);
+
+				Delegates.pglLoadTransposeMatrixf((float*)refMPtr.ToPointer());
+			}
+			#endif
+			LogCommand("glLoadTransposeMatrixf", null, m			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// [GL2.1] glLoadTransposeMatrixd: replace the current matrix with the specified row-major ordered matrix
 		/// </summary>
 		/// <param name="m">
@@ -2718,6 +2752,39 @@ namespace OpenGL
 					LogCommand("glLoadTransposeMatrixd", null, m					);
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL2.1] glLoadTransposeMatrixd: replace the current matrix with the specified row-major ordered matrix
+		/// </summary>
+		/// <param name="m">
+		/// Specifies a pointer to 16 consecutive values, which are used as the elements of a 4×4 row-major matrix.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_transpose_matrix")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
+		public static void LoadTransposeMatrixd<T>(ref T m) where T : struct
+		{
+			Debug.Assert(Delegates.pglLoadTransposeMatrixd != null, "pglLoadTransposeMatrixd not implemented");
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(m);
+			try {
+				unsafe {
+					Delegates.pglLoadTransposeMatrixd((double*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refM = __makeref(m);
+				IntPtr refMPtr = *(IntPtr*)(&refM);
+
+				Delegates.pglLoadTransposeMatrixd((double*)refMPtr.ToPointer());
+			}
+			#endif
+			LogCommand("glLoadTransposeMatrixd", null, m			);
 			DebugCheckErrors(null);
 		}
 
@@ -2745,6 +2812,39 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// [GL2.1] glMultTransposeMatrixf: multiply the current matrix with the specified row-major ordered matrix
+		/// </summary>
+		/// <param name="m">
+		/// Points to 16 consecutive values that are used as the elements of a 4×4 row-major matrix.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_transpose_matrix")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
+		public static void MultTransposeMatrixf<T>(ref T m) where T : struct
+		{
+			Debug.Assert(Delegates.pglMultTransposeMatrixf != null, "pglMultTransposeMatrixf not implemented");
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(m);
+			try {
+				unsafe {
+					Delegates.pglMultTransposeMatrixf((float*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refM = __makeref(m);
+				IntPtr refMPtr = *(IntPtr*)(&refM);
+
+				Delegates.pglMultTransposeMatrixf((float*)refMPtr.ToPointer());
+			}
+			#endif
+			LogCommand("glMultTransposeMatrixf", null, m			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// [GL2.1] glMultTransposeMatrixd: multiply the current matrix with the specified row-major ordered matrix
 		/// </summary>
 		/// <param name="m">
@@ -2764,6 +2864,39 @@ namespace OpenGL
 					LogCommand("glMultTransposeMatrixd", null, m					);
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL2.1] glMultTransposeMatrixd: multiply the current matrix with the specified row-major ordered matrix
+		/// </summary>
+		/// <param name="m">
+		/// Points to 16 consecutive values that are used as the elements of a 4×4 row-major matrix.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_transpose_matrix")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
+		public static void MultTransposeMatrixd<T>(ref T m) where T : struct
+		{
+			Debug.Assert(Delegates.pglMultTransposeMatrixd != null, "pglMultTransposeMatrixd not implemented");
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(m);
+			try {
+				unsafe {
+					Delegates.pglMultTransposeMatrixd((double*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refM = __makeref(m);
+				IntPtr refMPtr = *(IntPtr*)(&refM);
+
+				Delegates.pglMultTransposeMatrixd((double*)refMPtr.ToPointer());
+			}
+			#endif
+			LogCommand("glMultTransposeMatrixd", null, m			);
 			DebugCheckErrors(null);
 		}
 

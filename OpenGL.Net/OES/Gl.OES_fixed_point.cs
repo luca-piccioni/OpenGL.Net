@@ -34,6 +34,7 @@ using System.Text;
 
 using Khronos;
 
+// ReSharper disable CheckNamespace
 // ReSharper disable InconsistentNaming
 // ReSharper disable JoinDeclarationAndInitializer
 
@@ -459,6 +460,37 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// [GL] glLoadMatrixxOES: Binding for glLoadMatrixxOES.
+		/// </summary>
+		/// <param name="m">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
+		public static void LoadMatrixxOES<T>(ref T m) where T : struct
+		{
+			Debug.Assert(Delegates.pglLoadMatrixxOES != null, "pglLoadMatrixxOES not implemented");
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(m);
+			try {
+				unsafe {
+					Delegates.pglLoadMatrixxOES((IntPtr*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refM = __makeref(m);
+				IntPtr refMPtr = *(IntPtr*)(&refM);
+
+				Delegates.pglLoadMatrixxOES((IntPtr*)refMPtr.ToPointer());
+			}
+			#endif
+			LogCommand("glLoadMatrixxOES", null, m			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// [GL] glMaterialxOES: Binding for glMaterialxOES.
 		/// </summary>
 		/// <param name="face">
@@ -523,6 +555,37 @@ namespace OpenGL
 					LogCommand("glMultMatrixxOES", null, m					);
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL] glMultMatrixxOES: Binding for glMultMatrixxOES.
+		/// </summary>
+		/// <param name="m">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
+		public static void MultMatrixxOES<T>(ref T m) where T : struct
+		{
+			Debug.Assert(Delegates.pglMultMatrixxOES != null, "pglMultMatrixxOES not implemented");
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(m);
+			try {
+				unsafe {
+					Delegates.pglMultMatrixxOES((IntPtr*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refM = __makeref(m);
+				IntPtr refMPtr = *(IntPtr*)(&refM);
+
+				Delegates.pglMultMatrixxOES((IntPtr*)refMPtr.ToPointer());
+			}
+			#endif
+			LogCommand("glMultMatrixxOES", null, m			);
 			DebugCheckErrors(null);
 		}
 
@@ -1531,6 +1594,37 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// [GL] glLoadTransposeMatrixxOES: Binding for glLoadTransposeMatrixxOES.
+		/// </summary>
+		/// <param name="m">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_OES_fixed_point")]
+		public static void LoadTransposeMatrixxOES<T>(ref T m) where T : struct
+		{
+			Debug.Assert(Delegates.pglLoadTransposeMatrixxOES != null, "pglLoadTransposeMatrixxOES not implemented");
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(m);
+			try {
+				unsafe {
+					Delegates.pglLoadTransposeMatrixxOES((IntPtr*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refM = __makeref(m);
+				IntPtr refMPtr = *(IntPtr*)(&refM);
+
+				Delegates.pglLoadTransposeMatrixxOES((IntPtr*)refMPtr.ToPointer());
+			}
+			#endif
+			LogCommand("glLoadTransposeMatrixxOES", null, m			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// [GL] glMap1xOES: Binding for glMap1xOES.
 		/// </summary>
 		/// <param name="target">
@@ -1668,6 +1762,37 @@ namespace OpenGL
 					LogCommand("glMultTransposeMatrixxOES", null, m					);
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL] glMultTransposeMatrixxOES: Binding for glMultTransposeMatrixxOES.
+		/// </summary>
+		/// <param name="m">
+		/// A <see cref="T:T"/>.
+		/// </param>
+		[RequiredByFeature("GL_OES_fixed_point")]
+		public static void MultTransposeMatrixxOES<T>(ref T m) where T : struct
+		{
+			Debug.Assert(Delegates.pglMultTransposeMatrixxOES != null, "pglMultTransposeMatrixxOES not implemented");
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(m);
+			try {
+				unsafe {
+					Delegates.pglMultTransposeMatrixxOES((IntPtr*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refM = __makeref(m);
+				IntPtr refMPtr = *(IntPtr*)(&refM);
+
+				Delegates.pglMultTransposeMatrixxOES((IntPtr*)refMPtr.ToPointer());
+			}
+			#endif
+			LogCommand("glMultTransposeMatrixxOES", null, m			);
 			DebugCheckErrors(null);
 		}
 

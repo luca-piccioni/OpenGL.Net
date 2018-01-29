@@ -1144,9 +1144,8 @@ namespace BindingsGen.GLSpecs
 			if (implementationName.EndsWith(extensionPostfix))
 				implementationName = implementationName.Substring(0, implementationName.Length - extensionPostfix.Length);
 
-			if (implementationName.EndsWith("v") == false)
-				throw new NotSupportedException("not a vector command");
-			implementationName = implementationName.Substring(0, implementationName.Length - 1);
+			if (implementationName.EndsWith("v"))
+				implementationName = implementationName.Substring(0, implementationName.Length - 1);
 
 			if (extensionPostfix != null)
 				implementationName = implementationName + extensionPostfix;
