@@ -5392,6 +5392,12 @@ namespace OpenGL
 		/// <param name="x">
 		/// A <see cref="float"/> that specifies the translation on X axis.
 		/// </param>
+		/// <param name="y">
+		/// A <see cref="float"/> that specifies the translation on Y axis.
+		/// </param>
+		/// <param name="z">
+		/// A <see cref="float"/> that specifies the translation on Z axis.
+		/// </param>
 		public void Translate(float x, float y, float z)
 		{
 			this = this * Translated(x, y, z);
@@ -11192,6 +11198,12 @@ namespace OpenGL
 		/// </summary>
 		/// <param name="x">
 		/// A <see cref="double"/> that specifies the translation on X axis.
+		/// </param>
+		/// <param name="y">
+		/// A <see cref="double"/> that specifies the translation on Y axis.
+		/// </param>
+		/// <param name="z">
+		/// A <see cref="double"/> that specifies the translation on Z axis.
 		/// </param>
 		public void Translate(double x, double y, double z)
 		{

@@ -801,6 +801,12 @@ for (int c1 = 0; c1 < c; c1++) for (int r1 = 0; r1 < r; r1++) {
 		/// <param name="x">
 		/// A <see cref="<#= matrixBaseType #>"/> that specifies the translation on X axis.
 		/// </param>
+		/// <param name="y">
+		/// A <see cref="<#= matrixBaseType #>"/> that specifies the translation on Y axis.
+		/// </param>
+		/// <param name="z">
+		/// A <see cref="<#= matrixBaseType #>"/> that specifies the translation on Z axis.
+		/// </param>
 		public void Translate(<#= matrixBaseType #> x, <#= matrixBaseType #> y, <#= matrixBaseType #> z)
 		{
 			this = this * Translated(x, y, z);
