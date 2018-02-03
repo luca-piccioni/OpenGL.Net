@@ -243,6 +243,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_clip_control", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_clip_control", Api = "gles2")]
 		public static void ClipControl(ClipControlOrigin origin, ClipControlDepth depth)
 		{
 			Debug.Assert(Delegates.pglClipControl != null, "pglClipControl not implemented");
@@ -6043,11 +6044,13 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_clip_control", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_clip_control", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glClipControl(int origin, int depth);
 
 			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_clip_control", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_clip_control", Api = "gles2", EntryPoint = "glClipControlEXT")]
 			[ThreadStatic]
 			internal static glClipControl pglClipControl;
 

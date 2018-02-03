@@ -780,7 +780,7 @@ namespace OpenGL
 		SrcColor = Gl.SRC_COLOR,
 
 		/// <summary>
-		/// Strongly typed for value GL_ONE_MINUS_SRC_COLOR, GL_ONE_MINUS_SRC_COLOR.
+		/// Strongly typed for value GL_ONE_MINUS_SRC_COLOR.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -824,7 +824,7 @@ namespace OpenGL
 		SrcAlpha = Gl.SRC_ALPHA,
 
 		/// <summary>
-		/// Strongly typed for value GL_ONE_MINUS_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA.
+		/// Strongly typed for value GL_ONE_MINUS_SRC_ALPHA.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
@@ -925,6 +925,14 @@ namespace OpenGL
 		Src1Color = Gl.SRC1_COLOR,
 
 		/// <summary>
+		/// Strongly typed for value GL_ONE_MINUS_SRC1_COLOR.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_3")]
+		[RequiredByFeature("GL_ARB_blend_func_extended", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2")]
+		OneMinusSrc1Color = Gl.ONE_MINUS_SRC1_COLOR,
+
+		/// <summary>
 		/// Strongly typed for value GL_SRC1_ALPHA.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_3")]
@@ -932,6 +940,14 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_texture_env_combine")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		Source1Alpha = Gl.SOURCE1_ALPHA,
+
+		/// <summary>
+		/// Strongly typed for value GL_ONE_MINUS_SRC1_ALPHA.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_3_3")]
+		[RequiredByFeature("GL_ARB_blend_func_extended", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_blend_func_extended", Api = "gles2")]
+		OneMinusSrc1Alpha = Gl.ONE_MINUS_SRC1_ALPHA,
 
 	}
 

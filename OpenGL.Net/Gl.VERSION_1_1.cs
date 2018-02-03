@@ -1219,7 +1219,6 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_VERSION_4_3", Profile = "core")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_vertex_array")]
@@ -1252,7 +1251,6 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_4_3")]
-		[RequiredByFeature("GL_VERSION_4_3", Profile = "core")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_vertex_array")]
@@ -2369,7 +2367,6 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RequiredByFeature("GL_VERSION_4_3")]
-			[RequiredByFeature("GL_VERSION_4_3", Profile = "core")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_vertex_array")]
@@ -2381,7 +2378,6 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_1_1")]
 			[RequiredByFeature("GL_VERSION_4_3")]
-			[RequiredByFeature("GL_VERSION_4_3", Profile = "core")]
 			[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 			[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 			[RequiredByFeature("GL_EXT_vertex_array", EntryPoint = "glGetPointervEXT")]

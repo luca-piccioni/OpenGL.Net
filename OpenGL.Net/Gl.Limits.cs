@@ -2452,7 +2452,6 @@ namespace OpenGL
 			/// </summary>
 			[Limit(MAX_RASTER_SAMPLES_EXT)]
 			[RequiredByFeature("GL_EXT_raster_multisample", Api = "gl|glcore|gles2")]
-			[RequiredByFeature("GL_EXT_texture_filter_minmax", Api = "gl|glcore|gles2")]
 			[RequiredByFeature("GL_NV_framebuffer_mixed_samples", Api = "gl|glcore|gles2")]
 			public int MaxRasterSamplesEXT;
 
