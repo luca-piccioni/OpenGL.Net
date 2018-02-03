@@ -23,6 +23,13 @@ using System;
 using System.Runtime.InteropServices;
 using System.Threading;
 
+#if HAVE_NUMERICS
+using System.Numerics;
+using System.Runtime.CompilerServices;
+
+using Mat4x4 = System.Numerics.Matrix4x4;
+#endif
+
 // ReSharper disable InconsistentNaming
 // ReSharper disable CompareOfFloatsByEqualityOperator
 
@@ -4914,6 +4921,13 @@ namespace OpenGL
 		{
 			Matrix4x4f r = new Matrix4x4f();
 
+#if HAVE_NUMERICS
+			if (Vector.IsHardwareAccelerated) {
+				unsafe {
+					Unsafe.Write(&r, Unsafe.Read<Mat4x4>(&m) * Unsafe.Read<Mat4x4>(&n));
+				}
+			} else {
+#endif
 			r._M00 = m._M00 * n._M00 + m._M10 * n._M01 + m._M20 * n._M02 + m._M30 * n._M03;
 			r._M01 = m._M01 * n._M00 + m._M11 * n._M01 + m._M21 * n._M02 + m._M31 * n._M03;
 			r._M02 = m._M02 * n._M00 + m._M12 * n._M01 + m._M22 * n._M02 + m._M32 * n._M03;
@@ -4930,6 +4944,9 @@ namespace OpenGL
 			r._M31 = m._M01 * n._M30 + m._M11 * n._M31 + m._M21 * n._M32 + m._M31 * n._M33;
 			r._M32 = m._M02 * n._M30 + m._M12 * n._M31 + m._M22 * n._M32 + m._M32 * n._M33;
 			r._M33 = m._M03 * n._M30 + m._M13 * n._M31 + m._M23 * n._M32 + m._M33 * n._M33;
+#if HAVE_NUMERICS
+			}
+#endif
 
 			return r;
 		}
@@ -5637,6 +5654,24 @@ namespace OpenGL
 		{
 			get
 			{
+#if HAVE_NUMERICS
+				if (Vector.IsHardwareAccelerated) {
+					Matrix4x4f inverse = new Matrix4x4f();
+
+					unsafe {
+						fixed (Matrix4x4f* thisPtr = &this) {
+							Mat4x4 m = Unsafe.Read<Mat4x4>(thisPtr), i;
+
+							if (Mat4x4.Invert(m, out i) == false)
+								throw new InvalidOperationException("not invertible");
+
+							Unsafe.Write(&inverse, i);
+						}
+					}
+
+					return (inverse);
+				} else {
+#endif
 				float inv00 =  _M11 * _M22 * _M33 - _M11 * _M23 * _M32 - _M21 * _M12 * _M33 + _M21 * _M13 * _M32 + _M31 * _M12 * _M23 - _M31 * _M13 * _M22;
 				float inv10 = -_M10 * _M22 * _M33 + _M10 * _M23 * _M32 + _M20 * _M12 * _M33 - _M20 * _M13 * _M32 - _M30 * _M12 * _M23 + _M30 * _M13 * _M22;
 				float inv20 =  _M10 * _M21 * _M33 - _M10 * _M23 * _M31 - _M20 * _M11 * _M33 + _M20 * _M13 * _M31 + _M30 * _M11 * _M23 - _M30 * _M13 * _M21;
@@ -5667,6 +5702,9 @@ namespace OpenGL
 					det * inv20, det * inv21, det * inv22, det * inv23, 
 					det * inv30, det * inv31, det * inv32, det * inv33
 				);
+#if HAVE_NUMERICS
+				}
+#endif
 			}
 		}
 

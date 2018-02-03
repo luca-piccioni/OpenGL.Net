@@ -31,6 +31,13 @@ using System;
 using System.Runtime.InteropServices;
 using System.Threading;
 
+#if HAVE_NUMERICS
+using System.Numerics;
+using System.Runtime.CompilerServices;
+
+using Mat4x4 = System.Numerics.Matrix4x4;
+#endif
+
 // ReSharper disable InconsistentNaming
 // ReSharper disable CompareOfFloatsByEqualityOperator
 
@@ -324,9 +331,23 @@ for (int c1 = 0; c1 < c; c1++) for (int r1 = 0; r1 < r; r1++) {
 } #>
 			<#= className #> r = new <#= className #>();
 
+<# if (className == "Matrix4x4f") { #>
+#if HAVE_NUMERICS
+			if (Vector.IsHardwareAccelerated) {
+				unsafe {
+					Unsafe.Write(&r, Unsafe.Read<Mat4x4>(&m) * Unsafe.Read<Mat4x4>(&n));
+				}
+			} else {
+#endif
+<# } #>
 <# foreach (string s in rItemInit) {#>
 			<#= s #>;
 <#}#>
+<# if (className == "Matrix4x4f") { #>
+#if HAVE_NUMERICS
+			}
+#endif
+<# } #>
 
 			return r;
 		}
@@ -1090,6 +1111,26 @@ for (int c1 = 0; c1 < c; c1++) for (int r1 = 0; r1 < r; r1++) {
 					 (b * f - c * e) * det, -(a * f - c * d) * det,  (a * e - b * d) * det
 				);
 <# } else if (c == 4) { #>
+<# if (className == "Matrix4x4f") { #>
+#if HAVE_NUMERICS
+				if (Vector.IsHardwareAccelerated) {
+					<#= className #> inverse = new <#= className #>();
+
+					unsafe {
+						fixed (<#= className #>* thisPtr = &this) {
+							Mat4x4 m = Unsafe.Read<Mat4x4>(thisPtr), i;
+
+							if (Mat4x4.Invert(m, out i) == false)
+								throw new InvalidOperationException("not invertible");
+
+							Unsafe.Write(&inverse, i);
+						}
+					}
+
+					return (inverse);
+				} else {
+#endif
+<# } #>
 				<#= matrixBaseType #> inv00 =  _M11 * _M22 * _M33 - _M11 * _M23 * _M32 - _M21 * _M12 * _M33 + _M21 * _M13 * _M32 + _M31 * _M12 * _M23 - _M31 * _M13 * _M22;
 				<#= matrixBaseType #> inv10 = -_M10 * _M22 * _M33 + _M10 * _M23 * _M32 + _M20 * _M12 * _M33 - _M20 * _M13 * _M32 - _M30 * _M12 * _M23 + _M30 * _M13 * _M22;
 				<#= matrixBaseType #> inv20 =  _M10 * _M21 * _M33 - _M10 * _M23 * _M31 - _M20 * _M11 * _M33 + _M20 * _M13 * _M31 + _M30 * _M11 * _M23 - _M30 * _M13 * _M21;
@@ -1120,6 +1161,11 @@ for (int c1 = 0; c1 < c; c1++) for (int r1 = 0; r1 < r; r1++) {
 
 <# } #>
 				);
+<# if (className == "Matrix4x4f") { #>
+#if HAVE_NUMERICS
+				}
+#endif
+<# } #>
 <# } #>
 			}
 		}
