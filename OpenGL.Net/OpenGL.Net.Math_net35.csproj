@@ -153,29 +153,14 @@
     <Compile Include="IColorRGB.cs" />
     <Compile Include="IColorRGBA.cs" />
     <Compile Include="ICopiable.cs" />
-    <Compile Include="IMatrix.cs" />
-    <Compile Include="IMatrix3x3.cs" />
-    <Compile Include="IMatrix4x4.cs" />
-    <Compile Include="IModelMatrix.cs" />
-    <Compile Include="IProjectionMatrix.cs" />
     <Compile Include="Matrix.cs">
       <DependentUpon>Matrix.tt</DependentUpon>
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </Compile>
-    <Compile Include="Matrix3x3.cs" />
-    <Compile Include="Matrix4x4.cs" />
-    <Compile Include="MatrixBase.cs" />
-    <Compile Include="MatrixDouble.cs" />
-    <Compile Include="MatrixDouble3x3.cs" />
-    <Compile Include="MatrixDouble4x4.cs" />
-    <Compile Include="ModelMatrix.cs" />
-    <Compile Include="ModelMatrixDouble.cs" />
     <Compile Include="PixelLayout.cs" />
     <Compile Include="PixelSpace.cs" />
     <Compile Include="Plane.cs" />
-    <Compile Include="ProjectionMatrix.cs" />
-    <Compile Include="ProjectionMatrixDouble.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Quaternion.cs" />
     <Compile Include="Vertex2.cs">

@@ -157,23 +157,23 @@ namespace OpenGL
 		/// <summary>
 		/// Extract all six planes from a model-view-projection matrix.
 		/// </summary>
-		/// <param name="modelViewProjection">
-		/// The <see cref="IMatrix4x4"/> that specify the matrix used for drawing the clipped object.
+		/// <param name="mvp">
+		/// The <see cref="Matrix4x4d"/> that specify the matrix used for drawing the clipped object.
 		/// </param>
 		/// <returns>
 		/// It returns a <see cref="IEnumerable{Plane}"/> containing all six clipping planes defined
-		/// by <paramref name="modelViewProjection"/>.
+		/// by <paramref name="mvp"/>.
 		/// </returns>
-		public static IEnumerable<Plane> GetFrustumPlanes(IMatrix4x4 modelViewProjection)
+		public static IEnumerable<Plane> GetFrustumPlanes(Matrix4x4d mvp)
 		{
-			List<Plane> planes = new List<Plane>(6);
-
-			planes.Add(GetFrustumLeftPlane(modelViewProjection));
-			planes.Add(GetFrustumRightPlane(modelViewProjection));
-			planes.Add(GetFrustumNearPlane(modelViewProjection));
-			planes.Add(GetFrustumFarPlane(modelViewProjection));
-			planes.Add(GetFrustumBottomPlane(modelViewProjection));
-			planes.Add(GetFrustumTopPlane(modelViewProjection));
+			List<Plane> planes = new List<Plane>(6) {
+				GetFrustumLeftPlane(mvp),
+				GetFrustumRightPlane(mvp),
+				GetFrustumNearPlane(mvp),
+				GetFrustumFarPlane(mvp),
+				GetFrustumBottomPlane(mvp),
+				GetFrustumTopPlane(mvp)
+			};
 
 			return (planes);
 		}
@@ -181,91 +181,71 @@ namespace OpenGL
 		/// <summary>
 		/// Extract the left plane from a model-view-projection matrix.
 		/// </summary>
-		/// <param name="modelViewProjection">
-		/// The <see cref="IMatrix4x4"/> that specify the matrix used for drawing the clipped object.
+		/// <param name="mvp">
+		/// The <see cref="Matrix4x4d"/> that specify the matrix used for drawing the clipped object.
 		/// </param>
 		/// <returns>
 		/// It returns a <see cref="Plane"/> defining the left clipping plane.
 		/// </returns>
-		public static Plane GetFrustumLeftPlane(IMatrix4x4 modelViewProjection)
+		public static Plane GetFrustumLeftPlane(Matrix4x4d mvp)
 		{
-			// Compute plane
-			Vertex4d a = new Vertex4d(modelViewProjection.GetRow(3));
-			Vertex4d b = new Vertex4d(modelViewProjection.GetRow(0));
-
-			return (NormalizePlane(NameLeft, a + b));
+			return (NormalizePlane(NameLeft, mvp.Row3 + mvp.Row0));
 		}
 
 		/// <summary>
 		/// Extract the right plane from a model-view-projection matrix.
 		/// </summary>
-		/// <param name="modelViewProjection">
-		/// The <see cref="IMatrix4x4"/> that specify the matrix used for drawing the clipped object.
+		/// <param name="mvp">
+		/// The <see cref="Matrix4x4d"/> that specify the matrix used for drawing the clipped object.
 		/// </param>
 		/// <returns>
 		/// It returns a <see cref="Plane"/> defining the right clipping plane.
 		/// </returns>
-		public static Plane GetFrustumRightPlane(IMatrix4x4 modelViewProjection)
+		public static Plane GetFrustumRightPlane(Matrix4x4d mvp)
 		{
-			// Compute plane
-			Vertex4d a = new Vertex4d(modelViewProjection.GetRow(3));
-			Vertex4d b = new Vertex4d(modelViewProjection.GetRow(0));
-
-			return (NormalizePlane(NameRight, a - b));
+			return (NormalizePlane(NameRight, mvp.Row3 - mvp.Row0));
 		}
 
 		/// <summary>
 		/// Extract the bottom plane from a model-view-projection matrix.
 		/// </summary>
-		/// <param name="modelViewProjection">
-		/// The <see cref="IMatrix4x4"/> that specify the matrix used for drawing the clipped object.
+		/// <param name="mvp">
+		/// The <see cref="Matrix4x4d"/> that specify the matrix used for drawing the clipped object.
 		/// </param>
 		/// <returns>
 		/// It returns a <see cref="Plane"/> defining the bottom clipping plane.
 		/// </returns>
-		public static Plane GetFrustumBottomPlane(IMatrix4x4 modelViewProjection)
+		public static Plane GetFrustumBottomPlane(Matrix4x4d mvp)
 		{
-			// Compute plane
-			Vertex4d a = new Vertex4d(modelViewProjection.GetRow(3));
-			Vertex4d b = new Vertex4d(modelViewProjection.GetRow(1));
-
-			return (NormalizePlane(NameBottom, a + b));
+			return (NormalizePlane(NameBottom, mvp.Row0 + mvp.Row1));
 		}
 
 		/// <summary>
 		/// Extract the top plane from a model-view-projection matrix.
 		/// </summary>
-		/// <param name="modelViewProjection">
-		/// The <see cref="IMatrix4x4"/> that specify the matrix used for drawing the clipped object.
+		/// <param name="mvp">
+		/// The <see cref="Matrix4x4d"/> that specify the matrix used for drawing the clipped object.
 		/// </param>
 		/// <returns>
 		/// It returns a <see cref="Plane"/> defining the top clipping plane.
 		/// </returns>
-		public static Plane GetFrustumTopPlane(IMatrix4x4 modelViewProjection)
+		public static Plane GetFrustumTopPlane(Matrix4x4d mvp)
 		{
-			// Compute plane
-			Vertex4d a = new Vertex4d(modelViewProjection.GetRow(3));
-			Vertex4d b = new Vertex4d(modelViewProjection.GetRow(1));
-
-			return (NormalizePlane(NameTop, a - b));
+			return (NormalizePlane(NameTop, mvp.Row0 - mvp.Row1));
 		}
 
 		/// <summary>
 		/// Extract the near plane from a model-view-projection matrix.
 		/// </summary>
-		/// <param name="modelViewProjection">
-		/// The <see cref="IMatrix4x4"/> that specify the matrix used for drawing the clipped object.
+		/// <param name="mvp">
+		/// The <see cref="Matrix4x4d"/> that specify the matrix used for drawing the clipped object.
 		/// </param>
 		/// <returns>
 		/// It returns a <see cref="Plane"/> defining the near clipping plane.
 		/// </returns>
-		public static Plane GetFrustumNearPlane(IMatrix4x4 modelViewProjection)
+		public static Plane GetFrustumNearPlane(Matrix4x4d mvp)
 		{
-			// Compute plane
-			Vertex4d a = new Vertex4d(modelViewProjection.GetRow(3));
-			Vertex4d b = new Vertex4d(modelViewProjection.GetRow(2));
-
-			Plane plane = NormalizePlane(NameFar, a + b);
+			Plane plane = NormalizePlane(NameFar, mvp.Row0 + mvp.Row2);
 			plane.Distance = -plane.Distance;
 			return (plane);
 		}
@@ -273,19 +253,15 @@ namespace OpenGL
 		/// <summary>
 		/// Extract the far plane from a model-view-projection matrix.
 		/// </summary>
-		/// <param name="modelViewProjection">
-		/// The <see cref="IMatrix4x4"/> that specify the matrix used for drawing the clipped object.
+		/// <param name="mvp">
+		/// The <see cref="Matrix4x4d"/> that specify the matrix used for drawing the clipped object.
 		/// </param>
 		/// <returns>
 		/// It returns a <see cref="Plane"/> defining the far clipping plane.
 		/// </returns>
-		public static Plane GetFrustumFarPlane(IMatrix4x4 modelViewProjection)
+		public static Plane GetFrustumFarPlane(Matrix4x4d mvp)
 		{
-			// Compute plane
-			Vertex4d a = new Vertex4d(modelViewProjection.GetRow(3));
-			Vertex4d b = new Vertex4d(modelViewProjection.GetRow(2));
-
-			Plane plane = NormalizePlane(NameFar, a - b);
+			Plane plane = NormalizePlane(NameFar, mvp.Row3 - mvp.Row2);
 			plane.Distance = -plane.Distance;
 			return (plane);
 		}

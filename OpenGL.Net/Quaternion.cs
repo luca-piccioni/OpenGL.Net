@@ -36,7 +36,7 @@ namespace OpenGL
 	/// - http://en.wikipedia.org/wiki/Rotation_representation
 	/// </para>
 	/// </remarks>
-	public class Quaternion
+	public struct Quaternion
 	{
 		#region Constructors
 
@@ -83,7 +83,7 @@ namespace OpenGL
 		public Quaternion(Vertex3f rVector, float rAngle)
 		{
 			// Set the default rotation axis
-			_DefaultVector = (Vertex3d)rVector;
+			_DefaultVector = rVector;
 			// Make compiler happy
 			_Vector = new Vertex3d();
 			_CosAngle = 0.0f;
@@ -100,9 +100,6 @@ namespace OpenGL
 		/// </param>
 		public Quaternion(Quaternion other)
 		{
-			if (other == null)
-				throw new ArgumentNullException("other");
-
 			// Set the default rotation axis
 			_DefaultVector = other._DefaultVector;
 			// Copy quaternion fields
@@ -151,7 +148,7 @@ namespace OpenGL
 				if (_Vector.Module() >= Single.Epsilon)
 					_DefaultVector = _Vector.Normalized;
 					
-				return (Vertex3f)(_DefaultVector);
+				return (Vertex3f)_DefaultVector;
 			}
 			set { SetEuler(value, RotationAngle); }
 		}
@@ -161,7 +158,7 @@ namespace OpenGL
 		/// </summary>
 		public float RotationAngle
 		{
-			get { return (float)(Angle.ToDegrees(2.0 * Math.Acos(_CosAngle))); }
+			get { return (float)Angle.ToDegrees(2.0 * Math.Acos(_CosAngle)); }
 			set { SetEuler(RotationVector, value); }
 		}
 
@@ -198,22 +195,22 @@ namespace OpenGL
 		/// <summary>
 		/// Quaternion <i>q1</i> component.
 		/// </summary>
-		public float X { get { return ((float)_Vector.x); } set { _Vector.x = value; } }
+		public float X { get { return (float)_Vector.x; } set { _Vector.x = value; } }
 
 		/// <summary>
 		/// Quaternion <i>q2</i> component.
 		/// </summary>
-		public float Y { get { return ((float)_Vector.y); } set { _Vector.y = value; } }
+		public float Y { get { return (float)_Vector.y; } set { _Vector.y = value; } }
 
 		/// <summary>
 		/// Quaternion <i>q3</i> component.
 		/// </summary>
-		public float Z { get { return ((float)_Vector.z); } set { _Vector.z = value; } }
+		public float Z { get { return (float)_Vector.z; } set { _Vector.z = value; } }
 
 		/// <summary>
 		/// Quaternion <i>q4</i> component.
 		/// </summary>
-		public float W { get { return ((float)_CosAngle); } set { _CosAngle = value; } }
+		public float W { get { return (float)_CosAngle; } set { _CosAngle = value; } }
 
 		/// <summary>
 		/// Compute this Quaternion magnitude.
@@ -226,7 +223,7 @@ namespace OpenGL
 				double z2 = _Vector.z * _Vector.z;
 				double w2 = _CosAngle * _CosAngle;
 
-				return (Math.Sqrt(x2 + y2 + z2 + w2));
+				return Math.Sqrt(x2 + y2 + z2 + w2);
 			}
 		}
 
@@ -238,11 +235,11 @@ namespace OpenGL
 			get
 			{
 				if (Math.Abs(_Vector.Module()) >= Single.Epsilon)
-					return (false);
+					return false;
 				if (Math.Abs(_CosAngle - 1.0f) >= Single.Epsilon)
-					return (false);
+					return false;
 
-				return (true);
+				return true;
 			}
 		}
 
@@ -251,7 +248,7 @@ namespace OpenGL
 		/// </summary>
 		public bool IsNormalized
 		{
-			get { return (Math.Abs(Magnitude - 1.0) < Single.Epsilon); }
+			get { return Math.Abs(Magnitude - 1.0) < Single.Epsilon; }
 		}
 
 		#endregion
@@ -293,7 +290,7 @@ namespace OpenGL
 
 				conjugate._Vector = -conjugate._Vector;
 
-				return (conjugate);
+				return conjugate;
 			}
 		}
 
@@ -333,7 +330,7 @@ namespace OpenGL
 			double _q3 = w1*z2 + z1*w2 + x1*y2 - y1*x2;
 			double _q4 = w1*w2 - x1*x2 - y1*y2 - z1*z2;
 
-			return (new Quaternion(_q1, _q2, _q3, _q4));
+			return new Quaternion(_q1, _q2, _q3, _q4);
 		}
 		
 		#endregion
@@ -344,14 +341,14 @@ namespace OpenGL
 		/// 
 		/// </summary>
 		/// <param name="q">
-		/// A <see cref="Quaternion"/> to be casted to <see cref="Matrix4x4"/>.
+		/// A <see cref="Quaternion"/> to be casted to <see cref="Matrix3x3f"/>.
 		/// </param>
 		/// <returns>
-		/// It returns <see cref="Matrix3x3"/> representing the equivalent rotation matrix.
+		/// It returns <see cref="Matrix3x3f"/> representing the equivalent rotation matrix.
 		/// </returns>
-		public static explicit operator Matrix3x3(Quaternion q)
+		public static explicit operator Matrix3x3f(Quaternion q)
 		{
-			Matrix3x3 dcm = new Matrix3x3();		// Direction cosine matrix
+			Matrix3x3f dcm = new Matrix3x3f();		// Direction cosine matrix
 			double q1 = q._Vector.x, q2 = q._Vector.y, q3 = q._Vector.z, q4 = q._CosAngle;
 			double q1__2 = q1*q1, q2__2 = q2*q2, q3__2 = q3*q3;
 			
@@ -367,21 +364,21 @@ namespace OpenGL
 			dcm[1,2] = (float)(		  2.0f * (q1*q4 + q2*q3));
 			dcm[2,2] = (float)( 1.0f - 2.0f * (q1__2 + q2__2));
 
-			return (dcm);
+			return dcm;
 		}
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="q">
-		/// A <see cref="Quaternion"/> to be casted to <see cref="Matrix4x4"/>.
+		/// A <see cref="Quaternion"/> to be casted to <see cref="Matrix3x3d"/>.
 		/// </param>
 		/// <returns>
-		/// It returns <see cref="Matrix3x3"/> representing the equivalent rotation matrix.
+		/// It returns <see cref="Matrix3x3d"/> representing the equivalent rotation matrix.
 		/// </returns>
-		public static explicit operator MatrixDouble3x3(Quaternion q)
+		public static explicit operator Matrix3x3d(Quaternion q)
 		{
-			MatrixDouble3x3 dcm = new MatrixDouble3x3();		// Direction cosine matrix
+			Matrix3x3d dcm = new Matrix3x3d();		// Direction cosine matrix
 			double q1 = q._Vector.x, q2 = q._Vector.y, q3 = q._Vector.z, q4 = q._CosAngle;
 			double q1__2 = q1 * q1, q2__2 = q2 * q2, q3__2 = q3 * q3;
 
@@ -397,21 +394,21 @@ namespace OpenGL
 			dcm[1, 2] = 2.0 * (q1 * q4 + q2 * q3);
 			dcm[2, 2] = 1.0 - 2.0f * (q1__2 + q2__2);
 
-			return (dcm);
+			return dcm;
 		}
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="q">
-		/// A <see cref="Quaternion"/> to be casted to <see cref="Matrix4x4"/>.
+		/// A <see cref="Quaternion"/> to be casted to <see cref="Matrix4x4f"/>.
 		/// </param>
 		/// <returns>
-		/// It returns <see cref="ModelMatrix"/> representing the equivalent rotation matrix.
+		/// It returns <see cref="Matrix4x4f"/> representing the equivalent rotation matrix.
 		/// </returns>
-		public static explicit operator Matrix4x4(Quaternion q)
+		public static explicit operator Matrix4x4f(Quaternion q)
 		{
-			Matrix4x4 dcm = new Matrix4x4();		// Direction cosine matrix
+			Matrix4x4f dcm = new Matrix4x4f();		// Direction cosine matrix
 			double q1 = q._Vector.x, q2 = q._Vector.y, q3 = q._Vector.z, q4 = q._CosAngle;
 			double q1__2 = q1*q1, q2__2 = q2*q2, q3__2 = q3*q3;
 			
@@ -435,21 +432,21 @@ namespace OpenGL
 			dcm[2,3] = 0.0f;
 			dcm[3,3] = 1.0f;
 
-			return (dcm);
+			return dcm;
 		}
 
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="q">
-		/// A <see cref="Quaternion"/> to be casted to <see cref="Matrix4x4"/>.
+		/// A <see cref="Quaternion"/> to be casted to <see cref="Matrix4x4d"/>.
 		/// </param>
 		/// <returns>
-		/// It returns <see cref="ModelMatrix"/> representing the equivalent rotation matrix.
+		/// It returns <see cref="Matrix4x4d"/> representing the equivalent rotation matrix.
 		/// </returns>
-		public static explicit operator MatrixDouble4x4(Quaternion q)
+		public static explicit operator Matrix4x4d(Quaternion q)
 		{
-			MatrixDouble4x4 dcm = new MatrixDouble4x4();		// Direction cosine matrix
+			Matrix4x4d dcm = new Matrix4x4d();		// Direction cosine matrix
 			double q1 = q._Vector.x, q2 = q._Vector.y, q3 = q._Vector.z, q4 = q._CosAngle;
 			double q1__2 = q1 * q1, q2__2 = q2 * q2, q3__2 = q3 * q3;
 
@@ -473,45 +470,7 @@ namespace OpenGL
 			dcm[2, 3] = 0.0;
 			dcm[3, 3] = 1.0;
 
-			return (dcm);
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="q">
-		/// A <see cref="Quaternion"/> to be casted to <see cref="Matrix4x4"/>.
-		/// </param>
-		/// <returns>
-		/// It returns <see cref="ModelMatrix"/> representing the equivalent rotation matrix.
-		/// </returns>
-		public static explicit operator ModelMatrix(Quaternion q)
-		{
-			ModelMatrix dcm = new ModelMatrix();		// Direction cosine matrix
-			double q1 = q._Vector.x, q2 = q._Vector.y, q3 = q._Vector.z, q4 = q._CosAngle;
-			double q1__2 = q1*q1, q2__2 = q2*q2, q3__2 = q3*q3;
-			
-			dcm[0,0] = (float)(1.0f - 2.0f * (q2__2 + q3__2));
-			dcm[1,0] = (float)(		  2.0f * (q1*q2 - q3*q4));
-			dcm[2,0] = (float)(		  2.0f * (q1*q3 + q2*q4));
-			dcm[3,0] = 0.0f;
-
-			dcm[0,1] = (float)(		  2.0f * (q1*q2 + q3*q4));
-			dcm[1,1] = (float)(1.0f - 2.0f * (q1__2 + q3__2));
-			dcm[2,1] = (float)(		  2.0f * (q2*q3 - q1*q4));
-			dcm[3,1] = 0.0f;
-
-			dcm[0,2] = (float)(		  2.0f * (q1*q3 - q2*q4));
-			dcm[1,2] = (float)(		  2.0f * (q1*q4 + q2*q3));
-			dcm[2,2] = (float)( 1.0f - 2.0f * (q1__2 + q2__2));
-			dcm[3,2] = 0.0f;
-
-			dcm[0,3] = 0.0f;
-			dcm[1,3] = 0.0f;
-			dcm[2,3] = 0.0f;
-			dcm[3,3] = 1.0f;
-
-			return (dcm);
+			return dcm;
 		}
 
 		#endregion
@@ -535,7 +494,7 @@ namespace OpenGL
 		/// </returns>
 		public override string ToString()
 		{
-			return (String.Format("Axis: {0} Angle: {1}", RotationVector, RotationAngle));
+			return $"Axis: {RotationVector} Angle: {RotationAngle}";
 		}
 
 		#endregion
