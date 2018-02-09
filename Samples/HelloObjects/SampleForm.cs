@@ -52,20 +52,9 @@ namespace HelloObjects
 		{
 			SceneObjectGeometry geometry = new SceneObjectGeometry("Plane");
 
-			geometry.VertexArray = VertexArrays.CreatePlane(50.0f, 50.0f, 0.0f, 1, 1);
-			geometry.ObjectState.DefineState(new CullFaceState(FrontFaceDirection.Ccw, CullFaceMode.Back));
-			geometry.ObjectState.DefineState(new TransformState());
-
-			MaterialState cubeMaterialState = new MaterialState();
-			cubeMaterialState.FrontMaterial = new MaterialState.Material(ColorRGBAF.ColorWhite * 0.5f);
-			cubeMaterialState.FrontMaterial.Ambient = ColorRGBAF.ColorBlack;
-			cubeMaterialState.FrontMaterial.Diffuse = ColorRGBAF.ColorWhite * 0.5f;
-			cubeMaterialState.FrontMaterial.Specular = ColorRGBAF.ColorBlack;
-			geometry.ObjectState.DefineState(cubeMaterialState);
-
-			geometry.LocalModel.RotateX(-90.0);
-
-			geometry.ProgramTag = ShadersLibrary.Instance.CreateProgramTag("OpenGL.Standard+PhongFragment");
+			geometry.VertexArray = VertexArrays.CreatePlane(1.0f, 1.0f, -1.0f, 1, 1);
+			// geometry.ObjectState.DefineState(new CullFaceState(FrontFaceDirection.Ccw, CullFaceMode.Back) { Culling = false });
+			geometry.ProgramTag = ShadersLibrary.Instance.CreateProgramTag("OpenGL.Standard");
 
 			return (geometry);
 		}
@@ -268,7 +257,7 @@ namespace HelloObjects
 
 			sphereGeometry.ObjectState.DefineState(new CullFaceState(FrontFaceDirection.Ccw, CullFaceMode.Back));
 			sphereGeometry.ObjectState.DefineState(new TransformState());
-			sphereGeometry.LocalModel.Translate(0.0f, 4.0f);
+			sphereGeometry.LocalModelView = Matrix4x4f.Translated(0.0f, 4.0f, 0.0f);
 
 			sphereGeometry.VertexArray = VertexArrays.CreateSphere(4.0f, 32, 32);
 
@@ -453,7 +442,7 @@ namespace HelloObjects
 
 			#region State
 
-			skyboxObject.LocalModel.Scale(170.0f);
+			skyboxObject.LocalModelView = Matrix4x4f.Scaled(170.0f, 170.0f, 170.0f);
 
 			skyboxObject.ObjectState.DefineState(new CullFaceState(FrontFaceDirection.Cw, CullFaceMode.Back));
 
@@ -492,10 +481,11 @@ namespace HelloObjects
 			SceneObject bumbleBee = SceneObjectCodec.Instance.Load(@"Data\BumbleBee\RB-BumbleBee.obj");
 
 			bumbleBee.ObjectState.DefineState(new CullFaceState(FrontFaceDirection.Ccw, CullFaceMode.Back));
-			bumbleBee.LocalModel.Translate(0.0f, 0.0f);
-			bumbleBee.LocalModel.Scale(0.03f);
-			bumbleBee.LocalModel.RotateX(-90.0f);
-			bumbleBee.LocalModel.RotateZ(90.0f);
+			bumbleBee.LocalModelView =
+				Matrix4x4f.Translated(0.0f, 0.0f, 0.0f) *
+				Matrix4x4f.Scaled(0.03f, 0.03f, 0.03f) *
+				Matrix4x4f.RotatedX(-90.0f) *
+				Matrix4x4f.RotatedZ(+90.0f);
 
 			bumbleBee.ObjectFlags = SceneObjectFlags.BoundingBox;
 
@@ -507,10 +497,11 @@ namespace HelloObjects
 			SceneObject bumbleBee = SceneObjectCodec.Instance.Load(@"Data\BumbleBee\VH-BumbleBee.obj");
 
 			bumbleBee.ObjectState.DefineState(new CullFaceState(FrontFaceDirection.Ccw, CullFaceMode.Back));
-			bumbleBee.LocalModel.Translate(-10.0f, 0.0f);
-			bumbleBee.LocalModel.Scale(0.03f);
-			bumbleBee.LocalModel.RotateX(-90.0f);
-			bumbleBee.LocalModel.RotateZ(90.0f);
+			bumbleBee.LocalModelView =
+				Matrix4x4f.Translated(-10.0f, 0.0f, 0.0f) *
+				Matrix4x4f.Scaled(0.03f, 0.03f, 0.03f) *
+				Matrix4x4f.RotatedX(-90.0f) *
+				Matrix4x4f.RotatedZ(+90.0f);
 
 			bumbleBee.ObjectFlags = SceneObjectFlags.BoundingBox;
 
@@ -529,12 +520,6 @@ namespace HelloObjects
 
 		#region Rendering
 
-		IFont fontTitle, fontTitleV;
-
-		IFont fontPatch;
-
-		SceneObjectLightSpot spotLight;
-
 		/// <summary>
 		/// Allocate resources for rendering.
 		/// </summary>
@@ -544,109 +529,22 @@ namespace HelloObjects
 		{
 			// Wrap GL context with GraphicsContext
 			_Context = new GraphicsContext(e.DeviceContext, e.RenderContext);
+
 			// Scene
-			_CubeScene = new SceneGraph(
-				SceneGraphFlags.CullingViewFrustum | SceneGraphFlags.StateSorting | SceneGraphFlags.Lighting | SceneGraphFlags.ShadowMaps
-				//| SceneGraphFlags.BoundingVolumes
-				);
+			_CubeScene = new SceneGraph(SceneGraphFlags.None);
+
+			// Root object
 			_CubeScene.SceneRoot = new SceneObjectGeometry();
-			_CubeScene.SceneRoot.ObjectState.DefineState(new DepthTestState(DepthFunction.Less));
+			// _CubeScene.SceneRoot.ObjectState.DefineState(new DepthTestState(DepthFunction.Less));
 			
+			// Camera object
 			_CubeScene.CurrentView = new SceneObjectCamera();
 			_CubeScene.SceneRoot.Link(_CubeScene.CurrentView);
 
-			fontTitle = FontFactory.CreateFont(System.Drawing.FontFamily.GenericSerif, 24, System.Drawing.FontStyle.Regular, FontFactory.FontType.Textured, new FontFxShadow());
-			fontTitle.Create(_Context);
-
-			fontTitleV = FontFactory.CreateFont(System.Drawing.FontFamily.GenericSerif, 24, System.Drawing.FontStyle.Regular, FontFactory.FontType.Vector, new FontFxShadow());
-			fontTitleV.Create(_Context);
-
-			fontPatch = FontFactory.CreateFont(System.Drawing.FontFamily.GenericMonospace, 16, System.Drawing.FontStyle.Regular, FontFactory.FontType.Vector);
-			fontPatch.Create(_Context);
-
-			// Global lighting
-			SceneObjectLightZone globalLightZone = new SceneObjectLightZone();
-
-			_GlobalLightObject = new SceneObjectLightDirectional();
-			_GlobalLightObject.Direction = (-Vertex3f.UnitX + Vertex3f.UnitY - Vertex3f.UnitZ).Normalized;
-			//globalLightZone.Link(_GlobalLightObject);
-
-			spotLight = new SceneObjectLightSpot();
-			spotLight.LocalModel.Translate(0.0f, 35.0f, 0.0f);
-			spotLight.Direction = -Vertex3f.UnitY;
-			spotLight.FalloffAngle = 10.5f;
-			spotLight.FalloffExponent = 0.0f;
-			globalLightZone.Link(spotLight);
-
-			SceneObjectLightPoint localLightObject = new SceneObjectLightPoint();
-			localLightObject.LocalModel.Translate(0.0, -5.0f, 0.0);
-			localLightObject.AttenuationFactors.Y = 0.1f;
-			//globalLightZone.AddChild(localLightObject);
-
-			_CubeScene.SceneRoot.Link(globalLightZone);
-
 			// Horizontal plane
-			globalLightZone.Link(CreatePlane());
+			_CubeScene.SceneRoot.Link(CreatePlane());
 
-			// Cube
-			float Size = (float)Math.Sqrt(1);
-			const float Multiplier = 10.0f;
-
-			int materialIndex = 0;
-
-			for (float x = -Size / 2.0f * Multiplier; x < Size / 2.0f * Multiplier; x += Multiplier) {
-				for (float y = -Size / 2.0f * Multiplier; y < Size / 2.0f * Multiplier; y += Multiplier, materialIndex++) {
-					SceneObjectGeometry cubeInstance = CreateCubeGeometry();
-
-					cubeInstance.LocalModel.Translate(x, 0.0f, y);
-					cubeInstance.LocalModel.Scale(0.25f);
-
-					// materialIndex = 1;
-
-					// Enable/Disable blending
-					if ((materialIndex % 2) == 0) {
-						cubeInstance.ObjectState.DefineState(new BlendState(BlendEquationMode.FuncAdd, BlendingFactor.SrcAlpha, BlendingFactor.OneMinusSrcAlpha));
-					}
-
-					// Enable/Disable blending
-					switch (materialIndex % 3) {
-						case 0:
-							cubeInstance.ProgramTag = ShadersLibrary.Instance.CreateProgramTag("OpenGL.Standard+Color");
-							break;
-						case 1:
-							cubeInstance.ProgramTag = ShadersLibrary.Instance.CreateProgramTag("OpenGL.Standard+LambertVertex", new ShaderCompilerContext("GLO_COLOR_PER_VERTEX"));
-							break;
-						case 2:
-							cubeInstance.ProgramTag = ShadersLibrary.Instance.CreateProgramTag("OpenGL.Standard+PhongFragment");
-							break;
-					}
-
-					globalLightZone.Link(cubeInstance);
-				}
-			}
-
-			//SceneObjectGeometry cubeLambert = CreateCubeGeometry();
-			//cubeLambert.ProgramTag = ShadersLibrary.Instance.CreateProgramTag("OpenGL.Standard+LambertVertex", new ShaderCompilerContext("GLO_COLOR_PER_VERTEX"));
-			//globalLightZone.Link(cubeLambert);
-
-			//SceneObjectGeometry cubeBlinn = CreateCubeGeometry();
-			//cubeBlinn.ProgramTag = ShadersLibrary.Instance.CreateProgramTag("OpenGL.Standard+PhongFragment", new ShaderCompilerContext("GLO_COLOR_PER_VERTEX"));
-			//cubeBlinn.LocalModel.Translate(0.0f, 10.0f, 0.0f);
-			//globalLightZone.Link(cubeBlinn);
-
-			//SceneObjectGeometry cubeColored = CreateCubeGeometry();
-			//cubeColored.ProgramTag = ShadersLibrary.Instance.CreateProgramTag("OpenGL.Standard+Color");
-			//cubeColored.LocalModel.Translate(0.0f, 5.0f, 0.0f);
-			//globalLightZone.Link(cubeColored);
-
-			globalLightZone.Link(CreateBumbleBeeVH());
-			globalLightZone.Link(CreateBumbleBeeRB());
-			// globalLightZone.Link(CreateSphere("squarebricks"));
-
-			// Skybox
-			//if ((sceneObject = CreateSkyBoxObject()) != null)
-			//	_CubeScene.AddChild(sceneObject);
-
+			// Create scene resource
 			_CubeScene.Create(_Context);
 
 			Gl.ClearColor(0.1f, 0.1f, 0.1f, 0.0f);
@@ -675,68 +573,26 @@ namespace HelloObjects
 			GlControl senderControl = (GlControl)sender;
 			float senderAspectRatio = (float)senderControl.Width / senderControl.Height;
 
-			KhronosApi.LogEnabled = false;
-			KhronosApi.LogComment("--------------------------------------------------");
-			KhronosApi.LogComment("*** Draw");
-
 			// Clear
 			Gl.Viewport(0, 0, senderControl.Width, senderControl.Height);
+			Gl.ClearColor(1.0f, 0.0f, 0.0f, 1.0f);
 			Gl.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
 
-			_CubeScene.CurrentView.ProjectionMatrix = new PerspectiveProjectionMatrix(45.0f, senderAspectRatio, 0.1f, 100.0f);
-			_CubeScene.CurrentView.LocalModel.SetIdentity();
-			_CubeScene.CurrentView.LocalModel.Translate(_ViewStrideLat, _ViewStrideAlt, 0.0f);
-			_CubeScene.CurrentView.LocalModel.RotateY(_ViewAzimuth);
-			_CubeScene.CurrentView.LocalModel.RotateX(_ViewElevation);
-			_CubeScene.CurrentView.LocalModel.Translate(0.0f, 0.0f, _ViewLever);
+			_CubeScene.CurrentView.ProjectionMatrix = Matrix4x4f.Perspective(45.0f, senderAspectRatio, 0.1f, 100.0f);
+			// _CubeScene.CurrentView.LocalModelView = Matrix4x4f.Translated(0.0f, 0.0f, 10.0f);
+			//_CubeScene.CurrentView.LocalModelView =
+			//	Matrix4x4f.Translated(_ViewStrideLat, _ViewStrideAlt, 0.0f) *
+			//	Matrix4x4f.RotatedY(_ViewAzimuth) *
+			//	Matrix4x4f.RotatedX(_ViewElevation) *
+			//	Matrix4x4f.Translated(0.0f, 0.0f, _ViewLever);
+			//_CubeScene.CurrentView.LocalModelView =
+			//	Matrix4x4f.Translated(0.0f, 0.0f, _ViewLever) *
+			//	Matrix4x4f.RotatedX(_ViewElevation) *
+			//	Matrix4x4f.RotatedY(_ViewAzimuth) *
+			//	Matrix4x4f.Translated(_ViewStrideLat, _ViewStrideAlt, 0.0f);
 			_CubeScene.UpdateViewMatrix();
 
 			_CubeScene.Draw(_Context);
-
-			KhronosApi.LogEnabled = false;
-
-			return;
-
-			// Overlay
-			ProjectionMatrix overlayProjection = new OrthoProjectionMatrix(0.0f, ClientSize.Width, 0.0f, ClientSize.Height);
-			ModelMatrix overlayModel = new ModelMatrix();
-
-			overlayModel.Translate(0.375f, 0.375f);
-
-			Gl.Clear(ClearBufferMask.DepthBufferBit);
-
-			ColorRGBAF fpsColor = ColorRGBAF.ColorGreen;
-			int fps = (int)Math.Floor(1000.0 / senderControl.FrameSwapTime.TotalMilliseconds);
-
-			if      (fps >= 59)
-				fpsColor = ColorRGBAF.ColorGreen;
-			else if (fps >= 29)
-				fpsColor = ColorRGBAF.ColorBlue;
-			else if (fps >= 24)
-				fpsColor = ColorRGBAF.ColorYellow;
-			else
-				fpsColor = ColorRGBAF.ColorRed;
-
-			fontPatch.DrawString(
-				_Context, overlayProjection * overlayModel, fpsColor,
-				String.Format("FPS: {0}", fps)
-			);
-
-			overlayModel.SetIdentity();
-			overlayModel.Translate(0.375f, ClientSize.Height - 64 + 0.375f);
-			fontTitle.DrawString(
-				_Context, overlayProjection * overlayModel, ColorRGBAF.ColorGreen,
-				"Hello Objects example ~(^.^)~"
-			);
-
-			overlayModel.SetIdentity();
-			overlayModel.Translate(0.375f, ClientSize.Height - 128 + 0.375f);
-			fontTitleV.DrawString(_Context, overlayProjection * overlayModel, ColorRGBAF.ColorGreen,
-				"Hello Objects example ~(^.^)~"
-			);
-
-			// Release resources
-			_Context.DisposeResources();
 		}
 
 		/// <summary>
@@ -761,8 +617,6 @@ namespace HelloObjects
 
 		private float _ViewStrideLat, _ViewStrideAlt;
 
-		private SceneObjectLightDirectional _GlobalLightObject;
-
 		private void UpdateGlobalLight()
 		{
 			float az = Angle.ToRadians(_GlobalLightAz);
@@ -774,7 +628,7 @@ namespace HelloObjects
 				xAz, yEl, yAz
 			);
 
-			_GlobalLightObject.Direction = dir.Normalized;
+			// _GlobalLightObject.Direction = dir.Normalized;
 		}
 
 		private float _GlobalLightAz, _GlobalLightEl;
@@ -866,25 +720,6 @@ namespace HelloObjects
 					case Keys.K:
 						_GlobalLightEl -= 1.0f;
 						UpdateGlobalLight();
-						break;
-
-					case Keys.T:
-						spotLight.LocalModel.Translate(0.0f, 0.1f);
-						break;
-					case Keys.G:
-						spotLight.LocalModel.Translate(0.0f, -0.1f);
-						break;
-					case Keys.F:
-						spotLight.LocalModel.Translate(-0.1f, 0.0f);
-						break;
-					case Keys.H:
-						spotLight.LocalModel.Translate(+0.1f, 0.0f);
-						break;
-					case Keys.R:
-						spotLight.LocalModel.Translate(0.0f, 0.0f, +0.1f);
-						break;
-					case Keys.Y:
-						spotLight.LocalModel.Translate(0.0f, 0.0f, -0.1f);
 						break;
 				}
 			}

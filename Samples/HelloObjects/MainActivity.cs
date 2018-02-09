@@ -79,12 +79,12 @@ namespace HelloObjects_monodroid
 			Gl.Viewport(0, 0, senderControl.Width, senderControl.Height);
 			Gl.Clear(ClearBufferMask.ColorBufferBit);
 
-			_CubeScene.CurrentView.ProjectionMatrix = new PerspectiveProjectionMatrix(45.0f, senderAspectRatio, 0.1f, 100.0f);
-			_CubeScene.CurrentView.LocalModel.SetIdentity();
-			_CubeScene.CurrentView.LocalModel.Translate(_ViewStrideLat, _ViewStrideAlt, 0.0f);
-			_CubeScene.CurrentView.LocalModel.RotateY(_ViewAzimuth);
-			_CubeScene.CurrentView.LocalModel.RotateX(_ViewElevation);
-			_CubeScene.CurrentView.LocalModel.Translate(0.0f, 0.0f, _ViewLever);
+			_CubeScene.CurrentView.ProjectionMatrix = Matrix4x4f.Perspective(45.0f, senderAspectRatio, 0.1f, 100.0f);
+			_CubeScene.CurrentView.LocalModel =
+				Matrix4x4f.Translated(_ViewStrideLat, _ViewStrideAlt, 0.0f) *
+				Matrix4x4f.RotatedY(_ViewAzimuth) *
+				Matrix4x4f.RotatedX(_ViewAzimuth) *
+				Matrix4x4f.Translated(0.0f, 0.0f, _ViewLever);
 			_CubeScene.UpdateViewMatrix();
 
 			_CubeScene.Draw(_Context);

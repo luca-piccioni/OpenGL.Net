@@ -421,8 +421,8 @@ namespace HelloTriangle
 		private void RenderControl_RenderGL320()
 		{
 			// Compute the model-view-projection on CPU
-			Matrix4x4f projection = Matrix4x4f.Ortho2D(0.0f, 1.0f, 0.0f, 1.0f);
-			Matrix4x4f modelview = Matrix4x4f.RotatedZ(_Angle);
+			Matrix4x4f projection = Matrix4x4f.Ortho2D(-1.0f, +1.0f, -1.0f, +1.0f);
+			Matrix4x4f modelview = Matrix4x4f.Translated(-0.5f, -0.5f, 0.0f) * Matrix4x4f.RotatedZ(_Angle);
 			Matrix4x4f mvp = projection * modelview;
 
 			// Select the program for drawing
@@ -519,8 +519,8 @@ namespace HelloTriangle
 		/// </summary>
 		private static readonly float[] _ArrayPosition = new float[] {
 			0.0f, 0.0f,
-			0.5f, 1.0f,
-			1.0f, 0.0f
+			1.0f, 0.0f,
+			1.0f, 1.0f
 		};
 
 		/// <summary>
