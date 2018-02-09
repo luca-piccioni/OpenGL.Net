@@ -274,10 +274,10 @@ namespace OpenGL.Test
 		[Test]
 		public void TestProjectionFrustum()
 		{
-			PerspectiveProjectionMatrix projectionMatrix = new PerspectiveProjectionMatrix(90.0f, 1.0f, 1.0f, 10.0f);
-			ModelMatrix modelMatrix = new ModelMatrix();
+			Matrix4x4f projectionMatrix = Matrix4x4f.Perspective(90.0f, 1.0f, 1.0f, 10.0f);
+			Matrix4x4f modelMatrix = new Matrix4x4f();
 
-			IMatrix4x4 frustumMatrix = projectionMatrix * modelMatrix;
+			Matrix4x4f frustumMatrix = projectionMatrix * modelMatrix;
 
 			Plane planeL = Plane.GetFrustumLeftPlane(frustumMatrix);
 			Plane planeR = Plane.GetFrustumRightPlane(frustumMatrix);

@@ -155,21 +155,6 @@ namespace OpenGL.Test
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-5f));
 		}
 
-		[Test]
-		public void Matrix2x2f_TestCastToMatrix()
-		{
-			Matrix2x2f m = CreateSequenceMatrix();
-			Matrix mReference = m;
-
-			Assert.AreEqual(mReference.Width, 2);
-			Assert.AreEqual(mReference.Height, 2);
-
-			Assert.That(mReference[0, 0], Is.EqualTo(m[0, 0]).Within(1e-5f));
-			Assert.That(mReference[0, 1], Is.EqualTo(m[0, 1]).Within(1e-5f));
-			Assert.That(mReference[1, 0], Is.EqualTo(m[1, 0]).Within(1e-5f));
-			Assert.That(mReference[1, 1], Is.EqualTo(m[1, 1]).Within(1e-5f));
-		}
-
 		#endregion
 
 		#region Equality Operators
@@ -538,23 +523,6 @@ namespace OpenGL.Test
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-5f));
 		}
 
-		[Test]
-		public void Matrix2x3f_TestCastToMatrix()
-		{
-			Matrix2x3f m = CreateSequenceMatrix();
-			Matrix mReference = m;
-
-			Assert.AreEqual(mReference.Width, 2);
-			Assert.AreEqual(mReference.Height, 3);
-
-			Assert.That(mReference[0, 0], Is.EqualTo(m[0, 0]).Within(1e-5f));
-			Assert.That(mReference[0, 1], Is.EqualTo(m[0, 1]).Within(1e-5f));
-			Assert.That(mReference[0, 2], Is.EqualTo(m[0, 2]).Within(1e-5f));
-			Assert.That(mReference[1, 0], Is.EqualTo(m[1, 0]).Within(1e-5f));
-			Assert.That(mReference[1, 1], Is.EqualTo(m[1, 1]).Within(1e-5f));
-			Assert.That(mReference[1, 2], Is.EqualTo(m[1, 2]).Within(1e-5f));
-		}
-
 		#endregion
 
 		#region Equality Operators
@@ -844,25 +812,6 @@ namespace OpenGL.Test
 			Assert.AreEqual(mArray.Length, 8);
 			for (uint c = 0, idx = 0; c < 2; c++) for (uint r = 0; r < 4; r++, idx++)
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-5f));
-		}
-
-		[Test]
-		public void Matrix2x4f_TestCastToMatrix()
-		{
-			Matrix2x4f m = CreateSequenceMatrix();
-			Matrix mReference = m;
-
-			Assert.AreEqual(mReference.Width, 2);
-			Assert.AreEqual(mReference.Height, 4);
-
-			Assert.That(mReference[0, 0], Is.EqualTo(m[0, 0]).Within(1e-5f));
-			Assert.That(mReference[0, 1], Is.EqualTo(m[0, 1]).Within(1e-5f));
-			Assert.That(mReference[0, 2], Is.EqualTo(m[0, 2]).Within(1e-5f));
-			Assert.That(mReference[0, 3], Is.EqualTo(m[0, 3]).Within(1e-5f));
-			Assert.That(mReference[1, 0], Is.EqualTo(m[1, 0]).Within(1e-5f));
-			Assert.That(mReference[1, 1], Is.EqualTo(m[1, 1]).Within(1e-5f));
-			Assert.That(mReference[1, 2], Is.EqualTo(m[1, 2]).Within(1e-5f));
-			Assert.That(mReference[1, 3], Is.EqualTo(m[1, 3]).Within(1e-5f));
 		}
 
 		#endregion
@@ -1167,23 +1116,6 @@ namespace OpenGL.Test
 			Assert.AreEqual(mArray.Length, 6);
 			for (uint c = 0, idx = 0; c < 3; c++) for (uint r = 0; r < 2; r++, idx++)
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-5f));
-		}
-
-		[Test]
-		public void Matrix3x2f_TestCastToMatrix()
-		{
-			Matrix3x2f m = CreateSequenceMatrix();
-			Matrix mReference = m;
-
-			Assert.AreEqual(mReference.Width, 3);
-			Assert.AreEqual(mReference.Height, 2);
-
-			Assert.That(mReference[0, 0], Is.EqualTo(m[0, 0]).Within(1e-5f));
-			Assert.That(mReference[0, 1], Is.EqualTo(m[0, 1]).Within(1e-5f));
-			Assert.That(mReference[1, 0], Is.EqualTo(m[1, 0]).Within(1e-5f));
-			Assert.That(mReference[1, 1], Is.EqualTo(m[1, 1]).Within(1e-5f));
-			Assert.That(mReference[2, 0], Is.EqualTo(m[2, 0]).Within(1e-5f));
-			Assert.That(mReference[2, 1], Is.EqualTo(m[2, 1]).Within(1e-5f));
 		}
 
 		#endregion
@@ -1499,26 +1431,6 @@ namespace OpenGL.Test
 			Assert.AreEqual(mArray.Length, 9);
 			for (uint c = 0, idx = 0; c < 3; c++) for (uint r = 0; r < 3; r++, idx++)
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-5f));
-		}
-
-		[Test]
-		public void Matrix3x3f_TestCastToMatrix()
-		{
-			Matrix3x3f m = CreateSequenceMatrix();
-			Matrix3x3 mReference = m;
-
-			Assert.AreEqual(mReference.Width, 3);
-			Assert.AreEqual(mReference.Height, 3);
-
-			Assert.That(mReference[0, 0], Is.EqualTo(m[0, 0]).Within(1e-5f));
-			Assert.That(mReference[0, 1], Is.EqualTo(m[0, 1]).Within(1e-5f));
-			Assert.That(mReference[0, 2], Is.EqualTo(m[0, 2]).Within(1e-5f));
-			Assert.That(mReference[1, 0], Is.EqualTo(m[1, 0]).Within(1e-5f));
-			Assert.That(mReference[1, 1], Is.EqualTo(m[1, 1]).Within(1e-5f));
-			Assert.That(mReference[1, 2], Is.EqualTo(m[1, 2]).Within(1e-5f));
-			Assert.That(mReference[2, 0], Is.EqualTo(m[2, 0]).Within(1e-5f));
-			Assert.That(mReference[2, 1], Is.EqualTo(m[2, 1]).Within(1e-5f));
-			Assert.That(mReference[2, 2], Is.EqualTo(m[2, 2]).Within(1e-5f));
 		}
 
 		#endregion
@@ -2115,29 +2027,6 @@ namespace OpenGL.Test
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-5f));
 		}
 
-		[Test]
-		public void Matrix3x4f_TestCastToMatrix()
-		{
-			Matrix3x4f m = CreateSequenceMatrix();
-			Matrix mReference = m;
-
-			Assert.AreEqual(mReference.Width, 3);
-			Assert.AreEqual(mReference.Height, 4);
-
-			Assert.That(mReference[0, 0], Is.EqualTo(m[0, 0]).Within(1e-5f));
-			Assert.That(mReference[0, 1], Is.EqualTo(m[0, 1]).Within(1e-5f));
-			Assert.That(mReference[0, 2], Is.EqualTo(m[0, 2]).Within(1e-5f));
-			Assert.That(mReference[0, 3], Is.EqualTo(m[0, 3]).Within(1e-5f));
-			Assert.That(mReference[1, 0], Is.EqualTo(m[1, 0]).Within(1e-5f));
-			Assert.That(mReference[1, 1], Is.EqualTo(m[1, 1]).Within(1e-5f));
-			Assert.That(mReference[1, 2], Is.EqualTo(m[1, 2]).Within(1e-5f));
-			Assert.That(mReference[1, 3], Is.EqualTo(m[1, 3]).Within(1e-5f));
-			Assert.That(mReference[2, 0], Is.EqualTo(m[2, 0]).Within(1e-5f));
-			Assert.That(mReference[2, 1], Is.EqualTo(m[2, 1]).Within(1e-5f));
-			Assert.That(mReference[2, 2], Is.EqualTo(m[2, 2]).Within(1e-5f));
-			Assert.That(mReference[2, 3], Is.EqualTo(m[2, 3]).Within(1e-5f));
-		}
-
 		#endregion
 
 		#region Equality Operators
@@ -2491,25 +2380,6 @@ namespace OpenGL.Test
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-5f));
 		}
 
-		[Test]
-		public void Matrix4x2f_TestCastToMatrix()
-		{
-			Matrix4x2f m = CreateSequenceMatrix();
-			Matrix mReference = m;
-
-			Assert.AreEqual(mReference.Width, 4);
-			Assert.AreEqual(mReference.Height, 2);
-
-			Assert.That(mReference[0, 0], Is.EqualTo(m[0, 0]).Within(1e-5f));
-			Assert.That(mReference[0, 1], Is.EqualTo(m[0, 1]).Within(1e-5f));
-			Assert.That(mReference[1, 0], Is.EqualTo(m[1, 0]).Within(1e-5f));
-			Assert.That(mReference[1, 1], Is.EqualTo(m[1, 1]).Within(1e-5f));
-			Assert.That(mReference[2, 0], Is.EqualTo(m[2, 0]).Within(1e-5f));
-			Assert.That(mReference[2, 1], Is.EqualTo(m[2, 1]).Within(1e-5f));
-			Assert.That(mReference[3, 0], Is.EqualTo(m[3, 0]).Within(1e-5f));
-			Assert.That(mReference[3, 1], Is.EqualTo(m[3, 1]).Within(1e-5f));
-		}
-
 		#endregion
 
 		#region Equality Operators
@@ -2841,29 +2711,6 @@ namespace OpenGL.Test
 			Assert.AreEqual(mArray.Length, 12);
 			for (uint c = 0, idx = 0; c < 4; c++) for (uint r = 0; r < 3; r++, idx++)
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-5f));
-		}
-
-		[Test]
-		public void Matrix4x3f_TestCastToMatrix()
-		{
-			Matrix4x3f m = CreateSequenceMatrix();
-			Matrix mReference = m;
-
-			Assert.AreEqual(mReference.Width, 4);
-			Assert.AreEqual(mReference.Height, 3);
-
-			Assert.That(mReference[0, 0], Is.EqualTo(m[0, 0]).Within(1e-5f));
-			Assert.That(mReference[0, 1], Is.EqualTo(m[0, 1]).Within(1e-5f));
-			Assert.That(mReference[0, 2], Is.EqualTo(m[0, 2]).Within(1e-5f));
-			Assert.That(mReference[1, 0], Is.EqualTo(m[1, 0]).Within(1e-5f));
-			Assert.That(mReference[1, 1], Is.EqualTo(m[1, 1]).Within(1e-5f));
-			Assert.That(mReference[1, 2], Is.EqualTo(m[1, 2]).Within(1e-5f));
-			Assert.That(mReference[2, 0], Is.EqualTo(m[2, 0]).Within(1e-5f));
-			Assert.That(mReference[2, 1], Is.EqualTo(m[2, 1]).Within(1e-5f));
-			Assert.That(mReference[2, 2], Is.EqualTo(m[2, 2]).Within(1e-5f));
-			Assert.That(mReference[3, 0], Is.EqualTo(m[3, 0]).Within(1e-5f));
-			Assert.That(mReference[3, 1], Is.EqualTo(m[3, 1]).Within(1e-5f));
-			Assert.That(mReference[3, 2], Is.EqualTo(m[3, 2]).Within(1e-5f));
 		}
 
 		#endregion
@@ -3263,33 +3110,6 @@ namespace OpenGL.Test
 			Assert.AreEqual(mArray.Length, 16);
 			for (uint c = 0, idx = 0; c < 4; c++) for (uint r = 0; r < 4; r++, idx++)
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-5f));
-		}
-
-		[Test]
-		public void Matrix4x4f_TestCastToMatrix()
-		{
-			Matrix4x4f m = CreateSequenceMatrix();
-			Matrix4x4 mReference = m;
-
-			Assert.AreEqual(mReference.Width, 4);
-			Assert.AreEqual(mReference.Height, 4);
-
-			Assert.That(mReference[0, 0], Is.EqualTo(m[0, 0]).Within(1e-5f));
-			Assert.That(mReference[0, 1], Is.EqualTo(m[0, 1]).Within(1e-5f));
-			Assert.That(mReference[0, 2], Is.EqualTo(m[0, 2]).Within(1e-5f));
-			Assert.That(mReference[0, 3], Is.EqualTo(m[0, 3]).Within(1e-5f));
-			Assert.That(mReference[1, 0], Is.EqualTo(m[1, 0]).Within(1e-5f));
-			Assert.That(mReference[1, 1], Is.EqualTo(m[1, 1]).Within(1e-5f));
-			Assert.That(mReference[1, 2], Is.EqualTo(m[1, 2]).Within(1e-5f));
-			Assert.That(mReference[1, 3], Is.EqualTo(m[1, 3]).Within(1e-5f));
-			Assert.That(mReference[2, 0], Is.EqualTo(m[2, 0]).Within(1e-5f));
-			Assert.That(mReference[2, 1], Is.EqualTo(m[2, 1]).Within(1e-5f));
-			Assert.That(mReference[2, 2], Is.EqualTo(m[2, 2]).Within(1e-5f));
-			Assert.That(mReference[2, 3], Is.EqualTo(m[2, 3]).Within(1e-5f));
-			Assert.That(mReference[3, 0], Is.EqualTo(m[3, 0]).Within(1e-5f));
-			Assert.That(mReference[3, 1], Is.EqualTo(m[3, 1]).Within(1e-5f));
-			Assert.That(mReference[3, 2], Is.EqualTo(m[3, 2]).Within(1e-5f));
-			Assert.That(mReference[3, 3], Is.EqualTo(m[3, 3]).Within(1e-5f));
 		}
 
 		#endregion
@@ -4094,21 +3914,6 @@ namespace OpenGL.Test
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-10));
 		}
 
-		[Test]
-		public void Matrix2x2d_TestCastToMatrix()
-		{
-			Matrix2x2d m = CreateSequenceMatrix();
-			MatrixDouble mReference = m;
-
-			Assert.AreEqual(mReference.Width, 2);
-			Assert.AreEqual(mReference.Height, 2);
-
-			Assert.That(mReference[0, 0], Is.EqualTo(m[0, 0]).Within(1e-10));
-			Assert.That(mReference[0, 1], Is.EqualTo(m[0, 1]).Within(1e-10));
-			Assert.That(mReference[1, 0], Is.EqualTo(m[1, 0]).Within(1e-10));
-			Assert.That(mReference[1, 1], Is.EqualTo(m[1, 1]).Within(1e-10));
-		}
-
 		#endregion
 
 		#region Equality Operators
@@ -4477,23 +4282,6 @@ namespace OpenGL.Test
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-10));
 		}
 
-		[Test]
-		public void Matrix2x3d_TestCastToMatrix()
-		{
-			Matrix2x3d m = CreateSequenceMatrix();
-			MatrixDouble mReference = m;
-
-			Assert.AreEqual(mReference.Width, 2);
-			Assert.AreEqual(mReference.Height, 3);
-
-			Assert.That(mReference[0, 0], Is.EqualTo(m[0, 0]).Within(1e-10));
-			Assert.That(mReference[0, 1], Is.EqualTo(m[0, 1]).Within(1e-10));
-			Assert.That(mReference[0, 2], Is.EqualTo(m[0, 2]).Within(1e-10));
-			Assert.That(mReference[1, 0], Is.EqualTo(m[1, 0]).Within(1e-10));
-			Assert.That(mReference[1, 1], Is.EqualTo(m[1, 1]).Within(1e-10));
-			Assert.That(mReference[1, 2], Is.EqualTo(m[1, 2]).Within(1e-10));
-		}
-
 		#endregion
 
 		#region Equality Operators
@@ -4783,25 +4571,6 @@ namespace OpenGL.Test
 			Assert.AreEqual(mArray.Length, 8);
 			for (uint c = 0, idx = 0; c < 2; c++) for (uint r = 0; r < 4; r++, idx++)
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-10));
-		}
-
-		[Test]
-		public void Matrix2x4d_TestCastToMatrix()
-		{
-			Matrix2x4d m = CreateSequenceMatrix();
-			MatrixDouble mReference = m;
-
-			Assert.AreEqual(mReference.Width, 2);
-			Assert.AreEqual(mReference.Height, 4);
-
-			Assert.That(mReference[0, 0], Is.EqualTo(m[0, 0]).Within(1e-10));
-			Assert.That(mReference[0, 1], Is.EqualTo(m[0, 1]).Within(1e-10));
-			Assert.That(mReference[0, 2], Is.EqualTo(m[0, 2]).Within(1e-10));
-			Assert.That(mReference[0, 3], Is.EqualTo(m[0, 3]).Within(1e-10));
-			Assert.That(mReference[1, 0], Is.EqualTo(m[1, 0]).Within(1e-10));
-			Assert.That(mReference[1, 1], Is.EqualTo(m[1, 1]).Within(1e-10));
-			Assert.That(mReference[1, 2], Is.EqualTo(m[1, 2]).Within(1e-10));
-			Assert.That(mReference[1, 3], Is.EqualTo(m[1, 3]).Within(1e-10));
 		}
 
 		#endregion
@@ -5106,23 +4875,6 @@ namespace OpenGL.Test
 			Assert.AreEqual(mArray.Length, 6);
 			for (uint c = 0, idx = 0; c < 3; c++) for (uint r = 0; r < 2; r++, idx++)
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-10));
-		}
-
-		[Test]
-		public void Matrix3x2d_TestCastToMatrix()
-		{
-			Matrix3x2d m = CreateSequenceMatrix();
-			MatrixDouble mReference = m;
-
-			Assert.AreEqual(mReference.Width, 3);
-			Assert.AreEqual(mReference.Height, 2);
-
-			Assert.That(mReference[0, 0], Is.EqualTo(m[0, 0]).Within(1e-10));
-			Assert.That(mReference[0, 1], Is.EqualTo(m[0, 1]).Within(1e-10));
-			Assert.That(mReference[1, 0], Is.EqualTo(m[1, 0]).Within(1e-10));
-			Assert.That(mReference[1, 1], Is.EqualTo(m[1, 1]).Within(1e-10));
-			Assert.That(mReference[2, 0], Is.EqualTo(m[2, 0]).Within(1e-10));
-			Assert.That(mReference[2, 1], Is.EqualTo(m[2, 1]).Within(1e-10));
 		}
 
 		#endregion
@@ -5438,26 +5190,6 @@ namespace OpenGL.Test
 			Assert.AreEqual(mArray.Length, 9);
 			for (uint c = 0, idx = 0; c < 3; c++) for (uint r = 0; r < 3; r++, idx++)
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-10));
-		}
-
-		[Test]
-		public void Matrix3x3d_TestCastToMatrix()
-		{
-			Matrix3x3d m = CreateSequenceMatrix();
-			MatrixDouble3x3 mReference = m;
-
-			Assert.AreEqual(mReference.Width, 3);
-			Assert.AreEqual(mReference.Height, 3);
-
-			Assert.That(mReference[0, 0], Is.EqualTo(m[0, 0]).Within(1e-10));
-			Assert.That(mReference[0, 1], Is.EqualTo(m[0, 1]).Within(1e-10));
-			Assert.That(mReference[0, 2], Is.EqualTo(m[0, 2]).Within(1e-10));
-			Assert.That(mReference[1, 0], Is.EqualTo(m[1, 0]).Within(1e-10));
-			Assert.That(mReference[1, 1], Is.EqualTo(m[1, 1]).Within(1e-10));
-			Assert.That(mReference[1, 2], Is.EqualTo(m[1, 2]).Within(1e-10));
-			Assert.That(mReference[2, 0], Is.EqualTo(m[2, 0]).Within(1e-10));
-			Assert.That(mReference[2, 1], Is.EqualTo(m[2, 1]).Within(1e-10));
-			Assert.That(mReference[2, 2], Is.EqualTo(m[2, 2]).Within(1e-10));
 		}
 
 		#endregion
@@ -6054,29 +5786,6 @@ namespace OpenGL.Test
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-10));
 		}
 
-		[Test]
-		public void Matrix3x4d_TestCastToMatrix()
-		{
-			Matrix3x4d m = CreateSequenceMatrix();
-			MatrixDouble mReference = m;
-
-			Assert.AreEqual(mReference.Width, 3);
-			Assert.AreEqual(mReference.Height, 4);
-
-			Assert.That(mReference[0, 0], Is.EqualTo(m[0, 0]).Within(1e-10));
-			Assert.That(mReference[0, 1], Is.EqualTo(m[0, 1]).Within(1e-10));
-			Assert.That(mReference[0, 2], Is.EqualTo(m[0, 2]).Within(1e-10));
-			Assert.That(mReference[0, 3], Is.EqualTo(m[0, 3]).Within(1e-10));
-			Assert.That(mReference[1, 0], Is.EqualTo(m[1, 0]).Within(1e-10));
-			Assert.That(mReference[1, 1], Is.EqualTo(m[1, 1]).Within(1e-10));
-			Assert.That(mReference[1, 2], Is.EqualTo(m[1, 2]).Within(1e-10));
-			Assert.That(mReference[1, 3], Is.EqualTo(m[1, 3]).Within(1e-10));
-			Assert.That(mReference[2, 0], Is.EqualTo(m[2, 0]).Within(1e-10));
-			Assert.That(mReference[2, 1], Is.EqualTo(m[2, 1]).Within(1e-10));
-			Assert.That(mReference[2, 2], Is.EqualTo(m[2, 2]).Within(1e-10));
-			Assert.That(mReference[2, 3], Is.EqualTo(m[2, 3]).Within(1e-10));
-		}
-
 		#endregion
 
 		#region Equality Operators
@@ -6430,25 +6139,6 @@ namespace OpenGL.Test
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-10));
 		}
 
-		[Test]
-		public void Matrix4x2d_TestCastToMatrix()
-		{
-			Matrix4x2d m = CreateSequenceMatrix();
-			MatrixDouble mReference = m;
-
-			Assert.AreEqual(mReference.Width, 4);
-			Assert.AreEqual(mReference.Height, 2);
-
-			Assert.That(mReference[0, 0], Is.EqualTo(m[0, 0]).Within(1e-10));
-			Assert.That(mReference[0, 1], Is.EqualTo(m[0, 1]).Within(1e-10));
-			Assert.That(mReference[1, 0], Is.EqualTo(m[1, 0]).Within(1e-10));
-			Assert.That(mReference[1, 1], Is.EqualTo(m[1, 1]).Within(1e-10));
-			Assert.That(mReference[2, 0], Is.EqualTo(m[2, 0]).Within(1e-10));
-			Assert.That(mReference[2, 1], Is.EqualTo(m[2, 1]).Within(1e-10));
-			Assert.That(mReference[3, 0], Is.EqualTo(m[3, 0]).Within(1e-10));
-			Assert.That(mReference[3, 1], Is.EqualTo(m[3, 1]).Within(1e-10));
-		}
-
 		#endregion
 
 		#region Equality Operators
@@ -6780,29 +6470,6 @@ namespace OpenGL.Test
 			Assert.AreEqual(mArray.Length, 12);
 			for (uint c = 0, idx = 0; c < 4; c++) for (uint r = 0; r < 3; r++, idx++)
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-10));
-		}
-
-		[Test]
-		public void Matrix4x3d_TestCastToMatrix()
-		{
-			Matrix4x3d m = CreateSequenceMatrix();
-			MatrixDouble mReference = m;
-
-			Assert.AreEqual(mReference.Width, 4);
-			Assert.AreEqual(mReference.Height, 3);
-
-			Assert.That(mReference[0, 0], Is.EqualTo(m[0, 0]).Within(1e-10));
-			Assert.That(mReference[0, 1], Is.EqualTo(m[0, 1]).Within(1e-10));
-			Assert.That(mReference[0, 2], Is.EqualTo(m[0, 2]).Within(1e-10));
-			Assert.That(mReference[1, 0], Is.EqualTo(m[1, 0]).Within(1e-10));
-			Assert.That(mReference[1, 1], Is.EqualTo(m[1, 1]).Within(1e-10));
-			Assert.That(mReference[1, 2], Is.EqualTo(m[1, 2]).Within(1e-10));
-			Assert.That(mReference[2, 0], Is.EqualTo(m[2, 0]).Within(1e-10));
-			Assert.That(mReference[2, 1], Is.EqualTo(m[2, 1]).Within(1e-10));
-			Assert.That(mReference[2, 2], Is.EqualTo(m[2, 2]).Within(1e-10));
-			Assert.That(mReference[3, 0], Is.EqualTo(m[3, 0]).Within(1e-10));
-			Assert.That(mReference[3, 1], Is.EqualTo(m[3, 1]).Within(1e-10));
-			Assert.That(mReference[3, 2], Is.EqualTo(m[3, 2]).Within(1e-10));
 		}
 
 		#endregion
@@ -7202,33 +6869,6 @@ namespace OpenGL.Test
 			Assert.AreEqual(mArray.Length, 16);
 			for (uint c = 0, idx = 0; c < 4; c++) for (uint r = 0; r < 4; r++, idx++)
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-10));
-		}
-
-		[Test]
-		public void Matrix4x4d_TestCastToMatrix()
-		{
-			Matrix4x4d m = CreateSequenceMatrix();
-			MatrixDouble4x4 mReference = m;
-
-			Assert.AreEqual(mReference.Width, 4);
-			Assert.AreEqual(mReference.Height, 4);
-
-			Assert.That(mReference[0, 0], Is.EqualTo(m[0, 0]).Within(1e-10));
-			Assert.That(mReference[0, 1], Is.EqualTo(m[0, 1]).Within(1e-10));
-			Assert.That(mReference[0, 2], Is.EqualTo(m[0, 2]).Within(1e-10));
-			Assert.That(mReference[0, 3], Is.EqualTo(m[0, 3]).Within(1e-10));
-			Assert.That(mReference[1, 0], Is.EqualTo(m[1, 0]).Within(1e-10));
-			Assert.That(mReference[1, 1], Is.EqualTo(m[1, 1]).Within(1e-10));
-			Assert.That(mReference[1, 2], Is.EqualTo(m[1, 2]).Within(1e-10));
-			Assert.That(mReference[1, 3], Is.EqualTo(m[1, 3]).Within(1e-10));
-			Assert.That(mReference[2, 0], Is.EqualTo(m[2, 0]).Within(1e-10));
-			Assert.That(mReference[2, 1], Is.EqualTo(m[2, 1]).Within(1e-10));
-			Assert.That(mReference[2, 2], Is.EqualTo(m[2, 2]).Within(1e-10));
-			Assert.That(mReference[2, 3], Is.EqualTo(m[2, 3]).Within(1e-10));
-			Assert.That(mReference[3, 0], Is.EqualTo(m[3, 0]).Within(1e-10));
-			Assert.That(mReference[3, 1], Is.EqualTo(m[3, 1]).Within(1e-10));
-			Assert.That(mReference[3, 2], Is.EqualTo(m[3, 2]).Within(1e-10));
-			Assert.That(mReference[3, 3], Is.EqualTo(m[3, 3]).Within(1e-10));
 		}
 
 		#endregion

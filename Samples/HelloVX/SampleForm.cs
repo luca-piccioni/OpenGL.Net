@@ -267,12 +267,12 @@ namespace HelloVX
 			Gl.Viewport(0, 0, (int)_Framebuffer.Width, (int)_Framebuffer.Height);
 			_Framebuffer.Clear(_GraphicsContext, ClearBufferMask.ColorBufferBit);
 			{	// Draw a quad
-				ProjectionMatrix quadProj = new OrthoProjectionMatrix(-1.0f, +1.0f, -1.0f, +1.0f);
-				ModelMatrix quadModel = new ModelMatrix();
+				Matrix4x4f quadProj = Matrix4x4f.Ortho2D(-1.0f, +1.0f, -1.0f, +1.0f);
+				Matrix4x4f quadModel = new Matrix4x4f();
 
 				_Angle += 1.0f;
 
-				quadModel.RotateZ(10.0f * Math.Cos(_Angle / 180.0 * Math.PI));
+				quadModel.RotateZ(10.0f * (float)Math.Cos(Angle.ToRadians(_Angle)));
 
 				_GraphicsContext.Bind(_ProgramStd);
 				_ProgramStd.SetUniform(_GraphicsContext, "glo_ModelViewProjection", quadProj * quadModel);
@@ -362,7 +362,7 @@ namespace HelloVX
 			#region Draw Input Image
 
 			_GraphicsContext.Bind(_ProgramStdTex);
-			_ProgramStdTex.SetUniform(_GraphicsContext, "glo_ModelViewProjection", new OrthoProjectionMatrix(0.0f, 1.0f, 0.0f, 1.0f));
+			_ProgramStdTex.SetUniform(_GraphicsContext, "glo_ModelViewProjection", Matrix4x4f.Ortho2D(0.0f, 1.0f, 0.0f, 1.0f));
 			_ProgramStdTex.SetUniform(_GraphicsContext, "glo_Texture", _FramebufferTexture);
 			
 			_ArraysPostQuad.Draw(_GraphicsContext, _ProgramStdTex);
@@ -373,7 +373,7 @@ namespace HelloVX
 
 			if (num_tracking > 0) {
 				_GraphicsContext.Bind(_ProgramStd);
-				_ProgramStd.SetUniform(_GraphicsContext, "glo_ModelViewProjection", new OrthoProjectionMatrix(0.0f, 1.0f, 0.0f, 1.0f));
+				_ProgramStd.SetUniform(_GraphicsContext, "glo_ModelViewProjection", Matrix4x4f.Ortho2D(0.0f, 1.0f, 0.0f, 1.0f));
 				_ProgramStd.SetUniform(_GraphicsContext, "glo_UniformColor", new Vertex4f(1.0f, 0.0f, 0.0f, 1.0f));
 
 				_ArraysOpticalMarkers.Draw(_GraphicsContext, _ProgramStd, 0, 0, num_tracking * 2);

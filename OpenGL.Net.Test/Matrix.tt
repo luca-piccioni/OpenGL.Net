@@ -189,30 +189,6 @@ namespace OpenGL.Test
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(<#= epsilon #>));
 		}
 
-		[Test]
-		public void <#= className #>_TestCastToMatrix()
-		{
-<#
-	if (i == 0) {
-		if (r == c && c >= 3 && r >= 3)
-			matrixType = String.Format("Matrix{0}x{0}", r);
-	} else {
-		matrixType = "MatrixDouble";
-		if (r == c && c >= 3 && r >= 3)
-			matrixType = String.Format("MatrixDouble{0}x{0}", r);
-	}
-#>
-			<#= className #> m = CreateSequenceMatrix();
-			<#= matrixType #> mReference = m;
-
-			Assert.AreEqual(mReference.Width, <#= c #>);
-			Assert.AreEqual(mReference.Height, <#= r #>);
-
-<# for (int c1 = 0, idx = 0; c1 < c; c1++) for (int r1 = 0; r1 < r; r1++, idx++) { #>
-			Assert.That(mReference[<#= c1 #>, <#= r1 #>], Is.EqualTo(m[<#= c1 #>, <#= r1 #>]).Within(<#= epsilon #>));
-<# } #>
-		}
-
 		#endregion
 
 		#region Equality Operators

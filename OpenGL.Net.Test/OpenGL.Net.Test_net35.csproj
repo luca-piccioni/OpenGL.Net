@@ -124,7 +124,7 @@
     <Compile Include="DevicePixelFormatCollection.cs" />
     <Compile Include="Egl.cs" />
     <Compile Include="EglException.cs" />
-	<Compile Include="Matrix.cs">
+    <Compile Include="Matrix.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Matrix.tt</DependentUpon>
@@ -142,9 +142,6 @@
     <Compile Include="GlxException.cs" />
     <Compile Include="KhronosApi.cs" />
     <Compile Include="KhronosVersion.cs" />
-    <Compile Include="Matrix4x4.cs" />
-    <Compile Include="MatrixBase.cs" />
-    <Compile Include="MatrixDouble.cs" />
     <Compile Include="Memory.cs" />
     <Compile Include="Plane.cs" />
     <Compile Include="RemovedByFeatureAttribute.cs" />
@@ -220,7 +217,7 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ColorRGBA.cs</LastGenOutput>
     </Content>
-	<Content Include="Matrix.tt">
+    <Content Include="Matrix.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Matrix.cs</LastGenOutput>
     </Content>

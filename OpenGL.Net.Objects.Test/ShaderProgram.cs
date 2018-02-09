@@ -29,7 +29,7 @@ namespace OpenGL.Objects.Test
 			// uniform int my_ArrayUniform[4];
 			shaderProgram.SetUniform(ctx, "my_ArrayUniform", new int[] { 1, 2, 3, 4 });
 			// uniform mat4 my_Mat4Uniform;
-			shaderProgram.SetUniform(ctx, "my_Mat4Uniform", new ModelMatrix());
+			shaderProgram.SetUniform(ctx, "my_Mat4Uniform", Matrix4x4d.Identity);
 		}
 	}
 }

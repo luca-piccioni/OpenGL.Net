@@ -89,18 +89,14 @@ namespace HelloTriangle.CoreUI
 			Gl.UseProgram(_CubeEdgeProgram);
 			
 			// Compute MVP
-			PerspectiveProjectionMatrix proj = new PerspectiveProjectionMatrix(60.0f, (float)nativeWindow.Width / nativeWindow.Height, 0.5f, 1e6f);
-			ModelMatrix view = new ModelMatrix();
-			ModelMatrix model = new ModelMatrix();
-
-			model.RotateY(_Angle);
-			model.RotateZ(_Angle);
-
-			view.LookAtTarget(Vertex3f.One * 7.0f, Vertex3f.Zero, Vertex3f.UnitY);
+			Matrix4x4f proj = Matrix4x4f.Perspective(60.0f, (float)nativeWindow.Width / nativeWindow.Height, 0.5f, 1e6f);
+			Matrix4x4f view = Matrix4x4f.LookAt(Vertex3f.One * 7.0f, Vertex3f.Zero, Vertex3f.UnitY);
+			Matrix4x4f model = Matrix4x4f.RotatedY(_Angle) * Matrix4x4f.RotatedZ(_Angle);
+			Matrix4x4f mvp = proj * view * model;
 
 			Gl.BindVertexArray(_CubeVao);
 
-			Gl.UniformMatrix4(_CubeEdgeProgram_Location_uMVP, false, (proj * view * model).ToArray());
+			Gl.UniformMatrix4f(_CubeEdgeProgram_Location_uMVP, 1, false, ref mvp);
 
 			foreach (float scale4d in new float[] { 64.0f, 32.0f, 16.0f, 8.0f, 4.0f, 2.0f, 1.0f, 0.5f, 0.25f, 0.125f }) {
 				Gl.Uniform1(_CubeEdgeProgram_Location_uScale4D, scale4d * _Zooom);

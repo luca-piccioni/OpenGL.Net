@@ -105,7 +105,7 @@
     <Compile Include="Sampler.cs" />
     <Compile Include="SamplerParameters.cs" />
     <Compile Include="Scene\BoundingBox.cs" />
-    <Compile Include="Scene\BoundingSphere.cs" />
+    <None Include="Scene\BoundingSphere.cs" />
     <Compile Include="Scene\IBoundingVolume.cs" />
     <Compile Include="Scene\SceneGraph.cs" />
     <Compile Include="Scene\SceneGraphContext.cs" />
@@ -164,9 +164,7 @@
     <Compile Include="State\PrimitiveRestartState.cs" />
     <Compile Include="State\ShaderUniformState.cs" />
     <Compile Include="State\ShadowsState.cs" />
-    <Compile Include="State\TransformState.cs" />
     <Compile Include="State\TransformStateBase.cs" />
-    <Compile Include="State\TransformStateDouble.cs" />
     <Compile Include="State\ViewportState.cs" />
     <Compile Include="State\WriteMaskState.cs" />
     <Compile Include="String.Extensions.cs" />

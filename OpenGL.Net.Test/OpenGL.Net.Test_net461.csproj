@@ -140,8 +140,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Matrix.tt</DependentUpon>
     </Compile>
-    <Compile Include="MatrixDouble.cs" />
-    <Compile Include="MatrixBase.cs" />
     <Compile Include="Vertex4.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -169,7 +167,6 @@
     <Compile Include="Gl.VERSION_4_3.cs" />
     <Compile Include="TestBaseGL.cs" />
     <Compile Include="KhronosApi.cs" />
-    <Compile Include="Matrix4x4.cs" />
     <None Include="Memory.cs" />
     <Compile Include="Plane.cs" />
     <Compile Include="TestBaseDevice.cs" />
