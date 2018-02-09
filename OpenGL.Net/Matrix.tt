@@ -59,7 +59,7 @@ namespace OpenGL
 		string highorderClassName = String.Format("Matrix{0}x{1}{2}", c + 1, r + 1, postfixes[i]);
 		string matrixBaseType = matrixBaseTypes[i];
 		string columnType = String.Format("Vertex{0}{1}", r, postfixes[i]);
-		string matrixType = "Matrix";
+		string rowType = String.Format("Vertex{0}{1}", c, postfixes[i]);
 		string one = ones[i], zero = zeroes[i];
 		string tranposedClassName = String.Format("Matrix{0}x{1}{2}", r, c, postfixes[i]);
 		string literal = literals[i];
@@ -186,6 +186,30 @@ namespace OpenGL
 <#
 		}
 #>
+		#endregion
+
+		#region Columns & Rows
+
+<# for (int j = 0; j < c; j++) { #>
+		/// <summary>
+		/// Get the column <#= j #>.
+		/// </summary>
+		public <#= columnType #> Column<#= j #>
+		{
+			get { return new <#= columnType #>(<# for (int k = 0; k < r; k++) { #>_M<#= j #><#= k #><# if (k < r - 1) { #>, <# }} #>); }
+		}
+<# } #>
+
+<# for (int k = 0; k < r; k++) { #>
+		/// <summary>
+		/// Get the row <#= k #>.
+		/// </summary>
+		public <#= rowType #> Row<#= k #>
+		{
+			get { return new <#= rowType #>(<# for (int j = 0; j < c; j++) { #>_M<#= j #><#= k #><# if (j < c - 1) { #>, <# }} #>); }
+		}
+<# } #>
+
 		#endregion
 
 		#region Operators
@@ -416,40 +440,27 @@ for (int c1 = 0; c1 < c; c1++) for (int r1 = 0; r1 < r; r1++) {
 		}
 
 <#
-		if (i == 0) {
-			if (r == c && c >= 3 && r >= 3)
-				matrixType = String.Format("Matrix{0}x{0}", r);
-		} else {
-			matrixType = "MatrixDouble";
-			if (r == c && c >= 3 && r >= 3)
-				matrixType = String.Format("MatrixDouble{0}x{0}", r);
-		}
-
-		System.Text.StringBuilder matrixArray = new System.Text.StringBuilder();
-		string[] vertexComponents = new string[] { "x", "y", "z", "w" };
-
-		for (int c1 = 0; c1 < c; c1++) for (int r1 = 0; r1 < r; r1++)
-			matrixArray.AppendFormat("m._M{0}{1}, ", c1, r1);
-		matrixArray.Remove(matrixArray.Length - 2, 2);
-
-		string matrixArrayStr = matrixArray.ToString();
+		string castMatrixType = $"Matrix{c}x{r}" + ((matrixBaseType == "float") ? "d" : "f");
+		string castMatrixModifier = (matrixBaseType == "double") ? "explicit" : "implicit";
+		string castMatrixOp = (matrixBaseType == "double") ? "(float)" : "";
 #>
 		/// <summary>
-		/// Operator casting to <#= matrixType #>.
+		/// Operator casting to <#= matrixBaseType #>[] .
 		/// </summary>
-		/// <param name="m">
+		/// <param name="a">
 		/// A <see cref="<#= className #>"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="T:<#= matrixType #>[]"/> initialized with <paramref name="m"/>.
+		/// A <see cref="T:float[]"/> initialized with the matrix components.
 		/// </returns>
-		public static implicit operator <#= matrixType #>(<#= className #> m)
+		public static <#= castMatrixModifier #> operator <#= castMatrixType #>(<#= className #> a)
 		{
-<# if (r == c && c >= 3 && r >= 3) {#>
-			return (new <#= matrixType #>(new[] { <#= matrixArrayStr #> }));
-<#} else {#>
-			return (new <#= matrixType #>(<#= c #>, <#= r #>, <#= matrixArrayStr #>));
-<#}#>
+			return new <#= castMatrixType #>(
+<# for (int c1 = 0; c1 < c; c1++) {#>
+				<# for (int r1 = 0; r1 < r; r1++) {#><#= castMatrixOp #>a._M<#= c1 #><#= r1 #><# if (c1 < c - 1 || r1 < r - 1) { #>, <# }} #>
+
+<# } #>
+			);
 		}
 
 		#endregion

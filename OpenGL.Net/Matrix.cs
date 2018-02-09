@@ -150,6 +150,40 @@ namespace OpenGL
 
 		#endregion
 
+		#region Columns & Rows
+
+		/// <summary>
+		/// Get the column 0.
+		/// </summary>
+		public Vertex2f Column0
+		{
+			get { return new Vertex2f(_M00, _M01); }
+		}
+		/// <summary>
+		/// Get the column 1.
+		/// </summary>
+		public Vertex2f Column1
+		{
+			get { return new Vertex2f(_M10, _M11); }
+		}
+
+		/// <summary>
+		/// Get the row 0.
+		/// </summary>
+		public Vertex2f Row0
+		{
+			get { return new Vertex2f(_M00, _M10); }
+		}
+		/// <summary>
+		/// Get the row 1.
+		/// </summary>
+		public Vertex2f Row1
+		{
+			get { return new Vertex2f(_M01, _M11); }
+		}
+
+		#endregion
+
 		#region Operators
 
 		/// <summary>
@@ -347,17 +381,20 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Operator casting to Matrix.
+		/// Operator casting to float[] .
 		/// </summary>
-		/// <param name="m">
+		/// <param name="a">
 		/// A <see cref="Matrix2x2f"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="T:Matrix[]"/> initialized with <paramref name="m"/>.
+		/// A <see cref="T:float[]"/> initialized with the matrix components.
 		/// </returns>
-		public static implicit operator Matrix(Matrix2x2f m)
+		public static implicit operator Matrix2x2d(Matrix2x2f a)
 		{
-			return (new Matrix(2, 2, m._M00, m._M01, m._M10, m._M11));
+			return new Matrix2x2d(
+				a._M00, a._M01, 
+				a._M10, a._M11
+			);
 		}
 
 		#endregion
@@ -727,6 +764,47 @@ namespace OpenGL
 
 		#endregion
 
+		#region Columns & Rows
+
+		/// <summary>
+		/// Get the column 0.
+		/// </summary>
+		public Vertex3f Column0
+		{
+			get { return new Vertex3f(_M00, _M01, _M02); }
+		}
+		/// <summary>
+		/// Get the column 1.
+		/// </summary>
+		public Vertex3f Column1
+		{
+			get { return new Vertex3f(_M10, _M11, _M12); }
+		}
+
+		/// <summary>
+		/// Get the row 0.
+		/// </summary>
+		public Vertex2f Row0
+		{
+			get { return new Vertex2f(_M00, _M10); }
+		}
+		/// <summary>
+		/// Get the row 1.
+		/// </summary>
+		public Vertex2f Row1
+		{
+			get { return new Vertex2f(_M01, _M11); }
+		}
+		/// <summary>
+		/// Get the row 2.
+		/// </summary>
+		public Vertex2f Row2
+		{
+			get { return new Vertex2f(_M02, _M12); }
+		}
+
+		#endregion
+
 		#region Operators
 
 		/// <summary>
@@ -886,17 +964,20 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Operator casting to Matrix.
+		/// Operator casting to float[] .
 		/// </summary>
-		/// <param name="m">
+		/// <param name="a">
 		/// A <see cref="Matrix2x3f"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="T:Matrix[]"/> initialized with <paramref name="m"/>.
+		/// A <see cref="T:float[]"/> initialized with the matrix components.
 		/// </returns>
-		public static implicit operator Matrix(Matrix2x3f m)
+		public static implicit operator Matrix2x3d(Matrix2x3f a)
 		{
-			return (new Matrix(2, 3, m._M00, m._M01, m._M02, m._M10, m._M11, m._M12));
+			return new Matrix2x3d(
+				a._M00, a._M01, a._M02, 
+				a._M10, a._M11, a._M12
+			);
 		}
 
 		#endregion
@@ -1200,6 +1281,54 @@ namespace OpenGL
 
 		#endregion
 
+		#region Columns & Rows
+
+		/// <summary>
+		/// Get the column 0.
+		/// </summary>
+		public Vertex4f Column0
+		{
+			get { return new Vertex4f(_M00, _M01, _M02, _M03); }
+		}
+		/// <summary>
+		/// Get the column 1.
+		/// </summary>
+		public Vertex4f Column1
+		{
+			get { return new Vertex4f(_M10, _M11, _M12, _M13); }
+		}
+
+		/// <summary>
+		/// Get the row 0.
+		/// </summary>
+		public Vertex2f Row0
+		{
+			get { return new Vertex2f(_M00, _M10); }
+		}
+		/// <summary>
+		/// Get the row 1.
+		/// </summary>
+		public Vertex2f Row1
+		{
+			get { return new Vertex2f(_M01, _M11); }
+		}
+		/// <summary>
+		/// Get the row 2.
+		/// </summary>
+		public Vertex2f Row2
+		{
+			get { return new Vertex2f(_M02, _M12); }
+		}
+		/// <summary>
+		/// Get the row 3.
+		/// </summary>
+		public Vertex2f Row3
+		{
+			get { return new Vertex2f(_M03, _M13); }
+		}
+
+		#endregion
+
 		#region Operators
 
 		/// <summary>
@@ -1367,17 +1496,20 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Operator casting to Matrix.
+		/// Operator casting to float[] .
 		/// </summary>
-		/// <param name="m">
+		/// <param name="a">
 		/// A <see cref="Matrix2x4f"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="T:Matrix[]"/> initialized with <paramref name="m"/>.
+		/// A <see cref="T:float[]"/> initialized with the matrix components.
 		/// </returns>
-		public static implicit operator Matrix(Matrix2x4f m)
+		public static implicit operator Matrix2x4d(Matrix2x4f a)
 		{
-			return (new Matrix(2, 4, m._M00, m._M01, m._M02, m._M03, m._M10, m._M11, m._M12, m._M13));
+			return new Matrix2x4d(
+				a._M00, a._M01, a._M02, a._M03, 
+				a._M10, a._M11, a._M12, a._M13
+			);
 		}
 
 		#endregion
@@ -1667,6 +1799,47 @@ namespace OpenGL
 
 		#endregion
 
+		#region Columns & Rows
+
+		/// <summary>
+		/// Get the column 0.
+		/// </summary>
+		public Vertex2f Column0
+		{
+			get { return new Vertex2f(_M00, _M01); }
+		}
+		/// <summary>
+		/// Get the column 1.
+		/// </summary>
+		public Vertex2f Column1
+		{
+			get { return new Vertex2f(_M10, _M11); }
+		}
+		/// <summary>
+		/// Get the column 2.
+		/// </summary>
+		public Vertex2f Column2
+		{
+			get { return new Vertex2f(_M20, _M21); }
+		}
+
+		/// <summary>
+		/// Get the row 0.
+		/// </summary>
+		public Vertex3f Row0
+		{
+			get { return new Vertex3f(_M00, _M10, _M20); }
+		}
+		/// <summary>
+		/// Get the row 1.
+		/// </summary>
+		public Vertex3f Row1
+		{
+			get { return new Vertex3f(_M01, _M11, _M21); }
+		}
+
+		#endregion
+
 		#region Operators
 
 		/// <summary>
@@ -1837,17 +2010,21 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Operator casting to Matrix.
+		/// Operator casting to float[] .
 		/// </summary>
-		/// <param name="m">
+		/// <param name="a">
 		/// A <see cref="Matrix3x2f"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="T:Matrix[]"/> initialized with <paramref name="m"/>.
+		/// A <see cref="T:float[]"/> initialized with the matrix components.
 		/// </returns>
-		public static implicit operator Matrix(Matrix3x2f m)
+		public static implicit operator Matrix3x2d(Matrix3x2f a)
 		{
-			return (new Matrix(3, 2, m._M00, m._M01, m._M10, m._M11, m._M20, m._M21));
+			return new Matrix3x2d(
+				a._M00, a._M01, 
+				a._M10, a._M11, 
+				a._M20, a._M21
+			);
 		}
 
 		#endregion
@@ -2186,6 +2363,54 @@ namespace OpenGL
 
 		#endregion
 
+		#region Columns & Rows
+
+		/// <summary>
+		/// Get the column 0.
+		/// </summary>
+		public Vertex3f Column0
+		{
+			get { return new Vertex3f(_M00, _M01, _M02); }
+		}
+		/// <summary>
+		/// Get the column 1.
+		/// </summary>
+		public Vertex3f Column1
+		{
+			get { return new Vertex3f(_M10, _M11, _M12); }
+		}
+		/// <summary>
+		/// Get the column 2.
+		/// </summary>
+		public Vertex3f Column2
+		{
+			get { return new Vertex3f(_M20, _M21, _M22); }
+		}
+
+		/// <summary>
+		/// Get the row 0.
+		/// </summary>
+		public Vertex3f Row0
+		{
+			get { return new Vertex3f(_M00, _M10, _M20); }
+		}
+		/// <summary>
+		/// Get the row 1.
+		/// </summary>
+		public Vertex3f Row1
+		{
+			get { return new Vertex3f(_M01, _M11, _M21); }
+		}
+		/// <summary>
+		/// Get the row 2.
+		/// </summary>
+		public Vertex3f Row2
+		{
+			get { return new Vertex3f(_M02, _M12, _M22); }
+		}
+
+		#endregion
+
 		#region Operators
 
 		/// <summary>
@@ -2420,17 +2645,21 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Operator casting to Matrix3x3.
+		/// Operator casting to float[] .
 		/// </summary>
-		/// <param name="m">
+		/// <param name="a">
 		/// A <see cref="Matrix3x3f"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="T:Matrix3x3[]"/> initialized with <paramref name="m"/>.
+		/// A <see cref="T:float[]"/> initialized with the matrix components.
 		/// </returns>
-		public static implicit operator Matrix3x3(Matrix3x3f m)
+		public static implicit operator Matrix3x3d(Matrix3x3f a)
 		{
-			return (new Matrix3x3(new[] { m._M00, m._M01, m._M02, m._M10, m._M11, m._M12, m._M20, m._M21, m._M22 }));
+			return new Matrix3x3d(
+				a._M00, a._M01, a._M02, 
+				a._M10, a._M11, a._M12, 
+				a._M20, a._M21, a._M22
+			);
 		}
 
 		#endregion
@@ -3018,6 +3247,61 @@ namespace OpenGL
 
 		#endregion
 
+		#region Columns & Rows
+
+		/// <summary>
+		/// Get the column 0.
+		/// </summary>
+		public Vertex4f Column0
+		{
+			get { return new Vertex4f(_M00, _M01, _M02, _M03); }
+		}
+		/// <summary>
+		/// Get the column 1.
+		/// </summary>
+		public Vertex4f Column1
+		{
+			get { return new Vertex4f(_M10, _M11, _M12, _M13); }
+		}
+		/// <summary>
+		/// Get the column 2.
+		/// </summary>
+		public Vertex4f Column2
+		{
+			get { return new Vertex4f(_M20, _M21, _M22, _M23); }
+		}
+
+		/// <summary>
+		/// Get the row 0.
+		/// </summary>
+		public Vertex3f Row0
+		{
+			get { return new Vertex3f(_M00, _M10, _M20); }
+		}
+		/// <summary>
+		/// Get the row 1.
+		/// </summary>
+		public Vertex3f Row1
+		{
+			get { return new Vertex3f(_M01, _M11, _M21); }
+		}
+		/// <summary>
+		/// Get the row 2.
+		/// </summary>
+		public Vertex3f Row2
+		{
+			get { return new Vertex3f(_M02, _M12, _M22); }
+		}
+		/// <summary>
+		/// Get the row 3.
+		/// </summary>
+		public Vertex3f Row3
+		{
+			get { return new Vertex3f(_M03, _M13, _M23); }
+		}
+
+		#endregion
+
 		#region Operators
 
 		/// <summary>
@@ -3212,17 +3496,21 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Operator casting to Matrix.
+		/// Operator casting to float[] .
 		/// </summary>
-		/// <param name="m">
+		/// <param name="a">
 		/// A <see cref="Matrix3x4f"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="T:Matrix[]"/> initialized with <paramref name="m"/>.
+		/// A <see cref="T:float[]"/> initialized with the matrix components.
 		/// </returns>
-		public static implicit operator Matrix(Matrix3x4f m)
+		public static implicit operator Matrix3x4d(Matrix3x4f a)
 		{
-			return (new Matrix(3, 4, m._M00, m._M01, m._M02, m._M03, m._M10, m._M11, m._M12, m._M13, m._M20, m._M21, m._M22, m._M23));
+			return new Matrix3x4d(
+				a._M00, a._M01, a._M02, a._M03, 
+				a._M10, a._M11, a._M12, a._M13, 
+				a._M20, a._M21, a._M22, a._M23
+			);
 		}
 
 		#endregion
@@ -3550,6 +3838,54 @@ namespace OpenGL
 
 		#endregion
 
+		#region Columns & Rows
+
+		/// <summary>
+		/// Get the column 0.
+		/// </summary>
+		public Vertex2f Column0
+		{
+			get { return new Vertex2f(_M00, _M01); }
+		}
+		/// <summary>
+		/// Get the column 1.
+		/// </summary>
+		public Vertex2f Column1
+		{
+			get { return new Vertex2f(_M10, _M11); }
+		}
+		/// <summary>
+		/// Get the column 2.
+		/// </summary>
+		public Vertex2f Column2
+		{
+			get { return new Vertex2f(_M20, _M21); }
+		}
+		/// <summary>
+		/// Get the column 3.
+		/// </summary>
+		public Vertex2f Column3
+		{
+			get { return new Vertex2f(_M30, _M31); }
+		}
+
+		/// <summary>
+		/// Get the row 0.
+		/// </summary>
+		public Vertex4f Row0
+		{
+			get { return new Vertex4f(_M00, _M10, _M20, _M30); }
+		}
+		/// <summary>
+		/// Get the row 1.
+		/// </summary>
+		public Vertex4f Row1
+		{
+			get { return new Vertex4f(_M01, _M11, _M21, _M31); }
+		}
+
+		#endregion
+
 		#region Operators
 
 		/// <summary>
@@ -3739,17 +4075,22 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Operator casting to Matrix.
+		/// Operator casting to float[] .
 		/// </summary>
-		/// <param name="m">
+		/// <param name="a">
 		/// A <see cref="Matrix4x2f"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="T:Matrix[]"/> initialized with <paramref name="m"/>.
+		/// A <see cref="T:float[]"/> initialized with the matrix components.
 		/// </returns>
-		public static implicit operator Matrix(Matrix4x2f m)
+		public static implicit operator Matrix4x2d(Matrix4x2f a)
 		{
-			return (new Matrix(4, 2, m._M00, m._M01, m._M10, m._M11, m._M20, m._M21, m._M30, m._M31));
+			return new Matrix4x2d(
+				a._M00, a._M01, 
+				a._M10, a._M11, 
+				a._M20, a._M21, 
+				a._M30, a._M31
+			);
 		}
 
 		#endregion
@@ -4105,6 +4446,61 @@ namespace OpenGL
 
 		#endregion
 
+		#region Columns & Rows
+
+		/// <summary>
+		/// Get the column 0.
+		/// </summary>
+		public Vertex3f Column0
+		{
+			get { return new Vertex3f(_M00, _M01, _M02); }
+		}
+		/// <summary>
+		/// Get the column 1.
+		/// </summary>
+		public Vertex3f Column1
+		{
+			get { return new Vertex3f(_M10, _M11, _M12); }
+		}
+		/// <summary>
+		/// Get the column 2.
+		/// </summary>
+		public Vertex3f Column2
+		{
+			get { return new Vertex3f(_M20, _M21, _M22); }
+		}
+		/// <summary>
+		/// Get the column 3.
+		/// </summary>
+		public Vertex3f Column3
+		{
+			get { return new Vertex3f(_M30, _M31, _M32); }
+		}
+
+		/// <summary>
+		/// Get the row 0.
+		/// </summary>
+		public Vertex4f Row0
+		{
+			get { return new Vertex4f(_M00, _M10, _M20, _M30); }
+		}
+		/// <summary>
+		/// Get the row 1.
+		/// </summary>
+		public Vertex4f Row1
+		{
+			get { return new Vertex4f(_M01, _M11, _M21, _M31); }
+		}
+		/// <summary>
+		/// Get the row 2.
+		/// </summary>
+		public Vertex4f Row2
+		{
+			get { return new Vertex4f(_M02, _M12, _M22, _M32); }
+		}
+
+		#endregion
+
 		#region Operators
 
 		/// <summary>
@@ -4310,17 +4706,22 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Operator casting to Matrix.
+		/// Operator casting to float[] .
 		/// </summary>
-		/// <param name="m">
+		/// <param name="a">
 		/// A <see cref="Matrix4x3f"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="T:Matrix[]"/> initialized with <paramref name="m"/>.
+		/// A <see cref="T:float[]"/> initialized with the matrix components.
 		/// </returns>
-		public static implicit operator Matrix(Matrix4x3f m)
+		public static implicit operator Matrix4x3d(Matrix4x3f a)
 		{
-			return (new Matrix(4, 3, m._M00, m._M01, m._M02, m._M10, m._M11, m._M12, m._M20, m._M21, m._M22, m._M30, m._M31, m._M32));
+			return new Matrix4x3d(
+				a._M00, a._M01, a._M02, 
+				a._M10, a._M11, a._M12, 
+				a._M20, a._M21, a._M22, 
+				a._M30, a._M31, a._M32
+			);
 		}
 
 		#endregion
@@ -4736,6 +5137,68 @@ namespace OpenGL
 
 		#endregion
 
+		#region Columns & Rows
+
+		/// <summary>
+		/// Get the column 0.
+		/// </summary>
+		public Vertex4f Column0
+		{
+			get { return new Vertex4f(_M00, _M01, _M02, _M03); }
+		}
+		/// <summary>
+		/// Get the column 1.
+		/// </summary>
+		public Vertex4f Column1
+		{
+			get { return new Vertex4f(_M10, _M11, _M12, _M13); }
+		}
+		/// <summary>
+		/// Get the column 2.
+		/// </summary>
+		public Vertex4f Column2
+		{
+			get { return new Vertex4f(_M20, _M21, _M22, _M23); }
+		}
+		/// <summary>
+		/// Get the column 3.
+		/// </summary>
+		public Vertex4f Column3
+		{
+			get { return new Vertex4f(_M30, _M31, _M32, _M33); }
+		}
+
+		/// <summary>
+		/// Get the row 0.
+		/// </summary>
+		public Vertex4f Row0
+		{
+			get { return new Vertex4f(_M00, _M10, _M20, _M30); }
+		}
+		/// <summary>
+		/// Get the row 1.
+		/// </summary>
+		public Vertex4f Row1
+		{
+			get { return new Vertex4f(_M01, _M11, _M21, _M31); }
+		}
+		/// <summary>
+		/// Get the row 2.
+		/// </summary>
+		public Vertex4f Row2
+		{
+			get { return new Vertex4f(_M02, _M12, _M22, _M32); }
+		}
+		/// <summary>
+		/// Get the row 3.
+		/// </summary>
+		public Vertex4f Row3
+		{
+			get { return new Vertex4f(_M03, _M13, _M23, _M33); }
+		}
+
+		#endregion
+
 		#region Operators
 
 		/// <summary>
@@ -5027,17 +5490,22 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Operator casting to Matrix4x4.
+		/// Operator casting to float[] .
 		/// </summary>
-		/// <param name="m">
+		/// <param name="a">
 		/// A <see cref="Matrix4x4f"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="T:Matrix4x4[]"/> initialized with <paramref name="m"/>.
+		/// A <see cref="T:float[]"/> initialized with the matrix components.
 		/// </returns>
-		public static implicit operator Matrix4x4(Matrix4x4f m)
+		public static implicit operator Matrix4x4d(Matrix4x4f a)
 		{
-			return (new Matrix4x4(new[] { m._M00, m._M01, m._M02, m._M03, m._M10, m._M11, m._M12, m._M13, m._M20, m._M21, m._M22, m._M23, m._M30, m._M31, m._M32, m._M33 }));
+			return new Matrix4x4d(
+				a._M00, a._M01, a._M02, a._M03, 
+				a._M10, a._M11, a._M12, a._M13, 
+				a._M20, a._M21, a._M22, a._M23, 
+				a._M30, a._M31, a._M32, a._M33
+			);
 		}
 
 		#endregion
@@ -5988,6 +6456,40 @@ namespace OpenGL
 
 		#endregion
 
+		#region Columns & Rows
+
+		/// <summary>
+		/// Get the column 0.
+		/// </summary>
+		public Vertex2d Column0
+		{
+			get { return new Vertex2d(_M00, _M01); }
+		}
+		/// <summary>
+		/// Get the column 1.
+		/// </summary>
+		public Vertex2d Column1
+		{
+			get { return new Vertex2d(_M10, _M11); }
+		}
+
+		/// <summary>
+		/// Get the row 0.
+		/// </summary>
+		public Vertex2d Row0
+		{
+			get { return new Vertex2d(_M00, _M10); }
+		}
+		/// <summary>
+		/// Get the row 1.
+		/// </summary>
+		public Vertex2d Row1
+		{
+			get { return new Vertex2d(_M01, _M11); }
+		}
+
+		#endregion
+
 		#region Operators
 
 		/// <summary>
@@ -6185,17 +6687,20 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Operator casting to MatrixDouble.
+		/// Operator casting to double[] .
 		/// </summary>
-		/// <param name="m">
+		/// <param name="a">
 		/// A <see cref="Matrix2x2d"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="T:MatrixDouble[]"/> initialized with <paramref name="m"/>.
+		/// A <see cref="T:float[]"/> initialized with the matrix components.
 		/// </returns>
-		public static implicit operator MatrixDouble(Matrix2x2d m)
+		public static explicit operator Matrix2x2f(Matrix2x2d a)
 		{
-			return (new MatrixDouble(2, 2, m._M00, m._M01, m._M10, m._M11));
+			return new Matrix2x2f(
+				(float)a._M00, (float)a._M01, 
+				(float)a._M10, (float)a._M11
+			);
 		}
 
 		#endregion
@@ -6565,6 +7070,47 @@ namespace OpenGL
 
 		#endregion
 
+		#region Columns & Rows
+
+		/// <summary>
+		/// Get the column 0.
+		/// </summary>
+		public Vertex3d Column0
+		{
+			get { return new Vertex3d(_M00, _M01, _M02); }
+		}
+		/// <summary>
+		/// Get the column 1.
+		/// </summary>
+		public Vertex3d Column1
+		{
+			get { return new Vertex3d(_M10, _M11, _M12); }
+		}
+
+		/// <summary>
+		/// Get the row 0.
+		/// </summary>
+		public Vertex2d Row0
+		{
+			get { return new Vertex2d(_M00, _M10); }
+		}
+		/// <summary>
+		/// Get the row 1.
+		/// </summary>
+		public Vertex2d Row1
+		{
+			get { return new Vertex2d(_M01, _M11); }
+		}
+		/// <summary>
+		/// Get the row 2.
+		/// </summary>
+		public Vertex2d Row2
+		{
+			get { return new Vertex2d(_M02, _M12); }
+		}
+
+		#endregion
+
 		#region Operators
 
 		/// <summary>
@@ -6724,17 +7270,20 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Operator casting to MatrixDouble.
+		/// Operator casting to double[] .
 		/// </summary>
-		/// <param name="m">
+		/// <param name="a">
 		/// A <see cref="Matrix2x3d"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="T:MatrixDouble[]"/> initialized with <paramref name="m"/>.
+		/// A <see cref="T:float[]"/> initialized with the matrix components.
 		/// </returns>
-		public static implicit operator MatrixDouble(Matrix2x3d m)
+		public static explicit operator Matrix2x3f(Matrix2x3d a)
 		{
-			return (new MatrixDouble(2, 3, m._M00, m._M01, m._M02, m._M10, m._M11, m._M12));
+			return new Matrix2x3f(
+				(float)a._M00, (float)a._M01, (float)a._M02, 
+				(float)a._M10, (float)a._M11, (float)a._M12
+			);
 		}
 
 		#endregion
@@ -7038,6 +7587,54 @@ namespace OpenGL
 
 		#endregion
 
+		#region Columns & Rows
+
+		/// <summary>
+		/// Get the column 0.
+		/// </summary>
+		public Vertex4d Column0
+		{
+			get { return new Vertex4d(_M00, _M01, _M02, _M03); }
+		}
+		/// <summary>
+		/// Get the column 1.
+		/// </summary>
+		public Vertex4d Column1
+		{
+			get { return new Vertex4d(_M10, _M11, _M12, _M13); }
+		}
+
+		/// <summary>
+		/// Get the row 0.
+		/// </summary>
+		public Vertex2d Row0
+		{
+			get { return new Vertex2d(_M00, _M10); }
+		}
+		/// <summary>
+		/// Get the row 1.
+		/// </summary>
+		public Vertex2d Row1
+		{
+			get { return new Vertex2d(_M01, _M11); }
+		}
+		/// <summary>
+		/// Get the row 2.
+		/// </summary>
+		public Vertex2d Row2
+		{
+			get { return new Vertex2d(_M02, _M12); }
+		}
+		/// <summary>
+		/// Get the row 3.
+		/// </summary>
+		public Vertex2d Row3
+		{
+			get { return new Vertex2d(_M03, _M13); }
+		}
+
+		#endregion
+
 		#region Operators
 
 		/// <summary>
@@ -7205,17 +7802,20 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Operator casting to MatrixDouble.
+		/// Operator casting to double[] .
 		/// </summary>
-		/// <param name="m">
+		/// <param name="a">
 		/// A <see cref="Matrix2x4d"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="T:MatrixDouble[]"/> initialized with <paramref name="m"/>.
+		/// A <see cref="T:float[]"/> initialized with the matrix components.
 		/// </returns>
-		public static implicit operator MatrixDouble(Matrix2x4d m)
+		public static explicit operator Matrix2x4f(Matrix2x4d a)
 		{
-			return (new MatrixDouble(2, 4, m._M00, m._M01, m._M02, m._M03, m._M10, m._M11, m._M12, m._M13));
+			return new Matrix2x4f(
+				(float)a._M00, (float)a._M01, (float)a._M02, (float)a._M03, 
+				(float)a._M10, (float)a._M11, (float)a._M12, (float)a._M13
+			);
 		}
 
 		#endregion
@@ -7505,6 +8105,47 @@ namespace OpenGL
 
 		#endregion
 
+		#region Columns & Rows
+
+		/// <summary>
+		/// Get the column 0.
+		/// </summary>
+		public Vertex2d Column0
+		{
+			get { return new Vertex2d(_M00, _M01); }
+		}
+		/// <summary>
+		/// Get the column 1.
+		/// </summary>
+		public Vertex2d Column1
+		{
+			get { return new Vertex2d(_M10, _M11); }
+		}
+		/// <summary>
+		/// Get the column 2.
+		/// </summary>
+		public Vertex2d Column2
+		{
+			get { return new Vertex2d(_M20, _M21); }
+		}
+
+		/// <summary>
+		/// Get the row 0.
+		/// </summary>
+		public Vertex3d Row0
+		{
+			get { return new Vertex3d(_M00, _M10, _M20); }
+		}
+		/// <summary>
+		/// Get the row 1.
+		/// </summary>
+		public Vertex3d Row1
+		{
+			get { return new Vertex3d(_M01, _M11, _M21); }
+		}
+
+		#endregion
+
 		#region Operators
 
 		/// <summary>
@@ -7675,17 +8316,21 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Operator casting to MatrixDouble.
+		/// Operator casting to double[] .
 		/// </summary>
-		/// <param name="m">
+		/// <param name="a">
 		/// A <see cref="Matrix3x2d"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="T:MatrixDouble[]"/> initialized with <paramref name="m"/>.
+		/// A <see cref="T:float[]"/> initialized with the matrix components.
 		/// </returns>
-		public static implicit operator MatrixDouble(Matrix3x2d m)
+		public static explicit operator Matrix3x2f(Matrix3x2d a)
 		{
-			return (new MatrixDouble(3, 2, m._M00, m._M01, m._M10, m._M11, m._M20, m._M21));
+			return new Matrix3x2f(
+				(float)a._M00, (float)a._M01, 
+				(float)a._M10, (float)a._M11, 
+				(float)a._M20, (float)a._M21
+			);
 		}
 
 		#endregion
@@ -8024,6 +8669,54 @@ namespace OpenGL
 
 		#endregion
 
+		#region Columns & Rows
+
+		/// <summary>
+		/// Get the column 0.
+		/// </summary>
+		public Vertex3d Column0
+		{
+			get { return new Vertex3d(_M00, _M01, _M02); }
+		}
+		/// <summary>
+		/// Get the column 1.
+		/// </summary>
+		public Vertex3d Column1
+		{
+			get { return new Vertex3d(_M10, _M11, _M12); }
+		}
+		/// <summary>
+		/// Get the column 2.
+		/// </summary>
+		public Vertex3d Column2
+		{
+			get { return new Vertex3d(_M20, _M21, _M22); }
+		}
+
+		/// <summary>
+		/// Get the row 0.
+		/// </summary>
+		public Vertex3d Row0
+		{
+			get { return new Vertex3d(_M00, _M10, _M20); }
+		}
+		/// <summary>
+		/// Get the row 1.
+		/// </summary>
+		public Vertex3d Row1
+		{
+			get { return new Vertex3d(_M01, _M11, _M21); }
+		}
+		/// <summary>
+		/// Get the row 2.
+		/// </summary>
+		public Vertex3d Row2
+		{
+			get { return new Vertex3d(_M02, _M12, _M22); }
+		}
+
+		#endregion
+
 		#region Operators
 
 		/// <summary>
@@ -8258,17 +8951,21 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Operator casting to MatrixDouble3x3.
+		/// Operator casting to double[] .
 		/// </summary>
-		/// <param name="m">
+		/// <param name="a">
 		/// A <see cref="Matrix3x3d"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="T:MatrixDouble3x3[]"/> initialized with <paramref name="m"/>.
+		/// A <see cref="T:float[]"/> initialized with the matrix components.
 		/// </returns>
-		public static implicit operator MatrixDouble3x3(Matrix3x3d m)
+		public static explicit operator Matrix3x3f(Matrix3x3d a)
 		{
-			return (new MatrixDouble3x3(new[] { m._M00, m._M01, m._M02, m._M10, m._M11, m._M12, m._M20, m._M21, m._M22 }));
+			return new Matrix3x3f(
+				(float)a._M00, (float)a._M01, (float)a._M02, 
+				(float)a._M10, (float)a._M11, (float)a._M12, 
+				(float)a._M20, (float)a._M21, (float)a._M22
+			);
 		}
 
 		#endregion
@@ -8856,6 +9553,61 @@ namespace OpenGL
 
 		#endregion
 
+		#region Columns & Rows
+
+		/// <summary>
+		/// Get the column 0.
+		/// </summary>
+		public Vertex4d Column0
+		{
+			get { return new Vertex4d(_M00, _M01, _M02, _M03); }
+		}
+		/// <summary>
+		/// Get the column 1.
+		/// </summary>
+		public Vertex4d Column1
+		{
+			get { return new Vertex4d(_M10, _M11, _M12, _M13); }
+		}
+		/// <summary>
+		/// Get the column 2.
+		/// </summary>
+		public Vertex4d Column2
+		{
+			get { return new Vertex4d(_M20, _M21, _M22, _M23); }
+		}
+
+		/// <summary>
+		/// Get the row 0.
+		/// </summary>
+		public Vertex3d Row0
+		{
+			get { return new Vertex3d(_M00, _M10, _M20); }
+		}
+		/// <summary>
+		/// Get the row 1.
+		/// </summary>
+		public Vertex3d Row1
+		{
+			get { return new Vertex3d(_M01, _M11, _M21); }
+		}
+		/// <summary>
+		/// Get the row 2.
+		/// </summary>
+		public Vertex3d Row2
+		{
+			get { return new Vertex3d(_M02, _M12, _M22); }
+		}
+		/// <summary>
+		/// Get the row 3.
+		/// </summary>
+		public Vertex3d Row3
+		{
+			get { return new Vertex3d(_M03, _M13, _M23); }
+		}
+
+		#endregion
+
 		#region Operators
 
 		/// <summary>
@@ -9050,17 +9802,21 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Operator casting to MatrixDouble.
+		/// Operator casting to double[] .
 		/// </summary>
-		/// <param name="m">
+		/// <param name="a">
 		/// A <see cref="Matrix3x4d"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="T:MatrixDouble[]"/> initialized with <paramref name="m"/>.
+		/// A <see cref="T:float[]"/> initialized with the matrix components.
 		/// </returns>
-		public static implicit operator MatrixDouble(Matrix3x4d m)
+		public static explicit operator Matrix3x4f(Matrix3x4d a)
 		{
-			return (new MatrixDouble(3, 4, m._M00, m._M01, m._M02, m._M03, m._M10, m._M11, m._M12, m._M13, m._M20, m._M21, m._M22, m._M23));
+			return new Matrix3x4f(
+				(float)a._M00, (float)a._M01, (float)a._M02, (float)a._M03, 
+				(float)a._M10, (float)a._M11, (float)a._M12, (float)a._M13, 
+				(float)a._M20, (float)a._M21, (float)a._M22, (float)a._M23
+			);
 		}
 
 		#endregion
@@ -9388,6 +10144,54 @@ namespace OpenGL
 
 		#endregion
 
+		#region Columns & Rows
+
+		/// <summary>
+		/// Get the column 0.
+		/// </summary>
+		public Vertex2d Column0
+		{
+			get { return new Vertex2d(_M00, _M01); }
+		}
+		/// <summary>
+		/// Get the column 1.
+		/// </summary>
+		public Vertex2d Column1
+		{
+			get { return new Vertex2d(_M10, _M11); }
+		}
+		/// <summary>
+		/// Get the column 2.
+		/// </summary>
+		public Vertex2d Column2
+		{
+			get { return new Vertex2d(_M20, _M21); }
+		}
+		/// <summary>
+		/// Get the column 3.
+		/// </summary>
+		public Vertex2d Column3
+		{
+			get { return new Vertex2d(_M30, _M31); }
+		}
+
+		/// <summary>
+		/// Get the row 0.
+		/// </summary>
+		public Vertex4d Row0
+		{
+			get { return new Vertex4d(_M00, _M10, _M20, _M30); }
+		}
+		/// <summary>
+		/// Get the row 1.
+		/// </summary>
+		public Vertex4d Row1
+		{
+			get { return new Vertex4d(_M01, _M11, _M21, _M31); }
+		}
+
+		#endregion
+
 		#region Operators
 
 		/// <summary>
@@ -9577,17 +10381,22 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Operator casting to MatrixDouble.
+		/// Operator casting to double[] .
 		/// </summary>
-		/// <param name="m">
+		/// <param name="a">
 		/// A <see cref="Matrix4x2d"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="T:MatrixDouble[]"/> initialized with <paramref name="m"/>.
+		/// A <see cref="T:float[]"/> initialized with the matrix components.
 		/// </returns>
-		public static implicit operator MatrixDouble(Matrix4x2d m)
+		public static explicit operator Matrix4x2f(Matrix4x2d a)
 		{
-			return (new MatrixDouble(4, 2, m._M00, m._M01, m._M10, m._M11, m._M20, m._M21, m._M30, m._M31));
+			return new Matrix4x2f(
+				(float)a._M00, (float)a._M01, 
+				(float)a._M10, (float)a._M11, 
+				(float)a._M20, (float)a._M21, 
+				(float)a._M30, (float)a._M31
+			);
 		}
 
 		#endregion
@@ -9943,6 +10752,61 @@ namespace OpenGL
 
 		#endregion
 
+		#region Columns & Rows
+
+		/// <summary>
+		/// Get the column 0.
+		/// </summary>
+		public Vertex3d Column0
+		{
+			get { return new Vertex3d(_M00, _M01, _M02); }
+		}
+		/// <summary>
+		/// Get the column 1.
+		/// </summary>
+		public Vertex3d Column1
+		{
+			get { return new Vertex3d(_M10, _M11, _M12); }
+		}
+		/// <summary>
+		/// Get the column 2.
+		/// </summary>
+		public Vertex3d Column2
+		{
+			get { return new Vertex3d(_M20, _M21, _M22); }
+		}
+		/// <summary>
+		/// Get the column 3.
+		/// </summary>
+		public Vertex3d Column3
+		{
+			get { return new Vertex3d(_M30, _M31, _M32); }
+		}
+
+		/// <summary>
+		/// Get the row 0.
+		/// </summary>
+		public Vertex4d Row0
+		{
+			get { return new Vertex4d(_M00, _M10, _M20, _M30); }
+		}
+		/// <summary>
+		/// Get the row 1.
+		/// </summary>
+		public Vertex4d Row1
+		{
+			get { return new Vertex4d(_M01, _M11, _M21, _M31); }
+		}
+		/// <summary>
+		/// Get the row 2.
+		/// </summary>
+		public Vertex4d Row2
+		{
+			get { return new Vertex4d(_M02, _M12, _M22, _M32); }
+		}
+
+		#endregion
+
 		#region Operators
 
 		/// <summary>
@@ -10148,17 +11012,22 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Operator casting to MatrixDouble.
+		/// Operator casting to double[] .
 		/// </summary>
-		/// <param name="m">
+		/// <param name="a">
 		/// A <see cref="Matrix4x3d"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="T:MatrixDouble[]"/> initialized with <paramref name="m"/>.
+		/// A <see cref="T:float[]"/> initialized with the matrix components.
 		/// </returns>
-		public static implicit operator MatrixDouble(Matrix4x3d m)
+		public static explicit operator Matrix4x3f(Matrix4x3d a)
 		{
-			return (new MatrixDouble(4, 3, m._M00, m._M01, m._M02, m._M10, m._M11, m._M12, m._M20, m._M21, m._M22, m._M30, m._M31, m._M32));
+			return new Matrix4x3f(
+				(float)a._M00, (float)a._M01, (float)a._M02, 
+				(float)a._M10, (float)a._M11, (float)a._M12, 
+				(float)a._M20, (float)a._M21, (float)a._M22, 
+				(float)a._M30, (float)a._M31, (float)a._M32
+			);
 		}
 
 		#endregion
@@ -10574,6 +11443,68 @@ namespace OpenGL
 
 		#endregion
 
+		#region Columns & Rows
+
+		/// <summary>
+		/// Get the column 0.
+		/// </summary>
+		public Vertex4d Column0
+		{
+			get { return new Vertex4d(_M00, _M01, _M02, _M03); }
+		}
+		/// <summary>
+		/// Get the column 1.
+		/// </summary>
+		public Vertex4d Column1
+		{
+			get { return new Vertex4d(_M10, _M11, _M12, _M13); }
+		}
+		/// <summary>
+		/// Get the column 2.
+		/// </summary>
+		public Vertex4d Column2
+		{
+			get { return new Vertex4d(_M20, _M21, _M22, _M23); }
+		}
+		/// <summary>
+		/// Get the column 3.
+		/// </summary>
+		public Vertex4d Column3
+		{
+			get { return new Vertex4d(_M30, _M31, _M32, _M33); }
+		}
+
+		/// <summary>
+		/// Get the row 0.
+		/// </summary>
+		public Vertex4d Row0
+		{
+			get { return new Vertex4d(_M00, _M10, _M20, _M30); }
+		}
+		/// <summary>
+		/// Get the row 1.
+		/// </summary>
+		public Vertex4d Row1
+		{
+			get { return new Vertex4d(_M01, _M11, _M21, _M31); }
+		}
+		/// <summary>
+		/// Get the row 2.
+		/// </summary>
+		public Vertex4d Row2
+		{
+			get { return new Vertex4d(_M02, _M12, _M22, _M32); }
+		}
+		/// <summary>
+		/// Get the row 3.
+		/// </summary>
+		public Vertex4d Row3
+		{
+			get { return new Vertex4d(_M03, _M13, _M23, _M33); }
+		}
+
+		#endregion
+
 		#region Operators
 
 		/// <summary>
@@ -10855,17 +11786,22 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Operator casting to MatrixDouble4x4.
+		/// Operator casting to double[] .
 		/// </summary>
-		/// <param name="m">
+		/// <param name="a">
 		/// A <see cref="Matrix4x4d"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="T:MatrixDouble4x4[]"/> initialized with <paramref name="m"/>.
+		/// A <see cref="T:float[]"/> initialized with the matrix components.
 		/// </returns>
-		public static implicit operator MatrixDouble4x4(Matrix4x4d m)
+		public static explicit operator Matrix4x4f(Matrix4x4d a)
 		{
-			return (new MatrixDouble4x4(new[] { m._M00, m._M01, m._M02, m._M03, m._M10, m._M11, m._M12, m._M13, m._M20, m._M21, m._M22, m._M23, m._M30, m._M31, m._M32, m._M33 }));
+			return new Matrix4x4f(
+				(float)a._M00, (float)a._M01, (float)a._M02, (float)a._M03, 
+				(float)a._M10, (float)a._M11, (float)a._M12, (float)a._M13, 
+				(float)a._M20, (float)a._M21, (float)a._M22, (float)a._M23, 
+				(float)a._M30, (float)a._M31, (float)a._M32, (float)a._M33
+			);
 		}
 
 		#endregion
