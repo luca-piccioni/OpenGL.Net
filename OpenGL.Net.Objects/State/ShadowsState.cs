@@ -59,10 +59,10 @@ namespace OpenGL.Objects.State
 		/// The <see cref="Texture2d"/> that specifies the shadow map texture.
 		/// </param>
 		/// <param name="mvp">
-		/// The <see cref="Matrix4x4"/> that specifies the model-view-projection-bias matrix to transform vertex
+		/// The <see cref="Matrix4x4f"/> that specifies the model-view-projection-bias matrix to transform vertex
 		/// from object-space to light-space.
 		/// </param>
-		public void AddShadowMap(Texture2d shadowMap, Matrix4x4 mvp)
+		public void AddShadowMap(Texture2d shadowMap, Matrix4x4f mvp)
 		{
 			_ShadowMap2D.Add(new ShadowMap2DContext(shadowMap, mvp));
 		}
@@ -79,10 +79,10 @@ namespace OpenGL.Objects.State
 			/// The <see cref="Texture2d"/> that specifies the shadow map texture.
 			/// </param>
 			/// <param name="mvp">
-			/// The <see cref="Matrix4x4"/> that specifies the model-view-projection-bias matrix to transform vertex
+			/// The <see cref="Matrix4x4f"/> that specifies the model-view-projection-bias matrix to transform vertex
 			/// from object-space to light-space.
 			/// </param>
-			public ShadowMap2DContext(Texture2d shadowMap, Matrix4x4 mvp)
+			public ShadowMap2DContext(Texture2d shadowMap, Matrix4x4f mvp)
 			{
 				if (shadowMap == null)
 					throw new ArgumentNullException("shadowMap");
@@ -101,7 +101,7 @@ namespace OpenGL.Objects.State
 			/// <summary>
 			/// The model-view-projection-bias matrix to transform vertex from object-space to light-space.
 			/// </summary>
-			public readonly Matrix4x4 ModelViewProjectionBias;
+			public readonly Matrix4x4f ModelViewProjectionBias;
 		}
 
 		/// <summary>
@@ -125,7 +125,7 @@ namespace OpenGL.Objects.State
 		/// 
 		/// </summary>
 		[ShaderUniformState("glo_ShadowMap2D_MVP")]
-		private Matrix4x4[] ShadowMap2DMvp
+		private Matrix4x4f[] ShadowMap2DMvp
 		{
 			get
 			{
@@ -144,7 +144,7 @@ namespace OpenGL.Objects.State
 		#region ShaderUniformState Overrides
 
 		/// <summary>
-		/// The identifier for the TransformStateBase derived classes.
+		/// The identifier for the TransformState derived classes.
 		/// </summary>
 		public static string StateId = "OpenGL.ShadowsState";
 
@@ -182,7 +182,7 @@ namespace OpenGL.Objects.State
 		public override bool IsProgramBound { get { return (true); } }
 
 		/// <summary>
-		/// Apply this TransformStateBase.
+		/// Apply this TransformState.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> which has defined the shader program <paramref name="shaderProgram"/>.
@@ -267,7 +267,7 @@ namespace OpenGL.Objects.State
 		}
 
 		/// <summary>
-		/// The uniform state of this TransformStateBase.
+		/// The uniform state of this TransformState.
 		/// </summary>
 		private static readonly Dictionary<string, UniformStateMember> _UniformProperties;
 

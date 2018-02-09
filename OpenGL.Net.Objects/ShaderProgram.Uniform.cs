@@ -237,7 +237,7 @@ namespace OpenGL.Objects
 			int[] properties = new int[] {
 				Gl.TYPE​,
 				Gl.NAME_LENGTH,
-				Gl.BLOCK_INDEX​,
+				Gl.BLOCK_INDEX,
 				Gl.OFFSET,
 				Gl.ARRAY_STRIDE,
 				Gl.MATRIX_STRIDE,
@@ -715,13 +715,7 @@ namespace OpenGL.Objects
 
 			#region Set/Get Uniform (single-precision floating-point matrix data)
 
-			void SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Matrix m);
-
-			void SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Matrix3x3 m);
-
 			void SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Matrix3x3f m);
-
-			void SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Matrix4x4 m);
 
 			void SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Matrix4x4f m);
 
@@ -755,11 +749,9 @@ namespace OpenGL.Objects
 
 			#region Set/Get Uniform (double-precision floating-point matrix data)
 
-			void SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, MatrixDouble m);
+			void SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Matrix3x3d m);
 
-			void SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, MatrixDouble3x3 m);
-
-			void SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, MatrixDouble4x4 m);
+			void SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Matrix4x4d m);
 
 			#endregion
 
@@ -1068,83 +1060,14 @@ namespace OpenGL.Objects
 
 			#region Set/Get Uniform (single-precision floating-point matrix data)
 
-			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Matrix m)
-			{
-				switch (uniform.UniformType) {
-					case ShaderUniformType.Mat2x2:
-						if ((m.Width != 2) || (m.Height != 2))
-							throw new ArgumentException("matrix size mismatch");
-						Gl.UniformMatrix2(uniform.Location, false, m.Buffer);
-						break;
-					case ShaderUniformType.Mat2x3:
-						if ((m.Width != 2) || (m.Height != 3))
-							throw new ArgumentException("matrix size mismatch");
-						Gl.UniformMatrix2x3(uniform.Location, false, m.Buffer);
-						break;
-					case ShaderUniformType.Mat2x4:
-						if ((m.Width != 2) || (m.Height != 4))
-							throw new ArgumentException("matrix size mismatch");
-						Gl.UniformMatrix2x4(uniform.Location, false, m.Buffer);
-						break;
-					case ShaderUniformType.Mat3x2:
-						if ((m.Width != 3) || (m.Height != 2))
-							throw new ArgumentException("matrix size mismatch");
-						Gl.UniformMatrix3x2(uniform.Location, false, m.Buffer);
-						break;
-					case ShaderUniformType.Mat3x3:
-						if ((m.Width != 3) || (m.Height != 3))
-							throw new ArgumentException("matrix size mismatch");
-						Gl.UniformMatrix3(uniform.Location, false, m.Buffer);
-						break;
-					case ShaderUniformType.Mat3x4:
-						if ((m.Width != 3) || (m.Height != 4))
-							throw new ArgumentException("matrix size mismatch");
-						Gl.UniformMatrix3x4(uniform.Location, false, m.Buffer);
-						break;
-					case ShaderUniformType.Mat4x2:
-						if ((m.Width != 4) || (m.Height != 2))
-							throw new ArgumentException("matrix size mismatch");
-						Gl.UniformMatrix4x2(uniform.Location, false, m.Buffer);
-						break;
-					case ShaderUniformType.Mat4x3:
-						if ((m.Width != 4) || (m.Height != 3))
-							throw new ArgumentException("matrix size mismatch");
-						Gl.UniformMatrix4x3(uniform.Location, false, m.Buffer);
-						break;
-					case ShaderUniformType.Mat4x4:
-						if ((m.Width != 4) || (m.Height != 4))
-							throw new ArgumentException("matrix size mismatch");
-						Gl.UniformMatrix4(uniform.Location, false, m.Buffer);
-						break;
-					default:
-						throw new NotSupportedException(String.Format("uniform type {0} not assignable from Matrix{1}x{2}", uniform.UniformType, m.Width, m.Height));
-				}
-			}
-
-			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Matrix3x3 m)
-			{
-				Gl.UniformMatrix3(uniform.Location, false, m.Buffer);
-			}
-
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Matrix3x3f m)
 			{
-				unsafe
-				{
-					Gl.UniformMatrix3(uniform.Location, 1, false, (float*)&m);
-				}
-			}
-
-			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Matrix4x4 m)
-			{
-				Gl.UniformMatrix4(uniform.Location, false, m.Buffer);
+				Gl.UniformMatrix3f(uniform.Location, 1, false, ref m);
 			}
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Matrix4x4f m)
 			{
-				unsafe
-				{
-					Gl.UniformMatrix4(uniform.Location, 1, false, (float*)&m);
-				}
+				Gl.UniformMatrix4f(uniform.Location, 1, false, ref m);
 			}
 
 			#endregion
@@ -1225,67 +1148,14 @@ namespace OpenGL.Objects
 
 			#region Set/Get Uniform (double-precision floating-point matrix data)
 
-			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, MatrixDouble m)
+			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Matrix3x3d m)
 			{
-				switch (uniform.UniformType) {
-					case ShaderUniformType.Mat2x2:
-						if ((m.Width != 2) || (m.Height != 2))
-							throw new ArgumentException("matrix size mismatch");
-						Gl.UniformMatrix2(uniform.Location, false, m.Buffer);
-						break;
-					case ShaderUniformType.Mat2x3:
-						if ((m.Width != 2) || (m.Height != 3))
-							throw new ArgumentException("matrix size mismatch");
-						Gl.UniformMatrix2x3(uniform.Location, false, m.Buffer);
-						break;
-					case ShaderUniformType.Mat2x4:
-						if ((m.Width != 2) || (m.Height != 4))
-							throw new ArgumentException("matrix size mismatch");
-						Gl.UniformMatrix2x4(uniform.Location, false, m.Buffer);
-						break;
-					case ShaderUniformType.Mat3x2:
-						if ((m.Width != 3) || (m.Height != 2))
-							throw new ArgumentException("matrix size mismatch");
-						Gl.UniformMatrix3x2(uniform.Location, false, m.Buffer);
-						break;
-					case ShaderUniformType.Mat3x3:
-						if ((m.Width != 3) || (m.Height != 3))
-							throw new ArgumentException("matrix size mismatch");
-						Gl.UniformMatrix3(uniform.Location, false, m.Buffer);
-						break;
-					case ShaderUniformType.Mat3x4:
-						if ((m.Width != 3) || (m.Height != 4))
-							throw new ArgumentException("matrix size mismatch");
-						Gl.UniformMatrix3x4(uniform.Location, false, m.Buffer);
-						break;
-					case ShaderUniformType.Mat4x2:
-						if ((m.Width != 4) || (m.Height != 2))
-							throw new ArgumentException("matrix size mismatch");
-						Gl.UniformMatrix4x2(uniform.Location, false, m.Buffer);
-						break;
-					case ShaderUniformType.Mat4x3:
-						if ((m.Width != 4) || (m.Height != 3))
-							throw new ArgumentException("matrix size mismatch");
-						Gl.UniformMatrix4x3(uniform.Location, false, m.Buffer);
-						break;
-					case ShaderUniformType.Mat4x4:
-						if ((m.Width != 4) || (m.Height != 4))
-							throw new ArgumentException("matrix size mismatch");
-						Gl.UniformMatrix4(uniform.Location, false, m.Buffer);
-						break;
-					default:
-						throw new NotSupportedException(String.Format("uniform type {0} not assignable from Matrix{1}x{2}", uniform.UniformType, m.Width, m.Height));
-				}
+				Gl.UniformMatrix3d(uniform.Location, 1, false, ref m);
 			}
 
-			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, MatrixDouble3x3 m)
+			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Matrix4x4d m)
 			{
-				Gl.UniformMatrix3(uniform.Location, false, m.Buffer);
-			}
-
-			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, MatrixDouble4x4 m)
-			{
-				Gl.UniformMatrix4(uniform.Location, false, m.Buffer);
+				Gl.UniformMatrix4d(uniform.Location, 1, false, ref m);
 			}
 
 			#endregion
@@ -1592,83 +1462,14 @@ namespace OpenGL.Objects
 
 			#region Set/Get Uniform (single-precision floating-point matrix data)
 
-			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Matrix m)
-			{
-				switch (uniform.UniformType) {
-					case ShaderUniformType.Mat2x2:
-						if ((m.Width != 2) || (m.Height != 2))
-							throw new ArgumentException("matrix size mismatch");
-						Gl.ProgramUniformMatrix2(program.ObjectName, uniform.Location, false, m.Buffer);
-						break;
-					case ShaderUniformType.Mat2x3:
-						if ((m.Width != 2) || (m.Height != 3))
-							throw new ArgumentException("matrix size mismatch");
-						Gl.ProgramUniformMatrix2x3(program.ObjectName, uniform.Location, false, m.Buffer);
-						break;
-					case ShaderUniformType.Mat2x4:
-						if ((m.Width != 2) || (m.Height != 4))
-							throw new ArgumentException("matrix size mismatch");
-						Gl.ProgramUniformMatrix2x4(program.ObjectName, uniform.Location, false, m.Buffer);
-						break;
-					case ShaderUniformType.Mat3x2:
-						if ((m.Width != 3) || (m.Height != 2))
-							throw new ArgumentException("matrix size mismatch");
-						Gl.ProgramUniformMatrix3x2(program.ObjectName, uniform.Location, false, m.Buffer);
-						break;
-					case ShaderUniformType.Mat3x3:
-						if ((m.Width != 3) || (m.Height != 3))
-							throw new ArgumentException("matrix size mismatch");
-						Gl.ProgramUniformMatrix3(program.ObjectName, uniform.Location, false, m.Buffer);
-						break;
-					case ShaderUniformType.Mat3x4:
-						if ((m.Width != 3) || (m.Height != 4))
-							throw new ArgumentException("matrix size mismatch");
-						Gl.ProgramUniformMatrix3x4(program.ObjectName, uniform.Location, false, m.Buffer);
-						break;
-					case ShaderUniformType.Mat4x2:
-						if ((m.Width != 4) || (m.Height != 2))
-							throw new ArgumentException("matrix size mismatch");
-						Gl.ProgramUniformMatrix4x2(program.ObjectName, uniform.Location, false, m.Buffer);
-						break;
-					case ShaderUniformType.Mat4x3:
-						if ((m.Width != 4) || (m.Height != 3))
-							throw new ArgumentException("matrix size mismatch");
-						Gl.ProgramUniformMatrix4x3(program.ObjectName, uniform.Location, false, m.Buffer);
-						break;
-					case ShaderUniformType.Mat4x4:
-						if ((m.Width != 4) || (m.Height != 4))
-							throw new ArgumentException("matrix size mismatch");
-						Gl.ProgramUniformMatrix4(program.ObjectName, uniform.Location, false, m.Buffer);
-						break;
-					default:
-						throw new NotSupportedException(String.Format("uniform type {0} not assignable from Matrix{1}x{2}", uniform.UniformType, m.Width, m.Height));
-				}
-			}
-
-			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Matrix3x3 m)
-			{
-				Gl.ProgramUniformMatrix3(program.ObjectName, uniform.Location, false, m.Buffer);
-			}
-
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Matrix3x3f m)
 			{
-				unsafe
-				{
-					Gl.ProgramUniformMatrix3(program.ObjectName, uniform.Location, 1, false, (float*)&m);
-				}
-			}
-
-			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Matrix4x4 m)
-			{
-				Gl.ProgramUniformMatrix4(program.ObjectName, uniform.Location, false, m.Buffer);
+				Gl.ProgramUniformMatrix3f(program.ObjectName, uniform.Location, 1, false,  ref m);
 			}
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Matrix4x4f m)
 			{
-				unsafe
-				{
-					Gl.ProgramUniformMatrix4(program.ObjectName, uniform.Location, 1, false, (float*)&m);
-				}
+				Gl.ProgramUniformMatrix4f(program.ObjectName, uniform.Location, 1, false, ref m);
 			}
 
 			#endregion
@@ -1749,67 +1550,14 @@ namespace OpenGL.Objects
 
 			#region Set/Get Uniform (double-precision floating-point matrix data)
 
-			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, MatrixDouble m)
+			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Matrix3x3d m)
 			{
-				switch (uniform.UniformType) {
-					case ShaderUniformType.Mat2x2:
-						if ((m.Width != 2) || (m.Height != 2))
-							throw new ArgumentException("matrix size mismatch");
-						Gl.ProgramUniformMatrix2(program.ObjectName, uniform.Location, false, m.Buffer);
-						break;
-					case ShaderUniformType.Mat2x3:
-						if ((m.Width != 2) || (m.Height != 3))
-							throw new ArgumentException("matrix size mismatch");
-						Gl.ProgramUniformMatrix2x3(program.ObjectName, uniform.Location, false, m.Buffer);
-						break;
-					case ShaderUniformType.Mat2x4:
-						if ((m.Width != 2) || (m.Height != 4))
-							throw new ArgumentException("matrix size mismatch");
-						Gl.ProgramUniformMatrix2x4(program.ObjectName, uniform.Location, false, m.Buffer);
-						break;
-					case ShaderUniformType.Mat3x2:
-						if ((m.Width != 3) || (m.Height != 2))
-							throw new ArgumentException("matrix size mismatch");
-						Gl.ProgramUniformMatrix3x2(program.ObjectName, uniform.Location, false, m.Buffer);
-						break;
-					case ShaderUniformType.Mat3x3:
-						if ((m.Width != 3) || (m.Height != 3))
-							throw new ArgumentException("matrix size mismatch");
-						Gl.ProgramUniformMatrix3(program.ObjectName, uniform.Location, false, m.Buffer);
-						break;
-					case ShaderUniformType.Mat3x4:
-						if ((m.Width != 3) || (m.Height != 4))
-							throw new ArgumentException("matrix size mismatch");
-						Gl.ProgramUniformMatrix3x4(program.ObjectName, uniform.Location, false, m.Buffer);
-						break;
-					case ShaderUniformType.Mat4x2:
-						if ((m.Width != 4) || (m.Height != 2))
-							throw new ArgumentException("matrix size mismatch");
-						Gl.ProgramUniformMatrix4x2(program.ObjectName, uniform.Location, false, m.Buffer);
-						break;
-					case ShaderUniformType.Mat4x3:
-						if ((m.Width != 4) || (m.Height != 3))
-							throw new ArgumentException("matrix size mismatch");
-						Gl.ProgramUniformMatrix4x3(program.ObjectName, uniform.Location, false, m.Buffer);
-						break;
-					case ShaderUniformType.Mat4x4:
-						if ((m.Width != 4) || (m.Height != 4))
-							throw new ArgumentException("matrix size mismatch");
-						Gl.ProgramUniformMatrix4(program.ObjectName, uniform.Location, false, m.Buffer);
-						break;
-					default:
-						throw new NotSupportedException(String.Format("uniform type {0} not assignable from Matrix{1}x{2}", uniform.UniformType, m.Width, m.Height));
-				}
+				Gl.ProgramUniformMatrix3d(program.ObjectName, uniform.Location, 1, false, ref m);
 			}
 
-			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, MatrixDouble3x3 m)
+			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Matrix4x4d m)
 			{
-				Gl.ProgramUniformMatrix3(program.ObjectName, uniform.Location, false, m.Buffer);
-			}
-
-			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, MatrixDouble4x4 m)
-			{
-				Gl.ProgramUniformMatrix4(program.ObjectName, uniform.Location, false, m.Buffer);
+				Gl.ProgramUniformMatrix4d(program.ObjectName, uniform.Location, 1, false, ref m);
 			}
 
 			#endregion

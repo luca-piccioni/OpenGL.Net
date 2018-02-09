@@ -44,10 +44,13 @@ namespace OpenGL.Objects.Scene
 		/// <param name="clippingPlanes">
 		/// A <see cref="IEnumerable{Plane}"/> that are used to perform geometry clipping.
 		/// </param>
+		/// <param name="viewModel">
+		/// 
+		/// </param>
 		/// <returns>
 		/// It returns a boolean value indicating whether this bound volume is entirely
 		/// clipped by <paramref name="clippingPlanes"/>.
 		/// </returns>
-		bool IsClipped(IEnumerable<Plane> clippingPlanes, IMatrix4x4 viewModel);
+		bool IsClipped(IEnumerable<Plane> clippingPlanes, Matrix4x4f viewModel);
 	}
 }

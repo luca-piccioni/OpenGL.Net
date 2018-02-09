@@ -22,12 +22,6 @@
 #ifndef GLO_TRANSFORM_STATE
 #define GLO_TRANSFORM_STATE
 
-// Projection matrix
-uniform mat4 glo_Projection;
-
-// The model matrix
-uniform mat4 glo_Model;
-
 // The model-view matrix
 uniform mat4 glo_ModelView;
 
@@ -36,19 +30,5 @@ uniform mat4 glo_ModelViewProjection;
 
 // Normal transformation matrix
 uniform mat3 glo_NormalMatrix;
-
-// Inverse projection matrix
-uniform mat4 glo_InverseProjection;
-
-// Inverse of the model-view matrix
-uniform mat4 glo_InverseModelView;
-
-// Inverse of glo_ModelViewProjection
-uniform mat4 glo_InverseModelViewProjection;
-
-// Projection near/far planes distances
-// - x: near plane distance
-// - y: far plane distance.
-uniform vec2 glo_DepthDistances;
 
 #endif

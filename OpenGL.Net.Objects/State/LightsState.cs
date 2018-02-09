@@ -132,7 +132,7 @@ namespace OpenGL.Objects.State
 			/// Shadow map model-view-projection for light-space.
 			/// </summary>
 			[ShaderUniformState("ShadowMapMvp")]
-			public readonly ModelMatrix ShadowMapMvp = new ModelMatrix();
+			public Matrix4x4f ShadowMapMvp = Matrix4x4f.Identity;
 
 			/// <summary>
 			/// Shadow map (2D).
@@ -345,7 +345,7 @@ namespace OpenGL.Objects.State
 		#region ShaderUniformState Overrides
 
 		/// <summary>
-		/// The identifier for the TransformStateBase derived classes.
+		/// The identifier for the TransformState derived classes.
 		/// </summary>
 		public static string StateId = "OpenGL.LightsState";
 
@@ -388,7 +388,7 @@ namespace OpenGL.Objects.State
 		protected override string UniformBlockTag { get { return ("LightState"); } }
 
 		/// <summary>
-		/// Apply this TransformStateBase.
+		/// Apply this TransformState.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> which has defined the shader program <paramref name="shaderProgram"/>.
@@ -504,7 +504,7 @@ namespace OpenGL.Objects.State
 		}
 
 		/// <summary>
-		/// The uniform state of this TransformStateBase.
+		/// The uniform state of this TransformState.
 		/// </summary>
 		private static readonly Dictionary<string, UniformStateMember> _UniformProperties;
 

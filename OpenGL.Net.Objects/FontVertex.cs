@@ -306,7 +306,7 @@ namespace OpenGL.Objects
 		/// The <see cref="GraphicsContext"/> used for drawing.
 		/// </param>
 		/// <param name="modelview">
-		/// The <see cref="Matrix4x4"/> the model-view-projection matrix for the first character of <paramref name="s"/>.
+		/// The <see cref="Matrix4x4f"/> the model-view-projection matrix for the first character of <paramref name="s"/>.
 		/// </param>
 		/// <param name="color">
 		/// The <see cref="ColorRGBAF"/> that specifies the glyph color.
@@ -314,16 +314,16 @@ namespace OpenGL.Objects
 		/// <param name="s">
 		/// A <see cref="String"/> that specifies the characters for be drawn.
 		/// </param>
-		public override void DrawString(GraphicsContext ctx, Matrix4x4 modelview, ColorRGBAF color, string s)
+		public override void DrawString(GraphicsContext ctx, Matrix4x4f modelview, ColorRGBAF color, string s)
 		{
 			// Draw the string
 			DrawStringCore(ctx, modelview, color, s);
 
 			// Shadow effect
 			if (_FxShadow != null) {
-				ModelMatrix shadowModel = new ModelMatrix(modelview);
+				Matrix4x4f shadowModel = modelview;
 
-				shadowModel.Translate(_FxShadow.Offset);
+				shadowModel.Translate(_FxShadow.Offset.x, _FxShadow.Offset.y, 0.0f);
 
 				DrawStringCore(ctx, shadowModel, _FxShadow.Color, s);
 			}
@@ -336,7 +336,7 @@ namespace OpenGL.Objects
 		/// The <see cref="GraphicsContext"/> used for drawing.
 		/// </param>
 		/// <param name="modelview">
-		/// The <see cref="Matrix4x4"/> the model-view-projection matrix for the first character of <paramref name="s"/>.
+		/// The <see cref="Matrix4x4f"/> the model-view-projection matrix for the first character of <paramref name="s"/>.
 		/// </param>
 		/// <param name="color">
 		/// The <see cref="ColorRGBAF"/> that specifies the glyph color.
@@ -344,9 +344,9 @@ namespace OpenGL.Objects
 		/// <param name="s">
 		/// A <see cref="String"/> that specifies the characters for be drawn.
 		/// </param>
-		private void DrawStringCore(GraphicsContext ctx, Matrix4x4 modelview, ColorRGBAF color, string s)
+		private void DrawStringCore(GraphicsContext ctx, Matrix4x4f modelview, ColorRGBAF color, string s)
 		{
-			ModelMatrix charModel = new ModelMatrix(modelview);
+			Matrix4x4f charModel = modelview;
 
 			ctx.Bind(_FontProgram);
 
@@ -371,7 +371,7 @@ namespace OpenGL.Objects
 						drawInstanceId++;
 					}
 					// Move next
-					charModel.Translate(glyph.GlyphSize.Width, 0.0f);
+					charModel.Translate(glyph.GlyphSize.Width, 0.0f, 0.0f);
 				}
 
 				// Draw using Multi-Draw primitive
@@ -393,7 +393,7 @@ namespace OpenGL.Objects
 						_VertexArrays.Draw(ctx, _FontProgram, glyph.ElementIndex);
 					}
 					// Move next
-					charModel.Translate(glyph.GlyphSize.Width, 0.0f);
+					charModel.Translate(glyph.GlyphSize.Width, 0.0f, 0.0f);
 				}
 			}
 		}

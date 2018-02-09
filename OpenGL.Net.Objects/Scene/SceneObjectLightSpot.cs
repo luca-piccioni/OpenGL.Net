@@ -73,17 +73,14 @@ namespace OpenGL.Objects.Scene
 		/// <summary>
 		/// The matrix describing the orientation of the spot light.
 		/// </summary>
-		private IModelMatrix LightMatrix
+		private Matrix4x4f LightMatrix
 		{
 			get
 			{
-				ModelMatrix lightRotation = new ModelMatrix();
 				Vertex3f lightRotationAxis = Direction ^ -Vertex3f.UnitZ;
 				float lightRotationAngle = (float)Angle.ToDegrees(Math.Acos(-Vertex3f.UnitZ * Direction));
 
-				lightRotation.Rotate(new Quaternion(lightRotationAxis, lightRotationAngle));
-
-				return (lightRotation);
+				return ((Matrix4x4f)new Quaternion(lightRotationAxis, lightRotationAngle));
 			}
 		}
 
@@ -157,7 +154,7 @@ namespace OpenGL.Objects.Scene
 		/// <summary>
 		/// The matrix required for projecting world space vertex to light view space.
 		/// </summary>
-		private IMatrix4x4 _ShadowViewMatrix;
+		private Matrix4x4f _ShadowViewMatrix;
 
 		#endregion
 
@@ -213,14 +210,15 @@ namespace OpenGL.Objects.Scene
 				GraphicsStateSet boundingVolumeState = ctxScene.GraphicsStateStack.Current.Push();
 
 				// Transform
-				TransformStateBase boundingVolumeModel = (TransformStateBase)boundingVolumeState[TransformStateBase.StateSetIndex];
+				TransformState boundingVolumeModel = (TransformState)boundingVolumeState[TransformState.StateSetIndex];
 
 				float lightVolumeDepth = 100.0f;
 				float lightVolumeSize = lightVolumeDepth * (float)Math.Tan(Angle.ToRadians(FalloffAngle));
 
-				boundingVolumeModel.LocalModelViewProjection.Set(boundingVolumeModel.LocalModelViewProjection.Multiply(LightMatrix));
-				boundingVolumeModel.LocalModelViewProjection.Translate(0.0f, 0.0f, lightVolumeDepth);
-				boundingVolumeModel.LocalModelViewProjection.Scale(lightVolumeSize, lightVolumeSize, lightVolumeDepth);
+				boundingVolumeModel.ModelViewProjection =
+					(boundingVolumeModel.ModelViewProjection * LightMatrix) *
+					Matrix4x4f.Translated(0.0f, 0.0f, lightVolumeDepth) *
+					Matrix4x4f.Scaled(lightVolumeSize, lightVolumeSize, lightVolumeDepth);
 
 				// Uniform color
 				ShaderUniformState uniformState = new ShaderUniformState("UniformState");
@@ -247,23 +245,23 @@ namespace OpenGL.Objects.Scene
 		/// </returns>
 		public override LightsState.Light ToLight(GraphicsContext ctx, SceneGraphContext sceneCtx)
 		{
-			TransformStateBase transformState = (TransformStateBase)sceneCtx.GraphicsStateStack.Current[TransformStateBase.StateSetIndex];
+			TransformState transformState = (TransformState)sceneCtx.GraphicsStateStack.Current[TransformState.StateSetIndex];
 			LightsState.LightSpot light = new LightsState.LightSpot();
 
 			SetLightParameters(sceneCtx, light);
 
-			IModelMatrix worldModel = transformState.LocalModelView;
-			IMatrix3x3 normalMatrix = worldModel.GetComplementMatrix(3, 3).GetInverseMatrix().Transpose();
+			Matrix4x4f worldModel = transformState.ModelView;
+			Matrix3x3f normalMatrix = new Matrix3x3f(worldModel, 3, 3).Inverse.Transposed;
 
-			light.Direction = ((Vertex3f)normalMatrix.Multiply((Vertex3f)Direction)).Normalized;
-			light.Position = (Vertex3f)worldModel.Multiply(Vertex3f.Zero);
+			light.Direction = (normalMatrix * (Vertex3f)Direction).Normalized;
+			light.Position = (Vertex3f)(worldModel * Vertex3f.Zero);
 			light.AttenuationFactors = AttenuationFactors;
 			light.FallOff = new Vertex2f((float)Math.Cos(Angle.ToRadians(FalloffAngle)), FalloffExponent);
 
 			// Shadow mapping
-			if (_ShadowMap != null && _ShadowViewMatrix != null) {
+			if (_ShadowMap != null) {
 				// Determined later: light.ShadowMapIndex
-				light.ShadowMapMvp.Set(_ShadowViewMatrix);
+				light.ShadowMapMvp = _ShadowViewMatrix;
 				light.ShadowMap2D = _ShadowMap;
 			} else {
 				light.ShadowMapIndex = -1;
@@ -322,11 +320,10 @@ namespace OpenGL.Objects.Scene
 				throw new ArgumentNullException("shadowGraph");
 
 			// Compute light matrix
-			IModelMatrix viewMatrix = new ModelMatrix(); // LocalModel.Multiply(LightMatrix.GetInverseMatrix()).GetInverseMatrix();
-			viewMatrix.LookAtDirection((Vertex3d)LocalModel.Position, (Vertex3f)Direction, Vertex3d.UnitY);
+			Matrix4x4f viewMatrix = Matrix4x4f.LookAtDirection(LocalModelView.Value.Position, (Vertex3f)Direction, Vertex3f.UnitY); // LocalModel.Multiply(LightMatrix.GetInverseMatrix()).GetInverseMatrix();
 
 			// Set light scene view
-			shadowGraph.ProjectionMatrix = new PerspectiveProjectionMatrix(FalloffAngle * 2.0f, 1.0f, 0.1f, 100.0f);
+			shadowGraph.ProjectionMatrix = Matrix4x4f.Perspective(FalloffAngle * 2.0f, 1.0f, 0.1f, 100.0f);
 			shadowGraph.ViewMatrix = viewMatrix;
 
 			_ShadowFramebuffer.BindDraw(ctx);
@@ -341,7 +338,7 @@ namespace OpenGL.Objects.Scene
 			_ShadowFramebuffer.UnbindDraw(ctx);
 
 			// Cache view matrix
-			_ShadowViewMatrix = _BiasMatrix.Multiply(shadowGraph.ProjectionMatrix.Multiply(viewMatrix));
+			_ShadowViewMatrix = _BiasMatrix * shadowGraph.ProjectionMatrix * viewMatrix;
 		}
 
 		/// <summary>

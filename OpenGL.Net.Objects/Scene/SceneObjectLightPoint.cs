@@ -74,7 +74,7 @@ namespace OpenGL.Objects.Scene
 
 			SetLightParameters(sceneCtx, light);
 
-			light.Position = (Vertex3f)WorldModel.Multiply(Vertex3f.Zero);
+			light.Position = (Vertex3f)(WorldModel * Vertex3f.Zero);
 			light.AttenuationFactors = AttenuationFactors;
 
 			return (light);

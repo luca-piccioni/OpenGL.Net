@@ -657,9 +657,9 @@ namespace OpenGL.Objects
 		/// A <see cref="String"/> that specify the variable name in the shader source.
 		/// </param>
 		/// <param name="m">
-		/// A <see cref="Matrix3x3"/> holding the uniform variabile data.
+		/// A <see cref="Matrix3x3f"/> holding the uniform variabile data.
 		/// </param>
-		public void SetVariantUniform(GraphicsContext ctx, string uniformName, Matrix3x3 m)
+		public void SetVariantUniform(GraphicsContext ctx, string uniformName, Matrix3x3f m)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
@@ -672,7 +672,7 @@ namespace OpenGL.Objects
 					break;
 #if !MONODROID
 				case ShaderUniformType.DoubleMat3x3:
-					SetUniform(ctx, uniformName, (MatrixDouble3x3)m);
+					SetUniform(ctx, uniformName, (Matrix3x3d)m);
 					break;
 #endif
 				default:
@@ -690,9 +690,9 @@ namespace OpenGL.Objects
 		/// A <see cref="String"/> that specify the variable name in the shader source.
 		/// </param>
 		/// <param name="m">
-		/// A <see cref="Matrix4x4"/> holding the uniform variabile data.
+		/// A <see cref="Matrix4x4f"/> holding the uniform variabile data.
 		/// </param>
-		public void SetVariantUniform(GraphicsContext ctx, string uniformName, Matrix4x4 m)
+		public void SetVariantUniform(GraphicsContext ctx, string uniformName, Matrix4x4f m)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
@@ -705,7 +705,7 @@ namespace OpenGL.Objects
 					break;
 #if !MONODROID
 				case ShaderUniformType.DoubleMat4x4:
-					SetUniform(ctx, uniformName, (MatrixDouble4x4)m);
+					SetUniform(ctx, uniformName, (Matrix4x4d)m);
 					break;
 #endif
 				default:
@@ -729,7 +729,7 @@ namespace OpenGL.Objects
 		/// <param name="m">
 		/// A <see cref="Matrix3x3"/> holding the uniform variabile data.
 		/// </param>
-		public void SetVariantUniform(GraphicsContext ctx, string uniformName, MatrixDouble3x3 m)
+		public void SetVariantUniform(GraphicsContext ctx, string uniformName, Matrix3x3d m)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
@@ -738,7 +738,7 @@ namespace OpenGL.Objects
 
 			switch (uniform.UniformType) {
 				case ShaderUniformType.Mat3x3:
-					SetUniform(ctx, uniformName, (Matrix3x3)m);
+					SetUniform(ctx, uniformName, (Matrix3x3f)m);
 					break;
 #if !MONODROID
 				case ShaderUniformType.DoubleMat3x3:
@@ -760,9 +760,9 @@ namespace OpenGL.Objects
 		/// A <see cref="String"/> that specify the variable name in the shader source.
 		/// </param>
 		/// <param name="m">
-		/// A <see cref="Matrix4x4"/> holding the uniform variabile data.
+		/// A <see cref="Matrix4x4d"/> holding the uniform variabile data.
 		/// </param>
-		public void SetVariantUniform(GraphicsContext ctx, string uniformName, MatrixDouble4x4 m)
+		public void SetVariantUniform(GraphicsContext ctx, string uniformName, Matrix4x4d m)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
@@ -771,81 +771,11 @@ namespace OpenGL.Objects
 
 			switch (uniform.UniformType) {
 				case ShaderUniformType.Mat4x4:
-					SetUniform(ctx, uniformName, (Matrix4x4)m);
+					SetUniform(ctx, uniformName, (Matrix4x4f)m);
 					break;
 #if !MONODROID
 				case ShaderUniformType.DoubleMat4x4:
 					SetUniform(ctx, uniformName, m);
-					break;
-#endif
-				default:
-					throw new ShaderException("unable to set double-precision floating-point matrix 4x4 data to uniform of type {0}", uniform.UniformType);
-			}
-		}
-
-		#endregion
-
-		#region Set/Get Variant Uniform (matrix interfaces)
-
-		/// <summary>
-		/// Set uniform state variable (variant type).
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for operations.
-		/// </param>
-		/// <param name="uniformName">
-		/// A <see cref="String"/> that specify the variable name in the shader source.
-		/// </param>
-		/// <param name="m">
-		/// A <see cref="IMatrix3x3"/> holding the uniform variabile data.
-		/// </param>
-		public void SetVariantUniform(GraphicsContext ctx, string uniformName, IMatrix3x3 m)
-		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
-
-			UniformBinding uniform = GetUniform(ctx, uniformName);
-
-			switch (uniform.UniformType) {
-				case ShaderUniformType.Mat3x3:
-					SetUniform(ctx, uniformName, (Matrix3x3)m);
-					break;
-#if !MONODROID
-				case ShaderUniformType.DoubleMat3x3:
-					SetUniform(ctx, uniformName, (MatrixDouble3x3)m);
-					break;
-#endif
-				default:
-					throw new ShaderException("unable to set double-precision floating-point matrix 3x3 data to uniform of type {0}", uniform.UniformType);
-			}
-		}
-
-		/// <summary>
-		/// Set uniform state variable (variant type).
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for operations.
-		/// </param>
-		/// <param name="uniformName">
-		/// A <see cref="String"/> that specify the variable name in the shader source.
-		/// </param>
-		/// <param name="m">
-		/// A <see cref="IMatrix4x4"/> holding the uniform variabile data.
-		/// </param>
-		public void SetVariantUniform(GraphicsContext ctx, string uniformName, IMatrix4x4 m)
-		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
-
-			UniformBinding uniform = GetUniform(ctx, uniformName);
-
-			switch (uniform.UniformType) {
-				case ShaderUniformType.Mat4x4:
-					SetUniform(ctx, uniformName, (Matrix4x4)m);
-					break;
-#if !MONODROID
-				case ShaderUniformType.DoubleMat4x4:
-					SetUniform(ctx, uniformName, (MatrixDouble4x4)m);
 					break;
 #endif
 				default:

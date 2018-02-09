@@ -138,44 +138,6 @@ namespace OpenGL.Objects
 		#region Set/Get Uniform (single-precision floating-point matrix data)
 
 		/// <summary>
-		/// Set uniform state variable (mat* variable).
-		/// </summary>
-		/// <param name="uniformName">
-		/// A <see cref="String"/> that specify the variable name in the shader source.
-		/// </param>
-		/// <param name="m">
-		/// A <see cref="Matrix"/> holding the uniform variabile data.
-		/// </param>
-		public void SetUniform(string uniformName, Matrix m)
-		{
-			UniformSegment uniform = GetUniform(uniformName);
-			if (uniform == null)
-				return;
-
-			Set(m.ToArray(), (ulong)uniform.Offset);
-		}
-
-		/// <summary>
-		/// Set uniform state variable (mat3 variable).
-		/// </summary>
-		/// <param name="uniformName">
-		/// A <see cref="String"/> that specify the variable name in the shader source.
-		/// </param>
-		/// <param name="m">
-		/// A <see cref="Matrix3x3"/> holding the uniform variabile data.
-		/// </param>
-		public void SetUniform(string uniformName, Matrix3x3 m)
-		{
-			UniformSegment uniform = GetUniform(uniformName);
-			if (uniform == null)
-				return;
-
-			uniform.CheckType(Gl.FLOAT_MAT3);
-
-			Set(m.ToArray(), (ulong)uniform.Offset);
-		}
-
-		/// <summary>
 		/// Set uniform state variable (mat3 variable).
 		/// </summary>
 		/// <param name="uniformName">
@@ -193,26 +155,6 @@ namespace OpenGL.Objects
 			uniform.CheckType(Gl.FLOAT_MAT3);
 
 			Set(m, (ulong)uniform.Offset);
-		}
-
-		/// <summary>
-		/// Set uniform state variable (mat4 variable).
-		/// </summary>
-		/// <param name="uniformName">
-		/// A <see cref="String"/> that specify the variable name in the shader source.
-		/// </param>
-		/// <param name="m">
-		/// A <see cref="Matrix4x4"/> holding the uniform variabile data.
-		/// </param>
-		public void SetUniform(string uniformName, Matrix4x4 m)
-		{
-			UniformSegment uniform = GetUniform(uniformName);
-			if (uniform == null)
-				return;
-
-			uniform.CheckType(Gl.FLOAT_MAT4);
-
-			Set(m.ToArray(), (ulong)uniform.Offset);
 		}
 
 		/// <summary>
@@ -369,22 +311,7 @@ namespace OpenGL.Objects
 			throw new NotImplementedException();
 		}
 
-		void IShaderUniformContainer.SetUniform(GraphicsContext ctx, string uniformName, Matrix m)
-		{
-			throw new NotImplementedException();
-		}
-
-		void IShaderUniformContainer.SetUniform(GraphicsContext ctx, string uniformName, Matrix3x3 m)
-		{
-			throw new NotImplementedException();
-		}
-
 		void IShaderUniformContainer.SetUniform(GraphicsContext ctx, string uniformName, Matrix3x3f m)
-		{
-			throw new NotImplementedException();
-		}
-
-		void IShaderUniformContainer.SetUniform(GraphicsContext ctx, string uniformName, Matrix4x4 m)
 		{
 			throw new NotImplementedException();
 		}
@@ -421,17 +348,12 @@ namespace OpenGL.Objects
 			throw new NotImplementedException();
 		}
 
-		void IShaderUniformContainer.SetUniform(GraphicsContext ctx, string uniformName, MatrixDouble m)
+		void IShaderUniformContainer.SetUniform(GraphicsContext ctx, string uniformName, Matrix3x3d m)
 		{
 			throw new NotImplementedException();
 		}
 
-		void IShaderUniformContainer.SetUniform(GraphicsContext ctx, string uniformName, MatrixDouble3x3 m)
-		{
-			throw new NotImplementedException();
-		}
-
-		void IShaderUniformContainer.SetUniform(GraphicsContext ctx, string uniformName, MatrixDouble4x4 m)
+		void IShaderUniformContainer.SetUniform(GraphicsContext ctx, string uniformName, Matrix4x4d m)
 		{
 			throw new NotImplementedException();
 		}
@@ -447,22 +369,7 @@ namespace OpenGL.Objects
 
 			Type valueType = value.GetType();
 
-			Matrix valueMatrix = value as Matrix;
-			if (valueMatrix != null) {
-				Matrix4x4 matrix4x4 = value as Matrix4x4;
-				if (matrix4x4 != null) {
-					SetUniform(uniformName, matrix4x4);
-					return;
-				}
-
-				Matrix3x3 matrix3x3 = value as Matrix3x3;
-				if (matrix3x3 != null) {
-					SetUniform(uniformName, matrix3x3);
-					return;
-				}
-
-				throw new NotSupportedException(valueType + "is not supported by SetUniform(GraphicsContext, string, object");
-			} else if (valueType == typeof(Vertex2f)) {
+			if        (valueType == typeof(Vertex2f)) {
 				SetUniform(uniformName, (Vertex2f)value);
 			} else if (valueType == typeof(Vertex3f)) {
 				SetUniform(uniformName, (Vertex3f)value);

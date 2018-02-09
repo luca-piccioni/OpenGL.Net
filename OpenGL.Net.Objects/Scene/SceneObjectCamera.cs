@@ -62,16 +62,7 @@ namespace OpenGL.Objects.Scene
 		/// <summary>
 		/// Get or set the projection for this SceneGraphCameraObject.
 		/// </summary>
-		public IProjectionMatrix ProjectionMatrix
-		{
-			get { return (_ProjectionMatrix); }
-			set { _ProjectionMatrix = (IProjectionMatrix)value.Clone(); }
-		}
-
-		/// <summary>
-		/// The projection defined for this SceneGraphCameraObject.
-		/// </summary>
-		private IProjectionMatrix _ProjectionMatrix;
+		public Matrix4x4f ProjectionMatrix { get; set; }
 
 		#endregion
 

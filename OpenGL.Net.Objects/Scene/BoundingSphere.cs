@@ -77,7 +77,7 @@ namespace OpenGL.Objects.Scene
 		/// It returns a boolean value indicating whether this bound volume is entirely
 		/// clipped by <paramref name="clippingPlanes"/>.
 		/// </returns>
-		public bool IsClipped(IEnumerable<Plane> clippingPlanes, State.TransformStateBase objectModel)
+		public bool IsClipped(IEnumerable<Plane> clippingPlanes, State.TransformState objectModel)
 		{
 			Vertex3f sphereOrigin = (Vertex3f)objectModel.ModelView.Position;
 

@@ -26,134 +26,89 @@ using System.Diagnostics;
 namespace OpenGL.Objects.State
 {
 	/// <summary>
-	/// State tracking the transformation state (abstract implementation).
+	/// State tracking the transformation state.
 	/// </summary>
 	/// <remarks>
 	/// <para>
 	/// The transform state exposes a set of matrices that are dedicated of the transformation of three-dimensional
-	/// points and vectors in order to project them onto the screen.
-	/// </para>
-	/// <para>
-	/// 
+	/// points and vectors in order to project them onto the screen:
+	/// - Projection
+	/// - Model-view
+	/// - Normal
 	/// </para>
 	/// </remarks>
-	public abstract class TransformStateBase : ShaderUniformStateBase
+	[DebuggerDisplay("TransformState: Projection={Projection} ModelView={ModelView}")]
+	public class TransformState : ShaderUniformStateBase
 	{
 		#region Constructors
 
 		/// <summary>
 		/// Static constructor.
 		/// </summary>
-		static TransformStateBase()
+		static TransformState()
 		{
 			// Statically initialize uniform properties
-			_UniformProperties = DetectUniformProperties(typeof(TransformStateBase));
+			_UniformProperties = DetectUniformProperties(typeof(TransformState));
 		}
 
 		#endregion
 
-		#region Local Transform State
+		#region Default State
 
 		/// <summary>
-		/// The local model matrix. Transform object-space to universe-space. This property has a lazy initialization: if
-		/// not accessed, no model matrix is defined.
+		/// The system default state for PixelAlignmentState.
 		/// </summary>
-		public abstract IModelMatrix LocalModel { get; }
-
-		/// <summary>
-		/// Utility routine for checking the actual definition of LocalModel, without triggering the lazy initialization.
-		/// </summary>
-		protected abstract bool HasLocalModel { get; }
-
-		/// <summary>
-		/// The local projection: the projection matrix used for defining <see cref="LocalModelViewProjection"/>.
-		/// </summary>
-		public abstract IProjectionMatrix LocalProjection { get; set; }
-
-		/// <summary>
-		/// Get or set the combined model-view matrix. This property defaults to null. It must be set manually to have a
-		/// meaninful value.
-		/// </summary>
-		public abstract IModelMatrix LocalModelView { get; set; }
-
-		/// <summary>
-		/// Get the combined model-view-projection matrix. This property has a lazy initialization: if not accessed, no
-		/// model-view-projection matrix is defined. To automatically initialize this property without exception, the
-		/// <see cref="LocalProjection"/> and <see cref="LocalModelView"/> must be defined. It is possible to set
-		/// manually this property: doing so it will return a copy of the value.
-		/// </summary>
-		public abstract IModelMatrix LocalModelViewProjection { get; set; }
+		public static TransformState DefaultState { get { return (new TransformState()); } }
 
 		#endregion
 
 		#region Transform State
 
 		/// <summary>
-		/// The actual projection matrix used for projecting vertex arrays.
+		/// The actual model-view matrix used for transforming vertex arrays space.
 		/// </summary>
-		[ShaderUniformState()]
-		public virtual IMatrix4x4 Projection { get { return (LocalProjection); } }
-
-		/// <summary>
-		/// The actual model matrix used for transforming vertex arrays space.
-		/// </summary>
-		[ShaderUniformState()]
-		public virtual IModelMatrix Model { get { return (LocalModel); } }
+		[ShaderUniformState]
+		public Matrix4x4f? Projection { get; set; }
 
 		/// <summary>
 		/// The actual model-view matrix used for transforming vertex arrays space.
 		/// </summary>
-		[ShaderUniformState()]
-		public virtual IModelMatrix ModelView { get { return (LocalModelView); } }
+		[ShaderUniformState]
+		public Matrix4x4f ModelView { get; set; } = Matrix4x4f.Identity;
 
 		/// <summary>
 		/// The actual model-view-projection matrix used for drawing vertex arrays.
 		/// </summary>
-		[ShaderUniformState()]
-		public virtual IMatrix4x4 ModelViewProjection { get { return (LocalModelViewProjection); } }
+		[ShaderUniformState]
+		public Matrix4x4f? ModelViewProjection
+		{
+			get
+			{
+				if (!_ModelViewProjection.HasValue && Projection.HasValue)
+					return Projection.Value * ModelView;		// Lazily computed
+				
+				return _ModelViewProjection;
+			}
+			set { _ModelViewProjection = value; }
+		}
+
+		/// <summary>
+		/// Backend value for ModelViewProjection.
+		/// </summary>
+		private Matrix4x4f? _ModelViewProjection;
 
 		/// <summary>
 		/// The normal matrix, derived from <see cref="ModelView"/>.
 		/// </summary>
-		[ShaderUniformState()]
-		public virtual IMatrix3x3 NormalMatrix
-		{
-			get
-			{
-				return (ModelView != null ? LocalModelView.GetComplementMatrix(3, 3).GetInverseMatrix().Transpose() : null);
-			}
-		}
-
-		/// <summary>
-		/// Near and far distances.
-		/// </summary>
-		[ShaderUniformState()]
-		public Vertex2f DepthDistances { get { return (LocalProjection != null ? new Vertex2f((float)LocalProjection.Near, (float)LocalProjection.Far) : new Vertex2f()); } }
-
-		/// <summary>
-		/// The actual projection matrix used for projecting vertex arrays.
-		/// </summary>
-		[ShaderUniformState()]
-		public virtual IMatrix4x4 InverseProjection { get { return (Projection != null ? Projection.GetInverseMatrix() : null); } }
-
-		/// <summary>
-		/// The inverse of <see cref="ModelView"/>.
-		/// </summary>
-		[ShaderUniformState()]
-		public virtual IModelMatrix InverseModelView { get { return (ModelView != null ? ModelView.GetInverseMatrix() : null); } }
-
-		/// <summary>
-		/// The inverse of <see cref="ModelViewProjection"/>.
-		/// </summary>
-		[ShaderUniformState()]
-		public virtual IMatrix4x4 InverseModelViewProjection { get { return (ModelViewProjection != null ? ModelViewProjection.GetInverseMatrix() : null); } }
+		[ShaderUniformState]
+		public Matrix3x3f NormalMatrix { get { return (new Matrix3x3f(ModelView, 3, 3).Inverse.Transposed); } }
 
 		#endregion
 
 		#region ShaderUniformState Overrides
 
 		/// <summary>
-		/// The identifier for the TransformStateBase derived classes.
+		/// The identifier for the TransformState derived classes.
 		/// </summary>
 		public static string StateId = "OpenGL.TransformState";
 
@@ -175,7 +130,7 @@ namespace OpenGL.Objects.State
 		/// <summary>
 		/// The index for this GraphicsState.
 		/// </summary>
-		private static int _StateIndex = NextStateIndex();
+		private static readonly int _StateIndex = NextStateIndex();
 
 		/// <summary>
 		/// Flag indicating whether the state is context-bound.
@@ -191,7 +146,7 @@ namespace OpenGL.Objects.State
 		public override bool IsProgramBound { get { return (true); } }
 
 		/// <summary>
-		/// Apply this TransformStateBase.
+		/// Apply this TransformState.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> which has defined the shader program <paramref name="shaderProgram"/>.
@@ -208,17 +163,19 @@ namespace OpenGL.Objects.State
 				// Fixed pipeline rendering requires server state
 				
 #if !MONODROID
+				Matrix4x4f p = Projection ?? Matrix4x4f.Identity, mv = ModelView;
+
 				if (ctx.Extensions.DirectStateAccess_EXT) {
 					// Set projection and model-view matrix
-					Gl.MatrixLoadEXT(MatrixMode.Projection, Projection.ToArray());
-					Gl.MatrixLoadEXT(MatrixMode.Modelview, ModelView.ToArray());
+					Gl.MatrixLoadfEXT(MatrixMode.Projection, ref p);
+					Gl.MatrixLoadfEXT(MatrixMode.Modelview, ref mv);
 				} else {
 					// Set projection matrix
 					Gl.MatrixMode(MatrixMode.Projection);
-					Gl.LoadMatrix(Projection.ToArray());
+					Gl.LoadMatrixf(ref p);
 					// Set model-view matrix
 					Gl.MatrixMode(MatrixMode.Modelview);
-					Gl.LoadMatrix(ModelView.ToArray());
+					Gl.LoadMatrixf(ref mv);
 				}
 #else
 				throw new NotSupportedException("fixed pipeline not supported");
@@ -228,26 +185,15 @@ namespace OpenGL.Objects.State
 				ctx.Bind(shaderProgram);
 
 				// Usual matrices
-				Debug.Assert(ModelViewProjection != null, "no model-view-projection matrix");
-				shaderProgram.SetUniform(ctx, "glo_ModelViewProjection", ModelViewProjection);
+				Debug.Assert(ModelViewProjection.HasValue);
+				if (ModelViewProjection.HasValue)
+					shaderProgram.SetUniform(ctx, "glo_ModelViewProjection", ModelViewProjection.Value);
+
 				if (shaderProgram.IsActiveUniform("glo_NormalMatrix"))
 					shaderProgram.SetUniform(ctx, "glo_NormalMatrix", NormalMatrix);
-				if (Projection != null)
-					shaderProgram.SetUniform(ctx, "glo_Projection", Projection);
-				if (shaderProgram.IsActiveUniform("glo_Model"))
-					shaderProgram.SetUniform(ctx, "glo_Model", Model);
+
 				if (shaderProgram.IsActiveUniform("glo_ModelView"))
 					shaderProgram.SetUniform(ctx, "glo_ModelView", ModelView);
-
-				if (shaderProgram.IsActiveUniform("glo_InverseProjection"))
-					shaderProgram.SetUniform(ctx, "glo_InverseProjection", InverseProjection);
-				if (shaderProgram.IsActiveUniform("glo_InverseModelView"))
-					shaderProgram.SetUniform(ctx, "glo_InverseModelView", InverseModelView);
-				if (shaderProgram.IsActiveUniform("glo_InverseModelViewProjection"))
-					shaderProgram.SetUniform(ctx, "glo_InverseModelViewProjection", InverseModelViewProjection);
-
-				if (Projection != null)
-					shaderProgram.SetUniform(ctx, "glo_DepthDistances", DepthDistances);
 			}
 		}
 
@@ -260,28 +206,22 @@ namespace OpenGL.Objects.State
 		public override void Merge(IGraphicsState state)
 		{
 			if (state == null)
-				throw new ArgumentNullException("state");
+				throw new ArgumentNullException(nameof(state));
 
 			try {
-				TransformStateBase otherState = (TransformStateBase)state;
+				TransformState otherState = (TransformState)state;
 
-				// Projection
-				if (otherState.LocalProjection != null)
-					LocalProjection = otherState.LocalProjection;
-				
-				if (otherState.HasLocalModel) {
-					// LocalModel update
-					LocalModel.Set(LocalModel.Multiply(otherState.LocalModel));
-					// LocalModelView update
-					if (LocalModelView != null)
-						LocalModelView.Set(LocalModelView.Multiply(otherState.LocalModel));
-					else if (otherState.LocalModelView != null)
-						LocalModelView = otherState.LocalModelView;
-					// LocalModelViewProjection update
-					LocalModelViewProjection.Set(LocalModelViewProjection.Multiply(otherState.LocalModel));
-				}
+				if (otherState.Projection.HasValue)
+					Projection = otherState.Projection.Value;
+				ModelView = ModelView * otherState.ModelView;
+				if (_ModelViewProjection.HasValue && !otherState.Projection.HasValue)
+					_ModelViewProjection = _ModelViewProjection.Value * otherState.ModelView;
+				else
+					_ModelViewProjection = otherState.ModelViewProjection.Value;
+				Debug.Assert(_ModelViewProjection.HasValue);
+				Debug.Assert(_ModelViewProjection.Value.Equals((Matrix4x4f)(Projection * ModelView), 1e-3f));
 			} catch (InvalidCastException) {
-				throw new ArgumentException("not a TransformStateBase", "state");
+				throw new ArgumentException("not a TransformState", nameof(state));
 			}
 		}
 
@@ -298,11 +238,11 @@ namespace OpenGL.Objects.State
 		/// </returns>
 		public override string ToString()
 		{
-			return (String.Empty);
+			return (string.Empty);
 		}
 
 		/// <summary>
-		/// The uniform state of this TransformStateBase.
+		/// The uniform state of this TransformState.
 		/// </summary>
 		private static readonly Dictionary<string, UniformStateMember> _UniformProperties;
 

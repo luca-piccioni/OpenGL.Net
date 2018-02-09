@@ -55,7 +55,7 @@ namespace OpenGL.Objects.State
 			index = ViewportState.StateSetIndex;
 			index = PixelAlignmentState.StateSetIndex;
 			index = PrimitiveRestartState.StateSetIndex;
-			index = TransformStateBase.StateSetIndex;
+			index = TransformState.StateSetIndex;
 			index = CullFaceState.StateSetIndex;
 			index = BlendState.StateSetIndex;
 			index = DepthTestState.StateSetIndex;
@@ -118,7 +118,7 @@ namespace OpenGL.Objects.State
 			renderStateSet.DefineState(new CullFaceState(ctx));
 			//renderStateSet.DefineState(new RenderBufferState(ctx));
 			//renderStateSet.DefineState(new ViewportState(ctx));
-			renderStateSet.DefineState(new TransformState(ctx));
+			//renderStateSet.DefineState(new TransformState(ctx));
 			
 			return (renderStateSet);
 		}

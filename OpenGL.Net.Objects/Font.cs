@@ -154,7 +154,7 @@ namespace OpenGL.Objects
 		/// The <see cref="GraphicsContext"/> used for drawing.
 		/// </param>
 		/// <param name="modelview">
-		/// The <see cref="Matrix4x4"/> the model-view-projection matrix for the first character of <paramref name="s"/>.
+		/// The <see cref="Matrix4x4f"/> the model-view-projection matrix for the first character of <paramref name="s"/>.
 		/// </param>
 		/// <param name="color">
 		/// The <see cref="ColorRGBAF"/> that specifies the glyph color.
@@ -162,7 +162,7 @@ namespace OpenGL.Objects
 		/// <param name="s">
 		/// A <see cref="String"/> that specifies the characters for be drawn.
 		/// </param>
-		public abstract void DrawString(GraphicsContext ctx, Matrix4x4 modelview, ColorRGBAF color, string s);
+		public abstract void DrawString(GraphicsContext ctx, Matrix4x4f modelview, ColorRGBAF color, string s);
 
 		#endregion
 	}

@@ -761,7 +761,7 @@ namespace OpenGL.Objects.State
 		protected override Dictionary<string, UniformStateMember> UniformState { get { return (_UniformProperties); } }
 
 		/// <summary>
-		/// The uniform state of this TransformStateBase.
+		/// The uniform state of this TransformState.
 		/// </summary>
 		private readonly Dictionary<string, UniformStateMember> _UniformProperties = new Dictionary<string, UniformStateMember>();
 

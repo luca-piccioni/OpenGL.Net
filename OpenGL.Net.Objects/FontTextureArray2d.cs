@@ -119,9 +119,9 @@ namespace OpenGL.Objects
 		/// <param name="modelview"></param>
 		/// <param name="s"></param>
 		/// <returns></returns>
-		private List<GlyphModelType> GetGlyphsInstances(Matrix4x4 modelview, string s)
+		private List<GlyphModelType> GetGlyphsInstances(Matrix4x4f modelview, string s)
 		{
-			ModelMatrix charModel = new ModelMatrix(modelview);
+			Matrix4x4f charModel = modelview;
 
 			List<GlyphModelType> glyphsInstances = new List<GlyphModelType>();
 			char[] fontChars = s.ToCharArray();
@@ -133,13 +133,6 @@ namespace OpenGL.Objects
 					continue;
 
 				// Set instance information
-				float[] c0 = charModel.GetColumn(0), c1 = charModel.GetColumn(1), c2 = charModel.GetColumn(2), c3 = charModel.GetColumn(3);
-				Matrix4x4f modelViewProjection = new Matrix4x4f(
-					c0[0], c0[1], c0[2], c0[3],
-					c1[0], c1[1], c1[2], c1[3],
-					c2[0], c2[1], c2[2], c2[3],
-					c3[0], c3[1], c3[2], c3[3]
-				);
 				Vertex3f glyphVertexParams = new Vertex3f(
 					glyph.GlyphSize.Width, glyph.GlyphSize.Height,
 					glyph.Layer
@@ -150,13 +143,13 @@ namespace OpenGL.Objects
 
 				GlyphModelType glyphModel = new GlyphModelType();
 
-				glyphModel.ModelViewProjection = modelViewProjection;
+				glyphModel.ModelViewProjection = charModel;
 				glyphModel.VertexParams = glyphVertexParams;
 				glyphModel.TexParams = glyphTexParams;
 				glyphsInstances.Add(glyphModel);
 
 				// Move next
-				charModel.Translate(glyph.GlyphSize.Width, 0.0f);
+				charModel.Translate(glyph.GlyphSize.Width, 0.0f, 0.0f);
 			}
 
 			return (glyphsInstances);
@@ -428,7 +421,7 @@ namespace OpenGL.Objects
 		/// The <see cref="GraphicsContext"/> used for drawing.
 		/// </param>
 		/// <param name="modelview">
-		/// The <see cref="Matrix4x4"/> the model-view-projection matrix for the first character of <paramref name="s"/>.
+		/// The <see cref="Matrix4x4f"/> the model-view-projection matrix for the first character of <paramref name="s"/>.
 		/// </param>
 		/// <param name="color">
 		/// The <see cref="ColorRGBAF"/> that specifies the glyph color.
@@ -436,7 +429,7 @@ namespace OpenGL.Objects
 		/// <param name="s">
 		/// A <see cref="String"/> that specifies the characters for be drawn.
 		/// </param>
-		public override void DrawString(GraphicsContext ctx, Matrix4x4 modelview, ColorRGBAF color, string s)
+		public override void DrawString(GraphicsContext ctx, Matrix4x4f modelview, ColorRGBAF color, string s)
 		{
 			List<GlyphModelType> glyphsInstances = GetGlyphsInstances(modelview, s);
 
@@ -450,9 +443,6 @@ namespace OpenGL.Objects
 		/// </summary>
 		/// <param name="ctx">
 		/// The <see cref="GraphicsContext"/> used for drawing.
-		/// </param>
-		/// <param name="modelview">
-		/// The <see cref="Matrix4x4"/> the model-view-projection matrix for the first character of <paramref name="s"/>.
 		/// </param>
 		/// <param name="color">
 		/// The <see cref="ColorRGBAF"/> that specifies the glyph color.
@@ -475,9 +465,6 @@ namespace OpenGL.Objects
 		/// </summary>
 		/// <param name="ctx">
 		/// The <see cref="GraphicsContext"/> used for drawing.
-		/// </param>
-		/// <param name="modelview">
-		/// The <see cref="Matrix4x4"/> the model-view-projection matrix for the first character of <paramref name="s"/>.
 		/// </param>
 		/// <param name="color">
 		/// The <see cref="ColorRGBAF"/> that specifies the glyph color.

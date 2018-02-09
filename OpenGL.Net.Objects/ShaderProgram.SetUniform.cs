@@ -1138,81 +1138,6 @@ namespace OpenGL.Objects
 		#region Set/Get Uniform (single-precision floating-point matrix data)
 
 		/// <summary>
-		/// Set uniform state variable (mat* variable).
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for operations.
-		/// </param>
-		/// <param name="uniformName">
-		/// A <see cref="String"/> that specify the variable name in the shader source.
-		/// </param>
-		/// <param name="m">
-		/// A <see cref="Matrix"/> holding the uniform variabile data.
-		/// </param>
-		public void SetUniform(GraphicsContext ctx, string uniformName, Matrix m)
-		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
-			if (m == null)
-				throw new ArgumentNullException("m");
-
-			UniformBinding uniform = GetUniform(ctx, uniformName);
-			if (uniform == null || uniform.Location == -1)
-				return;
-
-#if ENABLE_LAZY_UNIFORM_VALUE
-			if (uniform.IsValueChanged(m) == false)
-				return;
-#endif
-
-			CheckProgramBinding();
-
-			_UniformBackend.SetUniform(ctx, this, uniform, m);
-
-#if ENABLE_LAZY_UNIFORM_VALUE
-			uniform.CacheValue(m);
-#endif
-		}
-
-		/// <summary>
-		/// Set uniform state variable (mat3 variable).
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for operations.
-		/// </param>
-		/// <param name="uniformName">
-		/// A <see cref="String"/> that specify the variable name in the shader source.
-		/// </param>
-		/// <param name="m">
-		/// A <see cref="Matrix3x3"/> holding the uniform variabile data.
-		/// </param>
-		public void SetUniform(GraphicsContext ctx, string uniformName, Matrix3x3 m)
-		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
-			if (m == null)
-				throw new ArgumentNullException("m");
-
-			UniformBinding uniform = GetUniform(ctx, uniformName);
-			if (uniform == null || uniform.Location == -1)
-				return;
-
-#if ENABLE_LAZY_UNIFORM_VALUE
-			if (uniform.IsValueChanged(m) == false)
-				return;
-#endif
-
-			CheckProgramBinding();
-			CheckUniformType(uniform, Gl.FLOAT_MAT3);
-
-			_UniformBackend.SetUniform(ctx, this, uniform, m);
-
-#if ENABLE_LAZY_UNIFORM_VALUE
-			uniform.CacheValue(m);
-#endif
-		}
-
-		/// <summary>
 		/// Set uniform state variable (mat3 variable).
 		/// </summary>
 		/// <param name="ctx">
@@ -1234,51 +1159,12 @@ namespace OpenGL.Objects
 				return;
 
 #if ENABLE_LAZY_UNIFORM_VALUE
-			Matrix3x3 v = m;
-			if (uniform.IsValueChanged(v) == false)
-				return;
-#endif
-
-			CheckProgramBinding();
-			CheckUniformType(uniform, Gl.FLOAT_MAT3);
-
-			_UniformBackend.SetUniform(ctx, this, uniform, m);
-
-#if ENABLE_LAZY_UNIFORM_VALUE
-			uniform.CacheValue(v);
-#endif
-		}
-
-		/// <summary>
-		/// Set uniform state variable (mat4 variable).
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for operations.
-		/// </param>
-		/// <param name="uniformName">
-		/// A <see cref="String"/> that specify the variable name in the shader source.
-		/// </param>
-		/// <param name="m">
-		/// A <see cref="Matrix4x4"/> holding the uniform variabile data.
-		/// </param>
-		public void SetUniform(GraphicsContext ctx, string uniformName, Matrix4x4 m)
-		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
-			if (m == null)
-				throw new ArgumentNullException("m");
-
-			UniformBinding uniform = GetUniform(ctx, uniformName);
-			if (uniform == null || uniform.Location == -1)
-				return;
-
-#if ENABLE_LAZY_UNIFORM_VALUE
 			if (uniform.IsValueChanged(m) == false)
 				return;
 #endif
 
 			CheckProgramBinding();
-			CheckUniformType(uniform, Gl.FLOAT_MAT4);
+			CheckUniformType(uniform, Gl.FLOAT_MAT3);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, m);
 
@@ -1309,8 +1195,7 @@ namespace OpenGL.Objects
 				return;
 
 #if ENABLE_LAZY_UNIFORM_VALUE
-			Matrix4x4 v = m;
-			if (uniform.IsValueChanged(v) == false)
+			if (uniform.IsValueChanged(m) == false)
 				return;
 #endif
 
@@ -1320,7 +1205,7 @@ namespace OpenGL.Objects
 			_UniformBackend.SetUniform(ctx, this, uniform, m);
 
 #if ENABLE_LAZY_UNIFORM_VALUE
-			uniform.CacheValue(v);
+			uniform.CacheValue(m);
 #endif
 		}
 
@@ -1597,34 +1482,6 @@ namespace OpenGL.Objects
 		#region Set Uniform (double-precision floating-point matrix data)
 
 		/// <summary>
-		/// Set uniform state variable (mat3 variable).
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for operations.
-		/// </param>
-		/// <param name="uniformName">
-		/// A <see cref="String"/> that specify the variable name in the shader source.
-		/// </param>
-		/// <param name="m">
-		/// A <see cref="MatrixDouble"/> holding the uniform variabile data.
-		/// </param>
-		public void SetUniform(GraphicsContext ctx, string uniformName, MatrixDouble m)
-		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
-			if (m == null)
-				throw new ArgumentNullException("m");
-
-			UniformBinding uniform = GetUniform(ctx, uniformName);
-			if (uniform == null || uniform.Location == -1)
-				return;
-
-			CheckProgramBinding();
-
-			_UniformBackend.SetUniform(ctx, this, uniform, m);
-		}
-
-		/// <summary>
 		/// Set uniform state variable (dmat3 variable).
 		/// </summary>
 		/// <param name="ctx">
@@ -1634,9 +1491,9 @@ namespace OpenGL.Objects
 		/// A <see cref="String"/> that specify the variable name in the shader source.
 		/// </param>
 		/// <param name="m">
-		/// A <see cref="MatrixDouble3x3"/> holding the uniform variabile data.
+		/// A <see cref="Matrix3x3d"/> holding the uniform variabile data.
 		/// </param>
-		public void SetUniform(GraphicsContext ctx, string uniformName, MatrixDouble3x3 m)
+		public void SetUniform(GraphicsContext ctx, string uniformName, Matrix3x3d m)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
@@ -1661,9 +1518,9 @@ namespace OpenGL.Objects
 		/// A <see cref="String"/> that specify the variable name in the shader source.
 		/// </param>
 		/// <param name="m">
-		/// A <see cref="MatrixDouble4x4"/> holding the uniform variabile data.
+		/// A <see cref="Matrix4x4d"/> holding the uniform variabile data.
 		/// </param>
-		public void SetUniform(GraphicsContext ctx, string uniformName, MatrixDouble4x4 m)
+		public void SetUniform(GraphicsContext ctx, string uniformName, Matrix4x4d m)
 		{
 			if (ctx == null)
 				throw new ArgumentNullException("ctx");
@@ -1713,22 +1570,7 @@ namespace OpenGL.Objects
 
 			Type valueType = value.GetType();
 
-			Matrix valueMatrix = value as Matrix;
-			if (valueMatrix != null) {
-				Matrix4x4 matrix4x4 = value as Matrix4x4;
-				if (matrix4x4 != null) {
-					SetUniform(ctx, uniformName, matrix4x4);
-					return;
-				}
-
-				Matrix3x3 matrix3x3 = value as Matrix3x3;
-				if (matrix3x3 != null) {
-					SetUniform(ctx, uniformName, matrix3x3);
-					return;
-				}
-
-				throw new NotSupportedException(valueType + "is not supported by SetUniform(GraphicsContext, string, object");
-			} else if (valueType == typeof(Vertex2f)) {
+			if        (valueType == typeof(Vertex2f)) {
 				SetUniform(ctx, uniformName, (Vertex2f)value);
 			} else if (valueType == typeof(Vertex3f)) {
 				SetUniform(ctx, uniformName, (Vertex3f)value);

@@ -35,7 +35,7 @@ namespace OpenGL.Objects.Scene
 		/// </summary>
 		static SceneObjectLight()
 		{
-			_BiasMatrix = new ModelMatrix(new float[] {
+			_BiasMatrix = new Matrix4x4f(new[] {
 				0.5f, 0.0f, 0.0f, 0.0f,
 				0.0f, 0.5f, 0.0f, 0.0f,
 				0.0f, 0.0f, 0.5f, 0.0f,
@@ -160,7 +160,7 @@ namespace OpenGL.Objects.Scene
 		/// <summary>
 		/// Bias matrix for accessing shadow maps.
 		/// </summary>
-		protected static readonly IModelMatrix _BiasMatrix;
+		protected static readonly Matrix4x4f _BiasMatrix;
 
 		#endregion
 

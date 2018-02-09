@@ -457,63 +457,63 @@ namespace OpenGL.Objects.Scene
 		/// transform states of parent objects. It can be null to specify whether the projection is inherited from the
 		/// previous state.
 		/// </summary>
-		public IProjectionMatrix LocalProjection
+		public Matrix4x4f? LocalProjection
 		{
-			get { return (((TransformStateBase)ObjectState[TransformStateBase.StateSetIndex]).LocalProjection); }
-			set { ((TransformStateBase)ObjectState[TransformStateBase.StateSetIndex]).LocalProjection = value; }
+			get { return ((TransformState)ObjectState[TransformState.StateSetIndex]).Projection; }
+			set { ((TransformState)ObjectState[TransformState.StateSetIndex]).Projection = value; }
 		}
 
 		/// <summary>
 		/// The local model: the transformation of the current vertex arrays object space, without considering
 		/// inherited transform states of parent objects.
 		/// </summary>
-		public IModelMatrix LocalModel
+		public Matrix4x4f? LocalModelView
 		{
-			get { return (((TransformStateBase)ObjectState[TransformStateBase.StateSetIndex]).LocalModel); }
-			set { ((TransformStateBase)ObjectState[TransformStateBase.StateSetIndex]).LocalModel.Set(value); }
+			get { return _LocalModelView; }
+			set
+			{
+				_LocalModelView = value;
+				((TransformState)ObjectState[TransformState.StateSetIndex]).ModelView = value ?? Matrix4x4f.Identity;
+			}
 		}
+
+		/// <summary>
+		/// Backend value for LocalModelView.
+		/// </summary>
+		private Matrix4x4f? _LocalModelView;
 
 		/// <summary>
 		/// The local model: the transformation of the current vertex arrays object space, without considering
 		/// inherited transform states of parent objects.
 		/// </summary>
-		public IModelMatrix LocalModelView
+		public Matrix4x4f? LocalModelViewProjection
 		{
-			get { return (((TransformStateBase)ObjectState[TransformStateBase.StateSetIndex]).LocalModelView); }
-			set { ((TransformStateBase)ObjectState[TransformStateBase.StateSetIndex]).LocalModelView = value; }
-		}
-
-		/// <summary>
-		/// The local model: the transformation of the current vertex arrays object space, without considering
-		/// inherited transform states of parent objects.
-		/// </summary>
-		public IModelMatrix LocalModelViewProjection
-		{
-			get { return (((TransformStateBase)ObjectState[TransformStateBase.StateSetIndex]).LocalModelViewProjection); }
-			set { ((TransformStateBase)ObjectState[TransformStateBase.StateSetIndex]).LocalModelViewProjection = value; }
+			get { return (((TransformState)ObjectState[TransformState.StateSetIndex]).ModelViewProjection); }
+			set { ((TransformState)ObjectState[TransformState.StateSetIndex]).ModelViewProjection = value; }
 		}
 
 		/// <summary>
 		/// The world model: the transform of the current vertex arrays object space, considering inherited
 		/// transform states from parent objects.
 		/// </summary>
-		public IModelMatrix WorldModel
+		public Matrix4x4f WorldModel
 		{
 			get
 			{
-				Stack<IModelMatrix> modelStack = new Stack<IModelMatrix>();
+				Stack<Matrix4x4f> modelStack = new Stack<Matrix4x4f>();
 				SceneObject cursor = this;
-				IModelMatrix worldModel = new ModelMatrix();
+				Matrix4x4f worldModel = new Matrix4x4f();
 
 				while (cursor != null) {
 					// Store local model
-					modelStack.Push(cursor.LocalModel);
+					if (cursor.LocalModelView.HasValue)
+						modelStack.Push(cursor.LocalModelView.Value);
 					// Go to parent, if any
 					cursor = cursor._ParentObject;
 				}
 
 				while (modelStack.Count > 0)
-					worldModel = worldModel.Multiply(modelStack.Pop());
+					worldModel = worldModel * modelStack.Pop();
 
 				return (worldModel);
 			}

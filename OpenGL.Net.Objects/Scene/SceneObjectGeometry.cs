@@ -342,8 +342,8 @@ namespace OpenGL.Objects.Scene
 		private IEnumerable<SceneObjectBatch> GetGeometriesViewFrustum(SceneGraphContext ctxScene)
 		{
 			GraphicsStateSet currentState = ctxScene.GraphicsStateStack.Current.Push();
-			TransformStateBase sceneGeometryModel = (TransformStateBase)currentState[TransformStateBase.StateSetIndex];
-			IMatrix4x4 viewModel = sceneGeometryModel.ModelView;
+			TransformState sceneGeometryModel = (TransformState)currentState[TransformState.StateSetIndex];
+			Matrix4x4f viewModel = sceneGeometryModel.ModelView;
 
 			if (_GeometryInstances.Count > 0) {
 				foreach (Geometry sceneObjectBatch in _GeometryInstances) {
@@ -390,8 +390,8 @@ namespace OpenGL.Objects.Scene
 		internal IEnumerable<SceneObjectBatch> GetBoundingVolumes(SceneGraphContext ctxScene)
 		{
 			GraphicsStateSet currentState = ctxScene.GraphicsStateStack.Current.Push();
-			TransformStateBase sceneGeometryModel = (TransformStateBase)currentState[TransformStateBase.StateSetIndex];
-			IMatrix4x4 viewModel = sceneGeometryModel.ModelView;
+			TransformState sceneGeometryModel = (TransformState)currentState[TransformState.StateSetIndex];
+			Matrix4x4f viewModel = sceneGeometryModel.ModelView;
 
 			if (_GeometryInstances.Count > 0) {
 				foreach (Geometry sceneObjectBatch in _GeometryInstances) {
@@ -438,16 +438,19 @@ namespace OpenGL.Objects.Scene
 		private static void SetBoundingVolumeState(BoundingBox boundingVolume, GraphicsStateSet volumeState)
 		{
 			// Set transform state
-			TransformStateBase transformState = (TransformStateBase)volumeState[TransformStateBase.StateSetIndex];
+			TransformState transformState = (TransformState)volumeState[TransformState.StateSetIndex];
 			if (transformState == null)
 				return;
 
 			Vertex3f min = boundingVolume.MinPosition, max = boundingVolume.MaxPosition;
 			Vertex3f size = boundingVolume.Size;
+			Vertex3f avg = (max + min) / 2.0f;
 
 			// Scale model matrix in order to represent the bounding box with the correct size and barycenter
-			transformState.LocalModelViewProjection.Translate((max + min) / 2.0f);
-			transformState.LocalModelViewProjection.Scale(size);
+			transformState.ModelViewProjection =
+				transformState.ModelViewProjection * 
+				Matrix4x4f.Translated(avg.x, avg.y, avg.z) *
+				Matrix4x4f.Scaled(size.x, size.y, size.z);
 		}
 
 		/// <summary>
@@ -579,7 +582,7 @@ namespace OpenGL.Objects.Scene
 			List<SceneObjectBatch> geometries = new List<SceneObjectBatch>();
 
 			GraphicsStateSet sceneGeometryState = ctxScene.GraphicsStateStack.Current.Push();
-			TransformStateBase sceneGeometryModel = (TransformStateBase)sceneGeometryState[TransformStateBase.StateSetIndex];
+			TransformState sceneGeometryModel = (TransformState)sceneGeometryState[TransformState.StateSetIndex];
 
 			if ((ctxScene.Scene.SceneFlags & SceneGraphFlags.CullingViewFrustum) != 0)
 				// View-frustum culling

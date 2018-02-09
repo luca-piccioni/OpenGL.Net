@@ -384,34 +384,6 @@ namespace OpenGL.Objects
 		#region Set/Get Uniform (single-precision floating-point matrix data)
 
 		/// <summary>
-		/// Set uniform state variable (mat* variable).
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for operations.
-		/// </param>
-		/// <param name="uniformName">
-		/// A <see cref="String"/> that specify the variable name in the shader source.
-		/// </param>
-		/// <param name="m">
-		/// A <see cref="Matrix"/> holding the uniform variabile data.
-		/// </param>
-		void SetUniform(GraphicsContext ctx, string uniformName, Matrix m);
-
-		/// <summary>
-		/// Set uniform state variable (mat3 variable).
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for operations.
-		/// </param>
-		/// <param name="uniformName">
-		/// A <see cref="String"/> that specify the variable name in the shader source.
-		/// </param>
-		/// <param name="m">
-		/// A <see cref="Matrix3x3"/> holding the uniform variabile data.
-		/// </param>
-		void SetUniform(GraphicsContext ctx, string uniformName, Matrix3x3 m);
-
-		/// <summary>
 		/// Set uniform state variable (mat3 variable).
 		/// </summary>
 		/// <param name="ctx">
@@ -424,20 +396,6 @@ namespace OpenGL.Objects
 		/// A <see cref="Matrix3x3f"/> holding the uniform variabile data.
 		/// </param>
 		void SetUniform(GraphicsContext ctx, string uniformName, Matrix3x3f m);
-
-		/// <summary>
-		/// Set uniform state variable (mat4 variable).
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for operations.
-		/// </param>
-		/// <param name="uniformName">
-		/// A <see cref="String"/> that specify the variable name in the shader source.
-		/// </param>
-		/// <param name="m">
-		/// A <see cref="Matrix4x4"/> holding the uniform variabile data.
-		/// </param>
-		void SetUniform(GraphicsContext ctx, string uniformName, Matrix4x4 m);
 
 		/// <summary>
 		/// Set uniform state variable (mat4 variable).
@@ -538,20 +496,6 @@ namespace OpenGL.Objects
 		#region Set Uniform (double-precision floating-point matrix data)
 
 		/// <summary>
-		/// Set uniform state variable (mat3 variable).
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for operations.
-		/// </param>
-		/// <param name="uniformName">
-		/// A <see cref="String"/> that specify the variable name in the shader source.
-		/// </param>
-		/// <param name="m">
-		/// A <see cref="MatrixDouble"/> holding the uniform variabile data.
-		/// </param>
-		void SetUniform(GraphicsContext ctx, string uniformName, MatrixDouble m);
-
-		/// <summary>
 		/// Set uniform state variable (dmat3 variable).
 		/// </summary>
 		/// <param name="ctx">
@@ -561,9 +505,9 @@ namespace OpenGL.Objects
 		/// A <see cref="String"/> that specify the variable name in the shader source.
 		/// </param>
 		/// <param name="m">
-		/// A <see cref="MatrixDouble3x3"/> holding the uniform variabile data.
+		/// A <see cref="Matrix3x3d"/> holding the uniform variabile data.
 		/// </param>
-		void SetUniform(GraphicsContext ctx, string uniformName, MatrixDouble3x3 m);
+		void SetUniform(GraphicsContext ctx, string uniformName, Matrix3x3d m);
 
 		/// <summary>
 		/// Set uniform state variable (dmat4 variable).
@@ -575,9 +519,9 @@ namespace OpenGL.Objects
 		/// A <see cref="String"/> that specify the variable name in the shader source.
 		/// </param>
 		/// <param name="m">
-		/// A <see cref="MatrixDouble4x4"/> holding the uniform variabile data.
+		/// A <see cref="Matrix4x4d"/> holding the uniform variabile data.
 		/// </param>
-		void SetUniform(GraphicsContext ctx, string uniformName, MatrixDouble4x4 m);
+		void SetUniform(GraphicsContext ctx, string uniformName, Matrix4x4d m);
 
 		#endregion
 

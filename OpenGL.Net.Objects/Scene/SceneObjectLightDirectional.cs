@@ -74,10 +74,10 @@ namespace OpenGL.Objects.Scene
 
 			SetLightParameters(sceneCtx, light);
 
-			TransformStateBase transformState = (TransformStateBase)sceneCtx.GraphicsStateStack.Current[TransformStateBase.StateSetIndex];
-			IMatrix3x3 normalMatrix = transformState.NormalMatrix;
+			TransformState transformState = (TransformState)sceneCtx.GraphicsStateStack.Current[TransformState.StateSetIndex];
+			Matrix3x3f normalMatrix = transformState.NormalMatrix;
 
-			light.Direction = ((Vertex3f)normalMatrix.Multiply((Vertex3f)Direction)).Normalized;
+			light.Direction = (normalMatrix * (Vertex3f)Direction).Normalized;
 			light.HalfVector = (Vertex3f.UnitZ + light.Direction).Normalized;
 
 			return (light);

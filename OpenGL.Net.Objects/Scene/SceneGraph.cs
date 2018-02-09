@@ -86,31 +86,13 @@ namespace OpenGL.Objects.Scene
 		/// <summary>
 		/// The projection matrix.
 		/// </summary>
-		public IProjectionMatrix ProjectionMatrix
-		{
-			get { return (_ProjectionMatrix); }
-			set { _ProjectionMatrix = value; }
-		}
-
-		/// <summary>
-		/// The view projection.
-		/// </summary>
-		private IProjectionMatrix _ProjectionMatrix;
+		public Matrix4x4f ProjectionMatrix { get; set; }
 
 		/// <summary>
 		/// The local model: the transformation of the current vertex arrays object space, without considering
 		/// inherited transform states of parent objects.
 		/// </summary>
-		public IModelMatrix ViewMatrix
-		{
-			get { return (_ViewMatrix); }
-			set { _ViewMatrix = value; }
-		}
-
-		/// <summary>
-		/// The view projection.
-		/// </summary>
-		private IModelMatrix _ViewMatrix;
+		public Matrix4x4f ViewMatrix { get; set; } = Matrix4x4f.Identity;
 
 		/// <summary>
 		/// 
@@ -118,7 +100,11 @@ namespace OpenGL.Objects.Scene
 		public SceneObjectCamera CurrentView
 		{
 			get { return (_CurrentView); }
-			set { _CurrentView = value; }
+			set
+			{
+				_CurrentView = value;
+				UpdateViewMatrix();
+			}
 		}
 
 		/// <summary>
@@ -133,7 +119,8 @@ namespace OpenGL.Objects.Scene
 		{
 			if (_CurrentView != null) {
 				ProjectionMatrix = _CurrentView.ProjectionMatrix;
-				ViewMatrix = _CurrentView.LocalModel.GetInverseMatrix();
+				if (_CurrentView.LocalModelView.HasValue)
+					ViewMatrix = _CurrentView.LocalModelView.Value.Inverse;
 			}
 		}
 
@@ -198,9 +185,8 @@ namespace OpenGL.Objects.Scene
 
 			// View parameters
 			SceneRoot.LocalProjection = ProjectionMatrix;
-			SceneRoot.LocalModel = new ModelMatrix();
 			SceneRoot.LocalModelView = ViewMatrix;
-			SceneRoot.LocalModelViewProjection = new ModelMatrix((Matrix4x4)ProjectionMatrix.Multiply(ViewMatrix));
+			SceneRoot.LocalModelViewProjection = ProjectionMatrix * ViewMatrix;
 
 			using (SceneGraphContext ctxScene = new SceneGraphContext(this)) {
 				ObjectBatchContext objectBatchContext = new ObjectBatchContext();
@@ -217,7 +203,7 @@ namespace OpenGL.Objects.Scene
 					sceneObjects = _SorterRoot.Sort(objectBatchContext.Objects);
 
 				// Draw all batches
-				KhronosApi.LogComment("*** Draw Graph");
+				Khronos.KhronosApi.LogComment("*** Draw Graph");
 				foreach (SceneObjectBatch objectBatch in sceneObjects)
 					objectBatch.Draw(ctx, programOverride);
 
@@ -293,7 +279,7 @@ namespace OpenGL.Objects.Scene
 		/// <summary>
 		/// The <see cref="TraverseContext"/> used for processing the scene graph
 		/// </summary>
-		private static TraverseContext _TraverseDrawContext = new TraverseContext(GraphDrawDelegate, GraphDrawPreDelegate, GraphDrawPostDelegate);
+		private static readonly TraverseContext _TraverseDrawContext = new TraverseContext(GraphDrawDelegate, GraphDrawPreDelegate, GraphDrawPostDelegate);
 
 		#endregion
 
@@ -345,8 +331,7 @@ namespace OpenGL.Objects.Scene
 		private void DisplayShadowMaps(GraphicsContext ctx)
 		{
 			State.ViewportState viewportState = new State.ViewportState(ctx);
-			OrthoProjectionMatrix orthoProjection = new OrthoProjectionMatrix(0.0f, viewportState.Width, 0.0f, viewportState.Height);
-			ModelMatrix model = new ModelMatrix();
+			Matrix4x4f model = Matrix4x4f.Identity;
 
 			// No depth test
 			State.DepthTestState.DefaultState.Apply(ctx, null);
@@ -362,10 +347,10 @@ namespace OpenGL.Objects.Scene
 				Texture2d shadowTex = shadowSpotLight._ShadowMap;
 				shadowTex.SamplerParams.CompareMode = false;
 
-				ModelMatrix quadModel = new ModelMatrix(model);
-				quadModel.Scale(shadowTex.Width / 4, shadowTex.Height / 4);
+				Matrix4x4f quadModel = model;
+				quadModel.Scale(shadowTex.Width / 4.0f, shadowTex.Height / 4.0f, 1.0f);
 
-				_ShadowMapDebugProgram.SetUniform(ctx, "glo_ModelViewProjection", orthoProjection * quadModel);
+				_ShadowMapDebugProgram.SetUniform(ctx, "glo_ModelViewProjection", Matrix4x4f.Ortho2D(0.0f, viewportState.Width, 0.0f, viewportState.Height) * quadModel);
 				_ShadowMapDebugProgram.SetUniform(ctx, "glo_NearFar", new Vertex2f(0.1f, 100.0f));
 				_ShadowMapDebugProgram.SetUniform(ctx, "glo_Texture", shadowTex);
 				
@@ -374,7 +359,7 @@ namespace OpenGL.Objects.Scene
 				shadowTex.SamplerParams.CompareMode = true;
 
 				// Stride right
-				model.Translate(shadowTex.Width, 0.0f);
+				model.Translate(shadowTex.Width, 0.0f, 0.0f);
 			}
 		}
 

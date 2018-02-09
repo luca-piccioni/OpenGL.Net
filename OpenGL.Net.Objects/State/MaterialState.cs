@@ -269,7 +269,7 @@ namespace OpenGL.Objects.State
 		#region ShaderUniformState Overrides
 
 		/// <summary>
-		/// The identifier for the TransformStateBase derived classes.
+		/// The identifier for the TransformState derived classes.
 		/// </summary>
 		public static string StateId = "OpenGL.MaterialState";
 
@@ -380,10 +380,10 @@ namespace OpenGL.Objects.State
 			if (state == null)
 				throw new ArgumentNullException("state");
 
-			TransformStateBase otherState = state as TransformStateBase;
+			TransformState otherState = state as TransformState;
 
 			if (otherState == null)
-				throw new ArgumentException("not a TransformStateBase", "state");
+				throw new ArgumentException("not a TransformState", "state");
 		}
 
 		/// <summary>
@@ -403,7 +403,7 @@ namespace OpenGL.Objects.State
 		}
 
 		/// <summary>
-		/// The uniform state of this TransformStateBase.
+		/// The uniform state of this TransformState.
 		/// </summary>
 		private static readonly Dictionary<string, UniformStateMember> _UniformProperties;
 

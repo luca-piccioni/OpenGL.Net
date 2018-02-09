@@ -25,7 +25,7 @@
 #include </OpenGL/Light/LightState.glsl>
 
 // Vertex uniform color
-uniform vec4 glo_UniformColor;
+uniform vec4 glo_UniformColor = vec4(1.0);
 
 // Fragment color
 SHADER_IN vec4 glo_VertexColor;
