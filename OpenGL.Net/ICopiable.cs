@@ -30,7 +30,7 @@ namespace OpenGL
 		/// Copy the object content to this instance.
 		/// </summary>
 		/// <param name="other">
-		/// A <see cref="Object"/> that specify the object from where the information is copied.
+		/// A <see cref="object"/> that specify the object from where the information is copied.
 		/// </param>
 		void Copy(object other);
 	}
