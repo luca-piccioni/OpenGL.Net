@@ -275,7 +275,7 @@ namespace OpenGL.Test
 		public void TestProjectionFrustum()
 		{
 			Matrix4x4f projectionMatrix = Matrix4x4f.Perspective(90.0f, 1.0f, 1.0f, 10.0f);
-			Matrix4x4f modelMatrix = new Matrix4x4f();
+			Matrix4x4f modelMatrix = Matrix4x4f.Identity;
 
 			Matrix4x4f frustumMatrix = projectionMatrix * modelMatrix;
 
