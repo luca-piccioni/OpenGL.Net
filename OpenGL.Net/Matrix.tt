@@ -426,7 +426,7 @@ for (int c1 = 0; c1 < c; c1++) for (int r1 = 0; r1 < r; r1++) {
 		/// A <see cref="<#= className #>"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="T:float[]"/> initialized with the matrix components.
+		/// A <see cref="T:<#= matrixBaseType #>[]"/> initialized with the matrix components.
 		/// </returns>
 		public static explicit operator <#= matrixBaseType #>[](<#= className #> a)
 		{
@@ -445,13 +445,13 @@ for (int c1 = 0; c1 < c; c1++) for (int r1 = 0; r1 < r; r1++) {
 		string castMatrixOp = (matrixBaseType == "double") ? "(float)" : "";
 #>
 		/// <summary>
-		/// Operator casting to <#= matrixBaseType #>[] .
+		/// Operator casting to <#= castMatrixType #>.
 		/// </summary>
 		/// <param name="a">
 		/// A <see cref="<#= className #>"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="T:float[]"/> initialized with the matrix components.
+		/// A <see cref="<#= castMatrixType #>"/> initialized with the matrix components.
 		/// </returns>
 		public static <#= castMatrixModifier #> operator <#= castMatrixType #>(<#= className #> a)
 		{

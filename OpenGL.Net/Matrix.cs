@@ -381,13 +381,13 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Operator casting to float[] .
+		/// Operator casting to Matrix2x2d.
 		/// </summary>
 		/// <param name="a">
 		/// A <see cref="Matrix2x2f"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="T:float[]"/> initialized with the matrix components.
+		/// A <see cref="Matrix2x2d"/> initialized with the matrix components.
 		/// </returns>
 		public static implicit operator Matrix2x2d(Matrix2x2f a)
 		{
@@ -964,13 +964,13 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Operator casting to float[] .
+		/// Operator casting to Matrix2x3d.
 		/// </summary>
 		/// <param name="a">
 		/// A <see cref="Matrix2x3f"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="T:float[]"/> initialized with the matrix components.
+		/// A <see cref="Matrix2x3d"/> initialized with the matrix components.
 		/// </returns>
 		public static implicit operator Matrix2x3d(Matrix2x3f a)
 		{
@@ -1496,13 +1496,13 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Operator casting to float[] .
+		/// Operator casting to Matrix2x4d.
 		/// </summary>
 		/// <param name="a">
 		/// A <see cref="Matrix2x4f"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="T:float[]"/> initialized with the matrix components.
+		/// A <see cref="Matrix2x4d"/> initialized with the matrix components.
 		/// </returns>
 		public static implicit operator Matrix2x4d(Matrix2x4f a)
 		{
@@ -2010,13 +2010,13 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Operator casting to float[] .
+		/// Operator casting to Matrix3x2d.
 		/// </summary>
 		/// <param name="a">
 		/// A <see cref="Matrix3x2f"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="T:float[]"/> initialized with the matrix components.
+		/// A <see cref="Matrix3x2d"/> initialized with the matrix components.
 		/// </returns>
 		public static implicit operator Matrix3x2d(Matrix3x2f a)
 		{
@@ -2645,13 +2645,13 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Operator casting to float[] .
+		/// Operator casting to Matrix3x3d.
 		/// </summary>
 		/// <param name="a">
 		/// A <see cref="Matrix3x3f"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="T:float[]"/> initialized with the matrix components.
+		/// A <see cref="Matrix3x3d"/> initialized with the matrix components.
 		/// </returns>
 		public static implicit operator Matrix3x3d(Matrix3x3f a)
 		{
@@ -3496,13 +3496,13 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Operator casting to float[] .
+		/// Operator casting to Matrix3x4d.
 		/// </summary>
 		/// <param name="a">
 		/// A <see cref="Matrix3x4f"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="T:float[]"/> initialized with the matrix components.
+		/// A <see cref="Matrix3x4d"/> initialized with the matrix components.
 		/// </returns>
 		public static implicit operator Matrix3x4d(Matrix3x4f a)
 		{
@@ -4075,13 +4075,13 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Operator casting to float[] .
+		/// Operator casting to Matrix4x2d.
 		/// </summary>
 		/// <param name="a">
 		/// A <see cref="Matrix4x2f"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="T:float[]"/> initialized with the matrix components.
+		/// A <see cref="Matrix4x2d"/> initialized with the matrix components.
 		/// </returns>
 		public static implicit operator Matrix4x2d(Matrix4x2f a)
 		{
@@ -4706,13 +4706,13 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Operator casting to float[] .
+		/// Operator casting to Matrix4x3d.
 		/// </summary>
 		/// <param name="a">
 		/// A <see cref="Matrix4x3f"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="T:float[]"/> initialized with the matrix components.
+		/// A <see cref="Matrix4x3d"/> initialized with the matrix components.
 		/// </returns>
 		public static implicit operator Matrix4x3d(Matrix4x3f a)
 		{
@@ -5490,13 +5490,13 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Operator casting to float[] .
+		/// Operator casting to Matrix4x4d.
 		/// </summary>
 		/// <param name="a">
 		/// A <see cref="Matrix4x4f"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="T:float[]"/> initialized with the matrix components.
+		/// A <see cref="Matrix4x4d"/> initialized with the matrix components.
 		/// </returns>
 		public static implicit operator Matrix4x4d(Matrix4x4f a)
 		{
@@ -6672,7 +6672,7 @@ namespace OpenGL
 		/// A <see cref="Matrix2x2d"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="T:float[]"/> initialized with the matrix components.
+		/// A <see cref="T:double[]"/> initialized with the matrix components.
 		/// </returns>
 		public static explicit operator double[](Matrix2x2d a)
 		{
@@ -6687,13 +6687,13 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Operator casting to double[] .
+		/// Operator casting to Matrix2x2f.
 		/// </summary>
 		/// <param name="a">
 		/// A <see cref="Matrix2x2d"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="T:float[]"/> initialized with the matrix components.
+		/// A <see cref="Matrix2x2f"/> initialized with the matrix components.
 		/// </returns>
 		public static explicit operator Matrix2x2f(Matrix2x2d a)
 		{
@@ -7253,7 +7253,7 @@ namespace OpenGL
 		/// A <see cref="Matrix2x3d"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="T:float[]"/> initialized with the matrix components.
+		/// A <see cref="T:double[]"/> initialized with the matrix components.
 		/// </returns>
 		public static explicit operator double[](Matrix2x3d a)
 		{
@@ -7270,13 +7270,13 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Operator casting to double[] .
+		/// Operator casting to Matrix2x3f.
 		/// </summary>
 		/// <param name="a">
 		/// A <see cref="Matrix2x3d"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="T:float[]"/> initialized with the matrix components.
+		/// A <see cref="Matrix2x3f"/> initialized with the matrix components.
 		/// </returns>
 		public static explicit operator Matrix2x3f(Matrix2x3d a)
 		{
@@ -7783,7 +7783,7 @@ namespace OpenGL
 		/// A <see cref="Matrix2x4d"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="T:float[]"/> initialized with the matrix components.
+		/// A <see cref="T:double[]"/> initialized with the matrix components.
 		/// </returns>
 		public static explicit operator double[](Matrix2x4d a)
 		{
@@ -7802,13 +7802,13 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Operator casting to double[] .
+		/// Operator casting to Matrix2x4f.
 		/// </summary>
 		/// <param name="a">
 		/// A <see cref="Matrix2x4d"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="T:float[]"/> initialized with the matrix components.
+		/// A <see cref="Matrix2x4f"/> initialized with the matrix components.
 		/// </returns>
 		public static explicit operator Matrix2x4f(Matrix2x4d a)
 		{
@@ -8299,7 +8299,7 @@ namespace OpenGL
 		/// A <see cref="Matrix3x2d"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="T:float[]"/> initialized with the matrix components.
+		/// A <see cref="T:double[]"/> initialized with the matrix components.
 		/// </returns>
 		public static explicit operator double[](Matrix3x2d a)
 		{
@@ -8316,13 +8316,13 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Operator casting to double[] .
+		/// Operator casting to Matrix3x2f.
 		/// </summary>
 		/// <param name="a">
 		/// A <see cref="Matrix3x2d"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="T:float[]"/> initialized with the matrix components.
+		/// A <see cref="Matrix3x2f"/> initialized with the matrix components.
 		/// </returns>
 		public static explicit operator Matrix3x2f(Matrix3x2d a)
 		{
@@ -8931,7 +8931,7 @@ namespace OpenGL
 		/// A <see cref="Matrix3x3d"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="T:float[]"/> initialized with the matrix components.
+		/// A <see cref="T:double[]"/> initialized with the matrix components.
 		/// </returns>
 		public static explicit operator double[](Matrix3x3d a)
 		{
@@ -8951,13 +8951,13 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Operator casting to double[] .
+		/// Operator casting to Matrix3x3f.
 		/// </summary>
 		/// <param name="a">
 		/// A <see cref="Matrix3x3d"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="T:float[]"/> initialized with the matrix components.
+		/// A <see cref="Matrix3x3f"/> initialized with the matrix components.
 		/// </returns>
 		public static explicit operator Matrix3x3f(Matrix3x3d a)
 		{
@@ -9779,7 +9779,7 @@ namespace OpenGL
 		/// A <see cref="Matrix3x4d"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="T:float[]"/> initialized with the matrix components.
+		/// A <see cref="T:double[]"/> initialized with the matrix components.
 		/// </returns>
 		public static explicit operator double[](Matrix3x4d a)
 		{
@@ -9802,13 +9802,13 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Operator casting to double[] .
+		/// Operator casting to Matrix3x4f.
 		/// </summary>
 		/// <param name="a">
 		/// A <see cref="Matrix3x4d"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="T:float[]"/> initialized with the matrix components.
+		/// A <see cref="Matrix3x4f"/> initialized with the matrix components.
 		/// </returns>
 		public static explicit operator Matrix3x4f(Matrix3x4d a)
 		{
@@ -10362,7 +10362,7 @@ namespace OpenGL
 		/// A <see cref="Matrix4x2d"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="T:float[]"/> initialized with the matrix components.
+		/// A <see cref="T:double[]"/> initialized with the matrix components.
 		/// </returns>
 		public static explicit operator double[](Matrix4x2d a)
 		{
@@ -10381,13 +10381,13 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Operator casting to double[] .
+		/// Operator casting to Matrix4x2f.
 		/// </summary>
 		/// <param name="a">
 		/// A <see cref="Matrix4x2d"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="T:float[]"/> initialized with the matrix components.
+		/// A <see cref="Matrix4x2f"/> initialized with the matrix components.
 		/// </returns>
 		public static explicit operator Matrix4x2f(Matrix4x2d a)
 		{
@@ -10989,7 +10989,7 @@ namespace OpenGL
 		/// A <see cref="Matrix4x3d"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="T:float[]"/> initialized with the matrix components.
+		/// A <see cref="T:double[]"/> initialized with the matrix components.
 		/// </returns>
 		public static explicit operator double[](Matrix4x3d a)
 		{
@@ -11012,13 +11012,13 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Operator casting to double[] .
+		/// Operator casting to Matrix4x3f.
 		/// </summary>
 		/// <param name="a">
 		/// A <see cref="Matrix4x3d"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="T:float[]"/> initialized with the matrix components.
+		/// A <see cref="Matrix4x3f"/> initialized with the matrix components.
 		/// </returns>
 		public static explicit operator Matrix4x3f(Matrix4x3d a)
 		{
@@ -11759,7 +11759,7 @@ namespace OpenGL
 		/// A <see cref="Matrix4x4d"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="T:float[]"/> initialized with the matrix components.
+		/// A <see cref="T:double[]"/> initialized with the matrix components.
 		/// </returns>
 		public static explicit operator double[](Matrix4x4d a)
 		{
@@ -11786,13 +11786,13 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Operator casting to double[] .
+		/// Operator casting to Matrix4x4f.
 		/// </summary>
 		/// <param name="a">
 		/// A <see cref="Matrix4x4d"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="T:float[]"/> initialized with the matrix components.
+		/// A <see cref="Matrix4x4f"/> initialized with the matrix components.
 		/// </returns>
 		public static explicit operator Matrix4x4f(Matrix4x4d a)
 		{
