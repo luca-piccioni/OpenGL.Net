@@ -19,6 +19,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+// ReSharper disable InconsistentNaming
+
 using System;
 
 namespace OpenGL
@@ -44,16 +46,16 @@ namespace OpenGL
 		/// Construct a Quaternion from quaternion components.
 		/// </summary>
 		/// <param name="q1">
-		/// A <see cref="Double"/> that specify the quaternion component <i>q1</i>.
+		/// A <see cref="double"/> that specify the quaternion component <i>q1</i>.
 		/// </param>
 		/// <param name="q2">
-		/// A <see cref="Double"/> that specify the quaternion component <i>q2</i>.
+		/// A <see cref="double"/> that specify the quaternion component <i>q2</i>.
 		/// </param>
 		/// <param name="q3">
-		/// A <see cref="Double"/> that specify the quaternion component <i>q3</i>.
+		/// A <see cref="double"/> that specify the quaternion component <i>q3</i>.
 		/// </param>
 		/// <param name="q4">
-		/// A <see cref="Double"/> that specify the quaternion component <i>q4</i> (scalar component).
+		/// A <see cref="double"/> that specify the quaternion component <i>q4</i> (scalar component).
 		/// </param>
 		public Quaternion(double q1, double q2, double q3, double q4)
 		{
@@ -75,7 +77,7 @@ namespace OpenGL
 		/// A <see cref="Vertex3f"/> representing the rotation axis.
 		/// </param>
 		/// <param name="rAngle">
-		/// A <see cref="Single"/> representing the rotation angle (in degrees).
+		/// A <see cref="float"/> representing the rotation angle (in degrees).
 		/// </param>
 		/// <remarks>
 		/// This constructor is the base implementation for each other constructor.
@@ -145,7 +147,7 @@ namespace OpenGL
 		{
 			get
 			{
-				if (_Vector.Module() >= Single.Epsilon)
+				if (_Vector.ModuleSquared() >= float.Epsilon)
 					_DefaultVector = _Vector.Normalized;
 					
 				return (Vertex3f)_DefaultVector;
@@ -169,7 +171,7 @@ namespace OpenGL
 		/// A <see cref="Vertex3f"/> representing the rotation axis. It will be normalized.
 		/// </param>
 		/// <param name="rAngle">
-		/// A <see cref="Single"/> representing the rotation angle (in degrees).
+		/// A <see cref="float"/> representing the rotation angle (in degrees).
 		/// </param>
 		/// <remarks>
 		/// This quaternion will result normalized.
@@ -234,9 +236,9 @@ namespace OpenGL
 		{
 			get
 			{
-				if (Math.Abs(_Vector.Module()) >= Single.Epsilon)
+				if (Math.Abs(_Vector.Module()) >= float.Epsilon)
 					return false;
-				if (Math.Abs(_CosAngle - 1.0f) >= Single.Epsilon)
+				if (Math.Abs(_CosAngle - 1.0f) >= float.Epsilon)
 					return false;
 
 				return true;
@@ -248,7 +250,7 @@ namespace OpenGL
 		/// </summary>
 		public bool IsNormalized
 		{
-			get { return Math.Abs(Magnitude - 1.0) < Single.Epsilon; }
+			get { return Math.Abs(Magnitude - 1.0) < float.Epsilon; }
 		}
 
 		#endregion
@@ -262,7 +264,7 @@ namespace OpenGL
 		{
 			double magnitude = Magnitude;
 
-			if (magnitude >= Single.Epsilon) {
+			if (magnitude >= float.Epsilon) {
 				double scale = 1.0 / magnitude;
 
 				_Vector *= scale;
@@ -332,7 +334,75 @@ namespace OpenGL
 
 			return new Quaternion(_q1, _q2, _q3, _q4);
 		}
-		
+
+		/// <summary>
+		/// Rotates a vector.
+		/// </summary>
+		/// <param name="q">
+		/// A <see cref="Quaternion"/> representing the rotation.
+		/// </param>
+		/// <param name="v">
+		/// A <see cref="Vertex3f"/> rotating on <paramref name="q"/>.
+		/// </param>
+		/// <returns>
+		/// The rotated <see cref="Vertex3f"/>.
+		/// </returns>
+		public static Vertex3f operator *(Quaternion q, Vertex3f v)
+		{
+			return (Matrix3x3f)q * v;
+		}
+
+		/// <summary>
+		/// Rotates a vector.
+		/// </summary>
+		/// <param name="q">
+		/// A <see cref="Quaternion"/> representing the rotation.
+		/// </param>
+		/// <param name="v">
+		/// A <see cref="Vertex3d"/> rotating on <paramref name="q"/>.
+		/// </param>
+		/// <returns>
+		/// The rotated <see cref="Vertex3d"/>.
+		/// </returns>
+		public static Vertex3d operator *(Quaternion q, Vertex3d v)
+		{
+			return (Matrix3x3d)q * v;
+		}
+
+		/// <summary>
+		/// Rotates a vector.
+		/// </summary>
+		/// <param name="q">
+		/// A <see cref="Quaternion"/> representing the rotation.
+		/// </param>
+		/// <param name="v">
+		/// A <see cref="Vertex4f"/> rotating on <paramref name="q"/>.
+		/// </param>
+		/// <returns>
+		/// The rotated <see cref="Vertex3f"/>.
+		/// </returns>
+		public static Vertex4f operator *(Quaternion q, Vertex4f v)
+		{
+			return (Matrix4x4f)q * v;
+		}
+
+		/// <summary>
+		/// Rotates a vector.
+		/// </summary>
+		/// <param name="q">
+		/// A <see cref="Quaternion"/> representing the rotation.
+		/// </param>
+		/// <param name="v">
+		/// A <see cref="Vertex4d"/> rotating on <paramref name="q"/>.
+		/// </param>
+		/// <returns>
+		/// The rotated <see cref="Vertex4d"/>.
+		/// </returns>
+		public static Vertex4d operator *(Quaternion q, Vertex4d v)
+		{
+			return (Matrix4x4d)q * v;
+		}
+
 		#endregion
 
 		#region Cast Operators
@@ -490,7 +560,7 @@ namespace OpenGL
 		/// Stringify this Quaternion.
 		/// </summary>
 		/// <returns>
-		/// Returns a <see cref="String"/> that represents this Quaternion.
+		/// Returns a <see cref="string"/> that represents this Quaternion.
 		/// </returns>
 		public override string ToString()
 		{

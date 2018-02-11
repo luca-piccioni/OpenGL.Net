@@ -19,6 +19,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+using System.Collections.Generic;
+
 using NUnit.Framework;
 
 namespace OpenGL.Test
@@ -26,19 +28,114 @@ namespace OpenGL.Test
 	/// <summary>
 	/// Tests for <see cref="Quaternion"/>.
 	/// </summary>
-	[TestFixture]
-	[Category("Math")]
+	[TestFixture, Category("Math")]
 	class QuaternionTest
 	{
 		[Test]
-		public void TestQuaternion()
+		public void Quaternion_TestConstructor1()
 		{
-			Quaternion q = new Quaternion(Vertex3f.UnitZ, 0.0f);
+			Quaternion q = new Quaternion(0.0, 1.0, 2.0, 3.0);
 
+			Assert.AreEqual(0.0, q.X);
+			Assert.AreEqual(1.0, q.Y);
+			Assert.AreEqual(2.0, q.Z);
+			Assert.AreEqual(3.0, q.W);
+		}
+
+		[Test, TestCaseSource(nameof(Quaternion_TestConstructor2_Cases))]
+		public void Quaternion_TestConstructor2(Vertex3f rVector)
+		{
+			Quaternion q = new Quaternion(rVector, 0.0f);
+
+			Assert.AreEqual(rVector, q.RotationVector);
 			Assert.AreEqual(0.0f, q.RotationAngle);
-			Assert.AreEqual(Vertex3f.UnitZ, q.RotationVector);
+		}
 
-			q.RotationAngle = 90.0f;
+		private static IEnumerable<Vertex3f> Quaternion_TestConstructor2_Cases
+		{
+			get
+			{
+				yield return Vertex3f.UnitX;
+				yield return Vertex3f.UnitY;
+				yield return Vertex3f.UnitZ;
+				yield return (Vertex3f.UnitX + Vertex3f.UnitY + Vertex3f.UnitZ).Normalized;
+			}
+		}
+
+		[Test]
+		public void Quaternion_TestCastMatrix3x3f()
+		{
+			Quaternion q;
+			Vertex3f v;
+
+			q = new Quaternion(Vertex3f.UnitX, 90.0f);
+			v = q * Vertex3f.UnitY;
+			Assert.IsTrue(v.Equals(Vertex3f.UnitZ, 1e-5f));
+
+			q = new Quaternion(Vertex3f.UnitY, 90.0f);
+			v = q * Vertex3f.UnitZ;
+			Assert.IsTrue(v.Equals(Vertex3f.UnitX, 1e-5f));
+
+			q = new Quaternion(Vertex3f.UnitZ, 90.0f);
+			v = q * Vertex3f.UnitX;
+			Assert.IsTrue(v.Equals(Vertex3f.UnitY, 1e-5f));
+		}
+
+		[Test]
+		public void Quaternion_TestCastMatrix3x3d()
+		{
+			Quaternion q;
+			Vertex3d v;
+
+			q = new Quaternion(Vertex3f.UnitX, 90.0f);
+			v = q * Vertex3d.UnitY;
+			Assert.IsTrue(v.Equals(Vertex3d.UnitZ, 1e-5f));
+
+			q = new Quaternion(Vertex3f.UnitY, 90.0f);
+			v = q * Vertex3d.UnitZ;
+			Assert.IsTrue(v.Equals(Vertex3d.UnitX, 1e-5f));
+
+			q = new Quaternion(Vertex3f.UnitZ, 90.0f);
+			v = q * Vertex3d.UnitX;
+			Assert.IsTrue(v.Equals(Vertex3d.UnitY, 1e-5f));
+		}
+
+		[Test]
+		public void Quaternion_TestCastMatrix4x4f()
+		{
+			Quaternion q;
+			Vertex4f v;
+
+			q = new Quaternion(Vertex3f.UnitX, 90.0f);
+			v = q * Vertex4f.UnitY;
+			Assert.IsTrue(v.Equals(Vertex4f.UnitZ, 1e-5f));
+
+			q = new Quaternion(Vertex3f.UnitY, 90.0f);
+			v = q * Vertex4f.UnitZ;
+			Assert.IsTrue(v.Equals(Vertex4f.UnitX, 1e-5f));
+
+			q = new Quaternion(Vertex3f.UnitZ, 90.0f);
+			v = q * Vertex4f.UnitX;
+			Assert.IsTrue(v.Equals(Vertex4f.UnitY, 1e-5f));
+		}
+
+		[Test]
+		public void Quaternion_TestCastMatrix4x4d()
+		{
+			Quaternion q;
+			Vertex4d v;
+
+			q = new Quaternion(Vertex3f.UnitX, 90.0f);
+			v = q * Vertex4d.UnitY;
+			Assert.IsTrue(v.Equals(Vertex4d.UnitZ, 1e-5f));
+
+			q = new Quaternion(Vertex3f.UnitY, 90.0f);
+			v = q * Vertex4d.UnitZ;
+			Assert.IsTrue(v.Equals(Vertex4d.UnitX, 1e-5f));
+
+			q = new Quaternion(Vertex3f.UnitZ, 90.0f);
+			v = q * Vertex4d.UnitX;
+			Assert.IsTrue(v.Equals(Vertex4d.UnitY, 1e-5f));
 		}
 	}
 }
