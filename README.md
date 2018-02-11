@@ -97,7 +97,7 @@ The following environments can be used:
 
 # Documentation
 
-Go to the [wiki](https://github.com/luca-piccioni/OpenGL.Net/wiki) to look for information about the project. There is also a [Samples](https://github.com/luca-piccioni/OpenGL.Net/tree/master/Samples) directory, where application skeleton are implemented for various platforms.
+Go to the [wiki](https://github.com/luca-piccioni/OpenGL.Net/wiki) to look for information about the project, especially the [how do I...](https://github.com/luca-piccioni/OpenGL.Net/wiki/Wiki-%5C-How-Do-I) page. There is also a [Samples](https://github.com/luca-piccioni/OpenGL.Net/tree/master/Samples) directory where application skeleton are implemented for various platforms, and there is an exaustive and documented [hello triangle](https://github.com/luca-piccioni/OpenGL.Net/blob/master/Samples/HelloTriangle/SampleForm.cs#L40) application.
 
 # Acknowledgements
 
