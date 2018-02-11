@@ -187,7 +187,7 @@ namespace OpenGL.Objects
 				IntPtr src = new IntPtr(otherMemoryBuffer.AlignedBuffer.ToInt64() + (long)otherOffset);
 				IntPtr dst = new IntPtr(AlignedBuffer.ToInt64() + (long)thisOffset);
 
-				Memory.MemoryCopy(dst, src, bytesCopied);
+				Memory.Copy(dst, src, bytesCopied);
 			}
 		}
 

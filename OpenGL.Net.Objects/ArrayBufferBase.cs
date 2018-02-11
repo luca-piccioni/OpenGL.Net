@@ -898,9 +898,9 @@ namespace OpenGL.Objects
 						// - The src/dst stride doesn't match with the respective item sizes
 
 						for (uint i = 0; i < srcCount; i++, arrayPtr += srcStride.ToInt64(), dstPtr += dstStride.ToInt64())
-							Memory.MemoryCopy(dstPtr, arrayPtr, srcItemSize);
+							Memory.Copy(dstPtr, arrayPtr, srcItemSize);
 					} else {
-						Memory.MemoryCopy(dstPtr, arrayPtr, srcItemSize * srcCount);
+						Memory.Copy(dstPtr, arrayPtr, srcItemSize * srcCount);
 					}
 				}
 			} finally {
@@ -1044,9 +1044,9 @@ namespace OpenGL.Objects
 					if ((srcItemSize != dstItemSize) || (srcStride != new IntPtr(srcItemSize)) || (dstStride != new IntPtr(dstItemSize))) {
 						// Respect this ArrayBufferObject item stride
 						for (uint i = 0; i < dstCount; i++, arrayPtr += dstStride.ToInt64(), srcPtr += srcStride.ToInt64())
-							Memory.MemoryCopy(arrayPtr, srcPtr, dstItemSize);
+							Memory.Copy(arrayPtr, srcPtr, dstItemSize);
 					} else {
-						Memory.MemoryCopy(arrayPtr, srcPtr, dstItemSize * dstCount);
+						Memory.Copy(arrayPtr, srcPtr, dstItemSize * dstCount);
 					}
 				}
 			} finally {

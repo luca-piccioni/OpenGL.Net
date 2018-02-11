@@ -414,7 +414,7 @@ namespace OpenGL.Objects
 					// Copy to temporary scaline
 					Marshal.Copy(new IntPtr(hImageDataPtrTop), tmpScanline, 0, (int)Stride);
 					// Swap scan lines
-					Memory.MemoryCopy(hImageDataPtrTop, hImageDataPtrBottom, Stride);
+					Memory.Copy(hImageDataPtrTop, hImageDataPtrBottom, Stride);
 					Marshal.Copy(tmpScanline, 0, new IntPtr(hImageDataPtrBottom), (int)Stride);
 
 					hImageDataPtrBottom += Stride;

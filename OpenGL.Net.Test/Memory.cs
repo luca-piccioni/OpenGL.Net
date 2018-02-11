@@ -25,161 +25,28 @@ using NUnit.Framework;
 
 namespace OpenGL.Test
 {
-	[TestFixture, Ignore("")]
-	class TestMemory : TestBaseBenchmark
+	[TestFixture]
+	internal class MemoryTest
 	{
-		#region Constructors
-
-		/// <summary>
-		/// Default constructor.
-		/// </summary>
-		static TestMemory()
-		{
-			Random random = new Random(unchecked((int)DateTime.Now.Ticks));
-
-			_BenchmarkDataMemoryCopy = new Vertex4f[MemoryCopySize];
-			_BenchmarkDataMemoryCopyDst = new Vertex4f[_BenchmarkDataMemoryCopy.Length];
-			for (int i = 0; i < _BenchmarkDataMemoryCopy.Length; i++) {
-				float r1 = (float)random.NextDouble(), r2 = (float)random.NextDouble();
-				_BenchmarkDataMemoryCopy[i] = new Vertex4f(r1, r2, r2, r1);
-			}
-		}
-
-		#endregion
-
-		#region MemoryCopy Benchmark
-
-		/// <summary>
-		/// Test memory copy methods (one large buffer).
-		/// </summary>
 		[Test]
-		public void BenchmarkMemoryCopy()
+		public static void Memory_TestCopy()
 		{
-			RunBenchmarks<TestMemory>("BenchmarkMemoryCopy");
+			float[] a1 = new float[16];
+			for (int i = 0; i < a1.Length; i++)
+				a1[i] = TestContext.CurrentContext.Random.NextFloat();
+			float[] a2 = new float[a1.Length];
+
+			Memory.Copy(a2, a1, (uint)(4 * a1.Length));
+			for (int i = 0; i < a1.Length; i++)
+				Assert.AreEqual(a1[i], a2[i]);
+
+			uint[] ui1 = new uint[16];
+			for (int i = 0; i < ui1.Length; i++)
+				ui1[i] = 0x05050505;
+			byte[] b2 = new byte[ui1.Length * 4];
+			Memory.Copy(b2, ui1, (uint)b2.Length);
+			foreach (byte b in b2)
+				Assert.AreEqual((byte)0x05, b);
 		}
-
-		/// <summary>
-		/// Test worst performance for copying arrays using managed method.
-		/// </summary>
-		[Benchmark("MemoryCopyManaged", Repetitions = MemoryCopyRepetitions)]
-		public static void BenchmarkMemoryCopy_Managed()
-		{
-			for (int i = 0; i < MemoryCopySize; i++)
-				_BenchmarkDataMemoryCopyDst[i] = _BenchmarkDataMemoryCopy[i];
-		}
-
-		/// <summary>
-		/// Test worst performance for copying arrays using unsafe statement.
-		/// </summary>
-		[Benchmark("MemoryCopyUnsafe", Repetitions = MemoryCopyRepetitions)]
-		public static void BenchmarkMemoryCopy_Unsafe()
-		{
-			unsafe {
-				fixed (Vertex4f *srcPtr = _BenchmarkDataMemoryCopy)
-				fixed (Vertex4f *dstPtr = _BenchmarkDataMemoryCopyDst)
-				{
-					Vertex4f* src = srcPtr, dst = dstPtr;
-
-					for (int i = 0; i < MemoryCopySize; i++)
-						dst[i] = src[i];
-				}
-			}
-		}
-
-		/// <summary>
-		/// Test performance of <see cref="Array.Copy(Array, Array, int)"/>.
-		/// </summary>
-		[Benchmark("MemoryCopyFramework", Repetitions = MemoryCopyRepetitions)]
-		public static void BenchmarkMemoryCopy_Framework()
-		{
-			Array.Copy(_BenchmarkDataMemoryCopy, _BenchmarkDataMemoryCopyDst, (int)MemoryCopySize);
-		}
-
-		/// <summary>
-		/// Test performance of <see cref="Memory.MemoryCopy"/>.
-		/// </summary>
-		[Benchmark("MemoryCopyMemory", Repetitions = MemoryCopyRepetitions)]
-		public static void BenchmarkMemoryCopy_Memory()
-		{
-			Memory.MemoryCopy(_BenchmarkDataMemoryCopyDst, _BenchmarkDataMemoryCopy, MemoryCopySize * 12);
-		}
-
-		/// <summary>
-		/// MemoryCopy benchmark data.
-		/// </summary>
-		private static readonly Vertex4f[] _BenchmarkDataMemoryCopy, _BenchmarkDataMemoryCopyDst;
-
-		/// <summary>
-		/// Size of the array used for testing: 16 MB.
-		/// </summary>
-		const uint MemoryCopySize = 1024 * 1024 * 16;
-
-		/// <summary>
-		/// Number of repetitions for MemoryCopy.
-		/// </summary>
-		private const int MemoryCopyRepetitions = 50;
-
-		#endregion
-
-		#region MemoryCopyLoop Benchmark
-
-		/// <summary>
-		/// Test memory copy methods (one large buffer).
-		/// </summary>
-		[Test]
-		public void BenchmarkMemoryCopyLoop()
-		{
-			RunBenchmarks<TestMemory>("BenchmarkMemoryCopyLoop");
-		}
-
-		/// <summary>
-		/// Test worst performance for copying arrays using managed method.
-		/// </summary>
-		[Benchmark("MemoryCopyManagedLoop", Repetitions = MemoryCopyLoopRepetitions)]
-		public static void BenchmarkMemoryCopyLoop_Managed()
-		{
-			for (int i = 0; i < MemoryCopyLoopSize; i++)
-				_BenchmarkDataMemoryCopyDst[i] = _BenchmarkDataMemoryCopy[i];
-		}
-
-		/// <summary>
-		/// Test worst performance for copying arrays using unsafe statement.
-		/// </summary>
-		[Benchmark("MemoryCopyUnsafeLoop", Repetitions = MemoryCopyLoopRepetitions)]
-		public static void BenchmarkMemoryCopyLoop_Unsafe()
-		{
-			unsafe {
-				fixed (Vertex4f *srcPtr = _BenchmarkDataMemoryCopy)
-				fixed (Vertex4f *dstPtr = _BenchmarkDataMemoryCopyDst)
-				{
-					Vertex4f* src = srcPtr, dst = dstPtr;
-
-					for (int i = 0; i < MemoryCopyLoopSize; i++)
-						dst[i] = src[i];
-				}
-			}
-		}
-
-		/// <summary>
-		/// Test performance of <see cref="Memory.MemoryCopy"/>.
-		/// </summary>
-		[Benchmark("MemoryCopyMemoryLoop", Repetitions = MemoryCopyLoopRepetitions)]
-		public static void BenchmarkMemoryCopyLoop_Memory()
-		{
-			for (int i = 0; i < MemoryCopyLoopSize; i++)
-				Memory.MemoryCopy(_BenchmarkDataMemoryCopyDst, _BenchmarkDataMemoryCopy, 12 * MemoryCopyLoopSize);
-		}
-
-		/// <summary>
-		/// Size of the array used for testing: 256 MB.
-		/// </summary>
-		const uint MemoryCopyLoopSize = 4;
-
-		/// <summary>
-		/// Number of repetitions for MemoryCopy.
-		/// </summary>
-		private const int MemoryCopyLoopRepetitions = 5000;
-
-		#endregion
 	}
 }

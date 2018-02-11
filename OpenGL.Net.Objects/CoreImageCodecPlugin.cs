@@ -688,7 +688,7 @@ namespace OpenGL.Objects
 					iBitmapDataPtr = iBitmapDataPtr + ((image.Height-1) * iBitmapDataStride);
 
 					for (uint line = 0; line < image.Height; line++, hImageDataPtr += hImageDataStride, iBitmapDataPtr -= iBitmapDataStride)
-						Memory.MemoryCopy(hImageDataPtr, iBitmapDataPtr, hImageDataStride);
+						Memory.Copy(hImageDataPtr, iBitmapDataPtr, hImageDataStride);
 				}
 			} finally {
 				if (iBitmapData != null)
@@ -854,7 +854,7 @@ namespace OpenGL.Objects
 						iBitmapDataPtr = iBitmapDataPtr + ((image.Height-1) * iBitmapDataStride);
 
 						for (uint line = 0; line < image.Height; line++, hImageDataPtr += hImageDataStride, iBitmapDataPtr -= iBitmapDataStride)
-							Memory.MemoryCopy(iBitmapDataPtr, hImageDataPtr, hImageDataStride);
+							Memory.Copy(iBitmapDataPtr, hImageDataPtr, hImageDataStride);
 					}
 				} finally {
 					if (iBitmapData != null)

@@ -160,7 +160,7 @@
     <Compile Include="Gl.VERSION_4_3.cs" />
     <Compile Include="TestBaseGL.cs" />
     <Compile Include="KhronosApi.cs" />
-    <None Include="Memory.cs" />
+    <Compile Include="Memory.cs" />
     <Compile Include="Plane.cs" />
     <Compile Include="Vertex2.cs">
       <AutoGen>True</AutoGen>

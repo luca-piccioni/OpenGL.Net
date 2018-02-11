@@ -424,7 +424,7 @@ namespace OpenGL.Objects
 			Array genericArray = CreateArray(ArrayType, CpuItemsCount);
 
 			// Copy from buffer data to array data
-			Memory.MemoryCopy(genericArray, CpuBufferAddress, CpuItemsCount * ItemSize);
+			Memory.Copy(genericArray, CpuBufferAddress, CpuItemsCount * ItemSize);
 
 			return (genericArray);
 		}
@@ -452,7 +452,7 @@ namespace OpenGL.Objects
 			Map(ctx, BufferAccess.ReadOnly);
 			try {
 				// Copy from mapped data to array data
-				Memory.MemoryCopy(genericArray, MappedBuffer, GpuItemsCount * ItemSize);
+				Memory.Copy(genericArray, MappedBuffer, GpuItemsCount * ItemSize);
 			} finally {
 				Unmap(ctx);
 			}

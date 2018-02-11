@@ -47,17 +47,25 @@ namespace OpenGL
 		/// </summary>
 		static Memory()
 		{
-			// Try to load optional library
-			//LoadSimdExtensions();
-
-			// Ensure MemoryCopy functionality
-			EnsureMemoryCopy();
+			EnsureCopy();
 		}
 
 		#endregion
 
 		#region Set
 
+		/// <summary>
+		/// Set memory to a specific value.
+		/// </summary>
+		/// <param name="addr">
+		/// The <see cref="IntPtr"/> that specify the memory address.
+		/// </param>
+		/// <param name="value">
+		/// The <see cref="byte"/> that specify the value to set.
+		/// </param>
+		/// <param name="count">
+		/// The <see cref="uint"/> that specify the number of bytes to set.
+		/// </param>
 		public static void Set(IntPtr addr, byte value, uint count)
 		{
 			_MemsetDelegate(addr, value, count);
@@ -66,7 +74,6 @@ namespace OpenGL
 		/// <summary>
 		/// Utility route for generating 'memset' delegate.
 		/// </summary>
-		/// <returns></returns>
 		private static Action<IntPtr, byte, uint> GenerateMemsetDelegate()
 		{
 #if NETSTANDARD1_1 || NETSTANDARD1_4 || NETSTANDARD2_0 || NETCOREAPP1_1
@@ -102,58 +109,106 @@ namespace OpenGL
 		/// <summary>
 		/// Delegate used for copy memory.
 		/// </summary>
-		/// <param name="dst"></param>
-		/// <param name="src"></param>
-		/// <param name="bytes"></param>
+		/// <param name="dst">
+		/// A <see cref="T:void*"/> that specify the address of the destination unmanaged memory.
+		/// </param>
+		/// <param name="src">
+		/// A <see cref="T:void*"/> that specify the source array object.
+		/// </param>
+		/// <param name="bytes">
+		/// A <see cref="ulong"/> that specify the number of bytes to copy.
+		/// </param>
 		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 		[SuppressUnmanagedCodeSecurity]
-		private delegate void MemoryCopyDelegate(void *dst, void* src, ulong bytes);
+		private delegate void CopyDelegate(void *dst, void* src, ulong bytes);
 
 		/// <summary>
 		/// Cached delegate for copy memory.
 		/// </summary>
-		private static MemoryCopyDelegate _MemoryCopyPointer;
+		private static CopyDelegate _CopyPointer;
 
 		/// <summary>
-		/// Copy memory.
+		/// Ensure <see cref="MemoryCopy"/> functionality.
 		/// </summary>
-		/// <param name="dst"></param>
-		/// <param name="src"></param>
-		/// <param name="bytes"></param>
-		public static void MemoryCopy(void* dst, void* src, ulong bytes)
+		private static void EnsureCopy()
 		{
-			_MemoryCopyPointer(dst, src, bytes);
-#if false
-			byte *dstPointer = (byte *)dst, srcPointer = (byte *)src;
-			byte *dstEnd = dstPointer + bytes;
+			if (_CopyPointer != null)
+				return;
 
-			while (dstPointer < dstEnd) {
-				*dstPointer = *srcPointer;
-				dstPointer++; srcPointer++;
+			IntPtr memoryCopyPtr;
+
+			switch (Platform.CurrentPlatformId) {
+				case Platform.Id.WindowsNT:
+					memoryCopyPtr = GetProcAddressOS.GetProcAddress("msvcrt.dll", "memcpy");
+					if (memoryCopyPtr == IntPtr.Zero)
+						throw new NotSupportedException("no suitable memcpy support");
+					_CopyPointer = (CopyDelegate)Marshal.GetDelegateForFunctionPointer(memoryCopyPtr, typeof(CopyDelegate));
+					return;
+
+				case Platform.Id.Linux:
+					memoryCopyPtr = GetProcAddressOS.GetProcAddress("libc.so.6", "memcpy");
+					if (memoryCopyPtr == IntPtr.Zero)
+						throw new NotSupportedException("no suitable memcpy support");
+					_CopyPointer = (CopyDelegate)Marshal.GetDelegateForFunctionPointer(memoryCopyPtr, typeof(CopyDelegate));
+					return;
+
+				case Platform.Id.Android:
+					_CopyPointer = CopyDelegate_Managed;
+					break;
+				default:
+					throw new NotSupportedException("no suitable memcpy support");
 			}
-#endif
 		}
 
 		/// <summary>
 		/// Copy memory.
 		/// </summary>
-		/// <param name="dst"></param>
-		/// <param name="src"></param>
-		/// <param name="bytes"></param>
-		public static void MemoryCopy(IntPtr dst, IntPtr src, ulong bytes)
+		/// <param name="dst">
+		/// A <see cref="T:void*"/> that specify the address of the destination unmanaged memory.
+		/// </param>
+		/// <param name="src">
+		/// A <see cref="T:void*"/> that specify the source array object.
+		/// </param>
+		/// <param name="bytes">
+		/// A <see cref="ulong"/> that specify the number of bytes to copy.
+		/// </param>
+		public static void Copy(void* dst, void* src, ulong bytes)
 		{
-			MemoryCopy(dst.ToPointer(), src.ToPointer(), bytes);
+			_CopyPointer(dst, src, bytes);
 		}
 
 		/// <summary>
 		/// Copy memory.
 		/// </summary>
-		/// <param name="dst"></param>
-		/// <param name="src"></param>
-		/// <param name="bytes"></param>
-		public static void MemoryCopy(IntPtr dst, Array src, ulong bytes)
+		/// <param name="dst">
+		/// A <see cref="IntPtr"/> that specify the address of the destination unmanaged memory.
+		/// </param>
+		/// <param name="src">
+		/// A <see cref="IntPtr"/> that specify the source array object.
+		/// </param>
+		/// <param name="bytes">
+		/// A <see cref="ulong"/> that specify the number of bytes to copy.
+		/// </param>
+		public static void Copy(IntPtr dst, IntPtr src, ulong bytes)
 		{
-			MemoryCopy(dst, src, 0, bytes);
+			Copy(dst.ToPointer(), src.ToPointer(), bytes);
+		}
+
+		/// <summary>
+		/// Copy memory.
+		/// </summary>
+		/// <param name="dst">
+		/// A <see cref="IntPtr"/> that specify the address of the destination unmanaged memory.
+		/// </param>
+		/// <param name="src">
+		/// A <see cref="Array"/> that specify the source array object.
+		/// </param>
+		/// <param name="bytes">
+		/// A <see cref="ulong"/> that specify the number of bytes to copy.
+		/// </param>
+		public static void Copy(IntPtr dst, Array src, ulong bytes)
+		{
+			Copy(dst, src, 0, bytes);
 		}
 
 		/// <summary>
@@ -170,9 +225,9 @@ namespace OpenGL
 		/// value is expressed in bytes.
 		/// </param>
 		/// <param name="bytes">
-		/// A <see cref="UInt64"/> that specify the number of bytes to copy.
+		/// A <see cref="ulong"/> that specify the number of bytes to copy.
 		/// </param>
-		public static void MemoryCopy(IntPtr dst, Array src, uint srcOffset, ulong bytes)
+		public static void Copy(IntPtr dst, Array src, uint srcOffset, ulong bytes)
 		{
 			if (dst == IntPtr.Zero)
 				throw new ArgumentNullException(nameof(dst));
@@ -186,7 +241,7 @@ namespace OpenGL
 				IntPtr srcArrayPtr = new IntPtr(srcArray.AddrOfPinnedObject().ToInt64() + srcOffset);
 
 				// Copy from array to aligned buffer
-				_MemoryCopyPointer(dst.ToPointer(), srcArrayPtr.ToPointer(), bytes);
+				_CopyPointer(dst.ToPointer(), srcArrayPtr.ToPointer(), bytes);
 			} finally {
 				srcArray.Free();
 			}
@@ -195,16 +250,22 @@ namespace OpenGL
 		/// <summary>
 		/// Copy memory.
 		/// </summary>
-		/// <param name="dst"></param>
-		/// <param name="src"></param>
-		/// <param name="bytes"></param>
-		public static void MemoryCopy(Array dst, IntPtr src, ulong bytes)
+		/// <param name="dst">
+		/// A <see cref="Array"/> that specify the address of the destination unmanaged memory.
+		/// </param>
+		/// <param name="src">
+		/// A <see cref="IntPtr"/> that specify the source array object.
+		/// </param>
+		/// <param name="bytes">
+		/// A <see cref="ulong"/> that specify the number of bytes to copy.
+		/// </param>
+		public static void Copy(Array dst, IntPtr src, ulong bytes)
 		{
 			GCHandle dstArray = GCHandle.Alloc(dst, GCHandleType.Pinned);
 
 			try {
 				// Copy from array to aligned buffer
-				_MemoryCopyPointer(
+				_CopyPointer(
 					dstArray.AddrOfPinnedObject().ToPointer(), 
 					src.ToPointer(),
 					bytes
@@ -217,17 +278,23 @@ namespace OpenGL
 		/// <summary>
 		/// Copy memory.
 		/// </summary>
-		/// <param name="dst"></param>
-		/// <param name="src"></param>
-		/// <param name="bytes"></param>
-		public static void MemoryCopy(Array dst, Array src, ulong bytes)
+		/// <param name="dst">
+		/// A <see cref="Array"/> that specify the address of the destination unmanaged memory.
+		/// </param>
+		/// <param name="src">
+		/// A <see cref="Array"/> that specify the source array object.
+		/// </param>
+		/// <param name="bytes">
+		/// A <see cref="ulong"/> that specify the number of bytes to copy.
+		/// </param>
+		public static void Copy(Array dst, Array src, ulong bytes)
 		{
 			GCHandle dstArray = GCHandle.Alloc(dst, GCHandleType.Pinned);
 			GCHandle srcArray = GCHandle.Alloc(src, GCHandleType.Pinned);
 
 			try {
 				// Copy from array to aligned buffer
-				_MemoryCopyPointer(
+				_CopyPointer(
 					dstArray.AddrOfPinnedObject().ToPointer(), 
 					srcArray.AddrOfPinnedObject().ToPointer(),
 					bytes
@@ -239,39 +306,18 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Ensure <see cref="MemoryCopy"/> functionality.
+		/// Managed-unsafe implementation of Copy.
 		/// </summary>
-		private static void EnsureMemoryCopy()
-		{
-			if (_MemoryCopyPointer != null)
-				return;
-
-			IntPtr memoryCopyPtr;
-
-			switch (Platform.CurrentPlatformId) {
-				case Platform.Id.WindowsNT:
-					memoryCopyPtr = GetProcAddressOS.GetProcAddress("msvcrt.dll", "memcpy");
-					if (memoryCopyPtr == IntPtr.Zero)
-						throw new NotSupportedException("no suitable memcpy support");
-					_MemoryCopyPointer = (MemoryCopyDelegate)Marshal.GetDelegateForFunctionPointer(memoryCopyPtr, typeof(MemoryCopyDelegate));
-					return;
-
-				case Platform.Id.Linux:
-					memoryCopyPtr = GetProcAddressOS.GetProcAddress("libc.so.6", "memcpy");
-					if (memoryCopyPtr == IntPtr.Zero)
-						throw new NotSupportedException("no suitable memcpy support");
-					_MemoryCopyPointer = (MemoryCopyDelegate)Marshal.GetDelegateForFunctionPointer(memoryCopyPtr, typeof(MemoryCopyDelegate));
-					return;
-
-				case Platform.Id.Android:
-					_MemoryCopyPointer = MemoryCopyDelegate_Managed;
-					break;
-				default:
-					throw new NotSupportedException("no suitable memcpy support");
-			}
-		}
-
-		private static void MemoryCopyDelegate_Managed(void *dst, void* src, ulong bytes)
+		/// <param name="dst">
+		/// A <see cref="T:void*"/> that specify the address of the destination unmanaged memory.
+		/// </param>
+		/// <param name="src">
+		/// A <see cref="T:void*"/> that specify the source array object.
+		/// </param>
+		/// <param name="bytes">
+		/// A <see cref="ulong"/> that specify the number of bytes to copy.
+		/// </param>
+		private static void CopyDelegate_Managed(void *dst, void* src, ulong bytes)
 		{
 			uint *dstPtr4 = (uint*)dst, srcPtr4 = (uint*)dst;
 
