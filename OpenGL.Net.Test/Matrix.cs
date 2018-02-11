@@ -32,8 +32,7 @@ using NUnit.Framework;
 
 namespace OpenGL.Test
 {
-	[TestFixture]
-	[Category("Math")]
+	[TestFixture, Category("Math")]
 	internal class Matrix2x2fTest : TestBase
 	{
 		#region Constructors
@@ -76,6 +75,34 @@ namespace OpenGL.Test
 
 			for (uint c = 0; c < 2; c++) for (uint r = 0; r < 2; r++)
 				Assert.That(m1[c, r], Is.EqualTo(m2[c, r]).Within(1e-5f));
+		}
+
+		#endregion
+
+		#region Columns & Rows
+
+		[Test]
+		public void Matrix2x2f_TestColumns()
+		{
+			Matrix2x2f m = CreateRandomMatrix();
+
+			Vertex2f c0 = m.Column0;
+			Assert.AreEqual(c0.x, m[0, 0]);
+			Assert.AreEqual(c0.y, m[0, 1]);
+
+			Vertex2f c1 = m.Column1;
+			Assert.AreEqual(c1.x, m[1, 0]);
+			Assert.AreEqual(c1.y, m[1, 1]);
+
+		}
+
+		[Test]
+		public void Matrix2x2f_TestRows()
+		{
+			Matrix2x2f m = CreateRandomMatrix();
+
+			Vertex2f r0 = m.Row0;
+			Vertex2f r1 = m.Row1;
 		}
 
 		#endregion
@@ -155,6 +182,16 @@ namespace OpenGL.Test
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-5f));
 		}
 
+		[Test]
+		public void Matrix2x2f_TestCastToMatrix2x2d()
+		{
+			Matrix2x2f m = CreateSequenceMatrix();
+			Matrix2x2d mOther = (Matrix2x2d)m;
+
+			for (uint c = 0, idx = 0; c < 2; c++) for (uint r = 0; r < 2; r++, idx++)
+				Assert.That(mOther[c, r], Is.EqualTo(m[c, r]).Within(1e-6f));
+		}
+
 		#endregion
 
 		#region Equality Operators
@@ -216,7 +253,7 @@ namespace OpenGL.Test
 
 		#endregion
 
-		#region Tranposition
+		#region Transposition
 
 		[Test]
 		public void Matrix2x2f_TestTransposed()
@@ -285,7 +322,6 @@ namespace OpenGL.Test
 		}
 
 		#endregion
-
 
 		#region IEquatable Implementation
 
@@ -408,8 +444,7 @@ namespace OpenGL.Test
 		#endregion
 	}
 
-	[TestFixture]
-	[Category("Math")]
+	[TestFixture, Category("Math")]
 	internal class Matrix2x3fTest : TestBase
 	{
 		#region Constructors
@@ -452,6 +487,37 @@ namespace OpenGL.Test
 
 			for (uint c = 0; c < 2; c++) for (uint r = 0; r < 3; r++)
 				Assert.That(m1[c, r], Is.EqualTo(m2[c, r]).Within(1e-5f));
+		}
+
+		#endregion
+
+		#region Columns & Rows
+
+		[Test]
+		public void Matrix2x3f_TestColumns()
+		{
+			Matrix2x3f m = CreateRandomMatrix();
+
+			Vertex3f c0 = m.Column0;
+			Assert.AreEqual(c0.x, m[0, 0]);
+			Assert.AreEqual(c0.y, m[0, 1]);
+			Assert.AreEqual(c0.z, m[0, 2]);
+
+			Vertex3f c1 = m.Column1;
+			Assert.AreEqual(c1.x, m[1, 0]);
+			Assert.AreEqual(c1.y, m[1, 1]);
+			Assert.AreEqual(c1.z, m[1, 2]);
+
+		}
+
+		[Test]
+		public void Matrix2x3f_TestRows()
+		{
+			Matrix2x3f m = CreateRandomMatrix();
+
+			Vertex2f r0 = m.Row0;
+			Vertex2f r1 = m.Row1;
+			Vertex2f r2 = m.Row2;
 		}
 
 		#endregion
@@ -523,6 +589,16 @@ namespace OpenGL.Test
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-5f));
 		}
 
+		[Test]
+		public void Matrix2x3f_TestCastToMatrix2x3d()
+		{
+			Matrix2x3f m = CreateSequenceMatrix();
+			Matrix2x3d mOther = (Matrix2x3d)m;
+
+			for (uint c = 0, idx = 0; c < 2; c++) for (uint r = 0; r < 3; r++, idx++)
+				Assert.That(mOther[c, r], Is.EqualTo(m[c, r]).Within(1e-6f));
+		}
+
 		#endregion
 
 		#region Equality Operators
@@ -547,7 +623,7 @@ namespace OpenGL.Test
 
 		#endregion
 
-		#region Tranposition
+		#region Transposition
 
 		[Test]
 		public void Matrix2x3f_TestTransposed()
@@ -564,7 +640,6 @@ namespace OpenGL.Test
 		}
 
 		#endregion
-
 
 		#region IEquatable Implementation
 
@@ -691,8 +766,7 @@ namespace OpenGL.Test
 		#endregion
 	}
 
-	[TestFixture]
-	[Category("Math")]
+	[TestFixture, Category("Math")]
 	internal class Matrix2x4fTest : TestBase
 	{
 		#region Constructors
@@ -735,6 +809,40 @@ namespace OpenGL.Test
 
 			for (uint c = 0; c < 2; c++) for (uint r = 0; r < 4; r++)
 				Assert.That(m1[c, r], Is.EqualTo(m2[c, r]).Within(1e-5f));
+		}
+
+		#endregion
+
+		#region Columns & Rows
+
+		[Test]
+		public void Matrix2x4f_TestColumns()
+		{
+			Matrix2x4f m = CreateRandomMatrix();
+
+			Vertex4f c0 = m.Column0;
+			Assert.AreEqual(c0.x, m[0, 0]);
+			Assert.AreEqual(c0.y, m[0, 1]);
+			Assert.AreEqual(c0.z, m[0, 2]);
+			Assert.AreEqual(c0.w, m[0, 3]);
+
+			Vertex4f c1 = m.Column1;
+			Assert.AreEqual(c1.x, m[1, 0]);
+			Assert.AreEqual(c1.y, m[1, 1]);
+			Assert.AreEqual(c1.z, m[1, 2]);
+			Assert.AreEqual(c1.w, m[1, 3]);
+
+		}
+
+		[Test]
+		public void Matrix2x4f_TestRows()
+		{
+			Matrix2x4f m = CreateRandomMatrix();
+
+			Vertex2f r0 = m.Row0;
+			Vertex2f r1 = m.Row1;
+			Vertex2f r2 = m.Row2;
+			Vertex2f r3 = m.Row3;
 		}
 
 		#endregion
@@ -814,6 +922,16 @@ namespace OpenGL.Test
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-5f));
 		}
 
+		[Test]
+		public void Matrix2x4f_TestCastToMatrix2x4d()
+		{
+			Matrix2x4f m = CreateSequenceMatrix();
+			Matrix2x4d mOther = (Matrix2x4d)m;
+
+			for (uint c = 0, idx = 0; c < 2; c++) for (uint r = 0; r < 4; r++, idx++)
+				Assert.That(mOther[c, r], Is.EqualTo(m[c, r]).Within(1e-6f));
+		}
+
 		#endregion
 
 		#region Equality Operators
@@ -838,7 +956,7 @@ namespace OpenGL.Test
 
 		#endregion
 
-		#region Tranposition
+		#region Transposition
 
 		[Test]
 		public void Matrix2x4f_TestTransposed()
@@ -857,7 +975,6 @@ namespace OpenGL.Test
 		}
 
 		#endregion
-
 
 		#region IEquatable Implementation
 
@@ -1000,8 +1117,7 @@ namespace OpenGL.Test
 		#endregion
 	}
 
-	[TestFixture]
-	[Category("Math")]
+	[TestFixture, Category("Math")]
 	internal class Matrix3x2fTest : TestBase
 	{
 		#region Constructors
@@ -1047,6 +1163,38 @@ namespace OpenGL.Test
 
 			for (uint c = 0; c < 3; c++) for (uint r = 0; r < 2; r++)
 				Assert.That(m1[c, r], Is.EqualTo(m2[c, r]).Within(1e-5f));
+		}
+
+		#endregion
+
+		#region Columns & Rows
+
+		[Test]
+		public void Matrix3x2f_TestColumns()
+		{
+			Matrix3x2f m = CreateRandomMatrix();
+
+			Vertex2f c0 = m.Column0;
+			Assert.AreEqual(c0.x, m[0, 0]);
+			Assert.AreEqual(c0.y, m[0, 1]);
+
+			Vertex2f c1 = m.Column1;
+			Assert.AreEqual(c1.x, m[1, 0]);
+			Assert.AreEqual(c1.y, m[1, 1]);
+
+			Vertex2f c2 = m.Column2;
+			Assert.AreEqual(c2.x, m[2, 0]);
+			Assert.AreEqual(c2.y, m[2, 1]);
+
+		}
+
+		[Test]
+		public void Matrix3x2f_TestRows()
+		{
+			Matrix3x2f m = CreateRandomMatrix();
+
+			Vertex3f r0 = m.Row0;
+			Vertex3f r1 = m.Row1;
 		}
 
 		#endregion
@@ -1118,6 +1266,16 @@ namespace OpenGL.Test
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-5f));
 		}
 
+		[Test]
+		public void Matrix3x2f_TestCastToMatrix3x2d()
+		{
+			Matrix3x2f m = CreateSequenceMatrix();
+			Matrix3x2d mOther = (Matrix3x2d)m;
+
+			for (uint c = 0, idx = 0; c < 3; c++) for (uint r = 0; r < 2; r++, idx++)
+				Assert.That(mOther[c, r], Is.EqualTo(m[c, r]).Within(1e-6f));
+		}
+
 		#endregion
 
 		#region Equality Operators
@@ -1142,7 +1300,7 @@ namespace OpenGL.Test
 
 		#endregion
 
-		#region Tranposition
+		#region Transposition
 
 		[Test]
 		public void Matrix3x2f_TestTransposed()
@@ -1159,7 +1317,6 @@ namespace OpenGL.Test
 		}
 
 		#endregion
-
 
 		#region IEquatable Implementation
 
@@ -1288,8 +1445,7 @@ namespace OpenGL.Test
 		#endregion
 	}
 
-	[TestFixture]
-	[Category("Math")]
+	[TestFixture, Category("Math")]
 	internal class Matrix3x3fTest : TestBase
 	{
 		#region Constructors
@@ -1335,6 +1491,42 @@ namespace OpenGL.Test
 
 			for (uint c = 0; c < 3; c++) for (uint r = 0; r < 3; r++)
 				Assert.That(m1[c, r], Is.EqualTo(m2[c, r]).Within(1e-5f));
+		}
+
+		#endregion
+
+		#region Columns & Rows
+
+		[Test]
+		public void Matrix3x3f_TestColumns()
+		{
+			Matrix3x3f m = CreateRandomMatrix();
+
+			Vertex3f c0 = m.Column0;
+			Assert.AreEqual(c0.x, m[0, 0]);
+			Assert.AreEqual(c0.y, m[0, 1]);
+			Assert.AreEqual(c0.z, m[0, 2]);
+
+			Vertex3f c1 = m.Column1;
+			Assert.AreEqual(c1.x, m[1, 0]);
+			Assert.AreEqual(c1.y, m[1, 1]);
+			Assert.AreEqual(c1.z, m[1, 2]);
+
+			Vertex3f c2 = m.Column2;
+			Assert.AreEqual(c2.x, m[2, 0]);
+			Assert.AreEqual(c2.y, m[2, 1]);
+			Assert.AreEqual(c2.z, m[2, 2]);
+
+		}
+
+		[Test]
+		public void Matrix3x3f_TestRows()
+		{
+			Matrix3x3f m = CreateRandomMatrix();
+
+			Vertex3f r0 = m.Row0;
+			Vertex3f r1 = m.Row1;
+			Vertex3f r2 = m.Row2;
 		}
 
 		#endregion
@@ -1431,6 +1623,16 @@ namespace OpenGL.Test
 			Assert.AreEqual(mArray.Length, 9);
 			for (uint c = 0, idx = 0; c < 3; c++) for (uint r = 0; r < 3; r++, idx++)
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-5f));
+		}
+
+		[Test]
+		public void Matrix3x3f_TestCastToMatrix3x3d()
+		{
+			Matrix3x3f m = CreateSequenceMatrix();
+			Matrix3x3d mOther = (Matrix3x3d)m;
+
+			for (uint c = 0, idx = 0; c < 3; c++) for (uint r = 0; r < 3; r++, idx++)
+				Assert.That(mOther[c, r], Is.EqualTo(m[c, r]).Within(1e-6f));
 		}
 
 		#endregion
@@ -1638,7 +1840,7 @@ namespace OpenGL.Test
 
 		#endregion
 
-		#region Tranposition
+		#region Transposition
 
 		[Test]
 		public void Matrix3x3f_TestTransposed()
@@ -1717,7 +1919,6 @@ namespace OpenGL.Test
 		}
 
 		#endregion
-
 
 		#region IEquatable Implementation
 
@@ -1887,8 +2088,7 @@ namespace OpenGL.Test
 		#endregion
 	}
 
-	[TestFixture]
-	[Category("Math")]
+	[TestFixture, Category("Math")]
 	internal class Matrix3x4fTest : TestBase
 	{
 		#region Constructors
@@ -1934,6 +2134,46 @@ namespace OpenGL.Test
 
 			for (uint c = 0; c < 3; c++) for (uint r = 0; r < 4; r++)
 				Assert.That(m1[c, r], Is.EqualTo(m2[c, r]).Within(1e-5f));
+		}
+
+		#endregion
+
+		#region Columns & Rows
+
+		[Test]
+		public void Matrix3x4f_TestColumns()
+		{
+			Matrix3x4f m = CreateRandomMatrix();
+
+			Vertex4f c0 = m.Column0;
+			Assert.AreEqual(c0.x, m[0, 0]);
+			Assert.AreEqual(c0.y, m[0, 1]);
+			Assert.AreEqual(c0.z, m[0, 2]);
+			Assert.AreEqual(c0.w, m[0, 3]);
+
+			Vertex4f c1 = m.Column1;
+			Assert.AreEqual(c1.x, m[1, 0]);
+			Assert.AreEqual(c1.y, m[1, 1]);
+			Assert.AreEqual(c1.z, m[1, 2]);
+			Assert.AreEqual(c1.w, m[1, 3]);
+
+			Vertex4f c2 = m.Column2;
+			Assert.AreEqual(c2.x, m[2, 0]);
+			Assert.AreEqual(c2.y, m[2, 1]);
+			Assert.AreEqual(c2.z, m[2, 2]);
+			Assert.AreEqual(c2.w, m[2, 3]);
+
+		}
+
+		[Test]
+		public void Matrix3x4f_TestRows()
+		{
+			Matrix3x4f m = CreateRandomMatrix();
+
+			Vertex3f r0 = m.Row0;
+			Vertex3f r1 = m.Row1;
+			Vertex3f r2 = m.Row2;
+			Vertex3f r3 = m.Row3;
 		}
 
 		#endregion
@@ -2027,6 +2267,16 @@ namespace OpenGL.Test
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-5f));
 		}
 
+		[Test]
+		public void Matrix3x4f_TestCastToMatrix3x4d()
+		{
+			Matrix3x4f m = CreateSequenceMatrix();
+			Matrix3x4d mOther = (Matrix3x4d)m;
+
+			for (uint c = 0, idx = 0; c < 3; c++) for (uint r = 0; r < 4; r++, idx++)
+				Assert.That(mOther[c, r], Is.EqualTo(m[c, r]).Within(1e-6f));
+		}
+
 		#endregion
 
 		#region Equality Operators
@@ -2051,7 +2301,7 @@ namespace OpenGL.Test
 
 		#endregion
 
-		#region Tranposition
+		#region Transposition
 
 		[Test]
 		public void Matrix3x4f_TestTransposed()
@@ -2074,7 +2324,6 @@ namespace OpenGL.Test
 		}
 
 		#endregion
-
 
 		#region IEquatable Implementation
 
@@ -2251,8 +2500,7 @@ namespace OpenGL.Test
 		#endregion
 	}
 
-	[TestFixture]
-	[Category("Math")]
+	[TestFixture, Category("Math")]
 	internal class Matrix4x2fTest : TestBase
 	{
 		#region Constructors
@@ -2301,6 +2549,42 @@ namespace OpenGL.Test
 
 			for (uint c = 0; c < 4; c++) for (uint r = 0; r < 2; r++)
 				Assert.That(m1[c, r], Is.EqualTo(m2[c, r]).Within(1e-5f));
+		}
+
+		#endregion
+
+		#region Columns & Rows
+
+		[Test]
+		public void Matrix4x2f_TestColumns()
+		{
+			Matrix4x2f m = CreateRandomMatrix();
+
+			Vertex2f c0 = m.Column0;
+			Assert.AreEqual(c0.x, m[0, 0]);
+			Assert.AreEqual(c0.y, m[0, 1]);
+
+			Vertex2f c1 = m.Column1;
+			Assert.AreEqual(c1.x, m[1, 0]);
+			Assert.AreEqual(c1.y, m[1, 1]);
+
+			Vertex2f c2 = m.Column2;
+			Assert.AreEqual(c2.x, m[2, 0]);
+			Assert.AreEqual(c2.y, m[2, 1]);
+
+			Vertex2f c3 = m.Column3;
+			Assert.AreEqual(c3.x, m[3, 0]);
+			Assert.AreEqual(c3.y, m[3, 1]);
+
+		}
+
+		[Test]
+		public void Matrix4x2f_TestRows()
+		{
+			Matrix4x2f m = CreateRandomMatrix();
+
+			Vertex4f r0 = m.Row0;
+			Vertex4f r1 = m.Row1;
 		}
 
 		#endregion
@@ -2380,6 +2664,16 @@ namespace OpenGL.Test
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-5f));
 		}
 
+		[Test]
+		public void Matrix4x2f_TestCastToMatrix4x2d()
+		{
+			Matrix4x2f m = CreateSequenceMatrix();
+			Matrix4x2d mOther = (Matrix4x2d)m;
+
+			for (uint c = 0, idx = 0; c < 4; c++) for (uint r = 0; r < 2; r++, idx++)
+				Assert.That(mOther[c, r], Is.EqualTo(m[c, r]).Within(1e-6f));
+		}
+
 		#endregion
 
 		#region Equality Operators
@@ -2404,7 +2698,7 @@ namespace OpenGL.Test
 
 		#endregion
 
-		#region Tranposition
+		#region Transposition
 
 		[Test]
 		public void Matrix4x2f_TestTransposed()
@@ -2423,7 +2717,6 @@ namespace OpenGL.Test
 		}
 
 		#endregion
-
 
 		#region IEquatable Implementation
 
@@ -2570,8 +2863,7 @@ namespace OpenGL.Test
 		#endregion
 	}
 
-	[TestFixture]
-	[Category("Math")]
+	[TestFixture, Category("Math")]
 	internal class Matrix4x3fTest : TestBase
 	{
 		#region Constructors
@@ -2620,6 +2912,47 @@ namespace OpenGL.Test
 
 			for (uint c = 0; c < 4; c++) for (uint r = 0; r < 3; r++)
 				Assert.That(m1[c, r], Is.EqualTo(m2[c, r]).Within(1e-5f));
+		}
+
+		#endregion
+
+		#region Columns & Rows
+
+		[Test]
+		public void Matrix4x3f_TestColumns()
+		{
+			Matrix4x3f m = CreateRandomMatrix();
+
+			Vertex3f c0 = m.Column0;
+			Assert.AreEqual(c0.x, m[0, 0]);
+			Assert.AreEqual(c0.y, m[0, 1]);
+			Assert.AreEqual(c0.z, m[0, 2]);
+
+			Vertex3f c1 = m.Column1;
+			Assert.AreEqual(c1.x, m[1, 0]);
+			Assert.AreEqual(c1.y, m[1, 1]);
+			Assert.AreEqual(c1.z, m[1, 2]);
+
+			Vertex3f c2 = m.Column2;
+			Assert.AreEqual(c2.x, m[2, 0]);
+			Assert.AreEqual(c2.y, m[2, 1]);
+			Assert.AreEqual(c2.z, m[2, 2]);
+
+			Vertex3f c3 = m.Column3;
+			Assert.AreEqual(c3.x, m[3, 0]);
+			Assert.AreEqual(c3.y, m[3, 1]);
+			Assert.AreEqual(c3.z, m[3, 2]);
+
+		}
+
+		[Test]
+		public void Matrix4x3f_TestRows()
+		{
+			Matrix4x3f m = CreateRandomMatrix();
+
+			Vertex4f r0 = m.Row0;
+			Vertex4f r1 = m.Row1;
+			Vertex4f r2 = m.Row2;
 		}
 
 		#endregion
@@ -2713,6 +3046,16 @@ namespace OpenGL.Test
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-5f));
 		}
 
+		[Test]
+		public void Matrix4x3f_TestCastToMatrix4x3d()
+		{
+			Matrix4x3f m = CreateSequenceMatrix();
+			Matrix4x3d mOther = (Matrix4x3d)m;
+
+			for (uint c = 0, idx = 0; c < 4; c++) for (uint r = 0; r < 3; r++, idx++)
+				Assert.That(mOther[c, r], Is.EqualTo(m[c, r]).Within(1e-6f));
+		}
+
 		#endregion
 
 		#region Equality Operators
@@ -2737,7 +3080,7 @@ namespace OpenGL.Test
 
 		#endregion
 
-		#region Tranposition
+		#region Transposition
 
 		[Test]
 		public void Matrix4x3f_TestTransposed()
@@ -2760,7 +3103,6 @@ namespace OpenGL.Test
 		}
 
 		#endregion
-
 
 		#region IEquatable Implementation
 
@@ -2939,8 +3281,7 @@ namespace OpenGL.Test
 		#endregion
 	}
 
-	[TestFixture]
-	[Category("Math")]
+	[TestFixture, Category("Math")]
 	internal class Matrix4x4fTest : TestBase
 	{
 		#region Constructors
@@ -2989,6 +3330,52 @@ namespace OpenGL.Test
 
 			for (uint c = 0; c < 4; c++) for (uint r = 0; r < 4; r++)
 				Assert.That(m1[c, r], Is.EqualTo(m2[c, r]).Within(1e-5f));
+		}
+
+		#endregion
+
+		#region Columns & Rows
+
+		[Test]
+		public void Matrix4x4f_TestColumns()
+		{
+			Matrix4x4f m = CreateRandomMatrix();
+
+			Vertex4f c0 = m.Column0;
+			Assert.AreEqual(c0.x, m[0, 0]);
+			Assert.AreEqual(c0.y, m[0, 1]);
+			Assert.AreEqual(c0.z, m[0, 2]);
+			Assert.AreEqual(c0.w, m[0, 3]);
+
+			Vertex4f c1 = m.Column1;
+			Assert.AreEqual(c1.x, m[1, 0]);
+			Assert.AreEqual(c1.y, m[1, 1]);
+			Assert.AreEqual(c1.z, m[1, 2]);
+			Assert.AreEqual(c1.w, m[1, 3]);
+
+			Vertex4f c2 = m.Column2;
+			Assert.AreEqual(c2.x, m[2, 0]);
+			Assert.AreEqual(c2.y, m[2, 1]);
+			Assert.AreEqual(c2.z, m[2, 2]);
+			Assert.AreEqual(c2.w, m[2, 3]);
+
+			Vertex4f c3 = m.Column3;
+			Assert.AreEqual(c3.x, m[3, 0]);
+			Assert.AreEqual(c3.y, m[3, 1]);
+			Assert.AreEqual(c3.z, m[3, 2]);
+			Assert.AreEqual(c3.w, m[3, 3]);
+
+		}
+
+		[Test]
+		public void Matrix4x4f_TestRows()
+		{
+			Matrix4x4f m = CreateRandomMatrix();
+
+			Vertex4f r0 = m.Row0;
+			Vertex4f r1 = m.Row1;
+			Vertex4f r2 = m.Row2;
+			Vertex4f r3 = m.Row3;
 		}
 
 		#endregion
@@ -3110,6 +3497,16 @@ namespace OpenGL.Test
 			Assert.AreEqual(mArray.Length, 16);
 			for (uint c = 0, idx = 0; c < 4; c++) for (uint r = 0; r < 4; r++, idx++)
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-5f));
+		}
+
+		[Test]
+		public void Matrix4x4f_TestCastToMatrix4x4d()
+		{
+			Matrix4x4f m = CreateSequenceMatrix();
+			Matrix4x4d mOther = (Matrix4x4d)m;
+
+			for (uint c = 0, idx = 0; c < 4; c++) for (uint r = 0; r < 4; r++, idx++)
+				Assert.That(mOther[c, r], Is.EqualTo(m[c, r]).Within(1e-6f));
 		}
 
 		#endregion
@@ -3463,7 +3860,7 @@ namespace OpenGL.Test
 
 		#endregion
 
-		#region Tranposition
+		#region Transposition
 
 		[Test]
 		public void Matrix4x4f_TestTransposed()
@@ -3556,7 +3953,6 @@ namespace OpenGL.Test
 		}
 
 		#endregion
-
 
 		#region IEquatable Implementation
 
@@ -3791,8 +4187,7 @@ namespace OpenGL.Test
 		#endregion
 	}
 
-	[TestFixture]
-	[Category("Math")]
+	[TestFixture, Category("Math")]
 	internal class Matrix2x2dTest : TestBase
 	{
 		#region Constructors
@@ -3835,6 +4230,34 @@ namespace OpenGL.Test
 
 			for (uint c = 0; c < 2; c++) for (uint r = 0; r < 2; r++)
 				Assert.That(m1[c, r], Is.EqualTo(m2[c, r]).Within(1e-10));
+		}
+
+		#endregion
+
+		#region Columns & Rows
+
+		[Test]
+		public void Matrix2x2d_TestColumns()
+		{
+			Matrix2x2d m = CreateRandomMatrix();
+
+			Vertex2d c0 = m.Column0;
+			Assert.AreEqual(c0.x, m[0, 0]);
+			Assert.AreEqual(c0.y, m[0, 1]);
+
+			Vertex2d c1 = m.Column1;
+			Assert.AreEqual(c1.x, m[1, 0]);
+			Assert.AreEqual(c1.y, m[1, 1]);
+
+		}
+
+		[Test]
+		public void Matrix2x2d_TestRows()
+		{
+			Matrix2x2d m = CreateRandomMatrix();
+
+			Vertex2d r0 = m.Row0;
+			Vertex2d r1 = m.Row1;
 		}
 
 		#endregion
@@ -3914,6 +4337,16 @@ namespace OpenGL.Test
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-10));
 		}
 
+		[Test]
+		public void Matrix2x2d_TestCastToMatrix2x2f()
+		{
+			Matrix2x2d m = CreateSequenceMatrix();
+			Matrix2x2f mOther = (Matrix2x2f)m;
+
+			for (uint c = 0, idx = 0; c < 2; c++) for (uint r = 0; r < 2; r++, idx++)
+				Assert.That(mOther[c, r], Is.EqualTo(m[c, r]).Within(1e-6));
+		}
+
 		#endregion
 
 		#region Equality Operators
@@ -3975,7 +4408,7 @@ namespace OpenGL.Test
 
 		#endregion
 
-		#region Tranposition
+		#region Transposition
 
 		[Test]
 		public void Matrix2x2d_TestTransposed()
@@ -4044,7 +4477,6 @@ namespace OpenGL.Test
 		}
 
 		#endregion
-
 
 		#region IEquatable Implementation
 
@@ -4167,8 +4599,7 @@ namespace OpenGL.Test
 		#endregion
 	}
 
-	[TestFixture]
-	[Category("Math")]
+	[TestFixture, Category("Math")]
 	internal class Matrix2x3dTest : TestBase
 	{
 		#region Constructors
@@ -4211,6 +4642,37 @@ namespace OpenGL.Test
 
 			for (uint c = 0; c < 2; c++) for (uint r = 0; r < 3; r++)
 				Assert.That(m1[c, r], Is.EqualTo(m2[c, r]).Within(1e-10));
+		}
+
+		#endregion
+
+		#region Columns & Rows
+
+		[Test]
+		public void Matrix2x3d_TestColumns()
+		{
+			Matrix2x3d m = CreateRandomMatrix();
+
+			Vertex3d c0 = m.Column0;
+			Assert.AreEqual(c0.x, m[0, 0]);
+			Assert.AreEqual(c0.y, m[0, 1]);
+			Assert.AreEqual(c0.z, m[0, 2]);
+
+			Vertex3d c1 = m.Column1;
+			Assert.AreEqual(c1.x, m[1, 0]);
+			Assert.AreEqual(c1.y, m[1, 1]);
+			Assert.AreEqual(c1.z, m[1, 2]);
+
+		}
+
+		[Test]
+		public void Matrix2x3d_TestRows()
+		{
+			Matrix2x3d m = CreateRandomMatrix();
+
+			Vertex2d r0 = m.Row0;
+			Vertex2d r1 = m.Row1;
+			Vertex2d r2 = m.Row2;
 		}
 
 		#endregion
@@ -4282,6 +4744,16 @@ namespace OpenGL.Test
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-10));
 		}
 
+		[Test]
+		public void Matrix2x3d_TestCastToMatrix2x3f()
+		{
+			Matrix2x3d m = CreateSequenceMatrix();
+			Matrix2x3f mOther = (Matrix2x3f)m;
+
+			for (uint c = 0, idx = 0; c < 2; c++) for (uint r = 0; r < 3; r++, idx++)
+				Assert.That(mOther[c, r], Is.EqualTo(m[c, r]).Within(1e-6));
+		}
+
 		#endregion
 
 		#region Equality Operators
@@ -4306,7 +4778,7 @@ namespace OpenGL.Test
 
 		#endregion
 
-		#region Tranposition
+		#region Transposition
 
 		[Test]
 		public void Matrix2x3d_TestTransposed()
@@ -4323,7 +4795,6 @@ namespace OpenGL.Test
 		}
 
 		#endregion
-
 
 		#region IEquatable Implementation
 
@@ -4450,8 +4921,7 @@ namespace OpenGL.Test
 		#endregion
 	}
 
-	[TestFixture]
-	[Category("Math")]
+	[TestFixture, Category("Math")]
 	internal class Matrix2x4dTest : TestBase
 	{
 		#region Constructors
@@ -4494,6 +4964,40 @@ namespace OpenGL.Test
 
 			for (uint c = 0; c < 2; c++) for (uint r = 0; r < 4; r++)
 				Assert.That(m1[c, r], Is.EqualTo(m2[c, r]).Within(1e-10));
+		}
+
+		#endregion
+
+		#region Columns & Rows
+
+		[Test]
+		public void Matrix2x4d_TestColumns()
+		{
+			Matrix2x4d m = CreateRandomMatrix();
+
+			Vertex4d c0 = m.Column0;
+			Assert.AreEqual(c0.x, m[0, 0]);
+			Assert.AreEqual(c0.y, m[0, 1]);
+			Assert.AreEqual(c0.z, m[0, 2]);
+			Assert.AreEqual(c0.w, m[0, 3]);
+
+			Vertex4d c1 = m.Column1;
+			Assert.AreEqual(c1.x, m[1, 0]);
+			Assert.AreEqual(c1.y, m[1, 1]);
+			Assert.AreEqual(c1.z, m[1, 2]);
+			Assert.AreEqual(c1.w, m[1, 3]);
+
+		}
+
+		[Test]
+		public void Matrix2x4d_TestRows()
+		{
+			Matrix2x4d m = CreateRandomMatrix();
+
+			Vertex2d r0 = m.Row0;
+			Vertex2d r1 = m.Row1;
+			Vertex2d r2 = m.Row2;
+			Vertex2d r3 = m.Row3;
 		}
 
 		#endregion
@@ -4573,6 +5077,16 @@ namespace OpenGL.Test
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-10));
 		}
 
+		[Test]
+		public void Matrix2x4d_TestCastToMatrix2x4f()
+		{
+			Matrix2x4d m = CreateSequenceMatrix();
+			Matrix2x4f mOther = (Matrix2x4f)m;
+
+			for (uint c = 0, idx = 0; c < 2; c++) for (uint r = 0; r < 4; r++, idx++)
+				Assert.That(mOther[c, r], Is.EqualTo(m[c, r]).Within(1e-6));
+		}
+
 		#endregion
 
 		#region Equality Operators
@@ -4597,7 +5111,7 @@ namespace OpenGL.Test
 
 		#endregion
 
-		#region Tranposition
+		#region Transposition
 
 		[Test]
 		public void Matrix2x4d_TestTransposed()
@@ -4616,7 +5130,6 @@ namespace OpenGL.Test
 		}
 
 		#endregion
-
 
 		#region IEquatable Implementation
 
@@ -4759,8 +5272,7 @@ namespace OpenGL.Test
 		#endregion
 	}
 
-	[TestFixture]
-	[Category("Math")]
+	[TestFixture, Category("Math")]
 	internal class Matrix3x2dTest : TestBase
 	{
 		#region Constructors
@@ -4806,6 +5318,38 @@ namespace OpenGL.Test
 
 			for (uint c = 0; c < 3; c++) for (uint r = 0; r < 2; r++)
 				Assert.That(m1[c, r], Is.EqualTo(m2[c, r]).Within(1e-10));
+		}
+
+		#endregion
+
+		#region Columns & Rows
+
+		[Test]
+		public void Matrix3x2d_TestColumns()
+		{
+			Matrix3x2d m = CreateRandomMatrix();
+
+			Vertex2d c0 = m.Column0;
+			Assert.AreEqual(c0.x, m[0, 0]);
+			Assert.AreEqual(c0.y, m[0, 1]);
+
+			Vertex2d c1 = m.Column1;
+			Assert.AreEqual(c1.x, m[1, 0]);
+			Assert.AreEqual(c1.y, m[1, 1]);
+
+			Vertex2d c2 = m.Column2;
+			Assert.AreEqual(c2.x, m[2, 0]);
+			Assert.AreEqual(c2.y, m[2, 1]);
+
+		}
+
+		[Test]
+		public void Matrix3x2d_TestRows()
+		{
+			Matrix3x2d m = CreateRandomMatrix();
+
+			Vertex3d r0 = m.Row0;
+			Vertex3d r1 = m.Row1;
 		}
 
 		#endregion
@@ -4877,6 +5421,16 @@ namespace OpenGL.Test
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-10));
 		}
 
+		[Test]
+		public void Matrix3x2d_TestCastToMatrix3x2f()
+		{
+			Matrix3x2d m = CreateSequenceMatrix();
+			Matrix3x2f mOther = (Matrix3x2f)m;
+
+			for (uint c = 0, idx = 0; c < 3; c++) for (uint r = 0; r < 2; r++, idx++)
+				Assert.That(mOther[c, r], Is.EqualTo(m[c, r]).Within(1e-6));
+		}
+
 		#endregion
 
 		#region Equality Operators
@@ -4901,7 +5455,7 @@ namespace OpenGL.Test
 
 		#endregion
 
-		#region Tranposition
+		#region Transposition
 
 		[Test]
 		public void Matrix3x2d_TestTransposed()
@@ -4918,7 +5472,6 @@ namespace OpenGL.Test
 		}
 
 		#endregion
-
 
 		#region IEquatable Implementation
 
@@ -5047,8 +5600,7 @@ namespace OpenGL.Test
 		#endregion
 	}
 
-	[TestFixture]
-	[Category("Math")]
+	[TestFixture, Category("Math")]
 	internal class Matrix3x3dTest : TestBase
 	{
 		#region Constructors
@@ -5094,6 +5646,42 @@ namespace OpenGL.Test
 
 			for (uint c = 0; c < 3; c++) for (uint r = 0; r < 3; r++)
 				Assert.That(m1[c, r], Is.EqualTo(m2[c, r]).Within(1e-10));
+		}
+
+		#endregion
+
+		#region Columns & Rows
+
+		[Test]
+		public void Matrix3x3d_TestColumns()
+		{
+			Matrix3x3d m = CreateRandomMatrix();
+
+			Vertex3d c0 = m.Column0;
+			Assert.AreEqual(c0.x, m[0, 0]);
+			Assert.AreEqual(c0.y, m[0, 1]);
+			Assert.AreEqual(c0.z, m[0, 2]);
+
+			Vertex3d c1 = m.Column1;
+			Assert.AreEqual(c1.x, m[1, 0]);
+			Assert.AreEqual(c1.y, m[1, 1]);
+			Assert.AreEqual(c1.z, m[1, 2]);
+
+			Vertex3d c2 = m.Column2;
+			Assert.AreEqual(c2.x, m[2, 0]);
+			Assert.AreEqual(c2.y, m[2, 1]);
+			Assert.AreEqual(c2.z, m[2, 2]);
+
+		}
+
+		[Test]
+		public void Matrix3x3d_TestRows()
+		{
+			Matrix3x3d m = CreateRandomMatrix();
+
+			Vertex3d r0 = m.Row0;
+			Vertex3d r1 = m.Row1;
+			Vertex3d r2 = m.Row2;
 		}
 
 		#endregion
@@ -5190,6 +5778,16 @@ namespace OpenGL.Test
 			Assert.AreEqual(mArray.Length, 9);
 			for (uint c = 0, idx = 0; c < 3; c++) for (uint r = 0; r < 3; r++, idx++)
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-10));
+		}
+
+		[Test]
+		public void Matrix3x3d_TestCastToMatrix3x3f()
+		{
+			Matrix3x3d m = CreateSequenceMatrix();
+			Matrix3x3f mOther = (Matrix3x3f)m;
+
+			for (uint c = 0, idx = 0; c < 3; c++) for (uint r = 0; r < 3; r++, idx++)
+				Assert.That(mOther[c, r], Is.EqualTo(m[c, r]).Within(1e-6));
 		}
 
 		#endregion
@@ -5397,7 +5995,7 @@ namespace OpenGL.Test
 
 		#endregion
 
-		#region Tranposition
+		#region Transposition
 
 		[Test]
 		public void Matrix3x3d_TestTransposed()
@@ -5476,7 +6074,6 @@ namespace OpenGL.Test
 		}
 
 		#endregion
-
 
 		#region IEquatable Implementation
 
@@ -5646,8 +6243,7 @@ namespace OpenGL.Test
 		#endregion
 	}
 
-	[TestFixture]
-	[Category("Math")]
+	[TestFixture, Category("Math")]
 	internal class Matrix3x4dTest : TestBase
 	{
 		#region Constructors
@@ -5693,6 +6289,46 @@ namespace OpenGL.Test
 
 			for (uint c = 0; c < 3; c++) for (uint r = 0; r < 4; r++)
 				Assert.That(m1[c, r], Is.EqualTo(m2[c, r]).Within(1e-10));
+		}
+
+		#endregion
+
+		#region Columns & Rows
+
+		[Test]
+		public void Matrix3x4d_TestColumns()
+		{
+			Matrix3x4d m = CreateRandomMatrix();
+
+			Vertex4d c0 = m.Column0;
+			Assert.AreEqual(c0.x, m[0, 0]);
+			Assert.AreEqual(c0.y, m[0, 1]);
+			Assert.AreEqual(c0.z, m[0, 2]);
+			Assert.AreEqual(c0.w, m[0, 3]);
+
+			Vertex4d c1 = m.Column1;
+			Assert.AreEqual(c1.x, m[1, 0]);
+			Assert.AreEqual(c1.y, m[1, 1]);
+			Assert.AreEqual(c1.z, m[1, 2]);
+			Assert.AreEqual(c1.w, m[1, 3]);
+
+			Vertex4d c2 = m.Column2;
+			Assert.AreEqual(c2.x, m[2, 0]);
+			Assert.AreEqual(c2.y, m[2, 1]);
+			Assert.AreEqual(c2.z, m[2, 2]);
+			Assert.AreEqual(c2.w, m[2, 3]);
+
+		}
+
+		[Test]
+		public void Matrix3x4d_TestRows()
+		{
+			Matrix3x4d m = CreateRandomMatrix();
+
+			Vertex3d r0 = m.Row0;
+			Vertex3d r1 = m.Row1;
+			Vertex3d r2 = m.Row2;
+			Vertex3d r3 = m.Row3;
 		}
 
 		#endregion
@@ -5786,6 +6422,16 @@ namespace OpenGL.Test
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-10));
 		}
 
+		[Test]
+		public void Matrix3x4d_TestCastToMatrix3x4f()
+		{
+			Matrix3x4d m = CreateSequenceMatrix();
+			Matrix3x4f mOther = (Matrix3x4f)m;
+
+			for (uint c = 0, idx = 0; c < 3; c++) for (uint r = 0; r < 4; r++, idx++)
+				Assert.That(mOther[c, r], Is.EqualTo(m[c, r]).Within(1e-6));
+		}
+
 		#endregion
 
 		#region Equality Operators
@@ -5810,7 +6456,7 @@ namespace OpenGL.Test
 
 		#endregion
 
-		#region Tranposition
+		#region Transposition
 
 		[Test]
 		public void Matrix3x4d_TestTransposed()
@@ -5833,7 +6479,6 @@ namespace OpenGL.Test
 		}
 
 		#endregion
-
 
 		#region IEquatable Implementation
 
@@ -6010,8 +6655,7 @@ namespace OpenGL.Test
 		#endregion
 	}
 
-	[TestFixture]
-	[Category("Math")]
+	[TestFixture, Category("Math")]
 	internal class Matrix4x2dTest : TestBase
 	{
 		#region Constructors
@@ -6060,6 +6704,42 @@ namespace OpenGL.Test
 
 			for (uint c = 0; c < 4; c++) for (uint r = 0; r < 2; r++)
 				Assert.That(m1[c, r], Is.EqualTo(m2[c, r]).Within(1e-10));
+		}
+
+		#endregion
+
+		#region Columns & Rows
+
+		[Test]
+		public void Matrix4x2d_TestColumns()
+		{
+			Matrix4x2d m = CreateRandomMatrix();
+
+			Vertex2d c0 = m.Column0;
+			Assert.AreEqual(c0.x, m[0, 0]);
+			Assert.AreEqual(c0.y, m[0, 1]);
+
+			Vertex2d c1 = m.Column1;
+			Assert.AreEqual(c1.x, m[1, 0]);
+			Assert.AreEqual(c1.y, m[1, 1]);
+
+			Vertex2d c2 = m.Column2;
+			Assert.AreEqual(c2.x, m[2, 0]);
+			Assert.AreEqual(c2.y, m[2, 1]);
+
+			Vertex2d c3 = m.Column3;
+			Assert.AreEqual(c3.x, m[3, 0]);
+			Assert.AreEqual(c3.y, m[3, 1]);
+
+		}
+
+		[Test]
+		public void Matrix4x2d_TestRows()
+		{
+			Matrix4x2d m = CreateRandomMatrix();
+
+			Vertex4d r0 = m.Row0;
+			Vertex4d r1 = m.Row1;
 		}
 
 		#endregion
@@ -6139,6 +6819,16 @@ namespace OpenGL.Test
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-10));
 		}
 
+		[Test]
+		public void Matrix4x2d_TestCastToMatrix4x2f()
+		{
+			Matrix4x2d m = CreateSequenceMatrix();
+			Matrix4x2f mOther = (Matrix4x2f)m;
+
+			for (uint c = 0, idx = 0; c < 4; c++) for (uint r = 0; r < 2; r++, idx++)
+				Assert.That(mOther[c, r], Is.EqualTo(m[c, r]).Within(1e-6));
+		}
+
 		#endregion
 
 		#region Equality Operators
@@ -6163,7 +6853,7 @@ namespace OpenGL.Test
 
 		#endregion
 
-		#region Tranposition
+		#region Transposition
 
 		[Test]
 		public void Matrix4x2d_TestTransposed()
@@ -6182,7 +6872,6 @@ namespace OpenGL.Test
 		}
 
 		#endregion
-
 
 		#region IEquatable Implementation
 
@@ -6329,8 +7018,7 @@ namespace OpenGL.Test
 		#endregion
 	}
 
-	[TestFixture]
-	[Category("Math")]
+	[TestFixture, Category("Math")]
 	internal class Matrix4x3dTest : TestBase
 	{
 		#region Constructors
@@ -6379,6 +7067,47 @@ namespace OpenGL.Test
 
 			for (uint c = 0; c < 4; c++) for (uint r = 0; r < 3; r++)
 				Assert.That(m1[c, r], Is.EqualTo(m2[c, r]).Within(1e-10));
+		}
+
+		#endregion
+
+		#region Columns & Rows
+
+		[Test]
+		public void Matrix4x3d_TestColumns()
+		{
+			Matrix4x3d m = CreateRandomMatrix();
+
+			Vertex3d c0 = m.Column0;
+			Assert.AreEqual(c0.x, m[0, 0]);
+			Assert.AreEqual(c0.y, m[0, 1]);
+			Assert.AreEqual(c0.z, m[0, 2]);
+
+			Vertex3d c1 = m.Column1;
+			Assert.AreEqual(c1.x, m[1, 0]);
+			Assert.AreEqual(c1.y, m[1, 1]);
+			Assert.AreEqual(c1.z, m[1, 2]);
+
+			Vertex3d c2 = m.Column2;
+			Assert.AreEqual(c2.x, m[2, 0]);
+			Assert.AreEqual(c2.y, m[2, 1]);
+			Assert.AreEqual(c2.z, m[2, 2]);
+
+			Vertex3d c3 = m.Column3;
+			Assert.AreEqual(c3.x, m[3, 0]);
+			Assert.AreEqual(c3.y, m[3, 1]);
+			Assert.AreEqual(c3.z, m[3, 2]);
+
+		}
+
+		[Test]
+		public void Matrix4x3d_TestRows()
+		{
+			Matrix4x3d m = CreateRandomMatrix();
+
+			Vertex4d r0 = m.Row0;
+			Vertex4d r1 = m.Row1;
+			Vertex4d r2 = m.Row2;
 		}
 
 		#endregion
@@ -6472,6 +7201,16 @@ namespace OpenGL.Test
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-10));
 		}
 
+		[Test]
+		public void Matrix4x3d_TestCastToMatrix4x3f()
+		{
+			Matrix4x3d m = CreateSequenceMatrix();
+			Matrix4x3f mOther = (Matrix4x3f)m;
+
+			for (uint c = 0, idx = 0; c < 4; c++) for (uint r = 0; r < 3; r++, idx++)
+				Assert.That(mOther[c, r], Is.EqualTo(m[c, r]).Within(1e-6));
+		}
+
 		#endregion
 
 		#region Equality Operators
@@ -6496,7 +7235,7 @@ namespace OpenGL.Test
 
 		#endregion
 
-		#region Tranposition
+		#region Transposition
 
 		[Test]
 		public void Matrix4x3d_TestTransposed()
@@ -6519,7 +7258,6 @@ namespace OpenGL.Test
 		}
 
 		#endregion
-
 
 		#region IEquatable Implementation
 
@@ -6698,8 +7436,7 @@ namespace OpenGL.Test
 		#endregion
 	}
 
-	[TestFixture]
-	[Category("Math")]
+	[TestFixture, Category("Math")]
 	internal class Matrix4x4dTest : TestBase
 	{
 		#region Constructors
@@ -6748,6 +7485,52 @@ namespace OpenGL.Test
 
 			for (uint c = 0; c < 4; c++) for (uint r = 0; r < 4; r++)
 				Assert.That(m1[c, r], Is.EqualTo(m2[c, r]).Within(1e-10));
+		}
+
+		#endregion
+
+		#region Columns & Rows
+
+		[Test]
+		public void Matrix4x4d_TestColumns()
+		{
+			Matrix4x4d m = CreateRandomMatrix();
+
+			Vertex4d c0 = m.Column0;
+			Assert.AreEqual(c0.x, m[0, 0]);
+			Assert.AreEqual(c0.y, m[0, 1]);
+			Assert.AreEqual(c0.z, m[0, 2]);
+			Assert.AreEqual(c0.w, m[0, 3]);
+
+			Vertex4d c1 = m.Column1;
+			Assert.AreEqual(c1.x, m[1, 0]);
+			Assert.AreEqual(c1.y, m[1, 1]);
+			Assert.AreEqual(c1.z, m[1, 2]);
+			Assert.AreEqual(c1.w, m[1, 3]);
+
+			Vertex4d c2 = m.Column2;
+			Assert.AreEqual(c2.x, m[2, 0]);
+			Assert.AreEqual(c2.y, m[2, 1]);
+			Assert.AreEqual(c2.z, m[2, 2]);
+			Assert.AreEqual(c2.w, m[2, 3]);
+
+			Vertex4d c3 = m.Column3;
+			Assert.AreEqual(c3.x, m[3, 0]);
+			Assert.AreEqual(c3.y, m[3, 1]);
+			Assert.AreEqual(c3.z, m[3, 2]);
+			Assert.AreEqual(c3.w, m[3, 3]);
+
+		}
+
+		[Test]
+		public void Matrix4x4d_TestRows()
+		{
+			Matrix4x4d m = CreateRandomMatrix();
+
+			Vertex4d r0 = m.Row0;
+			Vertex4d r1 = m.Row1;
+			Vertex4d r2 = m.Row2;
+			Vertex4d r3 = m.Row3;
 		}
 
 		#endregion
@@ -6869,6 +7652,16 @@ namespace OpenGL.Test
 			Assert.AreEqual(mArray.Length, 16);
 			for (uint c = 0, idx = 0; c < 4; c++) for (uint r = 0; r < 4; r++, idx++)
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-10));
+		}
+
+		[Test]
+		public void Matrix4x4d_TestCastToMatrix4x4f()
+		{
+			Matrix4x4d m = CreateSequenceMatrix();
+			Matrix4x4f mOther = (Matrix4x4f)m;
+
+			for (uint c = 0, idx = 0; c < 4; c++) for (uint r = 0; r < 4; r++, idx++)
+				Assert.That(mOther[c, r], Is.EqualTo(m[c, r]).Within(1e-6));
 		}
 
 		#endregion
@@ -7222,7 +8015,7 @@ namespace OpenGL.Test
 
 		#endregion
 
-		#region Tranposition
+		#region Transposition
 
 		[Test]
 		public void Matrix4x4d_TestTransposed()
@@ -7315,7 +8108,6 @@ namespace OpenGL.Test
 		}
 
 		#endregion
-
 
 		#region IEquatable Implementation
 

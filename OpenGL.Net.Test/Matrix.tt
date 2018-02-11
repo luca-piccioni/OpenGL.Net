@@ -57,6 +57,7 @@ namespace OpenGL.Test
 		string highorderClassName = String.Format("Matrix{0}x{1}{2}", c + 1, r + 1, postfixes[i]);
 		string matrixBaseType = matrixBaseTypes[i];
 		string columnType = String.Format("Vertex{0}{1}", r, postfixes[i]);
+		string rowType = String.Format("Vertex{0}{1}", c, postfixes[i]);
 		string matrixType = "Matrix";
 		string one = ones[i], zero = zeroes[i];
 		string tranposedClassName = String.Format("Matrix{0}x{1}{2}", r, c, postfixes[i]);
@@ -65,8 +66,7 @@ namespace OpenGL.Test
 		string vertex4 = "Vertex4" + vliterals[i];
 		string vertex3 = "Vertex3" + vliterals[i];
 #>
-	[TestFixture]
-	[Category("Math")]
+	[TestFixture, Category("Math")]
 	internal class <#= className #>Test : TestBase
 	{
 		#region Constructors
@@ -115,6 +115,34 @@ namespace OpenGL.Test
 
 			for (uint c = 0; c < <#= c #>; c++) for (uint r = 0; r < <#= r #>; r++)
 				Assert.That(m1[c, r], Is.EqualTo(m2[c, r]).Within(<#= epsilon #>));
+		}
+
+		#endregion
+
+		#region Columns & Rows
+
+		[Test]
+		public void <#= className #>_TestColumns()
+		{
+			<#= className #> m = CreateRandomMatrix();
+
+<# for (int j = 0; j < c; j++) { #>
+			<#= columnType #> c<#= j #> = m.Column<#= j #>;
+<# for (int k = 0; k < r; k++) { #>
+			Assert.AreEqual(c<#= j #>.<#= columnTypeComps[k] #>, m[<#= j #>, <#= k #>]);
+<# } #>
+
+<# } #>
+		}
+
+		[Test]
+		public void <#= className #>_TestRows()
+		{
+			<#= className #> m = CreateRandomMatrix();
+
+<# for (int k = 0; k < r; k++) { #>
+			<#= rowType #> r<#= k#> = m.Row<#= k #>;
+<# } #>
 		}
 
 		#endregion
@@ -187,6 +215,21 @@ namespace OpenGL.Test
 			Assert.AreEqual(mArray.Length, <#= c * r #>);
 			for (uint c = 0, idx = 0; c < <#= c #>; c++) for (uint r = 0; r < <#= r #>; r++, idx++)
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(<#= epsilon #>));
+		}
+
+<#
+		string castMatrixType = $"Matrix{c}x{r}" + ((matrixBaseType == "float") ? "d" : "f");
+		string castMatrixModifier = (matrixBaseType == "double") ? "explicit" : "implicit";
+		string castMatrixOp = (matrixBaseType == "double") ? "(float)" : "";
+#>
+		[Test]
+		public void <#= className #>_TestCastTo<#= castMatrixType #>()
+		{
+			<#= className #> m = CreateSequenceMatrix();
+			<#= castMatrixType #> mOther = (<#= castMatrixType #>)m;
+
+			for (uint c = 0, idx = 0; c < <#= c #>; c++) for (uint r = 0; r < <#= r #>; r++, idx++)
+				Assert.That(mOther[c, r], Is.EqualTo(m[c, r]).Within(1e-6<#= literal #>));
 		}
 
 		#endregion
@@ -552,7 +595,7 @@ namespace OpenGL.Test
 		#endregion
 
 <# } #>
-		#region Tranposition
+		#region Transposition
 
 		[Test]
 		public void <#= className #>_TestTransposed()
@@ -624,7 +667,6 @@ namespace OpenGL.Test
 		#endregion
 
 <# } #>
-
 		#region IEquatable Implementation
 
 		[Test]
