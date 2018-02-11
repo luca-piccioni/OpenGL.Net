@@ -85,5 +85,16 @@ namespace OpenGL.Test
 			Assert.IsTrue (Khronos.KhronosApi.IsCompatibleField(fi, Gl.Version_100, extensions));
 			Assert.IsTrue (Khronos.KhronosApi.IsCompatibleField(fi, Gl.Version_200_ES, extensions));
 		}
+
+		[Test]
+		public void KhronosApi_Log()
+		{
+			if (Khronos.KhronosApi.HasLogging == false)
+				Assert.Inconclusive("no log support");
+
+			Assert.IsTrue(Khronos.KhronosApi.HasLogging);
+			Assert.IsFalse(Khronos.KhronosApi.LogEnabled);
+
+		}
 	}
 }

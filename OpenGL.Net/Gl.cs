@@ -180,7 +180,7 @@ namespace OpenGL
 				LogComment("OpenGL.Net has been initialized");
 			} catch (Exception excepton) {
 				InitializationException = excepton;
-				LogComment("Unable to initialize OpenGL.Net: {0}", InitializationException.ToString());
+				LogComment($"Unable to initialize OpenGL.Net: {InitializationException}");
 			}
 		}
 

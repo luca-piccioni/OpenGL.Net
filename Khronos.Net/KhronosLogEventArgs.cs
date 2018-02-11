@@ -20,8 +20,6 @@
 // SOFTWARE.
 
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Khronos
 {
@@ -35,18 +33,12 @@ namespace Khronos
 		/// <summary>
 		/// Construct a KhronosLogEventArgs.
 		/// </summary>
-		/// <param name="logContext">
-		/// A <see cref="KhronosLogContext"/> holding information about the API logged.
+		/// <param name="comment">
+		/// A <see cref="string"/> that specifies the comment string.
 		/// </param>
-		/// <param name="format">
-		/// A <see cref="String"/> that specifies the format string.
-		/// </param>
-		/// <param name="args">
-		/// An array of objects that specifies the arguments for <paramref name="format"/>.
-		/// </param>
-		internal KhronosLogEventArgs(string format, params object[] args)
+		internal KhronosLogEventArgs(string comment)
 		{
-			_Comment = String.Format(format, args);
+			_Comment = comment;
 		}
 
 		/// <summary>
@@ -68,15 +60,21 @@ namespace Khronos
 		{
 			if (name == null)
 				throw new ArgumentNullException(nameof(name));
+
+			_LogContext = logContext;
 			Name = name;
 			Args = args;
 			ReturnValue = retvalue;
-			_LogContext = logContext;
 		}
 
 		#endregion
 
-		#region Event Information
+		#region Command Information
+
+		/// <summary>
+		/// Optional logging context holding information about the API logged.
+		/// </summary>
+		private readonly KhronosLogContext _LogContext;
 
 		/// <summary>
 		/// Command name.
@@ -93,11 +91,6 @@ namespace Khronos
 		/// </summary>
 		public readonly object ReturnValue;
 
-		/// <summary>
-		/// Optional logging context holding information about the API logged.
-		/// </summary>
-		private readonly KhronosLogContext _LogContext;
-
 		#endregion
 
 		#region Comment Information
@@ -111,12 +104,18 @@ namespace Khronos
 
 		#region Object Overrides
 
+		/// <summary>
+		/// Get the event information.
+		/// </summary>
+		/// <returns>
+		/// It returns a <see cref="string"/> representing this KhronosLogEventArgs.
+		/// </returns>
 		public override string ToString()
 		{
-			if (Name != null)
-				return (_LogContext.ToString(Name, ReturnValue, Args));
-			else
-				return (_Comment);
+			if (Name != null && _LogContext != null)
+				return _LogContext.ToString(Name, ReturnValue, Args);
+			
+			return _Comment ?? string.Empty;
 		}
 
 		#endregion

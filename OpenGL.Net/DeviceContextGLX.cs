@@ -910,10 +910,10 @@ namespace OpenGL
 				if (choosenConfigCount[0] == 0)
 					throw new InvalidOperationException("unable to choose visual");
 				config = *choosenConfigs;
-				KhronosApi.LogComment("Choosen config is 0x{0}", config.ToString("X8"));
+				// KhronosApi.LogComment("Choosen config is 0x{0}", config.ToString("X8"));
 
 				visual = Glx.GetVisualFromFBConfig(_Display, config);
-				KhronosApi.LogComment("Choosen visual is {0}", visual);
+				// KhronosApi.LogComment("Choosen visual is {0}", visual);
 
 				Glx.XFree((IntPtr)choosenConfigs);
 			}

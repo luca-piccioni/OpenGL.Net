@@ -45,12 +45,12 @@ namespace OpenGL
 			// Load procedures
 			string platformLibrary = GetPlatformLibrary();
 			try {
-				LogComment("Querying GLU from {0}", platformLibrary);
+				LogComment($"Querying GLU from {platformLibrary}");
 				BindAPI<Glu>(platformLibrary, GetProcAddressOS, null);
-				LogComment("GLU availability: {0}", IsAvailable);
+				LogComment($"GLU availability: {IsAvailable}");
 			} catch (Exception exception) {
 				/* Fail-safe (it may fail due Egl access) */
-				LogComment("GLU not available:\n{0}", exception.ToString());
+				LogComment($"GLU not available:\n{exception}");
 			}
 		}
 

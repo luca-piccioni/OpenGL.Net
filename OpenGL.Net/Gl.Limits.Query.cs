@@ -131,14 +131,14 @@ namespace OpenGL
 								getMethod.Invoke(null, @params);
 								field.SetValue(graphicsLimits, @params[1]);
 							} catch (TargetInvocationException exception) {
-								LogComment("Getting {0} (0x{1:X4}): {2}", field.Name, graphicsLimitAttribute.EnumValue, exception.InnerException.Message);
+								LogComment(string.Format("Getting {0} (0x{1:X4}): {2}", field.Name, graphicsLimitAttribute.EnumValue, exception.InnerException.Message));
 							}
 						} else {
 							try {
 								string s = (string)getMethod.Invoke(null, new object[] { graphicsLimitAttribute.EnumValue });
 								field.SetValue(graphicsLimits, s);
 							} catch (TargetInvocationException exception) {
-								LogComment("Getting {0} (0x{1}): {2}", field.Name, graphicsLimitAttribute.EnumValue, exception.InnerException.Message);
+								LogComment(string.Format("Getting {0} (0x{1}): {2}", field.Name, graphicsLimitAttribute.EnumValue, exception.InnerException.Message));
 							}
 						}
 					} else

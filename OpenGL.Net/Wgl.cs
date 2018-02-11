@@ -182,7 +182,7 @@ namespace OpenGL
 						default:
 							throw new WglException(errorCode);
 						case ErrorHandlingMode.LogOnly:
-							LogComment("GetLastError() = {0} [Error code {0}: {1}]", errorCode, new Win32Exception(errorCode).Message);
+							LogComment(string.Format("GetLastError() = {0} [Error code {0}: {1}]", errorCode, new Win32Exception(errorCode).Message));
 							break;
 						case ErrorHandlingMode.Ignore:
 							break;

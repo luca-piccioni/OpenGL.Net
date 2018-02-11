@@ -238,12 +238,12 @@ namespace OpenGL
 		{
 			string platformLibrary = GetPlatformLibrary();
 			try {
-				LogComment("Querying EGL from {0}", platformLibrary);
+				LogComment($"Querying EGL from {platformLibrary}");
 				BindAPI<Egl>(platformLibrary, GetProcAddressOS, CurrentVersion);
-				LogComment("EGL availability: {0}", IsAvailable);
+				LogComment($"EGL availability: {IsAvailable}");
 			} catch (Exception exception) {
 				/* Fail-safe (it may fail due Egl access) */
-				LogComment("EGL not available:\n{0}", exception.ToString());
+				LogComment($"EGL not available:\n{exception}");
 			}
 		}
 

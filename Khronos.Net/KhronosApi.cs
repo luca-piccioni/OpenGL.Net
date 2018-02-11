@@ -48,7 +48,7 @@ namespace Khronos
 	/// </remarks>
 	public class KhronosApi
 	{
-		#region String Encoding
+		#region string Encoding
 
 		/// <summary>
 		/// Copies all characters up to the first null character from an
@@ -58,7 +58,7 @@ namespace Khronos
 		/// The address of the first character of the unmanaged string.
 		/// </param>
 		/// <returns>
-		/// The <see cref="String"/> represented by <paramref name="ptr"/>.
+		/// The <see cref="string"/> represented by <paramref name="ptr"/>.
 		/// </returns>
 		protected static string PtrToString(IntPtr ptr)
         {
@@ -73,7 +73,7 @@ namespace Khronos
         /// The address of the first character of the unmanaged string.
         /// </param>
 		/// <returns>
-        /// The <see cref="String"/> represented by <paramref name="ptr"/>.
+        /// The <see cref="string"/> represented by <paramref name="ptr"/>.
         /// </returns>
 		protected static string PtrToStringUTF8(IntPtr ptr)
         {
@@ -95,13 +95,13 @@ namespace Khronos
 
         #endregion
 
-        #region Function Linkage
+		#region Function Linkage
 
-        /// <summary>
-        /// Get the current location of the 
-        /// </summary>
-        /// <returns></returns>
-        protected static string GetAssemblyLocation()
+		/// <summary>
+		/// Get the current location of the 
+		/// </summary>
+		/// <returns></returns>
+		protected static string GetAssemblyLocation()
 		{
 #if   NETSTANDARD1_1
 			string assemblyPath = null; // XXX
@@ -110,7 +110,7 @@ namespace Khronos
 #else
 			string assemblyPath = Assembly.GetAssembly(typeof(KhronosApi)).Location;
 
-			if (String.IsNullOrEmpty(assemblyPath) == false)
+			if (string.IsNullOrEmpty(assemblyPath) == false)
 				assemblyPath = Path.GetDirectoryName(assemblyPath);
 			else
 				assemblyPath = Directory.GetCurrentDirectory();
@@ -122,10 +122,10 @@ namespace Khronos
 		/// Delegate used for getting a procedure address.
 		/// </summary>
 		/// <param name="path">
-		/// A <see cref="String"/> that specifies the path of the library to load the procedure from.
+		/// A <see cref="string"/> that specifies the path of the library to load the procedure from.
 		/// </param>
 		/// <param name="function">
-		/// A <see cref="String"/> that specifies the name of the procedure to be loaded.
+		/// A <see cref="string"/> that specifies the name of the procedure to be loaded.
 		/// </param>
 		/// <returns>
 		/// It returns a <see cref="IntPtr"/> that specifies the function pointer. If not defined, it
@@ -137,10 +137,10 @@ namespace Khronos
 		/// Utility for <see cref="GetAddressDelegate"/> for loading procedures using the OS loader.
 		/// </summary>
 		/// <param name="path">
-		/// A <see cref="String"/> that specifies the path of the library to load the procedure from.
+		/// A <see cref="string"/> that specifies the path of the library to load the procedure from.
 		/// </param>
 		/// <param name="function">
-		/// A <see cref="String"/> that specifies the name of the procedure to be loaded.
+		/// A <see cref="string"/> that specifies the name of the procedure to be loaded.
 		/// </param>
 		/// <returns>
 		/// It returns a <see cref="IntPtr"/> that specifies the function pointer. If not defined, it
@@ -156,9 +156,9 @@ namespace Khronos
 			if (path == null)
 				throw new ArgumentNullException(nameof(path));
 			if (functionName == null)
-				throw new ArgumentNullException("function");
+				throw new ArgumentNullException(nameof(functionName));
 			if (getProcAddress == null)
-				throw new ArgumentNullException("getAddress");
+				throw new ArgumentNullException(nameof(getProcAddress));
 
 			FunctionContext functionContext = GetFunctionContext(typeof(T));
 			Debug.Assert(functionContext != null);
@@ -168,23 +168,15 @@ namespace Khronos
 #if NETSTANDARD1_1 || NETSTANDARD1_4
 			TypeInfo delegatesClass = typeof(T).GetTypeInfo().GetDeclaredNestedType("Delegates");
 			Debug.Assert(delegatesClass != null);
-			if (delegatesClass == null)
-				throw new NotImplementedException("missing Delegates class");
 
 			FieldInfo functionField = delegatesClass.GetDeclaredField("p" + functionName);
 			Debug.Assert(functionField != null);
-			if (functionField == null)
-				throw new NotImplementedException(String.Format("unable to find function named {0}", functionName));
 #else
 			Type delegatesClass = typeof(T).GetNestedType("Delegates", BindingFlags.Static | BindingFlags.NonPublic);
 			Debug.Assert(delegatesClass != null);
-			if (delegatesClass == null)
-				throw new NotImplementedException("missing Delegates class");
 
 			FieldInfo functionField = delegatesClass.GetField("p" + functionName, BindingFlags.Static | BindingFlags.NonPublic);
 			Debug.Assert(functionField != null);
-			if (functionField == null)
-				throw new NotImplementedException(String.Format("unable to find function named {0}", functionName));
 #endif
 
 			BindAPIFunction(path, getProcAddress, functionContext, functionField, version, extensions);
@@ -194,7 +186,7 @@ namespace Khronos
 		/// Link delegates fields using import declarations.
 		/// </summary>
 		/// <param name="path">
-		/// A <see cref="String"/> that specifies the assembly file path containing the import functions.
+		/// A <see cref="string"/> that specifies the assembly file path containing the import functions.
 		/// </param>
 		/// <param name="getAddress">
 		/// A <see cref="GetAddressDelegate"/> used for getting function pointers.
@@ -211,7 +203,7 @@ namespace Khronos
 		/// Link delegates fields using import declarations.
 		/// </summary>
 		/// <param name="path">
-		/// A <see cref="String"/> that specifies the assembly file path containing the import functions.
+		/// A <see cref="string"/> that specifies the assembly file path containing the import functions.
 		/// </param>
 		/// <param name="getAddress">
 		/// A <see cref="GetAddressDelegate"/> used for getting function pointers.
@@ -240,7 +232,7 @@ namespace Khronos
 		/// Link delegates fields using import declarations.
 		/// </summary>
 		/// <param name="path">
-		/// A <see cref="String"/> that specifies the assembly file path containing the import functions.
+		/// A <see cref="string"/> that specifies the assembly file path containing the import functions.
 		/// </param>
 		/// <param name="getAddress">
 		/// A <see cref="GetAddressDelegate"/> used for getting function pointers.
@@ -343,7 +335,7 @@ namespace Khronos
 				// Load command address (version feature)
 				string functionName = defaultName;
 
-				if (requiredByFeature != null && requiredByFeature.EntryPoint != null)
+				if (requiredByFeature?.EntryPoint != null)
 					functionName = requiredByFeature.EntryPoint;
 
 				if ((importAddress = getAddress(path, functionName)) != IntPtr.Zero) {
@@ -424,7 +416,7 @@ namespace Khronos
 				if (attr.IsSupported(version, extensions) == false)
 					continue;
 				// Supported!
-				isRequired |= true;
+				isRequired = true;
 				// Keep track of the maximum API version supporting this command
 				// Note: useful for resurrected commands after deprecation
 				if (maxRequiredVersion == null || maxRequiredVersion < attr.FeatureVersion)
@@ -446,7 +438,7 @@ namespace Khronos
 						continue;
 
 					// Removed!
-					isRemoved |= true;
+					isRemoved = true;
 					// Keep track of the maximum API version removing this command
 					if (maxRemovedVersion == null || maxRemovedVersion < attr.FeatureVersion)
 						maxRemovedVersion = attr.FeatureVersion;
@@ -462,8 +454,9 @@ namespace Khronos
 				}
 
 				return (isRemoved == false);
-			} else
-				return (false);
+			}
+
+			return (false);
 		}
 
 		/// <summary>
@@ -559,14 +552,14 @@ namespace Khronos
 			/// Construct a ExtensionAttribute, specifying the extension name.
 			/// </summary>
 			/// <param name="extensionName">
-			/// A <see cref="String"/> that specifies the name of the extension that requires the element.
+			/// A <see cref="string"/> that specifies the name of the extension that requires the element.
 			/// </param>
 			/// <exception cref="ArgumentException">
 			/// Exception thrown if <paramref name="extensionName"/> is null or empty.
 			/// </exception>
 			public ExtensionAttribute(string extensionName)
 			{
-				if (String.IsNullOrEmpty(extensionName))
+				if (string.IsNullOrEmpty(extensionName))
 					throw new ArgumentException("null or empty feature not allowed", nameof(extensionName));
 				ExtensionName = extensionName;
 			}
@@ -600,7 +593,7 @@ namespace Khronos
 			/// A <see cref="Int32"/> that specifies that minor version number.
 			/// </param>
 			/// <param name="api">
-			/// A <see cref="String"/> that specifies the API name.
+			/// A <see cref="string"/> that specifies the API name.
 			/// </param>
 			/// <exception cref="ArgumentException">
 			/// Exception thrown if <paramref name="major"/> is less or equals to 0, or if <paramref name="minor"/> is less than 0.
@@ -667,7 +660,7 @@ namespace Khronos
 			/// A <see cref="Int32"/> that specifies that revision version number.
 			/// </param>
 			/// <param name="api">
-			/// A <see cref="String"/> that specifies the API name.
+			/// A <see cref="string"/> that specifies the API name.
 			/// </param>
 			/// <exception cref="ArgumentException">
 			/// Exception thrown if <paramref name="major"/> is less or equals to 0, or if <paramref name="minor"/> or
@@ -703,14 +696,14 @@ namespace Khronos
 			/// Construct a ExtensionAttribute, specifying the extension name.
 			/// </summary>
 			/// <param name="support">
-			/// A <see cref="String"/> that specifies the name of the platforms that support the extension.
+			/// A <see cref="string"/> that specifies the name of the platforms that support the extension.
 			/// </param>
 			/// <exception cref="ArgumentException">
 			/// Exception thrown if <paramref name="support"/> is null or empty.
 			/// </exception>
 			public ExtensionSupportAttribute(string support)
 			{
-				if (String.IsNullOrEmpty(support))
+				if (string.IsNullOrEmpty(support))
 					throw new ArgumentException("null or empty feature not allowed", nameof(support));
 				Support = support;
 			}
@@ -735,7 +728,7 @@ namespace Khronos
 			/// Check whether the specified extension is supported by current platform.
 			/// </summary>
 			/// <param name="extensionName">
-			/// A <see cref="String"/> that specifies the extension name.
+			/// A <see cref="string"/> that specifies the extension name.
 			/// </param>
 			/// <returns>
 			/// It returns a boolean value indicating whether the extension identified with <paramref name="extensionName"/>
@@ -753,7 +746,7 @@ namespace Khronos
 			/// Force extension support.
 			/// </summary>
 			/// <param name="extensionName">
-			/// A <see cref="String"/> that specifies the extension name.
+			/// A <see cref="string"/> that specifies the extension name.
 			/// </param>
 			internal void EnableExtension(string extensionName)
 			{
@@ -870,7 +863,7 @@ namespace Khronos
 			/// Get the vendor of the extension.
 			/// </summary>
 			/// <param name="extensionName">
-			/// A <see cref="String"/> that specifies the extension name.
+			/// A <see cref="string"/> that specifies the extension name.
 			/// </param>
 			/// <returns>
 			/// It returns the substring that identifies the vendor of the extension.
@@ -934,12 +927,15 @@ namespace Khronos
 			if (functionContext == null)
 				throw new InvalidOperationException("unrecognized API type");
 
-			LogComment("Checking commands for {0}", version);
+			LogComment($"Checking commands for {version}");
 
 			Dictionary<string, List<Type>> hiddenVersions = new Dictionary<string, List<Type>>();
 			Dictionary<string, bool> hiddenExtensions = new Dictionary<string, bool>();
 			
 			foreach (FieldInfo fi in functionContext.Delegates) {
+				if (fi.DeclaringType == null)
+					continue;
+
 				Delegate fiDelegateType = (Delegate)fi.GetValue(null);
 				string commandName = fi.Name.Substring(3);
 				bool commandDefined = fiDelegateType != null;
@@ -979,7 +975,7 @@ namespace Khronos
 
 					if (hiddenExtensionAttrib != null) {
 						if (hiddenVersionAttrib == null)
-							supportString = String.Empty;
+							supportString = string.Empty;
 						supportString += hiddenExtensionAttrib.FeatureName;
 					}
 #endif
@@ -989,7 +985,7 @@ namespace Khronos
 						LogComment("The command {0} is defined, but {1} support is not advertised.", commandName, supportString);
 #endif
 						if (hiddenVersionAttrib != null && hiddenExtensionAttrib == null) {
-							List<Type> versionDelegates = new List<Type>();
+							List<Type> versionDelegates;
 
 							if (hiddenVersions.TryGetValue(hiddenVersionAttrib.FeatureName, out versionDelegates) == false)
 								hiddenVersions.Add(hiddenVersionAttrib.FeatureName, versionDelegates = new List<Type>());
@@ -1014,18 +1010,18 @@ namespace Khronos
 			}
 
 			if (hiddenExtensions.Count > 0) {
-				LogComment("Found {0} experimental extensions:", hiddenExtensions.Count);
+				LogComment($"Found {hiddenExtensions.Count} experimental extensions:");
 				foreach (KeyValuePair<string, bool> hiddenExtension in hiddenExtensions) {
-					LogComment("- {0}: {1}", hiddenExtension.Key, hiddenExtension.Value ? "experimental" : "experimental (partial, unsupported)");
+					LogComment(string.Format($"- {0}: {1}", hiddenExtension.Key, hiddenExtension.Value ? "experimental" : "experimental (partial, unsupported)"));
 				}
 			}
 
 			if (hiddenVersions.Count > 0) {
-				LogComment("Found {0} experimental version commands:", hiddenVersions.Count);
+				LogComment($"Found {hiddenVersions.Count} experimental version commands:");
 				foreach (KeyValuePair<string, List<Type>> hiddenVersion in hiddenVersions) {
-					LogComment("- {0}", hiddenVersion.Key);
+					LogComment($"- {hiddenVersion.Key}");
 					foreach (Type delegateType in hiddenVersion.Value)
-						LogComment("    > {0}", delegateType.Name);
+						LogComment($"    > {delegateType.Name}");
 				}
 			}
 
@@ -1051,6 +1047,23 @@ namespace Khronos
 		#region Command Logging
 
 		/// <summary>
+		/// Get whether assembly is compiled with debug logging support.
+		/// </summary>
+		public static bool HasLogging
+		{
+#if GL_DEBUG
+			get { return true; }
+#else
+			get { return false; }
+#endif
+		}
+
+		/// <summary>
+		/// Flag used for enabling/disabling procedure logging. Default is false.
+		/// </summary>
+		public static bool LogEnabled { get; set; }
+
+		/// <summary>
 		/// Event raised whenever an API command is called.
 		/// </summary>
 		public static event EventHandler<KhronosLogEventArgs> Log;
@@ -1066,8 +1079,9 @@ namespace Khronos
 			if (args == null)
 				throw new ArgumentNullException(nameof(args));
 
-			if (_ProcLogEnabled && Log != null) {
-				foreach (EventHandler<KhronosLogEventArgs> eventHandler in Log.GetInvocationList()) {
+			if (LogEnabled && Log != null) {
+				foreach (Delegate @delegate in Log.GetInvocationList()) {
+					EventHandler<KhronosLogEventArgs> eventHandler = (EventHandler<KhronosLogEventArgs>) @delegate;
 					try {
 						eventHandler(null, args);
 					} catch { /* Fail-safe */ }
@@ -1076,10 +1090,25 @@ namespace Khronos
 		}
 
 		/// <summary>
+		/// Log a comment.
+		/// </summary>
+		/// <param name="comment">
+		/// A <see cref="string"/> that specifies the comment format string.
+		/// </param>
+		public static void LogComment(string comment)
+		{
+			if (comment == null)
+				throw new ArgumentNullException(nameof(comment));
+
+			if (LogEnabled)
+				RaiseLog(new KhronosLogEventArgs(comment));
+		}
+
+		/// <summary>
 		/// Load an API command call.
 		/// </summary>
 		/// <param name="name">
-		/// A <see cref="String"/> that specifies the name of the API command.
+		/// A <see cref="string"/> that specifies the name of the API command.
 		/// </param>
 		/// <param name="returnValue">
 		/// A <see cref="Object"/> that specifies the returned value, if any.
@@ -1090,41 +1119,9 @@ namespace Khronos
 		[Conditional("GL_DEBUG")]
 		public static void LogCommand(string name, object returnValue, params object[] args)
 		{
-			RaiseLog(new KhronosLogEventArgs(null, name, args, returnValue));
+			if (LogEnabled)
+				RaiseLog(new KhronosLogEventArgs(null, name, args, returnValue));
 		}
-
-		/// <summary>
-		/// Log a comment.
-		/// </summary>
-		/// <param name="format">
-		/// A <see cref="String"/> that specifies the comment format string. A comment prefix
-		/// is prepended.
-		/// </param>
-		/// <param name="args">
-		/// A <see cref="T:System.Object[]"/> listing the <paramref name="format"/> string argument values.
-		/// </param>
-		[Conditional("GL_DEBUG")]
-		public static void LogComment(string format, params object[] args)
-		{
-			if (_ProcLogEnabled && Log != null) {
-				KhronosLogEventArgs e = new KhronosLogEventArgs(format, args);
-				foreach (EventHandler<KhronosLogEventArgs> eventHandler in Log.GetInvocationList()) {
-					try {
-						eventHandler(null, e);
-					} catch { /* Fail-safe */ }
-				}
-			}
-		}
-
-		/// <summary>
-		/// Flag used for enabling/disabling procedure logging.
-		/// </summary>
-		public static bool LogEnabled { get { return (_ProcLogEnabled); } set { _ProcLogEnabled = value; } }
-
-		/// <summary>
-		/// Flag used for enabling/disabling procedure logging.
-		/// </summary>
-		protected static bool _ProcLogEnabled;
 
 		#endregion
 	}
