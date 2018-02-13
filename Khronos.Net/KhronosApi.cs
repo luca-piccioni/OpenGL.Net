@@ -61,39 +61,39 @@ namespace Khronos
 		/// The <see cref="string"/> represented by <paramref name="ptr"/>.
 		/// </returns>
 		protected static string PtrToString(IntPtr ptr)
-        {
-            return (PtrToStringUTF8(ptr));
-        }
+		{
+			return PtrToStringUTF8(ptr);
+		}
 
 		/// <summary>
 		/// Copies all characters up to the first null character from an
-        /// unmanaged UTF8 string.
+		/// unmanaged UTF8 string.
 		/// </summary>
 		/// <param name="ptr">
-        /// The address of the first character of the unmanaged string.
-        /// </param>
+		/// The address of the first character of the unmanaged string.
+		/// </param>
 		/// <returns>
-        /// The <see cref="string"/> represented by <paramref name="ptr"/>.
-        /// </returns>
+		/// The <see cref="string"/> represented by <paramref name="ptr"/>.
+		/// </returns>
 		protected static string PtrToStringUTF8(IntPtr ptr)
-        {
+		{
 			if (ptr == IntPtr.Zero)
-                return (null);
+				return null;
 
-            List<byte> buff = new List<byte>();
-            int offset = 0;
+			List<byte> buff = new List<byte>();
+			int offset = 0;
 
-            for (; ; offset++) {
-                byte currentByte = Marshal.ReadByte(ptr, offset);
-                if (currentByte == 0)
-                    break;
-                buff.Add(currentByte);
-            }
+			for (; ; offset++) {
+				byte currentByte = Marshal.ReadByte(ptr, offset);
+				if (currentByte == 0)
+					break;
+				buff.Add(currentByte);
+			}
 
-            return (Encoding.UTF8.GetString(buff.ToArray()));
-        }
+			return Encoding.UTF8.GetString(buff.ToArray());
+		}
 
-        #endregion
+		#endregion
 
 		#region Function Linkage
 
@@ -115,7 +115,7 @@ namespace Khronos
 			else
 				assemblyPath = Directory.GetCurrentDirectory();
 #endif
-			return (assemblyPath);
+			return assemblyPath;
 		}
 
 		/// <summary>
@@ -146,7 +146,7 @@ namespace Khronos
 		/// It returns a <see cref="IntPtr"/> that specifies the function pointer. If not defined, it
 		/// returns <see cref="IntPtr.Zero"/>.
 		/// </returns>
-		protected static IntPtr GetProcAddressOS(string path, string function) { return (Khronos.GetProcAddressOS.GetProcAddress(path, function)); }
+		protected static IntPtr GetProcAddressOS(string path, string function) { return Khronos.GetProcAddressOS.GetProcAddress(path, function); }
 
 		/// <summary>
 		/// Link delegates field using import declaration, using platform specific method for determining procedures address.
@@ -162,8 +162,6 @@ namespace Khronos
 
 			FunctionContext functionContext = GetFunctionContext(typeof(T));
 			Debug.Assert(functionContext != null);
-			if (functionContext == null)
-				throw new InvalidOperationException("unrecognized API type");
 
 #if NETSTANDARD1_1 || NETSTANDARD1_4
 			TypeInfo delegatesClass = typeof(T).GetTypeInfo().GetDeclaredNestedType("Delegates");
@@ -179,7 +177,7 @@ namespace Khronos
 			Debug.Assert(functionField != null);
 #endif
 
-			BindAPIFunction(path, getProcAddress, functionContext, functionField, version, extensions);
+			BindAPIFunction(path, getProcAddress, functionField, version, extensions);
 		}
 
 		/// <summary>
@@ -219,43 +217,31 @@ namespace Khronos
 				throw new ArgumentNullException(nameof(getAddress));
 
 			FunctionContext functionContext = GetFunctionContext(typeof(T));
-
 			Debug.Assert(functionContext != null);
-			if (functionContext == null)
-				throw new InvalidOperationException("unrecognized API type");
 
 			foreach (FieldInfo fi in functionContext.Delegates)
-				BindAPIFunction(path, getAddress, functionContext, fi, version, extensions);
+				BindAPIFunction(path, getAddress, fi, version, extensions);
 		}
 
 		/// <summary>
 		/// Link delegates fields using import declarations.
 		/// </summary>
 		/// <param name="path">
-		/// A <see cref="string"/> that specifies the assembly file path containing the import functions.
+		///     A <see cref="string"/> that specifies the assembly file path containing the import functions.
 		/// </param>
 		/// <param name="getAddress">
-		/// A <see cref="GetAddressDelegate"/> used for getting function pointers.
-		/// </param>
-		/// <param name="functionContext">
-		/// A <see cref="FunctionContext"/> mapping a <see cref="MethodInfo"/> with the relative function name.
+		///     A <see cref="GetAddressDelegate"/> used for getting function pointers.
 		/// </param>
 		/// <param name="function">
-		/// A <see cref="FieldInfo"/> that specifies the underlying function field to be updated.
+		///     A <see cref="FieldInfo"/> that specifies the underlying function field to be updated.
 		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="path"/>, <paramref name="function"/> or <paramref name="getAddress"/> is null.
-		/// </exception>
-		private static void BindAPIFunction(string path, GetAddressDelegate getAddress, FunctionContext functionContext, FieldInfo function, KhronosVersion version, ExtensionsCollection extensions)
+		/// <param name="version"></param>
+		/// <param name="extensions"></param>
+		private static void BindAPIFunction(string path, GetAddressDelegate getAddress, FieldInfo function, KhronosVersion version, ExtensionsCollection extensions)
 		{
-			if (path == null)
-				throw new ArgumentNullException(nameof(path));
-			if (functionContext == null)
-				throw new ArgumentNullException(nameof(functionContext));
-			if (function == null)
-				throw new ArgumentNullException(nameof(function));
-			if (getAddress == null)
-				throw new ArgumentNullException(nameof(getAddress));
+			Debug.Assert(path != null);
+			Debug.Assert(getAddress != null);
+			Debug.Assert(function != null);
 
 			RequiredByFeatureAttribute requiredByFeature = null;
 			List<RequiredByFeatureAttribute> requiredByExtensions = new List<RequiredByFeatureAttribute>();
@@ -305,7 +291,7 @@ namespace Khronos
 						if (attr.IsRemoved(version, extensions) == false)
 							continue;
 						// Removed!
-						isRemoved |= true;
+						isRemoved = true;
 						// Keep track of the maximum API version removing this command
 						if (maxRemovedVersion == null || maxRemovedVersion < attr.FeatureVersion)
 							maxRemovedVersion = attr.FeatureVersion;
@@ -397,10 +383,8 @@ namespace Khronos
 		/// </returns>
 		internal static bool IsCompatibleField(FieldInfo function, KhronosVersion version, ExtensionsCollection extensions)
 		{
-			if (function == null)
-				throw new ArgumentNullException(nameof(function));
-			if (version == null)
-				throw new ArgumentNullException(nameof(version));
+			Debug.Assert(function != null);
+			Debug.Assert(version != null);
 
 #if NETSTANDARD1_1 || NETSTANDARD1_4 || NETCORE
 			Attribute[] attrRequired = new List<Attribute>(function.GetCustomAttributes(typeof(RequiredByFeatureAttribute))).ToArray(); // XXX
@@ -453,10 +437,10 @@ namespace Khronos
 						isRemoved = false;
 				}
 
-				return (isRemoved == false);
+				return isRemoved == false;
 			}
 
-			return (false);
+			return false;
 		}
 
 		/// <summary>
@@ -470,23 +454,16 @@ namespace Khronos
 		/// </returns>
 		private static DelegateList GetDelegateList(Type type)
 		{
-			if (type == null)
-				throw new ArgumentNullException(nameof(type));
-
 #if NETSTANDARD1_1 || NETSTANDARD1_4
 			TypeInfo delegatesClass = type.GetTypeInfo().GetDeclaredNestedType("Delegates");
 			Debug.Assert(delegatesClass != null);
-			if (delegatesClass == null)
-				throw new NotImplementedException("missing Delegates class");
 
 			return (new DelegateList(delegatesClass.DeclaredFields));
 #else
 			Type delegatesClass = type.GetNestedType("Delegates", BindingFlags.Static | BindingFlags.NonPublic);
 			Debug.Assert(delegatesClass != null);
-			if (delegatesClass == null)
-				throw new NotImplementedException("missing Delegates class");
 
-			return (new DelegateList(delegatesClass.GetFields(BindingFlags.Static | BindingFlags.NonPublic)));
+			return new DelegateList(delegatesClass.GetFields(BindingFlags.Static | BindingFlags.NonPublic));
 #endif
 		}
 
@@ -502,12 +479,12 @@ namespace Khronos
 			FunctionContext functionContext;
 
 			if (_FunctionContext.TryGetValue(type, out functionContext))
-				return (functionContext);
+				return functionContext;
 
 			functionContext = new FunctionContext(type);
 			_FunctionContext.Add(type, functionContext);
 
-			return (functionContext);
+			return functionContext;
 		}
 
 		/// <summary>
@@ -521,9 +498,6 @@ namespace Khronos
 			/// <param name="type"></param>
 			public FunctionContext(Type type)
 			{
-				if (type == null)
-					throw new ArgumentNullException(nameof(type));
-
 				Delegates = GetDelegateList(type);
 			}
 
@@ -559,8 +533,6 @@ namespace Khronos
 			/// </exception>
 			public ExtensionAttribute(string extensionName)
 			{
-				if (string.IsNullOrEmpty(extensionName))
-					throw new ArgumentException("null or empty feature not allowed", nameof(extensionName));
 				ExtensionName = extensionName;
 			}
 
@@ -689,7 +661,7 @@ namespace Khronos
 		/// <summary>
 		/// Attribute asserting the support of the extension of the underlying member.
 		/// </summary>
-		[AttributeUsage(AttributeTargets.Field, AllowMultiple = false)]
+		[AttributeUsage(AttributeTargets.Field)]
 		public sealed class ExtensionSupportAttribute : Attribute
 		{
 			/// <summary>
@@ -703,8 +675,6 @@ namespace Khronos
 			/// </exception>
 			public ExtensionSupportAttribute(string support)
 			{
-				if (string.IsNullOrEmpty(support))
-					throw new ArgumentException("null or empty feature not allowed", nameof(support));
 				Support = support;
 			}
 
@@ -739,7 +709,7 @@ namespace Khronos
 				if (extensionName == null)
 					throw new ArgumentNullException(nameof(extensionName));
 
-				return (_ExtensionsRegistry.ContainsKey(extensionName));
+				return _ExtensionsRegistry.ContainsKey(extensionName);
 			}
 
 			/// <summary>
@@ -773,7 +743,7 @@ namespace Khronos
 				if (extensionsString == null)
 					throw new ArgumentNullException(nameof(extensionsString));
 
-				Query(version, extensionsString.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries));
+				Query(version, extensionsString.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries));
 			}
 
 			/// <summary>
@@ -831,12 +801,10 @@ namespace Khronos
 #else
 					IEnumerable<Attribute> coreAttributes = Attribute.GetCustomAttributes(fieldInfo, typeof(CoreExtensionAttribute));
 #endif
-					if (coreAttributes != null) {
-						foreach (CoreExtensionAttribute coreAttribute in coreAttributes) {
-							if (version.Api == coreAttribute.Version.Api && version >= coreAttribute.Version) {
-								support |= true;
-								break;
-							}
+					foreach (CoreExtensionAttribute coreAttribute in coreAttributes) {
+						if (version.Api == coreAttribute.Version.Api && version >= coreAttribute.Version) {
+							support = true;
+							break;
 						}
 					}
 
@@ -846,12 +814,10 @@ namespace Khronos
 #else
 					IEnumerable<Attribute> extensionAttributes = Attribute.GetCustomAttributes(fieldInfo, typeof(ExtensionAttribute));
 #endif
-					if (extensionAttributes != null) {
-						foreach (ExtensionAttribute extensionAttribute in extensionAttributes) {
-							if (_ExtensionsRegistry.ContainsKey(extensionAttribute.ExtensionName)) {
-								support |= true;
-								break;
-							}
+					foreach (ExtensionAttribute extensionAttribute in extensionAttributes) {
+						if (_ExtensionsRegistry.ContainsKey(extensionAttribute.ExtensionName)) {
+							support = true;
+							break;
 						}
 					}
 
@@ -884,7 +850,7 @@ namespace Khronos
 				if (vendorMatch.Success == false)
 					throw new ArgumentException("non conformant extension name", nameof(extensionName));
 
-				return (vendorMatch.Groups["Vendor"].Value);
+				return vendorMatch.Groups["Vendor"].Value;
 			}
 
 			/// <summary>
@@ -933,14 +899,15 @@ namespace Khronos
 			Dictionary<string, bool> hiddenExtensions = new Dictionary<string, bool>();
 			
 			foreach (FieldInfo fi in functionContext.Delegates) {
-				if (fi.DeclaringType == null)
-					continue;
-
 				Delegate fiDelegateType = (Delegate)fi.GetValue(null);
-				string commandName = fi.Name.Substring(3);
 				bool commandDefined = fiDelegateType != null;
 				bool supportedByFeature = false;
 
+#if DEBUG_VERBOSE
+				string commandName = fi.Name.Substring(3);
+#endif
+				if (fi.DeclaringType == null)
+					continue;
 				Type delegateType = fi.DeclaringType.GetNestedType(fi.Name.Substring(1), BindingFlags.Public | BindingFlags.NonPublic);
 				IEnumerable<object> requiredByFeatureAttributes = delegateType.GetCustomAttributes(typeof(RequiredByFeatureAttribute), false);
 	
@@ -1047,9 +1014,9 @@ namespace Khronos
 		#region Command Logging
 
 		/// <summary>
-		/// Get whether assembly is compiled with debug logging support.
+		/// Get whether assembly is compiled with debug logging support (GL command logging).
 		/// </summary>
-		public static bool HasLogging
+		public static bool HasdDebugLogging
 		{
 #if GL_DEBUG
 			get { return true; }
@@ -1074,18 +1041,19 @@ namespace Khronos
 		/// <param name="args">
 		/// The <see cref="KhronosLogEventArgs"/> passed to the event handlers.
 		/// </param>
-		protected static void RaiseLog(KhronosLogEventArgs args)
+		protected internal static void RaiseLog(KhronosLogEventArgs args)
 		{
 			if (args == null)
 				throw new ArgumentNullException(nameof(args));
 
-			if (LogEnabled && Log != null) {
-				foreach (Delegate @delegate in Log.GetInvocationList()) {
-					EventHandler<KhronosLogEventArgs> eventHandler = (EventHandler<KhronosLogEventArgs>) @delegate;
-					try {
-						eventHandler(null, args);
-					} catch { /* Fail-safe */ }
-				}
+			if (!LogEnabled || Log == null)
+				return;
+
+			foreach (Delegate @delegate in Log.GetInvocationList()) {
+				EventHandler<KhronosLogEventArgs> eventHandler = (EventHandler<KhronosLogEventArgs>) @delegate;
+				try {
+					eventHandler(null, args);
+				} catch { /* Fail-safe */ }
 			}
 		}
 

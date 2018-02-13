@@ -33,6 +33,21 @@ namespace OpenGL.Test
 	[TestFixture, Category("Framework")]
 	class KhronosApiTest
 	{
+		[Test]
+		public void KhronosApi_BindAPIFunction()
+		{
+			Assert.Throws<ArgumentNullException>(() => Khronos.KhronosApi.BindAPIFunction<Gl>(null, null, null, null, null));
+			Assert.Throws<ArgumentNullException>(() => Khronos.KhronosApi.BindAPIFunction<Gl>("pt", null, null, null, null));
+			Assert.Throws<ArgumentNullException>(() => Khronos.KhronosApi.BindAPIFunction<Gl>("pt", "fn", null, null, null));
+		}
+
+		[Test]
+		public void KhronosApi_BindAPI()
+		{
+			Assert.Throws<ArgumentNullException>(() => Khronos.KhronosApi.BindAPI<Gl>(null, null, null, null));
+			Assert.Throws<ArgumentNullException>(() => Khronos.KhronosApi.BindAPI<Gl>("pt", null, null, null));
+		}
+
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_VERSION_4_3", Profile = "core")]
@@ -89,12 +104,27 @@ namespace OpenGL.Test
 		[Test]
 		public void KhronosApi_Log()
 		{
-			if (Khronos.KhronosApi.HasLogging == false)
-				Assert.Inconclusive("no log support");
-
-			Assert.IsTrue(Khronos.KhronosApi.HasLogging);
 			Assert.IsFalse(Khronos.KhronosApi.LogEnabled);
+			Assert.IsTrue(Khronos.KhronosApi.LogEnabled = true);
+			Assert.IsFalse(Khronos.KhronosApi.LogEnabled = false);
 
+			Assert.Throws<ArgumentNullException>(() => Khronos.KhronosApi.RaiseLog(null));
+			Assert.Throws<ArgumentNullException>(() => Khronos.KhronosApi.LogComment(null));
+
+			int logcounter = 0;
+
+			Khronos.KhronosApi.Log += (sender, e) => {
+				Assert.IsNotNull(e.ToString());
+				logcounter++;
+			};
+
+			Khronos.KhronosApi.LogEnabled = false;
+			Khronos.KhronosApi.LogComment("Any comment?");
+			Assert.AreEqual(0, logcounter);
+
+			Khronos.KhronosApi.LogEnabled = true;
+			Khronos.KhronosApi.LogComment("Any comment?");
+			Assert.AreEqual(1, logcounter);
 		}
 	}
 }
