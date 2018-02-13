@@ -73,7 +73,7 @@ namespace OpenVX
 			// Load procedures
 			string platformLibrary = GetPlatformLibrary();
 
-			LogComment("Querying OpenVX from {0}", platformLibrary);
+			LogComment($"Querying OpenVX from {platformLibrary}");
 			BindAPI<VX>(platformLibrary, KhronosApi.GetProcAddressOS, null);
 		}
 

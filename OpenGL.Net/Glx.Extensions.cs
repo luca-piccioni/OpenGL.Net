@@ -39,56 +39,48 @@ namespace OpenGL
 			/// Support for extension GLX_ARB_get_proc_address.
 			/// </summary>
 			[Extension("GLX_ARB_get_proc_address")]
-			[ExtensionSupport("glx")]
 			public bool GetProcAddress_ARB;
 
 			/// <summary>
 			/// Support for extension GLX_ARB_multisample.
 			/// </summary>
 			[Extension("GLX_ARB_multisample")]
-			[ExtensionSupport("glx")]
 			public bool Multisample_ARB;
 
 			/// <summary>
 			/// Support for extension GLX_ARB_vertex_buffer_object.
 			/// </summary>
 			[Extension("GLX_ARB_vertex_buffer_object")]
-			[ExtensionSupport("glx")]
 			public bool VertexBufferObject_ARB;
 
 			/// <summary>
 			/// Support for extension GLX_ARB_fbconfig_float.
 			/// </summary>
 			[Extension("GLX_ARB_fbconfig_float")]
-			[ExtensionSupport("glx")]
 			public bool FbconfigFloat_ARB;
 
 			/// <summary>
 			/// Support for extension GLX_ARB_framebuffer_sRGB.
 			/// </summary>
 			[Extension("GLX_ARB_framebuffer_sRGB")]
-			[ExtensionSupport("glx")]
 			public bool FramebufferSRGB_ARB;
 
 			/// <summary>
 			/// Support for extension GLX_ARB_create_context.
 			/// </summary>
 			[Extension("GLX_ARB_create_context")]
-			[ExtensionSupport("glx")]
 			public bool CreateContext_ARB;
 
 			/// <summary>
 			/// Support for extension GLX_ARB_create_context_profile.
 			/// </summary>
 			[Extension("GLX_ARB_create_context_profile")]
-			[ExtensionSupport("glx")]
 			public bool CreateContextProfile_ARB;
 
 			/// <summary>
 			/// Support for extension GLX_ARB_create_context_robustness.
 			/// </summary>
 			[Extension("GLX_ARB_create_context_robustness")]
-			[ExtensionSupport("glx")]
 			public bool CreateContextRobustness_ARB;
 
 			/// <summary>
@@ -96,21 +88,18 @@ namespace OpenGL
 			/// </summary>
 			[Extension("GLX_ARB_robustness_application_isolation")]
 			[Extension("GLX_ARB_robustness_share_group_isolation")]
-			[ExtensionSupport("glx")]
 			public bool RobustnessApplicationIsolation_ARB;
 
 			/// <summary>
 			/// Support for extension GLX_ARB_context_flush_control.
 			/// </summary>
 			[Extension("GLX_ARB_context_flush_control")]
-			[ExtensionSupport("glx")]
 			public bool ContextFlushControl_ARB;
 
 			/// <summary>
 			/// Support for extension GLX_ARB_create_context_no_error.
 			/// </summary>
 			[Extension("GLX_ARB_create_context_no_error")]
-			[ExtensionSupport("glx")]
 			public bool CreateContextNoError_ARB;
 
 			/// <summary>

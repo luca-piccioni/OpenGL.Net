@@ -44,12 +44,12 @@ namespace OpenWF
 			// Load procedures
 			string platformLibrary = GetPlatformLibrary();
 			try {
-				LogComment("Querying OpenWF Compositor from {0}", platformLibrary);
+				LogComment($"Querying OpenWF Compositor from {platformLibrary}");
 				BindAPI<Wfc>(platformLibrary, GetProcAddressOS, null);
-				LogComment("OpenWF Compositor availability: {0}", IsAvailable);
+				LogComment($"OpenWF Compositor availability: {IsAvailable}");
 			} catch (Exception exception) {
 				/* Fail-safe (it may fail due Egl access) */
-				LogComment("OpenWF Compositor not available:\n{0}", exception.ToString());
+				LogComment($"OpenWF Compositor not available:\n{exception}");
 			}
 		}
 

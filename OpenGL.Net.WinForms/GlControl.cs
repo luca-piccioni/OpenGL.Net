@@ -708,7 +708,7 @@ namespace OpenGL
 					if (xplatui == null)
 						throw new InvalidOperationException("no XPlatUI implementation");
 					IntPtr display = (IntPtr)xplatui.GetField("DisplayHandle", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic).GetValue(null);
-					KhronosApi.LogComment("System.Windows.Forms.XplatUIX11.DisplayHandle is 0x{0}", display.ToString("X"));
+					KhronosApi.LogComment($"System.Windows.Forms.XplatUIX11.DisplayHandle is 0x{display.ToString("X")}");
 					if (display == IntPtr.Zero)
 						throw new InvalidOperationException("unable to connect to X server using XPlatUI");
 

@@ -42,7 +42,6 @@ namespace OpenGL
 			/// </summary>
 			[CoreExtension(3, 2)]
 			[Extension("GL_ARB_instanced_arrays")]
-			[ExtensionSupport("gl")]
 			public bool InstancedArrays;
 		}
 	}

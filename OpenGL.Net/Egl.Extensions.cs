@@ -39,280 +39,240 @@ namespace OpenGL
 			/// Support for extension EGL_KHR_gl_texture_cubemap_image.
 			/// </summary>
 			[Extension("EGL_KHR_gl_texture_cubemap_image")]
-			[ExtensionSupport("egl")]
 			public bool GlTextureCubemapImage_KHR;
 
 			/// <summary>
 			/// Support for extension EGL_KHR_wait_sync.
 			/// </summary>
 			[Extension("EGL_KHR_wait_sync")]
-			[ExtensionSupport("egl")]
 			public bool WaitSync_KHR;
 
 			/// <summary>
 			/// Support for extension EGL_KHR_vg_parent_image.
 			/// </summary>
 			[Extension("EGL_KHR_vg_parent_image")]
-			[ExtensionSupport("egl")]
 			public bool VgParentImage_KHR;
 
 			/// <summary>
 			/// Support for extension EGL_KHR_swap_buffers_with_damage.
 			/// </summary>
 			[Extension("EGL_KHR_swap_buffers_with_damage")]
-			[ExtensionSupport("egl")]
 			public bool SwapBuffersWithDamage_KHR;
 
 			/// <summary>
 			/// Support for extension EGL_KHR_surfaceless_context.
 			/// </summary>
 			[Extension("EGL_KHR_surfaceless_context")]
-			[ExtensionSupport("egl")]
 			public bool SurfacelessContext_KHR;
 
 			/// <summary>
 			/// Support for extension EGL_KHR_stream_producer_eglsurface.
 			/// </summary>
 			[Extension("EGL_KHR_stream_producer_eglsurface")]
-			[ExtensionSupport("egl")]
 			public bool StreamProducerEglsurface_KHR;
 
 			/// <summary>
 			/// Support for extension EGL_KHR_stream_producer_aldatalocator.
 			/// </summary>
 			[Extension("EGL_KHR_stream_producer_aldatalocator")]
-			[ExtensionSupport("egl")]
 			public bool StreamProducerAldatalocator_KHR;
 
 			/// <summary>
 			/// Support for extension EGL_KHR_stream_fifo.
 			/// </summary>
 			[Extension("EGL_KHR_stream_fifo")]
-			[ExtensionSupport("egl")]
 			public bool StreamFifo_KHR;
 
 			/// <summary>
 			/// Support for extension EGL_KHR_stream_cross_process_fd.
 			/// </summary>
 			[Extension("EGL_KHR_stream_cross_process_fd")]
-			[ExtensionSupport("egl")]
 			public bool StreamCrossProcessFd_KHR;
 
 			/// <summary>
 			/// Support for extension EGL_KHR_stream_consumer_gltexture.
 			/// </summary>
 			[Extension("EGL_KHR_stream_consumer_gltexture")]
-			[ExtensionSupport("egl")]
 			public bool StreamConsumerGltexture_KHR;
 
 			/// <summary>
 			/// Support for extension EGL_KHR_stream_attrib.
 			/// </summary>
 			[Extension("EGL_KHR_stream_attrib")]
-			[ExtensionSupport("egl")]
 			public bool StreamAttrib_KHR;
 
 			/// <summary>
 			/// Support for extension EGL_KHR_stream.
 			/// </summary>
 			[Extension("EGL_KHR_stream")]
-			[ExtensionSupport("egl")]
 			public bool Stream_KHR;
 
 			/// <summary>
 			/// Support for extension EGL_KHR_reusable_sync.
 			/// </summary>
 			[Extension("EGL_KHR_reusable_sync")]
-			[ExtensionSupport("egl")]
 			public bool ReusableSync_KHR;
 
 			/// <summary>
 			/// Support for extension EGL_KHR_platform_x11.
 			/// </summary>
 			[Extension("EGL_KHR_platform_x11")]
-			[ExtensionSupport("egl")]
 			public bool PlatformX11_KHR;
 
 			/// <summary>
 			/// Support for extension EGL_KHR_platform_wayland.
 			/// </summary>
 			[Extension("EGL_KHR_platform_wayland")]
-			[ExtensionSupport("egl")]
 			public bool PlatformWayland_KHR;
 
 			/// <summary>
 			/// Support for extension EGL_KHR_platform_gbm.
 			/// </summary>
 			[Extension("EGL_KHR_platform_gbm")]
-			[ExtensionSupport("egl")]
 			public bool PlatformGbm_KHR;
 
 			/// <summary>
 			/// Support for extension EGL_KHR_platform_android.
 			/// </summary>
 			[Extension("EGL_KHR_platform_android")]
-			[ExtensionSupport("egl")]
 			public bool PlatformAndroid_KHR;
 
 			/// <summary>
 			/// Support for extension EGL_KHR_partial_update.
 			/// </summary>
 			[Extension("EGL_KHR_partial_update")]
-			[ExtensionSupport("egl")]
 			public bool PartialUpdate_KHR;
 
 			/// <summary>
 			/// Support for extension EGL_KHR_no_config_context.
 			/// </summary>
 			[Extension("EGL_KHR_no_config_context")]
-			[ExtensionSupport("egl")]
 			public bool NoConfigContext_KHR;
 
 			/// <summary>
 			/// Support for extension EGL_KHR_mutable_render_buffer.
 			/// </summary>
 			[Extension("EGL_KHR_mutable_render_buffer")]
-			[ExtensionSupport("egl")]
 			public bool MutableRenderBuffer_KHR;
 
 			/// <summary>
 			/// Support for extension EGL_KHR_lock_surface3.
 			/// </summary>
 			[Extension("EGL_KHR_lock_surface3")]
-			[ExtensionSupport("egl")]
 			public bool LockSurface3_KHR;
 
 			/// <summary>
 			/// Support for extension EGL_KHR_lock_surface2.
 			/// </summary>
 			[Extension("EGL_KHR_lock_surface2")]
-			[ExtensionSupport("egl")]
 			public bool LockSurface2_KHR;
 
 			/// <summary>
 			/// Support for extension EGL_KHR_lock_surface.
 			/// </summary>
 			[Extension("EGL_KHR_lock_surface")]
-			[ExtensionSupport("egl")]
 			public bool LockSurface_KHR;
 
 			/// <summary>
 			/// Support for extension EGL_KHR_image_pixmap.
 			/// </summary>
 			[Extension("EGL_KHR_image_pixmap")]
-			[ExtensionSupport("egl")]
 			public bool ImagePixmap_KHR;
 
 			/// <summary>
 			/// Support for extension EGL_KHR_image_base.
 			/// </summary>
 			[Extension("EGL_KHR_image_base")]
-			[ExtensionSupport("egl")]
 			public bool ImageBase_KHR;
 
 			/// <summary>
 			/// Support for extension EGL_KHR_image.
 			/// </summary>
 			[Extension("EGL_KHR_image")]
-			[ExtensionSupport("egl")]
 			public bool Image_KHR;
 
 			/// <summary>
 			/// Support for extension EGL_KHR_gl_texture_3D_image.
 			/// </summary>
 			[Extension("EGL_KHR_gl_texture_3D_image")]
-			[ExtensionSupport("egl")]
 			public bool GlTexture3DImage_KHR;
 
 			/// <summary>
 			/// Support for extension EGL_KHR_gl_texture_2D_image.
 			/// </summary>
 			[Extension("EGL_KHR_gl_texture_2D_image")]
-			[ExtensionSupport("egl")]
 			public bool GlTexture2DImage_KHR;
 
 			/// <summary>
 			/// Support for extension EGL_KHR_gl_renderbuffer_image.
 			/// </summary>
 			[Extension("EGL_KHR_gl_renderbuffer_image")]
-			[ExtensionSupport("egl")]
 			public bool GlRenderbufferImage_KHR;
 
 			/// <summary>
 			/// Support for extension EGL_KHR_gl_colorspace.
 			/// </summary>
 			[Extension("EGL_KHR_gl_colorspace")]
-			[ExtensionSupport("egl")]
 			public bool GlColorspace_KHR;
 
 			/// <summary>
 			/// Support for extension EGL_KHR_get_all_proc_addresses.
 			/// </summary>
 			[Extension("EGL_KHR_get_all_proc_addresses")]
-			[ExtensionSupport("egl")]
 			public bool GetAllProcAddresses_KHR;
 
 			/// <summary>
 			/// Support for extension EGL_KHR_fence_sync.
 			/// </summary>
 			[Extension("EGL_KHR_fence_sync")]
-			[ExtensionSupport("egl")]
 			public bool FenceSync_KHR;
 
 			/// <summary>
 			/// Support for extension EGL_KHR_debug.
 			/// </summary>
 			[Extension("EGL_KHR_debug")]
-			[ExtensionSupport("egl")]
 			public bool Debug_KHR;
 
 			/// <summary>
 			/// Support for extension EGL_KHR_create_context_no_error.
 			/// </summary>
 			[Extension("EGL_KHR_create_context_no_error")]
-			[ExtensionSupport("egl")]
 			public bool CreateContextNoError_KHR;
 
 			/// <summary>
 			/// Support for extension EGL_KHR_create_context.
 			/// </summary>
 			[Extension("EGL_KHR_create_context")]
-			[ExtensionSupport("egl")]
 			public bool CreateContext_KHR;
 
 			/// <summary>
 			/// Support for extension EGL_KHR_context_flush_control.
 			/// </summary>
 			[Extension("EGL_KHR_context_flush_control")]
-			[ExtensionSupport("egl")]
 			public bool ContextFlushControl_KHR;
 
 			/// <summary>
 			/// Support for extension EGL_KHR_client_get_all_proc_addresses.
 			/// </summary>
 			[Extension("EGL_KHR_client_get_all_proc_addresses")]
-			[ExtensionSupport("egl")]
 			public bool ClientGetAllProcAddresses_KHR;
 
 			/// <summary>
 			/// Support for extension EGL_KHR_config_attribs.
 			/// </summary>
 			[Extension("EGL_KHR_config_attribs")]
-			[ExtensionSupport("egl")]
 			public bool ConfigAttribs_KHR;
 
 			/// <summary>
 			/// Support for extension EGL_KHR_cl_event2.
 			/// </summary>
 			[Extension("EGL_KHR_cl_event2")]
-			[ExtensionSupport("egl")]
 			public bool ClEvent2_KHR;
 
 			/// <summary>
 			/// Support for extension EGL_KHR_cl_event.
 			/// </summary>
 			[Extension("EGL_KHR_cl_event")]
-			[ExtensionSupport("egl")]
 			public bool ClEvent_KHR;
 
 			/// <summary>

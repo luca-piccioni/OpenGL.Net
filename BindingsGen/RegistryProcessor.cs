@@ -487,10 +487,6 @@ namespace BindingsGen
 							sw.WriteLine("[Extension(\"{0}\")]", feature.Name);
 					}
 
-					Extension mainExtension = (Extension)mainFeature;
-					if (String.IsNullOrEmpty(mainExtension.Supported) == false)
-						sw.WriteLine("[ExtensionSupport(\"{0}\")]", mainExtension.Supported);
-
 					sw.WriteLine("public bool {0};", extensionFieldName);
 					sw.WriteLine();
 				}

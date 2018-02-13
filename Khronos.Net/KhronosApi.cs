@@ -659,37 +659,6 @@ namespace Khronos
 		}
 
 		/// <summary>
-		/// Attribute asserting the support of the extension of the underlying member.
-		/// </summary>
-		[AttributeUsage(AttributeTargets.Field)]
-		public sealed class ExtensionSupportAttribute : Attribute
-		{
-			/// <summary>
-			/// Construct a ExtensionAttribute, specifying the extension name.
-			/// </summary>
-			/// <param name="support">
-			/// A <see cref="string"/> that specifies the name of the platforms that support the extension.
-			/// </param>
-			/// <exception cref="ArgumentException">
-			/// Exception thrown if <paramref name="support"/> is null or empty.
-			/// </exception>
-			public ExtensionSupportAttribute(string support)
-			{
-				Support = support;
-			}
-
-			/// <summary>
-			/// The support of the extension.
-			/// </summary>
-			public readonly string Support;
-
-			/// <summary>
-			/// 
-			/// </summary>
-			public string Api;
-		}
-
-		/// <summary>
 		/// Base class for managing OpenGL extensions.
 		/// </summary>
 		public abstract class ExtensionsCollection
