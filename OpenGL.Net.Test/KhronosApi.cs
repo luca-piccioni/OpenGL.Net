@@ -126,5 +126,179 @@ namespace OpenGL.Test
 			Khronos.KhronosApi.LogComment("Any comment?");
 			Assert.AreEqual(1, logcounter);
 		}
+
+		internal class TestExtensions : Khronos.KhronosApi.ExtensionsCollection
+		{
+			public new void Query(KhronosVersion version, string extensionsString)
+			{
+				base.Query(version, extensionsString);
+			}
+
+			public new void Query(KhronosVersion version, string[] extensionsString)
+			{
+				base.Query(version, extensionsString);
+			}
+
+			/// <summary>
+			/// Simple extension.
+			/// </summary>
+			[Khronos.KhronosApi.Extension("GL_EXT_1", Api = "gl")]
+			public bool Ext1;
+
+			/// <summary>
+			/// Another simple extension.
+			/// </summary>
+			[Khronos.KhronosApi.Extension("GL_EXT_2", Api = "gles2")]
+			public bool Ext2;
+
+			/// <summary>
+			/// Test Api attribute as regular expression.
+			/// </summary>
+			[Khronos.KhronosApi.Extension("GL_EXT_3", Api = "gl|gles2")]
+			public bool Ext3;
+
+			/// <summary>
+			/// Multiple extension.
+			/// </summary>
+			[Khronos.KhronosApi.Extension("GL_EXT_1", Api = "gl")]
+			[Khronos.KhronosApi.Extension("GL_EXT_2", Api = "gles2")]
+			[Khronos.KhronosApi.Extension("GL_EXT_3", Api = "gl|gles2")]
+			public bool Ext;
+
+			/// <summary>
+			/// Core extension.
+			/// </summary>
+			[Khronos.KhronosApi.CoreExtension(3, 2)]
+			public bool Core1;
+
+			/// <summary>
+			/// Another core extension.
+			/// </summary>
+			[Khronos.KhronosApi.CoreExtension(3, 2, "gles2")]
+			public bool Core2;
+
+			/// <summary>
+			/// Multiple core extension.
+			/// </summary>
+			[Khronos.KhronosApi.CoreExtension(3, 2, "gl")]
+			[Khronos.KhronosApi.CoreExtension(3, 2, "gles2")]
+			public bool Core3;
+
+			/// <summary>
+			/// Mixed attributes
+			/// </summary>
+			[Khronos.KhronosApi.CoreExtension(3, 2, "gl")]
+			[Khronos.KhronosApi.Extension("GL_EXT_3", Api = "gl")]
+			public bool Mixed;
+
+			/// <summary>
+			/// This extension won't be supported.
+			/// </summary>
+			[Khronos.KhronosApi.Extension("GL_EXT_invalid", Api = "gl|gles2")]
+			public int InvalidExt;
+		}
+
+		[Test]
+		public void KhronosApi_Extensions()
+		{
+			TestExtensions extensions = new TestExtensions();
+
+			Assert.Throws<ArgumentNullException>(() => extensions.HasExtensions(null));
+			Assert.Throws<ArgumentNullException>(() => extensions.Query(Gl.Version_100, (string)null));
+			Assert.Throws<ArgumentNullException>(() => extensions.Query(Gl.Version_100, (string[])null));
+
+			Assert.DoesNotThrow(() => extensions.Query(Gl.Version_100, ""));
+			Assert.DoesNotThrow(() => extensions.Query(null, ""));
+			Assert.DoesNotThrow(() => extensions.Query(null, "   "));
+
+			// Defaults to false
+			Assert.IsFalse(extensions.HasExtensions("GL_EXT_1"));
+			Assert.IsFalse(extensions.Ext1);
+			Assert.IsFalse(extensions.HasExtensions("GL_EXT_2"));
+			Assert.IsFalse(extensions.Ext2);
+			Assert.IsFalse(extensions.HasExtensions("GL_EXT_3"));
+			Assert.IsFalse(extensions.Ext3);
+			Assert.IsFalse(extensions.Ext);
+			Assert.IsFalse(extensions.Core1);
+			Assert.IsFalse(extensions.Core2);
+			Assert.IsFalse(extensions.Core3);
+
+			// Filter by API
+			extensions.Query(Gl.Version_100, "GL_EXT_1 GL_EXT_2 GL_EXT_3");
+			Assert.IsTrue(extensions.HasExtensions("GL_EXT_1"));
+			Assert.IsTrue(extensions.Ext1);
+			Assert.IsTrue(extensions.HasExtensions("GL_EXT_2"));					// Extension listed as supported!
+			Assert.IsFalse(extensions.Ext2);										// ...but field is filtered by API ('gl' in this case) (*)
+			Assert.IsTrue(extensions.HasExtensions("GL_EXT_3"));
+			Assert.IsTrue(extensions.Ext3);
+			Assert.IsTrue(extensions.Ext);
+			Assert.IsFalse(extensions.Core1);
+			Assert.IsFalse(extensions.Core2);
+			Assert.IsFalse(extensions.Core3);
+
+			// (*) This should happen when the extensions string is coherent with the GL context version
+
+			extensions.Query(Gl.Version_200_ES, "GL_EXT_1 GL_EXT_2 GL_EXT_3");
+			Assert.IsTrue(extensions.HasExtensions("GL_EXT_1"));
+			Assert.IsFalse(extensions.Ext1);
+			Assert.IsTrue(extensions.HasExtensions("GL_EXT_2"));
+			Assert.IsTrue(extensions.Ext2);
+			Assert.IsTrue(extensions.HasExtensions("GL_EXT_3"));
+			Assert.IsTrue(extensions.Ext3);
+			Assert.IsTrue(extensions.Ext);
+			Assert.IsFalse(extensions.Core1);
+			Assert.IsFalse(extensions.Core2);
+			Assert.IsFalse(extensions.Core3);
+
+			extensions.Query(Gl.Version_100, "GL_EXT_2");
+			Assert.IsFalse(extensions.HasExtensions("GL_EXT_1"));
+			Assert.IsFalse(extensions.Ext1);
+			Assert.IsTrue(extensions.HasExtensions("GL_EXT_2"));
+			Assert.IsFalse(extensions.Ext2);
+			Assert.IsFalse(extensions.HasExtensions("GL_EXT_3"));
+			Assert.IsFalse(extensions.Ext3);
+			Assert.IsFalse(extensions.Ext);
+			Assert.IsFalse(extensions.Core1);
+			Assert.IsFalse(extensions.Core2);
+			Assert.IsFalse(extensions.Core3);
+
+			// Filter by version
+			extensions.Query(Gl.Version_320, "");
+			Assert.IsFalse(extensions.HasExtensions("GL_EXT_1"));
+			Assert.IsFalse(extensions.Ext1);
+			Assert.IsFalse(extensions.HasExtensions("GL_EXT_2"));
+			Assert.IsFalse(extensions.Ext2);
+			Assert.IsFalse(extensions.HasExtensions("GL_EXT_3"));
+			Assert.IsFalse(extensions.Ext3);
+			Assert.IsFalse(extensions.Ext);
+			Assert.IsTrue(extensions.Core1);
+			Assert.IsFalse(extensions.Core2);
+			Assert.IsTrue(extensions.Core3);
+
+			extensions.Query(Gl.Version_320_ES, "");
+			Assert.IsFalse(extensions.HasExtensions("GL_EXT_1"));
+			Assert.IsFalse(extensions.Ext1);
+			Assert.IsFalse(extensions.HasExtensions("GL_EXT_2"));
+			Assert.IsFalse(extensions.Ext2);
+			Assert.IsFalse(extensions.HasExtensions("GL_EXT_3"));
+			Assert.IsFalse(extensions.Ext3);
+			Assert.IsFalse(extensions.Ext);
+			Assert.IsFalse(extensions.Core1);
+			Assert.IsTrue(extensions.Core2);
+			Assert.IsTrue(extensions.Core3);
+
+			// Duplicated extension are managed nicely
+			Assert.DoesNotThrow(() => extensions.Query(null, "GL_EXT_3 GL_EXT_3 GL_EXT_3"));
+
+			// Mixed attributes
+			extensions.Query(Gl.Version_100, "");
+			Assert.IsFalse(extensions.Mixed);
+
+			extensions.Query(Gl.Version_320, "");
+			Assert.IsTrue(extensions.Mixed);
+
+			extensions.Query(Gl.Version_100, "GL_EXT_3");
+			Assert.IsTrue(extensions.Mixed);
+		}
 	}
 }

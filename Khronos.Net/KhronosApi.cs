@@ -573,10 +573,9 @@ namespace Khronos
 			/// <exception cref="ArgumentNullException">
 			/// Exception thrown if <paramref name="api"/> is null.
 			/// </exception>
-			public CoreExtensionAttribute(int major, int minor, string api) :
-				this(major, minor, 0, api)
+			public CoreExtensionAttribute(int major, int minor, string api)
 			{
-
+				Version = new KhronosVersion(major, minor, 0, api);
 			}
 
 			/// <summary>
@@ -592,58 +591,9 @@ namespace Khronos
 			/// Exception thrown if <paramref name="major"/> is less or equals to 0, or if <paramref name="minor"/> is less than 0.
 			/// </exception>
 			public CoreExtensionAttribute(int major, int minor) :
-				this(major, minor, 0, KhronosVersion.ApiGl)
+				this(major, minor, KhronosVersion.ApiGl)
 			{
 
-			}
-
-			/// <summary>
-			/// Construct a CoreExtensionAttribute specifying the version numbers.
-			/// </summary>
-			/// <param name="major">
-			/// A <see cref="Int32"/> that specifies that major version number.
-			/// </param>
-			/// <param name="minor">
-			/// A <see cref="Int32"/> that specifies that minor version number.
-			/// </param>
-			/// <param name="revision">
-			/// A <see cref="Int32"/> that specifies that revision version number.
-			/// </param>
-			/// <exception cref="ArgumentException">
-			/// Exception thrown if <paramref name="major"/> is less or equals to 0, or if <paramref name="minor"/> or
-			/// <paramref name="revision"/> are less than 0.
-			/// </exception>
-			public CoreExtensionAttribute(int major, int minor, int revision) :
-				this(major, minor, revision, KhronosVersion.ApiGl)
-			{
-
-			}
-
-			/// <summary>
-			/// Construct a CoreExtensionAttribute specifying the version numbers.
-			/// </summary>
-			/// <param name="major">
-			/// A <see cref="Int32"/> that specifies that major version number.
-			/// </param>
-			/// <param name="minor">
-			/// A <see cref="Int32"/> that specifies that minor version number.
-			/// </param>
-			/// <param name="revision">
-			/// A <see cref="Int32"/> that specifies that revision version number.
-			/// </param>
-			/// <param name="api">
-			/// A <see cref="string"/> that specifies the API name.
-			/// </param>
-			/// <exception cref="ArgumentException">
-			/// Exception thrown if <paramref name="major"/> is less or equals to 0, or if <paramref name="minor"/> or
-			/// <paramref name="revision"/> are less than 0.
-			/// </exception>
-			/// <exception cref="ArgumentNullException">
-			/// Exception thrown if <paramref name="api"/> is null.
-			/// </exception>
-			public CoreExtensionAttribute(int major, int minor, int revision, string api)
-			{
-				Version = new KhronosVersion(major, minor, revision, api);
 			}
 
 			#endregion
@@ -729,8 +679,6 @@ namespace Khronos
 			/// </exception>
 			protected void Query(KhronosVersion version, string[] extensions)
 			{
-				if (version == null)
-					throw new ArgumentNullException(nameof(version));
 				if (extensions == null)
 					throw new ArgumentNullException(nameof(extensions));
 
@@ -744,11 +692,14 @@ namespace Khronos
 				SyncMembers(version);
 			}
 
+			/// <summary>
+			/// Set all fields of this ExtensionsCollection, depending on current extensions.
+			/// </summary>
+			/// <param name="version">
+			/// The <see cref="KhronosVersion"/> that specifies the context version/API. It can be null.
+			/// </param>
 			protected internal void SyncMembers(KhronosVersion version)
 			{
-				if (version == null)
-					throw new ArgumentNullException(nameof(version));
-
 				Type thisType = GetType();
 #if NETSTANDARD1_1 || NETSTANDARD1_4 || NETCORE
 				IEnumerable<FieldInfo> thisTypeFields = thisType.GetTypeInfo().DeclaredFields;
@@ -758,7 +709,7 @@ namespace Khronos
 
 				foreach (FieldInfo fieldInfo in thisTypeFields) {
 					// Check boolean field (defensive)
-					Debug.Assert(fieldInfo.FieldType == typeof(bool));
+					// Debug.Assert(fieldInfo.FieldType == typeof(bool));
 					if (fieldInfo.FieldType != typeof(bool))
 						continue;
 
@@ -766,25 +717,33 @@ namespace Khronos
 
 					// Support by extension
 #if NETSTANDARD1_1 || NETSTANDARD1_4 || NETCORE
-					IEnumerable<Attribute> coreAttributes = fieldInfo.GetCustomAttributes(typeof(CoreExtensionAttribute));
-#else
-					IEnumerable<Attribute> coreAttributes = Attribute.GetCustomAttributes(fieldInfo, typeof(CoreExtensionAttribute));
-#endif
-					foreach (CoreExtensionAttribute coreAttribute in coreAttributes) {
-						if (version.Api == coreAttribute.Version.Api && version >= coreAttribute.Version) {
-							support = true;
-							break;
-						}
-					}
-
-					// Support by extension
-#if NETSTANDARD1_1 || NETSTANDARD1_4 || NETCORE
 					IEnumerable<Attribute> extensionAttributes = fieldInfo.GetCustomAttributes(typeof(ExtensionAttribute));
 #else
 					IEnumerable<Attribute> extensionAttributes = Attribute.GetCustomAttributes(fieldInfo, typeof(ExtensionAttribute));
 #endif
+					// ReSharper disable once PossibleInvalidCastExceptionInForeachLoop
 					foreach (ExtensionAttribute extensionAttribute in extensionAttributes) {
-						if (_ExtensionsRegistry.ContainsKey(extensionAttribute.ExtensionName)) {
+						if (!_ExtensionsRegistry.ContainsKey(extensionAttribute.ExtensionName))
+							continue;
+						if (version != null && version.Api != null && extensionAttribute.Api != null && !Regex.IsMatch(version.Api, "^" + extensionAttribute.Api + "$"))
+							continue;
+
+						support = true;
+						break;
+					}
+
+					// Support by version
+					if (version != null && support == false) {
+#if NETSTANDARD1_1 || NETSTANDARD1_4 || NETCORE
+						IEnumerable<Attribute> coreAttributes = fieldInfo.GetCustomAttributes(typeof(CoreExtensionAttribute));
+#else
+						IEnumerable<Attribute> coreAttributes = Attribute.GetCustomAttributes(fieldInfo, typeof(CoreExtensionAttribute));
+#endif
+						// ReSharper disable once PossibleInvalidCastExceptionInForeachLoop
+						foreach (CoreExtensionAttribute coreAttribute in coreAttributes) {
+							if (version.Api != coreAttribute.Version.Api || version < coreAttribute.Version)
+								continue;
+
 							support = true;
 							break;
 						}
@@ -792,34 +751,6 @@ namespace Khronos
 
 					fieldInfo.SetValue(this, support);
 				}
-			}
-
-			/// <summary>
-			/// Get the vendor of the extension.
-			/// </summary>
-			/// <param name="extensionName">
-			/// A <see cref="string"/> that specifies the extension name.
-			/// </param>
-			/// <returns>
-			/// It returns the substring that identifies the vendor of the extension.
-			/// </returns>
-			/// <exception cref="ArgumentNullException">
-			/// Exception thrown if <paramref name="extensionName"/> is null.
-			/// </exception>
-			/// <exception cref="ArgumentException">
-			/// Exception thrown if <paramref name="extensionName"/> cannot be recognized as conformant extension name.
-			/// </exception>
-			protected static string GetVendor(string extensionName)
-			{
-				if (extensionName == null)
-					throw new ArgumentNullException(nameof(extensionName));
-
-				Match vendorMatch = Regex.Match(extensionName, @"^(GL|WGL|GLX|GLU|EGL)_(?<Vendor>[^_]+).*");
-
-				if (vendorMatch.Success == false)
-					throw new ArgumentException("non conformant extension name", nameof(extensionName));
-
-				return vendorMatch.Groups["Vendor"].Value;
 			}
 
 			/// <summary>

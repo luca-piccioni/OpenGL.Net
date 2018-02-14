@@ -64,7 +64,7 @@ namespace OpenGL
 				// Keep native window pinned
 				_NativeWindowLock = new MemoryLock(_NativeWindow);
 
-				KhronosApi.LogComment("VideoCore IV Native Window is 0x{0}", _NativeWindowLock.Address.ToString("X"));
+				KhronosApi.LogComment($"VideoCore IV Native Window is 0x{_NativeWindowLock.Address.ToString("X")}");
 			} catch {
 				Dispose();
 				throw;

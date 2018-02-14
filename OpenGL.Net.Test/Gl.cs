@@ -29,15 +29,13 @@ namespace OpenGL.Test
 	internal class GlTest
 	{
 		/// <summary>
-		/// Test Gl.QueryContextVersion.
+		/// Test Gl.BindAPI.
 		/// </summary>
 		[Test]
-		public void Gl_BindAPI_Exceptions()
+		public void Gl_TestBindAPI()
 		{
 			Assert.Throws<ArgumentNullException>(() => Gl.BindAPI(null, null));
 			Assert.Throws<ArgumentNullException>(() => Gl.BindAPI(null, new Gl.Extensions()));
-
-			// Assert.Throws<Exception>(() => Gl.QueryContextVersion());
 		}
 	}
 }
