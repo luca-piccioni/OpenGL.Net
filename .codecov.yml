@@ -35,3 +35,5 @@ ignore:
   - OpenGL.Net/Wgl.VERSION_*.cs
   - OpenGL.Net/[\w\d]+/.*
   - OpenGL.Net/*.Vb.cs
+  - OpenGL.Net.Test/Gl.VERSION_*.cs
+  - OpenGL.Net.Test/*Benchmamark*.cs
