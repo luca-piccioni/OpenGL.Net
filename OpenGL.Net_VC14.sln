@@ -25,6 +25,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BC9954B5-DF60-43BC-9F04-3FBB2D7DE8E8}"
 	ProjectSection(SolutionItems) = preProject
 		.appveyor.yml = .appveyor.yml
+		.codecov.yml = .codecov.yml
 		.travis.yml = .travis.yml
 		LICENSE = LICENSE
 		OpenGL.Net.targets = OpenGL.Net.targets
