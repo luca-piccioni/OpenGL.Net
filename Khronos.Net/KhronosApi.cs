@@ -39,12 +39,17 @@ namespace Khronos
 	/// Base class for loading external routines.
 	/// </summary>
 	/// <remarks>
+	/// <para>
 	/// This class is used for basic operations of automatic generated classes Gl, Wgl, Glx and Egl. The main
 	/// functions of this class allows:
 	/// - To parse OpenGL extensions string
 	/// - To query import functions using reflection
 	/// - To query delegate functions using reflection
 	/// - To link imported functions into delegates functions.
+	/// </para>
+	/// <para>
+	/// Argument of the methods with 'internal' modifier are not checked.
+	/// </para>
 	/// </remarks>
 	public class KhronosApi
 	{
@@ -153,31 +158,10 @@ namespace Khronos
 		/// </summary>
 		internal static void BindAPIFunction<T>(string path, string functionName, GetAddressDelegate getProcAddress, KhronosVersion version, ExtensionsCollection extensions)
 		{
-			if (path == null)
-				throw new ArgumentNullException(nameof(path));
-			if (functionName == null)
-				throw new ArgumentNullException(nameof(functionName));
-			if (getProcAddress == null)
-				throw new ArgumentNullException(nameof(getProcAddress));
-
 			FunctionContext functionContext = GetFunctionContext(typeof(T));
 			Debug.Assert(functionContext != null);
 
-#if NETSTANDARD1_1 || NETSTANDARD1_4
-			TypeInfo delegatesClass = typeof(T).GetTypeInfo().GetDeclaredNestedType("Delegates");
-			Debug.Assert(delegatesClass != null);
-
-			FieldInfo functionField = delegatesClass.GetDeclaredField("p" + functionName);
-			Debug.Assert(functionField != null);
-#else
-			Type delegatesClass = typeof(T).GetNestedType("Delegates", BindingFlags.Static | BindingFlags.NonPublic);
-			Debug.Assert(delegatesClass != null);
-
-			FieldInfo functionField = delegatesClass.GetField("p" + functionName, BindingFlags.Static | BindingFlags.NonPublic);
-			Debug.Assert(functionField != null);
-#endif
-
-			BindAPIFunction(path, getProcAddress, functionField, version, extensions);
+			BindAPIFunction(path, getProcAddress, functionContext.GetFunction(functionName), version, extensions);
 		}
 
 		/// <summary>
@@ -253,10 +237,11 @@ namespace Khronos
 				#region Check Requirement
 
 #if NETSTANDARD1_1 || NETSTANDARD1_4 || NETCORE
-				Attribute[] attrRequired = new List<Attribute>(function.GetCustomAttributes(typeof(RequiredByFeatureAttribute))).ToArray();
+				IEnumerable<Attribute> attrRequired = new List<Attribute>(function.GetCustomAttributes(typeof(RequiredByFeatureAttribute)));
 #else
-				Attribute[] attrRequired = Attribute.GetCustomAttributes(function, typeof(RequiredByFeatureAttribute));
+				IEnumerable<Attribute> attrRequired = Attribute.GetCustomAttributes(function, typeof(RequiredByFeatureAttribute));
 #endif
+				// ReSharper disable once PossibleInvalidCastExceptionInForeachLoop
 				foreach (RequiredByFeatureAttribute attr in attrRequired) {
 					// Check for API support
 					if (attr.IsSupported(version, extensions) == false)
@@ -286,6 +271,7 @@ namespace Khronos
 #endif
 					KhronosVersion maxRemovedVersion = null;
 
+					// ReSharper disable once PossibleInvalidCastExceptionInForeachLoop
 					foreach (RemovedByFeatureAttribute attr in attrRemoved) {
 						// Check for API support
 						if (attr.IsRemoved(version, extensions) == false)
@@ -387,14 +373,15 @@ namespace Khronos
 			Debug.Assert(version != null);
 
 #if NETSTANDARD1_1 || NETSTANDARD1_4 || NETCORE
-			Attribute[] attrRequired = new List<Attribute>(function.GetCustomAttributes(typeof(RequiredByFeatureAttribute))).ToArray(); // XXX
+			IEnumerable<Attribute> attrRequired = new List<Attribute>(function.GetCustomAttributes(typeof(RequiredByFeatureAttribute)));
 #else
-			Attribute[] attrRequired = Attribute.GetCustomAttributes(function, typeof(RequiredByFeatureAttribute));
+			IEnumerable<Attribute> attrRequired = Attribute.GetCustomAttributes(function, typeof(RequiredByFeatureAttribute));
 #endif
 
 			KhronosVersion maxRequiredVersion = null;
 			bool isRequired = false, isRemoved = false;
 
+			// ReSharper disable once PossibleInvalidCastExceptionInForeachLoop
 			foreach (RequiredByFeatureAttribute attr in attrRequired) {
 				// Check for API support
 				if (attr.IsSupported(version, extensions) == false)
@@ -411,12 +398,13 @@ namespace Khronos
 				// Note: indeed the feature could be supported; check whether it is removed
 				
 #if NETSTANDARD1_1 || NETSTANDARD1_4 || NETCORE
-				Attribute[] attrRemoved = new List<Attribute>(function.GetCustomAttributes(typeof(RemovedByFeatureAttribute))).ToArray();
+				IEnumerable<Attribute> attrRemoved = new List<Attribute>(function.GetCustomAttributes(typeof(RemovedByFeatureAttribute)));
 #else
-				Attribute[] attrRemoved = Attribute.GetCustomAttributes(function, typeof(RemovedByFeatureAttribute));
+				IEnumerable<Attribute> attrRemoved = Attribute.GetCustomAttributes(function, typeof(RemovedByFeatureAttribute));
 #endif
 				KhronosVersion maxRemovedVersion = null;
 
+				// ReSharper disable once PossibleInvalidCastExceptionInForeachLoop
 				foreach (RemovedByFeatureAttribute attr in attrRemoved) {
 					if (attr.IsRemoved(version, extensions) == false)
 						continue;
@@ -495,11 +483,57 @@ namespace Khronos
 			/// <summary>
 			/// Construct a FunctionContext on a specific <see cref="Type"/>.
 			/// </summary>
-			/// <param name="type"></param>
+			/// <param name="type">
+			/// The <see cref="Type"/> deriving from <see cref="KhronosApi"/>.
+			/// </param>
 			public FunctionContext(Type type)
 			{
+#if NETSTANDARD1_1 || NETSTANDARD1_4
+				TypeInfo delegatesClass = type.GetTypeInfo().GetDeclaredNestedType("Delegates");
+				Debug.Assert(delegatesClass != null);
+#else
+				Type delegatesClass = type.GetNestedType("Delegates", BindingFlags.Static | BindingFlags.NonPublic);
+				Debug.Assert(delegatesClass != null);
+#endif
+				_DelegateType = delegatesClass;
 				Delegates = GetDelegateList(type);
 			}
+
+			/// <summary>
+			/// Get the field representing the delegate for an API function.
+			/// </summary>
+			/// <param name="functionName">
+			/// A <see cref="string"/> that specifies the native function name.
+			/// </param>
+			/// <returns>
+			/// It returns the <see cref="FieldInfo"/> for the function.
+			/// </returns>
+			public FieldInfo GetFunction(string functionName)
+			{
+				if (functionName == null)
+					throw new ArgumentNullException(nameof(functionName));
+
+#if NETSTANDARD1_1 || NETSTANDARD1_4
+				FieldInfo functionField = _DelegateType.GetDeclaredField("p" + functionName);
+				Debug.Assert(functionField != null);
+#else
+				FieldInfo functionField = _DelegateType.GetField("p" + functionName, BindingFlags.Static | BindingFlags.NonPublic);
+				Debug.Assert(functionField != null);
+#endif
+				return functionField;
+			}
+
+#if NETSTANDARD1_1 || NETSTANDARD1_4
+			// <summary>
+			/// Type containing all delegates.
+			/// </summary>
+			private readonly TypeInfo _DelegateType;
+#else
+			/// <summary>
+			/// Type containing all delegates.
+			/// </summary>
+			private readonly Type _DelegateType;
+#endif
 
 			/// <summary>
 			/// The delegate fields list for the underlying type.
@@ -786,12 +820,8 @@ namespace Khronos
 #if NETSTANDARD1_1 || NETSTANDARD1_4 || NETCORE
 			throw new NotImplementedException();
 #else
-			Type apiType = typeof(T);
-			FunctionContext functionContext = GetFunctionContext(apiType);
-
+			FunctionContext functionContext = GetFunctionContext(typeof(T));
 			Debug.Assert(functionContext != null);
-			if (functionContext == null)
-				throw new InvalidOperationException("unrecognized API type");
 
 			LogComment($"Checking commands for {version}");
 
@@ -806,9 +836,11 @@ namespace Khronos
 #if DEBUG_VERBOSE
 				string commandName = fi.Name.Substring(3);
 #endif
-				if (fi.DeclaringType == null)
-					continue;
-				Type delegateType = fi.DeclaringType.GetNestedType(fi.Name.Substring(1), BindingFlags.Public | BindingFlags.NonPublic);
+				// Get the delegate type
+				Type delegateType = fi.DeclaringType?.GetNestedType(fi.Name.Substring(1), BindingFlags.Public | BindingFlags.NonPublic);
+				if (delegateType == null)
+					continue;		// Support fields names not in sync with delegate types
+				// TODO Why not use 'fi' directly for getting attributes? They should be in sync
 				IEnumerable<object> requiredByFeatureAttributes = delegateType.GetCustomAttributes(typeof(RequiredByFeatureAttribute), false);
 	
 				foreach (RequiredByFeatureAttribute requiredByFeatureAttribute in requiredByFeatureAttributes)
@@ -878,9 +910,8 @@ namespace Khronos
 
 			if (hiddenExtensions.Count > 0) {
 				LogComment($"Found {hiddenExtensions.Count} experimental extensions:");
-				foreach (KeyValuePair<string, bool> hiddenExtension in hiddenExtensions) {
+				foreach (KeyValuePair<string, bool> hiddenExtension in hiddenExtensions)
 					LogComment(string.Format($"- {0}: {1}", hiddenExtension.Key, hiddenExtension.Value ? "experimental" : "experimental (partial, unsupported)"));
-				}
 			}
 
 			if (hiddenVersions.Count > 0) {

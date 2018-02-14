@@ -22,8 +22,9 @@
 #pragma warning disable 649
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
-
+using System.Runtime.InteropServices;
 using Khronos;
 
 using NUnit.Framework;
@@ -33,12 +34,31 @@ namespace OpenGL.Test
 	[TestFixture, Category("Framework")]
 	class KhronosApiTest
 	{
-		[Test]
-		public void KhronosApi_BindAPIFunction()
+		[SuppressMessage("ReSharper", "InconsistentNaming")]
+		[SuppressMessage("ReSharper", "ClassNeverInstantiated.Local")]
+		private class TestApi : KhronosApi
 		{
-			Assert.Throws<ArgumentNullException>(() => Khronos.KhronosApi.BindAPIFunction<Gl>(null, null, null, null, null));
-			Assert.Throws<ArgumentNullException>(() => Khronos.KhronosApi.BindAPIFunction<Gl>("pt", null, null, null, null));
-			Assert.Throws<ArgumentNullException>(() => Khronos.KhronosApi.BindAPIFunction<Gl>("pt", "fn", null, null, null));
+			public static void CheckExtensionCommands(KhronosVersion version, ExtensionsCollection extensions, bool enableExtensions)
+			{
+				CheckExtensionCommands<TestApi>(version, extensions, enableExtensions);
+			}
+
+			internal static void NewList(uint list, int mode) { }
+
+			internal static class Delegates
+			{
+				[RequiredByFeature("GL_VERSION_1_0")]
+				[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
+				internal delegate void glNewList(uint list, int mode);
+
+				[RequiredByFeature("GL_VERSION_1_0")]
+				[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
+				internal static glNewList pglNewList;
+
+				[RequiredByFeature("GL_VERSION_1_0", EntryPoint = "glNewList2")]
+				[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
+				internal static glNewList pglNewList2;
+			}
 		}
 
 		[Test]
@@ -46,6 +66,43 @@ namespace OpenGL.Test
 		{
 			Assert.Throws<ArgumentNullException>(() => Khronos.KhronosApi.BindAPI<Gl>(null, null, null, null));
 			Assert.Throws<ArgumentNullException>(() => Khronos.KhronosApi.BindAPI<Gl>("pt", null, null, null));
+
+			Assert.IsNull(TestApi.Delegates.pglNewList);
+			Assert.IsNull(TestApi.Delegates.pglNewList2);
+
+			Khronos.KhronosApi.GetAddressDelegate getAddressDelegateValid = (path, function) =>
+				Marshal.GetFunctionPointerForDelegate(
+#if NETSTANDARD1_1 || NETSTANDARD1_4 || NETCORE
+					typeof(TestApi).GetMethod("NewList").CreateDelegate(typeof(TestApi.Delegates.glNewList), null)
+#else
+					Delegate.CreateDelegate(typeof(TestApi.Delegates.glNewList), typeof(TestApi).GetMethod("NewList", BindingFlags.NonPublic | BindingFlags.Static))
+#endif
+				);
+
+			// Empty path or zero pointer does not throw exceptions
+			Khronos.KhronosApi.GetAddressDelegate getAddressDelegateZero = (path, function) => IntPtr.Zero;
+			Assert.DoesNotThrow(() => Khronos.KhronosApi.BindAPI<TestApi>(string.Empty, getAddressDelegateZero, Gl.Version_100));
+			Assert.IsNull(TestApi.Delegates.pglNewList);
+			Assert.IsNull(TestApi.Delegates.pglNewList2);
+
+			// Query based on valid version
+			Assert.DoesNotThrow(() => Khronos.KhronosApi.BindAPI<TestApi>(string.Empty, getAddressDelegateValid, Gl.Version_100));
+			Assert.IsNotNull(TestApi.Delegates.pglNewList);
+			Assert.IsNotNull(TestApi.Delegates.pglNewList2);
+			Assert.DoesNotThrow(() => Khronos.KhronosApi.BindAPI<TestApi>(string.Empty, getAddressDelegateValid, new KhronosVersion(Gl.Version_320, KhronosVersion.ProfileCompatibility)));
+			Assert.IsNotNull(TestApi.Delegates.pglNewList);
+			Assert.IsNotNull(TestApi.Delegates.pglNewList2);
+			Assert.DoesNotThrow(() => Khronos.KhronosApi.BindAPI<TestApi>(string.Empty, getAddressDelegateValid, new KhronosVersion(Gl.Version_460, KhronosVersion.ProfileCompatibility)));
+			Assert.IsNotNull(TestApi.Delegates.pglNewList);
+			Assert.IsNotNull(TestApi.Delegates.pglNewList2);
+
+			// Query based on invalid version (removed by feature)
+			Assert.DoesNotThrow(() => Khronos.KhronosApi.BindAPI<TestApi>(string.Empty, getAddressDelegateValid, new KhronosVersion(Gl.Version_320, KhronosVersion.ProfileCore)));
+			Assert.IsNull(TestApi.Delegates.pglNewList);
+			Assert.IsNull(TestApi.Delegates.pglNewList2);
+			Assert.DoesNotThrow(() => Khronos.KhronosApi.BindAPI<TestApi>(string.Empty, getAddressDelegateValid, new KhronosVersion(Gl.Version_460, KhronosVersion.ProfileCore)));
+			Assert.IsNull(TestApi.Delegates.pglNewList);
+			Assert.IsNull(TestApi.Delegates.pglNewList2);
 		}
 
 		[RequiredByFeature("GL_VERSION_1_1")]
@@ -99,6 +156,17 @@ namespace OpenGL.Test
 			extensions.EnableExtension("GL_KHR_debug");
 			Assert.IsTrue (Khronos.KhronosApi.IsCompatibleField(fi, Gl.Version_100, extensions));
 			Assert.IsTrue (Khronos.KhronosApi.IsCompatibleField(fi, Gl.Version_200_ES, extensions));
+		}
+
+		[Test]
+		public void KhronosApi_CheckExtensionCommands()
+		{
+			Assert.Throws<ArgumentNullException>(() => TestApi.CheckExtensionCommands(null, null, false) );
+			Assert.Throws<ArgumentNullException>(() => TestApi.CheckExtensionCommands(Gl.Version_100, null, false) );
+
+			TestExtensions testExtensions = new TestExtensions();
+
+			Assert.DoesNotThrow(() => TestApi.CheckExtensionCommands(Gl.Version_100, testExtensions, false));
 		}
 
 		[Test]
