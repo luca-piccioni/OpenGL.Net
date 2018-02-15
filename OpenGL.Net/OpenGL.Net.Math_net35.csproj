@@ -173,11 +173,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Vertex3Ref.cs">
-      <DependentUpon>Vertex3Ref.tt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <Compile Include="Vertex4.cs">
       <DependentUpon>Vertex4.tt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -231,10 +226,6 @@
     <Content Include="Vertex3.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Vertex3.cs</LastGenOutput>
-    </Content>
-    <Content Include="Vertex3Ref.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Vertex3Ref.cs</LastGenOutput>
     </Content>
     <Content Include="Vertex4.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

@@ -350,26 +350,6 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
-		/// Set uniform state variable (variant type variable)
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for operations.
-		/// </param>
-		/// <param name="uniformName">
-		/// A <see cref="String"/> that specify the variable name in the shader source.
-		/// </param>
-		/// <param name="v">
-		/// A <see cref="Vertex3"/> holding the uniform variabile data.
-		/// </param>
-		public void SetVariantUniform(GraphicsContext ctx, string uniformName, Vertex3 v)
-		{
-			if (v == null)
-				throw new ArgumentNullException("v");
-
-			SetUniform(ctx, uniformName, v.X, v.Y, v.Z);
-		}
-
-		/// <summary>
 		/// Set uniform state variable (vec4 variable).
 		/// </summary>
 		/// <param name="ctx">

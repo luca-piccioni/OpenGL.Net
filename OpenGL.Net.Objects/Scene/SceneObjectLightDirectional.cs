@@ -56,7 +56,7 @@ namespace OpenGL.Objects.Scene
 		/// <summary>
 		/// The direction of the light source (i.e. not the light direction).
 		/// </summary>
-		public Vertex3 Direction = Vertex3.UnitY;
+		public Vertex3f Direction = Vertex3f.UnitY;
 
 		#endregion
 

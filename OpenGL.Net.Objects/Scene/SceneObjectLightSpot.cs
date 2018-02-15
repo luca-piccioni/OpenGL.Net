@@ -58,7 +58,7 @@ namespace OpenGL.Objects.Scene
 		/// <summary>
 		/// Direction of the spot.
 		/// </summary>
-		public Vertex3 Direction;
+		public Vertex3f Direction;
 
 		/// <summary>
 		/// Fall-off angle, in degrees.

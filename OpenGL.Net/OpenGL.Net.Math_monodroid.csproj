@@ -67,7 +67,6 @@
     <Compile Include="Quaternion.cs" />
     <Compile Include="Vertex2.cs" />
     <Compile Include="Vertex3.cs" />
-    <Compile Include="Vertex3Ref.cs" />
     <Compile Include="Vertex4.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

@@ -56,7 +56,7 @@ namespace OpenGL.Objects.Scene
 		/// <summary>
 		/// The light attenuation factors (X: constant; Y: linear; Z: quadratic; used by point and spot lights).
 		/// </summary>
-		public Vertex3 AttenuationFactors = new Vertex3(1.0f, 0.0f, 0.0f);
+		public Vertex3f AttenuationFactors = new Vertex3f(1.0f, 0.0f, 0.0f);
 
 		#endregion
 
