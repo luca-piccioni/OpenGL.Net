@@ -143,6 +143,7 @@
     <Compile Include="KhronosApi.cs" />
     <Compile Include="KhronosVersion.cs" />
     <Compile Include="Memory.cs" />
+    <Compile Include="MemoryLock.cs" />
     <Compile Include="Plane.cs" />
     <Compile Include="RemovedByFeatureAttribute.cs" />
     <Compile Include="RequiredByFeatureAttribute.cs" />

@@ -22,10 +22,11 @@
 using System;
 using System.Runtime.InteropServices;
 
-// ReSharper disable InheritdocConsiderUsage
-
 namespace OpenGL
 {
+	/// <summary>
+	/// Utility for pinning a reference type (i.e. arrays).
+	/// </summary>
 	public sealed class MemoryLock : IDisposable
 	{
 		#region Constructors
@@ -33,7 +34,9 @@ namespace OpenGL
 		/// <summary>
 		/// Construct a MemoryLock specifying the object to pin on memory.
 		/// </summary>
-		/// <param name="memoryObject"></param>
+		/// <param name="memoryObject">
+		/// The <see cref="object"/> to be pinned.
+		/// </param>
 		public MemoryLock(object memoryObject)
 		{
 			_Handle = GCHandle.Alloc(memoryObject, GCHandleType.Pinned);
@@ -46,7 +49,7 @@ namespace OpenGL
 		/// <summary>
 		/// Address of the pinned memory.
 		/// </summary>
-		public IntPtr Address => _Handle.AddrOfPinnedObject();
+		public IntPtr Address => _Handle.IsAllocated ? _Handle.AddrOfPinnedObject() : IntPtr.Zero;
 
 		/// <summary>
 		/// Handle of the object.

@@ -26,27 +26,31 @@ using NUnit.Framework;
 namespace OpenGL.Test
 {
 	[TestFixture, Category("Framework")]
-	internal class MemoryTest
+	internal class MemoryLockTest
 	{
 		[Test]
-		public static void Memory_TestCopy()
+		public static void MemoryLock_TestAddress()
 		{
-			float[] a1 = new float[16];
-			for (int i = 0; i < a1.Length; i++)
-				a1[i] = TestContext.CurrentContext.Random.NextFloat();
-			float[] a2 = new float[a1.Length];
+			float[] array = new float[16];
 
-			Memory.Copy(a2, a1, (uint)(4 * a1.Length));
-			for (int i = 0; i < a1.Length; i++)
-				Assert.AreEqual(a1[i], a2[i]);
-
-			uint[] ui1 = new uint[16];
-			for (int i = 0; i < ui1.Length; i++)
-				ui1[i] = 0x05050505;
-			byte[] b2 = new byte[ui1.Length * 4];
-			Memory.Copy(b2, ui1, (uint)b2.Length);
-			foreach (byte b in b2)
-				Assert.AreEqual((byte)0x05, b);
+			// Allow null argument
+			Assert.DoesNotThrow(() => { using (new MemoryLock(null)) {} });
+			// Nominal case does not throw exceptions
+			Assert.DoesNotThrow(() => { using (new MemoryLock(array)) {} });
+			// Null argument lead to IntPtr.Zero
+			using (MemoryLock nullLock = new MemoryLock(null)) {
+				Assert.AreEqual(IntPtr.Zero, nullLock.Address);
+			}
+			
+			MemoryLock arrayLock = new MemoryLock(array);
+			try {
+				// Existing reference have non-null pointer
+				Assert.AreNotEqual(IntPtr.Zero, arrayLock.Address);
+			} finally { arrayLock.Dispose(); }
+			// Address reset to IntPtr.Zero after disposition
+			Assert.AreEqual(IntPtr.Zero, arrayLock.Address);
+			// Allow multiple Dispose()
+			Assert.DoesNotThrow(() => arrayLock.Dispose());
 		}
 	}
 }
