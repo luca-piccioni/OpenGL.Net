@@ -4297,9 +4297,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_gpu_shader4")]
-		public static void GetUniformui<T>(uint program, int location, T @params) where T : struct
+		public static void GetUniformui<T>(uint program, int location, out T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetUniformuiv != null, "pglGetUniformuiv not implemented");
+			@params = default(T);
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
@@ -5209,9 +5210,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture_integer")]
 		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
-		public static void GetTexParameterIi<T>(TextureTarget target, GetTextureParameter pname, T @params) where T : struct
+		public static void GetTexParameterIi<T>(TextureTarget target, GetTextureParameter pname, out T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetTexParameterIiv != null, "pglGetTexParameterIiv not implemented");
+			@params = default(T);
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
@@ -5379,9 +5381,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture_integer")]
 		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
-		public static void GetTexParameterIui<T>(TextureTarget target, GetTextureParameter pname, T @params) where T : struct
+		public static void GetTexParameterIui<T>(TextureTarget target, GetTextureParameter pname, out T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetTexParameterIuiv != null, "pglGetTexParameterIuiv not implemented");
+			@params = default(T);
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
@@ -5830,9 +5833,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_framebuffer_object")]
-		public static void GetRenderbufferParameteri<T>(RenderbufferTarget target, RenderbufferParameterName pname, T @params) where T : struct
+		public static void GetRenderbufferParameteri<T>(RenderbufferTarget target, RenderbufferParameterName pname, out T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetRenderbufferParameteriv != null, "pglGetRenderbufferParameteriv not implemented");
+			@params = default(T);
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
@@ -6267,9 +6271,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_framebuffer_object")]
-		public static void GetFramebufferAttachmentParameteri<T>(FramebufferTarget target, FramebufferAttachment attachment, FramebufferAttachmentParameterName pname, T @params) where T : struct
+		public static void GetFramebufferAttachmentParameteri<T>(FramebufferTarget target, FramebufferAttachment attachment, FramebufferAttachmentParameterName pname, out T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetFramebufferAttachmentParameteriv != null, "pglGetFramebufferAttachmentParameteriv not implemented");
+			@params = default(T);
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {

@@ -149,9 +149,9 @@ namespace OpenGL.Test
 					Gl.GetUniform(program, uniformLoc, uniformValue);
 					CollectionAssert.AreEqual(<#= functArray #>(<#= zero #>), uniformValue);
 
-					// glGetUniform<#= postfix #>v (ref)
+					// glGetUniform<#= postfix #>v
 					uniformStruct = <#= GetUniformStructConstructor(ordinal, postfix, one) #>;
-					Gl.<#= glGetUniformT #>(program, uniformLoc, ref uniformStruct);
+					Gl.<#= glGetUniformT #>(program, uniformLoc, out uniformStruct);
 					Assert.AreEqual(<#= uniformStructZero #>, uniformStruct);
 				
 					// glUniform<#= ordinal #><#= postfix #>
@@ -166,10 +166,10 @@ namespace OpenGL.Test
 					Gl.GetUniform(program, uniformLoc, uniformValue);
 					CollectionAssert.AreEqual(<#= functArray #>(<#= max #>), uniformValue);
 
-					// glUniform<#= ordinal #><#= postfix #>v (ref)
+					// glUniform<#= ordinal #><#= postfix #>v
 					uniformValue = <#= functArray #>(<#= zero #>);
 					uniformStruct = <#= GetUniformStructConstructor(ordinal, postfix, med) #>;
-					Gl.<#= glUniformXRef #>(uniformLoc, 1, ref uniformStruct);
+					Gl.<#= glUniformXRef #>(uniformLoc, 1, uniformStruct);
 					Gl.GetUniform(program, uniformLoc, uniformValue);
 					CollectionAssert.AreEqual(<#= functArray #>(<#= med #>), uniformValue);
 				} finally {

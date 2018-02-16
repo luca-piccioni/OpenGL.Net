@@ -1132,7 +1132,7 @@ namespace BindingsGen.GLSpecs
 			// Change the argument in order to have a generic ref
 			genericParam.Type = "T";
 			genericParam.TypeDecorators.Clear();
-			genericParam.ModifierOverride = null;
+			genericParam.ModifierOverride = IsGetImplementation(ctx) ? "out" : null;
 			
 			// Determine the method name
 			// - It must end with 'v'
@@ -1158,6 +1158,9 @@ namespace BindingsGen.GLSpecs
 			sw.Indent();
 
 			sw.WriteLine("Debug.Assert(Delegates.{0} != null, \"{0} not implemented\");", DelegateName);
+
+			if (genericParam.ModifierOverride == "out")
+				sw.WriteLine("{0} = default(T);", genericParam.ImplementationName);
 
 			sw.WriteLine("#if NETCOREAPP1_1");
 

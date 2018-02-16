@@ -7297,9 +7297,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		public static void GetTexParameterf<T>(TextureTarget target, GetTextureParameter pname, T @params) where T : struct
+		public static void GetTexParameterf<T>(TextureTarget target, GetTextureParameter pname, out T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetTexParameterfv != null, "pglGetTexParameterfv not implemented");
+			@params = default(T);
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
@@ -7463,9 +7464,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		public static void GetTexParameteri<T>(TextureTarget target, GetTextureParameter pname, T @params) where T : struct
+		public static void GetTexParameteri<T>(TextureTarget target, GetTextureParameter pname, out T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetTexParameteriv != null, "pglGetTexParameteriv not implemented");
+			@params = default(T);
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
@@ -7641,9 +7643,10 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
-		public static void GetTexLevelParameterf<T>(TextureTarget target, int level, GetTextureParameter pname, T @params) where T : struct
+		public static void GetTexLevelParameterf<T>(TextureTarget target, int level, GetTextureParameter pname, out T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetTexLevelParameterfv != null, "pglGetTexLevelParameterfv not implemented");
+			@params = default(T);
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
@@ -7819,9 +7822,10 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
-		public static void GetTexLevelParameteri<T>(TextureTarget target, int level, GetTextureParameter pname, T @params) where T : struct
+		public static void GetTexLevelParameteri<T>(TextureTarget target, int level, GetTextureParameter pname, out T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetTexLevelParameteriv != null, "pglGetTexLevelParameteriv not implemented");
+			@params = default(T);
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {

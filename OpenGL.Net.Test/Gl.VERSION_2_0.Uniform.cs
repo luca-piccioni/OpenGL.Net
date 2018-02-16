@@ -71,9 +71,9 @@ namespace OpenGL.Test
 					Gl.GetUniform(program, uniformLoc, uniformValue);
 					CollectionAssert.AreEqual(Array1(0.0f), uniformValue);
 
-					// glGetUniformfv (ref)
+					// glGetUniformfv
 					uniformStruct = 1.0f;
-					Gl.GetUniformf(program, uniformLoc, uniformStruct);
+					Gl.GetUniformf(program, uniformLoc, out uniformStruct);
 					Assert.AreEqual(0.0f, uniformStruct);
 				
 					// glUniform1f
@@ -88,7 +88,7 @@ namespace OpenGL.Test
 					Gl.GetUniform(program, uniformLoc, uniformValue);
 					CollectionAssert.AreEqual(Array1(9.0f), uniformValue);
 
-					// glUniform1fv (ref)
+					// glUniform1fv
 					uniformValue = Array1(0.0f);
 					uniformStruct = 5.0f;
 					Gl.Uniform1f(uniformLoc, 1, uniformStruct);
@@ -144,9 +144,9 @@ namespace OpenGL.Test
 					Gl.GetUniform(program, uniformLoc, uniformValue);
 					CollectionAssert.AreEqual(Array1(0), uniformValue);
 
-					// glGetUniformiv (ref)
+					// glGetUniformiv
 					uniformStruct = 1;
-					Gl.GetUniformi(program, uniformLoc, uniformStruct);
+					Gl.GetUniformi(program, uniformLoc, out uniformStruct);
 					Assert.AreEqual(0, uniformStruct);
 				
 					// glUniform1i
@@ -161,7 +161,7 @@ namespace OpenGL.Test
 					Gl.GetUniform(program, uniformLoc, uniformValue);
 					CollectionAssert.AreEqual(Array1(9), uniformValue);
 
-					// glUniform1iv (ref)
+					// glUniform1iv
 					uniformValue = Array1(0);
 					uniformStruct = 5;
 					Gl.Uniform1i(uniformLoc, 1, uniformStruct);
@@ -217,9 +217,9 @@ namespace OpenGL.Test
 					Gl.GetUniform(program, uniformLoc, uniformValue);
 					CollectionAssert.AreEqual(Array1(0u), uniformValue);
 
-					// glGetUniformuiv (ref)
+					// glGetUniformuiv
 					uniformStruct = 1u;
-					Gl.GetUniformui(program, uniformLoc, uniformStruct);
+					Gl.GetUniformui(program, uniformLoc, out uniformStruct);
 					Assert.AreEqual(0u, uniformStruct);
 				
 					// glUniform1ui
@@ -234,7 +234,7 @@ namespace OpenGL.Test
 					Gl.GetUniform(program, uniformLoc, uniformValue);
 					CollectionAssert.AreEqual(Array1(9u), uniformValue);
 
-					// glUniform1uiv (ref)
+					// glUniform1uiv
 					uniformValue = Array1(0u);
 					uniformStruct = 5u;
 					Gl.Uniform1ui(uniformLoc, 1, uniformStruct);
@@ -293,9 +293,9 @@ namespace OpenGL.Test
 					Gl.GetUniform(program, uniformLoc, uniformValue);
 					CollectionAssert.AreEqual(Array1(0.0), uniformValue);
 
-					// glGetUniformdv (ref)
+					// glGetUniformdv
 					uniformStruct = 1.0;
-					Gl.GetUniformd(program, uniformLoc, uniformStruct);
+					Gl.GetUniformd(program, uniformLoc, out uniformStruct);
 					Assert.AreEqual(0.0, uniformStruct);
 				
 					// glUniform1d
@@ -310,7 +310,7 @@ namespace OpenGL.Test
 					Gl.GetUniform(program, uniformLoc, uniformValue);
 					CollectionAssert.AreEqual(Array1(9.0), uniformValue);
 
-					// glUniform1dv (ref)
+					// glUniform1dv
 					uniformValue = Array1(0.0);
 					uniformStruct = 5.0;
 					Gl.Uniform1d(uniformLoc, 1, uniformStruct);
@@ -367,9 +367,9 @@ namespace OpenGL.Test
 					Gl.GetUniform(program, uniformLoc, uniformValue);
 					CollectionAssert.AreEqual(Array2(0.0f), uniformValue);
 
-					// glGetUniformfv (ref)
+					// glGetUniformfv
 					uniformStruct = new Vertex2f(1.0f);
-					Gl.GetUniformf(program, uniformLoc, uniformStruct);
+					Gl.GetUniformf(program, uniformLoc, out uniformStruct);
 					Assert.AreEqual(Vertex2f.Zero, uniformStruct);
 				
 					// glUniform2f
@@ -384,7 +384,7 @@ namespace OpenGL.Test
 					Gl.GetUniform(program, uniformLoc, uniformValue);
 					CollectionAssert.AreEqual(Array2(9.0f), uniformValue);
 
-					// glUniform2fv (ref)
+					// glUniform2fv
 					uniformValue = Array2(0.0f);
 					uniformStruct = new Vertex2f(5.0f);
 					Gl.Uniform2f(uniformLoc, 1, uniformStruct);
@@ -440,9 +440,9 @@ namespace OpenGL.Test
 					Gl.GetUniform(program, uniformLoc, uniformValue);
 					CollectionAssert.AreEqual(Array2(0), uniformValue);
 
-					// glGetUniformiv (ref)
+					// glGetUniformiv
 					uniformStruct = new Vertex2i(1);
-					Gl.GetUniformi(program, uniformLoc, uniformStruct);
+					Gl.GetUniformi(program, uniformLoc, out uniformStruct);
 					Assert.AreEqual(Vertex2i.Zero, uniformStruct);
 				
 					// glUniform2i
@@ -457,7 +457,7 @@ namespace OpenGL.Test
 					Gl.GetUniform(program, uniformLoc, uniformValue);
 					CollectionAssert.AreEqual(Array2(9), uniformValue);
 
-					// glUniform2iv (ref)
+					// glUniform2iv
 					uniformValue = Array2(0);
 					uniformStruct = new Vertex2i(5);
 					Gl.Uniform2i(uniformLoc, 1, uniformStruct);
@@ -513,9 +513,9 @@ namespace OpenGL.Test
 					Gl.GetUniform(program, uniformLoc, uniformValue);
 					CollectionAssert.AreEqual(Array2(0u), uniformValue);
 
-					// glGetUniformuiv (ref)
+					// glGetUniformuiv
 					uniformStruct = new Vertex2ui(1u);
-					Gl.GetUniformui(program, uniformLoc, uniformStruct);
+					Gl.GetUniformui(program, uniformLoc, out uniformStruct);
 					Assert.AreEqual(Vertex2ui.Zero, uniformStruct);
 				
 					// glUniform2ui
@@ -530,7 +530,7 @@ namespace OpenGL.Test
 					Gl.GetUniform(program, uniformLoc, uniformValue);
 					CollectionAssert.AreEqual(Array2(9u), uniformValue);
 
-					// glUniform2uiv (ref)
+					// glUniform2uiv
 					uniformValue = Array2(0u);
 					uniformStruct = new Vertex2ui(5u);
 					Gl.Uniform2ui(uniformLoc, 1, uniformStruct);
@@ -589,9 +589,9 @@ namespace OpenGL.Test
 					Gl.GetUniform(program, uniformLoc, uniformValue);
 					CollectionAssert.AreEqual(Array2(0.0), uniformValue);
 
-					// glGetUniformdv (ref)
+					// glGetUniformdv
 					uniformStruct = new Vertex2d(1.0);
-					Gl.GetUniformd(program, uniformLoc, uniformStruct);
+					Gl.GetUniformd(program, uniformLoc, out uniformStruct);
 					Assert.AreEqual(Vertex2d.Zero, uniformStruct);
 				
 					// glUniform2d
@@ -606,7 +606,7 @@ namespace OpenGL.Test
 					Gl.GetUniform(program, uniformLoc, uniformValue);
 					CollectionAssert.AreEqual(Array2(9.0), uniformValue);
 
-					// glUniform2dv (ref)
+					// glUniform2dv
 					uniformValue = Array2(0.0);
 					uniformStruct = new Vertex2d(5.0);
 					Gl.Uniform2d(uniformLoc, 1, uniformStruct);
@@ -663,9 +663,9 @@ namespace OpenGL.Test
 					Gl.GetUniform(program, uniformLoc, uniformValue);
 					CollectionAssert.AreEqual(Array3(0.0f), uniformValue);
 
-					// glGetUniformfv (ref)
+					// glGetUniformfv
 					uniformStruct = new Vertex3f(1.0f);
-					Gl.GetUniformf(program, uniformLoc, uniformStruct);
+					Gl.GetUniformf(program, uniformLoc, out uniformStruct);
 					Assert.AreEqual(Vertex3f.Zero, uniformStruct);
 				
 					// glUniform3f
@@ -680,7 +680,7 @@ namespace OpenGL.Test
 					Gl.GetUniform(program, uniformLoc, uniformValue);
 					CollectionAssert.AreEqual(Array3(9.0f), uniformValue);
 
-					// glUniform3fv (ref)
+					// glUniform3fv
 					uniformValue = Array3(0.0f);
 					uniformStruct = new Vertex3f(5.0f);
 					Gl.Uniform3f(uniformLoc, 1, uniformStruct);
@@ -736,9 +736,9 @@ namespace OpenGL.Test
 					Gl.GetUniform(program, uniformLoc, uniformValue);
 					CollectionAssert.AreEqual(Array3(0), uniformValue);
 
-					// glGetUniformiv (ref)
+					// glGetUniformiv
 					uniformStruct = new Vertex3i(1);
-					Gl.GetUniformi(program, uniformLoc, uniformStruct);
+					Gl.GetUniformi(program, uniformLoc, out uniformStruct);
 					Assert.AreEqual(Vertex3i.Zero, uniformStruct);
 				
 					// glUniform3i
@@ -753,7 +753,7 @@ namespace OpenGL.Test
 					Gl.GetUniform(program, uniformLoc, uniformValue);
 					CollectionAssert.AreEqual(Array3(9), uniformValue);
 
-					// glUniform3iv (ref)
+					// glUniform3iv
 					uniformValue = Array3(0);
 					uniformStruct = new Vertex3i(5);
 					Gl.Uniform3i(uniformLoc, 1, uniformStruct);
@@ -809,9 +809,9 @@ namespace OpenGL.Test
 					Gl.GetUniform(program, uniformLoc, uniformValue);
 					CollectionAssert.AreEqual(Array3(0u), uniformValue);
 
-					// glGetUniformuiv (ref)
+					// glGetUniformuiv
 					uniformStruct = new Vertex3ui(1u);
-					Gl.GetUniformui(program, uniformLoc, uniformStruct);
+					Gl.GetUniformui(program, uniformLoc, out uniformStruct);
 					Assert.AreEqual(Vertex3ui.Zero, uniformStruct);
 				
 					// glUniform3ui
@@ -826,7 +826,7 @@ namespace OpenGL.Test
 					Gl.GetUniform(program, uniformLoc, uniformValue);
 					CollectionAssert.AreEqual(Array3(9u), uniformValue);
 
-					// glUniform3uiv (ref)
+					// glUniform3uiv
 					uniformValue = Array3(0u);
 					uniformStruct = new Vertex3ui(5u);
 					Gl.Uniform3ui(uniformLoc, 1, uniformStruct);
@@ -885,9 +885,9 @@ namespace OpenGL.Test
 					Gl.GetUniform(program, uniformLoc, uniformValue);
 					CollectionAssert.AreEqual(Array3(0.0), uniformValue);
 
-					// glGetUniformdv (ref)
+					// glGetUniformdv
 					uniformStruct = new Vertex3d(1.0);
-					Gl.GetUniformd(program, uniformLoc, uniformStruct);
+					Gl.GetUniformd(program, uniformLoc, out uniformStruct);
 					Assert.AreEqual(Vertex3d.Zero, uniformStruct);
 				
 					// glUniform3d
@@ -902,7 +902,7 @@ namespace OpenGL.Test
 					Gl.GetUniform(program, uniformLoc, uniformValue);
 					CollectionAssert.AreEqual(Array3(9.0), uniformValue);
 
-					// glUniform3dv (ref)
+					// glUniform3dv
 					uniformValue = Array3(0.0);
 					uniformStruct = new Vertex3d(5.0);
 					Gl.Uniform3d(uniformLoc, 1, uniformStruct);
@@ -959,9 +959,9 @@ namespace OpenGL.Test
 					Gl.GetUniform(program, uniformLoc, uniformValue);
 					CollectionAssert.AreEqual(Array4(0.0f), uniformValue);
 
-					// glGetUniformfv (ref)
+					// glGetUniformfv
 					uniformStruct = new Vertex4f(1.0f);
-					Gl.GetUniformf(program, uniformLoc, uniformStruct);
+					Gl.GetUniformf(program, uniformLoc, out uniformStruct);
 					Assert.AreEqual(Vertex4f.Zero, uniformStruct);
 				
 					// glUniform4f
@@ -976,7 +976,7 @@ namespace OpenGL.Test
 					Gl.GetUniform(program, uniformLoc, uniformValue);
 					CollectionAssert.AreEqual(Array4(9.0f), uniformValue);
 
-					// glUniform4fv (ref)
+					// glUniform4fv
 					uniformValue = Array4(0.0f);
 					uniformStruct = new Vertex4f(5.0f);
 					Gl.Uniform4f(uniformLoc, 1, uniformStruct);
@@ -1032,9 +1032,9 @@ namespace OpenGL.Test
 					Gl.GetUniform(program, uniformLoc, uniformValue);
 					CollectionAssert.AreEqual(Array4(0), uniformValue);
 
-					// glGetUniformiv (ref)
+					// glGetUniformiv
 					uniformStruct = new Vertex4i(1);
-					Gl.GetUniformi(program, uniformLoc, uniformStruct);
+					Gl.GetUniformi(program, uniformLoc, out uniformStruct);
 					Assert.AreEqual(Vertex4i.Zero, uniformStruct);
 				
 					// glUniform4i
@@ -1049,7 +1049,7 @@ namespace OpenGL.Test
 					Gl.GetUniform(program, uniformLoc, uniformValue);
 					CollectionAssert.AreEqual(Array4(9), uniformValue);
 
-					// glUniform4iv (ref)
+					// glUniform4iv
 					uniformValue = Array4(0);
 					uniformStruct = new Vertex4i(5);
 					Gl.Uniform4i(uniformLoc, 1, uniformStruct);
@@ -1105,9 +1105,9 @@ namespace OpenGL.Test
 					Gl.GetUniform(program, uniformLoc, uniformValue);
 					CollectionAssert.AreEqual(Array4(0u), uniformValue);
 
-					// glGetUniformuiv (ref)
+					// glGetUniformuiv
 					uniformStruct = new Vertex4ui(1u);
-					Gl.GetUniformui(program, uniformLoc, uniformStruct);
+					Gl.GetUniformui(program, uniformLoc, out uniformStruct);
 					Assert.AreEqual(Vertex4ui.Zero, uniformStruct);
 				
 					// glUniform4ui
@@ -1122,7 +1122,7 @@ namespace OpenGL.Test
 					Gl.GetUniform(program, uniformLoc, uniformValue);
 					CollectionAssert.AreEqual(Array4(9u), uniformValue);
 
-					// glUniform4uiv (ref)
+					// glUniform4uiv
 					uniformValue = Array4(0u);
 					uniformStruct = new Vertex4ui(5u);
 					Gl.Uniform4ui(uniformLoc, 1, uniformStruct);
@@ -1181,9 +1181,9 @@ namespace OpenGL.Test
 					Gl.GetUniform(program, uniformLoc, uniformValue);
 					CollectionAssert.AreEqual(Array4(0.0), uniformValue);
 
-					// glGetUniformdv (ref)
+					// glGetUniformdv
 					uniformStruct = new Vertex4d(1.0);
-					Gl.GetUniformd(program, uniformLoc, uniformStruct);
+					Gl.GetUniformd(program, uniformLoc, out uniformStruct);
 					Assert.AreEqual(Vertex4d.Zero, uniformStruct);
 				
 					// glUniform4d
@@ -1198,7 +1198,7 @@ namespace OpenGL.Test
 					Gl.GetUniform(program, uniformLoc, uniformValue);
 					CollectionAssert.AreEqual(Array4(9.0), uniformValue);
 
-					// glUniform4dv (ref)
+					// glUniform4dv
 					uniformValue = Array4(0.0);
 					uniformStruct = new Vertex4d(5.0);
 					Gl.Uniform4d(uniformLoc, 1, uniformStruct);

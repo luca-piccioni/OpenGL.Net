@@ -2359,9 +2359,10 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
-		public static void GetUniformd<T>(uint program, int location, T @params) where T : struct
+		public static void GetUniformd<T>(uint program, int location, out T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetUniformdv != null, "pglGetUniformdv not implemented");
+			@params = default(T);
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {

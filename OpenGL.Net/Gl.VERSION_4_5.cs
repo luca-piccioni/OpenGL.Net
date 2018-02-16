@@ -986,9 +986,10 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void GetNamedBufferParameteri<T>(uint buffer, VertexBufferObjectParameter value, T data) where T : struct
+		public static void GetNamedBufferParameteri<T>(uint buffer, VertexBufferObjectParameter value, out T data) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetNamedBufferParameteriv != null, "pglGetNamedBufferParameteriv not implemented");
+			data = default(T);
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(data);
 			try {
@@ -1675,9 +1676,10 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void GetNamedFramebufferParameteri<T>(uint framebuffer, GetFramebufferParameter pname, T param) where T : struct
+		public static void GetNamedFramebufferParameteri<T>(uint framebuffer, GetFramebufferParameter pname, out T param) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetNamedFramebufferParameteriv != null, "pglGetNamedFramebufferParameteriv not implemented");
+			param = default(T);
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(param);
 			try {
@@ -1801,9 +1803,10 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void GetNamedFramebufferAttachmentParameteri<T>(uint framebuffer, FramebufferAttachment attachment, FramebufferAttachmentParameterName pname, T @params) where T : struct
+		public static void GetNamedFramebufferAttachmentParameteri<T>(uint framebuffer, FramebufferAttachment attachment, FramebufferAttachmentParameterName pname, out T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetNamedFramebufferAttachmentParameteriv != null, "pglGetNamedFramebufferAttachmentParameteriv not implemented");
+			@params = default(T);
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
@@ -2006,9 +2009,10 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void GetNamedRenderbufferParameteri<T>(uint renderbuffer, RenderbufferParameterName pname, T @params) where T : struct
+		public static void GetNamedRenderbufferParameteri<T>(uint renderbuffer, RenderbufferParameterName pname, out T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetNamedRenderbufferParameteriv != null, "pglGetNamedRenderbufferParameteriv not implemented");
+			@params = default(T);
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
@@ -3604,9 +3608,10 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void GetTextureLevelParameterf<T>(uint texture, int level, GetTextureParameter pname, T @params) where T : struct
+		public static void GetTextureLevelParameterf<T>(uint texture, int level, GetTextureParameter pname, out T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetTextureLevelParameterfv != null, "pglGetTextureLevelParameterfv not implemented");
+			@params = default(T);
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
@@ -3746,9 +3751,10 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void GetTextureLevelParameteri<T>(uint texture, int level, GetTextureParameter pname, T @params) where T : struct
+		public static void GetTextureLevelParameteri<T>(uint texture, int level, GetTextureParameter pname, out T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetTextureLevelParameteriv != null, "pglGetTextureLevelParameteriv not implemented");
+			@params = default(T);
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
@@ -3888,9 +3894,10 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void GetTextureParameterf<T>(uint texture, GetTextureParameter pname, T @params) where T : struct
+		public static void GetTextureParameterf<T>(uint texture, GetTextureParameter pname, out T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetTextureParameterfv != null, "pglGetTextureParameterfv not implemented");
+			@params = default(T);
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
@@ -4030,9 +4037,10 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void GetTextureParameterIi<T>(uint texture, GetTextureParameter pname, T @params) where T : struct
+		public static void GetTextureParameterIi<T>(uint texture, GetTextureParameter pname, out T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetTextureParameterIiv != null, "pglGetTextureParameterIiv not implemented");
+			@params = default(T);
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
@@ -4172,9 +4180,10 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void GetTextureParameterIui<T>(uint texture, GetTextureParameter pname, T @params) where T : struct
+		public static void GetTextureParameterIui<T>(uint texture, GetTextureParameter pname, out T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetTextureParameterIuiv != null, "pglGetTextureParameterIuiv not implemented");
+			@params = default(T);
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
@@ -4314,9 +4323,10 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
 		[RequiredByFeature("GL_ARB_direct_state_access", Api = "gl|glcore")]
-		public static void GetTextureParameteri<T>(uint texture, GetTextureParameter pname, T @params) where T : struct
+		public static void GetTextureParameteri<T>(uint texture, GetTextureParameter pname, out T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetTextureParameteriv != null, "pglGetTextureParameteriv not implemented");
+			@params = default(T);
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {

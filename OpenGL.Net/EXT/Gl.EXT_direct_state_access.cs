@@ -1469,9 +1469,10 @@ namespace OpenGL
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetTextureParameterfEXT<T>(uint texture, TextureTarget target, GetTextureParameter pname, T @params) where T : struct
+		public static void GetTextureParameterfEXT<T>(uint texture, TextureTarget target, GetTextureParameter pname, out T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetTextureParameterfvEXT != null, "pglGetTextureParameterfvEXT not implemented");
+			@params = default(T);
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
@@ -1591,9 +1592,10 @@ namespace OpenGL
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetTextureParameteriEXT<T>(uint texture, TextureTarget target, GetTextureParameter pname, T @params) where T : struct
+		public static void GetTextureParameteriEXT<T>(uint texture, TextureTarget target, GetTextureParameter pname, out T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetTextureParameterivEXT != null, "pglGetTextureParameterivEXT not implemented");
+			@params = default(T);
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
@@ -1725,9 +1727,10 @@ namespace OpenGL
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetTextureLevelParameterfEXT<T>(uint texture, TextureTarget target, int level, GetTextureParameter pname, T @params) where T : struct
+		public static void GetTextureLevelParameterfEXT<T>(uint texture, TextureTarget target, int level, GetTextureParameter pname, out T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetTextureLevelParameterfvEXT != null, "pglGetTextureLevelParameterfvEXT not implemented");
+			@params = default(T);
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
@@ -1859,9 +1862,10 @@ namespace OpenGL
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetTextureLevelParameteriEXT<T>(uint texture, TextureTarget target, int level, GetTextureParameter pname, T @params) where T : struct
+		public static void GetTextureLevelParameteriEXT<T>(uint texture, TextureTarget target, int level, GetTextureParameter pname, out T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetTextureLevelParameterivEXT != null, "pglGetTextureLevelParameterivEXT not implemented");
+			@params = default(T);
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
@@ -5195,9 +5199,10 @@ namespace OpenGL
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetNamedBufferParameteriEXT<T>(uint buffer, VertexBufferObjectParameter pname, T @params) where T : struct
+		public static void GetNamedBufferParameteriEXT<T>(uint buffer, VertexBufferObjectParameter pname, out T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetNamedBufferParameterivEXT != null, "pglGetNamedBufferParameterivEXT not implemented");
+			@params = default(T);
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
@@ -5650,9 +5655,10 @@ namespace OpenGL
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetTextureParameterIiEXT<T>(uint texture, TextureTarget target, GetTextureParameter pname, T @params) where T : struct
+		public static void GetTextureParameterIiEXT<T>(uint texture, TextureTarget target, GetTextureParameter pname, out T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetTextureParameterIivEXT != null, "pglGetTextureParameterIivEXT not implemented");
+			@params = default(T);
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
@@ -5772,9 +5778,10 @@ namespace OpenGL
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetTextureParameterIuiEXT<T>(uint texture, TextureTarget target, GetTextureParameter pname, T @params) where T : struct
+		public static void GetTextureParameterIuiEXT<T>(uint texture, TextureTarget target, GetTextureParameter pname, out T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetTextureParameterIuivEXT != null, "pglGetTextureParameterIuivEXT not implemented");
+			@params = default(T);
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
@@ -6704,9 +6711,10 @@ namespace OpenGL
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetNamedRenderbufferParameteriEXT<T>(uint renderbuffer, RenderbufferParameterName pname, T @params) where T : struct
+		public static void GetNamedRenderbufferParameteriEXT<T>(uint renderbuffer, RenderbufferParameterName pname, out T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetNamedRenderbufferParameterivEXT != null, "pglGetNamedRenderbufferParameterivEXT not implemented");
+			@params = default(T);
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
@@ -7013,9 +7021,10 @@ namespace OpenGL
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetNamedFramebufferAttachmentParameteriEXT<T>(uint framebuffer, FramebufferAttachment attachment, FramebufferAttachmentParameterName pname, T @params) where T : struct
+		public static void GetNamedFramebufferAttachmentParameteriEXT<T>(uint framebuffer, FramebufferAttachment attachment, FramebufferAttachmentParameterName pname, out T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetNamedFramebufferAttachmentParameterivEXT != null, "pglGetNamedFramebufferAttachmentParameterivEXT not implemented");
+			@params = default(T);
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
@@ -7218,9 +7227,10 @@ namespace OpenGL
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetFramebufferParameteriEXT<T>(uint framebuffer, GetFramebufferParameter pname, T @params) where T : struct
+		public static void GetFramebufferParameteriEXT<T>(uint framebuffer, GetFramebufferParameter pname, out T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetFramebufferParameterivEXT != null, "pglGetFramebufferParameterivEXT not implemented");
+			@params = default(T);
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
@@ -8201,9 +8211,10 @@ namespace OpenGL
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetNamedFramebufferParameteriEXT<T>(uint framebuffer, GetFramebufferParameter pname, T @params) where T : struct
+		public static void GetNamedFramebufferParameteriEXT<T>(uint framebuffer, GetFramebufferParameter pname, out T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetNamedFramebufferParameterivEXT != null, "pglGetNamedFramebufferParameterivEXT not implemented");
+			@params = default(T);
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {

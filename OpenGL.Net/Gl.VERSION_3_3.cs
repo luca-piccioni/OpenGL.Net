@@ -873,9 +873,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
-		public static void GetSamplerParameteri<T>(uint sampler, SamplerParameterName pname, T @params) where T : struct
+		public static void GetSamplerParameteri<T>(uint sampler, SamplerParameterName pname, out T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetSamplerParameteriv != null, "pglGetSamplerParameteriv not implemented");
+			@params = default(T);
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
@@ -1015,9 +1016,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
 		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
-		public static void GetSamplerParameterIi<T>(uint sampler, SamplerParameterName pname, T @params) where T : struct
+		public static void GetSamplerParameterIi<T>(uint sampler, SamplerParameterName pname, out T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetSamplerParameterIiv != null, "pglGetSamplerParameterIiv not implemented");
+			@params = default(T);
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
@@ -1149,9 +1151,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
-		public static void GetSamplerParameterf<T>(uint sampler, SamplerParameterName pname, T @params) where T : struct
+		public static void GetSamplerParameterf<T>(uint sampler, SamplerParameterName pname, out T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetSamplerParameterfv != null, "pglGetSamplerParameterfv not implemented");
+			@params = default(T);
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
@@ -1291,9 +1294,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
 		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
-		public static void GetSamplerParameterIui<T>(uint sampler, SamplerParameterName pname, T @params) where T : struct
+		public static void GetSamplerParameterIui<T>(uint sampler, SamplerParameterName pname, out T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetSamplerParameterIuiv != null, "pglGetSamplerParameterIuiv not implemented");
+			@params = default(T);
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {

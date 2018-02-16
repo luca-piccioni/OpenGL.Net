@@ -242,9 +242,10 @@ namespace OpenGL
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void GetObjectParameterfARB<T>(uint obj, int pname, T @params) where T : struct
+		public static void GetObjectParameterfARB<T>(uint obj, int pname, out T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetObjectParameterfvARB != null, "pglGetObjectParameterfvARB not implemented");
+			@params = default(T);
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
@@ -352,9 +353,10 @@ namespace OpenGL
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void GetObjectParameteriARB<T>(uint obj, int pname, T @params) where T : struct
+		public static void GetObjectParameteriARB<T>(uint obj, int pname, out T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetObjectParameterivARB != null, "pglGetObjectParameterivARB not implemented");
+			@params = default(T);
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {

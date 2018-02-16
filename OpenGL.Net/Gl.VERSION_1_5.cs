@@ -1238,9 +1238,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
-		public static void GetBufferParameteri<T>(BufferTarget target, int value, T data) where T : struct
+		public static void GetBufferParameteri<T>(BufferTarget target, int value, out T data) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetBufferParameteriv != null, "pglGetBufferParameteriv not implemented");
+			data = default(T);
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(data);
 			try {

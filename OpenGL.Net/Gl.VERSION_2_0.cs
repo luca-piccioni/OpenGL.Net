@@ -1771,9 +1771,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void GetUniformf<T>(uint program, int location, T @params) where T : struct
+		public static void GetUniformf<T>(uint program, int location, out T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetUniformfv != null, "pglGetUniformfv not implemented");
+			@params = default(T);
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
@@ -1867,9 +1868,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void GetUniformi<T>(uint program, int location, T @params) where T : struct
+		public static void GetUniformi<T>(uint program, int location, out T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetUniformiv != null, "pglGetUniformiv not implemented");
+			@params = default(T);
 			#if NETCOREAPP1_1
 			GCHandle valueHandle = GCHandle.Alloc(@params);
 			try {
