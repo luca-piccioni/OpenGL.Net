@@ -22,9 +22,11 @@
 #pragma warning disable 649
 
 using System;
+using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using System.Runtime.InteropServices;
+
 using Khronos;
 
 using NUnit.Framework;
@@ -368,5 +370,30 @@ namespace OpenGL.Test
 			extensions.Query(Gl.Version_100, "GL_EXT_3");
 			Assert.IsTrue(extensions.Mixed);
 		}
+
+		[Test, Ignore("Informal test trying to demonstrate that ref arguments are not more efficient that by-value arguments.")]
+		public void KhronosApi_GenericWrapperByRef()
+		{
+			const int callCount = 1 << 26;
+
+			Stopwatch sw;
+			Matrix4x4f arg = Matrix4x4f.Identity;
+
+			sw = Stopwatch.StartNew();
+			for (int i = 0; i < callCount; i++)
+				if (GenericArgByRef(ref arg)) break;
+			sw.Stop();
+			Console.WriteLine("GenericArgByRef: {0:0.000E0} calls/sec", (float)(callCount / (sw.Elapsed.TotalMilliseconds / 1000.0)));
+
+			sw = Stopwatch.StartNew();
+			for (int i = 0; i < callCount; i++)
+				if (GenericArgByValue(arg)) break;
+			sw.Stop();
+			Console.WriteLine("GenericArgByValue: {0:0.000E0} calls/sec", (float)(callCount / (sw.Elapsed.TotalMilliseconds / 1000.0)));
+		}
+
+		private static bool GenericArgByRef<T>(ref T value) where T : struct { return value is int; }
+
+		private static bool GenericArgByValue<T>(T value) where T : struct { return value is int; }
 	}
 }

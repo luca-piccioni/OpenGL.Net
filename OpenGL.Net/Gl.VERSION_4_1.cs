@@ -1232,7 +1232,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-		public static void ProgramUniform1i<T>(uint program, int location, int count, ref T value) where T : struct
+		public static void ProgramUniform1i<T>(uint program, int location, int count, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglProgramUniform1iv != null, "pglProgramUniform1iv not implemented");
 			#if NETCOREAPP1_1
@@ -1372,7 +1372,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-		public static void ProgramUniform1f<T>(uint program, int location, int count, ref T value) where T : struct
+		public static void ProgramUniform1f<T>(uint program, int location, int count, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglProgramUniform1fv != null, "pglProgramUniform1fv not implemented");
 			#if NETCOREAPP1_1
@@ -1487,7 +1487,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
-		public static void ProgramUniform1d<T>(uint program, int location, int count, ref T value) where T : struct
+		public static void ProgramUniform1d<T>(uint program, int location, int count, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglProgramUniform1dv != null, "pglProgramUniform1dv not implemented");
 			#if NETCOREAPP1_1
@@ -1627,7 +1627,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-		public static void ProgramUniform1ui<T>(uint program, int location, int count, ref T value) where T : struct
+		public static void ProgramUniform1ui<T>(uint program, int location, int count, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglProgramUniform1uiv != null, "pglProgramUniform1uiv not implemented");
 			#if NETCOREAPP1_1
@@ -1771,7 +1771,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-		public static void ProgramUniform2i<T>(uint program, int location, int count, ref T value) where T : struct
+		public static void ProgramUniform2i<T>(uint program, int location, int count, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglProgramUniform2iv != null, "pglProgramUniform2iv not implemented");
 			#if NETCOREAPP1_1
@@ -1915,7 +1915,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-		public static void ProgramUniform2f<T>(uint program, int location, int count, ref T value) where T : struct
+		public static void ProgramUniform2f<T>(uint program, int location, int count, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglProgramUniform2fv != null, "pglProgramUniform2fv not implemented");
 			#if NETCOREAPP1_1
@@ -2034,7 +2034,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
-		public static void ProgramUniform2d<T>(uint program, int location, int count, ref T value) where T : struct
+		public static void ProgramUniform2d<T>(uint program, int location, int count, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglProgramUniform2dv != null, "pglProgramUniform2dv not implemented");
 			#if NETCOREAPP1_1
@@ -2178,7 +2178,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-		public static void ProgramUniform2ui<T>(uint program, int location, int count, ref T value) where T : struct
+		public static void ProgramUniform2ui<T>(uint program, int location, int count, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglProgramUniform2uiv != null, "pglProgramUniform2uiv not implemented");
 			#if NETCOREAPP1_1
@@ -2325,7 +2325,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-		public static void ProgramUniform3i<T>(uint program, int location, int count, ref T value) where T : struct
+		public static void ProgramUniform3i<T>(uint program, int location, int count, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglProgramUniform3iv != null, "pglProgramUniform3iv not implemented");
 			#if NETCOREAPP1_1
@@ -2472,7 +2472,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-		public static void ProgramUniform3f<T>(uint program, int location, int count, ref T value) where T : struct
+		public static void ProgramUniform3f<T>(uint program, int location, int count, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglProgramUniform3fv != null, "pglProgramUniform3fv not implemented");
 			#if NETCOREAPP1_1
@@ -2594,7 +2594,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
-		public static void ProgramUniform3d<T>(uint program, int location, int count, ref T value) where T : struct
+		public static void ProgramUniform3d<T>(uint program, int location, int count, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglProgramUniform3dv != null, "pglProgramUniform3dv not implemented");
 			#if NETCOREAPP1_1
@@ -2741,7 +2741,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-		public static void ProgramUniform3ui<T>(uint program, int location, int count, ref T value) where T : struct
+		public static void ProgramUniform3ui<T>(uint program, int location, int count, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglProgramUniform3uiv != null, "pglProgramUniform3uiv not implemented");
 			#if NETCOREAPP1_1
@@ -2891,7 +2891,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-		public static void ProgramUniform4i<T>(uint program, int location, int count, ref T value) where T : struct
+		public static void ProgramUniform4i<T>(uint program, int location, int count, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglProgramUniform4iv != null, "pglProgramUniform4iv not implemented");
 			#if NETCOREAPP1_1
@@ -3041,7 +3041,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-		public static void ProgramUniform4f<T>(uint program, int location, int count, ref T value) where T : struct
+		public static void ProgramUniform4f<T>(uint program, int location, int count, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglProgramUniform4fv != null, "pglProgramUniform4fv not implemented");
 			#if NETCOREAPP1_1
@@ -3166,7 +3166,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
-		public static void ProgramUniform4d<T>(uint program, int location, int count, ref T value) where T : struct
+		public static void ProgramUniform4d<T>(uint program, int location, int count, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglProgramUniform4dv != null, "pglProgramUniform4dv not implemented");
 			#if NETCOREAPP1_1
@@ -3316,7 +3316,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-		public static void ProgramUniform4ui<T>(uint program, int location, int count, ref T value) where T : struct
+		public static void ProgramUniform4ui<T>(uint program, int location, int count, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglProgramUniform4uiv != null, "pglProgramUniform4uiv not implemented");
 			#if NETCOREAPP1_1
@@ -3439,7 +3439,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-		public static void ProgramUniformMatrix2f<T>(uint program, int location, int count, bool transpose, ref T value) where T : struct
+		public static void ProgramUniformMatrix2f<T>(uint program, int location, int count, bool transpose, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglProgramUniformMatrix2fv != null, "pglProgramUniformMatrix2fv not implemented");
 			#if NETCOREAPP1_1
@@ -3562,7 +3562,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-		public static void ProgramUniformMatrix3f<T>(uint program, int location, int count, bool transpose, ref T value) where T : struct
+		public static void ProgramUniformMatrix3f<T>(uint program, int location, int count, bool transpose, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglProgramUniformMatrix3fv != null, "pglProgramUniformMatrix3fv not implemented");
 			#if NETCOREAPP1_1
@@ -3688,7 +3688,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-		public static void ProgramUniformMatrix4f<T>(uint program, int location, int count, bool transpose, ref T value) where T : struct
+		public static void ProgramUniformMatrix4f<T>(uint program, int location, int count, bool transpose, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglProgramUniformMatrix4fv != null, "pglProgramUniformMatrix4fv not implemented");
 			#if NETCOREAPP1_1
@@ -3791,7 +3791,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
-		public static void ProgramUniformMatrix2d<T>(uint program, int location, int count, bool transpose, ref T value) where T : struct
+		public static void ProgramUniformMatrix2d<T>(uint program, int location, int count, bool transpose, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglProgramUniformMatrix2dv != null, "pglProgramUniformMatrix2dv not implemented");
 			#if NETCOREAPP1_1
@@ -3894,7 +3894,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
-		public static void ProgramUniformMatrix3d<T>(uint program, int location, int count, bool transpose, ref T value) where T : struct
+		public static void ProgramUniformMatrix3d<T>(uint program, int location, int count, bool transpose, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglProgramUniformMatrix3dv != null, "pglProgramUniformMatrix3dv not implemented");
 			#if NETCOREAPP1_1
@@ -3997,7 +3997,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
-		public static void ProgramUniformMatrix4d<T>(uint program, int location, int count, bool transpose, ref T value) where T : struct
+		public static void ProgramUniformMatrix4d<T>(uint program, int location, int count, bool transpose, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglProgramUniformMatrix4dv != null, "pglProgramUniformMatrix4dv not implemented");
 			#if NETCOREAPP1_1
@@ -4120,7 +4120,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-		public static void ProgramUniformMatrix2x3f<T>(uint program, int location, int count, bool transpose, ref T value) where T : struct
+		public static void ProgramUniformMatrix2x3f<T>(uint program, int location, int count, bool transpose, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglProgramUniformMatrix2x3fv != null, "pglProgramUniformMatrix2x3fv not implemented");
 			#if NETCOREAPP1_1
@@ -4243,7 +4243,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-		public static void ProgramUniformMatrix3x2f<T>(uint program, int location, int count, bool transpose, ref T value) where T : struct
+		public static void ProgramUniformMatrix3x2f<T>(uint program, int location, int count, bool transpose, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglProgramUniformMatrix3x2fv != null, "pglProgramUniformMatrix3x2fv not implemented");
 			#if NETCOREAPP1_1
@@ -4366,7 +4366,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-		public static void ProgramUniformMatrix2x4f<T>(uint program, int location, int count, bool transpose, ref T value) where T : struct
+		public static void ProgramUniformMatrix2x4f<T>(uint program, int location, int count, bool transpose, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglProgramUniformMatrix2x4fv != null, "pglProgramUniformMatrix2x4fv not implemented");
 			#if NETCOREAPP1_1
@@ -4489,7 +4489,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-		public static void ProgramUniformMatrix4x2f<T>(uint program, int location, int count, bool transpose, ref T value) where T : struct
+		public static void ProgramUniformMatrix4x2f<T>(uint program, int location, int count, bool transpose, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglProgramUniformMatrix4x2fv != null, "pglProgramUniformMatrix4x2fv not implemented");
 			#if NETCOREAPP1_1
@@ -4612,7 +4612,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-		public static void ProgramUniformMatrix3x4f<T>(uint program, int location, int count, bool transpose, ref T value) where T : struct
+		public static void ProgramUniformMatrix3x4f<T>(uint program, int location, int count, bool transpose, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglProgramUniformMatrix3x4fv != null, "pglProgramUniformMatrix3x4fv not implemented");
 			#if NETCOREAPP1_1
@@ -4735,7 +4735,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-		public static void ProgramUniformMatrix4x3f<T>(uint program, int location, int count, bool transpose, ref T value) where T : struct
+		public static void ProgramUniformMatrix4x3f<T>(uint program, int location, int count, bool transpose, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglProgramUniformMatrix4x3fv != null, "pglProgramUniformMatrix4x3fv not implemented");
 			#if NETCOREAPP1_1
@@ -4838,7 +4838,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
-		public static void ProgramUniformMatrix2x3d<T>(uint program, int location, int count, bool transpose, ref T value) where T : struct
+		public static void ProgramUniformMatrix2x3d<T>(uint program, int location, int count, bool transpose, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglProgramUniformMatrix2x3dv != null, "pglProgramUniformMatrix2x3dv not implemented");
 			#if NETCOREAPP1_1
@@ -4941,7 +4941,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
-		public static void ProgramUniformMatrix3x2d<T>(uint program, int location, int count, bool transpose, ref T value) where T : struct
+		public static void ProgramUniformMatrix3x2d<T>(uint program, int location, int count, bool transpose, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglProgramUniformMatrix3x2dv != null, "pglProgramUniformMatrix3x2dv not implemented");
 			#if NETCOREAPP1_1
@@ -5044,7 +5044,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
-		public static void ProgramUniformMatrix2x4d<T>(uint program, int location, int count, bool transpose, ref T value) where T : struct
+		public static void ProgramUniformMatrix2x4d<T>(uint program, int location, int count, bool transpose, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglProgramUniformMatrix2x4dv != null, "pglProgramUniformMatrix2x4dv not implemented");
 			#if NETCOREAPP1_1
@@ -5147,7 +5147,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
-		public static void ProgramUniformMatrix4x2d<T>(uint program, int location, int count, bool transpose, ref T value) where T : struct
+		public static void ProgramUniformMatrix4x2d<T>(uint program, int location, int count, bool transpose, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglProgramUniformMatrix4x2dv != null, "pglProgramUniformMatrix4x2dv not implemented");
 			#if NETCOREAPP1_1
@@ -5250,7 +5250,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
-		public static void ProgramUniformMatrix3x4d<T>(uint program, int location, int count, bool transpose, ref T value) where T : struct
+		public static void ProgramUniformMatrix3x4d<T>(uint program, int location, int count, bool transpose, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglProgramUniformMatrix3x4dv != null, "pglProgramUniformMatrix3x4dv not implemented");
 			#if NETCOREAPP1_1
@@ -5353,7 +5353,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
-		public static void ProgramUniformMatrix4x3d<T>(uint program, int location, int count, bool transpose, ref T value) where T : struct
+		public static void ProgramUniformMatrix4x3d<T>(uint program, int location, int count, bool transpose, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglProgramUniformMatrix4x3dv != null, "pglProgramUniformMatrix4x3dv not implemented");
 			#if NETCOREAPP1_1
@@ -5590,7 +5590,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_vertex_attrib_64bit")]
-		public static void VertexAttribL1d<T>(uint index, ref T v) where T : struct
+		public static void VertexAttribL1d<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttribL1dv != null, "pglVertexAttribL1dv not implemented");
 			#if NETCOREAPP1_1
@@ -5675,7 +5675,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_vertex_attrib_64bit")]
-		public static void VertexAttribL2d<T>(uint index, ref T v) where T : struct
+		public static void VertexAttribL2d<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttribL2dv != null, "pglVertexAttribL2dv not implemented");
 			#if NETCOREAPP1_1
@@ -5760,7 +5760,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_vertex_attrib_64bit")]
-		public static void VertexAttribL3d<T>(uint index, ref T v) where T : struct
+		public static void VertexAttribL3d<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttribL3dv != null, "pglVertexAttribL3dv not implemented");
 			#if NETCOREAPP1_1
@@ -5845,7 +5845,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_vertex_attrib_64bit")]
-		public static void VertexAttribL4d<T>(uint index, ref T v) where T : struct
+		public static void VertexAttribL4d<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttribL4dv != null, "pglVertexAttribL4dv not implemented");
 			#if NETCOREAPP1_1

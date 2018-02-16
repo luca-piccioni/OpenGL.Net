@@ -1062,12 +1062,12 @@ namespace OpenGL.Objects
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Matrix3x3f m)
 			{
-				Gl.UniformMatrix3f(uniform.Location, 1, false, ref m);
+				Gl.UniformMatrix3f(uniform.Location, 1, false, m);
 			}
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Matrix4x4f m)
 			{
-				Gl.UniformMatrix4f(uniform.Location, 1, false, ref m);
+				Gl.UniformMatrix4f(uniform.Location, 1, false, m);
 			}
 
 			#endregion
@@ -1150,12 +1150,12 @@ namespace OpenGL.Objects
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Matrix3x3d m)
 			{
-				Gl.UniformMatrix3d(uniform.Location, 1, false, ref m);
+				Gl.UniformMatrix3d(uniform.Location, 1, false, m);
 			}
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Matrix4x4d m)
 			{
-				Gl.UniformMatrix4d(uniform.Location, 1, false, ref m);
+				Gl.UniformMatrix4d(uniform.Location, 1, false, m);
 			}
 
 			#endregion
@@ -1464,12 +1464,12 @@ namespace OpenGL.Objects
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Matrix3x3f m)
 			{
-				Gl.ProgramUniformMatrix3f(program.ObjectName, uniform.Location, 1, false,  ref m);
+				Gl.ProgramUniformMatrix3f(program.ObjectName, uniform.Location, 1, false, m);
 			}
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Matrix4x4f m)
 			{
-				Gl.ProgramUniformMatrix4f(program.ObjectName, uniform.Location, 1, false, ref m);
+				Gl.ProgramUniformMatrix4f(program.ObjectName, uniform.Location, 1, false, m);
 			}
 
 			#endregion
@@ -1552,12 +1552,12 @@ namespace OpenGL.Objects
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Matrix3x3d m)
 			{
-				Gl.ProgramUniformMatrix3d(program.ObjectName, uniform.Location, 1, false, ref m);
+				Gl.ProgramUniformMatrix3d(program.ObjectName, uniform.Location, 1, false, m);
 			}
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Matrix4x4d m)
 			{
-				Gl.ProgramUniformMatrix4d(program.ObjectName, uniform.Location, 1, false, ref m);
+				Gl.ProgramUniformMatrix4d(program.ObjectName, uniform.Location, 1, false, m);
 			}
 
 			#endregion

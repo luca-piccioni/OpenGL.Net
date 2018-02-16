@@ -96,7 +96,6 @@ namespace HelloTriangle.ANGLE
 		private void RenderControl_Render(object sender, GlControlEventArgs e)
 		{
 			Control control = (Control)sender;
-			Matrix4x4f mvp = Matrix4x4f.Ortho2D(0.0f, 1.0f, 0.0f, 1.0f);
 
 			Gl.Viewport(0, 0, control.Width, control.Height);
 			Gl.Clear(ClearBufferMask.ColorBufferBit);
@@ -112,7 +111,7 @@ namespace HelloTriangle.ANGLE
 				Gl.VertexAttribPointer((uint)_Es2_Program_Location_aColor, 3, VertexAttribType.Float, false, 0, arrayColor.Address);
 				Gl.EnableVertexAttribArray((uint)_Es2_Program_Location_aColor);
 
-				Gl.UniformMatrix4f(_Es2_Program_Location_uMVP, 1, false, ref mvp);
+				Gl.UniformMatrix4f(_Es2_Program_Location_uMVP, 1, false, Matrix4x4f.Ortho2D(0.0f, 1.0f, 0.0f, 1.0f));
 
 				Gl.DrawArrays(PrimitiveType.Triangles,  0, 3);
 			}

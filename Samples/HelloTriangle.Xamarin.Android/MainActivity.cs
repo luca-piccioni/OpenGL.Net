@@ -126,8 +126,6 @@ namespace HelloTriangle.Xamarin
 
 		private void Es2_Render()
 		{
-			Matrix4x4f projectionMatrix = Matrix4x4f.Ortho(0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 1.0f);
-
 			Gl.UseProgram(_Es2_Program);
 
 			using (MemoryLock arrayPosition = new MemoryLock(_ArrayPosition))
@@ -139,7 +137,7 @@ namespace HelloTriangle.Xamarin
 				Gl.VertexAttribPointer((uint)_Es2_Program_Location_aColor, 3, VertexAttribType.Float, false, 0, arrayColor.Address);
 				Gl.EnableVertexAttribArray((uint)_Es2_Program_Location_aColor);
 
-				Gl.UniformMatrix4f(_Es2_Program_Location_uMVP, 1, false, ref projectionMatrix);
+				Gl.UniformMatrix4f(_Es2_Program_Location_uMVP, 1, false, Matrix4x4f.Ortho(0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 1.0f));
 
 				Gl.DrawArrays(PrimitiveType.Triangles,  0, 3);
 			}

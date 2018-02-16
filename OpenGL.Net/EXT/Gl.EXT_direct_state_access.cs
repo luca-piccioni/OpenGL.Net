@@ -96,7 +96,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void MatrixLoadfEXT<T>(MatrixMode mode, ref T m) where T : struct
+		public static void MatrixLoadfEXT<T>(MatrixMode mode, T m) where T : struct
 		{
 			Debug.Assert(Delegates.pglMatrixLoadfEXT != null, "pglMatrixLoadfEXT not implemented");
 			#if NETCOREAPP1_1
@@ -156,7 +156,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void MatrixLoaddEXT<T>(MatrixMode mode, ref T m) where T : struct
+		public static void MatrixLoaddEXT<T>(MatrixMode mode, T m) where T : struct
 		{
 			Debug.Assert(Delegates.pglMatrixLoaddEXT != null, "pglMatrixLoaddEXT not implemented");
 			#if NETCOREAPP1_1
@@ -216,7 +216,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void MatrixMultfEXT<T>(MatrixMode mode, ref T m) where T : struct
+		public static void MatrixMultfEXT<T>(MatrixMode mode, T m) where T : struct
 		{
 			Debug.Assert(Delegates.pglMatrixMultfEXT != null, "pglMatrixMultfEXT not implemented");
 			#if NETCOREAPP1_1
@@ -276,7 +276,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void MatrixMultdEXT<T>(MatrixMode mode, ref T m) where T : struct
+		public static void MatrixMultdEXT<T>(MatrixMode mode, T m) where T : struct
 		{
 			Debug.Assert(Delegates.pglMatrixMultdEXT != null, "pglMatrixMultdEXT not implemented");
 			#if NETCOREAPP1_1
@@ -695,7 +695,7 @@ namespace OpenGL
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void TextureParameterfEXT<T>(uint texture, TextureTarget target, TextureParameterName pname, ref T @params) where T : struct
+		public static void TextureParameterfEXT<T>(uint texture, TextureTarget target, TextureParameterName pname, T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglTextureParameterfvEXT != null, "pglTextureParameterfvEXT not implemented");
 			#if NETCOREAPP1_1
@@ -812,7 +812,7 @@ namespace OpenGL
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void TextureParameteriEXT<T>(uint texture, TextureTarget target, TextureParameterName pname, ref T @params) where T : struct
+		public static void TextureParameteriEXT<T>(uint texture, TextureTarget target, TextureParameterName pname, T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglTextureParameterivEXT != null, "pglTextureParameterivEXT not implemented");
 			#if NETCOREAPP1_1
@@ -1469,7 +1469,7 @@ namespace OpenGL
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetTextureParameterfEXT<T>(uint texture, TextureTarget target, GetTextureParameter pname, ref T @params) where T : struct
+		public static void GetTextureParameterfEXT<T>(uint texture, TextureTarget target, GetTextureParameter pname, T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetTextureParameterfvEXT != null, "pglGetTextureParameterfvEXT not implemented");
 			#if NETCOREAPP1_1
@@ -1591,7 +1591,7 @@ namespace OpenGL
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetTextureParameteriEXT<T>(uint texture, TextureTarget target, GetTextureParameter pname, ref T @params) where T : struct
+		public static void GetTextureParameteriEXT<T>(uint texture, TextureTarget target, GetTextureParameter pname, T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetTextureParameterivEXT != null, "pglGetTextureParameterivEXT not implemented");
 			#if NETCOREAPP1_1
@@ -1725,7 +1725,7 @@ namespace OpenGL
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetTextureLevelParameterfEXT<T>(uint texture, TextureTarget target, int level, GetTextureParameter pname, ref T @params) where T : struct
+		public static void GetTextureLevelParameterfEXT<T>(uint texture, TextureTarget target, int level, GetTextureParameter pname, T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetTextureLevelParameterfvEXT != null, "pglGetTextureLevelParameterfvEXT not implemented");
 			#if NETCOREAPP1_1
@@ -1859,7 +1859,7 @@ namespace OpenGL
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetTextureLevelParameteriEXT<T>(uint texture, TextureTarget target, int level, GetTextureParameter pname, ref T @params) where T : struct
+		public static void GetTextureLevelParameteriEXT<T>(uint texture, TextureTarget target, int level, GetTextureParameter pname, T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetTextureLevelParameterivEXT != null, "pglGetTextureLevelParameterivEXT not implemented");
 			#if NETCOREAPP1_1
@@ -4814,7 +4814,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void MatrixLoadTransposefEXT<T>(MatrixMode mode, ref T m) where T : struct
+		public static void MatrixLoadTransposefEXT<T>(MatrixMode mode, T m) where T : struct
 		{
 			Debug.Assert(Delegates.pglMatrixLoadTransposefEXT != null, "pglMatrixLoadTransposefEXT not implemented");
 			#if NETCOREAPP1_1
@@ -4874,7 +4874,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void MatrixLoadTransposedEXT<T>(MatrixMode mode, ref T m) where T : struct
+		public static void MatrixLoadTransposedEXT<T>(MatrixMode mode, T m) where T : struct
 		{
 			Debug.Assert(Delegates.pglMatrixLoadTransposedEXT != null, "pglMatrixLoadTransposedEXT not implemented");
 			#if NETCOREAPP1_1
@@ -4934,7 +4934,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void MatrixMultTransposefEXT<T>(MatrixMode mode, ref T m) where T : struct
+		public static void MatrixMultTransposefEXT<T>(MatrixMode mode, T m) where T : struct
 		{
 			Debug.Assert(Delegates.pglMatrixMultTransposefEXT != null, "pglMatrixMultTransposefEXT not implemented");
 			#if NETCOREAPP1_1
@@ -4994,7 +4994,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void MatrixMultTransposedEXT<T>(MatrixMode mode, ref T m) where T : struct
+		public static void MatrixMultTransposedEXT<T>(MatrixMode mode, T m) where T : struct
 		{
 			Debug.Assert(Delegates.pglMatrixMultTransposedEXT != null, "pglMatrixMultTransposedEXT not implemented");
 			#if NETCOREAPP1_1
@@ -5195,7 +5195,7 @@ namespace OpenGL
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetNamedBufferParameteriEXT<T>(uint buffer, VertexBufferObjectParameter pname, ref T @params) where T : struct
+		public static void GetNamedBufferParameteriEXT<T>(uint buffer, VertexBufferObjectParameter pname, T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetNamedBufferParameterivEXT != null, "pglGetNamedBufferParameterivEXT not implemented");
 			#if NETCOREAPP1_1
@@ -5435,7 +5435,7 @@ namespace OpenGL
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void TextureParameterIiEXT<T>(uint texture, TextureTarget target, TextureParameterName pname, ref T @params) where T : struct
+		public static void TextureParameterIiEXT<T>(uint texture, TextureTarget target, TextureParameterName pname, T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglTextureParameterIivEXT != null, "pglTextureParameterIivEXT not implemented");
 			#if NETCOREAPP1_1
@@ -5528,7 +5528,7 @@ namespace OpenGL
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void TextureParameterIuiEXT<T>(uint texture, TextureTarget target, TextureParameterName pname, ref T @params) where T : struct
+		public static void TextureParameterIuiEXT<T>(uint texture, TextureTarget target, TextureParameterName pname, T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglTextureParameterIuivEXT != null, "pglTextureParameterIuivEXT not implemented");
 			#if NETCOREAPP1_1
@@ -5650,7 +5650,7 @@ namespace OpenGL
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetTextureParameterIiEXT<T>(uint texture, TextureTarget target, GetTextureParameter pname, ref T @params) where T : struct
+		public static void GetTextureParameterIiEXT<T>(uint texture, TextureTarget target, GetTextureParameter pname, T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetTextureParameterIivEXT != null, "pglGetTextureParameterIivEXT not implemented");
 			#if NETCOREAPP1_1
@@ -5772,7 +5772,7 @@ namespace OpenGL
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetTextureParameterIuiEXT<T>(uint texture, TextureTarget target, GetTextureParameter pname, ref T @params) where T : struct
+		public static void GetTextureParameterIuiEXT<T>(uint texture, TextureTarget target, GetTextureParameter pname, T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetTextureParameterIuivEXT != null, "pglGetTextureParameterIuivEXT not implemented");
 			#if NETCOREAPP1_1
@@ -6704,7 +6704,7 @@ namespace OpenGL
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetNamedRenderbufferParameteriEXT<T>(uint renderbuffer, RenderbufferParameterName pname, ref T @params) where T : struct
+		public static void GetNamedRenderbufferParameteriEXT<T>(uint renderbuffer, RenderbufferParameterName pname, T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetNamedRenderbufferParameterivEXT != null, "pglGetNamedRenderbufferParameterivEXT not implemented");
 			#if NETCOREAPP1_1
@@ -7013,7 +7013,7 @@ namespace OpenGL
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetNamedFramebufferAttachmentParameteriEXT<T>(uint framebuffer, FramebufferAttachment attachment, FramebufferAttachmentParameterName pname, ref T @params) where T : struct
+		public static void GetNamedFramebufferAttachmentParameteriEXT<T>(uint framebuffer, FramebufferAttachment attachment, FramebufferAttachmentParameterName pname, T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetNamedFramebufferAttachmentParameterivEXT != null, "pglGetNamedFramebufferAttachmentParameterivEXT not implemented");
 			#if NETCOREAPP1_1
@@ -7218,7 +7218,7 @@ namespace OpenGL
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetFramebufferParameteriEXT<T>(uint framebuffer, GetFramebufferParameter pname, ref T @params) where T : struct
+		public static void GetFramebufferParameteriEXT<T>(uint framebuffer, GetFramebufferParameter pname, T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetFramebufferParameterivEXT != null, "pglGetFramebufferParameterivEXT not implemented");
 			#if NETCOREAPP1_1
@@ -8201,7 +8201,7 @@ namespace OpenGL
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		public static void GetNamedFramebufferParameteriEXT<T>(uint framebuffer, GetFramebufferParameter pname, ref T @params) where T : struct
+		public static void GetNamedFramebufferParameteriEXT<T>(uint framebuffer, GetFramebufferParameter pname, T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetNamedFramebufferParameterivEXT != null, "pglGetNamedFramebufferParameterivEXT not implemented");
 			#if NETCOREAPP1_1

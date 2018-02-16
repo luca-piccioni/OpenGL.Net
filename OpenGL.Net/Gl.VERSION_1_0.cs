@@ -5700,7 +5700,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		public static void TexParameterf<T>(TextureTarget target, TextureParameterName pname, ref T @params) where T : struct
+		public static void TexParameterf<T>(TextureTarget target, TextureParameterName pname, T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglTexParameterfv != null, "pglTexParameterfv not implemented");
 			#if NETCOREAPP1_1
@@ -5837,7 +5837,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		public static void TexParameteri<T>(TextureTarget target, TextureParameterName pname, ref T @params) where T : struct
+		public static void TexParameteri<T>(TextureTarget target, TextureParameterName pname, T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglTexParameteriv != null, "pglTexParameteriv not implemented");
 			#if NETCOREAPP1_1
@@ -7297,7 +7297,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		public static void GetTexParameterf<T>(TextureTarget target, GetTextureParameter pname, ref T @params) where T : struct
+		public static void GetTexParameterf<T>(TextureTarget target, GetTextureParameter pname, T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetTexParameterfv != null, "pglGetTexParameterfv not implemented");
 			#if NETCOREAPP1_1
@@ -7463,7 +7463,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		public static void GetTexParameteri<T>(TextureTarget target, GetTextureParameter pname, ref T @params) where T : struct
+		public static void GetTexParameteri<T>(TextureTarget target, GetTextureParameter pname, T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetTexParameteriv != null, "pglGetTexParameteriv not implemented");
 			#if NETCOREAPP1_1
@@ -7641,7 +7641,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
-		public static void GetTexLevelParameterf<T>(TextureTarget target, int level, GetTextureParameter pname, ref T @params) where T : struct
+		public static void GetTexLevelParameterf<T>(TextureTarget target, int level, GetTextureParameter pname, T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetTexLevelParameterfv != null, "pglGetTexLevelParameterfv not implemented");
 			#if NETCOREAPP1_1
@@ -7819,7 +7819,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
-		public static void GetTexLevelParameteri<T>(TextureTarget target, int level, GetTextureParameter pname, ref T @params) where T : struct
+		public static void GetTexLevelParameteri<T>(TextureTarget target, int level, GetTextureParameter pname, T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetTexLevelParameteriv != null, "pglGetTexLevelParameteriv not implemented");
 			#if NETCOREAPP1_1
@@ -13782,7 +13782,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void LoadMatrixf<T>(ref T m) where T : struct
+		public static void LoadMatrixf<T>(T m) where T : struct
 		{
 			Debug.Assert(Delegates.pglLoadMatrixf != null, "pglLoadMatrixf not implemented");
 			#if NETCOREAPP1_1
@@ -13836,7 +13836,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void LoadMatrixd<T>(ref T m) where T : struct
+		public static void LoadMatrixd<T>(T m) where T : struct
 		{
 			Debug.Assert(Delegates.pglLoadMatrixd != null, "pglLoadMatrixd not implemented");
 			#if NETCOREAPP1_1
@@ -13917,7 +13917,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void MultMatrixf<T>(ref T m) where T : struct
+		public static void MultMatrixf<T>(T m) where T : struct
 		{
 			Debug.Assert(Delegates.pglMultMatrixf != null, "pglMultMatrixf not implemented");
 			#if NETCOREAPP1_1
@@ -13971,7 +13971,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void MultMatrixd<T>(ref T m) where T : struct
+		public static void MultMatrixd<T>(T m) where T : struct
 		{
 			Debug.Assert(Delegates.pglMultMatrixd != null, "pglMultMatrixd not implemented");
 			#if NETCOREAPP1_1

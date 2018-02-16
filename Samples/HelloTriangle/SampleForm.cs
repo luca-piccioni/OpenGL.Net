@@ -423,12 +423,11 @@ namespace HelloTriangle
 			// Compute the model-view-projection on CPU
 			Matrix4x4f projection = Matrix4x4f.Ortho2D(-1.0f, +1.0f, -1.0f, +1.0f);
 			Matrix4x4f modelview = Matrix4x4f.Translated(-0.5f, -0.5f, 0.0f) * Matrix4x4f.RotatedZ(_Angle);
-			Matrix4x4f mvp = projection * modelview;
 
 			// Select the program for drawing
 			Gl.UseProgram(_Program.ProgramName);
 			// Set uniform state
-			Gl.UniformMatrix4f(_Program.LocationMVP, 1, false, ref mvp);
+			Gl.UniformMatrix4f(_Program.LocationMVP, 1, false, projection * modelview);
 			// Use the vertex array
 			Gl.BindVertexArray(_VertexArray.ArrayName);
 			// Draw triangle
@@ -470,7 +469,6 @@ namespace HelloTriangle
 		{
 			Matrix4x4f projection = Matrix4x4f.Ortho2D(0.0f, 1.0f, 0.0f, 1.0f);
 			Matrix4x4f modelview = Matrix4x4f.RotatedZ(_Angle);
-			Matrix4x4f mvp = projection * modelview;
 
 			Gl.UseProgram(_Program.ProgramName);
 
@@ -483,7 +481,7 @@ namespace HelloTriangle
 				Gl.VertexAttribPointer((uint)_Program.LocationColor, 3, VertexAttribType.Float, false, 0, arrayColor.Address);
 				Gl.EnableVertexAttribArray((uint)_Program.LocationColor);
 
-				Gl.UniformMatrix4f(_Program.LocationMVP, 1, false, ref mvp);
+				Gl.UniformMatrix4f(_Program.LocationMVP, 1, false, projection * modelview);
 
 				Gl.DrawArrays(PrimitiveType.Triangles, 0, 3);
 			}

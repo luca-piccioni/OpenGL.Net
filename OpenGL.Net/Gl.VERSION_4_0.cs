@@ -1171,7 +1171,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
-		public static void Uniform1d<T>(int location, int count, ref T value) where T : struct
+		public static void Uniform1d<T>(int location, int count, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglUniform1dv != null, "pglUniform1dv not implemented");
 			#if NETCOREAPP1_1
@@ -1256,7 +1256,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
-		public static void Uniform2d<T>(int location, int count, ref T value) where T : struct
+		public static void Uniform2d<T>(int location, int count, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglUniform2dv != null, "pglUniform2dv not implemented");
 			#if NETCOREAPP1_1
@@ -1341,7 +1341,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
-		public static void Uniform3d<T>(int location, int count, ref T value) where T : struct
+		public static void Uniform3d<T>(int location, int count, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglUniform3dv != null, "pglUniform3dv not implemented");
 			#if NETCOREAPP1_1
@@ -1426,7 +1426,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
-		public static void Uniform4d<T>(int location, int count, ref T value) where T : struct
+		public static void Uniform4d<T>(int location, int count, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglUniform4dv != null, "pglUniform4dv not implemented");
 			#if NETCOREAPP1_1
@@ -1520,7 +1520,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
-		public static void UniformMatrix2d<T>(int location, int count, bool transpose, ref T value) where T : struct
+		public static void UniformMatrix2d<T>(int location, int count, bool transpose, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglUniformMatrix2dv != null, "pglUniformMatrix2dv not implemented");
 			#if NETCOREAPP1_1
@@ -1614,7 +1614,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
-		public static void UniformMatrix3d<T>(int location, int count, bool transpose, ref T value) where T : struct
+		public static void UniformMatrix3d<T>(int location, int count, bool transpose, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglUniformMatrix3dv != null, "pglUniformMatrix3dv not implemented");
 			#if NETCOREAPP1_1
@@ -1708,7 +1708,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
-		public static void UniformMatrix4d<T>(int location, int count, bool transpose, ref T value) where T : struct
+		public static void UniformMatrix4d<T>(int location, int count, bool transpose, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglUniformMatrix4dv != null, "pglUniformMatrix4dv not implemented");
 			#if NETCOREAPP1_1
@@ -1802,7 +1802,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
-		public static void UniformMatrix2x3d<T>(int location, int count, bool transpose, ref T value) where T : struct
+		public static void UniformMatrix2x3d<T>(int location, int count, bool transpose, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglUniformMatrix2x3dv != null, "pglUniformMatrix2x3dv not implemented");
 			#if NETCOREAPP1_1
@@ -1896,7 +1896,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
-		public static void UniformMatrix2x4d<T>(int location, int count, bool transpose, ref T value) where T : struct
+		public static void UniformMatrix2x4d<T>(int location, int count, bool transpose, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglUniformMatrix2x4dv != null, "pglUniformMatrix2x4dv not implemented");
 			#if NETCOREAPP1_1
@@ -1990,7 +1990,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
-		public static void UniformMatrix3x2d<T>(int location, int count, bool transpose, ref T value) where T : struct
+		public static void UniformMatrix3x2d<T>(int location, int count, bool transpose, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglUniformMatrix3x2dv != null, "pglUniformMatrix3x2dv not implemented");
 			#if NETCOREAPP1_1
@@ -2084,7 +2084,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
-		public static void UniformMatrix3x4d<T>(int location, int count, bool transpose, ref T value) where T : struct
+		public static void UniformMatrix3x4d<T>(int location, int count, bool transpose, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglUniformMatrix3x4dv != null, "pglUniformMatrix3x4dv not implemented");
 			#if NETCOREAPP1_1
@@ -2178,7 +2178,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
-		public static void UniformMatrix4x2d<T>(int location, int count, bool transpose, ref T value) where T : struct
+		public static void UniformMatrix4x2d<T>(int location, int count, bool transpose, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglUniformMatrix4x2dv != null, "pglUniformMatrix4x2dv not implemented");
 			#if NETCOREAPP1_1
@@ -2272,7 +2272,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
-		public static void UniformMatrix4x3d<T>(int location, int count, bool transpose, ref T value) where T : struct
+		public static void UniformMatrix4x3d<T>(int location, int count, bool transpose, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglUniformMatrix4x3dv != null, "pglUniformMatrix4x3dv not implemented");
 			#if NETCOREAPP1_1
@@ -2359,7 +2359,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
-		public static void GetUniformd<T>(uint program, int location, ref T @params) where T : struct
+		public static void GetUniformd<T>(uint program, int location, T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetUniformdv != null, "pglGetUniformdv not implemented");
 			#if NETCOREAPP1_1

@@ -1132,7 +1132,7 @@ namespace BindingsGen.GLSpecs
 			// Change the argument in order to have a generic ref
 			genericParam.Type = "T";
 			genericParam.TypeDecorators.Clear();
-			genericParam.ModifierOverride = "ref";
+			genericParam.ModifierOverride = null;
 			
 			// Determine the method name
 			// - It must end with 'v'

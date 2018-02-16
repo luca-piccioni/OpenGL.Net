@@ -669,7 +669,7 @@ namespace OpenGL
 		/// Specifies a pointer to 16 consecutive values, which are used as the elements of a 4x4 column-major matrix.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		public static void LoadMatrixx<T>(ref T m) where T : struct
+		public static void LoadMatrixx<T>(T m) where T : struct
 		{
 			Debug.Assert(Delegates.pglLoadMatrixx != null, "pglLoadMatrixx not implemented");
 			#if NETCOREAPP1_1
@@ -768,7 +768,7 @@ namespace OpenGL
 		/// Points to 16 consecutive values that are used as the elements of a 4x4 column-major matrix.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		public static void MultMatrixx<T>(ref T m) where T : struct
+		public static void MultMatrixx<T>(T m) where T : struct
 		{
 			Debug.Assert(Delegates.pglMultMatrixx != null, "pglMultMatrixx not implemented");
 			#if NETCOREAPP1_1

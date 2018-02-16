@@ -2816,7 +2816,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_framebuffer_no_attachments", Api = "gl|glcore")]
-		public static void GetFramebufferParameteri<T>(FramebufferTarget target, FramebufferAttachmentParameterName pname, ref T @params) where T : struct
+		public static void GetFramebufferParameteri<T>(FramebufferTarget target, FramebufferAttachmentParameterName pname, T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetFramebufferParameteriv != null, "pglGetFramebufferParameteriv not implemented");
 			#if NETCOREAPP1_1

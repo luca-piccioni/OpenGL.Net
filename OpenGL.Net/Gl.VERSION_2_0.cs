@@ -1771,7 +1771,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void GetUniformf<T>(uint program, int location, ref T @params) where T : struct
+		public static void GetUniformf<T>(uint program, int location, T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetUniformfv != null, "pglGetUniformfv not implemented");
 			#if NETCOREAPP1_1
@@ -1867,7 +1867,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void GetUniformi<T>(uint program, int location, ref T @params) where T : struct
+		public static void GetUniformi<T>(uint program, int location, T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetUniformiv != null, "pglGetUniformiv not implemented");
 			#if NETCOREAPP1_1
@@ -2545,7 +2545,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void Uniform1f<T>(int location, int count, ref T value) where T : struct
+		public static void Uniform1f<T>(int location, int count, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglUniform1fv != null, "pglUniform1fv not implemented");
 			#if NETCOREAPP1_1
@@ -2647,7 +2647,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void Uniform2f<T>(int location, int count, ref T value) where T : struct
+		public static void Uniform2f<T>(int location, int count, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglUniform2fv != null, "pglUniform2fv not implemented");
 			#if NETCOREAPP1_1
@@ -2749,7 +2749,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void Uniform3f<T>(int location, int count, ref T value) where T : struct
+		public static void Uniform3f<T>(int location, int count, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglUniform3fv != null, "pglUniform3fv not implemented");
 			#if NETCOREAPP1_1
@@ -2851,7 +2851,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void Uniform4f<T>(int location, int count, ref T value) where T : struct
+		public static void Uniform4f<T>(int location, int count, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglUniform4fv != null, "pglUniform4fv not implemented");
 			#if NETCOREAPP1_1
@@ -2952,7 +2952,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void Uniform1i<T>(int location, int count, ref T value) where T : struct
+		public static void Uniform1i<T>(int location, int count, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglUniform1iv != null, "pglUniform1iv not implemented");
 			#if NETCOREAPP1_1
@@ -3054,7 +3054,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void Uniform2i<T>(int location, int count, ref T value) where T : struct
+		public static void Uniform2i<T>(int location, int count, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglUniform2iv != null, "pglUniform2iv not implemented");
 			#if NETCOREAPP1_1
@@ -3156,7 +3156,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void Uniform3i<T>(int location, int count, ref T value) where T : struct
+		public static void Uniform3i<T>(int location, int count, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglUniform3iv != null, "pglUniform3iv not implemented");
 			#if NETCOREAPP1_1
@@ -3258,7 +3258,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void Uniform4i<T>(int location, int count, ref T value) where T : struct
+		public static void Uniform4i<T>(int location, int count, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglUniform4iv != null, "pglUniform4iv not implemented");
 			#if NETCOREAPP1_1
@@ -3369,7 +3369,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void UniformMatrix2f<T>(int location, int count, bool transpose, ref T value) where T : struct
+		public static void UniformMatrix2f<T>(int location, int count, bool transpose, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglUniformMatrix2fv != null, "pglUniformMatrix2fv not implemented");
 			#if NETCOREAPP1_1
@@ -3480,7 +3480,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void UniformMatrix3f<T>(int location, int count, bool transpose, ref T value) where T : struct
+		public static void UniformMatrix3f<T>(int location, int count, bool transpose, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglUniformMatrix3fv != null, "pglUniformMatrix3fv not implemented");
 			#if NETCOREAPP1_1
@@ -3591,7 +3591,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static void UniformMatrix4f<T>(int location, int count, bool transpose, ref T value) where T : struct
+		public static void UniformMatrix4f<T>(int location, int count, bool transpose, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglUniformMatrix4fv != null, "pglUniformMatrix4fv not implemented");
 			#if NETCOREAPP1_1
@@ -3718,7 +3718,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib1d<T>(uint index, ref T v) where T : struct
+		public static void VertexAttrib1d<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttrib1dv != null, "pglVertexAttrib1dv not implemented");
 			#if NETCOREAPP1_1
@@ -3842,7 +3842,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib1f<T>(uint index, ref T v) where T : struct
+		public static void VertexAttrib1f<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttrib1fv != null, "pglVertexAttrib1fv not implemented");
 			#if NETCOREAPP1_1
@@ -3950,7 +3950,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib1s<T>(uint index, ref T v) where T : struct
+		public static void VertexAttrib1s<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttrib1sv != null, "pglVertexAttrib1sv not implemented");
 			#if NETCOREAPP1_1
@@ -4061,7 +4061,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib2d<T>(uint index, ref T v) where T : struct
+		public static void VertexAttrib2d<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttrib2dv != null, "pglVertexAttrib2dv not implemented");
 			#if NETCOREAPP1_1
@@ -4188,7 +4188,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib2f<T>(uint index, ref T v) where T : struct
+		public static void VertexAttrib2f<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttrib2fv != null, "pglVertexAttrib2fv not implemented");
 			#if NETCOREAPP1_1
@@ -4299,7 +4299,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib2s<T>(uint index, ref T v) where T : struct
+		public static void VertexAttrib2s<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttrib2sv != null, "pglVertexAttrib2sv not implemented");
 			#if NETCOREAPP1_1
@@ -4413,7 +4413,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib3d<T>(uint index, ref T v) where T : struct
+		public static void VertexAttrib3d<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttrib3dv != null, "pglVertexAttrib3dv not implemented");
 			#if NETCOREAPP1_1
@@ -4543,7 +4543,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib3f<T>(uint index, ref T v) where T : struct
+		public static void VertexAttrib3f<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttrib3fv != null, "pglVertexAttrib3fv not implemented");
 			#if NETCOREAPP1_1
@@ -4657,7 +4657,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib3s<T>(uint index, ref T v) where T : struct
+		public static void VertexAttrib3s<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttrib3sv != null, "pglVertexAttrib3sv not implemented");
 			#if NETCOREAPP1_1
@@ -4742,7 +4742,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static void VertexAttrib4Nb<T>(uint index, ref T v) where T : struct
+		public static void VertexAttrib4Nb<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4Nbv != null, "pglVertexAttrib4Nbv not implemented");
 			#if NETCOREAPP1_1
@@ -4827,7 +4827,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static void VertexAttrib4Ni<T>(uint index, ref T v) where T : struct
+		public static void VertexAttrib4Ni<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4Niv != null, "pglVertexAttrib4Niv not implemented");
 			#if NETCOREAPP1_1
@@ -4912,7 +4912,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static void VertexAttrib4Ns<T>(uint index, ref T v) where T : struct
+		public static void VertexAttrib4Ns<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4Nsv != null, "pglVertexAttrib4Nsv not implemented");
 			#if NETCOREAPP1_1
@@ -5029,7 +5029,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib4Nub<T>(uint index, ref T v) where T : struct
+		public static void VertexAttrib4Nub<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4Nubv != null, "pglVertexAttrib4Nubv not implemented");
 			#if NETCOREAPP1_1
@@ -5114,7 +5114,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static void VertexAttrib4Nui<T>(uint index, ref T v) where T : struct
+		public static void VertexAttrib4Nui<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4Nuiv != null, "pglVertexAttrib4Nuiv not implemented");
 			#if NETCOREAPP1_1
@@ -5199,7 +5199,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static void VertexAttrib4Nus<T>(uint index, ref T v) where T : struct
+		public static void VertexAttrib4Nus<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4Nusv != null, "pglVertexAttrib4Nusv not implemented");
 			#if NETCOREAPP1_1
@@ -5284,7 +5284,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static void VertexAttrib4b<T>(uint index, ref T v) where T : struct
+		public static void VertexAttrib4b<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4bv != null, "pglVertexAttrib4bv not implemented");
 			#if NETCOREAPP1_1
@@ -5401,7 +5401,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib4d<T>(uint index, ref T v) where T : struct
+		public static void VertexAttrib4d<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4dv != null, "pglVertexAttrib4dv not implemented");
 			#if NETCOREAPP1_1
@@ -5534,7 +5534,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib4f<T>(uint index, ref T v) where T : struct
+		public static void VertexAttrib4f<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4fv != null, "pglVertexAttrib4fv not implemented");
 			#if NETCOREAPP1_1
@@ -5619,7 +5619,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static void VertexAttrib4i<T>(uint index, ref T v) where T : struct
+		public static void VertexAttrib4i<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4iv != null, "pglVertexAttrib4iv not implemented");
 			#if NETCOREAPP1_1
@@ -5736,7 +5736,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void VertexAttrib4s<T>(uint index, ref T v) where T : struct
+		public static void VertexAttrib4s<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4sv != null, "pglVertexAttrib4sv not implemented");
 			#if NETCOREAPP1_1
@@ -5821,7 +5821,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static void VertexAttrib4ub<T>(uint index, ref T v) where T : struct
+		public static void VertexAttrib4ub<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4ubv != null, "pglVertexAttrib4ubv not implemented");
 			#if NETCOREAPP1_1
@@ -5906,7 +5906,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static void VertexAttrib4ui<T>(uint index, ref T v) where T : struct
+		public static void VertexAttrib4ui<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4uiv != null, "pglVertexAttrib4uiv not implemented");
 			#if NETCOREAPP1_1
@@ -5991,7 +5991,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static void VertexAttrib4us<T>(uint index, ref T v) where T : struct
+		public static void VertexAttrib4us<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttrib4usv != null, "pglVertexAttrib4usv not implemented");
 			#if NETCOREAPP1_1

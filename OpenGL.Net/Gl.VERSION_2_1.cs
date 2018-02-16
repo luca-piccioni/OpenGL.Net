@@ -329,7 +329,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
-		public static void UniformMatrix2x3f<T>(int location, int count, bool transpose, ref T value) where T : struct
+		public static void UniformMatrix2x3f<T>(int location, int count, bool transpose, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglUniformMatrix2x3fv != null, "pglUniformMatrix2x3fv not implemented");
 			#if NETCOREAPP1_1
@@ -437,7 +437,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
-		public static void UniformMatrix3x2f<T>(int location, int count, bool transpose, ref T value) where T : struct
+		public static void UniformMatrix3x2f<T>(int location, int count, bool transpose, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglUniformMatrix3x2fv != null, "pglUniformMatrix3x2fv not implemented");
 			#if NETCOREAPP1_1
@@ -545,7 +545,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
-		public static void UniformMatrix2x4f<T>(int location, int count, bool transpose, ref T value) where T : struct
+		public static void UniformMatrix2x4f<T>(int location, int count, bool transpose, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglUniformMatrix2x4fv != null, "pglUniformMatrix2x4fv not implemented");
 			#if NETCOREAPP1_1
@@ -653,7 +653,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
-		public static void UniformMatrix4x2f<T>(int location, int count, bool transpose, ref T value) where T : struct
+		public static void UniformMatrix4x2f<T>(int location, int count, bool transpose, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglUniformMatrix4x2fv != null, "pglUniformMatrix4x2fv not implemented");
 			#if NETCOREAPP1_1
@@ -761,7 +761,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
-		public static void UniformMatrix3x4f<T>(int location, int count, bool transpose, ref T value) where T : struct
+		public static void UniformMatrix3x4f<T>(int location, int count, bool transpose, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglUniformMatrix3x4fv != null, "pglUniformMatrix3x4fv not implemented");
 			#if NETCOREAPP1_1
@@ -869,7 +869,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_NV_non_square_matrices", Api = "gles2")]
-		public static void UniformMatrix4x3f<T>(int location, int count, bool transpose, ref T value) where T : struct
+		public static void UniformMatrix4x3f<T>(int location, int count, bool transpose, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglUniformMatrix4x3fv != null, "pglUniformMatrix4x3fv not implemented");
 			#if NETCOREAPP1_1

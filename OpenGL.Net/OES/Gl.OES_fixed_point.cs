@@ -466,7 +466,7 @@ namespace OpenGL
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
-		public static void LoadMatrixxOES<T>(ref T m) where T : struct
+		public static void LoadMatrixxOES<T>(T m) where T : struct
 		{
 			Debug.Assert(Delegates.pglLoadMatrixxOES != null, "pglLoadMatrixxOES not implemented");
 			#if NETCOREAPP1_1
@@ -565,7 +565,7 @@ namespace OpenGL
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
-		public static void MultMatrixxOES<T>(ref T m) where T : struct
+		public static void MultMatrixxOES<T>(T m) where T : struct
 		{
 			Debug.Assert(Delegates.pglMultMatrixxOES != null, "pglMultMatrixxOES not implemented");
 			#if NETCOREAPP1_1
@@ -1600,7 +1600,7 @@ namespace OpenGL
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void LoadTransposeMatrixxOES<T>(ref T m) where T : struct
+		public static void LoadTransposeMatrixxOES<T>(T m) where T : struct
 		{
 			Debug.Assert(Delegates.pglLoadTransposeMatrixxOES != null, "pglLoadTransposeMatrixxOES not implemented");
 			#if NETCOREAPP1_1
@@ -1772,7 +1772,7 @@ namespace OpenGL
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void MultTransposeMatrixxOES<T>(ref T m) where T : struct
+		public static void MultTransposeMatrixxOES<T>(T m) where T : struct
 		{
 			Debug.Assert(Delegates.pglMultTransposeMatrixxOES != null, "pglMultTransposeMatrixxOES not implemented");
 			#if NETCOREAPP1_1

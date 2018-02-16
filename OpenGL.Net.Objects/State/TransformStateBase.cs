@@ -163,19 +163,19 @@ namespace OpenGL.Objects.State
 				// Fixed pipeline rendering requires server state
 				
 #if !MONODROID
-				Matrix4x4f p = Projection ?? Matrix4x4f.Identity, mv = ModelView;
+				Matrix4x4f p = Projection ?? Matrix4x4f.Identity;
 
 				if (ctx.Extensions.DirectStateAccess_EXT) {
 					// Set projection and model-view matrix
-					Gl.MatrixLoadfEXT(MatrixMode.Projection, ref p);
-					Gl.MatrixLoadfEXT(MatrixMode.Modelview, ref mv);
+					Gl.MatrixLoadfEXT(MatrixMode.Projection, p);
+					Gl.MatrixLoadfEXT(MatrixMode.Modelview, ModelView);
 				} else {
 					// Set projection matrix
 					Gl.MatrixMode(MatrixMode.Projection);
-					Gl.LoadMatrixf(ref p);
+					Gl.LoadMatrixf(p);
 					// Set model-view matrix
 					Gl.MatrixMode(MatrixMode.Modelview);
-					Gl.LoadMatrixf(ref mv);
+					Gl.LoadMatrixf(ModelView);
 				}
 #else
 				throw new NotSupportedException("fixed pipeline not supported");

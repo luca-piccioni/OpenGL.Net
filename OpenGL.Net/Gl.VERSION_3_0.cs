@@ -3281,7 +3281,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
-		public static void VertexAttribI1i<T>(uint index, ref T v) where T : struct
+		public static void VertexAttribI1i<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttribI1iv != null, "pglVertexAttribI1iv not implemented");
 			#if NETCOREAPP1_1
@@ -3363,7 +3363,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
-		public static void VertexAttribI2i<T>(uint index, ref T v) where T : struct
+		public static void VertexAttribI2i<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttribI2iv != null, "pglVertexAttribI2iv not implemented");
 			#if NETCOREAPP1_1
@@ -3445,7 +3445,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
-		public static void VertexAttribI3i<T>(uint index, ref T v) where T : struct
+		public static void VertexAttribI3i<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttribI3iv != null, "pglVertexAttribI3iv not implemented");
 			#if NETCOREAPP1_1
@@ -3536,7 +3536,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
-		public static void VertexAttribI4i<T>(uint index, ref T v) where T : struct
+		public static void VertexAttribI4i<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttribI4iv != null, "pglVertexAttribI4iv not implemented");
 			#if NETCOREAPP1_1
@@ -3618,7 +3618,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
-		public static void VertexAttribI1ui<T>(uint index, ref T v) where T : struct
+		public static void VertexAttribI1ui<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttribI1uiv != null, "pglVertexAttribI1uiv not implemented");
 			#if NETCOREAPP1_1
@@ -3700,7 +3700,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
-		public static void VertexAttribI2ui<T>(uint index, ref T v) where T : struct
+		public static void VertexAttribI2ui<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttribI2uiv != null, "pglVertexAttribI2uiv not implemented");
 			#if NETCOREAPP1_1
@@ -3782,7 +3782,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
-		public static void VertexAttribI3ui<T>(uint index, ref T v) where T : struct
+		public static void VertexAttribI3ui<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttribI3uiv != null, "pglVertexAttribI3uiv not implemented");
 			#if NETCOREAPP1_1
@@ -3873,7 +3873,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
-		public static void VertexAttribI4ui<T>(uint index, ref T v) where T : struct
+		public static void VertexAttribI4ui<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttribI4uiv != null, "pglVertexAttribI4uiv not implemented");
 			#if NETCOREAPP1_1
@@ -3955,7 +3955,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
-		public static void VertexAttribI4b<T>(uint index, ref T v) where T : struct
+		public static void VertexAttribI4b<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttribI4bv != null, "pglVertexAttribI4bv not implemented");
 			#if NETCOREAPP1_1
@@ -4037,7 +4037,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
-		public static void VertexAttribI4s<T>(uint index, ref T v) where T : struct
+		public static void VertexAttribI4s<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttribI4sv != null, "pglVertexAttribI4sv not implemented");
 			#if NETCOREAPP1_1
@@ -4119,7 +4119,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
-		public static void VertexAttribI4ub<T>(uint index, ref T v) where T : struct
+		public static void VertexAttribI4ub<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttribI4ubv != null, "pglVertexAttribI4ubv not implemented");
 			#if NETCOREAPP1_1
@@ -4201,7 +4201,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
-		public static void VertexAttribI4us<T>(uint index, ref T v) where T : struct
+		public static void VertexAttribI4us<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttribI4usv != null, "pglVertexAttribI4usv not implemented");
 			#if NETCOREAPP1_1
@@ -4297,7 +4297,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_gpu_shader4")]
-		public static void GetUniformui<T>(uint program, int location, ref T @params) where T : struct
+		public static void GetUniformui<T>(uint program, int location, T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetUniformuiv != null, "pglGetUniformuiv not implemented");
 			#if NETCOREAPP1_1
@@ -4550,7 +4550,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_gpu_shader4")]
-		public static void Uniform1ui<T>(int location, int count, ref T value) where T : struct
+		public static void Uniform1ui<T>(int location, int count, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglUniform1uiv != null, "pglUniform1uiv not implemented");
 			#if NETCOREAPP1_1
@@ -4649,7 +4649,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_gpu_shader4")]
-		public static void Uniform2ui<T>(int location, int count, ref T value) where T : struct
+		public static void Uniform2ui<T>(int location, int count, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglUniform2uiv != null, "pglUniform2uiv not implemented");
 			#if NETCOREAPP1_1
@@ -4748,7 +4748,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_gpu_shader4")]
-		public static void Uniform3ui<T>(int location, int count, ref T value) where T : struct
+		public static void Uniform3ui<T>(int location, int count, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglUniform3uiv != null, "pglUniform3uiv not implemented");
 			#if NETCOREAPP1_1
@@ -4847,7 +4847,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_gpu_shader4")]
-		public static void Uniform4ui<T>(int location, int count, ref T value) where T : struct
+		public static void Uniform4ui<T>(int location, int count, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglUniform4uiv != null, "pglUniform4uiv not implemented");
 			#if NETCOREAPP1_1
@@ -4943,7 +4943,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture_integer")]
 		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
-		public static void TexParameterIi<T>(TextureTarget target, TextureParameterName pname, ref T @params) where T : struct
+		public static void TexParameterIi<T>(TextureTarget target, TextureParameterName pname, T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglTexParameterIiv != null, "pglTexParameterIiv not implemented");
 			#if NETCOREAPP1_1
@@ -5039,7 +5039,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture_integer")]
 		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
-		public static void TexParameterIui<T>(TextureTarget target, TextureParameterName pname, ref T @params) where T : struct
+		public static void TexParameterIui<T>(TextureTarget target, TextureParameterName pname, T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglTexParameterIuiv != null, "pglTexParameterIuiv not implemented");
 			#if NETCOREAPP1_1
@@ -5209,7 +5209,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture_integer")]
 		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
-		public static void GetTexParameterIi<T>(TextureTarget target, GetTextureParameter pname, ref T @params) where T : struct
+		public static void GetTexParameterIi<T>(TextureTarget target, GetTextureParameter pname, T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetTexParameterIiv != null, "pglGetTexParameterIiv not implemented");
 			#if NETCOREAPP1_1
@@ -5379,7 +5379,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture_integer")]
 		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
-		public static void GetTexParameterIui<T>(TextureTarget target, GetTextureParameter pname, ref T @params) where T : struct
+		public static void GetTexParameterIui<T>(TextureTarget target, GetTextureParameter pname, T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetTexParameterIuiv != null, "pglGetTexParameterIuiv not implemented");
 			#if NETCOREAPP1_1
@@ -5830,7 +5830,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_framebuffer_object")]
-		public static void GetRenderbufferParameteri<T>(RenderbufferTarget target, RenderbufferParameterName pname, ref T @params) where T : struct
+		public static void GetRenderbufferParameteri<T>(RenderbufferTarget target, RenderbufferParameterName pname, T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetRenderbufferParameteriv != null, "pglGetRenderbufferParameteriv not implemented");
 			#if NETCOREAPP1_1
@@ -6267,7 +6267,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_framebuffer_object")]
-		public static void GetFramebufferAttachmentParameteri<T>(FramebufferTarget target, FramebufferAttachment attachment, FramebufferAttachmentParameterName pname, ref T @params) where T : struct
+		public static void GetFramebufferAttachmentParameteri<T>(FramebufferTarget target, FramebufferAttachment attachment, FramebufferAttachmentParameterName pname, T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetFramebufferAttachmentParameteriv != null, "pglGetFramebufferAttachmentParameteriv not implemented");
 			#if NETCOREAPP1_1
