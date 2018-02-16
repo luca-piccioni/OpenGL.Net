@@ -55,7 +55,7 @@ namespace OpenGL
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[DebuggerDisplay("<#= className #>: X={x} Y={y}")]
-	public struct <#= className #>
+	public struct <#= className #> : IEquatable<<#= className #>>
 	{
 		#region Constructors
 

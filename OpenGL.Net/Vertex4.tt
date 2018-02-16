@@ -61,7 +61,7 @@ namespace OpenGL
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[DebuggerDisplay("<#= className #>: X={x} Y={y} Z={z} W={w}")]
-	public struct <#= className #>
+	public struct <#= className #> : IEquatable<<#= className #>>
 	{
 		#region Constructors
 
@@ -906,18 +906,18 @@ namespace OpenGL
 				return (false);
 
 			if (undefined == false) {
-				if (Math.Abs(x / w - other.x / w) > precision)
+				if (Math.Abs(x / w - other.x / other.w) > precision)
 					return (false);
-				if (Math.Abs(y / w - other.y / w) > precision)
+				if (Math.Abs(y / w - other.y / other.w) > precision)
 					return (false);
-				if (Math.Abs(z / w - other.z / w) > precision)
+				if (Math.Abs(z / w - other.z / other.w) > precision)
 					return (false);
 			} else {
-				if (Math.Abs(x / w - other.x / w) > precision)
+				if (Math.Abs(x / w - other.x / other.w) > precision)
 					return (false);
-				if (Math.Abs(y / w - other.y / w) > precision)
+				if (Math.Abs(y / w - other.y / other.w) > precision)
 					return (false);
-				if (Math.Abs(z / w - other.z / w) > precision)
+				if (Math.Abs(z / w - other.z / other.w) > precision)
 					return (false);
 			}
 

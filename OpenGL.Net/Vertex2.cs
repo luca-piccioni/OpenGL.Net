@@ -30,7 +30,7 @@ namespace OpenGL
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[DebuggerDisplay("Vertex2ub: X={x} Y={y}")]
-	public struct Vertex2ub
+	public struct Vertex2ub : IEquatable<Vertex2ub>
 	{
 		#region Constructors
 
@@ -806,7 +806,7 @@ namespace OpenGL
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[DebuggerDisplay("Vertex2b: X={x} Y={y}")]
-	public struct Vertex2b
+	public struct Vertex2b : IEquatable<Vertex2b>
 	{
 		#region Constructors
 
@@ -1596,7 +1596,7 @@ namespace OpenGL
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[DebuggerDisplay("Vertex2us: X={x} Y={y}")]
-	public struct Vertex2us
+	public struct Vertex2us : IEquatable<Vertex2us>
 	{
 		#region Constructors
 
@@ -2372,7 +2372,7 @@ namespace OpenGL
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[DebuggerDisplay("Vertex2s: X={x} Y={y}")]
-	public struct Vertex2s
+	public struct Vertex2s : IEquatable<Vertex2s>
 	{
 		#region Constructors
 
@@ -3162,7 +3162,7 @@ namespace OpenGL
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[DebuggerDisplay("Vertex2ui: X={x} Y={y}")]
-	public struct Vertex2ui
+	public struct Vertex2ui : IEquatable<Vertex2ui>
 	{
 		#region Constructors
 
@@ -3938,7 +3938,7 @@ namespace OpenGL
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[DebuggerDisplay("Vertex2i: X={x} Y={y}")]
-	public struct Vertex2i
+	public struct Vertex2i : IEquatable<Vertex2i>
 	{
 		#region Constructors
 
@@ -4728,7 +4728,7 @@ namespace OpenGL
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[DebuggerDisplay("Vertex2f: X={x} Y={y}")]
-	public struct Vertex2f
+	public struct Vertex2f : IEquatable<Vertex2f>
 	{
 		#region Constructors
 
@@ -5461,7 +5461,7 @@ namespace OpenGL
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[DebuggerDisplay("Vertex2d: X={x} Y={y}")]
-	public struct Vertex2d
+	public struct Vertex2d : IEquatable<Vertex2d>
 	{
 		#region Constructors
 
@@ -6195,7 +6195,7 @@ namespace OpenGL
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[DebuggerDisplay("Vertex2hf: X={x} Y={y}")]
-	public struct Vertex2hf
+	public struct Vertex2hf : IEquatable<Vertex2hf>
 	{
 		#region Constructors
 

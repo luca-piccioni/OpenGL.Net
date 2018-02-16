@@ -34,7 +34,7 @@ namespace OpenGL
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[DebuggerDisplay("Vertex4ub: X={x} Y={y} Z={z} W={w}")]
-	public struct Vertex4ub
+	public struct Vertex4ub : IEquatable<Vertex4ub>
 	{
 		#region Constructors
 
@@ -710,18 +710,18 @@ namespace OpenGL
 				return (false);
 
 			if (undefined == false) {
-				if (Math.Abs(x / w - other.x / w) > precision)
+				if (Math.Abs(x / w - other.x / other.w) > precision)
 					return (false);
-				if (Math.Abs(y / w - other.y / w) > precision)
+				if (Math.Abs(y / w - other.y / other.w) > precision)
 					return (false);
-				if (Math.Abs(z / w - other.z / w) > precision)
+				if (Math.Abs(z / w - other.z / other.w) > precision)
 					return (false);
 			} else {
-				if (Math.Abs(x / w - other.x / w) > precision)
+				if (Math.Abs(x / w - other.x / other.w) > precision)
 					return (false);
-				if (Math.Abs(y / w - other.y / w) > precision)
+				if (Math.Abs(y / w - other.y / other.w) > precision)
 					return (false);
-				if (Math.Abs(z / w - other.z / w) > precision)
+				if (Math.Abs(z / w - other.z / other.w) > precision)
 					return (false);
 			}
 
@@ -812,7 +812,7 @@ namespace OpenGL
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[DebuggerDisplay("Vertex4b: X={x} Y={y} Z={z} W={w}")]
-	public struct Vertex4b
+	public struct Vertex4b : IEquatable<Vertex4b>
 	{
 		#region Constructors
 
@@ -1501,18 +1501,18 @@ namespace OpenGL
 				return (false);
 
 			if (undefined == false) {
-				if (Math.Abs(x / w - other.x / w) > precision)
+				if (Math.Abs(x / w - other.x / other.w) > precision)
 					return (false);
-				if (Math.Abs(y / w - other.y / w) > precision)
+				if (Math.Abs(y / w - other.y / other.w) > precision)
 					return (false);
-				if (Math.Abs(z / w - other.z / w) > precision)
+				if (Math.Abs(z / w - other.z / other.w) > precision)
 					return (false);
 			} else {
-				if (Math.Abs(x / w - other.x / w) > precision)
+				if (Math.Abs(x / w - other.x / other.w) > precision)
 					return (false);
-				if (Math.Abs(y / w - other.y / w) > precision)
+				if (Math.Abs(y / w - other.y / other.w) > precision)
 					return (false);
-				if (Math.Abs(z / w - other.z / w) > precision)
+				if (Math.Abs(z / w - other.z / other.w) > precision)
 					return (false);
 			}
 
@@ -1603,7 +1603,7 @@ namespace OpenGL
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[DebuggerDisplay("Vertex4us: X={x} Y={y} Z={z} W={w}")]
-	public struct Vertex4us
+	public struct Vertex4us : IEquatable<Vertex4us>
 	{
 		#region Constructors
 
@@ -2279,18 +2279,18 @@ namespace OpenGL
 				return (false);
 
 			if (undefined == false) {
-				if (Math.Abs(x / w - other.x / w) > precision)
+				if (Math.Abs(x / w - other.x / other.w) > precision)
 					return (false);
-				if (Math.Abs(y / w - other.y / w) > precision)
+				if (Math.Abs(y / w - other.y / other.w) > precision)
 					return (false);
-				if (Math.Abs(z / w - other.z / w) > precision)
+				if (Math.Abs(z / w - other.z / other.w) > precision)
 					return (false);
 			} else {
-				if (Math.Abs(x / w - other.x / w) > precision)
+				if (Math.Abs(x / w - other.x / other.w) > precision)
 					return (false);
-				if (Math.Abs(y / w - other.y / w) > precision)
+				if (Math.Abs(y / w - other.y / other.w) > precision)
 					return (false);
-				if (Math.Abs(z / w - other.z / w) > precision)
+				if (Math.Abs(z / w - other.z / other.w) > precision)
 					return (false);
 			}
 
@@ -2381,7 +2381,7 @@ namespace OpenGL
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[DebuggerDisplay("Vertex4s: X={x} Y={y} Z={z} W={w}")]
-	public struct Vertex4s
+	public struct Vertex4s : IEquatable<Vertex4s>
 	{
 		#region Constructors
 
@@ -3070,18 +3070,18 @@ namespace OpenGL
 				return (false);
 
 			if (undefined == false) {
-				if (Math.Abs(x / w - other.x / w) > precision)
+				if (Math.Abs(x / w - other.x / other.w) > precision)
 					return (false);
-				if (Math.Abs(y / w - other.y / w) > precision)
+				if (Math.Abs(y / w - other.y / other.w) > precision)
 					return (false);
-				if (Math.Abs(z / w - other.z / w) > precision)
+				if (Math.Abs(z / w - other.z / other.w) > precision)
 					return (false);
 			} else {
-				if (Math.Abs(x / w - other.x / w) > precision)
+				if (Math.Abs(x / w - other.x / other.w) > precision)
 					return (false);
-				if (Math.Abs(y / w - other.y / w) > precision)
+				if (Math.Abs(y / w - other.y / other.w) > precision)
 					return (false);
-				if (Math.Abs(z / w - other.z / w) > precision)
+				if (Math.Abs(z / w - other.z / other.w) > precision)
 					return (false);
 			}
 
@@ -3172,7 +3172,7 @@ namespace OpenGL
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[DebuggerDisplay("Vertex4ui: X={x} Y={y} Z={z} W={w}")]
-	public struct Vertex4ui
+	public struct Vertex4ui : IEquatable<Vertex4ui>
 	{
 		#region Constructors
 
@@ -3848,18 +3848,18 @@ namespace OpenGL
 				return (false);
 
 			if (undefined == false) {
-				if (Math.Abs(x / w - other.x / w) > precision)
+				if (Math.Abs(x / w - other.x / other.w) > precision)
 					return (false);
-				if (Math.Abs(y / w - other.y / w) > precision)
+				if (Math.Abs(y / w - other.y / other.w) > precision)
 					return (false);
-				if (Math.Abs(z / w - other.z / w) > precision)
+				if (Math.Abs(z / w - other.z / other.w) > precision)
 					return (false);
 			} else {
-				if (Math.Abs(x / w - other.x / w) > precision)
+				if (Math.Abs(x / w - other.x / other.w) > precision)
 					return (false);
-				if (Math.Abs(y / w - other.y / w) > precision)
+				if (Math.Abs(y / w - other.y / other.w) > precision)
 					return (false);
-				if (Math.Abs(z / w - other.z / w) > precision)
+				if (Math.Abs(z / w - other.z / other.w) > precision)
 					return (false);
 			}
 
@@ -3950,7 +3950,7 @@ namespace OpenGL
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[DebuggerDisplay("Vertex4i: X={x} Y={y} Z={z} W={w}")]
-	public struct Vertex4i
+	public struct Vertex4i : IEquatable<Vertex4i>
 	{
 		#region Constructors
 
@@ -4639,18 +4639,18 @@ namespace OpenGL
 				return (false);
 
 			if (undefined == false) {
-				if (Math.Abs(x / w - other.x / w) > precision)
+				if (Math.Abs(x / w - other.x / other.w) > precision)
 					return (false);
-				if (Math.Abs(y / w - other.y / w) > precision)
+				if (Math.Abs(y / w - other.y / other.w) > precision)
 					return (false);
-				if (Math.Abs(z / w - other.z / w) > precision)
+				if (Math.Abs(z / w - other.z / other.w) > precision)
 					return (false);
 			} else {
-				if (Math.Abs(x / w - other.x / w) > precision)
+				if (Math.Abs(x / w - other.x / other.w) > precision)
 					return (false);
-				if (Math.Abs(y / w - other.y / w) > precision)
+				if (Math.Abs(y / w - other.y / other.w) > precision)
 					return (false);
-				if (Math.Abs(z / w - other.z / w) > precision)
+				if (Math.Abs(z / w - other.z / other.w) > precision)
 					return (false);
 			}
 
@@ -4741,7 +4741,7 @@ namespace OpenGL
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[DebuggerDisplay("Vertex4f: X={x} Y={y} Z={z} W={w}")]
-	public struct Vertex4f
+	public struct Vertex4f : IEquatable<Vertex4f>
 	{
 		#region Constructors
 
@@ -5466,18 +5466,18 @@ namespace OpenGL
 				return (false);
 
 			if (undefined == false) {
-				if (Math.Abs(x / w - other.x / w) > precision)
+				if (Math.Abs(x / w - other.x / other.w) > precision)
 					return (false);
-				if (Math.Abs(y / w - other.y / w) > precision)
+				if (Math.Abs(y / w - other.y / other.w) > precision)
 					return (false);
-				if (Math.Abs(z / w - other.z / w) > precision)
+				if (Math.Abs(z / w - other.z / other.w) > precision)
 					return (false);
 			} else {
-				if (Math.Abs(x / w - other.x / w) > precision)
+				if (Math.Abs(x / w - other.x / other.w) > precision)
 					return (false);
-				if (Math.Abs(y / w - other.y / w) > precision)
+				if (Math.Abs(y / w - other.y / other.w) > precision)
 					return (false);
-				if (Math.Abs(z / w - other.z / w) > precision)
+				if (Math.Abs(z / w - other.z / other.w) > precision)
 					return (false);
 			}
 
@@ -5568,7 +5568,7 @@ namespace OpenGL
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[DebuggerDisplay("Vertex4d: X={x} Y={y} Z={z} W={w}")]
-	public struct Vertex4d
+	public struct Vertex4d : IEquatable<Vertex4d>
 	{
 		#region Constructors
 
@@ -6224,18 +6224,18 @@ namespace OpenGL
 				return (false);
 
 			if (undefined == false) {
-				if (Math.Abs(x / w - other.x / w) > precision)
+				if (Math.Abs(x / w - other.x / other.w) > precision)
 					return (false);
-				if (Math.Abs(y / w - other.y / w) > precision)
+				if (Math.Abs(y / w - other.y / other.w) > precision)
 					return (false);
-				if (Math.Abs(z / w - other.z / w) > precision)
+				if (Math.Abs(z / w - other.z / other.w) > precision)
 					return (false);
 			} else {
-				if (Math.Abs(x / w - other.x / w) > precision)
+				if (Math.Abs(x / w - other.x / other.w) > precision)
 					return (false);
-				if (Math.Abs(y / w - other.y / w) > precision)
+				if (Math.Abs(y / w - other.y / other.w) > precision)
 					return (false);
-				if (Math.Abs(z / w - other.z / w) > precision)
+				if (Math.Abs(z / w - other.z / other.w) > precision)
 					return (false);
 			}
 
@@ -6326,7 +6326,7 @@ namespace OpenGL
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	[DebuggerDisplay("Vertex4hf: X={x} Y={y} Z={z} W={w}")]
-	public struct Vertex4hf
+	public struct Vertex4hf : IEquatable<Vertex4hf>
 	{
 		#region Constructors
 
@@ -7015,18 +7015,18 @@ namespace OpenGL
 				return (false);
 
 			if (undefined == false) {
-				if (Math.Abs(x / w - other.x / w) > precision)
+				if (Math.Abs(x / w - other.x / other.w) > precision)
 					return (false);
-				if (Math.Abs(y / w - other.y / w) > precision)
+				if (Math.Abs(y / w - other.y / other.w) > precision)
 					return (false);
-				if (Math.Abs(z / w - other.z / w) > precision)
+				if (Math.Abs(z / w - other.z / other.w) > precision)
 					return (false);
 			} else {
-				if (Math.Abs(x / w - other.x / w) > precision)
+				if (Math.Abs(x / w - other.x / other.w) > precision)
 					return (false);
-				if (Math.Abs(y / w - other.y / w) > precision)
+				if (Math.Abs(y / w - other.y / other.w) > precision)
 					return (false);
-				if (Math.Abs(z / w - other.z / w) > precision)
+				if (Math.Abs(z / w - other.z / other.w) > precision)
 					return (false);
 			}
 
