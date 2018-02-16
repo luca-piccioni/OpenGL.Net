@@ -53,7 +53,6 @@
     <Compile Include="ColorR.cs" />
     <Compile Include="ColorRGB.cs" />
     <Compile Include="ColorRGBA.cs" />
-    <Compile Include="ColorRGBARef.cs" />
     <Compile Include="HalfFloat.cs" />
     <Compile Include="IColor.cs" />
     <Compile Include="IColorRGB.cs" />

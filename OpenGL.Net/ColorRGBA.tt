@@ -37,7 +37,7 @@ namespace OpenGL
 {
 <#
 	string[] postfixes =			new[] { "32",     "64",     "F",     "HF"        };
-	string[] interfaceTypes =		new[] { "byte",   "ushort", "float", "HalfFloat" };
+	string[] baseTypes =		new[] { "byte",   "ushort", "float", "HalfFloat" };
 	string[] pixelTypes =			new[] { "RGBA32", "RGBA64", "RGBAF", "RGBAHF"     };
 	string[] structType =			new[] { "byte",   "ushort", "float", "HalfFloat" };
 	string[] vertexBaseType =		new[] { "UByte",  "UShort", "Float", "Half" };
@@ -49,7 +49,7 @@ namespace OpenGL
 
 	for (int i = 0; i < postfixes.Length; i++) {
 		string className = String.Format("ColorRGBA{0}", postfixes[i]);
-		string interfaceType = interfaceTypes[i];
+		string baseType = baseTypes[i];
 		string componentType = structType[i];
 		string pixelType = pixelTypes[i];
 		int[] bits = bitss[i];
@@ -64,7 +64,7 @@ namespace OpenGL
 	/// RGBA color.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	public struct <#= className #> : IColorRGBA<<#= interfaceType #>>
+	public struct <#= className #> : IColorRGBA<<#= baseType #>>, IEquatable<<#= className #>>
 	{
 		#region Constructors
 
@@ -72,15 +72,15 @@ namespace OpenGL
 		/// Construct a <#= className #> specifying RGB components.
 		/// </summary>
 		/// <param name="r">
-		/// A <see cref="<#= interfaceType #>"/> that specify the red component.
+		/// A <see cref="<#= baseType #>"/> that specify the red component.
 		/// </param>
 		/// <param name="g">
-		/// A <see cref="<#= interfaceType #>"/> that specify the green component.
+		/// A <see cref="<#= baseType #>"/> that specify the green component.
 		/// </param>
 		/// <param name="b">
-		/// A <see cref="<#= interfaceType #>"/> that specify the blue component.
+		/// A <see cref="<#= baseType #>"/> that specify the blue component.
 		/// </param>
-		public <#= className #>(<#= interfaceType #> r, <#= interfaceType #> g, <#= interfaceType #> b) :
+		public <#= className #>(<#= baseType #> r, <#= baseType #> g, <#= baseType #> b) :
 			this(r, g, b, <#= one #>)
 		{
 
@@ -90,18 +90,18 @@ namespace OpenGL
 		/// Construct a <#= className #> specifying RGB components.
 		/// </summary>
 		/// <param name="r">
-		/// A <see cref="<#= interfaceType #>"/> that specify the red component.
+		/// A <see cref="<#= baseType #>"/> that specify the red component.
 		/// </param>
 		/// <param name="g">
-		/// A <see cref="<#= interfaceType #>"/> that specify the green component.
+		/// A <see cref="<#= baseType #>"/> that specify the green component.
 		/// </param>
 		/// <param name="b">
-		/// A <see cref="<#= interfaceType #>"/> that specify the blue component.
+		/// A <see cref="<#= baseType #>"/> that specify the blue component.
 		/// </param>
 		/// <param name="a">
-		/// A <see cref="<#= interfaceType #>"/> that specify the alpha component.
+		/// A <see cref="<#= baseType #>"/> that specify the alpha component.
 		/// </param>
-		public <#= className #>(<#= interfaceType #> r, <#= interfaceType #> g, <#= interfaceType #> b, <#= interfaceType #> a)
+		public <#= className #>(<#= baseType #> r, <#= baseType #> g, <#= baseType #> b, <#= baseType #> a)
 		{
 			// Setup RGBA components
 			this.r = r;
@@ -228,6 +228,32 @@ namespace OpenGL
 
 		#endregion
 
+		#region Equality Operators
+
+		/// <summary>
+		/// Equality operator.
+		/// </summary>
+		/// <param name="v1"></param>
+		/// <param name="v2"></param>
+		/// <returns></returns>
+		public static bool operator ==(<#= className #> v1, <#= className #> v2)
+		{
+			return (v1.Equals(v2));
+		}
+
+		/// <summary>
+		/// Inequality operator.
+		/// </summary>
+		/// <param name="v1"></param>
+		/// <param name="v2"></param>
+		/// <returns></returns>
+		public static bool operator !=(<#= className #> v1, <#= className #> v2)
+		{
+			return (!v1.Equals(v2));
+		}
+
+		#endregion
+
 		#region Notable Colors
 
 		/// <summary>
@@ -272,12 +298,12 @@ namespace OpenGL
 
 		#endregion
 
-		#region IColorRGBA<<#= interfaceType #>> Implementation
+		#region IColorRGBA<<#= baseType #>> Implementation
 
 		/// <summary>
 		/// Get or set the red component.
 		/// </summary>
-		public <#= interfaceType #> Red
+		public <#= baseType #> Red
 		{
 			get { return (r); }
 			set { r = value; }
@@ -286,7 +312,7 @@ namespace OpenGL
 		/// <summary>
 		/// Get or set the green component.
 		/// </summary>
-		public <#= interfaceType #> Green
+		public <#= baseType #> Green
 		{
 			get { return (g); }
 			set { g = value; }
@@ -295,7 +321,7 @@ namespace OpenGL
 		/// <summary>
 		/// Get or set the blue component.
 		/// </summary>
-		public <#= interfaceType #> Blue
+		public <#= baseType #> Blue
 		{
 			get { return (b); }
 			set { b = value; }
@@ -304,7 +330,7 @@ namespace OpenGL
 		/// <summary>
 		/// Get or set the alpha component.
 		/// </summary>
-		public <#= interfaceType #> Alpha
+		public <#= baseType #> Alpha
 		{
 			get { return (a); }
 			set { a = value; }
@@ -332,14 +358,14 @@ namespace OpenGL
 		/// Exception thrown when <paramref name="c"/> is less than 0 or greater than the number of components of this IColor implementation.
 		/// </exception>
 		public float this[int c]
-		{<# if (interfaceType != "float" && interfaceType != "HalfFloat") { #>
+		{<# if (baseType != "float" && baseType != "HalfFloat") { #>
 			get
 			{
 				switch (c) {
-					case 0: return ((float)Red   / <#= interfaceType #>.MaxValue);
-					case 1: return ((float)Green / <#= interfaceType #>.MaxValue);
-					case 2: return ((float)Blue  / <#= interfaceType #>.MaxValue);
-					case 3: return ((float)Alpha / <#= interfaceType #>.MaxValue);
+					case 0: return ((float)Red   / <#= baseType #>.MaxValue);
+					case 1: return ((float)Green / <#= baseType #>.MaxValue);
+					case 2: return ((float)Blue  / <#= baseType #>.MaxValue);
+					case 3: return ((float)Alpha / <#= baseType #>.MaxValue);
 					default:
 						throw new IndexOutOfRangeException();
 				}
@@ -349,10 +375,10 @@ namespace OpenGL
 				if (value < 0.0f || value > 1.0f)
 					throw new InvalidOperationException("value out of range");
 				switch (c) {
-					case 0: Red =   (<#= interfaceType #>)(value * <#= interfaceType #>.MaxValue); break;
-					case 1: Green = (<#= interfaceType #>)(value * <#= interfaceType #>.MaxValue); break;
-					case 2: Blue =  (<#= interfaceType #>)(value * <#= interfaceType #>.MaxValue); break;
-					case 3: Alpha = (<#= interfaceType #>)(value * <#= interfaceType #>.MaxValue); break;
+					case 0: Red =   (<#= baseType #>)(value * <#= baseType #>.MaxValue); break;
+					case 1: Green = (<#= baseType #>)(value * <#= baseType #>.MaxValue); break;
+					case 2: Blue =  (<#= baseType #>)(value * <#= baseType #>.MaxValue); break;
+					case 3: Alpha = (<#= baseType #>)(value * <#= baseType #>.MaxValue); break;
 					default:
 						throw new IndexOutOfRangeException();
 				}
@@ -374,10 +400,10 @@ namespace OpenGL
 				if (value < 0.0f || value > 1.0f)
 					throw new InvalidOperationException("value out of range");
 				switch (c) {
-					case 0: Red =   (<#= interfaceType #>)value; break;
-					case 1: Green = (<#= interfaceType #>)value; break;
-					case 2: Blue =  (<#= interfaceType #>)value; break;
-					case 3: Alpha = (<#= interfaceType #>)value; break;
+					case 0: Red =   (<#= baseType #>)value; break;
+					case 1: Green = (<#= baseType #>)value; break;
+					case 2: Blue =  (<#= baseType #>)value; break;
+					case 3: Alpha = (<#= baseType #>)value; break;
 					default:
 						throw new IndexOutOfRangeException();
 				}
@@ -386,6 +412,89 @@ namespace OpenGL
 		}
 
 		#endregion
+
+		#region IEquatable Implementation
+
+		/// <summary>
+		/// Indicates whether the this <#= className #> is equal to another <#= className #>, tolerating an absolute error.
+		/// </summary>
+		/// <param name="other">
+		/// The <see cref="<#= className #>"/> to compare with this <#= className #>.
+		/// </param>
+		/// <param name="precision">
+		/// The <see cref="<#= baseType #>"/> that specifies the maximum absolute error tollerance.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this <#= className #> is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(<#= className #> other, <#= baseType #> precision)
+		{
+			if (Math.Abs(r - other.r) > precision)
+				return (false);
+			if (Math.Abs(g - other.g) > precision)
+				return (false);
+			if (Math.Abs(b - other.b) > precision)
+				return (false);
+			if (Math.Abs(a - other.a) > precision)
+				return (false);
+
+			return (true);
+		}
+
+		/// <summary>
+		/// Indicates whether the this <#= className #> is equal to another <#= className #>.
+		/// </summary>
+		/// <param name="other">
+		/// An IVertex3 to compare with this object.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(<#= className #> other)
+		{
+			return (r == other.r && g == other.g && b == other.b && a == other.a);
+		}
+
+		/// <summary>
+		/// Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+		/// </summary>
+		/// <param name="obj">
+		/// The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>.
+		/// </param>
+		/// <returns>
+		/// It returns true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+		/// </returns>
+		public override bool Equals(object obj)
+		{
+			if (ReferenceEquals(null, obj))
+				return (false);
+			if (obj.GetType() != typeof(<#= className #>))
+				return (false);
+			
+			return (Equals((<#= className #>)obj));
+		}
+
+		/// <summary>
+		/// Serves as a hash function for a particular type. <see cref="M:System.Object.GetHashCode"/> is suitable for
+		/// use in hashing algorithms and data structures like a hash table.
+		/// </summary>
+		/// <returns>
+		/// A hash code for the current <see cref="T:System.Object"/>.
+		/// </returns>
+		public override int GetHashCode()
+		{
+			unchecked {
+				int result = r.GetHashCode();
+				result = (result * 397) ^ g.GetHashCode();
+				result = (result * 397) ^ b.GetHashCode();
+				result = (result * 397) ^ a.GetHashCode();
+
+				return result;
+			}
+		}
+
+		#endregion
 	}
+
 <# } #>
 }

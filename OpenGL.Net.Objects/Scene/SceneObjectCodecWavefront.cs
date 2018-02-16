@@ -77,7 +77,7 @@ namespace OpenGL.Objects.Scene
 			/// <summary>
 			/// Ambient color.
 			/// </summary>
-			public ColorRGBA Ambient = ColorRGBA.ColorBlack;
+			public ColorRGBAF Ambient = ColorRGBAF.ColorBlack;
 
 			/// <summary>
 			/// Ambient texture.
@@ -87,7 +87,7 @@ namespace OpenGL.Objects.Scene
 			/// <summary>
 			/// Diffuse color.
 			/// </summary>
-			public ColorRGBA Diffuse = ColorRGBA.ColorWhite;
+			public ColorRGBAF Diffuse = ColorRGBAF.ColorWhite;
 
 			/// <summary>
 			/// Diffuse texture.
@@ -97,7 +97,7 @@ namespace OpenGL.Objects.Scene
 			/// <summary>
 			/// Specular color.
 			/// </summary>
-			public ColorRGBA Specular = ColorRGBA.ColorBlack;
+			public ColorRGBAF Specular = ColorRGBAF.ColorBlack;
 
 			/// <summary>
 			/// Specular texture.
@@ -839,7 +839,7 @@ namespace OpenGL.Objects.Scene
 			objContext.Materials.Add(objMaterial.Name, objMaterial);
 		}
 
-		private static ColorRGBA ParseMaterialColor(ObjMaterial objMaterial, string[] commandTokens)
+		private static ColorRGBAF ParseMaterialColor(ObjMaterial objMaterial, string[] commandTokens)
 		{
 			// Kd spectral file.rfl factor
 			//
@@ -871,7 +871,7 @@ namespace OpenGL.Objects.Scene
 				return (Single.Parse(item, NumberFormatInfo.InvariantInfo));
 			});
 
-			return (new ColorRGBA(rgbValues[0], rgbValues[1], rgbValues[2]));
+			return (new ColorRGBAF(rgbValues[0], rgbValues[1], rgbValues[2]));
 		}
 
 		private static Texture2d ParseMaterialTexture(ObjContext objContext, ObjMaterial objMaterial, string[] commandTokens)

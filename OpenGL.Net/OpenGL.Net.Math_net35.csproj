@@ -147,7 +147,6 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </Compile>
-    <Compile Include="ColorRGBARef.cs" />
     <Compile Include="HalfFloat.cs" />
     <Compile Include="IColor.cs" />
     <Compile Include="IColorRGB.cs" />

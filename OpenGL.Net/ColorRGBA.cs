@@ -32,7 +32,7 @@ namespace OpenGL
 	/// RGBA color.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	public struct ColorRGBA32 : IColorRGBA<byte>
+	public struct ColorRGBA32 : IColorRGBA<byte>, IEquatable<ColorRGBA32>
 	{
 		#region Constructors
 
@@ -196,6 +196,32 @@ namespace OpenGL
 
 		#endregion
 
+		#region Equality Operators
+
+		/// <summary>
+		/// Equality operator.
+		/// </summary>
+		/// <param name="v1"></param>
+		/// <param name="v2"></param>
+		/// <returns></returns>
+		public static bool operator ==(ColorRGBA32 v1, ColorRGBA32 v2)
+		{
+			return (v1.Equals(v2));
+		}
+
+		/// <summary>
+		/// Inequality operator.
+		/// </summary>
+		/// <param name="v1"></param>
+		/// <param name="v2"></param>
+		/// <returns></returns>
+		public static bool operator !=(ColorRGBA32 v1, ColorRGBA32 v2)
+		{
+			return (!v1.Equals(v2));
+		}
+
+		#endregion
+
 		#region Notable Colors
 
 		/// <summary>
@@ -327,12 +353,95 @@ namespace OpenGL
 		}
 
 		#endregion
+
+		#region IEquatable Implementation
+
+		/// <summary>
+		/// Indicates whether the this ColorRGBA32 is equal to another ColorRGBA32, tolerating an absolute error.
+		/// </summary>
+		/// <param name="other">
+		/// The <see cref="ColorRGBA32"/> to compare with this ColorRGBA32.
+		/// </param>
+		/// <param name="precision">
+		/// The <see cref="byte"/> that specifies the maximum absolute error tollerance.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this ColorRGBA32 is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(ColorRGBA32 other, byte precision)
+		{
+			if (Math.Abs(r - other.r) > precision)
+				return (false);
+			if (Math.Abs(g - other.g) > precision)
+				return (false);
+			if (Math.Abs(b - other.b) > precision)
+				return (false);
+			if (Math.Abs(a - other.a) > precision)
+				return (false);
+
+			return (true);
+		}
+
+		/// <summary>
+		/// Indicates whether the this ColorRGBA32 is equal to another ColorRGBA32.
+		/// </summary>
+		/// <param name="other">
+		/// An IVertex3 to compare with this object.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(ColorRGBA32 other)
+		{
+			return (r == other.r && g == other.g && b == other.b && a == other.a);
+		}
+
+		/// <summary>
+		/// Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+		/// </summary>
+		/// <param name="obj">
+		/// The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>.
+		/// </param>
+		/// <returns>
+		/// It returns true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+		/// </returns>
+		public override bool Equals(object obj)
+		{
+			if (ReferenceEquals(null, obj))
+				return (false);
+			if (obj.GetType() != typeof(ColorRGBA32))
+				return (false);
+			
+			return (Equals((ColorRGBA32)obj));
+		}
+
+		/// <summary>
+		/// Serves as a hash function for a particular type. <see cref="M:System.Object.GetHashCode"/> is suitable for
+		/// use in hashing algorithms and data structures like a hash table.
+		/// </summary>
+		/// <returns>
+		/// A hash code for the current <see cref="T:System.Object"/>.
+		/// </returns>
+		public override int GetHashCode()
+		{
+			unchecked {
+				int result = r.GetHashCode();
+				result = (result * 397) ^ g.GetHashCode();
+				result = (result * 397) ^ b.GetHashCode();
+				result = (result * 397) ^ a.GetHashCode();
+
+				return result;
+			}
+		}
+
+		#endregion
 	}
+
 	/// <summary>
 	/// RGBA color.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	public struct ColorRGBA64 : IColorRGBA<ushort>
+	public struct ColorRGBA64 : IColorRGBA<ushort>, IEquatable<ColorRGBA64>
 	{
 		#region Constructors
 
@@ -496,6 +605,32 @@ namespace OpenGL
 
 		#endregion
 
+		#region Equality Operators
+
+		/// <summary>
+		/// Equality operator.
+		/// </summary>
+		/// <param name="v1"></param>
+		/// <param name="v2"></param>
+		/// <returns></returns>
+		public static bool operator ==(ColorRGBA64 v1, ColorRGBA64 v2)
+		{
+			return (v1.Equals(v2));
+		}
+
+		/// <summary>
+		/// Inequality operator.
+		/// </summary>
+		/// <param name="v1"></param>
+		/// <param name="v2"></param>
+		/// <returns></returns>
+		public static bool operator !=(ColorRGBA64 v1, ColorRGBA64 v2)
+		{
+			return (!v1.Equals(v2));
+		}
+
+		#endregion
+
 		#region Notable Colors
 
 		/// <summary>
@@ -627,12 +762,95 @@ namespace OpenGL
 		}
 
 		#endregion
+
+		#region IEquatable Implementation
+
+		/// <summary>
+		/// Indicates whether the this ColorRGBA64 is equal to another ColorRGBA64, tolerating an absolute error.
+		/// </summary>
+		/// <param name="other">
+		/// The <see cref="ColorRGBA64"/> to compare with this ColorRGBA64.
+		/// </param>
+		/// <param name="precision">
+		/// The <see cref="ushort"/> that specifies the maximum absolute error tollerance.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this ColorRGBA64 is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(ColorRGBA64 other, ushort precision)
+		{
+			if (Math.Abs(r - other.r) > precision)
+				return (false);
+			if (Math.Abs(g - other.g) > precision)
+				return (false);
+			if (Math.Abs(b - other.b) > precision)
+				return (false);
+			if (Math.Abs(a - other.a) > precision)
+				return (false);
+
+			return (true);
+		}
+
+		/// <summary>
+		/// Indicates whether the this ColorRGBA64 is equal to another ColorRGBA64.
+		/// </summary>
+		/// <param name="other">
+		/// An IVertex3 to compare with this object.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(ColorRGBA64 other)
+		{
+			return (r == other.r && g == other.g && b == other.b && a == other.a);
+		}
+
+		/// <summary>
+		/// Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+		/// </summary>
+		/// <param name="obj">
+		/// The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>.
+		/// </param>
+		/// <returns>
+		/// It returns true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+		/// </returns>
+		public override bool Equals(object obj)
+		{
+			if (ReferenceEquals(null, obj))
+				return (false);
+			if (obj.GetType() != typeof(ColorRGBA64))
+				return (false);
+			
+			return (Equals((ColorRGBA64)obj));
+		}
+
+		/// <summary>
+		/// Serves as a hash function for a particular type. <see cref="M:System.Object.GetHashCode"/> is suitable for
+		/// use in hashing algorithms and data structures like a hash table.
+		/// </summary>
+		/// <returns>
+		/// A hash code for the current <see cref="T:System.Object"/>.
+		/// </returns>
+		public override int GetHashCode()
+		{
+			unchecked {
+				int result = r.GetHashCode();
+				result = (result * 397) ^ g.GetHashCode();
+				result = (result * 397) ^ b.GetHashCode();
+				result = (result * 397) ^ a.GetHashCode();
+
+				return result;
+			}
+		}
+
+		#endregion
 	}
+
 	/// <summary>
 	/// RGBA color.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	public struct ColorRGBAF : IColorRGBA<float>
+	public struct ColorRGBAF : IColorRGBA<float>, IEquatable<ColorRGBAF>
 	{
 		#region Constructors
 
@@ -796,6 +1014,32 @@ namespace OpenGL
 
 		#endregion
 
+		#region Equality Operators
+
+		/// <summary>
+		/// Equality operator.
+		/// </summary>
+		/// <param name="v1"></param>
+		/// <param name="v2"></param>
+		/// <returns></returns>
+		public static bool operator ==(ColorRGBAF v1, ColorRGBAF v2)
+		{
+			return (v1.Equals(v2));
+		}
+
+		/// <summary>
+		/// Inequality operator.
+		/// </summary>
+		/// <param name="v1"></param>
+		/// <param name="v2"></param>
+		/// <returns></returns>
+		public static bool operator !=(ColorRGBAF v1, ColorRGBAF v2)
+		{
+			return (!v1.Equals(v2));
+		}
+
+		#endregion
+
 		#region Notable Colors
 
 		/// <summary>
@@ -927,12 +1171,95 @@ namespace OpenGL
 		}
 
 		#endregion
+
+		#region IEquatable Implementation
+
+		/// <summary>
+		/// Indicates whether the this ColorRGBAF is equal to another ColorRGBAF, tolerating an absolute error.
+		/// </summary>
+		/// <param name="other">
+		/// The <see cref="ColorRGBAF"/> to compare with this ColorRGBAF.
+		/// </param>
+		/// <param name="precision">
+		/// The <see cref="float"/> that specifies the maximum absolute error tollerance.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this ColorRGBAF is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(ColorRGBAF other, float precision)
+		{
+			if (Math.Abs(r - other.r) > precision)
+				return (false);
+			if (Math.Abs(g - other.g) > precision)
+				return (false);
+			if (Math.Abs(b - other.b) > precision)
+				return (false);
+			if (Math.Abs(a - other.a) > precision)
+				return (false);
+
+			return (true);
+		}
+
+		/// <summary>
+		/// Indicates whether the this ColorRGBAF is equal to another ColorRGBAF.
+		/// </summary>
+		/// <param name="other">
+		/// An IVertex3 to compare with this object.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(ColorRGBAF other)
+		{
+			return (r == other.r && g == other.g && b == other.b && a == other.a);
+		}
+
+		/// <summary>
+		/// Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+		/// </summary>
+		/// <param name="obj">
+		/// The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>.
+		/// </param>
+		/// <returns>
+		/// It returns true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+		/// </returns>
+		public override bool Equals(object obj)
+		{
+			if (ReferenceEquals(null, obj))
+				return (false);
+			if (obj.GetType() != typeof(ColorRGBAF))
+				return (false);
+			
+			return (Equals((ColorRGBAF)obj));
+		}
+
+		/// <summary>
+		/// Serves as a hash function for a particular type. <see cref="M:System.Object.GetHashCode"/> is suitable for
+		/// use in hashing algorithms and data structures like a hash table.
+		/// </summary>
+		/// <returns>
+		/// A hash code for the current <see cref="T:System.Object"/>.
+		/// </returns>
+		public override int GetHashCode()
+		{
+			unchecked {
+				int result = r.GetHashCode();
+				result = (result * 397) ^ g.GetHashCode();
+				result = (result * 397) ^ b.GetHashCode();
+				result = (result * 397) ^ a.GetHashCode();
+
+				return result;
+			}
+		}
+
+		#endregion
 	}
+
 	/// <summary>
 	/// RGBA color.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	public struct ColorRGBAHF : IColorRGBA<HalfFloat>
+	public struct ColorRGBAHF : IColorRGBA<HalfFloat>, IEquatable<ColorRGBAHF>
 	{
 		#region Constructors
 
@@ -1096,6 +1423,32 @@ namespace OpenGL
 
 		#endregion
 
+		#region Equality Operators
+
+		/// <summary>
+		/// Equality operator.
+		/// </summary>
+		/// <param name="v1"></param>
+		/// <param name="v2"></param>
+		/// <returns></returns>
+		public static bool operator ==(ColorRGBAHF v1, ColorRGBAHF v2)
+		{
+			return (v1.Equals(v2));
+		}
+
+		/// <summary>
+		/// Inequality operator.
+		/// </summary>
+		/// <param name="v1"></param>
+		/// <param name="v2"></param>
+		/// <returns></returns>
+		public static bool operator !=(ColorRGBAHF v1, ColorRGBAHF v2)
+		{
+			return (!v1.Equals(v2));
+		}
+
+		#endregion
+
 		#region Notable Colors
 
 		/// <summary>
@@ -1227,5 +1580,88 @@ namespace OpenGL
 		}
 
 		#endregion
+
+		#region IEquatable Implementation
+
+		/// <summary>
+		/// Indicates whether the this ColorRGBAHF is equal to another ColorRGBAHF, tolerating an absolute error.
+		/// </summary>
+		/// <param name="other">
+		/// The <see cref="ColorRGBAHF"/> to compare with this ColorRGBAHF.
+		/// </param>
+		/// <param name="precision">
+		/// The <see cref="HalfFloat"/> that specifies the maximum absolute error tollerance.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this ColorRGBAHF is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(ColorRGBAHF other, HalfFloat precision)
+		{
+			if (Math.Abs(r - other.r) > precision)
+				return (false);
+			if (Math.Abs(g - other.g) > precision)
+				return (false);
+			if (Math.Abs(b - other.b) > precision)
+				return (false);
+			if (Math.Abs(a - other.a) > precision)
+				return (false);
+
+			return (true);
+		}
+
+		/// <summary>
+		/// Indicates whether the this ColorRGBAHF is equal to another ColorRGBAHF.
+		/// </summary>
+		/// <param name="other">
+		/// An IVertex3 to compare with this object.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(ColorRGBAHF other)
+		{
+			return (r == other.r && g == other.g && b == other.b && a == other.a);
+		}
+
+		/// <summary>
+		/// Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+		/// </summary>
+		/// <param name="obj">
+		/// The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>.
+		/// </param>
+		/// <returns>
+		/// It returns true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+		/// </returns>
+		public override bool Equals(object obj)
+		{
+			if (ReferenceEquals(null, obj))
+				return (false);
+			if (obj.GetType() != typeof(ColorRGBAHF))
+				return (false);
+			
+			return (Equals((ColorRGBAHF)obj));
+		}
+
+		/// <summary>
+		/// Serves as a hash function for a particular type. <see cref="M:System.Object.GetHashCode"/> is suitable for
+		/// use in hashing algorithms and data structures like a hash table.
+		/// </summary>
+		/// <returns>
+		/// A hash code for the current <see cref="T:System.Object"/>.
+		/// </returns>
+		public override int GetHashCode()
+		{
+			unchecked {
+				int result = r.GetHashCode();
+				result = (result * 397) ^ g.GetHashCode();
+				result = (result * 397) ^ b.GetHashCode();
+				result = (result * 397) ^ a.GetHashCode();
+
+				return result;
+			}
+		}
+
+		#endregion
 	}
+
 }

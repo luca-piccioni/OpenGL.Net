@@ -100,17 +100,17 @@ namespace OpenGL.Objects.Scene
 		/// <summary>
 		/// Light ambient color.
 		/// </summary>
-		public ColorRGBA AmbientColor = ColorRGBA.ColorWhite;
+		public ColorRGBAF AmbientColor = ColorRGBAF.ColorWhite;
 
 		/// <summary>
 		/// Light diffuse color.
 		/// </summary>
-		public ColorRGBA DiffuseColor = ColorRGBA.ColorWhite;
+		public ColorRGBAF DiffuseColor = ColorRGBAF.ColorWhite;
 
 		/// <summary>
 		/// Light specular color.
 		/// </summary>
-		public ColorRGBA SpecularColor = ColorRGBA.ColorWhite;
+		public ColorRGBAF SpecularColor = ColorRGBAF.ColorWhite;
 
 		#endregion
 

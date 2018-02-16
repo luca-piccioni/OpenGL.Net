@@ -349,26 +349,6 @@ namespace OpenGL.Objects
 			SetVariantUniform(ctx, uniformName, v.Red, v.Green, v.Blue, v.Alpha);
 		}
 
-		/// <summary>
-		/// Set uniform state variable (vec4 variable).
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for operations.
-		/// </param>
-		/// <param name="uniformName">
-		/// A <see cref="String"/> that specify the variable name in the shader source.
-		/// </param>
-		/// <param name="v">
-		/// A <see cref="ColorRGBA"/> holding the uniform variabile data.
-		/// </param>
-		public void SetVariantUniform(GraphicsContext ctx, string uniformName, ColorRGBA v)
-		{
-			if (v == null)
-				throw new ArgumentNullException("v");
-
-			SetUniform(ctx, uniformName, v.Red, v.Green, v.Blue, v.Alpha);
-		}
-
 		#endregion
 
 		#region Set/Get Variant Uniform (double-precision floating-point vector data)
