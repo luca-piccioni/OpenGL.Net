@@ -207,25 +207,6 @@ namespace OpenGL.Test
 			Assert.AreEqual((byte)(z1 * (float)s), v.z);
 		}
 
-		[Test(Description = "Test Vertex4ub.operator*(Vertex4ub, Double)")]
-		public void Vertex4ub_TestOperatorMultiplyDouble()
-		{
-			Random random = new Random();
-			
-			byte x1 = (byte)Next(random);
-			byte y1 = (byte)Next(random);
-			byte z1 = (byte)Next(random);
-			double s = Next(random, 0.0, 32.0);
-
-			Vertex4ub v1 = new Vertex4ub(x1, y1, z1);
-
-			Vertex4ub v = v1 * s;
-
-			Assert.AreEqual((byte)(x1 * s), v.x);
-			Assert.AreEqual((byte)(y1 * s), v.y);
-			Assert.AreEqual((byte)(z1 * s), v.z);
-		}
-
 		[Test(Description = "Test Vertex4ub.operator/(Vertex4ub, Single)")]
 		public void Vertex4ub_TestOperatorDivideSingle()
 		{
@@ -243,25 +224,6 @@ namespace OpenGL.Test
 			Assert.AreEqual((byte)(x1 / (float)s), v.x);
 			Assert.AreEqual((byte)(y1 / (float)s), v.y);
 			Assert.AreEqual((byte)(z1 / (float)s), v.z);
-		}
-
-		[Test(Description = "Test Vertex4ub.operator/(Vertex4ub, Double)")]
-		public void Vertex4ub_TestOperatorDivideDouble()
-		{
-			Random random = new Random();
-			
-			byte x1 = (byte)Next(random);
-			byte y1 = (byte)Next(random);
-			byte z1 = (byte)Next(random);
-			double s = Next(random, 1.0, 32.0);
-
-			Vertex4ub v1 = new Vertex4ub(x1, y1, z1);
-
-			Vertex4ub v = v1 / s;
-
-			Assert.AreEqual((byte)(x1 / s), v.x);
-			Assert.AreEqual((byte)(y1 / s), v.y);
-			Assert.AreEqual((byte)(z1 / s), v.z);
 		}
 
 		[Test(Description = "Test Vertex4ub.operator*(Vertex4ub, byte)")]
@@ -904,25 +866,6 @@ namespace OpenGL.Test
 			Assert.AreEqual((sbyte)(z1 * (float)s), v.z);
 		}
 
-		[Test(Description = "Test Vertex4b.operator*(Vertex4b, Double)")]
-		public void Vertex4b_TestOperatorMultiplyDouble()
-		{
-			Random random = new Random();
-			
-			sbyte x1 = (sbyte)Next(random);
-			sbyte y1 = (sbyte)Next(random);
-			sbyte z1 = (sbyte)Next(random);
-			double s = Next(random, 0.0, 32.0);
-
-			Vertex4b v1 = new Vertex4b(x1, y1, z1);
-
-			Vertex4b v = v1 * s;
-
-			Assert.AreEqual((sbyte)(x1 * s), v.x);
-			Assert.AreEqual((sbyte)(y1 * s), v.y);
-			Assert.AreEqual((sbyte)(z1 * s), v.z);
-		}
-
 		[Test(Description = "Test Vertex4b.operator/(Vertex4b, Single)")]
 		public void Vertex4b_TestOperatorDivideSingle()
 		{
@@ -940,25 +883,6 @@ namespace OpenGL.Test
 			Assert.AreEqual((sbyte)(x1 / (float)s), v.x);
 			Assert.AreEqual((sbyte)(y1 / (float)s), v.y);
 			Assert.AreEqual((sbyte)(z1 / (float)s), v.z);
-		}
-
-		[Test(Description = "Test Vertex4b.operator/(Vertex4b, Double)")]
-		public void Vertex4b_TestOperatorDivideDouble()
-		{
-			Random random = new Random();
-			
-			sbyte x1 = (sbyte)Next(random);
-			sbyte y1 = (sbyte)Next(random);
-			sbyte z1 = (sbyte)Next(random);
-			double s = Next(random, 1.0, 32.0);
-
-			Vertex4b v1 = new Vertex4b(x1, y1, z1);
-
-			Vertex4b v = v1 / s;
-
-			Assert.AreEqual((sbyte)(x1 / s), v.x);
-			Assert.AreEqual((sbyte)(y1 / s), v.y);
-			Assert.AreEqual((sbyte)(z1 / s), v.z);
 		}
 
 		[Test(Description = "Test Vertex4b.operator*(Vertex4b, sbyte)")]
@@ -1585,25 +1509,6 @@ namespace OpenGL.Test
 			Assert.AreEqual((ushort)(z1 * (float)s), v.z);
 		}
 
-		[Test(Description = "Test Vertex4us.operator*(Vertex4us, Double)")]
-		public void Vertex4us_TestOperatorMultiplyDouble()
-		{
-			Random random = new Random();
-			
-			ushort x1 = (ushort)Next(random);
-			ushort y1 = (ushort)Next(random);
-			ushort z1 = (ushort)Next(random);
-			double s = Next(random, 0.0, 32.0);
-
-			Vertex4us v1 = new Vertex4us(x1, y1, z1);
-
-			Vertex4us v = v1 * s;
-
-			Assert.AreEqual((ushort)(x1 * s), v.x);
-			Assert.AreEqual((ushort)(y1 * s), v.y);
-			Assert.AreEqual((ushort)(z1 * s), v.z);
-		}
-
 		[Test(Description = "Test Vertex4us.operator/(Vertex4us, Single)")]
 		public void Vertex4us_TestOperatorDivideSingle()
 		{
@@ -1621,25 +1526,6 @@ namespace OpenGL.Test
 			Assert.AreEqual((ushort)(x1 / (float)s), v.x);
 			Assert.AreEqual((ushort)(y1 / (float)s), v.y);
 			Assert.AreEqual((ushort)(z1 / (float)s), v.z);
-		}
-
-		[Test(Description = "Test Vertex4us.operator/(Vertex4us, Double)")]
-		public void Vertex4us_TestOperatorDivideDouble()
-		{
-			Random random = new Random();
-			
-			ushort x1 = (ushort)Next(random);
-			ushort y1 = (ushort)Next(random);
-			ushort z1 = (ushort)Next(random);
-			double s = Next(random, 1.0, 32.0);
-
-			Vertex4us v1 = new Vertex4us(x1, y1, z1);
-
-			Vertex4us v = v1 / s;
-
-			Assert.AreEqual((ushort)(x1 / s), v.x);
-			Assert.AreEqual((ushort)(y1 / s), v.y);
-			Assert.AreEqual((ushort)(z1 / s), v.z);
 		}
 
 		[Test(Description = "Test Vertex4us.operator*(Vertex4us, ushort)")]
@@ -2282,25 +2168,6 @@ namespace OpenGL.Test
 			Assert.AreEqual((short)(z1 * (float)s), v.z);
 		}
 
-		[Test(Description = "Test Vertex4s.operator*(Vertex4s, Double)")]
-		public void Vertex4s_TestOperatorMultiplyDouble()
-		{
-			Random random = new Random();
-			
-			short x1 = (short)Next(random);
-			short y1 = (short)Next(random);
-			short z1 = (short)Next(random);
-			double s = Next(random, 0.0, 32.0);
-
-			Vertex4s v1 = new Vertex4s(x1, y1, z1);
-
-			Vertex4s v = v1 * s;
-
-			Assert.AreEqual((short)(x1 * s), v.x);
-			Assert.AreEqual((short)(y1 * s), v.y);
-			Assert.AreEqual((short)(z1 * s), v.z);
-		}
-
 		[Test(Description = "Test Vertex4s.operator/(Vertex4s, Single)")]
 		public void Vertex4s_TestOperatorDivideSingle()
 		{
@@ -2318,25 +2185,6 @@ namespace OpenGL.Test
 			Assert.AreEqual((short)(x1 / (float)s), v.x);
 			Assert.AreEqual((short)(y1 / (float)s), v.y);
 			Assert.AreEqual((short)(z1 / (float)s), v.z);
-		}
-
-		[Test(Description = "Test Vertex4s.operator/(Vertex4s, Double)")]
-		public void Vertex4s_TestOperatorDivideDouble()
-		{
-			Random random = new Random();
-			
-			short x1 = (short)Next(random);
-			short y1 = (short)Next(random);
-			short z1 = (short)Next(random);
-			double s = Next(random, 1.0, 32.0);
-
-			Vertex4s v1 = new Vertex4s(x1, y1, z1);
-
-			Vertex4s v = v1 / s;
-
-			Assert.AreEqual((short)(x1 / s), v.x);
-			Assert.AreEqual((short)(y1 / s), v.y);
-			Assert.AreEqual((short)(z1 / s), v.z);
 		}
 
 		[Test(Description = "Test Vertex4s.operator*(Vertex4s, short)")]
@@ -2963,25 +2811,6 @@ namespace OpenGL.Test
 			Assert.AreEqual((uint)(z1 * (float)s), v.z);
 		}
 
-		[Test(Description = "Test Vertex4ui.operator*(Vertex4ui, Double)")]
-		public void Vertex4ui_TestOperatorMultiplyDouble()
-		{
-			Random random = new Random();
-			
-			uint x1 = (uint)Next(random);
-			uint y1 = (uint)Next(random);
-			uint z1 = (uint)Next(random);
-			double s = Next(random, 0.0, 32.0);
-
-			Vertex4ui v1 = new Vertex4ui(x1, y1, z1);
-
-			Vertex4ui v = v1 * s;
-
-			Assert.AreEqual((uint)(x1 * s), v.x);
-			Assert.AreEqual((uint)(y1 * s), v.y);
-			Assert.AreEqual((uint)(z1 * s), v.z);
-		}
-
 		[Test(Description = "Test Vertex4ui.operator/(Vertex4ui, Single)")]
 		public void Vertex4ui_TestOperatorDivideSingle()
 		{
@@ -2999,25 +2828,6 @@ namespace OpenGL.Test
 			Assert.AreEqual((uint)(x1 / (float)s), v.x);
 			Assert.AreEqual((uint)(y1 / (float)s), v.y);
 			Assert.AreEqual((uint)(z1 / (float)s), v.z);
-		}
-
-		[Test(Description = "Test Vertex4ui.operator/(Vertex4ui, Double)")]
-		public void Vertex4ui_TestOperatorDivideDouble()
-		{
-			Random random = new Random();
-			
-			uint x1 = (uint)Next(random);
-			uint y1 = (uint)Next(random);
-			uint z1 = (uint)Next(random);
-			double s = Next(random, 1.0, 32.0);
-
-			Vertex4ui v1 = new Vertex4ui(x1, y1, z1);
-
-			Vertex4ui v = v1 / s;
-
-			Assert.AreEqual((uint)(x1 / s), v.x);
-			Assert.AreEqual((uint)(y1 / s), v.y);
-			Assert.AreEqual((uint)(z1 / s), v.z);
 		}
 
 		[Test(Description = "Test Vertex4ui.operator*(Vertex4ui, uint)")]
@@ -3660,25 +3470,6 @@ namespace OpenGL.Test
 			Assert.AreEqual((int)(z1 * (float)s), v.z);
 		}
 
-		[Test(Description = "Test Vertex4i.operator*(Vertex4i, Double)")]
-		public void Vertex4i_TestOperatorMultiplyDouble()
-		{
-			Random random = new Random();
-			
-			int x1 = (int)Next(random);
-			int y1 = (int)Next(random);
-			int z1 = (int)Next(random);
-			double s = Next(random, 0.0, 32.0);
-
-			Vertex4i v1 = new Vertex4i(x1, y1, z1);
-
-			Vertex4i v = v1 * s;
-
-			Assert.AreEqual((int)(x1 * s), v.x);
-			Assert.AreEqual((int)(y1 * s), v.y);
-			Assert.AreEqual((int)(z1 * s), v.z);
-		}
-
 		[Test(Description = "Test Vertex4i.operator/(Vertex4i, Single)")]
 		public void Vertex4i_TestOperatorDivideSingle()
 		{
@@ -3696,25 +3487,6 @@ namespace OpenGL.Test
 			Assert.AreEqual((int)(x1 / (float)s), v.x);
 			Assert.AreEqual((int)(y1 / (float)s), v.y);
 			Assert.AreEqual((int)(z1 / (float)s), v.z);
-		}
-
-		[Test(Description = "Test Vertex4i.operator/(Vertex4i, Double)")]
-		public void Vertex4i_TestOperatorDivideDouble()
-		{
-			Random random = new Random();
-			
-			int x1 = (int)Next(random);
-			int y1 = (int)Next(random);
-			int z1 = (int)Next(random);
-			double s = Next(random, 1.0, 32.0);
-
-			Vertex4i v1 = new Vertex4i(x1, y1, z1);
-
-			Vertex4i v = v1 / s;
-
-			Assert.AreEqual((int)(x1 / s), v.x);
-			Assert.AreEqual((int)(y1 / s), v.y);
-			Assert.AreEqual((int)(z1 / s), v.z);
 		}
 
 		[Test(Description = "Test Vertex4i.operator*(Vertex4i, int)")]
@@ -4357,25 +4129,6 @@ namespace OpenGL.Test
 			Assert.AreEqual((float)(z1 * (float)s), v.z);
 		}
 
-		[Test(Description = "Test Vertex4f.operator*(Vertex4f, Double)")]
-		public void Vertex4f_TestOperatorMultiplyDouble()
-		{
-			Random random = new Random();
-			
-			float x1 = (float)Next(random);
-			float y1 = (float)Next(random);
-			float z1 = (float)Next(random);
-			double s = Next(random, 0.0, 32.0);
-
-			Vertex4f v1 = new Vertex4f(x1, y1, z1);
-
-			Vertex4f v = v1 * s;
-
-			Assert.AreEqual((float)(x1 * s), v.x);
-			Assert.AreEqual((float)(y1 * s), v.y);
-			Assert.AreEqual((float)(z1 * s), v.z);
-		}
-
 		[Test(Description = "Test Vertex4f.operator/(Vertex4f, Single)")]
 		public void Vertex4f_TestOperatorDivideSingle()
 		{
@@ -4393,25 +4146,6 @@ namespace OpenGL.Test
 			Assert.AreEqual((float)(x1 / (float)s), v.x);
 			Assert.AreEqual((float)(y1 / (float)s), v.y);
 			Assert.AreEqual((float)(z1 / (float)s), v.z);
-		}
-
-		[Test(Description = "Test Vertex4f.operator/(Vertex4f, Double)")]
-		public void Vertex4f_TestOperatorDivideDouble()
-		{
-			Random random = new Random();
-			
-			float x1 = (float)Next(random);
-			float y1 = (float)Next(random);
-			float z1 = (float)Next(random);
-			double s = Next(random, 1.0, 32.0);
-
-			Vertex4f v1 = new Vertex4f(x1, y1, z1);
-
-			Vertex4f v = v1 / s;
-
-			Assert.AreEqual((float)(x1 / s), v.x);
-			Assert.AreEqual((float)(y1 / s), v.y);
-			Assert.AreEqual((float)(z1 / s), v.z);
 		}
 
 
@@ -5017,25 +4751,6 @@ namespace OpenGL.Test
 			Assert.AreEqual((double)(z1 * (float)s), v.z);
 		}
 
-		[Test(Description = "Test Vertex4d.operator*(Vertex4d, Double)")]
-		public void Vertex4d_TestOperatorMultiplyDouble()
-		{
-			Random random = new Random();
-			
-			double x1 = (double)Next(random);
-			double y1 = (double)Next(random);
-			double z1 = (double)Next(random);
-			double s = Next(random, 0.0, 32.0);
-
-			Vertex4d v1 = new Vertex4d(x1, y1, z1);
-
-			Vertex4d v = v1 * s;
-
-			Assert.AreEqual((double)(x1 * s), v.x);
-			Assert.AreEqual((double)(y1 * s), v.y);
-			Assert.AreEqual((double)(z1 * s), v.z);
-		}
-
 		[Test(Description = "Test Vertex4d.operator/(Vertex4d, Single)")]
 		public void Vertex4d_TestOperatorDivideSingle()
 		{
@@ -5053,25 +4768,6 @@ namespace OpenGL.Test
 			Assert.AreEqual((double)(x1 / (float)s), v.x);
 			Assert.AreEqual((double)(y1 / (float)s), v.y);
 			Assert.AreEqual((double)(z1 / (float)s), v.z);
-		}
-
-		[Test(Description = "Test Vertex4d.operator/(Vertex4d, Double)")]
-		public void Vertex4d_TestOperatorDivideDouble()
-		{
-			Random random = new Random();
-			
-			double x1 = (double)Next(random);
-			double y1 = (double)Next(random);
-			double z1 = (double)Next(random);
-			double s = Next(random, 1.0, 32.0);
-
-			Vertex4d v1 = new Vertex4d(x1, y1, z1);
-
-			Vertex4d v = v1 / s;
-
-			Assert.AreEqual((double)(x1 / s), v.x);
-			Assert.AreEqual((double)(y1 / s), v.y);
-			Assert.AreEqual((double)(z1 / s), v.z);
 		}
 
 
@@ -5661,25 +5357,6 @@ namespace OpenGL.Test
 			Assert.AreEqual((HalfFloat)(z1 * (float)s), v.z);
 		}
 
-		[Test(Description = "Test Vertex4hf.operator*(Vertex4hf, Double)")]
-		public void Vertex4hf_TestOperatorMultiplyDouble()
-		{
-			Random random = new Random();
-			
-			HalfFloat x1 = (HalfFloat)Next(random);
-			HalfFloat y1 = (HalfFloat)Next(random);
-			HalfFloat z1 = (HalfFloat)Next(random);
-			double s = Next(random, 0.0, 32.0);
-
-			Vertex4hf v1 = new Vertex4hf(x1, y1, z1);
-
-			Vertex4hf v = v1 * s;
-
-			Assert.AreEqual((HalfFloat)(x1 * s), v.x);
-			Assert.AreEqual((HalfFloat)(y1 * s), v.y);
-			Assert.AreEqual((HalfFloat)(z1 * s), v.z);
-		}
-
 		[Test(Description = "Test Vertex4hf.operator/(Vertex4hf, Single)")]
 		public void Vertex4hf_TestOperatorDivideSingle()
 		{
@@ -5697,25 +5374,6 @@ namespace OpenGL.Test
 			Assert.AreEqual((HalfFloat)(x1 / (float)s), v.x);
 			Assert.AreEqual((HalfFloat)(y1 / (float)s), v.y);
 			Assert.AreEqual((HalfFloat)(z1 / (float)s), v.z);
-		}
-
-		[Test(Description = "Test Vertex4hf.operator/(Vertex4hf, Double)")]
-		public void Vertex4hf_TestOperatorDivideDouble()
-		{
-			Random random = new Random();
-			
-			HalfFloat x1 = (HalfFloat)Next(random);
-			HalfFloat y1 = (HalfFloat)Next(random);
-			HalfFloat z1 = (HalfFloat)Next(random);
-			double s = Next(random, 1.0, 32.0);
-
-			Vertex4hf v1 = new Vertex4hf(x1, y1, z1);
-
-			Vertex4hf v = v1 / s;
-
-			Assert.AreEqual((HalfFloat)(x1 / s), v.x);
-			Assert.AreEqual((HalfFloat)(y1 / s), v.y);
-			Assert.AreEqual((HalfFloat)(z1 / s), v.z);
 		}
 
 

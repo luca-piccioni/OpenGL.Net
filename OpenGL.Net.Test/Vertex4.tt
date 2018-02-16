@@ -248,25 +248,6 @@ namespace OpenGL.Test
 			Assert.AreEqual((<#= baseType #>)(z1 * (float)s), v.z);
 		}
 
-		[Test(Description = "Test <#= className #>.operator*(<#= className #>, Double)")]
-		public void <#= className #>_TestOperatorMultiplyDouble()
-		{
-			Random random = new Random();
-			
-			<#= baseType #> x1 = (<#= baseType #>)Next(random);
-			<#= baseType #> y1 = (<#= baseType #>)Next(random);
-			<#= baseType #> z1 = (<#= baseType #>)Next(random);
-			double s = Next(random, 0.0, 32.0);
-
-			<#= className #> v1 = new <#= className #>(x1, y1, z1);
-
-			<#= className #> v = v1 * s;
-
-			Assert.AreEqual((<#= baseType #>)(x1 * s), v.x);
-			Assert.AreEqual((<#= baseType #>)(y1 * s), v.y);
-			Assert.AreEqual((<#= baseType #>)(z1 * s), v.z);
-		}
-
 		[Test(Description = "Test <#= className #>.operator/(<#= className #>, Single)")]
 		public void <#= className #>_TestOperatorDivideSingle()
 		{
@@ -284,25 +265,6 @@ namespace OpenGL.Test
 			Assert.AreEqual((<#= baseType #>)(x1 / (float)s), v.x);
 			Assert.AreEqual((<#= baseType #>)(y1 / (float)s), v.y);
 			Assert.AreEqual((<#= baseType #>)(z1 / (float)s), v.z);
-		}
-
-		[Test(Description = "Test <#= className #>.operator/(<#= className #>, Double)")]
-		public void <#= className #>_TestOperatorDivideDouble()
-		{
-			Random random = new Random();
-			
-			<#= baseType #> x1 = (<#= baseType #>)Next(random);
-			<#= baseType #> y1 = (<#= baseType #>)Next(random);
-			<#= baseType #> z1 = (<#= baseType #>)Next(random);
-			double s = Next(random, 1.0, 32.0);
-
-			<#= className #> v1 = new <#= className #>(x1, y1, z1);
-
-			<#= className #> v = v1 / s;
-
-			Assert.AreEqual((<#= baseType #>)(x1 / s), v.x);
-			Assert.AreEqual((<#= baseType #>)(y1 / s), v.y);
-			Assert.AreEqual((<#= baseType #>)(z1 / s), v.z);
 		}
 
 <#

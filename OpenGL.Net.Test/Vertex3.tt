@@ -430,22 +430,6 @@ namespace OpenGL.Test
 			Assert.AreEqual(v.z, vArray[2]);
 		}
 
-		[Test(Description = "Test <#= className #>.operator Vertex2f(<#= className #>)")]
-		public void <#= className #>_TestCastToVertex2f()
-		{
-			Random random = new Random();
-			
-			<#= baseType #> x = (<#= baseType #>)Next(random);
-			<#= baseType #> y = (<#= baseType #>)Next(random);
-			<#= baseType #> z = (<#= baseType #>)Next(random);
-
-			<#= className #> v = new <#= className #>(x, y, z);
-			Vertex2f v2f = (Vertex2f)v;
-
-			Assert.AreEqual(v.x, (float)v2f.x, 1e-4f);
-			Assert.AreEqual(v.y, (float)v2f.y, 1e-4f);
-		}
-
 		[Test(Description = "Test <#= className #>.operator Vertex3f(<#= className #>)")]
 		public void <#= className #>_TestCastToVertex3f()
 		{
@@ -461,23 +445,6 @@ namespace OpenGL.Test
 			Assert.AreEqual(v.x, v3f.x, 1e-4f);
 			Assert.AreEqual(v.y, v3f.y, 1e-4f);
 			Assert.AreEqual(v.z, v3f.z, 1e-4f);
-		}
-
-		[Test(Description = "Test <#= className #>.operator Vertex3d(<#= className #>)")]
-		public void <#= className #>_TestCastToVertex3d()
-		{
-			Random random = new Random();
-			
-			<#= baseType #> x = (<#= baseType #>)Next(random);
-			<#= baseType #> y = (<#= baseType #>)Next(random);
-			<#= baseType #> z = (<#= baseType #>)Next(random);
-
-			<#= className #> v = new <#= className #>(x, y, z);
-			Vertex3d v3d = (Vertex3d)v;
-
-			Assert.AreEqual(v.x, v3d.x, 1e-4);
-			Assert.AreEqual(v.y, v3d.y, 1e-4);
-			Assert.AreEqual(v.z, v3d.z, 1e-4);
 		}
 
 		[Test(Description = "Test <#= className #>.operator Vertex4f(<#= className #>)")]
@@ -496,24 +463,6 @@ namespace OpenGL.Test
 			Assert.AreEqual(v.y, v4f.y, 1e-4);
 			Assert.AreEqual(v.z, v4f.z, 1e-4);
 			Assert.AreEqual(1.0f, v4f.w, 1e-4);
-		}
-
-		[Test(Description = "Test <#= className #>.operator Vertex4d(<#= className #>)")]
-		public void <#= className #>_TestCastToVertex4d()
-		{
-			Random random = new Random();
-			
-			<#= baseType #> x = (<#= baseType #>)Next(random);
-			<#= baseType #> y = (<#= baseType #>)Next(random);
-			<#= baseType #> z = (<#= baseType #>)Next(random);
-
-			<#= className #> v = new <#= className #>(x, y, z);
-			Vertex4d v4d = (Vertex4d)v;
-
-			Assert.AreEqual(v.x, v4d.x, 1e-4);
-			Assert.AreEqual(v.y, v4d.y, 1e-4);
-			Assert.AreEqual(v.z, v4d.z, 1e-4);
-			Assert.AreEqual(1.0f, v4d.w, 1e-4);
 		}
 
 		#endregion

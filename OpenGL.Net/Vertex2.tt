@@ -436,115 +436,70 @@ namespace OpenGL
 		/// <returns>
 		/// A <see cref="T:<#= baseType #>[]"/> initialized with the vector components.
 		/// </returns>
-		public static explicit operator <#= baseType #>[](<#= className #> a)
+		public static implicit operator <#= baseType #>[](<#= className #> a)
 		{
-			<#= baseType #>[] v = new <#= baseType #>[2];
-
-			v[0] = a.x;
-			v[1] = a.y;
-
-			return (v);
+			return new[] { a.x, a.y };
 		}
-<#
-		string castModifier_f = "implicit";
 
-		// Vertex3f from Vertex3d/Vertex3i/Vertex3ui requires explicit cast
-		if (className == "Vertex2d" || className == "Vertex2i" || className == "Vertex2ui")
-			castModifier_f = "explicit";
-#><#
-		if (className != "Vertex2f") {
-#>
+<# if (className != "Vertex2f") { /* explicit cast to Vertex2f and Vertex3f */ #>
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
-		/// <param name="v">
+		/// <param name="a">
 		/// A <see cref="<#= className #>"/> to be casted.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex2f"/> initialized with the vector components.
 		/// </returns>
-		public static <#= castModifier_f #> operator Vertex2f(<#= className #> v)
+		public static explicit operator Vertex2f(<#= className #> a)
 		{
-			return (new Vertex2f((float)v.x, (float)v.y));
+			return new Vertex2f((float)a.x, (float)a.y);
 		}
 
-<#
+<# } else { /* explicit cast to Vertex2d and Vertex3d from Vertex2f */ #>
+		/// <summary>
+		/// Cast to Vertex3f operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="<#= className #>"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex3f"/> initialized with the vector components.
+		/// </returns>
+		public static explicit operator Vertex3f(<#= className #> a)
+		{
+			return new Vertex3f((float)a.x, (float)a.y, 0.0f);
 		}
 
-		if (className != "Vertex2d") {
-#>
 		/// <summary>
 		/// Cast to Vertex2d operator.
 		/// </summary>
-		/// <param name="v">
+		/// <param name="a">
 		/// A <see cref="<#= className #>"/> to be casted.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex2d"/> initialized with the vector components.
 		/// </returns>
-		public static implicit operator Vertex2d(<#= className #> v)
+		public static implicit operator Vertex2d(<#= className #> a)
 		{
-			return (new Vertex2d(v.x, v.y));
-		}
-<#
-		}
-#>
-		/// <summary>
-		/// Cast to Vertex3f operator.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="<#= className #>"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex3f"/> initialized with the vector components, and Z component is implictly zero.
-		/// </returns>
-		public static <#= castModifier_f #> operator Vertex3f(<#= className #> v)
-		{
-			return (new Vertex3f((float)v.x, (float)v.y, 0.0f));
+			return new Vertex2d(a.x, a.y);
 		}
 
 		/// <summary>
 		/// Cast to Vertex3d operator.
 		/// </summary>
-		/// <param name="v">
+		/// <param name="a">
 		/// A <see cref="<#= className #>"/> to be casted.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex3d"/> initialized with the vector components.
 		/// </returns>
-		public static implicit operator Vertex3d(<#= className #> v)
+		public static implicit operator Vertex3d(<#= className #> a)
 		{
-			return (new Vertex3d(v.x, v.y, 0.0));
+			return new Vertex3d(a.x, a.y, 0.0);
 		}
 
-		/// <summary>
-		/// Cast to Vertex3f operator.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="<#= className #>"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex4f"/> initialized with the vector components.
-		/// </returns>
-		public static <#= castModifier_f #> operator Vertex4f(<#= className #> v)
-		{
-			return (new Vertex4f((float)v.x, (float)v.y, 0.0f, 1.0f));
-		}
-
-		/// <summary>
-		/// Cast to Vertex4d operator.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="<#= className #>"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex4d"/> initialized with the vector components.
-		/// </returns>
-		public static implicit operator Vertex4d(<#= className #> v)
-		{
-			return (new Vertex4d(v.x, v.y, 0.0, 1.0));
-		}
-
+<# } #>
 		#endregion
 
 		#region Vertex Methods

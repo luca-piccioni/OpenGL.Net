@@ -171,7 +171,7 @@ namespace OpenGL.Objects
 			IntPtr vLockAddr = countourLock.Address;
 
 			Glu.TessBeginContour(_Tess);
-			foreach (Vertex2f v in contourVertices) {
+			foreach (Vertex3d v in contourVertices) {
 				Glu.TessVertex(_Tess, vLockAddr, vLockAddr);
 				vLockAddr = new IntPtr(vLockAddr.ToInt64() + 24);
 			}

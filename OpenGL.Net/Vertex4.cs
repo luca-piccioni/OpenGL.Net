@@ -146,14 +146,7 @@ namespace OpenGL
 		/// </returns>
 		public static Vertex4ub operator +(Vertex4ub v1, Vertex4ub v2)
 		{
-			Vertex4ub v;
-
-			v.x = (byte)(v1.x + v2.x);
-			v.y = (byte)(v1.y + v2.y);
-			v.z = (byte)(v1.z + v2.z);
-			v.w = (byte)(v1.w + v2.w);
-
-			return (v);
+			return (Vertex3ub)v1 + (Vertex3ub)v2;
 		}
 
 		/// <summary>
@@ -187,21 +180,14 @@ namespace OpenGL
 		/// A <see cref="Vertex4ub"/> that specify the left operand.
 		/// </param>
 		/// <param name="scalar">
-		/// A <see cref="Single"/> that specify the right operand.
+		/// A <see cref="byte"/> that specify the right operand.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex4ub"/> that equals to the multiplication of <paramref name="v1"/> with <paramref name="scalar"/>.
 		/// </returns>
-		public static Vertex4ub operator *(Vertex4ub v1, float scalar)
+		public static Vertex4ub operator *(Vertex4ub v1, byte scalar)
 		{
-			Vertex4ub v;
-
-			v.x = (byte)(v1.x * scalar);
-			v.y = (byte)(v1.y * scalar);
-			v.z = (byte)(v1.z * scalar);
-			v.w = (byte)(v1.w * scalar);
-
-			return (v);
+			return new Vertex4ub((byte)(v1.x * scalar), (byte)(v1.y * scalar), (byte)(v1.z * scalar), v1.w);
 		}
 
 		/// <summary>
@@ -211,21 +197,14 @@ namespace OpenGL
 		/// A <see cref="Vertex4ub"/> that specify the left operand.
 		/// </param>
 		/// <param name="scalar">
-		/// A <see cref="Double"/> that specify the right operand.
+		/// A <see cref="float"/> that specify the right operand.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex4ub"/> that equals to the multiplication of <paramref name="v1"/> with <paramref name="scalar"/>.
 		/// </returns>
-		public static Vertex4ub operator *(Vertex4ub v1, double scalar)
+		public static Vertex4ub operator *(Vertex4ub v1, float scalar)
 		{
-			Vertex4ub v;
-
-			v.x = (byte)(v1.x * scalar);
-			v.y = (byte)(v1.y * scalar);
-			v.z = (byte)(v1.z * scalar);
-			v.w = (byte)(v1.w * scalar);
-
-			return (v);
+			return new Vertex4ub((byte)(v1.x * scalar), (byte)(v1.y * scalar), (byte)(v1.z * scalar), v1.w);
 		}
 
 		/// <summary>
@@ -235,46 +214,33 @@ namespace OpenGL
 		/// A <see cref="Vertex4ub"/> that specify the left operand.
 		/// </param>
 		/// <param name="scalar">
-		/// A <see cref="Single"/> that specify the right operand.
+		/// A <see cref="byte"/> that specify the right operand.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex4ub"/> that equals to the division of <paramref name="v1"/> with <paramref name="scalar"/>.
+		/// </returns>
+		public static Vertex4ub operator /(Vertex4ub v1, byte scalar)
+		{
+			return new Vertex4ub((byte)(v1.x / scalar), (byte)(v1.y / scalar), (byte)(v1.z / scalar), v1.w);
+		}
+
+		/// <summary>
+		/// Scalar multiply operator.
+		/// </summary>
+		/// <param name="v1">
+		/// A <see cref="Vertex4ub"/> that specify the left operand.
+		/// </param>
+		/// <param name="scalar">
+		/// A <see cref="float"/> that specify the right operand.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex4ub"/> that equals to the multiplication of <paramref name="v1"/> with <paramref name="scalar"/>.
 		/// </returns>
 		public static Vertex4ub operator /(Vertex4ub v1, float scalar)
 		{
-			Vertex4ub v;
-
-			v.x = (byte)(v1.x / scalar);
-			v.y = (byte)(v1.y / scalar);
-			v.z = (byte)(v1.z / scalar);
-			v.w = (byte)(v1.w / scalar);
-
-			return (v);
+			return new Vertex4ub((byte)(v1.x / scalar), (byte)(v1.y / scalar), (byte)(v1.z / scalar), v1.w);
 		}
 
-		/// <summary>
-		/// Scalar divide operator.
-		/// </summary>
-		/// <param name="v1">
-		/// A <see cref="Vertex4ub"/> that specify the left operand.
-		/// </param>
-		/// <param name="scalar">
-		/// A <see cref="Double"/> that specify the right operand.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex4ub"/> that equals to the division of <paramref name="v1"/> with <paramref name="scalar"/>.
-		/// </returns>
-		public static Vertex4ub operator /(Vertex4ub v1, double scalar)
-		{
-			Vertex4ub v;
-
-			v.x = (byte)(v1.x / scalar);
-			v.y = (byte)(v1.y / scalar);
-			v.z = (byte)(v1.z / scalar);
-			v.w = (byte)(v1.w / scalar);
-
-			return (v);
-		}
 
 		#endregion
 
@@ -317,14 +283,7 @@ namespace OpenGL
 		/// </returns>
 		public static explicit operator byte[](Vertex4ub a)
 		{
-			byte[] v = new byte[4];
-
-			v[0] = a.x;
-			v[1] = a.y;
-			v[2] = a.z;
-			v[3] = a.w;
-
-			return (v);
+			return new byte[] { a.x, a.y, a.z, a.w };
 		}
 
 		/// <summary>
@@ -937,14 +896,7 @@ namespace OpenGL
 		/// </returns>
 		public static Vertex4b operator +(Vertex4b v1, Vertex4b v2)
 		{
-			Vertex4b v;
-
-			v.x = (sbyte)(v1.x + v2.x);
-			v.y = (sbyte)(v1.y + v2.y);
-			v.z = (sbyte)(v1.z + v2.z);
-			v.w = (sbyte)(v1.w + v2.w);
-
-			return (v);
+			return (Vertex3b)v1 + (Vertex3b)v2;
 		}
 
 		/// <summary>
@@ -978,21 +930,14 @@ namespace OpenGL
 		/// A <see cref="Vertex4b"/> that specify the left operand.
 		/// </param>
 		/// <param name="scalar">
-		/// A <see cref="Single"/> that specify the right operand.
+		/// A <see cref="sbyte"/> that specify the right operand.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex4b"/> that equals to the multiplication of <paramref name="v1"/> with <paramref name="scalar"/>.
 		/// </returns>
-		public static Vertex4b operator *(Vertex4b v1, float scalar)
+		public static Vertex4b operator *(Vertex4b v1, sbyte scalar)
 		{
-			Vertex4b v;
-
-			v.x = (sbyte)(v1.x * scalar);
-			v.y = (sbyte)(v1.y * scalar);
-			v.z = (sbyte)(v1.z * scalar);
-			v.w = (sbyte)(v1.w * scalar);
-
-			return (v);
+			return new Vertex4b((sbyte)(v1.x * scalar), (sbyte)(v1.y * scalar), (sbyte)(v1.z * scalar), v1.w);
 		}
 
 		/// <summary>
@@ -1002,21 +947,14 @@ namespace OpenGL
 		/// A <see cref="Vertex4b"/> that specify the left operand.
 		/// </param>
 		/// <param name="scalar">
-		/// A <see cref="Double"/> that specify the right operand.
+		/// A <see cref="float"/> that specify the right operand.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex4b"/> that equals to the multiplication of <paramref name="v1"/> with <paramref name="scalar"/>.
 		/// </returns>
-		public static Vertex4b operator *(Vertex4b v1, double scalar)
+		public static Vertex4b operator *(Vertex4b v1, float scalar)
 		{
-			Vertex4b v;
-
-			v.x = (sbyte)(v1.x * scalar);
-			v.y = (sbyte)(v1.y * scalar);
-			v.z = (sbyte)(v1.z * scalar);
-			v.w = (sbyte)(v1.w * scalar);
-
-			return (v);
+			return new Vertex4b((sbyte)(v1.x * scalar), (sbyte)(v1.y * scalar), (sbyte)(v1.z * scalar), v1.w);
 		}
 
 		/// <summary>
@@ -1026,46 +964,33 @@ namespace OpenGL
 		/// A <see cref="Vertex4b"/> that specify the left operand.
 		/// </param>
 		/// <param name="scalar">
-		/// A <see cref="Single"/> that specify the right operand.
+		/// A <see cref="sbyte"/> that specify the right operand.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex4b"/> that equals to the division of <paramref name="v1"/> with <paramref name="scalar"/>.
+		/// </returns>
+		public static Vertex4b operator /(Vertex4b v1, sbyte scalar)
+		{
+			return new Vertex4b((sbyte)(v1.x / scalar), (sbyte)(v1.y / scalar), (sbyte)(v1.z / scalar), v1.w);
+		}
+
+		/// <summary>
+		/// Scalar multiply operator.
+		/// </summary>
+		/// <param name="v1">
+		/// A <see cref="Vertex4b"/> that specify the left operand.
+		/// </param>
+		/// <param name="scalar">
+		/// A <see cref="float"/> that specify the right operand.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex4b"/> that equals to the multiplication of <paramref name="v1"/> with <paramref name="scalar"/>.
 		/// </returns>
 		public static Vertex4b operator /(Vertex4b v1, float scalar)
 		{
-			Vertex4b v;
-
-			v.x = (sbyte)(v1.x / scalar);
-			v.y = (sbyte)(v1.y / scalar);
-			v.z = (sbyte)(v1.z / scalar);
-			v.w = (sbyte)(v1.w / scalar);
-
-			return (v);
+			return new Vertex4b((sbyte)(v1.x / scalar), (sbyte)(v1.y / scalar), (sbyte)(v1.z / scalar), v1.w);
 		}
 
-		/// <summary>
-		/// Scalar divide operator.
-		/// </summary>
-		/// <param name="v1">
-		/// A <see cref="Vertex4b"/> that specify the left operand.
-		/// </param>
-		/// <param name="scalar">
-		/// A <see cref="Double"/> that specify the right operand.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex4b"/> that equals to the division of <paramref name="v1"/> with <paramref name="scalar"/>.
-		/// </returns>
-		public static Vertex4b operator /(Vertex4b v1, double scalar)
-		{
-			Vertex4b v;
-
-			v.x = (sbyte)(v1.x / scalar);
-			v.y = (sbyte)(v1.y / scalar);
-			v.z = (sbyte)(v1.z / scalar);
-			v.w = (sbyte)(v1.w / scalar);
-
-			return (v);
-		}
 
 		#endregion
 
@@ -1108,14 +1033,7 @@ namespace OpenGL
 		/// </returns>
 		public static explicit operator sbyte[](Vertex4b a)
 		{
-			sbyte[] v = new sbyte[4];
-
-			v[0] = a.x;
-			v[1] = a.y;
-			v[2] = a.z;
-			v[3] = a.w;
-
-			return (v);
+			return new sbyte[] { a.x, a.y, a.z, a.w };
 		}
 
 		/// <summary>
@@ -1715,14 +1633,7 @@ namespace OpenGL
 		/// </returns>
 		public static Vertex4us operator +(Vertex4us v1, Vertex4us v2)
 		{
-			Vertex4us v;
-
-			v.x = (ushort)(v1.x + v2.x);
-			v.y = (ushort)(v1.y + v2.y);
-			v.z = (ushort)(v1.z + v2.z);
-			v.w = (ushort)(v1.w + v2.w);
-
-			return (v);
+			return (Vertex3us)v1 + (Vertex3us)v2;
 		}
 
 		/// <summary>
@@ -1756,21 +1667,14 @@ namespace OpenGL
 		/// A <see cref="Vertex4us"/> that specify the left operand.
 		/// </param>
 		/// <param name="scalar">
-		/// A <see cref="Single"/> that specify the right operand.
+		/// A <see cref="ushort"/> that specify the right operand.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex4us"/> that equals to the multiplication of <paramref name="v1"/> with <paramref name="scalar"/>.
 		/// </returns>
-		public static Vertex4us operator *(Vertex4us v1, float scalar)
+		public static Vertex4us operator *(Vertex4us v1, ushort scalar)
 		{
-			Vertex4us v;
-
-			v.x = (ushort)(v1.x * scalar);
-			v.y = (ushort)(v1.y * scalar);
-			v.z = (ushort)(v1.z * scalar);
-			v.w = (ushort)(v1.w * scalar);
-
-			return (v);
+			return new Vertex4us((ushort)(v1.x * scalar), (ushort)(v1.y * scalar), (ushort)(v1.z * scalar), v1.w);
 		}
 
 		/// <summary>
@@ -1780,21 +1684,14 @@ namespace OpenGL
 		/// A <see cref="Vertex4us"/> that specify the left operand.
 		/// </param>
 		/// <param name="scalar">
-		/// A <see cref="Double"/> that specify the right operand.
+		/// A <see cref="float"/> that specify the right operand.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex4us"/> that equals to the multiplication of <paramref name="v1"/> with <paramref name="scalar"/>.
 		/// </returns>
-		public static Vertex4us operator *(Vertex4us v1, double scalar)
+		public static Vertex4us operator *(Vertex4us v1, float scalar)
 		{
-			Vertex4us v;
-
-			v.x = (ushort)(v1.x * scalar);
-			v.y = (ushort)(v1.y * scalar);
-			v.z = (ushort)(v1.z * scalar);
-			v.w = (ushort)(v1.w * scalar);
-
-			return (v);
+			return new Vertex4us((ushort)(v1.x * scalar), (ushort)(v1.y * scalar), (ushort)(v1.z * scalar), v1.w);
 		}
 
 		/// <summary>
@@ -1804,46 +1701,33 @@ namespace OpenGL
 		/// A <see cref="Vertex4us"/> that specify the left operand.
 		/// </param>
 		/// <param name="scalar">
-		/// A <see cref="Single"/> that specify the right operand.
+		/// A <see cref="ushort"/> that specify the right operand.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex4us"/> that equals to the division of <paramref name="v1"/> with <paramref name="scalar"/>.
+		/// </returns>
+		public static Vertex4us operator /(Vertex4us v1, ushort scalar)
+		{
+			return new Vertex4us((ushort)(v1.x / scalar), (ushort)(v1.y / scalar), (ushort)(v1.z / scalar), v1.w);
+		}
+
+		/// <summary>
+		/// Scalar multiply operator.
+		/// </summary>
+		/// <param name="v1">
+		/// A <see cref="Vertex4us"/> that specify the left operand.
+		/// </param>
+		/// <param name="scalar">
+		/// A <see cref="float"/> that specify the right operand.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex4us"/> that equals to the multiplication of <paramref name="v1"/> with <paramref name="scalar"/>.
 		/// </returns>
 		public static Vertex4us operator /(Vertex4us v1, float scalar)
 		{
-			Vertex4us v;
-
-			v.x = (ushort)(v1.x / scalar);
-			v.y = (ushort)(v1.y / scalar);
-			v.z = (ushort)(v1.z / scalar);
-			v.w = (ushort)(v1.w / scalar);
-
-			return (v);
+			return new Vertex4us((ushort)(v1.x / scalar), (ushort)(v1.y / scalar), (ushort)(v1.z / scalar), v1.w);
 		}
 
-		/// <summary>
-		/// Scalar divide operator.
-		/// </summary>
-		/// <param name="v1">
-		/// A <see cref="Vertex4us"/> that specify the left operand.
-		/// </param>
-		/// <param name="scalar">
-		/// A <see cref="Double"/> that specify the right operand.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex4us"/> that equals to the division of <paramref name="v1"/> with <paramref name="scalar"/>.
-		/// </returns>
-		public static Vertex4us operator /(Vertex4us v1, double scalar)
-		{
-			Vertex4us v;
-
-			v.x = (ushort)(v1.x / scalar);
-			v.y = (ushort)(v1.y / scalar);
-			v.z = (ushort)(v1.z / scalar);
-			v.w = (ushort)(v1.w / scalar);
-
-			return (v);
-		}
 
 		#endregion
 
@@ -1886,14 +1770,7 @@ namespace OpenGL
 		/// </returns>
 		public static explicit operator ushort[](Vertex4us a)
 		{
-			ushort[] v = new ushort[4];
-
-			v[0] = a.x;
-			v[1] = a.y;
-			v[2] = a.z;
-			v[3] = a.w;
-
-			return (v);
+			return new ushort[] { a.x, a.y, a.z, a.w };
 		}
 
 		/// <summary>
@@ -2506,14 +2383,7 @@ namespace OpenGL
 		/// </returns>
 		public static Vertex4s operator +(Vertex4s v1, Vertex4s v2)
 		{
-			Vertex4s v;
-
-			v.x = (short)(v1.x + v2.x);
-			v.y = (short)(v1.y + v2.y);
-			v.z = (short)(v1.z + v2.z);
-			v.w = (short)(v1.w + v2.w);
-
-			return (v);
+			return (Vertex3s)v1 + (Vertex3s)v2;
 		}
 
 		/// <summary>
@@ -2547,21 +2417,14 @@ namespace OpenGL
 		/// A <see cref="Vertex4s"/> that specify the left operand.
 		/// </param>
 		/// <param name="scalar">
-		/// A <see cref="Single"/> that specify the right operand.
+		/// A <see cref="short"/> that specify the right operand.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex4s"/> that equals to the multiplication of <paramref name="v1"/> with <paramref name="scalar"/>.
 		/// </returns>
-		public static Vertex4s operator *(Vertex4s v1, float scalar)
+		public static Vertex4s operator *(Vertex4s v1, short scalar)
 		{
-			Vertex4s v;
-
-			v.x = (short)(v1.x * scalar);
-			v.y = (short)(v1.y * scalar);
-			v.z = (short)(v1.z * scalar);
-			v.w = (short)(v1.w * scalar);
-
-			return (v);
+			return new Vertex4s((short)(v1.x * scalar), (short)(v1.y * scalar), (short)(v1.z * scalar), v1.w);
 		}
 
 		/// <summary>
@@ -2571,21 +2434,14 @@ namespace OpenGL
 		/// A <see cref="Vertex4s"/> that specify the left operand.
 		/// </param>
 		/// <param name="scalar">
-		/// A <see cref="Double"/> that specify the right operand.
+		/// A <see cref="float"/> that specify the right operand.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex4s"/> that equals to the multiplication of <paramref name="v1"/> with <paramref name="scalar"/>.
 		/// </returns>
-		public static Vertex4s operator *(Vertex4s v1, double scalar)
+		public static Vertex4s operator *(Vertex4s v1, float scalar)
 		{
-			Vertex4s v;
-
-			v.x = (short)(v1.x * scalar);
-			v.y = (short)(v1.y * scalar);
-			v.z = (short)(v1.z * scalar);
-			v.w = (short)(v1.w * scalar);
-
-			return (v);
+			return new Vertex4s((short)(v1.x * scalar), (short)(v1.y * scalar), (short)(v1.z * scalar), v1.w);
 		}
 
 		/// <summary>
@@ -2595,46 +2451,33 @@ namespace OpenGL
 		/// A <see cref="Vertex4s"/> that specify the left operand.
 		/// </param>
 		/// <param name="scalar">
-		/// A <see cref="Single"/> that specify the right operand.
+		/// A <see cref="short"/> that specify the right operand.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex4s"/> that equals to the division of <paramref name="v1"/> with <paramref name="scalar"/>.
+		/// </returns>
+		public static Vertex4s operator /(Vertex4s v1, short scalar)
+		{
+			return new Vertex4s((short)(v1.x / scalar), (short)(v1.y / scalar), (short)(v1.z / scalar), v1.w);
+		}
+
+		/// <summary>
+		/// Scalar multiply operator.
+		/// </summary>
+		/// <param name="v1">
+		/// A <see cref="Vertex4s"/> that specify the left operand.
+		/// </param>
+		/// <param name="scalar">
+		/// A <see cref="float"/> that specify the right operand.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex4s"/> that equals to the multiplication of <paramref name="v1"/> with <paramref name="scalar"/>.
 		/// </returns>
 		public static Vertex4s operator /(Vertex4s v1, float scalar)
 		{
-			Vertex4s v;
-
-			v.x = (short)(v1.x / scalar);
-			v.y = (short)(v1.y / scalar);
-			v.z = (short)(v1.z / scalar);
-			v.w = (short)(v1.w / scalar);
-
-			return (v);
+			return new Vertex4s((short)(v1.x / scalar), (short)(v1.y / scalar), (short)(v1.z / scalar), v1.w);
 		}
 
-		/// <summary>
-		/// Scalar divide operator.
-		/// </summary>
-		/// <param name="v1">
-		/// A <see cref="Vertex4s"/> that specify the left operand.
-		/// </param>
-		/// <param name="scalar">
-		/// A <see cref="Double"/> that specify the right operand.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex4s"/> that equals to the division of <paramref name="v1"/> with <paramref name="scalar"/>.
-		/// </returns>
-		public static Vertex4s operator /(Vertex4s v1, double scalar)
-		{
-			Vertex4s v;
-
-			v.x = (short)(v1.x / scalar);
-			v.y = (short)(v1.y / scalar);
-			v.z = (short)(v1.z / scalar);
-			v.w = (short)(v1.w / scalar);
-
-			return (v);
-		}
 
 		#endregion
 
@@ -2677,14 +2520,7 @@ namespace OpenGL
 		/// </returns>
 		public static explicit operator short[](Vertex4s a)
 		{
-			short[] v = new short[4];
-
-			v[0] = a.x;
-			v[1] = a.y;
-			v[2] = a.z;
-			v[3] = a.w;
-
-			return (v);
+			return new short[] { a.x, a.y, a.z, a.w };
 		}
 
 		/// <summary>
@@ -3284,14 +3120,7 @@ namespace OpenGL
 		/// </returns>
 		public static Vertex4ui operator +(Vertex4ui v1, Vertex4ui v2)
 		{
-			Vertex4ui v;
-
-			v.x = (uint)(v1.x + v2.x);
-			v.y = (uint)(v1.y + v2.y);
-			v.z = (uint)(v1.z + v2.z);
-			v.w = (uint)(v1.w + v2.w);
-
-			return (v);
+			return (Vertex3ui)v1 + (Vertex3ui)v2;
 		}
 
 		/// <summary>
@@ -3325,21 +3154,14 @@ namespace OpenGL
 		/// A <see cref="Vertex4ui"/> that specify the left operand.
 		/// </param>
 		/// <param name="scalar">
-		/// A <see cref="Single"/> that specify the right operand.
+		/// A <see cref="uint"/> that specify the right operand.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex4ui"/> that equals to the multiplication of <paramref name="v1"/> with <paramref name="scalar"/>.
 		/// </returns>
-		public static Vertex4ui operator *(Vertex4ui v1, float scalar)
+		public static Vertex4ui operator *(Vertex4ui v1, uint scalar)
 		{
-			Vertex4ui v;
-
-			v.x = (uint)(v1.x * scalar);
-			v.y = (uint)(v1.y * scalar);
-			v.z = (uint)(v1.z * scalar);
-			v.w = (uint)(v1.w * scalar);
-
-			return (v);
+			return new Vertex4ui((uint)(v1.x * scalar), (uint)(v1.y * scalar), (uint)(v1.z * scalar), v1.w);
 		}
 
 		/// <summary>
@@ -3349,21 +3171,14 @@ namespace OpenGL
 		/// A <see cref="Vertex4ui"/> that specify the left operand.
 		/// </param>
 		/// <param name="scalar">
-		/// A <see cref="Double"/> that specify the right operand.
+		/// A <see cref="float"/> that specify the right operand.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex4ui"/> that equals to the multiplication of <paramref name="v1"/> with <paramref name="scalar"/>.
 		/// </returns>
-		public static Vertex4ui operator *(Vertex4ui v1, double scalar)
+		public static Vertex4ui operator *(Vertex4ui v1, float scalar)
 		{
-			Vertex4ui v;
-
-			v.x = (uint)(v1.x * scalar);
-			v.y = (uint)(v1.y * scalar);
-			v.z = (uint)(v1.z * scalar);
-			v.w = (uint)(v1.w * scalar);
-
-			return (v);
+			return new Vertex4ui((uint)(v1.x * scalar), (uint)(v1.y * scalar), (uint)(v1.z * scalar), v1.w);
 		}
 
 		/// <summary>
@@ -3373,46 +3188,33 @@ namespace OpenGL
 		/// A <see cref="Vertex4ui"/> that specify the left operand.
 		/// </param>
 		/// <param name="scalar">
-		/// A <see cref="Single"/> that specify the right operand.
+		/// A <see cref="uint"/> that specify the right operand.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex4ui"/> that equals to the division of <paramref name="v1"/> with <paramref name="scalar"/>.
+		/// </returns>
+		public static Vertex4ui operator /(Vertex4ui v1, uint scalar)
+		{
+			return new Vertex4ui((uint)(v1.x / scalar), (uint)(v1.y / scalar), (uint)(v1.z / scalar), v1.w);
+		}
+
+		/// <summary>
+		/// Scalar multiply operator.
+		/// </summary>
+		/// <param name="v1">
+		/// A <see cref="Vertex4ui"/> that specify the left operand.
+		/// </param>
+		/// <param name="scalar">
+		/// A <see cref="float"/> that specify the right operand.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex4ui"/> that equals to the multiplication of <paramref name="v1"/> with <paramref name="scalar"/>.
 		/// </returns>
 		public static Vertex4ui operator /(Vertex4ui v1, float scalar)
 		{
-			Vertex4ui v;
-
-			v.x = (uint)(v1.x / scalar);
-			v.y = (uint)(v1.y / scalar);
-			v.z = (uint)(v1.z / scalar);
-			v.w = (uint)(v1.w / scalar);
-
-			return (v);
+			return new Vertex4ui((uint)(v1.x / scalar), (uint)(v1.y / scalar), (uint)(v1.z / scalar), v1.w);
 		}
 
-		/// <summary>
-		/// Scalar divide operator.
-		/// </summary>
-		/// <param name="v1">
-		/// A <see cref="Vertex4ui"/> that specify the left operand.
-		/// </param>
-		/// <param name="scalar">
-		/// A <see cref="Double"/> that specify the right operand.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex4ui"/> that equals to the division of <paramref name="v1"/> with <paramref name="scalar"/>.
-		/// </returns>
-		public static Vertex4ui operator /(Vertex4ui v1, double scalar)
-		{
-			Vertex4ui v;
-
-			v.x = (uint)(v1.x / scalar);
-			v.y = (uint)(v1.y / scalar);
-			v.z = (uint)(v1.z / scalar);
-			v.w = (uint)(v1.w / scalar);
-
-			return (v);
-		}
 
 		#endregion
 
@@ -3455,14 +3257,7 @@ namespace OpenGL
 		/// </returns>
 		public static explicit operator uint[](Vertex4ui a)
 		{
-			uint[] v = new uint[4];
-
-			v[0] = a.x;
-			v[1] = a.y;
-			v[2] = a.z;
-			v[3] = a.w;
-
-			return (v);
+			return new uint[] { a.x, a.y, a.z, a.w };
 		}
 
 		/// <summary>
@@ -4075,14 +3870,7 @@ namespace OpenGL
 		/// </returns>
 		public static Vertex4i operator +(Vertex4i v1, Vertex4i v2)
 		{
-			Vertex4i v;
-
-			v.x = (int)(v1.x + v2.x);
-			v.y = (int)(v1.y + v2.y);
-			v.z = (int)(v1.z + v2.z);
-			v.w = (int)(v1.w + v2.w);
-
-			return (v);
+			return (Vertex3i)v1 + (Vertex3i)v2;
 		}
 
 		/// <summary>
@@ -4116,21 +3904,14 @@ namespace OpenGL
 		/// A <see cref="Vertex4i"/> that specify the left operand.
 		/// </param>
 		/// <param name="scalar">
-		/// A <see cref="Single"/> that specify the right operand.
+		/// A <see cref="int"/> that specify the right operand.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex4i"/> that equals to the multiplication of <paramref name="v1"/> with <paramref name="scalar"/>.
 		/// </returns>
-		public static Vertex4i operator *(Vertex4i v1, float scalar)
+		public static Vertex4i operator *(Vertex4i v1, int scalar)
 		{
-			Vertex4i v;
-
-			v.x = (int)(v1.x * scalar);
-			v.y = (int)(v1.y * scalar);
-			v.z = (int)(v1.z * scalar);
-			v.w = (int)(v1.w * scalar);
-
-			return (v);
+			return new Vertex4i((int)(v1.x * scalar), (int)(v1.y * scalar), (int)(v1.z * scalar), v1.w);
 		}
 
 		/// <summary>
@@ -4140,21 +3921,14 @@ namespace OpenGL
 		/// A <see cref="Vertex4i"/> that specify the left operand.
 		/// </param>
 		/// <param name="scalar">
-		/// A <see cref="Double"/> that specify the right operand.
+		/// A <see cref="float"/> that specify the right operand.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex4i"/> that equals to the multiplication of <paramref name="v1"/> with <paramref name="scalar"/>.
 		/// </returns>
-		public static Vertex4i operator *(Vertex4i v1, double scalar)
+		public static Vertex4i operator *(Vertex4i v1, float scalar)
 		{
-			Vertex4i v;
-
-			v.x = (int)(v1.x * scalar);
-			v.y = (int)(v1.y * scalar);
-			v.z = (int)(v1.z * scalar);
-			v.w = (int)(v1.w * scalar);
-
-			return (v);
+			return new Vertex4i((int)(v1.x * scalar), (int)(v1.y * scalar), (int)(v1.z * scalar), v1.w);
 		}
 
 		/// <summary>
@@ -4164,46 +3938,33 @@ namespace OpenGL
 		/// A <see cref="Vertex4i"/> that specify the left operand.
 		/// </param>
 		/// <param name="scalar">
-		/// A <see cref="Single"/> that specify the right operand.
+		/// A <see cref="int"/> that specify the right operand.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex4i"/> that equals to the division of <paramref name="v1"/> with <paramref name="scalar"/>.
+		/// </returns>
+		public static Vertex4i operator /(Vertex4i v1, int scalar)
+		{
+			return new Vertex4i((int)(v1.x / scalar), (int)(v1.y / scalar), (int)(v1.z / scalar), v1.w);
+		}
+
+		/// <summary>
+		/// Scalar multiply operator.
+		/// </summary>
+		/// <param name="v1">
+		/// A <see cref="Vertex4i"/> that specify the left operand.
+		/// </param>
+		/// <param name="scalar">
+		/// A <see cref="float"/> that specify the right operand.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex4i"/> that equals to the multiplication of <paramref name="v1"/> with <paramref name="scalar"/>.
 		/// </returns>
 		public static Vertex4i operator /(Vertex4i v1, float scalar)
 		{
-			Vertex4i v;
-
-			v.x = (int)(v1.x / scalar);
-			v.y = (int)(v1.y / scalar);
-			v.z = (int)(v1.z / scalar);
-			v.w = (int)(v1.w / scalar);
-
-			return (v);
+			return new Vertex4i((int)(v1.x / scalar), (int)(v1.y / scalar), (int)(v1.z / scalar), v1.w);
 		}
 
-		/// <summary>
-		/// Scalar divide operator.
-		/// </summary>
-		/// <param name="v1">
-		/// A <see cref="Vertex4i"/> that specify the left operand.
-		/// </param>
-		/// <param name="scalar">
-		/// A <see cref="Double"/> that specify the right operand.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex4i"/> that equals to the division of <paramref name="v1"/> with <paramref name="scalar"/>.
-		/// </returns>
-		public static Vertex4i operator /(Vertex4i v1, double scalar)
-		{
-			Vertex4i v;
-
-			v.x = (int)(v1.x / scalar);
-			v.y = (int)(v1.y / scalar);
-			v.z = (int)(v1.z / scalar);
-			v.w = (int)(v1.w / scalar);
-
-			return (v);
-		}
 
 		#endregion
 
@@ -4246,14 +4007,7 @@ namespace OpenGL
 		/// </returns>
 		public static explicit operator int[](Vertex4i a)
 		{
-			int[] v = new int[4];
-
-			v[0] = a.x;
-			v[1] = a.y;
-			v[2] = a.z;
-			v[3] = a.w;
-
-			return (v);
+			return new int[] { a.x, a.y, a.z, a.w };
 		}
 
 		/// <summary>
@@ -4866,14 +4620,7 @@ namespace OpenGL
 		/// </returns>
 		public static Vertex4f operator +(Vertex4f v1, Vertex4f v2)
 		{
-			Vertex4f v;
-
-			v.x = (float)(v1.x + v2.x);
-			v.y = (float)(v1.y + v2.y);
-			v.z = (float)(v1.z + v2.z);
-			v.w = (float)(v1.w + v2.w);
-
-			return (v);
+			return (Vertex3f)v1 + (Vertex3f)v2;
 		}
 
 		/// <summary>
@@ -4907,45 +4654,14 @@ namespace OpenGL
 		/// A <see cref="Vertex4f"/> that specify the left operand.
 		/// </param>
 		/// <param name="scalar">
-		/// A <see cref="Single"/> that specify the right operand.
+		/// A <see cref="float"/> that specify the right operand.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex4f"/> that equals to the multiplication of <paramref name="v1"/> with <paramref name="scalar"/>.
 		/// </returns>
 		public static Vertex4f operator *(Vertex4f v1, float scalar)
 		{
-			Vertex4f v;
-
-			v.x = (float)(v1.x * scalar);
-			v.y = (float)(v1.y * scalar);
-			v.z = (float)(v1.z * scalar);
-			v.w = (float)(v1.w * scalar);
-
-			return (v);
-		}
-
-		/// <summary>
-		/// Scalar multiply operator.
-		/// </summary>
-		/// <param name="v1">
-		/// A <see cref="Vertex4f"/> that specify the left operand.
-		/// </param>
-		/// <param name="scalar">
-		/// A <see cref="Double"/> that specify the right operand.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex4f"/> that equals to the multiplication of <paramref name="v1"/> with <paramref name="scalar"/>.
-		/// </returns>
-		public static Vertex4f operator *(Vertex4f v1, double scalar)
-		{
-			Vertex4f v;
-
-			v.x = (float)(v1.x * scalar);
-			v.y = (float)(v1.y * scalar);
-			v.z = (float)(v1.z * scalar);
-			v.w = (float)(v1.w * scalar);
-
-			return (v);
+			return new Vertex4f((float)(v1.x * scalar), (float)(v1.y * scalar), (float)(v1.z * scalar), v1.w);
 		}
 
 		/// <summary>
@@ -4955,46 +4671,16 @@ namespace OpenGL
 		/// A <see cref="Vertex4f"/> that specify the left operand.
 		/// </param>
 		/// <param name="scalar">
-		/// A <see cref="Single"/> that specify the right operand.
+		/// A <see cref="float"/> that specify the right operand.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex4f"/> that equals to the division of <paramref name="v1"/> with <paramref name="scalar"/>.
 		/// </returns>
 		public static Vertex4f operator /(Vertex4f v1, float scalar)
 		{
-			Vertex4f v;
-
-			v.x = (float)(v1.x / scalar);
-			v.y = (float)(v1.y / scalar);
-			v.z = (float)(v1.z / scalar);
-			v.w = (float)(v1.w / scalar);
-
-			return (v);
+			return new Vertex4f((float)(v1.x / scalar), (float)(v1.y / scalar), (float)(v1.z / scalar), v1.w);
 		}
 
-		/// <summary>
-		/// Scalar divide operator.
-		/// </summary>
-		/// <param name="v1">
-		/// A <see cref="Vertex4f"/> that specify the left operand.
-		/// </param>
-		/// <param name="scalar">
-		/// A <see cref="Double"/> that specify the right operand.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex4f"/> that equals to the division of <paramref name="v1"/> with <paramref name="scalar"/>.
-		/// </returns>
-		public static Vertex4f operator /(Vertex4f v1, double scalar)
-		{
-			Vertex4f v;
-
-			v.x = (float)(v1.x / scalar);
-			v.y = (float)(v1.y / scalar);
-			v.z = (float)(v1.z / scalar);
-			v.w = (float)(v1.w / scalar);
-
-			return (v);
-		}
 
 		#endregion
 
@@ -5037,14 +4723,7 @@ namespace OpenGL
 		/// </returns>
 		public static explicit operator float[](Vertex4f a)
 		{
-			float[] v = new float[4];
-
-			v[0] = a.x;
-			v[1] = a.y;
-			v[2] = a.z;
-			v[3] = a.w;
-
-			return (v);
+			return new float[] { a.x, a.y, a.z, a.w };
 		}
 
 		/// <summary>
@@ -5693,14 +5372,7 @@ namespace OpenGL
 		/// </returns>
 		public static Vertex4d operator +(Vertex4d v1, Vertex4d v2)
 		{
-			Vertex4d v;
-
-			v.x = (double)(v1.x + v2.x);
-			v.y = (double)(v1.y + v2.y);
-			v.z = (double)(v1.z + v2.z);
-			v.w = (double)(v1.w + v2.w);
-
-			return (v);
+			return (Vertex3d)v1 + (Vertex3d)v2;
 		}
 
 		/// <summary>
@@ -5734,21 +5406,14 @@ namespace OpenGL
 		/// A <see cref="Vertex4d"/> that specify the left operand.
 		/// </param>
 		/// <param name="scalar">
-		/// A <see cref="Single"/> that specify the right operand.
+		/// A <see cref="double"/> that specify the right operand.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex4d"/> that equals to the multiplication of <paramref name="v1"/> with <paramref name="scalar"/>.
 		/// </returns>
-		public static Vertex4d operator *(Vertex4d v1, float scalar)
+		public static Vertex4d operator *(Vertex4d v1, double scalar)
 		{
-			Vertex4d v;
-
-			v.x = (double)(v1.x * scalar);
-			v.y = (double)(v1.y * scalar);
-			v.z = (double)(v1.z * scalar);
-			v.w = (double)(v1.w * scalar);
-
-			return (v);
+			return new Vertex4d((double)(v1.x * scalar), (double)(v1.y * scalar), (double)(v1.z * scalar), v1.w);
 		}
 
 		/// <summary>
@@ -5758,21 +5423,14 @@ namespace OpenGL
 		/// A <see cref="Vertex4d"/> that specify the left operand.
 		/// </param>
 		/// <param name="scalar">
-		/// A <see cref="Double"/> that specify the right operand.
+		/// A <see cref="float"/> that specify the right operand.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex4d"/> that equals to the multiplication of <paramref name="v1"/> with <paramref name="scalar"/>.
 		/// </returns>
-		public static Vertex4d operator *(Vertex4d v1, double scalar)
+		public static Vertex4d operator *(Vertex4d v1, float scalar)
 		{
-			Vertex4d v;
-
-			v.x = (double)(v1.x * scalar);
-			v.y = (double)(v1.y * scalar);
-			v.z = (double)(v1.z * scalar);
-			v.w = (double)(v1.w * scalar);
-
-			return (v);
+			return new Vertex4d((double)(v1.x * scalar), (double)(v1.y * scalar), (double)(v1.z * scalar), v1.w);
 		}
 
 		/// <summary>
@@ -5782,46 +5440,33 @@ namespace OpenGL
 		/// A <see cref="Vertex4d"/> that specify the left operand.
 		/// </param>
 		/// <param name="scalar">
-		/// A <see cref="Single"/> that specify the right operand.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex4d"/> that equals to the division of <paramref name="v1"/> with <paramref name="scalar"/>.
-		/// </returns>
-		public static Vertex4d operator /(Vertex4d v1, float scalar)
-		{
-			Vertex4d v;
-
-			v.x = (double)(v1.x / scalar);
-			v.y = (double)(v1.y / scalar);
-			v.z = (double)(v1.z / scalar);
-			v.w = (double)(v1.w / scalar);
-
-			return (v);
-		}
-
-		/// <summary>
-		/// Scalar divide operator.
-		/// </summary>
-		/// <param name="v1">
-		/// A <see cref="Vertex4d"/> that specify the left operand.
-		/// </param>
-		/// <param name="scalar">
-		/// A <see cref="Double"/> that specify the right operand.
+		/// A <see cref="double"/> that specify the right operand.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex4d"/> that equals to the division of <paramref name="v1"/> with <paramref name="scalar"/>.
 		/// </returns>
 		public static Vertex4d operator /(Vertex4d v1, double scalar)
 		{
-			Vertex4d v;
-
-			v.x = (double)(v1.x / scalar);
-			v.y = (double)(v1.y / scalar);
-			v.z = (double)(v1.z / scalar);
-			v.w = (double)(v1.w / scalar);
-
-			return (v);
+			return new Vertex4d((double)(v1.x / scalar), (double)(v1.y / scalar), (double)(v1.z / scalar), v1.w);
 		}
+
+		/// <summary>
+		/// Scalar multiply operator.
+		/// </summary>
+		/// <param name="v1">
+		/// A <see cref="Vertex4d"/> that specify the left operand.
+		/// </param>
+		/// <param name="scalar">
+		/// A <see cref="float"/> that specify the right operand.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex4d"/> that equals to the multiplication of <paramref name="v1"/> with <paramref name="scalar"/>.
+		/// </returns>
+		public static Vertex4d operator /(Vertex4d v1, float scalar)
+		{
+			return new Vertex4d((double)(v1.x / scalar), (double)(v1.y / scalar), (double)(v1.z / scalar), v1.w);
+		}
+
 
 		#endregion
 
@@ -5864,14 +5509,7 @@ namespace OpenGL
 		/// </returns>
 		public static explicit operator double[](Vertex4d a)
 		{
-			double[] v = new double[4];
-
-			v[0] = a.x;
-			v[1] = a.y;
-			v[2] = a.z;
-			v[3] = a.w;
-
-			return (v);
+			return new double[] { a.x, a.y, a.z, a.w };
 		}
 
 		/// <summary>
@@ -6451,14 +6089,7 @@ namespace OpenGL
 		/// </returns>
 		public static Vertex4hf operator +(Vertex4hf v1, Vertex4hf v2)
 		{
-			Vertex4hf v;
-
-			v.x = (HalfFloat)(v1.x + v2.x);
-			v.y = (HalfFloat)(v1.y + v2.y);
-			v.z = (HalfFloat)(v1.z + v2.z);
-			v.w = (HalfFloat)(v1.w + v2.w);
-
-			return (v);
+			return (Vertex3hf)v1 + (Vertex3hf)v2;
 		}
 
 		/// <summary>
@@ -6492,21 +6123,14 @@ namespace OpenGL
 		/// A <see cref="Vertex4hf"/> that specify the left operand.
 		/// </param>
 		/// <param name="scalar">
-		/// A <see cref="Single"/> that specify the right operand.
+		/// A <see cref="HalfFloat"/> that specify the right operand.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex4hf"/> that equals to the multiplication of <paramref name="v1"/> with <paramref name="scalar"/>.
 		/// </returns>
-		public static Vertex4hf operator *(Vertex4hf v1, float scalar)
+		public static Vertex4hf operator *(Vertex4hf v1, HalfFloat scalar)
 		{
-			Vertex4hf v;
-
-			v.x = (HalfFloat)(v1.x * scalar);
-			v.y = (HalfFloat)(v1.y * scalar);
-			v.z = (HalfFloat)(v1.z * scalar);
-			v.w = (HalfFloat)(v1.w * scalar);
-
-			return (v);
+			return new Vertex4hf((HalfFloat)(v1.x * scalar), (HalfFloat)(v1.y * scalar), (HalfFloat)(v1.z * scalar), v1.w);
 		}
 
 		/// <summary>
@@ -6516,21 +6140,14 @@ namespace OpenGL
 		/// A <see cref="Vertex4hf"/> that specify the left operand.
 		/// </param>
 		/// <param name="scalar">
-		/// A <see cref="Double"/> that specify the right operand.
+		/// A <see cref="float"/> that specify the right operand.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex4hf"/> that equals to the multiplication of <paramref name="v1"/> with <paramref name="scalar"/>.
 		/// </returns>
-		public static Vertex4hf operator *(Vertex4hf v1, double scalar)
+		public static Vertex4hf operator *(Vertex4hf v1, float scalar)
 		{
-			Vertex4hf v;
-
-			v.x = (HalfFloat)(v1.x * scalar);
-			v.y = (HalfFloat)(v1.y * scalar);
-			v.z = (HalfFloat)(v1.z * scalar);
-			v.w = (HalfFloat)(v1.w * scalar);
-
-			return (v);
+			return new Vertex4hf((HalfFloat)(v1.x * scalar), (HalfFloat)(v1.y * scalar), (HalfFloat)(v1.z * scalar), v1.w);
 		}
 
 		/// <summary>
@@ -6540,46 +6157,33 @@ namespace OpenGL
 		/// A <see cref="Vertex4hf"/> that specify the left operand.
 		/// </param>
 		/// <param name="scalar">
-		/// A <see cref="Single"/> that specify the right operand.
+		/// A <see cref="HalfFloat"/> that specify the right operand.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex4hf"/> that equals to the division of <paramref name="v1"/> with <paramref name="scalar"/>.
+		/// </returns>
+		public static Vertex4hf operator /(Vertex4hf v1, HalfFloat scalar)
+		{
+			return new Vertex4hf((HalfFloat)(v1.x / scalar), (HalfFloat)(v1.y / scalar), (HalfFloat)(v1.z / scalar), v1.w);
+		}
+
+		/// <summary>
+		/// Scalar multiply operator.
+		/// </summary>
+		/// <param name="v1">
+		/// A <see cref="Vertex4hf"/> that specify the left operand.
+		/// </param>
+		/// <param name="scalar">
+		/// A <see cref="float"/> that specify the right operand.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex4hf"/> that equals to the multiplication of <paramref name="v1"/> with <paramref name="scalar"/>.
 		/// </returns>
 		public static Vertex4hf operator /(Vertex4hf v1, float scalar)
 		{
-			Vertex4hf v;
-
-			v.x = (HalfFloat)(v1.x / scalar);
-			v.y = (HalfFloat)(v1.y / scalar);
-			v.z = (HalfFloat)(v1.z / scalar);
-			v.w = (HalfFloat)(v1.w / scalar);
-
-			return (v);
+			return new Vertex4hf((HalfFloat)(v1.x / scalar), (HalfFloat)(v1.y / scalar), (HalfFloat)(v1.z / scalar), v1.w);
 		}
 
-		/// <summary>
-		/// Scalar divide operator.
-		/// </summary>
-		/// <param name="v1">
-		/// A <see cref="Vertex4hf"/> that specify the left operand.
-		/// </param>
-		/// <param name="scalar">
-		/// A <see cref="Double"/> that specify the right operand.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex4hf"/> that equals to the division of <paramref name="v1"/> with <paramref name="scalar"/>.
-		/// </returns>
-		public static Vertex4hf operator /(Vertex4hf v1, double scalar)
-		{
-			Vertex4hf v;
-
-			v.x = (HalfFloat)(v1.x / scalar);
-			v.y = (HalfFloat)(v1.y / scalar);
-			v.z = (HalfFloat)(v1.z / scalar);
-			v.w = (HalfFloat)(v1.w / scalar);
-
-			return (v);
-		}
 
 		#endregion
 
@@ -6622,14 +6226,7 @@ namespace OpenGL
 		/// </returns>
 		public static explicit operator HalfFloat[](Vertex4hf a)
 		{
-			HalfFloat[] v = new HalfFloat[4];
-
-			v[0] = a.x;
-			v[1] = a.y;
-			v[2] = a.z;
-			v[3] = a.w;
-
-			return (v);
+			return new HalfFloat[] { a.x, a.y, a.z, a.w };
 		}
 
 		/// <summary>

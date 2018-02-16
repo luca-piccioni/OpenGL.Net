@@ -188,14 +188,7 @@ namespace OpenGL
 		/// </returns>
 		public static <#= className #> operator +(<#= className #> v1, <#= className #> v2)
 		{
-			<#= className #> v;
-
-			v.x = (<#= baseType #>)(v1.x + v2.x);
-			v.y = (<#= baseType #>)(v1.y + v2.y);
-			v.z = (<#= baseType #>)(v1.z + v2.z);
-			v.w = (<#= baseType #>)(v1.w + v2.w);
-
-			return (v);
+			return (<#= vertex3Name #>)v1 + (<#= vertex3Name #>)v2;
 		}
 
 		/// <summary>
@@ -229,23 +222,17 @@ namespace OpenGL
 		/// A <see cref="<#= className #>"/> that specify the left operand.
 		/// </param>
 		/// <param name="scalar">
-		/// A <see cref="Single"/> that specify the right operand.
+		/// A <see cref="<#= baseType #>"/> that specify the right operand.
 		/// </param>
 		/// <returns>
 		/// A <see cref="<#= className #>"/> that equals to the multiplication of <paramref name="v1"/> with <paramref name="scalar"/>.
 		/// </returns>
-		public static <#= className #> operator *(<#= className #> v1, float scalar)
+		public static <#= className #> operator *(<#= className #> v1, <#= baseType #> scalar)
 		{
-			<#= className #> v;
-
-			v.x = (<#= baseType #>)(v1.x * scalar);
-			v.y = (<#= baseType #>)(v1.y * scalar);
-			v.z = (<#= baseType #>)(v1.z * scalar);
-			v.w = (<#= baseType #>)(v1.w * scalar);
-
-			return (v);
+			return new <#= className #>((<#= baseType #>)(v1.x * scalar), (<#= baseType #>)(v1.y * scalar), (<#= baseType #>)(v1.z * scalar), v1.w);
 		}
 
+<# if (className != "Vertex4f") { #>
 		/// <summary>
 		/// Scalar multiply operator.
 		/// </summary>
@@ -253,23 +240,17 @@ namespace OpenGL
 		/// A <see cref="<#= className #>"/> that specify the left operand.
 		/// </param>
 		/// <param name="scalar">
-		/// A <see cref="Double"/> that specify the right operand.
+		/// A <see cref="float"/> that specify the right operand.
 		/// </param>
 		/// <returns>
 		/// A <see cref="<#= className #>"/> that equals to the multiplication of <paramref name="v1"/> with <paramref name="scalar"/>.
 		/// </returns>
-		public static <#= className #> operator *(<#= className #> v1, double scalar)
+		public static <#= className #> operator *(<#= className #> v1, float scalar)
 		{
-			<#= className #> v;
-
-			v.x = (<#= baseType #>)(v1.x * scalar);
-			v.y = (<#= baseType #>)(v1.y * scalar);
-			v.z = (<#= baseType #>)(v1.z * scalar);
-			v.w = (<#= baseType #>)(v1.w * scalar);
-
-			return (v);
+			return new <#= className #>((<#= baseType #>)(v1.x * scalar), (<#= baseType #>)(v1.y * scalar), (<#= baseType #>)(v1.z * scalar), v1.w);
 		}
 
+<# } #>
 		/// <summary>
 		/// Scalar divide operator.
 		/// </summary>
@@ -277,46 +258,35 @@ namespace OpenGL
 		/// A <see cref="<#= className #>"/> that specify the left operand.
 		/// </param>
 		/// <param name="scalar">
-		/// A <see cref="Single"/> that specify the right operand.
+		/// A <see cref="<#= baseType #>"/> that specify the right operand.
 		/// </param>
 		/// <returns>
 		/// A <see cref="<#= className #>"/> that equals to the division of <paramref name="v1"/> with <paramref name="scalar"/>.
+		/// </returns>
+		public static <#= className #> operator /(<#= className #> v1, <#= baseType #> scalar)
+		{
+			return new <#= className #>((<#= baseType #>)(v1.x / scalar), (<#= baseType #>)(v1.y / scalar), (<#= baseType #>)(v1.z / scalar), v1.w);
+		}
+
+<# if (className != "Vertex4f") { #>
+		/// <summary>
+		/// Scalar multiply operator.
+		/// </summary>
+		/// <param name="v1">
+		/// A <see cref="<#= className #>"/> that specify the left operand.
+		/// </param>
+		/// <param name="scalar">
+		/// A <see cref="float"/> that specify the right operand.
+		/// </param>
+		/// <returns>
+		/// A <see cref="<#= className #>"/> that equals to the multiplication of <paramref name="v1"/> with <paramref name="scalar"/>.
 		/// </returns>
 		public static <#= className #> operator /(<#= className #> v1, float scalar)
 		{
-			<#= className #> v;
-
-			v.x = (<#= baseType #>)(v1.x / scalar);
-			v.y = (<#= baseType #>)(v1.y / scalar);
-			v.z = (<#= baseType #>)(v1.z / scalar);
-			v.w = (<#= baseType #>)(v1.w / scalar);
-
-			return (v);
+			return new <#= className #>((<#= baseType #>)(v1.x / scalar), (<#= baseType #>)(v1.y / scalar), (<#= baseType #>)(v1.z / scalar), v1.w);
 		}
 
-		/// <summary>
-		/// Scalar divide operator.
-		/// </summary>
-		/// <param name="v1">
-		/// A <see cref="<#= className #>"/> that specify the left operand.
-		/// </param>
-		/// <param name="scalar">
-		/// A <see cref="Double"/> that specify the right operand.
-		/// </param>
-		/// <returns>
-		/// A <see cref="<#= className #>"/> that equals to the division of <paramref name="v1"/> with <paramref name="scalar"/>.
-		/// </returns>
-		public static <#= className #> operator /(<#= className #> v1, double scalar)
-		{
-			<#= className #> v;
-
-			v.x = (<#= baseType #>)(v1.x / scalar);
-			v.y = (<#= baseType #>)(v1.y / scalar);
-			v.z = (<#= baseType #>)(v1.z / scalar);
-			v.w = (<#= baseType #>)(v1.w / scalar);
-
-			return (v);
-		}
+<# } #>
 
 		#endregion
 
@@ -359,14 +329,7 @@ namespace OpenGL
 		/// </returns>
 		public static explicit operator <#= baseType #>[](<#= className #> a)
 		{
-			<#= baseType #>[] v = new <#= baseType #>[4];
-
-			v[0] = a.x;
-			v[1] = a.y;
-			v[2] = a.z;
-			v[3] = a.w;
-
-			return (v);
+			return new <#= baseType #>[] { a.x, a.y, a.z, a.w };
 		}
 
 <#

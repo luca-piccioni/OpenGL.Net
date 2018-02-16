@@ -322,69 +322,6 @@ namespace OpenGL.Test
 			Assert.AreEqual(v.y, (float)v2f.y, 1e-4f);
 		}
 
-		[Test(Description = "Test Vertex2ub.operator Vertex3f(Vertex2ub)")]
-		public void Vertex2ub_TestCastToVertex3f()
-		{
-			Random random = new Random();
-			
-			byte x = (byte)Next(random);
-			byte y = (byte)Next(random);
-
-			Vertex2ub v = new Vertex2ub(x, y);
-			Vertex3f v3f = (Vertex3f)v;
-
-			Assert.AreEqual(v.x, v3f.x, 1e-4f);
-			Assert.AreEqual(v.y, v3f.y, 1e-4f);
-		}
-
-		[Test(Description = "Test Vertex2ub.operator Vertex3d(Vertex2ub)")]
-		public void Vertex2ub_TestCastToVertex3d()
-		{
-			Random random = new Random();
-			
-			byte x = (byte)Next(random);
-			byte y = (byte)Next(random);
-
-			Vertex2ub v = new Vertex2ub(x, y);
-			Vertex3d v3d = (Vertex3d)v;
-
-			Assert.AreEqual(v.x, v3d.x, 1e-4);
-			Assert.AreEqual(v.y, v3d.y, 1e-4);
-		}
-
-		[Test(Description = "Test Vertex2ub.operator Vertex4f(Vertex2ub)")]
-		public void Vertex2ub_TestCastToVertex4f()
-		{
-			Random random = new Random();
-			
-			byte x = (byte)Next(random);
-			byte y = (byte)Next(random);
-
-			Vertex2ub v = new Vertex2ub(x, y);
-			Vertex4f v4f = (Vertex4f)v;
-
-			Assert.AreEqual(v.x, v4f.x, 1e-4);
-			Assert.AreEqual(v.y, v4f.y, 1e-4);
-			Assert.AreEqual(1.0f, v4f.w, 1e-4);
-		}
-
-		[Test(Description = "Test Vertex2ub.operator Vertex4d(Vertex2ub)")]
-		public void Vertex2ub_TestCastToVertex4d()
-		{
-			Random random = new Random();
-			
-			byte x = (byte)Next(random);
-			byte y = (byte)Next(random);
-
-			Vertex2ub v = new Vertex2ub(x, y);
-			Vertex4d v4d = (Vertex4d)v;
-
-			Assert.AreEqual(v.x, v4d.x, 1e-4);
-			Assert.AreEqual(v.y, v4d.y, 1e-4);
-			Assert.AreEqual(0.0f, v4d.z, 1e-4);
-			Assert.AreEqual(1.0f, v4d.w, 1e-4);
-		}
-
 		#endregion
 
 		#region Vertex Methods
@@ -960,69 +897,6 @@ namespace OpenGL.Test
 			Assert.AreEqual(v.y, (float)v2f.y, 1e-4f);
 		}
 
-		[Test(Description = "Test Vertex2b.operator Vertex3f(Vertex2b)")]
-		public void Vertex2b_TestCastToVertex3f()
-		{
-			Random random = new Random();
-			
-			sbyte x = (sbyte)Next(random);
-			sbyte y = (sbyte)Next(random);
-
-			Vertex2b v = new Vertex2b(x, y);
-			Vertex3f v3f = (Vertex3f)v;
-
-			Assert.AreEqual(v.x, v3f.x, 1e-4f);
-			Assert.AreEqual(v.y, v3f.y, 1e-4f);
-		}
-
-		[Test(Description = "Test Vertex2b.operator Vertex3d(Vertex2b)")]
-		public void Vertex2b_TestCastToVertex3d()
-		{
-			Random random = new Random();
-			
-			sbyte x = (sbyte)Next(random);
-			sbyte y = (sbyte)Next(random);
-
-			Vertex2b v = new Vertex2b(x, y);
-			Vertex3d v3d = (Vertex3d)v;
-
-			Assert.AreEqual(v.x, v3d.x, 1e-4);
-			Assert.AreEqual(v.y, v3d.y, 1e-4);
-		}
-
-		[Test(Description = "Test Vertex2b.operator Vertex4f(Vertex2b)")]
-		public void Vertex2b_TestCastToVertex4f()
-		{
-			Random random = new Random();
-			
-			sbyte x = (sbyte)Next(random);
-			sbyte y = (sbyte)Next(random);
-
-			Vertex2b v = new Vertex2b(x, y);
-			Vertex4f v4f = (Vertex4f)v;
-
-			Assert.AreEqual(v.x, v4f.x, 1e-4);
-			Assert.AreEqual(v.y, v4f.y, 1e-4);
-			Assert.AreEqual(1.0f, v4f.w, 1e-4);
-		}
-
-		[Test(Description = "Test Vertex2b.operator Vertex4d(Vertex2b)")]
-		public void Vertex2b_TestCastToVertex4d()
-		{
-			Random random = new Random();
-			
-			sbyte x = (sbyte)Next(random);
-			sbyte y = (sbyte)Next(random);
-
-			Vertex2b v = new Vertex2b(x, y);
-			Vertex4d v4d = (Vertex4d)v;
-
-			Assert.AreEqual(v.x, v4d.x, 1e-4);
-			Assert.AreEqual(v.y, v4d.y, 1e-4);
-			Assert.AreEqual(0.0f, v4d.z, 1e-4);
-			Assert.AreEqual(1.0f, v4d.w, 1e-4);
-		}
-
 		#endregion
 
 		#region Vertex Methods
@@ -1582,69 +1456,6 @@ namespace OpenGL.Test
 
 			Assert.AreEqual(v.x, (float)v2f.x, 1e-4f);
 			Assert.AreEqual(v.y, (float)v2f.y, 1e-4f);
-		}
-
-		[Test(Description = "Test Vertex2us.operator Vertex3f(Vertex2us)")]
-		public void Vertex2us_TestCastToVertex3f()
-		{
-			Random random = new Random();
-			
-			ushort x = (ushort)Next(random);
-			ushort y = (ushort)Next(random);
-
-			Vertex2us v = new Vertex2us(x, y);
-			Vertex3f v3f = (Vertex3f)v;
-
-			Assert.AreEqual(v.x, v3f.x, 1e-4f);
-			Assert.AreEqual(v.y, v3f.y, 1e-4f);
-		}
-
-		[Test(Description = "Test Vertex2us.operator Vertex3d(Vertex2us)")]
-		public void Vertex2us_TestCastToVertex3d()
-		{
-			Random random = new Random();
-			
-			ushort x = (ushort)Next(random);
-			ushort y = (ushort)Next(random);
-
-			Vertex2us v = new Vertex2us(x, y);
-			Vertex3d v3d = (Vertex3d)v;
-
-			Assert.AreEqual(v.x, v3d.x, 1e-4);
-			Assert.AreEqual(v.y, v3d.y, 1e-4);
-		}
-
-		[Test(Description = "Test Vertex2us.operator Vertex4f(Vertex2us)")]
-		public void Vertex2us_TestCastToVertex4f()
-		{
-			Random random = new Random();
-			
-			ushort x = (ushort)Next(random);
-			ushort y = (ushort)Next(random);
-
-			Vertex2us v = new Vertex2us(x, y);
-			Vertex4f v4f = (Vertex4f)v;
-
-			Assert.AreEqual(v.x, v4f.x, 1e-4);
-			Assert.AreEqual(v.y, v4f.y, 1e-4);
-			Assert.AreEqual(1.0f, v4f.w, 1e-4);
-		}
-
-		[Test(Description = "Test Vertex2us.operator Vertex4d(Vertex2us)")]
-		public void Vertex2us_TestCastToVertex4d()
-		{
-			Random random = new Random();
-			
-			ushort x = (ushort)Next(random);
-			ushort y = (ushort)Next(random);
-
-			Vertex2us v = new Vertex2us(x, y);
-			Vertex4d v4d = (Vertex4d)v;
-
-			Assert.AreEqual(v.x, v4d.x, 1e-4);
-			Assert.AreEqual(v.y, v4d.y, 1e-4);
-			Assert.AreEqual(0.0f, v4d.z, 1e-4);
-			Assert.AreEqual(1.0f, v4d.w, 1e-4);
 		}
 
 		#endregion
@@ -2222,69 +2033,6 @@ namespace OpenGL.Test
 			Assert.AreEqual(v.y, (float)v2f.y, 1e-4f);
 		}
 
-		[Test(Description = "Test Vertex2s.operator Vertex3f(Vertex2s)")]
-		public void Vertex2s_TestCastToVertex3f()
-		{
-			Random random = new Random();
-			
-			short x = (short)Next(random);
-			short y = (short)Next(random);
-
-			Vertex2s v = new Vertex2s(x, y);
-			Vertex3f v3f = (Vertex3f)v;
-
-			Assert.AreEqual(v.x, v3f.x, 1e-4f);
-			Assert.AreEqual(v.y, v3f.y, 1e-4f);
-		}
-
-		[Test(Description = "Test Vertex2s.operator Vertex3d(Vertex2s)")]
-		public void Vertex2s_TestCastToVertex3d()
-		{
-			Random random = new Random();
-			
-			short x = (short)Next(random);
-			short y = (short)Next(random);
-
-			Vertex2s v = new Vertex2s(x, y);
-			Vertex3d v3d = (Vertex3d)v;
-
-			Assert.AreEqual(v.x, v3d.x, 1e-4);
-			Assert.AreEqual(v.y, v3d.y, 1e-4);
-		}
-
-		[Test(Description = "Test Vertex2s.operator Vertex4f(Vertex2s)")]
-		public void Vertex2s_TestCastToVertex4f()
-		{
-			Random random = new Random();
-			
-			short x = (short)Next(random);
-			short y = (short)Next(random);
-
-			Vertex2s v = new Vertex2s(x, y);
-			Vertex4f v4f = (Vertex4f)v;
-
-			Assert.AreEqual(v.x, v4f.x, 1e-4);
-			Assert.AreEqual(v.y, v4f.y, 1e-4);
-			Assert.AreEqual(1.0f, v4f.w, 1e-4);
-		}
-
-		[Test(Description = "Test Vertex2s.operator Vertex4d(Vertex2s)")]
-		public void Vertex2s_TestCastToVertex4d()
-		{
-			Random random = new Random();
-			
-			short x = (short)Next(random);
-			short y = (short)Next(random);
-
-			Vertex2s v = new Vertex2s(x, y);
-			Vertex4d v4d = (Vertex4d)v;
-
-			Assert.AreEqual(v.x, v4d.x, 1e-4);
-			Assert.AreEqual(v.y, v4d.y, 1e-4);
-			Assert.AreEqual(0.0f, v4d.z, 1e-4);
-			Assert.AreEqual(1.0f, v4d.w, 1e-4);
-		}
-
 		#endregion
 
 		#region Vertex Methods
@@ -2844,69 +2592,6 @@ namespace OpenGL.Test
 
 			Assert.AreEqual(v.x, (float)v2f.x, 1e-4f);
 			Assert.AreEqual(v.y, (float)v2f.y, 1e-4f);
-		}
-
-		[Test(Description = "Test Vertex2ui.operator Vertex3f(Vertex2ui)")]
-		public void Vertex2ui_TestCastToVertex3f()
-		{
-			Random random = new Random();
-			
-			uint x = (uint)Next(random);
-			uint y = (uint)Next(random);
-
-			Vertex2ui v = new Vertex2ui(x, y);
-			Vertex3f v3f = (Vertex3f)v;
-
-			Assert.AreEqual(v.x, v3f.x, 1e-4f);
-			Assert.AreEqual(v.y, v3f.y, 1e-4f);
-		}
-
-		[Test(Description = "Test Vertex2ui.operator Vertex3d(Vertex2ui)")]
-		public void Vertex2ui_TestCastToVertex3d()
-		{
-			Random random = new Random();
-			
-			uint x = (uint)Next(random);
-			uint y = (uint)Next(random);
-
-			Vertex2ui v = new Vertex2ui(x, y);
-			Vertex3d v3d = (Vertex3d)v;
-
-			Assert.AreEqual(v.x, v3d.x, 1e-4);
-			Assert.AreEqual(v.y, v3d.y, 1e-4);
-		}
-
-		[Test(Description = "Test Vertex2ui.operator Vertex4f(Vertex2ui)")]
-		public void Vertex2ui_TestCastToVertex4f()
-		{
-			Random random = new Random();
-			
-			uint x = (uint)Next(random);
-			uint y = (uint)Next(random);
-
-			Vertex2ui v = new Vertex2ui(x, y);
-			Vertex4f v4f = (Vertex4f)v;
-
-			Assert.AreEqual(v.x, v4f.x, 1e-4);
-			Assert.AreEqual(v.y, v4f.y, 1e-4);
-			Assert.AreEqual(1.0f, v4f.w, 1e-4);
-		}
-
-		[Test(Description = "Test Vertex2ui.operator Vertex4d(Vertex2ui)")]
-		public void Vertex2ui_TestCastToVertex4d()
-		{
-			Random random = new Random();
-			
-			uint x = (uint)Next(random);
-			uint y = (uint)Next(random);
-
-			Vertex2ui v = new Vertex2ui(x, y);
-			Vertex4d v4d = (Vertex4d)v;
-
-			Assert.AreEqual(v.x, v4d.x, 1e-4);
-			Assert.AreEqual(v.y, v4d.y, 1e-4);
-			Assert.AreEqual(0.0f, v4d.z, 1e-4);
-			Assert.AreEqual(1.0f, v4d.w, 1e-4);
 		}
 
 		#endregion
@@ -3484,69 +3169,6 @@ namespace OpenGL.Test
 			Assert.AreEqual(v.y, (float)v2f.y, 1e-4f);
 		}
 
-		[Test(Description = "Test Vertex2i.operator Vertex3f(Vertex2i)")]
-		public void Vertex2i_TestCastToVertex3f()
-		{
-			Random random = new Random();
-			
-			int x = (int)Next(random);
-			int y = (int)Next(random);
-
-			Vertex2i v = new Vertex2i(x, y);
-			Vertex3f v3f = (Vertex3f)v;
-
-			Assert.AreEqual(v.x, v3f.x, 1e-4f);
-			Assert.AreEqual(v.y, v3f.y, 1e-4f);
-		}
-
-		[Test(Description = "Test Vertex2i.operator Vertex3d(Vertex2i)")]
-		public void Vertex2i_TestCastToVertex3d()
-		{
-			Random random = new Random();
-			
-			int x = (int)Next(random);
-			int y = (int)Next(random);
-
-			Vertex2i v = new Vertex2i(x, y);
-			Vertex3d v3d = (Vertex3d)v;
-
-			Assert.AreEqual(v.x, v3d.x, 1e-4);
-			Assert.AreEqual(v.y, v3d.y, 1e-4);
-		}
-
-		[Test(Description = "Test Vertex2i.operator Vertex4f(Vertex2i)")]
-		public void Vertex2i_TestCastToVertex4f()
-		{
-			Random random = new Random();
-			
-			int x = (int)Next(random);
-			int y = (int)Next(random);
-
-			Vertex2i v = new Vertex2i(x, y);
-			Vertex4f v4f = (Vertex4f)v;
-
-			Assert.AreEqual(v.x, v4f.x, 1e-4);
-			Assert.AreEqual(v.y, v4f.y, 1e-4);
-			Assert.AreEqual(1.0f, v4f.w, 1e-4);
-		}
-
-		[Test(Description = "Test Vertex2i.operator Vertex4d(Vertex2i)")]
-		public void Vertex2i_TestCastToVertex4d()
-		{
-			Random random = new Random();
-			
-			int x = (int)Next(random);
-			int y = (int)Next(random);
-
-			Vertex2i v = new Vertex2i(x, y);
-			Vertex4d v4d = (Vertex4d)v;
-
-			Assert.AreEqual(v.x, v4d.x, 1e-4);
-			Assert.AreEqual(v.y, v4d.y, 1e-4);
-			Assert.AreEqual(0.0f, v4d.z, 1e-4);
-			Assert.AreEqual(1.0f, v4d.w, 1e-4);
-		}
-
 		#endregion
 
 		#region Vertex Methods
@@ -4087,69 +3709,6 @@ namespace OpenGL.Test
 
 			Assert.AreEqual(v.x, (float)v2f.x, 1e-4f);
 			Assert.AreEqual(v.y, (float)v2f.y, 1e-4f);
-		}
-
-		[Test(Description = "Test Vertex2f.operator Vertex3f(Vertex2f)")]
-		public void Vertex2f_TestCastToVertex3f()
-		{
-			Random random = new Random();
-			
-			float x = (float)Next(random);
-			float y = (float)Next(random);
-
-			Vertex2f v = new Vertex2f(x, y);
-			Vertex3f v3f = (Vertex3f)v;
-
-			Assert.AreEqual(v.x, v3f.x, 1e-4f);
-			Assert.AreEqual(v.y, v3f.y, 1e-4f);
-		}
-
-		[Test(Description = "Test Vertex2f.operator Vertex3d(Vertex2f)")]
-		public void Vertex2f_TestCastToVertex3d()
-		{
-			Random random = new Random();
-			
-			float x = (float)Next(random);
-			float y = (float)Next(random);
-
-			Vertex2f v = new Vertex2f(x, y);
-			Vertex3d v3d = (Vertex3d)v;
-
-			Assert.AreEqual(v.x, v3d.x, 1e-4);
-			Assert.AreEqual(v.y, v3d.y, 1e-4);
-		}
-
-		[Test(Description = "Test Vertex2f.operator Vertex4f(Vertex2f)")]
-		public void Vertex2f_TestCastToVertex4f()
-		{
-			Random random = new Random();
-			
-			float x = (float)Next(random);
-			float y = (float)Next(random);
-
-			Vertex2f v = new Vertex2f(x, y);
-			Vertex4f v4f = (Vertex4f)v;
-
-			Assert.AreEqual(v.x, v4f.x, 1e-4);
-			Assert.AreEqual(v.y, v4f.y, 1e-4);
-			Assert.AreEqual(1.0f, v4f.w, 1e-4);
-		}
-
-		[Test(Description = "Test Vertex2f.operator Vertex4d(Vertex2f)")]
-		public void Vertex2f_TestCastToVertex4d()
-		{
-			Random random = new Random();
-			
-			float x = (float)Next(random);
-			float y = (float)Next(random);
-
-			Vertex2f v = new Vertex2f(x, y);
-			Vertex4d v4d = (Vertex4d)v;
-
-			Assert.AreEqual(v.x, v4d.x, 1e-4);
-			Assert.AreEqual(v.y, v4d.y, 1e-4);
-			Assert.AreEqual(0.0f, v4d.z, 1e-4);
-			Assert.AreEqual(1.0f, v4d.w, 1e-4);
 		}
 
 		#endregion
@@ -4694,69 +4253,6 @@ namespace OpenGL.Test
 			Assert.AreEqual(v.y, (float)v2f.y, 1e-4f);
 		}
 
-		[Test(Description = "Test Vertex2d.operator Vertex3f(Vertex2d)")]
-		public void Vertex2d_TestCastToVertex3f()
-		{
-			Random random = new Random();
-			
-			double x = (double)Next(random);
-			double y = (double)Next(random);
-
-			Vertex2d v = new Vertex2d(x, y);
-			Vertex3f v3f = (Vertex3f)v;
-
-			Assert.AreEqual(v.x, v3f.x, 1e-4f);
-			Assert.AreEqual(v.y, v3f.y, 1e-4f);
-		}
-
-		[Test(Description = "Test Vertex2d.operator Vertex3d(Vertex2d)")]
-		public void Vertex2d_TestCastToVertex3d()
-		{
-			Random random = new Random();
-			
-			double x = (double)Next(random);
-			double y = (double)Next(random);
-
-			Vertex2d v = new Vertex2d(x, y);
-			Vertex3d v3d = (Vertex3d)v;
-
-			Assert.AreEqual(v.x, v3d.x, 1e-4);
-			Assert.AreEqual(v.y, v3d.y, 1e-4);
-		}
-
-		[Test(Description = "Test Vertex2d.operator Vertex4f(Vertex2d)")]
-		public void Vertex2d_TestCastToVertex4f()
-		{
-			Random random = new Random();
-			
-			double x = (double)Next(random);
-			double y = (double)Next(random);
-
-			Vertex2d v = new Vertex2d(x, y);
-			Vertex4f v4f = (Vertex4f)v;
-
-			Assert.AreEqual(v.x, v4f.x, 1e-4);
-			Assert.AreEqual(v.y, v4f.y, 1e-4);
-			Assert.AreEqual(1.0f, v4f.w, 1e-4);
-		}
-
-		[Test(Description = "Test Vertex2d.operator Vertex4d(Vertex2d)")]
-		public void Vertex2d_TestCastToVertex4d()
-		{
-			Random random = new Random();
-			
-			double x = (double)Next(random);
-			double y = (double)Next(random);
-
-			Vertex2d v = new Vertex2d(x, y);
-			Vertex4d v4d = (Vertex4d)v;
-
-			Assert.AreEqual(v.x, v4d.x, 1e-4);
-			Assert.AreEqual(v.y, v4d.y, 1e-4);
-			Assert.AreEqual(0.0f, v4d.z, 1e-4);
-			Assert.AreEqual(1.0f, v4d.w, 1e-4);
-		}
-
 		#endregion
 
 		#region Vertex Methods
@@ -5283,69 +4779,6 @@ namespace OpenGL.Test
 
 			Assert.AreEqual(v.x, (float)v2f.x, 1e-4f);
 			Assert.AreEqual(v.y, (float)v2f.y, 1e-4f);
-		}
-
-		[Test(Description = "Test Vertex2hf.operator Vertex3f(Vertex2hf)")]
-		public void Vertex2hf_TestCastToVertex3f()
-		{
-			Random random = new Random();
-			
-			HalfFloat x = (HalfFloat)Next(random);
-			HalfFloat y = (HalfFloat)Next(random);
-
-			Vertex2hf v = new Vertex2hf(x, y);
-			Vertex3f v3f = (Vertex3f)v;
-
-			Assert.AreEqual(v.x, v3f.x, 1e-4f);
-			Assert.AreEqual(v.y, v3f.y, 1e-4f);
-		}
-
-		[Test(Description = "Test Vertex2hf.operator Vertex3d(Vertex2hf)")]
-		public void Vertex2hf_TestCastToVertex3d()
-		{
-			Random random = new Random();
-			
-			HalfFloat x = (HalfFloat)Next(random);
-			HalfFloat y = (HalfFloat)Next(random);
-
-			Vertex2hf v = new Vertex2hf(x, y);
-			Vertex3d v3d = (Vertex3d)v;
-
-			Assert.AreEqual(v.x, v3d.x, 1e-4);
-			Assert.AreEqual(v.y, v3d.y, 1e-4);
-		}
-
-		[Test(Description = "Test Vertex2hf.operator Vertex4f(Vertex2hf)")]
-		public void Vertex2hf_TestCastToVertex4f()
-		{
-			Random random = new Random();
-			
-			HalfFloat x = (HalfFloat)Next(random);
-			HalfFloat y = (HalfFloat)Next(random);
-
-			Vertex2hf v = new Vertex2hf(x, y);
-			Vertex4f v4f = (Vertex4f)v;
-
-			Assert.AreEqual(v.x, v4f.x, 1e-4);
-			Assert.AreEqual(v.y, v4f.y, 1e-4);
-			Assert.AreEqual(1.0f, v4f.w, 1e-4);
-		}
-
-		[Test(Description = "Test Vertex2hf.operator Vertex4d(Vertex2hf)")]
-		public void Vertex2hf_TestCastToVertex4d()
-		{
-			Random random = new Random();
-			
-			HalfFloat x = (HalfFloat)Next(random);
-			HalfFloat y = (HalfFloat)Next(random);
-
-			Vertex2hf v = new Vertex2hf(x, y);
-			Vertex4d v4d = (Vertex4d)v;
-
-			Assert.AreEqual(v.x, v4d.x, 1e-4);
-			Assert.AreEqual(v.y, v4d.y, 1e-4);
-			Assert.AreEqual(0.0f, v4d.z, 1e-4);
-			Assert.AreEqual(1.0f, v4d.w, 1e-4);
 		}
 
 		#endregion

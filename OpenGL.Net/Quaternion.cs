@@ -74,7 +74,7 @@ namespace OpenGL
 		/// Quaternion constructor from euler rotation axis and rotation angle.
 		/// </summary>
 		/// <param name="rVector">
-		/// A <see cref="Vertex3f"/> representing the rotation axis.
+		/// A <see cref="Vertex3d"/> representing the rotation axis.
 		/// </param>
 		/// <param name="rAngle">
 		/// A <see cref="float"/> representing the rotation angle (in degrees).
@@ -168,7 +168,7 @@ namespace OpenGL
 		/// Set quaternion using rotation axis and rotation angle.
 		/// </summary>
 		/// <param name="rVector">
-		/// A <see cref="Vertex3f"/> representing the rotation axis. It will be normalized.
+		/// A <see cref="Vertex3d"/> representing the rotation axis. It will be normalized.
 		/// </param>
 		/// <param name="rAngle">
 		/// A <see cref="float"/> representing the rotation angle (in degrees).

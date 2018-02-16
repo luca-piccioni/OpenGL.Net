@@ -50,6 +50,8 @@ namespace OpenGL
 
 	for (int i = 0; i < underlyingType.Length; i++) {
 		string className = String.Format("Vertex3{0}", postfixes[i]);
+		string postfix = postfixes[i];
+		string vertex4Name = String.Format("Vertex4{0}", postfixes[i]);
 		string baseType = underlyingType[i];
 		int structSize = structSizes[i];
 		string zero = zeroes[i], one = ones[i];
@@ -426,105 +428,84 @@ namespace OpenGL
 		/// <returns>
 		/// A <see cref="T:<#= baseType #>[]"/> initialized with the vector components.
 		/// </returns>
-		public static explicit operator <#= baseType #>[](<#= className #> a)
+		public static implicit operator <#= baseType #>[](<#= className #> a)
 		{
-			<#= baseType #>[] v = new <#= baseType #>[3];
-
-			v[0] = a.x;
-			v[1] = a.y;
-			v[2] = a.z;
-
-			return (v);
+			return new[] { a.x, a.y, a.z };
 		}
 
-<#
-		string castModifier_f = "implicit";
-
-		// Vertex3f from Vertex3d/Vertex3i/Vertex3ui requires explicit cast
-		if (className == "Vertex3d" || className == "Vertex3i" || className == "Vertex3ui")
-			castModifier_f = "explicit";
-#>
 		/// <summary>
-		/// Cast to Vertex2f operator.
+		/// Cast to <#= vertex4Name #> operator.
 		/// </summary>
-		/// <param name="v">
+		/// <param name="a">
 		/// A <see cref="<#= className #>"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A <see cref="Vertex2f"/> initialized with the vector components, ignoring the Z component.
+		/// A normalized <see cref="<#= vertex4Name #>"/> initialized with the vector components.
 		/// </returns>
-		public static explicit operator Vertex2f(<#= className #> v)
+		public static implicit operator <#= vertex4Name #>(<#= className #> a)
 		{
-			return (new Vertex2f((float)v.x, (float)v.y));
+			return new <#= vertex4Name #>(a.x, a.y, a.z, <#= one #>);
 		}
 
-<#
-		if (className != "Vertex3f") {
-#>
+<# if (className != "Vertex3f") { /* explicit cast to Vertex3f and Vertex4f */ #>
 		/// <summary>
 		/// Cast to Vertex3f operator.
 		/// </summary>
-		/// <param name="v">
+		/// <param name="a">
 		/// A <see cref="<#= className #>"/> to be casted.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex3f"/> initialized with the vector components.
 		/// </returns>
-		public static <#= castModifier_f #> operator Vertex3f(<#= className #> v)
+		public static explicit operator Vertex3f(<#= className #> a)
 		{
-			return (new Vertex3f((float)v.x, (float)v.y, (float)v.z));
+			return new Vertex3f((float)a.x, (float)a.y, (float)a.z);
 		}
 
-<#
+		/// <summary>
+		/// Cast to Vertex4f operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="<#= className #>"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex4f"/> initialized with the vector components.
+		/// </returns>
+		public static explicit operator Vertex4f(<#= className #> a)
+		{
+			return new Vertex4f((float)a.x, (float)a.y, (float)a.z, 1.0f);
 		}
-		
-		if (className != "Vertex3d") {
-#>
+
+<# } else { /* explicit cast to Vertex3d and Vertex4d from Vertex3f */ #>
 		/// <summary>
 		/// Cast to Vertex3d operator.
 		/// </summary>
-		/// <param name="v">
+		/// <param name="a">
 		/// A <see cref="<#= className #>"/> to be casted.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex3d"/> initialized with the vector components.
 		/// </returns>
-		public static implicit operator Vertex3d(<#= className #> v)
+		public static implicit operator Vertex3d(<#= className #> a)
 		{
-			return (new Vertex3d(v.x, v.y, v.z));
-		}
-
-<#
-		}
-#>
-		/// <summary>
-		/// Cast to Vertex4f operator.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="<#= className #>"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A normalized <see cref="Vertex4f"/> initialized with the vector components.
-		/// </returns>
-		public static <#= castModifier_f #> operator Vertex4f(<#= className #> v)
-		{
-			return (new Vertex4f((float)v.x, (float)v.y, (float)v.z, 1.0f));
+			return new Vertex3d(a.x, a.y, a.z);
 		}
 
 		/// <summary>
 		/// Cast to Vertex4d operator.
 		/// </summary>
-		/// <param name="v">
+		/// <param name="a">
 		/// A <see cref="<#= className #>"/> to be casted.
 		/// </param>
 		/// <returns>
-		/// A normalized <see cref="Vertex4d"/> initialized with the vector components.
+		/// A <see cref="Vertex4d"/> initialized with the vector components.
 		/// </returns>
-		public static implicit operator Vertex4d(<#= className #> v)
+		public static implicit operator Vertex4d(<#= className #> a)
 		{
-			return (new Vertex4d(v.x, v.y, v.z, 1.0f));
+			return new Vertex4d(a.x, a.y, a.z, 1.0);
 		}
 
+<# } #>
 		#endregion
 
 		#region Vertex Methods

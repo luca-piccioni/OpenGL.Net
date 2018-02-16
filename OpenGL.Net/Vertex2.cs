@@ -385,96 +385,23 @@ namespace OpenGL
 		/// <returns>
 		/// A <see cref="T:byte[]"/> initialized with the vector components.
 		/// </returns>
-		public static explicit operator byte[](Vertex2ub a)
+		public static implicit operator byte[](Vertex2ub a)
 		{
-			byte[] v = new byte[2];
-
-			v[0] = a.x;
-			v[1] = a.y;
-
-			return (v);
+			return new[] { a.x, a.y };
 		}
+
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
-		/// <param name="v">
+		/// <param name="a">
 		/// A <see cref="Vertex2ub"/> to be casted.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex2f"/> initialized with the vector components.
 		/// </returns>
-		public static implicit operator Vertex2f(Vertex2ub v)
+		public static explicit operator Vertex2f(Vertex2ub a)
 		{
-			return (new Vertex2f((float)v.x, (float)v.y));
-		}
-
-		/// <summary>
-		/// Cast to Vertex2d operator.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex2ub"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex2d"/> initialized with the vector components.
-		/// </returns>
-		public static implicit operator Vertex2d(Vertex2ub v)
-		{
-			return (new Vertex2d(v.x, v.y));
-		}
-		/// <summary>
-		/// Cast to Vertex3f operator.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex2ub"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex3f"/> initialized with the vector components, and Z component is implictly zero.
-		/// </returns>
-		public static implicit operator Vertex3f(Vertex2ub v)
-		{
-			return (new Vertex3f((float)v.x, (float)v.y, 0.0f));
-		}
-
-		/// <summary>
-		/// Cast to Vertex3d operator.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex2ub"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex3d"/> initialized with the vector components.
-		/// </returns>
-		public static implicit operator Vertex3d(Vertex2ub v)
-		{
-			return (new Vertex3d(v.x, v.y, 0.0));
-		}
-
-		/// <summary>
-		/// Cast to Vertex3f operator.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex2ub"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex4f"/> initialized with the vector components.
-		/// </returns>
-		public static implicit operator Vertex4f(Vertex2ub v)
-		{
-			return (new Vertex4f((float)v.x, (float)v.y, 0.0f, 1.0f));
-		}
-
-		/// <summary>
-		/// Cast to Vertex4d operator.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex2ub"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex4d"/> initialized with the vector components.
-		/// </returns>
-		public static implicit operator Vertex4d(Vertex2ub v)
-		{
-			return (new Vertex4d(v.x, v.y, 0.0, 1.0));
+			return new Vertex2f((float)a.x, (float)a.y);
 		}
 
 		#endregion
@@ -1175,96 +1102,23 @@ namespace OpenGL
 		/// <returns>
 		/// A <see cref="T:sbyte[]"/> initialized with the vector components.
 		/// </returns>
-		public static explicit operator sbyte[](Vertex2b a)
+		public static implicit operator sbyte[](Vertex2b a)
 		{
-			sbyte[] v = new sbyte[2];
-
-			v[0] = a.x;
-			v[1] = a.y;
-
-			return (v);
+			return new[] { a.x, a.y };
 		}
+
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
-		/// <param name="v">
+		/// <param name="a">
 		/// A <see cref="Vertex2b"/> to be casted.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex2f"/> initialized with the vector components.
 		/// </returns>
-		public static implicit operator Vertex2f(Vertex2b v)
+		public static explicit operator Vertex2f(Vertex2b a)
 		{
-			return (new Vertex2f((float)v.x, (float)v.y));
-		}
-
-		/// <summary>
-		/// Cast to Vertex2d operator.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex2b"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex2d"/> initialized with the vector components.
-		/// </returns>
-		public static implicit operator Vertex2d(Vertex2b v)
-		{
-			return (new Vertex2d(v.x, v.y));
-		}
-		/// <summary>
-		/// Cast to Vertex3f operator.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex2b"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex3f"/> initialized with the vector components, and Z component is implictly zero.
-		/// </returns>
-		public static implicit operator Vertex3f(Vertex2b v)
-		{
-			return (new Vertex3f((float)v.x, (float)v.y, 0.0f));
-		}
-
-		/// <summary>
-		/// Cast to Vertex3d operator.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex2b"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex3d"/> initialized with the vector components.
-		/// </returns>
-		public static implicit operator Vertex3d(Vertex2b v)
-		{
-			return (new Vertex3d(v.x, v.y, 0.0));
-		}
-
-		/// <summary>
-		/// Cast to Vertex3f operator.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex2b"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex4f"/> initialized with the vector components.
-		/// </returns>
-		public static implicit operator Vertex4f(Vertex2b v)
-		{
-			return (new Vertex4f((float)v.x, (float)v.y, 0.0f, 1.0f));
-		}
-
-		/// <summary>
-		/// Cast to Vertex4d operator.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex2b"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex4d"/> initialized with the vector components.
-		/// </returns>
-		public static implicit operator Vertex4d(Vertex2b v)
-		{
-			return (new Vertex4d(v.x, v.y, 0.0, 1.0));
+			return new Vertex2f((float)a.x, (float)a.y);
 		}
 
 		#endregion
@@ -1951,96 +1805,23 @@ namespace OpenGL
 		/// <returns>
 		/// A <see cref="T:ushort[]"/> initialized with the vector components.
 		/// </returns>
-		public static explicit operator ushort[](Vertex2us a)
+		public static implicit operator ushort[](Vertex2us a)
 		{
-			ushort[] v = new ushort[2];
-
-			v[0] = a.x;
-			v[1] = a.y;
-
-			return (v);
+			return new[] { a.x, a.y };
 		}
+
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
-		/// <param name="v">
+		/// <param name="a">
 		/// A <see cref="Vertex2us"/> to be casted.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex2f"/> initialized with the vector components.
 		/// </returns>
-		public static implicit operator Vertex2f(Vertex2us v)
+		public static explicit operator Vertex2f(Vertex2us a)
 		{
-			return (new Vertex2f((float)v.x, (float)v.y));
-		}
-
-		/// <summary>
-		/// Cast to Vertex2d operator.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex2us"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex2d"/> initialized with the vector components.
-		/// </returns>
-		public static implicit operator Vertex2d(Vertex2us v)
-		{
-			return (new Vertex2d(v.x, v.y));
-		}
-		/// <summary>
-		/// Cast to Vertex3f operator.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex2us"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex3f"/> initialized with the vector components, and Z component is implictly zero.
-		/// </returns>
-		public static implicit operator Vertex3f(Vertex2us v)
-		{
-			return (new Vertex3f((float)v.x, (float)v.y, 0.0f));
-		}
-
-		/// <summary>
-		/// Cast to Vertex3d operator.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex2us"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex3d"/> initialized with the vector components.
-		/// </returns>
-		public static implicit operator Vertex3d(Vertex2us v)
-		{
-			return (new Vertex3d(v.x, v.y, 0.0));
-		}
-
-		/// <summary>
-		/// Cast to Vertex3f operator.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex2us"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex4f"/> initialized with the vector components.
-		/// </returns>
-		public static implicit operator Vertex4f(Vertex2us v)
-		{
-			return (new Vertex4f((float)v.x, (float)v.y, 0.0f, 1.0f));
-		}
-
-		/// <summary>
-		/// Cast to Vertex4d operator.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex2us"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex4d"/> initialized with the vector components.
-		/// </returns>
-		public static implicit operator Vertex4d(Vertex2us v)
-		{
-			return (new Vertex4d(v.x, v.y, 0.0, 1.0));
+			return new Vertex2f((float)a.x, (float)a.y);
 		}
 
 		#endregion
@@ -2741,96 +2522,23 @@ namespace OpenGL
 		/// <returns>
 		/// A <see cref="T:short[]"/> initialized with the vector components.
 		/// </returns>
-		public static explicit operator short[](Vertex2s a)
+		public static implicit operator short[](Vertex2s a)
 		{
-			short[] v = new short[2];
-
-			v[0] = a.x;
-			v[1] = a.y;
-
-			return (v);
+			return new[] { a.x, a.y };
 		}
+
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
-		/// <param name="v">
+		/// <param name="a">
 		/// A <see cref="Vertex2s"/> to be casted.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex2f"/> initialized with the vector components.
 		/// </returns>
-		public static implicit operator Vertex2f(Vertex2s v)
+		public static explicit operator Vertex2f(Vertex2s a)
 		{
-			return (new Vertex2f((float)v.x, (float)v.y));
-		}
-
-		/// <summary>
-		/// Cast to Vertex2d operator.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex2s"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex2d"/> initialized with the vector components.
-		/// </returns>
-		public static implicit operator Vertex2d(Vertex2s v)
-		{
-			return (new Vertex2d(v.x, v.y));
-		}
-		/// <summary>
-		/// Cast to Vertex3f operator.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex2s"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex3f"/> initialized with the vector components, and Z component is implictly zero.
-		/// </returns>
-		public static implicit operator Vertex3f(Vertex2s v)
-		{
-			return (new Vertex3f((float)v.x, (float)v.y, 0.0f));
-		}
-
-		/// <summary>
-		/// Cast to Vertex3d operator.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex2s"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex3d"/> initialized with the vector components.
-		/// </returns>
-		public static implicit operator Vertex3d(Vertex2s v)
-		{
-			return (new Vertex3d(v.x, v.y, 0.0));
-		}
-
-		/// <summary>
-		/// Cast to Vertex3f operator.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex2s"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex4f"/> initialized with the vector components.
-		/// </returns>
-		public static implicit operator Vertex4f(Vertex2s v)
-		{
-			return (new Vertex4f((float)v.x, (float)v.y, 0.0f, 1.0f));
-		}
-
-		/// <summary>
-		/// Cast to Vertex4d operator.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex2s"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex4d"/> initialized with the vector components.
-		/// </returns>
-		public static implicit operator Vertex4d(Vertex2s v)
-		{
-			return (new Vertex4d(v.x, v.y, 0.0, 1.0));
+			return new Vertex2f((float)a.x, (float)a.y);
 		}
 
 		#endregion
@@ -3517,96 +3225,23 @@ namespace OpenGL
 		/// <returns>
 		/// A <see cref="T:uint[]"/> initialized with the vector components.
 		/// </returns>
-		public static explicit operator uint[](Vertex2ui a)
+		public static implicit operator uint[](Vertex2ui a)
 		{
-			uint[] v = new uint[2];
-
-			v[0] = a.x;
-			v[1] = a.y;
-
-			return (v);
+			return new[] { a.x, a.y };
 		}
+
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
-		/// <param name="v">
+		/// <param name="a">
 		/// A <see cref="Vertex2ui"/> to be casted.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex2f"/> initialized with the vector components.
 		/// </returns>
-		public static explicit operator Vertex2f(Vertex2ui v)
+		public static explicit operator Vertex2f(Vertex2ui a)
 		{
-			return (new Vertex2f((float)v.x, (float)v.y));
-		}
-
-		/// <summary>
-		/// Cast to Vertex2d operator.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex2ui"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex2d"/> initialized with the vector components.
-		/// </returns>
-		public static implicit operator Vertex2d(Vertex2ui v)
-		{
-			return (new Vertex2d(v.x, v.y));
-		}
-		/// <summary>
-		/// Cast to Vertex3f operator.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex2ui"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex3f"/> initialized with the vector components, and Z component is implictly zero.
-		/// </returns>
-		public static explicit operator Vertex3f(Vertex2ui v)
-		{
-			return (new Vertex3f((float)v.x, (float)v.y, 0.0f));
-		}
-
-		/// <summary>
-		/// Cast to Vertex3d operator.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex2ui"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex3d"/> initialized with the vector components.
-		/// </returns>
-		public static implicit operator Vertex3d(Vertex2ui v)
-		{
-			return (new Vertex3d(v.x, v.y, 0.0));
-		}
-
-		/// <summary>
-		/// Cast to Vertex3f operator.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex2ui"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex4f"/> initialized with the vector components.
-		/// </returns>
-		public static explicit operator Vertex4f(Vertex2ui v)
-		{
-			return (new Vertex4f((float)v.x, (float)v.y, 0.0f, 1.0f));
-		}
-
-		/// <summary>
-		/// Cast to Vertex4d operator.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex2ui"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex4d"/> initialized with the vector components.
-		/// </returns>
-		public static implicit operator Vertex4d(Vertex2ui v)
-		{
-			return (new Vertex4d(v.x, v.y, 0.0, 1.0));
+			return new Vertex2f((float)a.x, (float)a.y);
 		}
 
 		#endregion
@@ -4307,96 +3942,23 @@ namespace OpenGL
 		/// <returns>
 		/// A <see cref="T:int[]"/> initialized with the vector components.
 		/// </returns>
-		public static explicit operator int[](Vertex2i a)
+		public static implicit operator int[](Vertex2i a)
 		{
-			int[] v = new int[2];
-
-			v[0] = a.x;
-			v[1] = a.y;
-
-			return (v);
+			return new[] { a.x, a.y };
 		}
+
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
-		/// <param name="v">
+		/// <param name="a">
 		/// A <see cref="Vertex2i"/> to be casted.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex2f"/> initialized with the vector components.
 		/// </returns>
-		public static explicit operator Vertex2f(Vertex2i v)
+		public static explicit operator Vertex2f(Vertex2i a)
 		{
-			return (new Vertex2f((float)v.x, (float)v.y));
-		}
-
-		/// <summary>
-		/// Cast to Vertex2d operator.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex2i"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex2d"/> initialized with the vector components.
-		/// </returns>
-		public static implicit operator Vertex2d(Vertex2i v)
-		{
-			return (new Vertex2d(v.x, v.y));
-		}
-		/// <summary>
-		/// Cast to Vertex3f operator.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex2i"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex3f"/> initialized with the vector components, and Z component is implictly zero.
-		/// </returns>
-		public static explicit operator Vertex3f(Vertex2i v)
-		{
-			return (new Vertex3f((float)v.x, (float)v.y, 0.0f));
-		}
-
-		/// <summary>
-		/// Cast to Vertex3d operator.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex2i"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex3d"/> initialized with the vector components.
-		/// </returns>
-		public static implicit operator Vertex3d(Vertex2i v)
-		{
-			return (new Vertex3d(v.x, v.y, 0.0));
-		}
-
-		/// <summary>
-		/// Cast to Vertex3f operator.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex2i"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex4f"/> initialized with the vector components.
-		/// </returns>
-		public static explicit operator Vertex4f(Vertex2i v)
-		{
-			return (new Vertex4f((float)v.x, (float)v.y, 0.0f, 1.0f));
-		}
-
-		/// <summary>
-		/// Cast to Vertex4d operator.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex2i"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex4d"/> initialized with the vector components.
-		/// </returns>
-		public static implicit operator Vertex4d(Vertex2i v)
-		{
-			return (new Vertex4d(v.x, v.y, 0.0, 1.0));
+			return new Vertex2f((float)a.x, (float)a.y);
 		}
 
 		#endregion
@@ -5054,82 +4616,51 @@ namespace OpenGL
 		/// <returns>
 		/// A <see cref="T:float[]"/> initialized with the vector components.
 		/// </returns>
-		public static explicit operator float[](Vertex2f a)
+		public static implicit operator float[](Vertex2f a)
 		{
-			float[] v = new float[2];
-
-			v[0] = a.x;
-			v[1] = a.y;
-
-			return (v);
+			return new[] { a.x, a.y };
 		}
+
+		/// <summary>
+		/// Cast to Vertex3f operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Vertex2f"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex3f"/> initialized with the vector components.
+		/// </returns>
+		public static explicit operator Vertex3f(Vertex2f a)
+		{
+			return new Vertex3f((float)a.x, (float)a.y, 0.0f);
+		}
+
 		/// <summary>
 		/// Cast to Vertex2d operator.
 		/// </summary>
-		/// <param name="v">
+		/// <param name="a">
 		/// A <see cref="Vertex2f"/> to be casted.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex2d"/> initialized with the vector components.
 		/// </returns>
-		public static implicit operator Vertex2d(Vertex2f v)
+		public static implicit operator Vertex2d(Vertex2f a)
 		{
-			return (new Vertex2d(v.x, v.y));
-		}
-		/// <summary>
-		/// Cast to Vertex3f operator.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex2f"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex3f"/> initialized with the vector components, and Z component is implictly zero.
-		/// </returns>
-		public static implicit operator Vertex3f(Vertex2f v)
-		{
-			return (new Vertex3f((float)v.x, (float)v.y, 0.0f));
+			return new Vertex2d(a.x, a.y);
 		}
 
 		/// <summary>
 		/// Cast to Vertex3d operator.
 		/// </summary>
-		/// <param name="v">
+		/// <param name="a">
 		/// A <see cref="Vertex2f"/> to be casted.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex3d"/> initialized with the vector components.
 		/// </returns>
-		public static implicit operator Vertex3d(Vertex2f v)
+		public static implicit operator Vertex3d(Vertex2f a)
 		{
-			return (new Vertex3d(v.x, v.y, 0.0));
-		}
-
-		/// <summary>
-		/// Cast to Vertex3f operator.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex2f"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex4f"/> initialized with the vector components.
-		/// </returns>
-		public static implicit operator Vertex4f(Vertex2f v)
-		{
-			return (new Vertex4f((float)v.x, (float)v.y, 0.0f, 1.0f));
-		}
-
-		/// <summary>
-		/// Cast to Vertex4d operator.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex2f"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex4d"/> initialized with the vector components.
-		/// </returns>
-		public static implicit operator Vertex4d(Vertex2f v)
-		{
-			return (new Vertex4d(v.x, v.y, 0.0, 1.0));
+			return new Vertex3d(a.x, a.y, 0.0);
 		}
 
 		#endregion
@@ -5787,83 +5318,23 @@ namespace OpenGL
 		/// <returns>
 		/// A <see cref="T:double[]"/> initialized with the vector components.
 		/// </returns>
-		public static explicit operator double[](Vertex2d a)
+		public static implicit operator double[](Vertex2d a)
 		{
-			double[] v = new double[2];
-
-			v[0] = a.x;
-			v[1] = a.y;
-
-			return (v);
+			return new[] { a.x, a.y };
 		}
+
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
-		/// <param name="v">
+		/// <param name="a">
 		/// A <see cref="Vertex2d"/> to be casted.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex2f"/> initialized with the vector components.
 		/// </returns>
-		public static explicit operator Vertex2f(Vertex2d v)
+		public static explicit operator Vertex2f(Vertex2d a)
 		{
-			return (new Vertex2f((float)v.x, (float)v.y));
-		}
-
-		/// <summary>
-		/// Cast to Vertex3f operator.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex2d"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex3f"/> initialized with the vector components, and Z component is implictly zero.
-		/// </returns>
-		public static explicit operator Vertex3f(Vertex2d v)
-		{
-			return (new Vertex3f((float)v.x, (float)v.y, 0.0f));
-		}
-
-		/// <summary>
-		/// Cast to Vertex3d operator.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex2d"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex3d"/> initialized with the vector components.
-		/// </returns>
-		public static implicit operator Vertex3d(Vertex2d v)
-		{
-			return (new Vertex3d(v.x, v.y, 0.0));
-		}
-
-		/// <summary>
-		/// Cast to Vertex3f operator.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex2d"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex4f"/> initialized with the vector components.
-		/// </returns>
-		public static explicit operator Vertex4f(Vertex2d v)
-		{
-			return (new Vertex4f((float)v.x, (float)v.y, 0.0f, 1.0f));
-		}
-
-		/// <summary>
-		/// Cast to Vertex4d operator.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex2d"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex4d"/> initialized with the vector components.
-		/// </returns>
-		public static implicit operator Vertex4d(Vertex2d v)
-		{
-			return (new Vertex4d(v.x, v.y, 0.0, 1.0));
+			return new Vertex2f((float)a.x, (float)a.y);
 		}
 
 		#endregion
@@ -6521,96 +5992,23 @@ namespace OpenGL
 		/// <returns>
 		/// A <see cref="T:HalfFloat[]"/> initialized with the vector components.
 		/// </returns>
-		public static explicit operator HalfFloat[](Vertex2hf a)
+		public static implicit operator HalfFloat[](Vertex2hf a)
 		{
-			HalfFloat[] v = new HalfFloat[2];
-
-			v[0] = a.x;
-			v[1] = a.y;
-
-			return (v);
+			return new[] { a.x, a.y };
 		}
+
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
-		/// <param name="v">
+		/// <param name="a">
 		/// A <see cref="Vertex2hf"/> to be casted.
 		/// </param>
 		/// <returns>
 		/// A <see cref="Vertex2f"/> initialized with the vector components.
 		/// </returns>
-		public static implicit operator Vertex2f(Vertex2hf v)
+		public static explicit operator Vertex2f(Vertex2hf a)
 		{
-			return (new Vertex2f((float)v.x, (float)v.y));
-		}
-
-		/// <summary>
-		/// Cast to Vertex2d operator.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex2hf"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex2d"/> initialized with the vector components.
-		/// </returns>
-		public static implicit operator Vertex2d(Vertex2hf v)
-		{
-			return (new Vertex2d(v.x, v.y));
-		}
-		/// <summary>
-		/// Cast to Vertex3f operator.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex2hf"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex3f"/> initialized with the vector components, and Z component is implictly zero.
-		/// </returns>
-		public static implicit operator Vertex3f(Vertex2hf v)
-		{
-			return (new Vertex3f((float)v.x, (float)v.y, 0.0f));
-		}
-
-		/// <summary>
-		/// Cast to Vertex3d operator.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex2hf"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex3d"/> initialized with the vector components.
-		/// </returns>
-		public static implicit operator Vertex3d(Vertex2hf v)
-		{
-			return (new Vertex3d(v.x, v.y, 0.0));
-		}
-
-		/// <summary>
-		/// Cast to Vertex3f operator.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex2hf"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex4f"/> initialized with the vector components.
-		/// </returns>
-		public static implicit operator Vertex4f(Vertex2hf v)
-		{
-			return (new Vertex4f((float)v.x, (float)v.y, 0.0f, 1.0f));
-		}
-
-		/// <summary>
-		/// Cast to Vertex4d operator.
-		/// </summary>
-		/// <param name="v">
-		/// A <see cref="Vertex2hf"/> to be casted.
-		/// </param>
-		/// <returns>
-		/// A <see cref="Vertex4d"/> initialized with the vector components.
-		/// </returns>
-		public static implicit operator Vertex4d(Vertex2hf v)
-		{
-			return (new Vertex4d(v.x, v.y, 0.0, 1.0));
+			return new Vertex2f((float)a.x, (float)a.y);
 		}
 
 		#endregion

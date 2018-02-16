@@ -228,7 +228,7 @@ namespace OpenGL.Objects
 						glyphsDb.Add(gGlyph.GlyphChar, new Glyph(gGlyph.GlyphChar, gGlyph.GlyphSize, glyphIndex));
 					};
 					tessellator.Vertex += delegate(object sender, TessellatorVertexEventArgs e) {
-						glyphsVertices.Add((Vertex2f)e.Vertex);
+						glyphsVertices.Add(new Vertex2f((float)e.Vertex.x, (float)e.Vertex.y));
 					};
 
 					// Tessellate all glyphs
