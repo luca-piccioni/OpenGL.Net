@@ -163,8 +163,9 @@ namespace OpenGL
 		/// </returns>
 		public static <#= className #> operator -(<#= className #> v)
 		{
-			return (new <#= className #>((<#= baseType #>)(-v.x), (<#= baseType #>)(-v.y), (<#= baseType #>)(-v.z), (<#= baseType #>)(-v.w)));
+			return new <#= className #>((<#= baseType #>)(-v.x), (<#= baseType #>)(-v.y), (<#= baseType #>)(-v.z), (<#= baseType #>)(-v.w));
 		}
+
 <# } #>
 		/// <summary>
 		/// Add operator.
@@ -197,14 +198,7 @@ namespace OpenGL
 		/// </returns>
 		public static <#= className #> operator -(<#= className #> v1, <#= className #> v2)
 		{
-			<#= className #> v;
-
-			v.x = (<#= baseType #>)(v1.x - v2.x);
-			v.y = (<#= baseType #>)(v1.y - v2.y);
-			v.z = (<#= baseType #>)(v1.z - v2.z);
-			v.w = (<#= baseType #>)(v1.w - v2.w);
-
-			return (v);
+			return (<#= vertex3Name #>)v1 - (<#= vertex3Name #>)v2;
 		}
 
 		/// <summary>
@@ -279,7 +273,6 @@ namespace OpenGL
 		}
 
 <# } #>
-
 		#endregion
 
 		#region Equality Operators
@@ -321,12 +314,10 @@ namespace OpenGL
 		/// </returns>
 		public static explicit operator <#= baseType #>[](<#= className #> a)
 		{
-			return new <#= baseType #>[] { a.x, a.y, a.z, a.w };
+			return new[] { a.x, a.y, a.z, a.w };
 		}
 
-<#
-		if (className != "Vertex4d") {
-#>
+<# if (className != "Vertex4d") { #>
 		/// <summary>
 		/// Cast to <#= vertex3Name #> operator.
 		/// </summary>
@@ -338,15 +329,10 @@ namespace OpenGL
 		/// </returns>
 		public static explicit operator <#= vertex3Name #>(<#= className #> v)
 		{
-			return (new <#= vertex3Name #>(
-				(<#= baseType #>)((float)v.x / (float)v.w),
-				(<#= baseType #>)((float)v.y / (float)v.w),
-				(<#= baseType #>)((float)v.z / (float)v.w)
-			));
+			return new <#= vertex3Name #>((<#= baseType #>)((float)v.x / v.w), (<#= baseType #>)((float)v.y / v.w), (<#= baseType #>)((float)v.z / v.w));
 		}
-<#
-		} else {
-#>
+
+<# } else { #>
 		/// <summary>
 		/// Cast to <#= vertex3Name #> operator.
 		/// </summary>
@@ -358,7 +344,7 @@ namespace OpenGL
 		/// </returns>
 		public static explicit operator <#= vertex3Name #>(<#= className #> v)
 		{
-			return (new <#= vertex3Name #>(v.x / v.w, v.y / v.w, v.z / v.w));
+			return new <#= vertex3Name #>(v.x / v.w, v.y / v.w, v.z / v.w);
 		}
 
 <#
@@ -383,12 +369,10 @@ namespace OpenGL
 		{
 			<#= vertex3Name #> v3 = (<#= vertex3Name #>)v;
 
-			return (new Vertex2f((float)v3.x, (float)v3.y));
+			return new Vertex2f((float)v3.x, (float)v3.y);
 		}
 
-<#
-		if (className != "Vertex4f") {
-#>
+<# if (className != "Vertex4f") { #>
 		/// <summary>
 		/// Cast to Vertex3f operator.
 		/// </summary>
@@ -402,7 +386,7 @@ namespace OpenGL
 		{
 			<#= vertex3Name #> v3 = (<#= vertex3Name #>)v;
 
-			return (new Vertex3f((float)v3.x, (float)v3.y, (float)v3.z));
+			return new Vertex3f((float)v3.x, (float)v3.y, (float)v3.z);
 		}
 
 		/// <summary>
@@ -416,7 +400,7 @@ namespace OpenGL
 		/// </returns>
 		public static <#= castModifier_f #> operator Vertex4f(<#= className #> v)
 		{
-			return (new Vertex4f((float)v.x, (float)v.y, (float)v.z, (float)v.w));
+			return new Vertex4f((float)v.x, (float)v.y, (float)v.z, (float)v.w);
 		}
 
 <#
@@ -437,7 +421,7 @@ namespace OpenGL
 		{
 			<#= vertex3Name #> v3 = (<#= vertex3Name #>)v;
 
-			return (new Vertex3d(v3.x, v3.y, v3.z));
+			return new Vertex3d(v3.x, v3.y, v3.z);
 		}
 
 		/// <summary>
@@ -451,7 +435,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex4d(<#= className #> v)
 		{
-			return (new Vertex4d(v.x, v.y, v.z, v.w));
+			return new Vertex4d(v.x, v.y, v.z, v.w);
 		}
 
 <#
@@ -469,7 +453,7 @@ namespace OpenGL
 		/// </returns>
 		public float Module()
 		{
-			return ((float)Math.Sqrt(ModuleSquared()));
+			return (float)Math.Sqrt(ModuleSquared());
 		}
 
 		/// <summary>
@@ -480,7 +464,7 @@ namespace OpenGL
 		/// </returns>
 		public float ModuleSquared()
 		{
-			return (((<#= vertex3Name #>)this).ModuleSquared());
+			return ((<#= vertex3Name #>)this).ModuleSquared();
 		}
 
 		/// <summary>
@@ -506,7 +490,7 @@ namespace OpenGL
 
 				normalized.Normalize();
 
-				return (normalized);
+				return normalized;
 			}
 		}
 
@@ -522,11 +506,11 @@ namespace OpenGL
 		public static <#= className #> Min(params <#= className #>[] v)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 
 <# if (className == "Vertex4f") { #>
 #if HAVE_NUMERICS
-			Vector3 min = new Vector3(Single.MaxValue, Single.MaxValue, Single.MaxValue);
+			Vector3 min = new Vector3(float.MaxValue, float.MaxValue, float.MaxValue);
 
 			for (uint i = 0; i < v.Length; i++)
 				min = Vector3.Min(min, new Vector3(v[i].x, v[i].y, v[i].z) / v[i].w);
@@ -561,19 +545,19 @@ namespace OpenGL
 		/// <returns>
 		/// It returns the <#= className #> holding the minumum values.
 		/// </returns>
-		public unsafe static <#= className #> Min(<#= className #>* v, uint count)
+		public static unsafe <#= className #> Min(<#= className #>* v, uint count)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 
 <# if (className == "Vertex4f") { #>
 #if HAVE_NUMERICS
-			Vector3 min = new Vector3(Single.MaxValue, Single.MaxValue, Single.MaxValue);
+			Vector3 min = new Vector3(float.MaxValue, float.MaxValue, float.MaxValue);
 
 			for (uint i = 0; i < count; i++)
 				min = Vector3.Min(min, new Vector3(v[i].x, v[i].y, v[i].z) / v[i].w);
 
-			return (new <#= className #>(min.X, min.Y, min.Z));
+			return new <#= className #>(min.X, min.Y, min.Z);
 #else
 <# } #>
 			<#= baseType #> x = (<#= baseType #>)<#= baseType #>.MaxValue, y = (<#= baseType #>)<#= baseType #>.MaxValue, z = (<#= baseType #>)<#= baseType #>.MaxValue;
@@ -585,7 +569,7 @@ namespace OpenGL
 				z = (<#= baseType #>)Math.Min(z, v[i].z / w);
 			}
 
-			return (new <#= className #>(x, y, z));
+			return new <#= className #>(x, y, z);
 <# if (className == "Vertex4f") { #>
 #endif
 <# } #>
@@ -603,11 +587,11 @@ namespace OpenGL
 		public static <#= className #> Max(params <#= className #>[] v)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 <# if (className == "Vertex4f") { #>
 #if HAVE_NUMERICS
-			Vector3 max = new Vector3(Single.MinValue, Single.MinValue, Single.MinValue);
+			Vector3 max = new Vector3(float.MinValue, float.MinValue, float.MinValue);
 
 			for (uint i = 0; i < v.Length; i++)
 				max = Vector3.Max(max, new Vector3(v[i].x, v[i].y, v[i].z) / v[i].w);
@@ -642,14 +626,14 @@ namespace OpenGL
 		/// <returns>
 		/// It returns the <#= className #> holding the maximum values.
 		/// </returns>
-		public unsafe static <#= className #> Max(<#= className #>* v, uint count)
+		public static unsafe <#= className #> Max(<#= className #>* v, uint count)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 <# if (className == "Vertex4f") { #>
 #if HAVE_NUMERICS
-			Vector3 max = new Vector3(Single.MinValue, Single.MinValue, Single.MinValue);
+			Vector3 max = new Vector3(float.MinValue, float.MinValue, float.MinValue);
 
 			for (uint i = 0; i < count; i++)
 				max = Vector3.Max(max, new Vector3(v[i].x, v[i].y, v[i].z) / v[i].w);
@@ -687,12 +671,12 @@ namespace OpenGL
 		public static void MinMax(<#= className #>[] v, out <#= className #> min, out <#= className #> max)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 <# if (className == "Vertex4f") { #>
 #if HAVE_NUMERICS
-			Vector3 vmin = new Vector3(Single.MaxValue, Single.MaxValue, Single.MaxValue);
-			Vector3 vmax = new Vector3(Single.MinValue, Single.MinValue, Single.MinValue);
+			Vector3 vmin = new Vector3(float.MaxValue, float.MaxValue, float.MaxValue);
+			Vector3 vmax = new Vector3(float.MinValue, float.MinValue, float.MinValue);
 
 			for (uint i = 0; i < v.Length; i++) {
 				Vector3 v3 = new Vector3(v[i].x, v[i].y, v[i].z) / v[i].w;
@@ -736,15 +720,15 @@ namespace OpenGL
 		/// <param name="max">
 		/// A <see cref="<#= className #>"/> that returns the maximum value.
 		/// </param>
-		public unsafe static void MinMax(<#= className #>* v, uint count, out <#= className #> min, out <#= className #> max)
+		public static unsafe void MinMax(<#= className #>* v, uint count, out <#= className #> min, out <#= className #> max)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 <# if (className == "Vertex4f") { #>
 #if HAVE_NUMERICS
-			Vector3 vmin = new Vector3(Single.MaxValue, Single.MaxValue, Single.MaxValue);
-			Vector3 vmax = new Vector3(Single.MinValue, Single.MinValue, Single.MinValue);
+			Vector3 vmin = new Vector3(float.MaxValue, float.MaxValue, float.MaxValue);
+			Vector3 vmax = new Vector3(float.MinValue, float.MinValue, float.MinValue);
 
 			for (uint i = 0; i < count; i++) {
 				Vector3 v3 = new Vector3(v[i].x, v[i].y, v[i].z) / v[i].w;
