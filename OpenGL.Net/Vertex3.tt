@@ -796,9 +796,6 @@ namespace OpenGL
 #>
 		#region IEquatable Implementation
 
-<#
-		if (integerType[i] == 0) {
-#>
 		/// <summary>
 		/// Indicates whether the this <#= className #> is equal to another <#= className #>, tolerating an absolute error.
 		/// </summary>
@@ -822,10 +819,6 @@ namespace OpenGL
 
 			return (true);
 		}
-
-<#
-		}
-#>
 
 		/// <summary>
 		/// Indicates whether the this <#= className #> is equal to another <#= className #>.

@@ -691,7 +691,7 @@ namespace OpenGL
 		/// Indicates whether the this Vertex4ub is equal to another Vertex4ub.
 		/// </summary>
 		/// <param name="other">
-		/// An IVertex3 to compare with this object.
+		/// An <see cref="Vertex4ub"/> to compare with this object.
 		/// </param>
 		/// <returns>
 		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
@@ -1441,7 +1441,7 @@ namespace OpenGL
 		/// Indicates whether the this Vertex4b is equal to another Vertex4b.
 		/// </summary>
 		/// <param name="other">
-		/// An IVertex3 to compare with this object.
+		/// An <see cref="Vertex4b"/> to compare with this object.
 		/// </param>
 		/// <returns>
 		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
@@ -2178,7 +2178,7 @@ namespace OpenGL
 		/// Indicates whether the this Vertex4us is equal to another Vertex4us.
 		/// </summary>
 		/// <param name="other">
-		/// An IVertex3 to compare with this object.
+		/// An <see cref="Vertex4us"/> to compare with this object.
 		/// </param>
 		/// <returns>
 		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
@@ -2928,7 +2928,7 @@ namespace OpenGL
 		/// Indicates whether the this Vertex4s is equal to another Vertex4s.
 		/// </summary>
 		/// <param name="other">
-		/// An IVertex3 to compare with this object.
+		/// An <see cref="Vertex4s"/> to compare with this object.
 		/// </param>
 		/// <returns>
 		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
@@ -3665,7 +3665,7 @@ namespace OpenGL
 		/// Indicates whether the this Vertex4ui is equal to another Vertex4ui.
 		/// </summary>
 		/// <param name="other">
-		/// An IVertex3 to compare with this object.
+		/// An <see cref="Vertex4ui"/> to compare with this object.
 		/// </param>
 		/// <returns>
 		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
@@ -4415,7 +4415,7 @@ namespace OpenGL
 		/// Indicates whether the this Vertex4i is equal to another Vertex4i.
 		/// </summary>
 		/// <param name="other">
-		/// An IVertex3 to compare with this object.
+		/// An <see cref="Vertex4i"/> to compare with this object.
 		/// </param>
 		/// <returns>
 		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
@@ -5167,7 +5167,7 @@ namespace OpenGL
 		/// Indicates whether the this Vertex4f is equal to another Vertex4f.
 		/// </summary>
 		/// <param name="other">
-		/// An IVertex3 to compare with this object.
+		/// An <see cref="Vertex4f"/> to compare with this object.
 		/// </param>
 		/// <returns>
 		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
@@ -5884,7 +5884,7 @@ namespace OpenGL
 		/// Indicates whether the this Vertex4d is equal to another Vertex4d.
 		/// </summary>
 		/// <param name="other">
-		/// An IVertex3 to compare with this object.
+		/// An <see cref="Vertex4d"/> to compare with this object.
 		/// </param>
 		/// <returns>
 		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.
@@ -6634,7 +6634,7 @@ namespace OpenGL
 		/// Indicates whether the this Vertex4hf is equal to another Vertex4hf.
 		/// </summary>
 		/// <param name="other">
-		/// An IVertex3 to compare with this object.
+		/// An <see cref="Vertex4hf"/> to compare with this object.
 		/// </param>
 		/// <returns>
 		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.

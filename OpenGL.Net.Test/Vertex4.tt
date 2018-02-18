@@ -56,12 +56,15 @@ namespace OpenGL.Test
 	string[] postfixes =		new[] { "ub",   "b",     "us",     "s",     "ui",   "i",   "f",     "d",      "hf" };
 	int[] signedTypes =			new[] {  0,      1,       0,        1,       0,      1,     1,       1,        0 };
 	int[] integerTypes =		new[] {  1,      1,       1,        1,       1,      1,     0,       0,        0 };
+	string[] zeroes =			new[] { "0",    "0",     "0",      "0",     "0",    "0",   "0.0f",  "0.0",     "(HalfFloat)0.0f" };
+	string[] ones =				new[] { "1",    "1",     "1",      "1",     "1",    "1",   "1.0f",  "1.0",     "(HalfFloat)1.0f" };
 
 	for (int i = 0; i < underlyingType.Length; i++) {
 		string className = String.Format("Vertex4{0}", postfixes[i]);
 		string baseType = underlyingType[i];
 		int signedType = signedTypes[i];
 		int integerType = integerTypes[i];
+		string zero = zeroes[i], one = ones[i];
 #>
 	[TestFixture]
 	[Category("Math")]
@@ -691,10 +694,31 @@ namespace OpenGL.Test
 			Assert.IsTrue(v.Equals(<#= className #>.UnitX));
 			Assert.IsFalse(v.Equals(<#= className #>.UnitY));
 			Assert.IsFalse(v.Equals(<#= className #>.UnitZ));
+
+			// Defined vs Undefined equality
+			<#= className #> v1 = new <#= className #>(<#= one #>, <#= one #>, <#= one #>, <#= one #>);
+			<#= className #> v2 = new <#= className #>(<#= one #>, <#= one #>, <#= one #>, <#= zero #>);
+
+			Assert.IsFalse(v1.Equals(v2));
+			Assert.IsFalse(v2.Equals(v1));
+
+			// Undefined vs Undefined equality
+			v1 = new <#= className #>(<#= one #>, <#= one #>, <#= one #>, <#= zero #>);
+			v2 = new <#= className #>(<#= one #>, <#= one #>, <#= one #>, <#= zero #>);
+
+			Assert.IsTrue(v1.Equals(v2));
+			Assert.IsTrue(v2.Equals(v1));
+
+			// Normalized equality
+			v1 = new <#= className #>(<#= one #>);
+			v2 = new <#= className #>((<#= baseType #>)(<#= one #> + <#= one #>));
+
+			Assert.IsTrue(v1.Equals(v2));
+			Assert.IsTrue(v2.Equals(v1));
 		}
 
 		[Test(Description = "Test <#= className #>.Equals(object)")]
-		public void <#= className #>_TestEquals_True()
+		public void <#= className #>_TestEquals_Object()
 		{
 			<#= className #> v = <#= className #>.UnitX;
 

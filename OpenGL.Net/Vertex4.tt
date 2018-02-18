@@ -891,7 +891,7 @@ namespace OpenGL
 		/// Indicates whether the this <#= className #> is equal to another <#= className #>.
 		/// </summary>
 		/// <param name="other">
-		/// An IVertex3 to compare with this object.
+		/// An <see cref="<#= className #>"/> to compare with this object.
 		/// </param>
 		/// <returns>
 		/// It returns true if the this IVertex3 is equal to <paramref name="other"/>; otherwise, false.

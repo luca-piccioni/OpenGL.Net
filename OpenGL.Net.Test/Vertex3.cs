@@ -664,7 +664,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex3ub.Equals(object)")]
-		public void Vertex3ub_TestEquals_True()
+		public void Vertex3ub_TestEquals_Object()
 		{
 			Vertex3ub v = Vertex3ub.UnitX;
 
@@ -1348,7 +1348,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex3b.Equals(object)")]
-		public void Vertex3b_TestEquals_True()
+		public void Vertex3b_TestEquals_Object()
 		{
 			Vertex3b v = Vertex3b.UnitX;
 
@@ -2016,7 +2016,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex3us.Equals(object)")]
-		public void Vertex3us_TestEquals_True()
+		public void Vertex3us_TestEquals_Object()
 		{
 			Vertex3us v = Vertex3us.UnitX;
 
@@ -2700,7 +2700,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex3s.Equals(object)")]
-		public void Vertex3s_TestEquals_True()
+		public void Vertex3s_TestEquals_Object()
 		{
 			Vertex3s v = Vertex3s.UnitX;
 
@@ -3368,7 +3368,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex3ui.Equals(object)")]
-		public void Vertex3ui_TestEquals_True()
+		public void Vertex3ui_TestEquals_Object()
 		{
 			Vertex3ui v = Vertex3ui.UnitX;
 
@@ -4052,7 +4052,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex3i.Equals(object)")]
-		public void Vertex3i_TestEquals_True()
+		public void Vertex3i_TestEquals_Object()
 		{
 			Vertex3i v = Vertex3i.UnitX;
 
@@ -4699,7 +4699,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex3f.Equals(object)")]
-		public void Vertex3f_TestEquals_True()
+		public void Vertex3f_TestEquals_Object()
 		{
 			Vertex3f v = Vertex3f.UnitX;
 
@@ -5346,7 +5346,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex3d.Equals(object)")]
-		public void Vertex3d_TestEquals_True()
+		public void Vertex3d_TestEquals_Object()
 		{
 			Vertex3d v = Vertex3d.UnitX;
 
@@ -5977,7 +5977,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex3hf.Equals(object)")]
-		public void Vertex3hf_TestEquals_True()
+		public void Vertex3hf_TestEquals_Object()
 		{
 			Vertex3hf v = Vertex3hf.UnitX;
 

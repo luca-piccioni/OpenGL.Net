@@ -719,7 +719,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test <#= className #>.Equals(object)")]
-		public void <#= className #>_TestEquals_True()
+		public void <#= className #>_TestEquals_Object()
 		{
 			<#= className #> v = <#= className #>.UnitX;
 

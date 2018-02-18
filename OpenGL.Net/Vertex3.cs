@@ -687,6 +687,29 @@ namespace OpenGL
 
 		#region IEquatable Implementation
 
+		/// <summary>
+		/// Indicates whether the this Vertex3ub is equal to another Vertex3ub, tolerating an absolute error.
+		/// </summary>
+		/// <param name="other">
+		/// The <see cref="Vertex3ub"/> to compare with this Vertex3ub.
+		/// </param>
+		/// <param name="precision">
+		/// The <see cref="byte"/> that specifies the maximum absolute error tollerance.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this Vertex3ub is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(Vertex3ub other, byte precision)
+		{
+			if (Math.Abs(x - other.x) > precision)
+				return (false);
+			if (Math.Abs(y - other.y) > precision)
+				return (false);
+			if (Math.Abs(z - other.z) > precision)
+				return (false);
+
+			return (true);
+		}
 
 		/// <summary>
 		/// Indicates whether the this Vertex3ub is equal to another Vertex3ub.
@@ -1429,6 +1452,29 @@ namespace OpenGL
 
 		#region IEquatable Implementation
 
+		/// <summary>
+		/// Indicates whether the this Vertex3b is equal to another Vertex3b, tolerating an absolute error.
+		/// </summary>
+		/// <param name="other">
+		/// The <see cref="Vertex3b"/> to compare with this Vertex3b.
+		/// </param>
+		/// <param name="precision">
+		/// The <see cref="sbyte"/> that specifies the maximum absolute error tollerance.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this Vertex3b is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(Vertex3b other, sbyte precision)
+		{
+			if (Math.Abs(x - other.x) > precision)
+				return (false);
+			if (Math.Abs(y - other.y) > precision)
+				return (false);
+			if (Math.Abs(z - other.z) > precision)
+				return (false);
+
+			return (true);
+		}
 
 		/// <summary>
 		/// Indicates whether the this Vertex3b is equal to another Vertex3b.
@@ -2157,6 +2203,29 @@ namespace OpenGL
 
 		#region IEquatable Implementation
 
+		/// <summary>
+		/// Indicates whether the this Vertex3us is equal to another Vertex3us, tolerating an absolute error.
+		/// </summary>
+		/// <param name="other">
+		/// The <see cref="Vertex3us"/> to compare with this Vertex3us.
+		/// </param>
+		/// <param name="precision">
+		/// The <see cref="ushort"/> that specifies the maximum absolute error tollerance.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this Vertex3us is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(Vertex3us other, ushort precision)
+		{
+			if (Math.Abs(x - other.x) > precision)
+				return (false);
+			if (Math.Abs(y - other.y) > precision)
+				return (false);
+			if (Math.Abs(z - other.z) > precision)
+				return (false);
+
+			return (true);
+		}
 
 		/// <summary>
 		/// Indicates whether the this Vertex3us is equal to another Vertex3us.
@@ -2899,6 +2968,29 @@ namespace OpenGL
 
 		#region IEquatable Implementation
 
+		/// <summary>
+		/// Indicates whether the this Vertex3s is equal to another Vertex3s, tolerating an absolute error.
+		/// </summary>
+		/// <param name="other">
+		/// The <see cref="Vertex3s"/> to compare with this Vertex3s.
+		/// </param>
+		/// <param name="precision">
+		/// The <see cref="short"/> that specifies the maximum absolute error tollerance.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this Vertex3s is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(Vertex3s other, short precision)
+		{
+			if (Math.Abs(x - other.x) > precision)
+				return (false);
+			if (Math.Abs(y - other.y) > precision)
+				return (false);
+			if (Math.Abs(z - other.z) > precision)
+				return (false);
+
+			return (true);
+		}
 
 		/// <summary>
 		/// Indicates whether the this Vertex3s is equal to another Vertex3s.
@@ -3627,6 +3719,29 @@ namespace OpenGL
 
 		#region IEquatable Implementation
 
+		/// <summary>
+		/// Indicates whether the this Vertex3ui is equal to another Vertex3ui, tolerating an absolute error.
+		/// </summary>
+		/// <param name="other">
+		/// The <see cref="Vertex3ui"/> to compare with this Vertex3ui.
+		/// </param>
+		/// <param name="precision">
+		/// The <see cref="uint"/> that specifies the maximum absolute error tollerance.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this Vertex3ui is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(Vertex3ui other, uint precision)
+		{
+			if (Math.Abs(x - other.x) > precision)
+				return (false);
+			if (Math.Abs(y - other.y) > precision)
+				return (false);
+			if (Math.Abs(z - other.z) > precision)
+				return (false);
+
+			return (true);
+		}
 
 		/// <summary>
 		/// Indicates whether the this Vertex3ui is equal to another Vertex3ui.
@@ -4369,6 +4484,29 @@ namespace OpenGL
 
 		#region IEquatable Implementation
 
+		/// <summary>
+		/// Indicates whether the this Vertex3i is equal to another Vertex3i, tolerating an absolute error.
+		/// </summary>
+		/// <param name="other">
+		/// The <see cref="Vertex3i"/> to compare with this Vertex3i.
+		/// </param>
+		/// <param name="precision">
+		/// The <see cref="int"/> that specifies the maximum absolute error tollerance.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this Vertex3i is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(Vertex3i other, int precision)
+		{
+			if (Math.Abs(x - other.x) > precision)
+				return (false);
+			if (Math.Abs(y - other.y) > precision)
+				return (false);
+			if (Math.Abs(z - other.z) > precision)
+				return (false);
+
+			return (true);
+		}
 
 		/// <summary>
 		/// Indicates whether the this Vertex3i is equal to another Vertex3i.
@@ -5090,7 +5228,6 @@ namespace OpenGL
 			return (true);
 		}
 
-
 		/// <summary>
 		/// Indicates whether the this Vertex3f is equal to another Vertex3f.
 		/// </summary>
@@ -5811,7 +5948,6 @@ namespace OpenGL
 			return (true);
 		}
 
-
 		/// <summary>
 		/// Indicates whether the this Vertex3d is equal to another Vertex3d.
 		/// </summary>
@@ -6531,7 +6667,6 @@ namespace OpenGL
 
 			return (true);
 		}
-
 
 		/// <summary>
 		/// Indicates whether the this Vertex3hf is equal to another Vertex3hf.
