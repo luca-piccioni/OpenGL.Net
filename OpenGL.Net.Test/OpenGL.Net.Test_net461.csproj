@@ -107,6 +107,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Angle.cs" />
     <Compile Include="ARB\Wgl.ARB_extensions_string.cs" />
     <Compile Include="ARB\Wgl.ARB_pixel_format.cs" />
     <Compile Include="ColorBGR.cs">
