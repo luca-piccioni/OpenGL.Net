@@ -72,7 +72,7 @@ namespace OpenGL.Test
 		#region Constructors
 
 		[Test]
-		public void <#= className #>_TestConstructor1()
+		public void <#= className #>_Constructor1()
 		{
 			<#= className #> m = new <#= className #>(
 <# for (int c1 = 0, idx = 0; c1 < c; c1++) { #>
@@ -86,7 +86,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void <#= className #>_TestConstructor2()
+		public void <#= className #>_Constructor2()
 		{
 			Assert.Throws<ArgumentNullException>(() => new <#= className #>(null, 0));
 			Assert.Throws<ArgumentException>(() => new <#= className #>(new[] { 
@@ -108,7 +108,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void <#= className #>_TestConstructor3()
+		public void <#= className #>_Constructor3()
 		{
 			<#= className #> m1 = CreateRandomMatrix();
 			<#= className #> m2 = new <#= className #>(m1);
@@ -122,7 +122,7 @@ namespace OpenGL.Test
 		#region Columns & Rows
 
 		[Test]
-		public void <#= className #>_TestColumns()
+		public void <#= className #>_Columns()
 		{
 			<#= className #> m = CreateRandomMatrix();
 
@@ -136,7 +136,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void <#= className #>_TestRows()
+		public void <#= className #>_Rows()
 		{
 			<#= className #> m = CreateRandomMatrix();
 
@@ -150,7 +150,7 @@ namespace OpenGL.Test
 		#region Operators
 
 		[Test]
-		public void <#= className #>_TestAccessor()
+		public void <#= className #>_Accessor()
 		{
 			<#= className #> m = new <#= className #>();
 			<#= matrixBaseType #> r;
@@ -172,7 +172,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void <#= className #>_TestMultiplyScalar()
+		public void <#= className #>_MultiplyScalar()
 		{
 			<#= className #> m = CreateSequenceMatrix();
 
@@ -185,7 +185,7 @@ namespace OpenGL.Test
 
 <# if (c == r) { #>
 		[Test]
-		public void <#= className #>_TestMultiply<#= columnType #>()
+		public void <#= className #>_Multiply<#= columnType #>()
 		{
 			<#= className #> m = CreateSequenceMatrix();
 			<#= columnType #> v = <#= columnType #>.Zero;
@@ -193,7 +193,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void <#= className #>_TestMultiply<#= className #>()
+		public void <#= className #>_Multiply<#= className #>()
 		{
 			<#= className #> m1 = CreateSequenceMatrix();
 			<#= className #> m2 = CreateSequenceMatrix();
@@ -206,7 +206,7 @@ namespace OpenGL.Test
 		#region Cast Operators
 
 		[Test]
-		public void <#= className #>_TestCastToArray()
+		public void <#= className #>_CastToArray()
 		{
 			<#= className #> m = CreateSequenceMatrix();
 			<#= matrixBaseType #>[] mArray = (<#= matrixBaseType #>[])m;
@@ -223,7 +223,7 @@ namespace OpenGL.Test
 		string castMatrixOp = (matrixBaseType == "double") ? "(float)" : "";
 #>
 		[Test]
-		public void <#= className #>_TestCastTo<#= castMatrixType #>()
+		public void <#= className #>_CastTo<#= castMatrixType #>()
 		{
 			<#= className #> m = CreateSequenceMatrix();
 			<#= castMatrixType #> mOther = (<#= castMatrixType #>)m;
@@ -237,7 +237,7 @@ namespace OpenGL.Test
 		#region Equality Operators
 
 		[Test]
-		public void <#= className #>_TestEqualityOperator()
+		public void <#= className #>_EqualityOperator()
 		{
 			<#= className #> m1 = CreateRandomMatrix();
 			<#= className #> m2 = m1;
@@ -246,7 +246,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void <#= className #>_TestInequalityOperator()
+		public void <#= className #>_InequalityOperator()
 		{
 			<#= className #> m1 = CreateRandomMatrix();
 			<#= className #> m2 = m1;
@@ -260,7 +260,7 @@ namespace OpenGL.Test
 		#region Projections
 
 		[Test]
-		public void <#= className #>_TestOrtho()
+		public void <#= className #>_Ortho()
 		{
 			Assert.Throws<ArgumentException>(() => <#= className #>.Ortho(0.0f, 0.0f, -1.0f, +1.0f, -1.0f, +1.0f));
 			Assert.Throws<ArgumentException>(() => <#= className #>.Ortho(-1.0f, +1.0f, 0.0f, 0.0f, -1.0f, +1.0f));
@@ -270,7 +270,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void <#= className #>_TestOrtho2D()
+		public void <#= className #>_Ortho2D()
 		{
 			Assert.Throws<ArgumentException>(() => <#= className #>.Ortho2D(0.0f, 0.0f, -1.0f, +1.0f));
 			Assert.Throws<ArgumentException>(() => <#= className #>.Ortho2D(-1.0f, +1.0f, 0.0f, 0.0f));
@@ -279,7 +279,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void <#= className #>_TestFrustrum()
+		public void <#= className #>_Frustrum()
 		{
 			Assert.Throws<ArgumentException>(() => <#= className #>.Frustrum(0.0f, 0.0f, -1.0f, +1.0f, -1.0f, +1.0f));
 			Assert.Throws<ArgumentException>(() => <#= className #>.Frustrum(-1.0f, +1.0f, 0.0f, 0.0f, -1.0f, +1.0f));
@@ -289,7 +289,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void <#= className #>_TestPerspectiveSymmetric()
+		public void <#= className #>_PerspectiveSymmetric()
 		{
 			Assert.Throws<ArgumentOutOfRangeException>(() => <#= className #>.Perspective(-1.0f, 1.0f, 0.1f, 1000.0f));
 			Assert.Throws<ArgumentOutOfRangeException>(() => <#= className #>.Perspective(+180.0f, 1.0f, 0.1f, 1000.0f));
@@ -300,7 +300,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void <#= className #>_TestPerspectiveAsymmetric()
+		public void <#= className #>_PerspectiveAsymmetric()
 		{
 			Assert.Throws<ArgumentException>(() => <#= className #>.Perspective(0.0f, 0.0f, -1.0f, +1.0f, 0.1f, 1000.0f));
 			Assert.Throws<ArgumentException>(() => <#= className #>.Perspective(-1.0f, +1.0f, 0.0f, 0.0f, 0.1f, 1000.0f));
@@ -314,7 +314,7 @@ namespace OpenGL.Test
 		#region View Model
 
 		[Test]
-		public void <#= className #>_TestPosition()
+		public void <#= className #>_Position()
 		{
 			<#= className #> m = <#= className #>.Identity;
 
@@ -331,7 +331,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void <#= className #>_TestForwardVector()
+		public void <#= className #>_ForwardVector()
 		{
 			<#= className #> m = <#= className #>.Identity;
 
@@ -342,7 +342,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void <#= className #>_TestRightVector()
+		public void <#= className #>_RightVector()
 		{
 			<#= className #> m = <#= className #>.Identity;
 
@@ -353,7 +353,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void <#= className #>_TestUpVector()
+		public void <#= className #>_UpVector()
 		{
 			<#= className #> m = <#= className #>.Identity;
 
@@ -364,13 +364,13 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void <#= className #>_TestLookAt()
+		public void <#= className #>_LookAt()
 		{
 
 		}
 
 		[Test]
-		public void <#= className #>_TestLookAtDirection()
+		public void <#= className #>_LookAtDirection()
 		{
 
 		}
@@ -380,7 +380,7 @@ namespace OpenGL.Test
 		#region Translation
 
 		[Test]
-		public void <#= className #>_TestTranslated()
+		public void <#= className #>_Translated()
 		{
 			<#= className #> m = <#= className #>.Translated(0.0<#= literal #>, 1.0<#= literal #>, 2.0<#= literal #>);
 			<#= vertex3 #> v = new <#= vertex3 #>(0.0<#= literal #>, 1.0<#= literal #>, 2.0<#= literal #>);
@@ -390,7 +390,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void <#= className #>_TestTranslate()
+		public void <#= className #>_Translate()
 		{
 			<#= className #> m = <#= className #>.Identity;
 			<#= vertex3 #> v = new <#= vertex3 #>(0.0<#= literal #>, 1.0<#= literal #>, 2.0<#= literal #>);
@@ -409,7 +409,7 @@ namespace OpenGL.Test
 
 <# if (c > 2) { #>
 		[Test]
-		public void <#= className #>_TestRotatedX()
+		public void <#= className #>_RotatedX()
 		{
 			<#= className #> m = <#= className #>.RotatedX(0.0<#= literal #>);
 			Assert.IsTrue(m.Equals(<#= className #>.Identity, <#= epsilon #>));
@@ -427,7 +427,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void <#= className #>_TestRotateX()
+		public void <#= className #>_RotateX()
 		{
 			<#= className #> m = <#= className #>.Identity;
 			
@@ -448,7 +448,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void <#= className #>_TestRotatedY()
+		public void <#= className #>_RotatedY()
 		{
 			<#= className #> m = <#= className #>.RotatedY(0.0<#= literal #>);
 			Assert.IsTrue(m.Equals(<#= className #>.Identity, <#= epsilon #>));
@@ -466,7 +466,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void <#= className #>_TestRotateY()
+		public void <#= className #>_RotateY()
 		{
 			<#= className #> m = <#= className #>.Identity;
 			
@@ -488,7 +488,7 @@ namespace OpenGL.Test
 
 <# } #>
 		[Test]
-		public void <#= className #>_TestRotatedZ()
+		public void <#= className #>_RotatedZ()
 		{
 			<#= className #> m = <#= className #>.RotatedZ(0.0<#= literal #>);
 			Assert.IsTrue(m.Equals(<#= className #>.Identity, <#= epsilon #>));
@@ -508,7 +508,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void <#= className #>_TestRotateZ()
+		public void <#= className #>_RotateZ()
 		{
 			<#= className #> m = <#= className #>.Identity;
 			
@@ -537,7 +537,7 @@ namespace OpenGL.Test
 		#region Scaling
 
 		[Test]
-		public void <#= className #>_TestScaled()
+		public void <#= className #>_Scaled()
 		{
 			<#= className #> m = <#= className #>.Scaled(1.0f, 1.0f, 1.0f);
 			<#= columnType #> v;
@@ -564,7 +564,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void <#= className #>_TestScale()
+		public void <#= className #>_Scale()
 		{
 			<#= className #> m = <#= className #>.Identity;
 			<#= columnType #> v;
@@ -598,7 +598,7 @@ namespace OpenGL.Test
 		#region Transposition
 
 		[Test]
-		public void <#= className #>_TestTransposed()
+		public void <#= className #>_Transposed()
 		{
 			<#= className #> m = CreateRandomMatrix();
 			<#= tranposedClassName #> t = m.Transposed;
@@ -610,7 +610,7 @@ namespace OpenGL.Test
 
 <# if (c == r) { #>
 		[Test]
-		public void <#= className #>_TestTranspose()
+		public void <#= className #>_Transpose()
 		{
 			<#= className #> m = CreateRandomMatrix();
 			<#= className #> n = m;
@@ -629,13 +629,13 @@ namespace OpenGL.Test
 		#region Inversion
 
 		[Test]
-		public void <#= className #>_TestDeterminant()
+		public void <#= className #>_Determinant()
 		{
 			Assert.AreEqual(1.0<#= literal #>, <#= className #>.Identity.Determinant);
 		}
 
 		[Test]
-		public void <#= className #>_TestInverse()
+		public void <#= className #>_Inverse()
 		{
 			<#= className #> r;
 
@@ -650,7 +650,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void <#= className #>_TestInvert()
+		public void <#= className #>_Invert()
 		{
 			Assert.Throws<InvalidOperationException>(() => new <#= className #>().Invert());
 
@@ -670,7 +670,7 @@ namespace OpenGL.Test
 		#region IEquatable Implementation
 
 		[Test]
-		public void <#= className #>_TestAbsoluteEqualsTo<#= className #>()
+		public void <#= className #>_AbsoluteEqualsTo<#= className #>()
 		{
 			<#= className #> m = new <#= className #>();
 
@@ -683,7 +683,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void <#= className #>_TestEqualsTo<#= className #>()
+		public void <#= className #>_EqualsTo<#= className #>()
 		{
 			<#= className #> m1 = CreateRandomMatrix();
 			<#= className #> m2 = m1;
@@ -693,7 +693,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void <#= className #>_TestEqualsToObject()
+		public void <#= className #>_EqualsToObject()
 		{
 			<#= className #> m1 = CreateRandomMatrix();
 			<#= className #> m2 = m1;
@@ -705,7 +705,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void <#= className #>_TestGetHashCode()
+		public void <#= className #>_GetHashCode()
 		{
 			<#= className #> m = CreateRandomMatrix();
 			int hashCode, cache = 0;
@@ -725,7 +725,7 @@ namespace OpenGL.Test
 		#region Object Overrides
 
 		[Test]
-		public void <#= className #>_TestToString()
+		public void <#= className #>_ToString()
 		{
 			<#= className #> m = CreateRandomMatrix();
 

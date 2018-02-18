@@ -48,7 +48,7 @@ namespace OpenGL.Test
 		/// Test Uniform3* methods.
 		/// </summary>
 		[Test]
-		public void TestUniform1f()
+		public void Uniform1f()
 		{
 			if (!HasVersion(2, 0) && !HasEsVersion(2, 0) && !IsGlExtensionSupported("GL_ARB_shader_objects"))
 				Assert.Inconclusive("required features not implemented");
@@ -121,7 +121,7 @@ namespace OpenGL.Test
 		/// Test Uniform3* methods.
 		/// </summary>
 		[Test]
-		public void TestUniform1i()
+		public void Uniform1i()
 		{
 			if (!HasVersion(2, 0) && !HasEsVersion(2, 0) && !IsGlExtensionSupported("GL_ARB_shader_objects"))
 				Assert.Inconclusive("required features not implemented");
@@ -194,7 +194,7 @@ namespace OpenGL.Test
 		/// Test Uniform3* methods.
 		/// </summary>
 		[Test]
-		public void TestUniform1ui()
+		public void Uniform1ui()
 		{
 			if (!HasVersion(3, 0) && !HasEsVersion(3, 0) && !IsGlExtensionSupported("GL_EXT_gpu_shader4"))
 				Assert.Inconclusive("required features not implemented");
@@ -270,7 +270,7 @@ namespace OpenGL.Test
 		/// Test Uniform3* methods.
 		/// </summary>
 		[Test]
-		public void TestUniform1d()
+		public void Uniform1d()
 		{
 			if (!HasVersion(4, 0) && !IsGlExtensionSupported("GL_ARB_gpu_shader_fp64"))
 				Assert.Inconclusive("required features not implemented");
@@ -344,7 +344,7 @@ namespace OpenGL.Test
 		/// Test Uniform3* methods.
 		/// </summary>
 		[Test]
-		public void TestUniform2f()
+		public void Uniform2f()
 		{
 			if (!HasVersion(2, 0) && !HasEsVersion(2, 0) && !IsGlExtensionSupported("GL_ARB_shader_objects"))
 				Assert.Inconclusive("required features not implemented");
@@ -417,7 +417,7 @@ namespace OpenGL.Test
 		/// Test Uniform3* methods.
 		/// </summary>
 		[Test]
-		public void TestUniform2i()
+		public void Uniform2i()
 		{
 			if (!HasVersion(2, 0) && !HasEsVersion(2, 0) && !IsGlExtensionSupported("GL_ARB_shader_objects"))
 				Assert.Inconclusive("required features not implemented");
@@ -490,7 +490,7 @@ namespace OpenGL.Test
 		/// Test Uniform3* methods.
 		/// </summary>
 		[Test]
-		public void TestUniform2ui()
+		public void Uniform2ui()
 		{
 			if (!HasVersion(3, 0) && !HasEsVersion(3, 0) && !IsGlExtensionSupported("GL_EXT_gpu_shader4"))
 				Assert.Inconclusive("required features not implemented");
@@ -566,7 +566,7 @@ namespace OpenGL.Test
 		/// Test Uniform3* methods.
 		/// </summary>
 		[Test]
-		public void TestUniform2d()
+		public void Uniform2d()
 		{
 			if (!HasVersion(4, 0) && !IsGlExtensionSupported("GL_ARB_gpu_shader_fp64"))
 				Assert.Inconclusive("required features not implemented");
@@ -640,7 +640,7 @@ namespace OpenGL.Test
 		/// Test Uniform3* methods.
 		/// </summary>
 		[Test]
-		public void TestUniform3f()
+		public void Uniform3f()
 		{
 			if (!HasVersion(2, 0) && !HasEsVersion(2, 0) && !IsGlExtensionSupported("GL_ARB_shader_objects"))
 				Assert.Inconclusive("required features not implemented");
@@ -713,7 +713,7 @@ namespace OpenGL.Test
 		/// Test Uniform3* methods.
 		/// </summary>
 		[Test]
-		public void TestUniform3i()
+		public void Uniform3i()
 		{
 			if (!HasVersion(2, 0) && !HasEsVersion(2, 0) && !IsGlExtensionSupported("GL_ARB_shader_objects"))
 				Assert.Inconclusive("required features not implemented");
@@ -786,7 +786,7 @@ namespace OpenGL.Test
 		/// Test Uniform3* methods.
 		/// </summary>
 		[Test]
-		public void TestUniform3ui()
+		public void Uniform3ui()
 		{
 			if (!HasVersion(3, 0) && !HasEsVersion(3, 0) && !IsGlExtensionSupported("GL_EXT_gpu_shader4"))
 				Assert.Inconclusive("required features not implemented");
@@ -862,7 +862,7 @@ namespace OpenGL.Test
 		/// Test Uniform3* methods.
 		/// </summary>
 		[Test]
-		public void TestUniform3d()
+		public void Uniform3d()
 		{
 			if (!HasVersion(4, 0) && !IsGlExtensionSupported("GL_ARB_gpu_shader_fp64"))
 				Assert.Inconclusive("required features not implemented");
@@ -936,7 +936,7 @@ namespace OpenGL.Test
 		/// Test Uniform3* methods.
 		/// </summary>
 		[Test]
-		public void TestUniform4f()
+		public void Uniform4f()
 		{
 			if (!HasVersion(2, 0) && !HasEsVersion(2, 0) && !IsGlExtensionSupported("GL_ARB_shader_objects"))
 				Assert.Inconclusive("required features not implemented");
@@ -1009,7 +1009,7 @@ namespace OpenGL.Test
 		/// Test Uniform3* methods.
 		/// </summary>
 		[Test]
-		public void TestUniform4i()
+		public void Uniform4i()
 		{
 			if (!HasVersion(2, 0) && !HasEsVersion(2, 0) && !IsGlExtensionSupported("GL_ARB_shader_objects"))
 				Assert.Inconclusive("required features not implemented");
@@ -1082,7 +1082,7 @@ namespace OpenGL.Test
 		/// Test Uniform3* methods.
 		/// </summary>
 		[Test]
-		public void TestUniform4ui()
+		public void Uniform4ui()
 		{
 			if (!HasVersion(3, 0) && !HasEsVersion(3, 0) && !IsGlExtensionSupported("GL_EXT_gpu_shader4"))
 				Assert.Inconclusive("required features not implemented");
@@ -1158,7 +1158,7 @@ namespace OpenGL.Test
 		/// Test Uniform3* methods.
 		/// </summary>
 		[Test]
-		public void TestUniform4d()
+		public void Uniform4d()
 		{
 			if (!HasVersion(4, 0) && !IsGlExtensionSupported("GL_ARB_gpu_shader_fp64"))
 				Assert.Inconclusive("required features not implemented");

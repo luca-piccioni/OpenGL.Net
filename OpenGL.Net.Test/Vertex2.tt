@@ -63,14 +63,13 @@ namespace OpenGL.Test
 		int signedType = signedTypes[i];
 		int integerType = integerTypes[i];
 #>
-	[TestFixture]
-	[Category("Math")]
+	[TestFixture, Category("Math")]
 	class <#= className #>Test : Vertex2TestBase
 	{
 		#region Constructors
 
 		[Test(Description = "Test <#= className #>(<#= baseType #>)")]
-		public void <#= className #>_TestConstructor1()
+		public void <#= className #>_Constructor1()
 		{
 			Random random = new Random();
 			<#= baseType #> randomValue = (<#= baseType #>)Next(random);
@@ -82,7 +81,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test <#= className #>(<#= baseType #>[])")]
-		public void <#= className #>_TestConstructor2()
+		public void <#= className #>_Constructor2()
 		{
 			Random random = new Random();
 			<#= baseType #> randomValueX = (<#= baseType #>)Next(random);
@@ -97,7 +96,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test <#= className #>(<#= baseType #>, <#= baseType #>, <#= baseType #>)")]
-		public void <#= className #>_TestConstructor3()
+		public void <#= className #>_Constructor3()
 		{
 			Random random = new Random();
 			<#= baseType #> randomValueX = (<#= baseType #>)Next(random);
@@ -116,7 +115,7 @@ namespace OpenGL.Test
 		#region Properties
 
 		[Test(Description = "Test <#= className #>.Size against Marshal.SizeOf")]
-		public void <#= className #>_TestMarshalSize()
+		public void <#= className #>_MarshalSize()
 		{
 			Assert.AreEqual(Marshal.SizeOf(typeof(<#= className #>)), <#= className #>.Size);
 		}
@@ -129,7 +128,7 @@ namespace OpenGL.Test
 		if (signedType != 0) {
 #>
 		[Test(Description = "Test <#= className #>.operator-(<#= className #>))")]
-		public void <#= className #>_TestOperatorNegate()
+		public void <#= className #>_OperatorNegate()
 		{
 			Random random = new Random();
 			
@@ -146,7 +145,7 @@ namespace OpenGL.Test
 		}
 #>
 		[Test(Description = "Test <#= className #>.operator+(<#= className #>, <#= className #>)")]
-		public void <#= className #>_TestOperatorAdd()
+		public void <#= className #>_OperatorAdd()
 		{
 			Random random = new Random();
 			
@@ -167,7 +166,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test <#= className #>.operator-(<#= className #>, <#= className #>)")]
-		public void <#= className #>_TestOperatorSub()
+		public void <#= className #>_OperatorSub()
 		{
 			Random random = new Random();
 			
@@ -188,7 +187,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test <#= className #>.operator*(<#= className #>, Single)")]
-		public void <#= className #>_TestOperatorMultiplySingle()
+		public void <#= className #>_OperatorMultiplySingle()
 		{
 			Random random = new Random();
 			
@@ -205,7 +204,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test <#= className #>.operator*(<#= className #>, Double)")]
-		public void <#= className #>_TestOperatorMultiplyDouble()
+		public void <#= className #>_OperatorMultiplyDouble()
 		{
 			Random random = new Random();
 			
@@ -222,7 +221,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test <#= className #>.operator/(<#= className #>, Single)")]
-		public void <#= className #>_TestOperatorDivideSingle()
+		public void <#= className #>_OperatorDivideSingle()
 		{
 			Random random = new Random();
 			
@@ -239,7 +238,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test <#= className #>.operator/(<#= className #>, Double)")]
-		public void <#= className #>_TestOperatorDivideDouble()
+		public void <#= className #>_OperatorDivideDouble()
 		{
 			Random random = new Random();
 			
@@ -259,7 +258,7 @@ namespace OpenGL.Test
 		if (integerType != 0) {
 #>
 		[Test(Description = "Test <#= className #>.operator*(<#= className #>, <#= baseType #>)")]
-		public void <#= className #>_TestOperatorScalarMultiply()
+		public void <#= className #>_OperatorScalarMultiply()
 		{
 			Random random = new Random();
 			
@@ -276,7 +275,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test <#= className #>.operator/(<#= className #>, <#= baseType #>)")]
-		public void <#= className #>_TestOperatorScalarDivide()
+		public void <#= className #>_OperatorScalarDivide()
 		{
 			Random random = new Random();
 			
@@ -300,7 +299,7 @@ namespace OpenGL.Test
 		#region Equality Operators
 
 		[Test(Description = "Test <#= className #>.operator==(<#= className #>, <#= className #>)")]
-		public void <#= className #>_TestOperatorEquality()
+		public void <#= className #>_OperatorEquality()
 		{
 			<#= className #> v = <#= className #>.UnitX;
 
@@ -309,7 +308,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test <#= className #>.operator!=(<#= className #>, <#= className #>)")]
-		public void <#= className #>_TestOperatorInequality()
+		public void <#= className #>_OperatorInequality()
 		{
 			<#= className #> v = <#= className #>.UnitX;
 
@@ -322,7 +321,7 @@ namespace OpenGL.Test
 		#region Cast Operators
 
 		[Test(Description = "Test <#= className #>.operator <#= baseType #>[](<#= className #>)")]
-		public void <#= className #>_TestCastToArray()
+		public void <#= className #>_CastToArray()
 		{
 			Random random = new Random();
 			
@@ -337,7 +336,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test <#= className #>.operator Vertex2f(<#= className #>)")]
-		public void <#= className #>_TestCastToVertex2f()
+		public void <#= className #>_CastToVertex2f()
 		{
 			Random random = new Random();
 			
@@ -360,7 +359,7 @@ namespace OpenGL.Test
 		float moduleT2 = (float)Math.Sqrt(4.0 + 25.0);
 #>
 		[Test(Description = "Test <#= className #>.Module()")]
-		public void <#= className #>_TestModule()
+		public void <#= className #>_Module()
 		{
 			Assert.AreEqual(<#= moduleT1 #>f, new <#= className #>((<#= baseType #>)1.0, (<#= baseType #>)2.0).Module(), 1e-4f);
 			Assert.AreEqual(<#= moduleT2 #>f, new <#= className #>((<#= baseType #>)2.0, (<#= baseType #>)5.0).Module(), 1e-4f);
@@ -371,14 +370,14 @@ namespace OpenGL.Test
 		float moduleSquaredT2 = (float)(4.0 + 25.0);
 #>
 		[Test(Description = "Test <#= className #>.ModuleSquared()")]
-		public void <#= className #>_TestModuleSquared()
+		public void <#= className #>_ModuleSquared()
 		{
 			Assert.AreEqual(<#= moduleSquaredT1 #>f, new <#= className #>((<#= baseType #>)1.0, (<#= baseType #>)2.0).ModuleSquared(), 1e-4f);
 			Assert.AreEqual(<#= moduleSquaredT2 #>f, new <#= className #>((<#= baseType #>)2.0, (<#= baseType #>)5.0).ModuleSquared(), 1e-4f);
 		}
 
 		[Test(Description = "Test <#= className #>.Normalize()")]
-		public void <#= className #>_TestNormalize()
+		public void <#= className #>_Normalize()
 		{
 			Assert.DoesNotThrow(delegate() { <#= className #>.Zero.Normalize(); });
 
@@ -394,7 +393,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test <#= className #>.Normalized")]
-		public void <#= className #>_TestNormalized()
+		public void <#= className #>_Normalized()
 		{
 			<#= className #> v;
 
@@ -408,7 +407,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test <#= className #>.Min(<#= className #>[])")]
-		public void <#= className #>_TestMin()
+		public void <#= className #>_Min()
 		{
 			<#= className #>[] v = new <#= className #>[] {
 				new <#= className #>((<#= baseType #>)1.0f, (<#= baseType #>)13.0f),
@@ -425,13 +424,13 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test <#= className #>.Min(<#= className #>[]) ArgumentNullException")]
-		public void <#= className #>_TestMin_ArgumentNullException()
+		public void <#= className #>_Min_ArgumentNullException()
 		{
 			Assert.Throws<ArgumentNullException>(() => <#= className #>.Min(null));
 		}
 
 		[Test(Description = "Test <#= className #>.Min(<#= className #>*)")]
-		public void <#= className #>_TestMin_Unsafe()
+		public void <#= className #>_Min_Unsafe()
 		{
 			<#= className #>[] v = new <#= className #>[] {
 				new <#= className #>((<#= baseType #>)1.0f, (<#= baseType #>)13.0f),
@@ -454,7 +453,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test <#= className #>.Min(<#= className #>*) ArgumentNullException")]
-		public void <#= className #>_TestMin_Unsafe_ArgumentNullException()
+		public void <#= className #>_Min_Unsafe_ArgumentNullException()
 		{
 			unsafe {
 				Assert.Throws<ArgumentNullException>(() => <#= className #>.Min(null, 0));
@@ -462,7 +461,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test <#= className #>.Max(<#= className #>[])")]
-		public void <#= className #>_TestMax()
+		public void <#= className #>_Max()
 		{
 			<#= className #>[] v = new <#= className #>[] {
 				new <#= className #>((<#= baseType #>)1.0f, (<#= baseType #>)13.0f),
@@ -479,13 +478,13 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test <#= className #>.Max(<#= className #>[]) ArgumentNullException")]
-		public void <#= className #>_TestMax_ArgumentNullException()
+		public void <#= className #>_Max_ArgumentNullException()
 		{
 			Assert.Throws<ArgumentNullException>(() => <#= className #>.Max(null));
 		}
 
 		[Test(Description = "Test <#= className #>.Max(<#= className #>*)")]
-		public void <#= className #>_TestMax_Unsafe()
+		public void <#= className #>_Max_Unsafe()
 		{
 			<#= className #>[] v = new <#= className #>[] {
 				new <#= className #>((<#= baseType #>)1.0f, (<#= baseType #>)13.0f),
@@ -508,7 +507,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test <#= className #>.Max(<#= className #>*) ArgumentNullException")]
-		public void <#= className #>_TestMax_Unsafe_ArgumentNullException()
+		public void <#= className #>_Max_Unsafe_ArgumentNullException()
 		{
 			unsafe {
 				Assert.Throws<ArgumentNullException>(() => <#= className #>.Max(null, 0));
@@ -516,7 +515,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test <#= className #>.Max(<#= className #>[])")]
-		public void <#= className #>_TestMinMax()
+		public void <#= className #>_MinMax()
 		{
 			<#= className #>[] v = new <#= className #>[] {
 				new <#= className #>((<#= baseType #>)1.0f, (<#= baseType #>)13.0f),
@@ -539,7 +538,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test <#= className #>.Max(<#= className #>[]) ArgumentNullException")]
-		public void <#= className #>_TestMinMax_ArgumentNullException()
+		public void <#= className #>_MinMax_ArgumentNullException()
 		{
 			<#= className #> min, max;
 
@@ -547,7 +546,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test <#= className #>.MinMax(<#= className #>*)")]
-		public void <#= className #>_TestMinMax_Unsafe()
+		public void <#= className #>_MinMax_Unsafe()
 		{
 			<#= className #>[] v = new <#= className #>[] {
 				new <#= className #>((<#= baseType #>)1.0f, (<#= baseType #>)13.0f),
@@ -574,7 +573,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test <#= className #>.MinMax(<#= className #>*) ArgumentNullException")]
-		public void <#= className #>_TestMinMax_Unsafe_ArgumentNullException()
+		public void <#= className #>_MinMax_Unsafe_ArgumentNullException()
 		{
 			<#= className #> min, max;
 
@@ -588,7 +587,7 @@ namespace OpenGL.Test
 		#region IEquatable Implementation
 
 		[Test(Description = "Test <#= className #>.Equals(<#= className #>)")]
-		public void <#= className #>_TestEquals_<#= className #>()
+		public void <#= className #>_Equals_<#= className #>()
 		{
 			<#= className #> v = <#= className #>.UnitX;
 
@@ -597,7 +596,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test <#= className #>.Equals(object)")]
-		public void <#= className #>_TestEquals_True()
+		public void <#= className #>_Equals_True()
 		{
 			<#= className #> v = <#= className #>.UnitX;
 
@@ -610,7 +609,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test <#= className #>.GetHashCode()")]
-		public void <#= className #>_TestGetHashCode()
+		public void <#= className #>_GetHashCode()
 		{
 			Random random = new Random();
 			
@@ -627,7 +626,7 @@ namespace OpenGL.Test
 		#region Object Overrides
 
 		[Test(Description = "Test <#= className #>.ToString()")]
-		public void <#= className #>_TestToString()
+		public void <#= className #>_ToString()
 		{
 			Random random = new Random();
 			

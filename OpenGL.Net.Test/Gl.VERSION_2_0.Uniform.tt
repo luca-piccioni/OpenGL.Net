@@ -59,7 +59,7 @@ namespace OpenGL.Test
 			string postfix = postfixes[j];
 
 			string functCreateProgram = "CreateProgramUniform" + ordinal + postfix;
-			string functTestUniform = "TestUniform" + ordinal + postfix;
+			string functTestUniform = "Uniform" + ordinal + postfix;
 			string functArray = "Array" + ordinal;
 
 			string glRequisites = null;

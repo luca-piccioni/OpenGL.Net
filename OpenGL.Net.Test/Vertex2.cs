@@ -44,14 +44,13 @@ namespace OpenGL.Test
 		}
 	}
 
-	[TestFixture]
-	[Category("Math")]
+	[TestFixture, Category("Math")]
 	class Vertex2ubTest : Vertex2TestBase
 	{
 		#region Constructors
 
 		[Test(Description = "Test Vertex2ub(byte)")]
-		public void Vertex2ub_TestConstructor1()
+		public void Vertex2ub_Constructor1()
 		{
 			Random random = new Random();
 			byte randomValue = (byte)Next(random);
@@ -63,7 +62,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ub(byte[])")]
-		public void Vertex2ub_TestConstructor2()
+		public void Vertex2ub_Constructor2()
 		{
 			Random random = new Random();
 			byte randomValueX = (byte)Next(random);
@@ -78,7 +77,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ub(byte, byte, byte)")]
-		public void Vertex2ub_TestConstructor3()
+		public void Vertex2ub_Constructor3()
 		{
 			Random random = new Random();
 			byte randomValueX = (byte)Next(random);
@@ -97,7 +96,7 @@ namespace OpenGL.Test
 		#region Properties
 
 		[Test(Description = "Test Vertex2ub.Size against Marshal.SizeOf")]
-		public void Vertex2ub_TestMarshalSize()
+		public void Vertex2ub_MarshalSize()
 		{
 			Assert.AreEqual(Marshal.SizeOf(typeof(Vertex2ub)), Vertex2ub.Size);
 		}
@@ -107,7 +106,7 @@ namespace OpenGL.Test
 		#region Arithmetic Operators
 
 		[Test(Description = "Test Vertex2ub.operator+(Vertex2ub, Vertex2ub)")]
-		public void Vertex2ub_TestOperatorAdd()
+		public void Vertex2ub_OperatorAdd()
 		{
 			Random random = new Random();
 			
@@ -128,7 +127,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ub.operator-(Vertex2ub, Vertex2ub)")]
-		public void Vertex2ub_TestOperatorSub()
+		public void Vertex2ub_OperatorSub()
 		{
 			Random random = new Random();
 			
@@ -149,7 +148,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ub.operator*(Vertex2ub, Single)")]
-		public void Vertex2ub_TestOperatorMultiplySingle()
+		public void Vertex2ub_OperatorMultiplySingle()
 		{
 			Random random = new Random();
 			
@@ -166,7 +165,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ub.operator*(Vertex2ub, Double)")]
-		public void Vertex2ub_TestOperatorMultiplyDouble()
+		public void Vertex2ub_OperatorMultiplyDouble()
 		{
 			Random random = new Random();
 			
@@ -183,7 +182,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ub.operator/(Vertex2ub, Single)")]
-		public void Vertex2ub_TestOperatorDivideSingle()
+		public void Vertex2ub_OperatorDivideSingle()
 		{
 			Random random = new Random();
 			
@@ -200,7 +199,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ub.operator/(Vertex2ub, Double)")]
-		public void Vertex2ub_TestOperatorDivideDouble()
+		public void Vertex2ub_OperatorDivideDouble()
 		{
 			Random random = new Random();
 			
@@ -217,7 +216,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ub.operator*(Vertex2ub, byte)")]
-		public void Vertex2ub_TestOperatorScalarMultiply()
+		public void Vertex2ub_OperatorScalarMultiply()
 		{
 			Random random = new Random();
 			
@@ -234,7 +233,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ub.operator/(Vertex2ub, byte)")]
-		public void Vertex2ub_TestOperatorScalarDivide()
+		public void Vertex2ub_OperatorScalarDivide()
 		{
 			Random random = new Random();
 			
@@ -255,7 +254,7 @@ namespace OpenGL.Test
 		#region Equality Operators
 
 		[Test(Description = "Test Vertex2ub.operator==(Vertex2ub, Vertex2ub)")]
-		public void Vertex2ub_TestOperatorEquality()
+		public void Vertex2ub_OperatorEquality()
 		{
 			Vertex2ub v = Vertex2ub.UnitX;
 
@@ -264,7 +263,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ub.operator!=(Vertex2ub, Vertex2ub)")]
-		public void Vertex2ub_TestOperatorInequality()
+		public void Vertex2ub_OperatorInequality()
 		{
 			Vertex2ub v = Vertex2ub.UnitX;
 
@@ -277,7 +276,7 @@ namespace OpenGL.Test
 		#region Cast Operators
 
 		[Test(Description = "Test Vertex2ub.operator byte[](Vertex2ub)")]
-		public void Vertex2ub_TestCastToArray()
+		public void Vertex2ub_CastToArray()
 		{
 			Random random = new Random();
 			
@@ -292,7 +291,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ub.operator Vertex2f(Vertex2ub)")]
-		public void Vertex2ub_TestCastToVertex2f()
+		public void Vertex2ub_CastToVertex2f()
 		{
 			Random random = new Random();
 			
@@ -311,21 +310,21 @@ namespace OpenGL.Test
 		#region Vertex Methods
 
 		[Test(Description = "Test Vertex2ub.Module()")]
-		public void Vertex2ub_TestModule()
+		public void Vertex2ub_Module()
 		{
 			Assert.AreEqual(2.236068f, new Vertex2ub((byte)1.0, (byte)2.0).Module(), 1e-4f);
 			Assert.AreEqual(5.385165f, new Vertex2ub((byte)2.0, (byte)5.0).Module(), 1e-4f);
 		}
 
 		[Test(Description = "Test Vertex2ub.ModuleSquared()")]
-		public void Vertex2ub_TestModuleSquared()
+		public void Vertex2ub_ModuleSquared()
 		{
 			Assert.AreEqual(5f, new Vertex2ub((byte)1.0, (byte)2.0).ModuleSquared(), 1e-4f);
 			Assert.AreEqual(29f, new Vertex2ub((byte)2.0, (byte)5.0).ModuleSquared(), 1e-4f);
 		}
 
 		[Test(Description = "Test Vertex2ub.Normalize()")]
-		public void Vertex2ub_TestNormalize()
+		public void Vertex2ub_Normalize()
 		{
 			Assert.DoesNotThrow(delegate() { Vertex2ub.Zero.Normalize(); });
 
@@ -341,7 +340,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ub.Normalized")]
-		public void Vertex2ub_TestNormalized()
+		public void Vertex2ub_Normalized()
 		{
 			Vertex2ub v;
 
@@ -355,7 +354,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ub.Min(Vertex2ub[])")]
-		public void Vertex2ub_TestMin()
+		public void Vertex2ub_Min()
 		{
 			Vertex2ub[] v = new Vertex2ub[] {
 				new Vertex2ub((byte)1.0f, (byte)13.0f),
@@ -372,13 +371,13 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ub.Min(Vertex2ub[]) ArgumentNullException")]
-		public void Vertex2ub_TestMin_ArgumentNullException()
+		public void Vertex2ub_Min_ArgumentNullException()
 		{
 			Assert.Throws<ArgumentNullException>(() => Vertex2ub.Min(null));
 		}
 
 		[Test(Description = "Test Vertex2ub.Min(Vertex2ub*)")]
-		public void Vertex2ub_TestMin_Unsafe()
+		public void Vertex2ub_Min_Unsafe()
 		{
 			Vertex2ub[] v = new Vertex2ub[] {
 				new Vertex2ub((byte)1.0f, (byte)13.0f),
@@ -401,7 +400,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ub.Min(Vertex2ub*) ArgumentNullException")]
-		public void Vertex2ub_TestMin_Unsafe_ArgumentNullException()
+		public void Vertex2ub_Min_Unsafe_ArgumentNullException()
 		{
 			unsafe {
 				Assert.Throws<ArgumentNullException>(() => Vertex2ub.Min(null, 0));
@@ -409,7 +408,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ub.Max(Vertex2ub[])")]
-		public void Vertex2ub_TestMax()
+		public void Vertex2ub_Max()
 		{
 			Vertex2ub[] v = new Vertex2ub[] {
 				new Vertex2ub((byte)1.0f, (byte)13.0f),
@@ -426,13 +425,13 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ub.Max(Vertex2ub[]) ArgumentNullException")]
-		public void Vertex2ub_TestMax_ArgumentNullException()
+		public void Vertex2ub_Max_ArgumentNullException()
 		{
 			Assert.Throws<ArgumentNullException>(() => Vertex2ub.Max(null));
 		}
 
 		[Test(Description = "Test Vertex2ub.Max(Vertex2ub*)")]
-		public void Vertex2ub_TestMax_Unsafe()
+		public void Vertex2ub_Max_Unsafe()
 		{
 			Vertex2ub[] v = new Vertex2ub[] {
 				new Vertex2ub((byte)1.0f, (byte)13.0f),
@@ -455,7 +454,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ub.Max(Vertex2ub*) ArgumentNullException")]
-		public void Vertex2ub_TestMax_Unsafe_ArgumentNullException()
+		public void Vertex2ub_Max_Unsafe_ArgumentNullException()
 		{
 			unsafe {
 				Assert.Throws<ArgumentNullException>(() => Vertex2ub.Max(null, 0));
@@ -463,7 +462,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ub.Max(Vertex2ub[])")]
-		public void Vertex2ub_TestMinMax()
+		public void Vertex2ub_MinMax()
 		{
 			Vertex2ub[] v = new Vertex2ub[] {
 				new Vertex2ub((byte)1.0f, (byte)13.0f),
@@ -486,7 +485,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ub.Max(Vertex2ub[]) ArgumentNullException")]
-		public void Vertex2ub_TestMinMax_ArgumentNullException()
+		public void Vertex2ub_MinMax_ArgumentNullException()
 		{
 			Vertex2ub min, max;
 
@@ -494,7 +493,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ub.MinMax(Vertex2ub*)")]
-		public void Vertex2ub_TestMinMax_Unsafe()
+		public void Vertex2ub_MinMax_Unsafe()
 		{
 			Vertex2ub[] v = new Vertex2ub[] {
 				new Vertex2ub((byte)1.0f, (byte)13.0f),
@@ -521,7 +520,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ub.MinMax(Vertex2ub*) ArgumentNullException")]
-		public void Vertex2ub_TestMinMax_Unsafe_ArgumentNullException()
+		public void Vertex2ub_MinMax_Unsafe_ArgumentNullException()
 		{
 			Vertex2ub min, max;
 
@@ -535,7 +534,7 @@ namespace OpenGL.Test
 		#region IEquatable Implementation
 
 		[Test(Description = "Test Vertex2ub.Equals(Vertex2ub)")]
-		public void Vertex2ub_TestEquals_Vertex2ub()
+		public void Vertex2ub_Equals_Vertex2ub()
 		{
 			Vertex2ub v = Vertex2ub.UnitX;
 
@@ -544,7 +543,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ub.Equals(object)")]
-		public void Vertex2ub_TestEquals_True()
+		public void Vertex2ub_Equals_True()
 		{
 			Vertex2ub v = Vertex2ub.UnitX;
 
@@ -557,7 +556,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ub.GetHashCode()")]
-		public void Vertex2ub_TestGetHashCode()
+		public void Vertex2ub_GetHashCode()
 		{
 			Random random = new Random();
 			
@@ -574,7 +573,7 @@ namespace OpenGL.Test
 		#region Object Overrides
 
 		[Test(Description = "Test Vertex2ub.ToString()")]
-		public void Vertex2ub_TestToString()
+		public void Vertex2ub_ToString()
 		{
 			Random random = new Random();
 			
@@ -589,14 +588,13 @@ namespace OpenGL.Test
 		#endregion
 	}
 
-	[TestFixture]
-	[Category("Math")]
+	[TestFixture, Category("Math")]
 	class Vertex2bTest : Vertex2TestBase
 	{
 		#region Constructors
 
 		[Test(Description = "Test Vertex2b(sbyte)")]
-		public void Vertex2b_TestConstructor1()
+		public void Vertex2b_Constructor1()
 		{
 			Random random = new Random();
 			sbyte randomValue = (sbyte)Next(random);
@@ -608,7 +606,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2b(sbyte[])")]
-		public void Vertex2b_TestConstructor2()
+		public void Vertex2b_Constructor2()
 		{
 			Random random = new Random();
 			sbyte randomValueX = (sbyte)Next(random);
@@ -623,7 +621,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2b(sbyte, sbyte, sbyte)")]
-		public void Vertex2b_TestConstructor3()
+		public void Vertex2b_Constructor3()
 		{
 			Random random = new Random();
 			sbyte randomValueX = (sbyte)Next(random);
@@ -642,7 +640,7 @@ namespace OpenGL.Test
 		#region Properties
 
 		[Test(Description = "Test Vertex2b.Size against Marshal.SizeOf")]
-		public void Vertex2b_TestMarshalSize()
+		public void Vertex2b_MarshalSize()
 		{
 			Assert.AreEqual(Marshal.SizeOf(typeof(Vertex2b)), Vertex2b.Size);
 		}
@@ -652,7 +650,7 @@ namespace OpenGL.Test
 		#region Arithmetic Operators
 
 		[Test(Description = "Test Vertex2b.operator-(Vertex2b))")]
-		public void Vertex2b_TestOperatorNegate()
+		public void Vertex2b_OperatorNegate()
 		{
 			Random random = new Random();
 			
@@ -666,7 +664,7 @@ namespace OpenGL.Test
 			Assert.AreEqual(-y, n.y);
 		}
 		[Test(Description = "Test Vertex2b.operator+(Vertex2b, Vertex2b)")]
-		public void Vertex2b_TestOperatorAdd()
+		public void Vertex2b_OperatorAdd()
 		{
 			Random random = new Random();
 			
@@ -687,7 +685,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2b.operator-(Vertex2b, Vertex2b)")]
-		public void Vertex2b_TestOperatorSub()
+		public void Vertex2b_OperatorSub()
 		{
 			Random random = new Random();
 			
@@ -708,7 +706,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2b.operator*(Vertex2b, Single)")]
-		public void Vertex2b_TestOperatorMultiplySingle()
+		public void Vertex2b_OperatorMultiplySingle()
 		{
 			Random random = new Random();
 			
@@ -725,7 +723,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2b.operator*(Vertex2b, Double)")]
-		public void Vertex2b_TestOperatorMultiplyDouble()
+		public void Vertex2b_OperatorMultiplyDouble()
 		{
 			Random random = new Random();
 			
@@ -742,7 +740,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2b.operator/(Vertex2b, Single)")]
-		public void Vertex2b_TestOperatorDivideSingle()
+		public void Vertex2b_OperatorDivideSingle()
 		{
 			Random random = new Random();
 			
@@ -759,7 +757,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2b.operator/(Vertex2b, Double)")]
-		public void Vertex2b_TestOperatorDivideDouble()
+		public void Vertex2b_OperatorDivideDouble()
 		{
 			Random random = new Random();
 			
@@ -776,7 +774,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2b.operator*(Vertex2b, sbyte)")]
-		public void Vertex2b_TestOperatorScalarMultiply()
+		public void Vertex2b_OperatorScalarMultiply()
 		{
 			Random random = new Random();
 			
@@ -793,7 +791,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2b.operator/(Vertex2b, sbyte)")]
-		public void Vertex2b_TestOperatorScalarDivide()
+		public void Vertex2b_OperatorScalarDivide()
 		{
 			Random random = new Random();
 			
@@ -814,7 +812,7 @@ namespace OpenGL.Test
 		#region Equality Operators
 
 		[Test(Description = "Test Vertex2b.operator==(Vertex2b, Vertex2b)")]
-		public void Vertex2b_TestOperatorEquality()
+		public void Vertex2b_OperatorEquality()
 		{
 			Vertex2b v = Vertex2b.UnitX;
 
@@ -823,7 +821,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2b.operator!=(Vertex2b, Vertex2b)")]
-		public void Vertex2b_TestOperatorInequality()
+		public void Vertex2b_OperatorInequality()
 		{
 			Vertex2b v = Vertex2b.UnitX;
 
@@ -836,7 +834,7 @@ namespace OpenGL.Test
 		#region Cast Operators
 
 		[Test(Description = "Test Vertex2b.operator sbyte[](Vertex2b)")]
-		public void Vertex2b_TestCastToArray()
+		public void Vertex2b_CastToArray()
 		{
 			Random random = new Random();
 			
@@ -851,7 +849,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2b.operator Vertex2f(Vertex2b)")]
-		public void Vertex2b_TestCastToVertex2f()
+		public void Vertex2b_CastToVertex2f()
 		{
 			Random random = new Random();
 			
@@ -870,21 +868,21 @@ namespace OpenGL.Test
 		#region Vertex Methods
 
 		[Test(Description = "Test Vertex2b.Module()")]
-		public void Vertex2b_TestModule()
+		public void Vertex2b_Module()
 		{
 			Assert.AreEqual(2.236068f, new Vertex2b((sbyte)1.0, (sbyte)2.0).Module(), 1e-4f);
 			Assert.AreEqual(5.385165f, new Vertex2b((sbyte)2.0, (sbyte)5.0).Module(), 1e-4f);
 		}
 
 		[Test(Description = "Test Vertex2b.ModuleSquared()")]
-		public void Vertex2b_TestModuleSquared()
+		public void Vertex2b_ModuleSquared()
 		{
 			Assert.AreEqual(5f, new Vertex2b((sbyte)1.0, (sbyte)2.0).ModuleSquared(), 1e-4f);
 			Assert.AreEqual(29f, new Vertex2b((sbyte)2.0, (sbyte)5.0).ModuleSquared(), 1e-4f);
 		}
 
 		[Test(Description = "Test Vertex2b.Normalize()")]
-		public void Vertex2b_TestNormalize()
+		public void Vertex2b_Normalize()
 		{
 			Assert.DoesNotThrow(delegate() { Vertex2b.Zero.Normalize(); });
 
@@ -900,7 +898,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2b.Normalized")]
-		public void Vertex2b_TestNormalized()
+		public void Vertex2b_Normalized()
 		{
 			Vertex2b v;
 
@@ -914,7 +912,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2b.Min(Vertex2b[])")]
-		public void Vertex2b_TestMin()
+		public void Vertex2b_Min()
 		{
 			Vertex2b[] v = new Vertex2b[] {
 				new Vertex2b((sbyte)1.0f, (sbyte)13.0f),
@@ -931,13 +929,13 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2b.Min(Vertex2b[]) ArgumentNullException")]
-		public void Vertex2b_TestMin_ArgumentNullException()
+		public void Vertex2b_Min_ArgumentNullException()
 		{
 			Assert.Throws<ArgumentNullException>(() => Vertex2b.Min(null));
 		}
 
 		[Test(Description = "Test Vertex2b.Min(Vertex2b*)")]
-		public void Vertex2b_TestMin_Unsafe()
+		public void Vertex2b_Min_Unsafe()
 		{
 			Vertex2b[] v = new Vertex2b[] {
 				new Vertex2b((sbyte)1.0f, (sbyte)13.0f),
@@ -960,7 +958,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2b.Min(Vertex2b*) ArgumentNullException")]
-		public void Vertex2b_TestMin_Unsafe_ArgumentNullException()
+		public void Vertex2b_Min_Unsafe_ArgumentNullException()
 		{
 			unsafe {
 				Assert.Throws<ArgumentNullException>(() => Vertex2b.Min(null, 0));
@@ -968,7 +966,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2b.Max(Vertex2b[])")]
-		public void Vertex2b_TestMax()
+		public void Vertex2b_Max()
 		{
 			Vertex2b[] v = new Vertex2b[] {
 				new Vertex2b((sbyte)1.0f, (sbyte)13.0f),
@@ -985,13 +983,13 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2b.Max(Vertex2b[]) ArgumentNullException")]
-		public void Vertex2b_TestMax_ArgumentNullException()
+		public void Vertex2b_Max_ArgumentNullException()
 		{
 			Assert.Throws<ArgumentNullException>(() => Vertex2b.Max(null));
 		}
 
 		[Test(Description = "Test Vertex2b.Max(Vertex2b*)")]
-		public void Vertex2b_TestMax_Unsafe()
+		public void Vertex2b_Max_Unsafe()
 		{
 			Vertex2b[] v = new Vertex2b[] {
 				new Vertex2b((sbyte)1.0f, (sbyte)13.0f),
@@ -1014,7 +1012,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2b.Max(Vertex2b*) ArgumentNullException")]
-		public void Vertex2b_TestMax_Unsafe_ArgumentNullException()
+		public void Vertex2b_Max_Unsafe_ArgumentNullException()
 		{
 			unsafe {
 				Assert.Throws<ArgumentNullException>(() => Vertex2b.Max(null, 0));
@@ -1022,7 +1020,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2b.Max(Vertex2b[])")]
-		public void Vertex2b_TestMinMax()
+		public void Vertex2b_MinMax()
 		{
 			Vertex2b[] v = new Vertex2b[] {
 				new Vertex2b((sbyte)1.0f, (sbyte)13.0f),
@@ -1045,7 +1043,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2b.Max(Vertex2b[]) ArgumentNullException")]
-		public void Vertex2b_TestMinMax_ArgumentNullException()
+		public void Vertex2b_MinMax_ArgumentNullException()
 		{
 			Vertex2b min, max;
 
@@ -1053,7 +1051,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2b.MinMax(Vertex2b*)")]
-		public void Vertex2b_TestMinMax_Unsafe()
+		public void Vertex2b_MinMax_Unsafe()
 		{
 			Vertex2b[] v = new Vertex2b[] {
 				new Vertex2b((sbyte)1.0f, (sbyte)13.0f),
@@ -1080,7 +1078,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2b.MinMax(Vertex2b*) ArgumentNullException")]
-		public void Vertex2b_TestMinMax_Unsafe_ArgumentNullException()
+		public void Vertex2b_MinMax_Unsafe_ArgumentNullException()
 		{
 			Vertex2b min, max;
 
@@ -1094,7 +1092,7 @@ namespace OpenGL.Test
 		#region IEquatable Implementation
 
 		[Test(Description = "Test Vertex2b.Equals(Vertex2b)")]
-		public void Vertex2b_TestEquals_Vertex2b()
+		public void Vertex2b_Equals_Vertex2b()
 		{
 			Vertex2b v = Vertex2b.UnitX;
 
@@ -1103,7 +1101,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2b.Equals(object)")]
-		public void Vertex2b_TestEquals_True()
+		public void Vertex2b_Equals_True()
 		{
 			Vertex2b v = Vertex2b.UnitX;
 
@@ -1116,7 +1114,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2b.GetHashCode()")]
-		public void Vertex2b_TestGetHashCode()
+		public void Vertex2b_GetHashCode()
 		{
 			Random random = new Random();
 			
@@ -1133,7 +1131,7 @@ namespace OpenGL.Test
 		#region Object Overrides
 
 		[Test(Description = "Test Vertex2b.ToString()")]
-		public void Vertex2b_TestToString()
+		public void Vertex2b_ToString()
 		{
 			Random random = new Random();
 			
@@ -1148,14 +1146,13 @@ namespace OpenGL.Test
 		#endregion
 	}
 
-	[TestFixture]
-	[Category("Math")]
+	[TestFixture, Category("Math")]
 	class Vertex2usTest : Vertex2TestBase
 	{
 		#region Constructors
 
 		[Test(Description = "Test Vertex2us(ushort)")]
-		public void Vertex2us_TestConstructor1()
+		public void Vertex2us_Constructor1()
 		{
 			Random random = new Random();
 			ushort randomValue = (ushort)Next(random);
@@ -1167,7 +1164,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2us(ushort[])")]
-		public void Vertex2us_TestConstructor2()
+		public void Vertex2us_Constructor2()
 		{
 			Random random = new Random();
 			ushort randomValueX = (ushort)Next(random);
@@ -1182,7 +1179,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2us(ushort, ushort, ushort)")]
-		public void Vertex2us_TestConstructor3()
+		public void Vertex2us_Constructor3()
 		{
 			Random random = new Random();
 			ushort randomValueX = (ushort)Next(random);
@@ -1201,7 +1198,7 @@ namespace OpenGL.Test
 		#region Properties
 
 		[Test(Description = "Test Vertex2us.Size against Marshal.SizeOf")]
-		public void Vertex2us_TestMarshalSize()
+		public void Vertex2us_MarshalSize()
 		{
 			Assert.AreEqual(Marshal.SizeOf(typeof(Vertex2us)), Vertex2us.Size);
 		}
@@ -1211,7 +1208,7 @@ namespace OpenGL.Test
 		#region Arithmetic Operators
 
 		[Test(Description = "Test Vertex2us.operator+(Vertex2us, Vertex2us)")]
-		public void Vertex2us_TestOperatorAdd()
+		public void Vertex2us_OperatorAdd()
 		{
 			Random random = new Random();
 			
@@ -1232,7 +1229,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2us.operator-(Vertex2us, Vertex2us)")]
-		public void Vertex2us_TestOperatorSub()
+		public void Vertex2us_OperatorSub()
 		{
 			Random random = new Random();
 			
@@ -1253,7 +1250,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2us.operator*(Vertex2us, Single)")]
-		public void Vertex2us_TestOperatorMultiplySingle()
+		public void Vertex2us_OperatorMultiplySingle()
 		{
 			Random random = new Random();
 			
@@ -1270,7 +1267,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2us.operator*(Vertex2us, Double)")]
-		public void Vertex2us_TestOperatorMultiplyDouble()
+		public void Vertex2us_OperatorMultiplyDouble()
 		{
 			Random random = new Random();
 			
@@ -1287,7 +1284,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2us.operator/(Vertex2us, Single)")]
-		public void Vertex2us_TestOperatorDivideSingle()
+		public void Vertex2us_OperatorDivideSingle()
 		{
 			Random random = new Random();
 			
@@ -1304,7 +1301,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2us.operator/(Vertex2us, Double)")]
-		public void Vertex2us_TestOperatorDivideDouble()
+		public void Vertex2us_OperatorDivideDouble()
 		{
 			Random random = new Random();
 			
@@ -1321,7 +1318,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2us.operator*(Vertex2us, ushort)")]
-		public void Vertex2us_TestOperatorScalarMultiply()
+		public void Vertex2us_OperatorScalarMultiply()
 		{
 			Random random = new Random();
 			
@@ -1338,7 +1335,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2us.operator/(Vertex2us, ushort)")]
-		public void Vertex2us_TestOperatorScalarDivide()
+		public void Vertex2us_OperatorScalarDivide()
 		{
 			Random random = new Random();
 			
@@ -1359,7 +1356,7 @@ namespace OpenGL.Test
 		#region Equality Operators
 
 		[Test(Description = "Test Vertex2us.operator==(Vertex2us, Vertex2us)")]
-		public void Vertex2us_TestOperatorEquality()
+		public void Vertex2us_OperatorEquality()
 		{
 			Vertex2us v = Vertex2us.UnitX;
 
@@ -1368,7 +1365,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2us.operator!=(Vertex2us, Vertex2us)")]
-		public void Vertex2us_TestOperatorInequality()
+		public void Vertex2us_OperatorInequality()
 		{
 			Vertex2us v = Vertex2us.UnitX;
 
@@ -1381,7 +1378,7 @@ namespace OpenGL.Test
 		#region Cast Operators
 
 		[Test(Description = "Test Vertex2us.operator ushort[](Vertex2us)")]
-		public void Vertex2us_TestCastToArray()
+		public void Vertex2us_CastToArray()
 		{
 			Random random = new Random();
 			
@@ -1396,7 +1393,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2us.operator Vertex2f(Vertex2us)")]
-		public void Vertex2us_TestCastToVertex2f()
+		public void Vertex2us_CastToVertex2f()
 		{
 			Random random = new Random();
 			
@@ -1415,21 +1412,21 @@ namespace OpenGL.Test
 		#region Vertex Methods
 
 		[Test(Description = "Test Vertex2us.Module()")]
-		public void Vertex2us_TestModule()
+		public void Vertex2us_Module()
 		{
 			Assert.AreEqual(2.236068f, new Vertex2us((ushort)1.0, (ushort)2.0).Module(), 1e-4f);
 			Assert.AreEqual(5.385165f, new Vertex2us((ushort)2.0, (ushort)5.0).Module(), 1e-4f);
 		}
 
 		[Test(Description = "Test Vertex2us.ModuleSquared()")]
-		public void Vertex2us_TestModuleSquared()
+		public void Vertex2us_ModuleSquared()
 		{
 			Assert.AreEqual(5f, new Vertex2us((ushort)1.0, (ushort)2.0).ModuleSquared(), 1e-4f);
 			Assert.AreEqual(29f, new Vertex2us((ushort)2.0, (ushort)5.0).ModuleSquared(), 1e-4f);
 		}
 
 		[Test(Description = "Test Vertex2us.Normalize()")]
-		public void Vertex2us_TestNormalize()
+		public void Vertex2us_Normalize()
 		{
 			Assert.DoesNotThrow(delegate() { Vertex2us.Zero.Normalize(); });
 
@@ -1445,7 +1442,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2us.Normalized")]
-		public void Vertex2us_TestNormalized()
+		public void Vertex2us_Normalized()
 		{
 			Vertex2us v;
 
@@ -1459,7 +1456,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2us.Min(Vertex2us[])")]
-		public void Vertex2us_TestMin()
+		public void Vertex2us_Min()
 		{
 			Vertex2us[] v = new Vertex2us[] {
 				new Vertex2us((ushort)1.0f, (ushort)13.0f),
@@ -1476,13 +1473,13 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2us.Min(Vertex2us[]) ArgumentNullException")]
-		public void Vertex2us_TestMin_ArgumentNullException()
+		public void Vertex2us_Min_ArgumentNullException()
 		{
 			Assert.Throws<ArgumentNullException>(() => Vertex2us.Min(null));
 		}
 
 		[Test(Description = "Test Vertex2us.Min(Vertex2us*)")]
-		public void Vertex2us_TestMin_Unsafe()
+		public void Vertex2us_Min_Unsafe()
 		{
 			Vertex2us[] v = new Vertex2us[] {
 				new Vertex2us((ushort)1.0f, (ushort)13.0f),
@@ -1505,7 +1502,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2us.Min(Vertex2us*) ArgumentNullException")]
-		public void Vertex2us_TestMin_Unsafe_ArgumentNullException()
+		public void Vertex2us_Min_Unsafe_ArgumentNullException()
 		{
 			unsafe {
 				Assert.Throws<ArgumentNullException>(() => Vertex2us.Min(null, 0));
@@ -1513,7 +1510,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2us.Max(Vertex2us[])")]
-		public void Vertex2us_TestMax()
+		public void Vertex2us_Max()
 		{
 			Vertex2us[] v = new Vertex2us[] {
 				new Vertex2us((ushort)1.0f, (ushort)13.0f),
@@ -1530,13 +1527,13 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2us.Max(Vertex2us[]) ArgumentNullException")]
-		public void Vertex2us_TestMax_ArgumentNullException()
+		public void Vertex2us_Max_ArgumentNullException()
 		{
 			Assert.Throws<ArgumentNullException>(() => Vertex2us.Max(null));
 		}
 
 		[Test(Description = "Test Vertex2us.Max(Vertex2us*)")]
-		public void Vertex2us_TestMax_Unsafe()
+		public void Vertex2us_Max_Unsafe()
 		{
 			Vertex2us[] v = new Vertex2us[] {
 				new Vertex2us((ushort)1.0f, (ushort)13.0f),
@@ -1559,7 +1556,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2us.Max(Vertex2us*) ArgumentNullException")]
-		public void Vertex2us_TestMax_Unsafe_ArgumentNullException()
+		public void Vertex2us_Max_Unsafe_ArgumentNullException()
 		{
 			unsafe {
 				Assert.Throws<ArgumentNullException>(() => Vertex2us.Max(null, 0));
@@ -1567,7 +1564,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2us.Max(Vertex2us[])")]
-		public void Vertex2us_TestMinMax()
+		public void Vertex2us_MinMax()
 		{
 			Vertex2us[] v = new Vertex2us[] {
 				new Vertex2us((ushort)1.0f, (ushort)13.0f),
@@ -1590,7 +1587,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2us.Max(Vertex2us[]) ArgumentNullException")]
-		public void Vertex2us_TestMinMax_ArgumentNullException()
+		public void Vertex2us_MinMax_ArgumentNullException()
 		{
 			Vertex2us min, max;
 
@@ -1598,7 +1595,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2us.MinMax(Vertex2us*)")]
-		public void Vertex2us_TestMinMax_Unsafe()
+		public void Vertex2us_MinMax_Unsafe()
 		{
 			Vertex2us[] v = new Vertex2us[] {
 				new Vertex2us((ushort)1.0f, (ushort)13.0f),
@@ -1625,7 +1622,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2us.MinMax(Vertex2us*) ArgumentNullException")]
-		public void Vertex2us_TestMinMax_Unsafe_ArgumentNullException()
+		public void Vertex2us_MinMax_Unsafe_ArgumentNullException()
 		{
 			Vertex2us min, max;
 
@@ -1639,7 +1636,7 @@ namespace OpenGL.Test
 		#region IEquatable Implementation
 
 		[Test(Description = "Test Vertex2us.Equals(Vertex2us)")]
-		public void Vertex2us_TestEquals_Vertex2us()
+		public void Vertex2us_Equals_Vertex2us()
 		{
 			Vertex2us v = Vertex2us.UnitX;
 
@@ -1648,7 +1645,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2us.Equals(object)")]
-		public void Vertex2us_TestEquals_True()
+		public void Vertex2us_Equals_True()
 		{
 			Vertex2us v = Vertex2us.UnitX;
 
@@ -1661,7 +1658,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2us.GetHashCode()")]
-		public void Vertex2us_TestGetHashCode()
+		public void Vertex2us_GetHashCode()
 		{
 			Random random = new Random();
 			
@@ -1678,7 +1675,7 @@ namespace OpenGL.Test
 		#region Object Overrides
 
 		[Test(Description = "Test Vertex2us.ToString()")]
-		public void Vertex2us_TestToString()
+		public void Vertex2us_ToString()
 		{
 			Random random = new Random();
 			
@@ -1693,14 +1690,13 @@ namespace OpenGL.Test
 		#endregion
 	}
 
-	[TestFixture]
-	[Category("Math")]
+	[TestFixture, Category("Math")]
 	class Vertex2sTest : Vertex2TestBase
 	{
 		#region Constructors
 
 		[Test(Description = "Test Vertex2s(short)")]
-		public void Vertex2s_TestConstructor1()
+		public void Vertex2s_Constructor1()
 		{
 			Random random = new Random();
 			short randomValue = (short)Next(random);
@@ -1712,7 +1708,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2s(short[])")]
-		public void Vertex2s_TestConstructor2()
+		public void Vertex2s_Constructor2()
 		{
 			Random random = new Random();
 			short randomValueX = (short)Next(random);
@@ -1727,7 +1723,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2s(short, short, short)")]
-		public void Vertex2s_TestConstructor3()
+		public void Vertex2s_Constructor3()
 		{
 			Random random = new Random();
 			short randomValueX = (short)Next(random);
@@ -1746,7 +1742,7 @@ namespace OpenGL.Test
 		#region Properties
 
 		[Test(Description = "Test Vertex2s.Size against Marshal.SizeOf")]
-		public void Vertex2s_TestMarshalSize()
+		public void Vertex2s_MarshalSize()
 		{
 			Assert.AreEqual(Marshal.SizeOf(typeof(Vertex2s)), Vertex2s.Size);
 		}
@@ -1756,7 +1752,7 @@ namespace OpenGL.Test
 		#region Arithmetic Operators
 
 		[Test(Description = "Test Vertex2s.operator-(Vertex2s))")]
-		public void Vertex2s_TestOperatorNegate()
+		public void Vertex2s_OperatorNegate()
 		{
 			Random random = new Random();
 			
@@ -1770,7 +1766,7 @@ namespace OpenGL.Test
 			Assert.AreEqual(-y, n.y);
 		}
 		[Test(Description = "Test Vertex2s.operator+(Vertex2s, Vertex2s)")]
-		public void Vertex2s_TestOperatorAdd()
+		public void Vertex2s_OperatorAdd()
 		{
 			Random random = new Random();
 			
@@ -1791,7 +1787,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2s.operator-(Vertex2s, Vertex2s)")]
-		public void Vertex2s_TestOperatorSub()
+		public void Vertex2s_OperatorSub()
 		{
 			Random random = new Random();
 			
@@ -1812,7 +1808,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2s.operator*(Vertex2s, Single)")]
-		public void Vertex2s_TestOperatorMultiplySingle()
+		public void Vertex2s_OperatorMultiplySingle()
 		{
 			Random random = new Random();
 			
@@ -1829,7 +1825,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2s.operator*(Vertex2s, Double)")]
-		public void Vertex2s_TestOperatorMultiplyDouble()
+		public void Vertex2s_OperatorMultiplyDouble()
 		{
 			Random random = new Random();
 			
@@ -1846,7 +1842,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2s.operator/(Vertex2s, Single)")]
-		public void Vertex2s_TestOperatorDivideSingle()
+		public void Vertex2s_OperatorDivideSingle()
 		{
 			Random random = new Random();
 			
@@ -1863,7 +1859,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2s.operator/(Vertex2s, Double)")]
-		public void Vertex2s_TestOperatorDivideDouble()
+		public void Vertex2s_OperatorDivideDouble()
 		{
 			Random random = new Random();
 			
@@ -1880,7 +1876,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2s.operator*(Vertex2s, short)")]
-		public void Vertex2s_TestOperatorScalarMultiply()
+		public void Vertex2s_OperatorScalarMultiply()
 		{
 			Random random = new Random();
 			
@@ -1897,7 +1893,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2s.operator/(Vertex2s, short)")]
-		public void Vertex2s_TestOperatorScalarDivide()
+		public void Vertex2s_OperatorScalarDivide()
 		{
 			Random random = new Random();
 			
@@ -1918,7 +1914,7 @@ namespace OpenGL.Test
 		#region Equality Operators
 
 		[Test(Description = "Test Vertex2s.operator==(Vertex2s, Vertex2s)")]
-		public void Vertex2s_TestOperatorEquality()
+		public void Vertex2s_OperatorEquality()
 		{
 			Vertex2s v = Vertex2s.UnitX;
 
@@ -1927,7 +1923,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2s.operator!=(Vertex2s, Vertex2s)")]
-		public void Vertex2s_TestOperatorInequality()
+		public void Vertex2s_OperatorInequality()
 		{
 			Vertex2s v = Vertex2s.UnitX;
 
@@ -1940,7 +1936,7 @@ namespace OpenGL.Test
 		#region Cast Operators
 
 		[Test(Description = "Test Vertex2s.operator short[](Vertex2s)")]
-		public void Vertex2s_TestCastToArray()
+		public void Vertex2s_CastToArray()
 		{
 			Random random = new Random();
 			
@@ -1955,7 +1951,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2s.operator Vertex2f(Vertex2s)")]
-		public void Vertex2s_TestCastToVertex2f()
+		public void Vertex2s_CastToVertex2f()
 		{
 			Random random = new Random();
 			
@@ -1974,21 +1970,21 @@ namespace OpenGL.Test
 		#region Vertex Methods
 
 		[Test(Description = "Test Vertex2s.Module()")]
-		public void Vertex2s_TestModule()
+		public void Vertex2s_Module()
 		{
 			Assert.AreEqual(2.236068f, new Vertex2s((short)1.0, (short)2.0).Module(), 1e-4f);
 			Assert.AreEqual(5.385165f, new Vertex2s((short)2.0, (short)5.0).Module(), 1e-4f);
 		}
 
 		[Test(Description = "Test Vertex2s.ModuleSquared()")]
-		public void Vertex2s_TestModuleSquared()
+		public void Vertex2s_ModuleSquared()
 		{
 			Assert.AreEqual(5f, new Vertex2s((short)1.0, (short)2.0).ModuleSquared(), 1e-4f);
 			Assert.AreEqual(29f, new Vertex2s((short)2.0, (short)5.0).ModuleSquared(), 1e-4f);
 		}
 
 		[Test(Description = "Test Vertex2s.Normalize()")]
-		public void Vertex2s_TestNormalize()
+		public void Vertex2s_Normalize()
 		{
 			Assert.DoesNotThrow(delegate() { Vertex2s.Zero.Normalize(); });
 
@@ -2004,7 +2000,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2s.Normalized")]
-		public void Vertex2s_TestNormalized()
+		public void Vertex2s_Normalized()
 		{
 			Vertex2s v;
 
@@ -2018,7 +2014,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2s.Min(Vertex2s[])")]
-		public void Vertex2s_TestMin()
+		public void Vertex2s_Min()
 		{
 			Vertex2s[] v = new Vertex2s[] {
 				new Vertex2s((short)1.0f, (short)13.0f),
@@ -2035,13 +2031,13 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2s.Min(Vertex2s[]) ArgumentNullException")]
-		public void Vertex2s_TestMin_ArgumentNullException()
+		public void Vertex2s_Min_ArgumentNullException()
 		{
 			Assert.Throws<ArgumentNullException>(() => Vertex2s.Min(null));
 		}
 
 		[Test(Description = "Test Vertex2s.Min(Vertex2s*)")]
-		public void Vertex2s_TestMin_Unsafe()
+		public void Vertex2s_Min_Unsafe()
 		{
 			Vertex2s[] v = new Vertex2s[] {
 				new Vertex2s((short)1.0f, (short)13.0f),
@@ -2064,7 +2060,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2s.Min(Vertex2s*) ArgumentNullException")]
-		public void Vertex2s_TestMin_Unsafe_ArgumentNullException()
+		public void Vertex2s_Min_Unsafe_ArgumentNullException()
 		{
 			unsafe {
 				Assert.Throws<ArgumentNullException>(() => Vertex2s.Min(null, 0));
@@ -2072,7 +2068,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2s.Max(Vertex2s[])")]
-		public void Vertex2s_TestMax()
+		public void Vertex2s_Max()
 		{
 			Vertex2s[] v = new Vertex2s[] {
 				new Vertex2s((short)1.0f, (short)13.0f),
@@ -2089,13 +2085,13 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2s.Max(Vertex2s[]) ArgumentNullException")]
-		public void Vertex2s_TestMax_ArgumentNullException()
+		public void Vertex2s_Max_ArgumentNullException()
 		{
 			Assert.Throws<ArgumentNullException>(() => Vertex2s.Max(null));
 		}
 
 		[Test(Description = "Test Vertex2s.Max(Vertex2s*)")]
-		public void Vertex2s_TestMax_Unsafe()
+		public void Vertex2s_Max_Unsafe()
 		{
 			Vertex2s[] v = new Vertex2s[] {
 				new Vertex2s((short)1.0f, (short)13.0f),
@@ -2118,7 +2114,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2s.Max(Vertex2s*) ArgumentNullException")]
-		public void Vertex2s_TestMax_Unsafe_ArgumentNullException()
+		public void Vertex2s_Max_Unsafe_ArgumentNullException()
 		{
 			unsafe {
 				Assert.Throws<ArgumentNullException>(() => Vertex2s.Max(null, 0));
@@ -2126,7 +2122,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2s.Max(Vertex2s[])")]
-		public void Vertex2s_TestMinMax()
+		public void Vertex2s_MinMax()
 		{
 			Vertex2s[] v = new Vertex2s[] {
 				new Vertex2s((short)1.0f, (short)13.0f),
@@ -2149,7 +2145,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2s.Max(Vertex2s[]) ArgumentNullException")]
-		public void Vertex2s_TestMinMax_ArgumentNullException()
+		public void Vertex2s_MinMax_ArgumentNullException()
 		{
 			Vertex2s min, max;
 
@@ -2157,7 +2153,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2s.MinMax(Vertex2s*)")]
-		public void Vertex2s_TestMinMax_Unsafe()
+		public void Vertex2s_MinMax_Unsafe()
 		{
 			Vertex2s[] v = new Vertex2s[] {
 				new Vertex2s((short)1.0f, (short)13.0f),
@@ -2184,7 +2180,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2s.MinMax(Vertex2s*) ArgumentNullException")]
-		public void Vertex2s_TestMinMax_Unsafe_ArgumentNullException()
+		public void Vertex2s_MinMax_Unsafe_ArgumentNullException()
 		{
 			Vertex2s min, max;
 
@@ -2198,7 +2194,7 @@ namespace OpenGL.Test
 		#region IEquatable Implementation
 
 		[Test(Description = "Test Vertex2s.Equals(Vertex2s)")]
-		public void Vertex2s_TestEquals_Vertex2s()
+		public void Vertex2s_Equals_Vertex2s()
 		{
 			Vertex2s v = Vertex2s.UnitX;
 
@@ -2207,7 +2203,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2s.Equals(object)")]
-		public void Vertex2s_TestEquals_True()
+		public void Vertex2s_Equals_True()
 		{
 			Vertex2s v = Vertex2s.UnitX;
 
@@ -2220,7 +2216,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2s.GetHashCode()")]
-		public void Vertex2s_TestGetHashCode()
+		public void Vertex2s_GetHashCode()
 		{
 			Random random = new Random();
 			
@@ -2237,7 +2233,7 @@ namespace OpenGL.Test
 		#region Object Overrides
 
 		[Test(Description = "Test Vertex2s.ToString()")]
-		public void Vertex2s_TestToString()
+		public void Vertex2s_ToString()
 		{
 			Random random = new Random();
 			
@@ -2252,14 +2248,13 @@ namespace OpenGL.Test
 		#endregion
 	}
 
-	[TestFixture]
-	[Category("Math")]
+	[TestFixture, Category("Math")]
 	class Vertex2uiTest : Vertex2TestBase
 	{
 		#region Constructors
 
 		[Test(Description = "Test Vertex2ui(uint)")]
-		public void Vertex2ui_TestConstructor1()
+		public void Vertex2ui_Constructor1()
 		{
 			Random random = new Random();
 			uint randomValue = (uint)Next(random);
@@ -2271,7 +2266,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ui(uint[])")]
-		public void Vertex2ui_TestConstructor2()
+		public void Vertex2ui_Constructor2()
 		{
 			Random random = new Random();
 			uint randomValueX = (uint)Next(random);
@@ -2286,7 +2281,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ui(uint, uint, uint)")]
-		public void Vertex2ui_TestConstructor3()
+		public void Vertex2ui_Constructor3()
 		{
 			Random random = new Random();
 			uint randomValueX = (uint)Next(random);
@@ -2305,7 +2300,7 @@ namespace OpenGL.Test
 		#region Properties
 
 		[Test(Description = "Test Vertex2ui.Size against Marshal.SizeOf")]
-		public void Vertex2ui_TestMarshalSize()
+		public void Vertex2ui_MarshalSize()
 		{
 			Assert.AreEqual(Marshal.SizeOf(typeof(Vertex2ui)), Vertex2ui.Size);
 		}
@@ -2315,7 +2310,7 @@ namespace OpenGL.Test
 		#region Arithmetic Operators
 
 		[Test(Description = "Test Vertex2ui.operator+(Vertex2ui, Vertex2ui)")]
-		public void Vertex2ui_TestOperatorAdd()
+		public void Vertex2ui_OperatorAdd()
 		{
 			Random random = new Random();
 			
@@ -2336,7 +2331,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ui.operator-(Vertex2ui, Vertex2ui)")]
-		public void Vertex2ui_TestOperatorSub()
+		public void Vertex2ui_OperatorSub()
 		{
 			Random random = new Random();
 			
@@ -2357,7 +2352,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ui.operator*(Vertex2ui, Single)")]
-		public void Vertex2ui_TestOperatorMultiplySingle()
+		public void Vertex2ui_OperatorMultiplySingle()
 		{
 			Random random = new Random();
 			
@@ -2374,7 +2369,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ui.operator*(Vertex2ui, Double)")]
-		public void Vertex2ui_TestOperatorMultiplyDouble()
+		public void Vertex2ui_OperatorMultiplyDouble()
 		{
 			Random random = new Random();
 			
@@ -2391,7 +2386,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ui.operator/(Vertex2ui, Single)")]
-		public void Vertex2ui_TestOperatorDivideSingle()
+		public void Vertex2ui_OperatorDivideSingle()
 		{
 			Random random = new Random();
 			
@@ -2408,7 +2403,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ui.operator/(Vertex2ui, Double)")]
-		public void Vertex2ui_TestOperatorDivideDouble()
+		public void Vertex2ui_OperatorDivideDouble()
 		{
 			Random random = new Random();
 			
@@ -2425,7 +2420,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ui.operator*(Vertex2ui, uint)")]
-		public void Vertex2ui_TestOperatorScalarMultiply()
+		public void Vertex2ui_OperatorScalarMultiply()
 		{
 			Random random = new Random();
 			
@@ -2442,7 +2437,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ui.operator/(Vertex2ui, uint)")]
-		public void Vertex2ui_TestOperatorScalarDivide()
+		public void Vertex2ui_OperatorScalarDivide()
 		{
 			Random random = new Random();
 			
@@ -2463,7 +2458,7 @@ namespace OpenGL.Test
 		#region Equality Operators
 
 		[Test(Description = "Test Vertex2ui.operator==(Vertex2ui, Vertex2ui)")]
-		public void Vertex2ui_TestOperatorEquality()
+		public void Vertex2ui_OperatorEquality()
 		{
 			Vertex2ui v = Vertex2ui.UnitX;
 
@@ -2472,7 +2467,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ui.operator!=(Vertex2ui, Vertex2ui)")]
-		public void Vertex2ui_TestOperatorInequality()
+		public void Vertex2ui_OperatorInequality()
 		{
 			Vertex2ui v = Vertex2ui.UnitX;
 
@@ -2485,7 +2480,7 @@ namespace OpenGL.Test
 		#region Cast Operators
 
 		[Test(Description = "Test Vertex2ui.operator uint[](Vertex2ui)")]
-		public void Vertex2ui_TestCastToArray()
+		public void Vertex2ui_CastToArray()
 		{
 			Random random = new Random();
 			
@@ -2500,7 +2495,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ui.operator Vertex2f(Vertex2ui)")]
-		public void Vertex2ui_TestCastToVertex2f()
+		public void Vertex2ui_CastToVertex2f()
 		{
 			Random random = new Random();
 			
@@ -2519,21 +2514,21 @@ namespace OpenGL.Test
 		#region Vertex Methods
 
 		[Test(Description = "Test Vertex2ui.Module()")]
-		public void Vertex2ui_TestModule()
+		public void Vertex2ui_Module()
 		{
 			Assert.AreEqual(2.236068f, new Vertex2ui((uint)1.0, (uint)2.0).Module(), 1e-4f);
 			Assert.AreEqual(5.385165f, new Vertex2ui((uint)2.0, (uint)5.0).Module(), 1e-4f);
 		}
 
 		[Test(Description = "Test Vertex2ui.ModuleSquared()")]
-		public void Vertex2ui_TestModuleSquared()
+		public void Vertex2ui_ModuleSquared()
 		{
 			Assert.AreEqual(5f, new Vertex2ui((uint)1.0, (uint)2.0).ModuleSquared(), 1e-4f);
 			Assert.AreEqual(29f, new Vertex2ui((uint)2.0, (uint)5.0).ModuleSquared(), 1e-4f);
 		}
 
 		[Test(Description = "Test Vertex2ui.Normalize()")]
-		public void Vertex2ui_TestNormalize()
+		public void Vertex2ui_Normalize()
 		{
 			Assert.DoesNotThrow(delegate() { Vertex2ui.Zero.Normalize(); });
 
@@ -2549,7 +2544,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ui.Normalized")]
-		public void Vertex2ui_TestNormalized()
+		public void Vertex2ui_Normalized()
 		{
 			Vertex2ui v;
 
@@ -2563,7 +2558,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ui.Min(Vertex2ui[])")]
-		public void Vertex2ui_TestMin()
+		public void Vertex2ui_Min()
 		{
 			Vertex2ui[] v = new Vertex2ui[] {
 				new Vertex2ui((uint)1.0f, (uint)13.0f),
@@ -2580,13 +2575,13 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ui.Min(Vertex2ui[]) ArgumentNullException")]
-		public void Vertex2ui_TestMin_ArgumentNullException()
+		public void Vertex2ui_Min_ArgumentNullException()
 		{
 			Assert.Throws<ArgumentNullException>(() => Vertex2ui.Min(null));
 		}
 
 		[Test(Description = "Test Vertex2ui.Min(Vertex2ui*)")]
-		public void Vertex2ui_TestMin_Unsafe()
+		public void Vertex2ui_Min_Unsafe()
 		{
 			Vertex2ui[] v = new Vertex2ui[] {
 				new Vertex2ui((uint)1.0f, (uint)13.0f),
@@ -2609,7 +2604,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ui.Min(Vertex2ui*) ArgumentNullException")]
-		public void Vertex2ui_TestMin_Unsafe_ArgumentNullException()
+		public void Vertex2ui_Min_Unsafe_ArgumentNullException()
 		{
 			unsafe {
 				Assert.Throws<ArgumentNullException>(() => Vertex2ui.Min(null, 0));
@@ -2617,7 +2612,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ui.Max(Vertex2ui[])")]
-		public void Vertex2ui_TestMax()
+		public void Vertex2ui_Max()
 		{
 			Vertex2ui[] v = new Vertex2ui[] {
 				new Vertex2ui((uint)1.0f, (uint)13.0f),
@@ -2634,13 +2629,13 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ui.Max(Vertex2ui[]) ArgumentNullException")]
-		public void Vertex2ui_TestMax_ArgumentNullException()
+		public void Vertex2ui_Max_ArgumentNullException()
 		{
 			Assert.Throws<ArgumentNullException>(() => Vertex2ui.Max(null));
 		}
 
 		[Test(Description = "Test Vertex2ui.Max(Vertex2ui*)")]
-		public void Vertex2ui_TestMax_Unsafe()
+		public void Vertex2ui_Max_Unsafe()
 		{
 			Vertex2ui[] v = new Vertex2ui[] {
 				new Vertex2ui((uint)1.0f, (uint)13.0f),
@@ -2663,7 +2658,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ui.Max(Vertex2ui*) ArgumentNullException")]
-		public void Vertex2ui_TestMax_Unsafe_ArgumentNullException()
+		public void Vertex2ui_Max_Unsafe_ArgumentNullException()
 		{
 			unsafe {
 				Assert.Throws<ArgumentNullException>(() => Vertex2ui.Max(null, 0));
@@ -2671,7 +2666,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ui.Max(Vertex2ui[])")]
-		public void Vertex2ui_TestMinMax()
+		public void Vertex2ui_MinMax()
 		{
 			Vertex2ui[] v = new Vertex2ui[] {
 				new Vertex2ui((uint)1.0f, (uint)13.0f),
@@ -2694,7 +2689,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ui.Max(Vertex2ui[]) ArgumentNullException")]
-		public void Vertex2ui_TestMinMax_ArgumentNullException()
+		public void Vertex2ui_MinMax_ArgumentNullException()
 		{
 			Vertex2ui min, max;
 
@@ -2702,7 +2697,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ui.MinMax(Vertex2ui*)")]
-		public void Vertex2ui_TestMinMax_Unsafe()
+		public void Vertex2ui_MinMax_Unsafe()
 		{
 			Vertex2ui[] v = new Vertex2ui[] {
 				new Vertex2ui((uint)1.0f, (uint)13.0f),
@@ -2729,7 +2724,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ui.MinMax(Vertex2ui*) ArgumentNullException")]
-		public void Vertex2ui_TestMinMax_Unsafe_ArgumentNullException()
+		public void Vertex2ui_MinMax_Unsafe_ArgumentNullException()
 		{
 			Vertex2ui min, max;
 
@@ -2743,7 +2738,7 @@ namespace OpenGL.Test
 		#region IEquatable Implementation
 
 		[Test(Description = "Test Vertex2ui.Equals(Vertex2ui)")]
-		public void Vertex2ui_TestEquals_Vertex2ui()
+		public void Vertex2ui_Equals_Vertex2ui()
 		{
 			Vertex2ui v = Vertex2ui.UnitX;
 
@@ -2752,7 +2747,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ui.Equals(object)")]
-		public void Vertex2ui_TestEquals_True()
+		public void Vertex2ui_Equals_True()
 		{
 			Vertex2ui v = Vertex2ui.UnitX;
 
@@ -2765,7 +2760,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2ui.GetHashCode()")]
-		public void Vertex2ui_TestGetHashCode()
+		public void Vertex2ui_GetHashCode()
 		{
 			Random random = new Random();
 			
@@ -2782,7 +2777,7 @@ namespace OpenGL.Test
 		#region Object Overrides
 
 		[Test(Description = "Test Vertex2ui.ToString()")]
-		public void Vertex2ui_TestToString()
+		public void Vertex2ui_ToString()
 		{
 			Random random = new Random();
 			
@@ -2797,14 +2792,13 @@ namespace OpenGL.Test
 		#endregion
 	}
 
-	[TestFixture]
-	[Category("Math")]
+	[TestFixture, Category("Math")]
 	class Vertex2iTest : Vertex2TestBase
 	{
 		#region Constructors
 
 		[Test(Description = "Test Vertex2i(int)")]
-		public void Vertex2i_TestConstructor1()
+		public void Vertex2i_Constructor1()
 		{
 			Random random = new Random();
 			int randomValue = (int)Next(random);
@@ -2816,7 +2810,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2i(int[])")]
-		public void Vertex2i_TestConstructor2()
+		public void Vertex2i_Constructor2()
 		{
 			Random random = new Random();
 			int randomValueX = (int)Next(random);
@@ -2831,7 +2825,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2i(int, int, int)")]
-		public void Vertex2i_TestConstructor3()
+		public void Vertex2i_Constructor3()
 		{
 			Random random = new Random();
 			int randomValueX = (int)Next(random);
@@ -2850,7 +2844,7 @@ namespace OpenGL.Test
 		#region Properties
 
 		[Test(Description = "Test Vertex2i.Size against Marshal.SizeOf")]
-		public void Vertex2i_TestMarshalSize()
+		public void Vertex2i_MarshalSize()
 		{
 			Assert.AreEqual(Marshal.SizeOf(typeof(Vertex2i)), Vertex2i.Size);
 		}
@@ -2860,7 +2854,7 @@ namespace OpenGL.Test
 		#region Arithmetic Operators
 
 		[Test(Description = "Test Vertex2i.operator-(Vertex2i))")]
-		public void Vertex2i_TestOperatorNegate()
+		public void Vertex2i_OperatorNegate()
 		{
 			Random random = new Random();
 			
@@ -2874,7 +2868,7 @@ namespace OpenGL.Test
 			Assert.AreEqual(-y, n.y);
 		}
 		[Test(Description = "Test Vertex2i.operator+(Vertex2i, Vertex2i)")]
-		public void Vertex2i_TestOperatorAdd()
+		public void Vertex2i_OperatorAdd()
 		{
 			Random random = new Random();
 			
@@ -2895,7 +2889,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2i.operator-(Vertex2i, Vertex2i)")]
-		public void Vertex2i_TestOperatorSub()
+		public void Vertex2i_OperatorSub()
 		{
 			Random random = new Random();
 			
@@ -2916,7 +2910,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2i.operator*(Vertex2i, Single)")]
-		public void Vertex2i_TestOperatorMultiplySingle()
+		public void Vertex2i_OperatorMultiplySingle()
 		{
 			Random random = new Random();
 			
@@ -2933,7 +2927,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2i.operator*(Vertex2i, Double)")]
-		public void Vertex2i_TestOperatorMultiplyDouble()
+		public void Vertex2i_OperatorMultiplyDouble()
 		{
 			Random random = new Random();
 			
@@ -2950,7 +2944,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2i.operator/(Vertex2i, Single)")]
-		public void Vertex2i_TestOperatorDivideSingle()
+		public void Vertex2i_OperatorDivideSingle()
 		{
 			Random random = new Random();
 			
@@ -2967,7 +2961,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2i.operator/(Vertex2i, Double)")]
-		public void Vertex2i_TestOperatorDivideDouble()
+		public void Vertex2i_OperatorDivideDouble()
 		{
 			Random random = new Random();
 			
@@ -2984,7 +2978,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2i.operator*(Vertex2i, int)")]
-		public void Vertex2i_TestOperatorScalarMultiply()
+		public void Vertex2i_OperatorScalarMultiply()
 		{
 			Random random = new Random();
 			
@@ -3001,7 +2995,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2i.operator/(Vertex2i, int)")]
-		public void Vertex2i_TestOperatorScalarDivide()
+		public void Vertex2i_OperatorScalarDivide()
 		{
 			Random random = new Random();
 			
@@ -3022,7 +3016,7 @@ namespace OpenGL.Test
 		#region Equality Operators
 
 		[Test(Description = "Test Vertex2i.operator==(Vertex2i, Vertex2i)")]
-		public void Vertex2i_TestOperatorEquality()
+		public void Vertex2i_OperatorEquality()
 		{
 			Vertex2i v = Vertex2i.UnitX;
 
@@ -3031,7 +3025,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2i.operator!=(Vertex2i, Vertex2i)")]
-		public void Vertex2i_TestOperatorInequality()
+		public void Vertex2i_OperatorInequality()
 		{
 			Vertex2i v = Vertex2i.UnitX;
 
@@ -3044,7 +3038,7 @@ namespace OpenGL.Test
 		#region Cast Operators
 
 		[Test(Description = "Test Vertex2i.operator int[](Vertex2i)")]
-		public void Vertex2i_TestCastToArray()
+		public void Vertex2i_CastToArray()
 		{
 			Random random = new Random();
 			
@@ -3059,7 +3053,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2i.operator Vertex2f(Vertex2i)")]
-		public void Vertex2i_TestCastToVertex2f()
+		public void Vertex2i_CastToVertex2f()
 		{
 			Random random = new Random();
 			
@@ -3078,21 +3072,21 @@ namespace OpenGL.Test
 		#region Vertex Methods
 
 		[Test(Description = "Test Vertex2i.Module()")]
-		public void Vertex2i_TestModule()
+		public void Vertex2i_Module()
 		{
 			Assert.AreEqual(2.236068f, new Vertex2i((int)1.0, (int)2.0).Module(), 1e-4f);
 			Assert.AreEqual(5.385165f, new Vertex2i((int)2.0, (int)5.0).Module(), 1e-4f);
 		}
 
 		[Test(Description = "Test Vertex2i.ModuleSquared()")]
-		public void Vertex2i_TestModuleSquared()
+		public void Vertex2i_ModuleSquared()
 		{
 			Assert.AreEqual(5f, new Vertex2i((int)1.0, (int)2.0).ModuleSquared(), 1e-4f);
 			Assert.AreEqual(29f, new Vertex2i((int)2.0, (int)5.0).ModuleSquared(), 1e-4f);
 		}
 
 		[Test(Description = "Test Vertex2i.Normalize()")]
-		public void Vertex2i_TestNormalize()
+		public void Vertex2i_Normalize()
 		{
 			Assert.DoesNotThrow(delegate() { Vertex2i.Zero.Normalize(); });
 
@@ -3108,7 +3102,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2i.Normalized")]
-		public void Vertex2i_TestNormalized()
+		public void Vertex2i_Normalized()
 		{
 			Vertex2i v;
 
@@ -3122,7 +3116,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2i.Min(Vertex2i[])")]
-		public void Vertex2i_TestMin()
+		public void Vertex2i_Min()
 		{
 			Vertex2i[] v = new Vertex2i[] {
 				new Vertex2i((int)1.0f, (int)13.0f),
@@ -3139,13 +3133,13 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2i.Min(Vertex2i[]) ArgumentNullException")]
-		public void Vertex2i_TestMin_ArgumentNullException()
+		public void Vertex2i_Min_ArgumentNullException()
 		{
 			Assert.Throws<ArgumentNullException>(() => Vertex2i.Min(null));
 		}
 
 		[Test(Description = "Test Vertex2i.Min(Vertex2i*)")]
-		public void Vertex2i_TestMin_Unsafe()
+		public void Vertex2i_Min_Unsafe()
 		{
 			Vertex2i[] v = new Vertex2i[] {
 				new Vertex2i((int)1.0f, (int)13.0f),
@@ -3168,7 +3162,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2i.Min(Vertex2i*) ArgumentNullException")]
-		public void Vertex2i_TestMin_Unsafe_ArgumentNullException()
+		public void Vertex2i_Min_Unsafe_ArgumentNullException()
 		{
 			unsafe {
 				Assert.Throws<ArgumentNullException>(() => Vertex2i.Min(null, 0));
@@ -3176,7 +3170,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2i.Max(Vertex2i[])")]
-		public void Vertex2i_TestMax()
+		public void Vertex2i_Max()
 		{
 			Vertex2i[] v = new Vertex2i[] {
 				new Vertex2i((int)1.0f, (int)13.0f),
@@ -3193,13 +3187,13 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2i.Max(Vertex2i[]) ArgumentNullException")]
-		public void Vertex2i_TestMax_ArgumentNullException()
+		public void Vertex2i_Max_ArgumentNullException()
 		{
 			Assert.Throws<ArgumentNullException>(() => Vertex2i.Max(null));
 		}
 
 		[Test(Description = "Test Vertex2i.Max(Vertex2i*)")]
-		public void Vertex2i_TestMax_Unsafe()
+		public void Vertex2i_Max_Unsafe()
 		{
 			Vertex2i[] v = new Vertex2i[] {
 				new Vertex2i((int)1.0f, (int)13.0f),
@@ -3222,7 +3216,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2i.Max(Vertex2i*) ArgumentNullException")]
-		public void Vertex2i_TestMax_Unsafe_ArgumentNullException()
+		public void Vertex2i_Max_Unsafe_ArgumentNullException()
 		{
 			unsafe {
 				Assert.Throws<ArgumentNullException>(() => Vertex2i.Max(null, 0));
@@ -3230,7 +3224,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2i.Max(Vertex2i[])")]
-		public void Vertex2i_TestMinMax()
+		public void Vertex2i_MinMax()
 		{
 			Vertex2i[] v = new Vertex2i[] {
 				new Vertex2i((int)1.0f, (int)13.0f),
@@ -3253,7 +3247,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2i.Max(Vertex2i[]) ArgumentNullException")]
-		public void Vertex2i_TestMinMax_ArgumentNullException()
+		public void Vertex2i_MinMax_ArgumentNullException()
 		{
 			Vertex2i min, max;
 
@@ -3261,7 +3255,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2i.MinMax(Vertex2i*)")]
-		public void Vertex2i_TestMinMax_Unsafe()
+		public void Vertex2i_MinMax_Unsafe()
 		{
 			Vertex2i[] v = new Vertex2i[] {
 				new Vertex2i((int)1.0f, (int)13.0f),
@@ -3288,7 +3282,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2i.MinMax(Vertex2i*) ArgumentNullException")]
-		public void Vertex2i_TestMinMax_Unsafe_ArgumentNullException()
+		public void Vertex2i_MinMax_Unsafe_ArgumentNullException()
 		{
 			Vertex2i min, max;
 
@@ -3302,7 +3296,7 @@ namespace OpenGL.Test
 		#region IEquatable Implementation
 
 		[Test(Description = "Test Vertex2i.Equals(Vertex2i)")]
-		public void Vertex2i_TestEquals_Vertex2i()
+		public void Vertex2i_Equals_Vertex2i()
 		{
 			Vertex2i v = Vertex2i.UnitX;
 
@@ -3311,7 +3305,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2i.Equals(object)")]
-		public void Vertex2i_TestEquals_True()
+		public void Vertex2i_Equals_True()
 		{
 			Vertex2i v = Vertex2i.UnitX;
 
@@ -3324,7 +3318,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2i.GetHashCode()")]
-		public void Vertex2i_TestGetHashCode()
+		public void Vertex2i_GetHashCode()
 		{
 			Random random = new Random();
 			
@@ -3341,7 +3335,7 @@ namespace OpenGL.Test
 		#region Object Overrides
 
 		[Test(Description = "Test Vertex2i.ToString()")]
-		public void Vertex2i_TestToString()
+		public void Vertex2i_ToString()
 		{
 			Random random = new Random();
 			
@@ -3356,14 +3350,13 @@ namespace OpenGL.Test
 		#endregion
 	}
 
-	[TestFixture]
-	[Category("Math")]
+	[TestFixture, Category("Math")]
 	class Vertex2fTest : Vertex2TestBase
 	{
 		#region Constructors
 
 		[Test(Description = "Test Vertex2f(float)")]
-		public void Vertex2f_TestConstructor1()
+		public void Vertex2f_Constructor1()
 		{
 			Random random = new Random();
 			float randomValue = (float)Next(random);
@@ -3375,7 +3368,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2f(float[])")]
-		public void Vertex2f_TestConstructor2()
+		public void Vertex2f_Constructor2()
 		{
 			Random random = new Random();
 			float randomValueX = (float)Next(random);
@@ -3390,7 +3383,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2f(float, float, float)")]
-		public void Vertex2f_TestConstructor3()
+		public void Vertex2f_Constructor3()
 		{
 			Random random = new Random();
 			float randomValueX = (float)Next(random);
@@ -3409,7 +3402,7 @@ namespace OpenGL.Test
 		#region Properties
 
 		[Test(Description = "Test Vertex2f.Size against Marshal.SizeOf")]
-		public void Vertex2f_TestMarshalSize()
+		public void Vertex2f_MarshalSize()
 		{
 			Assert.AreEqual(Marshal.SizeOf(typeof(Vertex2f)), Vertex2f.Size);
 		}
@@ -3419,7 +3412,7 @@ namespace OpenGL.Test
 		#region Arithmetic Operators
 
 		[Test(Description = "Test Vertex2f.operator-(Vertex2f))")]
-		public void Vertex2f_TestOperatorNegate()
+		public void Vertex2f_OperatorNegate()
 		{
 			Random random = new Random();
 			
@@ -3433,7 +3426,7 @@ namespace OpenGL.Test
 			Assert.AreEqual(-y, n.y);
 		}
 		[Test(Description = "Test Vertex2f.operator+(Vertex2f, Vertex2f)")]
-		public void Vertex2f_TestOperatorAdd()
+		public void Vertex2f_OperatorAdd()
 		{
 			Random random = new Random();
 			
@@ -3454,7 +3447,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2f.operator-(Vertex2f, Vertex2f)")]
-		public void Vertex2f_TestOperatorSub()
+		public void Vertex2f_OperatorSub()
 		{
 			Random random = new Random();
 			
@@ -3475,7 +3468,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2f.operator*(Vertex2f, Single)")]
-		public void Vertex2f_TestOperatorMultiplySingle()
+		public void Vertex2f_OperatorMultiplySingle()
 		{
 			Random random = new Random();
 			
@@ -3492,7 +3485,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2f.operator*(Vertex2f, Double)")]
-		public void Vertex2f_TestOperatorMultiplyDouble()
+		public void Vertex2f_OperatorMultiplyDouble()
 		{
 			Random random = new Random();
 			
@@ -3509,7 +3502,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2f.operator/(Vertex2f, Single)")]
-		public void Vertex2f_TestOperatorDivideSingle()
+		public void Vertex2f_OperatorDivideSingle()
 		{
 			Random random = new Random();
 			
@@ -3526,7 +3519,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2f.operator/(Vertex2f, Double)")]
-		public void Vertex2f_TestOperatorDivideDouble()
+		public void Vertex2f_OperatorDivideDouble()
 		{
 			Random random = new Random();
 			
@@ -3548,7 +3541,7 @@ namespace OpenGL.Test
 		#region Equality Operators
 
 		[Test(Description = "Test Vertex2f.operator==(Vertex2f, Vertex2f)")]
-		public void Vertex2f_TestOperatorEquality()
+		public void Vertex2f_OperatorEquality()
 		{
 			Vertex2f v = Vertex2f.UnitX;
 
@@ -3557,7 +3550,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2f.operator!=(Vertex2f, Vertex2f)")]
-		public void Vertex2f_TestOperatorInequality()
+		public void Vertex2f_OperatorInequality()
 		{
 			Vertex2f v = Vertex2f.UnitX;
 
@@ -3570,7 +3563,7 @@ namespace OpenGL.Test
 		#region Cast Operators
 
 		[Test(Description = "Test Vertex2f.operator float[](Vertex2f)")]
-		public void Vertex2f_TestCastToArray()
+		public void Vertex2f_CastToArray()
 		{
 			Random random = new Random();
 			
@@ -3585,7 +3578,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2f.operator Vertex2f(Vertex2f)")]
-		public void Vertex2f_TestCastToVertex2f()
+		public void Vertex2f_CastToVertex2f()
 		{
 			Random random = new Random();
 			
@@ -3604,21 +3597,21 @@ namespace OpenGL.Test
 		#region Vertex Methods
 
 		[Test(Description = "Test Vertex2f.Module()")]
-		public void Vertex2f_TestModule()
+		public void Vertex2f_Module()
 		{
 			Assert.AreEqual(2.236068f, new Vertex2f((float)1.0, (float)2.0).Module(), 1e-4f);
 			Assert.AreEqual(5.385165f, new Vertex2f((float)2.0, (float)5.0).Module(), 1e-4f);
 		}
 
 		[Test(Description = "Test Vertex2f.ModuleSquared()")]
-		public void Vertex2f_TestModuleSquared()
+		public void Vertex2f_ModuleSquared()
 		{
 			Assert.AreEqual(5f, new Vertex2f((float)1.0, (float)2.0).ModuleSquared(), 1e-4f);
 			Assert.AreEqual(29f, new Vertex2f((float)2.0, (float)5.0).ModuleSquared(), 1e-4f);
 		}
 
 		[Test(Description = "Test Vertex2f.Normalize()")]
-		public void Vertex2f_TestNormalize()
+		public void Vertex2f_Normalize()
 		{
 			Assert.DoesNotThrow(delegate() { Vertex2f.Zero.Normalize(); });
 
@@ -3634,7 +3627,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2f.Normalized")]
-		public void Vertex2f_TestNormalized()
+		public void Vertex2f_Normalized()
 		{
 			Vertex2f v;
 
@@ -3648,7 +3641,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2f.Min(Vertex2f[])")]
-		public void Vertex2f_TestMin()
+		public void Vertex2f_Min()
 		{
 			Vertex2f[] v = new Vertex2f[] {
 				new Vertex2f((float)1.0f, (float)13.0f),
@@ -3665,13 +3658,13 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2f.Min(Vertex2f[]) ArgumentNullException")]
-		public void Vertex2f_TestMin_ArgumentNullException()
+		public void Vertex2f_Min_ArgumentNullException()
 		{
 			Assert.Throws<ArgumentNullException>(() => Vertex2f.Min(null));
 		}
 
 		[Test(Description = "Test Vertex2f.Min(Vertex2f*)")]
-		public void Vertex2f_TestMin_Unsafe()
+		public void Vertex2f_Min_Unsafe()
 		{
 			Vertex2f[] v = new Vertex2f[] {
 				new Vertex2f((float)1.0f, (float)13.0f),
@@ -3694,7 +3687,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2f.Min(Vertex2f*) ArgumentNullException")]
-		public void Vertex2f_TestMin_Unsafe_ArgumentNullException()
+		public void Vertex2f_Min_Unsafe_ArgumentNullException()
 		{
 			unsafe {
 				Assert.Throws<ArgumentNullException>(() => Vertex2f.Min(null, 0));
@@ -3702,7 +3695,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2f.Max(Vertex2f[])")]
-		public void Vertex2f_TestMax()
+		public void Vertex2f_Max()
 		{
 			Vertex2f[] v = new Vertex2f[] {
 				new Vertex2f((float)1.0f, (float)13.0f),
@@ -3719,13 +3712,13 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2f.Max(Vertex2f[]) ArgumentNullException")]
-		public void Vertex2f_TestMax_ArgumentNullException()
+		public void Vertex2f_Max_ArgumentNullException()
 		{
 			Assert.Throws<ArgumentNullException>(() => Vertex2f.Max(null));
 		}
 
 		[Test(Description = "Test Vertex2f.Max(Vertex2f*)")]
-		public void Vertex2f_TestMax_Unsafe()
+		public void Vertex2f_Max_Unsafe()
 		{
 			Vertex2f[] v = new Vertex2f[] {
 				new Vertex2f((float)1.0f, (float)13.0f),
@@ -3748,7 +3741,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2f.Max(Vertex2f*) ArgumentNullException")]
-		public void Vertex2f_TestMax_Unsafe_ArgumentNullException()
+		public void Vertex2f_Max_Unsafe_ArgumentNullException()
 		{
 			unsafe {
 				Assert.Throws<ArgumentNullException>(() => Vertex2f.Max(null, 0));
@@ -3756,7 +3749,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2f.Max(Vertex2f[])")]
-		public void Vertex2f_TestMinMax()
+		public void Vertex2f_MinMax()
 		{
 			Vertex2f[] v = new Vertex2f[] {
 				new Vertex2f((float)1.0f, (float)13.0f),
@@ -3779,7 +3772,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2f.Max(Vertex2f[]) ArgumentNullException")]
-		public void Vertex2f_TestMinMax_ArgumentNullException()
+		public void Vertex2f_MinMax_ArgumentNullException()
 		{
 			Vertex2f min, max;
 
@@ -3787,7 +3780,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2f.MinMax(Vertex2f*)")]
-		public void Vertex2f_TestMinMax_Unsafe()
+		public void Vertex2f_MinMax_Unsafe()
 		{
 			Vertex2f[] v = new Vertex2f[] {
 				new Vertex2f((float)1.0f, (float)13.0f),
@@ -3814,7 +3807,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2f.MinMax(Vertex2f*) ArgumentNullException")]
-		public void Vertex2f_TestMinMax_Unsafe_ArgumentNullException()
+		public void Vertex2f_MinMax_Unsafe_ArgumentNullException()
 		{
 			Vertex2f min, max;
 
@@ -3828,7 +3821,7 @@ namespace OpenGL.Test
 		#region IEquatable Implementation
 
 		[Test(Description = "Test Vertex2f.Equals(Vertex2f)")]
-		public void Vertex2f_TestEquals_Vertex2f()
+		public void Vertex2f_Equals_Vertex2f()
 		{
 			Vertex2f v = Vertex2f.UnitX;
 
@@ -3837,7 +3830,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2f.Equals(object)")]
-		public void Vertex2f_TestEquals_True()
+		public void Vertex2f_Equals_True()
 		{
 			Vertex2f v = Vertex2f.UnitX;
 
@@ -3850,7 +3843,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2f.GetHashCode()")]
-		public void Vertex2f_TestGetHashCode()
+		public void Vertex2f_GetHashCode()
 		{
 			Random random = new Random();
 			
@@ -3867,7 +3860,7 @@ namespace OpenGL.Test
 		#region Object Overrides
 
 		[Test(Description = "Test Vertex2f.ToString()")]
-		public void Vertex2f_TestToString()
+		public void Vertex2f_ToString()
 		{
 			Random random = new Random();
 			
@@ -3882,14 +3875,13 @@ namespace OpenGL.Test
 		#endregion
 	}
 
-	[TestFixture]
-	[Category("Math")]
+	[TestFixture, Category("Math")]
 	class Vertex2dTest : Vertex2TestBase
 	{
 		#region Constructors
 
 		[Test(Description = "Test Vertex2d(double)")]
-		public void Vertex2d_TestConstructor1()
+		public void Vertex2d_Constructor1()
 		{
 			Random random = new Random();
 			double randomValue = (double)Next(random);
@@ -3901,7 +3893,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2d(double[])")]
-		public void Vertex2d_TestConstructor2()
+		public void Vertex2d_Constructor2()
 		{
 			Random random = new Random();
 			double randomValueX = (double)Next(random);
@@ -3916,7 +3908,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2d(double, double, double)")]
-		public void Vertex2d_TestConstructor3()
+		public void Vertex2d_Constructor3()
 		{
 			Random random = new Random();
 			double randomValueX = (double)Next(random);
@@ -3935,7 +3927,7 @@ namespace OpenGL.Test
 		#region Properties
 
 		[Test(Description = "Test Vertex2d.Size against Marshal.SizeOf")]
-		public void Vertex2d_TestMarshalSize()
+		public void Vertex2d_MarshalSize()
 		{
 			Assert.AreEqual(Marshal.SizeOf(typeof(Vertex2d)), Vertex2d.Size);
 		}
@@ -3945,7 +3937,7 @@ namespace OpenGL.Test
 		#region Arithmetic Operators
 
 		[Test(Description = "Test Vertex2d.operator-(Vertex2d))")]
-		public void Vertex2d_TestOperatorNegate()
+		public void Vertex2d_OperatorNegate()
 		{
 			Random random = new Random();
 			
@@ -3959,7 +3951,7 @@ namespace OpenGL.Test
 			Assert.AreEqual(-y, n.y);
 		}
 		[Test(Description = "Test Vertex2d.operator+(Vertex2d, Vertex2d)")]
-		public void Vertex2d_TestOperatorAdd()
+		public void Vertex2d_OperatorAdd()
 		{
 			Random random = new Random();
 			
@@ -3980,7 +3972,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2d.operator-(Vertex2d, Vertex2d)")]
-		public void Vertex2d_TestOperatorSub()
+		public void Vertex2d_OperatorSub()
 		{
 			Random random = new Random();
 			
@@ -4001,7 +3993,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2d.operator*(Vertex2d, Single)")]
-		public void Vertex2d_TestOperatorMultiplySingle()
+		public void Vertex2d_OperatorMultiplySingle()
 		{
 			Random random = new Random();
 			
@@ -4018,7 +4010,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2d.operator*(Vertex2d, Double)")]
-		public void Vertex2d_TestOperatorMultiplyDouble()
+		public void Vertex2d_OperatorMultiplyDouble()
 		{
 			Random random = new Random();
 			
@@ -4035,7 +4027,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2d.operator/(Vertex2d, Single)")]
-		public void Vertex2d_TestOperatorDivideSingle()
+		public void Vertex2d_OperatorDivideSingle()
 		{
 			Random random = new Random();
 			
@@ -4052,7 +4044,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2d.operator/(Vertex2d, Double)")]
-		public void Vertex2d_TestOperatorDivideDouble()
+		public void Vertex2d_OperatorDivideDouble()
 		{
 			Random random = new Random();
 			
@@ -4074,7 +4066,7 @@ namespace OpenGL.Test
 		#region Equality Operators
 
 		[Test(Description = "Test Vertex2d.operator==(Vertex2d, Vertex2d)")]
-		public void Vertex2d_TestOperatorEquality()
+		public void Vertex2d_OperatorEquality()
 		{
 			Vertex2d v = Vertex2d.UnitX;
 
@@ -4083,7 +4075,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2d.operator!=(Vertex2d, Vertex2d)")]
-		public void Vertex2d_TestOperatorInequality()
+		public void Vertex2d_OperatorInequality()
 		{
 			Vertex2d v = Vertex2d.UnitX;
 
@@ -4096,7 +4088,7 @@ namespace OpenGL.Test
 		#region Cast Operators
 
 		[Test(Description = "Test Vertex2d.operator double[](Vertex2d)")]
-		public void Vertex2d_TestCastToArray()
+		public void Vertex2d_CastToArray()
 		{
 			Random random = new Random();
 			
@@ -4111,7 +4103,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2d.operator Vertex2f(Vertex2d)")]
-		public void Vertex2d_TestCastToVertex2f()
+		public void Vertex2d_CastToVertex2f()
 		{
 			Random random = new Random();
 			
@@ -4130,21 +4122,21 @@ namespace OpenGL.Test
 		#region Vertex Methods
 
 		[Test(Description = "Test Vertex2d.Module()")]
-		public void Vertex2d_TestModule()
+		public void Vertex2d_Module()
 		{
 			Assert.AreEqual(2.236068f, new Vertex2d((double)1.0, (double)2.0).Module(), 1e-4f);
 			Assert.AreEqual(5.385165f, new Vertex2d((double)2.0, (double)5.0).Module(), 1e-4f);
 		}
 
 		[Test(Description = "Test Vertex2d.ModuleSquared()")]
-		public void Vertex2d_TestModuleSquared()
+		public void Vertex2d_ModuleSquared()
 		{
 			Assert.AreEqual(5f, new Vertex2d((double)1.0, (double)2.0).ModuleSquared(), 1e-4f);
 			Assert.AreEqual(29f, new Vertex2d((double)2.0, (double)5.0).ModuleSquared(), 1e-4f);
 		}
 
 		[Test(Description = "Test Vertex2d.Normalize()")]
-		public void Vertex2d_TestNormalize()
+		public void Vertex2d_Normalize()
 		{
 			Assert.DoesNotThrow(delegate() { Vertex2d.Zero.Normalize(); });
 
@@ -4160,7 +4152,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2d.Normalized")]
-		public void Vertex2d_TestNormalized()
+		public void Vertex2d_Normalized()
 		{
 			Vertex2d v;
 
@@ -4174,7 +4166,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2d.Min(Vertex2d[])")]
-		public void Vertex2d_TestMin()
+		public void Vertex2d_Min()
 		{
 			Vertex2d[] v = new Vertex2d[] {
 				new Vertex2d((double)1.0f, (double)13.0f),
@@ -4191,13 +4183,13 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2d.Min(Vertex2d[]) ArgumentNullException")]
-		public void Vertex2d_TestMin_ArgumentNullException()
+		public void Vertex2d_Min_ArgumentNullException()
 		{
 			Assert.Throws<ArgumentNullException>(() => Vertex2d.Min(null));
 		}
 
 		[Test(Description = "Test Vertex2d.Min(Vertex2d*)")]
-		public void Vertex2d_TestMin_Unsafe()
+		public void Vertex2d_Min_Unsafe()
 		{
 			Vertex2d[] v = new Vertex2d[] {
 				new Vertex2d((double)1.0f, (double)13.0f),
@@ -4220,7 +4212,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2d.Min(Vertex2d*) ArgumentNullException")]
-		public void Vertex2d_TestMin_Unsafe_ArgumentNullException()
+		public void Vertex2d_Min_Unsafe_ArgumentNullException()
 		{
 			unsafe {
 				Assert.Throws<ArgumentNullException>(() => Vertex2d.Min(null, 0));
@@ -4228,7 +4220,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2d.Max(Vertex2d[])")]
-		public void Vertex2d_TestMax()
+		public void Vertex2d_Max()
 		{
 			Vertex2d[] v = new Vertex2d[] {
 				new Vertex2d((double)1.0f, (double)13.0f),
@@ -4245,13 +4237,13 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2d.Max(Vertex2d[]) ArgumentNullException")]
-		public void Vertex2d_TestMax_ArgumentNullException()
+		public void Vertex2d_Max_ArgumentNullException()
 		{
 			Assert.Throws<ArgumentNullException>(() => Vertex2d.Max(null));
 		}
 
 		[Test(Description = "Test Vertex2d.Max(Vertex2d*)")]
-		public void Vertex2d_TestMax_Unsafe()
+		public void Vertex2d_Max_Unsafe()
 		{
 			Vertex2d[] v = new Vertex2d[] {
 				new Vertex2d((double)1.0f, (double)13.0f),
@@ -4274,7 +4266,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2d.Max(Vertex2d*) ArgumentNullException")]
-		public void Vertex2d_TestMax_Unsafe_ArgumentNullException()
+		public void Vertex2d_Max_Unsafe_ArgumentNullException()
 		{
 			unsafe {
 				Assert.Throws<ArgumentNullException>(() => Vertex2d.Max(null, 0));
@@ -4282,7 +4274,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2d.Max(Vertex2d[])")]
-		public void Vertex2d_TestMinMax()
+		public void Vertex2d_MinMax()
 		{
 			Vertex2d[] v = new Vertex2d[] {
 				new Vertex2d((double)1.0f, (double)13.0f),
@@ -4305,7 +4297,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2d.Max(Vertex2d[]) ArgumentNullException")]
-		public void Vertex2d_TestMinMax_ArgumentNullException()
+		public void Vertex2d_MinMax_ArgumentNullException()
 		{
 			Vertex2d min, max;
 
@@ -4313,7 +4305,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2d.MinMax(Vertex2d*)")]
-		public void Vertex2d_TestMinMax_Unsafe()
+		public void Vertex2d_MinMax_Unsafe()
 		{
 			Vertex2d[] v = new Vertex2d[] {
 				new Vertex2d((double)1.0f, (double)13.0f),
@@ -4340,7 +4332,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2d.MinMax(Vertex2d*) ArgumentNullException")]
-		public void Vertex2d_TestMinMax_Unsafe_ArgumentNullException()
+		public void Vertex2d_MinMax_Unsafe_ArgumentNullException()
 		{
 			Vertex2d min, max;
 
@@ -4354,7 +4346,7 @@ namespace OpenGL.Test
 		#region IEquatable Implementation
 
 		[Test(Description = "Test Vertex2d.Equals(Vertex2d)")]
-		public void Vertex2d_TestEquals_Vertex2d()
+		public void Vertex2d_Equals_Vertex2d()
 		{
 			Vertex2d v = Vertex2d.UnitX;
 
@@ -4363,7 +4355,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2d.Equals(object)")]
-		public void Vertex2d_TestEquals_True()
+		public void Vertex2d_Equals_True()
 		{
 			Vertex2d v = Vertex2d.UnitX;
 
@@ -4376,7 +4368,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2d.GetHashCode()")]
-		public void Vertex2d_TestGetHashCode()
+		public void Vertex2d_GetHashCode()
 		{
 			Random random = new Random();
 			
@@ -4393,7 +4385,7 @@ namespace OpenGL.Test
 		#region Object Overrides
 
 		[Test(Description = "Test Vertex2d.ToString()")]
-		public void Vertex2d_TestToString()
+		public void Vertex2d_ToString()
 		{
 			Random random = new Random();
 			
@@ -4408,14 +4400,13 @@ namespace OpenGL.Test
 		#endregion
 	}
 
-	[TestFixture]
-	[Category("Math")]
+	[TestFixture, Category("Math")]
 	class Vertex2hfTest : Vertex2TestBase
 	{
 		#region Constructors
 
 		[Test(Description = "Test Vertex2hf(HalfFloat)")]
-		public void Vertex2hf_TestConstructor1()
+		public void Vertex2hf_Constructor1()
 		{
 			Random random = new Random();
 			HalfFloat randomValue = (HalfFloat)Next(random);
@@ -4427,7 +4418,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2hf(HalfFloat[])")]
-		public void Vertex2hf_TestConstructor2()
+		public void Vertex2hf_Constructor2()
 		{
 			Random random = new Random();
 			HalfFloat randomValueX = (HalfFloat)Next(random);
@@ -4442,7 +4433,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2hf(HalfFloat, HalfFloat, HalfFloat)")]
-		public void Vertex2hf_TestConstructor3()
+		public void Vertex2hf_Constructor3()
 		{
 			Random random = new Random();
 			HalfFloat randomValueX = (HalfFloat)Next(random);
@@ -4461,7 +4452,7 @@ namespace OpenGL.Test
 		#region Properties
 
 		[Test(Description = "Test Vertex2hf.Size against Marshal.SizeOf")]
-		public void Vertex2hf_TestMarshalSize()
+		public void Vertex2hf_MarshalSize()
 		{
 			Assert.AreEqual(Marshal.SizeOf(typeof(Vertex2hf)), Vertex2hf.Size);
 		}
@@ -4471,7 +4462,7 @@ namespace OpenGL.Test
 		#region Arithmetic Operators
 
 		[Test(Description = "Test Vertex2hf.operator+(Vertex2hf, Vertex2hf)")]
-		public void Vertex2hf_TestOperatorAdd()
+		public void Vertex2hf_OperatorAdd()
 		{
 			Random random = new Random();
 			
@@ -4492,7 +4483,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2hf.operator-(Vertex2hf, Vertex2hf)")]
-		public void Vertex2hf_TestOperatorSub()
+		public void Vertex2hf_OperatorSub()
 		{
 			Random random = new Random();
 			
@@ -4513,7 +4504,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2hf.operator*(Vertex2hf, Single)")]
-		public void Vertex2hf_TestOperatorMultiplySingle()
+		public void Vertex2hf_OperatorMultiplySingle()
 		{
 			Random random = new Random();
 			
@@ -4530,7 +4521,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2hf.operator*(Vertex2hf, Double)")]
-		public void Vertex2hf_TestOperatorMultiplyDouble()
+		public void Vertex2hf_OperatorMultiplyDouble()
 		{
 			Random random = new Random();
 			
@@ -4547,7 +4538,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2hf.operator/(Vertex2hf, Single)")]
-		public void Vertex2hf_TestOperatorDivideSingle()
+		public void Vertex2hf_OperatorDivideSingle()
 		{
 			Random random = new Random();
 			
@@ -4564,7 +4555,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2hf.operator/(Vertex2hf, Double)")]
-		public void Vertex2hf_TestOperatorDivideDouble()
+		public void Vertex2hf_OperatorDivideDouble()
 		{
 			Random random = new Random();
 			
@@ -4586,7 +4577,7 @@ namespace OpenGL.Test
 		#region Equality Operators
 
 		[Test(Description = "Test Vertex2hf.operator==(Vertex2hf, Vertex2hf)")]
-		public void Vertex2hf_TestOperatorEquality()
+		public void Vertex2hf_OperatorEquality()
 		{
 			Vertex2hf v = Vertex2hf.UnitX;
 
@@ -4595,7 +4586,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2hf.operator!=(Vertex2hf, Vertex2hf)")]
-		public void Vertex2hf_TestOperatorInequality()
+		public void Vertex2hf_OperatorInequality()
 		{
 			Vertex2hf v = Vertex2hf.UnitX;
 
@@ -4608,7 +4599,7 @@ namespace OpenGL.Test
 		#region Cast Operators
 
 		[Test(Description = "Test Vertex2hf.operator HalfFloat[](Vertex2hf)")]
-		public void Vertex2hf_TestCastToArray()
+		public void Vertex2hf_CastToArray()
 		{
 			Random random = new Random();
 			
@@ -4623,7 +4614,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2hf.operator Vertex2f(Vertex2hf)")]
-		public void Vertex2hf_TestCastToVertex2f()
+		public void Vertex2hf_CastToVertex2f()
 		{
 			Random random = new Random();
 			
@@ -4642,21 +4633,21 @@ namespace OpenGL.Test
 		#region Vertex Methods
 
 		[Test(Description = "Test Vertex2hf.Module()")]
-		public void Vertex2hf_TestModule()
+		public void Vertex2hf_Module()
 		{
 			Assert.AreEqual(2.236068f, new Vertex2hf((HalfFloat)1.0, (HalfFloat)2.0).Module(), 1e-4f);
 			Assert.AreEqual(5.385165f, new Vertex2hf((HalfFloat)2.0, (HalfFloat)5.0).Module(), 1e-4f);
 		}
 
 		[Test(Description = "Test Vertex2hf.ModuleSquared()")]
-		public void Vertex2hf_TestModuleSquared()
+		public void Vertex2hf_ModuleSquared()
 		{
 			Assert.AreEqual(5f, new Vertex2hf((HalfFloat)1.0, (HalfFloat)2.0).ModuleSquared(), 1e-4f);
 			Assert.AreEqual(29f, new Vertex2hf((HalfFloat)2.0, (HalfFloat)5.0).ModuleSquared(), 1e-4f);
 		}
 
 		[Test(Description = "Test Vertex2hf.Normalize()")]
-		public void Vertex2hf_TestNormalize()
+		public void Vertex2hf_Normalize()
 		{
 			Assert.DoesNotThrow(delegate() { Vertex2hf.Zero.Normalize(); });
 
@@ -4672,7 +4663,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2hf.Normalized")]
-		public void Vertex2hf_TestNormalized()
+		public void Vertex2hf_Normalized()
 		{
 			Vertex2hf v;
 
@@ -4686,7 +4677,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2hf.Min(Vertex2hf[])")]
-		public void Vertex2hf_TestMin()
+		public void Vertex2hf_Min()
 		{
 			Vertex2hf[] v = new Vertex2hf[] {
 				new Vertex2hf((HalfFloat)1.0f, (HalfFloat)13.0f),
@@ -4703,13 +4694,13 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2hf.Min(Vertex2hf[]) ArgumentNullException")]
-		public void Vertex2hf_TestMin_ArgumentNullException()
+		public void Vertex2hf_Min_ArgumentNullException()
 		{
 			Assert.Throws<ArgumentNullException>(() => Vertex2hf.Min(null));
 		}
 
 		[Test(Description = "Test Vertex2hf.Min(Vertex2hf*)")]
-		public void Vertex2hf_TestMin_Unsafe()
+		public void Vertex2hf_Min_Unsafe()
 		{
 			Vertex2hf[] v = new Vertex2hf[] {
 				new Vertex2hf((HalfFloat)1.0f, (HalfFloat)13.0f),
@@ -4732,7 +4723,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2hf.Min(Vertex2hf*) ArgumentNullException")]
-		public void Vertex2hf_TestMin_Unsafe_ArgumentNullException()
+		public void Vertex2hf_Min_Unsafe_ArgumentNullException()
 		{
 			unsafe {
 				Assert.Throws<ArgumentNullException>(() => Vertex2hf.Min(null, 0));
@@ -4740,7 +4731,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2hf.Max(Vertex2hf[])")]
-		public void Vertex2hf_TestMax()
+		public void Vertex2hf_Max()
 		{
 			Vertex2hf[] v = new Vertex2hf[] {
 				new Vertex2hf((HalfFloat)1.0f, (HalfFloat)13.0f),
@@ -4757,13 +4748,13 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2hf.Max(Vertex2hf[]) ArgumentNullException")]
-		public void Vertex2hf_TestMax_ArgumentNullException()
+		public void Vertex2hf_Max_ArgumentNullException()
 		{
 			Assert.Throws<ArgumentNullException>(() => Vertex2hf.Max(null));
 		}
 
 		[Test(Description = "Test Vertex2hf.Max(Vertex2hf*)")]
-		public void Vertex2hf_TestMax_Unsafe()
+		public void Vertex2hf_Max_Unsafe()
 		{
 			Vertex2hf[] v = new Vertex2hf[] {
 				new Vertex2hf((HalfFloat)1.0f, (HalfFloat)13.0f),
@@ -4786,7 +4777,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2hf.Max(Vertex2hf*) ArgumentNullException")]
-		public void Vertex2hf_TestMax_Unsafe_ArgumentNullException()
+		public void Vertex2hf_Max_Unsafe_ArgumentNullException()
 		{
 			unsafe {
 				Assert.Throws<ArgumentNullException>(() => Vertex2hf.Max(null, 0));
@@ -4794,7 +4785,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2hf.Max(Vertex2hf[])")]
-		public void Vertex2hf_TestMinMax()
+		public void Vertex2hf_MinMax()
 		{
 			Vertex2hf[] v = new Vertex2hf[] {
 				new Vertex2hf((HalfFloat)1.0f, (HalfFloat)13.0f),
@@ -4817,7 +4808,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2hf.Max(Vertex2hf[]) ArgumentNullException")]
-		public void Vertex2hf_TestMinMax_ArgumentNullException()
+		public void Vertex2hf_MinMax_ArgumentNullException()
 		{
 			Vertex2hf min, max;
 
@@ -4825,7 +4816,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2hf.MinMax(Vertex2hf*)")]
-		public void Vertex2hf_TestMinMax_Unsafe()
+		public void Vertex2hf_MinMax_Unsafe()
 		{
 			Vertex2hf[] v = new Vertex2hf[] {
 				new Vertex2hf((HalfFloat)1.0f, (HalfFloat)13.0f),
@@ -4852,7 +4843,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2hf.MinMax(Vertex2hf*) ArgumentNullException")]
-		public void Vertex2hf_TestMinMax_Unsafe_ArgumentNullException()
+		public void Vertex2hf_MinMax_Unsafe_ArgumentNullException()
 		{
 			Vertex2hf min, max;
 
@@ -4866,7 +4857,7 @@ namespace OpenGL.Test
 		#region IEquatable Implementation
 
 		[Test(Description = "Test Vertex2hf.Equals(Vertex2hf)")]
-		public void Vertex2hf_TestEquals_Vertex2hf()
+		public void Vertex2hf_Equals_Vertex2hf()
 		{
 			Vertex2hf v = Vertex2hf.UnitX;
 
@@ -4875,7 +4866,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2hf.Equals(object)")]
-		public void Vertex2hf_TestEquals_True()
+		public void Vertex2hf_Equals_True()
 		{
 			Vertex2hf v = Vertex2hf.UnitX;
 
@@ -4888,7 +4879,7 @@ namespace OpenGL.Test
 		}
 
 		[Test(Description = "Test Vertex2hf.GetHashCode()")]
-		public void Vertex2hf_TestGetHashCode()
+		public void Vertex2hf_GetHashCode()
 		{
 			Random random = new Random();
 			
@@ -4905,7 +4896,7 @@ namespace OpenGL.Test
 		#region Object Overrides
 
 		[Test(Description = "Test Vertex2hf.ToString()")]
-		public void Vertex2hf_TestToString()
+		public void Vertex2hf_ToString()
 		{
 			Random random = new Random();
 			

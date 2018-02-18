@@ -38,7 +38,7 @@ namespace OpenGL.Test
 		#region Constructors
 
 		[Test]
-		public void Matrix2x2f_TestConstructor1()
+		public void Matrix2x2f_Constructor1()
 		{
 			Matrix2x2f m = new Matrix2x2f(
 				(float)0, (float)1, 
@@ -50,7 +50,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x2f_TestConstructor2()
+		public void Matrix2x2f_Constructor2()
 		{
 			Assert.Throws<ArgumentNullException>(() => new Matrix2x2f(null, 0));
 			Assert.Throws<ArgumentException>(() => new Matrix2x2f(new[] { 
@@ -68,7 +68,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x2f_TestConstructor3()
+		public void Matrix2x2f_Constructor3()
 		{
 			Matrix2x2f m1 = CreateRandomMatrix();
 			Matrix2x2f m2 = new Matrix2x2f(m1);
@@ -82,7 +82,7 @@ namespace OpenGL.Test
 		#region Columns & Rows
 
 		[Test]
-		public void Matrix2x2f_TestColumns()
+		public void Matrix2x2f_Columns()
 		{
 			Matrix2x2f m = CreateRandomMatrix();
 
@@ -97,7 +97,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x2f_TestRows()
+		public void Matrix2x2f_Rows()
 		{
 			Matrix2x2f m = CreateRandomMatrix();
 
@@ -110,7 +110,7 @@ namespace OpenGL.Test
 		#region Operators
 
 		[Test]
-		public void Matrix2x2f_TestAccessor()
+		public void Matrix2x2f_Accessor()
 		{
 			Matrix2x2f m = new Matrix2x2f();
 			float r;
@@ -139,7 +139,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x2f_TestMultiplyScalar()
+		public void Matrix2x2f_MultiplyScalar()
 		{
 			Matrix2x2f m = CreateSequenceMatrix();
 
@@ -151,7 +151,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x2f_TestMultiplyVertex2f()
+		public void Matrix2x2f_MultiplyVertex2f()
 		{
 			Matrix2x2f m = CreateSequenceMatrix();
 			Vertex2f v = Vertex2f.Zero;
@@ -159,7 +159,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x2f_TestMultiplyMatrix2x2f()
+		public void Matrix2x2f_MultiplyMatrix2x2f()
 		{
 			Matrix2x2f m1 = CreateSequenceMatrix();
 			Matrix2x2f m2 = CreateSequenceMatrix();
@@ -171,7 +171,7 @@ namespace OpenGL.Test
 		#region Cast Operators
 
 		[Test]
-		public void Matrix2x2f_TestCastToArray()
+		public void Matrix2x2f_CastToArray()
 		{
 			Matrix2x2f m = CreateSequenceMatrix();
 			float[] mArray = (float[])m;
@@ -183,7 +183,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x2f_TestCastToMatrix2x2d()
+		public void Matrix2x2f_CastToMatrix2x2d()
 		{
 			Matrix2x2f m = CreateSequenceMatrix();
 			Matrix2x2d mOther = (Matrix2x2d)m;
@@ -197,7 +197,7 @@ namespace OpenGL.Test
 		#region Equality Operators
 
 		[Test]
-		public void Matrix2x2f_TestEqualityOperator()
+		public void Matrix2x2f_EqualityOperator()
 		{
 			Matrix2x2f m1 = CreateRandomMatrix();
 			Matrix2x2f m2 = m1;
@@ -206,7 +206,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x2f_TestInequalityOperator()
+		public void Matrix2x2f_InequalityOperator()
 		{
 			Matrix2x2f m1 = CreateRandomMatrix();
 			Matrix2x2f m2 = m1;
@@ -219,7 +219,7 @@ namespace OpenGL.Test
 		#region Rotation
 
 		[Test]
-		public void Matrix2x2f_TestRotatedZ()
+		public void Matrix2x2f_RotatedZ()
 		{
 			Matrix2x2f m = Matrix2x2f.RotatedZ(0.0f);
 			Assert.IsTrue(m.Equals(Matrix2x2f.Identity, 1e-5f));
@@ -235,7 +235,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x2f_TestRotateZ()
+		public void Matrix2x2f_RotateZ()
 		{
 			Matrix2x2f m = Matrix2x2f.Identity;
 			
@@ -256,7 +256,7 @@ namespace OpenGL.Test
 		#region Transposition
 
 		[Test]
-		public void Matrix2x2f_TestTransposed()
+		public void Matrix2x2f_Transposed()
 		{
 			Matrix2x2f m = CreateRandomMatrix();
 			Matrix2x2f t = m.Transposed;
@@ -268,7 +268,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x2f_TestTranspose()
+		public void Matrix2x2f_Transpose()
 		{
 			Matrix2x2f m = CreateRandomMatrix();
 			Matrix2x2f n = m;
@@ -286,13 +286,13 @@ namespace OpenGL.Test
 		#region Inversion
 
 		[Test]
-		public void Matrix2x2f_TestDeterminant()
+		public void Matrix2x2f_Determinant()
 		{
 			Assert.AreEqual(1.0f, Matrix2x2f.Identity.Determinant);
 		}
 
 		[Test]
-		public void Matrix2x2f_TestInverse()
+		public void Matrix2x2f_Inverse()
 		{
 			Matrix2x2f r;
 
@@ -307,7 +307,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x2f_TestInvert()
+		public void Matrix2x2f_Invert()
 		{
 			Assert.Throws<InvalidOperationException>(() => new Matrix2x2f().Invert());
 
@@ -326,7 +326,7 @@ namespace OpenGL.Test
 		#region IEquatable Implementation
 
 		[Test]
-		public void Matrix2x2f_TestAbsoluteEqualsToMatrix2x2f()
+		public void Matrix2x2f_AbsoluteEqualsToMatrix2x2f()
 		{
 			Matrix2x2f m = new Matrix2x2f();
 
@@ -349,7 +349,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x2f_TestEqualsToMatrix2x2f()
+		public void Matrix2x2f_EqualsToMatrix2x2f()
 		{
 			Matrix2x2f m1 = CreateRandomMatrix();
 			Matrix2x2f m2 = m1;
@@ -359,7 +359,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x2f_TestEqualsToObject()
+		public void Matrix2x2f_EqualsToObject()
 		{
 			Matrix2x2f m1 = CreateRandomMatrix();
 			Matrix2x2f m2 = m1;
@@ -371,7 +371,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x2f_TestGetHashCode()
+		public void Matrix2x2f_GetHashCode()
 		{
 			Matrix2x2f m = CreateRandomMatrix();
 			int hashCode, cache = 0;
@@ -401,7 +401,7 @@ namespace OpenGL.Test
 		#region Object Overrides
 
 		[Test]
-		public void Matrix2x2f_TestToString()
+		public void Matrix2x2f_ToString()
 		{
 			Matrix2x2f m = CreateRandomMatrix();
 
@@ -450,7 +450,7 @@ namespace OpenGL.Test
 		#region Constructors
 
 		[Test]
-		public void Matrix2x3f_TestConstructor1()
+		public void Matrix2x3f_Constructor1()
 		{
 			Matrix2x3f m = new Matrix2x3f(
 				(float)0, (float)1, (float)2, 
@@ -462,7 +462,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x3f_TestConstructor2()
+		public void Matrix2x3f_Constructor2()
 		{
 			Assert.Throws<ArgumentNullException>(() => new Matrix2x3f(null, 0));
 			Assert.Throws<ArgumentException>(() => new Matrix2x3f(new[] { 
@@ -480,7 +480,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x3f_TestConstructor3()
+		public void Matrix2x3f_Constructor3()
 		{
 			Matrix2x3f m1 = CreateRandomMatrix();
 			Matrix2x3f m2 = new Matrix2x3f(m1);
@@ -494,7 +494,7 @@ namespace OpenGL.Test
 		#region Columns & Rows
 
 		[Test]
-		public void Matrix2x3f_TestColumns()
+		public void Matrix2x3f_Columns()
 		{
 			Matrix2x3f m = CreateRandomMatrix();
 
@@ -511,7 +511,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x3f_TestRows()
+		public void Matrix2x3f_Rows()
 		{
 			Matrix2x3f m = CreateRandomMatrix();
 
@@ -525,7 +525,7 @@ namespace OpenGL.Test
 		#region Operators
 
 		[Test]
-		public void Matrix2x3f_TestAccessor()
+		public void Matrix2x3f_Accessor()
 		{
 			Matrix2x3f m = new Matrix2x3f();
 			float r;
@@ -562,7 +562,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x3f_TestMultiplyScalar()
+		public void Matrix2x3f_MultiplyScalar()
 		{
 			Matrix2x3f m = CreateSequenceMatrix();
 
@@ -578,7 +578,7 @@ namespace OpenGL.Test
 		#region Cast Operators
 
 		[Test]
-		public void Matrix2x3f_TestCastToArray()
+		public void Matrix2x3f_CastToArray()
 		{
 			Matrix2x3f m = CreateSequenceMatrix();
 			float[] mArray = (float[])m;
@@ -590,7 +590,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x3f_TestCastToMatrix2x3d()
+		public void Matrix2x3f_CastToMatrix2x3d()
 		{
 			Matrix2x3f m = CreateSequenceMatrix();
 			Matrix2x3d mOther = (Matrix2x3d)m;
@@ -604,7 +604,7 @@ namespace OpenGL.Test
 		#region Equality Operators
 
 		[Test]
-		public void Matrix2x3f_TestEqualityOperator()
+		public void Matrix2x3f_EqualityOperator()
 		{
 			Matrix2x3f m1 = CreateRandomMatrix();
 			Matrix2x3f m2 = m1;
@@ -613,7 +613,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x3f_TestInequalityOperator()
+		public void Matrix2x3f_InequalityOperator()
 		{
 			Matrix2x3f m1 = CreateRandomMatrix();
 			Matrix2x3f m2 = m1;
@@ -626,7 +626,7 @@ namespace OpenGL.Test
 		#region Transposition
 
 		[Test]
-		public void Matrix2x3f_TestTransposed()
+		public void Matrix2x3f_Transposed()
 		{
 			Matrix2x3f m = CreateRandomMatrix();
 			Matrix3x2f t = m.Transposed;
@@ -644,7 +644,7 @@ namespace OpenGL.Test
 		#region IEquatable Implementation
 
 		[Test]
-		public void Matrix2x3f_TestAbsoluteEqualsToMatrix2x3f()
+		public void Matrix2x3f_AbsoluteEqualsToMatrix2x3f()
 		{
 			Matrix2x3f m = new Matrix2x3f();
 
@@ -675,7 +675,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x3f_TestEqualsToMatrix2x3f()
+		public void Matrix2x3f_EqualsToMatrix2x3f()
 		{
 			Matrix2x3f m1 = CreateRandomMatrix();
 			Matrix2x3f m2 = m1;
@@ -685,7 +685,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x3f_TestEqualsToObject()
+		public void Matrix2x3f_EqualsToObject()
 		{
 			Matrix2x3f m1 = CreateRandomMatrix();
 			Matrix2x3f m2 = m1;
@@ -697,7 +697,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x3f_TestGetHashCode()
+		public void Matrix2x3f_GetHashCode()
 		{
 			Matrix2x3f m = CreateRandomMatrix();
 			int hashCode, cache = 0;
@@ -735,7 +735,7 @@ namespace OpenGL.Test
 		#region Object Overrides
 
 		[Test]
-		public void Matrix2x3f_TestToString()
+		public void Matrix2x3f_ToString()
 		{
 			Matrix2x3f m = CreateRandomMatrix();
 
@@ -772,7 +772,7 @@ namespace OpenGL.Test
 		#region Constructors
 
 		[Test]
-		public void Matrix2x4f_TestConstructor1()
+		public void Matrix2x4f_Constructor1()
 		{
 			Matrix2x4f m = new Matrix2x4f(
 				(float)0, (float)1, (float)2, (float)3, 
@@ -784,7 +784,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x4f_TestConstructor2()
+		public void Matrix2x4f_Constructor2()
 		{
 			Assert.Throws<ArgumentNullException>(() => new Matrix2x4f(null, 0));
 			Assert.Throws<ArgumentException>(() => new Matrix2x4f(new[] { 
@@ -802,7 +802,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x4f_TestConstructor3()
+		public void Matrix2x4f_Constructor3()
 		{
 			Matrix2x4f m1 = CreateRandomMatrix();
 			Matrix2x4f m2 = new Matrix2x4f(m1);
@@ -816,7 +816,7 @@ namespace OpenGL.Test
 		#region Columns & Rows
 
 		[Test]
-		public void Matrix2x4f_TestColumns()
+		public void Matrix2x4f_Columns()
 		{
 			Matrix2x4f m = CreateRandomMatrix();
 
@@ -835,7 +835,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x4f_TestRows()
+		public void Matrix2x4f_Rows()
 		{
 			Matrix2x4f m = CreateRandomMatrix();
 
@@ -850,7 +850,7 @@ namespace OpenGL.Test
 		#region Operators
 
 		[Test]
-		public void Matrix2x4f_TestAccessor()
+		public void Matrix2x4f_Accessor()
 		{
 			Matrix2x4f m = new Matrix2x4f();
 			float r;
@@ -895,7 +895,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x4f_TestMultiplyScalar()
+		public void Matrix2x4f_MultiplyScalar()
 		{
 			Matrix2x4f m = CreateSequenceMatrix();
 
@@ -911,7 +911,7 @@ namespace OpenGL.Test
 		#region Cast Operators
 
 		[Test]
-		public void Matrix2x4f_TestCastToArray()
+		public void Matrix2x4f_CastToArray()
 		{
 			Matrix2x4f m = CreateSequenceMatrix();
 			float[] mArray = (float[])m;
@@ -923,7 +923,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x4f_TestCastToMatrix2x4d()
+		public void Matrix2x4f_CastToMatrix2x4d()
 		{
 			Matrix2x4f m = CreateSequenceMatrix();
 			Matrix2x4d mOther = (Matrix2x4d)m;
@@ -937,7 +937,7 @@ namespace OpenGL.Test
 		#region Equality Operators
 
 		[Test]
-		public void Matrix2x4f_TestEqualityOperator()
+		public void Matrix2x4f_EqualityOperator()
 		{
 			Matrix2x4f m1 = CreateRandomMatrix();
 			Matrix2x4f m2 = m1;
@@ -946,7 +946,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x4f_TestInequalityOperator()
+		public void Matrix2x4f_InequalityOperator()
 		{
 			Matrix2x4f m1 = CreateRandomMatrix();
 			Matrix2x4f m2 = m1;
@@ -959,7 +959,7 @@ namespace OpenGL.Test
 		#region Transposition
 
 		[Test]
-		public void Matrix2x4f_TestTransposed()
+		public void Matrix2x4f_Transposed()
 		{
 			Matrix2x4f m = CreateRandomMatrix();
 			Matrix4x2f t = m.Transposed;
@@ -979,7 +979,7 @@ namespace OpenGL.Test
 		#region IEquatable Implementation
 
 		[Test]
-		public void Matrix2x4f_TestAbsoluteEqualsToMatrix2x4f()
+		public void Matrix2x4f_AbsoluteEqualsToMatrix2x4f()
 		{
 			Matrix2x4f m = new Matrix2x4f();
 
@@ -1018,7 +1018,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x4f_TestEqualsToMatrix2x4f()
+		public void Matrix2x4f_EqualsToMatrix2x4f()
 		{
 			Matrix2x4f m1 = CreateRandomMatrix();
 			Matrix2x4f m2 = m1;
@@ -1028,7 +1028,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x4f_TestEqualsToObject()
+		public void Matrix2x4f_EqualsToObject()
 		{
 			Matrix2x4f m1 = CreateRandomMatrix();
 			Matrix2x4f m2 = m1;
@@ -1040,7 +1040,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x4f_TestGetHashCode()
+		public void Matrix2x4f_GetHashCode()
 		{
 			Matrix2x4f m = CreateRandomMatrix();
 			int hashCode, cache = 0;
@@ -1086,7 +1086,7 @@ namespace OpenGL.Test
 		#region Object Overrides
 
 		[Test]
-		public void Matrix2x4f_TestToString()
+		public void Matrix2x4f_ToString()
 		{
 			Matrix2x4f m = CreateRandomMatrix();
 
@@ -1123,7 +1123,7 @@ namespace OpenGL.Test
 		#region Constructors
 
 		[Test]
-		public void Matrix3x2f_TestConstructor1()
+		public void Matrix3x2f_Constructor1()
 		{
 			Matrix3x2f m = new Matrix3x2f(
 				(float)0, (float)1, 
@@ -1136,7 +1136,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x2f_TestConstructor2()
+		public void Matrix3x2f_Constructor2()
 		{
 			Assert.Throws<ArgumentNullException>(() => new Matrix3x2f(null, 0));
 			Assert.Throws<ArgumentException>(() => new Matrix3x2f(new[] { 
@@ -1156,7 +1156,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x2f_TestConstructor3()
+		public void Matrix3x2f_Constructor3()
 		{
 			Matrix3x2f m1 = CreateRandomMatrix();
 			Matrix3x2f m2 = new Matrix3x2f(m1);
@@ -1170,7 +1170,7 @@ namespace OpenGL.Test
 		#region Columns & Rows
 
 		[Test]
-		public void Matrix3x2f_TestColumns()
+		public void Matrix3x2f_Columns()
 		{
 			Matrix3x2f m = CreateRandomMatrix();
 
@@ -1189,7 +1189,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x2f_TestRows()
+		public void Matrix3x2f_Rows()
 		{
 			Matrix3x2f m = CreateRandomMatrix();
 
@@ -1202,7 +1202,7 @@ namespace OpenGL.Test
 		#region Operators
 
 		[Test]
-		public void Matrix3x2f_TestAccessor()
+		public void Matrix3x2f_Accessor()
 		{
 			Matrix3x2f m = new Matrix3x2f();
 			float r;
@@ -1239,7 +1239,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x2f_TestMultiplyScalar()
+		public void Matrix3x2f_MultiplyScalar()
 		{
 			Matrix3x2f m = CreateSequenceMatrix();
 
@@ -1255,7 +1255,7 @@ namespace OpenGL.Test
 		#region Cast Operators
 
 		[Test]
-		public void Matrix3x2f_TestCastToArray()
+		public void Matrix3x2f_CastToArray()
 		{
 			Matrix3x2f m = CreateSequenceMatrix();
 			float[] mArray = (float[])m;
@@ -1267,7 +1267,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x2f_TestCastToMatrix3x2d()
+		public void Matrix3x2f_CastToMatrix3x2d()
 		{
 			Matrix3x2f m = CreateSequenceMatrix();
 			Matrix3x2d mOther = (Matrix3x2d)m;
@@ -1281,7 +1281,7 @@ namespace OpenGL.Test
 		#region Equality Operators
 
 		[Test]
-		public void Matrix3x2f_TestEqualityOperator()
+		public void Matrix3x2f_EqualityOperator()
 		{
 			Matrix3x2f m1 = CreateRandomMatrix();
 			Matrix3x2f m2 = m1;
@@ -1290,7 +1290,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x2f_TestInequalityOperator()
+		public void Matrix3x2f_InequalityOperator()
 		{
 			Matrix3x2f m1 = CreateRandomMatrix();
 			Matrix3x2f m2 = m1;
@@ -1303,7 +1303,7 @@ namespace OpenGL.Test
 		#region Transposition
 
 		[Test]
-		public void Matrix3x2f_TestTransposed()
+		public void Matrix3x2f_Transposed()
 		{
 			Matrix3x2f m = CreateRandomMatrix();
 			Matrix2x3f t = m.Transposed;
@@ -1321,7 +1321,7 @@ namespace OpenGL.Test
 		#region IEquatable Implementation
 
 		[Test]
-		public void Matrix3x2f_TestAbsoluteEqualsToMatrix3x2f()
+		public void Matrix3x2f_AbsoluteEqualsToMatrix3x2f()
 		{
 			Matrix3x2f m = new Matrix3x2f();
 
@@ -1352,7 +1352,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x2f_TestEqualsToMatrix3x2f()
+		public void Matrix3x2f_EqualsToMatrix3x2f()
 		{
 			Matrix3x2f m1 = CreateRandomMatrix();
 			Matrix3x2f m2 = m1;
@@ -1362,7 +1362,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x2f_TestEqualsToObject()
+		public void Matrix3x2f_EqualsToObject()
 		{
 			Matrix3x2f m1 = CreateRandomMatrix();
 			Matrix3x2f m2 = m1;
@@ -1374,7 +1374,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x2f_TestGetHashCode()
+		public void Matrix3x2f_GetHashCode()
 		{
 			Matrix3x2f m = CreateRandomMatrix();
 			int hashCode, cache = 0;
@@ -1412,7 +1412,7 @@ namespace OpenGL.Test
 		#region Object Overrides
 
 		[Test]
-		public void Matrix3x2f_TestToString()
+		public void Matrix3x2f_ToString()
 		{
 			Matrix3x2f m = CreateRandomMatrix();
 
@@ -1451,7 +1451,7 @@ namespace OpenGL.Test
 		#region Constructors
 
 		[Test]
-		public void Matrix3x3f_TestConstructor1()
+		public void Matrix3x3f_Constructor1()
 		{
 			Matrix3x3f m = new Matrix3x3f(
 				(float)0, (float)1, (float)2, 
@@ -1464,7 +1464,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x3f_TestConstructor2()
+		public void Matrix3x3f_Constructor2()
 		{
 			Assert.Throws<ArgumentNullException>(() => new Matrix3x3f(null, 0));
 			Assert.Throws<ArgumentException>(() => new Matrix3x3f(new[] { 
@@ -1484,7 +1484,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x3f_TestConstructor3()
+		public void Matrix3x3f_Constructor3()
 		{
 			Matrix3x3f m1 = CreateRandomMatrix();
 			Matrix3x3f m2 = new Matrix3x3f(m1);
@@ -1498,7 +1498,7 @@ namespace OpenGL.Test
 		#region Columns & Rows
 
 		[Test]
-		public void Matrix3x3f_TestColumns()
+		public void Matrix3x3f_Columns()
 		{
 			Matrix3x3f m = CreateRandomMatrix();
 
@@ -1520,7 +1520,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x3f_TestRows()
+		public void Matrix3x3f_Rows()
 		{
 			Matrix3x3f m = CreateRandomMatrix();
 
@@ -1534,7 +1534,7 @@ namespace OpenGL.Test
 		#region Operators
 
 		[Test]
-		public void Matrix3x3f_TestAccessor()
+		public void Matrix3x3f_Accessor()
 		{
 			Matrix3x3f m = new Matrix3x3f();
 			float r;
@@ -1582,7 +1582,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x3f_TestMultiplyScalar()
+		public void Matrix3x3f_MultiplyScalar()
 		{
 			Matrix3x3f m = CreateSequenceMatrix();
 
@@ -1594,7 +1594,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x3f_TestMultiplyVertex3f()
+		public void Matrix3x3f_MultiplyVertex3f()
 		{
 			Matrix3x3f m = CreateSequenceMatrix();
 			Vertex3f v = Vertex3f.Zero;
@@ -1602,7 +1602,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x3f_TestMultiplyMatrix3x3f()
+		public void Matrix3x3f_MultiplyMatrix3x3f()
 		{
 			Matrix3x3f m1 = CreateSequenceMatrix();
 			Matrix3x3f m2 = CreateSequenceMatrix();
@@ -1614,7 +1614,7 @@ namespace OpenGL.Test
 		#region Cast Operators
 
 		[Test]
-		public void Matrix3x3f_TestCastToArray()
+		public void Matrix3x3f_CastToArray()
 		{
 			Matrix3x3f m = CreateSequenceMatrix();
 			float[] mArray = (float[])m;
@@ -1626,7 +1626,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x3f_TestCastToMatrix3x3d()
+		public void Matrix3x3f_CastToMatrix3x3d()
 		{
 			Matrix3x3f m = CreateSequenceMatrix();
 			Matrix3x3d mOther = (Matrix3x3d)m;
@@ -1640,7 +1640,7 @@ namespace OpenGL.Test
 		#region Equality Operators
 
 		[Test]
-		public void Matrix3x3f_TestEqualityOperator()
+		public void Matrix3x3f_EqualityOperator()
 		{
 			Matrix3x3f m1 = CreateRandomMatrix();
 			Matrix3x3f m2 = m1;
@@ -1649,7 +1649,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x3f_TestInequalityOperator()
+		public void Matrix3x3f_InequalityOperator()
 		{
 			Matrix3x3f m1 = CreateRandomMatrix();
 			Matrix3x3f m2 = m1;
@@ -1662,7 +1662,7 @@ namespace OpenGL.Test
 		#region Rotation
 
 		[Test]
-		public void Matrix3x3f_TestRotatedX()
+		public void Matrix3x3f_RotatedX()
 		{
 			Matrix3x3f m = Matrix3x3f.RotatedX(0.0f);
 			Assert.IsTrue(m.Equals(Matrix3x3f.Identity, 1e-5f));
@@ -1680,7 +1680,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x3f_TestRotateX()
+		public void Matrix3x3f_RotateX()
 		{
 			Matrix3x3f m = Matrix3x3f.Identity;
 			
@@ -1701,7 +1701,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x3f_TestRotatedY()
+		public void Matrix3x3f_RotatedY()
 		{
 			Matrix3x3f m = Matrix3x3f.RotatedY(0.0f);
 			Assert.IsTrue(m.Equals(Matrix3x3f.Identity, 1e-5f));
@@ -1719,7 +1719,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x3f_TestRotateY()
+		public void Matrix3x3f_RotateY()
 		{
 			Matrix3x3f m = Matrix3x3f.Identity;
 			
@@ -1740,7 +1740,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x3f_TestRotatedZ()
+		public void Matrix3x3f_RotatedZ()
 		{
 			Matrix3x3f m = Matrix3x3f.RotatedZ(0.0f);
 			Assert.IsTrue(m.Equals(Matrix3x3f.Identity, 1e-5f));
@@ -1758,7 +1758,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x3f_TestRotateZ()
+		public void Matrix3x3f_RotateZ()
 		{
 			Matrix3x3f m = Matrix3x3f.Identity;
 			
@@ -1783,7 +1783,7 @@ namespace OpenGL.Test
 		#region Scaling
 
 		[Test]
-		public void Matrix3x3f_TestScaled()
+		public void Matrix3x3f_Scaled()
 		{
 			Matrix3x3f m = Matrix3x3f.Scaled(1.0f, 1.0f, 1.0f);
 			Vertex3f v;
@@ -1810,7 +1810,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x3f_TestScale()
+		public void Matrix3x3f_Scale()
 		{
 			Matrix3x3f m = Matrix3x3f.Identity;
 			Vertex3f v;
@@ -1843,7 +1843,7 @@ namespace OpenGL.Test
 		#region Transposition
 
 		[Test]
-		public void Matrix3x3f_TestTransposed()
+		public void Matrix3x3f_Transposed()
 		{
 			Matrix3x3f m = CreateRandomMatrix();
 			Matrix3x3f t = m.Transposed;
@@ -1860,7 +1860,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x3f_TestTranspose()
+		public void Matrix3x3f_Transpose()
 		{
 			Matrix3x3f m = CreateRandomMatrix();
 			Matrix3x3f n = m;
@@ -1883,13 +1883,13 @@ namespace OpenGL.Test
 		#region Inversion
 
 		[Test]
-		public void Matrix3x3f_TestDeterminant()
+		public void Matrix3x3f_Determinant()
 		{
 			Assert.AreEqual(1.0f, Matrix3x3f.Identity.Determinant);
 		}
 
 		[Test]
-		public void Matrix3x3f_TestInverse()
+		public void Matrix3x3f_Inverse()
 		{
 			Matrix3x3f r;
 
@@ -1904,7 +1904,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x3f_TestInvert()
+		public void Matrix3x3f_Invert()
 		{
 			Assert.Throws<InvalidOperationException>(() => new Matrix3x3f().Invert());
 
@@ -1923,7 +1923,7 @@ namespace OpenGL.Test
 		#region IEquatable Implementation
 
 		[Test]
-		public void Matrix3x3f_TestAbsoluteEqualsToMatrix3x3f()
+		public void Matrix3x3f_AbsoluteEqualsToMatrix3x3f()
 		{
 			Matrix3x3f m = new Matrix3x3f();
 
@@ -1966,7 +1966,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x3f_TestEqualsToMatrix3x3f()
+		public void Matrix3x3f_EqualsToMatrix3x3f()
 		{
 			Matrix3x3f m1 = CreateRandomMatrix();
 			Matrix3x3f m2 = m1;
@@ -1976,7 +1976,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x3f_TestEqualsToObject()
+		public void Matrix3x3f_EqualsToObject()
 		{
 			Matrix3x3f m1 = CreateRandomMatrix();
 			Matrix3x3f m2 = m1;
@@ -1988,7 +1988,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x3f_TestGetHashCode()
+		public void Matrix3x3f_GetHashCode()
 		{
 			Matrix3x3f m = CreateRandomMatrix();
 			int hashCode, cache = 0;
@@ -2038,7 +2038,7 @@ namespace OpenGL.Test
 		#region Object Overrides
 
 		[Test]
-		public void Matrix3x3f_TestToString()
+		public void Matrix3x3f_ToString()
 		{
 			Matrix3x3f m = CreateRandomMatrix();
 
@@ -2094,7 +2094,7 @@ namespace OpenGL.Test
 		#region Constructors
 
 		[Test]
-		public void Matrix3x4f_TestConstructor1()
+		public void Matrix3x4f_Constructor1()
 		{
 			Matrix3x4f m = new Matrix3x4f(
 				(float)0, (float)1, (float)2, (float)3, 
@@ -2107,7 +2107,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x4f_TestConstructor2()
+		public void Matrix3x4f_Constructor2()
 		{
 			Assert.Throws<ArgumentNullException>(() => new Matrix3x4f(null, 0));
 			Assert.Throws<ArgumentException>(() => new Matrix3x4f(new[] { 
@@ -2127,7 +2127,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x4f_TestConstructor3()
+		public void Matrix3x4f_Constructor3()
 		{
 			Matrix3x4f m1 = CreateRandomMatrix();
 			Matrix3x4f m2 = new Matrix3x4f(m1);
@@ -2141,7 +2141,7 @@ namespace OpenGL.Test
 		#region Columns & Rows
 
 		[Test]
-		public void Matrix3x4f_TestColumns()
+		public void Matrix3x4f_Columns()
 		{
 			Matrix3x4f m = CreateRandomMatrix();
 
@@ -2166,7 +2166,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x4f_TestRows()
+		public void Matrix3x4f_Rows()
 		{
 			Matrix3x4f m = CreateRandomMatrix();
 
@@ -2181,7 +2181,7 @@ namespace OpenGL.Test
 		#region Operators
 
 		[Test]
-		public void Matrix3x4f_TestAccessor()
+		public void Matrix3x4f_Accessor()
 		{
 			Matrix3x4f m = new Matrix3x4f();
 			float r;
@@ -2240,7 +2240,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x4f_TestMultiplyScalar()
+		public void Matrix3x4f_MultiplyScalar()
 		{
 			Matrix3x4f m = CreateSequenceMatrix();
 
@@ -2256,7 +2256,7 @@ namespace OpenGL.Test
 		#region Cast Operators
 
 		[Test]
-		public void Matrix3x4f_TestCastToArray()
+		public void Matrix3x4f_CastToArray()
 		{
 			Matrix3x4f m = CreateSequenceMatrix();
 			float[] mArray = (float[])m;
@@ -2268,7 +2268,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x4f_TestCastToMatrix3x4d()
+		public void Matrix3x4f_CastToMatrix3x4d()
 		{
 			Matrix3x4f m = CreateSequenceMatrix();
 			Matrix3x4d mOther = (Matrix3x4d)m;
@@ -2282,7 +2282,7 @@ namespace OpenGL.Test
 		#region Equality Operators
 
 		[Test]
-		public void Matrix3x4f_TestEqualityOperator()
+		public void Matrix3x4f_EqualityOperator()
 		{
 			Matrix3x4f m1 = CreateRandomMatrix();
 			Matrix3x4f m2 = m1;
@@ -2291,7 +2291,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x4f_TestInequalityOperator()
+		public void Matrix3x4f_InequalityOperator()
 		{
 			Matrix3x4f m1 = CreateRandomMatrix();
 			Matrix3x4f m2 = m1;
@@ -2304,7 +2304,7 @@ namespace OpenGL.Test
 		#region Transposition
 
 		[Test]
-		public void Matrix3x4f_TestTransposed()
+		public void Matrix3x4f_Transposed()
 		{
 			Matrix3x4f m = CreateRandomMatrix();
 			Matrix4x3f t = m.Transposed;
@@ -2328,7 +2328,7 @@ namespace OpenGL.Test
 		#region IEquatable Implementation
 
 		[Test]
-		public void Matrix3x4f_TestAbsoluteEqualsToMatrix3x4f()
+		public void Matrix3x4f_AbsoluteEqualsToMatrix3x4f()
 		{
 			Matrix3x4f m = new Matrix3x4f();
 
@@ -2383,7 +2383,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x4f_TestEqualsToMatrix3x4f()
+		public void Matrix3x4f_EqualsToMatrix3x4f()
 		{
 			Matrix3x4f m1 = CreateRandomMatrix();
 			Matrix3x4f m2 = m1;
@@ -2393,7 +2393,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x4f_TestEqualsToObject()
+		public void Matrix3x4f_EqualsToObject()
 		{
 			Matrix3x4f m1 = CreateRandomMatrix();
 			Matrix3x4f m2 = m1;
@@ -2405,7 +2405,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x4f_TestGetHashCode()
+		public void Matrix3x4f_GetHashCode()
 		{
 			Matrix3x4f m = CreateRandomMatrix();
 			int hashCode, cache = 0;
@@ -2467,7 +2467,7 @@ namespace OpenGL.Test
 		#region Object Overrides
 
 		[Test]
-		public void Matrix3x4f_TestToString()
+		public void Matrix3x4f_ToString()
 		{
 			Matrix3x4f m = CreateRandomMatrix();
 
@@ -2506,7 +2506,7 @@ namespace OpenGL.Test
 		#region Constructors
 
 		[Test]
-		public void Matrix4x2f_TestConstructor1()
+		public void Matrix4x2f_Constructor1()
 		{
 			Matrix4x2f m = new Matrix4x2f(
 				(float)0, (float)1, 
@@ -2520,7 +2520,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x2f_TestConstructor2()
+		public void Matrix4x2f_Constructor2()
 		{
 			Assert.Throws<ArgumentNullException>(() => new Matrix4x2f(null, 0));
 			Assert.Throws<ArgumentException>(() => new Matrix4x2f(new[] { 
@@ -2542,7 +2542,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x2f_TestConstructor3()
+		public void Matrix4x2f_Constructor3()
 		{
 			Matrix4x2f m1 = CreateRandomMatrix();
 			Matrix4x2f m2 = new Matrix4x2f(m1);
@@ -2556,7 +2556,7 @@ namespace OpenGL.Test
 		#region Columns & Rows
 
 		[Test]
-		public void Matrix4x2f_TestColumns()
+		public void Matrix4x2f_Columns()
 		{
 			Matrix4x2f m = CreateRandomMatrix();
 
@@ -2579,7 +2579,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x2f_TestRows()
+		public void Matrix4x2f_Rows()
 		{
 			Matrix4x2f m = CreateRandomMatrix();
 
@@ -2592,7 +2592,7 @@ namespace OpenGL.Test
 		#region Operators
 
 		[Test]
-		public void Matrix4x2f_TestAccessor()
+		public void Matrix4x2f_Accessor()
 		{
 			Matrix4x2f m = new Matrix4x2f();
 			float r;
@@ -2637,7 +2637,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x2f_TestMultiplyScalar()
+		public void Matrix4x2f_MultiplyScalar()
 		{
 			Matrix4x2f m = CreateSequenceMatrix();
 
@@ -2653,7 +2653,7 @@ namespace OpenGL.Test
 		#region Cast Operators
 
 		[Test]
-		public void Matrix4x2f_TestCastToArray()
+		public void Matrix4x2f_CastToArray()
 		{
 			Matrix4x2f m = CreateSequenceMatrix();
 			float[] mArray = (float[])m;
@@ -2665,7 +2665,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x2f_TestCastToMatrix4x2d()
+		public void Matrix4x2f_CastToMatrix4x2d()
 		{
 			Matrix4x2f m = CreateSequenceMatrix();
 			Matrix4x2d mOther = (Matrix4x2d)m;
@@ -2679,7 +2679,7 @@ namespace OpenGL.Test
 		#region Equality Operators
 
 		[Test]
-		public void Matrix4x2f_TestEqualityOperator()
+		public void Matrix4x2f_EqualityOperator()
 		{
 			Matrix4x2f m1 = CreateRandomMatrix();
 			Matrix4x2f m2 = m1;
@@ -2688,7 +2688,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x2f_TestInequalityOperator()
+		public void Matrix4x2f_InequalityOperator()
 		{
 			Matrix4x2f m1 = CreateRandomMatrix();
 			Matrix4x2f m2 = m1;
@@ -2701,7 +2701,7 @@ namespace OpenGL.Test
 		#region Transposition
 
 		[Test]
-		public void Matrix4x2f_TestTransposed()
+		public void Matrix4x2f_Transposed()
 		{
 			Matrix4x2f m = CreateRandomMatrix();
 			Matrix2x4f t = m.Transposed;
@@ -2721,7 +2721,7 @@ namespace OpenGL.Test
 		#region IEquatable Implementation
 
 		[Test]
-		public void Matrix4x2f_TestAbsoluteEqualsToMatrix4x2f()
+		public void Matrix4x2f_AbsoluteEqualsToMatrix4x2f()
 		{
 			Matrix4x2f m = new Matrix4x2f();
 
@@ -2760,7 +2760,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x2f_TestEqualsToMatrix4x2f()
+		public void Matrix4x2f_EqualsToMatrix4x2f()
 		{
 			Matrix4x2f m1 = CreateRandomMatrix();
 			Matrix4x2f m2 = m1;
@@ -2770,7 +2770,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x2f_TestEqualsToObject()
+		public void Matrix4x2f_EqualsToObject()
 		{
 			Matrix4x2f m1 = CreateRandomMatrix();
 			Matrix4x2f m2 = m1;
@@ -2782,7 +2782,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x2f_TestGetHashCode()
+		public void Matrix4x2f_GetHashCode()
 		{
 			Matrix4x2f m = CreateRandomMatrix();
 			int hashCode, cache = 0;
@@ -2828,7 +2828,7 @@ namespace OpenGL.Test
 		#region Object Overrides
 
 		[Test]
-		public void Matrix4x2f_TestToString()
+		public void Matrix4x2f_ToString()
 		{
 			Matrix4x2f m = CreateRandomMatrix();
 
@@ -2869,7 +2869,7 @@ namespace OpenGL.Test
 		#region Constructors
 
 		[Test]
-		public void Matrix4x3f_TestConstructor1()
+		public void Matrix4x3f_Constructor1()
 		{
 			Matrix4x3f m = new Matrix4x3f(
 				(float)0, (float)1, (float)2, 
@@ -2883,7 +2883,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x3f_TestConstructor2()
+		public void Matrix4x3f_Constructor2()
 		{
 			Assert.Throws<ArgumentNullException>(() => new Matrix4x3f(null, 0));
 			Assert.Throws<ArgumentException>(() => new Matrix4x3f(new[] { 
@@ -2905,7 +2905,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x3f_TestConstructor3()
+		public void Matrix4x3f_Constructor3()
 		{
 			Matrix4x3f m1 = CreateRandomMatrix();
 			Matrix4x3f m2 = new Matrix4x3f(m1);
@@ -2919,7 +2919,7 @@ namespace OpenGL.Test
 		#region Columns & Rows
 
 		[Test]
-		public void Matrix4x3f_TestColumns()
+		public void Matrix4x3f_Columns()
 		{
 			Matrix4x3f m = CreateRandomMatrix();
 
@@ -2946,7 +2946,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x3f_TestRows()
+		public void Matrix4x3f_Rows()
 		{
 			Matrix4x3f m = CreateRandomMatrix();
 
@@ -2960,7 +2960,7 @@ namespace OpenGL.Test
 		#region Operators
 
 		[Test]
-		public void Matrix4x3f_TestAccessor()
+		public void Matrix4x3f_Accessor()
 		{
 			Matrix4x3f m = new Matrix4x3f();
 			float r;
@@ -3019,7 +3019,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x3f_TestMultiplyScalar()
+		public void Matrix4x3f_MultiplyScalar()
 		{
 			Matrix4x3f m = CreateSequenceMatrix();
 
@@ -3035,7 +3035,7 @@ namespace OpenGL.Test
 		#region Cast Operators
 
 		[Test]
-		public void Matrix4x3f_TestCastToArray()
+		public void Matrix4x3f_CastToArray()
 		{
 			Matrix4x3f m = CreateSequenceMatrix();
 			float[] mArray = (float[])m;
@@ -3047,7 +3047,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x3f_TestCastToMatrix4x3d()
+		public void Matrix4x3f_CastToMatrix4x3d()
 		{
 			Matrix4x3f m = CreateSequenceMatrix();
 			Matrix4x3d mOther = (Matrix4x3d)m;
@@ -3061,7 +3061,7 @@ namespace OpenGL.Test
 		#region Equality Operators
 
 		[Test]
-		public void Matrix4x3f_TestEqualityOperator()
+		public void Matrix4x3f_EqualityOperator()
 		{
 			Matrix4x3f m1 = CreateRandomMatrix();
 			Matrix4x3f m2 = m1;
@@ -3070,7 +3070,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x3f_TestInequalityOperator()
+		public void Matrix4x3f_InequalityOperator()
 		{
 			Matrix4x3f m1 = CreateRandomMatrix();
 			Matrix4x3f m2 = m1;
@@ -3083,7 +3083,7 @@ namespace OpenGL.Test
 		#region Transposition
 
 		[Test]
-		public void Matrix4x3f_TestTransposed()
+		public void Matrix4x3f_Transposed()
 		{
 			Matrix4x3f m = CreateRandomMatrix();
 			Matrix3x4f t = m.Transposed;
@@ -3107,7 +3107,7 @@ namespace OpenGL.Test
 		#region IEquatable Implementation
 
 		[Test]
-		public void Matrix4x3f_TestAbsoluteEqualsToMatrix4x3f()
+		public void Matrix4x3f_AbsoluteEqualsToMatrix4x3f()
 		{
 			Matrix4x3f m = new Matrix4x3f();
 
@@ -3162,7 +3162,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x3f_TestEqualsToMatrix4x3f()
+		public void Matrix4x3f_EqualsToMatrix4x3f()
 		{
 			Matrix4x3f m1 = CreateRandomMatrix();
 			Matrix4x3f m2 = m1;
@@ -3172,7 +3172,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x3f_TestEqualsToObject()
+		public void Matrix4x3f_EqualsToObject()
 		{
 			Matrix4x3f m1 = CreateRandomMatrix();
 			Matrix4x3f m2 = m1;
@@ -3184,7 +3184,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x3f_TestGetHashCode()
+		public void Matrix4x3f_GetHashCode()
 		{
 			Matrix4x3f m = CreateRandomMatrix();
 			int hashCode, cache = 0;
@@ -3246,7 +3246,7 @@ namespace OpenGL.Test
 		#region Object Overrides
 
 		[Test]
-		public void Matrix4x3f_TestToString()
+		public void Matrix4x3f_ToString()
 		{
 			Matrix4x3f m = CreateRandomMatrix();
 
@@ -3287,7 +3287,7 @@ namespace OpenGL.Test
 		#region Constructors
 
 		[Test]
-		public void Matrix4x4f_TestConstructor1()
+		public void Matrix4x4f_Constructor1()
 		{
 			Matrix4x4f m = new Matrix4x4f(
 				(float)0, (float)1, (float)2, (float)3, 
@@ -3301,7 +3301,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4f_TestConstructor2()
+		public void Matrix4x4f_Constructor2()
 		{
 			Assert.Throws<ArgumentNullException>(() => new Matrix4x4f(null, 0));
 			Assert.Throws<ArgumentException>(() => new Matrix4x4f(new[] { 
@@ -3323,7 +3323,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4f_TestConstructor3()
+		public void Matrix4x4f_Constructor3()
 		{
 			Matrix4x4f m1 = CreateRandomMatrix();
 			Matrix4x4f m2 = new Matrix4x4f(m1);
@@ -3337,7 +3337,7 @@ namespace OpenGL.Test
 		#region Columns & Rows
 
 		[Test]
-		public void Matrix4x4f_TestColumns()
+		public void Matrix4x4f_Columns()
 		{
 			Matrix4x4f m = CreateRandomMatrix();
 
@@ -3368,7 +3368,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4f_TestRows()
+		public void Matrix4x4f_Rows()
 		{
 			Matrix4x4f m = CreateRandomMatrix();
 
@@ -3383,7 +3383,7 @@ namespace OpenGL.Test
 		#region Operators
 
 		[Test]
-		public void Matrix4x4f_TestAccessor()
+		public void Matrix4x4f_Accessor()
 		{
 			Matrix4x4f m = new Matrix4x4f();
 			float r;
@@ -3456,7 +3456,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4f_TestMultiplyScalar()
+		public void Matrix4x4f_MultiplyScalar()
 		{
 			Matrix4x4f m = CreateSequenceMatrix();
 
@@ -3468,7 +3468,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4f_TestMultiplyVertex4f()
+		public void Matrix4x4f_MultiplyVertex4f()
 		{
 			Matrix4x4f m = CreateSequenceMatrix();
 			Vertex4f v = Vertex4f.Zero;
@@ -3476,7 +3476,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4f_TestMultiplyMatrix4x4f()
+		public void Matrix4x4f_MultiplyMatrix4x4f()
 		{
 			Matrix4x4f m1 = CreateSequenceMatrix();
 			Matrix4x4f m2 = CreateSequenceMatrix();
@@ -3488,7 +3488,7 @@ namespace OpenGL.Test
 		#region Cast Operators
 
 		[Test]
-		public void Matrix4x4f_TestCastToArray()
+		public void Matrix4x4f_CastToArray()
 		{
 			Matrix4x4f m = CreateSequenceMatrix();
 			float[] mArray = (float[])m;
@@ -3500,7 +3500,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4f_TestCastToMatrix4x4d()
+		public void Matrix4x4f_CastToMatrix4x4d()
 		{
 			Matrix4x4f m = CreateSequenceMatrix();
 			Matrix4x4d mOther = (Matrix4x4d)m;
@@ -3514,7 +3514,7 @@ namespace OpenGL.Test
 		#region Equality Operators
 
 		[Test]
-		public void Matrix4x4f_TestEqualityOperator()
+		public void Matrix4x4f_EqualityOperator()
 		{
 			Matrix4x4f m1 = CreateRandomMatrix();
 			Matrix4x4f m2 = m1;
@@ -3523,7 +3523,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4f_TestInequalityOperator()
+		public void Matrix4x4f_InequalityOperator()
 		{
 			Matrix4x4f m1 = CreateRandomMatrix();
 			Matrix4x4f m2 = m1;
@@ -3536,7 +3536,7 @@ namespace OpenGL.Test
 		#region Projections
 
 		[Test]
-		public void Matrix4x4f_TestOrtho()
+		public void Matrix4x4f_Ortho()
 		{
 			Assert.Throws<ArgumentException>(() => Matrix4x4f.Ortho(0.0f, 0.0f, -1.0f, +1.0f, -1.0f, +1.0f));
 			Assert.Throws<ArgumentException>(() => Matrix4x4f.Ortho(-1.0f, +1.0f, 0.0f, 0.0f, -1.0f, +1.0f));
@@ -3546,7 +3546,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4f_TestOrtho2D()
+		public void Matrix4x4f_Ortho2D()
 		{
 			Assert.Throws<ArgumentException>(() => Matrix4x4f.Ortho2D(0.0f, 0.0f, -1.0f, +1.0f));
 			Assert.Throws<ArgumentException>(() => Matrix4x4f.Ortho2D(-1.0f, +1.0f, 0.0f, 0.0f));
@@ -3555,7 +3555,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4f_TestFrustrum()
+		public void Matrix4x4f_Frustrum()
 		{
 			Assert.Throws<ArgumentException>(() => Matrix4x4f.Frustrum(0.0f, 0.0f, -1.0f, +1.0f, -1.0f, +1.0f));
 			Assert.Throws<ArgumentException>(() => Matrix4x4f.Frustrum(-1.0f, +1.0f, 0.0f, 0.0f, -1.0f, +1.0f));
@@ -3565,7 +3565,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4f_TestPerspectiveSymmetric()
+		public void Matrix4x4f_PerspectiveSymmetric()
 		{
 			Assert.Throws<ArgumentOutOfRangeException>(() => Matrix4x4f.Perspective(-1.0f, 1.0f, 0.1f, 1000.0f));
 			Assert.Throws<ArgumentOutOfRangeException>(() => Matrix4x4f.Perspective(+180.0f, 1.0f, 0.1f, 1000.0f));
@@ -3576,7 +3576,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4f_TestPerspectiveAsymmetric()
+		public void Matrix4x4f_PerspectiveAsymmetric()
 		{
 			Assert.Throws<ArgumentException>(() => Matrix4x4f.Perspective(0.0f, 0.0f, -1.0f, +1.0f, 0.1f, 1000.0f));
 			Assert.Throws<ArgumentException>(() => Matrix4x4f.Perspective(-1.0f, +1.0f, 0.0f, 0.0f, 0.1f, 1000.0f));
@@ -3590,7 +3590,7 @@ namespace OpenGL.Test
 		#region View Model
 
 		[Test]
-		public void Matrix4x4f_TestPosition()
+		public void Matrix4x4f_Position()
 		{
 			Matrix4x4f m = Matrix4x4f.Identity;
 
@@ -3607,7 +3607,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4f_TestForwardVector()
+		public void Matrix4x4f_ForwardVector()
 		{
 			Matrix4x4f m = Matrix4x4f.Identity;
 
@@ -3618,7 +3618,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4f_TestRightVector()
+		public void Matrix4x4f_RightVector()
 		{
 			Matrix4x4f m = Matrix4x4f.Identity;
 
@@ -3629,7 +3629,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4f_TestUpVector()
+		public void Matrix4x4f_UpVector()
 		{
 			Matrix4x4f m = Matrix4x4f.Identity;
 
@@ -3640,13 +3640,13 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4f_TestLookAt()
+		public void Matrix4x4f_LookAt()
 		{
 
 		}
 
 		[Test]
-		public void Matrix4x4f_TestLookAtDirection()
+		public void Matrix4x4f_LookAtDirection()
 		{
 
 		}
@@ -3656,7 +3656,7 @@ namespace OpenGL.Test
 		#region Translation
 
 		[Test]
-		public void Matrix4x4f_TestTranslated()
+		public void Matrix4x4f_Translated()
 		{
 			Matrix4x4f m = Matrix4x4f.Translated(0.0f, 1.0f, 2.0f);
 			Vertex3f v = new Vertex3f(0.0f, 1.0f, 2.0f);
@@ -3666,7 +3666,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4f_TestTranslate()
+		public void Matrix4x4f_Translate()
 		{
 			Matrix4x4f m = Matrix4x4f.Identity;
 			Vertex3f v = new Vertex3f(0.0f, 1.0f, 2.0f);
@@ -3682,7 +3682,7 @@ namespace OpenGL.Test
 		#region Rotation
 
 		[Test]
-		public void Matrix4x4f_TestRotatedX()
+		public void Matrix4x4f_RotatedX()
 		{
 			Matrix4x4f m = Matrix4x4f.RotatedX(0.0f);
 			Assert.IsTrue(m.Equals(Matrix4x4f.Identity, 1e-5f));
@@ -3700,7 +3700,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4f_TestRotateX()
+		public void Matrix4x4f_RotateX()
 		{
 			Matrix4x4f m = Matrix4x4f.Identity;
 			
@@ -3721,7 +3721,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4f_TestRotatedY()
+		public void Matrix4x4f_RotatedY()
 		{
 			Matrix4x4f m = Matrix4x4f.RotatedY(0.0f);
 			Assert.IsTrue(m.Equals(Matrix4x4f.Identity, 1e-5f));
@@ -3739,7 +3739,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4f_TestRotateY()
+		public void Matrix4x4f_RotateY()
 		{
 			Matrix4x4f m = Matrix4x4f.Identity;
 			
@@ -3760,7 +3760,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4f_TestRotatedZ()
+		public void Matrix4x4f_RotatedZ()
 		{
 			Matrix4x4f m = Matrix4x4f.RotatedZ(0.0f);
 			Assert.IsTrue(m.Equals(Matrix4x4f.Identity, 1e-5f));
@@ -3778,7 +3778,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4f_TestRotateZ()
+		public void Matrix4x4f_RotateZ()
 		{
 			Matrix4x4f m = Matrix4x4f.Identity;
 			
@@ -3803,7 +3803,7 @@ namespace OpenGL.Test
 		#region Scaling
 
 		[Test]
-		public void Matrix4x4f_TestScaled()
+		public void Matrix4x4f_Scaled()
 		{
 			Matrix4x4f m = Matrix4x4f.Scaled(1.0f, 1.0f, 1.0f);
 			Vertex4f v;
@@ -3830,7 +3830,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4f_TestScale()
+		public void Matrix4x4f_Scale()
 		{
 			Matrix4x4f m = Matrix4x4f.Identity;
 			Vertex4f v;
@@ -3863,7 +3863,7 @@ namespace OpenGL.Test
 		#region Transposition
 
 		[Test]
-		public void Matrix4x4f_TestTransposed()
+		public void Matrix4x4f_Transposed()
 		{
 			Matrix4x4f m = CreateRandomMatrix();
 			Matrix4x4f t = m.Transposed;
@@ -3887,7 +3887,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4f_TestTranspose()
+		public void Matrix4x4f_Transpose()
 		{
 			Matrix4x4f m = CreateRandomMatrix();
 			Matrix4x4f n = m;
@@ -3917,13 +3917,13 @@ namespace OpenGL.Test
 		#region Inversion
 
 		[Test]
-		public void Matrix4x4f_TestDeterminant()
+		public void Matrix4x4f_Determinant()
 		{
 			Assert.AreEqual(1.0f, Matrix4x4f.Identity.Determinant);
 		}
 
 		[Test]
-		public void Matrix4x4f_TestInverse()
+		public void Matrix4x4f_Inverse()
 		{
 			Matrix4x4f r;
 
@@ -3938,7 +3938,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4f_TestInvert()
+		public void Matrix4x4f_Invert()
 		{
 			Assert.Throws<InvalidOperationException>(() => new Matrix4x4f().Invert());
 
@@ -3957,7 +3957,7 @@ namespace OpenGL.Test
 		#region IEquatable Implementation
 
 		[Test]
-		public void Matrix4x4f_TestAbsoluteEqualsToMatrix4x4f()
+		public void Matrix4x4f_AbsoluteEqualsToMatrix4x4f()
 		{
 			Matrix4x4f m = new Matrix4x4f();
 
@@ -4028,7 +4028,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4f_TestEqualsToMatrix4x4f()
+		public void Matrix4x4f_EqualsToMatrix4x4f()
 		{
 			Matrix4x4f m1 = CreateRandomMatrix();
 			Matrix4x4f m2 = m1;
@@ -4038,7 +4038,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4f_TestEqualsToObject()
+		public void Matrix4x4f_EqualsToObject()
 		{
 			Matrix4x4f m1 = CreateRandomMatrix();
 			Matrix4x4f m2 = m1;
@@ -4050,7 +4050,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4f_TestGetHashCode()
+		public void Matrix4x4f_GetHashCode()
 		{
 			Matrix4x4f m = CreateRandomMatrix();
 			int hashCode, cache = 0;
@@ -4128,7 +4128,7 @@ namespace OpenGL.Test
 		#region Object Overrides
 
 		[Test]
-		public void Matrix4x4f_TestToString()
+		public void Matrix4x4f_ToString()
 		{
 			Matrix4x4f m = CreateRandomMatrix();
 
@@ -4193,7 +4193,7 @@ namespace OpenGL.Test
 		#region Constructors
 
 		[Test]
-		public void Matrix2x2d_TestConstructor1()
+		public void Matrix2x2d_Constructor1()
 		{
 			Matrix2x2d m = new Matrix2x2d(
 				(double)0, (double)1, 
@@ -4205,7 +4205,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x2d_TestConstructor2()
+		public void Matrix2x2d_Constructor2()
 		{
 			Assert.Throws<ArgumentNullException>(() => new Matrix2x2d(null, 0));
 			Assert.Throws<ArgumentException>(() => new Matrix2x2d(new[] { 
@@ -4223,7 +4223,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x2d_TestConstructor3()
+		public void Matrix2x2d_Constructor3()
 		{
 			Matrix2x2d m1 = CreateRandomMatrix();
 			Matrix2x2d m2 = new Matrix2x2d(m1);
@@ -4237,7 +4237,7 @@ namespace OpenGL.Test
 		#region Columns & Rows
 
 		[Test]
-		public void Matrix2x2d_TestColumns()
+		public void Matrix2x2d_Columns()
 		{
 			Matrix2x2d m = CreateRandomMatrix();
 
@@ -4252,7 +4252,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x2d_TestRows()
+		public void Matrix2x2d_Rows()
 		{
 			Matrix2x2d m = CreateRandomMatrix();
 
@@ -4265,7 +4265,7 @@ namespace OpenGL.Test
 		#region Operators
 
 		[Test]
-		public void Matrix2x2d_TestAccessor()
+		public void Matrix2x2d_Accessor()
 		{
 			Matrix2x2d m = new Matrix2x2d();
 			double r;
@@ -4294,7 +4294,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x2d_TestMultiplyScalar()
+		public void Matrix2x2d_MultiplyScalar()
 		{
 			Matrix2x2d m = CreateSequenceMatrix();
 
@@ -4306,7 +4306,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x2d_TestMultiplyVertex2d()
+		public void Matrix2x2d_MultiplyVertex2d()
 		{
 			Matrix2x2d m = CreateSequenceMatrix();
 			Vertex2d v = Vertex2d.Zero;
@@ -4314,7 +4314,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x2d_TestMultiplyMatrix2x2d()
+		public void Matrix2x2d_MultiplyMatrix2x2d()
 		{
 			Matrix2x2d m1 = CreateSequenceMatrix();
 			Matrix2x2d m2 = CreateSequenceMatrix();
@@ -4326,7 +4326,7 @@ namespace OpenGL.Test
 		#region Cast Operators
 
 		[Test]
-		public void Matrix2x2d_TestCastToArray()
+		public void Matrix2x2d_CastToArray()
 		{
 			Matrix2x2d m = CreateSequenceMatrix();
 			double[] mArray = (double[])m;
@@ -4338,7 +4338,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x2d_TestCastToMatrix2x2f()
+		public void Matrix2x2d_CastToMatrix2x2f()
 		{
 			Matrix2x2d m = CreateSequenceMatrix();
 			Matrix2x2f mOther = (Matrix2x2f)m;
@@ -4352,7 +4352,7 @@ namespace OpenGL.Test
 		#region Equality Operators
 
 		[Test]
-		public void Matrix2x2d_TestEqualityOperator()
+		public void Matrix2x2d_EqualityOperator()
 		{
 			Matrix2x2d m1 = CreateRandomMatrix();
 			Matrix2x2d m2 = m1;
@@ -4361,7 +4361,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x2d_TestInequalityOperator()
+		public void Matrix2x2d_InequalityOperator()
 		{
 			Matrix2x2d m1 = CreateRandomMatrix();
 			Matrix2x2d m2 = m1;
@@ -4374,7 +4374,7 @@ namespace OpenGL.Test
 		#region Rotation
 
 		[Test]
-		public void Matrix2x2d_TestRotatedZ()
+		public void Matrix2x2d_RotatedZ()
 		{
 			Matrix2x2d m = Matrix2x2d.RotatedZ(0.0);
 			Assert.IsTrue(m.Equals(Matrix2x2d.Identity, 1e-10));
@@ -4390,7 +4390,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x2d_TestRotateZ()
+		public void Matrix2x2d_RotateZ()
 		{
 			Matrix2x2d m = Matrix2x2d.Identity;
 			
@@ -4411,7 +4411,7 @@ namespace OpenGL.Test
 		#region Transposition
 
 		[Test]
-		public void Matrix2x2d_TestTransposed()
+		public void Matrix2x2d_Transposed()
 		{
 			Matrix2x2d m = CreateRandomMatrix();
 			Matrix2x2d t = m.Transposed;
@@ -4423,7 +4423,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x2d_TestTranspose()
+		public void Matrix2x2d_Transpose()
 		{
 			Matrix2x2d m = CreateRandomMatrix();
 			Matrix2x2d n = m;
@@ -4441,13 +4441,13 @@ namespace OpenGL.Test
 		#region Inversion
 
 		[Test]
-		public void Matrix2x2d_TestDeterminant()
+		public void Matrix2x2d_Determinant()
 		{
 			Assert.AreEqual(1.0, Matrix2x2d.Identity.Determinant);
 		}
 
 		[Test]
-		public void Matrix2x2d_TestInverse()
+		public void Matrix2x2d_Inverse()
 		{
 			Matrix2x2d r;
 
@@ -4462,7 +4462,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x2d_TestInvert()
+		public void Matrix2x2d_Invert()
 		{
 			Assert.Throws<InvalidOperationException>(() => new Matrix2x2d().Invert());
 
@@ -4481,7 +4481,7 @@ namespace OpenGL.Test
 		#region IEquatable Implementation
 
 		[Test]
-		public void Matrix2x2d_TestAbsoluteEqualsToMatrix2x2d()
+		public void Matrix2x2d_AbsoluteEqualsToMatrix2x2d()
 		{
 			Matrix2x2d m = new Matrix2x2d();
 
@@ -4504,7 +4504,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x2d_TestEqualsToMatrix2x2d()
+		public void Matrix2x2d_EqualsToMatrix2x2d()
 		{
 			Matrix2x2d m1 = CreateRandomMatrix();
 			Matrix2x2d m2 = m1;
@@ -4514,7 +4514,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x2d_TestEqualsToObject()
+		public void Matrix2x2d_EqualsToObject()
 		{
 			Matrix2x2d m1 = CreateRandomMatrix();
 			Matrix2x2d m2 = m1;
@@ -4526,7 +4526,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x2d_TestGetHashCode()
+		public void Matrix2x2d_GetHashCode()
 		{
 			Matrix2x2d m = CreateRandomMatrix();
 			int hashCode, cache = 0;
@@ -4556,7 +4556,7 @@ namespace OpenGL.Test
 		#region Object Overrides
 
 		[Test]
-		public void Matrix2x2d_TestToString()
+		public void Matrix2x2d_ToString()
 		{
 			Matrix2x2d m = CreateRandomMatrix();
 
@@ -4605,7 +4605,7 @@ namespace OpenGL.Test
 		#region Constructors
 
 		[Test]
-		public void Matrix2x3d_TestConstructor1()
+		public void Matrix2x3d_Constructor1()
 		{
 			Matrix2x3d m = new Matrix2x3d(
 				(double)0, (double)1, (double)2, 
@@ -4617,7 +4617,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x3d_TestConstructor2()
+		public void Matrix2x3d_Constructor2()
 		{
 			Assert.Throws<ArgumentNullException>(() => new Matrix2x3d(null, 0));
 			Assert.Throws<ArgumentException>(() => new Matrix2x3d(new[] { 
@@ -4635,7 +4635,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x3d_TestConstructor3()
+		public void Matrix2x3d_Constructor3()
 		{
 			Matrix2x3d m1 = CreateRandomMatrix();
 			Matrix2x3d m2 = new Matrix2x3d(m1);
@@ -4649,7 +4649,7 @@ namespace OpenGL.Test
 		#region Columns & Rows
 
 		[Test]
-		public void Matrix2x3d_TestColumns()
+		public void Matrix2x3d_Columns()
 		{
 			Matrix2x3d m = CreateRandomMatrix();
 
@@ -4666,7 +4666,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x3d_TestRows()
+		public void Matrix2x3d_Rows()
 		{
 			Matrix2x3d m = CreateRandomMatrix();
 
@@ -4680,7 +4680,7 @@ namespace OpenGL.Test
 		#region Operators
 
 		[Test]
-		public void Matrix2x3d_TestAccessor()
+		public void Matrix2x3d_Accessor()
 		{
 			Matrix2x3d m = new Matrix2x3d();
 			double r;
@@ -4717,7 +4717,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x3d_TestMultiplyScalar()
+		public void Matrix2x3d_MultiplyScalar()
 		{
 			Matrix2x3d m = CreateSequenceMatrix();
 
@@ -4733,7 +4733,7 @@ namespace OpenGL.Test
 		#region Cast Operators
 
 		[Test]
-		public void Matrix2x3d_TestCastToArray()
+		public void Matrix2x3d_CastToArray()
 		{
 			Matrix2x3d m = CreateSequenceMatrix();
 			double[] mArray = (double[])m;
@@ -4745,7 +4745,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x3d_TestCastToMatrix2x3f()
+		public void Matrix2x3d_CastToMatrix2x3f()
 		{
 			Matrix2x3d m = CreateSequenceMatrix();
 			Matrix2x3f mOther = (Matrix2x3f)m;
@@ -4759,7 +4759,7 @@ namespace OpenGL.Test
 		#region Equality Operators
 
 		[Test]
-		public void Matrix2x3d_TestEqualityOperator()
+		public void Matrix2x3d_EqualityOperator()
 		{
 			Matrix2x3d m1 = CreateRandomMatrix();
 			Matrix2x3d m2 = m1;
@@ -4768,7 +4768,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x3d_TestInequalityOperator()
+		public void Matrix2x3d_InequalityOperator()
 		{
 			Matrix2x3d m1 = CreateRandomMatrix();
 			Matrix2x3d m2 = m1;
@@ -4781,7 +4781,7 @@ namespace OpenGL.Test
 		#region Transposition
 
 		[Test]
-		public void Matrix2x3d_TestTransposed()
+		public void Matrix2x3d_Transposed()
 		{
 			Matrix2x3d m = CreateRandomMatrix();
 			Matrix3x2d t = m.Transposed;
@@ -4799,7 +4799,7 @@ namespace OpenGL.Test
 		#region IEquatable Implementation
 
 		[Test]
-		public void Matrix2x3d_TestAbsoluteEqualsToMatrix2x3d()
+		public void Matrix2x3d_AbsoluteEqualsToMatrix2x3d()
 		{
 			Matrix2x3d m = new Matrix2x3d();
 
@@ -4830,7 +4830,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x3d_TestEqualsToMatrix2x3d()
+		public void Matrix2x3d_EqualsToMatrix2x3d()
 		{
 			Matrix2x3d m1 = CreateRandomMatrix();
 			Matrix2x3d m2 = m1;
@@ -4840,7 +4840,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x3d_TestEqualsToObject()
+		public void Matrix2x3d_EqualsToObject()
 		{
 			Matrix2x3d m1 = CreateRandomMatrix();
 			Matrix2x3d m2 = m1;
@@ -4852,7 +4852,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x3d_TestGetHashCode()
+		public void Matrix2x3d_GetHashCode()
 		{
 			Matrix2x3d m = CreateRandomMatrix();
 			int hashCode, cache = 0;
@@ -4890,7 +4890,7 @@ namespace OpenGL.Test
 		#region Object Overrides
 
 		[Test]
-		public void Matrix2x3d_TestToString()
+		public void Matrix2x3d_ToString()
 		{
 			Matrix2x3d m = CreateRandomMatrix();
 
@@ -4927,7 +4927,7 @@ namespace OpenGL.Test
 		#region Constructors
 
 		[Test]
-		public void Matrix2x4d_TestConstructor1()
+		public void Matrix2x4d_Constructor1()
 		{
 			Matrix2x4d m = new Matrix2x4d(
 				(double)0, (double)1, (double)2, (double)3, 
@@ -4939,7 +4939,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x4d_TestConstructor2()
+		public void Matrix2x4d_Constructor2()
 		{
 			Assert.Throws<ArgumentNullException>(() => new Matrix2x4d(null, 0));
 			Assert.Throws<ArgumentException>(() => new Matrix2x4d(new[] { 
@@ -4957,7 +4957,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x4d_TestConstructor3()
+		public void Matrix2x4d_Constructor3()
 		{
 			Matrix2x4d m1 = CreateRandomMatrix();
 			Matrix2x4d m2 = new Matrix2x4d(m1);
@@ -4971,7 +4971,7 @@ namespace OpenGL.Test
 		#region Columns & Rows
 
 		[Test]
-		public void Matrix2x4d_TestColumns()
+		public void Matrix2x4d_Columns()
 		{
 			Matrix2x4d m = CreateRandomMatrix();
 
@@ -4990,7 +4990,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x4d_TestRows()
+		public void Matrix2x4d_Rows()
 		{
 			Matrix2x4d m = CreateRandomMatrix();
 
@@ -5005,7 +5005,7 @@ namespace OpenGL.Test
 		#region Operators
 
 		[Test]
-		public void Matrix2x4d_TestAccessor()
+		public void Matrix2x4d_Accessor()
 		{
 			Matrix2x4d m = new Matrix2x4d();
 			double r;
@@ -5050,7 +5050,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x4d_TestMultiplyScalar()
+		public void Matrix2x4d_MultiplyScalar()
 		{
 			Matrix2x4d m = CreateSequenceMatrix();
 
@@ -5066,7 +5066,7 @@ namespace OpenGL.Test
 		#region Cast Operators
 
 		[Test]
-		public void Matrix2x4d_TestCastToArray()
+		public void Matrix2x4d_CastToArray()
 		{
 			Matrix2x4d m = CreateSequenceMatrix();
 			double[] mArray = (double[])m;
@@ -5078,7 +5078,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x4d_TestCastToMatrix2x4f()
+		public void Matrix2x4d_CastToMatrix2x4f()
 		{
 			Matrix2x4d m = CreateSequenceMatrix();
 			Matrix2x4f mOther = (Matrix2x4f)m;
@@ -5092,7 +5092,7 @@ namespace OpenGL.Test
 		#region Equality Operators
 
 		[Test]
-		public void Matrix2x4d_TestEqualityOperator()
+		public void Matrix2x4d_EqualityOperator()
 		{
 			Matrix2x4d m1 = CreateRandomMatrix();
 			Matrix2x4d m2 = m1;
@@ -5101,7 +5101,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x4d_TestInequalityOperator()
+		public void Matrix2x4d_InequalityOperator()
 		{
 			Matrix2x4d m1 = CreateRandomMatrix();
 			Matrix2x4d m2 = m1;
@@ -5114,7 +5114,7 @@ namespace OpenGL.Test
 		#region Transposition
 
 		[Test]
-		public void Matrix2x4d_TestTransposed()
+		public void Matrix2x4d_Transposed()
 		{
 			Matrix2x4d m = CreateRandomMatrix();
 			Matrix4x2d t = m.Transposed;
@@ -5134,7 +5134,7 @@ namespace OpenGL.Test
 		#region IEquatable Implementation
 
 		[Test]
-		public void Matrix2x4d_TestAbsoluteEqualsToMatrix2x4d()
+		public void Matrix2x4d_AbsoluteEqualsToMatrix2x4d()
 		{
 			Matrix2x4d m = new Matrix2x4d();
 
@@ -5173,7 +5173,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x4d_TestEqualsToMatrix2x4d()
+		public void Matrix2x4d_EqualsToMatrix2x4d()
 		{
 			Matrix2x4d m1 = CreateRandomMatrix();
 			Matrix2x4d m2 = m1;
@@ -5183,7 +5183,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x4d_TestEqualsToObject()
+		public void Matrix2x4d_EqualsToObject()
 		{
 			Matrix2x4d m1 = CreateRandomMatrix();
 			Matrix2x4d m2 = m1;
@@ -5195,7 +5195,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix2x4d_TestGetHashCode()
+		public void Matrix2x4d_GetHashCode()
 		{
 			Matrix2x4d m = CreateRandomMatrix();
 			int hashCode, cache = 0;
@@ -5241,7 +5241,7 @@ namespace OpenGL.Test
 		#region Object Overrides
 
 		[Test]
-		public void Matrix2x4d_TestToString()
+		public void Matrix2x4d_ToString()
 		{
 			Matrix2x4d m = CreateRandomMatrix();
 
@@ -5278,7 +5278,7 @@ namespace OpenGL.Test
 		#region Constructors
 
 		[Test]
-		public void Matrix3x2d_TestConstructor1()
+		public void Matrix3x2d_Constructor1()
 		{
 			Matrix3x2d m = new Matrix3x2d(
 				(double)0, (double)1, 
@@ -5291,7 +5291,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x2d_TestConstructor2()
+		public void Matrix3x2d_Constructor2()
 		{
 			Assert.Throws<ArgumentNullException>(() => new Matrix3x2d(null, 0));
 			Assert.Throws<ArgumentException>(() => new Matrix3x2d(new[] { 
@@ -5311,7 +5311,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x2d_TestConstructor3()
+		public void Matrix3x2d_Constructor3()
 		{
 			Matrix3x2d m1 = CreateRandomMatrix();
 			Matrix3x2d m2 = new Matrix3x2d(m1);
@@ -5325,7 +5325,7 @@ namespace OpenGL.Test
 		#region Columns & Rows
 
 		[Test]
-		public void Matrix3x2d_TestColumns()
+		public void Matrix3x2d_Columns()
 		{
 			Matrix3x2d m = CreateRandomMatrix();
 
@@ -5344,7 +5344,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x2d_TestRows()
+		public void Matrix3x2d_Rows()
 		{
 			Matrix3x2d m = CreateRandomMatrix();
 
@@ -5357,7 +5357,7 @@ namespace OpenGL.Test
 		#region Operators
 
 		[Test]
-		public void Matrix3x2d_TestAccessor()
+		public void Matrix3x2d_Accessor()
 		{
 			Matrix3x2d m = new Matrix3x2d();
 			double r;
@@ -5394,7 +5394,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x2d_TestMultiplyScalar()
+		public void Matrix3x2d_MultiplyScalar()
 		{
 			Matrix3x2d m = CreateSequenceMatrix();
 
@@ -5410,7 +5410,7 @@ namespace OpenGL.Test
 		#region Cast Operators
 
 		[Test]
-		public void Matrix3x2d_TestCastToArray()
+		public void Matrix3x2d_CastToArray()
 		{
 			Matrix3x2d m = CreateSequenceMatrix();
 			double[] mArray = (double[])m;
@@ -5422,7 +5422,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x2d_TestCastToMatrix3x2f()
+		public void Matrix3x2d_CastToMatrix3x2f()
 		{
 			Matrix3x2d m = CreateSequenceMatrix();
 			Matrix3x2f mOther = (Matrix3x2f)m;
@@ -5436,7 +5436,7 @@ namespace OpenGL.Test
 		#region Equality Operators
 
 		[Test]
-		public void Matrix3x2d_TestEqualityOperator()
+		public void Matrix3x2d_EqualityOperator()
 		{
 			Matrix3x2d m1 = CreateRandomMatrix();
 			Matrix3x2d m2 = m1;
@@ -5445,7 +5445,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x2d_TestInequalityOperator()
+		public void Matrix3x2d_InequalityOperator()
 		{
 			Matrix3x2d m1 = CreateRandomMatrix();
 			Matrix3x2d m2 = m1;
@@ -5458,7 +5458,7 @@ namespace OpenGL.Test
 		#region Transposition
 
 		[Test]
-		public void Matrix3x2d_TestTransposed()
+		public void Matrix3x2d_Transposed()
 		{
 			Matrix3x2d m = CreateRandomMatrix();
 			Matrix2x3d t = m.Transposed;
@@ -5476,7 +5476,7 @@ namespace OpenGL.Test
 		#region IEquatable Implementation
 
 		[Test]
-		public void Matrix3x2d_TestAbsoluteEqualsToMatrix3x2d()
+		public void Matrix3x2d_AbsoluteEqualsToMatrix3x2d()
 		{
 			Matrix3x2d m = new Matrix3x2d();
 
@@ -5507,7 +5507,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x2d_TestEqualsToMatrix3x2d()
+		public void Matrix3x2d_EqualsToMatrix3x2d()
 		{
 			Matrix3x2d m1 = CreateRandomMatrix();
 			Matrix3x2d m2 = m1;
@@ -5517,7 +5517,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x2d_TestEqualsToObject()
+		public void Matrix3x2d_EqualsToObject()
 		{
 			Matrix3x2d m1 = CreateRandomMatrix();
 			Matrix3x2d m2 = m1;
@@ -5529,7 +5529,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x2d_TestGetHashCode()
+		public void Matrix3x2d_GetHashCode()
 		{
 			Matrix3x2d m = CreateRandomMatrix();
 			int hashCode, cache = 0;
@@ -5567,7 +5567,7 @@ namespace OpenGL.Test
 		#region Object Overrides
 
 		[Test]
-		public void Matrix3x2d_TestToString()
+		public void Matrix3x2d_ToString()
 		{
 			Matrix3x2d m = CreateRandomMatrix();
 
@@ -5606,7 +5606,7 @@ namespace OpenGL.Test
 		#region Constructors
 
 		[Test]
-		public void Matrix3x3d_TestConstructor1()
+		public void Matrix3x3d_Constructor1()
 		{
 			Matrix3x3d m = new Matrix3x3d(
 				(double)0, (double)1, (double)2, 
@@ -5619,7 +5619,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x3d_TestConstructor2()
+		public void Matrix3x3d_Constructor2()
 		{
 			Assert.Throws<ArgumentNullException>(() => new Matrix3x3d(null, 0));
 			Assert.Throws<ArgumentException>(() => new Matrix3x3d(new[] { 
@@ -5639,7 +5639,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x3d_TestConstructor3()
+		public void Matrix3x3d_Constructor3()
 		{
 			Matrix3x3d m1 = CreateRandomMatrix();
 			Matrix3x3d m2 = new Matrix3x3d(m1);
@@ -5653,7 +5653,7 @@ namespace OpenGL.Test
 		#region Columns & Rows
 
 		[Test]
-		public void Matrix3x3d_TestColumns()
+		public void Matrix3x3d_Columns()
 		{
 			Matrix3x3d m = CreateRandomMatrix();
 
@@ -5675,7 +5675,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x3d_TestRows()
+		public void Matrix3x3d_Rows()
 		{
 			Matrix3x3d m = CreateRandomMatrix();
 
@@ -5689,7 +5689,7 @@ namespace OpenGL.Test
 		#region Operators
 
 		[Test]
-		public void Matrix3x3d_TestAccessor()
+		public void Matrix3x3d_Accessor()
 		{
 			Matrix3x3d m = new Matrix3x3d();
 			double r;
@@ -5737,7 +5737,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x3d_TestMultiplyScalar()
+		public void Matrix3x3d_MultiplyScalar()
 		{
 			Matrix3x3d m = CreateSequenceMatrix();
 
@@ -5749,7 +5749,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x3d_TestMultiplyVertex3d()
+		public void Matrix3x3d_MultiplyVertex3d()
 		{
 			Matrix3x3d m = CreateSequenceMatrix();
 			Vertex3d v = Vertex3d.Zero;
@@ -5757,7 +5757,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x3d_TestMultiplyMatrix3x3d()
+		public void Matrix3x3d_MultiplyMatrix3x3d()
 		{
 			Matrix3x3d m1 = CreateSequenceMatrix();
 			Matrix3x3d m2 = CreateSequenceMatrix();
@@ -5769,7 +5769,7 @@ namespace OpenGL.Test
 		#region Cast Operators
 
 		[Test]
-		public void Matrix3x3d_TestCastToArray()
+		public void Matrix3x3d_CastToArray()
 		{
 			Matrix3x3d m = CreateSequenceMatrix();
 			double[] mArray = (double[])m;
@@ -5781,7 +5781,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x3d_TestCastToMatrix3x3f()
+		public void Matrix3x3d_CastToMatrix3x3f()
 		{
 			Matrix3x3d m = CreateSequenceMatrix();
 			Matrix3x3f mOther = (Matrix3x3f)m;
@@ -5795,7 +5795,7 @@ namespace OpenGL.Test
 		#region Equality Operators
 
 		[Test]
-		public void Matrix3x3d_TestEqualityOperator()
+		public void Matrix3x3d_EqualityOperator()
 		{
 			Matrix3x3d m1 = CreateRandomMatrix();
 			Matrix3x3d m2 = m1;
@@ -5804,7 +5804,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x3d_TestInequalityOperator()
+		public void Matrix3x3d_InequalityOperator()
 		{
 			Matrix3x3d m1 = CreateRandomMatrix();
 			Matrix3x3d m2 = m1;
@@ -5817,7 +5817,7 @@ namespace OpenGL.Test
 		#region Rotation
 
 		[Test]
-		public void Matrix3x3d_TestRotatedX()
+		public void Matrix3x3d_RotatedX()
 		{
 			Matrix3x3d m = Matrix3x3d.RotatedX(0.0);
 			Assert.IsTrue(m.Equals(Matrix3x3d.Identity, 1e-10));
@@ -5835,7 +5835,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x3d_TestRotateX()
+		public void Matrix3x3d_RotateX()
 		{
 			Matrix3x3d m = Matrix3x3d.Identity;
 			
@@ -5856,7 +5856,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x3d_TestRotatedY()
+		public void Matrix3x3d_RotatedY()
 		{
 			Matrix3x3d m = Matrix3x3d.RotatedY(0.0);
 			Assert.IsTrue(m.Equals(Matrix3x3d.Identity, 1e-10));
@@ -5874,7 +5874,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x3d_TestRotateY()
+		public void Matrix3x3d_RotateY()
 		{
 			Matrix3x3d m = Matrix3x3d.Identity;
 			
@@ -5895,7 +5895,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x3d_TestRotatedZ()
+		public void Matrix3x3d_RotatedZ()
 		{
 			Matrix3x3d m = Matrix3x3d.RotatedZ(0.0);
 			Assert.IsTrue(m.Equals(Matrix3x3d.Identity, 1e-10));
@@ -5913,7 +5913,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x3d_TestRotateZ()
+		public void Matrix3x3d_RotateZ()
 		{
 			Matrix3x3d m = Matrix3x3d.Identity;
 			
@@ -5938,7 +5938,7 @@ namespace OpenGL.Test
 		#region Scaling
 
 		[Test]
-		public void Matrix3x3d_TestScaled()
+		public void Matrix3x3d_Scaled()
 		{
 			Matrix3x3d m = Matrix3x3d.Scaled(1.0f, 1.0f, 1.0f);
 			Vertex3d v;
@@ -5965,7 +5965,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x3d_TestScale()
+		public void Matrix3x3d_Scale()
 		{
 			Matrix3x3d m = Matrix3x3d.Identity;
 			Vertex3d v;
@@ -5998,7 +5998,7 @@ namespace OpenGL.Test
 		#region Transposition
 
 		[Test]
-		public void Matrix3x3d_TestTransposed()
+		public void Matrix3x3d_Transposed()
 		{
 			Matrix3x3d m = CreateRandomMatrix();
 			Matrix3x3d t = m.Transposed;
@@ -6015,7 +6015,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x3d_TestTranspose()
+		public void Matrix3x3d_Transpose()
 		{
 			Matrix3x3d m = CreateRandomMatrix();
 			Matrix3x3d n = m;
@@ -6038,13 +6038,13 @@ namespace OpenGL.Test
 		#region Inversion
 
 		[Test]
-		public void Matrix3x3d_TestDeterminant()
+		public void Matrix3x3d_Determinant()
 		{
 			Assert.AreEqual(1.0, Matrix3x3d.Identity.Determinant);
 		}
 
 		[Test]
-		public void Matrix3x3d_TestInverse()
+		public void Matrix3x3d_Inverse()
 		{
 			Matrix3x3d r;
 
@@ -6059,7 +6059,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x3d_TestInvert()
+		public void Matrix3x3d_Invert()
 		{
 			Assert.Throws<InvalidOperationException>(() => new Matrix3x3d().Invert());
 
@@ -6078,7 +6078,7 @@ namespace OpenGL.Test
 		#region IEquatable Implementation
 
 		[Test]
-		public void Matrix3x3d_TestAbsoluteEqualsToMatrix3x3d()
+		public void Matrix3x3d_AbsoluteEqualsToMatrix3x3d()
 		{
 			Matrix3x3d m = new Matrix3x3d();
 
@@ -6121,7 +6121,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x3d_TestEqualsToMatrix3x3d()
+		public void Matrix3x3d_EqualsToMatrix3x3d()
 		{
 			Matrix3x3d m1 = CreateRandomMatrix();
 			Matrix3x3d m2 = m1;
@@ -6131,7 +6131,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x3d_TestEqualsToObject()
+		public void Matrix3x3d_EqualsToObject()
 		{
 			Matrix3x3d m1 = CreateRandomMatrix();
 			Matrix3x3d m2 = m1;
@@ -6143,7 +6143,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x3d_TestGetHashCode()
+		public void Matrix3x3d_GetHashCode()
 		{
 			Matrix3x3d m = CreateRandomMatrix();
 			int hashCode, cache = 0;
@@ -6193,7 +6193,7 @@ namespace OpenGL.Test
 		#region Object Overrides
 
 		[Test]
-		public void Matrix3x3d_TestToString()
+		public void Matrix3x3d_ToString()
 		{
 			Matrix3x3d m = CreateRandomMatrix();
 
@@ -6249,7 +6249,7 @@ namespace OpenGL.Test
 		#region Constructors
 
 		[Test]
-		public void Matrix3x4d_TestConstructor1()
+		public void Matrix3x4d_Constructor1()
 		{
 			Matrix3x4d m = new Matrix3x4d(
 				(double)0, (double)1, (double)2, (double)3, 
@@ -6262,7 +6262,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x4d_TestConstructor2()
+		public void Matrix3x4d_Constructor2()
 		{
 			Assert.Throws<ArgumentNullException>(() => new Matrix3x4d(null, 0));
 			Assert.Throws<ArgumentException>(() => new Matrix3x4d(new[] { 
@@ -6282,7 +6282,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x4d_TestConstructor3()
+		public void Matrix3x4d_Constructor3()
 		{
 			Matrix3x4d m1 = CreateRandomMatrix();
 			Matrix3x4d m2 = new Matrix3x4d(m1);
@@ -6296,7 +6296,7 @@ namespace OpenGL.Test
 		#region Columns & Rows
 
 		[Test]
-		public void Matrix3x4d_TestColumns()
+		public void Matrix3x4d_Columns()
 		{
 			Matrix3x4d m = CreateRandomMatrix();
 
@@ -6321,7 +6321,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x4d_TestRows()
+		public void Matrix3x4d_Rows()
 		{
 			Matrix3x4d m = CreateRandomMatrix();
 
@@ -6336,7 +6336,7 @@ namespace OpenGL.Test
 		#region Operators
 
 		[Test]
-		public void Matrix3x4d_TestAccessor()
+		public void Matrix3x4d_Accessor()
 		{
 			Matrix3x4d m = new Matrix3x4d();
 			double r;
@@ -6395,7 +6395,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x4d_TestMultiplyScalar()
+		public void Matrix3x4d_MultiplyScalar()
 		{
 			Matrix3x4d m = CreateSequenceMatrix();
 
@@ -6411,7 +6411,7 @@ namespace OpenGL.Test
 		#region Cast Operators
 
 		[Test]
-		public void Matrix3x4d_TestCastToArray()
+		public void Matrix3x4d_CastToArray()
 		{
 			Matrix3x4d m = CreateSequenceMatrix();
 			double[] mArray = (double[])m;
@@ -6423,7 +6423,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x4d_TestCastToMatrix3x4f()
+		public void Matrix3x4d_CastToMatrix3x4f()
 		{
 			Matrix3x4d m = CreateSequenceMatrix();
 			Matrix3x4f mOther = (Matrix3x4f)m;
@@ -6437,7 +6437,7 @@ namespace OpenGL.Test
 		#region Equality Operators
 
 		[Test]
-		public void Matrix3x4d_TestEqualityOperator()
+		public void Matrix3x4d_EqualityOperator()
 		{
 			Matrix3x4d m1 = CreateRandomMatrix();
 			Matrix3x4d m2 = m1;
@@ -6446,7 +6446,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x4d_TestInequalityOperator()
+		public void Matrix3x4d_InequalityOperator()
 		{
 			Matrix3x4d m1 = CreateRandomMatrix();
 			Matrix3x4d m2 = m1;
@@ -6459,7 +6459,7 @@ namespace OpenGL.Test
 		#region Transposition
 
 		[Test]
-		public void Matrix3x4d_TestTransposed()
+		public void Matrix3x4d_Transposed()
 		{
 			Matrix3x4d m = CreateRandomMatrix();
 			Matrix4x3d t = m.Transposed;
@@ -6483,7 +6483,7 @@ namespace OpenGL.Test
 		#region IEquatable Implementation
 
 		[Test]
-		public void Matrix3x4d_TestAbsoluteEqualsToMatrix3x4d()
+		public void Matrix3x4d_AbsoluteEqualsToMatrix3x4d()
 		{
 			Matrix3x4d m = new Matrix3x4d();
 
@@ -6538,7 +6538,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x4d_TestEqualsToMatrix3x4d()
+		public void Matrix3x4d_EqualsToMatrix3x4d()
 		{
 			Matrix3x4d m1 = CreateRandomMatrix();
 			Matrix3x4d m2 = m1;
@@ -6548,7 +6548,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x4d_TestEqualsToObject()
+		public void Matrix3x4d_EqualsToObject()
 		{
 			Matrix3x4d m1 = CreateRandomMatrix();
 			Matrix3x4d m2 = m1;
@@ -6560,7 +6560,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix3x4d_TestGetHashCode()
+		public void Matrix3x4d_GetHashCode()
 		{
 			Matrix3x4d m = CreateRandomMatrix();
 			int hashCode, cache = 0;
@@ -6622,7 +6622,7 @@ namespace OpenGL.Test
 		#region Object Overrides
 
 		[Test]
-		public void Matrix3x4d_TestToString()
+		public void Matrix3x4d_ToString()
 		{
 			Matrix3x4d m = CreateRandomMatrix();
 
@@ -6661,7 +6661,7 @@ namespace OpenGL.Test
 		#region Constructors
 
 		[Test]
-		public void Matrix4x2d_TestConstructor1()
+		public void Matrix4x2d_Constructor1()
 		{
 			Matrix4x2d m = new Matrix4x2d(
 				(double)0, (double)1, 
@@ -6675,7 +6675,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x2d_TestConstructor2()
+		public void Matrix4x2d_Constructor2()
 		{
 			Assert.Throws<ArgumentNullException>(() => new Matrix4x2d(null, 0));
 			Assert.Throws<ArgumentException>(() => new Matrix4x2d(new[] { 
@@ -6697,7 +6697,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x2d_TestConstructor3()
+		public void Matrix4x2d_Constructor3()
 		{
 			Matrix4x2d m1 = CreateRandomMatrix();
 			Matrix4x2d m2 = new Matrix4x2d(m1);
@@ -6711,7 +6711,7 @@ namespace OpenGL.Test
 		#region Columns & Rows
 
 		[Test]
-		public void Matrix4x2d_TestColumns()
+		public void Matrix4x2d_Columns()
 		{
 			Matrix4x2d m = CreateRandomMatrix();
 
@@ -6734,7 +6734,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x2d_TestRows()
+		public void Matrix4x2d_Rows()
 		{
 			Matrix4x2d m = CreateRandomMatrix();
 
@@ -6747,7 +6747,7 @@ namespace OpenGL.Test
 		#region Operators
 
 		[Test]
-		public void Matrix4x2d_TestAccessor()
+		public void Matrix4x2d_Accessor()
 		{
 			Matrix4x2d m = new Matrix4x2d();
 			double r;
@@ -6792,7 +6792,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x2d_TestMultiplyScalar()
+		public void Matrix4x2d_MultiplyScalar()
 		{
 			Matrix4x2d m = CreateSequenceMatrix();
 
@@ -6808,7 +6808,7 @@ namespace OpenGL.Test
 		#region Cast Operators
 
 		[Test]
-		public void Matrix4x2d_TestCastToArray()
+		public void Matrix4x2d_CastToArray()
 		{
 			Matrix4x2d m = CreateSequenceMatrix();
 			double[] mArray = (double[])m;
@@ -6820,7 +6820,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x2d_TestCastToMatrix4x2f()
+		public void Matrix4x2d_CastToMatrix4x2f()
 		{
 			Matrix4x2d m = CreateSequenceMatrix();
 			Matrix4x2f mOther = (Matrix4x2f)m;
@@ -6834,7 +6834,7 @@ namespace OpenGL.Test
 		#region Equality Operators
 
 		[Test]
-		public void Matrix4x2d_TestEqualityOperator()
+		public void Matrix4x2d_EqualityOperator()
 		{
 			Matrix4x2d m1 = CreateRandomMatrix();
 			Matrix4x2d m2 = m1;
@@ -6843,7 +6843,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x2d_TestInequalityOperator()
+		public void Matrix4x2d_InequalityOperator()
 		{
 			Matrix4x2d m1 = CreateRandomMatrix();
 			Matrix4x2d m2 = m1;
@@ -6856,7 +6856,7 @@ namespace OpenGL.Test
 		#region Transposition
 
 		[Test]
-		public void Matrix4x2d_TestTransposed()
+		public void Matrix4x2d_Transposed()
 		{
 			Matrix4x2d m = CreateRandomMatrix();
 			Matrix2x4d t = m.Transposed;
@@ -6876,7 +6876,7 @@ namespace OpenGL.Test
 		#region IEquatable Implementation
 
 		[Test]
-		public void Matrix4x2d_TestAbsoluteEqualsToMatrix4x2d()
+		public void Matrix4x2d_AbsoluteEqualsToMatrix4x2d()
 		{
 			Matrix4x2d m = new Matrix4x2d();
 
@@ -6915,7 +6915,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x2d_TestEqualsToMatrix4x2d()
+		public void Matrix4x2d_EqualsToMatrix4x2d()
 		{
 			Matrix4x2d m1 = CreateRandomMatrix();
 			Matrix4x2d m2 = m1;
@@ -6925,7 +6925,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x2d_TestEqualsToObject()
+		public void Matrix4x2d_EqualsToObject()
 		{
 			Matrix4x2d m1 = CreateRandomMatrix();
 			Matrix4x2d m2 = m1;
@@ -6937,7 +6937,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x2d_TestGetHashCode()
+		public void Matrix4x2d_GetHashCode()
 		{
 			Matrix4x2d m = CreateRandomMatrix();
 			int hashCode, cache = 0;
@@ -6983,7 +6983,7 @@ namespace OpenGL.Test
 		#region Object Overrides
 
 		[Test]
-		public void Matrix4x2d_TestToString()
+		public void Matrix4x2d_ToString()
 		{
 			Matrix4x2d m = CreateRandomMatrix();
 
@@ -7024,7 +7024,7 @@ namespace OpenGL.Test
 		#region Constructors
 
 		[Test]
-		public void Matrix4x3d_TestConstructor1()
+		public void Matrix4x3d_Constructor1()
 		{
 			Matrix4x3d m = new Matrix4x3d(
 				(double)0, (double)1, (double)2, 
@@ -7038,7 +7038,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x3d_TestConstructor2()
+		public void Matrix4x3d_Constructor2()
 		{
 			Assert.Throws<ArgumentNullException>(() => new Matrix4x3d(null, 0));
 			Assert.Throws<ArgumentException>(() => new Matrix4x3d(new[] { 
@@ -7060,7 +7060,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x3d_TestConstructor3()
+		public void Matrix4x3d_Constructor3()
 		{
 			Matrix4x3d m1 = CreateRandomMatrix();
 			Matrix4x3d m2 = new Matrix4x3d(m1);
@@ -7074,7 +7074,7 @@ namespace OpenGL.Test
 		#region Columns & Rows
 
 		[Test]
-		public void Matrix4x3d_TestColumns()
+		public void Matrix4x3d_Columns()
 		{
 			Matrix4x3d m = CreateRandomMatrix();
 
@@ -7101,7 +7101,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x3d_TestRows()
+		public void Matrix4x3d_Rows()
 		{
 			Matrix4x3d m = CreateRandomMatrix();
 
@@ -7115,7 +7115,7 @@ namespace OpenGL.Test
 		#region Operators
 
 		[Test]
-		public void Matrix4x3d_TestAccessor()
+		public void Matrix4x3d_Accessor()
 		{
 			Matrix4x3d m = new Matrix4x3d();
 			double r;
@@ -7174,7 +7174,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x3d_TestMultiplyScalar()
+		public void Matrix4x3d_MultiplyScalar()
 		{
 			Matrix4x3d m = CreateSequenceMatrix();
 
@@ -7190,7 +7190,7 @@ namespace OpenGL.Test
 		#region Cast Operators
 
 		[Test]
-		public void Matrix4x3d_TestCastToArray()
+		public void Matrix4x3d_CastToArray()
 		{
 			Matrix4x3d m = CreateSequenceMatrix();
 			double[] mArray = (double[])m;
@@ -7202,7 +7202,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x3d_TestCastToMatrix4x3f()
+		public void Matrix4x3d_CastToMatrix4x3f()
 		{
 			Matrix4x3d m = CreateSequenceMatrix();
 			Matrix4x3f mOther = (Matrix4x3f)m;
@@ -7216,7 +7216,7 @@ namespace OpenGL.Test
 		#region Equality Operators
 
 		[Test]
-		public void Matrix4x3d_TestEqualityOperator()
+		public void Matrix4x3d_EqualityOperator()
 		{
 			Matrix4x3d m1 = CreateRandomMatrix();
 			Matrix4x3d m2 = m1;
@@ -7225,7 +7225,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x3d_TestInequalityOperator()
+		public void Matrix4x3d_InequalityOperator()
 		{
 			Matrix4x3d m1 = CreateRandomMatrix();
 			Matrix4x3d m2 = m1;
@@ -7238,7 +7238,7 @@ namespace OpenGL.Test
 		#region Transposition
 
 		[Test]
-		public void Matrix4x3d_TestTransposed()
+		public void Matrix4x3d_Transposed()
 		{
 			Matrix4x3d m = CreateRandomMatrix();
 			Matrix3x4d t = m.Transposed;
@@ -7262,7 +7262,7 @@ namespace OpenGL.Test
 		#region IEquatable Implementation
 
 		[Test]
-		public void Matrix4x3d_TestAbsoluteEqualsToMatrix4x3d()
+		public void Matrix4x3d_AbsoluteEqualsToMatrix4x3d()
 		{
 			Matrix4x3d m = new Matrix4x3d();
 
@@ -7317,7 +7317,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x3d_TestEqualsToMatrix4x3d()
+		public void Matrix4x3d_EqualsToMatrix4x3d()
 		{
 			Matrix4x3d m1 = CreateRandomMatrix();
 			Matrix4x3d m2 = m1;
@@ -7327,7 +7327,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x3d_TestEqualsToObject()
+		public void Matrix4x3d_EqualsToObject()
 		{
 			Matrix4x3d m1 = CreateRandomMatrix();
 			Matrix4x3d m2 = m1;
@@ -7339,7 +7339,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x3d_TestGetHashCode()
+		public void Matrix4x3d_GetHashCode()
 		{
 			Matrix4x3d m = CreateRandomMatrix();
 			int hashCode, cache = 0;
@@ -7401,7 +7401,7 @@ namespace OpenGL.Test
 		#region Object Overrides
 
 		[Test]
-		public void Matrix4x3d_TestToString()
+		public void Matrix4x3d_ToString()
 		{
 			Matrix4x3d m = CreateRandomMatrix();
 
@@ -7442,7 +7442,7 @@ namespace OpenGL.Test
 		#region Constructors
 
 		[Test]
-		public void Matrix4x4d_TestConstructor1()
+		public void Matrix4x4d_Constructor1()
 		{
 			Matrix4x4d m = new Matrix4x4d(
 				(double)0, (double)1, (double)2, (double)3, 
@@ -7456,7 +7456,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4d_TestConstructor2()
+		public void Matrix4x4d_Constructor2()
 		{
 			Assert.Throws<ArgumentNullException>(() => new Matrix4x4d(null, 0));
 			Assert.Throws<ArgumentException>(() => new Matrix4x4d(new[] { 
@@ -7478,7 +7478,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4d_TestConstructor3()
+		public void Matrix4x4d_Constructor3()
 		{
 			Matrix4x4d m1 = CreateRandomMatrix();
 			Matrix4x4d m2 = new Matrix4x4d(m1);
@@ -7492,7 +7492,7 @@ namespace OpenGL.Test
 		#region Columns & Rows
 
 		[Test]
-		public void Matrix4x4d_TestColumns()
+		public void Matrix4x4d_Columns()
 		{
 			Matrix4x4d m = CreateRandomMatrix();
 
@@ -7523,7 +7523,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4d_TestRows()
+		public void Matrix4x4d_Rows()
 		{
 			Matrix4x4d m = CreateRandomMatrix();
 
@@ -7538,7 +7538,7 @@ namespace OpenGL.Test
 		#region Operators
 
 		[Test]
-		public void Matrix4x4d_TestAccessor()
+		public void Matrix4x4d_Accessor()
 		{
 			Matrix4x4d m = new Matrix4x4d();
 			double r;
@@ -7611,7 +7611,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4d_TestMultiplyScalar()
+		public void Matrix4x4d_MultiplyScalar()
 		{
 			Matrix4x4d m = CreateSequenceMatrix();
 
@@ -7623,7 +7623,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4d_TestMultiplyVertex4d()
+		public void Matrix4x4d_MultiplyVertex4d()
 		{
 			Matrix4x4d m = CreateSequenceMatrix();
 			Vertex4d v = Vertex4d.Zero;
@@ -7631,7 +7631,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4d_TestMultiplyMatrix4x4d()
+		public void Matrix4x4d_MultiplyMatrix4x4d()
 		{
 			Matrix4x4d m1 = CreateSequenceMatrix();
 			Matrix4x4d m2 = CreateSequenceMatrix();
@@ -7643,7 +7643,7 @@ namespace OpenGL.Test
 		#region Cast Operators
 
 		[Test]
-		public void Matrix4x4d_TestCastToArray()
+		public void Matrix4x4d_CastToArray()
 		{
 			Matrix4x4d m = CreateSequenceMatrix();
 			double[] mArray = (double[])m;
@@ -7655,7 +7655,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4d_TestCastToMatrix4x4f()
+		public void Matrix4x4d_CastToMatrix4x4f()
 		{
 			Matrix4x4d m = CreateSequenceMatrix();
 			Matrix4x4f mOther = (Matrix4x4f)m;
@@ -7669,7 +7669,7 @@ namespace OpenGL.Test
 		#region Equality Operators
 
 		[Test]
-		public void Matrix4x4d_TestEqualityOperator()
+		public void Matrix4x4d_EqualityOperator()
 		{
 			Matrix4x4d m1 = CreateRandomMatrix();
 			Matrix4x4d m2 = m1;
@@ -7678,7 +7678,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4d_TestInequalityOperator()
+		public void Matrix4x4d_InequalityOperator()
 		{
 			Matrix4x4d m1 = CreateRandomMatrix();
 			Matrix4x4d m2 = m1;
@@ -7691,7 +7691,7 @@ namespace OpenGL.Test
 		#region Projections
 
 		[Test]
-		public void Matrix4x4d_TestOrtho()
+		public void Matrix4x4d_Ortho()
 		{
 			Assert.Throws<ArgumentException>(() => Matrix4x4d.Ortho(0.0f, 0.0f, -1.0f, +1.0f, -1.0f, +1.0f));
 			Assert.Throws<ArgumentException>(() => Matrix4x4d.Ortho(-1.0f, +1.0f, 0.0f, 0.0f, -1.0f, +1.0f));
@@ -7701,7 +7701,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4d_TestOrtho2D()
+		public void Matrix4x4d_Ortho2D()
 		{
 			Assert.Throws<ArgumentException>(() => Matrix4x4d.Ortho2D(0.0f, 0.0f, -1.0f, +1.0f));
 			Assert.Throws<ArgumentException>(() => Matrix4x4d.Ortho2D(-1.0f, +1.0f, 0.0f, 0.0f));
@@ -7710,7 +7710,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4d_TestFrustrum()
+		public void Matrix4x4d_Frustrum()
 		{
 			Assert.Throws<ArgumentException>(() => Matrix4x4d.Frustrum(0.0f, 0.0f, -1.0f, +1.0f, -1.0f, +1.0f));
 			Assert.Throws<ArgumentException>(() => Matrix4x4d.Frustrum(-1.0f, +1.0f, 0.0f, 0.0f, -1.0f, +1.0f));
@@ -7720,7 +7720,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4d_TestPerspectiveSymmetric()
+		public void Matrix4x4d_PerspectiveSymmetric()
 		{
 			Assert.Throws<ArgumentOutOfRangeException>(() => Matrix4x4d.Perspective(-1.0f, 1.0f, 0.1f, 1000.0f));
 			Assert.Throws<ArgumentOutOfRangeException>(() => Matrix4x4d.Perspective(+180.0f, 1.0f, 0.1f, 1000.0f));
@@ -7731,7 +7731,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4d_TestPerspectiveAsymmetric()
+		public void Matrix4x4d_PerspectiveAsymmetric()
 		{
 			Assert.Throws<ArgumentException>(() => Matrix4x4d.Perspective(0.0f, 0.0f, -1.0f, +1.0f, 0.1f, 1000.0f));
 			Assert.Throws<ArgumentException>(() => Matrix4x4d.Perspective(-1.0f, +1.0f, 0.0f, 0.0f, 0.1f, 1000.0f));
@@ -7745,7 +7745,7 @@ namespace OpenGL.Test
 		#region View Model
 
 		[Test]
-		public void Matrix4x4d_TestPosition()
+		public void Matrix4x4d_Position()
 		{
 			Matrix4x4d m = Matrix4x4d.Identity;
 
@@ -7762,7 +7762,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4d_TestForwardVector()
+		public void Matrix4x4d_ForwardVector()
 		{
 			Matrix4x4d m = Matrix4x4d.Identity;
 
@@ -7773,7 +7773,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4d_TestRightVector()
+		public void Matrix4x4d_RightVector()
 		{
 			Matrix4x4d m = Matrix4x4d.Identity;
 
@@ -7784,7 +7784,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4d_TestUpVector()
+		public void Matrix4x4d_UpVector()
 		{
 			Matrix4x4d m = Matrix4x4d.Identity;
 
@@ -7795,13 +7795,13 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4d_TestLookAt()
+		public void Matrix4x4d_LookAt()
 		{
 
 		}
 
 		[Test]
-		public void Matrix4x4d_TestLookAtDirection()
+		public void Matrix4x4d_LookAtDirection()
 		{
 
 		}
@@ -7811,7 +7811,7 @@ namespace OpenGL.Test
 		#region Translation
 
 		[Test]
-		public void Matrix4x4d_TestTranslated()
+		public void Matrix4x4d_Translated()
 		{
 			Matrix4x4d m = Matrix4x4d.Translated(0.0, 1.0, 2.0);
 			Vertex3d v = new Vertex3d(0.0, 1.0, 2.0);
@@ -7821,7 +7821,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4d_TestTranslate()
+		public void Matrix4x4d_Translate()
 		{
 			Matrix4x4d m = Matrix4x4d.Identity;
 			Vertex3d v = new Vertex3d(0.0, 1.0, 2.0);
@@ -7837,7 +7837,7 @@ namespace OpenGL.Test
 		#region Rotation
 
 		[Test]
-		public void Matrix4x4d_TestRotatedX()
+		public void Matrix4x4d_RotatedX()
 		{
 			Matrix4x4d m = Matrix4x4d.RotatedX(0.0);
 			Assert.IsTrue(m.Equals(Matrix4x4d.Identity, 1e-10));
@@ -7855,7 +7855,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4d_TestRotateX()
+		public void Matrix4x4d_RotateX()
 		{
 			Matrix4x4d m = Matrix4x4d.Identity;
 			
@@ -7876,7 +7876,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4d_TestRotatedY()
+		public void Matrix4x4d_RotatedY()
 		{
 			Matrix4x4d m = Matrix4x4d.RotatedY(0.0);
 			Assert.IsTrue(m.Equals(Matrix4x4d.Identity, 1e-10));
@@ -7894,7 +7894,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4d_TestRotateY()
+		public void Matrix4x4d_RotateY()
 		{
 			Matrix4x4d m = Matrix4x4d.Identity;
 			
@@ -7915,7 +7915,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4d_TestRotatedZ()
+		public void Matrix4x4d_RotatedZ()
 		{
 			Matrix4x4d m = Matrix4x4d.RotatedZ(0.0);
 			Assert.IsTrue(m.Equals(Matrix4x4d.Identity, 1e-10));
@@ -7933,7 +7933,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4d_TestRotateZ()
+		public void Matrix4x4d_RotateZ()
 		{
 			Matrix4x4d m = Matrix4x4d.Identity;
 			
@@ -7958,7 +7958,7 @@ namespace OpenGL.Test
 		#region Scaling
 
 		[Test]
-		public void Matrix4x4d_TestScaled()
+		public void Matrix4x4d_Scaled()
 		{
 			Matrix4x4d m = Matrix4x4d.Scaled(1.0f, 1.0f, 1.0f);
 			Vertex4d v;
@@ -7985,7 +7985,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4d_TestScale()
+		public void Matrix4x4d_Scale()
 		{
 			Matrix4x4d m = Matrix4x4d.Identity;
 			Vertex4d v;
@@ -8018,7 +8018,7 @@ namespace OpenGL.Test
 		#region Transposition
 
 		[Test]
-		public void Matrix4x4d_TestTransposed()
+		public void Matrix4x4d_Transposed()
 		{
 			Matrix4x4d m = CreateRandomMatrix();
 			Matrix4x4d t = m.Transposed;
@@ -8042,7 +8042,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4d_TestTranspose()
+		public void Matrix4x4d_Transpose()
 		{
 			Matrix4x4d m = CreateRandomMatrix();
 			Matrix4x4d n = m;
@@ -8072,13 +8072,13 @@ namespace OpenGL.Test
 		#region Inversion
 
 		[Test]
-		public void Matrix4x4d_TestDeterminant()
+		public void Matrix4x4d_Determinant()
 		{
 			Assert.AreEqual(1.0, Matrix4x4d.Identity.Determinant);
 		}
 
 		[Test]
-		public void Matrix4x4d_TestInverse()
+		public void Matrix4x4d_Inverse()
 		{
 			Matrix4x4d r;
 
@@ -8093,7 +8093,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4d_TestInvert()
+		public void Matrix4x4d_Invert()
 		{
 			Assert.Throws<InvalidOperationException>(() => new Matrix4x4d().Invert());
 
@@ -8112,7 +8112,7 @@ namespace OpenGL.Test
 		#region IEquatable Implementation
 
 		[Test]
-		public void Matrix4x4d_TestAbsoluteEqualsToMatrix4x4d()
+		public void Matrix4x4d_AbsoluteEqualsToMatrix4x4d()
 		{
 			Matrix4x4d m = new Matrix4x4d();
 
@@ -8183,7 +8183,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4d_TestEqualsToMatrix4x4d()
+		public void Matrix4x4d_EqualsToMatrix4x4d()
 		{
 			Matrix4x4d m1 = CreateRandomMatrix();
 			Matrix4x4d m2 = m1;
@@ -8193,7 +8193,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4d_TestEqualsToObject()
+		public void Matrix4x4d_EqualsToObject()
 		{
 			Matrix4x4d m1 = CreateRandomMatrix();
 			Matrix4x4d m2 = m1;
@@ -8205,7 +8205,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void Matrix4x4d_TestGetHashCode()
+		public void Matrix4x4d_GetHashCode()
 		{
 			Matrix4x4d m = CreateRandomMatrix();
 			int hashCode, cache = 0;
@@ -8283,7 +8283,7 @@ namespace OpenGL.Test
 		#region Object Overrides
 
 		[Test]
-		public void Matrix4x4d_TestToString()
+		public void Matrix4x4d_ToString()
 		{
 			Matrix4x4d m = CreateRandomMatrix();
 
