@@ -108,24 +108,6 @@ namespace OpenGL.Test
 			Assert.AreEqual(randomValueZ, v.z);
 		}
 
-		[Test(Description = "Test Vertex4ub(Vertex4ub)")]
-		public void Vertex4ub_TestConstructor4()
-		{
-			Random random = new Random();
-			byte randomValueX = (byte)Next(random);
-			byte randomValueY = (byte)Next(random);
-			byte randomValueZ = (byte)Next(random);
-
-			Vertex4ub v1 = new Vertex4ub(
-				randomValueX, randomValueY, randomValueZ
-			);
-			Vertex4ub v2 = new Vertex4ub(v1);
-
-			Assert.AreEqual(v1.x, v2.x);
-			Assert.AreEqual(v1.y, v2.y);
-			Assert.AreEqual(v1.z, v2.z);
-		}
-
 		#endregion
 
 		#region Properties
@@ -770,24 +752,6 @@ namespace OpenGL.Test
 			Assert.AreEqual(randomValueX, v.x);
 			Assert.AreEqual(randomValueY, v.y);
 			Assert.AreEqual(randomValueZ, v.z);
-		}
-
-		[Test(Description = "Test Vertex4b(Vertex4b)")]
-		public void Vertex4b_TestConstructor4()
-		{
-			Random random = new Random();
-			sbyte randomValueX = (sbyte)Next(random);
-			sbyte randomValueY = (sbyte)Next(random);
-			sbyte randomValueZ = (sbyte)Next(random);
-
-			Vertex4b v1 = new Vertex4b(
-				randomValueX, randomValueY, randomValueZ
-			);
-			Vertex4b v2 = new Vertex4b(v1);
-
-			Assert.AreEqual(v1.x, v2.x);
-			Assert.AreEqual(v1.y, v2.y);
-			Assert.AreEqual(v1.z, v2.z);
 		}
 
 		#endregion
@@ -1452,24 +1416,6 @@ namespace OpenGL.Test
 			Assert.AreEqual(randomValueZ, v.z);
 		}
 
-		[Test(Description = "Test Vertex4us(Vertex4us)")]
-		public void Vertex4us_TestConstructor4()
-		{
-			Random random = new Random();
-			ushort randomValueX = (ushort)Next(random);
-			ushort randomValueY = (ushort)Next(random);
-			ushort randomValueZ = (ushort)Next(random);
-
-			Vertex4us v1 = new Vertex4us(
-				randomValueX, randomValueY, randomValueZ
-			);
-			Vertex4us v2 = new Vertex4us(v1);
-
-			Assert.AreEqual(v1.x, v2.x);
-			Assert.AreEqual(v1.y, v2.y);
-			Assert.AreEqual(v1.z, v2.z);
-		}
-
 		#endregion
 
 		#region Properties
@@ -2114,24 +2060,6 @@ namespace OpenGL.Test
 			Assert.AreEqual(randomValueX, v.x);
 			Assert.AreEqual(randomValueY, v.y);
 			Assert.AreEqual(randomValueZ, v.z);
-		}
-
-		[Test(Description = "Test Vertex4s(Vertex4s)")]
-		public void Vertex4s_TestConstructor4()
-		{
-			Random random = new Random();
-			short randomValueX = (short)Next(random);
-			short randomValueY = (short)Next(random);
-			short randomValueZ = (short)Next(random);
-
-			Vertex4s v1 = new Vertex4s(
-				randomValueX, randomValueY, randomValueZ
-			);
-			Vertex4s v2 = new Vertex4s(v1);
-
-			Assert.AreEqual(v1.x, v2.x);
-			Assert.AreEqual(v1.y, v2.y);
-			Assert.AreEqual(v1.z, v2.z);
 		}
 
 		#endregion
@@ -2796,24 +2724,6 @@ namespace OpenGL.Test
 			Assert.AreEqual(randomValueZ, v.z);
 		}
 
-		[Test(Description = "Test Vertex4ui(Vertex4ui)")]
-		public void Vertex4ui_TestConstructor4()
-		{
-			Random random = new Random();
-			uint randomValueX = (uint)Next(random);
-			uint randomValueY = (uint)Next(random);
-			uint randomValueZ = (uint)Next(random);
-
-			Vertex4ui v1 = new Vertex4ui(
-				randomValueX, randomValueY, randomValueZ
-			);
-			Vertex4ui v2 = new Vertex4ui(v1);
-
-			Assert.AreEqual(v1.x, v2.x);
-			Assert.AreEqual(v1.y, v2.y);
-			Assert.AreEqual(v1.z, v2.z);
-		}
-
 		#endregion
 
 		#region Properties
@@ -3458,24 +3368,6 @@ namespace OpenGL.Test
 			Assert.AreEqual(randomValueX, v.x);
 			Assert.AreEqual(randomValueY, v.y);
 			Assert.AreEqual(randomValueZ, v.z);
-		}
-
-		[Test(Description = "Test Vertex4i(Vertex4i)")]
-		public void Vertex4i_TestConstructor4()
-		{
-			Random random = new Random();
-			int randomValueX = (int)Next(random);
-			int randomValueY = (int)Next(random);
-			int randomValueZ = (int)Next(random);
-
-			Vertex4i v1 = new Vertex4i(
-				randomValueX, randomValueY, randomValueZ
-			);
-			Vertex4i v2 = new Vertex4i(v1);
-
-			Assert.AreEqual(v1.x, v2.x);
-			Assert.AreEqual(v1.y, v2.y);
-			Assert.AreEqual(v1.z, v2.z);
 		}
 
 		#endregion
@@ -4140,24 +4032,6 @@ namespace OpenGL.Test
 			Assert.AreEqual(randomValueZ, v.z);
 		}
 
-		[Test(Description = "Test Vertex4f(Vertex4f)")]
-		public void Vertex4f_TestConstructor4()
-		{
-			Random random = new Random();
-			float randomValueX = (float)Next(random);
-			float randomValueY = (float)Next(random);
-			float randomValueZ = (float)Next(random);
-
-			Vertex4f v1 = new Vertex4f(
-				randomValueX, randomValueY, randomValueZ
-			);
-			Vertex4f v2 = new Vertex4f(v1);
-
-			Assert.AreEqual(v1.x, v2.x);
-			Assert.AreEqual(v1.y, v2.y);
-			Assert.AreEqual(v1.z, v2.z);
-		}
-
 		#endregion
 
 		#region Properties
@@ -4783,24 +4657,6 @@ namespace OpenGL.Test
 			Assert.AreEqual(randomValueZ, v.z);
 		}
 
-		[Test(Description = "Test Vertex4d(Vertex4d)")]
-		public void Vertex4d_TestConstructor4()
-		{
-			Random random = new Random();
-			double randomValueX = (double)Next(random);
-			double randomValueY = (double)Next(random);
-			double randomValueZ = (double)Next(random);
-
-			Vertex4d v1 = new Vertex4d(
-				randomValueX, randomValueY, randomValueZ
-			);
-			Vertex4d v2 = new Vertex4d(v1);
-
-			Assert.AreEqual(v1.x, v2.x);
-			Assert.AreEqual(v1.y, v2.y);
-			Assert.AreEqual(v1.z, v2.z);
-		}
-
 		#endregion
 
 		#region Properties
@@ -5424,24 +5280,6 @@ namespace OpenGL.Test
 			Assert.AreEqual(randomValueX, v.x);
 			Assert.AreEqual(randomValueY, v.y);
 			Assert.AreEqual(randomValueZ, v.z);
-		}
-
-		[Test(Description = "Test Vertex4hf(Vertex4hf)")]
-		public void Vertex4hf_TestConstructor4()
-		{
-			Random random = new Random();
-			HalfFloat randomValueX = (HalfFloat)Next(random);
-			HalfFloat randomValueY = (HalfFloat)Next(random);
-			HalfFloat randomValueZ = (HalfFloat)Next(random);
-
-			Vertex4hf v1 = new Vertex4hf(
-				randomValueX, randomValueY, randomValueZ
-			);
-			Vertex4hf v2 = new Vertex4hf(v1);
-
-			Assert.AreEqual(v1.x, v2.x);
-			Assert.AreEqual(v1.y, v2.y);
-			Assert.AreEqual(v1.z, v2.z);
 		}
 
 		#endregion

@@ -65,14 +65,6 @@ namespace OpenGL
 			this.y = y;
 		}
 
-		/// <summary>
-		/// Vertex2ub constructor.
-		/// </summary>
-		/// <param name="other">
-		/// A <see cref="Vertex2ub"/> that specify the vertex to be copied.
-		/// </param>
-		public Vertex2ub(Vertex2ub other) : this(other.x, other.y) { }
-
 		#endregion
 
 		#region Structure
@@ -767,14 +759,6 @@ namespace OpenGL
 			this.x = x;
 			this.y = y;
 		}
-
-		/// <summary>
-		/// Vertex2b constructor.
-		/// </summary>
-		/// <param name="other">
-		/// A <see cref="Vertex2b"/> that specify the vertex to be copied.
-		/// </param>
-		public Vertex2b(Vertex2b other) : this(other.x, other.y) { }
 
 		#endregion
 
@@ -1485,14 +1469,6 @@ namespace OpenGL
 			this.y = y;
 		}
 
-		/// <summary>
-		/// Vertex2us constructor.
-		/// </summary>
-		/// <param name="other">
-		/// A <see cref="Vertex2us"/> that specify the vertex to be copied.
-		/// </param>
-		public Vertex2us(Vertex2us other) : this(other.x, other.y) { }
-
 		#endregion
 
 		#region Structure
@@ -2187,14 +2163,6 @@ namespace OpenGL
 			this.x = x;
 			this.y = y;
 		}
-
-		/// <summary>
-		/// Vertex2s constructor.
-		/// </summary>
-		/// <param name="other">
-		/// A <see cref="Vertex2s"/> that specify the vertex to be copied.
-		/// </param>
-		public Vertex2s(Vertex2s other) : this(other.x, other.y) { }
 
 		#endregion
 
@@ -2905,14 +2873,6 @@ namespace OpenGL
 			this.y = y;
 		}
 
-		/// <summary>
-		/// Vertex2ui constructor.
-		/// </summary>
-		/// <param name="other">
-		/// A <see cref="Vertex2ui"/> that specify the vertex to be copied.
-		/// </param>
-		public Vertex2ui(Vertex2ui other) : this(other.x, other.y) { }
-
 		#endregion
 
 		#region Structure
@@ -3607,14 +3567,6 @@ namespace OpenGL
 			this.x = x;
 			this.y = y;
 		}
-
-		/// <summary>
-		/// Vertex2i constructor.
-		/// </summary>
-		/// <param name="other">
-		/// A <see cref="Vertex2i"/> that specify the vertex to be copied.
-		/// </param>
-		public Vertex2i(Vertex2i other) : this(other.x, other.y) { }
 
 		#endregion
 
@@ -4325,14 +4277,6 @@ namespace OpenGL
 			this.y = y;
 		}
 
-		/// <summary>
-		/// Vertex2f constructor.
-		/// </summary>
-		/// <param name="other">
-		/// A <see cref="Vertex2f"/> that specify the vertex to be copied.
-		/// </param>
-		public Vertex2f(Vertex2f other) : this(other.x, other.y) { }
-
 		#endregion
 
 		#region Structure
@@ -5027,14 +4971,6 @@ namespace OpenGL
 			this.y = y;
 		}
 
-		/// <summary>
-		/// Vertex2d constructor.
-		/// </summary>
-		/// <param name="other">
-		/// A <see cref="Vertex2d"/> that specify the vertex to be copied.
-		/// </param>
-		public Vertex2d(Vertex2d other) : this(other.x, other.y) { }
-
 		#endregion
 
 		#region Structure
@@ -5700,14 +5636,6 @@ namespace OpenGL
 			this.x = x;
 			this.y = y;
 		}
-
-		/// <summary>
-		/// Vertex2hf constructor.
-		/// </summary>
-		/// <param name="other">
-		/// A <see cref="Vertex2hf"/> that specify the vertex to be copied.
-		/// </param>
-		public Vertex2hf(Vertex2hf other) : this(other.x, other.y) { }
 
 		#endregion
 

@@ -73,14 +73,6 @@ namespace OpenGL
 			this.z = z;
 		}
 
-		/// <summary>
-		/// Vertex3ub constructor.
-		/// </summary>
-		/// <param name="other">
-		/// A <see cref="Vertex3ub"/> that specify the vertex to be copied.
-		/// </param>
-		public Vertex3ub(Vertex3ub other) : this(other.x, other.y, other.z) { }
-
 		#endregion
 
 		#region Structure
@@ -823,14 +815,6 @@ namespace OpenGL
 			this.y = y;
 			this.z = z;
 		}
-
-		/// <summary>
-		/// Vertex3b constructor.
-		/// </summary>
-		/// <param name="other">
-		/// A <see cref="Vertex3b"/> that specify the vertex to be copied.
-		/// </param>
-		public Vertex3b(Vertex3b other) : this(other.x, other.y, other.z) { }
 
 		#endregion
 
@@ -1589,14 +1573,6 @@ namespace OpenGL
 			this.z = z;
 		}
 
-		/// <summary>
-		/// Vertex3us constructor.
-		/// </summary>
-		/// <param name="other">
-		/// A <see cref="Vertex3us"/> that specify the vertex to be copied.
-		/// </param>
-		public Vertex3us(Vertex3us other) : this(other.x, other.y, other.z) { }
-
 		#endregion
 
 		#region Structure
@@ -2339,14 +2315,6 @@ namespace OpenGL
 			this.y = y;
 			this.z = z;
 		}
-
-		/// <summary>
-		/// Vertex3s constructor.
-		/// </summary>
-		/// <param name="other">
-		/// A <see cref="Vertex3s"/> that specify the vertex to be copied.
-		/// </param>
-		public Vertex3s(Vertex3s other) : this(other.x, other.y, other.z) { }
 
 		#endregion
 
@@ -3105,14 +3073,6 @@ namespace OpenGL
 			this.z = z;
 		}
 
-		/// <summary>
-		/// Vertex3ui constructor.
-		/// </summary>
-		/// <param name="other">
-		/// A <see cref="Vertex3ui"/> that specify the vertex to be copied.
-		/// </param>
-		public Vertex3ui(Vertex3ui other) : this(other.x, other.y, other.z) { }
-
 		#endregion
 
 		#region Structure
@@ -3855,14 +3815,6 @@ namespace OpenGL
 			this.y = y;
 			this.z = z;
 		}
-
-		/// <summary>
-		/// Vertex3i constructor.
-		/// </summary>
-		/// <param name="other">
-		/// A <see cref="Vertex3i"/> that specify the vertex to be copied.
-		/// </param>
-		public Vertex3i(Vertex3i other) : this(other.x, other.y, other.z) { }
 
 		#endregion
 
@@ -4621,14 +4573,6 @@ namespace OpenGL
 			this.z = z;
 		}
 
-		/// <summary>
-		/// Vertex3f constructor.
-		/// </summary>
-		/// <param name="other">
-		/// A <see cref="Vertex3f"/> that specify the vertex to be copied.
-		/// </param>
-		public Vertex3f(Vertex3f other) : this(other.x, other.y, other.z) { }
-
 		#endregion
 
 		#region Structure
@@ -5341,14 +5285,6 @@ namespace OpenGL
 			this.z = z;
 		}
 
-		/// <summary>
-		/// Vertex3d constructor.
-		/// </summary>
-		/// <param name="other">
-		/// A <see cref="Vertex3d"/> that specify the vertex to be copied.
-		/// </param>
-		public Vertex3d(Vertex3d other) : this(other.x, other.y, other.z) { }
-
 		#endregion
 
 		#region Structure
@@ -6060,14 +5996,6 @@ namespace OpenGL
 			this.y = y;
 			this.z = z;
 		}
-
-		/// <summary>
-		/// Vertex3hf constructor.
-		/// </summary>
-		/// <param name="other">
-		/// A <see cref="Vertex3hf"/> that specify the vertex to be copied.
-		/// </param>
-		public Vertex3hf(Vertex3hf other) : this(other.x, other.y, other.z) { }
 
 		#endregion
 

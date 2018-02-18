@@ -92,22 +92,6 @@ namespace OpenGL.Test
 			Assert.AreEqual(randomValueY, v.y);
 		}
 
-		[Test(Description = "Test Vertex2ub(Vertex2ub)")]
-		public void Vertex2ub_TestConstructor4()
-		{
-			Random random = new Random();
-			byte randomValueX = (byte)Next(random);
-			byte randomValueY = (byte)Next(random);
-
-			Vertex2ub v1 = new Vertex2ub(
-				randomValueX, randomValueY
-			);
-			Vertex2ub v2 = new Vertex2ub(v1);
-
-			Assert.AreEqual(v1.x, v2.x);
-			Assert.AreEqual(v1.y, v2.y);
-		}
-
 		#endregion
 
 		#region Properties
@@ -651,22 +635,6 @@ namespace OpenGL.Test
 
 			Assert.AreEqual(randomValueX, v.x);
 			Assert.AreEqual(randomValueY, v.y);
-		}
-
-		[Test(Description = "Test Vertex2b(Vertex2b)")]
-		public void Vertex2b_TestConstructor4()
-		{
-			Random random = new Random();
-			sbyte randomValueX = (sbyte)Next(random);
-			sbyte randomValueY = (sbyte)Next(random);
-
-			Vertex2b v1 = new Vertex2b(
-				randomValueX, randomValueY
-			);
-			Vertex2b v2 = new Vertex2b(v1);
-
-			Assert.AreEqual(v1.x, v2.x);
-			Assert.AreEqual(v1.y, v2.y);
 		}
 
 		#endregion
@@ -1228,22 +1196,6 @@ namespace OpenGL.Test
 			Assert.AreEqual(randomValueY, v.y);
 		}
 
-		[Test(Description = "Test Vertex2us(Vertex2us)")]
-		public void Vertex2us_TestConstructor4()
-		{
-			Random random = new Random();
-			ushort randomValueX = (ushort)Next(random);
-			ushort randomValueY = (ushort)Next(random);
-
-			Vertex2us v1 = new Vertex2us(
-				randomValueX, randomValueY
-			);
-			Vertex2us v2 = new Vertex2us(v1);
-
-			Assert.AreEqual(v1.x, v2.x);
-			Assert.AreEqual(v1.y, v2.y);
-		}
-
 		#endregion
 
 		#region Properties
@@ -1787,22 +1739,6 @@ namespace OpenGL.Test
 
 			Assert.AreEqual(randomValueX, v.x);
 			Assert.AreEqual(randomValueY, v.y);
-		}
-
-		[Test(Description = "Test Vertex2s(Vertex2s)")]
-		public void Vertex2s_TestConstructor4()
-		{
-			Random random = new Random();
-			short randomValueX = (short)Next(random);
-			short randomValueY = (short)Next(random);
-
-			Vertex2s v1 = new Vertex2s(
-				randomValueX, randomValueY
-			);
-			Vertex2s v2 = new Vertex2s(v1);
-
-			Assert.AreEqual(v1.x, v2.x);
-			Assert.AreEqual(v1.y, v2.y);
 		}
 
 		#endregion
@@ -2364,22 +2300,6 @@ namespace OpenGL.Test
 			Assert.AreEqual(randomValueY, v.y);
 		}
 
-		[Test(Description = "Test Vertex2ui(Vertex2ui)")]
-		public void Vertex2ui_TestConstructor4()
-		{
-			Random random = new Random();
-			uint randomValueX = (uint)Next(random);
-			uint randomValueY = (uint)Next(random);
-
-			Vertex2ui v1 = new Vertex2ui(
-				randomValueX, randomValueY
-			);
-			Vertex2ui v2 = new Vertex2ui(v1);
-
-			Assert.AreEqual(v1.x, v2.x);
-			Assert.AreEqual(v1.y, v2.y);
-		}
-
 		#endregion
 
 		#region Properties
@@ -2923,22 +2843,6 @@ namespace OpenGL.Test
 
 			Assert.AreEqual(randomValueX, v.x);
 			Assert.AreEqual(randomValueY, v.y);
-		}
-
-		[Test(Description = "Test Vertex2i(Vertex2i)")]
-		public void Vertex2i_TestConstructor4()
-		{
-			Random random = new Random();
-			int randomValueX = (int)Next(random);
-			int randomValueY = (int)Next(random);
-
-			Vertex2i v1 = new Vertex2i(
-				randomValueX, randomValueY
-			);
-			Vertex2i v2 = new Vertex2i(v1);
-
-			Assert.AreEqual(v1.x, v2.x);
-			Assert.AreEqual(v1.y, v2.y);
 		}
 
 		#endregion
@@ -3500,22 +3404,6 @@ namespace OpenGL.Test
 			Assert.AreEqual(randomValueY, v.y);
 		}
 
-		[Test(Description = "Test Vertex2f(Vertex2f)")]
-		public void Vertex2f_TestConstructor4()
-		{
-			Random random = new Random();
-			float randomValueX = (float)Next(random);
-			float randomValueY = (float)Next(random);
-
-			Vertex2f v1 = new Vertex2f(
-				randomValueX, randomValueY
-			);
-			Vertex2f v2 = new Vertex2f(v1);
-
-			Assert.AreEqual(v1.x, v2.x);
-			Assert.AreEqual(v1.y, v2.y);
-		}
-
 		#endregion
 
 		#region Properties
@@ -4042,22 +3930,6 @@ namespace OpenGL.Test
 			Assert.AreEqual(randomValueY, v.y);
 		}
 
-		[Test(Description = "Test Vertex2d(Vertex2d)")]
-		public void Vertex2d_TestConstructor4()
-		{
-			Random random = new Random();
-			double randomValueX = (double)Next(random);
-			double randomValueY = (double)Next(random);
-
-			Vertex2d v1 = new Vertex2d(
-				randomValueX, randomValueY
-			);
-			Vertex2d v2 = new Vertex2d(v1);
-
-			Assert.AreEqual(v1.x, v2.x);
-			Assert.AreEqual(v1.y, v2.y);
-		}
-
 		#endregion
 
 		#region Properties
@@ -4582,22 +4454,6 @@ namespace OpenGL.Test
 
 			Assert.AreEqual(randomValueX, v.x);
 			Assert.AreEqual(randomValueY, v.y);
-		}
-
-		[Test(Description = "Test Vertex2hf(Vertex2hf)")]
-		public void Vertex2hf_TestConstructor4()
-		{
-			Random random = new Random();
-			HalfFloat randomValueX = (HalfFloat)Next(random);
-			HalfFloat randomValueY = (HalfFloat)Next(random);
-
-			Vertex2hf v1 = new Vertex2hf(
-				randomValueX, randomValueY
-			);
-			Vertex2hf v2 = new Vertex2hf(v1);
-
-			Assert.AreEqual(v1.x, v2.x);
-			Assert.AreEqual(v1.y, v2.y);
 		}
 
 		#endregion

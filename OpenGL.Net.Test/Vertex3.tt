@@ -116,24 +116,6 @@ namespace OpenGL.Test
 			Assert.AreEqual(randomValueZ, v.z);
 		}
 
-		[Test(Description = "Test <#= className #>(<#= className #>)")]
-		public void <#= className #>_TestConstructor4()
-		{
-			Random random = new Random();
-			<#= baseType #> randomValueX = (<#= baseType #>)Next(random);
-			<#= baseType #> randomValueY = (<#= baseType #>)Next(random);
-			<#= baseType #> randomValueZ = (<#= baseType #>)Next(random);
-
-			<#= className #> v1 = new <#= className #>(
-				randomValueX, randomValueY, randomValueZ
-			);
-			<#= className #> v2 = new <#= className #>(v1);
-
-			Assert.AreEqual(v1.x, v2.x);
-			Assert.AreEqual(v1.y, v2.y);
-			Assert.AreEqual(v1.z, v2.z);
-		}
-
 		#endregion
 
 		#region Properties

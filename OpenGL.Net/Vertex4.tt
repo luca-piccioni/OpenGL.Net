@@ -118,14 +118,6 @@ namespace OpenGL
 			this.w = w;
 		}
 
-		/// <summary>
-		/// <#= className #> constructor.
-		/// </summary>
-		/// <param name="other">
-		/// A <see cref="<#= className #>"/> that specify the vertex to be copied.
-		/// </param>
-		public <#= className #>(<#= className #> other) : this(other.x, other.y, other.z, other.w) { }
-
 		#endregion
 
 		#region Structure
