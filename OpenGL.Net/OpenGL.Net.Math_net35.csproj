@@ -138,7 +138,6 @@
       <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="HalfFloat.cs" />
-    <Compile Include="ICopiable.cs" />
     <Compile Include="Matrix.cs">
       <DependentUpon>Matrix.tt</DependentUpon>
       <DesignTime>True</DesignTime>
