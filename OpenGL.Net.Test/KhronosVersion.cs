@@ -106,6 +106,14 @@ namespace OpenGL.Test
 			Assert.Throws<ArgumentNullException>(() => new KhronosVersion(null, "prof"));
 		}
 
+		[Test]
+		public void KhronosVersion_VersionID()
+		{
+			Assert.AreEqual(110, new KhronosVersion(1, 1, KhronosVersion.ApiGl).VersionId);
+			Assert.AreEqual(120, new KhronosVersion(1, 2, 1, KhronosVersion.ApiGl).VersionId);
+			Assert.AreEqual(460, new KhronosVersion(4, 6, KhronosVersion.ApiGl).VersionId);
+		}
+
 		[Test(Description = "Test KhronosVersion.operator==")]
 		public void KhronosVersion_OperatorEquality()
 		{

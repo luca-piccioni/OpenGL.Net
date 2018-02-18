@@ -278,7 +278,7 @@ namespace Khronos
 		/// </summary>
 		public virtual int VersionId
 		{
-			get { return (Major * 100 + Minor * 10 + Revision); }
+			get { return (Major * 100 + Minor * 10); }
 		}
 
 		#endregion
