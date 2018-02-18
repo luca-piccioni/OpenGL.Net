@@ -106,16 +106,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ColorBGR.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ColorBGR.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ColorBGRA.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ColorBGRA.tt</DependentUpon>
-    </Compile>
     <Compile Include="ColorRGB.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -175,14 +165,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Vertex3.tt</DependentUpon>
     </Compile>
-    <Content Include="ColorBGR.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ColorBGR.cs</LastGenOutput>
-    </Content>
-    <Content Include="ColorBGRA.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ColorBGRA.cs</LastGenOutput>
-    </Content>
     <Content Include="ColorRGB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ColorRGB.cs</LastGenOutput>

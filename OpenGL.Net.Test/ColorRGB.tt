@@ -90,11 +90,6 @@ namespace OpenGL.Test
 
 			<#= className #> v = new <#= className #>(r, g, b);
 			ColorRGBA<#= colorSuffix #> vRGBA = v;
-
-			Assert.AreEqual(v.Red, vRGBA.Red);
-			Assert.AreEqual(v.Green, vRGBA.Green);
-			Assert.AreEqual(v.Blue, vRGBA.Blue);
-			Assert.AreEqual(<#= one #>, vRGBA.Alpha);
 		}
 <# } #>
 

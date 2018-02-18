@@ -222,9 +222,9 @@ namespace OpenGL.Objects
 				return (ArrayBufferItemType.Float);
 			else if (type == typeof(Vertex2f))
 				return (ArrayBufferItemType.Float2);
-			else if (type == typeof(Vertex3f) || type == typeof(ColorRGBF) || type == typeof(ColorBGRF))
+			else if (type == typeof(Vertex3f) || type == typeof(ColorRGBF))
 				return (ArrayBufferItemType.Float3);
-			else if (type == typeof(Vertex4f) || type == typeof(ColorRGBAF) || type == typeof(ColorBGRAF))
+			else if (type == typeof(Vertex4f) || type == typeof(ColorRGBAF))
 				return (ArrayBufferItemType.Float4);
 
 			// Signed Integer Types

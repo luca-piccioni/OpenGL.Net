@@ -277,60 +277,6 @@ namespace OpenGL.Objects
 
 		#region Managed Pixel Access
 
-		/// <summary>
-		/// Get and set image pixel.
-		/// </summary>
-		/// <param name="w">
-		/// A <see cref="UInt32"/> that specify the horizontal position of the image pixel, from the left bound
-		/// of the image.
-		/// </param>
-		/// <param name="h">
-		/// A <see cref="UInt32"/> that specify the vertical position of the image pixel, from the bottom bound
-		/// of the image.
-		/// </param>
-		/// <returns>
-		/// It returns the pixel of the image in the specified position.
-		/// </returns>
-		/// <exception cref="ArgumentOutOfRangeException">
-		/// Exception thrown if <paramref name="w"/> is equal or greater than <see cref="Width"/> or if <paramref name="h"/>
-		/// is equal or greater than <see cref="Height"/>.
-		/// </exception>
-		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if the value is not the same of <see cref="PixelLayout"/>. This exxception is thrown only by
-		/// the setter.
-		/// </exception>
-		public IColor this[uint w, uint h]
-		{
-			get
-			{
-				if (w >= Width)
-					throw new ArgumentOutOfRangeException("w", w, "greater than image width");
-				if (h >= Height)
-					throw new ArgumentOutOfRangeException("h", h, "greater than image height");
-
-				// Determine pixel data offset
-				IntPtr pixelData = GetPixelDataOffset(w, h);
-				// Copy from memory to structure
-				object pixelStruct = Marshal.PtrToStructure(pixelData, PixelLayout.GetStructType());
-
-				return ((IColor)pixelStruct);
-			}
-			set
-			{
-				if (value.PixelType != PixelLayout)
-					throw new InvalidOperationException("value have not the same pixel format of image");
-				if (w >= Width)
-					throw new ArgumentOutOfRangeException("w", w, "greater than image width");
-				if (h >= Height)
-					throw new ArgumentOutOfRangeException("h", h, "greater than image height");
-
-				// Determine pixel data offset
-				IntPtr pixelData = GetPixelDataOffset(w, h);
-				// Copy from memory to structure
-				Marshal.StructureToPtr(value, pixelData, false);
-			}
-		}
-
 		private IntPtr GetPixelDataOffset(uint w, uint h)
 		{
 			switch (PixelLayout) {

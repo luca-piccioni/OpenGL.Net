@@ -64,7 +64,7 @@ namespace OpenGL
 	/// RGB color.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	public struct <#= className #> : IColorRGB<<#= interfaceType #>>
+	public struct <#= className #>
 	{
 		#region Constructors
 

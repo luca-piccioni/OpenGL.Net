@@ -49,7 +49,7 @@ namespace OpenGL
 	/// R color (single component).
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	public struct <#= className #> : IColor
+	public struct <#= className #>
 	{
 		#region Constructors
 

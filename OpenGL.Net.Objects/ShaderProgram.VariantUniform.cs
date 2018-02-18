@@ -346,7 +346,7 @@ namespace OpenGL.Objects
 		/// </param>
 		public void SetVariantUniform(GraphicsContext ctx, string uniformName, ColorRGBAF v)
 		{
-			SetVariantUniform(ctx, uniformName, v.Red, v.Green, v.Blue, v.Alpha);
+			SetVariantUniform(ctx, uniformName, v.r, v.g, v.b, v.a);
 		}
 
 		#endregion

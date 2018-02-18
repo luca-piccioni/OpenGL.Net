@@ -29,7 +29,7 @@ namespace OpenGL
 	/// R color (single component).
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	public struct ColorR8 : IColor
+	public struct ColorR8
 	{
 		#region Constructors
 
@@ -104,7 +104,7 @@ namespace OpenGL
 	/// R color (single component).
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	public struct ColorR16 : IColor
+	public struct ColorR16
 	{
 		#region Constructors
 
@@ -179,7 +179,7 @@ namespace OpenGL
 	/// R color (single component).
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	public struct ColorR32 : IColor
+	public struct ColorR32
 	{
 		#region Constructors
 
@@ -254,7 +254,7 @@ namespace OpenGL
 	/// R color (single component).
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	public struct ColorRF : IColor
+	public struct ColorRF
 	{
 		#region Constructors
 
@@ -329,7 +329,7 @@ namespace OpenGL
 	/// R color (single component).
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	public struct ColorRD : IColor
+	public struct ColorRD
 	{
 		#region Constructors
 
@@ -404,7 +404,7 @@ namespace OpenGL
 	/// R color (single component).
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	public struct ColorRHF : IColor
+	public struct ColorRHF
 	{
 		#region Constructors
 

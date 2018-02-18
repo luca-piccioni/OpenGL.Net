@@ -48,15 +48,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Angle.cs" />
-    <Compile Include="ColorBGR.cs" />
-    <Compile Include="ColorBGRA.cs" />
     <Compile Include="ColorR.cs" />
     <Compile Include="ColorRGB.cs" />
     <Compile Include="ColorRGBA.cs" />
     <Compile Include="HalfFloat.cs" />
-    <Compile Include="IColor.cs" />
-    <Compile Include="IColorRGB.cs" />
-    <Compile Include="IColorRGBA.cs" />
     <Compile Include="ICopiable.cs" />
     <Compile Include="Matrix.cs" />
     <Compile Include="PixelLayout.cs" />

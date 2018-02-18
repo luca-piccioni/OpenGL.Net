@@ -238,28 +238,6 @@ namespace OpenGL.Objects
 					return (typeof(ColorRGBAF));
 				case PixelLayout.RGBAHF:
 					return (typeof(ColorRGBAHF));
-				case PixelLayout.BGR8:
-					return (typeof(ColorBGR8));
-				case PixelLayout.BGR15:
-					return (typeof(ColorBGR15));
-				case PixelLayout.BGR16:
-					return (typeof(ColorBGR16));
-				case PixelLayout.BGR24:
-					return (typeof(ColorBGR24));
-				case PixelLayout.BGR48:
-					return (typeof(ColorBGR48));
-				case PixelLayout.BGRF:
-					return (typeof(ColorBGRF));
-				case PixelLayout.BGRHF:
-					return (typeof(ColorBGRHF));
-				case PixelLayout.BGRA32:
-					return (typeof(ColorBGRA32));
-				case PixelLayout.BGRA64:
-					return (typeof(ColorBGRA64));
-				case PixelLayout.BGRAF:
-					return (typeof(ColorBGRAF));
-				case PixelLayout.BGRAHF:
-					return (typeof(ColorBGRAHF));
 				case PixelLayout.Depth16:
 					return (typeof(UInt16));
 				case PixelLayout.Depth32:

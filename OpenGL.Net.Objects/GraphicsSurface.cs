@@ -156,7 +156,6 @@ namespace OpenGL.Objects
 		/// </param>
 		public void Clear(GraphicsContext ctx)
 		{
-			System.Diagnostics.Debug.Fail("");
 			Clear(ctx, ClearBufferMask.ColorBufferBit);
 		}
 
@@ -173,7 +172,7 @@ namespace OpenGL.Objects
 		{
 			// Update clear values (only what is necessary)
 			if ((bufferMask & ClearBufferMask.ColorBufferBit) != 0)
-				Gl.ClearColor(mClearColor.Red, mClearColor.Green, mClearColor.Blue, mClearColor.Alpha);
+				Gl.ClearColor(mClearColor.r, mClearColor.g, mClearColor.b, mClearColor.a);
 #if !MONODROID
 			if ((bufferMask & ClearBufferMask.DepthBufferBit) != 0)
 				Gl.ClearDepth(mClearDepth);

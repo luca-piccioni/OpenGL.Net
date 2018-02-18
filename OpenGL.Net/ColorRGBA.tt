@@ -37,7 +37,7 @@ namespace OpenGL
 {
 <#
 	string[] postfixes =			new[] { "32",     "64",     "F",     "HF"        };
-	string[] baseTypes =		new[] { "byte",   "ushort", "float", "HalfFloat" };
+	string[] baseTypes =			new[] { "byte",   "ushort", "float", "HalfFloat" };
 	string[] pixelTypes =			new[] { "RGBA32", "RGBA64", "RGBAF", "RGBAHF"     };
 	string[] structType =			new[] { "byte",   "ushort", "float", "HalfFloat" };
 	string[] vertexBaseType =		new[] { "UByte",  "UShort", "Float", "Half" };
@@ -64,7 +64,7 @@ namespace OpenGL
 	/// RGBA color.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	public struct <#= className #> : IColorRGBA<<#= baseType #>>, IEquatable<<#= className #>>
+	public struct <#= className #> : IEquatable<<#= className #>>
 	{
 		#region Constructors
 
@@ -87,7 +87,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Construct a <#= className #> specifying RGB components.
+		/// Construct a <#= className #> specifying RGBA components.
 		/// </summary>
 		/// <param name="r">
 		/// A <see cref="<#= baseType #>"/> that specify the red component.
@@ -103,7 +103,6 @@ namespace OpenGL
 		/// </param>
 		public <#= className #>(<#= baseType #> r, <#= baseType #> g, <#= baseType #> b, <#= baseType #> a)
 		{
-			// Setup RGBA components
 			this.r = r;
 			this.g = g;
 			this.b = b;
@@ -136,6 +135,27 @@ namespace OpenGL
 
 		#endregion
 
+		#region Arithmetic Operators
+
+		/// <summary>
+		/// Scalar multiply operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="<#= className #>"/> that specify the left operand.
+		/// </param>
+		/// <param name="scalar">
+		/// A <see cref="float"/> that specify the right operand.
+		/// </param>
+		/// <returns>
+		/// A <see cref="<#= className #>"/> that equals to the multiplication of <paramref name="a"/> with <paramref name="scalar"/>.
+		/// </returns>
+		public static <#= className #> operator*(<#= className #> a, float scalar)
+		{
+			return new <#= className #>((<#= componentType #>)(a.r * scalar), (<#= componentType #>)(a.g * scalar), (<#= componentType #>)(a.b * scalar), (<#= componentType #>)(a.a * scalar));
+		}
+
+		#endregion
+
 		#region Cast Operators
 
 		/// <summary>
@@ -149,14 +169,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator <#= componentType #>[](<#= className #> a)
 		{
-			<#= componentType #>[] v = new <#= componentType #>[4];
-
-			v[0] = a.r;
-			v[1] = a.g;
-			v[2] = a.b;
-			v[3] = a.a;
-
-			return (v);
+			return new[] { a.r, a.g, a.b, a.a };
 		}
 
 		/// <summary>
@@ -170,7 +183,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex4<#= castSuffix #>(<#= className #> a)
 		{
-			return (new Vertex4<#= castSuffix #>(a.r, a.g, a.b, a.a));
+			return new Vertex4<#= castSuffix #>(a.r, a.g, a.b, a.a);
 		}
 
 #if HAVE_SYSTEM_DRAWING
@@ -193,39 +206,10 @@ namespace OpenGL
 			c[2] = (float)a.B / byte.MaxValue;
 			c[3] = (float)a.A / byte.MaxValue;
 
-			return (c);
+			return c;
 		}
 
 #endif
-
-		#endregion
-
-		#region Arithmetic Operators
-
-		/// <summary>
-		/// Scalar multiply operator.
-		/// </summary>
-		/// <param name="a">
-		/// A <see cref="<#= className #>"/> to be casted.
-		/// </param>
-		/// <param name="scalar">
-		/// A <see cref="Single"/> that specify the right operand.
-		/// </param>
-		/// <returns>
-		/// A <see cref="<#= className #>"/> that equals to the multiplication of <paramref name="a"/> with <paramref name="scalar"/>.
-		/// </returns>
-		public static <#= className #> operator*(<#= className #> a, float scalar)
-		{
-			<#= className #> v = new <#= className #>();
-
-			v.r = (<#= componentType #>)(a.r * scalar);
-			v.g = (<#= componentType #>)(a.g * scalar);
-			v.b = (<#= componentType #>)(a.b * scalar);
-			v.a = (<#= componentType #>)(a.a * scalar);
-
-			return (v);
-		}
-
 		#endregion
 
 		#region Equality Operators
@@ -238,7 +222,7 @@ namespace OpenGL
 		/// <returns></returns>
 		public static bool operator ==(<#= className #> v1, <#= className #> v2)
 		{
-			return (v1.Equals(v2));
+			return v1.Equals(v2);
 		}
 
 		/// <summary>
@@ -249,7 +233,7 @@ namespace OpenGL
 		/// <returns></returns>
 		public static bool operator !=(<#= className #> v1, <#= className #> v2)
 		{
-			return (!v1.Equals(v2));
+			return !v1.Equals(v2);
 		}
 
 		#endregion
@@ -298,46 +282,6 @@ namespace OpenGL
 
 		#endregion
 
-		#region IColorRGBA<<#= baseType #>> Implementation
-
-		/// <summary>
-		/// Get or set the red component.
-		/// </summary>
-		public <#= baseType #> Red
-		{
-			get { return (r); }
-			set { r = value; }
-		}
-
-		/// <summary>
-		/// Get or set the green component.
-		/// </summary>
-		public <#= baseType #> Green
-		{
-			get { return (g); }
-			set { g = value; }
-		}
-
-		/// <summary>
-		/// Get or set the blue component.
-		/// </summary>
-		public <#= baseType #> Blue
-		{
-			get { return (b); }
-			set { b = value; }
-		}
-
-		/// <summary>
-		/// Get or set the alpha component.
-		/// </summary>
-		public <#= baseType #> Alpha
-		{
-			get { return (a); }
-			set { a = value; }
-		}
-
-		#endregion
-
 		#region IColor Implementation
 
 		/// <summary>
@@ -362,10 +306,10 @@ namespace OpenGL
 			get
 			{
 				switch (c) {
-					case 0: return ((float)Red   / <#= baseType #>.MaxValue);
-					case 1: return ((float)Green / <#= baseType #>.MaxValue);
-					case 2: return ((float)Blue  / <#= baseType #>.MaxValue);
-					case 3: return ((float)Alpha / <#= baseType #>.MaxValue);
+					case 0: return (float)r / <#= baseType #>.MaxValue;
+					case 1: return (float)g / <#= baseType #>.MaxValue;
+					case 2: return (float)b / <#= baseType #>.MaxValue;
+					case 3: return (float)a / <#= baseType #>.MaxValue;
 					default:
 						throw new IndexOutOfRangeException();
 				}
@@ -375,10 +319,10 @@ namespace OpenGL
 				if (value < 0.0f || value > 1.0f)
 					throw new InvalidOperationException("value out of range");
 				switch (c) {
-					case 0: Red =   (<#= baseType #>)(value * <#= baseType #>.MaxValue); break;
-					case 1: Green = (<#= baseType #>)(value * <#= baseType #>.MaxValue); break;
-					case 2: Blue =  (<#= baseType #>)(value * <#= baseType #>.MaxValue); break;
-					case 3: Alpha = (<#= baseType #>)(value * <#= baseType #>.MaxValue); break;
+					case 0: r = (<#= baseType #>)(value * <#= baseType #>.MaxValue); break;
+					case 1: g = (<#= baseType #>)(value * <#= baseType #>.MaxValue); break;
+					case 2: b = (<#= baseType #>)(value * <#= baseType #>.MaxValue); break;
+					case 3: a = (<#= baseType #>)(value * <#= baseType #>.MaxValue); break;
 					default:
 						throw new IndexOutOfRangeException();
 				}
@@ -387,10 +331,10 @@ namespace OpenGL
 			get
 			{
 				switch (c) {
-					case 0: return (Red);
-					case 1: return (Green);
-					case 2: return (Blue);
-					case 3: return (Alpha);
+					case 0: return r;
+					case 1: return g;
+					case 2: return b;
+					case 3: return a;
 					default:
 						throw new IndexOutOfRangeException();
 				}
@@ -400,10 +344,10 @@ namespace OpenGL
 				if (value < 0.0f || value > 1.0f)
 					throw new InvalidOperationException("value out of range");
 				switch (c) {
-					case 0: Red =   (<#= baseType #>)value; break;
-					case 1: Green = (<#= baseType #>)value; break;
-					case 2: Blue =  (<#= baseType #>)value; break;
-					case 3: Alpha = (<#= baseType #>)value; break;
+					case 0: r = (<#= baseType #>)value; break;
+					case 1: g = (<#= baseType #>)value; break;
+					case 2: b = (<#= baseType #>)value; break;
+					case 3: a = (<#= baseType #>)value; break;
 					default:
 						throw new IndexOutOfRangeException();
 				}
@@ -430,15 +374,15 @@ namespace OpenGL
 		public bool Equals(<#= className #> other, <#= baseType #> precision)
 		{
 			if (Math.Abs(r - other.r) > precision)
-				return (false);
+				return false;
 			if (Math.Abs(g - other.g) > precision)
-				return (false);
+				return false;
 			if (Math.Abs(b - other.b) > precision)
-				return (false);
+				return false;
 			if (Math.Abs(a - other.a) > precision)
-				return (false);
+				return false;
 
-			return (true);
+			return true;
 		}
 
 		/// <summary>
@@ -452,7 +396,7 @@ namespace OpenGL
 		/// </returns>
 		public bool Equals(<#= className #> other)
 		{
-			return (r == other.r && g == other.g && b == other.b && a == other.a);
+			return r == other.r && g == other.g && b == other.b && a == other.a;
 		}
 
 		/// <summary>
@@ -467,11 +411,11 @@ namespace OpenGL
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
-				return (false);
+				return false;
 			if (obj.GetType() != typeof(<#= className #>))
-				return (false);
+				return false;
 			
-			return (Equals((<#= className #>)obj));
+			return Equals((<#= className #>)obj);
 		}
 
 		/// <summary>

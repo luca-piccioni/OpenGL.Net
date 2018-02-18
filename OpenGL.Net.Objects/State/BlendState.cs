@@ -496,7 +496,7 @@ namespace OpenGL.Objects.State
 
 				// Set blend color, if required
 				if (RequiresConstColor(_RgbSrcFactor) || RequiresConstColor(_AlphaSrcFactor) || RequiresConstColor(_RgbDstFactor) || RequiresConstColor(_AlphaDstFactor)) {
-					Gl.BlendColor(_BlendColor.Red, _BlendColor.Green, _BlendColor.Blue, _BlendColor.Alpha);
+					Gl.BlendColor(_BlendColor.r, _BlendColor.g, _BlendColor.b, _BlendColor.a);
 				}
 			} else {
 				// Disable blending
@@ -533,7 +533,7 @@ namespace OpenGL.Objects.State
 
 				// Set blend color, if required
 				if (RequiresConstColor(_RgbSrcFactor) || RequiresConstColor(_AlphaSrcFactor) || RequiresConstColor(_RgbDstFactor) || RequiresConstColor(_AlphaDstFactor)) {
-					Gl.BlendColor(_BlendColor.Red, _BlendColor.Green, _BlendColor.Blue, _BlendColor.Alpha);
+					Gl.BlendColor(_BlendColor.r, _BlendColor.g, _BlendColor.b, _BlendColor.a);
 				}
 			} else {
 				// Disable blending

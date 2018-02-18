@@ -369,11 +369,6 @@ namespace OpenGL.Test
 
 			ColorRGB24 v = new ColorRGB24(r, g, b);
 			ColorRGBA32 vRGBA = v;
-
-			Assert.AreEqual(v.Red, vRGBA.Red);
-			Assert.AreEqual(v.Green, vRGBA.Green);
-			Assert.AreEqual(v.Blue, vRGBA.Blue);
-			Assert.AreEqual(byte.MaxValue, vRGBA.Alpha);
 		}
 
 		[Test(Description = "Test (Vertex4ub)ColorRGB24")]
@@ -517,11 +512,6 @@ namespace OpenGL.Test
 
 			ColorRGB48 v = new ColorRGB48(r, g, b);
 			ColorRGBA64 vRGBA = v;
-
-			Assert.AreEqual(v.Red, vRGBA.Red);
-			Assert.AreEqual(v.Green, vRGBA.Green);
-			Assert.AreEqual(v.Blue, vRGBA.Blue);
-			Assert.AreEqual(ushort.MaxValue, vRGBA.Alpha);
 		}
 
 		[Test(Description = "Test (Vertex4ub)ColorRGB48")]
@@ -797,11 +787,6 @@ namespace OpenGL.Test
 
 			ColorRGBF v = new ColorRGBF(r, g, b);
 			ColorRGBAF vRGBA = v;
-
-			Assert.AreEqual(v.Red, vRGBA.Red);
-			Assert.AreEqual(v.Green, vRGBA.Green);
-			Assert.AreEqual(v.Blue, vRGBA.Blue);
-			Assert.AreEqual(1.0f, vRGBA.Alpha);
 		}
 
 		[Test(Description = "Test (Vertex4ub)ColorRGBF")]
@@ -1077,11 +1062,6 @@ namespace OpenGL.Test
 
 			ColorRGBHF v = new ColorRGBHF(r, g, b);
 			ColorRGBAHF vRGBA = v;
-
-			Assert.AreEqual(v.Red, vRGBA.Red);
-			Assert.AreEqual(v.Green, vRGBA.Green);
-			Assert.AreEqual(v.Blue, vRGBA.Blue);
-			Assert.AreEqual((HalfFloat)1.0f, vRGBA.Alpha);
 		}
 
 		[Test(Description = "Test (Vertex4ub)ColorRGBHF")]

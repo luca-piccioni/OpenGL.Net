@@ -32,7 +32,7 @@ namespace OpenGL
 	/// RGBA color.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	public struct ColorRGBA32 : IColorRGBA<byte>, IEquatable<ColorRGBA32>
+	public struct ColorRGBA32 : IEquatable<ColorRGBA32>
 	{
 		#region Constructors
 
@@ -55,7 +55,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Construct a ColorRGBA32 specifying RGB components.
+		/// Construct a ColorRGBA32 specifying RGBA components.
 		/// </summary>
 		/// <param name="r">
 		/// A <see cref="byte"/> that specify the red component.
@@ -71,7 +71,6 @@ namespace OpenGL
 		/// </param>
 		public ColorRGBA32(byte r, byte g, byte b, byte a)
 		{
-			// Setup RGBA components
 			this.r = r;
 			this.g = g;
 			this.b = b;
@@ -104,6 +103,27 @@ namespace OpenGL
 
 		#endregion
 
+		#region Arithmetic Operators
+
+		/// <summary>
+		/// Scalar multiply operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="ColorRGBA32"/> that specify the left operand.
+		/// </param>
+		/// <param name="scalar">
+		/// A <see cref="float"/> that specify the right operand.
+		/// </param>
+		/// <returns>
+		/// A <see cref="ColorRGBA32"/> that equals to the multiplication of <paramref name="a"/> with <paramref name="scalar"/>.
+		/// </returns>
+		public static ColorRGBA32 operator*(ColorRGBA32 a, float scalar)
+		{
+			return new ColorRGBA32((byte)(a.r * scalar), (byte)(a.g * scalar), (byte)(a.b * scalar), (byte)(a.a * scalar));
+		}
+
+		#endregion
+
 		#region Cast Operators
 
 		/// <summary>
@@ -117,14 +137,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator byte[](ColorRGBA32 a)
 		{
-			byte[] v = new byte[4];
-
-			v[0] = a.r;
-			v[1] = a.g;
-			v[2] = a.b;
-			v[3] = a.a;
-
-			return (v);
+			return new[] { a.r, a.g, a.b, a.a };
 		}
 
 		/// <summary>
@@ -138,7 +151,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex4ub(ColorRGBA32 a)
 		{
-			return (new Vertex4ub(a.r, a.g, a.b, a.a));
+			return new Vertex4ub(a.r, a.g, a.b, a.a);
 		}
 
 #if HAVE_SYSTEM_DRAWING
@@ -161,39 +174,10 @@ namespace OpenGL
 			c[2] = (float)a.B / byte.MaxValue;
 			c[3] = (float)a.A / byte.MaxValue;
 
-			return (c);
+			return c;
 		}
 
 #endif
-
-		#endregion
-
-		#region Arithmetic Operators
-
-		/// <summary>
-		/// Scalar multiply operator.
-		/// </summary>
-		/// <param name="a">
-		/// A <see cref="ColorRGBA32"/> to be casted.
-		/// </param>
-		/// <param name="scalar">
-		/// A <see cref="Single"/> that specify the right operand.
-		/// </param>
-		/// <returns>
-		/// A <see cref="ColorRGBA32"/> that equals to the multiplication of <paramref name="a"/> with <paramref name="scalar"/>.
-		/// </returns>
-		public static ColorRGBA32 operator*(ColorRGBA32 a, float scalar)
-		{
-			ColorRGBA32 v = new ColorRGBA32();
-
-			v.r = (byte)(a.r * scalar);
-			v.g = (byte)(a.g * scalar);
-			v.b = (byte)(a.b * scalar);
-			v.a = (byte)(a.a * scalar);
-
-			return (v);
-		}
-
 		#endregion
 
 		#region Equality Operators
@@ -206,7 +190,7 @@ namespace OpenGL
 		/// <returns></returns>
 		public static bool operator ==(ColorRGBA32 v1, ColorRGBA32 v2)
 		{
-			return (v1.Equals(v2));
+			return v1.Equals(v2);
 		}
 
 		/// <summary>
@@ -217,7 +201,7 @@ namespace OpenGL
 		/// <returns></returns>
 		public static bool operator !=(ColorRGBA32 v1, ColorRGBA32 v2)
 		{
-			return (!v1.Equals(v2));
+			return !v1.Equals(v2);
 		}
 
 		#endregion
@@ -266,46 +250,6 @@ namespace OpenGL
 
 		#endregion
 
-		#region IColorRGBA<byte> Implementation
-
-		/// <summary>
-		/// Get or set the red component.
-		/// </summary>
-		public byte Red
-		{
-			get { return (r); }
-			set { r = value; }
-		}
-
-		/// <summary>
-		/// Get or set the green component.
-		/// </summary>
-		public byte Green
-		{
-			get { return (g); }
-			set { g = value; }
-		}
-
-		/// <summary>
-		/// Get or set the blue component.
-		/// </summary>
-		public byte Blue
-		{
-			get { return (b); }
-			set { b = value; }
-		}
-
-		/// <summary>
-		/// Get or set the alpha component.
-		/// </summary>
-		public byte Alpha
-		{
-			get { return (a); }
-			set { a = value; }
-		}
-
-		#endregion
-
 		#region IColor Implementation
 
 		/// <summary>
@@ -329,10 +273,10 @@ namespace OpenGL
 		{			get
 			{
 				switch (c) {
-					case 0: return ((float)Red   / byte.MaxValue);
-					case 1: return ((float)Green / byte.MaxValue);
-					case 2: return ((float)Blue  / byte.MaxValue);
-					case 3: return ((float)Alpha / byte.MaxValue);
+					case 0: return (float)r / byte.MaxValue;
+					case 1: return (float)g / byte.MaxValue;
+					case 2: return (float)b / byte.MaxValue;
+					case 3: return (float)a / byte.MaxValue;
 					default:
 						throw new IndexOutOfRangeException();
 				}
@@ -342,10 +286,10 @@ namespace OpenGL
 				if (value < 0.0f || value > 1.0f)
 					throw new InvalidOperationException("value out of range");
 				switch (c) {
-					case 0: Red =   (byte)(value * byte.MaxValue); break;
-					case 1: Green = (byte)(value * byte.MaxValue); break;
-					case 2: Blue =  (byte)(value * byte.MaxValue); break;
-					case 3: Alpha = (byte)(value * byte.MaxValue); break;
+					case 0: r = (byte)(value * byte.MaxValue); break;
+					case 1: g = (byte)(value * byte.MaxValue); break;
+					case 2: b = (byte)(value * byte.MaxValue); break;
+					case 3: a = (byte)(value * byte.MaxValue); break;
 					default:
 						throw new IndexOutOfRangeException();
 				}
@@ -371,15 +315,15 @@ namespace OpenGL
 		public bool Equals(ColorRGBA32 other, byte precision)
 		{
 			if (Math.Abs(r - other.r) > precision)
-				return (false);
+				return false;
 			if (Math.Abs(g - other.g) > precision)
-				return (false);
+				return false;
 			if (Math.Abs(b - other.b) > precision)
-				return (false);
+				return false;
 			if (Math.Abs(a - other.a) > precision)
-				return (false);
+				return false;
 
-			return (true);
+			return true;
 		}
 
 		/// <summary>
@@ -393,7 +337,7 @@ namespace OpenGL
 		/// </returns>
 		public bool Equals(ColorRGBA32 other)
 		{
-			return (r == other.r && g == other.g && b == other.b && a == other.a);
+			return r == other.r && g == other.g && b == other.b && a == other.a;
 		}
 
 		/// <summary>
@@ -408,11 +352,11 @@ namespace OpenGL
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
-				return (false);
+				return false;
 			if (obj.GetType() != typeof(ColorRGBA32))
-				return (false);
+				return false;
 			
-			return (Equals((ColorRGBA32)obj));
+			return Equals((ColorRGBA32)obj);
 		}
 
 		/// <summary>
@@ -441,7 +385,7 @@ namespace OpenGL
 	/// RGBA color.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	public struct ColorRGBA64 : IColorRGBA<ushort>, IEquatable<ColorRGBA64>
+	public struct ColorRGBA64 : IEquatable<ColorRGBA64>
 	{
 		#region Constructors
 
@@ -464,7 +408,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Construct a ColorRGBA64 specifying RGB components.
+		/// Construct a ColorRGBA64 specifying RGBA components.
 		/// </summary>
 		/// <param name="r">
 		/// A <see cref="ushort"/> that specify the red component.
@@ -480,7 +424,6 @@ namespace OpenGL
 		/// </param>
 		public ColorRGBA64(ushort r, ushort g, ushort b, ushort a)
 		{
-			// Setup RGBA components
 			this.r = r;
 			this.g = g;
 			this.b = b;
@@ -513,6 +456,27 @@ namespace OpenGL
 
 		#endregion
 
+		#region Arithmetic Operators
+
+		/// <summary>
+		/// Scalar multiply operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="ColorRGBA64"/> that specify the left operand.
+		/// </param>
+		/// <param name="scalar">
+		/// A <see cref="float"/> that specify the right operand.
+		/// </param>
+		/// <returns>
+		/// A <see cref="ColorRGBA64"/> that equals to the multiplication of <paramref name="a"/> with <paramref name="scalar"/>.
+		/// </returns>
+		public static ColorRGBA64 operator*(ColorRGBA64 a, float scalar)
+		{
+			return new ColorRGBA64((ushort)(a.r * scalar), (ushort)(a.g * scalar), (ushort)(a.b * scalar), (ushort)(a.a * scalar));
+		}
+
+		#endregion
+
 		#region Cast Operators
 
 		/// <summary>
@@ -526,14 +490,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator ushort[](ColorRGBA64 a)
 		{
-			ushort[] v = new ushort[4];
-
-			v[0] = a.r;
-			v[1] = a.g;
-			v[2] = a.b;
-			v[3] = a.a;
-
-			return (v);
+			return new[] { a.r, a.g, a.b, a.a };
 		}
 
 		/// <summary>
@@ -547,7 +504,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex4us(ColorRGBA64 a)
 		{
-			return (new Vertex4us(a.r, a.g, a.b, a.a));
+			return new Vertex4us(a.r, a.g, a.b, a.a);
 		}
 
 #if HAVE_SYSTEM_DRAWING
@@ -570,39 +527,10 @@ namespace OpenGL
 			c[2] = (float)a.B / byte.MaxValue;
 			c[3] = (float)a.A / byte.MaxValue;
 
-			return (c);
+			return c;
 		}
 
 #endif
-
-		#endregion
-
-		#region Arithmetic Operators
-
-		/// <summary>
-		/// Scalar multiply operator.
-		/// </summary>
-		/// <param name="a">
-		/// A <see cref="ColorRGBA64"/> to be casted.
-		/// </param>
-		/// <param name="scalar">
-		/// A <see cref="Single"/> that specify the right operand.
-		/// </param>
-		/// <returns>
-		/// A <see cref="ColorRGBA64"/> that equals to the multiplication of <paramref name="a"/> with <paramref name="scalar"/>.
-		/// </returns>
-		public static ColorRGBA64 operator*(ColorRGBA64 a, float scalar)
-		{
-			ColorRGBA64 v = new ColorRGBA64();
-
-			v.r = (ushort)(a.r * scalar);
-			v.g = (ushort)(a.g * scalar);
-			v.b = (ushort)(a.b * scalar);
-			v.a = (ushort)(a.a * scalar);
-
-			return (v);
-		}
-
 		#endregion
 
 		#region Equality Operators
@@ -615,7 +543,7 @@ namespace OpenGL
 		/// <returns></returns>
 		public static bool operator ==(ColorRGBA64 v1, ColorRGBA64 v2)
 		{
-			return (v1.Equals(v2));
+			return v1.Equals(v2);
 		}
 
 		/// <summary>
@@ -626,7 +554,7 @@ namespace OpenGL
 		/// <returns></returns>
 		public static bool operator !=(ColorRGBA64 v1, ColorRGBA64 v2)
 		{
-			return (!v1.Equals(v2));
+			return !v1.Equals(v2);
 		}
 
 		#endregion
@@ -675,46 +603,6 @@ namespace OpenGL
 
 		#endregion
 
-		#region IColorRGBA<ushort> Implementation
-
-		/// <summary>
-		/// Get or set the red component.
-		/// </summary>
-		public ushort Red
-		{
-			get { return (r); }
-			set { r = value; }
-		}
-
-		/// <summary>
-		/// Get or set the green component.
-		/// </summary>
-		public ushort Green
-		{
-			get { return (g); }
-			set { g = value; }
-		}
-
-		/// <summary>
-		/// Get or set the blue component.
-		/// </summary>
-		public ushort Blue
-		{
-			get { return (b); }
-			set { b = value; }
-		}
-
-		/// <summary>
-		/// Get or set the alpha component.
-		/// </summary>
-		public ushort Alpha
-		{
-			get { return (a); }
-			set { a = value; }
-		}
-
-		#endregion
-
 		#region IColor Implementation
 
 		/// <summary>
@@ -738,10 +626,10 @@ namespace OpenGL
 		{			get
 			{
 				switch (c) {
-					case 0: return ((float)Red   / ushort.MaxValue);
-					case 1: return ((float)Green / ushort.MaxValue);
-					case 2: return ((float)Blue  / ushort.MaxValue);
-					case 3: return ((float)Alpha / ushort.MaxValue);
+					case 0: return (float)r / ushort.MaxValue;
+					case 1: return (float)g / ushort.MaxValue;
+					case 2: return (float)b / ushort.MaxValue;
+					case 3: return (float)a / ushort.MaxValue;
 					default:
 						throw new IndexOutOfRangeException();
 				}
@@ -751,10 +639,10 @@ namespace OpenGL
 				if (value < 0.0f || value > 1.0f)
 					throw new InvalidOperationException("value out of range");
 				switch (c) {
-					case 0: Red =   (ushort)(value * ushort.MaxValue); break;
-					case 1: Green = (ushort)(value * ushort.MaxValue); break;
-					case 2: Blue =  (ushort)(value * ushort.MaxValue); break;
-					case 3: Alpha = (ushort)(value * ushort.MaxValue); break;
+					case 0: r = (ushort)(value * ushort.MaxValue); break;
+					case 1: g = (ushort)(value * ushort.MaxValue); break;
+					case 2: b = (ushort)(value * ushort.MaxValue); break;
+					case 3: a = (ushort)(value * ushort.MaxValue); break;
 					default:
 						throw new IndexOutOfRangeException();
 				}
@@ -780,15 +668,15 @@ namespace OpenGL
 		public bool Equals(ColorRGBA64 other, ushort precision)
 		{
 			if (Math.Abs(r - other.r) > precision)
-				return (false);
+				return false;
 			if (Math.Abs(g - other.g) > precision)
-				return (false);
+				return false;
 			if (Math.Abs(b - other.b) > precision)
-				return (false);
+				return false;
 			if (Math.Abs(a - other.a) > precision)
-				return (false);
+				return false;
 
-			return (true);
+			return true;
 		}
 
 		/// <summary>
@@ -802,7 +690,7 @@ namespace OpenGL
 		/// </returns>
 		public bool Equals(ColorRGBA64 other)
 		{
-			return (r == other.r && g == other.g && b == other.b && a == other.a);
+			return r == other.r && g == other.g && b == other.b && a == other.a;
 		}
 
 		/// <summary>
@@ -817,11 +705,11 @@ namespace OpenGL
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
-				return (false);
+				return false;
 			if (obj.GetType() != typeof(ColorRGBA64))
-				return (false);
+				return false;
 			
-			return (Equals((ColorRGBA64)obj));
+			return Equals((ColorRGBA64)obj);
 		}
 
 		/// <summary>
@@ -850,7 +738,7 @@ namespace OpenGL
 	/// RGBA color.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	public struct ColorRGBAF : IColorRGBA<float>, IEquatable<ColorRGBAF>
+	public struct ColorRGBAF : IEquatable<ColorRGBAF>
 	{
 		#region Constructors
 
@@ -873,7 +761,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Construct a ColorRGBAF specifying RGB components.
+		/// Construct a ColorRGBAF specifying RGBA components.
 		/// </summary>
 		/// <param name="r">
 		/// A <see cref="float"/> that specify the red component.
@@ -889,7 +777,6 @@ namespace OpenGL
 		/// </param>
 		public ColorRGBAF(float r, float g, float b, float a)
 		{
-			// Setup RGBA components
 			this.r = r;
 			this.g = g;
 			this.b = b;
@@ -922,6 +809,27 @@ namespace OpenGL
 
 		#endregion
 
+		#region Arithmetic Operators
+
+		/// <summary>
+		/// Scalar multiply operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="ColorRGBAF"/> that specify the left operand.
+		/// </param>
+		/// <param name="scalar">
+		/// A <see cref="float"/> that specify the right operand.
+		/// </param>
+		/// <returns>
+		/// A <see cref="ColorRGBAF"/> that equals to the multiplication of <paramref name="a"/> with <paramref name="scalar"/>.
+		/// </returns>
+		public static ColorRGBAF operator*(ColorRGBAF a, float scalar)
+		{
+			return new ColorRGBAF((float)(a.r * scalar), (float)(a.g * scalar), (float)(a.b * scalar), (float)(a.a * scalar));
+		}
+
+		#endregion
+
 		#region Cast Operators
 
 		/// <summary>
@@ -935,14 +843,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator float[](ColorRGBAF a)
 		{
-			float[] v = new float[4];
-
-			v[0] = a.r;
-			v[1] = a.g;
-			v[2] = a.b;
-			v[3] = a.a;
-
-			return (v);
+			return new[] { a.r, a.g, a.b, a.a };
 		}
 
 		/// <summary>
@@ -956,7 +857,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex4f(ColorRGBAF a)
 		{
-			return (new Vertex4f(a.r, a.g, a.b, a.a));
+			return new Vertex4f(a.r, a.g, a.b, a.a);
 		}
 
 #if HAVE_SYSTEM_DRAWING
@@ -979,39 +880,10 @@ namespace OpenGL
 			c[2] = (float)a.B / byte.MaxValue;
 			c[3] = (float)a.A / byte.MaxValue;
 
-			return (c);
+			return c;
 		}
 
 #endif
-
-		#endregion
-
-		#region Arithmetic Operators
-
-		/// <summary>
-		/// Scalar multiply operator.
-		/// </summary>
-		/// <param name="a">
-		/// A <see cref="ColorRGBAF"/> to be casted.
-		/// </param>
-		/// <param name="scalar">
-		/// A <see cref="Single"/> that specify the right operand.
-		/// </param>
-		/// <returns>
-		/// A <see cref="ColorRGBAF"/> that equals to the multiplication of <paramref name="a"/> with <paramref name="scalar"/>.
-		/// </returns>
-		public static ColorRGBAF operator*(ColorRGBAF a, float scalar)
-		{
-			ColorRGBAF v = new ColorRGBAF();
-
-			v.r = (float)(a.r * scalar);
-			v.g = (float)(a.g * scalar);
-			v.b = (float)(a.b * scalar);
-			v.a = (float)(a.a * scalar);
-
-			return (v);
-		}
-
 		#endregion
 
 		#region Equality Operators
@@ -1024,7 +896,7 @@ namespace OpenGL
 		/// <returns></returns>
 		public static bool operator ==(ColorRGBAF v1, ColorRGBAF v2)
 		{
-			return (v1.Equals(v2));
+			return v1.Equals(v2);
 		}
 
 		/// <summary>
@@ -1035,7 +907,7 @@ namespace OpenGL
 		/// <returns></returns>
 		public static bool operator !=(ColorRGBAF v1, ColorRGBAF v2)
 		{
-			return (!v1.Equals(v2));
+			return !v1.Equals(v2);
 		}
 
 		#endregion
@@ -1084,46 +956,6 @@ namespace OpenGL
 
 		#endregion
 
-		#region IColorRGBA<float> Implementation
-
-		/// <summary>
-		/// Get or set the red component.
-		/// </summary>
-		public float Red
-		{
-			get { return (r); }
-			set { r = value; }
-		}
-
-		/// <summary>
-		/// Get or set the green component.
-		/// </summary>
-		public float Green
-		{
-			get { return (g); }
-			set { g = value; }
-		}
-
-		/// <summary>
-		/// Get or set the blue component.
-		/// </summary>
-		public float Blue
-		{
-			get { return (b); }
-			set { b = value; }
-		}
-
-		/// <summary>
-		/// Get or set the alpha component.
-		/// </summary>
-		public float Alpha
-		{
-			get { return (a); }
-			set { a = value; }
-		}
-
-		#endregion
-
 		#region IColor Implementation
 
 		/// <summary>
@@ -1147,10 +979,10 @@ namespace OpenGL
 		{			get
 			{
 				switch (c) {
-					case 0: return (Red);
-					case 1: return (Green);
-					case 2: return (Blue);
-					case 3: return (Alpha);
+					case 0: return r;
+					case 1: return g;
+					case 2: return b;
+					case 3: return a;
 					default:
 						throw new IndexOutOfRangeException();
 				}
@@ -1160,10 +992,10 @@ namespace OpenGL
 				if (value < 0.0f || value > 1.0f)
 					throw new InvalidOperationException("value out of range");
 				switch (c) {
-					case 0: Red =   (float)value; break;
-					case 1: Green = (float)value; break;
-					case 2: Blue =  (float)value; break;
-					case 3: Alpha = (float)value; break;
+					case 0: r = (float)value; break;
+					case 1: g = (float)value; break;
+					case 2: b = (float)value; break;
+					case 3: a = (float)value; break;
 					default:
 						throw new IndexOutOfRangeException();
 				}
@@ -1189,15 +1021,15 @@ namespace OpenGL
 		public bool Equals(ColorRGBAF other, float precision)
 		{
 			if (Math.Abs(r - other.r) > precision)
-				return (false);
+				return false;
 			if (Math.Abs(g - other.g) > precision)
-				return (false);
+				return false;
 			if (Math.Abs(b - other.b) > precision)
-				return (false);
+				return false;
 			if (Math.Abs(a - other.a) > precision)
-				return (false);
+				return false;
 
-			return (true);
+			return true;
 		}
 
 		/// <summary>
@@ -1211,7 +1043,7 @@ namespace OpenGL
 		/// </returns>
 		public bool Equals(ColorRGBAF other)
 		{
-			return (r == other.r && g == other.g && b == other.b && a == other.a);
+			return r == other.r && g == other.g && b == other.b && a == other.a;
 		}
 
 		/// <summary>
@@ -1226,11 +1058,11 @@ namespace OpenGL
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
-				return (false);
+				return false;
 			if (obj.GetType() != typeof(ColorRGBAF))
-				return (false);
+				return false;
 			
-			return (Equals((ColorRGBAF)obj));
+			return Equals((ColorRGBAF)obj);
 		}
 
 		/// <summary>
@@ -1259,7 +1091,7 @@ namespace OpenGL
 	/// RGBA color.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	public struct ColorRGBAHF : IColorRGBA<HalfFloat>, IEquatable<ColorRGBAHF>
+	public struct ColorRGBAHF : IEquatable<ColorRGBAHF>
 	{
 		#region Constructors
 
@@ -1282,7 +1114,7 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Construct a ColorRGBAHF specifying RGB components.
+		/// Construct a ColorRGBAHF specifying RGBA components.
 		/// </summary>
 		/// <param name="r">
 		/// A <see cref="HalfFloat"/> that specify the red component.
@@ -1298,7 +1130,6 @@ namespace OpenGL
 		/// </param>
 		public ColorRGBAHF(HalfFloat r, HalfFloat g, HalfFloat b, HalfFloat a)
 		{
-			// Setup RGBA components
 			this.r = r;
 			this.g = g;
 			this.b = b;
@@ -1331,6 +1162,27 @@ namespace OpenGL
 
 		#endregion
 
+		#region Arithmetic Operators
+
+		/// <summary>
+		/// Scalar multiply operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="ColorRGBAHF"/> that specify the left operand.
+		/// </param>
+		/// <param name="scalar">
+		/// A <see cref="float"/> that specify the right operand.
+		/// </param>
+		/// <returns>
+		/// A <see cref="ColorRGBAHF"/> that equals to the multiplication of <paramref name="a"/> with <paramref name="scalar"/>.
+		/// </returns>
+		public static ColorRGBAHF operator*(ColorRGBAHF a, float scalar)
+		{
+			return new ColorRGBAHF((HalfFloat)(a.r * scalar), (HalfFloat)(a.g * scalar), (HalfFloat)(a.b * scalar), (HalfFloat)(a.a * scalar));
+		}
+
+		#endregion
+
 		#region Cast Operators
 
 		/// <summary>
@@ -1344,14 +1196,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator HalfFloat[](ColorRGBAHF a)
 		{
-			HalfFloat[] v = new HalfFloat[4];
-
-			v[0] = a.r;
-			v[1] = a.g;
-			v[2] = a.b;
-			v[3] = a.a;
-
-			return (v);
+			return new[] { a.r, a.g, a.b, a.a };
 		}
 
 		/// <summary>
@@ -1365,7 +1210,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex4hf(ColorRGBAHF a)
 		{
-			return (new Vertex4hf(a.r, a.g, a.b, a.a));
+			return new Vertex4hf(a.r, a.g, a.b, a.a);
 		}
 
 #if HAVE_SYSTEM_DRAWING
@@ -1388,39 +1233,10 @@ namespace OpenGL
 			c[2] = (float)a.B / byte.MaxValue;
 			c[3] = (float)a.A / byte.MaxValue;
 
-			return (c);
+			return c;
 		}
 
 #endif
-
-		#endregion
-
-		#region Arithmetic Operators
-
-		/// <summary>
-		/// Scalar multiply operator.
-		/// </summary>
-		/// <param name="a">
-		/// A <see cref="ColorRGBAHF"/> to be casted.
-		/// </param>
-		/// <param name="scalar">
-		/// A <see cref="Single"/> that specify the right operand.
-		/// </param>
-		/// <returns>
-		/// A <see cref="ColorRGBAHF"/> that equals to the multiplication of <paramref name="a"/> with <paramref name="scalar"/>.
-		/// </returns>
-		public static ColorRGBAHF operator*(ColorRGBAHF a, float scalar)
-		{
-			ColorRGBAHF v = new ColorRGBAHF();
-
-			v.r = (HalfFloat)(a.r * scalar);
-			v.g = (HalfFloat)(a.g * scalar);
-			v.b = (HalfFloat)(a.b * scalar);
-			v.a = (HalfFloat)(a.a * scalar);
-
-			return (v);
-		}
-
 		#endregion
 
 		#region Equality Operators
@@ -1433,7 +1249,7 @@ namespace OpenGL
 		/// <returns></returns>
 		public static bool operator ==(ColorRGBAHF v1, ColorRGBAHF v2)
 		{
-			return (v1.Equals(v2));
+			return v1.Equals(v2);
 		}
 
 		/// <summary>
@@ -1444,7 +1260,7 @@ namespace OpenGL
 		/// <returns></returns>
 		public static bool operator !=(ColorRGBAHF v1, ColorRGBAHF v2)
 		{
-			return (!v1.Equals(v2));
+			return !v1.Equals(v2);
 		}
 
 		#endregion
@@ -1493,46 +1309,6 @@ namespace OpenGL
 
 		#endregion
 
-		#region IColorRGBA<HalfFloat> Implementation
-
-		/// <summary>
-		/// Get or set the red component.
-		/// </summary>
-		public HalfFloat Red
-		{
-			get { return (r); }
-			set { r = value; }
-		}
-
-		/// <summary>
-		/// Get or set the green component.
-		/// </summary>
-		public HalfFloat Green
-		{
-			get { return (g); }
-			set { g = value; }
-		}
-
-		/// <summary>
-		/// Get or set the blue component.
-		/// </summary>
-		public HalfFloat Blue
-		{
-			get { return (b); }
-			set { b = value; }
-		}
-
-		/// <summary>
-		/// Get or set the alpha component.
-		/// </summary>
-		public HalfFloat Alpha
-		{
-			get { return (a); }
-			set { a = value; }
-		}
-
-		#endregion
-
 		#region IColor Implementation
 
 		/// <summary>
@@ -1556,10 +1332,10 @@ namespace OpenGL
 		{			get
 			{
 				switch (c) {
-					case 0: return (Red);
-					case 1: return (Green);
-					case 2: return (Blue);
-					case 3: return (Alpha);
+					case 0: return r;
+					case 1: return g;
+					case 2: return b;
+					case 3: return a;
 					default:
 						throw new IndexOutOfRangeException();
 				}
@@ -1569,10 +1345,10 @@ namespace OpenGL
 				if (value < 0.0f || value > 1.0f)
 					throw new InvalidOperationException("value out of range");
 				switch (c) {
-					case 0: Red =   (HalfFloat)value; break;
-					case 1: Green = (HalfFloat)value; break;
-					case 2: Blue =  (HalfFloat)value; break;
-					case 3: Alpha = (HalfFloat)value; break;
+					case 0: r = (HalfFloat)value; break;
+					case 1: g = (HalfFloat)value; break;
+					case 2: b = (HalfFloat)value; break;
+					case 3: a = (HalfFloat)value; break;
 					default:
 						throw new IndexOutOfRangeException();
 				}
@@ -1598,15 +1374,15 @@ namespace OpenGL
 		public bool Equals(ColorRGBAHF other, HalfFloat precision)
 		{
 			if (Math.Abs(r - other.r) > precision)
-				return (false);
+				return false;
 			if (Math.Abs(g - other.g) > precision)
-				return (false);
+				return false;
 			if (Math.Abs(b - other.b) > precision)
-				return (false);
+				return false;
 			if (Math.Abs(a - other.a) > precision)
-				return (false);
+				return false;
 
-			return (true);
+			return true;
 		}
 
 		/// <summary>
@@ -1620,7 +1396,7 @@ namespace OpenGL
 		/// </returns>
 		public bool Equals(ColorRGBAHF other)
 		{
-			return (r == other.r && g == other.g && b == other.b && a == other.a);
+			return r == other.r && g == other.g && b == other.b && a == other.a;
 		}
 
 		/// <summary>
@@ -1635,11 +1411,11 @@ namespace OpenGL
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
-				return (false);
+				return false;
 			if (obj.GetType() != typeof(ColorRGBAHF))
-				return (false);
+				return false;
 			
-			return (Equals((ColorRGBAHF)obj));
+			return Equals((ColorRGBAHF)obj);
 		}
 
 		/// <summary>

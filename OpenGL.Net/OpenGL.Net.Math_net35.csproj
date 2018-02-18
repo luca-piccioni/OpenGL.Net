@@ -122,16 +122,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Angle.cs" />
-    <Compile Include="ColorBGR.cs">
-      <DependentUpon>ColorBGR.tt</DependentUpon>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-    </Compile>
-    <Compile Include="ColorBGRA.cs">
-      <DependentUpon>ColorBGRA.tt</DependentUpon>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-    </Compile>
     <Compile Include="ColorR.cs">
       <DependentUpon>ColorR.tt</DependentUpon>
       <DesignTime>True</DesignTime>
@@ -148,9 +138,6 @@
       <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="HalfFloat.cs" />
-    <Compile Include="IColor.cs" />
-    <Compile Include="IColorRGB.cs" />
-    <Compile Include="IColorRGBA.cs" />
     <Compile Include="ICopiable.cs" />
     <Compile Include="Matrix.cs">
       <DependentUpon>Matrix.tt</DependentUpon>
@@ -194,14 +181,6 @@
   </Target>
   -->
   <ItemGroup>
-    <Content Include="ColorBGR.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ColorBGR.cs</LastGenOutput>
-    </Content>
-    <Content Include="ColorBGRA.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ColorBGRA.cs</LastGenOutput>
-    </Content>
     <Content Include="ColorR.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ColorR.cs</LastGenOutput>
