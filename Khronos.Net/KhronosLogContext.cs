@@ -19,6 +19,10 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+#if NETFRAMEWORK
+#define HAVE_SYSTEM_XML
+#endif
+
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -29,20 +33,22 @@ namespace Khronos
 	/// <summary>
 	/// Hold information about Khronos API specification.
 	/// </summary>
-	sealed class KhronosLogContext
+	internal sealed class KhronosLogContext
 	{
 		#region Constructors
 
 		/// <summary>
 		/// Construct a KhronosLogContext.
 		/// </summary>
-		/// <param name="khronoApiType"></param>
+		/// <param name="khronoApiType">
+		/// A <see cref="Type"/> that specifies the type of the class where to query log information.
+		/// </param>
 		public KhronosLogContext(Type khronoApiType)
 		{
 			QueryLogContext(khronoApiType);
-#if NETFRAMEWORK
+#if HAVE_SYSTEM_XML
 			try {
-				_LogMap = KhronosLogMap.Load(String.Format("OpenGL.KhronosLogMap{0}.xml", khronoApiType.Name));
+				_LogMap = KhronosLogMap.Load($"OpenGL.KhronosLogMap{khronoApiType.Name}.xml");
 			} catch { /* Fail-safe */ }
 #endif
 		}
@@ -58,16 +64,16 @@ namespace Khronos
 		/// A <see cref="Int64"/> that specifies the enumeration value.
 		/// </param>
 		/// <returns>
-		/// It returns a <see cref="String"/> representing <paramref name="enumValue"/>.
+		/// It returns a <see cref="string"/> representing <paramref name="enumValue"/>.
 		/// </returns>
 		public string GetEnumName(long enumValue)
 		{
 			string enumName;
 
 			if (_EnumNames.TryGetValue(enumValue, out enumName))
-				return (enumName);
+				return enumName;
 
-			return (null);
+			return null;
 		}
 
 		/// <summary>
@@ -76,19 +82,15 @@ namespace Khronos
 		/// <param name="khronoApiType">
 		/// A <see cref="Type"/> that specifies the type of the class where to query enumeration names.
 		/// </param>
-		/// <returns>
-		/// It returns a <see cref="Dictionary{Int32, String}"/> that correlates the enumeration value with
-		/// the enumeration name.
-		/// </returns>
 		private void QueryLogContext(Type khronoApiType)
 		{
 			if (khronoApiType == null)
 				throw new ArgumentNullException(nameof(khronoApiType));
 
-			Dictionary<Int64, string> enumNames = new Dictionary<Int64, string>();
-			Dictionary<string, Dictionary<Int64, string>> enumBitmasks = new Dictionary<string, Dictionary<Int64, string>>();
+			Dictionary<long, string> enumNames = new Dictionary<long, string>();
+			Dictionary<string, Dictionary<long, string>> enumBitmasks = new Dictionary<string, Dictionary<long, string>>();
 
-#if NETFRAMEWORK
+#if HAVE_SYSTEM_XML
 
 			FieldInfo[] fieldInfos = khronoApiType.GetFields(BindingFlags.Public | BindingFlags.Static);
 
@@ -99,29 +101,26 @@ namespace Khronos
 
 				// Enumeration values have at least one RequiredByFeatureAttribute
 				Attribute[] requiredByFeatureAttribs = Attribute.GetCustomAttributes(fieldInfo, typeof(RequiredByFeatureAttribute));
-				if ((requiredByFeatureAttribs == null) || (requiredByFeatureAttribs.Length == 0))
+				if (requiredByFeatureAttribs.Length == 0)
 					continue;
 
 				LogAttribute logAttribute = (LogAttribute)Attribute.GetCustomAttribute(fieldInfo, typeof(LogAttribute));
 				IConvertible fieldInfoValue = (IConvertible)fieldInfo.GetValue(null);
-                try {
-					Int64 enumValueKey = fieldInfoValue.ToInt64(System.Globalization.NumberFormatInfo.InvariantInfo);
+				try {
+					long enumValueKey = fieldInfoValue.ToInt64(System.Globalization.NumberFormatInfo.InvariantInfo);
 
 					// Pure enum
-					if ((logAttribute == null) || (logAttribute.BitmaskName == null))
-					{
+					if (logAttribute?.BitmaskName == null) {
 						// Collect enumeration
 						if (enumNames.ContainsKey(enumValueKey) == false)
 							enumNames.Add(enumValueKey, fieldInfo.Name);
 					}
 
 					// Bitmask enum
-					if ((logAttribute != null) && (logAttribute.BitmaskName != null))
-					{
-						Dictionary<Int64, string> enumBitmaskNames;
+					if (logAttribute?.BitmaskName != null) {
+						Dictionary<long, string> enumBitmaskNames;
 
-						if (enumBitmasks.TryGetValue(logAttribute.BitmaskName, out enumBitmaskNames) == false)
-						{
+						if (enumBitmasks.TryGetValue(logAttribute.BitmaskName, out enumBitmaskNames) == false) {
 							enumBitmaskNames = new Dictionary<long, string>();
 							enumBitmasks.Add(logAttribute.BitmaskName, enumBitmaskNames);
 						}
@@ -129,10 +128,8 @@ namespace Khronos
 						if (enumBitmaskNames.ContainsKey(enumValueKey) == false)
 							enumBitmaskNames.Add(enumValueKey, fieldInfo.Name);
 					}
-                } catch (Exception exception) {
-                    ;
-                }
-				
+					// ReSharper disable once EmptyGeneralCatchClause
+				} catch (Exception) { /* Fail-safe */ }
 			}
 
 #endif
@@ -152,12 +149,12 @@ namespace Khronos
 		/// </summary>
 		private Dictionary<string, Dictionary<long, string>> _EnumBitmasks;
 
-#if NETFRAMEWORK
+#if HAVE_SYSTEM_XML
 
 		/// <summary>
 		/// Log map, if any.
 		/// </summary>
-		private KhronosLogMap _LogMap;
+		private readonly KhronosLogMap _LogMap;
 
 #endif
 
@@ -165,12 +162,27 @@ namespace Khronos
 
 		#region Command Formatting
 
+		/// <summary>
+		/// Express using a string the GL command with its arguments.
+		/// </summary>
+		/// <param name="name">
+		/// A <see cref="string"/> that specifies the command name.
+		/// </param>
+		/// <param name="returnValue">
+		/// A <see cref="object"/> that specifies the command returned value. It is null in case the command
+		/// returns void.
+		/// </param>
+		/// <param name="args">
+		/// A <see cref="T:object[]"/> that specifies the command arguments. It can be null in case command
+		/// has no arguments.
+		/// </param>
+		/// <returns></returns>
 		public string ToString(string name, object returnValue, object[] args)
 		{
 			if (name == null)
-				throw new ArgumentException("name");
+				throw new ArgumentNullException(nameof(name));
 
-			// Format string
+			// Format string: '{0}({1}, {2}, ...) = {N}'
 			StringBuilder sbFormat = new StringBuilder();
 			int formatIdx = 1;
 
@@ -185,17 +197,15 @@ namespace Khronos
 				sbFormat.AppendFormat(" = {{{0}}}", formatIdx++);
 
 			// Format arguments
-			List<object> formatArgs = new List<object>();
+			List<object> formatArgs = new List<object> { name };
 
-			formatArgs.Add(name);
 			if (args != null) {
 				for (int i = 0; i < args.Length; i++) {
 					KhronosLogCommandParameterFlags flags = KhronosLogCommandParameterFlags.None;
-#if NETFRAMEWORK
+#if HAVE_SYSTEM_XML
 					if (_LogMap != null)
 						flags = _LogMap.GetCommandParameterFlag(name, i);
 #endif
-
 					formatArgs.Add(FormatArg(args[i], flags));
 				}
 					
@@ -204,7 +214,7 @@ namespace Khronos
 				formatArgs.Add(FormatArg(returnValue, KhronosLogCommandParameterFlags.None));
 
 			// Returns formatted string
-			return (String.Format(sbFormat.ToString(), formatArgs.ToArray()));
+			return string.Format(sbFormat.ToString(), formatArgs.ToArray());
 		}
 
 		private object FormatArg(object arg, KhronosLogCommandParameterFlags flags)
@@ -212,17 +222,18 @@ namespace Khronos
 			Type argType = arg.GetType();
 
 			if (argType == typeof(string[]))
-				return (FormatArg((string[])arg, flags));
-			else if (argType.IsArray)
-				return (FormatArg((Array)arg, flags));
-            else if (argType == typeof(string))
-				return (FormatArg((string)arg, flags));
-			else if (argType == typeof(IntPtr))
-				return (FormatArg((IntPtr)arg, flags));
-			else if (argType == typeof(Int32))
-				return (FormatArg((Int32)arg, flags));
-			else
-				return (arg);
+				return FormatArg((string[])arg, flags);
+			if (argType.IsArray)
+				return FormatArg((Array)arg, flags);
+
+			if (argType == typeof(string))
+				return FormatArg((string)arg, flags);
+			if (argType == typeof(IntPtr))
+				return FormatArg((IntPtr)arg, flags);
+			if (argType == typeof(int))
+				return FormatArg((int)arg, flags);
+			
+			return arg;
 		}
 
 		private object FormatArg(string[] arg, KhronosLogCommandParameterFlags flags)
@@ -237,9 +248,9 @@ namespace Khronos
 					sb.Remove(sb.Length - 1, 1);
 				sb.Append("}");
 
-				return (sb.ToString());
+				return sb.ToString();
 			} else
-				return ("{ null }");
+				return "{ null }";
 		}
 
 		private object FormatArg(Array arg, KhronosLogCommandParameterFlags flags)
@@ -254,31 +265,31 @@ namespace Khronos
 					sb.Remove(sb.Length - 1, 1);
 				sb.Append("}");
 
-				return (sb.ToString());
+				return sb.ToString();
 			} else
-				return ("{ null }");
+				return "{ null }";
 		}
 
 		private object FormatArg(IntPtr arg, KhronosLogCommandParameterFlags flags)
 		{
-			return ("0x" + arg.ToString("X8"));
+			return "0x" + arg.ToString("X8");
 		}
 
 		private object FormatArg(string arg, KhronosLogCommandParameterFlags flags)
 		{
-			return ("\"" + arg + "\"");
+			return "\"" + arg + "\"";
 		}
 
-		private object FormatArg(Int32 arg, KhronosLogCommandParameterFlags flags)
+		private object FormatArg(int arg, KhronosLogCommandParameterFlags flags)
 		{
 			if ((flags & KhronosLogCommandParameterFlags.Enum) != 0) {
 				string enumName = GetEnumName(arg);
 
 				if (enumName != null)
-					return (enumName);
+					return enumName;
 			}
 
-			return (arg);
+			return arg;
 		}
 
 		#endregion

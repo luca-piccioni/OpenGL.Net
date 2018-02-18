@@ -129,6 +129,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ColorRGBA.tt</DependentUpon>
     </Compile>
+    <Compile Include="KhronosLogContext.cs" />
     <Compile Include="MemoryLock.cs" />
     <Compile Include="TestBase.cs" />
     <Compile Include="DevicePixelFormatCollection.cs" />

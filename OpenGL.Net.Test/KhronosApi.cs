@@ -34,7 +34,7 @@ using NUnit.Framework;
 namespace OpenGL.Test
 {
 	[TestFixture, Category("Framework")]
-	class KhronosApiTest
+	internal class KhronosApiTest
 	{
 		[SuppressMessage("ReSharper", "InconsistentNaming")]
 		[SuppressMessage("ReSharper", "ClassNeverInstantiated.Local")]
