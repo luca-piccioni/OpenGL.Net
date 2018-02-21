@@ -32,6 +32,26 @@ namespace OpenGL
 		#region Constructors
 
 		/// <summary>
+		/// Static constructor.
+		/// </summary>
+		static VideoCoreWindow()
+		{
+			// Support for RPi
+			KhronosApi.EglInitializing += KhronosApi_PlatformInit_Rpi;
+		}
+
+		/// <summary>
+		/// Initialize RPi Broadcom VideoCore IV API.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private static void KhronosApi_PlatformInit_Rpi(object sender, EglEventArgs e)
+		{
+			if (Bcm.IsAvailable)
+				Bcm.bcm_host_init();
+		}
+
+		/// <summary>
 		/// Construct a fullscreen window.
 		/// </summary>
 		public VideoCoreWindow()

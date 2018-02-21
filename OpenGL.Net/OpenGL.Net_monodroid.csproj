@@ -148,7 +148,6 @@
     <Compile Include="ATI\Gl.ATI_vertex_array_object.cs" />
     <Compile Include="ATI\Gl.ATI_vertex_attrib_array_object.cs" />
     <Compile Include="ATI\Gl.ATI_vertex_streams.cs" />
-    <Compile Include="Bcm.cs" />
     <Compile Include="DeviceContext.cs" />
     <Compile Include="DeviceContextEGL.cs" />
     <Compile Include="DevicePixelFormat.cs" />

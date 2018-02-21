@@ -44,8 +44,6 @@ namespace OpenGL
 			EnvDebug = Environment.GetEnvironmentVariable("OPENGL_NET_DEBUG") != null;
 			EnvExperimental = Environment.GetEnvironmentVariable("OPENGL_NET_EXPERIMENTAL") != null;
 #endif
-			// Support for RPi
-			EglInitializing += KhronosApi_PlatformInit_Rpi;
 		}
 
 		#endregion
@@ -80,17 +78,6 @@ namespace OpenGL
 		protected static void RaiseEglInitializing(EglEventArgs e)
 		{
 			EglInitializing?.Invoke(null, e);
-		}
-
-		/// <summary>
-		/// Initialize RPi Broadcom VideoCore IV API.
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private static void KhronosApi_PlatformInit_Rpi(object sender, EglEventArgs e)
-		{
-			if (Bcm.IsAvailable)
-				Bcm.bcm_host_init();
 		}
 
 		#endregion

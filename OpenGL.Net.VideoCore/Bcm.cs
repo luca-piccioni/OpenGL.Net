@@ -105,7 +105,7 @@ namespace OpenGL
 		/// A <see cref="T:Object[]"/> that specifies the API command arguments, if any.
 		/// </param>
 		[Conditional("GL_DEBUG")]
-		protected static new void LogCommand(string name, object returnValue, params object[] args)
+		protected new static void LogCommand(string name, object returnValue, params object[] args)
 		{
 			if (_LogContext == null)
 				_LogContext = new KhronosLogContext(typeof(Bcm));
@@ -452,19 +452,19 @@ namespace OpenGL
 			return (retvalue);
 		}
 
-		internal unsafe static partial class UnsafeNativeMethods
+		internal static class UnsafeNativeMethods
 		{
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "bcm_host_init")]
-			internal extern static void bcm_host_init();
+			internal static extern void bcm_host_init();
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "bcm_host_deinit")]
-			internal extern static void bcm_host_deinit();
+			internal static extern void bcm_host_deinit();
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "graphics_get_display_size")]
-			internal extern static int graphics_get_display_size(Int16 display_number, out Int32 width, out Int32 height);
+			internal static extern int graphics_get_display_size(Int16 display_number, out Int32 width, out Int32 height);
 
 			//[SuppressUnmanagedCodeSecurity()]
 			//[DllImport(Library, EntryPoint = "vc_dispman_init")]
@@ -500,7 +500,7 @@ namespace OpenGL
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "vc_dispmanx_display_open")]
-			internal extern static DISPMANX_DISPLAY_HANDLE_T vc_dispmanx_display_open(UInt32 device);
+			internal static extern DISPMANX_DISPLAY_HANDLE_T vc_dispmanx_display_open(UInt32 device);
 			
 			//[SuppressUnmanagedCodeSecurity()]
 			//[DllImport(Library, EntryPoint = "vc_dispmanx_display_open_mode")]
@@ -528,15 +528,15 @@ namespace OpenGL
 			
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "vc_dispmanx_display_close")]
-			internal extern static int vc_dispmanx_display_close(DISPMANX_DISPLAY_HANDLE_T display);
+			internal static extern int vc_dispmanx_display_close(DISPMANX_DISPLAY_HANDLE_T display);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "vc_dispmanx_update_start")]
-			internal extern static DISPMANX_UPDATE_HANDLE_T vc_dispmanx_update_start(Int32 priority);
+			internal static extern DISPMANX_UPDATE_HANDLE_T vc_dispmanx_update_start(Int32 priority);
 
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "vc_dispmanx_element_add")]
-			internal extern static DISPMANX_ELEMENT_HANDLE_T vc_dispmanx_element_add(DISPMANX_UPDATE_HANDLE_T update, DISPMANX_DISPLAY_HANDLE_T display, Int32 layer, IntPtr dest_rect, DISPMANX_RESOURCE_HANDLE_T src, IntPtr src_rect, DISPMANX_PROTECTION_T protection, IntPtr alpha, IntPtr clamp, DISPMANX_TRANSFORM_T transform);
+			internal static extern DISPMANX_ELEMENT_HANDLE_T vc_dispmanx_element_add(DISPMANX_UPDATE_HANDLE_T update, DISPMANX_DISPLAY_HANDLE_T display, Int32 layer, IntPtr dest_rect, DISPMANX_RESOURCE_HANDLE_T src, IntPtr src_rect, DISPMANX_PROTECTION_T protection, IntPtr alpha, IntPtr clamp, DISPMANX_TRANSFORM_T transform);
 			
 			//[SuppressUnmanagedCodeSecurity()]
 			//[DllImport(Library, EntryPoint = "vc_dispmanx_element_change_source")]
@@ -552,7 +552,7 @@ namespace OpenGL
 			
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "vc_dispmanx_element_remove")]
-			internal extern static int vc_dispmanx_element_remove(DISPMANX_UPDATE_HANDLE_T update, DISPMANX_ELEMENT_HANDLE_T element);
+			internal static extern int vc_dispmanx_element_remove(DISPMANX_UPDATE_HANDLE_T update, DISPMANX_ELEMENT_HANDLE_T element);
 			
 			//[SuppressUnmanagedCodeSecurity()]
 			//[DllImport(Library, EntryPoint = "vc_dispmanx_update_submit")]
@@ -560,7 +560,7 @@ namespace OpenGL
 			
 			[SuppressUnmanagedCodeSecurity()]
 			[DllImport(Library, EntryPoint = "vc_dispmanx_update_submit_sync")]
-			internal extern static int vc_dispmanx_update_submit_sync(DISPMANX_UPDATE_HANDLE_T update);
+			internal static extern int vc_dispmanx_update_submit_sync(DISPMANX_UPDATE_HANDLE_T update);
 			
 			//[SuppressUnmanagedCodeSecurity()]
 			//[DllImport(Library, EntryPoint = "vc_dispmanx_query_image_formats")]
@@ -591,7 +591,7 @@ namespace OpenGL
 			//internal extern static int vc_dispmanx_vsync_callback(DISPMANX_DISPLAY_HANDLE_T display, DISPMANX_CALLBACK_FUNC_T cb_func, void *cb_arg);
 		}
 
-		internal static partial class Delegates
+		internal static class Delegates
 		{
 			[SuppressUnmanagedCodeSecurity()]
 			internal delegate void bcm_host_init();

@@ -250,7 +250,6 @@
     <Compile Include="ATI\Gl.ATI_vertex_array_object.cs" />
     <Compile Include="ATI\Gl.ATI_vertex_attrib_array_object.cs" />
     <Compile Include="ATI\Gl.ATI_vertex_streams.cs" />
-    <Compile Include="Bcm.cs" />
     <Compile Include="EglEventArgs.cs" />
     <Compile Include="EXT\Egl.EXT_protected_content.cs" />
     <Compile Include="EXT\Gl.EXT_external_buffer.cs" />
