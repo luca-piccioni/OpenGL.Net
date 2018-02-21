@@ -1493,6 +1493,16 @@ namespace OpenGL.Test
 				Assert.That(m1[c, r], Is.EqualTo(m2[c, r]).Within(1e-5f));
 		}
 
+		[Test]
+		public void Matrix3x3f_Constructor4()
+		{
+			Matrix4x4f m = new Matrix4x4f();
+			Matrix3x3f c;
+
+			Assert.Throws<ArgumentOutOfRangeException>(() => c = new Matrix3x3f(m, 4, 3));
+			Assert.Throws<ArgumentOutOfRangeException>(() => c = new Matrix3x3f(m, 3, 4));
+		}
+
 		#endregion
 
 		#region Columns & Rows
@@ -3642,13 +3652,19 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix4x4f_LookAt()
 		{
-
+			Matrix4x4f m = Matrix4x4f.LookAt(Vertex3f.UnitZ, Vertex3f.Zero, Vertex3f.UnitY);
+			Assert.AreEqual(-Vertex3f.UnitZ, m.ForwardVector);
+			Assert.AreEqual(Vertex3f.UnitY, m.UpVector);
+			Assert.AreEqual(Vertex3f.UnitX, m.RightVector);
 		}
 
 		[Test]
 		public void Matrix4x4f_LookAtDirection()
 		{
-
+			Matrix4x4f m = Matrix4x4f.LookAt(Vertex3f.UnitZ, -Vertex3f.UnitZ, Vertex3f.UnitY);
+			Assert.AreEqual(-Vertex3f.UnitZ, m.ForwardVector);
+			Assert.AreEqual(Vertex3f.UnitY, m.UpVector);
+			Assert.AreEqual(Vertex3f.UnitX, m.RightVector);
 		}
 
 		#endregion
@@ -5646,6 +5662,16 @@ namespace OpenGL.Test
 
 			for (uint c = 0; c < 3; c++) for (uint r = 0; r < 3; r++)
 				Assert.That(m1[c, r], Is.EqualTo(m2[c, r]).Within(1e-10));
+		}
+
+		[Test]
+		public void Matrix3x3d_Constructor4()
+		{
+			Matrix4x4d m = new Matrix4x4d();
+			Matrix3x3d c;
+
+			Assert.Throws<ArgumentOutOfRangeException>(() => c = new Matrix3x3d(m, 4, 3));
+			Assert.Throws<ArgumentOutOfRangeException>(() => c = new Matrix3x3d(m, 3, 4));
 		}
 
 		#endregion
@@ -7797,13 +7823,19 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix4x4d_LookAt()
 		{
-
+			Matrix4x4d m = Matrix4x4d.LookAt(Vertex3d.UnitZ, Vertex3d.Zero, Vertex3d.UnitY);
+			Assert.AreEqual(-Vertex3d.UnitZ, m.ForwardVector);
+			Assert.AreEqual(Vertex3d.UnitY, m.UpVector);
+			Assert.AreEqual(Vertex3d.UnitX, m.RightVector);
 		}
 
 		[Test]
 		public void Matrix4x4d_LookAtDirection()
 		{
-
+			Matrix4x4d m = Matrix4x4d.LookAt(Vertex3d.UnitZ, -Vertex3d.UnitZ, Vertex3d.UnitY);
+			Assert.AreEqual(-Vertex3d.UnitZ, m.ForwardVector);
+			Assert.AreEqual(Vertex3d.UnitY, m.UpVector);
+			Assert.AreEqual(Vertex3d.UnitX, m.RightVector);
 		}
 
 		#endregion

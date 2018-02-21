@@ -117,6 +117,18 @@ namespace OpenGL.Test
 				Assert.That(m1[c, r], Is.EqualTo(m2[c, r]).Within(<#= epsilon #>));
 		}
 
+<# if (c == r && c == 3) { #>
+		[Test]
+		public void <#= className #>_Constructor4()
+		{
+			Matrix4x4<#= postfixes[i] #> m = new Matrix4x4<#= postfixes[i] #>();
+			<#= className #> c;
+
+			Assert.Throws<ArgumentOutOfRangeException>(() => c = new <#= className #>(m, 4, 3));
+			Assert.Throws<ArgumentOutOfRangeException>(() => c = new <#= className #>(m, 3, 4));
+		}
+
+<# } #>
 		#endregion
 
 		#region Columns & Rows
@@ -366,13 +378,19 @@ namespace OpenGL.Test
 		[Test]
 		public void <#= className #>_LookAt()
 		{
-
+			<#= className #> m = <#= className #>.LookAt(<#= vertex3 #>.UnitZ, <#= vertex3 #>.Zero, <#= vertex3 #>.UnitY);
+			Assert.AreEqual(-<#= vertex3 #>.UnitZ, m.ForwardVector);
+			Assert.AreEqual(<#= vertex3 #>.UnitY, m.UpVector);
+			Assert.AreEqual(<#= vertex3 #>.UnitX, m.RightVector);
 		}
 
 		[Test]
 		public void <#= className #>_LookAtDirection()
 		{
-
+			<#= className #> m = <#= className #>.LookAt(<#= vertex3 #>.UnitZ, -<#= vertex3 #>.UnitZ, <#= vertex3 #>.UnitY);
+			Assert.AreEqual(-<#= vertex3 #>.UnitZ, m.ForwardVector);
+			Assert.AreEqual(<#= vertex3 #>.UnitY, m.UpVector);
+			Assert.AreEqual(<#= vertex3 #>.UnitX, m.RightVector);
 		}
 
 		#endregion
