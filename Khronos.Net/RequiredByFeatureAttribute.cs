@@ -27,7 +27,7 @@ namespace Khronos
 	/// <summary>
 	/// Attribute asserting the features requiring the underlying member.
 	/// </summary>
-	[AttributeUsage(AttributeTargets.Field | AttributeTargets.Method | AttributeTargets.Delegate, AllowMultiple = true)]
+	[AttributeUsage(AttributeTargets.All, AllowMultiple = true)]
 	public sealed class RequiredByFeatureAttribute : Attribute
 	{
 		#region Constructors

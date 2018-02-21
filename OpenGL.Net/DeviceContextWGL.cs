@@ -1,5 +1,5 @@
 
-// Copyright (C) 2012-2017 Luca Piccioni
+// Copyright (C) 2012-2018 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -54,7 +54,7 @@ namespace OpenGL
 	/// <summary>
 	/// Device context for MS Windows platform.
 	/// </summary>
-	sealed class DeviceContextWGL : DeviceContext
+	internal sealed class DeviceContextWGL : DeviceContext
 	{
 		#region Constructors
 
@@ -375,6 +375,7 @@ namespace OpenGL
 			/// <param name="height">
 			/// A <see cref="UInt32"/> that specifies the height of the P-Buffer, in pixels.
 			/// </param>
+			[RequiredByFeature("WGL_ARB__pbuffer")]
 			public NativePBuffer(DevicePixelFormat pixelFormat, uint width, uint height)
 			{
 				if (pixelFormat == null)
@@ -417,6 +418,7 @@ namespace OpenGL
 			/// <summary>
 			/// Get the P-Buffer handle.
 			/// </summary>
+			[RequiredByFeature("WGL_ARB__pbuffer")]
 			public IntPtr Handle { get; private set; }
 
 			#endregion
@@ -426,6 +428,7 @@ namespace OpenGL
 			/// <summary>
 			/// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
 			/// </summary>
+			[RequiredByFeature("WGL_ARB__pbuffer")]
 			public void Dispose()
 			{
 				if (Handle != IntPtr.Zero) {
@@ -570,6 +573,7 @@ namespace OpenGL
 		/// Exception thrown if <paramref name="attribsList"/> length is zero or if the last item of <paramref name="attribsList"/>
 		/// is not zero.
 		/// </exception>
+		[RequiredByFeature("WGL_ARB_create_context")]
 		public override IntPtr CreateContextAttrib(IntPtr sharedContext, int[] attribsList)
 		{
 			return CreateContextAttrib(sharedContext, attribsList, new KhronosVersion(1, 0, CurrentAPI));
@@ -600,6 +604,7 @@ namespace OpenGL
 		/// Exception thrown if <paramref name="attribsList"/> length is zero or if the last item of <paramref name="attribsList"/>
 		/// is not zero.
 		/// </exception>
+		[RequiredByFeature("WGL_ARB_create_context")]
 		public override IntPtr CreateContextAttrib(IntPtr sharedContext, int[] attribsList, KhronosVersion api)
 		{
 			if (Wgl.CurrentExtensions != null && Wgl.CurrentExtensions.CreateContext_ARB == false)
@@ -790,6 +795,7 @@ namespace OpenGL
 		/// <returns>
 		/// It returns a boolean value indicating whether the operation was successful.
 		/// </returns>
+		[RequiredByFeature("WGL_EXT_swap_control")]
 		public override bool SwapInterval(int interval)
 		{
 			if (Wgl.CurrentExtensions.SwapControl_EXT == false)
@@ -856,6 +862,7 @@ namespace OpenGL
 			}
 		}
 
+		[RequiredByFeature("WGL_ARB_pixel_format")]
 		private DevicePixelFormatCollection GetPixelFormats_ARB_pixel_format(Wgl.Extensions wglExtensions)
 		{
 			// Get the number of pixel formats
