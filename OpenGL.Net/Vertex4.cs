@@ -657,11 +657,11 @@ namespace OpenGL
 				if (Math.Abs(z / w - other.z / other.w) > precision)
 					return (false);
 			} else {
-				if (Math.Abs(x / w - other.x / other.w) > precision)
+				if (Math.Abs(x - other.x) > precision)
 					return (false);
-				if (Math.Abs(y / w - other.y / other.w) > precision)
+				if (Math.Abs(y - other.y) > precision)
 					return (false);
-				if (Math.Abs(z / w - other.z / other.w) > precision)
+				if (Math.Abs(z - other.z) > precision)
 					return (false);
 			}
 
@@ -1389,11 +1389,11 @@ namespace OpenGL
 				if (Math.Abs(z / w - other.z / other.w) > precision)
 					return (false);
 			} else {
-				if (Math.Abs(x / w - other.x / other.w) > precision)
+				if (Math.Abs(x - other.x) > precision)
 					return (false);
-				if (Math.Abs(y / w - other.y / other.w) > precision)
+				if (Math.Abs(y - other.y) > precision)
 					return (false);
-				if (Math.Abs(z / w - other.z / other.w) > precision)
+				if (Math.Abs(z - other.z) > precision)
 					return (false);
 			}
 
@@ -2107,11 +2107,11 @@ namespace OpenGL
 				if (Math.Abs(z / w - other.z / other.w) > precision)
 					return (false);
 			} else {
-				if (Math.Abs(x / w - other.x / other.w) > precision)
+				if (Math.Abs(x - other.x) > precision)
 					return (false);
-				if (Math.Abs(y / w - other.y / other.w) > precision)
+				if (Math.Abs(y - other.y) > precision)
 					return (false);
-				if (Math.Abs(z / w - other.z / other.w) > precision)
+				if (Math.Abs(z - other.z) > precision)
 					return (false);
 			}
 
@@ -2839,11 +2839,11 @@ namespace OpenGL
 				if (Math.Abs(z / w - other.z / other.w) > precision)
 					return (false);
 			} else {
-				if (Math.Abs(x / w - other.x / other.w) > precision)
+				if (Math.Abs(x - other.x) > precision)
 					return (false);
-				if (Math.Abs(y / w - other.y / other.w) > precision)
+				if (Math.Abs(y - other.y) > precision)
 					return (false);
-				if (Math.Abs(z / w - other.z / other.w) > precision)
+				if (Math.Abs(z - other.z) > precision)
 					return (false);
 			}
 
@@ -3557,11 +3557,11 @@ namespace OpenGL
 				if (Math.Abs(z / w - other.z / other.w) > precision)
 					return (false);
 			} else {
-				if (Math.Abs(x / w - other.x / other.w) > precision)
+				if (Math.Abs(x - other.x) > precision)
 					return (false);
-				if (Math.Abs(y / w - other.y / other.w) > precision)
+				if (Math.Abs(y - other.y) > precision)
 					return (false);
-				if (Math.Abs(z / w - other.z / other.w) > precision)
+				if (Math.Abs(z - other.z) > precision)
 					return (false);
 			}
 
@@ -4289,11 +4289,11 @@ namespace OpenGL
 				if (Math.Abs(z / w - other.z / other.w) > precision)
 					return (false);
 			} else {
-				if (Math.Abs(x / w - other.x / other.w) > precision)
+				if (Math.Abs(x - other.x) > precision)
 					return (false);
-				if (Math.Abs(y / w - other.y / other.w) > precision)
+				if (Math.Abs(y - other.y) > precision)
 					return (false);
-				if (Math.Abs(z / w - other.z / other.w) > precision)
+				if (Math.Abs(z - other.z) > precision)
 					return (false);
 			}
 
@@ -5023,11 +5023,11 @@ namespace OpenGL
 				if (Math.Abs(z / w - other.z / other.w) > precision)
 					return (false);
 			} else {
-				if (Math.Abs(x / w - other.x / other.w) > precision)
+				if (Math.Abs(x - other.x) > precision)
 					return (false);
-				if (Math.Abs(y / w - other.y / other.w) > precision)
+				if (Math.Abs(y - other.y) > precision)
 					return (false);
-				if (Math.Abs(z / w - other.z / other.w) > precision)
+				if (Math.Abs(z - other.z) > precision)
 					return (false);
 			}
 
@@ -5725,11 +5725,11 @@ namespace OpenGL
 				if (Math.Abs(z / w - other.z / other.w) > precision)
 					return (false);
 			} else {
-				if (Math.Abs(x / w - other.x / other.w) > precision)
+				if (Math.Abs(x - other.x) > precision)
 					return (false);
-				if (Math.Abs(y / w - other.y / other.w) > precision)
+				if (Math.Abs(y - other.y) > precision)
 					return (false);
-				if (Math.Abs(z / w - other.z / other.w) > precision)
+				if (Math.Abs(z - other.z) > precision)
 					return (false);
 			}
 
@@ -6457,11 +6457,11 @@ namespace OpenGL
 				if (Math.Abs(z / w - other.z / other.w) > precision)
 					return (false);
 			} else {
-				if (Math.Abs(x / w - other.x / other.w) > precision)
+				if (Math.Abs(x - other.x) > precision)
 					return (false);
-				if (Math.Abs(y / w - other.y / other.w) > precision)
+				if (Math.Abs(y - other.y) > precision)
 					return (false);
-				if (Math.Abs(z / w - other.z / other.w) > precision)
+				if (Math.Abs(z - other.z) > precision)
 					return (false);
 			}
 
