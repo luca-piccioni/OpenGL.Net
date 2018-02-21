@@ -99,6 +99,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Angle.cs" />
+    <Compile Include="GlslVersion.cs" />
     <Compile Include="KhronosLogContext.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="MemoryLock.cs" />

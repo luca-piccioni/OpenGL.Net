@@ -61,6 +61,11 @@ namespace OpenGL.Test
 		[Test(Description = "Test KhronosVersion(int major, int minor, int revision, string api, string profile)")]
 		public void KhronosVersion_Constructor3()
 		{
+			Assert.Throws<ArgumentNullException>(() => new KhronosVersion(1, 1, 2, null, "prof"));
+			Assert.Throws<ArgumentException>(() => new KhronosVersion(0, 1, 2, "api", "prof"));
+			Assert.Throws<ArgumentException>(() => new KhronosVersion(1, -1, 2, "api", "prof"));
+			Assert.Throws<ArgumentException>(() => new KhronosVersion(1, 1, -2, "api", "prof"));
+
 			KhronosVersion version = new KhronosVersion(2, 0, 4, "api", "prof");
 			Assert.AreEqual(version.Major, 2);
 			Assert.AreEqual(version.Minor, 0);
@@ -69,25 +74,18 @@ namespace OpenGL.Test
 			Assert.AreEqual(version.Profile, "prof");
 		}
 
-		[Test(Description = "Test KhronosVersion(int major, int minor, int revision, string api, string profile) ArgumentException")]
-		[TestCase(0, 1, 2)]
-		[TestCase(1, -1, 2)]
-		[TestCase(1, 1, -2)]
-		public void KhronosVersion_Constructor3_ArgumentException(int major, int minor, int revision)
-		{
-			Assert.Throws<ArgumentException>(() => new KhronosVersion(major, minor, revision, "api", "prof"));
-		}
-
 		[Test(Description = "Test KhronosVersion(int major, int minor, int revision, string api, string profile) ArgumentNullException")]
 		[TestCase(null, "prof")]
 		public void KhronosVersion_Constructor3_ArgumentNullException(string api, string profile)
 		{
-			Assert.Throws<ArgumentNullException>(() => new KhronosVersion(1, 1, 2, api, profile));
+			Assert.Throws<ArgumentNullException>(() => new KhronosVersion(1, 1, 2, null, profile));
 		}
 
 		[Test(Description = "Test KhronosVersion(KhronosVersion other, string profile)")]
 		public void KhronosVersion_Constructor4()
 		{
+			Assert.Throws<ArgumentNullException>(() => new KhronosVersion(null, "prof"));
+
 			KhronosVersion baseVersion = new KhronosVersion(1, 2, 3, "api");
 
 			KhronosVersion version = new KhronosVersion(baseVersion, "prof");
@@ -98,12 +96,6 @@ namespace OpenGL.Test
 			Assert.AreEqual("prof", version.Profile);
 
 			Assert.DoesNotThrow(() => new KhronosVersion(baseVersion, null));
-		}
-
-		[Test(Description = "Test KhronosVersion(KhronosVersion other, string profile) ArgumentNullException")]
-		public void KhronosVersion_Constructor4_ArgumentNullException()
-		{
-			Assert.Throws<ArgumentNullException>(() => new KhronosVersion(null, "prof"));
 		}
 
 		[Test]

@@ -120,6 +120,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ColorRGBA.tt</DependentUpon>
     </Compile>
+    <Compile Include="GlslVersion.cs" />
     <Compile Include="KhronosLogContext.cs" />
     <Compile Include="MemoryLock.cs" />
     <Compile Include="TestBase.cs" />
