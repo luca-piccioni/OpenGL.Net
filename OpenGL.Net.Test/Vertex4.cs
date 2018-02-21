@@ -586,30 +586,30 @@ namespace OpenGL.Test
 		{
 			Vertex4ub v = Vertex4ub.UnitX;
 
-			Assert.IsTrue(v.Equals(Vertex4ub.UnitX, (byte)1));
-			Assert.IsFalse(v.Equals(Vertex4ub.UnitY, (byte)1));
-			Assert.IsFalse(v.Equals(Vertex4ub.UnitZ, (byte)1));
+			Assert.IsTrue(v.Equals(Vertex4ub.UnitX, (byte)0));
+			Assert.IsFalse(v.Equals(Vertex4ub.UnitY, (byte)0));
+			Assert.IsFalse(v.Equals(Vertex4ub.UnitZ, (byte)0));
 
 			// Defined vs Undefined equality
 			Vertex4ub v1 = new Vertex4ub(1, 1, 1, 1);
 			Vertex4ub v2 = new Vertex4ub(1, 1, 1, 0);
 
-			Assert.IsFalse(v1.Equals(v2, (byte)1));
-			Assert.IsFalse(v2.Equals(v1, (byte)1));
+			Assert.IsFalse(v1.Equals(v2, (byte)0));
+			Assert.IsFalse(v2.Equals(v1, (byte)0));
 
 			// Undefined vs Undefined equality
 			v1 = new Vertex4ub(1, 1, 1, 0);
 			v2 = new Vertex4ub(1, 1, 1, 0);
 
-			Assert.IsTrue(v1.Equals(v2, (byte)1));
-			Assert.IsTrue(v2.Equals(v1, (byte)1));
+			Assert.IsTrue(v1.Equals(v2, (byte)0));
+			Assert.IsTrue(v2.Equals(v1, (byte)0));
 
 			// Normalized equality
 			v1 = new Vertex4ub(1);
 			v2 = new Vertex4ub((byte)(1 + 1));
 
-			Assert.IsTrue(v1.Equals(v2, (byte)1));
-			Assert.IsTrue(v2.Equals(v1, (byte)1));
+			Assert.IsTrue(v1.Equals(v2, (byte)0));
+			Assert.IsTrue(v2.Equals(v1, (byte)0));
 		}
 
 		[Test]
@@ -1250,30 +1250,30 @@ namespace OpenGL.Test
 		{
 			Vertex4b v = Vertex4b.UnitX;
 
-			Assert.IsTrue(v.Equals(Vertex4b.UnitX, (sbyte)1));
-			Assert.IsFalse(v.Equals(Vertex4b.UnitY, (sbyte)1));
-			Assert.IsFalse(v.Equals(Vertex4b.UnitZ, (sbyte)1));
+			Assert.IsTrue(v.Equals(Vertex4b.UnitX, (sbyte)0));
+			Assert.IsFalse(v.Equals(Vertex4b.UnitY, (sbyte)0));
+			Assert.IsFalse(v.Equals(Vertex4b.UnitZ, (sbyte)0));
 
 			// Defined vs Undefined equality
 			Vertex4b v1 = new Vertex4b(1, 1, 1, 1);
 			Vertex4b v2 = new Vertex4b(1, 1, 1, 0);
 
-			Assert.IsFalse(v1.Equals(v2, (sbyte)1));
-			Assert.IsFalse(v2.Equals(v1, (sbyte)1));
+			Assert.IsFalse(v1.Equals(v2, (sbyte)0));
+			Assert.IsFalse(v2.Equals(v1, (sbyte)0));
 
 			// Undefined vs Undefined equality
 			v1 = new Vertex4b(1, 1, 1, 0);
 			v2 = new Vertex4b(1, 1, 1, 0);
 
-			Assert.IsTrue(v1.Equals(v2, (sbyte)1));
-			Assert.IsTrue(v2.Equals(v1, (sbyte)1));
+			Assert.IsTrue(v1.Equals(v2, (sbyte)0));
+			Assert.IsTrue(v2.Equals(v1, (sbyte)0));
 
 			// Normalized equality
 			v1 = new Vertex4b(1);
 			v2 = new Vertex4b((sbyte)(1 + 1));
 
-			Assert.IsTrue(v1.Equals(v2, (sbyte)1));
-			Assert.IsTrue(v2.Equals(v1, (sbyte)1));
+			Assert.IsTrue(v1.Equals(v2, (sbyte)0));
+			Assert.IsTrue(v2.Equals(v1, (sbyte)0));
 		}
 
 		[Test]
@@ -1898,30 +1898,30 @@ namespace OpenGL.Test
 		{
 			Vertex4us v = Vertex4us.UnitX;
 
-			Assert.IsTrue(v.Equals(Vertex4us.UnitX, (ushort)1));
-			Assert.IsFalse(v.Equals(Vertex4us.UnitY, (ushort)1));
-			Assert.IsFalse(v.Equals(Vertex4us.UnitZ, (ushort)1));
+			Assert.IsTrue(v.Equals(Vertex4us.UnitX, (ushort)0));
+			Assert.IsFalse(v.Equals(Vertex4us.UnitY, (ushort)0));
+			Assert.IsFalse(v.Equals(Vertex4us.UnitZ, (ushort)0));
 
 			// Defined vs Undefined equality
 			Vertex4us v1 = new Vertex4us(1, 1, 1, 1);
 			Vertex4us v2 = new Vertex4us(1, 1, 1, 0);
 
-			Assert.IsFalse(v1.Equals(v2, (ushort)1));
-			Assert.IsFalse(v2.Equals(v1, (ushort)1));
+			Assert.IsFalse(v1.Equals(v2, (ushort)0));
+			Assert.IsFalse(v2.Equals(v1, (ushort)0));
 
 			// Undefined vs Undefined equality
 			v1 = new Vertex4us(1, 1, 1, 0);
 			v2 = new Vertex4us(1, 1, 1, 0);
 
-			Assert.IsTrue(v1.Equals(v2, (ushort)1));
-			Assert.IsTrue(v2.Equals(v1, (ushort)1));
+			Assert.IsTrue(v1.Equals(v2, (ushort)0));
+			Assert.IsTrue(v2.Equals(v1, (ushort)0));
 
 			// Normalized equality
 			v1 = new Vertex4us(1);
 			v2 = new Vertex4us((ushort)(1 + 1));
 
-			Assert.IsTrue(v1.Equals(v2, (ushort)1));
-			Assert.IsTrue(v2.Equals(v1, (ushort)1));
+			Assert.IsTrue(v1.Equals(v2, (ushort)0));
+			Assert.IsTrue(v2.Equals(v1, (ushort)0));
 		}
 
 		[Test]
@@ -2562,30 +2562,30 @@ namespace OpenGL.Test
 		{
 			Vertex4s v = Vertex4s.UnitX;
 
-			Assert.IsTrue(v.Equals(Vertex4s.UnitX, (short)1));
-			Assert.IsFalse(v.Equals(Vertex4s.UnitY, (short)1));
-			Assert.IsFalse(v.Equals(Vertex4s.UnitZ, (short)1));
+			Assert.IsTrue(v.Equals(Vertex4s.UnitX, (short)0));
+			Assert.IsFalse(v.Equals(Vertex4s.UnitY, (short)0));
+			Assert.IsFalse(v.Equals(Vertex4s.UnitZ, (short)0));
 
 			// Defined vs Undefined equality
 			Vertex4s v1 = new Vertex4s(1, 1, 1, 1);
 			Vertex4s v2 = new Vertex4s(1, 1, 1, 0);
 
-			Assert.IsFalse(v1.Equals(v2, (short)1));
-			Assert.IsFalse(v2.Equals(v1, (short)1));
+			Assert.IsFalse(v1.Equals(v2, (short)0));
+			Assert.IsFalse(v2.Equals(v1, (short)0));
 
 			// Undefined vs Undefined equality
 			v1 = new Vertex4s(1, 1, 1, 0);
 			v2 = new Vertex4s(1, 1, 1, 0);
 
-			Assert.IsTrue(v1.Equals(v2, (short)1));
-			Assert.IsTrue(v2.Equals(v1, (short)1));
+			Assert.IsTrue(v1.Equals(v2, (short)0));
+			Assert.IsTrue(v2.Equals(v1, (short)0));
 
 			// Normalized equality
 			v1 = new Vertex4s(1);
 			v2 = new Vertex4s((short)(1 + 1));
 
-			Assert.IsTrue(v1.Equals(v2, (short)1));
-			Assert.IsTrue(v2.Equals(v1, (short)1));
+			Assert.IsTrue(v1.Equals(v2, (short)0));
+			Assert.IsTrue(v2.Equals(v1, (short)0));
 		}
 
 		[Test]
@@ -3210,30 +3210,30 @@ namespace OpenGL.Test
 		{
 			Vertex4ui v = Vertex4ui.UnitX;
 
-			Assert.IsTrue(v.Equals(Vertex4ui.UnitX, (uint)1));
-			Assert.IsFalse(v.Equals(Vertex4ui.UnitY, (uint)1));
-			Assert.IsFalse(v.Equals(Vertex4ui.UnitZ, (uint)1));
+			Assert.IsTrue(v.Equals(Vertex4ui.UnitX, (uint)0));
+			Assert.IsFalse(v.Equals(Vertex4ui.UnitY, (uint)0));
+			Assert.IsFalse(v.Equals(Vertex4ui.UnitZ, (uint)0));
 
 			// Defined vs Undefined equality
 			Vertex4ui v1 = new Vertex4ui(1, 1, 1, 1);
 			Vertex4ui v2 = new Vertex4ui(1, 1, 1, 0);
 
-			Assert.IsFalse(v1.Equals(v2, (uint)1));
-			Assert.IsFalse(v2.Equals(v1, (uint)1));
+			Assert.IsFalse(v1.Equals(v2, (uint)0));
+			Assert.IsFalse(v2.Equals(v1, (uint)0));
 
 			// Undefined vs Undefined equality
 			v1 = new Vertex4ui(1, 1, 1, 0);
 			v2 = new Vertex4ui(1, 1, 1, 0);
 
-			Assert.IsTrue(v1.Equals(v2, (uint)1));
-			Assert.IsTrue(v2.Equals(v1, (uint)1));
+			Assert.IsTrue(v1.Equals(v2, (uint)0));
+			Assert.IsTrue(v2.Equals(v1, (uint)0));
 
 			// Normalized equality
 			v1 = new Vertex4ui(1);
 			v2 = new Vertex4ui((uint)(1 + 1));
 
-			Assert.IsTrue(v1.Equals(v2, (uint)1));
-			Assert.IsTrue(v2.Equals(v1, (uint)1));
+			Assert.IsTrue(v1.Equals(v2, (uint)0));
+			Assert.IsTrue(v2.Equals(v1, (uint)0));
 		}
 
 		[Test]
@@ -3874,30 +3874,30 @@ namespace OpenGL.Test
 		{
 			Vertex4i v = Vertex4i.UnitX;
 
-			Assert.IsTrue(v.Equals(Vertex4i.UnitX, (int)1));
-			Assert.IsFalse(v.Equals(Vertex4i.UnitY, (int)1));
-			Assert.IsFalse(v.Equals(Vertex4i.UnitZ, (int)1));
+			Assert.IsTrue(v.Equals(Vertex4i.UnitX, (int)0));
+			Assert.IsFalse(v.Equals(Vertex4i.UnitY, (int)0));
+			Assert.IsFalse(v.Equals(Vertex4i.UnitZ, (int)0));
 
 			// Defined vs Undefined equality
 			Vertex4i v1 = new Vertex4i(1, 1, 1, 1);
 			Vertex4i v2 = new Vertex4i(1, 1, 1, 0);
 
-			Assert.IsFalse(v1.Equals(v2, (int)1));
-			Assert.IsFalse(v2.Equals(v1, (int)1));
+			Assert.IsFalse(v1.Equals(v2, (int)0));
+			Assert.IsFalse(v2.Equals(v1, (int)0));
 
 			// Undefined vs Undefined equality
 			v1 = new Vertex4i(1, 1, 1, 0);
 			v2 = new Vertex4i(1, 1, 1, 0);
 
-			Assert.IsTrue(v1.Equals(v2, (int)1));
-			Assert.IsTrue(v2.Equals(v1, (int)1));
+			Assert.IsTrue(v1.Equals(v2, (int)0));
+			Assert.IsTrue(v2.Equals(v1, (int)0));
 
 			// Normalized equality
 			v1 = new Vertex4i(1);
 			v2 = new Vertex4i((int)(1 + 1));
 
-			Assert.IsTrue(v1.Equals(v2, (int)1));
-			Assert.IsTrue(v2.Equals(v1, (int)1));
+			Assert.IsTrue(v1.Equals(v2, (int)0));
+			Assert.IsTrue(v2.Equals(v1, (int)0));
 		}
 
 		[Test]

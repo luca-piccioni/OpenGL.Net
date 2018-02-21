@@ -58,7 +58,7 @@ namespace OpenGL.Test
 	int[] integerTypes =		new[] {  1,      1,       1,        1,       1,      1,     0,       0,        0 };
 	string[] zeroes =			new[] { "0",    "0",     "0",      "0",     "0",    "0",   "0.0f",  "0.0",     "(HalfFloat)0.0f" };
 	string[] ones =				new[] { "1",    "1",     "1",      "1",     "1",    "1",   "1.0f",  "1.0",     "(HalfFloat)1.0f" };
-	string[] epsilons		 =	new[] { "1",    "1",     "1",      "1",     "1",    "1",   "1e-5",  "1e-10",   "(HalfFloat)1e-3"};
+	string[] epsilons		 =	new[] { "0",    "0",     "0",      "0",     "0",    "0",   "1e-5",  "1e-10",   "(HalfFloat)1e-3"};
 
 	for (int i = 0; i < underlyingType.Length; i++) {
 		string className = String.Format("Vertex4{0}", postfixes[i]);
