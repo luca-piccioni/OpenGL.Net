@@ -58,6 +58,7 @@ namespace OpenGL.Test
 	int[] integerTypes =		new[] {  1,      1,       1,        1,       1,      1,     0,       0,        0 };
 	string[] zeroes =			new[] { "0",    "0",     "0",      "0",     "0",    "0",   "0.0f",  "0.0",     "(HalfFloat)0.0f" };
 	string[] ones =				new[] { "1",    "1",     "1",      "1",     "1",    "1",   "1.0f",  "1.0",     "(HalfFloat)1.0f" };
+	string[] epsilons		 =	new[] { "1",    "1",     "1",      "1",     "1",    "1",   "1e-5",  "1e-10",   "(HalfFloat)1e-3"};
 
 	for (int i = 0; i < underlyingType.Length; i++) {
 		string className = String.Format("Vertex4{0}", postfixes[i]);
@@ -65,6 +66,7 @@ namespace OpenGL.Test
 		int signedType = signedTypes[i];
 		int integerType = integerTypes[i];
 		string zero = zeroes[i], one = ones[i];
+		string epsilon = epsilons[i];
 #>
 	[TestFixture, Category("Math")]
 	class <#= className #>Test : Vertex3TestBase
@@ -638,6 +640,37 @@ namespace OpenGL.Test
 		#endregion
 
 		#region IEquatable Implementation
+
+		[Test]
+		public void <#= className #>_Equals_<#= className #>_AbsPrecision()
+		{
+			<#= className #> v = <#= className #>.UnitX;
+
+			Assert.IsTrue(v.Equals(<#= className #>.UnitX, (<#= baseType #>)<#= epsilon #>));
+			Assert.IsFalse(v.Equals(<#= className #>.UnitY, (<#= baseType #>)<#= epsilon #>));
+			Assert.IsFalse(v.Equals(<#= className #>.UnitZ, (<#= baseType #>)<#= epsilon #>));
+
+			// Defined vs Undefined equality
+			<#= className #> v1 = new <#= className #>(<#= one #>, <#= one #>, <#= one #>, <#= one #>);
+			<#= className #> v2 = new <#= className #>(<#= one #>, <#= one #>, <#= one #>, <#= zero #>);
+
+			Assert.IsFalse(v1.Equals(v2, (<#= baseType #>)<#= epsilon #>));
+			Assert.IsFalse(v2.Equals(v1, (<#= baseType #>)<#= epsilon #>));
+
+			// Undefined vs Undefined equality
+			v1 = new <#= className #>(<#= one #>, <#= one #>, <#= one #>, <#= zero #>);
+			v2 = new <#= className #>(<#= one #>, <#= one #>, <#= one #>, <#= zero #>);
+
+			Assert.IsTrue(v1.Equals(v2, (<#= baseType #>)<#= epsilon #>));
+			Assert.IsTrue(v2.Equals(v1, (<#= baseType #>)<#= epsilon #>));
+
+			// Normalized equality
+			v1 = new <#= className #>(<#= one #>);
+			v2 = new <#= className #>((<#= baseType #>)(<#= one #> + <#= one #>));
+
+			Assert.IsTrue(v1.Equals(v2, (<#= baseType #>)<#= epsilon #>));
+			Assert.IsTrue(v2.Equals(v1, (<#= baseType #>)<#= epsilon #>));
+		}
 
 		[Test]
 		public void <#= className #>_Equals_<#= className #>()

@@ -582,6 +582,37 @@ namespace OpenGL.Test
 		#region IEquatable Implementation
 
 		[Test]
+		public void Vertex4ub_Equals_Vertex4ub_AbsPrecision()
+		{
+			Vertex4ub v = Vertex4ub.UnitX;
+
+			Assert.IsTrue(v.Equals(Vertex4ub.UnitX, (byte)1));
+			Assert.IsFalse(v.Equals(Vertex4ub.UnitY, (byte)1));
+			Assert.IsFalse(v.Equals(Vertex4ub.UnitZ, (byte)1));
+
+			// Defined vs Undefined equality
+			Vertex4ub v1 = new Vertex4ub(1, 1, 1, 1);
+			Vertex4ub v2 = new Vertex4ub(1, 1, 1, 0);
+
+			Assert.IsFalse(v1.Equals(v2, (byte)1));
+			Assert.IsFalse(v2.Equals(v1, (byte)1));
+
+			// Undefined vs Undefined equality
+			v1 = new Vertex4ub(1, 1, 1, 0);
+			v2 = new Vertex4ub(1, 1, 1, 0);
+
+			Assert.IsTrue(v1.Equals(v2, (byte)1));
+			Assert.IsTrue(v2.Equals(v1, (byte)1));
+
+			// Normalized equality
+			v1 = new Vertex4ub(1);
+			v2 = new Vertex4ub((byte)(1 + 1));
+
+			Assert.IsTrue(v1.Equals(v2, (byte)1));
+			Assert.IsTrue(v2.Equals(v1, (byte)1));
+		}
+
+		[Test]
 		public void Vertex4ub_Equals_Vertex4ub()
 		{
 			Vertex4ub v = Vertex4ub.UnitX;
@@ -1215,6 +1246,37 @@ namespace OpenGL.Test
 		#region IEquatable Implementation
 
 		[Test]
+		public void Vertex4b_Equals_Vertex4b_AbsPrecision()
+		{
+			Vertex4b v = Vertex4b.UnitX;
+
+			Assert.IsTrue(v.Equals(Vertex4b.UnitX, (sbyte)1));
+			Assert.IsFalse(v.Equals(Vertex4b.UnitY, (sbyte)1));
+			Assert.IsFalse(v.Equals(Vertex4b.UnitZ, (sbyte)1));
+
+			// Defined vs Undefined equality
+			Vertex4b v1 = new Vertex4b(1, 1, 1, 1);
+			Vertex4b v2 = new Vertex4b(1, 1, 1, 0);
+
+			Assert.IsFalse(v1.Equals(v2, (sbyte)1));
+			Assert.IsFalse(v2.Equals(v1, (sbyte)1));
+
+			// Undefined vs Undefined equality
+			v1 = new Vertex4b(1, 1, 1, 0);
+			v2 = new Vertex4b(1, 1, 1, 0);
+
+			Assert.IsTrue(v1.Equals(v2, (sbyte)1));
+			Assert.IsTrue(v2.Equals(v1, (sbyte)1));
+
+			// Normalized equality
+			v1 = new Vertex4b(1);
+			v2 = new Vertex4b((sbyte)(1 + 1));
+
+			Assert.IsTrue(v1.Equals(v2, (sbyte)1));
+			Assert.IsTrue(v2.Equals(v1, (sbyte)1));
+		}
+
+		[Test]
 		public void Vertex4b_Equals_Vertex4b()
 		{
 			Vertex4b v = Vertex4b.UnitX;
@@ -1830,6 +1892,37 @@ namespace OpenGL.Test
 		#endregion
 
 		#region IEquatable Implementation
+
+		[Test]
+		public void Vertex4us_Equals_Vertex4us_AbsPrecision()
+		{
+			Vertex4us v = Vertex4us.UnitX;
+
+			Assert.IsTrue(v.Equals(Vertex4us.UnitX, (ushort)1));
+			Assert.IsFalse(v.Equals(Vertex4us.UnitY, (ushort)1));
+			Assert.IsFalse(v.Equals(Vertex4us.UnitZ, (ushort)1));
+
+			// Defined vs Undefined equality
+			Vertex4us v1 = new Vertex4us(1, 1, 1, 1);
+			Vertex4us v2 = new Vertex4us(1, 1, 1, 0);
+
+			Assert.IsFalse(v1.Equals(v2, (ushort)1));
+			Assert.IsFalse(v2.Equals(v1, (ushort)1));
+
+			// Undefined vs Undefined equality
+			v1 = new Vertex4us(1, 1, 1, 0);
+			v2 = new Vertex4us(1, 1, 1, 0);
+
+			Assert.IsTrue(v1.Equals(v2, (ushort)1));
+			Assert.IsTrue(v2.Equals(v1, (ushort)1));
+
+			// Normalized equality
+			v1 = new Vertex4us(1);
+			v2 = new Vertex4us((ushort)(1 + 1));
+
+			Assert.IsTrue(v1.Equals(v2, (ushort)1));
+			Assert.IsTrue(v2.Equals(v1, (ushort)1));
+		}
 
 		[Test]
 		public void Vertex4us_Equals_Vertex4us()
@@ -2465,6 +2558,37 @@ namespace OpenGL.Test
 		#region IEquatable Implementation
 
 		[Test]
+		public void Vertex4s_Equals_Vertex4s_AbsPrecision()
+		{
+			Vertex4s v = Vertex4s.UnitX;
+
+			Assert.IsTrue(v.Equals(Vertex4s.UnitX, (short)1));
+			Assert.IsFalse(v.Equals(Vertex4s.UnitY, (short)1));
+			Assert.IsFalse(v.Equals(Vertex4s.UnitZ, (short)1));
+
+			// Defined vs Undefined equality
+			Vertex4s v1 = new Vertex4s(1, 1, 1, 1);
+			Vertex4s v2 = new Vertex4s(1, 1, 1, 0);
+
+			Assert.IsFalse(v1.Equals(v2, (short)1));
+			Assert.IsFalse(v2.Equals(v1, (short)1));
+
+			// Undefined vs Undefined equality
+			v1 = new Vertex4s(1, 1, 1, 0);
+			v2 = new Vertex4s(1, 1, 1, 0);
+
+			Assert.IsTrue(v1.Equals(v2, (short)1));
+			Assert.IsTrue(v2.Equals(v1, (short)1));
+
+			// Normalized equality
+			v1 = new Vertex4s(1);
+			v2 = new Vertex4s((short)(1 + 1));
+
+			Assert.IsTrue(v1.Equals(v2, (short)1));
+			Assert.IsTrue(v2.Equals(v1, (short)1));
+		}
+
+		[Test]
 		public void Vertex4s_Equals_Vertex4s()
 		{
 			Vertex4s v = Vertex4s.UnitX;
@@ -3080,6 +3204,37 @@ namespace OpenGL.Test
 		#endregion
 
 		#region IEquatable Implementation
+
+		[Test]
+		public void Vertex4ui_Equals_Vertex4ui_AbsPrecision()
+		{
+			Vertex4ui v = Vertex4ui.UnitX;
+
+			Assert.IsTrue(v.Equals(Vertex4ui.UnitX, (uint)1));
+			Assert.IsFalse(v.Equals(Vertex4ui.UnitY, (uint)1));
+			Assert.IsFalse(v.Equals(Vertex4ui.UnitZ, (uint)1));
+
+			// Defined vs Undefined equality
+			Vertex4ui v1 = new Vertex4ui(1, 1, 1, 1);
+			Vertex4ui v2 = new Vertex4ui(1, 1, 1, 0);
+
+			Assert.IsFalse(v1.Equals(v2, (uint)1));
+			Assert.IsFalse(v2.Equals(v1, (uint)1));
+
+			// Undefined vs Undefined equality
+			v1 = new Vertex4ui(1, 1, 1, 0);
+			v2 = new Vertex4ui(1, 1, 1, 0);
+
+			Assert.IsTrue(v1.Equals(v2, (uint)1));
+			Assert.IsTrue(v2.Equals(v1, (uint)1));
+
+			// Normalized equality
+			v1 = new Vertex4ui(1);
+			v2 = new Vertex4ui((uint)(1 + 1));
+
+			Assert.IsTrue(v1.Equals(v2, (uint)1));
+			Assert.IsTrue(v2.Equals(v1, (uint)1));
+		}
 
 		[Test]
 		public void Vertex4ui_Equals_Vertex4ui()
@@ -3715,6 +3870,37 @@ namespace OpenGL.Test
 		#region IEquatable Implementation
 
 		[Test]
+		public void Vertex4i_Equals_Vertex4i_AbsPrecision()
+		{
+			Vertex4i v = Vertex4i.UnitX;
+
+			Assert.IsTrue(v.Equals(Vertex4i.UnitX, (int)1));
+			Assert.IsFalse(v.Equals(Vertex4i.UnitY, (int)1));
+			Assert.IsFalse(v.Equals(Vertex4i.UnitZ, (int)1));
+
+			// Defined vs Undefined equality
+			Vertex4i v1 = new Vertex4i(1, 1, 1, 1);
+			Vertex4i v2 = new Vertex4i(1, 1, 1, 0);
+
+			Assert.IsFalse(v1.Equals(v2, (int)1));
+			Assert.IsFalse(v2.Equals(v1, (int)1));
+
+			// Undefined vs Undefined equality
+			v1 = new Vertex4i(1, 1, 1, 0);
+			v2 = new Vertex4i(1, 1, 1, 0);
+
+			Assert.IsTrue(v1.Equals(v2, (int)1));
+			Assert.IsTrue(v2.Equals(v1, (int)1));
+
+			// Normalized equality
+			v1 = new Vertex4i(1);
+			v2 = new Vertex4i((int)(1 + 1));
+
+			Assert.IsTrue(v1.Equals(v2, (int)1));
+			Assert.IsTrue(v2.Equals(v1, (int)1));
+		}
+
+		[Test]
 		public void Vertex4i_Equals_Vertex4i()
 		{
 			Vertex4i v = Vertex4i.UnitX;
@@ -4309,6 +4495,37 @@ namespace OpenGL.Test
 		#endregion
 
 		#region IEquatable Implementation
+
+		[Test]
+		public void Vertex4f_Equals_Vertex4f_AbsPrecision()
+		{
+			Vertex4f v = Vertex4f.UnitX;
+
+			Assert.IsTrue(v.Equals(Vertex4f.UnitX, (float)1e-5));
+			Assert.IsFalse(v.Equals(Vertex4f.UnitY, (float)1e-5));
+			Assert.IsFalse(v.Equals(Vertex4f.UnitZ, (float)1e-5));
+
+			// Defined vs Undefined equality
+			Vertex4f v1 = new Vertex4f(1.0f, 1.0f, 1.0f, 1.0f);
+			Vertex4f v2 = new Vertex4f(1.0f, 1.0f, 1.0f, 0.0f);
+
+			Assert.IsFalse(v1.Equals(v2, (float)1e-5));
+			Assert.IsFalse(v2.Equals(v1, (float)1e-5));
+
+			// Undefined vs Undefined equality
+			v1 = new Vertex4f(1.0f, 1.0f, 1.0f, 0.0f);
+			v2 = new Vertex4f(1.0f, 1.0f, 1.0f, 0.0f);
+
+			Assert.IsTrue(v1.Equals(v2, (float)1e-5));
+			Assert.IsTrue(v2.Equals(v1, (float)1e-5));
+
+			// Normalized equality
+			v1 = new Vertex4f(1.0f);
+			v2 = new Vertex4f((float)(1.0f + 1.0f));
+
+			Assert.IsTrue(v1.Equals(v2, (float)1e-5));
+			Assert.IsTrue(v2.Equals(v1, (float)1e-5));
+		}
 
 		[Test]
 		public void Vertex4f_Equals_Vertex4f()
@@ -4907,6 +5124,37 @@ namespace OpenGL.Test
 		#region IEquatable Implementation
 
 		[Test]
+		public void Vertex4d_Equals_Vertex4d_AbsPrecision()
+		{
+			Vertex4d v = Vertex4d.UnitX;
+
+			Assert.IsTrue(v.Equals(Vertex4d.UnitX, (double)1e-10));
+			Assert.IsFalse(v.Equals(Vertex4d.UnitY, (double)1e-10));
+			Assert.IsFalse(v.Equals(Vertex4d.UnitZ, (double)1e-10));
+
+			// Defined vs Undefined equality
+			Vertex4d v1 = new Vertex4d(1.0, 1.0, 1.0, 1.0);
+			Vertex4d v2 = new Vertex4d(1.0, 1.0, 1.0, 0.0);
+
+			Assert.IsFalse(v1.Equals(v2, (double)1e-10));
+			Assert.IsFalse(v2.Equals(v1, (double)1e-10));
+
+			// Undefined vs Undefined equality
+			v1 = new Vertex4d(1.0, 1.0, 1.0, 0.0);
+			v2 = new Vertex4d(1.0, 1.0, 1.0, 0.0);
+
+			Assert.IsTrue(v1.Equals(v2, (double)1e-10));
+			Assert.IsTrue(v2.Equals(v1, (double)1e-10));
+
+			// Normalized equality
+			v1 = new Vertex4d(1.0);
+			v2 = new Vertex4d((double)(1.0 + 1.0));
+
+			Assert.IsTrue(v1.Equals(v2, (double)1e-10));
+			Assert.IsTrue(v2.Equals(v1, (double)1e-10));
+		}
+
+		[Test]
 		public void Vertex4d_Equals_Vertex4d()
 		{
 			Vertex4d v = Vertex4d.UnitX;
@@ -5485,6 +5733,37 @@ namespace OpenGL.Test
 		#endregion
 
 		#region IEquatable Implementation
+
+		[Test]
+		public void Vertex4hf_Equals_Vertex4hf_AbsPrecision()
+		{
+			Vertex4hf v = Vertex4hf.UnitX;
+
+			Assert.IsTrue(v.Equals(Vertex4hf.UnitX, (HalfFloat)(HalfFloat)1e-3));
+			Assert.IsFalse(v.Equals(Vertex4hf.UnitY, (HalfFloat)(HalfFloat)1e-3));
+			Assert.IsFalse(v.Equals(Vertex4hf.UnitZ, (HalfFloat)(HalfFloat)1e-3));
+
+			// Defined vs Undefined equality
+			Vertex4hf v1 = new Vertex4hf((HalfFloat)1.0f, (HalfFloat)1.0f, (HalfFloat)1.0f, (HalfFloat)1.0f);
+			Vertex4hf v2 = new Vertex4hf((HalfFloat)1.0f, (HalfFloat)1.0f, (HalfFloat)1.0f, (HalfFloat)0.0f);
+
+			Assert.IsFalse(v1.Equals(v2, (HalfFloat)(HalfFloat)1e-3));
+			Assert.IsFalse(v2.Equals(v1, (HalfFloat)(HalfFloat)1e-3));
+
+			// Undefined vs Undefined equality
+			v1 = new Vertex4hf((HalfFloat)1.0f, (HalfFloat)1.0f, (HalfFloat)1.0f, (HalfFloat)0.0f);
+			v2 = new Vertex4hf((HalfFloat)1.0f, (HalfFloat)1.0f, (HalfFloat)1.0f, (HalfFloat)0.0f);
+
+			Assert.IsTrue(v1.Equals(v2, (HalfFloat)(HalfFloat)1e-3));
+			Assert.IsTrue(v2.Equals(v1, (HalfFloat)(HalfFloat)1e-3));
+
+			// Normalized equality
+			v1 = new Vertex4hf((HalfFloat)1.0f);
+			v2 = new Vertex4hf((HalfFloat)((HalfFloat)1.0f + (HalfFloat)1.0f));
+
+			Assert.IsTrue(v1.Equals(v2, (HalfFloat)(HalfFloat)1e-3));
+			Assert.IsTrue(v2.Equals(v1, (HalfFloat)(HalfFloat)1e-3));
+		}
 
 		[Test]
 		public void Vertex4hf_Equals_Vertex4hf()
