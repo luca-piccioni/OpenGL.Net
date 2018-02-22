@@ -50,7 +50,7 @@ namespace OpenGL.Test
 		[Test]
 		public void Uniform1f()
 		{
-			if (!HasVersion(2, 0) && !HasEsVersion(2, 0) && !IsGlExtensionSupported("GL_ARB_shader_objects"))
+			if (!HasVersion(Gl.Version_200) && !HasVersion(Gl.Version_200_ES) && !HasExtension("GL_ARB_shader_objects"))
 				Assert.Inconclusive("required features not implemented");
 
 			using (Device device = new Device())
@@ -123,7 +123,7 @@ namespace OpenGL.Test
 		[Test]
 		public void Uniform1i()
 		{
-			if (!HasVersion(2, 0) && !HasEsVersion(2, 0) && !IsGlExtensionSupported("GL_ARB_shader_objects"))
+			if (!HasVersion(Gl.Version_200) && !HasVersion(Gl.Version_200_ES) && !HasExtension("GL_ARB_shader_objects"))
 				Assert.Inconclusive("required features not implemented");
 
 			using (Device device = new Device())
@@ -196,7 +196,7 @@ namespace OpenGL.Test
 		[Test]
 		public void Uniform1ui()
 		{
-			if (!HasVersion(3, 0) && !HasEsVersion(3, 0) && !IsGlExtensionSupported("GL_EXT_gpu_shader4"))
+			if (!HasVersion(Gl.Version_300) && !HasVersion(Gl.Version_300_ES) && !HasExtension("GL_EXT_gpu_shader4"))
 				Assert.Inconclusive("required features not implemented");
 
 			using (Device device = new Device())
@@ -272,7 +272,7 @@ namespace OpenGL.Test
 		[Test]
 		public void Uniform1d()
 		{
-			if (!HasVersion(4, 0) && !IsGlExtensionSupported("GL_ARB_gpu_shader_fp64"))
+			if (!HasVersion(Gl.Version_400) && !HasExtension("GL_ARB_gpu_shader_fp64"))
 				Assert.Inconclusive("required features not implemented");
 
 			using (Device device = new Device())
@@ -346,7 +346,7 @@ namespace OpenGL.Test
 		[Test]
 		public void Uniform2f()
 		{
-			if (!HasVersion(2, 0) && !HasEsVersion(2, 0) && !IsGlExtensionSupported("GL_ARB_shader_objects"))
+			if (!HasVersion(Gl.Version_200) && !HasVersion(Gl.Version_200_ES) && !HasExtension("GL_ARB_shader_objects"))
 				Assert.Inconclusive("required features not implemented");
 
 			using (Device device = new Device())
@@ -419,7 +419,7 @@ namespace OpenGL.Test
 		[Test]
 		public void Uniform2i()
 		{
-			if (!HasVersion(2, 0) && !HasEsVersion(2, 0) && !IsGlExtensionSupported("GL_ARB_shader_objects"))
+			if (!HasVersion(Gl.Version_200) && !HasVersion(Gl.Version_200_ES) && !HasExtension("GL_ARB_shader_objects"))
 				Assert.Inconclusive("required features not implemented");
 
 			using (Device device = new Device())
@@ -492,7 +492,7 @@ namespace OpenGL.Test
 		[Test]
 		public void Uniform2ui()
 		{
-			if (!HasVersion(3, 0) && !HasEsVersion(3, 0) && !IsGlExtensionSupported("GL_EXT_gpu_shader4"))
+			if (!HasVersion(Gl.Version_300) && !HasVersion(Gl.Version_300_ES) && !HasExtension("GL_EXT_gpu_shader4"))
 				Assert.Inconclusive("required features not implemented");
 
 			using (Device device = new Device())
@@ -568,7 +568,7 @@ namespace OpenGL.Test
 		[Test]
 		public void Uniform2d()
 		{
-			if (!HasVersion(4, 0) && !IsGlExtensionSupported("GL_ARB_gpu_shader_fp64"))
+			if (!HasVersion(Gl.Version_400) && !HasExtension("GL_ARB_gpu_shader_fp64"))
 				Assert.Inconclusive("required features not implemented");
 
 			using (Device device = new Device())
@@ -642,7 +642,7 @@ namespace OpenGL.Test
 		[Test]
 		public void Uniform3f()
 		{
-			if (!HasVersion(2, 0) && !HasEsVersion(2, 0) && !IsGlExtensionSupported("GL_ARB_shader_objects"))
+			if (!HasVersion(Gl.Version_200) && !HasVersion(Gl.Version_200_ES) && !HasExtension("GL_ARB_shader_objects"))
 				Assert.Inconclusive("required features not implemented");
 
 			using (Device device = new Device())
@@ -715,7 +715,7 @@ namespace OpenGL.Test
 		[Test]
 		public void Uniform3i()
 		{
-			if (!HasVersion(2, 0) && !HasEsVersion(2, 0) && !IsGlExtensionSupported("GL_ARB_shader_objects"))
+			if (!HasVersion(Gl.Version_200) && !HasVersion(Gl.Version_200_ES) && !HasExtension("GL_ARB_shader_objects"))
 				Assert.Inconclusive("required features not implemented");
 
 			using (Device device = new Device())
@@ -788,7 +788,7 @@ namespace OpenGL.Test
 		[Test]
 		public void Uniform3ui()
 		{
-			if (!HasVersion(3, 0) && !HasEsVersion(3, 0) && !IsGlExtensionSupported("GL_EXT_gpu_shader4"))
+			if (!HasVersion(Gl.Version_300) && !HasVersion(Gl.Version_300_ES) && !HasExtension("GL_EXT_gpu_shader4"))
 				Assert.Inconclusive("required features not implemented");
 
 			using (Device device = new Device())
@@ -864,7 +864,7 @@ namespace OpenGL.Test
 		[Test]
 		public void Uniform3d()
 		{
-			if (!HasVersion(4, 0) && !IsGlExtensionSupported("GL_ARB_gpu_shader_fp64"))
+			if (!HasVersion(Gl.Version_400) && !HasExtension("GL_ARB_gpu_shader_fp64"))
 				Assert.Inconclusive("required features not implemented");
 
 			using (Device device = new Device())
@@ -938,7 +938,7 @@ namespace OpenGL.Test
 		[Test]
 		public void Uniform4f()
 		{
-			if (!HasVersion(2, 0) && !HasEsVersion(2, 0) && !IsGlExtensionSupported("GL_ARB_shader_objects"))
+			if (!HasVersion(Gl.Version_200) && !HasVersion(Gl.Version_200_ES) && !HasExtension("GL_ARB_shader_objects"))
 				Assert.Inconclusive("required features not implemented");
 
 			using (Device device = new Device())
@@ -1011,7 +1011,7 @@ namespace OpenGL.Test
 		[Test]
 		public void Uniform4i()
 		{
-			if (!HasVersion(2, 0) && !HasEsVersion(2, 0) && !IsGlExtensionSupported("GL_ARB_shader_objects"))
+			if (!HasVersion(Gl.Version_200) && !HasVersion(Gl.Version_200_ES) && !HasExtension("GL_ARB_shader_objects"))
 				Assert.Inconclusive("required features not implemented");
 
 			using (Device device = new Device())
@@ -1084,7 +1084,7 @@ namespace OpenGL.Test
 		[Test]
 		public void Uniform4ui()
 		{
-			if (!HasVersion(3, 0) && !HasEsVersion(3, 0) && !IsGlExtensionSupported("GL_EXT_gpu_shader4"))
+			if (!HasVersion(Gl.Version_300) && !HasVersion(Gl.Version_300_ES) && !HasExtension("GL_EXT_gpu_shader4"))
 				Assert.Inconclusive("required features not implemented");
 
 			using (Device device = new Device())
@@ -1160,7 +1160,7 @@ namespace OpenGL.Test
 		[Test]
 		public void Uniform4d()
 		{
-			if (!HasVersion(4, 0) && !IsGlExtensionSupported("GL_ARB_gpu_shader_fp64"))
+			if (!HasVersion(Gl.Version_400) && !HasExtension("GL_ARB_gpu_shader_fp64"))
 				Assert.Inconclusive("required features not implemented");
 
 			using (Device device = new Device())

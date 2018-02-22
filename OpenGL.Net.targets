@@ -1,4 +1,6 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <UsingTask TaskName="MSBuildTasks.SetEnvVar" AssemblyFile="$(ProjectDir)..\Tools\MSBuildTasks.dll"/>
+    
     <PropertyGroup>
         <OPENGL_NET_PLATFORM Condition="'$(OPENGL_NET_PLATFORM)' == ''">WGL</OPENGL_NET_PLATFORM>
     </PropertyGroup>
@@ -12,6 +14,11 @@
     <Target Name="UnitTest">
         <Exec Command="$(NUnitConsole) &quot;$(TargetPath)&quot; $(NUnitResult) $(NUnitOptions)"/>
     </Target>
+    <Target Name="UnitTestNoInit">
+        <SetEnvVar Variable="OPENGL_NET_INIT" Value="NO" />
+        <SetEnvVar Variable="OPENGL_NET_EGL_STATIC_INIT" Value="NO" />
+        <Exec Command="$(NUnitConsole) &quot;$(TargetPath)&quot; $(NUnitResult) $(NUnitOptions)"/>
+    </Target>
 
     <PropertyGroup>
         <OpenCoverConsole>$(ProjectDir)..\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe</OpenCoverConsole>
@@ -20,6 +27,11 @@
         <OpenCoverResult>-output:$(ProjectDir)..\Cov$(OPENGL_NET_PLATFORM)$(ProjectName)_$(Platform)_$(Configuration).xml</OpenCoverResult>
     </PropertyGroup>
     <Target Name="Coverage">
+        <Exec Command="$(OpenCoverConsole) $(OpenCoverOptions) $(OpenCoverTargetArgs) $(OpenCoverResult)"/>
+    </Target>
+    <Target Name="CoverageNoInit">
+        <SetEnvVar Variable="OPENGL_NET_INIT" Value="NO" />
+        <SetEnvVar Variable="OPENGL_NET_EGL_STATIC_INIT" Value="NO" />
         <Exec Command="$(OpenCoverConsole) $(OpenCoverOptions) $(OpenCoverTargetArgs) $(OpenCoverResult)"/>
     </Target>
 </Project>

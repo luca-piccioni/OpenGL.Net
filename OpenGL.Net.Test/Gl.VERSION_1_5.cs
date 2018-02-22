@@ -1,5 +1,5 @@
 ﻿
-// Copyright (C) 2015-2017 Luca Piccioni
+// Copyright (C) 2015-2018 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -28,9 +28,8 @@ namespace OpenGL.Test
 	/// <summary>
 	/// Test OpenGL 1.5 API.
 	/// </summary>
-	[TestFixture]
-	[Category("GL_VERSION_1_5")]
-	class Gl_VERSION_1_5 : TestBaseGL
+	[TestFixture, Category("GL_VERSION_1_5")]
+	internal class Gl_VERSION_1_5 : TestBaseGL
 	{
 		/// <summary>
 		/// Test Gl.GenBuffer.
@@ -38,8 +37,8 @@ namespace OpenGL.Test
 		[Test]
 		public void TestGenBuffer()
 		{
-			if (!HasVersion(1, 5) && !IsGlExtensionSupported("GL_ARB_vertex_buffer_object") && !HasEsVersion(1, 0))
-				Assert.Inconclusive("OpenGL 1.5 or GL_ARB_vertex_buffer_object not supported or OpenGL ES 1.0");
+			if (!HasVersion(Gl.Version_150) && !HasExtension("GL_ARB_vertex_buffer_object") && !HasVersion(Gl.Version_100_ES) && !HasVersion(Gl.Version_200_ES))
+				Assert.Inconclusive("OpenGL 1.5 or GL_ARB_vertex_buffer_object not supported or OpenGL ES 1.0/2.0");
 
 			using (Device device = new Device())
 			using (new GLContext(device))
@@ -69,8 +68,8 @@ namespace OpenGL.Test
 		[Test]
 		public void TestBufferData()
 		{
-			if (!HasVersion(1, 5) && !IsGlExtensionSupported("GL_ARB_vertex_buffer_object") && !HasEsVersion(1, 0))
-				Assert.Inconclusive("OpenGL 1.5 or GL_ARB_vertex_buffer_object not supported or OpenGL ES 1.0");
+			if (!HasVersion(Gl.Version_150) && !HasExtension("GL_ARB_vertex_buffer_object") && !HasVersion(Gl.Version_100_ES) && !HasVersion(Gl.Version_200_ES))
+				Assert.Inconclusive("OpenGL 1.5 or GL_ARB_vertex_buffer_object not supported or OpenGL ES 1.0/2.0");
 
 			using (Device device = new Device())
 			using (new GLContext(device))
@@ -104,7 +103,7 @@ namespace OpenGL.Test
 					Assert.AreEqual((int)BufferUsage.StaticDraw, arrayBufferDataParam);
 
 #if !MONODROID
-					if (HasVersion(1, 5) || IsGlExtensionSupported("GL_ARB_vertex_buffer_object")) {
+					if (HasVersion(Gl.Version_150) || HasExtension("GL_ARB_vertex_buffer_object")) {
 						Gl.GetBufferSubData(BufferTarget.ArrayBuffer, IntPtr.Zero, (uint)arrayBufferData.Length, arrayBufferDataGet);
 						for (int i = 0; i < arrayBufferDataGet.Length; i++)
 							Assert.AreEqual(arrayBufferData[i], arrayBufferDataGet[i]);
@@ -130,7 +129,7 @@ namespace OpenGL.Test
 		[Test]
 		public void TestMapBuffer()
 		{
-			if (!HasVersion(1, 5) && !Gl.CurrentExtensions.VertexBufferObject_ARB && !Gl.CurrentExtensions.Mapbuffer_OES)
+			if (!HasVersion(Gl.Version_150) && !HasExtension("GL_ARB_vertex_buffer_object") && !HasExtension("GL_OES_mapbuffer"))
 				Assert.Inconclusive("OpenGL 1.5 or GL_ARB_vertex_buffer_object or GL_OES_mapbuffer not supported");
 
 			using (Device device = new Device())

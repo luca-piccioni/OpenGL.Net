@@ -38,7 +38,7 @@ namespace OpenGL.Test
 		[Test]
 		public void TestGetStringi()
 		{
-			if (!HasVersion(4, 3))
+			if (!HasVersion(Gl.Version_430))
 				Assert.Inconclusive("OpenGL 4.3 not implemented");
 
 			using (Device device = new Device())

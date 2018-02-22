@@ -38,7 +38,7 @@ namespace OpenGL.Test
 		[Test]
 		public void TestGetString()
 		{
-			if (!HasVersion(2, 0) && !HasEsVersion(2, 0))
+			if (!HasVersion(Gl.Version_200) && !HasVersion(Gl.Version_200_ES))
 				Assert.Inconclusive("OpenGL 2.0 or OpenGL ES 2.0");
 
 			using (Device device = new Device())
@@ -62,7 +62,7 @@ namespace OpenGL.Test
 		[Test]
 		public void TestCreateProgram()
 		{
-			if (!HasVersion(2, 0) && !HasEsVersion(2, 0))
+			if (!HasVersion(Gl.Version_200) && !HasVersion(Gl.Version_200_ES))
 				Assert.Inconclusive("OpenGL 2.0 or OpenGL ES 2.0");
 
 			using (Device device = new Device())
@@ -88,7 +88,7 @@ namespace OpenGL.Test
 		[Test]
 		public void TestCreateShader()
 		{
-			if (!HasVersion(2, 0) && !HasEsVersion(2, 0))
+			if (!HasVersion(Gl.Version_200) && !HasVersion(Gl.Version_200_ES))
 				Assert.Inconclusive("OpenGL 2.0 or OpenGL ES 2.0");
 
 			using (Device device = new Device())

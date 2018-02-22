@@ -68,13 +68,13 @@ namespace OpenGL.Test
 			switch (postfix) {
 				case "f":
 				case "i":
-					glRequisites = "!HasVersion(2, 0) && !HasEsVersion(2, 0) && !IsGlExtensionSupported(\"GL_ARB_shader_objects\")";
+					glRequisites = "!HasVersion(Gl.Version_200) && !HasVersion(Gl.Version_200_ES) && !HasExtension(\"GL_ARB_shader_objects\")";
 					break;
 				case "ui":
-					glRequisites = "!HasVersion(3, 0) && !HasEsVersion(3, 0) && !IsGlExtensionSupported(\"GL_EXT_gpu_shader4\")";
+					glRequisites = "!HasVersion(Gl.Version_300) && !HasVersion(Gl.Version_300_ES) && !HasExtension(\"GL_EXT_gpu_shader4\")";
 					break;
 				case "d":
-					glRequisites = "!HasVersion(4, 0) && !IsGlExtensionSupported(\"GL_ARB_gpu_shader_fp64\")";
+					glRequisites = "!HasVersion(Gl.Version_400) && !HasExtension(\"GL_ARB_gpu_shader_fp64\")";
 					monodroidConditional = true;
 					break;
 			}

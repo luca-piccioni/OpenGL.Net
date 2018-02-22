@@ -63,8 +63,8 @@ namespace OpenGL.Test
 				pfAttributesCodes.Add(Wgl.DEPTH_BITS_ARB);
 				pfAttributesCodes.Add(Wgl.STENCIL_BITS_ARB);
 				// Multisample extension
-				if (IsGlExtensionSupported("GL_ARB_multisample") || IsGlExtensionSupported("WGL_ARB_multisample") ||
-				    IsGlExtensionSupported("GLX_ARB_multisample"))
+				if (HasExtension("GL_ARB_multisample") || HasExtension("WGL_ARB_multisample") ||
+				    HasExtension("GLX_ARB_multisample"))
 				{
 					pfAttributesCodes.Add(Wgl.SAMPLE_BUFFERS_ARB);
 					pfAttributesCodes.Add(Wgl.SAMPLES_ARB);

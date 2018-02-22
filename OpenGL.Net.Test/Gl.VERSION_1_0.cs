@@ -1,5 +1,5 @@
 ﻿
-// Copyright (C) 2015-2017 Luca Piccioni
+// Copyright (C) 2015-2018 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -29,9 +29,8 @@ namespace OpenGL.Test
 	/// <summary>
 	/// Test OpenGL 1.0 API.
 	/// </summary>
-	[TestFixture]
-	[Category("GL_VERSION_1_0")]
-	class Gl_VERSION_1_0 : TestBaseGL
+	[TestFixture, Category("GL_VERSION_1_0")]
+	internal class Gl_VERSION_1_0 : TestBaseGL
 	{
 		/// <summary>
 		/// Test Gl.GetString.
@@ -39,7 +38,7 @@ namespace OpenGL.Test
 		[Test]
 		public void TestGetString()
 		{
-			if (!HasVersion(1, 0) && !HasEsVersion(1, 0))
+			if (!HasVersion(Gl.Version_100) && !HasVersion(Gl.Version_100_ES))
 				Assert.Inconclusive("OpenGL 1.0 or OpenGL ES 1.0");
 
 			using (Device device = new Device())
@@ -95,8 +94,6 @@ namespace OpenGL.Test
 
 				#endregion
 			}
-
-				
 		}
 
 		/// <summary>
@@ -105,7 +102,7 @@ namespace OpenGL.Test
 		[Test]
 		public void TestCullFace()
 		{
-			if (!HasVersion(1, 0) && !HasEsVersion(1, 0))
+			if (!HasVersion(Gl.Version_100) && !HasVersion(Gl.Version_100_ES))
 				Assert.Inconclusive("OpenGL 1.0 or OpenGL ES 1.0");
 
 			using (Device device = new Device())
@@ -142,7 +139,7 @@ namespace OpenGL.Test
 		[Test]
 		public void TestGenTexture()
 		{
-			if (!HasVersion(1, 1) && !HasEsVersion(1, 0))
+			if (!HasVersion(Gl.Version_100) && !HasVersion(Gl.Version_100_ES))
 				Assert.Inconclusive("OpenGL 1.1 or OpenGL ES 1.0");
 
 			using (Device device = new Device())
