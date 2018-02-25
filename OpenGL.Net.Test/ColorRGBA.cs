@@ -1,5 +1,5 @@
 ﻿
-// Copyright (C) 2017 Luca Piccioni
+// Copyright (C) 2017-2018 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -30,13 +30,12 @@ using NUnit.Framework;
 
 namespace OpenGL.Test
 {
-	[TestFixture]
-	[Category("Math")]
+	[TestFixture, Category("Math")]
 	internal class ColorRGBA32Test : TestBase
 	{
 		#region Constructors
 
-		[Test(Description = "Test ColorRGBA32(byte, byte, byte)")]
+		[Test]
 		public void ColorRGBA32_TestConstructor1()
 		{
 			byte r = (byte)NextComponent(byte.MaxValue);
@@ -51,7 +50,7 @@ namespace OpenGL.Test
 			Assert.AreEqual(byte.MaxValue, v.a);
 		}
 
-		[Test(Description = "Test ColorRGBA32(byte, byte, byte, byte)")]
+		[Test]
 		public void ColorRGBA32_TestConstructor2()
 		{
 			byte r = (byte)NextComponent(byte.MaxValue);
@@ -71,7 +70,7 @@ namespace OpenGL.Test
 
 		#region Cast Operators
 
-		[Test(Description = "Test (byte[])ColorRGBA32")]
+		[Test]
 		public void ColorRGBA32_CastToArray()
 		{
 			byte r = (byte)NextComponent(byte.MaxValue);
@@ -89,7 +88,7 @@ namespace OpenGL.Test
 			Assert.AreEqual(a, vArray[3]);
 		}
 
-		[Test(Description = "Test (Vertex4ub)ColorRGBA32")]
+		[Test]
 		public void ColorRGBA32_CastToVertex4()
 		{
 			byte r = (byte)NextComponent(byte.MaxValue);
@@ -108,7 +107,7 @@ namespace OpenGL.Test
 
 #if HAVE_SYSTEM_DRAWING
 
-		[Test(Description = "Test (ColorRGBA32)Color")]
+		[Test]
 		public void ColorRGBA32_CastFromColor()
 		{
 			const double Epsilon = 1e-2;
@@ -134,7 +133,7 @@ namespace OpenGL.Test
 
 		#region Arithmetic Operators
 
-		[Test(Description = "Test ColorRGBA32.operator*")]
+		[Test]
 		public void ColorRGBA32_Multiply()
 		{
 			byte r = (byte)NextComponent(byte.MaxValue);
@@ -155,9 +154,31 @@ namespace OpenGL.Test
 
 		#endregion
 
+		#region Equality Operators
+
+		[Test]
+		public void ColorRGBA32_OperatorEquality()
+		{
+			ColorRGBA32 v = ColorRGBA32.ColorRed;
+
+			Assert.IsTrue(v == ColorRGBA32.ColorRed);
+			Assert.IsFalse(v == ColorRGBA32.ColorGreen);
+		}
+
+		[Test]
+		public void ColorRGBA32_OperatorInequality()
+		{
+			ColorRGBA32 v = ColorRGBA32.ColorRed;
+
+			Assert.IsFalse(v != ColorRGBA32.ColorRed);
+			Assert.IsTrue(v != ColorRGBA32.ColorGreen);
+		}
+
+		#endregion
+
 		#region IColor Implementation
 
-		[Test(Description = "Test ColorRGBA32.PixelType")]
+		[Test]
 		public void ColorRGBA32_PixelType()
 		{
 			byte r = (byte)NextComponent(byte.MaxValue);
@@ -170,7 +191,7 @@ namespace OpenGL.Test
 			Assert.AreNotEqual(PixelLayout.None, v.PixelType);
 		}
 
-		[Test(Description = "Test ColorRGBA32int]")]
+		[Test]
 		public void ColorRGBA32_Accessor()
 		{
 			byte r = (byte)NextComponent(byte.MaxValue);
@@ -202,15 +223,61 @@ namespace OpenGL.Test
 		}
 
 		#endregion
+
+		#region IEquatable Implementation
+
+		[Test]
+		public void ColorRGBA32_Equals_ColorRGBA32_AbsPrecision()
+		{
+			
+		}
+
+		[Test]
+		public void ColorRGBA32_Equals_ColorRGBA32()
+		{
+			ColorRGBA32 v = ColorRGBA32.ColorRed;
+
+			Assert.IsTrue(v.Equals(ColorRGBA32.ColorRed));
+			Assert.IsFalse(v.Equals(ColorRGBA32.ColorGreen));
+			Assert.IsFalse(v.Equals(ColorRGBA32.ColorBlue));
+		}
+
+		[Test]
+		public void ColorRGBA32_Equals_Object()
+		{
+			ColorRGBA32 v = ColorRGBA32.ColorRed;
+
+			Assert.IsFalse(v.Equals(null));
+			Assert.IsFalse(v.Equals(String.Empty));
+			Assert.IsFalse(v.Equals(0.0f));
+
+			Assert.IsTrue(v.Equals((object)ColorRGBA32.ColorRed));
+			Assert.IsFalse(v.Equals((object)ColorRGBA32.ColorGreen));
+			Assert.IsFalse(v.Equals((object)ColorRGBA32.ColorBlue));
+		}
+
+		[Test]
+		public void ColorRGBA32_GetHashCode()
+		{
+			byte r = (byte)NextComponent(byte.MaxValue);
+			byte g = (byte)NextComponent(byte.MaxValue);
+			byte b = (byte)NextComponent(byte.MaxValue);
+			byte a = (byte)NextComponent(byte.MaxValue);
+
+			ColorRGBA32 v = new ColorRGBA32(r, g, b, a);
+
+			Assert.DoesNotThrow(() => v.GetHashCode());
+		}
+
+		#endregion
 	}
 
-	[TestFixture]
-	[Category("Math")]
+	[TestFixture, Category("Math")]
 	internal class ColorRGBA64Test : TestBase
 	{
 		#region Constructors
 
-		[Test(Description = "Test ColorRGBA64(ushort, ushort, ushort)")]
+		[Test]
 		public void ColorRGBA64_TestConstructor1()
 		{
 			ushort r = (ushort)NextComponent(ushort.MaxValue);
@@ -225,7 +292,7 @@ namespace OpenGL.Test
 			Assert.AreEqual(ushort.MaxValue, v.a);
 		}
 
-		[Test(Description = "Test ColorRGBA64(ushort, ushort, ushort, ushort)")]
+		[Test]
 		public void ColorRGBA64_TestConstructor2()
 		{
 			ushort r = (ushort)NextComponent(ushort.MaxValue);
@@ -245,7 +312,7 @@ namespace OpenGL.Test
 
 		#region Cast Operators
 
-		[Test(Description = "Test (ushort[])ColorRGBA64")]
+		[Test]
 		public void ColorRGBA64_CastToArray()
 		{
 			ushort r = (ushort)NextComponent(ushort.MaxValue);
@@ -263,7 +330,7 @@ namespace OpenGL.Test
 			Assert.AreEqual(a, vArray[3]);
 		}
 
-		[Test(Description = "Test (Vertex4ub)ColorRGBA64")]
+		[Test]
 		public void ColorRGBA64_CastToVertex4()
 		{
 			ushort r = (ushort)NextComponent(ushort.MaxValue);
@@ -282,7 +349,7 @@ namespace OpenGL.Test
 
 #if HAVE_SYSTEM_DRAWING
 
-		[Test(Description = "Test (ColorRGBA64)Color")]
+		[Test]
 		public void ColorRGBA64_CastFromColor()
 		{
 			const double Epsilon = 1e-2;
@@ -308,7 +375,7 @@ namespace OpenGL.Test
 
 		#region Arithmetic Operators
 
-		[Test(Description = "Test ColorRGBA64.operator*")]
+		[Test]
 		public void ColorRGBA64_Multiply()
 		{
 			ushort r = (ushort)NextComponent(ushort.MaxValue);
@@ -329,9 +396,31 @@ namespace OpenGL.Test
 
 		#endregion
 
+		#region Equality Operators
+
+		[Test]
+		public void ColorRGBA64_OperatorEquality()
+		{
+			ColorRGBA64 v = ColorRGBA64.ColorRed;
+
+			Assert.IsTrue(v == ColorRGBA64.ColorRed);
+			Assert.IsFalse(v == ColorRGBA64.ColorGreen);
+		}
+
+		[Test]
+		public void ColorRGBA64_OperatorInequality()
+		{
+			ColorRGBA64 v = ColorRGBA64.ColorRed;
+
+			Assert.IsFalse(v != ColorRGBA64.ColorRed);
+			Assert.IsTrue(v != ColorRGBA64.ColorGreen);
+		}
+
+		#endregion
+
 		#region IColor Implementation
 
-		[Test(Description = "Test ColorRGBA64.PixelType")]
+		[Test]
 		public void ColorRGBA64_PixelType()
 		{
 			ushort r = (ushort)NextComponent(ushort.MaxValue);
@@ -344,7 +433,7 @@ namespace OpenGL.Test
 			Assert.AreNotEqual(PixelLayout.None, v.PixelType);
 		}
 
-		[Test(Description = "Test ColorRGBA64int]")]
+		[Test]
 		public void ColorRGBA64_Accessor()
 		{
 			ushort r = (ushort)NextComponent(ushort.MaxValue);
@@ -376,15 +465,61 @@ namespace OpenGL.Test
 		}
 
 		#endregion
+
+		#region IEquatable Implementation
+
+		[Test]
+		public void ColorRGBA64_Equals_ColorRGBA64_AbsPrecision()
+		{
+			
+		}
+
+		[Test]
+		public void ColorRGBA64_Equals_ColorRGBA64()
+		{
+			ColorRGBA64 v = ColorRGBA64.ColorRed;
+
+			Assert.IsTrue(v.Equals(ColorRGBA64.ColorRed));
+			Assert.IsFalse(v.Equals(ColorRGBA64.ColorGreen));
+			Assert.IsFalse(v.Equals(ColorRGBA64.ColorBlue));
+		}
+
+		[Test]
+		public void ColorRGBA64_Equals_Object()
+		{
+			ColorRGBA64 v = ColorRGBA64.ColorRed;
+
+			Assert.IsFalse(v.Equals(null));
+			Assert.IsFalse(v.Equals(String.Empty));
+			Assert.IsFalse(v.Equals(0.0f));
+
+			Assert.IsTrue(v.Equals((object)ColorRGBA64.ColorRed));
+			Assert.IsFalse(v.Equals((object)ColorRGBA64.ColorGreen));
+			Assert.IsFalse(v.Equals((object)ColorRGBA64.ColorBlue));
+		}
+
+		[Test]
+		public void ColorRGBA64_GetHashCode()
+		{
+			ushort r = (ushort)NextComponent(ushort.MaxValue);
+			ushort g = (ushort)NextComponent(ushort.MaxValue);
+			ushort b = (ushort)NextComponent(ushort.MaxValue);
+			ushort a = (ushort)NextComponent(ushort.MaxValue);
+
+			ColorRGBA64 v = new ColorRGBA64(r, g, b, a);
+
+			Assert.DoesNotThrow(() => v.GetHashCode());
+		}
+
+		#endregion
 	}
 
-	[TestFixture]
-	[Category("Math")]
+	[TestFixture, Category("Math")]
 	internal class ColorRGBAFTest : TestBase
 	{
 		#region Constructors
 
-		[Test(Description = "Test ColorRGBAF(float, float, float)")]
+		[Test]
 		public void ColorRGBAF_TestConstructor1()
 		{
 			float r = (float)NextComponent(1.0f);
@@ -399,7 +534,7 @@ namespace OpenGL.Test
 			Assert.AreEqual(1.0f, v.a);
 		}
 
-		[Test(Description = "Test ColorRGBAF(float, float, float, float)")]
+		[Test]
 		public void ColorRGBAF_TestConstructor2()
 		{
 			float r = (float)NextComponent(1.0f);
@@ -419,7 +554,7 @@ namespace OpenGL.Test
 
 		#region Cast Operators
 
-		[Test(Description = "Test (float[])ColorRGBAF")]
+		[Test]
 		public void ColorRGBAF_CastToArray()
 		{
 			float r = (float)NextComponent(1.0f);
@@ -437,7 +572,7 @@ namespace OpenGL.Test
 			Assert.AreEqual(a, vArray[3]);
 		}
 
-		[Test(Description = "Test (Vertex4ub)ColorRGBAF")]
+		[Test]
 		public void ColorRGBAF_CastToVertex4()
 		{
 			float r = (float)NextComponent(1.0f);
@@ -456,7 +591,7 @@ namespace OpenGL.Test
 
 #if HAVE_SYSTEM_DRAWING
 
-		[Test(Description = "Test (ColorRGBAF)Color")]
+		[Test]
 		public void ColorRGBAF_CastFromColor()
 		{
 			const double Epsilon = 1e-2;
@@ -482,7 +617,7 @@ namespace OpenGL.Test
 
 		#region Arithmetic Operators
 
-		[Test(Description = "Test ColorRGBAF.operator*")]
+		[Test]
 		public void ColorRGBAF_Multiply()
 		{
 			float r = (float)NextComponent(1.0f);
@@ -503,9 +638,31 @@ namespace OpenGL.Test
 
 		#endregion
 
+		#region Equality Operators
+
+		[Test]
+		public void ColorRGBAF_OperatorEquality()
+		{
+			ColorRGBAF v = ColorRGBAF.ColorRed;
+
+			Assert.IsTrue(v == ColorRGBAF.ColorRed);
+			Assert.IsFalse(v == ColorRGBAF.ColorGreen);
+		}
+
+		[Test]
+		public void ColorRGBAF_OperatorInequality()
+		{
+			ColorRGBAF v = ColorRGBAF.ColorRed;
+
+			Assert.IsFalse(v != ColorRGBAF.ColorRed);
+			Assert.IsTrue(v != ColorRGBAF.ColorGreen);
+		}
+
+		#endregion
+
 		#region IColor Implementation
 
-		[Test(Description = "Test ColorRGBAF.PixelType")]
+		[Test]
 		public void ColorRGBAF_PixelType()
 		{
 			float r = (float)NextComponent(1.0f);
@@ -518,7 +675,7 @@ namespace OpenGL.Test
 			Assert.AreNotEqual(PixelLayout.None, v.PixelType);
 		}
 
-		[Test(Description = "Test ColorRGBAFint]")]
+		[Test]
 		public void ColorRGBAF_Accessor()
 		{
 			float r = (float)NextComponent(1.0f);
@@ -550,15 +707,61 @@ namespace OpenGL.Test
 		}
 
 		#endregion
+
+		#region IEquatable Implementation
+
+		[Test]
+		public void ColorRGBAF_Equals_ColorRGBAF_AbsPrecision()
+		{
+			
+		}
+
+		[Test]
+		public void ColorRGBAF_Equals_ColorRGBAF()
+		{
+			ColorRGBAF v = ColorRGBAF.ColorRed;
+
+			Assert.IsTrue(v.Equals(ColorRGBAF.ColorRed));
+			Assert.IsFalse(v.Equals(ColorRGBAF.ColorGreen));
+			Assert.IsFalse(v.Equals(ColorRGBAF.ColorBlue));
+		}
+
+		[Test]
+		public void ColorRGBAF_Equals_Object()
+		{
+			ColorRGBAF v = ColorRGBAF.ColorRed;
+
+			Assert.IsFalse(v.Equals(null));
+			Assert.IsFalse(v.Equals(String.Empty));
+			Assert.IsFalse(v.Equals(0.0f));
+
+			Assert.IsTrue(v.Equals((object)ColorRGBAF.ColorRed));
+			Assert.IsFalse(v.Equals((object)ColorRGBAF.ColorGreen));
+			Assert.IsFalse(v.Equals((object)ColorRGBAF.ColorBlue));
+		}
+
+		[Test]
+		public void ColorRGBAF_GetHashCode()
+		{
+			float r = (float)NextComponent(float.MaxValue);
+			float g = (float)NextComponent(float.MaxValue);
+			float b = (float)NextComponent(float.MaxValue);
+			float a = (float)NextComponent(float.MaxValue);
+
+			ColorRGBAF v = new ColorRGBAF(r, g, b, a);
+
+			Assert.DoesNotThrow(() => v.GetHashCode());
+		}
+
+		#endregion
 	}
 
-	[TestFixture]
-	[Category("Math")]
+	[TestFixture, Category("Math")]
 	internal class ColorRGBAHFTest : TestBase
 	{
 		#region Constructors
 
-		[Test(Description = "Test ColorRGBAHF(HalfFloat, HalfFloat, HalfFloat)")]
+		[Test]
 		public void ColorRGBAHF_TestConstructor1()
 		{
 			HalfFloat r = (HalfFloat)NextComponent((HalfFloat)1.0f);
@@ -573,7 +776,7 @@ namespace OpenGL.Test
 			Assert.AreEqual((HalfFloat)1.0f, v.a);
 		}
 
-		[Test(Description = "Test ColorRGBAHF(HalfFloat, HalfFloat, HalfFloat, HalfFloat)")]
+		[Test]
 		public void ColorRGBAHF_TestConstructor2()
 		{
 			HalfFloat r = (HalfFloat)NextComponent((HalfFloat)1.0f);
@@ -593,7 +796,7 @@ namespace OpenGL.Test
 
 		#region Cast Operators
 
-		[Test(Description = "Test (HalfFloat[])ColorRGBAHF")]
+		[Test]
 		public void ColorRGBAHF_CastToArray()
 		{
 			HalfFloat r = (HalfFloat)NextComponent((HalfFloat)1.0f);
@@ -611,7 +814,7 @@ namespace OpenGL.Test
 			Assert.AreEqual(a, vArray[3]);
 		}
 
-		[Test(Description = "Test (Vertex4ub)ColorRGBAHF")]
+		[Test]
 		public void ColorRGBAHF_CastToVertex4()
 		{
 			HalfFloat r = (HalfFloat)NextComponent((HalfFloat)1.0f);
@@ -630,7 +833,7 @@ namespace OpenGL.Test
 
 #if HAVE_SYSTEM_DRAWING
 
-		[Test(Description = "Test (ColorRGBAHF)Color")]
+		[Test]
 		public void ColorRGBAHF_CastFromColor()
 		{
 			const double Epsilon = 1e-2;
@@ -656,7 +859,7 @@ namespace OpenGL.Test
 
 		#region Arithmetic Operators
 
-		[Test(Description = "Test ColorRGBAHF.operator*")]
+		[Test]
 		public void ColorRGBAHF_Multiply()
 		{
 			HalfFloat r = (HalfFloat)NextComponent((HalfFloat)1.0f);
@@ -677,9 +880,31 @@ namespace OpenGL.Test
 
 		#endregion
 
+		#region Equality Operators
+
+		[Test]
+		public void ColorRGBAHF_OperatorEquality()
+		{
+			ColorRGBAHF v = ColorRGBAHF.ColorRed;
+
+			Assert.IsTrue(v == ColorRGBAHF.ColorRed);
+			Assert.IsFalse(v == ColorRGBAHF.ColorGreen);
+		}
+
+		[Test]
+		public void ColorRGBAHF_OperatorInequality()
+		{
+			ColorRGBAHF v = ColorRGBAHF.ColorRed;
+
+			Assert.IsFalse(v != ColorRGBAHF.ColorRed);
+			Assert.IsTrue(v != ColorRGBAHF.ColorGreen);
+		}
+
+		#endregion
+
 		#region IColor Implementation
 
-		[Test(Description = "Test ColorRGBAHF.PixelType")]
+		[Test]
 		public void ColorRGBAHF_PixelType()
 		{
 			HalfFloat r = (HalfFloat)NextComponent((HalfFloat)1.0f);
@@ -692,7 +917,7 @@ namespace OpenGL.Test
 			Assert.AreNotEqual(PixelLayout.None, v.PixelType);
 		}
 
-		[Test(Description = "Test ColorRGBAHFint]")]
+		[Test]
 		public void ColorRGBAHF_Accessor()
 		{
 			HalfFloat r = (HalfFloat)NextComponent((HalfFloat)1.0f);
@@ -721,6 +946,53 @@ namespace OpenGL.Test
 			Assert.DoesNotThrow(() => v[3] = 1.0f);
 			Assert.Throws<InvalidOperationException>(() => v[3] = -1.0f);
 			Assert.Throws<InvalidOperationException>(() => v[3] = +1.1f);
+		}
+
+		#endregion
+
+		#region IEquatable Implementation
+
+		[Test]
+		public void ColorRGBAHF_Equals_ColorRGBAHF_AbsPrecision()
+		{
+			
+		}
+
+		[Test]
+		public void ColorRGBAHF_Equals_ColorRGBAHF()
+		{
+			ColorRGBAHF v = ColorRGBAHF.ColorRed;
+
+			Assert.IsTrue(v.Equals(ColorRGBAHF.ColorRed));
+			Assert.IsFalse(v.Equals(ColorRGBAHF.ColorGreen));
+			Assert.IsFalse(v.Equals(ColorRGBAHF.ColorBlue));
+		}
+
+		[Test]
+		public void ColorRGBAHF_Equals_Object()
+		{
+			ColorRGBAHF v = ColorRGBAHF.ColorRed;
+
+			Assert.IsFalse(v.Equals(null));
+			Assert.IsFalse(v.Equals(String.Empty));
+			Assert.IsFalse(v.Equals(0.0f));
+
+			Assert.IsTrue(v.Equals((object)ColorRGBAHF.ColorRed));
+			Assert.IsFalse(v.Equals((object)ColorRGBAHF.ColorGreen));
+			Assert.IsFalse(v.Equals((object)ColorRGBAHF.ColorBlue));
+		}
+
+		[Test]
+		public void ColorRGBAHF_GetHashCode()
+		{
+			HalfFloat r = (HalfFloat)NextComponent(HalfFloat.MaxValue);
+			HalfFloat g = (HalfFloat)NextComponent(HalfFloat.MaxValue);
+			HalfFloat b = (HalfFloat)NextComponent(HalfFloat.MaxValue);
+			HalfFloat a = (HalfFloat)NextComponent(HalfFloat.MaxValue);
+
+			ColorRGBAHF v = new ColorRGBAHF(r, g, b, a);
+
+			Assert.DoesNotThrow(() => v.GetHashCode());
 		}
 
 		#endregion

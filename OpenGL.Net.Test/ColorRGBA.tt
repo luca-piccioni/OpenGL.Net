@@ -6,7 +6,7 @@
 <#@ Import Namespace="System.Linq" #>
 <#@ Import Namespace="System.Runtime.InteropServices" #>
 
-// Copyright (C) 2017 Luca Piccioni
+// Copyright (C) 2017-2018 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -45,25 +45,24 @@ namespace OpenGL.Test
 
 	for (int i = 0; i < postfixes.Length; i++) {
 		string className = String.Format("ColorRGBA{0}", postfixes[i]);
-		string interfaceType = interfaceTypes[i];
+		string baseType = interfaceTypes[i];
 		string castSuffix = castSuffixes[i];
 		string one = ones[i];
 
 		if (one == null)
-			one = interfaceType + ".MaxValue";
+			one = baseType + ".MaxValue";
 #>
-	[TestFixture]
-	[Category("Math")]
+	[TestFixture, Category("Math")]
 	internal class <#= className #>Test : TestBase
 	{
 		#region Constructors
 
-		[Test(Description = "Test <#= className #>(<#= interfaceType #>, <#= interfaceType #>, <#= interfaceType #>)")]
+		[Test]
 		public void <#= className #>_TestConstructor1()
 		{
-			<#= interfaceType #> r = (<#= interfaceType #>)NextComponent(<#= one #>);
-			<#= interfaceType #> g = (<#= interfaceType #>)NextComponent(<#= one #>);
-			<#= interfaceType #> b = (<#= interfaceType #>)NextComponent(<#= one #>);
+			<#= baseType #> r = (<#= baseType #>)NextComponent(<#= one #>);
+			<#= baseType #> g = (<#= baseType #>)NextComponent(<#= one #>);
+			<#= baseType #> b = (<#= baseType #>)NextComponent(<#= one #>);
 			
 			<#= className #> v = new <#= className #>(r, g, b);
 
@@ -73,13 +72,13 @@ namespace OpenGL.Test
 			Assert.AreEqual(<#= one #>, v.a);
 		}
 
-		[Test(Description = "Test <#= className #>(<#= interfaceType #>, <#= interfaceType #>, <#= interfaceType #>, <#= interfaceType #>)")]
+		[Test]
 		public void <#= className #>_TestConstructor2()
 		{
-			<#= interfaceType #> r = (<#= interfaceType #>)NextComponent(<#= one #>);
-			<#= interfaceType #> g = (<#= interfaceType #>)NextComponent(<#= one #>);
-			<#= interfaceType #> b = (<#= interfaceType #>)NextComponent(<#= one #>);
-			<#= interfaceType #> a = (<#= interfaceType #>)NextComponent(<#= one #>);
+			<#= baseType #> r = (<#= baseType #>)NextComponent(<#= one #>);
+			<#= baseType #> g = (<#= baseType #>)NextComponent(<#= one #>);
+			<#= baseType #> b = (<#= baseType #>)NextComponent(<#= one #>);
+			<#= baseType #> a = (<#= baseType #>)NextComponent(<#= one #>);
 			
 			<#= className #> v = new <#= className #>(r, g, b, a);
 
@@ -93,16 +92,16 @@ namespace OpenGL.Test
 
 		#region Cast Operators
 
-		[Test(Description = "Test (<#= interfaceType #>[])<#= className #>")]
+		[Test]
 		public void <#= className #>_CastToArray()
 		{
-			<#= interfaceType #> r = (<#= interfaceType #>)NextComponent(<#= one #>);
-			<#= interfaceType #> g = (<#= interfaceType #>)NextComponent(<#= one #>);
-			<#= interfaceType #> b = (<#= interfaceType #>)NextComponent(<#= one #>);
-			<#= interfaceType #> a = (<#= interfaceType #>)NextComponent(<#= one #>);
+			<#= baseType #> r = (<#= baseType #>)NextComponent(<#= one #>);
+			<#= baseType #> g = (<#= baseType #>)NextComponent(<#= one #>);
+			<#= baseType #> b = (<#= baseType #>)NextComponent(<#= one #>);
+			<#= baseType #> a = (<#= baseType #>)NextComponent(<#= one #>);
 			
 			<#= className #> v = new <#= className #>(r, g, b, a);
-			<#= interfaceType #>[] vArray = v;
+			<#= baseType #>[] vArray = v;
 
 			Assert.AreEqual(4, vArray.Length);
 			Assert.AreEqual(r, vArray[0]);
@@ -111,13 +110,13 @@ namespace OpenGL.Test
 			Assert.AreEqual(a, vArray[3]);
 		}
 
-		[Test(Description = "Test (Vertex4ub)<#= className #>")]
+		[Test]
 		public void <#= className #>_CastToVertex4()
 		{
-			<#= interfaceType #> r = (<#= interfaceType #>)NextComponent(<#= one #>);
-			<#= interfaceType #> g = (<#= interfaceType #>)NextComponent(<#= one #>);
-			<#= interfaceType #> b = (<#= interfaceType #>)NextComponent(<#= one #>);
-			<#= interfaceType #> a = (<#= interfaceType #>)NextComponent(<#= one #>);
+			<#= baseType #> r = (<#= baseType #>)NextComponent(<#= one #>);
+			<#= baseType #> g = (<#= baseType #>)NextComponent(<#= one #>);
+			<#= baseType #> b = (<#= baseType #>)NextComponent(<#= one #>);
+			<#= baseType #> a = (<#= baseType #>)NextComponent(<#= one #>);
 			
 			<#= className #> v = new <#= className #>(r, g, b, a);
 			Vertex4<#= castSuffix #> vArray = v;
@@ -130,7 +129,7 @@ namespace OpenGL.Test
 
 #if HAVE_SYSTEM_DRAWING
 
-		[Test(Description = "Test (<#= className #>)Color")]
+		[Test]
 		public void <#= className #>_CastFromColor()
 		{
 			const double Epsilon = 1e-2;
@@ -156,13 +155,13 @@ namespace OpenGL.Test
 
 		#region Arithmetic Operators
 
-		[Test(Description = "Test <#= className #>.operator*")]
+		[Test]
 		public void <#= className #>_Multiply()
 		{
-			<#= interfaceType #> r = (<#= interfaceType #>)NextComponent(<#= one #>);
-			<#= interfaceType #> g = (<#= interfaceType #>)NextComponent(<#= one #>);
-			<#= interfaceType #> b = (<#= interfaceType #>)NextComponent(<#= one #>);
-			<#= interfaceType #> a = (<#= interfaceType #>)NextComponent(<#= one #>);
+			<#= baseType #> r = (<#= baseType #>)NextComponent(<#= one #>);
+			<#= baseType #> g = (<#= baseType #>)NextComponent(<#= one #>);
+			<#= baseType #> b = (<#= baseType #>)NextComponent(<#= one #>);
+			<#= baseType #> a = (<#= baseType #>)NextComponent(<#= one #>);
 
 			<#= className #> v = new <#= className #>(r, g, b, a);
 			<#= className #> c = v * 0.5f;
@@ -177,28 +176,50 @@ namespace OpenGL.Test
 
 		#endregion
 
+		#region Equality Operators
+
+		[Test]
+		public void <#= className #>_OperatorEquality()
+		{
+			<#= className #> v = <#= className #>.ColorRed;
+
+			Assert.IsTrue(v == <#= className #>.ColorRed);
+			Assert.IsFalse(v == <#= className #>.ColorGreen);
+		}
+
+		[Test]
+		public void <#= className #>_OperatorInequality()
+		{
+			<#= className #> v = <#= className #>.ColorRed;
+
+			Assert.IsFalse(v != <#= className #>.ColorRed);
+			Assert.IsTrue(v != <#= className #>.ColorGreen);
+		}
+
+		#endregion
+
 		#region IColor Implementation
 
-		[Test(Description = "Test <#= className #>.PixelType")]
+		[Test]
 		public void <#= className #>_PixelType()
 		{
-			<#= interfaceType #> r = (<#= interfaceType #>)NextComponent(<#= one #>);
-			<#= interfaceType #> g = (<#= interfaceType #>)NextComponent(<#= one #>);
-			<#= interfaceType #> b = (<#= interfaceType #>)NextComponent(<#= one #>);
-			<#= interfaceType #> a = (<#= interfaceType #>)NextComponent(<#= one #>);
+			<#= baseType #> r = (<#= baseType #>)NextComponent(<#= one #>);
+			<#= baseType #> g = (<#= baseType #>)NextComponent(<#= one #>);
+			<#= baseType #> b = (<#= baseType #>)NextComponent(<#= one #>);
+			<#= baseType #> a = (<#= baseType #>)NextComponent(<#= one #>);
 
 			<#= className #> v = new <#= className #>(r, g, b, a);
 
 			Assert.AreNotEqual(PixelLayout.None, v.PixelType);
 		}
 
-		[Test(Description = "Test <#= className #>int]")]
+		[Test]
 		public void <#= className #>_Accessor()
 		{
-			<#= interfaceType #> r = (<#= interfaceType #>)NextComponent(<#= one #>);
-			<#= interfaceType #> g = (<#= interfaceType #>)NextComponent(<#= one #>);
-			<#= interfaceType #> b = (<#= interfaceType #>)NextComponent(<#= one #>);
-			<#= interfaceType #> a = (<#= interfaceType #>)NextComponent(<#= one #>);
+			<#= baseType #> r = (<#= baseType #>)NextComponent(<#= one #>);
+			<#= baseType #> g = (<#= baseType #>)NextComponent(<#= one #>);
+			<#= baseType #> b = (<#= baseType #>)NextComponent(<#= one #>);
+			<#= baseType #> a = (<#= baseType #>)NextComponent(<#= one #>);
 
 			<#= className #> v = new <#= className #>(r, g, b, a);
 			float c;
@@ -221,6 +242,53 @@ namespace OpenGL.Test
 			Assert.DoesNotThrow(() => v[3] = 1.0f);
 			Assert.Throws<InvalidOperationException>(() => v[3] = -1.0f);
 			Assert.Throws<InvalidOperationException>(() => v[3] = +1.1f);
+		}
+
+		#endregion
+
+		#region IEquatable Implementation
+
+		[Test]
+		public void <#= className #>_Equals_<#= className #>_AbsPrecision()
+		{
+			
+		}
+
+		[Test]
+		public void <#= className #>_Equals_<#= className #>()
+		{
+			<#= className #> v = <#= className #>.ColorRed;
+
+			Assert.IsTrue(v.Equals(<#= className #>.ColorRed));
+			Assert.IsFalse(v.Equals(<#= className #>.ColorGreen));
+			Assert.IsFalse(v.Equals(<#= className #>.ColorBlue));
+		}
+
+		[Test]
+		public void <#= className #>_Equals_Object()
+		{
+			<#= className #> v = <#= className #>.ColorRed;
+
+			Assert.IsFalse(v.Equals(null));
+			Assert.IsFalse(v.Equals(String.Empty));
+			Assert.IsFalse(v.Equals(0.0f));
+
+			Assert.IsTrue(v.Equals((object)<#= className #>.ColorRed));
+			Assert.IsFalse(v.Equals((object)<#= className #>.ColorGreen));
+			Assert.IsFalse(v.Equals((object)<#= className #>.ColorBlue));
+		}
+
+		[Test]
+		public void <#= className #>_GetHashCode()
+		{
+			<#= baseType #> r = (<#= baseType #>)NextComponent(<#= baseType #>.MaxValue);
+			<#= baseType #> g = (<#= baseType #>)NextComponent(<#= baseType #>.MaxValue);
+			<#= baseType #> b = (<#= baseType #>)NextComponent(<#= baseType #>.MaxValue);
+			<#= baseType #> a = (<#= baseType #>)NextComponent(<#= baseType #>.MaxValue);
+
+			<#= className #> v = new <#= className #>(r, g, b, a);
+
+			Assert.DoesNotThrow(() => v.GetHashCode());
 		}
 
 		#endregion
