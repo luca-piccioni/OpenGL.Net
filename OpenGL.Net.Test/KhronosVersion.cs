@@ -1,5 +1,5 @@
 ﻿
-// Copyright (C) 2017 Luca Piccioni
+// Copyright (C) 2017-2018 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -30,9 +30,11 @@ namespace OpenGL.Test
 {
 	[TestFixture, Category("Framework")]
 	[SuppressMessage("ReSharper", "ObjectCreationAsStatement")]
-	class KhronosVersionTest
+	[SuppressMessage("ReSharper", "EqualExpressionComparison")]
+	[SuppressMessage("ReSharper", "UnusedVariable")]
+	internal class KhronosVersionTest
 	{
-		[Test(Description = "Test KhronosVersion(int major, int minor, string api)")]
+		[Test]
 		public void KhronosVersion_Constructor1()
 		{
 			KhronosVersion version;
@@ -45,7 +47,7 @@ namespace OpenGL.Test
 			Assert.AreEqual(version.Profile, null);
 		}
 
-		[Test(Description = "Test KhronosVersion(int major, int minor, int revision, string api)")]
+		[Test]
 		public void KhronosVersion_Constructor2()
 		{
 			KhronosVersion version;
@@ -58,11 +60,11 @@ namespace OpenGL.Test
 			Assert.AreEqual(version.Profile, null);
 		}
 
-		[Test(Description = "Test KhronosVersion(int major, int minor, int revision, string api, string profile)")]
+		[Test]
 		public void KhronosVersion_Constructor3()
 		{
 			Assert.Throws<ArgumentNullException>(() => new KhronosVersion(1, 1, 2, null, "prof"));
-			Assert.Throws<ArgumentException>(() => new KhronosVersion(0, 1, 2, "api", "prof"));
+			Assert.Throws<ArgumentException>(() => new KhronosVersion(-1, 1, 2, "api", "prof"));
 			Assert.Throws<ArgumentException>(() => new KhronosVersion(1, -1, 2, "api", "prof"));
 			Assert.Throws<ArgumentException>(() => new KhronosVersion(1, 1, -2, "api", "prof"));
 
@@ -74,14 +76,7 @@ namespace OpenGL.Test
 			Assert.AreEqual(version.Profile, "prof");
 		}
 
-		[Test(Description = "Test KhronosVersion(int major, int minor, int revision, string api, string profile) ArgumentNullException")]
-		[TestCase(null, "prof")]
-		public void KhronosVersion_Constructor3_ArgumentNullException(string api, string profile)
-		{
-			Assert.Throws<ArgumentNullException>(() => new KhronosVersion(1, 1, 2, null, profile));
-		}
-
-		[Test(Description = "Test KhronosVersion(KhronosVersion other, string profile)")]
+		[Test]
 		public void KhronosVersion_Constructor4()
 		{
 			Assert.Throws<ArgumentNullException>(() => new KhronosVersion(null, "prof"));
@@ -106,7 +101,7 @@ namespace OpenGL.Test
 			Assert.AreEqual(460, new KhronosVersion(4, 6, KhronosVersion.ApiGl).VersionId);
 		}
 
-		[Test(Description = "Test KhronosVersion.operator==")]
+		[Test]
 		public void KhronosVersion_OperatorEquality()
 		{
 			KhronosVersion a, b;
@@ -154,7 +149,7 @@ namespace OpenGL.Test
 			Assert.IsFalse(a == b);
 		}
 
-		[Test(Description = "Test KhronosVersion.operator!=")]
+		[Test]
 		public void KhronosVersion_OperatorInequality()
 		{
 			KhronosVersion a, b;
@@ -202,9 +197,117 @@ namespace OpenGL.Test
 			Assert.IsTrue(a != b);
 		}
 
-		[Test(Description = "Parse(string input)")]
+		[Test]
+		public void KhronosVersion_OperatorGreater()
+		{
+			KhronosVersion a, b;
+
+			Assert.Throws(typeof(InvalidOperationException), () => {
+				a = new KhronosVersion(1, 1, 0, KhronosVersion.ApiGl);
+				b = new KhronosVersion(1, 2, 0, KhronosVersion.ApiWgl);
+				bool ret = a > b;
+			});
+
+			a = new KhronosVersion(1, 0, 0, "api");
+			Assert.IsFalse(a > null);
+			Assert.IsFalse(null > a);
+			Assert.IsFalse(a > a);
+
+			b = new KhronosVersion(1, 0, 0, "api");
+			Assert.IsFalse(a > b);
+
+			b = new KhronosVersion(0, 9, 0, "api");
+			Assert.IsTrue(a > b);
+
+			b = new KhronosVersion(1, 1, 0, "api");
+			Assert.IsFalse(a > b);
+		}
+
+		[Test]
+		public void KhronosVersion_OperatorLess()
+		{
+			KhronosVersion a, b;
+
+			Assert.Throws(typeof(InvalidOperationException), () => {
+				a = new KhronosVersion(1, 1, 0, KhronosVersion.ApiGl);
+				b = new KhronosVersion(1, 2, 0, KhronosVersion.ApiWgl);
+				bool ret = a < b;
+			});
+
+			a = new KhronosVersion(1, 0, 0, "api");
+			Assert.IsFalse(a < null);
+			Assert.IsFalse(null < a);
+			Assert.IsFalse(a < a);
+
+			b = new KhronosVersion(1, 0, 0, "api");
+			Assert.IsFalse(a < b);
+
+			b = new KhronosVersion(1, 1, 0, "api");
+			Assert.IsTrue(a < b);
+
+			b = new KhronosVersion(0, 9, 0, "api");
+			Assert.IsFalse(a < b);
+		}
+
+		[Test]
+		public void KhronosVersion_OperatorGreaterOrEquals()
+		{
+			KhronosVersion a, b;
+
+			Assert.Throws(typeof(InvalidOperationException), () => {
+				a = new KhronosVersion(1, 1, 0, KhronosVersion.ApiGl);
+				b = new KhronosVersion(1, 2, 0, KhronosVersion.ApiWgl);
+				bool ret = a >= b;
+			});
+
+			a = new KhronosVersion(1, 0, 0, "api");
+			Assert.IsFalse(a >= null);
+			Assert.IsFalse(null >= a);
+			Assert.IsTrue(a >= a);
+
+			b = new KhronosVersion(0, 9, 0, "api");
+			Assert.IsTrue(a >= b);
+
+			b = new KhronosVersion(1, 0, 0, "api");
+			Assert.IsTrue(a >= b);
+
+			b = new KhronosVersion(1, 1, 0, "api");
+			Assert.IsFalse(a >= b);
+		}
+
+		[Test]
+		public void KhronosVersion_OperatorLessOrEquals()
+		{
+			KhronosVersion a, b;
+
+			Assert.Throws(typeof(InvalidOperationException), () => {
+				a = new KhronosVersion(1, 1, 0, KhronosVersion.ApiGl);
+				b = new KhronosVersion(1, 2, 0, KhronosVersion.ApiWgl);
+				bool ret = a <= b;
+			});
+
+			a = new KhronosVersion(1, 0, 0, "api");
+			Assert.IsFalse(a <= null);
+			Assert.IsFalse(null <= a);
+			Assert.IsTrue(a <= a);
+
+			b = new KhronosVersion(1, 1, 0, "api");
+			Assert.IsTrue(a <= b);
+
+			b = new KhronosVersion(1, 0, 0, "api");
+			Assert.IsTrue(a <= b);
+
+			b = new KhronosVersion(0, 9, 0, "api");
+			Assert.IsFalse(a <= b);
+		}
+
+		[Test]
 		public void KhronosVersion_Parse1()
 		{
+			Assert.Throws<ArgumentNullException>(() => KhronosVersion.Parse(null));
+			Assert.Throws<ArgumentException>(() => KhronosVersion.Parse("3"));
+			Assert.Throws<ArgumentException>(() => KhronosVersion.Parse("4a"));
+
 			KhronosVersion v;
 
 			// Parse x.y
@@ -240,23 +343,11 @@ namespace OpenGL.Test
 			Assert.AreEqual(null, v.Profile);
 		}
 
-		[Test(Description = "Parse(string input) ArgumentNullException")]
-		public void KhronosVersion_Parse1_ArgumentNullException()
-		{
-			Assert.Throws<ArgumentNullException>(() => KhronosVersion.Parse(null));
-		}
-
-		[Test(Description = "Parse(string input) ArgumentException")]
-		[TestCase("3")]
-		[TestCase("4a")]
-		public void KhronosVersion_Parse1_ArgumentException(string pattern)
-		{
-			Assert.Throws<ArgumentException>(() => KhronosVersion.Parse(pattern));
-		}
-
-		[Test(Description = "Parse(string input, string api)")]
+		[Test]
 		public void KhronosVersion_Parse2()
 		{
+			Assert.Throws<ArgumentNullException>(() => KhronosVersion.Parse(null, KhronosVersion.ApiEgl));
+
 			KhronosVersion v;
 
 			// Parse x.y
@@ -276,13 +367,7 @@ namespace OpenGL.Test
 			Assert.AreEqual(null, v.Profile);
 		}
 
-		[Test(Description = "Parse(string input, string api) ArgumentNullException")]
-		public void KhronosVersion_Parse2_ArgumentNullException()
-		{
-			Assert.Throws<ArgumentNullException>(() => KhronosVersion.Parse(null, KhronosVersion.ApiEgl));
-		}
-
-		[Test(Description = "ToString()")]
+		[Test]
 		public void KhronosVersion_ToString()
 		{
 			Assert.DoesNotThrow(() => new KhronosVersion(1, 0, KhronosVersion.ApiGl));
@@ -297,7 +382,7 @@ namespace OpenGL.Test
 			public DerivedVersion() : base(1, 0, ApiGl) { }
 		}
 
-		[Test(Description = "Test Equals(object obj)")]
+		[Test]
 		public void KhronosVersion_Equals()
 		{
 			KhronosVersion v;
@@ -313,7 +398,7 @@ namespace OpenGL.Test
 
 #if !MONODROID
 
-		[Test(Description = "Test GetHashCode()")]
+		[Test]
 		public void KhronosVersion_HashCode()
 		{
 			KhronosVersion v;
@@ -351,7 +436,7 @@ namespace OpenGL.Test
 
 #endif
 
-		[Test(Description = "CompareTo(KhronosVersion other)")]
+		[Test]
 		public void KhronosVersion_CompareTo()
 		{
 			KhronosVersion a, b;

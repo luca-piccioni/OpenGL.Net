@@ -33,7 +33,6 @@ namespace OpenGL.Test
 		public void GlslVersion_Constructor1()
 		{
 			Assert.Throws<ArgumentNullException>(() => new GlslVersion(1, 1, null));
-			Assert.Throws<ArgumentException>(() => new GlslVersion(0, 1, "api"));
 			Assert.Throws<ArgumentException>(() => new GlslVersion(1, -1, "api"));
 
 			GlslVersion version;

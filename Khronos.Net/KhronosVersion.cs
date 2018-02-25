@@ -1,5 +1,5 @@
 ﻿
-// Copyright (C) 2015-2017 Luca Piccioni
+// Copyright (C) 2015-2018 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -121,8 +121,8 @@ namespace Khronos
 		/// </exception>
 		public KhronosVersion(int major, int minor, int revision, string api, string profile)
 		{
-			if (major <= 0)
-				throw new ArgumentException("less or equal to 0 not allowed", nameof(major));
+			if (major < 0)
+				throw new ArgumentException("less than 0 not allowed", nameof(major));
 			if (minor < 0)
 				throw new ArgumentException("less than 0 not allowed", nameof(minor));
 			if (revision < 0)
@@ -278,7 +278,7 @@ namespace Khronos
 		/// </summary>
 		public virtual int VersionId
 		{
-			get { return (Major * 100 + Minor * 10); }
+			get { return Major * 100 + Minor * 10; }
 		}
 
 		#endregion
@@ -324,11 +324,11 @@ namespace Khronos
 		public static bool operator ==(KhronosVersion left, KhronosVersion right)
 		{
 			if (ReferenceEquals(left, right))
-				return (true);
+				return true;
 			if (ReferenceEquals(left, null))
-				return (false);
+				return false;
 
-			return (left.Equals(right));
+			return left.Equals(right);
 		}
 
 		/// <summary>
@@ -346,11 +346,11 @@ namespace Khronos
 		public static bool operator !=(KhronosVersion left, KhronosVersion right)
 		{
 			if (ReferenceEquals(left, right))
-				return (false);
+				return false;
 			if (ReferenceEquals(left, null))
-				return (false);
+				return false;
 
-			return (!left.Equals(right));
+			return !left.Equals(right);
 		}
 
 		/// <summary>
@@ -371,11 +371,13 @@ namespace Khronos
 		public static bool operator >(KhronosVersion left, KhronosVersion right)
 		{
 			if (ReferenceEquals(left, right))
-				return (false);
+				return false;
 			if (ReferenceEquals(left, null))
-				return (false);
+				return false;
+			if (ReferenceEquals(right, null))
+				return false;
 
-			return (left.CompareTo(right) > 0);
+			return left.CompareTo(right) > 0;
 		}
 
 		/// <summary>
@@ -396,11 +398,13 @@ namespace Khronos
 		public static bool operator <(KhronosVersion left, KhronosVersion right)
 		{
 			if (ReferenceEquals(left, right))
-				return (false);
+				return false;
 			if (ReferenceEquals(left, null))
-				return (true);
+				return false;
+			if (ReferenceEquals(right, null))
+				return false;
 
-			return (left.CompareTo(right) < 0);
+			return left.CompareTo(right) < 0;
 		}
 
 		/// <summary>
@@ -421,11 +425,13 @@ namespace Khronos
 		public static bool operator >=(KhronosVersion left, KhronosVersion right)
 		{
 			if (ReferenceEquals(left, right))
-				return (false);
+				return true;
 			if (ReferenceEquals(left, null))
-				return (false);
+				return false;
+			if (ReferenceEquals(right, null))
+				return false;
 
-			return (left.CompareTo(right) >= 0);
+			return left.CompareTo(right) >= 0;
 		}
 
 		/// <summary>
@@ -446,11 +452,13 @@ namespace Khronos
 		public static bool operator <=(KhronosVersion left, KhronosVersion right)
 		{
 			if (ReferenceEquals(left, right))
-				return (false);
+				return true;
 			if (ReferenceEquals(left, null))
-				return (true);
+				return false;
+			if (ReferenceEquals(right, null))
+				return false;
 
-			return (left.CompareTo(right) <= 0);
+			return left.CompareTo(right) <= 0;
 		}
 
 		#endregion
@@ -464,22 +472,22 @@ namespace Khronos
 
 			// Shortcut for ES1
 			if (featureName == "GL_VERSION_ES_CM_1_0")
-				return (new KhronosVersion(1, 0, 0, ApiGles1));
+				return new KhronosVersion(1, 0, 0, ApiGles1);
 			// Shortcut for SC2
 			if (featureName == "GL_SC_VERSION_2_0")
-				return (new KhronosVersion(2, 0, 0, ApiGlsc2));
+				return new KhronosVersion(2, 0, 0, ApiGlsc2);
 
 			// Match GL|GLES|GLSC|WGL|GLX|EGL versions
 			Match versionMatch = Regex.Match(featureName, @"(?<Api>GL|GL_ES|GL_SC|WGL|GLX|EGL)_VERSION_(?<Major>\d+)_(?<Minor>\d+)");
 			if (versionMatch.Success == false) {
 				if (throwException)
 					throw new ArgumentException("unrecognized pattern", nameof(featureName));
-				return (null);
+				return null;
 			}
 			
 			string api = versionMatch.Groups["Api"].Value;
-			int major = Int32.Parse(versionMatch.Groups["Major"].Value);
-			int minor = Int32.Parse(versionMatch.Groups["Minor"].Value);
+			int major = int.Parse(versionMatch.Groups["Major"].Value);
+			int minor = int.Parse(versionMatch.Groups["Minor"].Value);
 
 			switch (api) {
 				case "GL":
@@ -502,7 +510,7 @@ namespace Khronos
 					break;
 			}
 
-			return (new KhronosVersion(major, minor, api));
+			return new KhronosVersion(major, minor, api);
 		}
 
 		/// <summary>
@@ -522,7 +530,7 @@ namespace Khronos
 		/// </exception>
 		public static KhronosVersion Parse(string input)
 		{
-			return (Parse(input, null));
+			return Parse(input, null);
 		}
 
 		/// <summary>
@@ -552,11 +560,11 @@ namespace Khronos
 			// Determine version value (support up to 3 version numbers)
 			Match versionMatch = Regex.Match(input, @"(?<Major>\d+)\.(?<Minor>\d+)(\.(?<Rev>\d+))?");
 			if (versionMatch.Success == false)
-				throw new ArgumentException(String.Format("unrecognized pattern '{0}'", input), nameof(input));
+				throw new ArgumentException($"unrecognized pattern '{input}'", nameof(input));
 
-			int versionMajor = Int32.Parse(versionMatch.Groups["Major"].Value);
-			int versionMinor = Int32.Parse(versionMatch.Groups["Minor"].Value);
-			int versionRev = versionMatch.Groups["Rev"].Success ? Int32.Parse(versionMatch.Groups["Rev"].Value) : 0;
+			int versionMajor = int.Parse(versionMatch.Groups["Major"].Value);
+			int versionMinor = int.Parse(versionMatch.Groups["Minor"].Value);
+			int versionRev = versionMatch.Groups["Rev"].Success ? int.Parse(versionMatch.Groups["Rev"].Value) : 0;
 
 			if (versionMinor >= 10 && versionMinor % 10 == 0)
 				versionMinor /= 10;
@@ -566,7 +574,6 @@ namespace Khronos
 					case 1:
 						api = ApiGles1;
 						break;
-					case 2:
 					default:
 						api = ApiGles2;
 						break;
@@ -576,7 +583,7 @@ namespace Khronos
 					api = ApiGl;
 			}
 
-			return (new KhronosVersion(versionMajor, versionMinor, versionRev, api));
+			return new KhronosVersion(versionMajor, versionMinor, versionRev, api);
 		}
 
 		#endregion
@@ -599,16 +606,16 @@ namespace Khronos
 
 			// Different API are incompatible
 			if (Api != other.Api)
-				return (false);
+				return false;
 
 			if (Major < other.Major)
-				return (false);
+				return false;
 			if (Minor < other.Minor)
-				return (false);
+				return false;
 			if (Revision < other.Revision)
-				return (false);
+				return false;
 
-			return (true);
+			return true;
 		}
 
 		#endregion
@@ -628,13 +635,13 @@ namespace Khronos
 			sb.AppendFormat("Version={0}.{1}", Major, Minor);
 			if (Revision != 0)
 				sb.AppendFormat("{0}", Revision);
-			if (String.IsNullOrEmpty(Api) == false)
+			if (string.IsNullOrEmpty(Api) == false)
 				sb.AppendFormat(" API={0}", Api);
 			
 			if (Profile != null)
 				sb.AppendFormat(" Profile={0}", Profile);
 
-			return (sb.ToString());
+			return sb.ToString();
 		}
 
 		#endregion
@@ -653,24 +660,24 @@ namespace Khronos
 		public bool Equals(KhronosVersion other)
 		{
 			if (ReferenceEquals(null, other))
-				return (false);
+				return false;
 			if (ReferenceEquals(this, other))
-				return (true);
+				return true;
 
 			if (Api != other.Api)
-				return (false);
+				return false;
 			if (Major != other.Major)
-				return (false);
+				return false;
 			if (Minor != other.Minor)
-				return (false);
+				return false;
 			if (Revision != other.Revision)
-				return (false);
+				return false;
 
 			// Note: any null profile match any other profile, and viceversa
 			if (Profile != null && other.Profile != null && Profile != other.Profile)
-				return (false);
+				return false;
 
-			return (true);
+			return true;
 		}
 
 		/// <summary>
@@ -685,19 +692,19 @@ namespace Khronos
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
-				return (false);
+				return false;
 			if (ReferenceEquals(this, obj))
-				return (true);
+				return true;
 
 #if NETSTANDARD1_1 || NETSTANDARD1_4 || NETCORE
 			if ((obj.GetType() != typeof(KhronosVersion)) && (obj.GetType().GetTypeInfo().IsSubclassOf(typeof(KhronosVersion)) == false))
 				return (false);
 #else
-			if ((obj.GetType() != typeof(KhronosVersion)) && (obj.GetType().IsSubclassOf(typeof(KhronosVersion)) == false))
-				return (false);
+			if (obj.GetType() != typeof(KhronosVersion) && obj.GetType().IsSubclassOf(typeof(KhronosVersion)) == false)
+				return false;
 #endif
 
-			return (Equals((KhronosVersion)obj));
+			return Equals((KhronosVersion)obj);
 		}
 
 		/// <summary>
@@ -719,7 +726,7 @@ namespace Khronos
 				if (Profile != null)
 					result = (result * 397) ^ Profile.GetHashCode();
 
-				return (result);
+				return result;
 			}
 		}
 
@@ -743,26 +750,26 @@ namespace Khronos
 		public int CompareTo(KhronosVersion other)
 		{
 			if (ReferenceEquals(this, other))
-				return (0);
+				return 0;
 			if (ReferenceEquals(null, other))
-				return (+1);
+				return +1;
 
 			if (Api != other.Api)
 				throw new InvalidOperationException("different API version are not comparable");
 
 			int majorCompareTo = Major.CompareTo(other.Major);
 			if (majorCompareTo != 0)
-				return (majorCompareTo);
+				return majorCompareTo;
 
 			int minorCompareTo = Minor.CompareTo(other.Minor);
 			if (minorCompareTo != 0)
-				return (minorCompareTo);
+				return minorCompareTo;
 
 			int revCompareTo = Revision.CompareTo(other.Revision);
 			if (revCompareTo != 0)
-				return (revCompareTo);
+				return revCompareTo;
 
-			return (0);
+			return 0;
 		}
 
 		#endregion
@@ -777,38 +784,38 @@ namespace Khronos
 	{
 		public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)
 		{
-			return (sourceType == typeof(string) || base.CanConvertFrom(context, sourceType));
+			return sourceType == typeof(string) || base.CanConvertFrom(context, sourceType);
 		}
 
 		public override object ConvertFrom(ITypeDescriptorContext context, System.Globalization.CultureInfo culture, object value)
 		{
-			if (Object.ReferenceEquals(value, null))
-				return base.ConvertFrom(context, culture, value);
+			if (ReferenceEquals(value, null))
+				return base.ConvertFrom(context, culture, null);
 			
 			Type valueType = value.GetType();
 
 			if (valueType == typeof(string)) {
 				string valueString = (string)value;
 
-				if (valueString == String.Empty)
-					return (null);
+				if (valueString == string.Empty)
+					return null;
 
-				return (KhronosVersion.Parse(valueString));
+				return KhronosVersion.Parse(valueString);
 			}
 
 			// Base implementation
-			return (base.ConvertFrom(context, culture, value));
+			return base.ConvertFrom(context, culture, value);
 		}
 
 		public override bool CanConvertTo(ITypeDescriptorContext context, Type destinationType)
 		{
 			if (destinationType == typeof(string)) 
-				return (true);
+				return true;
 			if (destinationType == typeof(InstanceDescriptor)) 
-				return (true);
+				return true;
 
 			// Base implementation
-			return (base.CanConvertTo(context, destinationType));
+			return base.CanConvertTo(context, destinationType);
 		}
 
 		public override object ConvertTo(ITypeDescriptorContext context, System.Globalization.CultureInfo culture, object value, Type destinationType)
@@ -817,9 +824,9 @@ namespace Khronos
 
 			if (version != null) {
 				if (destinationType == typeof(string)) {
-					return (version.ToString());
+					return version.ToString();
 				} else if (destinationType == typeof(InstanceDescriptor)) {
-					ConstructorInfo ctor = typeof(KhronosVersion).GetConstructor(new Type[] {
+					ConstructorInfo ctor = typeof(KhronosVersion).GetConstructor(new[] {
 						typeof(int), typeof(int), typeof(int), typeof(string), typeof(string)
 					});
 					if (ctor != null) 
@@ -829,11 +836,11 @@ namespace Khronos
 				}
 			} else {
 				if (destinationType == typeof(string))
-					return ("Current");
+					return "Current";
 			}
 
 			// Base implementation
-			return (base.ConvertTo(context, culture, value, destinationType));
+			return base.ConvertTo(context, culture, value, destinationType);
 		}
 	}
 
