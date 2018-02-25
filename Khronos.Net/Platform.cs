@@ -23,7 +23,6 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
-using System.Runtime.InteropServices;
 
 namespace Khronos
 {
@@ -38,7 +37,7 @@ namespace Khronos
 		static Platform()
 		{
 			// Cache platform ID
-			_CurrentPlatformId = GetCurrentPlatform();
+			CurrentPlatformId = GetCurrentPlatform();
 			// Detect Mono environment
 			_MonoVersion = DetectMonoEnvironment();
 		}
@@ -77,12 +76,7 @@ namespace Khronos
 		/// <summary>
 		/// Get the current platform ID.
 		/// </summary>
-		public static Id CurrentPlatformId { get { return (_CurrentPlatformId); } }
-		
-		/// <summary>
-		/// The current platform ID.
-		/// </summary>
-		private static Id _CurrentPlatformId;
+		public static Id CurrentPlatformId { get; internal set; }
 
 		/// <summary>
 		/// Detected the current platform at runtime.
@@ -97,25 +91,25 @@ namespace Khronos
 			// Framework platform
 			switch (Environment.OSVersion.Platform) {
 				case PlatformID.Win32NT:
-					return (Id.WindowsNT);
+					return Id.WindowsNT;
 				case PlatformID.Unix:
 					// Android special case
 					if (Type.GetType("Android.OS.Build, Mono.Android.dll") != null)
-						return (Id.Android);
+						return Id.Android;
 
 					// Other cases: Linux, MacOS
 					string unixName = DetectUnixKernel();
 
 					switch (unixName) {
 						case "Darwin":
-							return (Id.MacOS);
+							return Id.MacOS;
 						default:
-							return (Id.Linux);
+							return Id.Linux;
 					}
 				case PlatformID.MacOSX:
-					return (Id.MacOS);
+					return Id.MacOS;
 				default:
-					return (Id.Unknown);
+					return Id.Unknown;
 			}
 #else
 			if      (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
@@ -147,14 +141,14 @@ namespace Khronos
 #if NETSTANDARD1_1 || NETSTANDARD1_4
 			// XXX
 #else
-			ProcessStartInfo startInfo = new ProcessStartInfo();
+			ProcessStartInfo startInfo = new ProcessStartInfo {
+				Arguments = "-s",
+				RedirectStandardOutput = true,
+				RedirectStandardError = true,
+				UseShellExecute = false
+			};
 
-			startInfo.Arguments = "-s";
-			startInfo.RedirectStandardOutput = true;
-			startInfo.RedirectStandardError = true;
-			startInfo.UseShellExecute = false;
-
-			foreach (string unameprog in new string[] { "/usr/bin/uname", "/bin/uname", "uname" }) {
+			foreach (string unameprog in new[] { "/usr/bin/uname", "/bin/uname", "uname" }) {
 				// Avoid exception handling
 				if (File.Exists(unameprog) == false)
 					continue;
@@ -162,23 +156,23 @@ namespace Khronos
 				try {
 					startInfo.FileName = unameprog;
 					using (Process uname = Process.Start(startInfo)) {
-						return (uname.StandardOutput.ReadLine().Trim());
+						if (uname != null)
+							return uname.StandardOutput.ReadLine()?.Trim();
 					}
 				} catch (FileNotFoundException) {
 					// The requested executable doesn't exist, try next one.
-					continue;
 				} catch (System.ComponentModel.Win32Exception) {
-					continue;
+					// Fail-safe
 				}
 			}
 #endif
-			return (null);
+			return null;
 		}
 
 		/// <summary>
 		/// Get whether the running runtime is Mono.
 		/// </summary>
-		public static bool RunningMono { get { return (_MonoVersion != null); } }
+		public static bool RunningMono { get { return _MonoVersion != null; } }
 
 		/// <summary>
 		/// The Mono display name, if any.
@@ -207,9 +201,9 @@ namespace Khronos
 						runningVersion = getDisplayName.Invoke(null, new object[0]) as string;
 				} catch { /* Ignore */ }
 
-				return (runningVersion);
+				return runningVersion;
 			} else
-				return (null);
+				return null;
 		}
 	}
 }
