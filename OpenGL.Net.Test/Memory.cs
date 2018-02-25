@@ -28,25 +28,6 @@ namespace OpenGL.Test
 	[TestFixture, Category("Framework")]
 	internal class MemoryTest
 	{
-		[Test]
-		public static void Memory_TestCopy()
-		{
-			float[] a1 = new float[16];
-			for (int i = 0; i < a1.Length; i++)
-				a1[i] = TestContext.CurrentContext.Random.NextFloat();
-			float[] a2 = new float[a1.Length];
-
-			Memory.Copy(a2, a1, (uint)(4 * a1.Length));
-			for (int i = 0; i < a1.Length; i++)
-				Assert.AreEqual(a1[i], a2[i]);
-
-			uint[] ui1 = new uint[16];
-			for (int i = 0; i < ui1.Length; i++)
-				ui1[i] = 0x05050505;
-			byte[] b2 = new byte[ui1.Length * 4];
-			Memory.Copy(b2, ui1, (uint)b2.Length);
-			foreach (byte b in b2)
-				Assert.AreEqual((byte)0x05, b);
-		}
+		
 	}
 }

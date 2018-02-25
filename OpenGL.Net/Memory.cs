@@ -198,59 +198,6 @@ namespace OpenGL
 		/// Copy memory.
 		/// </summary>
 		/// <param name="dst">
-		/// A <see cref="IntPtr"/> that specify the address of the destination unmanaged memory.
-		/// </param>
-		/// <param name="src">
-		/// A <see cref="Array"/> that specify the source array object.
-		/// </param>
-		/// <param name="bytes">
-		/// A <see cref="ulong"/> that specify the number of bytes to copy.
-		/// </param>
-		public static void Copy(IntPtr dst, Array src, ulong bytes)
-		{
-			Copy(dst, src, 0, bytes);
-		}
-
-		/// <summary>
-		/// Copy memory from array to unmanaged memory.
-		/// </summary>
-		/// <param name="dst">
-		/// A <see cref="IntPtr"/> that specify the address of the destination unmanaged memory.
-		/// </param>
-		/// <param name="src">
-		/// A <see cref="Array"/> that specify the source array object.
-		/// </param>
-		/// <param name="srcOffset">
-		/// A <see cref="UInt32"/> that specify the offset to apply to memory copied from <paramref name="src"/>. This
-		/// value is expressed in bytes.
-		/// </param>
-		/// <param name="bytes">
-		/// A <see cref="ulong"/> that specify the number of bytes to copy.
-		/// </param>
-		public static void Copy(IntPtr dst, Array src, uint srcOffset, ulong bytes)
-		{
-			if (dst == IntPtr.Zero)
-				throw new ArgumentNullException(nameof(dst));
-			if (src == null)
-				throw new ArgumentNullException(nameof(src));
-			if (src.Rank > 1)
-				throw new ArgumentException("multidimensional array", nameof(src));
-
-			GCHandle srcArray = GCHandle.Alloc(src, GCHandleType.Pinned);
-			try {
-				IntPtr srcArrayPtr = new IntPtr(srcArray.AddrOfPinnedObject().ToInt64() + srcOffset);
-
-				// Copy from array to aligned buffer
-				_CopyPointer(dst.ToPointer(), srcArrayPtr.ToPointer(), bytes);
-			} finally {
-				srcArray.Free();
-			}
-		}
-
-		/// <summary>
-		/// Copy memory.
-		/// </summary>
-		/// <param name="dst">
 		/// A <see cref="Array"/> that specify the address of the destination unmanaged memory.
 		/// </param>
 		/// <param name="src">
@@ -272,36 +219,6 @@ namespace OpenGL
 					);
 			} finally {
 				dstArray.Free();
-			}
-		}
-
-		/// <summary>
-		/// Copy memory.
-		/// </summary>
-		/// <param name="dst">
-		/// A <see cref="Array"/> that specify the address of the destination unmanaged memory.
-		/// </param>
-		/// <param name="src">
-		/// A <see cref="Array"/> that specify the source array object.
-		/// </param>
-		/// <param name="bytes">
-		/// A <see cref="ulong"/> that specify the number of bytes to copy.
-		/// </param>
-		public static void Copy(Array dst, Array src, ulong bytes)
-		{
-			GCHandle dstArray = GCHandle.Alloc(dst, GCHandleType.Pinned);
-			GCHandle srcArray = GCHandle.Alloc(src, GCHandleType.Pinned);
-
-			try {
-				// Copy from array to aligned buffer
-				_CopyPointer(
-					dstArray.AddrOfPinnedObject().ToPointer(), 
-					srcArray.AddrOfPinnedObject().ToPointer(),
-					bytes
-					);
-			} finally {
-				dstArray.Free();
-				srcArray.Free();
 			}
 		}
 
