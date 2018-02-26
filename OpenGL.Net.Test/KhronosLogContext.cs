@@ -56,7 +56,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void KhronosLosContext_TestConstructur()
+		public void KhronosLosContext_Constructor()
 		{
 			KhronosLogContext ctx = null;
 
@@ -71,7 +71,7 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void KhronosLosContext_TestToString()
+		public void KhronosLosContext_ToString()
 		{
 			KhronosLogContext ctx = new KhronosLogContext(typeof(TestApi));
 
