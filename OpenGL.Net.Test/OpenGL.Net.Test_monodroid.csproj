@@ -101,6 +101,7 @@
     <Compile Include="Angle.cs" />
     <Compile Include="GlslVersion.cs" />
     <Compile Include="KhronosLogContext.cs" />
+    <Compile Include="KhronosLogMap.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="MemoryLock.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />

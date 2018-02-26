@@ -49,15 +49,16 @@ namespace Khronos
 #endif
 		public Command[] Commands
 		{
-			get { return (_Commands.Values.ToArray()); }
+			get { return _Commands.Values.ToArray(); }
 			set
 			{
 				_Commands.Clear();
 
-				if (value != null) {
-					foreach (Command command in value)
-						_Commands[command.Name] = command;
-				}
+				if (value == null)
+					return;
+
+				foreach (Command command in value)
+					_Commands[command.Name] = command;
 			}
 		}
 
@@ -124,14 +125,16 @@ namespace Khronos
 		/// <returns>
 		/// It returns the <see cref="KhronosLogMap"/> loaded from <paramref name="resourcePath"/>.
 		/// </returns>
-		public static KhronosLogMap Load(string resourcePath)
+		internal static KhronosLogMap Load(string resourcePath)
 		{
 			if (resourcePath == null)
 				throw new ArgumentNullException(nameof(resourcePath));
 
 #if NETFRAMEWORK
 			using (Stream xmlStream = Assembly.GetCallingAssembly().GetManifestResourceStream(resourcePath)) {
-				return ((KhronosLogMap)_XmlSerializer.Deserialize(xmlStream));
+				if (xmlStream == null)
+					throw new ArgumentException($"resource {resourcePath} not defined in calling assembly", nameof(resourcePath));
+				return (KhronosLogMap)_XmlSerializer.Deserialize(xmlStream);
 			}
 #else
 			throw new NotImplementedException();
@@ -147,7 +150,7 @@ namespace Khronos
 		/// <param name="logMap">
 		/// The <see cref="KhronosLogMap"/> to be serialized into <paramref name="resourcePath"/>.
 		/// </param>
-		public static void Save(string resourcePath, KhronosLogMap logMap)
+		internal static void Save(string resourcePath, KhronosLogMap logMap)
 		{
 			if (resourcePath == null)
 				throw new ArgumentNullException(nameof(resourcePath));
@@ -167,29 +170,37 @@ namespace Khronos
 		/// <summary>
 		/// XML serializer used by <see cref="Load"/> for loading log maps.
 		/// </summary>
-		private static XmlSerializer _XmlSerializer = new XmlSerializer(typeof(KhronosLogMap));
+		private static readonly XmlSerializer _XmlSerializer = new XmlSerializer(typeof(KhronosLogMap));
 #endif
 
 		#endregion
 
 		#region Information Query
 
-		public string GetCommandParameterName(string commandName, int paramIndex)
-		{
-			CommandParam commandParam = GetCommandParam(commandName, paramIndex);
-			if (commandParam == null)
-				return (String.Format("param{0}", paramIndex));
+		//public string GetCommandParameterName(string commandName, int paramIndex)
+		//{
+		//	CommandParam commandParam = GetCommandParam(commandName, paramIndex);
 
-			return (commandParam.Name);
-		}
+		//	return commandParam == null ? $"param{paramIndex}" : commandParam.Name;
+		//}
 
+		/// <summary>
+		/// Get the flags associated to the parameters of a command.
+		/// </summary>
+		/// <param name="commandName">
+		/// A <see cref="string"/> that specify the name of the command.
+		/// </param>
+		/// <param name="paramIndex">
+		/// A <see cref="int"/> that specify the index of the parameter (zero based).
+		/// </param>
+		/// <returns>
+		/// It returns the <see cref="KhronosLogCommandParameterFlags"/> associated with the parameter.
+		/// </returns>
 		public KhronosLogCommandParameterFlags GetCommandParameterFlag(string commandName, int paramIndex)
 		{
 			CommandParam commandParam = GetCommandParam(commandName, paramIndex);
-			if (commandParam == null)
-				return (KhronosLogCommandParameterFlags.None);
 
-			return (commandParam.Flags);
+			return commandParam?.Flags ?? KhronosLogCommandParameterFlags.None;
 		}
 
 		private Command GetCommand(string commandName)
@@ -200,9 +211,9 @@ namespace Khronos
 			Command command;
 
 			if (_Commands.TryGetValue(commandName, out command))
-				return (command);
+				return command;
 
-			return (null);
+			return null;
 		}
 
 		private CommandParam GetCommandParam(string commandName, int paramIndex)
@@ -212,12 +223,12 @@ namespace Khronos
 
 			Command command = GetCommand(commandName);
 			if (command == null)
-				return (null);
+				return null;
 
 			if (paramIndex >= command.Params.Length)
 				throw new ArgumentOutOfRangeException(nameof(paramIndex), paramIndex, "greater than the number of parameters");
 
-			 return (command.Params[paramIndex]);
+			 return command.Params[paramIndex];
 		}
 
 		#endregion

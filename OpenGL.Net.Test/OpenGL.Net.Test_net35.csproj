@@ -24,7 +24,7 @@
     <Optimize>false</Optimize>
     <OutputPath>bin\net35\Debug\</OutputPath>
     <BaseIntermediateOutputPath>obj\net35</BaseIntermediateOutputPath>
-    <DefineConstants>TRACE;DEBUG;HAVE_SYSTEM_DRAWING</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;NETFRAMEWORK;HAVE_SYSTEM_DRAWING</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -34,7 +34,7 @@
     <Optimize>true</Optimize>
     <OutputPath>bin\net35\Release\</OutputPath>
     <BaseIntermediateOutputPath>obj\net35</BaseIntermediateOutputPath>
-    <DefineConstants>TRACE;HAVE_SYSTEM_DRAWING</DefineConstants>
+    <DefineConstants>TRACE;NETFRAMEWORK;HAVE_SYSTEM_DRAWING</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -43,7 +43,7 @@
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\net35\x86\Debug\</OutputPath>
     <BaseIntermediateOutputPath>obj\net35</BaseIntermediateOutputPath>
-    <DefineConstants>TRACE;DEBUG;HAVE_SYSTEM_DRAWING</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;NETFRAMEWORK;HAVE_SYSTEM_DRAWING</DefineConstants>
     <DebugType>full</DebugType>
     <PlatformTarget>x86</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
@@ -55,7 +55,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\net35\x86\Release\</OutputPath>
     <BaseIntermediateOutputPath>obj\net35</BaseIntermediateOutputPath>
-    <DefineConstants>TRACE;HAVE_SYSTEM_DRAWING</DefineConstants>
+    <DefineConstants>TRACE;NETFRAMEWORK;HAVE_SYSTEM_DRAWING</DefineConstants>
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>x86</PlatformTarget>
@@ -67,7 +67,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\x64\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;HAVE_SYSTEM_DRAWING</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;NETFRAMEWORK;HAVE_SYSTEM_DRAWING</DefineConstants>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <DebugType>full</DebugType>
     <PlatformTarget>x64</PlatformTarget>
@@ -76,7 +76,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutputPath>bin\x64\Release\</OutputPath>
-    <DefineConstants>TRACE;HAVE_SYSTEM_DRAWING</DefineConstants>
+    <DefineConstants>TRACE;NETFRAMEWORK;HAVE_SYSTEM_DRAWING</DefineConstants>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
@@ -117,6 +117,7 @@
     <Compile Include="EglException.cs" />
     <Compile Include="GlslVersion.cs" />
     <Compile Include="KhronosLogContext.cs" />
+    <Compile Include="KhronosLogMap.cs" />
     <Compile Include="Matrix.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
