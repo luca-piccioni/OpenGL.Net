@@ -184,8 +184,8 @@ namespace BindingsGen.GLSpecs
 			});
 
 			features.Sort(delegate(Feature x, Feature y) {
-				Khronos.KhronosVersion xVersion = Khronos.KhronosVersion.ParseFeature(x.Name, false);
-				Khronos.KhronosVersion yVersion = Khronos.KhronosVersion.ParseFeature(y.Name, false);
+				Khronos.KhronosVersion xVersion = Khronos.KhronosVersion.ParseFeature(x.Name);
+				Khronos.KhronosVersion yVersion = Khronos.KhronosVersion.ParseFeature(y.Name);
 
 				if (xVersion.Api != yVersion.Api) {
 					int xPriority = GetVersionApiPriority(xVersion.Api);

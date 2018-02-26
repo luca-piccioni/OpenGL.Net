@@ -465,7 +465,16 @@ namespace Khronos
 
 		#region String Parsing
 
-		internal static KhronosVersion ParseFeature(string featureName, bool throwException)
+		/// <summary>
+		/// Internal method for parsing GL specification features.
+		/// </summary>
+		/// <param name="featureName">
+		/// A <see cref="string"/> that specify the feature name (i.e. GL_VERSION_1_0).
+		/// </param>
+		/// <returns>
+		/// It returns the <see cref="KhronosVersion"/> corresponding to <paramref name="featureName"/>.
+		/// </returns>
+		internal static KhronosVersion ParseFeature(string featureName)
 		{
 			if (featureName == null)
 				throw new ArgumentNullException(nameof(featureName));
@@ -473,17 +482,11 @@ namespace Khronos
 			// Shortcut for ES1
 			if (featureName == "GL_VERSION_ES_CM_1_0")
 				return new KhronosVersion(1, 0, 0, ApiGles1);
-			// Shortcut for SC2
-			if (featureName == "GL_SC_VERSION_2_0")
-				return new KhronosVersion(2, 0, 0, ApiGlsc2);
 
 			// Match GL|GLES|GLSC|WGL|GLX|EGL versions
-			Match versionMatch = Regex.Match(featureName, @"(?<Api>GL|GL_ES|GL_SC|WGL|GLX|EGL)_VERSION_(?<Major>\d+)_(?<Minor>\d+)");
-			if (versionMatch.Success == false) {
-				if (throwException)
-					throw new ArgumentException("unrecognized pattern", nameof(featureName));
+			Match versionMatch = Regex.Match(featureName, @"(?<Api>GL(_(ES|SC|))?|WGL|GLX|EGL)_VERSION_(?<Major>\d+)_(?<Minor>\d+)");
+			if (versionMatch.Success == false)
 				return null;
-			}
 			
 			string api = versionMatch.Groups["Api"].Value;
 			int major = int.Parse(versionMatch.Groups["Major"].Value);

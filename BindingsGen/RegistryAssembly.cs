@@ -247,7 +247,7 @@ namespace BindingsGen
 		private static bool IsCompatible_RequiredAttribute(RegistryAssemblyConfiguration cfg, CustomAttribute customAttrib)
 		{
 			string featureName = customAttrib.ConstructorArguments[0].Value as string;
-			KhronosVersion attribVersion = KhronosVersion.ParseFeature(featureName, false);
+			KhronosVersion attribVersion = KhronosVersion.ParseFeature(featureName);
 
 			// Match at least one feature?
 			bool compatible = false;
@@ -290,7 +290,7 @@ namespace BindingsGen
 		private static bool IsCompatible_RemovedAttribute(RegistryAssemblyConfiguration cfg, CustomAttribute customAttrib)
 		{
 			string featureName = customAttrib.ConstructorArguments[0].Value as string;
-			KhronosVersion attribVersion = KhronosVersion.ParseFeature(featureName, false);
+			KhronosVersion attribVersion = KhronosVersion.ParseFeature(featureName);
 
 			if (attribVersion == null)
 				return true;

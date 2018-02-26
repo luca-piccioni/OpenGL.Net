@@ -46,7 +46,7 @@ namespace Khronos
 			if (String.IsNullOrEmpty(featureName))
 				throw new ArgumentException("null or empty feature not allowed", nameof(featureName));
 			FeatureName = featureName;
-			FeatureVersion = KhronosVersion.ParseFeature(FeatureName, false);
+			FeatureVersion = KhronosVersion.ParseFeature(FeatureName);
 		}
 
 		#endregion
