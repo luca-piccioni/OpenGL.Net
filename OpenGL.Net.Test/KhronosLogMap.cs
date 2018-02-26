@@ -20,11 +20,10 @@
 // SOFTWARE.
 
 using System;
-using System.Diagnostics.CodeAnalysis;
-using System.IO;
-using Khronos;
 
 using NUnit.Framework;
+
+using Khronos;
 
 namespace OpenGL.Test
 {
