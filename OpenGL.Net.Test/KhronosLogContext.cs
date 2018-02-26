@@ -52,7 +52,9 @@ namespace OpenGL.Test
 			/// Value ignored because it is not a literal.
 			/// </summary>
 			[RequiredByFeature("GL_TEST")]
+#pragma warning disable 169
 			public static readonly int IGNORED2 = -2;
+#pragma warning restore 169
 		}
 
 		[Test]
@@ -73,7 +75,19 @@ namespace OpenGL.Test
 		[Test]
 		public void KhronosLosContext_ToString()
 		{
-			KhronosLogContext ctx = new KhronosLogContext(typeof(TestApi));
+			KhronosLogMap m = new KhronosLogMap {
+				Commands = new[] {
+					new KhronosLogMap.Command {
+						Name = "glCommand2",
+						Params = new[] {
+							new KhronosLogMap.CommandParam {Name = "arg0", Flags = KhronosLogCommandParameterFlags.Enum},
+							new KhronosLogMap.CommandParam {Name = "arg1", Flags = KhronosLogCommandParameterFlags.None},
+							new KhronosLogMap.CommandParam {Name = "arg2", /* Flags defaults to None */}
+						}
+					}
+				}
+			};
+			KhronosLogContext ctx = new KhronosLogContext(typeof(TestApi), m);
 
 			Assert.Throws<ArgumentNullException>(() => ctx.ToString(null, null, null));
 
@@ -82,8 +96,13 @@ namespace OpenGL.Test
 			Assert.AreEqual("glCommand(15)", ctx.ToString("glCommand", null, new object[] { 15 }));
 			Assert.AreEqual("glCommand(\"value\")", ctx.ToString("glCommand", null, new object[] { "value" }));
 			Assert.AreEqual("glCommand(0x00000000)", ctx.ToString("glCommand", null, new object[] { IntPtr.Zero }));
-			Assert.AreEqual("glCommand({15,16,17})", ctx.ToString("glCommand", null, new object[] { new int[] { 15, 16, 17 } }));
+			Assert.AreEqual("glCommand({15,16,17})", ctx.ToString("glCommand", null, new object[] { new[] { 15, 16, 17 } }));
+			Assert.AreEqual("glCommand({15,16,17}, 18, 19)", ctx.ToString("glCommand", null, new object[] { new[] { 15, 16, 17 }, 18, 19 }));
+			Assert.AreEqual("glCommand({a,b,c}, 18, 19)", ctx.ToString("glCommand", null, new object[] { new[] { "a", "b", "c" }, 18, 19 }));
+			Assert.AreEqual("glCommand(null)", ctx.ToString("glCommand", null, new object[] { null } ));
 
+			Assert.AreEqual("glCommand2(NONE, 0, 0)", ctx.ToString("glCommand2", null, new object[] { 0, 0, 0 }));
+			Assert.AreEqual("glCommand2({ONE,TWO}, 1, 2)", ctx.ToString("glCommand2", null, new object[] { new[] { 1, 2 }, 1, 2 }));
 		}
 	}
 }

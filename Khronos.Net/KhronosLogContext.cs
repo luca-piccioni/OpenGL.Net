@@ -1,5 +1,5 @@
 ﻿
-// Copyright (C) 2017 Luca Piccioni
+// Copyright (C) 2017-2018 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -43,14 +43,33 @@ namespace Khronos
 		/// <param name="khronoApiType">
 		/// A <see cref="Type"/> that specifies the type of the class where to query log information.
 		/// </param>
-		public KhronosLogContext(Type khronoApiType)
+		public KhronosLogContext(Type khronoApiType) :
+			this(khronoApiType, null)
+		{
+			
+		}
+
+		/// <summary>
+		/// Construct a KhronosLogContext.
+		/// </summary>
+		/// <param name="khronoApiType">
+		/// A <see cref="Type"/> that specifies the type of the class where to query log information.
+		/// </param>
+		/// <param name="logMap">
+		/// A <see cref="KhronosLogMap"/> holding metadata for <paramref name="khronoApiType"/>.
+		/// </param>
+		public KhronosLogContext(Type khronoApiType, KhronosLogMap logMap)
 		{
 			QueryLogContext(khronoApiType);
+
+			if (logMap == null) {
 #if HAVE_SYSTEM_XML
-			try {
-				_LogMap = KhronosLogMap.Load($"OpenGL.KhronosLogMap{khronoApiType.Name}.xml");
-			} catch { /* Fail-safe */ }
+				try {
+					_LogMap = KhronosLogMap.Load($"OpenGL.KhronosLogMap{khronoApiType.Name}.xml");
+				} catch { /* Fail-safe */ }
 #endif
+			} else
+				_LogMap = logMap;
 		}
 
 		#endregion
@@ -136,18 +155,12 @@ namespace Khronos
 
 			// Componse LogContext
 			_EnumNames = enumNames;
-			_EnumBitmasks = enumBitmasks;
 		}
 
 		/// <summary>
 		/// Enumeration names indexed by their value.
 		/// </summary>
 		private Dictionary<long, string> _EnumNames;
-
-		/// <summary>
-		/// Enumeration names (indexed by their values) collected in enumeration bitmask.
-		/// </summary>
-		private Dictionary<string, Dictionary<long, string>> _EnumBitmasks;
 
 #if HAVE_SYSTEM_XML
 
@@ -194,7 +207,7 @@ namespace Khronos
 			}
 			sbFormat.Append(")");
 			if (returnValue != null)
-				sbFormat.AppendFormat(" = {{{0}}}", formatIdx++);
+				sbFormat.AppendFormat(" = {{{0}}}", formatIdx);
 
 			// Format arguments
 			List<object> formatArgs = new List<object> { name };
@@ -219,63 +232,60 @@ namespace Khronos
 
 		private object FormatArg(object arg, KhronosLogCommandParameterFlags flags)
 		{
+			if (arg == null)
+				return "null";
+
 			Type argType = arg.GetType();
 
 			if (argType == typeof(string[]))
-				return FormatArg((string[])arg, flags);
+				return FormatArg((string[])arg);
 			if (argType.IsArray)
 				return FormatArg((Array)arg, flags);
 
 			if (argType == typeof(string))
-				return FormatArg((string)arg, flags);
+				return FormatArg((string)arg);
 			if (argType == typeof(IntPtr))
-				return FormatArg((IntPtr)arg, flags);
+				return FormatArg((IntPtr)arg);
 			if (argType == typeof(int))
 				return FormatArg((int)arg, flags);
 			
 			return arg;
 		}
 
-		private object FormatArg(string[] arg, KhronosLogCommandParameterFlags flags)
+		private static object FormatArg(string[] arg)
 		{
-			if (arg != null) {
-				StringBuilder sb = new StringBuilder();
+			StringBuilder sb = new StringBuilder();
 
-				sb.Append("{");
-				foreach (string arrayItem in arg)
-					sb.AppendFormat("{0},", arrayItem.Replace("\n", "\\n"));
-				if (arg.Length > 0)
-					sb.Remove(sb.Length - 1, 1);
-				sb.Append("}");
+			sb.Append("{");
+			foreach (string arrayItem in arg)
+				sb.AppendFormat("{0},", arrayItem.Replace("\n", "\\n"));
+			if (arg.Length > 0)
+				sb.Remove(sb.Length - 1, 1);
+			sb.Append("}");
 
-				return sb.ToString();
-			} else
-				return "{ null }";
+			return sb.ToString();
 		}
 
 		private object FormatArg(Array arg, KhronosLogCommandParameterFlags flags)
 		{
-			if (arg != null) {
-				StringBuilder sb = new StringBuilder();
+			StringBuilder sb = new StringBuilder();
 
-				sb.Append("{");
-				foreach (object arrayItem in arg)
-					sb.AppendFormat("{0},", FormatArg(arrayItem, flags).ToString());
-				if (arg.Length > 0)
-					sb.Remove(sb.Length - 1, 1);
-				sb.Append("}");
+			sb.Append("{");
+			foreach (object arrayItem in arg)
+				sb.AppendFormat("{0},", FormatArg(arrayItem, flags).ToString());
+			if (arg.Length > 0)
+				sb.Remove(sb.Length - 1, 1);
+			sb.Append("}");
 
-				return sb.ToString();
-			} else
-				return "{ null }";
+			return sb.ToString();
 		}
 
-		private object FormatArg(IntPtr arg, KhronosLogCommandParameterFlags flags)
+		private static object FormatArg(IntPtr arg)
 		{
 			return "0x" + arg.ToString("X8");
 		}
 
-		private object FormatArg(string arg, KhronosLogCommandParameterFlags flags)
+		private static object FormatArg(string arg)
 		{
 			return "\"" + arg + "\"";
 		}
