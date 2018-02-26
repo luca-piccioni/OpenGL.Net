@@ -120,6 +120,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ColorRGBA.tt</DependentUpon>
     </Compile>
+    <Compile Include="GetProcAddressOS.cs" />
     <Compile Include="GlslVersion.cs" />
     <Compile Include="KhronosLogContext.cs" />
     <Compile Include="KhronosLogMap.cs" />

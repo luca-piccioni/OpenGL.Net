@@ -1,5 +1,5 @@
 
-// Copyright (C) 2009-2017 Luca Piccioni
+// Copyright (C) 2009-2018 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -25,6 +25,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 
 namespace Khronos
@@ -111,7 +112,7 @@ namespace Khronos
 				case Platform.Id.Android:
 					return new GetProcAddressEGL();
 				default:
-					throw new NotSupportedException(String.Format("platform {0} not supported", Platform.CurrentPlatformId));
+					throw new NotSupportedException($"platform {Platform.CurrentPlatformId} not supported");
 			}
 		}
 
@@ -145,7 +146,7 @@ namespace Khronos
 		/// </returns>
 		public static IntPtr GetProcAddress(string library, string function)
 		{
-			return (_GetProcAddressOS.GetProcAddress(library, function));
+			return _GetProcAddressOS.GetProcAddress(library, function);
 		}
 
 		#endregion
@@ -154,7 +155,7 @@ namespace Khronos
 	/// <summary>
 	/// Class able to get function pointers on Windows platform.
 	/// </summary>
-	class GetProcAddressWindows : IGetProcAddressOS
+	internal class GetProcAddressWindows : IGetProcAddressOS
 	{
 		#region Singleton
 
@@ -167,44 +168,13 @@ namespace Khronos
 
 		#region Windows Platform Imports
 
-		private enum LoadLibraryExFlags : uint
-		{
-			DONT_RESOLVE_DLL_REFERENCES =			0x00000001,
-
-			LOAD_IGNORE_CODE_AUTHZ_LEVEL =			0x00000010,
-
-			LOAD_LIBRARY_AS_DATAFILE =				0x00000002,
-
-			LOAD_LIBRARY_AS_DATAFILE_EXCLUSIVE =	0x00000040,
-
-			LOAD_LIBRARY_AS_IMAGE_RESOURCE =		0x00000020,
-
-			LOAD_LIBRARY_SEARCH_APPLICATION_DIR =	0x00000200,
-
-			LOAD_LIBRARY_SEARCH_DEFAULT_DIRS =		0x00001000,
-
-			LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR =		0x00000100,
-
-			LOAD_LIBRARY_SEARCH_SYSTEM32 =			0x00000800,
-
-			LOAD_LIBRARY_SEARCH_USER_DIRS =			0x00000400,
-
-			LOAD_WITH_ALTERED_SEARCH_PATH =			0x00000008,
-		}
-
 		static class UnsafeNativeMethods
 		{
 			[DllImport("Kernel32.dll", SetLastError = true)]
-			public static extern IntPtr LoadLibrary(String lpFileName);
-
-			[DllImport("Kernel32.dll", SetLastError = true)]
-			public static extern IntPtr LoadLibraryEx(String lpFilename, IntPtr hFile, LoadLibraryExFlags dwFlags);
-
-			[DllImport("Kernel32.dll", SetLastError = true)]
-			public static extern void FreeLibrary(IntPtr hModule);
+			public static extern IntPtr LoadLibrary(string lpFileName);
 
 			[DllImport("Kernel32.dll", EntryPoint = "GetProcAddress", CharSet = CharSet.Ansi, ExactSpelling = true, SetLastError = true)]
-			public static extern IntPtr Win32GetProcAddress(IntPtr hModule, String lpProcName);
+			public static extern IntPtr Win32GetProcAddress(IntPtr hModule, string lpProcName);
 		}
 
 		#endregion
@@ -227,7 +197,7 @@ namespace Khronos
 #else
 			string path = Environment.GetEnvironmentVariable("PATH");
 
-			Environment.SetEnvironmentVariable("PATH", String.Format("{0};{1}", path, libraryDirPath), EnvironmentVariableTarget.Process);
+			Environment.SetEnvironmentVariable("PATH", $"{path};{libraryDirPath}", EnvironmentVariableTarget.Process);
 #endif
 		}
 
@@ -247,7 +217,7 @@ namespace Khronos
 		{
 			IntPtr handle = GetLibraryHandle(library);
 
-			return (GetProcAddress(handle, function));
+			return GetProcAddress(handle, function);
 		}
 
 		/// <summary>
@@ -274,7 +244,7 @@ namespace Khronos
 			KhronosApi.LogFunction("GetProcAddress(0x{0}, {1}) = 0x{2}", library.ToString("X8"), function, procAddress.ToString("X8"));
 #endif
 
-			return (procAddress);
+			return procAddress;
 		}
 
 		/// <summary>
@@ -296,20 +266,14 @@ namespace Khronos
 #if PLATFORM_LOG_ENABLED
 				KhronosApi.LogFunction("LoadLibrary({0}) = 0x{1}", libraryPath, libraryHandle.ToString("X8"));
 #endif
-
 				_LibraryHandles.Add(libraryPath, libraryHandle);
 			}
 
 			if (libraryHandle == IntPtr.Zero)
-				throw new InvalidOperationException(String.Format("unable to load library at {0}", libraryPath), new Win32Exception(Marshal.GetLastWin32Error()));
+				throw new InvalidOperationException($"unable to load library at {libraryPath}", new Win32Exception(Marshal.GetLastWin32Error()));
 
-			return (libraryHandle);
+			return libraryHandle;
 		}
-
-		/// <summary>
-		/// The OpenGL library on Windows platform.
-		/// </summary>
-		private const string Library = "opengl32.dll";
 
 		/// <summary>
 		/// Currently loaded libraries.
@@ -322,7 +286,7 @@ namespace Khronos
 	/// <summary>
 	/// Class able to get function pointers on X11 platform.
 	/// </summary>
-	class GetProcAddressLinux : IGetProcAddressOS
+	internal class GetProcAddressLinux : IGetProcAddressOS
 	{
 		#region Singleton
 
@@ -335,6 +299,7 @@ namespace Khronos
 
 		#region X11 Platform Imports
 
+		[SuppressMessage("ReSharper", "InconsistentNaming")]
 		static class UnsafeNativeMethods
 		{
 			public const int RTLD_NOW = 2;
@@ -381,7 +346,7 @@ namespace Khronos
 		{
 			IntPtr handle = GetLibraryHandle(library);
 
-			return (GetProcAddress(handle, function));
+			return GetProcAddress(handle, function);
 		}
 
 		/// <summary>
@@ -403,12 +368,12 @@ namespace Khronos
 			if (function == null)
 				throw new ArgumentNullException(nameof(function));
 
-			return (UnsafeNativeMethods.dlsym(library, function));
+			return UnsafeNativeMethods.dlsym(library, function);
 		}
 
 		internal static IntPtr GetLibraryHandle(string libraryPath)
 		{
-			return (GetLibraryHandle(libraryPath, true));
+			return GetLibraryHandle(libraryPath, true);
 		}
 
 		internal static IntPtr GetLibraryHandle(string libraryPath, bool throws)
@@ -418,13 +383,13 @@ namespace Khronos
 			if (_LibraryHandles.TryGetValue(libraryPath, out libraryHandle) == false) {
 				if ((libraryHandle = UnsafeNativeMethods.dlopen(libraryPath, UnsafeNativeMethods.RTLD_NOW)) == IntPtr.Zero) {
 					if (throws)
-						throw new InvalidOperationException(String.Format("unable to load library at {0}", libraryPath), new InvalidOperationException(UnsafeNativeMethods.dlerror()));
+						throw new InvalidOperationException($"unable to load library at {libraryPath}", new InvalidOperationException(UnsafeNativeMethods.dlerror()));
 				}
 					
 				_LibraryHandles.Add(libraryPath, libraryHandle);
 			}
 
-			return (libraryHandle);
+			return libraryHandle;
 		}
 
 		/// <summary>
@@ -438,7 +403,7 @@ namespace Khronos
 	/// <summary>
 	/// Class able to get function pointers on OSX platform.
 	/// </summary>
-	class GetProcAddressOSX : IGetProcAddressOS
+	internal class GetProcAddressOSX : IGetProcAddressOS
 	{
 		#region Singleton
 
@@ -493,7 +458,7 @@ namespace Khronos
 		/// </returns>
 		public IntPtr GetProcAddress(string library, string function)
 		{
-			return (GetProcAddressCore(function));
+			return GetProcAddressCore(function);
 		}
 
 		/// <summary>
@@ -515,7 +480,7 @@ namespace Khronos
 			if (symbol != IntPtr.Zero)
 				symbol = UnsafeNativeMethods.NSAddressOfSymbol(symbol);
 
-			return (symbol);
+			return symbol;
 		}
 
 		/// <summary>
@@ -539,7 +504,7 @@ namespace Khronos
 		/// </returns>
 		public IntPtr GetProcAddress(string function)
 		{
-			return (GetProcAddressCore(function));
+			return GetProcAddressCore(function);
 		}
 
 		#endregion
@@ -548,7 +513,7 @@ namespace Khronos
 	/// <summary>
 	/// Class able to get function pointers on different platforms supporting EGL.
 	/// </summary>
-	class GetProcAddressEGL : IGetProcAddressOS
+	internal class GetProcAddressEGL : IGetProcAddressOS
 	{
 		#region Singleton
 
@@ -587,7 +552,7 @@ namespace Khronos
 		/// </returns>
 		public IntPtr GetProcAddress(string library, string function)
 		{
-			return (GetProcAddressCore(function));
+			return GetProcAddressCore(function);
 		}
 
 		/// <summary>
