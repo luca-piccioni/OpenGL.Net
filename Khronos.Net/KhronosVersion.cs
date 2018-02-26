@@ -637,7 +637,7 @@ namespace Khronos
 
 			sb.AppendFormat("Version={0}.{1}", Major, Minor);
 			if (Revision != 0)
-				sb.AppendFormat("{0}", Revision);
+				sb.AppendFormat(".{0}", Revision);
 			if (string.IsNullOrEmpty(Api) == false)
 				sb.AppendFormat(" API={0}", Api);
 			

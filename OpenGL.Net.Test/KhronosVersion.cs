@@ -302,6 +302,21 @@ namespace OpenGL.Test
 		}
 
 		[Test]
+		public void KhronosVersion_ParseFeature()
+		{
+			Assert.Throws<ArgumentNullException>(() => KhronosVersion.ParseFeature(null));
+
+			Assert.AreEqual(new KhronosVersion(1, 0, KhronosVersion.ApiGl), KhronosVersion.ParseFeature("GL_VERSION_1_0"));
+			Assert.AreEqual(new KhronosVersion(2, 1, KhronosVersion.ApiGl), KhronosVersion.ParseFeature("GL_VERSION_2_1"));
+			Assert.AreEqual(new KhronosVersion(1, 4, KhronosVersion.ApiEgl), KhronosVersion.ParseFeature("EGL_VERSION_1_4"));
+			Assert.AreEqual(new KhronosVersion(1, 4, KhronosVersion.ApiGlx), KhronosVersion.ParseFeature("GLX_VERSION_1_4"));
+			Assert.AreEqual(new KhronosVersion(1, 0, KhronosVersion.ApiWgl), KhronosVersion.ParseFeature("WGL_VERSION_1_0"));
+			Assert.AreEqual(new KhronosVersion(1, 0, KhronosVersion.ApiGles1), KhronosVersion.ParseFeature("GL_VERSION_ES_CM_1_0"));
+			Assert.AreEqual(new KhronosVersion(3, 2, KhronosVersion.ApiGles2), KhronosVersion.ParseFeature("GL_ES_VERSION_3_2"));
+			Assert.AreEqual(new KhronosVersion(2, 0, KhronosVersion.ApiGlsc2), KhronosVersion.ParseFeature("GL_SC_VERSION_2_0"));
+		}
+
+		[Test]
 		public void KhronosVersion_Parse1()
 		{
 			Assert.Throws<ArgumentNullException>(() => KhronosVersion.Parse(null));
@@ -334,7 +349,15 @@ namespace OpenGL.Test
 			Assert.AreEqual(KhronosVersion.ApiGles2, v.Api);
 			Assert.AreEqual(null, v.Profile);
 
-			// Parse x.y.z ES
+			// Parse 1.y.z ES
+			v = KhronosVersion.Parse("1.0 ES");
+			Assert.AreEqual(1, v.Major);
+			Assert.AreEqual(0, v.Minor);
+			Assert.AreEqual(0, v.Revision);
+			Assert.AreEqual(KhronosVersion.ApiGles1, v.Api);
+			Assert.AreEqual(null, v.Profile);
+
+			// Parse x.yz
 			v = KhronosVersion.Parse("4.50");
 			Assert.AreEqual(4, v.Major);
 			Assert.AreEqual(5, v.Minor);
@@ -368,13 +391,32 @@ namespace OpenGL.Test
 		}
 
 		[Test]
+		public void KhronosVersion_IsCompatible()
+		{
+			KhronosVersion v = new KhronosVersion(1, 0, KhronosVersion.ApiGl);
+
+			Assert.Throws<ArgumentNullException>(() => v.IsCompatible(null));
+			Assert.IsTrue(v.IsCompatible(v));
+			Assert.IsFalse(v.IsCompatible(new KhronosVersion(1, 0, KhronosVersion.ApiEgl)));
+			Assert.IsFalse(v.IsCompatible(new KhronosVersion(2, 0, KhronosVersion.ApiGl)));
+			Assert.IsFalse(v.IsCompatible(new KhronosVersion(1, 1, KhronosVersion.ApiGl)));
+			Assert.IsFalse(v.IsCompatible(new KhronosVersion(1, 0, 1, KhronosVersion.ApiGl)));
+		}
+
+		[Test]
+		[SuppressMessage("ReSharper", "ReturnValueOfPureMethodIsNotUsed")]
 		public void KhronosVersion_ToString()
 		{
-			Assert.DoesNotThrow(() => new KhronosVersion(1, 0, KhronosVersion.ApiGl));
-			Assert.DoesNotThrow(() => new KhronosVersion(1, 0, 3, KhronosVersion.ApiGl));
-			Assert.DoesNotThrow(() => new KhronosVersion(1, 0, 3, KhronosVersion.ApiGl, null));
-			Assert.DoesNotThrow(() => new KhronosVersion(1, 0, 3, KhronosVersion.ApiGl, KhronosVersion.ProfileCompatibility));
-			Assert.DoesNotThrow(() => new KhronosVersion(Gl.Version_150, KhronosVersion.ProfileCompatibility));
+			Assert.DoesNotThrow(() => new KhronosVersion(1, 0, KhronosVersion.ApiGl).ToString());
+			Assert.DoesNotThrow(() => new KhronosVersion(1, 0, 3, KhronosVersion.ApiGl).ToString());
+			Assert.DoesNotThrow(() => new KhronosVersion(1, 0, 3, KhronosVersion.ApiGl, null).ToString());
+			Assert.DoesNotThrow(() => new KhronosVersion(1, 0, 3, KhronosVersion.ApiGl, KhronosVersion.ProfileCompatibility).ToString());
+			Assert.DoesNotThrow(() => new KhronosVersion(Gl.Version_150, KhronosVersion.ProfileCompatibility).ToString());
+
+			Assert.AreEqual("Version=1.0 API=gl", new KhronosVersion(1, 0, KhronosVersion.ApiGl).ToString());
+			Assert.AreEqual("Version=2.0 API=egl", new KhronosVersion(2, 0, KhronosVersion.ApiEgl).ToString());
+			Assert.AreEqual("Version=1.0.3 API=gl", new KhronosVersion(1, 0, 3, KhronosVersion.ApiGl).ToString());
+			Assert.AreEqual("Version=3.2 API=gl Profile=compatibility",  new KhronosVersion(3, 2, 0, KhronosVersion.ApiGl, KhronosVersion.ProfileCompatibility).ToString());
 		}
 
 		class DerivedVersion : KhronosVersion
@@ -383,17 +425,44 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void KhronosVersion_Equals()
+		public void KhronosVersion_EqualsKhronosVersion()
+		{
+			KhronosVersion v = new KhronosVersion(1, 0, KhronosVersion.ApiGl);
+
+			Assert.IsFalse(v.Equals(null));
+			Assert.IsTrue(v.Equals(new DerivedVersion()));
+			Assert.IsTrue(v.Equals(v));
+
+			Assert.IsFalse(v.Equals(new KhronosVersion(1, 0, KhronosVersion.ApiEgl)));
+			Assert.IsFalse(v.Equals(new KhronosVersion(2, 0, KhronosVersion.ApiGl)));
+			Assert.IsFalse(v.Equals(new KhronosVersion(1, 1, KhronosVersion.ApiGl)));
+			Assert.IsFalse(v.Equals(new KhronosVersion(1, 0, 1, KhronosVersion.ApiGl)));
+
+			// No profile matches versions with profile
+			Assert.IsTrue(v.Equals(new KhronosVersion(1, 0, 0, KhronosVersion.ApiGl, KhronosVersion.ProfileCore)));
+			// If profile defined, it must match
+			Assert.IsTrue(
+				new KhronosVersion(1, 0, 0, KhronosVersion.ApiGl, KhronosVersion.ProfileCompatibility).Equals(
+				new KhronosVersion(1, 0, 0, KhronosVersion.ApiGl, KhronosVersion.ProfileCompatibility))
+			);
+			Assert.IsFalse(
+				new KhronosVersion(1, 0, 0, KhronosVersion.ApiGl, KhronosVersion.ProfileCompatibility).Equals(
+				new KhronosVersion(1, 0, 0, KhronosVersion.ApiGl, KhronosVersion.ProfileCore))
+			);
+		}
+
+		[Test]
+		[SuppressMessage("ReSharper", "SuspiciousTypeConversion.Global")]
+		public void KhronosVersion_EqualsObject()
 		{
 			KhronosVersion v;
 
 			v = new KhronosVersion(1, 0, KhronosVersion.ApiGl);
-			Assert.AreNotEqual(v, null);
-			Assert.AreNotEqual(null, v);
-			Assert.AreNotEqual(v, 1);
-			Assert.AreNotEqual(v, new Vertex4f());
-			Assert.AreEqual(v,new DerivedVersion());
-			Assert.AreEqual(v, v);
+			Assert.IsFalse(v.Equals((object)null));
+			Assert.IsFalse(v.Equals(1));
+			Assert.IsFalse(v.Equals(new Vertex4f()));
+			Assert.IsTrue(v.Equals((object)new DerivedVersion()));
+			Assert.IsTrue(v.Equals((object)v));
 		}
 
 #if !MONODROID
