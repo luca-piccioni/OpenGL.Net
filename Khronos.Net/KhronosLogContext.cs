@@ -162,14 +162,10 @@ namespace Khronos
 		/// </summary>
 		private Dictionary<long, string> _EnumNames;
 
-#if HAVE_SYSTEM_XML
-
 		/// <summary>
 		/// Log map, if any.
 		/// </summary>
 		private readonly KhronosLogMap _LogMap;
-
-#endif
 
 		#endregion
 
