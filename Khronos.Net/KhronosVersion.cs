@@ -783,6 +783,7 @@ namespace Khronos
 	/// <summary>
 	/// Designer converter for <see cref="KhronosVersion"/> properties.
 	/// </summary>
+	[RequiredByFeature("System.Windows.Forms Designer")]
 	public class KhronosVersionConverter : TypeConverter
 	{
 		public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)
