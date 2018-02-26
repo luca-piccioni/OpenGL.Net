@@ -1,5 +1,5 @@
 ﻿
-// Copyright (C) 2016-2017 Luca Piccioni
+// Copyright (C) 2016-2018 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -23,6 +23,9 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
+#if !NETFRAMEWORK
+using System.Runtime.InteropServices;
+#endif
 
 namespace Khronos
 {
@@ -121,7 +124,7 @@ namespace Khronos
 			else
 				return (Id.Unknown);
 #endif
-#else		// !MONODROID
+#else       // !MONODROID
 			return (Id.Android);
 #endif
 		}
