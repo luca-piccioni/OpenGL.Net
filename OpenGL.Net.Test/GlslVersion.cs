@@ -73,6 +73,7 @@ namespace OpenGL.Test
 		public void GlslVersion_ParseApi(string input, string api, GlslVersion result)
 		{
 			Assert.Throws<ArgumentNullException>(() =>  GlslVersion.Parse(null, null));
+			Assert.Throws<ArgumentException>(() =>  GlslVersion.Parse("1", null));
 			Assert.Throws<NotSupportedException>(() =>  GlslVersion.Parse("1.5", "unknown"));
 
 			Assert.AreEqual(result, GlslVersion.Parse(input, api));
