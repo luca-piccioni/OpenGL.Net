@@ -1,5 +1,5 @@
 
-// Copyright (C) 2011 - 2017 Luca Piccioni
+// Copyright (C) 2011 - 2018 Luca Piccioni
 // Copyright (c) 2006 - 2008 The Open Toolkit library.
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy of
@@ -55,6 +55,7 @@
 
 using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 using System.Runtime.InteropServices;
 #if NETFRAMEWORK
 using System.Runtime.Serialization;
@@ -84,7 +85,7 @@ namespace OpenGL
 		/// <param name="f">
 		/// Floating-point (single precision) number.
 		/// </param>
-		public HalfFloat(Single f) : this()
+		public HalfFloat(float f) : this()
 		{
 			unsafe {
 				_Bits = FloatToHalf(*(int*)&f);
@@ -108,20 +109,21 @@ namespace OpenGL
 		/// - <paramref name="f"/> is positive infinity.
 		/// - <paramref name="f"/> is negative infinity.
 		/// </exception>
-		public HalfFloat(Single f, bool throwOnError) : this(f)
+		public HalfFloat(float f, bool throwOnError) : this(f)
 		{
-			if (throwOnError) {
-				if (f > +HalfFloat.MaxValue)
-					throw new ArithmeticException("positive maximum value exceeded.");
-				if (f < -HalfFloat.MaxValue)
-					throw new ArithmeticException("negative minimum value exceeded.");
-				if (Single.IsNaN(f) == true)
-					throw new ArithmeticException("not a number (NaN).");
-				if (Single.IsPositiveInfinity(f) == true)
-					throw new ArithmeticException("positive infinity.");
-				if (Single.IsNegativeInfinity(f) == true)
-					throw new ArithmeticException("negative infinity.");
-			}
+			if (!throwOnError)
+				return;
+
+			if (f > +MaxValue)
+				throw new ArithmeticException("positive maximum value exceeded.");
+			if (f < -MaxValue)
+				throw new ArithmeticException("negative minimum value exceeded.");
+			if (float.IsNaN(f))
+				throw new ArithmeticException("not a number (NaN).");
+			if (float.IsPositiveInfinity(f))
+				throw new ArithmeticException("positive infinity.");
+			if (float.IsNegativeInfinity(f))
+				throw new ArithmeticException("negative infinity.");
 		}
 
 		/// <summary>
@@ -130,7 +132,7 @@ namespace OpenGL
 		/// <param name="d">
 		/// Floating-point (double precision) number.
 		/// </param>
-		public HalfFloat(Double d) : this((Single)d)
+		public HalfFloat(double d) : this((float)d)
 		{
 			
 		}
@@ -149,7 +151,7 @@ namespace OpenGL
 		/// - <paramref name="d"/> is greater than MaxValue.
 		/// - <paramref name="d"/> is lesser than -MaxValue.
 		/// </exception>
-		public HalfFloat(Double d, bool throwOnError) : this((Single)d, throwOnError) { }
+		public HalfFloat(double d, bool throwOnError) : this((float)d, throwOnError) { }
 
 		#endregion
 
@@ -158,7 +160,7 @@ namespace OpenGL
 		/// <summary>
 		/// The half-float mBits.
 		/// </summary>
-		private UInt16 _Bits;
+		private readonly ushort _Bits;
 
 		#endregion
 
@@ -170,7 +172,7 @@ namespace OpenGL
 		/// <returns>
 		/// A single-precision floating-point number equivalent to this HalfFloat.
 		/// </returns>
-		public Single ToSingle()
+		public float ToSingle()
 		{
 			int i = HalfToFloat(_Bits);
 
@@ -189,23 +191,23 @@ namespace OpenGL
 		/// <returns>
 		/// A single-precision floating-point number equivalent to <paramref name="ui16"/>.
 		/// </returns>
-		public static Single ToFloat(UInt16 ui16)
+		public static float ToFloat(ushort ui16)
 		{
 			unsafe {
 				int i = HalfToFloat(ui16);
 
-				return (*(float*)&i);
+				return *(float*)&i;
 			}
 		}
 
 		/// <summary>
 		/// Ported from OpenEXR's IlmBase 1.0.1
 		/// </summary>
-		public static Int32 HalfToFloat(UInt16 ui16)
+		public static int HalfToFloat(ushort ui16)
 		{
-			Int32 sign = (ui16 >> 15) & 0x00000001;
-			Int32 exponent = (ui16 >> 10) & 0x0000001f;
-			Int32 mantissa = ui16 & 0x000003ff;
+			int sign = (ui16 >> 15) & 0x00000001;
+			int exponent = (ui16 >> 10) & 0x0000001f;
+			int mantissa = ui16 & 0x000003ff;
 
 			if (exponent == 0)
 			{
@@ -258,16 +260,16 @@ namespace OpenGL
 		/// <summary>
 		/// Ported from OpenEXR's IlmBase 1.0.1
 		/// </summary>
-		public static UInt16 FloatToHalf(Int32 si32)
+		public static ushort FloatToHalf(int si32)
 		{
 			// Our floating point number, F, is represented by the bit pattern in integer i.
 			// Disassemble that bit pattern into the sign, S, the exponent, E, and the significand, M.
 			// Shift S into the position where it will go in in the resulting half number.
 			// Adjust E, accounting for the different exponent bias of float and half (127 versus 15).
 
-			Int32 sign = (si32 >> 16) & 0x00008000;
-			Int32 exponent = ((si32 >> 23) & 0x000000ff) - (127 - 15);
-			Int32 mantissa = si32 & 0x007fffff;
+			int sign = (si32 >> 16) & 0x00008000;
+			int exponent = ((si32 >> 23) & 0x000000ff) - (127 - 15);
+			int mantissa = si32 & 0x007fffff;
 
 			// Now reassemble S, E and M into a half:
 
@@ -278,7 +280,7 @@ namespace OpenGL
 					//
 					// We convert F to a half zero with the same sign as F.
 
-					return (UInt16)sign;
+					return (ushort)sign;
 				}
 
 				// E is between -10 and 0. F is a normalized float whose magnitude is less than HalfFloat.MinNormalizedValue.
@@ -294,27 +296,27 @@ namespace OpenGL
 				// Rounding may cause the significand to overflow and make our number normalized. Because of the way a half's bits
 				// are laid out, we don't have to treat this case separately; the code below will handle it correctly.
 
-				Int32 t = 14 - exponent;
-				Int32 a = (1 << (t - 1)) - 1;
-				Int32 b = (mantissa >> t) & 1;
+				int t = 14 - exponent;
+				int a = (1 << (t - 1)) - 1;
+				int b = (mantissa >> t) & 1;
 
 				mantissa = (mantissa + a + b) >> t;
 
 				// Assemble the half from S, E (==zero) and M.
 
-				return (UInt16)(sign | mantissa);
+				return (ushort)(sign | mantissa);
 			} else if (exponent == 0xff - (127 - 15)) {
 				if (mantissa == 0) {
 					// F is an infinity; convert F to a half infinity with the same sign as F.
 
-					return (UInt16)(sign | 0x7c00);
+					return (ushort)(sign | 0x7c00);
 				} else {
 					// F is a NAN; we produce a half NAN that preserves the sign bit and the 10 leftmost bits of the
 					// significand of F, with one exception: If the 10 leftmost bits are all zero, the NAN would turn 
 					// into an infinity, so we have to set at least one bit in the significand.
 
 					mantissa >>= 13;
-					return (UInt16)(sign | 0x7c00 | mantissa | ((mantissa == 0) ? 1 : 0));
+					return (ushort)(sign | 0x7c00 | mantissa | (mantissa == 0 ? 1 : 0));
 				}
 			} else {
 				// E is greater than zero.  F is a normalized float. We try to convert F to a normalized half.
@@ -333,7 +335,7 @@ namespace OpenGL
 
 				// Assemble the half from S, E and M.
 
-				return (UInt16)(sign | (exponent << 10) | (mantissa >> 13));
+				return (ushort)(sign | (exponent << 10) | (mantissa >> 13));
 			}
 		}
 
@@ -342,10 +344,10 @@ namespace OpenGL
 		#region Cast Operators
 
 		/// <summary>
-		/// Converts a <see cref="System.Single"/> to a HalfFloat.
+		/// Converts a <see cref="float"/> to a HalfFloat.
 		/// </summary>
 		/// <param name="f">
-		/// A <see cref="System.Single"/> to convert.
+		/// A <see cref="float"/> to convert.
 		/// </param>
 		/// <returns>
 		/// A <see cref="HalfFloat"/> corresponding to <paramref name="f"/>.
@@ -356,10 +358,10 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Converts a <see cref="System.Double"/> to a HalfFloat.
+		/// Converts a <see cref="double"/> to a HalfFloat.
 		/// </summary>
 		/// <param name="d">
-		/// A <see cref="System.Double"/> to convert.
+		/// A <see cref="double"/> to convert.
 		/// </param>
 		/// <returns>
 		/// A <see cref="HalfFloat"/> corresponding to <paramref name="d"/>.
@@ -370,13 +372,13 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Converts a HalfFloat to a <see cref="System.Single"/>.
+		/// Converts a HalfFloat to a <see cref="float"/>.
 		/// </summary>
 		/// <param name="h">
 		/// A <see cref="HalfFloat"/> to convert.
 		/// </param>
 		/// <returns>
-		/// A <see cref="System.Single"/> corresponding to <paramref name="h"/>.
+		/// A <see cref="float"/> corresponding to <paramref name="h"/>.
 		/// </returns>
 		public static implicit operator float(HalfFloat h)
 		{
@@ -384,17 +386,17 @@ namespace OpenGL
 		}
 
 		/// <summary>
-		/// Converts a HalfFloat to a <see cref="System.Double"/>.
+		/// Converts a HalfFloat to a <see cref="double"/>.
 		/// </summary>
 		/// <param name="h">
 		/// A <see cref="HalfFloat"/> to convert.
 		/// </param>
 		/// <returns>
-		/// A <see cref="System.Double"/> corresponding to <paramref name="h"/>.
+		/// A <see cref="double"/> corresponding to <paramref name="h"/>.
 		/// </returns>
 		public static implicit operator double(HalfFloat h)
 		{
-			return ((double)h.ToSingle());
+			return h.ToSingle();
 		}
 
 		#endregion
@@ -404,22 +406,22 @@ namespace OpenGL
 		/// <summary>
 		/// Smallest positive value represented by a HalfFloat.
 		/// </summary>
-		public const Single MinValue = 5.96046448e-08f;
+		public const float MinValue = 5.96046448e-08f;
 
 		/// <summary>
 		/// Smallest positive (normalized) value represented by a HalfFloat.
 		/// </summary>
-		public const Single MinNormalizedValue = 6.10351562e-05f;
+		public const float MinNormalizedValue = 6.10351562e-05f;
 
 		/// <summary>
 		/// Largest positive value represented by a HalfFloat.
 		/// </summary>
-		public const Single MaxValue = 65504.0f;
+		public const float MaxValue = 65504.0f;
 
 		/// <summary>
 		/// Smallest positive value 'e' for which half(1.0 + e) != half(1.0).
 		/// </summary>
-		public const Single Epsilon = 0.00097656f;
+		public const float Epsilon = 0.00097656f;
 
 		#endregion
 
@@ -428,22 +430,22 @@ namespace OpenGL
 		/// <summary>
 		/// Returns a boolean value indicating whether this half-float represents zero.
 		/// </summary>
-		public bool IsZero { get { return (_Bits == 0) || (_Bits == 0x8000); } }
+		public bool IsZero { get { return _Bits == 0 || _Bits == 0x8000; } }
 
 		/// <summary>
 		/// Returns a boolean value indicating whether this half-float represents NaN (not a number).
 		/// </summary>
-		public bool IsNaN { get { return (((_Bits & 0x7C00) == 0x7C00) && (_Bits & 0x03FF) != 0x0000); } }
+		public bool IsNaN { get { return (_Bits & 0x7C00) == 0x7C00 && (_Bits & 0x03FF) != 0x0000; } }
 
 		/// <summary>
 		/// Returns a boolean value indicating whether this half-float represents a positive infinite value.
 		/// </summary>
-		public bool IsPositiveInfinity { get { return (_Bits == 31744); } }
+		public bool IsPositiveInfinity { get { return _Bits == 31744; } }
 
 		/// <summary>
 		/// Returns a boolean value indicating whether this half-float represents a negative infinite value.
 		/// </summary>
-		public bool IsNegativeInfinity { get { return (_Bits == 64512); } }
+		public bool IsNegativeInfinity { get { return _Bits == 64512; } }
 
 		#endregion
 
@@ -460,7 +462,7 @@ namespace OpenGL
 		/// </returns>
 		public static HalfFloat Parse(string s)
 		{
-			return ((HalfFloat)Single.Parse(s));
+			return (HalfFloat)float.Parse(s);
 		}
 
 		/// <summary>
@@ -478,9 +480,9 @@ namespace OpenGL
 		/// <returns>
 		/// A HalfFloat instance which value is represented by <paramref name="s"/>.
 		/// </returns>
-		public static HalfFloat Parse(string s, System.Globalization.NumberStyles style, IFormatProvider provider)
+		public static HalfFloat Parse(string s, NumberStyles style, IFormatProvider provider)
 		{
-			return (HalfFloat)Single.Parse(s, style, provider);
+			return (HalfFloat)float.Parse(s, style, provider);
 		}
 
 		/// <summary>
@@ -501,11 +503,11 @@ namespace OpenGL
 			bool parsed;
 
 			// Single.TryPause implementation
-			parsed = Single.TryParse(s, out f);
+			parsed = float.TryParse(s, out f);
 			// Store result all the same
 			result = (HalfFloat)f;
 
-			return (parsed);
+			return parsed;
 		}
 
 		/// <summary>
@@ -526,17 +528,16 @@ namespace OpenGL
 		/// <returns>
 		/// It returns a boolean value indicating whether <paramref name="s"/> was parsed correctly to HalfFloat.
 		/// </returns>
-		public static bool TryParse(string s, System.Globalization.NumberStyles style, IFormatProvider provider, out HalfFloat result)
+		public static bool TryParse(string s, NumberStyles style, IFormatProvider provider, out HalfFloat result)
 		{
 			float f;
-			bool parsed;
 
 			// Single.TryPause implementation
-			parsed = Single.TryParse(s, style, provider, out f);
+			bool parsed = float.TryParse(s, style, provider, out f);
 			// Store result all the same
 			result = (HalfFloat)f;
 
-			return (parsed);
+			return parsed;
 		}
 
 		#endregion
@@ -593,7 +594,7 @@ namespace OpenGL
 
 			short aInt, bInt;
 			unchecked { aInt = (short)other._Bits; }
-			unchecked { bInt = (short)this._Bits; }
+			unchecked { bInt = (short)_Bits; }
 
 			// Make aInt lexicographically ordered as a twos-complement int
 			if (aInt < 0)
@@ -605,10 +606,7 @@ namespace OpenGL
 
 			short intDiff = Math.Abs((short)(aInt - bInt));
 
-			if (intDiff <= maxUlps)
-				return true;
-
-			return false;
+			return intDiff <= maxUlps;
 		}
 
 		#endregion
@@ -626,7 +624,7 @@ namespace OpenGL
 		/// </returns>
 		public int CompareTo(HalfFloat other)
 		{
-			return ((float)this).CompareTo((float)other);
+			return ((float)this).CompareTo(other);
 		}
 
 		#endregion
@@ -641,7 +639,7 @@ namespace OpenGL
 		///</returns>
 		public override string ToString()
 		{
-			return this.ToSingle().ToString();
+			return ToSingle().ToString(CultureInfo.InvariantCulture);
 		}
 
 		///<summary>
@@ -658,7 +656,7 @@ namespace OpenGL
 		///</returns>
 		public string ToString(string format, IFormatProvider formatProvider)
 		{
-			return this.ToSingle().ToString(format, formatProvider);
+			return ToSingle().ToString(format, formatProvider);
 		}
 
 		#endregion
