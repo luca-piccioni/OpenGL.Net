@@ -5707,10 +5707,7 @@ namespace OpenGL
 		/// </summary>
 		public Vertex3f Position
 		{
-			get
-			{
-				return ((Vertex3f)new Vertex4f(_M30, _M31, _M32, _M33));
-			}
+			get { return ((Vertex3f)new Vertex4f(_M30, _M31, _M32, _M33)); }
 		}
 
 		/// <summary>
@@ -5718,16 +5715,7 @@ namespace OpenGL
 		/// </summary>
 		public Vertex3f ForwardVector
 		{
-			get
-			{
-				Vertex3f forwardVector;
-
-				forwardVector.x = _M20;
-				forwardVector.y = _M21;
-				forwardVector.z = _M22;
-
-				return ((-forwardVector).Normalized);
-			}
+			get { return new Vertex3f(-_M20, -_M21, -_M22).Normalized; }
 		}
 
 		/// <summary>
@@ -5735,16 +5723,7 @@ namespace OpenGL
 		/// </summary>
 		public Vertex3f RightVector
 		{
-			get
-			{
-				Vertex3f rightVector;
-
-				rightVector.x = _M00;
-				rightVector.y = _M01;
-				rightVector.z = _M02;
-
-				return (rightVector.Normalized);
-			}
+			get { return new Vertex3f(_M00, _M01, _M02).Normalized; }
 		}
 
 		/// <summary>
@@ -5752,16 +5731,7 @@ namespace OpenGL
 		/// </summary>
 		public Vertex3f UpVector
 		{
-			get
-			{
-				Vertex3f upVector;
-
-				upVector.x = _M10;
-				upVector.y = _M11;
-				upVector.z = _M12;
-
-				return (upVector.Normalized);
-			}
+			get { return new Vertex3f(_M10, _M11, _M12).Normalized; }
 		}
 
 		/// <summary>
@@ -5808,13 +5778,14 @@ namespace OpenGL
 			Vertex3f rightVector;
 
 			forwardVector.Normalize();
-			upVector.Normalize();
-			rightVector = forwardVector ^ upVector;
+			
+			rightVector = forwardVector ^ upVector.Normalized;
 			if (rightVector.Module() <= 0.0f)
 				rightVector = Vertex3f.UnitX;
-			rightVector.Normalize();
-			upVector = rightVector ^ forwardVector;
-			upVector.Normalize();
+			else
+				rightVector.Normalize();
+
+			upVector = (rightVector ^ forwardVector).Normalized;
 
 			// Compute view matrix
 			Matrix4x4f r = new Matrix4x4f();
@@ -5837,7 +5808,7 @@ namespace OpenGL
 			// Eye position
 			r.Translate(-eyePosition.x, -eyePosition.y, -eyePosition.z);
 
-			return (r);
+			return r;
 		}
 
 		#endregion
@@ -12003,10 +11974,7 @@ namespace OpenGL
 		/// </summary>
 		public Vertex3d Position
 		{
-			get
-			{
-				return ((Vertex3d)new Vertex4d(_M30, _M31, _M32, _M33));
-			}
+			get { return ((Vertex3d)new Vertex4d(_M30, _M31, _M32, _M33)); }
 		}
 
 		/// <summary>
@@ -12014,16 +11982,7 @@ namespace OpenGL
 		/// </summary>
 		public Vertex3d ForwardVector
 		{
-			get
-			{
-				Vertex3d forwardVector;
-
-				forwardVector.x = _M20;
-				forwardVector.y = _M21;
-				forwardVector.z = _M22;
-
-				return ((-forwardVector).Normalized);
-			}
+			get { return new Vertex3d(-_M20, -_M21, -_M22).Normalized; }
 		}
 
 		/// <summary>
@@ -12031,16 +11990,7 @@ namespace OpenGL
 		/// </summary>
 		public Vertex3d RightVector
 		{
-			get
-			{
-				Vertex3d rightVector;
-
-				rightVector.x = _M00;
-				rightVector.y = _M01;
-				rightVector.z = _M02;
-
-				return (rightVector.Normalized);
-			}
+			get { return new Vertex3d(_M00, _M01, _M02).Normalized; }
 		}
 
 		/// <summary>
@@ -12048,16 +11998,7 @@ namespace OpenGL
 		/// </summary>
 		public Vertex3d UpVector
 		{
-			get
-			{
-				Vertex3d upVector;
-
-				upVector.x = _M10;
-				upVector.y = _M11;
-				upVector.z = _M12;
-
-				return (upVector.Normalized);
-			}
+			get { return new Vertex3d(_M10, _M11, _M12).Normalized; }
 		}
 
 		/// <summary>
@@ -12104,13 +12045,14 @@ namespace OpenGL
 			Vertex3d rightVector;
 
 			forwardVector.Normalize();
-			upVector.Normalize();
-			rightVector = forwardVector ^ upVector;
+			
+			rightVector = forwardVector ^ upVector.Normalized;
 			if (rightVector.Module() <= 0.0)
 				rightVector = Vertex3d.UnitX;
-			rightVector.Normalize();
-			upVector = rightVector ^ forwardVector;
-			upVector.Normalize();
+			else
+				rightVector.Normalize();
+
+			upVector = (rightVector ^ forwardVector).Normalized;
 
 			// Compute view matrix
 			Matrix4x4d r = new Matrix4x4d();
@@ -12133,7 +12075,7 @@ namespace OpenGL
 			// Eye position
 			r.Translate(-eyePosition.x, -eyePosition.y, -eyePosition.z);
 
-			return (r);
+			return r;
 		}
 
 		#endregion

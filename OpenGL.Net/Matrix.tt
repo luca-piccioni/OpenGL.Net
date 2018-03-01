@@ -663,10 +663,7 @@ for (int c1 = 0; c1 < c; c1++) for (int r1 = 0; r1 < r; r1++) {
 		/// </summary>
 		public <#= vertex3 #> Position
 		{
-			get
-			{
-				return ((<#= vertex3 #>)new <#= vertex4 #>(_M30, _M31, _M32, _M33));
-			}
+			get { return ((<#= vertex3 #>)new <#= vertex4 #>(_M30, _M31, _M32, _M33)); }
 		}
 
 		/// <summary>
@@ -674,16 +671,7 @@ for (int c1 = 0; c1 < c; c1++) for (int r1 = 0; r1 < r; r1++) {
 		/// </summary>
 		public <#= vertex3 #> ForwardVector
 		{
-			get
-			{
-				<#= vertex3 #> forwardVector;
-
-				forwardVector.x = _M20;
-				forwardVector.y = _M21;
-				forwardVector.z = _M22;
-
-				return ((-forwardVector).Normalized);
-			}
+			get { return new <#= vertex3 #>(-_M20, -_M21, -_M22).Normalized; }
 		}
 
 		/// <summary>
@@ -691,16 +679,7 @@ for (int c1 = 0; c1 < c; c1++) for (int r1 = 0; r1 < r; r1++) {
 		/// </summary>
 		public <#= vertex3 #> RightVector
 		{
-			get
-			{
-				<#= vertex3 #> rightVector;
-
-				rightVector.x = _M00;
-				rightVector.y = _M01;
-				rightVector.z = _M02;
-
-				return (rightVector.Normalized);
-			}
+			get { return new <#= vertex3 #>(_M00, _M01, _M02).Normalized; }
 		}
 
 		/// <summary>
@@ -708,16 +687,7 @@ for (int c1 = 0; c1 < c; c1++) for (int r1 = 0; r1 < r; r1++) {
 		/// </summary>
 		public <#= vertex3 #> UpVector
 		{
-			get
-			{
-				<#= vertex3 #> upVector;
-
-				upVector.x = _M10;
-				upVector.y = _M11;
-				upVector.z = _M12;
-
-				return (upVector.Normalized);
-			}
+			get { return new <#= vertex3 #>(_M10, _M11, _M12).Normalized; }
 		}
 
 		/// <summary>
@@ -764,13 +734,14 @@ for (int c1 = 0; c1 < c; c1++) for (int r1 = 0; r1 < r; r1++) {
 			<#= vertex3 #> rightVector;
 
 			forwardVector.Normalize();
-			upVector.Normalize();
-			rightVector = forwardVector ^ upVector;
+			
+			rightVector = forwardVector ^ upVector.Normalized;
 			if (rightVector.Module() <= <#= zero #>)
 				rightVector = <#= vertex3 #>.UnitX;
-			rightVector.Normalize();
-			upVector = rightVector ^ forwardVector;
-			upVector.Normalize();
+			else
+				rightVector.Normalize();
+
+			upVector = (rightVector ^ forwardVector).Normalized;
 
 			// Compute view matrix
 			<#= className #> r = new <#= className #>();
@@ -793,7 +764,7 @@ for (int c1 = 0; c1 < c; c1++) for (int r1 = 0; r1 < r; r1++) {
 			// Eye position
 			r.Translate(-eyePosition.x, -eyePosition.y, -eyePosition.z);
 
-			return (r);
+			return r;
 		}
 
 		#endregion

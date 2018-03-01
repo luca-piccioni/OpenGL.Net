@@ -3661,9 +3661,14 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix4x4f_LookAtDirection()
 		{
-			Matrix4x4f m = Matrix4x4f.LookAt(Vertex3f.UnitZ, -Vertex3f.UnitZ, Vertex3f.UnitY);
+			Matrix4x4f m = Matrix4x4f.LookAtDirection(Vertex3f.Zero, -Vertex3f.UnitZ, Vertex3f.UnitY);
 			Assert.AreEqual(-Vertex3f.UnitZ, m.ForwardVector);
 			Assert.AreEqual(Vertex3f.UnitY, m.UpVector);
+			Assert.AreEqual(Vertex3f.UnitX, m.RightVector);
+
+			m = Matrix4x4f.LookAtDirection(Vertex3f.Zero, Vertex3f.UnitY, Vertex3f.UnitY).Inverse;
+			Assert.AreEqual(Vertex3f.UnitY, m.ForwardVector);
+			Assert.AreEqual(Vertex3f.UnitZ, m.UpVector);
 			Assert.AreEqual(Vertex3f.UnitX, m.RightVector);
 		}
 
@@ -7832,9 +7837,14 @@ namespace OpenGL.Test
 		[Test]
 		public void Matrix4x4d_LookAtDirection()
 		{
-			Matrix4x4d m = Matrix4x4d.LookAt(Vertex3d.UnitZ, -Vertex3d.UnitZ, Vertex3d.UnitY);
+			Matrix4x4d m = Matrix4x4d.LookAtDirection(Vertex3d.Zero, -Vertex3d.UnitZ, Vertex3d.UnitY);
 			Assert.AreEqual(-Vertex3d.UnitZ, m.ForwardVector);
 			Assert.AreEqual(Vertex3d.UnitY, m.UpVector);
+			Assert.AreEqual(Vertex3d.UnitX, m.RightVector);
+
+			m = Matrix4x4d.LookAtDirection(Vertex3d.Zero, Vertex3d.UnitY, Vertex3d.UnitY).Inverse;
+			Assert.AreEqual(Vertex3d.UnitY, m.ForwardVector);
+			Assert.AreEqual(Vertex3d.UnitZ, m.UpVector);
 			Assert.AreEqual(Vertex3d.UnitX, m.RightVector);
 		}
 

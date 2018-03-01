@@ -387,9 +387,14 @@ namespace OpenGL.Test
 		[Test]
 		public void <#= className #>_LookAtDirection()
 		{
-			<#= className #> m = <#= className #>.LookAt(<#= vertex3 #>.UnitZ, -<#= vertex3 #>.UnitZ, <#= vertex3 #>.UnitY);
+			<#= className #> m = <#= className #>.LookAtDirection(<#= vertex3 #>.Zero, -<#= vertex3 #>.UnitZ, <#= vertex3 #>.UnitY);
 			Assert.AreEqual(-<#= vertex3 #>.UnitZ, m.ForwardVector);
 			Assert.AreEqual(<#= vertex3 #>.UnitY, m.UpVector);
+			Assert.AreEqual(<#= vertex3 #>.UnitX, m.RightVector);
+
+			m = <#= className #>.LookAtDirection(<#= vertex3 #>.Zero, <#= vertex3 #>.UnitY, <#= vertex3 #>.UnitY).Inverse;
+			Assert.AreEqual(<#= vertex3 #>.UnitY, m.ForwardVector);
+			Assert.AreEqual(<#= vertex3 #>.UnitZ, m.UpVector);
 			Assert.AreEqual(<#= vertex3 #>.UnitX, m.RightVector);
 		}
 
