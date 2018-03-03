@@ -92,67 +92,6 @@ namespace OpenGL
 			}
 		}
 
-		/// <summary>
-		/// Constuct a HalfFloat by specifying its value.
-		/// </summary>
-		/// <param name="f">
-		/// Floating-point (single precision) number.
-		/// </param>
-		/// <param name="throwOnError">
-		/// Enable checks that will throw if the conversion result is not meaningful.
-		/// </param>
-		/// <exception cref="ArithmeticException">
-		/// Exception thrown if one of the following condition is satisfied:
-		/// - <paramref name="f"/> is greater than MaxValue.
-		/// - <paramref name="f"/> is lesser than -MaxValue.
-		/// - <paramref name="f"/> is Nan.
-		/// - <paramref name="f"/> is positive infinity.
-		/// - <paramref name="f"/> is negative infinity.
-		/// </exception>
-		public HalfFloat(float f, bool throwOnError) : this(f)
-		{
-			if (!throwOnError)
-				return;
-
-			if (f > +MaxValue)
-				throw new ArithmeticException("positive maximum value exceeded.");
-			if (f < -MaxValue)
-				throw new ArithmeticException("negative minimum value exceeded.");
-			if (float.IsNaN(f))
-				throw new ArithmeticException("not a number (NaN).");
-			if (float.IsPositiveInfinity(f))
-				throw new ArithmeticException("positive infinity.");
-			if (float.IsNegativeInfinity(f))
-				throw new ArithmeticException("negative infinity.");
-		}
-
-		/// <summary>
-		/// Constuct a HalfFloat by specifying its value.
-		/// </summary>
-		/// <param name="d">
-		/// Floating-point (double precision) number.
-		/// </param>
-		public HalfFloat(double d) : this((float)d)
-		{
-			
-		}
-
-		/// <summary>
-		/// Constuct a HalfFloat by specifying its value.
-		/// </summary>
-		/// <param name="d">
-		/// Floating-point (double precision) number.
-		/// </param>
-		/// <param name="throwOnError">
-		/// Enable checks that will throw if the conversion result is not meaningful.
-		/// </param>
-		/// <exception cref="ArithmeticException">
-		/// Exception thrown if one of the following condition is satisfied:
-		/// - <paramref name="d"/> is greater than MaxValue.
-		/// - <paramref name="d"/> is lesser than -MaxValue.
-		/// </exception>
-		public HalfFloat(double d, bool throwOnError) : this((float)d, throwOnError) { }
-
 		#endregion
 
 		#region Structure Storage
@@ -185,7 +124,7 @@ namespace OpenGL
 		/// Converts the 16-bit half to 32-bit floating-point.
 		/// </summary>
 		/// <param name="ui16">
-		/// A <see cref="System.UInt16"/> that specifies the bit representation of the half-precision
+		/// A <see cref="ushort"/> that specifies the bit representation of the half-precision
 		/// floating-point.
 		/// </param>
 		/// <returns>
@@ -355,20 +294,6 @@ namespace OpenGL
 		public static explicit operator HalfFloat(float f)
 		{
 			return new HalfFloat(f);
-		}
-
-		/// <summary>
-		/// Converts a <see cref="double"/> to a HalfFloat.
-		/// </summary>
-		/// <param name="d">
-		/// A <see cref="double"/> to convert.
-		/// </param>
-		/// <returns>
-		/// A <see cref="HalfFloat"/> corresponding to <paramref name="d"/>.
-		/// </returns>
-		public static explicit operator HalfFloat(double d)
-		{
-			return new HalfFloat(d);
 		}
 
 		/// <summary>

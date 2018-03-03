@@ -122,6 +122,7 @@
     </Compile>
     <Compile Include="GetProcAddressOS.cs" />
     <Compile Include="GlslVersion.cs" />
+    <Compile Include="HalfFloat.cs" />
     <Compile Include="KhronosLogContext.cs" />
     <Compile Include="KhronosLogMap.cs" />
     <Compile Include="MemoryLock.cs" />
