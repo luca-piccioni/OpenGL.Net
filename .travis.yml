@@ -1,4 +1,6 @@
 language: csharp
+mono:
+  - 5.4.1
 solution: OpenGL.Net_Mono.sln
 addons:
   apt:
