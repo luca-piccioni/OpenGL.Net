@@ -46,5 +46,21 @@ namespace OpenGL.Test
 			Assert.DoesNotThrow(() => new HalfFloat(-HalfFloat.MinValue));
 			Assert.DoesNotThrow(() => new HalfFloat(HalfFloat.Epsilon));
 		}
+
+		[Test]
+		public void HalfFloat_Is()
+		{
+			Assert.IsTrue(new HalfFloat(0.0f).IsZero);
+			Assert.IsFalse(new HalfFloat(1.0f).IsZero);
+			Assert.IsFalse(new HalfFloat(HalfFloat.Epsilon).IsZero);
+
+			Assert.IsTrue(new HalfFloat(float.NaN).IsNaN);
+			Assert.IsFalse(new HalfFloat(0.0f).IsNaN);
+
+			Assert.IsTrue(new HalfFloat(float.PositiveInfinity).IsPositiveInfinity);
+			Assert.IsFalse(new HalfFloat(0.0f).IsPositiveInfinity);
+			Assert.IsTrue(new HalfFloat(float.NegativeInfinity).IsNegativeInfinity);
+			Assert.IsFalse(new HalfFloat(0.0f).IsNegativeInfinity);
+		}
 	}
 }
