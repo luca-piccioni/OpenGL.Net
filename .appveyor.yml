@@ -10,16 +10,16 @@ init:
 
 environment:
   matrix:
-#    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
-#      SLN_PATH: OpenGL.Net_VC14.sln
-#      SLN_BUILD_OPTS: /nologo /verbosity:quiet /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
-#      PUBLISH_NUGET: false
-#      HAS_NETCORE: false
-#    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
-#      SLN_PATH: OpenGL.Net_VC15.sln
-#      SLN_BUILD_OPTS: /nologo /verbosity:quiet /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
-#      PUBLISH_NUGET: true
-#      HAS_NETCORE: true
+    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
+      SLN_PATH: OpenGL.Net_VC14.sln
+      SLN_BUILD_OPTS: /nologo /verbosity:quiet /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+      PUBLISH_NUGET: false
+      HAS_NETCORE: false
+    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
+      SLN_PATH: OpenGL.Net_VC15.sln
+      SLN_BUILD_OPTS: /nologo /verbosity:quiet /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+      PUBLISH_NUGET: true
+      HAS_NETCORE: true
     - APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu
       SLN_PATH: OpenGL.Net_Mono.sln
       SLN_BUILD_OPTS: /nologo /verbosity:quiet
@@ -73,11 +73,11 @@ build_script:
 test: off
 
 test_script:
-  - sh: msbuild OpenGL.Net.Test/OpenGL.Net.Test_net461.csproj $SLN_BUILD_OPTS /t:UnitTest /p:Configuration=Release /p:Platform="x86"
-  - sh: msbuild OpenGL.Net.Test/OpenGL.Net.Test_net461.csproj $SLN_BUILD_OPTS /t:UnitTest /p:Configuration=Release /p:Platform="x64"
-  - sh: msbuild OpenGL.Net.Test/OpenGL.Net.Test_net35.csproj $SLN_BUILD_OPTS /t:UnitTest /p:Configuration=Release /p:Platform="x86"
-  - sh: msbuild OpenGL.Net.Test/OpenGL.Net.Test_net35.csproj $SLN_BUILD_OPTS /t:UnitTest /p:Configuration=Release /p:Platform="x64"
-  - sh: echo Unit tests completed
+#  - sh: msbuild OpenGL.Net.Test/OpenGL.Net.Test_net461.csproj $SLN_BUILD_OPTS /t:UnitTest /p:Configuration=Release /p:Platform="x86"
+#  - sh: msbuild OpenGL.Net.Test/OpenGL.Net.Test_net461.csproj $SLN_BUILD_OPTS /t:UnitTest /p:Configuration=Release /p:Platform="x64"
+#  - sh: msbuild OpenGL.Net.Test/OpenGL.Net.Test_net35.csproj $SLN_BUILD_OPTS /t:UnitTest /p:Configuration=Release /p:Platform="x86"
+#  - sh: msbuild OpenGL.Net.Test/OpenGL.Net.Test_net35.csproj $SLN_BUILD_OPTS /t:UnitTest /p:Configuration=Release /p:Platform="x64"
+#  - sh: echo Unit tests completed
   - cmd: msbuild OpenGL.Net.Test\OpenGL.Net.Test_net461.csproj %SLN_BUILD_OPTS% /t:UnitTest /p:NUnitConsole=nunit3-console /p:NUnitResultFormat=;format=AppVeyor /p:Configuration=Release /p:Platform="x86"
   - cmd: msbuild OpenGL.Net.Test\OpenGL.Net.Test_net461.csproj %SLN_BUILD_OPTS% /t:UnitTest /p:NUnitConsole=nunit3-console /p:NUnitResultFormat=;format=AppVeyor /p:Configuration=Release /p:Platform="x64"
   - cmd: msbuild OpenGL.Net.Test\OpenGL.Net.Test_net35.csproj %SLN_BUILD_OPTS% /t:UnitTest /p:NUnitConsole=nunit3-console /p:NUnitResultFormat=;format=AppVeyor /p:Configuration=Release /p:Platform="x86"
