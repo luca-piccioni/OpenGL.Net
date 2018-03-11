@@ -50,6 +50,7 @@ before_build:
   - sh: sudo DEBIAN_FRONTEND=noninteractive apt-get -yq install nuget
   - sh: sudo nuget update -self
   - sh: sudo nuget restore $SLN_PATH
+  - sh: sudo nuget restore OpenGL.Net_VC14.sln
   - cmd: nuget restore %SLN_PATH%
 
 build_script:
