@@ -48,7 +48,8 @@ assembly_info:
 before_build:
   - sh: sudo DEBIAN_FRONTEND=noninteractive apt-get -yq install nuget
   - sh: sudo nuget update -self
-  - nuget restore %SLN_PATH%
+  - sh: sudo nuget restore %SLN_PATH%
+  - cmd: nuget restore %SLN_PATH%
 
 build_script:
   - msbuild %SLN_PATH% %SLN_BUILD_OPTS% /p:Configuration=Release /p:Platform="Any CPU"
