@@ -12,14 +12,14 @@ environment:
   global:
     SLN_BUILD_OPTS: /nologo /verbosity:quiet /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
   matrix:
-    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
-      SLN_PATH: OpenGL.Net_VC14.sln
-      PUBLISH_NUGET: false
-      HAS_NETCORE: false
-    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
-      SLN_PATH: OpenGL.Net_VC15.sln
-      PUBLISH_NUGET: true
-      HAS_NETCORE: true
+#    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
+#      SLN_PATH: OpenGL.Net_VC14.sln
+#      PUBLISH_NUGET: false
+#      HAS_NETCORE: false
+#    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
+#      SLN_PATH: OpenGL.Net_VC15.sln
+#      PUBLISH_NUGET: true
+#      HAS_NETCORE: true
     - APPVEYOR_BUILD_WORKER_IMAGE: ubuntu
       SLN_PATH: OpenGL.Net_Mono.sln
       PUBLISH_NUGET: false
@@ -46,6 +46,8 @@ assembly_info:
   assembly_informational_version: "{version}"
 
 before_build:
+  - sh: sudo apt-get install nuget
+  - sh: sudo nuget update -self
   - nuget restore %SLN_PATH%
 
 build_script:
