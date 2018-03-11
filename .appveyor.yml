@@ -48,28 +48,35 @@ assembly_info:
 before_build:
   - sh: sudo DEBIAN_FRONTEND=noninteractive apt-get -yq install nuget
   - sh: sudo nuget update -self
-  - sh: set
   - sh: sudo nuget restore $SLN_PATH
   - cmd: nuget restore %SLN_PATH%
 
 build_script:
-  - msbuild %SLN_PATH% %SLN_BUILD_OPTS% /p:Configuration=Release /p:Platform="Any CPU"
-  - msbuild %SLN_PATH% %SLN_BUILD_OPTS% /p:Configuration=Release /p:Platform="x86"
-  - msbuild %SLN_PATH% %SLN_BUILD_OPTS% /p:Configuration=Release /p:Platform="x64"
-  - msbuild %SLN_PATH% %SLN_BUILD_OPTS% /p:Configuration=Debug /p:Platform="Any CPU"
-  - msbuild %SLN_PATH% %SLN_BUILD_OPTS% /p:Configuration=Debug /p:Platform="x86"
-  - msbuild %SLN_PATH% %SLN_BUILD_OPTS% /p:Configuration=Debug /p:Platform="x64"
+  - sh: msbuild $SLN_PATH $SLN_BUILD_OPTS /p:Configuration=Release /p:Platform="Any CPU"
+  - sh: msbuild $SLN_PATH $SLN_BUILD_OPTS /p:Configuration=Release /p:Platform="x86"
+  - sh: msbuild $SLN_PATH $SLN_BUILD_OPTS /p:Configuration=Release /p:Platform="x64"
+  - sh: msbuild $SLN_PATH $SLN_BUILD_OPTS /p:Configuration=Debug /p:Platform="Any CPU"
+  - sh: msbuild $SLN_PATH $SLN_BUILD_OPTS /p:Configuration=Debug /p:Platform="x86"
+  - sh: msbuild $SLN_PATH $SLN_BUILD_OPTS /p:Configuration=Debug /p:Platform="x64"
+  - sh: echo Build completed
+  - cmd: msbuild %SLN_PATH% %SLN_BUILD_OPTS% /p:Configuration=Release /p:Platform="Any CPU"
+  - cmd: msbuild %SLN_PATH% %SLN_BUILD_OPTS% /p:Configuration=Release /p:Platform="x86"
+  - cmd: msbuild %SLN_PATH% %SLN_BUILD_OPTS% /p:Configuration=Release /p:Platform="x64"
+  - cmd: msbuild %SLN_PATH% %SLN_BUILD_OPTS% /p:Configuration=Debug /p:Platform="Any CPU"
+  - cmd: msbuild %SLN_PATH% %SLN_BUILD_OPTS% /p:Configuration=Debug /p:Platform="x86"
+  - cmd: msbuild %SLN_PATH% %SLN_BUILD_OPTS% /p:Configuration=Debug /p:Platform="x64"
+  - cmd: echo Build completed
 
 # Happy to have a GL 1.1 software driver ^^
 test: off
 
 test_script:
-  - msbuild OpenGL.Net.Test\OpenGL.Net.Test_net461.csproj %SLN_BUILD_OPTS% /t:UnitTest /p:NUnitConsole=nunit3-console /p:NUnitResultFormat=;format=AppVeyor /p:Configuration=Release /p:Platform="x86"
-  - msbuild OpenGL.Net.Test\OpenGL.Net.Test_net461.csproj %SLN_BUILD_OPTS% /t:UnitTest /p:NUnitConsole=nunit3-console /p:NUnitResultFormat=;format=AppVeyor /p:Configuration=Release /p:Platform="x64"
-  - msbuild OpenGL.Net.Test\OpenGL.Net.Test_net35.csproj %SLN_BUILD_OPTS% /t:UnitTest /p:NUnitConsole=nunit3-console /p:NUnitResultFormat=;format=AppVeyor /p:Configuration=Release /p:Platform="x86"
-  - msbuild OpenGL.Net.Test\OpenGL.Net.Test_net35.csproj %SLN_BUILD_OPTS% /t:UnitTest /p:NUnitConsole=nunit3-console /p:NUnitResultFormat=;format=AppVeyor /p:Configuration=Release /p:Platform="x64"
-  - msbuild OpenGL.Net.CoreUI.Test\OpenGL.Net.CoreUI.Test_net461.csproj %SLN_BUILD_OPTS% /t:UnitTest /p:NUnitConsole=nunit3-console /p:NUnitResultFormat=;format=AppVeyor /p:Configuration=Release /p:Platform="x86"
-  - msbuild OpenGL.Net.CoreUI.Test\OpenGL.Net.CoreUI.Test_net461.csproj %SLN_BUILD_OPTS% /t:UnitTest /p:NUnitConsole=nunit3-console /p:NUnitResultFormat=;format=AppVeyor /p:Configuration=Release /p:Platform="x64"
+  - cmd: msbuild OpenGL.Net.Test\OpenGL.Net.Test_net461.csproj %SLN_BUILD_OPTS% /t:UnitTest /p:NUnitConsole=nunit3-console /p:NUnitResultFormat=;format=AppVeyor /p:Configuration=Release /p:Platform="x86"
+  - cmd: msbuild OpenGL.Net.Test\OpenGL.Net.Test_net461.csproj %SLN_BUILD_OPTS% /t:UnitTest /p:NUnitConsole=nunit3-console /p:NUnitResultFormat=;format=AppVeyor /p:Configuration=Release /p:Platform="x64"
+  - cmd: msbuild OpenGL.Net.Test\OpenGL.Net.Test_net35.csproj %SLN_BUILD_OPTS% /t:UnitTest /p:NUnitConsole=nunit3-console /p:NUnitResultFormat=;format=AppVeyor /p:Configuration=Release /p:Platform="x86"
+  - cmd: msbuild OpenGL.Net.Test\OpenGL.Net.Test_net35.csproj %SLN_BUILD_OPTS% /t:UnitTest /p:NUnitConsole=nunit3-console /p:NUnitResultFormat=;format=AppVeyor /p:Configuration=Release /p:Platform="x64"
+  - cmd: msbuild OpenGL.Net.CoreUI.Test\OpenGL.Net.CoreUI.Test_net461.csproj %SLN_BUILD_OPTS% /t:UnitTest /p:NUnitConsole=nunit3-console /p:NUnitResultFormat=;format=AppVeyor /p:Configuration=Release /p:Platform="x86"
+  - cmd: msbuild OpenGL.Net.CoreUI.Test\OpenGL.Net.CoreUI.Test_net461.csproj %SLN_BUILD_OPTS% /t:UnitTest /p:NUnitConsole=nunit3-console /p:NUnitResultFormat=;format=AppVeyor /p:Configuration=Release /p:Platform="x64"
 
 after_test:
   - cmd: msbuild OpenGL.Net.Test\OpenGL.Net.Test_net461.csproj %SLN_BUILD_OPTS% /t:Coverage /p:Configuration=Release /p:Platform="x86"
