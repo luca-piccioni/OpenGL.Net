@@ -9,19 +9,20 @@ init:
   - ps: Update-AppveyorBuild -Version "$env:TAG_VERSION"
 
 environment:
-  global:
-    SLN_BUILD_OPTS: /nologo /verbosity:quiet /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
   matrix:
 #    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
 #      SLN_PATH: OpenGL.Net_VC14.sln
+#      SLN_BUILD_OPTS: /nologo /verbosity:quiet /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
 #      PUBLISH_NUGET: false
 #      HAS_NETCORE: false
 #    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
 #      SLN_PATH: OpenGL.Net_VC15.sln
+#      SLN_BUILD_OPTS: /nologo /verbosity:quiet /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
 #      PUBLISH_NUGET: true
 #      HAS_NETCORE: true
     - APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu
       SLN_PATH: OpenGL.Net_Mono.sln
+      SLN_BUILD_OPTS: /nologo /verbosity:quiet
       PUBLISH_NUGET: false
       HAS_NETCORE: false
 
