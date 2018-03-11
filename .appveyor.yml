@@ -20,7 +20,7 @@ environment:
 #      SLN_PATH: OpenGL.Net_VC15.sln
 #      PUBLISH_NUGET: true
 #      HAS_NETCORE: true
-    - APPVEYOR_BUILD_WORKER_IMAGE: ubuntu
+    - APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu
       SLN_PATH: OpenGL.Net_Mono.sln
       PUBLISH_NUGET: false
       HAS_NETCORE: false
@@ -48,7 +48,7 @@ assembly_info:
 before_build:
   - sh: sudo DEBIAN_FRONTEND=noninteractive apt-get -yq install nuget
   - sh: sudo nuget update -self
-  - sh: sudo nuget restore %SLN_PATH%
+  - sh: sudo nuget restore $(SLN_PATH)
   - cmd: nuget restore %SLN_PATH%
 
 build_script:
