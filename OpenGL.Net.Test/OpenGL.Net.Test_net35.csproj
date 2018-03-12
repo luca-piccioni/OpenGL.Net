@@ -140,7 +140,11 @@
     <Compile Include="KhronosVersion.cs" />
     <Compile Include="Memory.cs" />
     <Compile Include="MemoryLock.cs" />
-    <Compile Include="Plane.cs" />
+	<Compile Include="Plane.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Plane.tt</DependentUpon>
+    </Compile>
     <Compile Include="RemovedByFeatureAttribute.cs" />
     <Compile Include="RequiredByFeatureAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -209,6 +213,10 @@
     <Content Include="Matrix.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Matrix.cs</LastGenOutput>
+    </Content>
+	<Content Include="Plane.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Plane.cs</LastGenOutput>
     </Content>
     <Content Include="Vertex4.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

@@ -38,7 +38,7 @@ namespace OpenGL.Objects.Scene
 				throw new ArgumentNullException("sceneGraph");
 
 			Scene = sceneGraph;
-			ViewFrustumPlanes = Plane.GetFrustumPlanes(Scene.ProjectionMatrix);
+			ViewFrustumPlanes = Planef.GetFrustumPlanes(Scene.ProjectionMatrix);
 		}
 
 		#endregion
@@ -58,7 +58,7 @@ namespace OpenGL.Objects.Scene
 		/// <summary>
 		/// Pre-compute view-frustum planes to cull scene objects.
 		/// </summary>
-		public readonly IEnumerable<Plane> ViewFrustumPlanes;
+		public readonly IEnumerable<Planef> ViewFrustumPlanes;
 
 		#endregion
 

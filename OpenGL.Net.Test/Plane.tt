@@ -1,0 +1,320 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".cs" #>
+
+// Copyright (C) 2016-2018 Luca Piccioni
+// 
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+// 
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+// 
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+
+using System;
+
+using NUnit.Framework;
+
+namespace OpenGL.Test
+{
+<#
+	string[] baseTypes =		new[] { "float", "double" };
+	string[] postfixes =		new[] { "f",     "d"};
+	string[] zeroes =			new[] { "0.0f",  "0.0" };
+	string[] ones =				new[] { "1.0f",  "1.0" };
+	string[] matrixBaseTypes =	new[] { "float", "double" };
+	string[] literals		 =	new[] { "f", "" };
+	string[] vliterals		 =	new[] { "f", "d" };
+
+	for (int i = 0; i < 2; i++) {
+		string className = String.Format("Plane{0}", postfixes[i]);
+		string baseType = baseTypes[i];
+		string one = ones[i], zero = zeroes[i];
+		string literal = literals[i];
+		string vertex3 = "Vertex3" + vliterals[i];
+		string vertex4 = "Vertex4" + vliterals[i];
+		string matrix4 = "Matrix4x4" + vliterals[i];
+#>
+	[TestFixture, Category("Math")]
+	internal class <#= className #>Test : TestBase
+	{
+		[Test]
+		public void <#= className #>_PosXPlane()
+		{
+			<#= className #> plane = new <#= className #>(<#= vertex3 #>.UnitX, 0.0f);
+
+			// Positive half-space
+			<#= vertex3 #>[] pointsPosX = {
+				new <#= vertex3 #>(1.0f, +1.0f, +1.0f),
+				new <#= vertex3 #>(1.0f, +1.0f, -1.0f),
+				new <#= vertex3 #>(1.0f, -1.0f, +1.0f),
+				new <#= vertex3 #>(1.0f, -1.0f, -1.0f),
+			};
+
+			foreach (<#= vertex3 #> v in pointsPosX)
+				Assert.IsTrue(plane.GetDistance(v) > 0.0f);
+
+			// Negative half-space
+			<#= vertex3 #>[] pointsNegX = {
+				new <#= vertex3 #>(-1.0f, +1.0f, +1.0f),
+				new <#= vertex3 #>(-1.0f, +1.0f, -1.0f),
+				new <#= vertex3 #>(-1.0f, -1.0f, +1.0f),
+				new <#= vertex3 #>(-1.0f, -1.0f, -1.0f),
+			};
+
+			foreach (<#= vertex3 #> v in pointsNegX)
+				Assert.IsTrue(plane.GetDistance(v) < 0.0f);
+
+			// On-plane 
+			<#= vertex3 #>[] pointsZero = {
+				new <#= vertex3 #>(0.0f, +1.0f, +1.0f),
+				new <#= vertex3 #>(0.0f, +1.0f, -1.0f),
+				new <#= vertex3 #>(0.0f, -1.0f, +1.0f),
+				new <#= vertex3 #>(0.0f, -1.0f, -1.0f),
+			};
+
+			foreach (<#= vertex3 #> v in pointsZero)
+				Assert.AreEqual(0.0f, plane.GetDistance(v));
+		}
+
+		[Test]
+		public void <#= className #>_PosYPlane()
+		{
+			<#= className #> plane = new <#= className #>(<#= vertex3 #>.UnitY, 0.0f);
+
+			// Positive half-space
+			<#= vertex3 #>[] pointsPosY = {
+				new <#= vertex3 #>(+1.0f, 1.0f, +1.0f),
+				new <#= vertex3 #>(+1.0f, 1.0f, -1.0f),
+				new <#= vertex3 #>(-1.0f, 1.0f, +1.0f),
+				new <#= vertex3 #>(-1.0f, 1.0f, -1.0f),
+			};
+
+			foreach (<#= vertex3 #> v in pointsPosY)
+				Assert.IsTrue(plane.GetDistance(v) > 0.0f);
+
+			// Negative half-space
+			<#= vertex3 #>[] pointsNegY = {
+				new <#= vertex3 #>(+1.0f, -1.0f, +1.0f),
+				new <#= vertex3 #>(+1.0f, -1.0f, -1.0f),
+				new <#= vertex3 #>(-1.0f, -1.0f, +1.0f),
+				new <#= vertex3 #>(-1.0f, -1.0f, -1.0f),
+			};
+
+			foreach (<#= vertex3 #> v in pointsNegY)
+				Assert.IsTrue(plane.GetDistance(v) < 0.0f);
+
+			// On-plane 
+			<#= vertex3 #>[] pointsZero = {
+				new <#= vertex3 #>(+1.0f, 0.0f, +1.0f),
+				new <#= vertex3 #>(+1.0f, 0.0f, -1.0f),
+				new <#= vertex3 #>(-1.0f, 0.0f, +1.0f),
+				new <#= vertex3 #>(-1.0f, 0.0f, -1.0f),
+			};
+
+			foreach (<#= vertex3 #> v in pointsZero)
+				Assert.AreEqual(0.0f, plane.GetDistance(v));
+		}
+
+		[Test]
+		public void <#= className #>_PosZPlane()
+		{
+			<#= className #> plane = new <#= className #>(<#= vertex3 #>.UnitZ, 0.0f);
+
+			// Positive half-space
+			<#= vertex3 #>[] pointsPosZ = {
+				new <#= vertex3 #>(+1.0f, +1.0f, 1.0f),
+				new <#= vertex3 #>(+1.0f, -1.0f, 1.0f),
+				new <#= vertex3 #>(-1.0f, +1.0f, 1.0f),
+				new <#= vertex3 #>(-1.0f, -1.0f, 1.0f),
+			};
+
+			foreach (<#= vertex3 #> v in pointsPosZ)
+				Assert.IsTrue(plane.GetDistance(v) > 0.0f);
+
+			// Negative half-space
+			<#= vertex3 #>[] pointsNegZ = {
+				new <#= vertex3 #>(+1.0f, +1.0f, -1.0f),
+				new <#= vertex3 #>(+1.0f, -1.0f, -1.0f),
+				new <#= vertex3 #>(-1.0f, +1.0f, -1.0f),
+				new <#= vertex3 #>(-1.0f, -1.0f, -1.0f),
+			};
+
+			foreach (<#= vertex3 #> v in pointsNegZ)
+				Assert.IsTrue(plane.GetDistance(v) < 0.0f);
+
+			// On-plane 
+			<#= vertex3 #>[] pointsZero = {
+				new <#= vertex3 #>(+1.0f, +1.0f, 0.0f),
+				new <#= vertex3 #>(+1.0f, -1.0f, 0.0f),
+				new <#= vertex3 #>(-1.0f, +1.0f, 0.0f),
+				new <#= vertex3 #>(-1.0f, -1.0f, 0.0f),
+			};
+
+			foreach (<#= vertex3 #> v in pointsZero)
+				Assert.AreEqual(0.0f, plane.GetDistance(v));
+		}
+
+		[Test]
+		public void <#= className #>_NegXPlane()
+		{
+			<#= className #> plane = new <#= className #>(-<#= vertex3 #>.UnitX, 0.0f);
+
+			// Positive half-space
+			<#= vertex3 #>[] pointsPosX = {
+				new <#= vertex3 #>(1.0f, +1.0f, +1.0f),
+				new <#= vertex3 #>(1.0f, +1.0f, -1.0f),
+				new <#= vertex3 #>(1.0f, -1.0f, +1.0f),
+				new <#= vertex3 #>(1.0f, -1.0f, -1.0f),
+			};
+
+			foreach (<#= vertex3 #> v in pointsPosX)
+				Assert.IsTrue(plane.GetDistance(v) < 0.0f);
+
+			// Negative half-space
+			<#= vertex3 #>[] pointsNegX = {
+				new <#= vertex3 #>(-1.0f, +1.0f, +1.0f),
+				new <#= vertex3 #>(-1.0f, +1.0f, -1.0f),
+				new <#= vertex3 #>(-1.0f, -1.0f, +1.0f),
+				new <#= vertex3 #>(-1.0f, -1.0f, -1.0f),
+			};
+
+			foreach (<#= vertex3 #> v in pointsNegX)
+				Assert.IsTrue(plane.GetDistance(v) > 0.0f);
+
+			// On-plane 
+			<#= vertex3 #>[] pointsZero = {
+				new <#= vertex3 #>(0.0f, +1.0f, +1.0f),
+				new <#= vertex3 #>(0.0f, +1.0f, -1.0f),
+				new <#= vertex3 #>(0.0f, -1.0f, +1.0f),
+				new <#= vertex3 #>(0.0f, -1.0f, -1.0f),
+			};
+
+			foreach (<#= vertex3 #> v in pointsZero)
+				Assert.AreEqual(0.0f, plane.GetDistance(v));
+		}
+
+		[Test]
+		public void <#= className #>_NegYPlane()
+		{
+			<#= className #> plane = new <#= className #>(-<#= vertex3 #>.UnitY, 0.0f);
+
+			// Positive half-space
+			<#= vertex3 #>[] pointsPosY = {
+				new <#= vertex3 #>(+1.0f, 1.0f, +1.0f),
+				new <#= vertex3 #>(+1.0f, 1.0f, -1.0f),
+				new <#= vertex3 #>(-1.0f, 1.0f, +1.0f),
+				new <#= vertex3 #>(-1.0f, 1.0f, -1.0f),
+			};
+
+			foreach (<#= vertex3 #> v in pointsPosY)
+				Assert.IsTrue(plane.GetDistance(v) < 0.0f);
+
+			// Negative half-space
+			<#= vertex3 #>[] pointsNegY = {
+				new <#= vertex3 #>(+1.0f, -1.0f, +1.0f),
+				new <#= vertex3 #>(+1.0f, -1.0f, -1.0f),
+				new <#= vertex3 #>(-1.0f, -1.0f, +1.0f),
+				new <#= vertex3 #>(-1.0f, -1.0f, -1.0f),
+			};
+
+			foreach (<#= vertex3 #> v in pointsNegY)
+				Assert.IsTrue(plane.GetDistance(v) > 0.0f);
+
+			// On-plane 
+			<#= vertex3 #>[] pointsZero = {
+				new <#= vertex3 #>(+1.0f, 0.0f, +1.0f),
+				new <#= vertex3 #>(+1.0f, 0.0f, -1.0f),
+				new <#= vertex3 #>(-1.0f, 0.0f, +1.0f),
+				new <#= vertex3 #>(-1.0f, 0.0f, -1.0f),
+			};
+
+			foreach (<#= vertex3 #> v in pointsZero)
+				Assert.AreEqual(0.0f, plane.GetDistance(v));
+		}
+
+		[Test]
+		public void <#= className #>_NegZPlane()
+		{
+			<#= className #> plane = new <#= className #>(-<#= vertex3 #>.UnitZ, 0.0f);
+
+			// Positive half-space
+			<#= vertex3 #>[] pointsPosZ = {
+				new <#= vertex3 #>(+1.0f, +1.0f, 1.0f),
+				new <#= vertex3 #>(+1.0f, -1.0f, 1.0f),
+				new <#= vertex3 #>(-1.0f, +1.0f, 1.0f),
+				new <#= vertex3 #>(-1.0f, -1.0f, 1.0f),
+			};
+
+			foreach (<#= vertex3 #> v in pointsPosZ)
+				Assert.IsTrue(plane.GetDistance(v) < 0.0f);
+
+			// Negative half-space
+			<#= vertex3 #>[] pointsNegZ = {
+				new <#= vertex3 #>(+1.0f, +1.0f, -1.0f),
+				new <#= vertex3 #>(+1.0f, -1.0f, -1.0f),
+				new <#= vertex3 #>(-1.0f, +1.0f, -1.0f),
+				new <#= vertex3 #>(-1.0f, -1.0f, -1.0f),
+			};
+
+			foreach (<#= vertex3 #> v in pointsNegZ)
+				Assert.IsTrue(plane.GetDistance(v) > 0.0f);
+
+			// On-plane 
+			<#= vertex3 #>[] pointsZero = {
+				new <#= vertex3 #>(+1.0f, +1.0f, 0.0f),
+				new <#= vertex3 #>(+1.0f, -1.0f, 0.0f),
+				new <#= vertex3 #>(-1.0f, +1.0f, 0.0f),
+				new <#= vertex3 #>(-1.0f, -1.0f, 0.0f),
+			};
+
+			foreach (<#= vertex3 #> v in pointsZero)
+				Assert.AreEqual(0.0f, plane.GetDistance(v));
+		}
+
+		[Test]
+		public void <#= className #>_Distance()
+		{
+			<#= className #> plane = new <#= className #>(<#= vertex3 #>.UnitZ, 10.0f);
+
+			Assert.AreEqual(-10.0f, plane.GetDistance(new <#= vertex3 #>(0.0f, 0.0f, 0.0f)));
+			Assert.AreEqual(  0.0f, plane.GetDistance(new <#= vertex3 #>(0.0f, 0.0f, 10.0f)));
+			Assert.AreEqual(+10.0f, plane.GetDistance(new <#= vertex3 #>(0.0f, 0.0f, 20.0f)));
+		}
+
+		// [Test]
+		public void <#= className #>_ProjectionFrustum()
+		{
+			<#= matrix4 #> projectionMatrix = <#= matrix4 #>.Perspective(90.0f, 1.0f, 1.0f, 10.0f);
+			<#= matrix4 #> modelMatrix = <#= matrix4 #>.Identity;
+
+			<#= matrix4 #> frustumMatrix = projectionMatrix * modelMatrix;
+
+			<#= className #> planeL = <#= className #>.GetFrustumLeftPlane(frustumMatrix);
+			<#= className #> planeR = <#= className #>.GetFrustumRightPlane(frustumMatrix);
+			<#= className #> planeB = <#= className #>.GetFrustumBottomPlane(frustumMatrix);
+			<#= className #> planeT = <#= className #>.GetFrustumTopPlane(frustumMatrix);
+
+			<#= className #> planeN = <#= className #>.GetFrustumNearPlane(frustumMatrix);
+			Assert.IsTrue(planeN.GetDistance(new <#= vertex3 #>(0.0f, 0.0f, -5.0f)) > 0.0f);
+
+			<#= className #> planeF = <#= className #>.GetFrustumFarPlane(frustumMatrix);
+			// Assert.IsTrue(planeF.GetDistance(new <#= vertex3 #>(0.0f, 0.0f, -5.0f)) > 0.0f);
+		}
+	}
+<# } #>
+}

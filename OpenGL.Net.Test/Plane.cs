@@ -1,5 +1,5 @@
 ﻿
-// Copyright (C) 2016-2017 Luca Piccioni
+// Copyright (C) 2016-2018 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -19,21 +19,22 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+using System;
+
 using NUnit.Framework;
 
 namespace OpenGL.Test
 {
-	[TestFixture]
-	[Category("Math")]
-	class PlaneTest
+	[TestFixture, Category("Math")]
+	internal class PlanefTest : TestBase
 	{
 		[Test]
-		public void TestPosXPlane()
+		public void Planef_PosXPlane()
 		{
-			Plane plane = new Plane("X", Vertex3f.UnitX, 0.0f);
+			Planef plane = new Planef(Vertex3f.UnitX, 0.0f);
 
 			// Positive half-space
-			Vertex3f[] pointsPosX = new Vertex3f[] {
+			Vertex3f[] pointsPosX = {
 				new Vertex3f(1.0f, +1.0f, +1.0f),
 				new Vertex3f(1.0f, +1.0f, -1.0f),
 				new Vertex3f(1.0f, -1.0f, +1.0f),
@@ -44,7 +45,7 @@ namespace OpenGL.Test
 				Assert.IsTrue(plane.GetDistance(v) > 0.0f);
 
 			// Negative half-space
-			Vertex3f[] pointsNegX = new Vertex3f[] {
+			Vertex3f[] pointsNegX = {
 				new Vertex3f(-1.0f, +1.0f, +1.0f),
 				new Vertex3f(-1.0f, +1.0f, -1.0f),
 				new Vertex3f(-1.0f, -1.0f, +1.0f),
@@ -55,7 +56,7 @@ namespace OpenGL.Test
 				Assert.IsTrue(plane.GetDistance(v) < 0.0f);
 
 			// On-plane 
-			Vertex3f[] pointsZero = new Vertex3f[] {
+			Vertex3f[] pointsZero = {
 				new Vertex3f(0.0f, +1.0f, +1.0f),
 				new Vertex3f(0.0f, +1.0f, -1.0f),
 				new Vertex3f(0.0f, -1.0f, +1.0f),
@@ -67,12 +68,12 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void TestPosYPlane()
+		public void Planef_PosYPlane()
 		{
-			Plane plane = new Plane("Y", Vertex3f.UnitY, 0.0f);
+			Planef plane = new Planef(Vertex3f.UnitY, 0.0f);
 
 			// Positive half-space
-			Vertex3f[] pointsPosY = new Vertex3f[] {
+			Vertex3f[] pointsPosY = {
 				new Vertex3f(+1.0f, 1.0f, +1.0f),
 				new Vertex3f(+1.0f, 1.0f, -1.0f),
 				new Vertex3f(-1.0f, 1.0f, +1.0f),
@@ -83,7 +84,7 @@ namespace OpenGL.Test
 				Assert.IsTrue(plane.GetDistance(v) > 0.0f);
 
 			// Negative half-space
-			Vertex3f[] pointsNegY = new Vertex3f[] {
+			Vertex3f[] pointsNegY = {
 				new Vertex3f(+1.0f, -1.0f, +1.0f),
 				new Vertex3f(+1.0f, -1.0f, -1.0f),
 				new Vertex3f(-1.0f, -1.0f, +1.0f),
@@ -94,7 +95,7 @@ namespace OpenGL.Test
 				Assert.IsTrue(plane.GetDistance(v) < 0.0f);
 
 			// On-plane 
-			Vertex3f[] pointsZero = new Vertex3f[] {
+			Vertex3f[] pointsZero = {
 				new Vertex3f(+1.0f, 0.0f, +1.0f),
 				new Vertex3f(+1.0f, 0.0f, -1.0f),
 				new Vertex3f(-1.0f, 0.0f, +1.0f),
@@ -106,12 +107,12 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void TestPosZPlane()
+		public void Planef_PosZPlane()
 		{
-			Plane plane = new Plane("Z", Vertex3f.UnitZ, 0.0f);
+			Planef plane = new Planef(Vertex3f.UnitZ, 0.0f);
 
 			// Positive half-space
-			Vertex3f[] pointsPosZ = new Vertex3f[] {
+			Vertex3f[] pointsPosZ = {
 				new Vertex3f(+1.0f, +1.0f, 1.0f),
 				new Vertex3f(+1.0f, -1.0f, 1.0f),
 				new Vertex3f(-1.0f, +1.0f, 1.0f),
@@ -122,7 +123,7 @@ namespace OpenGL.Test
 				Assert.IsTrue(plane.GetDistance(v) > 0.0f);
 
 			// Negative half-space
-			Vertex3f[] pointsNegZ = new Vertex3f[] {
+			Vertex3f[] pointsNegZ = {
 				new Vertex3f(+1.0f, +1.0f, -1.0f),
 				new Vertex3f(+1.0f, -1.0f, -1.0f),
 				new Vertex3f(-1.0f, +1.0f, -1.0f),
@@ -133,7 +134,7 @@ namespace OpenGL.Test
 				Assert.IsTrue(plane.GetDistance(v) < 0.0f);
 
 			// On-plane 
-			Vertex3f[] pointsZero = new Vertex3f[] {
+			Vertex3f[] pointsZero = {
 				new Vertex3f(+1.0f, +1.0f, 0.0f),
 				new Vertex3f(+1.0f, -1.0f, 0.0f),
 				new Vertex3f(-1.0f, +1.0f, 0.0f),
@@ -145,12 +146,12 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void TestNegXPlane()
+		public void Planef_NegXPlane()
 		{
-			Plane plane = new Plane("-X", -Vertex3f.UnitX, 0.0f);
+			Planef plane = new Planef(-Vertex3f.UnitX, 0.0f);
 
 			// Positive half-space
-			Vertex3f[] pointsPosX = new Vertex3f[] {
+			Vertex3f[] pointsPosX = {
 				new Vertex3f(1.0f, +1.0f, +1.0f),
 				new Vertex3f(1.0f, +1.0f, -1.0f),
 				new Vertex3f(1.0f, -1.0f, +1.0f),
@@ -161,7 +162,7 @@ namespace OpenGL.Test
 				Assert.IsTrue(plane.GetDistance(v) < 0.0f);
 
 			// Negative half-space
-			Vertex3f[] pointsNegX = new Vertex3f[] {
+			Vertex3f[] pointsNegX = {
 				new Vertex3f(-1.0f, +1.0f, +1.0f),
 				new Vertex3f(-1.0f, +1.0f, -1.0f),
 				new Vertex3f(-1.0f, -1.0f, +1.0f),
@@ -172,7 +173,7 @@ namespace OpenGL.Test
 				Assert.IsTrue(plane.GetDistance(v) > 0.0f);
 
 			// On-plane 
-			Vertex3f[] pointsZero = new Vertex3f[] {
+			Vertex3f[] pointsZero = {
 				new Vertex3f(0.0f, +1.0f, +1.0f),
 				new Vertex3f(0.0f, +1.0f, -1.0f),
 				new Vertex3f(0.0f, -1.0f, +1.0f),
@@ -184,12 +185,12 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void TestNegYPlane()
+		public void Planef_NegYPlane()
 		{
-			Plane plane = new Plane("-Y", -Vertex3f.UnitY, 0.0f);
+			Planef plane = new Planef(-Vertex3f.UnitY, 0.0f);
 
 			// Positive half-space
-			Vertex3f[] pointsPosY = new Vertex3f[] {
+			Vertex3f[] pointsPosY = {
 				new Vertex3f(+1.0f, 1.0f, +1.0f),
 				new Vertex3f(+1.0f, 1.0f, -1.0f),
 				new Vertex3f(-1.0f, 1.0f, +1.0f),
@@ -200,7 +201,7 @@ namespace OpenGL.Test
 				Assert.IsTrue(plane.GetDistance(v) < 0.0f);
 
 			// Negative half-space
-			Vertex3f[] pointsNegY = new Vertex3f[] {
+			Vertex3f[] pointsNegY = {
 				new Vertex3f(+1.0f, -1.0f, +1.0f),
 				new Vertex3f(+1.0f, -1.0f, -1.0f),
 				new Vertex3f(-1.0f, -1.0f, +1.0f),
@@ -211,7 +212,7 @@ namespace OpenGL.Test
 				Assert.IsTrue(plane.GetDistance(v) > 0.0f);
 
 			// On-plane 
-			Vertex3f[] pointsZero = new Vertex3f[] {
+			Vertex3f[] pointsZero = {
 				new Vertex3f(+1.0f, 0.0f, +1.0f),
 				new Vertex3f(+1.0f, 0.0f, -1.0f),
 				new Vertex3f(-1.0f, 0.0f, +1.0f),
@@ -223,12 +224,12 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void TestNegZPlane()
+		public void Planef_NegZPlane()
 		{
-			Plane plane = new Plane("-Z", -Vertex3f.UnitZ, 0.0f);
+			Planef plane = new Planef(-Vertex3f.UnitZ, 0.0f);
 
 			// Positive half-space
-			Vertex3f[] pointsPosZ = new Vertex3f[] {
+			Vertex3f[] pointsPosZ = {
 				new Vertex3f(+1.0f, +1.0f, 1.0f),
 				new Vertex3f(+1.0f, -1.0f, 1.0f),
 				new Vertex3f(-1.0f, +1.0f, 1.0f),
@@ -239,7 +240,7 @@ namespace OpenGL.Test
 				Assert.IsTrue(plane.GetDistance(v) < 0.0f);
 
 			// Negative half-space
-			Vertex3f[] pointsNegZ = new Vertex3f[] {
+			Vertex3f[] pointsNegZ = {
 				new Vertex3f(+1.0f, +1.0f, -1.0f),
 				new Vertex3f(+1.0f, -1.0f, -1.0f),
 				new Vertex3f(-1.0f, +1.0f, -1.0f),
@@ -250,7 +251,7 @@ namespace OpenGL.Test
 				Assert.IsTrue(plane.GetDistance(v) > 0.0f);
 
 			// On-plane 
-			Vertex3f[] pointsZero = new Vertex3f[] {
+			Vertex3f[] pointsZero = {
 				new Vertex3f(+1.0f, +1.0f, 0.0f),
 				new Vertex3f(+1.0f, -1.0f, 0.0f),
 				new Vertex3f(-1.0f, +1.0f, 0.0f),
@@ -262,9 +263,9 @@ namespace OpenGL.Test
 		}
 
 		[Test]
-		public void TestDistance()
+		public void Planef_Distance()
 		{
-			Plane plane = new Plane("ZDist", Vertex3f.UnitZ, 10.0f);
+			Planef plane = new Planef(Vertex3f.UnitZ, 10.0f);
 
 			Assert.AreEqual(-10.0f, plane.GetDistance(new Vertex3f(0.0f, 0.0f, 0.0f)));
 			Assert.AreEqual(  0.0f, plane.GetDistance(new Vertex3f(0.0f, 0.0f, 10.0f)));
@@ -272,23 +273,290 @@ namespace OpenGL.Test
 		}
 
 		// [Test]
-		public void TestProjectionFrustum()
+		public void Planef_ProjectionFrustum()
 		{
 			Matrix4x4f projectionMatrix = Matrix4x4f.Perspective(90.0f, 1.0f, 1.0f, 10.0f);
 			Matrix4x4f modelMatrix = Matrix4x4f.Identity;
 
 			Matrix4x4f frustumMatrix = projectionMatrix * modelMatrix;
 
-			Plane planeL = Plane.GetFrustumLeftPlane(frustumMatrix);
-			Plane planeR = Plane.GetFrustumRightPlane(frustumMatrix);
-			Plane planeB = Plane.GetFrustumBottomPlane(frustumMatrix);
-			Plane planeT = Plane.GetFrustumTopPlane(frustumMatrix);
+			Planef planeL = Planef.GetFrustumLeftPlane(frustumMatrix);
+			Planef planeR = Planef.GetFrustumRightPlane(frustumMatrix);
+			Planef planeB = Planef.GetFrustumBottomPlane(frustumMatrix);
+			Planef planeT = Planef.GetFrustumTopPlane(frustumMatrix);
 
-			Plane planeN = Plane.GetFrustumNearPlane(frustumMatrix);
+			Planef planeN = Planef.GetFrustumNearPlane(frustumMatrix);
 			Assert.IsTrue(planeN.GetDistance(new Vertex3f(0.0f, 0.0f, -5.0f)) > 0.0f);
 
-			Plane planeF = Plane.GetFrustumFarPlane(frustumMatrix);
+			Planef planeF = Planef.GetFrustumFarPlane(frustumMatrix);
 			// Assert.IsTrue(planeF.GetDistance(new Vertex3f(0.0f, 0.0f, -5.0f)) > 0.0f);
+		}
+	}
+	[TestFixture, Category("Math")]
+	internal class PlanedTest : TestBase
+	{
+		[Test]
+		public void Planed_PosXPlane()
+		{
+			Planed plane = new Planed(Vertex3d.UnitX, 0.0f);
+
+			// Positive half-space
+			Vertex3d[] pointsPosX = {
+				new Vertex3d(1.0f, +1.0f, +1.0f),
+				new Vertex3d(1.0f, +1.0f, -1.0f),
+				new Vertex3d(1.0f, -1.0f, +1.0f),
+				new Vertex3d(1.0f, -1.0f, -1.0f),
+			};
+
+			foreach (Vertex3d v in pointsPosX)
+				Assert.IsTrue(plane.GetDistance(v) > 0.0f);
+
+			// Negative half-space
+			Vertex3d[] pointsNegX = {
+				new Vertex3d(-1.0f, +1.0f, +1.0f),
+				new Vertex3d(-1.0f, +1.0f, -1.0f),
+				new Vertex3d(-1.0f, -1.0f, +1.0f),
+				new Vertex3d(-1.0f, -1.0f, -1.0f),
+			};
+
+			foreach (Vertex3d v in pointsNegX)
+				Assert.IsTrue(plane.GetDistance(v) < 0.0f);
+
+			// On-plane 
+			Vertex3d[] pointsZero = {
+				new Vertex3d(0.0f, +1.0f, +1.0f),
+				new Vertex3d(0.0f, +1.0f, -1.0f),
+				new Vertex3d(0.0f, -1.0f, +1.0f),
+				new Vertex3d(0.0f, -1.0f, -1.0f),
+			};
+
+			foreach (Vertex3d v in pointsZero)
+				Assert.AreEqual(0.0f, plane.GetDistance(v));
+		}
+
+		[Test]
+		public void Planed_PosYPlane()
+		{
+			Planed plane = new Planed(Vertex3d.UnitY, 0.0f);
+
+			// Positive half-space
+			Vertex3d[] pointsPosY = {
+				new Vertex3d(+1.0f, 1.0f, +1.0f),
+				new Vertex3d(+1.0f, 1.0f, -1.0f),
+				new Vertex3d(-1.0f, 1.0f, +1.0f),
+				new Vertex3d(-1.0f, 1.0f, -1.0f),
+			};
+
+			foreach (Vertex3d v in pointsPosY)
+				Assert.IsTrue(plane.GetDistance(v) > 0.0f);
+
+			// Negative half-space
+			Vertex3d[] pointsNegY = {
+				new Vertex3d(+1.0f, -1.0f, +1.0f),
+				new Vertex3d(+1.0f, -1.0f, -1.0f),
+				new Vertex3d(-1.0f, -1.0f, +1.0f),
+				new Vertex3d(-1.0f, -1.0f, -1.0f),
+			};
+
+			foreach (Vertex3d v in pointsNegY)
+				Assert.IsTrue(plane.GetDistance(v) < 0.0f);
+
+			// On-plane 
+			Vertex3d[] pointsZero = {
+				new Vertex3d(+1.0f, 0.0f, +1.0f),
+				new Vertex3d(+1.0f, 0.0f, -1.0f),
+				new Vertex3d(-1.0f, 0.0f, +1.0f),
+				new Vertex3d(-1.0f, 0.0f, -1.0f),
+			};
+
+			foreach (Vertex3d v in pointsZero)
+				Assert.AreEqual(0.0f, plane.GetDistance(v));
+		}
+
+		[Test]
+		public void Planed_PosZPlane()
+		{
+			Planed plane = new Planed(Vertex3d.UnitZ, 0.0f);
+
+			// Positive half-space
+			Vertex3d[] pointsPosZ = {
+				new Vertex3d(+1.0f, +1.0f, 1.0f),
+				new Vertex3d(+1.0f, -1.0f, 1.0f),
+				new Vertex3d(-1.0f, +1.0f, 1.0f),
+				new Vertex3d(-1.0f, -1.0f, 1.0f),
+			};
+
+			foreach (Vertex3d v in pointsPosZ)
+				Assert.IsTrue(plane.GetDistance(v) > 0.0f);
+
+			// Negative half-space
+			Vertex3d[] pointsNegZ = {
+				new Vertex3d(+1.0f, +1.0f, -1.0f),
+				new Vertex3d(+1.0f, -1.0f, -1.0f),
+				new Vertex3d(-1.0f, +1.0f, -1.0f),
+				new Vertex3d(-1.0f, -1.0f, -1.0f),
+			};
+
+			foreach (Vertex3d v in pointsNegZ)
+				Assert.IsTrue(plane.GetDistance(v) < 0.0f);
+
+			// On-plane 
+			Vertex3d[] pointsZero = {
+				new Vertex3d(+1.0f, +1.0f, 0.0f),
+				new Vertex3d(+1.0f, -1.0f, 0.0f),
+				new Vertex3d(-1.0f, +1.0f, 0.0f),
+				new Vertex3d(-1.0f, -1.0f, 0.0f),
+			};
+
+			foreach (Vertex3d v in pointsZero)
+				Assert.AreEqual(0.0f, plane.GetDistance(v));
+		}
+
+		[Test]
+		public void Planed_NegXPlane()
+		{
+			Planed plane = new Planed(-Vertex3d.UnitX, 0.0f);
+
+			// Positive half-space
+			Vertex3d[] pointsPosX = {
+				new Vertex3d(1.0f, +1.0f, +1.0f),
+				new Vertex3d(1.0f, +1.0f, -1.0f),
+				new Vertex3d(1.0f, -1.0f, +1.0f),
+				new Vertex3d(1.0f, -1.0f, -1.0f),
+			};
+
+			foreach (Vertex3d v in pointsPosX)
+				Assert.IsTrue(plane.GetDistance(v) < 0.0f);
+
+			// Negative half-space
+			Vertex3d[] pointsNegX = {
+				new Vertex3d(-1.0f, +1.0f, +1.0f),
+				new Vertex3d(-1.0f, +1.0f, -1.0f),
+				new Vertex3d(-1.0f, -1.0f, +1.0f),
+				new Vertex3d(-1.0f, -1.0f, -1.0f),
+			};
+
+			foreach (Vertex3d v in pointsNegX)
+				Assert.IsTrue(plane.GetDistance(v) > 0.0f);
+
+			// On-plane 
+			Vertex3d[] pointsZero = {
+				new Vertex3d(0.0f, +1.0f, +1.0f),
+				new Vertex3d(0.0f, +1.0f, -1.0f),
+				new Vertex3d(0.0f, -1.0f, +1.0f),
+				new Vertex3d(0.0f, -1.0f, -1.0f),
+			};
+
+			foreach (Vertex3d v in pointsZero)
+				Assert.AreEqual(0.0f, plane.GetDistance(v));
+		}
+
+		[Test]
+		public void Planed_NegYPlane()
+		{
+			Planed plane = new Planed(-Vertex3d.UnitY, 0.0f);
+
+			// Positive half-space
+			Vertex3d[] pointsPosY = {
+				new Vertex3d(+1.0f, 1.0f, +1.0f),
+				new Vertex3d(+1.0f, 1.0f, -1.0f),
+				new Vertex3d(-1.0f, 1.0f, +1.0f),
+				new Vertex3d(-1.0f, 1.0f, -1.0f),
+			};
+
+			foreach (Vertex3d v in pointsPosY)
+				Assert.IsTrue(plane.GetDistance(v) < 0.0f);
+
+			// Negative half-space
+			Vertex3d[] pointsNegY = {
+				new Vertex3d(+1.0f, -1.0f, +1.0f),
+				new Vertex3d(+1.0f, -1.0f, -1.0f),
+				new Vertex3d(-1.0f, -1.0f, +1.0f),
+				new Vertex3d(-1.0f, -1.0f, -1.0f),
+			};
+
+			foreach (Vertex3d v in pointsNegY)
+				Assert.IsTrue(plane.GetDistance(v) > 0.0f);
+
+			// On-plane 
+			Vertex3d[] pointsZero = {
+				new Vertex3d(+1.0f, 0.0f, +1.0f),
+				new Vertex3d(+1.0f, 0.0f, -1.0f),
+				new Vertex3d(-1.0f, 0.0f, +1.0f),
+				new Vertex3d(-1.0f, 0.0f, -1.0f),
+			};
+
+			foreach (Vertex3d v in pointsZero)
+				Assert.AreEqual(0.0f, plane.GetDistance(v));
+		}
+
+		[Test]
+		public void Planed_NegZPlane()
+		{
+			Planed plane = new Planed(-Vertex3d.UnitZ, 0.0f);
+
+			// Positive half-space
+			Vertex3d[] pointsPosZ = {
+				new Vertex3d(+1.0f, +1.0f, 1.0f),
+				new Vertex3d(+1.0f, -1.0f, 1.0f),
+				new Vertex3d(-1.0f, +1.0f, 1.0f),
+				new Vertex3d(-1.0f, -1.0f, 1.0f),
+			};
+
+			foreach (Vertex3d v in pointsPosZ)
+				Assert.IsTrue(plane.GetDistance(v) < 0.0f);
+
+			// Negative half-space
+			Vertex3d[] pointsNegZ = {
+				new Vertex3d(+1.0f, +1.0f, -1.0f),
+				new Vertex3d(+1.0f, -1.0f, -1.0f),
+				new Vertex3d(-1.0f, +1.0f, -1.0f),
+				new Vertex3d(-1.0f, -1.0f, -1.0f),
+			};
+
+			foreach (Vertex3d v in pointsNegZ)
+				Assert.IsTrue(plane.GetDistance(v) > 0.0f);
+
+			// On-plane 
+			Vertex3d[] pointsZero = {
+				new Vertex3d(+1.0f, +1.0f, 0.0f),
+				new Vertex3d(+1.0f, -1.0f, 0.0f),
+				new Vertex3d(-1.0f, +1.0f, 0.0f),
+				new Vertex3d(-1.0f, -1.0f, 0.0f),
+			};
+
+			foreach (Vertex3d v in pointsZero)
+				Assert.AreEqual(0.0f, plane.GetDistance(v));
+		}
+
+		[Test]
+		public void Planed_Distance()
+		{
+			Planed plane = new Planed(Vertex3d.UnitZ, 10.0f);
+
+			Assert.AreEqual(-10.0f, plane.GetDistance(new Vertex3d(0.0f, 0.0f, 0.0f)));
+			Assert.AreEqual(  0.0f, plane.GetDistance(new Vertex3d(0.0f, 0.0f, 10.0f)));
+			Assert.AreEqual(+10.0f, plane.GetDistance(new Vertex3d(0.0f, 0.0f, 20.0f)));
+		}
+
+		// [Test]
+		public void Planed_ProjectionFrustum()
+		{
+			Matrix4x4d projectionMatrix = Matrix4x4d.Perspective(90.0f, 1.0f, 1.0f, 10.0f);
+			Matrix4x4d modelMatrix = Matrix4x4d.Identity;
+
+			Matrix4x4d frustumMatrix = projectionMatrix * modelMatrix;
+
+			Planed planeL = Planed.GetFrustumLeftPlane(frustumMatrix);
+			Planed planeR = Planed.GetFrustumRightPlane(frustumMatrix);
+			Planed planeB = Planed.GetFrustumBottomPlane(frustumMatrix);
+			Planed planeT = Planed.GetFrustumTopPlane(frustumMatrix);
+
+			Planed planeN = Planed.GetFrustumNearPlane(frustumMatrix);
+			Assert.IsTrue(planeN.GetDistance(new Vertex3d(0.0f, 0.0f, -5.0f)) > 0.0f);
+
+			Planed planeF = Planed.GetFrustumFarPlane(frustumMatrix);
+			// Assert.IsTrue(planeF.GetDistance(new Vertex3d(0.0f, 0.0f, -5.0f)) > 0.0f);
 		}
 	}
 }

@@ -129,6 +129,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Matrix.tt</DependentUpon>
     </Compile>
+	<Compile Include="Plane.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Plane.tt</DependentUpon>
+    </Compile>
     <Compile Include="TestBase.cs" />
     <Compile Include="TestBaseDevice.cs" />
     <Compile Include="Vertex4.cs">
@@ -158,7 +163,6 @@
     <Compile Include="TestBaseGL.cs" />
     <Compile Include="KhronosApi.cs" />
     <Compile Include="Memory.cs" />
-    <Compile Include="Plane.cs" />
     <Compile Include="Vertex2.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -180,6 +184,10 @@
     <Content Include="Matrix.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Matrix.cs</LastGenOutput>
+    </Content>
+	<Content Include="Plane.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Plane.cs</LastGenOutput>
     </Content>
     <Content Include="Vertex4.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

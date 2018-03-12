@@ -1,0 +1,352 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".cs" #>
+
+// Copyright (C) 2010-2017 Luca Piccioni
+// 
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+// 
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+// 
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
+
+namespace OpenGL
+{
+<#
+	string[] baseTypes =		new[] { "float", "double" };
+	string[] postfixes =		new[] { "f",     "d"};
+	string[] zeroes =			new[] { "0.0f",  "0.0" };
+	string[] ones =				new[] { "1.0f",  "1.0" };
+	string[] matrixBaseTypes =	new[] { "float", "double" };
+	string[] literals		 =	new[] { "f", "" };
+	string[] vliterals		 =	new[] { "f", "d" };
+
+	for (int i = 0; i < 2; i++) {
+		string className = String.Format("Plane{0}", postfixes[i]);
+		string baseType = baseTypes[i];
+		string one = ones[i], zero = zeroes[i];
+		string literal = literals[i];
+		string vertex3 = "Vertex3" + vliterals[i];
+		string vertex4 = "Vertex4" + vliterals[i];
+		string matrix4 = "Matrix4x4" + vliterals[i];
+#>
+	/// <summary>
+	/// Plane abstraction.
+	/// </summary>
+	[DebuggerDisplay("Plane: Normal={Normal} Distance={Distance}")]
+	public struct <#= className #>
+	{
+		#region Constructors
+
+		/// <summary>
+		/// Construct a plane from a normal and a distance from origin.
+		/// </summary>
+		/// <param name="normal">
+		/// A <see cref="<#= vertex3 #>"/> representing the plane normal.
+		/// </param>
+		/// <param name="d">
+		/// A <see cref="<#= baseType #>"/> representing the distance between the plane and the origin.
+		/// </param>
+		public <#= className #>(<#= vertex3 #> normal, <#= baseType #> d)
+		{
+			_A = _B = _C = _D = <#= zero #>;
+
+			Normal = normal;
+			Distance = d;
+		}
+
+		/// <summary>
+		/// Construct a plane from a normal and a point.
+		/// </summary>
+		/// <param name="normal">
+		/// A <see cref="<#= vertex3 #>"/> representing the plane normal.
+		/// </param>
+		/// <param name="point">
+		/// A <see cref="<#= vertex3 #>"/> representing the point considered for constructing the plane.
+		/// </param>
+		public <#= className #>(<#= vertex3 #> normal, <#= vertex3 #> point)
+		{
+			_A = _B = _C = _D = <#= zero #>;
+			
+			Normal = normal;
+			Distance = normal * point;
+		}
+
+		/// <summary>
+		/// Construct a plane from 3 coplanar points.
+		/// </summary>
+		/// <param name="v1">
+		/// A <see cref="<#= vertex3 #>"/> representing one plane coplanar point.
+		/// </param>
+		/// <param name="v2">
+		/// A <see cref="<#= vertex3 #>"/> representing one plane coplanar point.
+		/// </param>
+		/// <param name="v3">
+		/// A <see cref="<#= vertex3 #>"/> representing one plane coplanar point.
+		/// </param>
+		public <#= className #>(<#= vertex3 #> v1, <#= vertex3 #> v2, <#= vertex3 #> v3)
+		{
+			_A = _B = _C = _D = <#= zero #>;
+			
+			<#= vertex3 #> edge1 = v2 - v1, edge2 = v3 - v1;
+
+			Normal = edge1 ^ edge2;
+			Distance = Normal * v1;
+		}
+
+		private <#= className #>(<#= baseType #> a, <#= baseType #> b, <#= baseType #> c, <#= baseType #> d)
+		{
+			_A = _B = _C = _D = <#= zero #>;
+			
+			Normal = new <#= vertex3 #>(a, b, c);
+			Distance = d;
+		}
+
+		#endregion
+
+		#region Structure
+
+		/// <summary>
+		/// 1th plane component.
+		/// </summary>
+		private <#= baseType #> _A;
+
+		/// <summary>
+		/// 2th plane component.
+		/// </summary>
+		private <#= baseType #> _B;
+
+		/// <summary>
+		/// 3th plane component.
+		/// </summary>
+		private <#= baseType #> _C;
+
+		/// <summary>
+		/// 4th plane component (distance).
+		/// </summary>
+		private <#= baseType #> _D;
+
+		#endregion
+
+		#region Plane Equation
+
+		/// <summary>
+		/// Plane normal vector.
+		/// </summary>
+		public <#= vertex3 #> Normal
+		{
+			get { return new <#= vertex3 #>(_A, _B, _C); }
+			set {
+				<#= vertex3 #> n = value.Normalized;
+				
+				_A = n.x;
+				_B = n.y;
+				_C = n.z;
+			}
+		}
+
+		/// <summary>
+		/// Distance of plane from origin.
+		/// </summary>
+		public <#= baseType #> Distance { get { return _D; } set { _D = value; } }
+
+		#endregion
+
+		#region Frustrum Planes Extration
+
+		/// <summary>
+		/// Extract all six planes from a model-view-projection matrix.
+		/// </summary>
+		/// <param name="mvp">
+		/// The <see cref="<#= matrix4 #>"/> that specify the matrix used for drawing the clipped object.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="IEnumerable{<#= className #>}"/> containing all six clipping planes defined
+		/// by <paramref name="mvp"/>.
+		/// </returns>
+		public static IEnumerable<<#= className #>> GetFrustumPlanes(<#= matrix4 #> mvp)
+		{
+			return new List<<#= className #>>(6) {
+				GetFrustumLeftPlane(mvp),
+				GetFrustumRightPlane(mvp),
+				GetFrustumNearPlane(mvp),
+				GetFrustumFarPlane(mvp),
+				GetFrustumBottomPlane(mvp),
+				GetFrustumTopPlane(mvp)
+			};
+		}
+
+		/// <summary>
+		/// Extract the left plane from a model-view-projection matrix.
+		/// </summary>
+		/// <param name="mvp">
+		/// The <see cref="<#= matrix4 #>"/> that specify the matrix used for drawing the clipped object.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="<#= className #>"/> defining the left clipping plane.
+		/// </returns>
+		public static <#= className #> GetFrustumLeftPlane(<#= matrix4 #> mvp)
+		{
+			return NormalizePlane(mvp.Row3 + mvp.Row0);
+		}
+
+		/// <summary>
+		/// Extract the right plane from a model-view-projection matrix.
+		/// </summary>
+		/// <param name="mvp">
+		/// The <see cref="<#= matrix4 #>"/> that specify the matrix used for drawing the clipped object.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="<#= className #>"/> defining the right clipping plane.
+		/// </returns>
+		public static <#= className #> GetFrustumRightPlane(<#= matrix4 #> mvp)
+		{
+			return NormalizePlane(mvp.Row3 - mvp.Row0);
+		}
+
+		/// <summary>
+		/// Extract the bottom plane from a model-view-projection matrix.
+		/// </summary>
+		/// <param name="mvp">
+		/// The <see cref="<#= matrix4 #>"/> that specify the matrix used for drawing the clipped object.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="<#= className #>"/> defining the bottom clipping plane.
+		/// </returns>
+		public static <#= className #> GetFrustumBottomPlane(<#= matrix4 #> mvp)
+		{
+			return NormalizePlane(mvp.Row0 + mvp.Row1);
+		}
+
+		/// <summary>
+		/// Extract the top plane from a model-view-projection matrix.
+		/// </summary>
+		/// <param name="mvp">
+		/// The <see cref="<#= matrix4 #>"/> that specify the matrix used for drawing the clipped object.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="<#= className #>"/> defining the top clipping plane.
+		/// </returns>
+		public static <#= className #> GetFrustumTopPlane(<#= matrix4 #> mvp)
+		{
+			return NormalizePlane(mvp.Row0 - mvp.Row1);
+		}
+
+		/// <summary>
+		/// Extract the near plane from a model-view-projection matrix.
+		/// </summary>
+		/// <param name="mvp">
+		/// The <see cref="<#= matrix4 #>"/> that specify the matrix used for drawing the clipped object.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="<#= className #>"/> defining the near clipping plane.
+		/// </returns>
+		public static <#= className #> GetFrustumNearPlane(<#= matrix4 #> mvp)
+		{
+			<#= className #> plane = NormalizePlane(mvp.Row0 + mvp.Row2);
+			plane.Distance = -plane.Distance;
+			return plane;
+		}
+
+		/// <summary>
+		/// Extract the far plane from a model-view-projection matrix.
+		/// </summary>
+		/// <param name="mvp">
+		/// The <see cref="<#= matrix4 #>"/> that specify the matrix used for drawing the clipped object.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="<#= className #>"/> defining the far clipping plane.
+		/// </returns>
+		public static <#= className #> GetFrustumFarPlane(<#= matrix4 #> mvp)
+		{
+			<#= className #> plane = NormalizePlane(mvp.Row3 - mvp.Row2);
+			plane.Distance = -plane.Distance;
+			return plane;
+		}
+
+		/// <summary>
+		/// Creates a normalized plane.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="<#= vertex4 #>"/> that specify the plane components.
+		/// </param>
+		/// <returns>
+		/// It returns the normalized plane.
+		/// </returns>
+		private static <#= className #> NormalizePlane(<#= vertex4 #> v)
+		{
+			return NormalizePlane(v.x, v.y, v.z, v.w);
+		}
+
+		/// <summary>
+		/// Creates a normalized plane.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="<#= baseType #>"/> that specify the 1th plane component.
+		/// </param>
+		/// <param name="b">
+		/// A <see cref="<#= baseType #>"/> that specify the 2th plane component.
+		/// </param>
+		/// <param name="c">
+		/// A <see cref="<#= baseType #>"/> that specify the 3th plane component.
+		/// </param>
+		/// <param name="d">
+		/// A <see cref="<#= baseType #>"/> that specify the 4th plane component.
+		/// </param>
+		/// <returns>
+		/// It returns the normalized plane.
+		/// </returns>
+		private static <#= className #> NormalizePlane(<#= baseType #> a, <#= baseType #> b, <#= baseType #> c, <#= baseType #> d)
+		{
+			<#= baseType #> module = (<#= baseType #>)Math.Sqrt(a * a + b * b + c * c);
+
+			return new <#= className #>(a / module, b / module, c / module, d / module);
+		}
+
+		#endregion
+
+		#region Plane Operations
+
+		/// <summary>
+		/// Compute distance between a point and this plane.
+		/// </summary>
+		/// <param name="p">
+		/// A <see cref="<#= vertex3 #>"/> representing a point.
+		/// </param>
+		/// <returns>
+		/// It returns the distance between a point and this plane. In the case the distance is positive, the point is on the positive side of the
+		/// plane (following Normal direction), otherwise the distance is negative.
+		/// </returns>
+#if NET45
+		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+		public <#= baseType #> GetDistance(<#= vertex3 #> p)
+		{
+			return Normal * p - Distance;
+		}
+
+		#endregion
+	}
+
+<# } #>
+}

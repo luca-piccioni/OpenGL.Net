@@ -148,7 +148,11 @@
     </Compile>
     <Compile Include="PixelLayout.cs" />
     <Compile Include="PixelSpace.cs" />
-    <Compile Include="Plane.cs" />
+    <Compile Include="Plane.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Plane.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Quaternion.cs" />
     <Compile Include="Vertex2.cs">
@@ -198,6 +202,10 @@
     <Content Include="Matrix.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Matrix.cs</LastGenOutput>
+    </Content>
+    <Content Include="Plane.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Plane.cs</LastGenOutput>
     </Content>
     <Content Include="Vertex2.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

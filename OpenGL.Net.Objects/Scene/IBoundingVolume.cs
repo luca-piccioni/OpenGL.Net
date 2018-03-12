@@ -51,6 +51,6 @@ namespace OpenGL.Objects.Scene
 		/// It returns a boolean value indicating whether this bound volume is entirely
 		/// clipped by <paramref name="clippingPlanes"/>.
 		/// </returns>
-		bool IsClipped(IEnumerable<Plane> clippingPlanes, Matrix4x4f viewModel);
+		bool IsClipped(IEnumerable<Planef> clippingPlanes, Matrix4x4f viewModel);
 	}
 }

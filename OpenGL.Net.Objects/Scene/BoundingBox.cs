@@ -132,7 +132,7 @@ namespace OpenGL.Objects.Scene
 		/// It returns a boolean value indicating whether this bound volume is entirely
 		/// clipped by <paramref name="clippingPlanes"/>.
 		/// </returns>
-		public bool IsClipped(IEnumerable<Plane> clippingPlanes, Matrix4x4f viewModel)
+		public bool IsClipped(IEnumerable<Planef> clippingPlanes, Matrix4x4f viewModel)
 		{
 			if (clippingPlanes == null)
 				throw new ArgumentNullException("clippingPlanes");
@@ -154,7 +154,7 @@ namespace OpenGL.Objects.Scene
 			boundVertices[6] = new Vertex3f(viewVertices[0].x, viewVertices[1].y, viewVertices[0].z);
 			boundVertices[7] = new Vertex3f(viewVertices[1].x, viewVertices[1].y, viewVertices[0].z);
 
-			foreach (Plane clipPlane in clippingPlanes) {
+			foreach (Planef clipPlane in clippingPlanes) {
 				bool outsidePlane = true;
 
 				for (int i = 0; i < boundVertices.Length && outsidePlane; i++)
