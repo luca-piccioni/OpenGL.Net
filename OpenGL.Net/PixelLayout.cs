@@ -1,5 +1,5 @@
 
-// Copyright (C) 2012-2017 Luca Piccioni
+// Copyright (C) 2012-2018 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -19,28 +19,13 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-using System;
+// ReSharper disable InconsistentNaming
 
 namespace OpenGL
 {
 	/// <summary>
-	/// Pixel format.
+	/// Pixel format model.
 	/// </summary>
-	/// <remarks>
-	/// <para>
-	/// A pixel format specify completely the following information:
-	/// - The color space
-	/// - The pixel memory layout (bits and bit-mask per component)
-	/// - The maximum component precision
-	/// A pixel format specify partially the following information:
-	/// - The color linearity
-	/// </para>
-	/// <para>
-	/// The color linearity is fully determined on unsigned integer formats and packed formats. Pixel format
-	/// having single-precision (or half-precision) floating-point components can store as linear color, but
-	/// they cannot be expected to do it; it's up to application to manage the color linearity.
-	/// </para>
-	/// </remarks>
 	public enum PixelLayout : uint
 	{
 		/// <summary>
