@@ -50,16 +50,16 @@ namespace OpenGL.Objects
 				case PixelLayout.RGBF:
 				case PixelLayout.RGBHF:
 				case PixelLayout.RGBD:
-					return PixelSpace.Rgb;
+					return PixelSpace.RGB;
 				case PixelLayout.SRGB24:
-					return PixelSpace.sRgb;
+					return PixelSpace.sRGB;
 				case PixelLayout.SBGR24:
-					return PixelSpace.sBgr;
+					return PixelSpace.sBGR;
 				case PixelLayout.RGBA32:
 				case PixelLayout.RGBA64:
 				case PixelLayout.RGBAF:
 				case PixelLayout.RGBAHF:
-					return PixelSpace.sRgb;
+					return PixelSpace.sRGB;
 				case PixelLayout.BGR8:
 				case PixelLayout.BGR15:
 				case PixelLayout.BGR16:
@@ -67,12 +67,12 @@ namespace OpenGL.Objects
 				case PixelLayout.BGR48:
 				case PixelLayout.BGRF:
 				case PixelLayout.BGRHF:
-					return PixelSpace.Bgr;
+					return PixelSpace.BGR;
 				case PixelLayout.BGRA32:
 				case PixelLayout.BGRA64:
 				case PixelLayout.BGRAF:
 				case PixelLayout.BGRAHF:
-					return PixelSpace.Bgra;
+					return PixelSpace.BGRA;
 				case PixelLayout.YVU410:
 				case PixelLayout.YVU420:
 				case PixelLayout.YUYV:

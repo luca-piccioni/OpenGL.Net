@@ -1,5 +1,5 @@
 
-// Copyright (C) 2012-2017 Luca Piccioni
+// Copyright (C) 2012-2018 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -19,7 +19,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-using System;
+// ReSharper disable InconsistentNaming
 
 namespace OpenGL
 {
@@ -32,58 +32,72 @@ namespace OpenGL
 		/// Grayscale.
 		/// </summary>
 		Red,
+
 		/// <summary>
 		/// Gray scale and Alpha.
 		/// </summary>
 		GrayAlpha,
+
 		/// <summary>
 		/// RGB.
 		/// </summary>
-		Rgb,
+		RGB,
+
 		/// <summary>
 		/// sRGB.
 		/// </summary>
-		sRgb,
+		sRGB,
+
 		/// <summary>
 		/// sBGR.
 		/// </summary>
-		sBgr,
+		sBGR,
+
 		/// <summary>
 		/// RGB and Alpha
 		/// </summary>
-		Rgba,
+		RGBA,
+
 		/// <summary>
 		/// Linear BGR.
 		/// </summary>
-		Bgr,
+		BGR,
+
 		/// <summary>
 		/// BGR and Alpha.
 		/// </summary>
-		Bgra,
+		BGRA,
+
 		/// <summary>
 		/// Luminance/chrominance.
 		/// </summary>
 		YUV,
+
 		/// <summary>
 		/// Cyan, Magenta and Yellow.
 		/// </summary>
 		CMY,
+
 		/// <summary>
 		/// Cyan, Magenta, Yellow and Black.
 		/// </summary>
 		CMYK,
+
 		/// <summary>
 		/// Cyan, Magenta, Yellow, Black and Alpha.
 		/// </summary>
 		CMYKA,
+
 		/// <summary>
 		/// Depth.
 		/// </summary>
 		Depth,
+
 		/// <summary>
 		/// Combined depth/stencil.
 		/// </summary>
 		DepthStencil,
+
 		/// <summary>
 		/// Integral integer texture.
 		/// </summary>
