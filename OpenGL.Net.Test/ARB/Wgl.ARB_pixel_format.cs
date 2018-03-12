@@ -1,5 +1,5 @@
 ﻿
-// Copyright (C) 2015 Luca Piccioni
+// Copyright (C) 2015-2018 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -16,10 +16,11 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 // USA
 
-using System;
 using System.Collections.Generic;
 
 using NUnit.Framework;
+
+using Khronos;
 
 namespace OpenGL.Test
 {
@@ -31,7 +32,7 @@ namespace OpenGL.Test
 		/// <summary>
 		/// Test Wgl.GetPixelFormatAttribARB.
 		/// </summary>
-		[Test]
+		[Test, RequiredByFeature("WGL_ARB_pixel_format")]
 		public void TestGetPixelFormatAttribARB()
 		{
 			if (IsWglExtensionSupported("WGL_ARB_pixel_format") == false)
@@ -63,8 +64,7 @@ namespace OpenGL.Test
 				pfAttributesCodes.Add(Wgl.DEPTH_BITS_ARB);
 				pfAttributesCodes.Add(Wgl.STENCIL_BITS_ARB);
 				// Multisample extension
-				if (HasExtension("GL_ARB_multisample") || HasExtension("WGL_ARB_multisample") ||
-				    HasExtension("GLX_ARB_multisample"))
+				if (HasExtension("GL_ARB_multisample") || HasExtension("WGL_ARB_multisample") || HasExtension("GLX_ARB_multisample"))
 				{
 					pfAttributesCodes.Add(Wgl.SAMPLE_BUFFERS_ARB);
 					pfAttributesCodes.Add(Wgl.SAMPLES_ARB);

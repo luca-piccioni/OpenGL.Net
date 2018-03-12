@@ -149,7 +149,6 @@
     </Compile>
     <Compile Include="WglException.cs" />
     <None Include="BenchmarkAttribute.cs" />
-    <None Include="BenchmarkPInvoke.cs" />
     <Compile Include="DeviceContext.cs" />
     <Compile Include="Gl.cs" />
     <Compile Include="KhronosVersion.cs" />

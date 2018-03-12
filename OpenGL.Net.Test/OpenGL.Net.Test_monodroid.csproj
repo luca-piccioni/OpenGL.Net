@@ -129,7 +129,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Matrix.tt</DependentUpon>
     </Compile>
-	<Compile Include="Plane.cs">
+    <Compile Include="Plane.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Plane.tt</DependentUpon>
@@ -142,7 +142,6 @@
       <DependentUpon>Vertex4.tt</DependentUpon>
     </Compile>
     <None Include="BenchmarkAttribute.cs" />
-    <None Include="BenchmarkPInvoke.cs" />
     <Compile Include="DeviceContext.cs" />
     <Compile Include="Gl.cs" />
     <Compile Include="KhronosVersion.cs" />
@@ -185,7 +184,7 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Matrix.cs</LastGenOutput>
     </Content>
-	<Content Include="Plane.tt">
+    <Content Include="Plane.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Plane.cs</LastGenOutput>
     </Content>

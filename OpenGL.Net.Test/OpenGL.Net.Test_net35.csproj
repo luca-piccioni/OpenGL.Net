@@ -109,7 +109,6 @@
       <DependentUpon>ColorRGBA.tt</DependentUpon>
     </Compile>
     <Compile Include="BenchmarkAttribute.cs" />
-    <Compile Include="BenchmarkPInvoke.cs" />
     <Compile Include="DeviceContext.cs" />
     <Compile Include="DevicePixelFormat.cs" />
     <Compile Include="DevicePixelFormatCollection.cs" />
@@ -140,7 +139,7 @@
     <Compile Include="KhronosVersion.cs" />
     <Compile Include="Memory.cs" />
     <Compile Include="MemoryLock.cs" />
-	<Compile Include="Plane.cs">
+    <Compile Include="Plane.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Plane.tt</DependentUpon>
@@ -214,7 +213,7 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Matrix.cs</LastGenOutput>
     </Content>
-	<Content Include="Plane.tt">
+    <Content Include="Plane.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Plane.cs</LastGenOutput>
     </Content>

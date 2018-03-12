@@ -1,5 +1,5 @@
 ﻿
-// Copyright (C) 2015 Luca Piccioni
+// Copyright (C) 2015-2018 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -21,6 +21,8 @@ using System.Text.RegularExpressions;
 
 using NUnit.Framework;
 
+using Khronos;
+
 namespace OpenGL.Test
 {
 	/// <summary>
@@ -31,7 +33,7 @@ namespace OpenGL.Test
 		/// <summary>
 		/// Test Wgl.GetExtensionsStringARB
 		/// </summary>
-		[Test]
+		[Test, RequiredByFeature("WGL_ARB_extensions_string")]
 		public void TestGetExtensionsStringARB()
 		{
 			if (Wgl.HasGetExtensionsStringARB == false)
@@ -47,13 +49,13 @@ namespace OpenGL.Test
 				Assert.IsNotNull(extensions);
 
 				// No exposed extensions? No more assertion
-				if (extensions == String.Empty)
+				if (extensions == string.Empty)
 					return;
 
 				string[] extensionIds = Regex.Split(extensions, " ");
 
 				// Filter empty IDs
-				extensionIds = Array.FindAll(extensionIds, delegate(string item) { return (item.Trim().Length > 0); });
+				extensionIds = Array.FindAll(extensionIds, item => item.Trim().Length > 0);
 
 				Console.WriteLine("Found {0} WGL extensions:", extensionIds.Length);
 				foreach (string extensionId in extensionIds)
