@@ -211,8 +211,8 @@ namespace OpenGL.Objects
 			/// </param>
 			public override void Create(GraphicsContext ctx)
 			{
-				InternalFormat internalFormat = _PixelFormat.GetGlInternalFormat();
-				PixelFormat format = _PixelFormat.GetGlFormat();
+				InternalFormat internalFormat = _PixelFormat.ToInternalFormat();
+				PixelFormat format = _PixelFormat.ToDataFormat();
 
 				// Define empty texture
 				Gl.TexImage2D(_Target, (int)_Level, internalFormat, (int)_Width, (int)_Height, 0, format, /* Unused */ PixelType.UnsignedByte, IntPtr.Zero);
@@ -301,10 +301,10 @@ namespace OpenGL.Objects
 			public override void Create(GraphicsContext ctx)
 			{
 				// Define storage
-				InternalFormat internalFormat = _PixelFormat.GetGlInternalFormat();
+				InternalFormat internalFormat = _PixelFormat.ToInternalFormat();
 
 				if (ctx.Extensions.TextureStorage_ARB == false) {
-					PixelFormat format = _PixelFormat.GetGlFormat();
+					PixelFormat format = _PixelFormat.ToDataFormat();
 
 					for (uint level = 0, w = _Width, h = _Height; level < _MipmapLevels; level++, w = Math.Max(1, w / 2), h = Math.Max(1, h / 2))
 						Gl.TexImage2D(_Target, (int)level, internalFormat, (int)w, (int)h, 0, format, /* Unused */ PixelType.UnsignedByte, IntPtr.Zero);
@@ -701,8 +701,8 @@ namespace OpenGL.Objects
 			/// </param>
 			public override void Create(GraphicsContext ctx)
 			{
-				PixelFormat format = _Image.PixelLayout.GetGlFormat();
-				PixelType type = _Image.PixelLayout.GetPixelType();
+				PixelFormat format = _Image.PixelLayout.ToDataFormat();
+				PixelType type = _Image.PixelLayout.ToPixelType();
 
 				// Set pixel alignment
 				State.PixelAlignmentState.Unpack(_Image.Stride).Apply(ctx, null);
@@ -995,10 +995,10 @@ namespace OpenGL.Objects
 		internal override int SamplerType
 		{
 			get {
-				if (PixelLayout.IsGlIntegerPixel()) {
-					if (PixelLayout.IsGlSignedIntegerPixel())
+				if (PixelLayout.IsIntegerPixel()) {
+					if (PixelLayout.IsSignedIntegerPixel())
 						return (Gl.INT_SAMPLER_2D);
-					if (PixelLayout.IsGlUnsignedIntegerPixel())
+					if (PixelLayout.IsUnsignedIntegerPixel())
 						return (Gl.UNSIGNED_INT_SAMPLER_2D);
 
 					throw new NotSupportedException(String.Format("integer pixel format {0} not correctly supported", PixelLayout));

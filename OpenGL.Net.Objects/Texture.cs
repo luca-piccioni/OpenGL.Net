@@ -283,7 +283,7 @@ namespace OpenGL.Objects
 			State.PixelAlignmentState.Pack(image.Stride).Apply(ctx, null);
 
 			// Download texture contents
-			Gl.GetTexImage(target, (int)level, pixelType.GetGlFormat(), pixelType.GetPixelType(), image.ImageBuffer);
+			Gl.GetTexImage(target, (int)level, pixelType.ToDataFormat(), pixelType.ToPixelType(), image.ImageBuffer);
 
 			return (image);
 		}

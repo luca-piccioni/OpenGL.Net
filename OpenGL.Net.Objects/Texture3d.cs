@@ -213,8 +213,8 @@ namespace OpenGL.Objects
 			/// </param>
 			public override void Create(GraphicsContext ctx)
 			{
-				PixelFormat format = _PixelFormat.GetGlFormat();
-				InternalFormat internalFormat = _PixelFormat.GetGlInternalFormat();
+				PixelFormat format = _PixelFormat.ToDataFormat();
+				InternalFormat internalFormat = _PixelFormat.ToInternalFormat();
 
 				// Define empty texture
 				Gl.TexImage3D(_Target, (int)_Level, internalFormat, (int)_Width, (int)_Height, (int)_Depth, 0, format, /* Unused */ PixelType.UnsignedByte, null);
@@ -388,7 +388,7 @@ namespace OpenGL.Objects
 			/// </param>
 			public override void Create(GraphicsContext ctx)
 			{
-				InternalFormat internalFormat = _PixelFormat.GetGlInternalFormat();
+				InternalFormat internalFormat = _PixelFormat.ToInternalFormat();
 				uint width = _Images[0].Width, height = _Images[0].Height;
 
 				Gl.TexImage3D(_Target, 0, internalFormat, (int)width, (int)height, _Images.Length, 0, /* Unused */ OpenGL.PixelFormat.Red, /* Unused */ PixelType.UnsignedByte, IntPtr.Zero);
@@ -396,8 +396,8 @@ namespace OpenGL.Objects
 				for (int i = 0; i < _Images.Length; i++) {
 					Image image = _Images[i];
 
-					PixelFormat format = image.PixelLayout.GetGlFormat();
-					PixelType type = image.PixelLayout.GetPixelType();
+					PixelFormat format = image.PixelLayout.ToDataFormat();
+					PixelType type = image.PixelLayout.ToPixelType();
 
 					// Set pixel alignment
 					State.PixelAlignmentState.Unpack(image.Stride).Apply(ctx, null);
@@ -526,10 +526,10 @@ namespace OpenGL.Objects
 		{
 			get
 			{
-				if (PixelLayout.IsGlIntegerPixel()) {
-					if (PixelLayout.IsGlSignedIntegerPixel())
+				if (PixelLayout.IsIntegerPixel()) {
+					if (PixelLayout.IsSignedIntegerPixel())
 						return (Gl.INT_SAMPLER_3D);
-					if (PixelLayout.IsGlUnsignedIntegerPixel())
+					if (PixelLayout.IsUnsignedIntegerPixel())
 						return (Gl.UNSIGNED_INT_SAMPLER_3D);
 
 					throw new NotSupportedException(String.Format("integer pixel format {0} not supported", PixelLayout));

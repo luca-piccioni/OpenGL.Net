@@ -140,7 +140,7 @@ namespace OpenGL.Objects
 			/// </param>
 			public override void Create(GraphicsContext ctx)
 			{
-				InternalFormat internalFormat = _PixelFormat.GetGlInternalFormat();
+				InternalFormat internalFormat = _PixelFormat.ToInternalFormat();
 
 				// Define empty texture
 				for (int i = 0; i < 6; i++)
@@ -230,9 +230,9 @@ namespace OpenGL.Objects
 			/// </param>
 			public override void Create(GraphicsContext ctx)
 			{
-				InternalFormat internalFormat = _PixelFormat.GetGlInternalFormat();
-				PixelFormat format = _PixelFormat.GetGlFormat();
-				PixelType type = _PixelFormat.GetPixelType();
+				InternalFormat internalFormat = _PixelFormat.ToInternalFormat();
+				PixelFormat format = _PixelFormat.ToDataFormat();
+				PixelType type = _PixelFormat.ToPixelType();
 
 				for (int i = 0; i < 6; i++) {
 					Image image = _Images[i];
@@ -306,10 +306,10 @@ namespace OpenGL.Objects
 		{
 			get
 			{
-				if (PixelLayout.IsGlIntegerPixel()) {
-					if (PixelLayout.IsGlSignedIntegerPixel())
+				if (PixelLayout.IsIntegerPixel()) {
+					if (PixelLayout.IsSignedIntegerPixel())
 						return (Gl.INT_SAMPLER_CUBE);
-					if (PixelLayout.IsGlUnsignedIntegerPixel())
+					if (PixelLayout.IsUnsignedIntegerPixel())
 						return (Gl.UNSIGNED_INT_SAMPLER_CUBE);
 
 					throw new NotSupportedException(String.Format("integer pixel format {0} not supported", PixelLayout));

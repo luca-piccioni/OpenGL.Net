@@ -181,10 +181,10 @@ namespace OpenGL.Objects
 			get
 			{
 #if !MONODROID
-				if (PixelLayout.IsGlIntegerPixel()) {
-					if (PixelLayout.IsGlSignedIntegerPixel())
+				if (PixelLayout.IsIntegerPixel()) {
+					if (PixelLayout.IsSignedIntegerPixel())
 						return (Gl.INT_SAMPLER_2D_RECT);
-					if (PixelLayout.IsGlUnsignedIntegerPixel())
+					if (PixelLayout.IsUnsignedIntegerPixel())
 						return (Gl.UNSIGNED_INT_SAMPLER_2D_RECT);
 
 					throw new NotSupportedException(String.Format("integer pixel format {0} not supported", PixelLayout));

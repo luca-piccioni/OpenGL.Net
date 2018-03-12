@@ -177,8 +177,8 @@ namespace OpenGL.Objects
 			/// </param>
 			public override void Create(GraphicsContext ctx)
 			{
-				InternalFormat internalFormat = _PixelFormat.GetGlInternalFormat();
-				PixelFormat format = _PixelFormat.GetGlFormat();
+				InternalFormat internalFormat = _PixelFormat.ToInternalFormat();
+				PixelFormat format = _PixelFormat.ToDataFormat();
 
 				// Define empty texture
 				Gl.TexImage1D(TextureTarget.Texture1d, (int)_Level, internalFormat, (int)_Width, 0, format, /* Unused */ PixelType.UnsignedByte, IntPtr.Zero);
@@ -350,9 +350,9 @@ namespace OpenGL.Objects
 			/// </param>
 			public override void Create(GraphicsContext ctx)
 			{
-				InternalFormat internalFormat = _PixelFormat.GetGlInternalFormat();
-				PixelFormat format = _Image.PixelLayout.GetGlFormat();
-				PixelType type = _Image.PixelLayout.GetPixelType();
+				InternalFormat internalFormat = _PixelFormat.ToInternalFormat();
+				PixelFormat format = _Image.PixelLayout.ToDataFormat();
+				PixelType type = _Image.PixelLayout.ToPixelType();
 
 				// Set pixel alignment
 				State.PixelAlignmentState.Unpack(_Image.Stride).Apply(ctx, null);
