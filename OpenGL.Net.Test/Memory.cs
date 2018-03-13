@@ -28,6 +28,45 @@ namespace OpenGL.Test
 	[TestFixture, Category("Framework")]
 	internal class MemoryTest
 	{
-		
+		[Test]
+		public void Memory_TestUseSystemCopy()
+		{
+			bool useSystemCopy;
+
+			Assert.DoesNotThrow(() => Memory.UseSystemCopy = true);
+			Assert.DoesNotThrow(() => useSystemCopy = Memory.UseSystemCopy);
+			Assert.DoesNotThrow(() => Memory.UseSystemCopy = false);
+			Assert.DoesNotThrow(() => useSystemCopy = Memory.UseSystemCopy);
+
+			Assert.DoesNotThrow(() => Memory.UseSystemCopy = true);
+			Assert.DoesNotThrow(() => Memory.UseSystemCopy = true);
+		}
+
+		[Test, TestCase(true), TestCase(false)]
+		public void Memory_TestCopy(bool systemCopy)
+		{
+			Memory.UseSystemCopy = systemCopy;
+			if (systemCopy != Memory.UseSystemCopy)
+				Assert.Inconclusive();
+
+			// No exception is checked: values passed directly to the implementation
+
+			int[] dstArray = { 1, 2, 3, 4 };
+			float[] srcArray = {1.0f, 2.0f, 3.0f, 4.0f};
+
+			using (MemoryLock srcArrayLock = new MemoryLock(srcArray)) {
+				Memory.Copy(dstArray, srcArrayLock.Address, 4 * 4);
+			}
+
+			for (int i = 0; i < srcArray.Length; i++)
+				srcArray[i] = 0.0f;
+
+			using (MemoryLock dstArrayLock = new MemoryLock(dstArray)) {
+				Memory.Copy(srcArray, dstArrayLock.Address, 4 * 4);
+			}
+
+			for (int i = 0; i < srcArray.Length; i++)
+				Assert.AreEqual((float)(i + 1), srcArray[i]);
+		}
 	}
 }

@@ -1,5 +1,5 @@
 
-// Copyright (C) 2011-2017 Luca Piccioni
+// Copyright (C) 2011-2018 Luca Piccioni
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -47,7 +47,14 @@ namespace OpenGL
 		/// </summary>
 		static Memory()
 		{
-			EnsureCopy();
+			_CopyPointer = GetPlatformMemcpy();
+
+			if (_CopyPointer == null) {
+				// Fallback to managed implementation
+				_CopyPointer = CopyDelegate_Managed;
+				_UseSystemCopy = false;
+				_HasSystemCopy = false;
+			}
 		}
 
 		#endregion
@@ -128,39 +135,6 @@ namespace OpenGL
 		private static CopyDelegate _CopyPointer;
 
 		/// <summary>
-		/// Ensure <see cref="MemoryCopy"/> functionality.
-		/// </summary>
-		private static void EnsureCopy()
-		{
-			if (_CopyPointer != null)
-				return;
-
-			IntPtr memoryCopyPtr;
-
-			switch (Platform.CurrentPlatformId) {
-				case Platform.Id.WindowsNT:
-					memoryCopyPtr = GetProcAddressOS.GetProcAddress("msvcrt.dll", "memcpy");
-					if (memoryCopyPtr == IntPtr.Zero)
-						throw new NotSupportedException("no suitable memcpy support");
-					_CopyPointer = (CopyDelegate)Marshal.GetDelegateForFunctionPointer(memoryCopyPtr, typeof(CopyDelegate));
-					return;
-
-				case Platform.Id.Linux:
-					memoryCopyPtr = GetProcAddressOS.GetProcAddress("libc.so.6", "memcpy");
-					if (memoryCopyPtr == IntPtr.Zero)
-						throw new NotSupportedException("no suitable memcpy support");
-					_CopyPointer = (CopyDelegate)Marshal.GetDelegateForFunctionPointer(memoryCopyPtr, typeof(CopyDelegate));
-					return;
-
-				case Platform.Id.Android:
-					_CopyPointer = CopyDelegate_Managed;
-					break;
-				default:
-					throw new NotSupportedException("no suitable memcpy support");
-			}
-		}
-
-		/// <summary>
 		/// Copy memory.
 		/// </summary>
 		/// <param name="dst">
@@ -208,17 +182,12 @@ namespace OpenGL
 		/// </param>
 		public static void Copy(Array dst, IntPtr src, ulong bytes)
 		{
-			GCHandle dstArray = GCHandle.Alloc(dst, GCHandleType.Pinned);
-
-			try {
-				// Copy from array to aligned buffer
+			using (MemoryLock dstLock = new MemoryLock(dst)) {
 				_CopyPointer(
-					dstArray.AddrOfPinnedObject().ToPointer(), 
+					dstLock.Address.ToPointer(), 
 					src.ToPointer(),
 					bytes
-					);
-			} finally {
-				dstArray.Free();
+				);
 			}
 		}
 
@@ -236,7 +205,7 @@ namespace OpenGL
 		/// </param>
 		private static void CopyDelegate_Managed(void *dst, void* src, ulong bytes)
 		{
-			uint *dstPtr4 = (uint*)dst, srcPtr4 = (uint*)dst;
+			uint *dstPtr4 = (uint*)dst, srcPtr4 = (uint*)src;
 
 			for (; bytes >= 4; bytes -= 4)
 				*dstPtr4++ = *srcPtr4++;
@@ -246,6 +215,59 @@ namespace OpenGL
 			for (; bytes >= 1; bytes -= 1)
 				*dstPtr1++ = *srcPtr1++;
 		}
+
+		/// <summary>
+		/// Get the <see cref="CopyDelegate"/> defined by hosting system, if possible.
+		/// </summary>
+		/// <returns></returns>
+		private static CopyDelegate GetPlatformMemcpy()
+		{
+			IntPtr memoryCopyPtr;
+
+			switch (Platform.CurrentPlatformId) {
+				case Platform.Id.WindowsNT:
+					memoryCopyPtr = GetProcAddressOS.GetProcAddress("msvcrt.dll", "memcpy");
+					if (memoryCopyPtr != IntPtr.Zero)
+						return (CopyDelegate)Marshal.GetDelegateForFunctionPointer(memoryCopyPtr, typeof(CopyDelegate));
+					return null;
+				case Platform.Id.Linux:
+					memoryCopyPtr = GetProcAddressOS.GetProcAddress("libc.so.6", "memcpy");
+					if (memoryCopyPtr != IntPtr.Zero)
+						return (CopyDelegate)Marshal.GetDelegateForFunctionPointer(memoryCopyPtr, typeof(CopyDelegate));
+					return null;
+				default:
+					return null;
+			}
+		}
+
+		/// <summary>
+		/// Determine whether use system libraries to perform memory copy, or use managed/internal implementation. By default,
+		/// use the hosting system functions, if possible.
+		/// </summary>
+		public static bool UseSystemCopy
+		{
+			get { return _UseSystemCopy && _HasSystemCopy; }
+			set
+			{
+				if (_UseSystemCopy == value)
+					return;
+				if (!_HasSystemCopy)
+					return;
+
+				_UseSystemCopy = value;
+				_CopyPointer = _UseSystemCopy ? GetPlatformMemcpy() : CopyDelegate_Managed;
+			}
+		}
+
+		/// <summary>
+		/// Flag to get consistent getter/setter behavior.
+		/// </summary>
+		private static bool _UseSystemCopy = true;
+
+		/// <summary>
+		/// Flag indicating whether it is possible to call <see cref="GetPlatformMemcpy"/>.
+		/// </summary>
+		private static readonly bool _HasSystemCopy = true;
 
 		#endregion
 	}
