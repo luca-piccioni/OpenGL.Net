@@ -9,7 +9,7 @@
         <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
         <projectUrl>https://github.com/luca-piccioni/OpenGL.Net</projectUrl>
         <iconUrl>http://github.com/luca-piccioni/OpenGL.Net/blob/master/OpenGL.Net-Logo.gif?raw=true</iconUrl>
-        <requireLicenseAcceptance>true</requireLicenseAcceptance>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <summary>Modern OpenGL bindings for C# - WinForms utilities.</summary>
         <description>
 Modern OpenGL bindings for C#, System.Windows.Forms utilities.
