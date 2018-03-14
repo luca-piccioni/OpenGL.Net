@@ -205,15 +205,27 @@ namespace OpenGL
 		/// </param>
 		private static void CopyDelegate_Managed(void *dst, void* src, ulong bytes)
 		{
-			uint *dstPtr4 = (uint*)dst, srcPtr4 = (uint*)src;
+			if (IntPtr.Size == 8) {
+				// Copy word by word
+				ulong *dstPtr8 = (ulong*)dst, srcPtr8 = (ulong*)src;
+				for (; bytes >= 8; bytes -= 8)
+					*dstPtr8++ = *srcPtr8++;
 
-			for (; bytes >= 4; bytes -= 4)
-				*dstPtr4++ = *srcPtr4++;
+				// Copy remaining bytes
+				byte *dstPtr1 = (byte*)dstPtr8, srcPtr1 = (byte*)srcPtr8;
+				for (; bytes >= 1; bytes -= 1)
+					*dstPtr1++ = *srcPtr1++;
+			} else {
+				// Copy word by word
+				uint *dstPtr4 = (uint*)dst, srcPtr4 = (uint*)src;
+				for (; bytes >= 4; bytes -= 4)
+					*dstPtr4++ = *srcPtr4++;
 
-			byte *dstPtr1 = (byte*)dstPtr4, srcPtr1 = (byte*)srcPtr4;
-
-			for (; bytes >= 1; bytes -= 1)
-				*dstPtr1++ = *srcPtr1++;
+				// Copy remaining bytes
+				byte *dstPtr1 = (byte*)dstPtr4, srcPtr1 = (byte*)srcPtr4;
+				for (; bytes >= 1; bytes -= 1)
+					*dstPtr1++ = *srcPtr1++;
+			}
 		}
 
 		/// <summary>

@@ -1,5 +1,5 @@
 ﻿
-// Copyright (C) 2016-2017 Luca Piccioni
+// Copyright (C) 2016-2018 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -19,14 +19,12 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-using System;
-
 using NUnit.Framework;
 
 namespace OpenGL.Test
 {
 	[TestFixture, Category("Framework")]
-	internal class MemoryTest
+	public class MemoryTest
 	{
 		[Test]
 		public void Memory_TestUseSystemCopy()

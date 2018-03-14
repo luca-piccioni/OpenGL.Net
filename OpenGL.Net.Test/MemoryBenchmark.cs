@@ -1,5 +1,5 @@
 ﻿
-// Copyright (C) 2016-2017 Luca Piccioni
+// Copyright (C) 2018 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -19,46 +19,43 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-using System;
+using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Attributes.Columns;
+using BenchmarkDotNet.Attributes.Jobs;
 
 namespace OpenGL.Test
 {
-	/// <summary>
-	/// Attribute for marking benchmark methods.
-	/// </summary>
-	[AttributeUsage(AttributeTargets.Method, AllowMultiple = false)]
-	class BenchmarkAttribute : Attribute
+	[ClrJob(true), RankColumn]
+	public class MemoryBenchmarkCopy
 	{
-		#region Constructors
-
-		/// <summary>
-		/// Construct a BenchmarkAttribute.
-		/// </summary>
-		/// <param name="name">
-		/// A <see cref="String"/> that specifies the name of the benchmark.
-		/// </param>
-		public BenchmarkAttribute(string name)
+		[GlobalSetup]
+		public void Memory_CopyBenchmarkSetup()
 		{
-			if (name == null)
-				throw new ArgumentNullException("name");
-
-			Name = name;
+			_BenchmarkArraySrc = new byte[ushort.MaxValue];
+			_BenchmarkArrayDst = new byte[ushort.MaxValue];
 		}
 
-		#endregion
+		private byte[] _BenchmarkArraySrc, _BenchmarkArrayDst;
 
-		#region Properties
+		[Params(4, 16, 256, 512, 4096, 8192)]
+		public int Memory_CopyBenchmarkParams;
 
-		/// <summary>
-		/// The name of the benchmark.
-		/// </summary>
-		public readonly string Name;
+		[Benchmark()]
+		public void Memory_CopyBenchmarkSystem()
+		{
+			Memory.UseSystemCopy = true;
+			using (MemoryLock srcLock = new MemoryLock(_BenchmarkArraySrc)) {
+				Memory.Copy(_BenchmarkArrayDst, srcLock.Address, (ulong)Memory_CopyBenchmarkParams);
+			}
+		}
 
-		/// <summary>
-		/// Number of repetitions.
-		/// </summary>
-		public int Repetitions = 1;
-
-		#endregion
+		[Benchmark]
+		public void Memory_CopyBenchmarkManaged()
+		{
+			Memory.UseSystemCopy = false;
+			using (MemoryLock srcLock = new MemoryLock(_BenchmarkArraySrc)) {
+				Memory.Copy(_BenchmarkArrayDst, srcLock.Address, (ulong)Memory_CopyBenchmarkParams);
+			}
+		}
 	}
 }
