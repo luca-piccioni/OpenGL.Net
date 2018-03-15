@@ -3,6 +3,8 @@
 [![wiki](https://img.shields.io/badge/browse-the%20wiki-blue.svg)](https://github.com/luca-piccioni/OpenGL.Net/wiki)
 
 # OpenGL.Net
+
+[![Join the chat at https://gitter.im/OpenGL-Net/Lobby](https://badges.gitter.im/OpenGL-Net/Lobby.svg)](https://gitter.im/OpenGL-Net/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 Modern OpenGL bindings for C#.
 
 ## OpenGL
