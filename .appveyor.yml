@@ -74,10 +74,10 @@ test: off
 
 test_script:
   - sh: mono --version
-  - sh: msbuild OpenGL.Net.Test/OpenGL.Net.Test_net461.csproj $SLN_BUILD_OPTS /t:UnitTest /p:NUnitConsole=nunit3-console /p:NUnitResultFormat=;format=AppVeyor /p:Configuration=Release /p:Platform="x86"
-  - sh: msbuild OpenGL.Net.Test/OpenGL.Net.Test_net461.csproj $SLN_BUILD_OPTS /t:UnitTest /p:NUnitConsole=nunit3-console /p:NUnitResultFormat=;format=AppVeyor /p:Configuration=Release /p:Platform="x64"
-  - sh: msbuild OpenGL.Net.Test/OpenGL.Net.Test_net35.csproj $SLN_BUILD_OPTS /t:UnitTest /p:NUnitConsole=nunit3-console /p:NUnitResultFormat=;format=AppVeyor /p:Configuration=Release /p:Platform="x86"
-  - sh: msbuild OpenGL.Net.Test/OpenGL.Net.Test_net35.csproj $SLN_BUILD_OPTS /t:UnitTest /p:NunitConsole=nunit3-console /p:NUnitResultFormat=;format=AppVeryor /p:Configuration=Release /p:Platform="x64"
+  - sh: msbuild OpenGL.Net.Test/OpenGL.Net.Test_net461.csproj $SLN_BUILD_OPTS /t:UnitTest /p:NUnitConsole=nunit3-console /p:NUnitResultFormat=";format=AppVeyor" /p:Configuration=Release /p:Platform="x86"
+  - sh: msbuild OpenGL.Net.Test/OpenGL.Net.Test_net461.csproj $SLN_BUILD_OPTS /t:UnitTest /p:NUnitConsole=nunit3-console /p:NUnitResultFormat=";format=AppVeyor" /p:Configuration=Release /p:Platform="x64"
+  - sh: msbuild OpenGL.Net.Test/OpenGL.Net.Test_net35.csproj  $SLN_BUILD_OPTS /t:UnitTest /p:NUnitConsole=nunit3-console /p:NUnitResultFormat=";format=AppVeyor" /p:Configuration=Release /p:Platform="x86"
+  - sh: msbuild OpenGL.Net.Test/OpenGL.Net.Test_net35.csproj  $SLN_BUILD_OPTS /t:UnitTest /p:NunitConsole=nunit3-console /p:NUnitResultFormat=";format=AppVeyor" /p:Configuration=Release /p:Platform="x64"
   - sh: echo Unit tests completed
   - cmd: msbuild OpenGL.Net.Test\OpenGL.Net.Test_net461.csproj %SLN_BUILD_OPTS% /t:UnitTest /p:NUnitConsole=nunit3-console /p:NUnitResultFormat=;format=AppVeyor /p:Configuration=Release /p:Platform="x86"
   - cmd: msbuild OpenGL.Net.Test\OpenGL.Net.Test_net461.csproj %SLN_BUILD_OPTS% /t:UnitTest /p:NUnitConsole=nunit3-console /p:NUnitResultFormat=;format=AppVeyor /p:Configuration=Release /p:Platform="x64"
