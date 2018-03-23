@@ -859,7 +859,7 @@ namespace OpenGL.Objects
 				else
 					Gl.Disable((EnableCap)Gl.DEBUG_OUTPUT);
 			} else
-				DebugEnableMessage(Gl.DebugSource.DontCare, Gl.DebugType.DontCare, Gl.DebugSeverity.DontCare, enabled);
+				DebugEnableMessage(DebugSource.DontCare, DebugType.DontCare, DebugSeverity.DontCare, enabled);
 		}
 
 		/// <summary>
@@ -871,9 +871,9 @@ namespace OpenGL.Objects
 		/// <param name="enabled">
 		/// The <see cref="Boolean"/> that specifies whether affected messages must be enabled.
 		/// </param>
-		public void DebugEnableMessage(Gl.DebugSeverity severity, bool enabled, params uint[] ids)
+		public void DebugEnableMessage(DebugSeverity severity, bool enabled, params uint[] ids)
 		{
-			DebugEnableMessage(Gl.DebugSource.DontCare, Gl.DebugType.DontCare, severity, enabled, ids);
+			DebugEnableMessage(DebugSource.DontCare, DebugType.DontCare, severity, enabled, ids);
 		}
 
 		/// <summary>
@@ -891,10 +891,9 @@ namespace OpenGL.Objects
 		/// <param name="enabled">
 		/// The <see cref="Boolean"/> that specifies whether affected messages must be enabled.
 		/// </param>
-		public void DebugEnableMessage(Gl.DebugSource source, Gl.DebugType type, Gl.DebugSeverity severity, bool enabled, params uint[] ids)
+		public void DebugEnableMessage(DebugSource source, DebugType type, DebugSeverity severity, bool enabled, params uint[] ids)
 		{
-			// Notification messages are supported only when GL_KHR_debug is implemented
-			if (severity == Gl.DebugSeverity.Notification && Extensions.Debug_KHR == false)
+            if (Extensions.DebugOutput_ARB == false && Extensions.Debug_KHR == false)
 				return;
 
 			Gl.DebugMessageControl(source, type, severity, ids ?? new uint[0], enabled);
@@ -913,7 +912,7 @@ namespace OpenGL.Objects
 			// Register callback
 			Gl.DebugMessageCallback(_DebugMessageCallback, IntPtr.Zero);
 			// By default, disable notification severity messages
-			DebugEnableMessage(Gl.DebugSeverity.Notification, false);
+			DebugEnableMessage(DebugSeverity.Notification, false);
 		}
 
 		/// <summary>
@@ -938,7 +937,7 @@ namespace OpenGL.Objects
 		/// <param name="length"></param>
 		/// <param name="message"></param>
 		/// <param name="userParam"></param>
-		private void DebugMessageCallback(Gl.DebugSource source, Gl.DebugType type, uint id, Gl.DebugSeverity severity, int length, IntPtr message, IntPtr userParam)
+		private void DebugMessageCallback(DebugSource source, DebugType type, uint id, DebugSeverity severity, int length, IntPtr message, IntPtr userParam)
 		{
 			Resource.Log("[{0} - {1}] {2}(0x{3:X8}): {4}", source, type, severity, id, Marshal.PtrToStringAnsi(message));
 		}
