@@ -297,11 +297,13 @@ namespace Khronos
 
 		#endregion
 
-		#region X11 Platform Imports
+		#region Linux Platform Imports
 
 		[SuppressMessage("ReSharper", "InconsistentNaming")]
 		static class UnsafeNativeMethods
 		{
+            public const int RTLD_LAZY = 1;
+
 			public const int RTLD_NOW = 2;
 
 			[DllImport("dl")]
@@ -381,7 +383,7 @@ namespace Khronos
 			IntPtr libraryHandle;
 
 			if (_LibraryHandles.TryGetValue(libraryPath, out libraryHandle) == false) {
-				if ((libraryHandle = UnsafeNativeMethods.dlopen(libraryPath, UnsafeNativeMethods.RTLD_NOW)) == IntPtr.Zero) {
+				if ((libraryHandle = UnsafeNativeMethods.dlopen(libraryPath, UnsafeNativeMethods.RTLD_LAZY)) == IntPtr.Zero) {
 					if (throws)
 						throw new InvalidOperationException($"unable to load library at {libraryPath}", new InvalidOperationException(UnsafeNativeMethods.dlerror()));
 				}
