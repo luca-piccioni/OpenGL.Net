@@ -53,7 +53,7 @@ namespace Khronos
 	/// </remarks>
 	public class KhronosApi
 	{
-		#region string Encoding
+		#region String Encoding
 
 		/// <summary>
 		/// Copies all characters up to the first null character from an
