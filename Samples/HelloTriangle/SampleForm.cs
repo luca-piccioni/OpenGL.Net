@@ -66,6 +66,12 @@ namespace HelloTriangle
 		{
 			GlControl glControl = (GlControl)sender;
 
+			// GL Debugging
+			if (Gl.CurrentExtensions != null && Gl.CurrentExtensions.DebugOutput_ARB) {
+				Gl.DebugMessageCallback(GLDebugProc, IntPtr.Zero);
+				Gl.DebugMessageControl(DebugSource.DontCare, DebugType.DontCare, DebugSeverity.DontCare, 0, null, true);
+			}
+
 			// Allocate resources and/or setup GL states
 			switch (Gl.CurrentVersion.Api) {
 				case KhronosVersion.ApiGl:
@@ -117,6 +123,18 @@ namespace HelloTriangle
 		{
 			_Program?.Dispose();
 			_VertexArray?.Dispose();
+		}
+
+		private static void GLDebugProc(DebugSource source, DebugType type, uint id, DebugSeverity severity, int length, IntPtr message, IntPtr userParam)
+		{
+			string strMessage;
+
+			// Decode message string
+			unsafe {
+				strMessage = Encoding.ASCII.GetString((byte*)message.ToPointer(), length);
+			}
+
+			Console.WriteLine($"{source}, {type}, {severity}: {strMessage}");
 		}
 
 		#endregion
