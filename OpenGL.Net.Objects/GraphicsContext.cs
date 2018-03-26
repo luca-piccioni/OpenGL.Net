@@ -880,13 +880,13 @@ namespace OpenGL.Objects
 		/// Enable or disable debugging messages.
 		/// </summary>
 		/// <param name="source">
-		/// The <see cref="Gl.DebugSource"/> that specifies the affected messages.
+		/// The <see cref="DebugSource"/> that specifies the affected messages.
 		/// </param>
 		/// <param name="type">
-		/// The <see cref="Gl.DebugType"/> that specifies the affected messages.
+		/// The <see cref="DebugType"/> that specifies the affected messages.
 		/// </param>
 		/// <param name="severity">
-		/// The <see cref="Gl.DebugSeverity"/> that specifies the affected messages.
+		/// The <see cref="DebugSeverity"/> that specifies the affected messages.
 		/// </param>
 		/// <param name="enabled">
 		/// The <see cref="Boolean"/> that specifies whether affected messages must be enabled.
@@ -912,7 +912,7 @@ namespace OpenGL.Objects
 			// Register callback
 			Gl.DebugMessageCallback(_DebugMessageCallback, IntPtr.Zero);
 			// By default, disable notification severity messages
-			DebugEnableMessage(DebugSeverity.Notification, false);
+			DebugEnableMessage(DebugSeverity.DebugSeverityLow, false);
 		}
 
 		/// <summary>
