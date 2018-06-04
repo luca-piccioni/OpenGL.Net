@@ -463,6 +463,21 @@ namespace OpenGL
 		/// [GL] glLoadMatrixxOES: Binding for glLoadMatrixxOES.
 		/// </summary>
 		/// <param name="m">
+		/// A <see cref="T:IntPtr*"/>.
+		/// </param>
+		[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
+		public static unsafe void LoadMatrixxOES(IntPtr* m)
+		{
+			Debug.Assert(Delegates.pglLoadMatrixxOES != null, "pglLoadMatrixxOES not implemented");
+			Delegates.pglLoadMatrixxOES(m);
+			LogCommand("glLoadMatrixxOES", null, new IntPtr(m).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL] glLoadMatrixxOES: Binding for glLoadMatrixxOES.
+		/// </summary>
+		/// <param name="m">
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
@@ -555,6 +570,21 @@ namespace OpenGL
 					LogCommand("glMultMatrixxOES", null, m					);
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL] glMultMatrixxOES: Binding for glMultMatrixxOES.
+		/// </summary>
+		/// <param name="m">
+		/// A <see cref="T:IntPtr*"/>.
+		/// </param>
+		[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
+		public static unsafe void MultMatrixxOES(IntPtr* m)
+		{
+			Debug.Assert(Delegates.pglMultMatrixxOES != null, "pglMultMatrixxOES not implemented");
+			Delegates.pglMultMatrixxOES(m);
+			LogCommand("glMultMatrixxOES", null, new IntPtr(m).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
 
@@ -1597,6 +1627,21 @@ namespace OpenGL
 		/// [GL] glLoadTransposeMatrixxOES: Binding for glLoadTransposeMatrixxOES.
 		/// </summary>
 		/// <param name="m">
+		/// A <see cref="T:IntPtr*"/>.
+		/// </param>
+		[RequiredByFeature("GL_OES_fixed_point")]
+		public static unsafe void LoadTransposeMatrixxOES(IntPtr* m)
+		{
+			Debug.Assert(Delegates.pglLoadTransposeMatrixxOES != null, "pglLoadTransposeMatrixxOES not implemented");
+			Delegates.pglLoadTransposeMatrixxOES(m);
+			LogCommand("glLoadTransposeMatrixxOES", null, new IntPtr(m).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL] glLoadTransposeMatrixxOES: Binding for glLoadTransposeMatrixxOES.
+		/// </summary>
+		/// <param name="m">
 		/// A <see cref="T:T"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
@@ -1762,6 +1807,21 @@ namespace OpenGL
 					LogCommand("glMultTransposeMatrixxOES", null, m					);
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL] glMultTransposeMatrixxOES: Binding for glMultTransposeMatrixxOES.
+		/// </summary>
+		/// <param name="m">
+		/// A <see cref="T:IntPtr*"/>.
+		/// </param>
+		[RequiredByFeature("GL_OES_fixed_point")]
+		public static unsafe void MultTransposeMatrixxOES(IntPtr* m)
+		{
+			Debug.Assert(Delegates.pglMultTransposeMatrixxOES != null, "pglMultTransposeMatrixxOES not implemented");
+			Delegates.pglMultTransposeMatrixxOES(m);
+			LogCommand("glMultTransposeMatrixxOES", null, new IntPtr(m).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
 

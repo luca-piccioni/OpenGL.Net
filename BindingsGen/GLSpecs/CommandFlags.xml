@@ -144,7 +144,7 @@
     <command name="^glGet((Integer(64)?|Float|Double|Boolean)(v|i_v))$">
         <rename>Get</rename>
         <!-- Generate "out" overloads -->
-        <flags>OutParam ForcePlainParams</flags>
+        <flags>OutParam ForcePlainParams UnsafeParams GenericParams</flags>
     </command>
     
     <!-- Don't collaps automatically... -->
@@ -229,12 +229,12 @@
     
     <!--  glLoad*Matrix* -->
     <command name="^gl(Load|Mult)(Transpose)?(Matrix)(d|f|x)(ARB|OES)?$">
-        <flags>GenericParams</flags>
+        <flags>UnsafeParams GenericParams</flags>
     </command>
 
     <!--  glMatrix* -->
     <command name="^glMatrix(Load|Mult)(Transpose)?(d|f)(ARB|EXT)?$">
-        <flags>GenericParams</flags>
+        <flags>UnsafeParams GenericParams</flags>
     </command>
     
     <!-- gl*Uniform* -->

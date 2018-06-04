@@ -6329,6 +6329,77 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// [GL4] glGetFloati_v: return the value or values of a selected parameter
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the parameter value to be returned for indexed versions of Gl.Get. The symbolic constants in the list below 
+		/// are accepted.
+		/// </param>
+		/// <param name="index">
+		/// Specifies the index of the particular element being queried.
+		/// </param>
+		/// <param name="data">
+		/// Returns the value or values of the specified parameter.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_viewport_array", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_viewport_array", Api = "gles2")]
+		[RequiredByFeature("GL_OES_viewport_array", Api = "gles2")]
+		public static unsafe void Get(GetPName target, uint index, [Out] float* data)
+		{
+			Debug.Assert(Delegates.pglGetFloati_v != null, "pglGetFloati_v not implemented");
+			Delegates.pglGetFloati_v((int)target, index, data);
+			LogCommand("glGetFloati_v", null, target, index, new IntPtr(data).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL4] glGetFloati_v: return the value or values of a selected parameter
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the parameter value to be returned for indexed versions of Gl.Get. The symbolic constants in the list below 
+		/// are accepted.
+		/// </param>
+		/// <param name="index">
+		/// Specifies the index of the particular element being queried.
+		/// </param>
+		/// <param name="data">
+		/// Returns the value or values of the specified parameter.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_viewport_array", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_viewport_array", Api = "gles2")]
+		[RequiredByFeature("GL_OES_viewport_array", Api = "gles2")]
+		public static void GetFloat<T>(GetPName target, uint index, out T data) where T : struct
+		{
+			Debug.Assert(Delegates.pglGetFloati_v != null, "pglGetFloati_v not implemented");
+			data = default(T);
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(data);
+			try {
+				unsafe {
+					Delegates.pglGetFloati_v((int)target, index, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refData = __makeref(data);
+				IntPtr refDataPtr = *(IntPtr*)(&refData);
+
+				Delegates.pglGetFloati_v((int)target, index, (float*)refDataPtr.ToPointer());
+			}
+			#endif
+			LogCommand("glGetFloati_v", null, target, index, data			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// [GL4] glGetDoublei_v: return the value or values of a selected parameter
 		/// </summary>
 		/// <param name="target">
@@ -6445,6 +6516,73 @@ namespace OpenGL
 					LogCommand("glGetDoublei_v", null, target, index, data					);
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL4] glGetDoublei_v: return the value or values of a selected parameter
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the parameter value to be returned for indexed versions of Gl.Get. The symbolic constants in the list below 
+		/// are accepted.
+		/// </param>
+		/// <param name="index">
+		/// Specifies the index of the particular element being queried.
+		/// </param>
+		/// <param name="data">
+		/// Returns the value or values of the specified parameter.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_viewport_array", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		public static unsafe void Get(GetPName target, uint index, [Out] double* data)
+		{
+			Debug.Assert(Delegates.pglGetDoublei_v != null, "pglGetDoublei_v not implemented");
+			Delegates.pglGetDoublei_v((int)target, index, data);
+			LogCommand("glGetDoublei_v", null, target, index, new IntPtr(data).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL4] glGetDoublei_v: return the value or values of a selected parameter
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the parameter value to be returned for indexed versions of Gl.Get. The symbolic constants in the list below 
+		/// are accepted.
+		/// </param>
+		/// <param name="index">
+		/// Specifies the index of the particular element being queried.
+		/// </param>
+		/// <param name="data">
+		/// Returns the value or values of the specified parameter.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ARB_viewport_array", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		public static void GetDouble<T>(GetPName target, uint index, out T data) where T : struct
+		{
+			Debug.Assert(Delegates.pglGetDoublei_v != null, "pglGetDoublei_v not implemented");
+			data = default(T);
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(data);
+			try {
+				unsafe {
+					Delegates.pglGetDoublei_v((int)target, index, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refData = __makeref(data);
+				IntPtr refDataPtr = *(IntPtr*)(&refData);
+
+				Delegates.pglGetDoublei_v((int)target, index, (double*)refDataPtr.ToPointer());
+			}
+			#endif
+			LogCommand("glGetDoublei_v", null, target, index, data			);
 			DebugCheckErrors(null);
 		}
 

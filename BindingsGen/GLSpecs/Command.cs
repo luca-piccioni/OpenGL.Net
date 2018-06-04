@@ -1144,7 +1144,9 @@ namespace BindingsGen.GLSpecs
 			if (implementationName.EndsWith(extensionPostfix))
 				implementationName = implementationName.Substring(0, implementationName.Length - extensionPostfix.Length);
 
-			if (implementationName.EndsWith("v"))
+			if      (implementationName.EndsWith("i_v"))	// Special for glGetFloati_v -> glGetFloat with 3 params
+				implementationName = implementationName.Substring(0, implementationName.Length - 3);
+			else if (implementationName.EndsWith("v"))
 				implementationName = implementationName.Substring(0, implementationName.Length - 1);
 
 			if (extensionPostfix != null)

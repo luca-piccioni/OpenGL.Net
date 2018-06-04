@@ -2440,6 +2440,77 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
+		/// [GL4|GLES3.2] glGetBooleani_v: return the value or values of a selected parameter
+		/// </para>
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the parameter value to be returned for indexed versions of Gl.Get. The symbolic constants in the list below 
+		/// are accepted.
+		/// </param>
+		/// <param name="index">
+		/// Specifies the index of the particular element being queried.
+		/// </param>
+		/// <param name="data">
+		/// Returns the value or values of the specified parameter.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_draw_buffers2")]
+		public static unsafe void Get(BufferTarget target, uint index, [Out] byte* data)
+		{
+			Debug.Assert(Delegates.pglGetBooleani_v != null, "pglGetBooleani_v not implemented");
+			Delegates.pglGetBooleani_v((int)target, index, data);
+			LogCommand("glGetBooleani_v", null, target, index, new IntPtr(data).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glGetBooleani_v: return the value or values of a selected parameter
+		/// </para>
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the parameter value to be returned for indexed versions of Gl.Get. The symbolic constants in the list below 
+		/// are accepted.
+		/// </param>
+		/// <param name="index">
+		/// Specifies the index of the particular element being queried.
+		/// </param>
+		/// <param name="data">
+		/// Returns the value or values of the specified parameter.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_draw_buffers2")]
+		public static void GetBoolean<T>(BufferTarget target, uint index, out T data) where T : struct
+		{
+			Debug.Assert(Delegates.pglGetBooleani_v != null, "pglGetBooleani_v not implemented");
+			data = default(T);
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(data);
+			try {
+				unsafe {
+					Delegates.pglGetBooleani_v((int)target, index, (byte*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refData = __makeref(data);
+				IntPtr refDataPtr = *(IntPtr*)(&refData);
+
+				Delegates.pglGetBooleani_v((int)target, index, (byte*)refDataPtr.ToPointer());
+			}
+			#endif
+			LogCommand("glGetBooleani_v", null, target, index, data			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// <para>
 		/// [GL4|GLES3.2] glGetIntegeri_v: return the value or values of a selected parameter
 		/// </para>
 		/// </summary>
@@ -2571,6 +2642,81 @@ namespace OpenGL
 					LogCommand("glGetIntegeri_v", null, target, index, data					);
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glGetIntegeri_v: return the value or values of a selected parameter
+		/// </para>
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the parameter value to be returned for indexed versions of Gl.Get. The symbolic constants in the list below 
+		/// are accepted.
+		/// </param>
+		/// <param name="index">
+		/// Specifies the index of the particular element being queried.
+		/// </param>
+		/// <param name="data">
+		/// Returns the value or values of the specified parameter.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_VERSION_3_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_draw_buffers2")]
+		public static unsafe void Get(GetPName target, uint index, [Out] int* data)
+		{
+			Debug.Assert(Delegates.pglGetIntegeri_v != null, "pglGetIntegeri_v not implemented");
+			Delegates.pglGetIntegeri_v((int)target, index, data);
+			LogCommand("glGetIntegeri_v", null, target, index, new IntPtr(data).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glGetIntegeri_v: return the value or values of a selected parameter
+		/// </para>
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the parameter value to be returned for indexed versions of Gl.Get. The symbolic constants in the list below 
+		/// are accepted.
+		/// </param>
+		/// <param name="index">
+		/// Specifies the index of the particular element being queried.
+		/// </param>
+		/// <param name="data">
+		/// Returns the value or values of the specified parameter.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_VERSION_3_1")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_uniform_buffer_object", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_draw_buffers2")]
+		public static void GetInteger<T>(GetPName target, uint index, out T data) where T : struct
+		{
+			Debug.Assert(Delegates.pglGetIntegeri_v != null, "pglGetIntegeri_v not implemented");
+			data = default(T);
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(data);
+			try {
+				unsafe {
+					Delegates.pglGetIntegeri_v((int)target, index, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refData = __makeref(data);
+				IntPtr refDataPtr = *(IntPtr*)(&refData);
+
+				Delegates.pglGetIntegeri_v((int)target, index, (int*)refDataPtr.ToPointer());
+			}
+			#endif
+			LogCommand("glGetIntegeri_v", null, target, index, data			);
 			DebugCheckErrors(null);
 		}
 

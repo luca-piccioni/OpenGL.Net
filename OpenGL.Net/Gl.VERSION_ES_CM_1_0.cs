@@ -669,6 +669,21 @@ namespace OpenGL
 		/// Specifies a pointer to 16 consecutive values, which are used as the elements of a 4x4 column-major matrix.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		public static unsafe void LoadMatrixx(IntPtr* m)
+		{
+			Debug.Assert(Delegates.pglLoadMatrixx != null, "pglLoadMatrixx not implemented");
+			Delegates.pglLoadMatrixx(m);
+			LogCommand("glLoadMatrixx", null, new IntPtr(m).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GLES1.1] glLoadMatrixx: replace the current matrix with the specified matrix
+		/// </summary>
+		/// <param name="m">
+		/// Specifies a pointer to 16 consecutive values, which are used as the elements of a 4x4 column-major matrix.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		public static void LoadMatrixx<T>(T m) where T : struct
 		{
 			Debug.Assert(Delegates.pglLoadMatrixx != null, "pglLoadMatrixx not implemented");
@@ -758,6 +773,21 @@ namespace OpenGL
 					LogCommand("glMultMatrixx", null, m					);
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GLES1.1] glMultMatrixx: multiply the current matrix with the specified matrix
+		/// </summary>
+		/// <param name="m">
+		/// Points to 16 consecutive values that are used as the elements of a 4x4 column-major matrix.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		public static unsafe void MultMatrixx(IntPtr* m)
+		{
+			Debug.Assert(Delegates.pglMultMatrixx != null, "pglMultMatrixx not implemented");
+			Delegates.pglMultMatrixx(m);
+			LogCommand("glMultMatrixx", null, new IntPtr(m).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
 

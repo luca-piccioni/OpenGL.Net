@@ -6711,6 +6711,71 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glGetBooleanv: return the value or values of a selected parameter
+		/// </para>
+		/// </summary>
+		/// <param name="pname">
+		/// Specifies the parameter value to be returned for non-indexed versions of Gl.Get. The symbolic constants in the list 
+		/// below are accepted.
+		/// </param>
+		/// <param name="data">
+		/// Returns the value or values of the specified parameter.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		public static unsafe void Get(GetPName pname, [Out] byte* data)
+		{
+			Debug.Assert(Delegates.pglGetBooleanv != null, "pglGetBooleanv not implemented");
+			Delegates.pglGetBooleanv((int)pname, data);
+			LogCommand("glGetBooleanv", null, pname, new IntPtr(data).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glGetBooleanv: return the value or values of a selected parameter
+		/// </para>
+		/// </summary>
+		/// <param name="pname">
+		/// Specifies the parameter value to be returned for non-indexed versions of Gl.Get. The symbolic constants in the list 
+		/// below are accepted.
+		/// </param>
+		/// <param name="data">
+		/// Returns the value or values of the specified parameter.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		public static void GetBoolean<T>(GetPName pname, out T data) where T : struct
+		{
+			Debug.Assert(Delegates.pglGetBooleanv != null, "pglGetBooleanv not implemented");
+			data = default(T);
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(data);
+			try {
+				unsafe {
+					Delegates.pglGetBooleanv((int)pname, (byte*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refData = __makeref(data);
+				IntPtr refDataPtr = *(IntPtr*)(&refData);
+
+				Delegates.pglGetBooleanv((int)pname, (byte*)refDataPtr.ToPointer());
+			}
+			#endif
+			LogCommand("glGetBooleanv", null, pname, data			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// [GL4] glGetDoublev: return the value or values of a selected parameter
 		/// </summary>
 		/// <param name="pname">
@@ -6803,6 +6868,61 @@ namespace OpenGL
 					LogCommand("glGetDoublev", null, pname, data					);
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL4] glGetDoublev: return the value or values of a selected parameter
+		/// </summary>
+		/// <param name="pname">
+		/// Specifies the parameter value to be returned for non-indexed versions of Gl.Get. The symbolic constants in the list 
+		/// below are accepted.
+		/// </param>
+		/// <param name="data">
+		/// Returns the value or values of the specified parameter.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		public static unsafe void Get(GetPName pname, [Out] double* data)
+		{
+			Debug.Assert(Delegates.pglGetDoublev != null, "pglGetDoublev not implemented");
+			Delegates.pglGetDoublev((int)pname, data);
+			LogCommand("glGetDoublev", null, pname, new IntPtr(data).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL4] glGetDoublev: return the value or values of a selected parameter
+		/// </summary>
+		/// <param name="pname">
+		/// Specifies the parameter value to be returned for non-indexed versions of Gl.Get. The symbolic constants in the list 
+		/// below are accepted.
+		/// </param>
+		/// <param name="data">
+		/// Returns the value or values of the specified parameter.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		public static void GetDouble<T>(GetPName pname, out T data) where T : struct
+		{
+			Debug.Assert(Delegates.pglGetDoublev != null, "pglGetDoublev not implemented");
+			data = default(T);
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(data);
+			try {
+				unsafe {
+					Delegates.pglGetDoublev((int)pname, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refData = __makeref(data);
+				IntPtr refDataPtr = *(IntPtr*)(&refData);
+
+				Delegates.pglGetDoublev((int)pname, (double*)refDataPtr.ToPointer());
+			}
+			#endif
+			LogCommand("glGetDoublev", null, pname, data			);
 			DebugCheckErrors(null);
 		}
 
@@ -6944,6 +7064,71 @@ namespace OpenGL
 
 		/// <summary>
 		/// <para>
+		/// [GL4|GLES3.2] glGetFloatv: return the value or values of a selected parameter
+		/// </para>
+		/// </summary>
+		/// <param name="pname">
+		/// Specifies the parameter value to be returned for non-indexed versions of Gl.Get. The symbolic constants in the list 
+		/// below are accepted.
+		/// </param>
+		/// <param name="data">
+		/// Returns the value or values of the specified parameter.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		public static unsafe void Get(GetPName pname, [Out] float* data)
+		{
+			Debug.Assert(Delegates.pglGetFloatv != null, "pglGetFloatv not implemented");
+			Delegates.pglGetFloatv((int)pname, data);
+			LogCommand("glGetFloatv", null, pname, new IntPtr(data).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glGetFloatv: return the value or values of a selected parameter
+		/// </para>
+		/// </summary>
+		/// <param name="pname">
+		/// Specifies the parameter value to be returned for non-indexed versions of Gl.Get. The symbolic constants in the list 
+		/// below are accepted.
+		/// </param>
+		/// <param name="data">
+		/// Returns the value or values of the specified parameter.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		public static void GetFloat<T>(GetPName pname, out T data) where T : struct
+		{
+			Debug.Assert(Delegates.pglGetFloatv != null, "pglGetFloatv not implemented");
+			data = default(T);
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(data);
+			try {
+				unsafe {
+					Delegates.pglGetFloatv((int)pname, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refData = __makeref(data);
+				IntPtr refDataPtr = *(IntPtr*)(&refData);
+
+				Delegates.pglGetFloatv((int)pname, (float*)refDataPtr.ToPointer());
+			}
+			#endif
+			LogCommand("glGetFloatv", null, pname, data			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// <para>
 		/// [GL4|GLES3.2] glGetIntegerv: return the value or values of a selected parameter
 		/// </para>
 		/// </summary>
@@ -7055,6 +7240,71 @@ namespace OpenGL
 					LogCommand("glGetIntegerv", null, pname, data					);
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glGetIntegerv: return the value or values of a selected parameter
+		/// </para>
+		/// </summary>
+		/// <param name="pname">
+		/// Specifies the parameter value to be returned for non-indexed versions of Gl.Get. The symbolic constants in the list 
+		/// below are accepted.
+		/// </param>
+		/// <param name="data">
+		/// Returns the value or values of the specified parameter.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		public static unsafe void Get(GetPName pname, [Out] int* data)
+		{
+			Debug.Assert(Delegates.pglGetIntegerv != null, "pglGetIntegerv not implemented");
+			Delegates.pglGetIntegerv((int)pname, data);
+			LogCommand("glGetIntegerv", null, pname, new IntPtr(data).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glGetIntegerv: return the value or values of a selected parameter
+		/// </para>
+		/// </summary>
+		/// <param name="pname">
+		/// Specifies the parameter value to be returned for non-indexed versions of Gl.Get. The symbolic constants in the list 
+		/// below are accepted.
+		/// </param>
+		/// <param name="data">
+		/// Returns the value or values of the specified parameter.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		public static void GetInteger<T>(GetPName pname, out T data) where T : struct
+		{
+			Debug.Assert(Delegates.pglGetIntegerv != null, "pglGetIntegerv not implemented");
+			data = default(T);
+			#if NETCOREAPP1_1
+			GCHandle valueHandle = GCHandle.Alloc(data);
+			try {
+				unsafe {
+					Delegates.pglGetIntegerv((int)pname, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
+				}
+			} finally {
+				valueHandle.Free();
+			}
+			#else
+			unsafe {
+				TypedReference refData = __makeref(data);
+				IntPtr refDataPtr = *(IntPtr*)(&refData);
+
+				Delegates.pglGetIntegerv((int)pname, (int*)refDataPtr.ToPointer());
+			}
+			#endif
+			LogCommand("glGetIntegerv", null, pname, data			);
 			DebugCheckErrors(null);
 		}
 
@@ -13786,6 +14036,25 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
+		public static unsafe void LoadMatrix(float* m)
+		{
+			Debug.Assert(Delegates.pglLoadMatrixf != null, "pglLoadMatrixf not implemented");
+			Delegates.pglLoadMatrixf(m);
+			LogCommand("glLoadMatrixf", null, new IntPtr(m).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// <para>
+		/// [GL2.1|GLES1.1] glLoadMatrixf: replace the current matrix with the specified matrix
+		/// </para>
+		/// </summary>
+		/// <param name="m">
+		/// Specifies a pointer to 16 consecutive values, which are used as the elements of a 4×4 column-major matrix.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void LoadMatrixf<T>(T m) where T : struct
 		{
 			Debug.Assert(Delegates.pglLoadMatrixf != null, "pglLoadMatrixf not implemented");
@@ -13829,6 +14098,22 @@ namespace OpenGL
 					LogCommand("glLoadMatrixd", null, m					);
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL2.1] glLoadMatrixd: replace the current matrix with the specified matrix
+		/// </summary>
+		/// <param name="m">
+		/// Specifies a pointer to 16 consecutive values, which are used as the elements of a 4×4 column-major matrix.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
+		public static unsafe void LoadMatrix(double* m)
+		{
+			Debug.Assert(Delegates.pglLoadMatrixd != null, "pglLoadMatrixd not implemented");
+			Delegates.pglLoadMatrixd(m);
+			LogCommand("glLoadMatrixd", null, new IntPtr(m).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
 
@@ -13921,6 +14206,25 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
+		public static unsafe void MultMatrix(float* m)
+		{
+			Debug.Assert(Delegates.pglMultMatrixf != null, "pglMultMatrixf not implemented");
+			Delegates.pglMultMatrixf(m);
+			LogCommand("glMultMatrixf", null, new IntPtr(m).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// <para>
+		/// [GL2.1|GLES1.1] glMultMatrixf: multiply the current matrix with the specified matrix
+		/// </para>
+		/// </summary>
+		/// <param name="m">
+		/// Points to 16 consecutive values that are used as the elements of a 4×4 column-major matrix.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void MultMatrixf<T>(T m) where T : struct
 		{
 			Debug.Assert(Delegates.pglMultMatrixf != null, "pglMultMatrixf not implemented");
@@ -13964,6 +14268,22 @@ namespace OpenGL
 					LogCommand("glMultMatrixd", null, m					);
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL2.1] glMultMatrixd: multiply the current matrix with the specified matrix
+		/// </summary>
+		/// <param name="m">
+		/// Points to 16 consecutive values that are used as the elements of a 4×4 column-major matrix.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
+		public static unsafe void MultMatrix(double* m)
+		{
+			Debug.Assert(Delegates.pglMultMatrixd != null, "pglMultMatrixd not implemented");
+			Delegates.pglMultMatrixd(m);
+			LogCommand("glMultMatrixd", null, new IntPtr(m).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
 

@@ -2708,6 +2708,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_transpose_matrix")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
+		public static unsafe void LoadTransposeMatrix(float* m)
+		{
+			Debug.Assert(Delegates.pglLoadTransposeMatrixf != null, "pglLoadTransposeMatrixf not implemented");
+			Delegates.pglLoadTransposeMatrixf(m);
+			LogCommand("glLoadTransposeMatrixf", null, new IntPtr(m).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL2.1] glLoadTransposeMatrixf: replace the current matrix with the specified row-major ordered matrix
+		/// </summary>
+		/// <param name="m">
+		/// Specifies a pointer to 16 consecutive values, which are used as the elements of a 4×4 row-major matrix.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_transpose_matrix")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void LoadTransposeMatrixf<T>(T m) where T : struct
 		{
 			Debug.Assert(Delegates.pglLoadTransposeMatrixf != null, "pglLoadTransposeMatrixf not implemented");
@@ -2752,6 +2769,23 @@ namespace OpenGL
 					LogCommand("glLoadTransposeMatrixd", null, m					);
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL2.1] glLoadTransposeMatrixd: replace the current matrix with the specified row-major ordered matrix
+		/// </summary>
+		/// <param name="m">
+		/// Specifies a pointer to 16 consecutive values, which are used as the elements of a 4×4 row-major matrix.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_transpose_matrix")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
+		public static unsafe void LoadTransposeMatrix(double* m)
+		{
+			Debug.Assert(Delegates.pglLoadTransposeMatrixd != null, "pglLoadTransposeMatrixd not implemented");
+			Delegates.pglLoadTransposeMatrixd(m);
+			LogCommand("glLoadTransposeMatrixd", null, new IntPtr(m).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
 
@@ -2820,6 +2854,23 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_3")]
 		[RequiredByFeature("GL_ARB_transpose_matrix")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
+		public static unsafe void MultTransposeMatrix(float* m)
+		{
+			Debug.Assert(Delegates.pglMultTransposeMatrixf != null, "pglMultTransposeMatrixf not implemented");
+			Delegates.pglMultTransposeMatrixf(m);
+			LogCommand("glMultTransposeMatrixf", null, new IntPtr(m).ToString("X8")			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL2.1] glMultTransposeMatrixf: multiply the current matrix with the specified row-major ordered matrix
+		/// </summary>
+		/// <param name="m">
+		/// Points to 16 consecutive values that are used as the elements of a 4×4 row-major matrix.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_transpose_matrix")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
 		public static void MultTransposeMatrixf<T>(T m) where T : struct
 		{
 			Debug.Assert(Delegates.pglMultTransposeMatrixf != null, "pglMultTransposeMatrixf not implemented");
@@ -2864,6 +2915,23 @@ namespace OpenGL
 					LogCommand("glMultTransposeMatrixd", null, m					);
 				}
 			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL2.1] glMultTransposeMatrixd: multiply the current matrix with the specified row-major ordered matrix
+		/// </summary>
+		/// <param name="m">
+		/// Points to 16 consecutive values that are used as the elements of a 4×4 row-major matrix.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_1_3")]
+		[RequiredByFeature("GL_ARB_transpose_matrix")]
+		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
+		public static unsafe void MultTransposeMatrix(double* m)
+		{
+			Debug.Assert(Delegates.pglMultTransposeMatrixd != null, "pglMultTransposeMatrixd not implemented");
+			Delegates.pglMultTransposeMatrixd(m);
+			LogCommand("glMultTransposeMatrixd", null, new IntPtr(m).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
 
