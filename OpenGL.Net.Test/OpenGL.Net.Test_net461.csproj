@@ -226,6 +226,11 @@
       <DependentUpon>ColorRGBA.tt</DependentUpon>
     </Compile>
     <Compile Include="GetProcAddressOS.cs" />
+    <Compile Include="Gl.VERSION_2_0.UniformMatrix.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Gl.VERSION_2_0.UniformMatrix.tt</DependentUpon>
+    </Compile>
     <Compile Include="GlslVersion.cs" />
     <Compile Include="HalfFloat.cs" />
     <Compile Include="KhronosLogContext.cs" />
@@ -293,6 +298,10 @@
     <Content Include="ColorRGBA.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ColorRGBA.cs</LastGenOutput>
+    </Content>
+    <Content Include="Gl.VERSION_2_0.UniformMatrix.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Gl.VERSION_2_0.UniformMatrix.cs</LastGenOutput>
     </Content>
     <Content Include="Matrix.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

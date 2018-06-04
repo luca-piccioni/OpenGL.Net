@@ -1,5 +1,5 @@
 ﻿
-// Copyright (C) 2017 Luca Piccioni
+// Copyright (C) 2017-2018 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -20,8 +20,6 @@
 // SOFTWARE.
 
 using System;
-using System.Diagnostics;
-using System.Runtime.InteropServices;
 
 using NUnit.Framework;
 
@@ -33,7 +31,7 @@ namespace OpenGL.Test
 
 		private uint CreateProgramUniform1f()
 		{
-			string[] srcVertex = new string[] {
+			string[] srcVertex = {
 				"#version 150\n",
 				"uniform float uVec = 0.0;\n",
 				"void main() {\n",
@@ -41,7 +39,7 @@ namespace OpenGL.Test
 				"}\n"
 			};
 
-			return (CreateProgramUniform(srcVertex, _SrcFragment));
+			return CreateProgramUniform(srcVertex, _SrcFragment);
 		}
 
 		/// <summary>
@@ -106,7 +104,7 @@ namespace OpenGL.Test
 
 		private uint CreateProgramUniform1i()
 		{
-			string[] srcVertex = new string[] {
+			string[] srcVertex = {
 				"#version 150\n",
 				"uniform int uVec = 0;\n",
 				"void main() {\n",
@@ -114,7 +112,7 @@ namespace OpenGL.Test
 				"}\n"
 			};
 
-			return (CreateProgramUniform(srcVertex, _SrcFragment));
+			return CreateProgramUniform(srcVertex, _SrcFragment);
 		}
 
 		/// <summary>
@@ -179,7 +177,7 @@ namespace OpenGL.Test
 
 		private uint CreateProgramUniform1ui()
 		{
-			string[] srcVertex = new string[] {
+			string[] srcVertex = {
 				"#version 150\n",
 				"uniform uint uVec = 0u;\n",
 				"void main() {\n",
@@ -187,7 +185,7 @@ namespace OpenGL.Test
 				"}\n"
 			};
 
-			return (CreateProgramUniform(srcVertex, _SrcFragment));
+			return CreateProgramUniform(srcVertex, _SrcFragment);
 		}
 
 		/// <summary>
@@ -254,7 +252,7 @@ namespace OpenGL.Test
 
 		private uint CreateProgramUniform1d()
 		{
-			string[] srcVertex = new string[] {
+			string[] srcVertex = {
 				"#version 150\n",
 				"#extension GL_ARB_gpu_shader_fp64 : enable\n",
 				"uniform double uVec = 0.0;\n",
@@ -263,7 +261,7 @@ namespace OpenGL.Test
 				"}\n"
 			};
 
-			return (CreateProgramUniform(srcVertex, _SrcFragment));
+			return CreateProgramUniform(srcVertex, _SrcFragment);
 		}
 
 		/// <summary>
@@ -329,7 +327,7 @@ namespace OpenGL.Test
 
 		private uint CreateProgramUniform2f()
 		{
-			string[] srcVertex = new string[] {
+			string[] srcVertex = {
 				"#version 150\n",
 				"uniform vec2 uVec = vec2(0.0);\n",
 				"void main() {\n",
@@ -337,7 +335,7 @@ namespace OpenGL.Test
 				"}\n"
 			};
 
-			return (CreateProgramUniform(srcVertex, _SrcFragment));
+			return CreateProgramUniform(srcVertex, _SrcFragment);
 		}
 
 		/// <summary>
@@ -402,7 +400,7 @@ namespace OpenGL.Test
 
 		private uint CreateProgramUniform2i()
 		{
-			string[] srcVertex = new string[] {
+			string[] srcVertex = {
 				"#version 150\n",
 				"uniform ivec2 uVec = ivec2(0);\n",
 				"void main() {\n",
@@ -410,7 +408,7 @@ namespace OpenGL.Test
 				"}\n"
 			};
 
-			return (CreateProgramUniform(srcVertex, _SrcFragment));
+			return CreateProgramUniform(srcVertex, _SrcFragment);
 		}
 
 		/// <summary>
@@ -475,7 +473,7 @@ namespace OpenGL.Test
 
 		private uint CreateProgramUniform2ui()
 		{
-			string[] srcVertex = new string[] {
+			string[] srcVertex = {
 				"#version 150\n",
 				"uniform uvec2 uVec = uvec2(0u);\n",
 				"void main() {\n",
@@ -483,7 +481,7 @@ namespace OpenGL.Test
 				"}\n"
 			};
 
-			return (CreateProgramUniform(srcVertex, _SrcFragment));
+			return CreateProgramUniform(srcVertex, _SrcFragment);
 		}
 
 		/// <summary>
@@ -550,7 +548,7 @@ namespace OpenGL.Test
 
 		private uint CreateProgramUniform2d()
 		{
-			string[] srcVertex = new string[] {
+			string[] srcVertex = {
 				"#version 150\n",
 				"#extension GL_ARB_gpu_shader_fp64 : enable\n",
 				"uniform dvec2 uVec = dvec2(0.0);\n",
@@ -559,7 +557,7 @@ namespace OpenGL.Test
 				"}\n"
 			};
 
-			return (CreateProgramUniform(srcVertex, _SrcFragment));
+			return CreateProgramUniform(srcVertex, _SrcFragment);
 		}
 
 		/// <summary>
@@ -625,7 +623,7 @@ namespace OpenGL.Test
 
 		private uint CreateProgramUniform3f()
 		{
-			string[] srcVertex = new string[] {
+			string[] srcVertex = {
 				"#version 150\n",
 				"uniform vec3 uVec = vec3(0.0);\n",
 				"void main() {\n",
@@ -633,7 +631,7 @@ namespace OpenGL.Test
 				"}\n"
 			};
 
-			return (CreateProgramUniform(srcVertex, _SrcFragment));
+			return CreateProgramUniform(srcVertex, _SrcFragment);
 		}
 
 		/// <summary>
@@ -698,7 +696,7 @@ namespace OpenGL.Test
 
 		private uint CreateProgramUniform3i()
 		{
-			string[] srcVertex = new string[] {
+			string[] srcVertex = {
 				"#version 150\n",
 				"uniform ivec3 uVec = ivec3(0);\n",
 				"void main() {\n",
@@ -706,7 +704,7 @@ namespace OpenGL.Test
 				"}\n"
 			};
 
-			return (CreateProgramUniform(srcVertex, _SrcFragment));
+			return CreateProgramUniform(srcVertex, _SrcFragment);
 		}
 
 		/// <summary>
@@ -771,7 +769,7 @@ namespace OpenGL.Test
 
 		private uint CreateProgramUniform3ui()
 		{
-			string[] srcVertex = new string[] {
+			string[] srcVertex = {
 				"#version 150\n",
 				"uniform uvec3 uVec = uvec3(0u);\n",
 				"void main() {\n",
@@ -779,7 +777,7 @@ namespace OpenGL.Test
 				"}\n"
 			};
 
-			return (CreateProgramUniform(srcVertex, _SrcFragment));
+			return CreateProgramUniform(srcVertex, _SrcFragment);
 		}
 
 		/// <summary>
@@ -846,7 +844,7 @@ namespace OpenGL.Test
 
 		private uint CreateProgramUniform3d()
 		{
-			string[] srcVertex = new string[] {
+			string[] srcVertex = {
 				"#version 150\n",
 				"#extension GL_ARB_gpu_shader_fp64 : enable\n",
 				"uniform dvec3 uVec = dvec3(0.0);\n",
@@ -855,7 +853,7 @@ namespace OpenGL.Test
 				"}\n"
 			};
 
-			return (CreateProgramUniform(srcVertex, _SrcFragment));
+			return CreateProgramUniform(srcVertex, _SrcFragment);
 		}
 
 		/// <summary>
@@ -921,7 +919,7 @@ namespace OpenGL.Test
 
 		private uint CreateProgramUniform4f()
 		{
-			string[] srcVertex = new string[] {
+			string[] srcVertex = {
 				"#version 150\n",
 				"uniform vec4 uVec = vec4(0.0);\n",
 				"void main() {\n",
@@ -929,7 +927,7 @@ namespace OpenGL.Test
 				"}\n"
 			};
 
-			return (CreateProgramUniform(srcVertex, _SrcFragment));
+			return CreateProgramUniform(srcVertex, _SrcFragment);
 		}
 
 		/// <summary>
@@ -994,7 +992,7 @@ namespace OpenGL.Test
 
 		private uint CreateProgramUniform4i()
 		{
-			string[] srcVertex = new string[] {
+			string[] srcVertex = {
 				"#version 150\n",
 				"uniform ivec4 uVec = ivec4(0);\n",
 				"void main() {\n",
@@ -1002,7 +1000,7 @@ namespace OpenGL.Test
 				"}\n"
 			};
 
-			return (CreateProgramUniform(srcVertex, _SrcFragment));
+			return CreateProgramUniform(srcVertex, _SrcFragment);
 		}
 
 		/// <summary>
@@ -1067,7 +1065,7 @@ namespace OpenGL.Test
 
 		private uint CreateProgramUniform4ui()
 		{
-			string[] srcVertex = new string[] {
+			string[] srcVertex = {
 				"#version 150\n",
 				"uniform uvec4 uVec = uvec4(0u);\n",
 				"void main() {\n",
@@ -1075,7 +1073,7 @@ namespace OpenGL.Test
 				"}\n"
 			};
 
-			return (CreateProgramUniform(srcVertex, _SrcFragment));
+			return CreateProgramUniform(srcVertex, _SrcFragment);
 		}
 
 		/// <summary>
@@ -1142,7 +1140,7 @@ namespace OpenGL.Test
 
 		private uint CreateProgramUniform4d()
 		{
-			string[] srcVertex = new string[] {
+			string[] srcVertex = {
 				"#version 150\n",
 				"#extension GL_ARB_gpu_shader_fp64 : enable\n",
 				"uniform dvec4 uVec = dvec4(0.0);\n",
@@ -1151,7 +1149,7 @@ namespace OpenGL.Test
 				"}\n"
 			};
 
-			return (CreateProgramUniform(srcVertex, _SrcFragment));
+			return CreateProgramUniform(srcVertex, _SrcFragment);
 		}
 
 		/// <summary>
