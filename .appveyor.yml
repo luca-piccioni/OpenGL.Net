@@ -20,11 +20,11 @@ environment:
       SLN_BUILD_OPTS: /nologo /verbosity:quiet /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
       PUBLISH_NUGET: true
       HAS_NETCORE: true
-    - APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu
-      SLN_PATH: OpenGL.Net_Mono.sln
-      SLN_BUILD_OPTS: /nologo /verbosity:quiet
-      PUBLISH_NUGET: false
-      HAS_NETCORE: false
+#    - APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu
+#      SLN_PATH: OpenGL.Net_Mono.sln
+#      SLN_BUILD_OPTS: /nologo /verbosity:quiet
+#      PUBLISH_NUGET: false
+#      HAS_NETCORE: false
 
 pull_requests:
   do_not_increment_build_number: true
