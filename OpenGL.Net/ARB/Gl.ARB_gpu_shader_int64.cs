@@ -530,21 +530,18 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:int"/>.
 		/// </param>
-		/// <param name="bufSize">
-		/// A <see cref="T:int"/>.
-		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:long[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void GetnUniformARB(uint program, int location, int bufSize, [Out] long[] @params)
+		public static void GetnUniformARB(uint program, int location, [Out] long[] @params)
 		{
 			unsafe {
 				fixed (long* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetnUniformi64vARB != null, "pglGetnUniformi64vARB not implemented");
-					Delegates.pglGetnUniformi64vARB(program, location, bufSize, p_params);
-					LogCommand("glGetnUniformi64vARB", null, program, location, bufSize, @params					);
+					Delegates.pglGetnUniformi64vARB(program, location, @params.Length, p_params);
+					LogCommand("glGetnUniformi64vARB", null, program, location, @params.Length, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -559,21 +556,18 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:int"/>.
 		/// </param>
-		/// <param name="bufSize">
-		/// A <see cref="T:int"/>.
-		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:ulong[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_gpu_shader_int64", Api = "gl|glcore")]
-		public static void GetnUniformARB(uint program, int location, int bufSize, [Out] ulong[] @params)
+		public static void GetnUniformARB(uint program, int location, [Out] ulong[] @params)
 		{
 			unsafe {
 				fixed (ulong* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetnUniformui64vARB != null, "pglGetnUniformui64vARB not implemented");
-					Delegates.pglGetnUniformui64vARB(program, location, bufSize, p_params);
-					LogCommand("glGetnUniformui64vARB", null, program, location, bufSize, @params					);
+					Delegates.pglGetnUniformui64vARB(program, location, @params.Length, p_params);
+					LogCommand("glGetnUniformui64vARB", null, program, location, @params.Length, @params					);
 				}
 			}
 			DebugCheckErrors(null);

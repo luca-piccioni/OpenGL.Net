@@ -2317,6 +2317,11 @@
     <param name="target" flags="enum" />
     <param name="image" />
   </command>
+  <command name="glEGLImageTargetTexStorageEXT">
+    <param name="target" flags="enum" />
+    <param name="image" />
+    <param name="attrib_list" />
+  </command>
   <command name="glEGLImageTargetTexture2DOES">
     <param name="target" flags="enum" />
     <param name="image" />

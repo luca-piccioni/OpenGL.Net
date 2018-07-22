@@ -5367,21 +5367,18 @@ namespace OpenGL
 		/// <param name="location">
 		/// Specifies the location of the uniform variable to be queried.
 		/// </param>
-		/// <param name="bufSize">
-		/// Specifies the size of the buffer <paramref name="params"/>.
-		/// </param>
 		/// <param name="params">
 		/// Returns the value of the specified uniform variable.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_5")]
-		public static void GetnUniform(uint program, int location, int bufSize, [Out] double[] @params)
+		public static void GetnUniform(uint program, int location, [Out] double[] @params)
 		{
 			unsafe {
 				fixed (double* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetnUniformdv != null, "pglGetnUniformdv not implemented");
-					Delegates.pglGetnUniformdv(program, location, bufSize, p_params);
-					LogCommand("glGetnUniformdv", null, program, location, bufSize, @params					);
+					Delegates.pglGetnUniformdv(program, location, @params.Length, p_params);
+					LogCommand("glGetnUniformdv", null, program, location, @params.Length, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -5398,9 +5395,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// Specifies the location of the uniform variable to be queried.
 		/// </param>
-		/// <param name="bufSize">
-		/// Specifies the size of the buffer <paramref name="params"/>.
-		/// </param>
 		/// <param name="params">
 		/// Returns the value of the specified uniform variable.
 		/// </param>
@@ -5410,14 +5404,14 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2")]
 		[RequiredByFeature("GL_KHR_robustness")]
 		[RequiredByFeature("GL_KHR_robustness", Api = "gles2")]
-		public static void GetnUniform(uint program, int location, int bufSize, [Out] float[] @params)
+		public static void GetnUniform(uint program, int location, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetnUniformfv != null, "pglGetnUniformfv not implemented");
-					Delegates.pglGetnUniformfv(program, location, bufSize, p_params);
-					LogCommand("glGetnUniformfv", null, program, location, bufSize, @params					);
+					Delegates.pglGetnUniformfv(program, location, @params.Length, p_params);
+					LogCommand("glGetnUniformfv", null, program, location, @params.Length, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -5434,9 +5428,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// Specifies the location of the uniform variable to be queried.
 		/// </param>
-		/// <param name="bufSize">
-		/// Specifies the size of the buffer <paramref name="params"/>.
-		/// </param>
 		/// <param name="params">
 		/// Returns the value of the specified uniform variable.
 		/// </param>
@@ -5446,14 +5437,14 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_robustness", Api = "gles1|gles2")]
 		[RequiredByFeature("GL_KHR_robustness")]
 		[RequiredByFeature("GL_KHR_robustness", Api = "gles2")]
-		public static void GetnUniform(uint program, int location, int bufSize, [Out] int[] @params)
+		public static void GetnUniform(uint program, int location, [Out] int[] @params)
 		{
 			unsafe {
 				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetnUniformiv != null, "pglGetnUniformiv not implemented");
-					Delegates.pglGetnUniformiv(program, location, bufSize, p_params);
-					LogCommand("glGetnUniformiv", null, program, location, bufSize, @params					);
+					Delegates.pglGetnUniformiv(program, location, @params.Length, p_params);
+					LogCommand("glGetnUniformiv", null, program, location, @params.Length, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -5470,9 +5461,6 @@ namespace OpenGL
 		/// <param name="location">
 		/// Specifies the location of the uniform variable to be queried.
 		/// </param>
-		/// <param name="bufSize">
-		/// Specifies the size of the buffer <paramref name="params"/>.
-		/// </param>
 		/// <param name="params">
 		/// Returns the value of the specified uniform variable.
 		/// </param>
@@ -5480,14 +5468,14 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_robustness")]
 		[RequiredByFeature("GL_KHR_robustness", Api = "gles2")]
-		public static void GetnUniform(uint program, int location, int bufSize, [Out] uint[] @params)
+		public static void GetnUniform(uint program, int location, [Out] uint[] @params)
 		{
 			unsafe {
 				fixed (uint* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetnUniformuiv != null, "pglGetnUniformuiv not implemented");
-					Delegates.pglGetnUniformuiv(program, location, bufSize, p_params);
-					LogCommand("glGetnUniformuiv", null, program, location, bufSize, @params					);
+					Delegates.pglGetnUniformuiv(program, location, @params.Length, p_params);
+					LogCommand("glGetnUniformuiv", null, program, location, @params.Length, @params					);
 				}
 			}
 			DebugCheckErrors(null);

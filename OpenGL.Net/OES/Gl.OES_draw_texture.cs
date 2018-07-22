@@ -138,6 +138,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
 		public static void DrawTexOES(short[] coords)
 		{
+			Debug.Assert(coords.Length >= 5);
 			unsafe {
 				fixed (short* p_coords = coords)
 				{
@@ -158,6 +159,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
 		public static void DrawTexOES(int[] coords)
 		{
+			Debug.Assert(coords.Length >= 5);
 			unsafe {
 				fixed (int* p_coords = coords)
 				{
@@ -178,6 +180,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
 		public static void DrawTexOES(IntPtr[] coords)
 		{
+			Debug.Assert(coords.Length >= 5);
 			unsafe {
 				fixed (IntPtr* p_coords = coords)
 				{
@@ -225,6 +228,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_draw_texture", Api = "gles1")]
 		public static void DrawTexOES(float[] coords)
 		{
+			Debug.Assert(coords.Length >= 5);
 			unsafe {
 				fixed (float* p_coords = coords)
 				{

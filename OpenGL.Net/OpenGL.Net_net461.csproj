@@ -257,6 +257,7 @@
     <Compile Include="ATI\Gl.ATI_vertex_streams.cs" />
     <Compile Include="EglEventArgs.cs" />
     <Compile Include="EXT\Egl.EXT_protected_content.cs" />
+    <Compile Include="EXT\Gl.EXT_EGL_image_storage.cs" />
     <Compile Include="EXT\Gl.EXT_external_buffer.cs" />
     <Compile Include="EXT\Gl.EXT_geometry_shader4.cs" />
     <Compile Include="EXT\Gl.EXT_memory_object.cs" />
@@ -265,6 +266,8 @@
     <Compile Include="EXT\Gl.EXT_semaphore.cs" />
     <Compile Include="EXT\Gl.EXT_semaphore_fd.cs" />
     <Compile Include="EXT\Gl.EXT_semaphore_win32.cs" />
+    <Compile Include="EXT\Gl.EXT_shader_framebuffer_fetch_non_coherent.cs" />
+    <Compile Include="EXT\Gl.EXT_texture_format_sRGB_override.cs" />
     <Compile Include="EXT\Gl.EXT_texture_storage.cs" />
     <Compile Include="EXT\Gl.EXT_win32_keyed_mutex.cs" />
     <Compile Include="GetProcAddressGL.cs" />
@@ -288,7 +291,6 @@
     <Compile Include="EXT\Gl.EXT_occlusion_query_boolean.cs" />
     <Compile Include="EXT\Gl.EXT_protected_textures.cs" />
     <Compile Include="EXT\Gl.EXT_pvrtc_sRGB.cs" />
-    <Compile Include="EXT\Gl.EXT_shader_framebuffer_fetch.cs" />
     <Compile Include="EXT\Gl.EXT_shader_pixel_local_storage.cs" />
     <Compile Include="EXT\Gl.EXT_shader_pixel_local_storage2.cs" />
     <Compile Include="EXT\Gl.EXT_texture_compression_astc_decode_mode.cs" />
@@ -317,6 +319,7 @@
     <Compile Include="IMG\Gl.IMG_user_clip_plane.cs" />
     <Compile Include="INativePBuffer.cs" />
     <Compile Include="INativeWindow.cs" />
+    <Compile Include="INTEL\Gl.INTEL_blackhole_render.cs" />
     <Compile Include="INTEL\Gl.INTEL_conservative_rasterization.cs" />
     <Compile Include="KhronosApi.cs" />
     <Compile Include="KHR\Egl.KHR_context_flush_control.cs" />

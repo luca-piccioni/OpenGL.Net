@@ -204,6 +204,7 @@
     <Compile Include="EXT\Gl.EXT_direct_state_access.cs" />
     <Compile Include="EXT\Gl.EXT_discard_framebuffer.cs" />
     <Compile Include="EXT\Gl.EXT_disjoint_timer_query.cs" />
+    <Compile Include="EXT\Gl.EXT_EGL_image_storage.cs" />
     <Compile Include="EXT\Gl.EXT_external_buffer.cs" />
     <Compile Include="EXT\Gl.EXT_framebuffer_multisample_blit_scaled.cs" />
     <Compile Include="EXT\Gl.EXT_framebuffer_object.cs" />
@@ -235,7 +236,7 @@
     <Compile Include="EXT\Gl.EXT_semaphore_fd.cs" />
     <Compile Include="EXT\Gl.EXT_semaphore_win32.cs" />
     <Compile Include="EXT\Gl.EXT_separate_shader_objects.cs" />
-    <Compile Include="EXT\Gl.EXT_shader_framebuffer_fetch.cs" />
+    <Compile Include="EXT\Gl.EXT_shader_framebuffer_fetch_non_coherent.cs" />
     <Compile Include="EXT\Gl.EXT_shader_image_load_store.cs" />
     <Compile Include="EXT\Gl.EXT_shader_pixel_local_storage.cs" />
     <Compile Include="EXT\Gl.EXT_shader_pixel_local_storage2.cs" />
@@ -249,6 +250,7 @@
     <Compile Include="EXT\Gl.EXT_texture_compression_rgtc.cs" />
     <Compile Include="EXT\Gl.EXT_texture_compression_s3tc.cs" />
     <Compile Include="EXT\Gl.EXT_texture_env_dot3.cs" />
+    <Compile Include="EXT\Gl.EXT_texture_format_sRGB_override.cs" />
     <Compile Include="EXT\Gl.EXT_texture_integer.cs" />
     <Compile Include="EXT\Gl.EXT_texture_mirror_clamp.cs" />
     <Compile Include="EXT\Gl.EXT_texture_object.cs" />
@@ -333,6 +335,7 @@
     <Compile Include="INativeWindow.cs" />
     <Compile Include="INGR\Gl.INGR_color_clamp.cs" />
     <Compile Include="INGR\Gl.INGR_interlace_read.cs" />
+    <Compile Include="INTEL\Gl.INTEL_blackhole_render.cs" />
     <Compile Include="INTEL\Gl.INTEL_conservative_rasterization.cs" />
     <Compile Include="INTEL\Gl.INTEL_framebuffer_CMAA.cs" />
     <Compile Include="INTEL\Gl.INTEL_map_texture.cs" />

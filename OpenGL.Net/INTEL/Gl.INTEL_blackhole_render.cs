@@ -43,10 +43,10 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// [GL] Value of GL_FRAGMENT_SHADER_DISCARDS_SAMPLES_EXT symbol.
+		/// [GL] Value of GL_BLACKHOLE_RENDER_INTEL symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_shader_framebuffer_fetch", Api = "gles2")]
-		public const int FRAGMENT_SHADER_DISCARDS_SAMPLES_EXT = 0x8A52;
+		[RequiredByFeature("GL_INTEL_blackhole_render", Api = "gl|glcore|gles2")]
+		public const int BLACKHOLE_RENDER_INTEL = 0x83FC;
 
 	}
 
