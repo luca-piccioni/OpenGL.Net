@@ -57,7 +57,7 @@
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <DocumentationFile>bin\net461\Release\OpenGL.Net.xml</DocumentationFile>
-    <NoWarn>419,1570,1572,1573,1574,1591</NoWarn>
+    <NoWarn>419,1570,1572,1573,1574,1591,1572,1574,1734,1573,1591</NoWarn>
     <Prefer32Bit>false</Prefer32Bit>
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
