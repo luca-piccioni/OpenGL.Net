@@ -3214,10 +3214,10 @@ namespace OpenGL
 			public bool CompressedATCTexture_AMD;
 
 			/// <summary>
-			/// Support for extension GL_AMD_framebuffer_sample_positions.
+			/// Support for extension GL_AMD_framebuffer_multisample_advanced.
 			/// </summary>
-			[Extension("GL_AMD_framebuffer_sample_positions")]
-			public bool FramebufferSamplePositions_AMD;
+			[Extension("GL_AMD_framebuffer_multisample_advanced", Api = "gl|glcore|gles2")]
+			public bool FramebufferMultisampleAdvanced_AMD;
 
 			/// <summary>
 			/// Support for extension GL_SGIX_subsample.
@@ -3226,22 +3226,28 @@ namespace OpenGL
 			public bool Subsample_SGIX;
 
 			/// <summary>
+			/// Support for extension GL_AMD_framebuffer_sample_positions.
+			/// </summary>
+			[Extension("GL_AMD_framebuffer_sample_positions")]
+			public bool FramebufferSamplePositions_AMD;
+
+			/// <summary>
 			/// Support for extension GL_AMD_gpu_shader_half_float.
 			/// </summary>
 			[Extension("GL_AMD_gpu_shader_half_float")]
 			public bool GpuShaderHalfFloat_AMD;
 
 			/// <summary>
-			/// Support for extension GL_AMD_gpu_shader_int16.
-			/// </summary>
-			[Extension("GL_AMD_gpu_shader_int16")]
-			public bool GpuShaderInt16_AMD;
-
-			/// <summary>
 			/// Support for extension GL_SGIX_scalebias_hint.
 			/// </summary>
 			[Extension("GL_SGIX_scalebias_hint")]
 			public bool ScalebiasHint_SGIX;
+
+			/// <summary>
+			/// Support for extension GL_AMD_gpu_shader_int16.
+			/// </summary>
+			[Extension("GL_AMD_gpu_shader_int16")]
+			public bool GpuShaderInt16_AMD;
 
 			/// <summary>
 			/// Support for extension GL_SGIX_polynomial_ffd.
@@ -3304,16 +3310,16 @@ namespace OpenGL
 			public bool ShaderImageLoadStoreLod_AMD;
 
 			/// <summary>
-			/// Support for extension GL_AMD_shader_explicit_vertex_parameter.
-			/// </summary>
-			[Extension("GL_AMD_shader_explicit_vertex_parameter")]
-			public bool ShaderExplicitVertexParameter_AMD;
-
-			/// <summary>
 			/// Support for extension GL_SGIS_point_parameters.
 			/// </summary>
 			[Extension("GL_SGIS_point_parameters")]
 			public bool PointParameters_SGIS;
+
+			/// <summary>
+			/// Support for extension GL_AMD_shader_explicit_vertex_parameter.
+			/// </summary>
+			[Extension("GL_AMD_shader_explicit_vertex_parameter")]
+			public bool ShaderExplicitVertexParameter_AMD;
 
 			/// <summary>
 			/// Support for extension GL_AMD_texture_gather_bias_lod.
@@ -3334,6 +3340,12 @@ namespace OpenGL
 			public bool TiledRendering_QCOM;
 
 			/// <summary>
+			/// Support for extension GL_QCOM_shader_framebuffer_fetch_rate.
+			/// </summary>
+			[Extension("GL_QCOM_shader_framebuffer_fetch_rate", Api = "gles2")]
+			public bool ShaderFramebufferFetchRate_QCOM;
+
+			/// <summary>
 			/// Support for extension GL_QCOM_shader_framebuffer_fetch_noncoherent.
 			/// </summary>
 			[Extension("GL_QCOM_shader_framebuffer_fetch_noncoherent", Api = "gles2")]
@@ -3344,6 +3356,12 @@ namespace OpenGL
 			/// </summary>
 			[Extension("GL_QCOM_perfmon_global_mode", Api = "gles1|gles2")]
 			public bool PerfmonGlobalMode_QCOM;
+
+			/// <summary>
+			/// Support for extension GL_QCOM_texture_foveated_subsampled_layout.
+			/// </summary>
+			[Extension("GL_QCOM_texture_foveated_subsampled_layout", Api = "gles2")]
+			public bool TextureFoveatedSubsampledLayout_QCOM;
 
 			/// <summary>
 			/// Support for extension GL_QCOM_texture_foveated.
@@ -3586,12 +3604,6 @@ namespace OpenGL
 			public bool BindlessTexture_IMG;
 
 			/// <summary>
-			/// Support for extension GL_IMG_framebuffer_downsample.
-			/// </summary>
-			[Extension("GL_IMG_framebuffer_downsample", Api = "gles2")]
-			public bool FramebufferDownsample_IMG;
-
-			/// <summary>
 			/// Support for extension GL_NV_viewport_swizzle.
 			/// </summary>
 			[Extension("GL_NV_viewport_swizzle", Api = "gl|glcore|gles2")]
@@ -3646,6 +3658,18 @@ namespace OpenGL
 			public bool ShadowSamplersArray_NV;
 
 			/// <summary>
+			/// Support for extension GL_NV_shading_rate_image.
+			/// </summary>
+			[Extension("GL_NV_shading_rate_image", Api = "gl|glcore")]
+			public bool ShadingRateImage_NV;
+
+			/// <summary>
+			/// Support for extension GL_NV_shader_texture_footprint.
+			/// </summary>
+			[Extension("GL_NV_shader_texture_footprint", Api = "gl|glcore")]
+			public bool ShaderTextureFootprint_NV;
+
+			/// <summary>
 			/// Support for extension GL_NV_shader_noperspective_interpolation.
 			/// </summary>
 			[Extension("GL_NV_shader_noperspective_interpolation", Api = "gles2")]
@@ -3658,6 +3682,12 @@ namespace OpenGL
 			public bool ShaderAtomicFloat64_NV;
 
 			/// <summary>
+			/// Support for extension GL_NV_scissor_exclusive.
+			/// </summary>
+			[Extension("GL_NV_scissor_exclusive", Api = "gl|glcore")]
+			public bool ScissorExclusive_NV;
+
+			/// <summary>
 			/// Support for extension GL_NV_sRGB_formats.
 			/// </summary>
 			[Extension("GL_NV_sRGB_formats", Api = "gles2")]
@@ -3668,6 +3698,12 @@ namespace OpenGL
 			/// </summary>
 			[Extension("GL_NV_robustness_video_memory_purge")]
 			public bool RobustnessVideoMemoryPurge_NV;
+
+			/// <summary>
+			/// Support for extension GL_NV_representative_fragment_test.
+			/// </summary>
+			[Extension("GL_NV_representative_fragment_test", Api = "gl|glcore")]
+			public bool RepresentativeFragmentTest_NV;
 
 			/// <summary>
 			/// Support for extension GL_NV_read_stencil.
@@ -3730,6 +3766,18 @@ namespace OpenGL
 			public bool NonSquareMatrices_NV;
 
 			/// <summary>
+			/// Support for extension GL_NV_mesh_shader.
+			/// </summary>
+			[Extension("GL_NV_mesh_shader", Api = "gl|glcore")]
+			public bool MeshShader_NV;
+
+			/// <summary>
+			/// Support for extension GL_NV_memory_attachment.
+			/// </summary>
+			[Extension("GL_NV_memory_attachment", Api = "gl|glcore|gles2")]
+			public bool MemoryAttachment_NV;
+
+			/// <summary>
 			/// Support for extension GL_NV_gpu_multicast.
 			/// </summary>
 			[Extension("GL_NV_gpu_multicast")]
@@ -3764,6 +3812,12 @@ namespace OpenGL
 			/// </summary>
 			[Extension("GL_NV_framebuffer_blit", Api = "gles2")]
 			public bool FramebufferBlit_NV;
+
+			/// <summary>
+			/// Support for extension GL_NV_fragment_shader_barycentric.
+			/// </summary>
+			[Extension("GL_NV_fragment_shader_barycentric", Api = "gl|glcore")]
+			public bool FragmentShaderBarycentric_NV;
 
 			/// <summary>
 			/// Support for extension GL_NV_fbo_color_attachments.
@@ -3838,6 +3892,12 @@ namespace OpenGL
 			public bool ConservativeRasterDilate_NV;
 
 			/// <summary>
+			/// Support for extension GL_NV_compute_shader_derivatives.
+			/// </summary>
+			[Extension("GL_NV_compute_shader_derivatives", Api = "gl|glcore")]
+			public bool ComputeShaderDerivatives_NV;
+
+			/// <summary>
 			/// Support for extension GL_NV_command_list.
 			/// </summary>
 			[Extension("GL_NV_command_list", Api = "gl|glcore")]
@@ -3890,6 +3950,12 @@ namespace OpenGL
 			/// </summary>
 			[Extension("GL_MESA_program_binary_formats", Api = "gl|gles2")]
 			public bool ProgramBinaryFormats_MESA;
+
+			/// <summary>
+			/// Support for extension GL_MESA_framebuffer_flip_y.
+			/// </summary>
+			[Extension("GL_MESA_framebuffer_flip_y", Api = "gles2")]
+			public bool FramebufferFlipY_MESA;
 
 			/// <summary>
 			/// Support for extension GL_INTEL_blackhole_render.
@@ -3968,6 +4034,18 @@ namespace OpenGL
 			/// </summary>
 			[Extension("GL_IMG_multisampled_render_to_texture", Api = "gles1|gles2")]
 			public bool MultisampledRenderToTexture_IMG;
+
+			/// <summary>
+			/// Support for extension GL_IMG_framebuffer_downsample.
+			/// </summary>
+			[Extension("GL_IMG_framebuffer_downsample", Api = "gles2")]
+			public bool FramebufferDownsample_IMG;
+
+			/// <summary>
+			/// Support for extension GL_EXT_texture_compression_bptc.
+			/// </summary>
+			[Extension("GL_EXT_texture_compression_bptc", Api = "gles2")]
+			public bool TextureCompressionBptc_EXT;
 
 			/// <summary>
 			/// Support for extension GL_EXT_window_rectangles.
@@ -4064,12 +4142,6 @@ namespace OpenGL
 			/// </summary>
 			[Extension("GL_EXT_texture_compression_s3tc_srgb", Api = "gles2")]
 			public bool TextureCompressionS3tcSrgb_EXT;
-
-			/// <summary>
-			/// Support for extension GL_EXT_texture_compression_bptc.
-			/// </summary>
-			[Extension("GL_EXT_texture_compression_bptc", Api = "gles2")]
-			public bool TextureCompressionBptc_EXT;
 
 			/// <summary>
 			/// Support for extension GL_EXT_texture_compression_astc_decode_mode.
@@ -4438,10 +4510,16 @@ namespace OpenGL
 			public bool EGLImageArray_EXT;
 
 			/// <summary>
-			/// Support for extension GL_OES_primitive_bounding_box.
+			/// Support for extension GL_OES_texture_3D.
 			/// </summary>
-			[Extension("GL_OES_primitive_bounding_box", Api = "gles2")]
-			public bool PrimitiveBoundingBox_OES;
+			[Extension("GL_OES_texture_3D", Api = "gles2")]
+			public bool Texture3D_OES;
+
+			/// <summary>
+			/// Support for extension GL_OES_gpu_shader5.
+			/// </summary>
+			[Extension("GL_OES_gpu_shader5", Api = "gles2")]
+			public bool GpuShader5_OES;
 
 			/// <summary>
 			/// Support for extension GL_OES_EGL_image.
@@ -4450,10 +4528,10 @@ namespace OpenGL
 			public bool EGLImage_OES;
 
 			/// <summary>
-			/// Support for extension GL_OES_required_internalformat.
+			/// Support for extension GL_OES_texture_border_clamp.
 			/// </summary>
-			[Extension("GL_OES_required_internalformat", Api = "gles1|gles2")]
-			public bool RequiredInternalformat_OES;
+			[Extension("GL_OES_texture_border_clamp", Api = "gles2")]
+			public bool TextureBorderClamp_OES;
 
 			/// <summary>
 			/// Support for extension GL_OES_EGL_image_external_essl3.
@@ -4480,10 +4558,10 @@ namespace OpenGL
 			public bool BlendSubtract_OES;
 
 			/// <summary>
-			/// Support for extension GL_OES_rgb8_rgba8.
+			/// Support for extension GL_OES_texture_buffer.
 			/// </summary>
-			[Extension("GL_OES_rgb8_rgba8", Api = "gles1|gles2|glsc2")]
-			public bool Rgb8Rgba8_OES;
+			[Extension("GL_OES_texture_buffer", Api = "gles2")]
+			public bool TextureBuffer_OES;
 
 			/// <summary>
 			/// Support for extension GL_OES_compressed_ETC1_RGB8_sub_texture.
@@ -4498,124 +4576,10 @@ namespace OpenGL
 			public bool CompressedETC1RGB8Texture_OES;
 
 			/// <summary>
-			/// Support for extension GL_OES_point_sprite.
+			/// Support for extension GL_OES_copy_image.
 			/// </summary>
-			[Extension("GL_OES_point_sprite", Api = "gles1")]
-			public bool PointSprite_OES;
-
-			/// <summary>
-			/// Support for extension GL_OES_point_size_array.
-			/// </summary>
-			[Extension("GL_OES_point_size_array", Api = "gles1")]
-			public bool PointSizeArray_OES;
-
-			/// <summary>
-			/// Support for extension GL_OES_packed_depth_stencil.
-			/// </summary>
-			[Extension("GL_OES_packed_depth_stencil", Api = "gles1|gles2")]
-			public bool PackedDepthStencil_OES;
-
-			/// <summary>
-			/// Support for extension GL_OES_matrix_palette.
-			/// </summary>
-			[Extension("GL_OES_matrix_palette", Api = "gles1")]
-			public bool MatrixPalette_OES;
-
-			/// <summary>
-			/// Support for extension GL_OES_matrix_get.
-			/// </summary>
-			[Extension("GL_OES_matrix_get", Api = "gles1")]
-			public bool MatrixGet_OES;
-
-			/// <summary>
-			/// Support for extension GL_OES_mapbuffer.
-			/// </summary>
-			[Extension("GL_OES_mapbuffer", Api = "gles1|gles2")]
-			public bool Mapbuffer_OES;
-
-			/// <summary>
-			/// Support for extension GL_OES_gpu_shader5.
-			/// </summary>
-			[Extension("GL_OES_gpu_shader5", Api = "gles2")]
-			public bool GpuShader5_OES;
-
-			/// <summary>
-			/// Support for extension GL_OES_get_program_binary.
-			/// </summary>
-			[Extension("GL_OES_get_program_binary", Api = "gles2")]
-			public bool GetProgramBinary_OES;
-
-			/// <summary>
-			/// Support for extension GL_OES_geometry_shader.
-			/// </summary>
-			[Extension("GL_OES_geometry_shader", Api = "gles2")]
-			public bool GeometryShader_OES;
-
-			/// <summary>
-			/// Support for extension GL_OES_geometry_point_size.
-			/// </summary>
-			[Extension("GL_OES_geometry_point_size", Api = "gles2")]
-			public bool GeometryPointSize_OES;
-
-			/// <summary>
-			/// Support for extension GL_OES_framebuffer_object.
-			/// </summary>
-			[Extension("GL_OES_framebuffer_object", Api = "gles1")]
-			public bool FramebufferObject_OES;
-
-			/// <summary>
-			/// Support for extension GL_OES_fragment_precision_high.
-			/// </summary>
-			[Extension("GL_OES_fragment_precision_high", Api = "gles2")]
-			public bool FragmentPrecisionHigh_OES;
-
-			/// <summary>
-			/// Support for extension GL_OES_fbo_render_mipmap.
-			/// </summary>
-			[Extension("GL_OES_fbo_render_mipmap", Api = "gles1|gles2")]
-			public bool FboRenderMipmap_OES;
-
-			/// <summary>
-			/// Support for extension GL_OES_extended_matrix_palette.
-			/// </summary>
-			[Extension("GL_OES_extended_matrix_palette", Api = "gles1")]
-			public bool ExtendedMatrixPalette_OES;
-
-			/// <summary>
-			/// Support for extension GL_OES_element_index_uint.
-			/// </summary>
-			[Extension("GL_OES_element_index_uint", Api = "gles1|gles2")]
-			public bool ElementIndexUint_OES;
-
-			/// <summary>
-			/// Support for extension GL_OES_draw_texture.
-			/// </summary>
-			[Extension("GL_OES_draw_texture", Api = "gles1")]
-			public bool DrawTexture_OES;
-
-			/// <summary>
-			/// Support for extension GL_OES_draw_elements_base_vertex.
-			/// </summary>
-			[Extension("GL_OES_draw_elements_base_vertex", Api = "gles2")]
-			public bool DrawElementsBaseVertex_OES;
-
-			/// <summary>
-			/// Support for extension GL_OES_draw_buffers_indexed.
-			/// </summary>
-			[Extension("GL_OES_draw_buffers_indexed", Api = "gles2")]
-			public bool DrawBuffersIndexed_OES;
-
-			/// <summary>
-			/// Support for extension GL_OES_depth_texture.
-			/// </summary>
-			[Extension("GL_OES_depth_texture", Api = "gles2")]
-			public bool DepthTexture_OES;
-
-			/// <summary>
-			/// Support for extension GL_OES_depth32.
-			/// </summary>
-			[Extension("GL_OES_depth32", Api = "gles1|gles2|glsc2")]
-			public bool Depth32_OES;
+			[Extension("GL_OES_copy_image", Api = "gles2")]
+			public bool CopyImage_OES;
 
 			/// <summary>
 			/// Support for extension GL_OES_depth24.
@@ -4624,10 +4588,190 @@ namespace OpenGL
 			public bool Depth24_OES;
 
 			/// <summary>
-			/// Support for extension GL_OES_copy_image.
+			/// Support for extension GL_OES_depth32.
 			/// </summary>
-			[Extension("GL_OES_copy_image", Api = "gles2")]
-			public bool CopyImage_OES;
+			[Extension("GL_OES_depth32", Api = "gles1|gles2|glsc2")]
+			public bool Depth32_OES;
+
+			/// <summary>
+			/// Support for extension GL_OES_depth_texture.
+			/// </summary>
+			[Extension("GL_OES_depth_texture", Api = "gles2")]
+			public bool DepthTexture_OES;
+
+			/// <summary>
+			/// Support for extension GL_OES_draw_buffers_indexed.
+			/// </summary>
+			[Extension("GL_OES_draw_buffers_indexed", Api = "gles2")]
+			public bool DrawBuffersIndexed_OES;
+
+			/// <summary>
+			/// Support for extension GL_OES_draw_elements_base_vertex.
+			/// </summary>
+			[Extension("GL_OES_draw_elements_base_vertex", Api = "gles2")]
+			public bool DrawElementsBaseVertex_OES;
+
+			/// <summary>
+			/// Support for extension GL_OES_draw_texture.
+			/// </summary>
+			[Extension("GL_OES_draw_texture", Api = "gles1")]
+			public bool DrawTexture_OES;
+
+			/// <summary>
+			/// Support for extension GL_OES_element_index_uint.
+			/// </summary>
+			[Extension("GL_OES_element_index_uint", Api = "gles1|gles2")]
+			public bool ElementIndexUint_OES;
+
+			/// <summary>
+			/// Support for extension GL_OES_extended_matrix_palette.
+			/// </summary>
+			[Extension("GL_OES_extended_matrix_palette", Api = "gles1")]
+			public bool ExtendedMatrixPalette_OES;
+
+			/// <summary>
+			/// Support for extension GL_OES_fbo_render_mipmap.
+			/// </summary>
+			[Extension("GL_OES_fbo_render_mipmap", Api = "gles1|gles2")]
+			public bool FboRenderMipmap_OES;
+
+			/// <summary>
+			/// Support for extension GL_OES_texture_compression_astc.
+			/// </summary>
+			[Extension("GL_OES_texture_compression_astc", Api = "gles2")]
+			public bool TextureCompressionAstc_OES;
+
+			/// <summary>
+			/// Support for extension GL_OES_fragment_precision_high.
+			/// </summary>
+			[Extension("GL_OES_fragment_precision_high", Api = "gles2")]
+			public bool FragmentPrecisionHigh_OES;
+
+			/// <summary>
+			/// Support for extension GL_OES_framebuffer_object.
+			/// </summary>
+			[Extension("GL_OES_framebuffer_object", Api = "gles1")]
+			public bool FramebufferObject_OES;
+
+			/// <summary>
+			/// Support for extension GL_OES_geometry_point_size.
+			/// </summary>
+			[Extension("GL_OES_geometry_point_size", Api = "gles2")]
+			public bool GeometryPointSize_OES;
+
+			/// <summary>
+			/// Support for extension GL_OES_geometry_shader.
+			/// </summary>
+			[Extension("GL_OES_geometry_shader", Api = "gles2")]
+			public bool GeometryShader_OES;
+
+			/// <summary>
+			/// Support for extension GL_OES_get_program_binary.
+			/// </summary>
+			[Extension("GL_OES_get_program_binary", Api = "gles2")]
+			public bool GetProgramBinary_OES;
+
+			/// <summary>
+			/// Support for extension GL_OES_tessellation_shader.
+			/// </summary>
+			[Extension("GL_OES_tessellation_shader", Api = "gles2")]
+			public bool TessellationShader_OES;
+
+			/// <summary>
+			/// Support for extension GL_OES_mapbuffer.
+			/// </summary>
+			[Extension("GL_OES_mapbuffer", Api = "gles1|gles2")]
+			public bool Mapbuffer_OES;
+
+			/// <summary>
+			/// Support for extension GL_OES_matrix_get.
+			/// </summary>
+			[Extension("GL_OES_matrix_get", Api = "gles1")]
+			public bool MatrixGet_OES;
+
+			/// <summary>
+			/// Support for extension GL_OES_matrix_palette.
+			/// </summary>
+			[Extension("GL_OES_matrix_palette", Api = "gles1")]
+			public bool MatrixPalette_OES;
+
+			/// <summary>
+			/// Support for extension GL_OES_packed_depth_stencil.
+			/// </summary>
+			[Extension("GL_OES_packed_depth_stencil", Api = "gles1|gles2")]
+			public bool PackedDepthStencil_OES;
+
+			/// <summary>
+			/// Support for extension GL_OES_point_size_array.
+			/// </summary>
+			[Extension("GL_OES_point_size_array", Api = "gles1")]
+			public bool PointSizeArray_OES;
+
+			/// <summary>
+			/// Support for extension GL_OES_EGL_image_external.
+			/// </summary>
+			[Extension("GL_OES_EGL_image_external", Api = "gles1|gles2")]
+			public bool EGLImageExternal_OES;
+
+			/// <summary>
+			/// Support for extension GL_OES_viewport_array.
+			/// </summary>
+			[Extension("GL_OES_viewport_array", Api = "gles2")]
+			public bool ViewportArray_OES;
+
+			/// <summary>
+			/// Support for extension GL_OES_point_sprite.
+			/// </summary>
+			[Extension("GL_OES_point_sprite", Api = "gles1")]
+			public bool PointSprite_OES;
+
+			/// <summary>
+			/// Support for extension GL_OES_primitive_bounding_box.
+			/// </summary>
+			[Extension("GL_OES_primitive_bounding_box", Api = "gles2")]
+			public bool PrimitiveBoundingBox_OES;
+
+			/// <summary>
+			/// Support for extension GL_OES_texture_cube_map.
+			/// </summary>
+			[Extension("GL_OES_texture_cube_map", Api = "gles1")]
+			public bool TextureCubeMap_OES;
+
+			/// <summary>
+			/// Support for extension GL_OES_texture_cube_map_array.
+			/// </summary>
+			[Extension("GL_OES_texture_cube_map_array", Api = "gles2")]
+			public bool TextureCubeMapArray_OES;
+
+			/// <summary>
+			/// Support for extension GL_OES_required_internalformat.
+			/// </summary>
+			[Extension("GL_OES_required_internalformat", Api = "gles1|gles2")]
+			public bool RequiredInternalformat_OES;
+
+			/// <summary>
+			/// Support for extension GL_OES_vertex_type_10_10_10_2.
+			/// </summary>
+			[Extension("GL_OES_vertex_type_10_10_10_2", Api = "gles2")]
+			public bool VertexType1010102_OES;
+
+			/// <summary>
+			/// Support for extension GL_OES_rgb8_rgba8.
+			/// </summary>
+			[Extension("GL_OES_rgb8_rgba8", Api = "gles1|gles2|glsc2")]
+			public bool Rgb8Rgba8_OES;
+
+			/// <summary>
+			/// Support for extension GL_OES_vertex_half_float.
+			/// </summary>
+			[Extension("GL_OES_vertex_half_float", Api = "gles2")]
+			public bool VertexHalfFloat_OES;
+
+			/// <summary>
+			/// Support for extension GL_OES_vertex_array_object.
+			/// </summary>
+			[Extension("GL_OES_vertex_array_object", Api = "gles1|gles2")]
+			public bool VertexArrayObject_OES;
 
 			/// <summary>
 			/// Support for extension GL_OES_sample_shading.
@@ -4648,6 +4792,24 @@ namespace OpenGL
 			public bool ShaderImageAtomic_OES;
 
 			/// <summary>
+			/// Support for extension GL_OES_texture_view.
+			/// </summary>
+			[Extension("GL_OES_texture_view", Api = "gles2")]
+			public bool TextureView_OES;
+
+			/// <summary>
+			/// Support for extension GL_OES_texture_storage_multisample_2d_array.
+			/// </summary>
+			[Extension("GL_OES_texture_storage_multisample_2d_array", Api = "gles2")]
+			public bool TextureStorageMultisample2dArray_OES;
+
+			/// <summary>
+			/// Support for extension GL_OES_texture_stencil8.
+			/// </summary>
+			[Extension("GL_OES_texture_stencil8", Api = "gles2")]
+			public bool TextureStencil8_OES;
+
+			/// <summary>
 			/// Support for extension GL_OES_shader_io_blocks.
 			/// </summary>
 			[Extension("GL_OES_shader_io_blocks", Api = "gles2")]
@@ -4658,6 +4820,12 @@ namespace OpenGL
 			/// </summary>
 			[Extension("GL_OES_shader_multisample_interpolation", Api = "gles2")]
 			public bool ShaderMultisampleInterpolation_OES;
+
+			/// <summary>
+			/// Support for extension GL_OES_texture_env_crossbar.
+			/// </summary>
+			[Extension("GL_OES_texture_env_crossbar", Api = "gles1")]
+			public bool TextureEnvCrossbar_OES;
 
 			/// <summary>
 			/// Support for extension GL_OES_standard_derivatives.
@@ -4672,6 +4840,18 @@ namespace OpenGL
 			public bool Stencil1_OES;
 
 			/// <summary>
+			/// Support for extension GL_OES_texture_float.
+			/// </summary>
+			[Extension("GL_OES_texture_float", Api = "gles2")]
+			public bool TextureFloat_OES;
+
+			/// <summary>
+			/// Support for extension GL_OES_texture_npot.
+			/// </summary>
+			[Extension("GL_OES_texture_npot", Api = "gles1|gles2")]
+			public bool TextureNpot_OES;
+
+			/// <summary>
 			/// Support for extension GL_OES_stencil4.
 			/// </summary>
 			[Extension("GL_OES_stencil4", Api = "gles1|gles2")]
@@ -4684,10 +4864,22 @@ namespace OpenGL
 			public bool Stencil8_OES;
 
 			/// <summary>
+			/// Support for extension GL_OES_texture_mirrored_repeat.
+			/// </summary>
+			[Extension("GL_OES_texture_mirrored_repeat", Api = "gles1")]
+			public bool TextureMirroredRepeat_OES;
+
+			/// <summary>
 			/// Support for extension GL_OES_stencil_wrap.
 			/// </summary>
 			[Extension("GL_OES_stencil_wrap", Api = "gles1")]
 			public bool StencilWrap_OES;
+
+			/// <summary>
+			/// Support for extension GL_OES_texture_half_float_linear.
+			/// </summary>
+			[Extension("GL_OES_texture_half_float_linear", Api = "gles2")]
+			public bool TextureHalfFloatLinear_OES;
 
 			/// <summary>
 			/// Support for extension GL_OES_surfaceless_context.
@@ -4702,136 +4894,16 @@ namespace OpenGL
 			public bool TessellationPointSize_OES;
 
 			/// <summary>
-			/// Support for extension GL_OES_tessellation_shader.
-			/// </summary>
-			[Extension("GL_OES_tessellation_shader", Api = "gles2")]
-			public bool TessellationShader_OES;
-
-			/// <summary>
-			/// Support for extension GL_OES_texture_3D.
-			/// </summary>
-			[Extension("GL_OES_texture_3D", Api = "gles2")]
-			public bool Texture3D_OES;
-
-			/// <summary>
-			/// Support for extension GL_OES_texture_border_clamp.
-			/// </summary>
-			[Extension("GL_OES_texture_border_clamp", Api = "gles2")]
-			public bool TextureBorderClamp_OES;
-
-			/// <summary>
-			/// Support for extension GL_OES_texture_buffer.
-			/// </summary>
-			[Extension("GL_OES_texture_buffer", Api = "gles2")]
-			public bool TextureBuffer_OES;
-
-			/// <summary>
-			/// Support for extension GL_OES_texture_compression_astc.
-			/// </summary>
-			[Extension("GL_OES_texture_compression_astc", Api = "gles2")]
-			public bool TextureCompressionAstc_OES;
-
-			/// <summary>
-			/// Support for extension GL_OES_texture_cube_map.
-			/// </summary>
-			[Extension("GL_OES_texture_cube_map", Api = "gles1")]
-			public bool TextureCubeMap_OES;
-
-			/// <summary>
-			/// Support for extension GL_OES_texture_cube_map_array.
-			/// </summary>
-			[Extension("GL_OES_texture_cube_map_array", Api = "gles2")]
-			public bool TextureCubeMapArray_OES;
-
-			/// <summary>
-			/// Support for extension GL_OES_texture_env_crossbar.
-			/// </summary>
-			[Extension("GL_OES_texture_env_crossbar", Api = "gles1")]
-			public bool TextureEnvCrossbar_OES;
-
-			/// <summary>
-			/// Support for extension GL_OES_texture_float.
-			/// </summary>
-			[Extension("GL_OES_texture_float", Api = "gles2")]
-			public bool TextureFloat_OES;
-
-			/// <summary>
-			/// Support for extension GL_OES_texture_float_linear.
-			/// </summary>
-			[Extension("GL_OES_texture_float_linear", Api = "gles2")]
-			public bool TextureFloatLinear_OES;
-
-			/// <summary>
 			/// Support for extension GL_OES_texture_half_float.
 			/// </summary>
 			[Extension("GL_OES_texture_half_float", Api = "gles2")]
 			public bool TextureHalfFloat_OES;
 
 			/// <summary>
-			/// Support for extension GL_OES_texture_half_float_linear.
+			/// Support for extension GL_OES_texture_float_linear.
 			/// </summary>
-			[Extension("GL_OES_texture_half_float_linear", Api = "gles2")]
-			public bool TextureHalfFloatLinear_OES;
-
-			/// <summary>
-			/// Support for extension GL_OES_texture_mirrored_repeat.
-			/// </summary>
-			[Extension("GL_OES_texture_mirrored_repeat", Api = "gles1")]
-			public bool TextureMirroredRepeat_OES;
-
-			/// <summary>
-			/// Support for extension GL_OES_texture_npot.
-			/// </summary>
-			[Extension("GL_OES_texture_npot", Api = "gles1|gles2")]
-			public bool TextureNpot_OES;
-
-			/// <summary>
-			/// Support for extension GL_OES_texture_stencil8.
-			/// </summary>
-			[Extension("GL_OES_texture_stencil8", Api = "gles2")]
-			public bool TextureStencil8_OES;
-
-			/// <summary>
-			/// Support for extension GL_OES_texture_storage_multisample_2d_array.
-			/// </summary>
-			[Extension("GL_OES_texture_storage_multisample_2d_array", Api = "gles2")]
-			public bool TextureStorageMultisample2dArray_OES;
-
-			/// <summary>
-			/// Support for extension GL_OES_texture_view.
-			/// </summary>
-			[Extension("GL_OES_texture_view", Api = "gles2")]
-			public bool TextureView_OES;
-
-			/// <summary>
-			/// Support for extension GL_OES_vertex_array_object.
-			/// </summary>
-			[Extension("GL_OES_vertex_array_object", Api = "gles1|gles2")]
-			public bool VertexArrayObject_OES;
-
-			/// <summary>
-			/// Support for extension GL_OES_vertex_half_float.
-			/// </summary>
-			[Extension("GL_OES_vertex_half_float", Api = "gles2")]
-			public bool VertexHalfFloat_OES;
-
-			/// <summary>
-			/// Support for extension GL_OES_vertex_type_10_10_10_2.
-			/// </summary>
-			[Extension("GL_OES_vertex_type_10_10_10_2", Api = "gles2")]
-			public bool VertexType1010102_OES;
-
-			/// <summary>
-			/// Support for extension GL_OES_viewport_array.
-			/// </summary>
-			[Extension("GL_OES_viewport_array", Api = "gles2")]
-			public bool ViewportArray_OES;
-
-			/// <summary>
-			/// Support for extension GL_OES_EGL_image_external.
-			/// </summary>
-			[Extension("GL_OES_EGL_image_external", Api = "gles1|gles2")]
-			public bool EGLImageExternal_OES;
+			[Extension("GL_OES_texture_float_linear", Api = "gles2")]
+			public bool TextureFloatLinear_OES;
 
 			/// <summary>
 			/// Support for extension GL_NVX_cross_process_interop.

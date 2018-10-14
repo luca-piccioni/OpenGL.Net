@@ -344,6 +344,12 @@ namespace OpenGL
 			public bool MultisampleCoverage_NV;
 
 			/// <summary>
+			/// Support for extension WGL_ATI_render_texture_rectangle.
+			/// </summary>
+			[Extension("WGL_ATI_render_texture_rectangle")]
+			public bool RenderTextureRectangle_ATI;
+
+			/// <summary>
 			/// Support for extension WGL_NV_vertex_array_range.
 			/// </summary>
 			[Extension("WGL_NV_vertex_array_range")]

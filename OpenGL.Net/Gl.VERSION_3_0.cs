@@ -1903,10 +1903,11 @@ namespace OpenGL
 		public const int MAX_SAMPLES = 0x8D57;
 
 		/// <summary>
-		/// [GL] Value of GL_INDEX symbol.
+		/// [GL] Value of GL_INDEX symbol (DEPRECATED).
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_framebuffer_object", Api = "gl|glcore")]
+		[RemovedByFeature("GL_VERSION_3_2")]
 		public const int INDEX = 0x8222;
 
 		/// <summary>

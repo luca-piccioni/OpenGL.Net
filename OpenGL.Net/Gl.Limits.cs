@@ -1603,6 +1603,118 @@ namespace OpenGL
 			public int MaxProgramTextureGatherOffset;
 
 			/// <summary>
+			/// [GL] Value of GL_MAX_MESH_UNIFORM_BLOCKS_NV symbol.
+			/// </summary>
+			[Limit(MAX_MESH_UNIFORM_BLOCKS_NV)]
+			[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+			public int MaxMeshUniformBlocksNV;
+
+			/// <summary>
+			/// [GL] Value of GL_MAX_MESH_TEXTURE_IMAGE_UNITS_NV symbol.
+			/// </summary>
+			[Limit(MAX_MESH_TEXTURE_IMAGE_UNITS_NV)]
+			[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+			public int MaxMeshTextureImageUnitsNV;
+
+			/// <summary>
+			/// [GL] Value of GL_MAX_MESH_IMAGE_UNIFORMS_NV symbol.
+			/// </summary>
+			[Limit(MAX_MESH_IMAGE_UNIFORMS_NV)]
+			[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+			public int MaxMeshImageUniformsNV;
+
+			/// <summary>
+			/// [GL] Value of GL_MAX_MESH_UNIFORM_COMPONENTS_NV symbol.
+			/// </summary>
+			[Limit(MAX_MESH_UNIFORM_COMPONENTS_NV)]
+			[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+			public int MaxMeshUniformComponentsNV;
+
+			/// <summary>
+			/// [GL] Value of GL_MAX_MESH_ATOMIC_COUNTER_BUFFERS_NV symbol.
+			/// </summary>
+			[Limit(MAX_MESH_ATOMIC_COUNTER_BUFFERS_NV)]
+			[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+			public int MaxMeshAtomicCounterBuffersNV;
+
+			/// <summary>
+			/// [GL] Value of GL_MAX_MESH_ATOMIC_COUNTERS_NV symbol.
+			/// </summary>
+			[Limit(MAX_MESH_ATOMIC_COUNTERS_NV)]
+			[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+			public int MaxMeshAtomicCountersNV;
+
+			/// <summary>
+			/// [GL] Value of GL_MAX_MESH_SHADER_STORAGE_BLOCKS_NV symbol.
+			/// </summary>
+			[Limit(MAX_MESH_SHADER_STORAGE_BLOCKS_NV)]
+			[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+			public int MaxMeshShaderStorageBlocksNV;
+
+			/// <summary>
+			/// [GL] Value of GL_MAX_COMBINED_MESH_UNIFORM_COMPONENTS_NV symbol.
+			/// </summary>
+			[Limit(MAX_COMBINED_MESH_UNIFORM_COMPONENTS_NV)]
+			[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+			public int MaxCombinedMeshUniformComponentsNV;
+
+			/// <summary>
+			/// [GL] Value of GL_MAX_TASK_UNIFORM_BLOCKS_NV symbol.
+			/// </summary>
+			[Limit(MAX_TASK_UNIFORM_BLOCKS_NV)]
+			[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+			public int MaxTaskUniformBlocksNV;
+
+			/// <summary>
+			/// [GL] Value of GL_MAX_TASK_TEXTURE_IMAGE_UNITS_NV symbol.
+			/// </summary>
+			[Limit(MAX_TASK_TEXTURE_IMAGE_UNITS_NV)]
+			[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+			public int MaxTaskTextureImageUnitsNV;
+
+			/// <summary>
+			/// [GL] Value of GL_MAX_TASK_IMAGE_UNIFORMS_NV symbol.
+			/// </summary>
+			[Limit(MAX_TASK_IMAGE_UNIFORMS_NV)]
+			[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+			public int MaxTaskImageUniformsNV;
+
+			/// <summary>
+			/// [GL] Value of GL_MAX_TASK_UNIFORM_COMPONENTS_NV symbol.
+			/// </summary>
+			[Limit(MAX_TASK_UNIFORM_COMPONENTS_NV)]
+			[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+			public int MaxTaskUniformComponentsNV;
+
+			/// <summary>
+			/// [GL] Value of GL_MAX_TASK_ATOMIC_COUNTER_BUFFERS_NV symbol.
+			/// </summary>
+			[Limit(MAX_TASK_ATOMIC_COUNTER_BUFFERS_NV)]
+			[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+			public int MaxTaskAtomicCounterBuffersNV;
+
+			/// <summary>
+			/// [GL] Value of GL_MAX_TASK_ATOMIC_COUNTERS_NV symbol.
+			/// </summary>
+			[Limit(MAX_TASK_ATOMIC_COUNTERS_NV)]
+			[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+			public int MaxTaskAtomicCountersNV;
+
+			/// <summary>
+			/// [GL] Value of GL_MAX_TASK_SHADER_STORAGE_BLOCKS_NV symbol.
+			/// </summary>
+			[Limit(MAX_TASK_SHADER_STORAGE_BLOCKS_NV)]
+			[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+			public int MaxTaskShaderStorageBlocksNV;
+
+			/// <summary>
+			/// [GL] Value of GL_MAX_COMBINED_TASK_UNIFORM_COMPONENTS_NV symbol.
+			/// </summary>
+			[Limit(MAX_COMBINED_TASK_UNIFORM_COMPONENTS_NV)]
+			[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+			public int MaxCombinedTaskUniformComponentsNV;
+
+			/// <summary>
 			/// [GL] Value of GL_MAX_TRANSFORM_FEEDBACK_BUFFERS symbol.
 			/// </summary>
 			[Limit(MAX_TRANSFORM_FEEDBACK_BUFFERS)]
@@ -1832,6 +1944,13 @@ namespace OpenGL
 			[Limit(MAX_PROGRAM_TEXTURE_GATHER_COMPONENTS_ARB)]
 			[RequiredByFeature("GL_ARB_texture_gather", Api = "gl|glcore")]
 			public int MaxProgramTextureGatherComponentsARB;
+
+			/// <summary>
+			/// [GL] Value of GL_MAX_SHADER_SUBSAMPLED_IMAGE_UNITS_QCOM symbol.
+			/// </summary>
+			[Limit(MAX_SHADER_SUBSAMPLED_IMAGE_UNITS_QCOM)]
+			[RequiredByFeature("GL_QCOM_texture_foveated_subsampled_layout", Api = "gles2")]
+			public int MaxShaderSubsampledImageUnitsQCOM;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_IMAGE_SAMPLES symbol.
@@ -2194,6 +2313,20 @@ namespace OpenGL
 			public int MinLodWarningAMD;
 
 			/// <summary>
+			/// [GL] Value of GL_MAX_COLOR_FRAMEBUFFER_SAMPLES_AMD symbol.
+			/// </summary>
+			[Limit(MAX_COLOR_FRAMEBUFFER_SAMPLES_AMD)]
+			[RequiredByFeature("GL_AMD_framebuffer_multisample_advanced", Api = "gl|glcore|gles2")]
+			public int MaxColorFramebufferSamplesAMD;
+
+			/// <summary>
+			/// [GL] Value of GL_MAX_COLOR_FRAMEBUFFER_STORAGE_SAMPLES_AMD symbol.
+			/// </summary>
+			[Limit(MAX_COLOR_FRAMEBUFFER_STORAGE_SAMPLES_AMD)]
+			[RequiredByFeature("GL_AMD_framebuffer_multisample_advanced", Api = "gl|glcore|gles2")]
+			public int MaxColorFramebufferStorageSamplesAMD;
+
+			/// <summary>
 			/// [GL4|GLES3.2] Gl.Get: data returns one value, the maximum number of uniform blocks per compute shader. The value must be 
 			/// at least 14. See Gl.UniformBlockBinding.
 			/// </summary>
@@ -2475,6 +2608,104 @@ namespace OpenGL
 			[Limit(MAX_SUBPIXEL_PRECISION_BIAS_BITS_NV)]
 			[RequiredByFeature("GL_NV_conservative_raster", Api = "gl|glcore|gles2")]
 			public int MaxSubpixelPrecisionBiasBitsNV;
+
+			/// <summary>
+			/// [GL] Value of GL_MAX_MESH_TOTAL_MEMORY_SIZE_NV symbol.
+			/// </summary>
+			[Limit(MAX_MESH_TOTAL_MEMORY_SIZE_NV)]
+			[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+			public int MaxMeshTotalMemorySizeNV;
+
+			/// <summary>
+			/// [GL] Value of GL_MAX_TASK_TOTAL_MEMORY_SIZE_NV symbol.
+			/// </summary>
+			[Limit(MAX_TASK_TOTAL_MEMORY_SIZE_NV)]
+			[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+			public int MaxTaskTotalMemorySizeNV;
+
+			/// <summary>
+			/// [GL] Value of GL_MAX_MESH_OUTPUT_VERTICES_NV symbol.
+			/// </summary>
+			[Limit(MAX_MESH_OUTPUT_VERTICES_NV)]
+			[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+			public int MaxMeshOutputVerticesNV;
+
+			/// <summary>
+			/// [GL] Value of GL_MAX_MESH_OUTPUT_PRIMITIVES_NV symbol.
+			/// </summary>
+			[Limit(MAX_MESH_OUTPUT_PRIMITIVES_NV)]
+			[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+			public int MaxMeshOutputPrimitivesNV;
+
+			/// <summary>
+			/// [GL] Value of GL_MAX_TASK_OUTPUT_COUNT_NV symbol.
+			/// </summary>
+			[Limit(MAX_TASK_OUTPUT_COUNT_NV)]
+			[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+			public int MaxTaskOutputCountNV;
+
+			/// <summary>
+			/// [GL] Value of GL_MAX_MESH_WORK_GROUP_SIZE_NV symbol.
+			/// </summary>
+			[Limit(MAX_MESH_WORK_GROUP_SIZE_NV)]
+			[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+			public int MaxMeshWorkGroupSizeNV;
+
+			/// <summary>
+			/// [GL] Value of GL_MAX_TASK_WORK_GROUP_SIZE_NV symbol.
+			/// </summary>
+			[Limit(MAX_TASK_WORK_GROUP_SIZE_NV)]
+			[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+			public int MaxTaskWorkGroupSizeNV;
+
+			/// <summary>
+			/// [GL] Value of GL_MAX_DRAW_MESH_TASKS_COUNT_NV symbol.
+			/// </summary>
+			[Limit(MAX_DRAW_MESH_TASKS_COUNT_NV)]
+			[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+			public int MaxDrawMeshTasksCountNV;
+
+			/// <summary>
+			/// [GL] Value of GL_MAX_MESH_VIEWS_NV symbol.
+			/// </summary>
+			[Limit(MAX_MESH_VIEWS_NV)]
+			[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+			public int MaxMeshViewsNV;
+
+			/// <summary>
+			/// [GL] Value of GL_MAX_COARSE_FRAGMENT_SAMPLES_NV symbol.
+			/// </summary>
+			[Limit(MAX_COARSE_FRAGMENT_SAMPLES_NV)]
+			[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore")]
+			public int MaxCoarseFragmentSamplesNV;
+
+			/// <summary>
+			/// [GL] Value of GL_MAX_MESH_WORK_GROUP_INVOCATIONS_NV symbol.
+			/// </summary>
+			[Limit(MAX_MESH_WORK_GROUP_INVOCATIONS_NV)]
+			[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+			public int MaxMeshWorkGroupInvocationsNV;
+
+			/// <summary>
+			/// [GL] Value of GL_MAX_TASK_WORK_GROUP_INVOCATIONS_NV symbol.
+			/// </summary>
+			[Limit(MAX_TASK_WORK_GROUP_INVOCATIONS_NV)]
+			[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+			public int MaxTaskWorkGroupInvocationsNV;
+
+			/// <summary>
+			/// [GL] Value of GL_MAX_DETACHED_TEXTURES_NV symbol.
+			/// </summary>
+			[Limit(MAX_DETACHED_TEXTURES_NV)]
+			[RequiredByFeature("GL_NV_memory_attachment", Api = "gl|glcore|gles2")]
+			public int MaxDetachedTexturesNV;
+
+			/// <summary>
+			/// [GL] Value of GL_MAX_DETACHED_BUFFERS_NV symbol.
+			/// </summary>
+			[Limit(MAX_DETACHED_BUFFERS_NV)]
+			[RequiredByFeature("GL_NV_memory_attachment", Api = "gl|glcore|gles2")]
+			public int MaxDetachedBuffersNV;
 
 			/// <summary>
 			/// [GL] Value of GL_MAX_VIEWS_OVR symbol.

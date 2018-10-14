@@ -40,25 +40,13 @@ using Khronos;
 
 namespace OpenGL
 {
-	public partial class Wgl
+	public partial class Gl
 	{
 		/// <summary>
-		/// [WGL] Value of WGL_COLORSPACE_EXT symbol.
+		/// [GL] Value of GL_REPRESENTATIVE_FRAGMENT_TEST_NV symbol.
 		/// </summary>
-		[RequiredByFeature("WGL_EXT_colorspace")]
-		public const int COLORSPACE_EXT = 0x309D;
-
-		/// <summary>
-		/// [WGL] Value of WGL_COLORSPACE_SRGB_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("WGL_EXT_colorspace")]
-		public const int COLORSPACE_SRGB_EXT = 0x3089;
-
-		/// <summary>
-		/// [WGL] Value of WGL_COLORSPACE_LINEAR_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("WGL_EXT_colorspace")]
-		public const int COLORSPACE_LINEAR_EXT = 0x308A;
+		[RequiredByFeature("GL_NV_representative_fragment_test", Api = "gl|glcore")]
+		public const int REPRESENTATIVE_FRAGMENT_TEST_NV = 0x937F;
 
 	}
 

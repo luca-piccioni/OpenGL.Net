@@ -522,6 +522,11 @@
     <param name="address" />
     <param name="length" />
   </command>
+  <command name="glBufferAttachMemoryNV">
+    <param name="target" flags="enum" />
+    <param name="memory" />
+    <param name="offset" />
+  </command>
   <command name="glBufferData">
     <param name="target" flags="enum" />
     <param name="size" />
@@ -3620,6 +3625,13 @@
     <param name="pname" flags="enum" />
     <param name="params" />
   </command>
+  <command name="glGetMemoryObjectDetachedResourcesuivNV">
+    <param name="memory" />
+    <param name="pname" flags="enum" />
+    <param name="first" />
+    <param name="count" />
+    <param name="params" />
+  </command>
   <command name="glGetMemoryObjectParameterivEXT">
     <param name="memoryObject" />
     <param name="pname" flags="enum" />
@@ -4381,6 +4393,17 @@
     <param name="shader" />
     <param name="pname" flags="enum" />
     <param name="params" />
+  </command>
+  <command name="glGetShadingRateImagePaletteNV">
+    <param name="viewport" />
+    <param name="entry" />
+    <param name="rate" flags="enum" />
+  </command>
+  <command name="glGetShadingRateSampleLocationivNV">
+    <param name="rate" flags="enum" />
+    <param name="samples" />
+    <param name="index" />
+    <param name="location" />
   </command>
   <command name="glGetSharpenTexFuncSGIS">
     <param name="target" flags="enum" />
@@ -6850,6 +6873,14 @@
     <param name="width" />
     <param name="height" />
   </command>
+  <command name="glNamedRenderbufferStorageMultisampleAdvancedAMD">
+    <param name="renderbuffer" />
+    <param name="samples" />
+    <param name="storageSamples" />
+    <param name="internalformat" flags="enum" />
+    <param name="width" />
+    <param name="height" />
+  </command>
   <command name="glNamedRenderbufferStorageMultisampleCoverageEXT">
     <param name="renderbuffer" />
     <param name="coverageSamples" />
@@ -7721,6 +7752,14 @@
     <param name="width" />
     <param name="height" />
   </command>
+  <command name="glRenderbufferStorageMultisampleAdvancedAMD">
+    <param name="target" flags="enum" />
+    <param name="samples" />
+    <param name="storageSamples" />
+    <param name="internalformat" flags="enum" />
+    <param name="width" />
+    <param name="height" />
+  </command>
   <command name="glRenderbufferStorageMultisampleCoverageNV">
     <param name="target" flags="enum" />
     <param name="coverageSamples" />
@@ -7766,6 +7805,10 @@
   </command>
   <command name="glResetHistogramEXT">
     <param name="target" flags="enum" />
+  </command>
+  <command name="glResetMemoryObjectParameterNV">
+    <param name="memory" />
+    <param name="pname" flags="enum" />
   </command>
   <command name="glResetMinmax">
     <param name="target" flags="enum" />
@@ -7938,6 +7981,20 @@
     <param name="arg2" />
     <param name="arg3" />
   </command>
+  <command name="glShadingRateImagePaletteNV">
+    <param name="viewport" />
+    <param name="first" />
+    <param name="count" />
+    <param name="rates" flags="enum" />
+  </command>
+  <command name="glShadingRateSampleOrderNV">
+    <param name="order" flags="enum" />
+  </command>
+  <command name="glShadingRateSampleOrderCustomNV">
+    <param name="rate" flags="enum" />
+    <param name="samples" />
+    <param name="locations" />
+  </command>
   <command name="glSharpenTexFuncSGIS">
     <param name="target" flags="enum" />
     <param name="n" />
@@ -8091,6 +8148,11 @@
   <command name="glTestObjectAPPLE">
     <param name="object" flags="enum" />
     <param name="name" />
+  </command>
+  <command name="glTexAttachMemoryNV">
+    <param name="target" flags="enum" />
+    <param name="memory" />
+    <param name="offset" />
   </command>
   <command name="glTexBuffer">
     <param name="target" flags="enum" />

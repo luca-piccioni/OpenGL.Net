@@ -40,25 +40,20 @@ using Khronos;
 
 namespace OpenGL
 {
-	public partial class Wgl
+	public partial class Gl
 	{
 		/// <summary>
-		/// [WGL] Value of WGL_COLORSPACE_EXT symbol.
+		/// [GL] Value of GL_FOVEATION_SUBSAMPLED_LAYOUT_METHOD_BIT_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("WGL_EXT_colorspace")]
-		public const int COLORSPACE_EXT = 0x309D;
+		[RequiredByFeature("GL_QCOM_texture_foveated_subsampled_layout", Api = "gles2")]
+		[Log(BitmaskName = "GL")]
+		public const uint FOVEATION_SUBSAMPLED_LAYOUT_METHOD_BIT_QCOM = 0x00000004;
 
 		/// <summary>
-		/// [WGL] Value of WGL_COLORSPACE_SRGB_EXT symbol.
+		/// [GL] Value of GL_MAX_SHADER_SUBSAMPLED_IMAGE_UNITS_QCOM symbol.
 		/// </summary>
-		[RequiredByFeature("WGL_EXT_colorspace")]
-		public const int COLORSPACE_SRGB_EXT = 0x3089;
-
-		/// <summary>
-		/// [WGL] Value of WGL_COLORSPACE_LINEAR_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("WGL_EXT_colorspace")]
-		public const int COLORSPACE_LINEAR_EXT = 0x308A;
+		[RequiredByFeature("GL_QCOM_texture_foveated_subsampled_layout", Api = "gles2")]
+		public const int MAX_SHADER_SUBSAMPLED_IMAGE_UNITS_QCOM = 0x8FA1;
 
 	}
 

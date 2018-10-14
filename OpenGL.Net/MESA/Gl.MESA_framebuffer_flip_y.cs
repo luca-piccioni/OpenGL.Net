@@ -40,25 +40,13 @@ using Khronos;
 
 namespace OpenGL
 {
-	public partial class Wgl
+	public partial class Gl
 	{
 		/// <summary>
-		/// [WGL] Value of WGL_COLORSPACE_EXT symbol.
+		/// [GL] Value of GL_FRAMEBUFFER_FLIP_Y_MESA symbol.
 		/// </summary>
-		[RequiredByFeature("WGL_EXT_colorspace")]
-		public const int COLORSPACE_EXT = 0x309D;
-
-		/// <summary>
-		/// [WGL] Value of WGL_COLORSPACE_SRGB_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("WGL_EXT_colorspace")]
-		public const int COLORSPACE_SRGB_EXT = 0x3089;
-
-		/// <summary>
-		/// [WGL] Value of WGL_COLORSPACE_LINEAR_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("WGL_EXT_colorspace")]
-		public const int COLORSPACE_LINEAR_EXT = 0x308A;
+		[RequiredByFeature("GL_MESA_framebuffer_flip_y", Api = "gles2")]
+		public const int FRAMEBUFFER_FLIP_Y_MESA = 0x8BBB;
 
 	}
 

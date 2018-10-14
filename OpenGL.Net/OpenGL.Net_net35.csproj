@@ -125,6 +125,7 @@
     <Compile Include="AMD\Gl.AMD_compressed_ATC_texture.cs" />
     <Compile Include="AMD\Gl.AMD_debug_output.cs" />
     <Compile Include="AMD\Gl.AMD_depth_clamp_separate.cs" />
+    <Compile Include="AMD\Gl.AMD_framebuffer_multisample_advanced.cs" />
     <Compile Include="AMD\Gl.AMD_framebuffer_sample_positions.cs" />
     <Compile Include="AMD\Gl.AMD_gpu_shader_half_float.cs" />
     <Compile Include="AMD\Gl.AMD_interleaved_elements.cs" />
@@ -244,6 +245,7 @@
     <Compile Include="ATI\Gl.ATI_vertex_array_object.cs" />
     <Compile Include="ATI\Gl.ATI_vertex_attrib_array_object.cs" />
     <Compile Include="ATI\Gl.ATI_vertex_streams.cs" />
+    <Compile Include="ATI\Wgl.ATI_render_texture_rectangle.cs" />
     <Compile Include="DMP\Gl.DMP_program_binary.cs" />
     <Compile Include="DMP\Gl.DMP_shader_binary.cs" />
     <Compile Include="EglEventArgs.cs" />
@@ -499,6 +501,7 @@
     <Compile Include="MESAX\Gl.MESAX_texture_stack.cs" />
     <Compile Include="MESA\Egl.MESA_drm_image.cs" />
     <Compile Include="MESA\Egl.MESA_platform_surfaceless.cs" />
+    <Compile Include="MESA\Gl.MESA_framebuffer_flip_y.cs" />
     <Compile Include="MESA\Gl.MESA_pack_invert.cs" />
     <Compile Include="MESA\Gl.MESA_program_binary_formats.cs" />
     <Compile Include="MESA\Gl.MESA_resize_buffers.cs" />
@@ -580,6 +583,8 @@
     <Compile Include="NV\Gl.NV_half_float.cs" />
     <Compile Include="NV\Gl.NV_internalformat_sample_query.cs" />
     <Compile Include="NV\Gl.NV_light_max_exponent.cs" />
+    <Compile Include="NV\Gl.NV_memory_attachment.cs" />
+    <Compile Include="NV\Gl.NV_mesh_shader.cs" />
     <Compile Include="NV\Gl.NV_multisample_filter_hint.cs" />
     <Compile Include="NV\Gl.NV_occlusion_query.cs" />
     <Compile Include="NV\Gl.NV_parameter_buffer_object.cs" />
@@ -594,10 +599,13 @@
     <Compile Include="NV\Gl.NV_read_buffer.cs" />
     <Compile Include="NV\Gl.NV_register_combiners.cs" />
     <Compile Include="NV\Gl.NV_register_combiners2.cs" />
+    <Compile Include="NV\Gl.NV_representative_fragment_test.cs" />
     <Compile Include="NV\Gl.NV_sample_locations.cs" />
+    <Compile Include="NV\Gl.NV_scissor_exclusive.cs" />
     <Compile Include="NV\Gl.NV_shader_buffer_load.cs" />
     <Compile Include="NV\Gl.NV_shader_buffer_store.cs" />
     <Compile Include="NV\Gl.NV_shader_thread_group.cs" />
+    <Compile Include="NV\Gl.NV_shading_rate_image.cs" />
     <Compile Include="NV\Gl.NV_sRGB_formats.cs" />
     <Compile Include="NV\Gl.NV_tessellation_program5.cs" />
     <Compile Include="NV\Gl.NV_texgen_emboss.cs" />
@@ -660,7 +668,6 @@
     <Compile Include="OES\Gl.OES_texture_3D.cs" />
     <Compile Include="OES\Gl.OES_texture_compression_astc.cs" />
     <Compile Include="OES\Gl.OES_texture_cube_map.cs" />
-    <Compile Include="OES\Gl.OES_texture_half_float.cs" />
     <Compile Include="OES\Gl.OES_vertex_type_10_10_10_2.cs" />
     <Compile Include="OML\Gl.OML_interlace.cs" />
     <Compile Include="OML\Gl.OML_resample.cs" />
@@ -682,6 +689,7 @@
     <Compile Include="QCOM\Gl.QCOM_framebuffer_foveated.cs" />
     <Compile Include="QCOM\Gl.QCOM_perfmon_global_mode.cs" />
     <Compile Include="QCOM\Gl.QCOM_shader_framebuffer_fetch_noncoherent.cs" />
+    <Compile Include="QCOM\Gl.QCOM_texture_foveated_subsampled_layout.cs" />
     <Compile Include="QCOM\Gl.QCOM_tiled_rendering.cs" />
     <Compile Include="QCOM\Gl.QCOM_writeonly_rendering.cs" />
     <Compile Include="REND\Gl.REND_screen_coordinates.cs" />

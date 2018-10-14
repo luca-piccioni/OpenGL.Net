@@ -43,22 +43,10 @@ namespace OpenGL
 	public partial class Wgl
 	{
 		/// <summary>
-		/// [WGL] Value of WGL_COLORSPACE_EXT symbol.
+		/// [WGL] Value of WGL_TEXTURE_RECTANGLE_ATI symbol.
 		/// </summary>
-		[RequiredByFeature("WGL_EXT_colorspace")]
-		public const int COLORSPACE_EXT = 0x309D;
-
-		/// <summary>
-		/// [WGL] Value of WGL_COLORSPACE_SRGB_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("WGL_EXT_colorspace")]
-		public const int COLORSPACE_SRGB_EXT = 0x3089;
-
-		/// <summary>
-		/// [WGL] Value of WGL_COLORSPACE_LINEAR_EXT symbol.
-		/// </summary>
-		[RequiredByFeature("WGL_EXT_colorspace")]
-		public const int COLORSPACE_LINEAR_EXT = 0x308A;
+		[RequiredByFeature("WGL_ATI_render_texture_rectangle")]
+		public const int TEXTURE_RECTANGLE_ATI = 0x21A5;
 
 	}
 
