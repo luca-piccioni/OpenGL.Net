@@ -30,7 +30,7 @@ namespace OpenGL.Objects.Test
 	class ShadersLibraryTest : TestBase
 	{
 		[Test(Description = "Test CreateProgram(string)")]
-		[TestCaseSource("ProgramIds")]
+		[TestCaseSource(nameof(ProgramIds))]
 		public void TestCreateProgram(string programId)
 		{
 			ShadersLibrary.Program shaderProgramInfo = ShadersLibrary.Instance.GetProgram(programId);
@@ -64,12 +64,11 @@ namespace OpenGL.Objects.Test
 				//	Assert.IsTrue(shaderProgram.IsActiveUniform(uniform.Name));
 				//}
 			} finally {
-				if (shaderProgram != null)
-					shaderProgram.Dispose();
+				shaderProgram?.Dispose();
 			}
 		}
 
-		public string[] ProgramIds
+		public static string[] ProgramIds
 		{
 			get
 			{
@@ -114,7 +113,7 @@ namespace OpenGL.Objects.Test
 		}
 
 		[Test(Description = "Test ShaderLibrary objects compilation")]
-		[TestCaseSource("ObjectIds")]
+		[TestCaseSource(nameof(ObjectIds))]
 		public void TestCreateObject(ObjectContext ctx)
 		{
 			ShadersLibrary.Object shaderObjectInfo = ShadersLibrary.Instance.GetObject(ctx.ObjectId);
@@ -125,12 +124,11 @@ namespace OpenGL.Objects.Test
 				Assert.IsNotNull(shaderObject);
 				Assert.DoesNotThrow(delegate { shaderObject.Create(_Context); });
 			} finally {
-				if (shaderObject != null)
-					shaderObject.Dispose();
+				shaderObject?.Dispose();
 			}
 		}
 
-		public ObjectContext[] ObjectIds
+		public static ObjectContext[] ObjectIds
 		{
 			get
 			{

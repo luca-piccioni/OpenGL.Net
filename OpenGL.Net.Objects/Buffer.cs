@@ -123,9 +123,9 @@ namespace OpenGL.Objects
 			get
 			{
 				if (_CpuBuffer != null && !_CpuBuffer.IsDisposed)
-					return (_CpuBuffer.AlignedBuffer);
+					return _CpuBuffer.AlignedBuffer;
 
-				return (_CpuBufferAddress);
+				return _CpuBufferAddress;
 			}
 			set { _CpuBufferAddress = value; }
 		}
@@ -146,7 +146,7 @@ namespace OpenGL.Objects
 		/// </summary>
 		public uint CpuBufferSize
 		{
-			get { return (_CpuBuffer != null ? _CpuBuffer.Size : 0); }
+			get { return _CpuBuffer?.Size ?? 0; }
 			protected set { _CpuBufferSize = value; }
 		}
 
@@ -192,19 +192,19 @@ namespace OpenGL.Objects
 		/// </summary>
 		protected internal IntPtr GpuBufferAddress
 		{
-			get { return (_GpuBuffer != null ? _GpuBuffer.AlignedBuffer : IntPtr.Zero); }
+			get { return GpuBuffer?.AlignedBuffer ?? IntPtr.Zero; }
 		}
 
 		/// <summary>
 		/// A <see cref="AlignedMemoryBuffer"/> instance for simulating the GPU buffer in the case GL_ARB_vertex_array_object
 		/// is not supported.
 		/// </summary>
-		protected AlignedMemoryBuffer _GpuBuffer;
+		protected AlignedMemoryBuffer GpuBuffer;
 
 		/// <summary>
 		/// Size of the storage allocated for this buffer object, in bytes.
 		/// </summary>
-		protected internal uint GpuBufferSize { get { return (_GpuBufferSize); } }
+		protected internal uint GpuBufferSize { get { return _GpuBufferSize; } }
 
 		/// <summary>
 		/// Size of the storage allocated for this buffer object, in bytes.
@@ -285,13 +285,13 @@ namespace OpenGL.Objects
 		{
 			CheckThisExistence(ctx);
 
-			Debug.Assert(ctx.Extensions.VertexBufferObject_ARB || ctx.Version.IsCompatible(Gl.Version_200_ES) || _GpuBuffer != null);
+			Debug.Assert(ctx.Extensions.VertexBufferObject_ARB || ctx.Version.IsCompatible(Gl.Version_200_ES) || GpuBuffer != null);
 			if (ctx.Extensions.VertexBufferObject_ARB || ctx.Version.IsCompatible(Gl.Version_200_ES)) {
 				BindCore(ctx);
 
 				_MappedBuffer = Gl.MapBuffer(Target, mask);
 			} else
-				_MappedBuffer = _GpuBuffer.AlignedBuffer;
+				_MappedBuffer = GpuBuffer.AlignedBuffer;
 		}
 
 		/// <summary>
@@ -343,12 +343,12 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Check whether this Buffer data is mapped.
 		/// </summary>
-		public bool IsMapped { get { return (_MappedBuffer != IntPtr.Zero); } }
+		public bool IsMapped { get { return _MappedBuffer != IntPtr.Zero; } }
 
 		/// <summary>
 		/// Get the mapped buffer address.
 		/// </summary>
-		public IntPtr MappedBuffer { get { return (_MappedBuffer); } }
+		public IntPtr MappedBuffer { get { return _MappedBuffer; } }
 
 		/// <summary>
 		/// Mapped buffer.
@@ -371,7 +371,7 @@ namespace OpenGL.Objects
 		/// <exception cref="InvalidOperationException">
 		/// Exception thrown if this Buffer is not mapped (<see cref="IsMapped"/>).
 		/// </exception>
-		public void Set<T>(T value, UInt64 offset) where T : struct
+		public void Set<T>(T value, ulong offset) where T : struct
 		{
 			if (IsMapped == false)
 				throw new InvalidOperationException("not mapped");
@@ -379,7 +379,7 @@ namespace OpenGL.Objects
 #if HAVE_UNSAFE
 			unsafe
 			{
-				Unsafe.Write<T>((byte*)MappedBuffer.ToPointer() + offset, value);
+				Unsafe.Write((byte*)MappedBuffer.ToPointer() + offset, value);
 			}
 #else
 			throw new NotImplementedException();
@@ -396,13 +396,13 @@ namespace OpenGL.Objects
 		/// A <typeparamref name="T:T[]"/> that specify the mapped Buffer element.
 		/// </param>
 		/// <param name="offset">
-		/// A <see cref="UInt64"/> that specify the offset applied to the mapped Buffer where <paramref name="value"/>
+		/// A <see cref="ulong"/> that specify the offset applied to the mapped Buffer where <paramref name="array"/>
 		/// is stored. This value is expressed in basic machine units (bytes).
 		/// </param>
 		/// <exception cref="InvalidOperationException">
 		/// Exception thrown if this Buffer is not mapped (<see cref="IsMapped"/>).
 		/// </exception>
-		public void Set<T>(T[] array, UInt64 offset) where T : struct
+		public void Set<T>(T[] array, ulong offset) where T : struct
 		{
 			if (IsMapped == false)
 				throw new InvalidOperationException("not mapped");
@@ -437,7 +437,7 @@ namespace OpenGL.Objects
 		/// <exception cref="InvalidOperationException">
 		/// Exception thrown if this Buffer is not mapped (<see cref="IsMapped"/>).
 		/// </exception>
-		public T Get<T>(UInt64 offset) where T : struct
+		public T Get<T>(ulong offset) where T : struct
 		{
 			if (IsMapped == false)
 				throw new InvalidOperationException("not mapped");
@@ -445,7 +445,7 @@ namespace OpenGL.Objects
 #if HAVE_UNSAFE
 			unsafe
 			{
-				return (Unsafe.Read<T>((byte*)MappedBuffer.ToPointer() + offset));
+				return Unsafe.Read<T>((byte*)MappedBuffer.ToPointer() + offset);
 			}
 #else
 			throw new NotImplementedException();
@@ -461,7 +461,7 @@ namespace OpenGL.Objects
 		/// </summary>
 		public bool Immutable
 		{
-			get { return (_Immutable); }
+			get { return _Immutable; }
 			set
 			{
 				if (ObjectName != InvalidObjectName)
@@ -473,7 +473,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Flag indicating whether this Buffer is immutable (GL_ARB_buffer_storage).
 		/// </summary>
-		private bool _Immutable = true;
+		private bool _Immutable = false;
 
 		/// <summary>
 		/// Get the <see cref="MapBufferUsageMask"/> corresponding to a <see cref="BufferUsage"/>.
@@ -486,21 +486,21 @@ namespace OpenGL.Objects
 				case BufferUsage.StaticDraw:
 				case BufferUsage.StaticCopy:
 				case BufferUsage.DynamicCopy:
-					return (MapBufferUsageMask.None);
+					return MapBufferUsageMask.None;
 				case BufferUsage.DynamicDraw:
-					return (MapBufferUsageMask.MapWriteBit);
+					return MapBufferUsageMask.MapWriteBit;
 				case BufferUsage.StaticRead:
 				case BufferUsage.DynamicRead:
-					return (MapBufferUsageMask.MapReadBit);
+					return MapBufferUsageMask.MapReadBit;
 				default:
-					return (MapBufferUsageMask.None);
+					return MapBufferUsageMask.None;
 			}
 		}
 
 		/// <summary>
-		/// Get the <see cref="BufferHint"/> corresponding to a <see cref="MapBufferUsageMask"/>.
+		/// Get the <see cref="BufferUsage"/> corresponding to a <see cref="MapBufferUsageMask"/>.
 		/// </summary>
-		/// <param name="hint"></param>
+		/// <param name="usageMask"></param>
 		/// <returns></returns>
 		private static BufferUsage UsageMaskToHint(MapBufferUsageMask usageMask)
 		{
@@ -513,13 +513,13 @@ namespace OpenGL.Objects
 			if ((usageMask & MapBufferUsageMask.MapReadBit) != 0)
 				hint = BufferUsage.DynamicRead;
 
-			return (hint);
+			return hint;
 		}
 
 		/// <summary>
 		/// Map storage flags, valid when GL_ARB_buffer_storage is implemented.
 		/// </summary>
-		private readonly MapBufferUsageMask _UsageMask = MapBufferUsageMask.None;
+		private readonly MapBufferUsageMask _UsageMask;
 
 		#endregion
 
@@ -533,7 +533,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Buffer object class.
 		/// </summary>
-		public override Guid ObjectClass { get { return (ThisObjectClass); } }
+		public override Guid ObjectClass { get { return ThisObjectClass; } }
 
 		/// <summary>
 		/// Determine whether this Buffer really exists for a specific context.
@@ -561,9 +561,9 @@ namespace OpenGL.Objects
 		{
 			// Object name space test (and 'ctx' sanity checks)
 			if (base.Exists(ctx) == false)
-				return (false);
+				return false;
 
-			return (ctx.Extensions.VertexBufferObject_ARB || ctx.Version.IsCompatible(Gl.Version_200_ES) ? Gl.IsBuffer(ObjectName) : _GpuBuffer != null);
+			return ctx.Extensions.VertexBufferObject_ARB || ctx.Version.IsCompatible(Gl.Version_200_ES) ? Gl.IsBuffer(ObjectName) : GpuBuffer != null;
 		}
 
 		/// <summary>
@@ -587,7 +587,7 @@ namespace OpenGL.Objects
 
 			Debug.Assert(ctx.Extensions.VertexBufferObject_ARB || ctx.Version.IsCompatible(Gl.Version_200_ES));
 
-			return (Gl.GenBuffer());
+			return Gl.GenBuffer();
 		}
 
 		/// <summary>
@@ -633,17 +633,13 @@ namespace OpenGL.Objects
 		/// Exception thrown if <paramref name="ctx"/> is not current on the calling thread.
 		/// </exception>
 		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if this Buffer has not CPU memory allocated and the hint is different from
-		/// <see cref="BufferHint.StaticCpuDraw"/> or <see cref="BufferHint.DynamicCpuDraw"/>.
-		/// </exception>
-		/// <exception cref="InvalidOperationException">
 		/// Exception thrown if this Buffer is currently mapped.
 		/// </exception>
 		protected override void CreateObject(GraphicsContext ctx)
 		{
 			CheckCurrentContext(ctx);
 
-			if ((CpuBufferAddress == IntPtr.Zero) && ((Hint != BufferUsage.StaticDraw) && (Hint != BufferUsage.DynamicDraw)))
+			if (CpuBufferAddress == IntPtr.Zero && Hint != BufferUsage.StaticDraw && Hint != BufferUsage.DynamicDraw)
 				throw new InvalidOperationException("no CPU buffer");
 
 			// Determine the CPU buffer size
@@ -678,20 +674,19 @@ namespace OpenGL.Objects
 		protected void CreateObject_Compatible(GraphicsContext ctx, uint size)
 		{
 			// Discard previous GPU buffer, if any
-			if (_GpuBuffer != null)
-				_GpuBuffer.Dispose();
+			GpuBuffer?.Dispose();
 
 			if (CpuBufferAddress != IntPtr.Zero) {
 				// Swap CPU/GPU buffers
-				_GpuBuffer = _CpuBuffer;
+				GpuBuffer = _CpuBuffer;
 				_CpuBuffer = null;
 			} else {
 				// Allocate simulated GPU buffer
-				_GpuBuffer = new AlignedMemoryBuffer(size, DefaultBufferAlignment);
+				GpuBuffer = new AlignedMemoryBuffer(size, DefaultBufferAlignment);
 			}
 
 			// Store GPU buffer size
-			_GpuBufferSize = _GpuBuffer.Size;
+			_GpuBufferSize = GpuBuffer.Size;
 		}
 
 		/// <summary>
@@ -723,11 +718,11 @@ namespace OpenGL.Objects
 			// Base implementation
 			base.Dispose(disposing);
 			
-			if (disposing == true) {
+			if (disposing) {
 				// Simulated GPU buffer is disposed at disposition
-				if (_GpuBuffer != null) {
-					_GpuBuffer.Dispose();
-					_GpuBuffer = null;
+				if (GpuBuffer != null) {
+					GpuBuffer.Dispose();
+					GpuBuffer = null;
 					// Reset GPU buffer size
 					_GpuBufferSize = 0;
 				}
@@ -751,23 +746,23 @@ namespace OpenGL.Objects
 		{
 			// Cannot lazy binding on buffer objects if GL_ARB_vertex_array_object is not supported
 			if (!ctx.Extensions.VertexArrayObject_ARB && !ctx.Version.IsCompatible(Gl.Version_200_ES))
-				return (0);
+				return 0;
 				
 			// All-in-one implementation for all targets
 			switch (Target) {
 				case BufferTarget.ArrayBuffer:
-					return (Gl.ARRAY_BUFFER_BINDING);
+					return Gl.ARRAY_BUFFER_BINDING;
 				case BufferTarget.ElementArrayBuffer:
-					return (Gl.ELEMENT_ARRAY_BUFFER_BINDING);
+					return Gl.ELEMENT_ARRAY_BUFFER_BINDING;
 				case BufferTarget.TransformFeedbackBuffer:
-					return (Gl.TRANSFORM_FEEDBACK_BINDING);
+					return Gl.TRANSFORM_FEEDBACK_BINDING;
 				case BufferTarget.UniformBuffer:
-					return (Gl.UNIFORM_BUFFER);
+					return Gl.UNIFORM_BUFFER;
 				case BufferTarget.ShaderStorageBuffer:
-					return (Gl.SHADER_STORAGE_BUFFER_BINDING);
+					return Gl.SHADER_STORAGE_BUFFER_BINDING;
 
 				default:
-					throw new NotSupportedException(String.Format("buffer target {0} not supported", Target));
+					throw new NotSupportedException($"buffer target {Target} not supported");
 			}
 		}
 
@@ -836,7 +831,7 @@ namespace OpenGL.Objects
 			Debug.Assert(bindingTarget != 0);
 			Gl.Get(bindingTarget, out currentBufferObject);
 
-			return (currentBufferObject == (int)ObjectName);
+			return currentBufferObject == (int)ObjectName;
 		}
 
 		#endregion

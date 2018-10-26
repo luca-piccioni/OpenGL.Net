@@ -76,7 +76,7 @@ namespace OpenGL.Objects.Test
 		private void TestConstructProperties(GraphicsContext graphicsContext)
 		{
 			if (graphicsContext == null)
-				throw new ArgumentNullException("graphicsContext");
+				throw new ArgumentNullException(nameof(graphicsContext));
 
 			Assert.IsTrue(graphicsContext.IsCurrent, "not current");
 			Assert.IsNotNull(graphicsContext.Version, "Version is null");
@@ -89,7 +89,7 @@ namespace OpenGL.Objects.Test
 		private void TestDisposedProperties(GraphicsContext graphicsContext)
 		{
 			if (graphicsContext == null)
-				throw new ArgumentNullException("graphicsContext");
+				throw new ArgumentNullException(nameof(graphicsContext));
 
 			Assert.AreEqual(IntPtr.Zero, graphicsContext.Handle, "GL context handle is not zero");
 			Assert.AreEqual(Guid.Empty, graphicsContext.ObjectNameSpace, "object namespace still defined");

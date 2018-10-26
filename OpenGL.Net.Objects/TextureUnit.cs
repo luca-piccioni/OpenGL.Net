@@ -30,7 +30,7 @@ namespace OpenGL.Objects
 	/// <summary>
 	/// Texture unit abstraction.
 	/// </summary>
-	class TextureUnit
+	internal class TextureUnit
 	{
 		#region Constructors
 
@@ -43,9 +43,14 @@ namespace OpenGL.Objects
 			Index = index;
 		}
 
+		/// <summary>
+		/// The index of the TextureUnit.
+		/// </summary>
+		public readonly uint Index;
+
 		#endregion
 
-		#region Unit Index
+		#region Active Unit
 
 		/// <summary>
 		/// Set this TextureUnit as the current one.
@@ -55,11 +60,6 @@ namespace OpenGL.Objects
 		{
 			ctx.ActiveTexture(Index);
 		}
-
-		/// <summary>
-		/// The index of the TextureUnit.
-		/// </summary>
-		public readonly uint Index;
 
 		#endregion
 

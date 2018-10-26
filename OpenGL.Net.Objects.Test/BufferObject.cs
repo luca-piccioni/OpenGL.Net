@@ -143,28 +143,26 @@ namespace OpenGL.Objects.Test
 
 		public void Map_Core()
 		{
-			Buffer bufferRef = null;
+			Buffer bufferRef;
 
 			using (Buffer buffer = CreateInstance()) {
 				ConstructionDefaulValues(buffer);
 
 				// Initially not existing
 				Assert.IsFalse(buffer.Exists(_Context));
-				// Now it is possible to map
-				Assert.Throws(Is.InstanceOf<Exception>(), delegate () { buffer.Map(); });
+				// It cannot be mapped
+				Assert.Throws(Is.InstanceOf<Exception>(), delegate { buffer.Map(); });
 
 				// Create a client instance
 				CreateClientInstance(buffer);
 				// Still not existing
 				Assert.IsFalse(buffer.Exists(_Context));
-
 				// Now it is possible to map
-				Assert.DoesNotThrow(delegate () { buffer.Map(); });
-				// We are notmapped
+				Assert.DoesNotThrow(delegate { buffer.Map(); });
 				Assert.IsTrue(buffer.IsMapped);
 
 				// Unmap
-				Assert.DoesNotThrow(delegate () { buffer.Unmap(_Context); });
+				Assert.DoesNotThrow(delegate { buffer.Unmap(); });
 				// We are not mapped
 				Assert.IsFalse(buffer.IsMapped);
 
@@ -172,8 +170,7 @@ namespace OpenGL.Objects.Test
 				bufferRef = buffer;
 			}
 
-			if (bufferRef != null)
-				DispositionDefaulValues(bufferRef);
+			DispositionDefaulValues(bufferRef);
 		}
 
 		/// <summary>
@@ -215,8 +212,8 @@ namespace OpenGL.Objects.Test
 
 				// Initially not existing
 				Assert.IsFalse(buffer.Exists(_Context));
-				// Now it is possible to map
-				Assert.Throws(Is.InstanceOf<Exception>(), delegate () { buffer.Map(_Context, BufferAccess.ReadWrite); });
+				// It cannot be mapped
+				Assert.Throws(Is.InstanceOf<Exception>(), delegate { buffer.Map(_Context, BufferAccess.ReadWrite); });
 
 				// Create a client instance
 				CreateClientInstance(buffer);
@@ -224,12 +221,12 @@ namespace OpenGL.Objects.Test
 				Assert.IsFalse(buffer.Exists(_Context), "BufferObject not existing (client)");
 
 				// Now it is possible to map
-				Assert.Throws<InvalidOperationException>(delegate () { buffer.Map(_Context, BufferAccess.ReadWrite); });
+				Assert.Throws<InvalidOperationException>(delegate { buffer.Map(_Context, BufferAccess.ReadWrite); });
 				// We are notmapped
 				Assert.IsFalse(buffer.IsMapped);
 
 				// Unmap
-				Assert.Throws<InvalidOperationException>(delegate () { buffer.Unmap(_Context); });
+				Assert.Throws<InvalidOperationException>(delegate { buffer.Unmap(_Context); });
 				// We are not mapped
 				Assert.IsFalse(buffer.IsMapped);
 
@@ -239,12 +236,12 @@ namespace OpenGL.Objects.Test
 				Assert.IsTrue(buffer.Exists(_Context));
 
 				// Now it is possible to map
-				Assert.DoesNotThrow(delegate () { buffer.Map(_Context, BufferAccess.ReadWrite); });
+				Assert.DoesNotThrow(delegate { buffer.Map(_Context, BufferAccess.ReadWrite); });
 				// We are mapped
 				Assert.IsTrue(buffer.IsMapped);
 
 				// Unmap
-				Assert.DoesNotThrow(delegate () { buffer.Unmap(_Context); });
+				Assert.DoesNotThrow(delegate { buffer.Unmap(_Context); });
 				// We are not mapped
 				Assert.IsFalse(buffer.IsMapped);
 
@@ -252,8 +249,7 @@ namespace OpenGL.Objects.Test
 				bufferRef = buffer;
 			}
 
-			if (bufferRef != null)
-				DispositionDefaulValues(bufferRef);
+			DispositionDefaulValues(bufferRef);
 		}
 
 		/// <summary>
