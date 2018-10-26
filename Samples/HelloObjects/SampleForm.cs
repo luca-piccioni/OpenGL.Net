@@ -531,14 +531,15 @@ namespace HelloObjects
 			_Context = new GraphicsContext(e.DeviceContext, e.RenderContext);
 
 			// Scene
-			_CubeScene = new SceneGraph(SceneGraphFlags.None);
+			_CubeScene = new SceneGraph(SceneGraphFlags.None) {
+				SceneRoot = new SceneObjectGeometry(),
+				CurrentView = new SceneObjectCamera()
+			};
 
 			// Root object
-			_CubeScene.SceneRoot = new SceneObjectGeometry();
 			// _CubeScene.SceneRoot.ObjectState.DefineState(new DepthTestState(DepthFunction.Less));
-			
+
 			// Camera object
-			_CubeScene.CurrentView = new SceneObjectCamera();
 			_CubeScene.SceneRoot.Link(_CubeScene.CurrentView);
 
 			// Horizontal plane

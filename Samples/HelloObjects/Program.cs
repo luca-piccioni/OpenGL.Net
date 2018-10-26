@@ -27,35 +27,41 @@ namespace HelloObjects
 	/// <summary>
 	/// OpenGL.Objects sample application.
 	/// </summary>
-	static class Program
+	internal static class Program
 	{
 		/// <summary>
 		/// The main entry point for the application.
 		/// </summary>
 		[STAThread]
-		static void Main()
+		private static void Main()
 		{
 			string envDebug = Environment.GetEnvironmentVariable("DEBUG");
 
-			if (envDebug == "GL") {
-				Khronos.KhronosApi.Log += delegate(object sender, KhronosLogEventArgs e) {
-					Console.WriteLine(e.ToString());
-				};
-				Khronos.KhronosApi.LogEnabled = true;
+			switch (envDebug) {
+				case "GL":
+					KhronosApi.Log += delegate(object sender, KhronosLogEventArgs e) {
+						Console.WriteLine(e.ToString());
+					};
+					KhronosApi.LogEnabled = true;
+					break;
+				case "OBJECTS":
+					Resource.RegisterApplicationLogDelegate(Console.WriteLine);
+					KhronosApi.LogEnabled = false;
+					break;
 			}
 
-			if (envDebug == "OBJECTS") {
-				Resource.RegisterApplicationLogDelegate(delegate (string format, object[] args) {
-					Console.WriteLine(format, args);
-				});
-				Khronos.KhronosApi.LogEnabled = false;
-			}
+			Application.ThreadException += Application_ThreadException;
 
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 			Application.Run(new SampleForm());
 			
 			Resource.CheckResourceLeaks();
+		}
+
+		private static void Application_ThreadException(object sender, System.Threading.ThreadExceptionEventArgs e)
+		{
+			
 		}
 	}
 }

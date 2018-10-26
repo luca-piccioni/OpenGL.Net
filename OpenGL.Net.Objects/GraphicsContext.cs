@@ -256,20 +256,9 @@ namespace OpenGL.Objects
 				// Make current on this thread
 				MakeCurrent(deviceContext, true);
 
+				QueryInformation();
 				// Initialize resources
 				InitializeResources();
-
-				// Get GL context flags
-				Debug.Assert(Version != null);
-				switch (Version.Api) {
-					case KhronosVersion.ApiGl:
-						QueryDesktopContextInformation();
-						break;
-					case KhronosVersion.ApiGles1:
-					case KhronosVersion.ApiGles2:
-						QueryEmbeddedContextInformation();
-						break;
-				}
 
 				// Debugging utility
 				InitializeDebugProfile();
@@ -373,46 +362,7 @@ namespace OpenGL.Objects
 				// Make current on this thread
 				MakeCurrent(deviceContext, true);
 
-				// Query GL version
-				Version = KhronosVersion.Parse(Gl.GetString(StringName.Version));
-				Resource.Log("Running on OpenGL {0}", Version);
-
-				// Query GL Shading Language version
-				switch (Version.Api) {
-					case KhronosVersion.ApiGl:
-						ShadingVersion = KhronosVersion.Parse(Gl.GetString(StringName.ShadingLanguageVersion), KhronosVersion.ApiGlsl);
-						break;
-					case KhronosVersion.ApiGles2:
-						ShadingVersion = KhronosVersion.Parse(Gl.GetString(StringName.ShadingLanguageVersion), KhronosVersion.ApiEssl);
-						break;
-				}
-
-				// Query extensions
-				Extensions = new Gl.Extensions();
-				Extensions.Query();
-				Extensions.TextureObject_EXT = true;
-#if DISABLE_GL_ARB_draw_instanced
-				Extensions.DrawInstanced_ARB = false;
-#endif
-#if DISABLE_GL_ARB_shading_language_include
-				Extensions.ShadingLanguageInclude_ARB = false;
-#endif
-#if DISABLE_GL_ARB_uniform_buffer_object
-				Extensions.UniformBufferObject_ARB = false;
-#endif
-#if DISABLE_GL_ARB_instanced_arrays
-				Extensions.InstancedArrays = false;
-				Extensions.InstancedArrays_ARB = false;
-#endif
-#if DISABLE_GL_ARB_program_interface_query
-				Extensions.ProgramInterfaceQuery_ARB = false;
-#endif
-#if DISABLE_GL_ARB_separate_shader_objects
-				Extensions.SeparateShaderObjects_ARB = false;
-#endif
-				// Query implementation limits
-				Limits = Gl.Limits.Query(Version, Extensions);
-
+				QueryInformation();
 				// Initialize resources
 				if (sharedContext == null)
 					InitializeResources();
@@ -595,10 +545,69 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
+		/// Query implementation version, extensions and limits.
+		/// </summary>
+		private void QueryInformation()
+		{
+			// Query GL version
+			Version = KhronosVersion.Parse(Gl.GetString(StringName.Version));
+			Resource.Log("Running on OpenGL {0}", Version);
+
+			// Get GL context flags
+			Debug.Assert(Version != null);
+			switch (Version.Api) {
+				case KhronosVersion.ApiGl:
+					QueryDesktopContextInformation();
+					break;
+				case KhronosVersion.ApiGles1:
+				case KhronosVersion.ApiGles2:
+					QueryEmbeddedContextInformation();
+					break;
+			}
+
+			// Query GL Shading Language version
+			switch (Version.Api) {
+				case KhronosVersion.ApiGl:
+					ShadingVersion = KhronosVersion.Parse(Gl.GetString(StringName.ShadingLanguageVersion), KhronosVersion.ApiGlsl);
+					break;
+				case KhronosVersion.ApiGles2:
+					ShadingVersion = KhronosVersion.Parse(Gl.GetString(StringName.ShadingLanguageVersion), KhronosVersion.ApiEssl);
+					break;
+			}
+
+			// Query extensions
+			Extensions = new Gl.Extensions();
+			Extensions.Query();
+			Extensions.TextureObject_EXT = true;
+#if DISABLE_GL_ARB_draw_instanced
+				Extensions.DrawInstanced_ARB = false;
+#endif
+#if DISABLE_GL_ARB_shading_language_include
+				Extensions.ShadingLanguageInclude_ARB = false;
+#endif
+#if DISABLE_GL_ARB_uniform_buffer_object
+				Extensions.UniformBufferObject_ARB = false;
+#endif
+#if DISABLE_GL_ARB_instanced_arrays
+				Extensions.InstancedArrays = false;
+				Extensions.InstancedArrays_ARB = false;
+#endif
+#if DISABLE_GL_ARB_program_interface_query
+				Extensions.ProgramInterfaceQuery_ARB = false;
+#endif
+#if DISABLE_GL_ARB_separate_shader_objects
+			Extensions.SeparateShaderObjects_ARB = false;
+#endif
+			// Query implementation limits
+			Limits = Gl.Limits.Query(Version, Extensions);
+		}
+
+		/// <summary>
 		/// Initialize resources required by this GraphicsContext.
 		/// </summary>
 		private void InitializeResources()
 		{
+			
 			// Reserved object name space
 			InitializeNamespace();
 
@@ -697,12 +706,12 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// The OpenGL version implemented by this GraphicsContext.
 		/// </summary>
-		public KhronosVersion Version { get; }
+		public KhronosVersion Version { get; private set; }
 
 		/// <summary>
 		/// The OpenGL Shading Language version implemented by this GraphicsContext.
 		/// </summary>
-		public KhronosVersion ShadingVersion { get; }
+		public KhronosVersion ShadingVersion { get; private set; }
 
 		/// <summary>
 		/// Flags used to create this GraphicsContext.
@@ -717,12 +726,12 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// OpenGL extensions supported by this GraphicsContext instance.
 		/// </summary>
-		public readonly Gl.Extensions Extensions;
+		public Gl.Extensions Extensions { get; private set; }
 
 		/// <summary>
 		/// OpenGL implementation limits for this GraphicsContext instance.
 		/// </summary>
-		public readonly Gl.Limits Limits;
+		public Gl.Limits Limits { get; private set; }
 
 		#endregion
 
