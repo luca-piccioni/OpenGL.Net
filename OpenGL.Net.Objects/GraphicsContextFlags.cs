@@ -103,9 +103,14 @@ namespace OpenGL.Objects
 		/// - GLX_ARB_create_context_profile and GLX_EXT_create_context_es_profile/GLX_EXT_create_context_es2_profile
 		/// - WGL_ARB_create_context_profile and WGL_EXT_create_context_es_profile/WGL_EXT_create_context_es2_profile
 		/// </remarks>
-		EmbeddedProfile =		0x0400
+		EmbeddedProfile =		0x0400,
 
 		#endregion
+
+		/// <summary>
+		/// Creates an asynchronous thread used for creating resources.
+		/// </summary>
+		AsyncThread,
 	}
 }
 
