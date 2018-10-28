@@ -15,7 +15,7 @@ environment:
       SLN_BUILD_OPTS: /nologo /verbosity:quiet /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
       PUBLISH_NUGET: false
       HAS_NETCORE: false
-    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
+    - APPVEYOR_BUILD_WORKER_IMAGE: Previous Visual Studio 2017
       SLN_PATH: OpenGL.Net_VC15.sln
       SLN_BUILD_OPTS: /nologo /verbosity:quiet /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
       PUBLISH_NUGET: true
@@ -85,6 +85,7 @@ test_script:
   - cmd: msbuild OpenGL.Net.Test\OpenGL.Net.Test_net35.csproj %SLN_BUILD_OPTS% /t:UnitTest /p:NUnitConsole=nunit3-console /p:NUnitResultFormat=;format=AppVeyor /p:Configuration=Release /p:Platform="x64"
   - cmd: msbuild OpenGL.Net.CoreUI.Test\OpenGL.Net.CoreUI.Test_net461.csproj %SLN_BUILD_OPTS% /t:UnitTest /p:NUnitConsole=nunit3-console /p:NUnitResultFormat=;format=AppVeyor /p:Configuration=Release /p:Platform="x86"
   - cmd: msbuild OpenGL.Net.CoreUI.Test\OpenGL.Net.CoreUI.Test_net461.csproj %SLN_BUILD_OPTS% /t:UnitTest /p:NUnitConsole=nunit3-console /p:NUnitResultFormat=;format=AppVeyor /p:Configuration=Release /p:Platform="x64"
+  - cmd: msbuild OpenGL.Net.Objects.Test\OpenGL.Net.Objects.Test_net461.csproj %SLN_BUILD_OPTS% /t:UnitTest /p:NUnitConsole=nunit3-console /p:NUnitResultFormat=;format=AppVeyor /p:Configuration=Release /p:Platform="x64"
   - cmd: echo Unit tests completed
 
 after_test:
@@ -94,6 +95,7 @@ after_test:
   - cmd: msbuild OpenGL.Net.Test\OpenGL.Net.Test_net35.csproj %SLN_BUILD_OPTS% /t:Coverage /p:Configuration=Release /p:Platform="x64"
   - cmd: msbuild OpenGL.Net.CoreUI.Test\OpenGL.Net.CoreUI.Test_net461.csproj %SLN_BUILD_OPTS% /t:Coverage /p:Configuration=Release /p:Platform="x86"
   - cmd: msbuild OpenGL.Net.CoreUI.Test\OpenGL.Net.CoreUI.Test_net461.csproj %SLN_BUILD_OPTS% /t:Coverage /p:Configuration=Release /p:Platform="x64"
+  - cmd: msbuild OpenGL.Net.Objects.Test\OpenGL.Net.Objects.Test_net461.csproj %SLN_BUILD_OPTS% /t:Coverage /p:Configuration=Release /p:Platform="x64
   - cmd: pip install codecov
   - ps: |
       $covFiles = Get-ChildItem -Filter cov*.xml
@@ -119,7 +121,7 @@ after_test:
   - cmd: IF "%PUBLISH_NUGET%"=="true" nuget pack OpenGL.Net.CoreProfile.nuspec -Version %APPVEYOR_BUILD_VERSION%
   - cmd: IF "%PUBLISH_NUGET%"=="true" nuget pack OpenGL.Net.ES2Profile.nuspec -Version %APPVEYOR_BUILD_VERSION%
   - cmd: IF "%PUBLISH_NUGET%"=="true" nuget pack OpenGL.Net.CoreUI.nuspec -Version %APPVEYOR_BUILD_VERSION%
-#  - cmd: IF "%PUBLISH_NUGET%"=="true" nuget pack OpenGL.Net.Objects.nuspec -Version %APPVEYOR_BUILD_VERSION%
+  - cmd: IF "%PUBLISH_NUGET%"=="true" nuget pack OpenGL.Net.Objects.nuspec -Version %APPVEYOR_BUILD_VERSION%
 
 artifacts:
   - path: '*.nupkg'
