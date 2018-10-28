@@ -19,8 +19,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+// ReSharper disable InconsistentNaming
+
 using System;
-using System.Diagnostics;
 
 namespace OpenGL.Objects
 {
@@ -309,32 +310,32 @@ namespace OpenGL.Objects
 				case ArrayBufferItemType.Byte2:
 				case ArrayBufferItemType.Byte3:
 				case ArrayBufferItemType.Byte4:
-					return (VertexBaseType.Byte);
+					return VertexBaseType.Byte;
 				case ArrayBufferItemType.UByte:
 				case ArrayBufferItemType.UByte2:
 				case ArrayBufferItemType.UByte3:
 				case ArrayBufferItemType.UByte4:
-					return (VertexBaseType.UByte);
+					return VertexBaseType.UByte;
 				case ArrayBufferItemType.Short:
 				case ArrayBufferItemType.Short2:
 				case ArrayBufferItemType.Short3:
 				case ArrayBufferItemType.Short4:
-					return (VertexBaseType.Short);
+					return VertexBaseType.Short;
 				case ArrayBufferItemType.UShort:
 				case ArrayBufferItemType.UShort2:
 				case ArrayBufferItemType.UShort3:
 				case ArrayBufferItemType.UShort4:
-					return (VertexBaseType.UShort);
+					return VertexBaseType.UShort;
 				case ArrayBufferItemType.Int:
 				case ArrayBufferItemType.Int2:
 				case ArrayBufferItemType.Int3:
 				case ArrayBufferItemType.Int4:
-					return (VertexBaseType.Int);
+					return VertexBaseType.Int;
 				case ArrayBufferItemType.UInt:
 				case ArrayBufferItemType.UInt2:
 				case ArrayBufferItemType.UInt3:
 				case ArrayBufferItemType.UInt4:
-					return (VertexBaseType.UInt);
+					return VertexBaseType.UInt;
 				case ArrayBufferItemType.Float:
 				case ArrayBufferItemType.Float2:
 				case ArrayBufferItemType.Float3:
@@ -348,7 +349,7 @@ namespace OpenGL.Objects
 				case ArrayBufferItemType.Float4x2:
 				case ArrayBufferItemType.Float4x3:
 				case ArrayBufferItemType.Float4x4:
-					return (VertexBaseType.Float);
+					return VertexBaseType.Float;
 #if !MONODROID
 				case ArrayBufferItemType.Double:
 				case ArrayBufferItemType.Double2:
@@ -363,13 +364,13 @@ namespace OpenGL.Objects
 				case ArrayBufferItemType.Double4x2:
 				case ArrayBufferItemType.Double4x3:
 				case ArrayBufferItemType.Double4x4:
-					return (VertexBaseType.Double);
+					return VertexBaseType.Double;
 #endif
 				case ArrayBufferItemType.Half:
 				case ArrayBufferItemType.Half2:
 				case ArrayBufferItemType.Half3:
 				case ArrayBufferItemType.Half4:
-					return (VertexBaseType.Half);
+					return VertexBaseType.Half;
 				default:
 					throw new NotSupportedException("unsupported vertex array base type of " + vertexArrayType);
 			}
@@ -380,7 +381,7 @@ namespace OpenGL.Objects
 		/// </summary>
 		public static bool IsFloatBaseType(this ArrayBufferItemType vertexArrayType)
 		{
-			return (vertexArrayType.GetVertexBaseType().IsFloatBaseType());
+			return vertexArrayType.GetVertexBaseType().IsFloatBaseType();
 		}
 
 		/// <summary>
@@ -398,7 +399,7 @@ namespace OpenGL.Objects
 			uint length = vertexArrayType.GetArrayLength();
 			uint rank = vertexArrayType.GetArrayRank();
 
-			return (baseTypeSize * length * rank);
+			return baseTypeSize * length * rank;
 		}
 
 		#endregion
@@ -427,7 +428,7 @@ namespace OpenGL.Objects
 				case ArrayBufferItemType.Float:
 				case ArrayBufferItemType.Double:
 				case ArrayBufferItemType.Half:
-					return (1);
+					return 1;
 				case ArrayBufferItemType.Byte2:
 				case ArrayBufferItemType.UByte2:
 				case ArrayBufferItemType.Short2:
@@ -443,7 +444,7 @@ namespace OpenGL.Objects
 				case ArrayBufferItemType.Double2x2:
 				case ArrayBufferItemType.Double2x3:
 				case ArrayBufferItemType.Double2x4:
-					return (2);
+					return 2;
 				case ArrayBufferItemType.Byte3:
 				case ArrayBufferItemType.UByte3:
 				case ArrayBufferItemType.Short3:
@@ -459,7 +460,7 @@ namespace OpenGL.Objects
 				case ArrayBufferItemType.Double3x2:
 				case ArrayBufferItemType.Double3x3:
 				case ArrayBufferItemType.Double3x4:
-					return (3);
+					return 3;
 				case ArrayBufferItemType.Byte4:
 				case ArrayBufferItemType.UByte4:
 				case ArrayBufferItemType.Short4:
@@ -475,7 +476,7 @@ namespace OpenGL.Objects
 				case ArrayBufferItemType.Double4x2:
 				case ArrayBufferItemType.Double4x3:
 				case ArrayBufferItemType.Double4x4:
-					return (4);
+					return 4;
 				default:
 					throw new NotSupportedException("unsupported vertex array length of " + vertexArrayType);
 			}
@@ -501,21 +502,21 @@ namespace OpenGL.Objects
 				case ArrayBufferItemType.Double2x2:
 				case ArrayBufferItemType.Double3x2:
 				case ArrayBufferItemType.Double4x2:
-					return (2);
+					return 2;
 				case ArrayBufferItemType.Float2x3:
 				case ArrayBufferItemType.Float3x3:
 				case ArrayBufferItemType.Float4x3:
 				case ArrayBufferItemType.Double2x3:
 				case ArrayBufferItemType.Double3x3:
 				case ArrayBufferItemType.Double4x3:
-					return (3);
+					return 3;
 				case ArrayBufferItemType.Float2x4:
 				case ArrayBufferItemType.Float3x4:
 				case ArrayBufferItemType.Float4x4:
 				case ArrayBufferItemType.Double2x4:
 				case ArrayBufferItemType.Double3x4:
 				case ArrayBufferItemType.Double4x4:
-					return (4);
+					return 4;
 				case ArrayBufferItemType.Byte:
 				case ArrayBufferItemType.UByte:
 				case ArrayBufferItemType.Short:
@@ -552,7 +553,7 @@ namespace OpenGL.Objects
 				case ArrayBufferItemType.Float4:
 				case ArrayBufferItemType.Double4:
 				case ArrayBufferItemType.Half4:
-					return (1);
+					return 1;
 				default:
 					throw new NotSupportedException("unsupported vertex array rank of " + vertexArrayType);
 			}
@@ -569,7 +570,7 @@ namespace OpenGL.Objects
 		/// </returns>
 		public static bool IsArraySimpleType(this ArrayBufferItemType vertexArrayType)
 		{
-			return ((vertexArrayType.GetArrayLength() == 1) && (vertexArrayType.GetArrayRank() == 1));
+			return vertexArrayType.GetArrayLength() == 1 && vertexArrayType.GetArrayRank() == 1;
 		}
 
 		/// <summary>
@@ -583,7 +584,7 @@ namespace OpenGL.Objects
 		/// </returns>
 		public static bool IsArrayVectorType(this ArrayBufferItemType vertexArrayType)
 		{
-			return ((vertexArrayType.GetArrayLength() > 1) && (vertexArrayType.GetArrayRank() == 1));
+			return vertexArrayType.GetArrayLength() > 1 && vertexArrayType.GetArrayRank() == 1;
 		}
 
 		/// <summary>
@@ -597,7 +598,7 @@ namespace OpenGL.Objects
 		/// </returns>
 		public static bool IsArrayMatrixType(this ArrayBufferItemType vertexArrayType)
 		{
-			return (GetArrayRank(vertexArrayType) > 1);
+			return GetArrayRank(vertexArrayType) > 1;
 		}
 
 		/// <summary>
@@ -615,27 +616,27 @@ namespace OpenGL.Objects
 				case ArrayBufferItemType.Float2x2:
 				case ArrayBufferItemType.Float2x3:
 				case ArrayBufferItemType.Float2x4:
-					return (ArrayBufferItemType.Float2);
+					return ArrayBufferItemType.Float2;
 				case ArrayBufferItemType.Float3x2:
 				case ArrayBufferItemType.Float3x3:
 				case ArrayBufferItemType.Float3x4:
-					return (ArrayBufferItemType.Float3);
+					return ArrayBufferItemType.Float3;
 				case ArrayBufferItemType.Float4x2:
 				case ArrayBufferItemType.Float4x3:
 				case ArrayBufferItemType.Float4x4:
-					return (ArrayBufferItemType.Float4);
+					return ArrayBufferItemType.Float4;
 				case ArrayBufferItemType.Double2x2:
 				case ArrayBufferItemType.Double2x3:
 				case ArrayBufferItemType.Double2x4:
-					return (ArrayBufferItemType.Double2);
+					return ArrayBufferItemType.Double2;
 				case ArrayBufferItemType.Double3x2:
 				case ArrayBufferItemType.Double3x3:
 				case ArrayBufferItemType.Double3x4:
-					return (ArrayBufferItemType.Double3);
+					return ArrayBufferItemType.Double3;
 				case ArrayBufferItemType.Double4x2:
 				case ArrayBufferItemType.Double4x3:
 				case ArrayBufferItemType.Double4x4:
-					return (ArrayBufferItemType.Double4);
+					return ArrayBufferItemType.Double4;
 				default:
 					throw new NotImplementedException();
 			}
@@ -659,17 +660,17 @@ namespace OpenGL.Objects
 		{
 			switch (vertexArrayType.GetVertexBaseType()) {
 				case VertexBaseType.Short:
-					return (VertexPointerType.Short);
+					return VertexPointerType.Short;
 				case VertexBaseType.Int:
-					return (VertexPointerType.Int);
+					return VertexPointerType.Int;
 				case VertexBaseType.Float:
-					return (VertexPointerType.Float);
+					return VertexPointerType.Float;
 #if !MONODROID
 				case VertexBaseType.Double:
-					return (VertexPointerType.Double);
+					return VertexPointerType.Double;
 #endif
 				default:
-					throw new NotSupportedException(String.Format("vertex pointer of type {0} not supported", vertexArrayType));
+					throw new NotSupportedException($"vertex pointer of type {vertexArrayType} not supported");
 			}
 		}
 
@@ -687,25 +688,25 @@ namespace OpenGL.Objects
 		{
 			switch (vertexArrayType.GetVertexBaseType()) {
 				case VertexBaseType.Byte:
-					return (ColorPointerType.Byte);
+					return ColorPointerType.Byte;
 				case VertexBaseType.UByte:
-					return (ColorPointerType.UnsignedByte);
+					return ColorPointerType.UnsignedByte;
 				case VertexBaseType.Short:
-					return (ColorPointerType.Short);
+					return ColorPointerType.Short;
 				case VertexBaseType.UShort:
-					return (ColorPointerType.UnsignedShort);
+					return ColorPointerType.UnsignedShort;
 				case VertexBaseType.Int:
-					return (ColorPointerType.Int);
+					return ColorPointerType.Int;
 				case VertexBaseType.UInt:
-					return (ColorPointerType.UnsignedInt);
+					return ColorPointerType.UnsignedInt;
 				case VertexBaseType.Float:
-					return (ColorPointerType.Float);
+					return ColorPointerType.Float;
 #if !MONODROID
 				case VertexBaseType.Double:
-					return (ColorPointerType.Double);
+					return ColorPointerType.Double;
 #endif
 				default:
-					throw new NotSupportedException(String.Format("color pointer of type {0} not supported", vertexArrayType));
+					throw new NotSupportedException($"color pointer of type {vertexArrayType} not supported");
 			}
 		}
 
@@ -723,19 +724,19 @@ namespace OpenGL.Objects
 		{
 			switch (vertexArrayType.GetVertexBaseType()) {
 				case VertexBaseType.Byte:
-					return (NormalPointerType.Byte);
+					return NormalPointerType.Byte;
 				case VertexBaseType.Short:
-					return (NormalPointerType.Short);
+					return NormalPointerType.Short;
 				case VertexBaseType.Int:
-					return (NormalPointerType.Int);
+					return NormalPointerType.Int;
 				case VertexBaseType.Float:
-					return (NormalPointerType.Float);
+					return NormalPointerType.Float;
 #if !MONODROID
 				case VertexBaseType.Double:
-					return (NormalPointerType.Double);
+					return NormalPointerType.Double;
 #endif
 				default:
-					throw new NotSupportedException(String.Format("normal pointer of type {0} not supported", vertexArrayType));
+					throw new NotSupportedException($"normal pointer of type {vertexArrayType} not supported");
 			}
 		}
 
@@ -753,17 +754,17 @@ namespace OpenGL.Objects
 		{
 			switch (vertexArrayType.GetVertexBaseType()) {
 				case VertexBaseType.Short:
-					return (TexCoordPointerType.Short);
+					return TexCoordPointerType.Short;
 				case VertexBaseType.Int:
-					return (TexCoordPointerType.Int);
+					return TexCoordPointerType.Int;
 				case VertexBaseType.Float:
-					return (TexCoordPointerType.Float);
+					return TexCoordPointerType.Float;
 #if !MONODROID
 				case VertexBaseType.Double:
-					return (TexCoordPointerType.Double);
+					return TexCoordPointerType.Double;
 #endif
 				default:
-					throw new NotSupportedException(String.Format("vertex pointer of type {0} not supported", vertexArrayType));
+					throw new NotSupportedException($"vertex pointer of type {vertexArrayType} not supported");
 			}
 		}
 

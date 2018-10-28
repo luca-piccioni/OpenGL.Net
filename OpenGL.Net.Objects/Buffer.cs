@@ -30,28 +30,17 @@ namespace OpenGL.Objects
 	/// Buffer object abstraction.
 	/// </summary>
 	/// <remarks>
-	/// <para>
-	/// Any data that is transferred from and to the GPU shall be organized into a Buffer instances.
-	/// </para>
-	/// <para>
-	/// This class actually stores the data in a CPU buffer using a <see cref="AlignedMemoryBuffer"/>, indeed
-	/// an unmanaged chunk of memory (aligned to 16 byte boundaries).
-	/// </para>
-	/// <para>
-	/// Any Buffer instance can be mapped into userspace memory, offering the possibility to modify
-	/// partially the buffer object, minimizing the data transfer between CPU and GPU.
-	/// </para>
-	/// <para>
-	/// Normally a Buffer interface is resolved either the relative OpenGL extension is supported or not. Generally
-	/// this is implemented by defining up to two CPU buffers to emulate the "simulated" GPU buffer allocation behavior.
-	/// </para>
+	/// Implements:
+	/// - Double buffering: CPU (client) and GPU (server) buffers are kepts as separate buffers.
+	/// - Mapping
+	/// - Immutable storage support (GL_ARB_buffer_storage)
 	/// </remarks>
 	public abstract class Buffer : GraphicsResource, IBindingResource
 	{
 		#region Constructors
 
 		/// <summary>
-		/// Construct a Buffer determining its type, data usage and transfer mode.
+		/// Construct a mutable Buffer determining its type, data usage and transfer mode.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="BufferTarget"/> that specify the buffer object type.
@@ -70,7 +59,7 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
-		/// Construct a Buffer determining its type, data usage and transfer mode.
+		/// Construct a immutable Buffer determining its type, data usage and storage mode.
 		/// </summary>
 		/// <param name="type">
 		/// A <see cref="BufferTarget"/> that specify the buffer object type.
@@ -86,6 +75,9 @@ namespace OpenGL.Objects
 			Hint = UsageMaskToHint(usageMask);
 			// Guess appropriate storage flags
 			_UsageMask = usageMask;
+
+			// Let be immutable
+			Immutable = true;
 		}
 		
 		#endregion
@@ -457,23 +449,9 @@ namespace OpenGL.Objects
 		#region Immutable Storage
 
 		/// <summary>
-		/// Get or set whether this Buffer is immutable (GL_ARB_buffer_storage).
+		/// Get whether this Buffer is immutable (GL_ARB_buffer_storage).
 		/// </summary>
-		public bool Immutable
-		{
-			get { return _Immutable; }
-			set
-			{
-				if (ObjectName != InvalidObjectName)
-					throw new InvalidOperationException("object already defined");
-				_Immutable = value;
-			}
-		}
-
-		/// <summary>
-		/// Flag indicating whether this Buffer is immutable (GL_ARB_buffer_storage).
-		/// </summary>
-		private bool _Immutable = false;
+		public readonly bool Immutable;
 
 		/// <summary>
 		/// Get the <see cref="MapBufferUsageMask"/> corresponding to a <see cref="BufferUsage"/>.
@@ -504,6 +482,7 @@ namespace OpenGL.Objects
 		/// <returns></returns>
 		private static BufferUsage UsageMaskToHint(MapBufferUsageMask usageMask)
 		{
+			// By default, uses StaticDraw
 			BufferUsage hint = BufferUsage.StaticDraw;
 
 			// Common usage: map for writing before rendering

@@ -25,28 +25,19 @@ using System.Runtime.InteropServices;
 namespace OpenGL.Objects
 {
 	/// <summary>
-	/// Array buffer object base class.
+	/// Array buffer object base class. This class is a <see cref="Buffer"/> specialized for storing data to be issued to a shader program execution.
 	/// </summary>
 	/// <remarks>
-	/// <para>
-	/// This class is a <see cref="Buffer"/> specialized for storing data to be issued to a shader program execution.
-	/// </para>
+	/// Implements array buffer, indeed a an array of elements. Implements:
+	/// - Buffer description: element size and count
+	/// - Element access (getter and setter)
+	/// - Creation (CPU, empty, CPU array, GPU empty, GPU array)
+	/// - Copy-write (CPU array)
+	/// - Copy-read (CPU array)
 	/// </remarks>
 	public abstract class ArrayBufferBase : Buffer
 	{
 		#region Constructors
-
-		/// <summary>
-		/// Construct an ArrayBufferObjectBase.
-		/// </summary>
-		/// <param name="hint">
-		/// An <see cref="BufferUsage"/> that specifies the data buffer usage hints.
-		/// </param>
-		protected ArrayBufferBase(BufferUsage hint) :
-			base(BufferTarget.ArrayBuffer, hint)
-		{
-			
-		}
 
 		/// <summary>
 		/// Construct an ArrayBufferObjectBase.
@@ -61,18 +52,6 @@ namespace OpenGL.Objects
 			base(bufferTarget, hint)
 		{
 
-		}
-
-		/// <summary>
-		/// Construct an ArrayBufferObjectBase.
-		/// </summary>
-		/// <param name="usageMask">
-		/// A <see cref="MapBufferUsageMask"/> that specifies the data buffer usage mask.
-		/// </param>
-		protected ArrayBufferBase(MapBufferUsageMask usageMask) :
-			base(BufferTarget.ArrayBuffer, usageMask)
-		{
-			
 		}
 
 		/// <summary>
@@ -99,7 +78,7 @@ namespace OpenGL.Objects
 		/// </summary>
 		public uint ItemSize
 		{
-			get { return (_ItemSize); }
+			get { return _ItemSize; }
 			protected set
 			{
 				if (value == 0)
@@ -118,7 +97,7 @@ namespace OpenGL.Objects
 		#region Items Count
 
 		/// <summary>
-		/// Get the GPU items count, if this ArrayBufferBase is created, otherwise it returns the
+		/// Get the GPU items count, if this ArrayBufferBase is created; otherwise it returns the
 		/// CPU items count.
 		/// </summary>
 		public uint ItemsCount
@@ -127,9 +106,9 @@ namespace OpenGL.Objects
 				uint gpuItemsCount = GpuItemsCount;
 
 				if (gpuItemsCount > 0)
-					return (gpuItemsCount);
+					return gpuItemsCount;
 
-				return (CpuItemsCount);
+				return CpuItemsCount;
 			}
 		}
 
@@ -139,7 +118,7 @@ namespace OpenGL.Objects
 		/// </summary>
 		public uint GpuItemsCount
 		{
-			get { return (GpuBufferSize / ItemSize); }
+			get { return GpuBufferSize / ItemSize; }
 		}
 
 		/// <summary>
@@ -148,7 +127,7 @@ namespace OpenGL.Objects
 		/// </summary>
 		public uint CpuItemsCount
 		{
-			get { return (CpuBufferSize / ItemSize); }
+			get { return CpuBufferSize / ItemSize; }
 		}
 
 		#endregion
@@ -165,21 +144,21 @@ namespace OpenGL.Objects
 		/// A <typeparamref name="T"/> that specify the mapped BufferObject element.
 		/// </param>
 		/// <param name="index">
-		/// A <see cref="UInt32"/> that specify the index of the element to set.
+		/// A <see cref="uint"/> that specify the index of the element to set.
 		/// </param>
 		/// <param name="sectionIndex">
-		/// A <see cref="UInt32"/> that specifies the array section index for supporting packed/interleaved arrays.
+		/// A <see cref="uint"/> that specifies the array section index for supporting packed/interleaved arrays.
 		/// </param>
 		/// <exception cref="InvalidOperationException">
 		/// Exception thrown if this BufferObject is not mapped (<see cref="IsMapped"/>).
 		/// </exception>
-		public void SetElement<T>(T value, UInt32 index, uint sectionIndex) where T : struct
+		public void SetElement<T>(T value, uint index, uint sectionIndex) where T : struct
 		{
 			IArraySection arraySection = GetArraySection(sectionIndex);
 			uint stride = arraySection.Stride != IntPtr.Zero ? (uint)arraySection.Stride.ToInt32() : ItemSize;
 			ulong itemOffset = (ulong)arraySection.Offset.ToInt64() + stride * index;
 
-			Set<T>(value, itemOffset);
+			Set(value, itemOffset);
 		}
 
 		/// <summary>
@@ -189,24 +168,24 @@ namespace OpenGL.Objects
 		/// A structure representing this BufferObject element.
 		/// </typeparam>
 		/// <param name="index">
-		/// A <see cref="UInt32"/> that specify the index of the element to get.
+		/// A <see cref="uint"/> that specify the index of the element to get.
 		/// </param>
 		/// <param name="sectionIndex">
-		/// A <see cref="UInt32"/> that specifies the array section index for supporting packed/interleaved arrays.
+		/// A <see cref="uint"/> that specifies the array section index for supporting packed/interleaved arrays.
 		/// </param>
 		/// <returns>
 		/// It returns a structure of type <typeparamref name="T"/>, read from the mapped BufferObject
 		/// </returns>
 		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if this BufferObject is not mapped (<see cref="IsMapped"/>).
+		/// Exception thrown if this BufferObject is not mapped (<see cref="Buffer.IsMapped"/>).
 		/// </exception>
-		public T GetElement<T>(UInt32 index, uint sectionIndex) where T : struct
+		public T GetElement<T>(uint index, uint sectionIndex) where T : struct
 		{
 			IArraySection arraySection = GetArraySection(sectionIndex);
 			uint stride = arraySection.Stride != IntPtr.Zero ? (uint)arraySection.Stride.ToInt32() : ItemSize;
 			ulong itemOffset = (ulong)arraySection.Offset.ToInt64() + stride * index;
 
-			return (Get<T>(itemOffset));
+			return Get<T>(itemOffset);
 		}
 
 		#endregion
@@ -262,7 +241,7 @@ namespace OpenGL.Objects
 		/// Get the specified section information.
 		/// </summary>
 		/// <param name="index">
-		/// The <see cref="UInt32"/> that specify the array section index.
+		/// The <see cref="uint"/> that specify the array section index.
 		/// </param>
 		/// <returns>
 		/// It returns the <see cref="IArraySection"/> defining the array section.
@@ -279,7 +258,7 @@ namespace OpenGL.Objects
 		/// Create this ArrayBufferObject by specifing only the number of items.
 		/// </summary>
 		/// <param name="itemsCount">
-		/// A <see cref="UInt32"/> that specify the number of elements hold by this ArrayBufferObject.
+		/// A <see cref="uint"/> that specify the number of elements hold by this ArrayBufferObject.
 		/// </param>
 		/// <remarks>
 		/// <para>
@@ -292,7 +271,7 @@ namespace OpenGL.Objects
 		public virtual void Create(uint itemsCount)
 		{
 			if (itemsCount == 0)
-				throw new ArgumentException("invalid", "itemsCount");
+				throw new ArgumentException("invalid", nameof(itemsCount));
 
 			// Allocate buffer
 			CreateCpuBuffer(itemsCount * ItemSize);
@@ -309,7 +288,7 @@ namespace OpenGL.Objects
 		/// A <see cref="GraphicsContext"/> used to define this ArrayBufferObject.
 		/// </param>
 		/// <param name="itemsCount">
-		/// A <see cref="UInt32"/> that specify the number of elements hold by this ArrayBufferObject.
+		/// A <see cref="uint"/> that specify the number of elements hold by this ArrayBufferObject.
 		/// </param>
 		/// <remarks>
 		/// <para>
@@ -324,7 +303,7 @@ namespace OpenGL.Objects
 			CheckCurrentContext(ctx);
 
 			if (itemsCount == 0)
-				throw new ArgumentException("invalid", "itemsCount");
+				throw new ArgumentException("invalid", nameof(itemsCount));
 
 			// Object already existing: resize client buffer, if any
 			if (CpuBufferAddress != IntPtr.Zero)
@@ -346,10 +325,10 @@ namespace OpenGL.Objects
 		/// The source array where the data comes from.
 		/// </param>
 		/// <param name="offset">
-		/// A <see cref="UInt32"/> that specify the first element to be copied.
+		/// A <see cref="uint"/> that specify the first element to be copied.
 		/// </param>
 		/// <param name="count">
-		/// A <see cref="UInt32"/> that specify the number of items to copy. The items to copy are referred in terms
+		/// A <see cref="uint"/> that specify the number of items to copy. The items to copy are referred in terms
 		/// of the data layout of this <see cref="ArrayBuffer"/>, not of the element type of <paramref name="array"/>!
 		/// </param>
 		/// <exception cref="ArgumentNullException">
@@ -371,7 +350,7 @@ namespace OpenGL.Objects
 		public virtual void Create(Array array, uint offset, uint count)
 		{
 			if (count == 0)
-				throw new ArgumentException("zero not allowed", "count");
+				throw new ArgumentException("zero not allowed", nameof(count));
 
 			// Array element item size cannot exceed ItemSize
 			uint arrayItemSize = CheckArrayItemSize(array);
@@ -393,7 +372,7 @@ namespace OpenGL.Objects
 		/// The source array where the data comes from.
 		/// </param>
 		/// <param name="count">
-		/// A <see cref="UInt32"/> that specify the number of items to copy. The items to copy are referred in terms
+		/// A <see cref="uint"/> that specify the number of items to copy. The items to copy are referred in terms
 		/// of the data layout of this <see cref="ArrayBuffer"/>, not of the element type of <paramref name="array"/>!
 		/// </param>
 		/// <exception cref="ArgumentNullException">
@@ -455,10 +434,10 @@ namespace OpenGL.Objects
 		/// The source array where the data comes from.
 		/// </param>
 		/// <param name="offset">
-		/// A <see cref="UInt32"/> that specify the first element to be copied.
+		/// A <see cref="uint"/> that specify the first element to be copied.
 		/// </param>
 		/// <param name="count">
-		/// A <see cref="UInt32"/> that specify the number of items to copy. The items to copy are referred in terms
+		/// A <see cref="uint"/> that specify the number of items to copy. The items to copy are referred in terms
 		/// of the data layout of this <see cref="ArrayBuffer"/>, not of the element type of <paramref name="array"/>!
 		/// </param>
 		/// <exception cref="ArgumentNullException">
@@ -485,7 +464,7 @@ namespace OpenGL.Objects
 			CheckCurrentContext(ctx);
 
 			if (count == 0)
-				throw new ArgumentException("zero not allowed", "count");
+				throw new ArgumentException("zero not allowed", nameof(count));
 
 			// Array element item size cannot exceed ItemSize
 			uint arrayItemSize = CheckArrayItemSize(array);
@@ -512,7 +491,7 @@ namespace OpenGL.Objects
 		/// The source array where the data comes from.
 		/// </param>
 		/// <param name="count">
-		/// A <see cref="UInt32"/> that specify the number of items to copy. The items to copy are referred in terms
+		/// A <see cref="uint"/> that specify the number of items to copy. The items to copy are referred in terms
 		/// of the data layout of this <see cref="ArrayBuffer"/>, not of the element type of <paramref name="array"/>!
 		/// </param>
 		/// <exception cref="ArgumentNullException">
@@ -581,13 +560,13 @@ namespace OpenGL.Objects
 		/// The source array where the data comes from.
 		/// </param>
 		/// <param name="arrayItemSize">
-		/// A <see cref="UInt32"/> that specify the size of the elements of <paramref name="array"/>.
+		/// A <see cref="uint"/> that specify the size of the elements of <paramref name="array"/>.
 		/// </param>
 		/// <param name="offset">
-		/// A <see cref="UInt32"/> that specify the first element to be copied.
+		/// A <see cref="uint"/> that specify the first element to be copied.
 		/// </param>
 		/// <param name="count">
-		/// A <see cref="UInt32"/> that specify the number of items to copy. The items to copy are referred in terms
+		/// A <see cref="uint"/> that specify the number of items to copy. The items to copy are referred in terms
 		/// of the data layout of this <see cref="ArrayBuffer"/>, not of the element type of <paramref name="array"/>!
 		/// </param>
 		protected virtual void CopyBuffer(IntPtr buffer, Array array, uint arrayItemSize, uint offset, uint count)
@@ -619,20 +598,20 @@ namespace OpenGL.Objects
 		private uint CheckArrayItemSize(Array array)
 		{
 			if (array == null)
-				throw new ArgumentNullException("array");
+				throw new ArgumentNullException(nameof(array));
 			if (array.Rank != 1)
-				throw new ArgumentException(String.Format("copying from array of rank {0} not supported", array.Rank));
+				throw new ArgumentException($"copying from array of rank {array.Rank} not supported");
 
 			Type arrayElementType = array.GetType().GetElementType();
 			if (arrayElementType == null || !arrayElementType.IsValueType)
-				throw new ArgumentException("invalid array element type", "array");
+				throw new ArgumentException("invalid array element type", nameof(array));
 
 			// Array element item size cannot exceed ItemSize
 			uint arrayItemSize = (uint)Marshal.SizeOf(arrayElementType);
 			if (arrayItemSize > ItemSize)
-				throw new ArgumentException("array element type too big", "array");
+				throw new ArgumentException("array element type too big", nameof(array));
 
-			return (arrayItemSize);
+			return arrayItemSize;
 		}
 
 		#endregion
@@ -649,10 +628,10 @@ namespace OpenGL.Objects
 		/// The source array where the data comes from.
 		/// </param>
 		/// <param name="offset">
-		/// A <see cref="UInt32"/> that specify the first element to be copied.
+		/// A <see cref="uint"/> that specify the first element to be copied.
 		/// </param>
 		/// <param name="count">
-		/// A <see cref="UInt32"/> that specify the number of items to copy. The items to copy are referred in terms
+		/// A <see cref="uint"/> that specify the number of items to copy. The items to copy are referred in terms
 		/// of the data layout of this <see cref="ArrayBuffer"/>, not of the element type of <paramref name="array"/>!
 		/// </param>
 		/// <exception cref="ArgumentNullException">
@@ -673,7 +652,7 @@ namespace OpenGL.Objects
 			CheckThisExistence(ctx);
 
 			if (count == 0)
-				throw new ArgumentException("zero not allowed", "count");
+				throw new ArgumentException("zero not allowed", nameof(count));
 			if (IsMapped)
 				throw new InvalidOperationException("mapped");
 
@@ -706,7 +685,7 @@ namespace OpenGL.Objects
 		/// The source array where the data comes from.
 		/// </param>
 		/// <param name="count">
-		/// A <see cref="UInt32"/> that specify the number of items to copy. The items to copy are referred in terms
+		/// A <see cref="uint"/> that specify the number of items to copy. The items to copy are referred in terms
 		/// of the data layout of this <see cref="ArrayBuffer"/>, not of the element type of <paramref name="array"/>!
 		/// </param>
 		/// <exception cref="ArgumentNullException">
@@ -765,19 +744,19 @@ namespace OpenGL.Objects
 		/// The <see cref="IntPtr"/> that specify the destination memory address.
 		/// </param>
 		/// <param name="dstItemSize">
-		/// A <see cref="UInt32"/> that specify the size of the elements in the destination memory.
+		/// A <see cref="uint"/> that specify the size of the elements in the destination memory.
 		/// </param>
 		/// <param name="src">
 		/// The <see cref="Array"/> that specify the source data to be copied.
 		/// </param>
 		/// <param name="srcItemSize">
-		/// A <see cref="UInt32"/> that specify the size of the elements of <paramref name="src"/>.
+		/// A <see cref="uint"/> that specify the size of the elements of <paramref name="src"/>.
 		/// </param>
 		/// <param name="srcIndex">
-		/// A <see cref="UInt32"/> that specify the array offset (in elements) where the copy starts.
+		/// A <see cref="uint"/> that specify the array offset (in elements) where the copy starts.
 		/// </param>
 		/// <param name="srcCount">
-		/// A <see cref="UInt32"/> that specify the number of elements of <paramref name="src"/> must be copied.
+		/// A <see cref="uint"/> that specify the number of elements of <paramref name="src"/> must be copied.
 		/// </param>
 		protected static void CopyArray(
 			IntPtr dst, uint dstItemSize,
@@ -797,7 +776,7 @@ namespace OpenGL.Objects
 		/// A <see cref="IntPtr"/> that specify the number of bytes between two consecutive elements in the destination memory.
 		/// </param>
 		/// <param name="dstItemSize">
-		/// A <see cref="UInt32"/> that specify the size of the elements in the destination memory.
+		/// A <see cref="uint"/> that specify the size of the elements in the destination memory.
 		/// </param>
 		/// <param name="src">
 		/// The <see cref="Array"/> that specify the source data to be copied.
@@ -806,13 +785,13 @@ namespace OpenGL.Objects
 		/// A <see cref="IntPtr"/> that specify the number of bytes between two consecutive elements in the source memory.
 		/// </param>
 		/// <param name="srcItemSize">
-		/// A <see cref="UInt32"/> that specify the size of the elements of <paramref name="src"/>.
+		/// A <see cref="uint"/> that specify the size of the elements of <paramref name="src"/>.
 		/// </param>
 		/// <param name="srcIndex">
-		/// A <see cref="UInt32"/> that specify the array offset (in elements) where the copy starts.
+		/// A <see cref="uint"/> that specify the array offset (in elements) where the copy starts.
 		/// </param>
 		/// <param name="srcCount">
-		/// A <see cref="UInt32"/> that specify the number of elements of <paramref name="src"/> must be copied.
+		/// A <see cref="uint"/> that specify the number of elements of <paramref name="src"/> must be copied.
 		/// </param>
 		protected static void CopyArray(
 			IntPtr dst, IntPtr dstStride, uint dstItemSize,
@@ -835,7 +814,7 @@ namespace OpenGL.Objects
 		/// A <see cref="IntPtr"/> that specify the number of bytes between two consecutive elements in the destination memory.
 		/// </param>
 		/// <param name="dstItemSize">
-		/// A <see cref="UInt32"/> that specify the size of the elements in the destination memory.
+		/// A <see cref="uint"/> that specify the size of the elements in the destination memory.
 		/// </param>
 		/// <param name="src">
 		/// The <see cref="Array"/> that specify the source data to be copied.
@@ -847,13 +826,13 @@ namespace OpenGL.Objects
 		/// A <see cref="IntPtr"/> that specify the number of bytes between two consecutive elements in the source memory.
 		/// </param>
 		/// <param name="srcItemSize">
-		/// A <see cref="UInt32"/> that specify the size of the elements of <paramref name="src"/>.
+		/// A <see cref="uint"/> that specify the size of the elements of <paramref name="src"/>.
 		/// </param>
 		/// <param name="srcIndex">
-		/// A <see cref="UInt32"/> that specify the array offset (in elements) where the copy starts.
+		/// A <see cref="uint"/> that specify the array offset (in elements) where the copy starts.
 		/// </param>
 		/// <param name="srcCount">
-		/// A <see cref="UInt32"/> that specify the number of elements of <paramref name="src"/> must be copied.
+		/// A <see cref="uint"/> that specify the number of elements of <paramref name="src"/> must be copied.
 		/// </param>
 		protected static void CopyArray(
 			IntPtr dst, IntPtr dstOffset, IntPtr dstStride, uint dstItemSize,
@@ -861,15 +840,15 @@ namespace OpenGL.Objects
 			uint srcIndex, uint srcCount)
 		{
 			if (dst == IntPtr.Zero)
-				throw new ArgumentException("invalid pointer", "dst");
+				throw new ArgumentException("invalid pointer", nameof(dst));
 			if (src == null)
-				throw new ArgumentNullException("src");
+				throw new ArgumentNullException(nameof(src));
 			if (srcItemSize > dstItemSize)
-				throw new ArgumentException("too large", "srcItemSize");
+				throw new ArgumentException("too large", nameof(srcItemSize));
 			if (src.Length < srcCount)
-				throw new ArgumentException("exceed array length", "srcCount");
+				throw new ArgumentException("exceed array length", nameof(srcCount));
 			if (src.Length < srcIndex + srcCount)
-				throw new ArgumentException("exceed array length", "srcOffset");
+				throw new ArgumentException("exceed array length", nameof(srcOffset));
 
 			if (srcStride == IntPtr.Zero)
 				srcStride = new IntPtr(srcItemSize);
@@ -891,7 +870,7 @@ namespace OpenGL.Objects
 					// Consider destination offset
 					dstPtr += dstOffset.ToInt64();
 
-					if ((srcItemSize != dstItemSize) || (srcStride != new IntPtr(srcItemSize)) || (dstStride != new IntPtr(dstItemSize))) {
+					if (srcItemSize != dstItemSize || srcStride != new IntPtr(srcItemSize) || dstStride != new IntPtr(dstItemSize)) {
 
 						// The copy element-by-element is performed is one or more of the following conditions is true:
 						// - The src/dst item sizes doesn't match
@@ -915,19 +894,19 @@ namespace OpenGL.Objects
 		/// The <see cref="Array"/> that specify the destination memory where copy to.
 		/// </param>
 		/// <param name="dstItemSize">
-		/// A <see cref="UInt32"/> that specify the size of the elements in the destination memory.
+		/// A <see cref="uint"/> that specify the size of the elements in the destination memory.
 		/// </param>
 		/// <param name="src">
 		/// The <see cref="IntPtr"/> that specify the source data to be copied.
 		/// </param>
 		/// <param name="srcItemSize">
-		/// A <see cref="UInt32"/> that specify the size of the elements of <paramref name="dst"/>.
+		/// A <see cref="uint"/> that specify the size of the elements of <paramref name="dst"/>.
 		/// </param>
 		/// <param name="dstIndex">
-		/// A <see cref="UInt32"/> that specify the array offset (in elements) where the copy starts.
+		/// A <see cref="uint"/> that specify the array offset (in elements) where the copy starts.
 		/// </param>
 		/// <param name="dstCount">
-		/// A <see cref="UInt32"/> that specify the number of elements of <paramref name="dst"/> must be copied.
+		/// A <see cref="uint"/> that specify the number of elements of <paramref name="dst"/> must be copied.
 		/// </param>
 		protected static void CopyArray(
 			Array dst, uint dstItemSize,
@@ -947,7 +926,7 @@ namespace OpenGL.Objects
 		/// A <see cref="IntPtr"/> that specify the number of bytes between two consecutive elements in the destination memory.
 		/// </param>
 		/// <param name="dstItemSize">
-		/// A <see cref="UInt32"/> that specify the size of the elements in the destination memory.
+		/// A <see cref="uint"/> that specify the size of the elements in the destination memory.
 		/// </param>
 		/// <param name="src">
 		/// The <see cref="IntPtr"/> that specify the source data to be copied.
@@ -956,13 +935,13 @@ namespace OpenGL.Objects
 		/// A <see cref="IntPtr"/> that specify the number of bytes between two consecutive elements in the source memory.
 		/// </param>
 		/// <param name="srcItemSize">
-		/// A <see cref="UInt32"/> that specify the size of the elements of <paramref name="dst"/>.
+		/// A <see cref="uint"/> that specify the size of the elements of <paramref name="dst"/>.
 		/// </param>
 		/// <param name="dstIndex">
-		/// A <see cref="UInt32"/> that specify the array offset (in elements) where the copy starts.
+		/// A <see cref="uint"/> that specify the array offset (in elements) where the copy starts.
 		/// </param>
 		/// <param name="dstCount">
-		/// A <see cref="UInt32"/> that specify the number of elements of <paramref name="dst"/> must be copied.
+		/// A <see cref="uint"/> that specify the number of elements of <paramref name="dst"/> must be copied.
 		/// </param>
 		protected static void CopyArray(
 			Array dst, IntPtr dstStride, uint dstItemSize,
@@ -982,7 +961,7 @@ namespace OpenGL.Objects
 		/// A <see cref="IntPtr"/> that specify the number of bytes between two consecutive elements in the destination memory.
 		/// </param>
 		/// <param name="dstItemSize">
-		/// A <see cref="UInt32"/> that specify the size of the elements in the destination memory.
+		/// A <see cref="uint"/> that specify the size of the elements in the destination memory.
 		/// </param>
 		/// <param name="src">
 		/// The <see cref="IntPtr"/> that specify the source data to be copied.
@@ -994,13 +973,13 @@ namespace OpenGL.Objects
 		/// A <see cref="IntPtr"/> that specify the number of bytes between two consecutive elements in the source memory.
 		/// </param>
 		/// <param name="srcItemSize">
-		/// A <see cref="UInt32"/> that specify the size of the elements of <paramref name="dst"/>.
+		/// A <see cref="uint"/> that specify the size of the elements of <paramref name="dst"/>.
 		/// </param>
 		/// <param name="dstIndex">
-		/// A <see cref="UInt32"/> that specify the array offset (in elements) where the copy starts.
+		/// A <see cref="uint"/> that specify the array offset (in elements) where the copy starts.
 		/// </param>
 		/// <param name="dstCount">
-		/// A <see cref="UInt32"/> that specify the number of elements of <paramref name="dst"/> must be copied.
+		/// A <see cref="uint"/> that specify the number of elements of <paramref name="dst"/> must be copied.
 		/// </param>
 		protected static void CopyArray(
 			Array dst, IntPtr dstOffset, IntPtr dstStride, uint dstItemSize,
@@ -1008,15 +987,15 @@ namespace OpenGL.Objects
 			uint dstIndex, uint dstCount)
 		{
 			if (dst == null)
-				throw new ArgumentNullException("dst");
+				throw new ArgumentNullException(nameof(dst));
 			if (src == IntPtr.Zero)
-				throw new ArgumentException("invalid pointer", "src");
+				throw new ArgumentException("invalid pointer", nameof(src));
 			if (srcItemSize > dstItemSize)
-				throw new ArgumentException("too large", "dstItemSize");
+				throw new ArgumentException("too large", nameof(dstItemSize));
 			if (dst.Length < dstCount)
-				throw new ArgumentException("exceed array length", "dstCount");
+				throw new ArgumentException("exceed array length", nameof(dstCount));
 			if (dst.Length < dstIndex + dstCount)
-				throw new ArgumentException("exceed array length", "dstOffset");
+				throw new ArgumentException("exceed array length", nameof(dstOffset));
 
 			if (srcStride == IntPtr.Zero)
 				srcStride = new IntPtr(srcItemSize);
@@ -1041,7 +1020,7 @@ namespace OpenGL.Objects
 					// Consider destination offset
 					srcPtr += srcOffset.ToInt64();
 
-					if ((srcItemSize != dstItemSize) || (srcStride != new IntPtr(srcItemSize)) || (dstStride != new IntPtr(dstItemSize))) {
+					if (srcItemSize != dstItemSize || srcStride != new IntPtr(srcItemSize) || dstStride != new IntPtr(dstItemSize)) {
 						// Respect this ArrayBufferObject item stride
 						for (uint i = 0; i < dstCount; i++, arrayPtr += dstStride.ToInt64(), srcPtr += srcStride.ToInt64())
 							Memory.Copy(arrayPtr, srcPtr, dstItemSize);
@@ -1084,7 +1063,7 @@ namespace OpenGL.Objects
 		/// Create a strongly typed array following <see cref="ArrayBufferItemType"/>.
 		/// </summary>
 		/// <param name="itemCount">
-		/// A <see cref="UInt32"/> that specify the length of the array returned.
+		/// A <see cref="uint"/> that specify the length of the array returned.
 		/// </param>
 		/// <returns>
 		/// It returns an uninitialized array, strongly typed depending on <see cref="ArrayBufferItemType"/>, with
@@ -1095,7 +1074,7 @@ namespace OpenGL.Objects
 			switch (arrayBufferItemType) {
 
 				case ArrayBufferItemType.Byte:
-					return new SByte[itemCount];
+					return new sbyte[itemCount];
 				case ArrayBufferItemType.Byte2:
 					return new Vertex2b[itemCount];
 				case ArrayBufferItemType.Byte3:
@@ -1104,7 +1083,7 @@ namespace OpenGL.Objects
 					return new Vertex4b[itemCount];
 
 				case ArrayBufferItemType.UByte:
-					return new Byte[itemCount];
+					return new byte[itemCount];
 				case ArrayBufferItemType.UByte2:
 					return new Vertex2ub[itemCount];
 				case ArrayBufferItemType.UByte3:
@@ -1113,7 +1092,7 @@ namespace OpenGL.Objects
 					return new Vertex4ub[itemCount];
 
 				case ArrayBufferItemType.Short:
-					return new Int16[itemCount];
+					return new short[itemCount];
 				case ArrayBufferItemType.Short2:
 					return new Vertex2s[itemCount];
 				case ArrayBufferItemType.Short3:
@@ -1122,7 +1101,7 @@ namespace OpenGL.Objects
 					return new Vertex4s[itemCount];
 
 				case ArrayBufferItemType.UShort:
-					return new UInt16[itemCount];
+					return new ushort[itemCount];
 				case ArrayBufferItemType.UShort2:
 					return new Vertex2us[itemCount];
 				case ArrayBufferItemType.UShort3:
@@ -1131,7 +1110,7 @@ namespace OpenGL.Objects
 					return new Vertex4us[itemCount];
 
 				case ArrayBufferItemType.Int:
-					return new Int32[itemCount];
+					return new int[itemCount];
 				case ArrayBufferItemType.Int2:
 					return new Vertex2i[itemCount];
 				case ArrayBufferItemType.Int3:
@@ -1140,7 +1119,7 @@ namespace OpenGL.Objects
 					return new Vertex4i[itemCount];
 
 				case ArrayBufferItemType.UInt:
-					return new UInt32[itemCount];
+					return new uint[itemCount];
 				case ArrayBufferItemType.UInt2:
 					return new Vertex2ui[itemCount];
 				case ArrayBufferItemType.UInt3:
@@ -1149,7 +1128,7 @@ namespace OpenGL.Objects
 					return new Vertex4ui[itemCount];
 
 				case ArrayBufferItemType.Float:
-					return new Single[itemCount];
+					return new float[itemCount];
 				case ArrayBufferItemType.Float2:
 					return new Vertex2f[itemCount];
 				case ArrayBufferItemType.Float3:
@@ -1158,7 +1137,7 @@ namespace OpenGL.Objects
 					return new Vertex4f[itemCount];
 
 				case ArrayBufferItemType.Double:
-					return new Double[itemCount];
+					return new double[itemCount];
 				case ArrayBufferItemType.Double2:
 					return new Vertex2d[itemCount];
 				case ArrayBufferItemType.Double3:
@@ -1176,7 +1155,7 @@ namespace OpenGL.Objects
 					return new Vertex4hf[itemCount];
 
 				default:
-					throw new NotImplementedException(String.Format("array type {0} not yet implemented", arrayBufferItemType));
+					throw new NotImplementedException($"array type {arrayBufferItemType} not yet implemented");
 			}
 		}
 
@@ -1206,7 +1185,7 @@ namespace OpenGL.Objects
 		{
 			CheckValidContext(ctx);
 
-			return (ctx.Extensions.VertexBufferObject_ARB);
+			return ctx.Extensions.VertexBufferObject_ARB;
 		}
 
 		#endregion

@@ -33,7 +33,7 @@ namespace OpenGL.Objects
 		#region Constructors
 
 		/// <summary>
-		/// Construct an ElementBufferObject, implictly used with <see cref="BufferHint.StaticCpuDraw"/>.
+		/// Construct an ElementBufferObject, implictly used with <see cref="BufferUsage.StaticDraw"/>.
 		/// </summary>
 		/// <param name="elementType">
 		/// The <see cref="DrawElementsType"/> that specify how vertices are interpreted.
@@ -73,7 +73,7 @@ namespace OpenGL.Objects
 						RestartIndexKey = 0xFFFFFFFF;
 						break;
 					default:
-						throw new ArgumentException("type not supported", "elementType");
+						throw new ArgumentException("type not supported", nameof(elementType));
 				}
 			} catch {
 				// Avoid finalizer assertion failure (don't call dispose since it's virtual)
@@ -111,7 +111,7 @@ namespace OpenGL.Objects
 						RestartIndexKey = 0xFFFFFFFF;
 						break;
 					default:
-						throw new ArgumentException("type not supported", "elementType");
+						throw new ArgumentException("type not supported", nameof(elementType));
 				}
 			} catch {
 				// Avoid finalizer assertion failure (don't call dispose since it's virtual)
@@ -151,7 +151,7 @@ namespace OpenGL.Objects
 						RestartIndexKey = 0xFFFFFFFF;
 						break;
 					default:
-						throw new ArgumentException("type not supported", "elementType");
+						throw new ArgumentException("type not supported", nameof(elementType));
 				}
 			} catch {
 				// Avoid finalizer assertion failure (don't call dispose since it's virtual)
@@ -191,7 +191,7 @@ namespace OpenGL.Objects
 						RestartIndexKey = 0xFFFFFFFF;
 						break;
 					default:
-						throw new ArgumentException("type not supported", "elementType");
+						throw new ArgumentException("type not supported", nameof(elementType));
 				}
 			} catch {
 				// Avoid finalizer assertion failure (don't call dispose since it's virtual)
@@ -218,11 +218,11 @@ namespace OpenGL.Objects
 			{
 				switch (ElementsType) {
 					case DrawElementsType.UnsignedByte:
-						return (ArrayBufferItemType.UByte);
+						return ArrayBufferItemType.UByte;
 					case DrawElementsType.UnsignedShort:
-						return (ArrayBufferItemType.UShort);
+						return ArrayBufferItemType.UShort;
 					case DrawElementsType.UnsignedInt:
-						return (ArrayBufferItemType.UInt);
+						return ArrayBufferItemType.UInt;
 					default:
 						throw new NotSupportedException();
 				}
@@ -258,11 +258,11 @@ namespace OpenGL.Objects
 			try {
 				switch (ElementsType) {
 					case DrawElementsType.UnsignedByte:
-						return (GetRestartIndices_UnsignedByte(out count));
+						return GetRestartIndices_UnsignedByte(out count);
 					case DrawElementsType.UnsignedShort:
-						return (GetRestartIndices_UnsignedShort(out count));
+						return GetRestartIndices_UnsignedShort(out count);
 					case DrawElementsType.UnsignedInt:
-						return (GetRestartIndices_UnsignedInt(out count));
+						return GetRestartIndices_UnsignedInt(out count);
 					default:
 						throw new NotSupportedException();
 				}
@@ -293,7 +293,7 @@ namespace OpenGL.Objects
 				Debug.Assert(offsets.Count == counts.Count);
 				count = counts.ToArray();
 
-				return (offsets.ToArray());
+				return offsets.ToArray();
 			}
 		}
 
@@ -319,7 +319,7 @@ namespace OpenGL.Objects
 				Debug.Assert(offsets.Count == counts.Count);
 				count = counts.ToArray();
 
-				return (offsets.ToArray());
+				return offsets.ToArray();
 			}
 		}
 
@@ -345,7 +345,7 @@ namespace OpenGL.Objects
 				Debug.Assert(offsets.Count == counts.Count);
 				count = counts.ToArray();
 
-				return (offsets.ToArray());
+				return offsets.ToArray();
 			}
 		}
 
@@ -381,7 +381,7 @@ namespace OpenGL.Objects
 					throw new NotSupportedException(ElementsType + " not supported");
 			}
 
-			return (vIndex);
+			return vIndex;
 		}
 
 		#endregion
@@ -394,7 +394,7 @@ namespace OpenGL.Objects
 		/// <exception cref="NotImplementedException">
 		/// Exception always thrown.
 		/// </exception>
-		protected internal override uint ArraySectionsCount { get { return (1); } }
+		protected internal override uint ArraySectionsCount { get { return 1; } }
 
 		/// <summary>
 		/// Get the specified section information.
@@ -403,12 +403,12 @@ namespace OpenGL.Objects
 		/// The <see cref="UInt32"/> that specify the array section index.
 		/// </param>
 		/// <returns>
-		/// It returns the <see cref="IArraySection"/> defining the array section.
+		/// It returns the <see cref="ArrayBufferBase.IArraySection"/> defining the array section.
 		/// </returns>
 		/// <exception cref="NotImplementedException">
 		/// Exception always thrown.
 		/// </exception>
-		protected internal override IArraySection GetArraySection(uint index) { return (this); }
+		protected internal override IArraySection GetArraySection(uint index) { return this; }
 
 		/// <summary>
 		/// Convert the client buffer in a strongly-typed array.
@@ -426,7 +426,7 @@ namespace OpenGL.Objects
 			// Copy from buffer data to array data
 			Memory.Copy(genericArray, CpuBufferAddress, CpuItemsCount * ItemSize);
 
-			return (genericArray);
+			return genericArray;
 		}
 
 		/// <summary>
@@ -457,7 +457,7 @@ namespace OpenGL.Objects
 				Unmap(ctx);
 			}
 
-			return (genericArray);
+			return genericArray;
 		}
 
 		/// <summary>
@@ -500,23 +500,23 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Get whether the array elements should be meant normalized (fixed point precision values).
 		/// </summary>
-		bool IArraySection.Normalized { get { return (false); } }
+		bool IArraySection.Normalized { get { return false; } }
 
 		/// <summary>
 		/// Get the actual array buffer pointer. It could be <see cref="IntPtr.Zero"/> indicating an actual GPU
 		/// buffer reference.
 		/// </summary>
-		IntPtr IArraySection.Pointer { get { return (GpuBufferAddress); } }
+		IntPtr IArraySection.Pointer { get { return GpuBufferAddress; } }
 
 		/// <summary>
 		/// Offset of the first element of the array section, in bytes.
 		/// </summary>
-		IntPtr IArraySection.Offset { get { return (IntPtr.Zero); } }
+		IntPtr IArraySection.Offset { get { return IntPtr.Zero; } }
 
 		/// <summary>
 		/// Offset between two element of the array section, in bytes.
 		/// </summary>
-		IntPtr IArraySection.Stride { get { return (IntPtr.Zero); } }
+		IntPtr IArraySection.Stride { get { return IntPtr.Zero; } }
 
 		#endregion
 	}
@@ -578,13 +578,13 @@ namespace OpenGL.Objects
 			{
 				switch (Type.GetTypeCode(typeof(T))) {
 					case TypeCode.Byte:
-						return (0x000000FF);
+						return 0x000000FF;
 					case TypeCode.UInt16:
-						return (0x0000FFFF);
+						return 0x0000FFFF;
 					case TypeCode.UInt32:
-						return (0xFFFFFFFF);
+						return 0xFFFFFFFF;
 					default:
-						throw new ArgumentException("type not supported", "elementType");
+						throw new NotSupportedException($"type {typeof(T)} not supported");
 				}
 			}
 		}

@@ -217,10 +217,10 @@ namespace OpenGL.Objects
 			if (ctx.Extensions.InstancedArrays) {
 				string instanceArrayId = resourceClassId + ".InstanceArray";
 
-				_GlyphInstances = (ArrayBufferObjectInterleaved<GlyphInstance>)ctx.GetSharedResource(instanceArrayId);
+				_GlyphInstances = (ArrayBufferInterleaved<GlyphInstance>)ctx.GetSharedResource(instanceArrayId);
 
 				if (_GlyphInstances == null) {
-					_GlyphInstances = new ArrayBufferObjectInterleaved<GlyphInstance>(MapBufferUsageMask.MapWriteBit);
+					_GlyphInstances = new ArrayBufferInterleaved<GlyphInstance>(MapBufferUsageMask.MapWriteBit);
 					_GlyphInstances.Create(256);
 					// Share
 					ctx.SetSharedResource(instanceArrayId, _GlyphInstances);
@@ -587,7 +587,7 @@ namespace OpenGL.Objects
 		/// <remarks>
 		/// Used only if GL_ARB_instanced_array is implemented
 		/// </remarks>
-		private ArrayBufferObjectInterleaved<GlyphInstance> _GlyphInstances;
+		private ArrayBufferInterleaved<GlyphInstance> _GlyphInstances;
 
 		/// <summary>
 		/// Uniform buffer backing the instanced glyph uniform information.

@@ -33,8 +33,8 @@ namespace OpenGL.Objects
 	/// types not specifying this Attribute cannot be used for managing buffer object data.
 	/// </para>
 	/// </remarks>
-	[AttributeUsage(AttributeTargets.Struct | AttributeTargets.Field, AllowMultiple = false)]
-	[DebuggerDisplay("ArrayBufferItemAttribute: ArrayType={ArrayType} ArraySize{ArraySize} Normalized{Normalized}")]
+	[AttributeUsage(AttributeTargets.Struct | AttributeTargets.Field)]
+	[DebuggerDisplay("ArrayBufferItemAttribute: ArrayType={ArrayType} ArraySize={ArrayLength} ArrayRank={ArrayRank} Normalized={Normalized}")]
 	public class ArrayBufferItemAttribute : Attribute
 	{
 		#region Constructors

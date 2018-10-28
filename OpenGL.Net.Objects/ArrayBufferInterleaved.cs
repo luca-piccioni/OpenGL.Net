@@ -21,27 +21,23 @@
 
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.InteropServices;
 
 namespace OpenGL.Objects
 {
-	public class ArrayBufferObjectInterleaved<T> : ArrayBufferBase where T : struct
+	public class ArrayBufferInterleaved<T> : ArrayBufferBase where T : struct
 	{
 		#region Constructors
 
 		/// <summary>
-		/// Construct an ArrayBufferObjectInterleaved specifying its item layout on GPU side.
+		/// Construct a mutable ArrayBufferInterleaved specifying its item layout on GPU side.
 		/// </summary>
-		/// <param name="format">
-		/// A <see cref="ArrayBufferItemType"/> describing the item base type on GPU side.
-		/// </param>
 		/// <param name="hint">
 		/// An <see cref="BufferUsage"/> that specify the data buffer usage hints.
 		/// </param>
-		public ArrayBufferObjectInterleaved(BufferUsage hint) :
-			base(hint)
+		public ArrayBufferInterleaved(BufferUsage hint) :
+			base(BufferTarget.ArrayBuffer, hint)
 		{
 			try {
 				// Determine array item size
@@ -49,9 +45,7 @@ namespace OpenGL.Objects
 				// Detect interleaved fields using reflection (cached)
 				List<InterleavedSectionBase> typeSections = ScanTypeSections();
 				// Get array sections for this instance
-				_InterleavedSections = typeSections.ConvertAll(delegate (InterleavedSectionBase item) {
-					return (new InterleavedSection(this, item));
-				});
+				_InterleavedSections = typeSections.ConvertAll(item => new InterleavedSection(this, item));
 			} catch {
 				// Avoid finalizer assertion failure (don't call dispose since it's virtual)
 				GC.SuppressFinalize(this);
@@ -60,13 +54,13 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
-		/// Construct an ArrayBufferObjectInterleaved specifying its item layout on GPU side.
+		/// Construct an immutable ArrayBufferInterleaved specifying its item layout on GPU side.
 		/// </summary>
 		/// <param name="usageMask">
 		/// A <see cref="MapBufferUsageMask"/> that specifies the data buffer usage mask.
 		/// </param>
-		public ArrayBufferObjectInterleaved(MapBufferUsageMask usageMask) :
-			base(usageMask)
+		public ArrayBufferInterleaved(MapBufferUsageMask usageMask) :
+			base(BufferTarget.ArrayBuffer, usageMask)
 		{
 			try {
 				// Determine array item size
@@ -74,9 +68,7 @@ namespace OpenGL.Objects
 				// Detect interleaved fields using reflection (cached)
 				List<InterleavedSectionBase> typeSections = ScanTypeSections();
 				// Get array sections for this instance
-				_InterleavedSections = typeSections.ConvertAll(delegate (InterleavedSectionBase item) {
-					return (new InterleavedSection(this, item));
-				});
+				_InterleavedSections = typeSections.ConvertAll(item => new InterleavedSection(this, item));
 			} catch {
 				// Avoid finalizer assertion failure (don't call dispose since it's virtual)
 				GC.SuppressFinalize(this);
@@ -88,28 +80,26 @@ namespace OpenGL.Objects
 		{
 			List<InterleavedSectionBase> typeSections;
 
-			// Determine array item size
+			if (_TypeSections.TryGetValue(typeof(T), out typeSections))
+				return typeSections;
+
+			// Cache for type
 			uint itemSize = (uint)Marshal.SizeOf(typeof(T));
 
-			if (_TypeSections.TryGetValue(typeof(T), out typeSections) == false) {
-				// Cache for type
-				typeSections = new List<InterleavedSectionBase>();
+			typeSections = new List<InterleavedSectionBase>();
 
-				foreach (FieldInfo field in typeof(T).GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)) {
-					InterleavedSectionBase structSection = new InterleavedSectionBase();
-					
-					structSection.ItemType = ArrayBufferItem.GetArrayType(field.FieldType);
-					structSection.Normalized = false;
-					structSection.Offset = Marshal.OffsetOf(typeof(T), field.Name);
-					structSection.Stride = new IntPtr(itemSize);
-
-					typeSections.Add(structSection);
-				}
-
-				_TypeSections.Add(typeof(T), typeSections);
+			foreach (FieldInfo field in typeof(T).GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)) {
+				typeSections.Add(new InterleavedSectionBase {
+					ItemType = ArrayBufferItem.GetArrayType(field.FieldType),
+					Normalized = false,
+					Offset = Marshal.OffsetOf(typeof(T), field.Name),
+					Stride = new IntPtr(itemSize)
+				});
 			}
 
-			return (typeSections);
+			_TypeSections.Add(typeof(T), typeSections);
+
+			return typeSections;
 		}
 
 		private static readonly Dictionary<Type, List<InterleavedSectionBase>> _TypeSections = new Dictionary<Type, List<InterleavedSectionBase>>();
@@ -118,7 +108,7 @@ namespace OpenGL.Objects
 
 		#region Interleaved Sections
 
-		class InterleavedSectionBase : IArraySection
+		private class InterleavedSectionBase : IArraySection
 		{
 			public ArrayBufferItemType ItemType { get; set; }
 
@@ -131,7 +121,7 @@ namespace OpenGL.Objects
 			public IntPtr Stride { get; set; }
 		}
 
-		class InterleavedSection : InterleavedSectionBase
+		private class InterleavedSection : InterleavedSectionBase
 		{
 			public InterleavedSection(ArrayBufferBase arrayBuffer, InterleavedSectionBase otherSection)
 			{
@@ -143,11 +133,11 @@ namespace OpenGL.Objects
 				Stride = otherSection.Stride;
 			}
 
-			private ArrayBufferBase _ParentArray;
+			private readonly ArrayBufferBase _ParentArray;
 
 			public override IntPtr Pointer
 			{
-				get { return (_ParentArray.GpuBufferAddress); }
+				get { return _ParentArray.GpuBufferAddress; }
 			}
 		}
 
@@ -160,7 +150,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Get the count of the array sections aggregated in this ArrayBufferObjectBase.
 		/// </summary>
-		protected internal override uint ArraySectionsCount { get { return ((uint)_InterleavedSections.Count); } }
+		protected internal override uint ArraySectionsCount { get { return (uint)_InterleavedSections.Count; } }
 
 		/// <summary>
 		/// Get the specified section information.
@@ -174,9 +164,9 @@ namespace OpenGL.Objects
 		protected internal override IArraySection GetArraySection(uint index)
 		{
 			if (index >= ArraySectionsCount)
-				throw new ArgumentOutOfRangeException("greater or equal to ArraySectionsCount", index, "index");
+				throw new ArgumentOutOfRangeException(nameof(index), index, "greater or equal to ArraySectionsCount");
 
-			return (_InterleavedSections[(int)index]);
+			return _InterleavedSections[(int)index];
 		}
 
 		/// <summary>
@@ -195,7 +185,7 @@ namespace OpenGL.Objects
 			// Copy from buffer data to array data
 			Memory.Copy(genericArray, CpuBufferAddress, CpuItemsCount * ItemSize);
 
-			return (genericArray);
+			return genericArray;
 		}
 
 		/// <summary>
@@ -225,7 +215,7 @@ namespace OpenGL.Objects
 				Unmap(ctx);
 			}
 
-			return (genericArray);
+			return genericArray;
 		}
 
 		#endregion

@@ -1,5 +1,6 @@
 
 // Copyright (C) 2009-2017 Luca Piccioni
+// 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
 // in the Software without restriction, including without limitation the rights
@@ -31,7 +32,7 @@ namespace OpenGL.Objects
 		#region Constructors
 
 		/// <summary>
-		/// Construct an ArrayBufferObject specifying its item layout on CPU side.
+		/// Construct a mutable ArrayBuffer specifying its item layout on CPU side.
 		/// </summary>
 		/// <param name="vertexBaseType">
 		/// A <see cref="VertexBaseType"/> describing the item components base type on CPU side.
@@ -49,7 +50,7 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
-		/// Construct an ArrayBufferObject specifying its item layout on CPU side.
+		/// Construct a mutable ArrayBuffer specifying its item layout on CPU side.
 		/// </summary>
 		/// <param name="vertexBaseType">
 		/// A <see cref="VertexBaseType"/> describing the item components base type on CPU side.
@@ -70,7 +71,7 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
-		/// Construct an ArrayBufferObject specifying its item layout on GPU side.
+		/// Construct a mutable ArrayBuffer specifying its item layout on GPU side.
 		/// </summary>
 		/// <param name="format">
 		/// A <see cref="ArrayBufferItemType"/> describing the item base type on GPU side.
@@ -79,7 +80,7 @@ namespace OpenGL.Objects
 		/// An <see cref="BufferUsage"/> that specify the data buffer usage hints.
 		/// </param>
 		public ArrayBuffer(ArrayBufferItemType format, BufferUsage hint) :
-			base(hint)
+			base(BufferTarget.ArrayBuffer, hint)
 		{
 			try {
 				// Store array type
@@ -94,7 +95,7 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
-		/// Construct an ArrayBufferObject specifying its item layout on CPU side.
+		/// Construct an immutable ArrayBuffer specifying its item layout on CPU side.
 		/// </summary>
 		/// <param name="vertexBaseType">
 		/// A <see cref="VertexBaseType"/> describing the item components base type on CPU side.
@@ -112,7 +113,7 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
-		/// Construct an ArrayBufferObject specifying its item layout on CPU side.
+		/// Construct a immutable ArrayBuffer specifying its item layout on CPU side.
 		/// </summary>
 		/// <param name="vertexBaseType">
 		/// A <see cref="VertexBaseType"/> describing the item components base type on CPU side.
@@ -133,7 +134,7 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
-		/// Construct an ArrayBufferObject specifying its item layout on GPU side.
+		/// Construct an immutable ArrayBuffer specifying its item layout on GPU side.
 		/// </summary>
 		/// <param name="format">
 		/// A <see cref="ArrayBufferItemType"/> describing the item base type on GPU side.
@@ -142,7 +143,7 @@ namespace OpenGL.Objects
 		/// A <see cref="MapBufferUsageMask"/> that specifies the data buffer usage mask.
 		/// </param>
 		public ArrayBuffer(ArrayBufferItemType format, MapBufferUsageMask usageMask) :
-			base(usageMask)
+			base(BufferTarget.ArrayBuffer, usageMask)
 		{
 			try {
 				// Store array type
@@ -163,7 +164,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// The array buffer object element type, on CPU side.
 		/// </summary>
-		public ArrayBufferItemType ArrayType { get { return (_ArrayType); } }
+		public ArrayBufferItemType ArrayType { get { return _ArrayType; } }
 
 		/// <summary>
 		/// The array buffer object element type.
@@ -183,27 +184,27 @@ namespace OpenGL.Objects
 		/// The type of elements of the returned array.
 		/// </typeparam>
 		/// <returns>
-		/// It returns an array having all items stored by this ArrayBufferObject.
+		/// It returns an array having all items stored by this ArrayBuffer.
 		/// </returns>
-		public T[] ToArray<T>() where T : struct { return (ToArray<T>(CpuItemsCount)); }
+		public T[] ToArray<T>() where T : struct { return ToArray<T>(CpuItemsCount); }
 
 		/// <summary>
 		/// Convert this array buffer object in a strongly-typed array.
 		/// </summary>
 		/// <typeparam name="T">
-		/// An arbitrary structure defining the returned array item. It doesn't need to be correlated with the ArrayBufferObject
+		/// An arbitrary structure defining the returned array item. It doesn't need to be correlated with the ArrayBuffer
 		/// layout.
 		/// </typeparam>
 		/// <param name="arrayLength">
 		/// A <see cref="UInt32"/> that specify the number of elements of the returned array.
 		/// </param>
 		/// <returns>
-		/// It returns an array having all items stored by this ArrayBufferObject.
+		/// It returns an array having all items stored by this ArrayBuffer.
 		/// </returns>
 		public T[] ToArray<T>(uint arrayLength) where T : struct
 		{
 			if (arrayLength > CpuItemsCount)
-				throw new ArgumentOutOfRangeException("arrayLength", arrayLength, "cannot exceed items count");
+				throw new ArgumentOutOfRangeException(nameof(arrayLength), arrayLength, "cannot exceed items count");
 			if (CpuBufferAddress == IntPtr.Zero)
 				throw new InvalidOperationException("no client buffer");
 
@@ -214,19 +215,19 @@ namespace OpenGL.Objects
 			// The base type should be corresponding
 			ArrayBufferItemType arrayElementVertexType = ArrayBufferItem.GetArrayType(arrayElementType);
 			if (_ArrayType.GetVertexBaseType() != arrayElementVertexType.GetVertexBaseType())
-				throw new InvalidOperationException(String.Format("source base type of {0} incompatible with destination base type of {1}", arrayElementType.Name, _ArrayType.GetVertexBaseType()));
+				throw new InvalidOperationException($"source base type of {arrayElementType.Name} incompatible with destination base type of {_ArrayType.GetVertexBaseType()}");
 
 			// Array element item size cannot exceed ItemSize
 			uint arrayItemSize = arrayElementVertexType.GetItemSize();
 			if (arrayItemSize > ItemSize)
-				throw new ArgumentException("array element type too big", "array");
+				throw new ArgumentException("array element type too big", nameof(arrayLength));
 
 			T[] array = new T[arrayLength];
 
 			// Copy from buffer data to array data
 			CopyArray(array, arrayItemSize, CpuBufferAddress, ItemSize, 0, arrayLength);
 
-			return (array);
+			return array;
 		}
 
 		#endregion
@@ -251,83 +252,83 @@ namespace OpenGL.Objects
 		{
 			switch (vertexArrayType) {
 				case ArrayBufferItemType.Byte:
-					return (new ArrayBuffer<sbyte>(hint));
+					return new ArrayBuffer<sbyte>(hint);
 				case ArrayBufferItemType.Byte2:
-					return (new ArrayBuffer<Vertex2b>(hint));
+					return new ArrayBuffer<Vertex2b>(hint);
 				case ArrayBufferItemType.Byte3:
-					return (new ArrayBuffer<Vertex3b>(hint));
+					return new ArrayBuffer<Vertex3b>(hint);
 				case ArrayBufferItemType.Byte4:
-					return (new ArrayBuffer<Vertex4b>(hint));
+					return new ArrayBuffer<Vertex4b>(hint);
 				case ArrayBufferItemType.UByte:
-					return (new ArrayBuffer<byte>(hint));
+					return new ArrayBuffer<byte>(hint);
 				case ArrayBufferItemType.UByte2:
-					return (new ArrayBuffer<Vertex2ub>(hint));
+					return new ArrayBuffer<Vertex2ub>(hint);
 				case ArrayBufferItemType.UByte3:
-					return (new ArrayBuffer<Vertex3ub>(hint));
+					return new ArrayBuffer<Vertex3ub>(hint);
 				case ArrayBufferItemType.UByte4:
-					return (new ArrayBuffer<Vertex4ub>(hint));
+					return new ArrayBuffer<Vertex4ub>(hint);
 				case ArrayBufferItemType.Short:
-					return (new ArrayBuffer<short>(hint));
+					return new ArrayBuffer<short>(hint);
 				case ArrayBufferItemType.Short2:
-					return (new ArrayBuffer<Vertex2s>(hint));
+					return new ArrayBuffer<Vertex2s>(hint);
 				case ArrayBufferItemType.Short3:
-					return (new ArrayBuffer<Vertex3s>(hint));
+					return new ArrayBuffer<Vertex3s>(hint);
 				case ArrayBufferItemType.Short4:
-					return (new ArrayBuffer<Vertex4s>(hint));
+					return new ArrayBuffer<Vertex4s>(hint);
 				case ArrayBufferItemType.UShort:
-					return (new ArrayBuffer<ushort>(hint));
+					return new ArrayBuffer<ushort>(hint);
 				case ArrayBufferItemType.UShort2:
-					return (new ArrayBuffer<Vertex2us>(hint));
+					return new ArrayBuffer<Vertex2us>(hint);
 				case ArrayBufferItemType.UShort3:
-					return (new ArrayBuffer<Vertex3us>(hint));
+					return new ArrayBuffer<Vertex3us>(hint);
 				case ArrayBufferItemType.UShort4:
-					return (new ArrayBuffer<Vertex4us>(hint));
+					return new ArrayBuffer<Vertex4us>(hint);
 				case ArrayBufferItemType.Int:
-					return (new ArrayBuffer<int>(hint));
+					return new ArrayBuffer<int>(hint);
 				case ArrayBufferItemType.Int2:
-					return (new ArrayBuffer<Vertex2i>(hint));
+					return new ArrayBuffer<Vertex2i>(hint);
 				case ArrayBufferItemType.Int3:
-					return (new ArrayBuffer<Vertex3i>(hint));
+					return new ArrayBuffer<Vertex3i>(hint);
 				case ArrayBufferItemType.Int4:
-					return (new ArrayBuffer<Vertex4i>(hint));
+					return new ArrayBuffer<Vertex4i>(hint);
 				case ArrayBufferItemType.UInt:
-					return (new ArrayBuffer<uint>(hint));
+					return new ArrayBuffer<uint>(hint);
 				case ArrayBufferItemType.UInt2:
-					return (new ArrayBuffer<Vertex2ui>(hint));
+					return new ArrayBuffer<Vertex2ui>(hint);
 				case ArrayBufferItemType.UInt3:
-					return (new ArrayBuffer<Vertex3ui>(hint));
+					return new ArrayBuffer<Vertex3ui>(hint);
 				case ArrayBufferItemType.UInt4:
-					return (new ArrayBuffer<Vertex4ui>(hint));
+					return new ArrayBuffer<Vertex4ui>(hint);
 				case ArrayBufferItemType.Float:
-					return (new ArrayBuffer<float>(hint));
+					return new ArrayBuffer<float>(hint);
 				case ArrayBufferItemType.Float2:
-					return (new ArrayBuffer<Vertex2f>(hint));
+					return new ArrayBuffer<Vertex2f>(hint);
 				case ArrayBufferItemType.Float3:
-					return (new ArrayBuffer<Vertex3f>(hint));
+					return new ArrayBuffer<Vertex3f>(hint);
 				case ArrayBufferItemType.Float4:
-					return (new ArrayBuffer<Vertex4f>(hint));
+					return new ArrayBuffer<Vertex4f>(hint);
 				case ArrayBufferItemType.Float2x4:
-					return (new ArrayBuffer<Matrix2x4f>(hint));
+					return new ArrayBuffer<Matrix2x4f>(hint);
 				case ArrayBufferItemType.Float4x4:
-					return (new ArrayBuffer<Matrix4x4f>(hint));
+					return new ArrayBuffer<Matrix4x4f>(hint);
 				case ArrayBufferItemType.Double:
-					return (new ArrayBuffer<double>(hint));
+					return new ArrayBuffer<double>(hint);
 				case ArrayBufferItemType.Double2:
-					return (new ArrayBuffer<Vertex2d>(hint));
+					return new ArrayBuffer<Vertex2d>(hint);
 				case ArrayBufferItemType.Double3:
-					return (new ArrayBuffer<Vertex3d>(hint));
+					return new ArrayBuffer<Vertex3d>(hint);
 				case ArrayBufferItemType.Double4:
-					return (new ArrayBuffer<Vertex4d>(hint));
+					return new ArrayBuffer<Vertex4d>(hint);
 				case ArrayBufferItemType.Half:
-					return (new ArrayBuffer<HalfFloat>(hint));
+					return new ArrayBuffer<HalfFloat>(hint);
 				case ArrayBufferItemType.Half2:
-					return (new ArrayBuffer<Vertex2hf>(hint));
+					return new ArrayBuffer<Vertex2hf>(hint);
 				case ArrayBufferItemType.Half3:
-					return (new ArrayBuffer<Vertex3hf>(hint));
+					return new ArrayBuffer<Vertex3hf>(hint);
 				case ArrayBufferItemType.Half4:
-					return (new ArrayBuffer<Vertex4hf>(hint));
+					return new ArrayBuffer<Vertex4hf>(hint);
 				default:
-					throw new ArgumentException(String.Format("vertex array type {0} not supported", vertexArrayType));
+					throw new ArgumentException($"vertex array type {vertexArrayType} not supported");
 			}
 		}
 
@@ -336,7 +337,7 @@ namespace OpenGL.Objects
 		#region Copy with Indices
 
 		/// <summary>
-		/// Copy from an ArrayBufferObject with an indirection defined by an index.
+		/// Copy from an ArrayBuffer with an indirection defined by an index.
 		/// </summary>
 		/// <param name="buffer">
 		/// An <see cref="ArrayBuffer"/> that specify the source data buffer to copy.
@@ -378,14 +379,14 @@ namespace OpenGL.Objects
 		public void Copy(ArrayBuffer buffer, uint[] indices, uint count, uint offset, uint stride)
 		{
 			if (buffer == null)
-				throw new ArgumentNullException("buffer");
+				throw new ArgumentNullException(nameof(buffer));
 			if (indices == null)
-				throw new ArgumentNullException("indices");
+				throw new ArgumentNullException(nameof(indices));
 			if (count == 0)
-				throw new ArgumentException("invalid", "count");
+				throw new ArgumentException("invalid", nameof(count));
 			if (stride == 0)
-				throw new ArgumentException("invalid", "stride");
-			if (offset + ((count - 1) * stride) > indices.Length)
+				throw new ArgumentException("invalid", nameof(stride));
+			if (offset + (count - 1) * stride > indices.Length)
 				throw new InvalidOperationException("indices out of bounds");
 			if (_ArrayType.GetVertexBaseType() != buffer._ArrayType.GetVertexBaseType())
 				throw new InvalidOperationException("base type mismatch");
@@ -396,10 +397,10 @@ namespace OpenGL.Objects
 				byte* dstPtr = (byte*)CpuBufferAddress.ToPointer();
 
 				for (uint i = 0; i < count; i++, dstPtr += ItemSize) {
-					uint arrayIndex = indices[(i * stride) + offset];
+					uint arrayIndex = indices[i * stride + offset];
 
 					// Position 'srcPtr' to the indexed element
-					byte* srcPtr = ((byte*)buffer.CpuBufferAddress.ToPointer()) + (ItemSize * arrayIndex);
+					byte* srcPtr = (byte*)buffer.CpuBufferAddress.ToPointer() + ItemSize * arrayIndex;
 
 					// Copy the 'arrayIndex'th element
 					Memory.Copy(dstPtr, srcPtr, ItemSize);
@@ -408,7 +409,7 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
-		/// Copy from an ArrayBufferObject with an indirection defined by an index (polygon tessellation).
+		/// Copy from an ArrayBuffer with an indirection defined by an index (polygon tessellation).
 		/// </summary>
 		/// <param name="buffer">
 		/// An <see cref="ArrayBuffer"/> that specify the source data buffer to copy.
@@ -444,13 +445,13 @@ namespace OpenGL.Objects
 		public void Copy(ArrayBuffer buffer, uint[] indices, uint[] vcount, uint offset, uint stride)
 		{
 			if (buffer == null)
-				throw new ArgumentNullException("buffer");
+				throw new ArgumentNullException(nameof(buffer));
 			if (indices == null)
-				throw new ArgumentNullException("indices");
+				throw new ArgumentNullException(nameof(indices));
 			if (vcount == null)
-				throw new ArgumentNullException("indices");
+				throw new ArgumentNullException(nameof(indices));
 			if (stride == 0)
-				throw new ArgumentException("invalid", "stride");
+				throw new ArgumentException("invalid", nameof(stride));
 			if (_ArrayType.GetVertexBaseType() != buffer._ArrayType.GetVertexBaseType())
 				throw new InvalidOperationException("base type mismatch");
 
@@ -462,8 +463,8 @@ namespace OpenGL.Objects
 				maxVertices = Math.Max(v, maxVertices);
 			});
 
-			if ((minVertices < 3) && (maxVertices >= 3))
-				throw new ArgumentException("ambigous polygons set", "vcount");
+			if (minVertices < 3 && maxVertices >= 3)
+				throw new ArgumentException("ambigous polygons set", nameof(vcount));
 
 			uint totalVerticesCount = 0;
 
@@ -481,8 +482,6 @@ namespace OpenGL.Objects
 			Create(totalVerticesCount);
 
 			// Copy polygons (triangulate)
-			uint count = 0;
-
 			unsafe {
 				byte* dstPtr = (byte*)CpuBufferAddress.ToPointer();
 				uint indicesIndex = offset;
@@ -493,12 +492,12 @@ namespace OpenGL.Objects
 
 					if (verticesCount == 4) {
 						verticesIndices = new uint[6];
-						verticesIndices[0] = indices[indicesIndex + (0 * stride)];
-						verticesIndices[1] = indices[indicesIndex + (1 * stride)];
-						verticesIndices[2] = indices[indicesIndex + (2 * stride)];
-						verticesIndices[3] = indices[indicesIndex + (0 * stride)];
-						verticesIndices[4] = indices[indicesIndex + (2 * stride)];
-						verticesIndices[5] = indices[indicesIndex + (3 * stride)];
+						verticesIndices[0] = indices[indicesIndex + 0 * stride];
+						verticesIndices[1] = indices[indicesIndex + 1 * stride];
+						verticesIndices[2] = indices[indicesIndex + 2 * stride];
+						verticesIndices[3] = indices[indicesIndex + 0 * stride];
+						verticesIndices[4] = indices[indicesIndex + 2 * stride];
+						verticesIndices[5] = indices[indicesIndex + 3 * stride];
 
 						indicesIndex += 4 * stride;
 					} else if (verticesCount > 4) {
@@ -521,11 +520,9 @@ namespace OpenGL.Objects
 							verticesIndices[j] = indices[indicesIndex];
 					}
 
-					count += (uint)verticesIndices.Length;
-
 					for (uint j = 0; j < verticesIndices.Length; j++, dstPtr += ItemSize) {
 						// Position 'srcPtr' to the indexed element
-						byte* srcPtr = ((byte*)buffer.CpuBufferAddress.ToPointer()) + (ItemSize * verticesIndices[j]);
+						byte* srcPtr = (byte*)buffer.CpuBufferAddress.ToPointer() + ItemSize * verticesIndices[j];
 						// Copy the 'arrayIndex'th element
 						Memory.Copy(dstPtr, srcPtr, ItemSize);
 					}
@@ -534,7 +531,7 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
-		/// Copy from an ArrayBufferObject with an indirection defined by an index (polygon tessellation).
+		/// Copy from an ArrayBuffer with an indirection defined by an index (polygon tessellation).
 		/// </summary>
 		/// <param name="buffer"></param>
 		/// <param name="indices"></param>
@@ -545,7 +542,7 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
-		/// Copy from an ArrayBufferObject with an indirection defined by an index (polygon tessellation).
+		/// Copy from an ArrayBuffer with an indirection defined by an index (polygon tessellation).
 		/// </summary>
 		/// <param name="buffer"></param>
 		/// <param name="indices"></param>
@@ -558,16 +555,16 @@ namespace OpenGL.Objects
 
 			switch (indices.ElementsType) {
 				case DrawElementsType.UnsignedByte:
-					indicesArray = Array.ConvertAll<byte, uint>((byte[])indices.ToArray(), delegate (byte item) { return (uint)item; });
+					indicesArray = Array.ConvertAll((byte[])indices.ToArray(), item => (uint) item);
 					break;
 				case DrawElementsType.UnsignedShort:
-					indicesArray = Array.ConvertAll<ushort, uint>((ushort[])indices.ToArray(), delegate (ushort item) { return (uint)item; });
+					indicesArray = Array.ConvertAll((ushort[])indices.ToArray(), item => (uint) item);
 					break;
 				case DrawElementsType.UnsignedInt:
 					indicesArray = (uint[])indices.ToArray();
 					break;
 				default:
-					throw new InvalidOperationException(String.Format("element type {0} not supportted", indices.ElementsType));
+					throw new InvalidOperationException($"element type {indices.ElementsType} not supportted");
 			}
 
 			Copy(buffer, indicesArray, count, offset, stride);
@@ -581,26 +578,26 @@ namespace OpenGL.Objects
 		/// Copy this array buffer object to another one (strongly typed), but having a different array item type.
 		/// </summary>
 		/// <typeparam name="T">
-		/// A structure type used to determine the array items layout of the converted ArrayBufferObject.
+		/// A structure type used to determine the array items layout of the converted ArrayBuffer.
 		/// </typeparam>
 		/// <returns>
-		/// It returns a copy of this ArrayBufferObject, but having a different array item. The returned instance is actually
+		/// It returns a copy of this ArrayBuffer, but having a different array item. The returned instance is actually
 		/// a <see cref="ArrayBuffer"/>; if it is desiderable a strongly typed <see cref="ArrayBuffer"/>, use
 		/// <see cref="ConvertItemType"/>.
 		/// </returns>
 		/// <exception cref="ArgumentException">
-		/// Exception thrown if the array base type of this ArrayBufferObject (<see cref="ArrayBaseType"/>) is different to the one
+		/// Exception thrown if the array base type of this ArrayBuffer (<see cref="ArrayType"/>) is different to the one
 		/// derived from <typeparamref name="T"/>.
 		/// </exception>
 		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if the number of base components of this ArrayBufferObject cannot be mapped into the base components
+		/// Exception thrown if the number of base components of this ArrayBuffer cannot be mapped into the base components
 		/// count derived from <typeparamref name="T"/>.
 		/// </exception>
 		public ArrayBuffer<T> ConvertItemType<T>() where T : struct
 		{
 			ArrayBufferItemType vertexArrayType = ArrayBufferItem.GetArrayType(typeof(T));
 
-			return ((ArrayBuffer<T>)ConvertItemType(vertexArrayType));
+			return (ArrayBuffer<T>)ConvertItemType(vertexArrayType);
 		}
 
 		/// <summary>
@@ -610,27 +607,27 @@ namespace OpenGL.Objects
 		/// A <see cref="ArrayBufferItemType"/> that specify the returned <see cref="ArrayBuffer"/> item type.
 		/// </param>
 		/// <returns>
-		/// It returns a copy of this ArrayBufferObject, but having a different array item. The returned instance is actually
+		/// It returns a copy of this ArrayBuffer, but having a different array item. The returned instance is actually
 		/// a <see cref="ArrayBuffer"/>.
 		/// </returns>
 		/// <exception cref="ArgumentException">
-		/// Exception thrown if the array base type of this ArrayBufferObject (<see cref="ArrayBaseType"/>) is different to the one
+		/// Exception thrown if the array base type of this ArrayBuffer (<see cref="ArrayType"/>) is different to the one
 		/// derived from <paramref name="vertexArrayType"/>.
 		/// </exception>
 		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if the number of base components of this ArrayBufferObject cannot be mapped into the base components
+		/// Exception thrown if the number of base components of this ArrayBuffer cannot be mapped into the base components
 		/// count derived from <paramref name="vertexArrayType"/>.
 		/// </exception>
 		public ArrayBuffer ConvertItemType(ArrayBufferItemType vertexArrayType)
 		{
 			if (_ArrayType.GetVertexBaseType() != vertexArrayType.GetVertexBaseType())
-				throw new ArgumentException("base type mismatch", "vertexArrayType");
+				throw new ArgumentException("base type mismatch", nameof(vertexArrayType));
 
 			uint componentsCount = CpuItemsCount * ArrayType.GetArrayLength() * ArrayType.GetArrayRank();
 			uint convComponentsCount = vertexArrayType.GetArrayLength() * vertexArrayType.GetArrayRank();
 
 			Debug.Assert(componentsCount >= convComponentsCount);
-			if ((componentsCount % convComponentsCount) != 0)
+			if (componentsCount % convComponentsCount != 0)
 				throw new InvalidOperationException("components length incompatibility");
 
 			ArrayBuffer arrayObject = CreateArrayObject(vertexArrayType, Hint);
@@ -640,7 +637,7 @@ namespace OpenGL.Objects
 			// Memory is copied
 			Memory.Copy(arrayObject.CpuBufferAddress, CpuBufferAddress, CpuBufferSize);
 
-			return (arrayObject);
+			return arrayObject;
 		}
 
 		#endregion
@@ -650,7 +647,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Get the count of the array sections aggregated in this ArrayBufferObjectBase.
 		/// </summary>
-		protected internal override uint ArraySectionsCount { get { return (ItemsCount > 0 ? 1U : 0U); } }
+		protected internal override uint ArraySectionsCount { get { return ItemsCount > 0 ? 1U : 0U; } }
 
 		/// <summary>
 		/// Get the specified section information.
@@ -664,9 +661,9 @@ namespace OpenGL.Objects
 		protected internal override IArraySection GetArraySection(uint index)
 		{
 			if (index >= ArraySectionsCount)
-				throw new ArgumentOutOfRangeException("greater or equal to ArraySectionsCount", index, "index");
+				throw new ArgumentOutOfRangeException(nameof(index), index, "greater or equal to ArraySectionsCount");
 
-			return (this);
+			return this;
 		}
 
 		/// <summary>
@@ -685,20 +682,20 @@ namespace OpenGL.Objects
 			// Copy from buffer data to array data
 			Memory.Copy(genericArray, CpuBufferAddress, CpuItemsCount * ItemSize);
 
-			return (genericArray);
+			return genericArray;
 		}
 
 		/// <summary>
 		/// Convert the GPU buffer in a strongly-typed array.
 		/// </summary>
 		/// <param name="ctx">
-		/// The <see cref="GraphicsContext"/> that has created this ArrayBufferObject.
+		/// The <see cref="GraphicsContext"/> that has created this ArrayBuffer.
 		/// </param>
 		/// <returns>
 		/// It returns an <see cref="Array"/> having all items stored by this ArrayBufferObjectBase.
 		/// </returns>
 		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if this ArrayBufferObject does not exist for <paramref name="ctx"/>.
+		/// Exception thrown if this ArrayBuffer does not exist for <paramref name="ctx"/>.
 		/// </exception>
 		public override Array ToArray(GraphicsContext ctx)
 		{
@@ -715,7 +712,7 @@ namespace OpenGL.Objects
 				Unmap(ctx);
 			}
 
-			return (genericArray);
+			return genericArray;
 		}
 
 		#endregion
@@ -725,34 +722,34 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// The type of the elements of the array section.
 		/// </summary>
-		ArrayBufferItemType IArraySection.ItemType { get { return (ArrayType); } }
+		ArrayBufferItemType IArraySection.ItemType { get { return ArrayType; } }
 
 		/// <summary>
 		/// Get whether the array elements should be meant normalized (fixed point precision values).
 		/// </summary>
-		bool IArraySection.Normalized { get { return (false); } }
+		bool IArraySection.Normalized { get { return false; } }
 
 		/// <summary>
 		/// Get the actual array buffer pointer. It could be <see cref="IntPtr.Zero"/> indicating an actual GPU
 		/// buffer reference.
 		/// </summary>
-		IntPtr IArraySection.Pointer { get { return (GpuBufferAddress); } }
+		IntPtr IArraySection.Pointer { get { return GpuBufferAddress; } }
 
 		/// <summary>
 		/// Offset of the first element of the array section, in bytes.
 		/// </summary>
-		IntPtr IArraySection.Offset { get { return (IntPtr.Zero); } }
+		IntPtr IArraySection.Offset { get { return IntPtr.Zero; } }
 
 		/// <summary>
 		/// Offset between two element of the array section, in bytes.
 		/// </summary>
-		IntPtr IArraySection.Stride { get { return (IntPtr.Zero); } }
+		IntPtr IArraySection.Stride { get { return IntPtr.Zero; } }
 
 		#endregion
 	}
 
 	/// <summary>
-	/// Strongly typed array buffer object.
+	/// Generic array buffer object.
 	/// </summary>
 	/// <typeparam name="T">
 	/// A structure that holds the array item data.
@@ -762,7 +759,7 @@ namespace OpenGL.Objects
 		#region Constructors
 
 		/// <summary>
-		/// Construct a static ArrayBufferObject.
+		/// Construct an immutable ArrayBuffer.
 		/// </summary>
 		public ArrayBuffer() :
 			this(MapBufferUsageMask.None)
@@ -771,7 +768,7 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
-		/// Construct an ArrayBufferObject.
+		/// Construct a mutable ArrayBuffer.
 		/// </summary>
 		/// <param name="hint">
 		/// An <see cref="BufferUsage"/> that specify the data buffer usage hints.
@@ -783,7 +780,7 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
-		/// Construct an ArrayBufferObject.
+		/// Construct an immutable ArrayBuffer.
 		/// </summary>
 		/// <param name="usageMask">
 		/// A <see cref="MapBufferUsageMask"/> that specifies the data buffer usage mask.
@@ -869,9 +866,9 @@ namespace OpenGL.Objects
 					} else if (typeof(T) == typeof(Vertex4hf)) {
 						maxValue = Vertex4hf.Min((Vertex4hf*)arrayPtr, CpuBufferSize /  Vertex4hf.Size);
 					} else
-						throw new NotSupportedException(String.Format("the type {0} is not supported", typeof(T)));
+						throw new NotSupportedException($"the type {typeof(T)} is not supported");
 			
-					return ((T)maxValue);
+					return (T)maxValue;
 				}
 			} finally {
 				Unmap();
@@ -949,9 +946,9 @@ namespace OpenGL.Objects
 					} else if (typeof(T) == typeof(Vertex4hf)) {
 						maxValue = Vertex4hf.Max((Vertex4hf*)arrayPtr, CpuBufferSize / Vertex4hf.Size);
 					} else
-						throw new NotSupportedException(String.Format("the type {0} is not supported", typeof(T)));
+						throw new NotSupportedException($"the type {typeof(T)} is not supported");
 			
-					return ((T)maxValue);
+					return (T)maxValue;
 				}
 			} finally {
 				Unmap();
@@ -1084,7 +1081,7 @@ namespace OpenGL.Objects
 						Vertex4hf.MinMax((Vertex4hf*)arrayPtr, CpuBufferSize / Vertex4hf.Size, out vmin, out vmax);
 						minValue = vmin; maxValue = vmax;
 					} else
-						throw new NotSupportedException(String.Format("the type {0} is not supported", typeof(T)));
+						throw new NotSupportedException($"the type {typeof(T)} is not supported");
 			
 					min = (T)minValue;
 					max = (T)maxValue;
@@ -1102,11 +1099,11 @@ namespace OpenGL.Objects
 		/// Convert this array buffer object in a strongly-typed array.
 		/// </summary>
 		/// <returns>
-		/// It returns an array having all items stored by this ArrayBufferObject.
+		/// It returns an array having all items stored by this ArrayBuffer.
 		/// </returns>
 		public new T[] ToArray()
 		{
-			return (ToArray<T>());
+			return ToArray<T>();
 		}
 
 		#endregion
