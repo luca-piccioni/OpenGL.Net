@@ -30,7 +30,7 @@ namespace OpenGL.Objects.Test
 	[TestFixture]
 	class GraphicsContextTest
 	{
-		[Test(Description = "Test GraphicsContext(DeviceContext, IntPtr)")]
+		[Test, Category("Objects")]
 		public void TestConstructorRaw()
 		{
 			using (DeviceContext deviceContext = DeviceContext.Create()) {
@@ -60,7 +60,7 @@ namespace OpenGL.Objects.Test
 			}
 		}
 
-		[Test(Description = "Test GraphicsContext(DeviceContext, GraphicsContext, KhronosVersion, GraphicsContextFlags)")]
+		[Test, Category("Objects")]
 		public void TestConstructor()
 		{
 			using (DeviceContext deviceContext = DeviceContext.Create()) {

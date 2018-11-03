@@ -7,7 +7,7 @@
     
     <PropertyGroup>
         <NUnitConsole>$(ProjectDir)..\packages\NUnit.ConsoleRunner.3.7.0\tools\nunit3-console.exe</NUnitConsole>
-        <NUnitOptions>--where="cat=GL||cat=GL_VERSION_1_0||cat=EGL||cat=WGL||cat=Math||cat=Framework||cat=Toolkit_CoreUI" --noheader --labels=All --workers=1</NUnitOptions>
+        <NUnitOptions>--where="cat=GL||cat=GL_VERSION_1_0||cat=EGL||cat=WGL||cat=Math||cat=Framework||cat=Toolkit_CoreUI||cat=Objects" --noheader --labels=All --workers=1</NUnitOptions>
         <NUnitResultFormat /> <!-- ;format=AppVeyor -->
         <NUnitResult>--result=$(ProjectDir)..\Tst$(OPENGL_NET_PLATFORM)$(ProjectName)_$(Platform)_$(Configuration).xml$(NUnitResultFormat)</NUnitResult>
     </PropertyGroup>
