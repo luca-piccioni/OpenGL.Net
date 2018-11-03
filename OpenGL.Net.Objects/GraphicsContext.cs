@@ -566,12 +566,18 @@ namespace OpenGL.Objects
 			}
 
 			// Query GL Shading Language version
+			string shadingLanguageVersion;
+
 			switch (Version.Api) {
 				case KhronosVersion.ApiGl:
-					ShadingVersion = KhronosVersion.Parse(Gl.GetString(StringName.ShadingLanguageVersion), KhronosVersion.ApiGlsl);
+					shadingLanguageVersion = Gl.GetString(StringName.ShadingLanguageVersion);
+					if (shadingLanguageVersion != null)
+						ShadingVersion = KhronosVersion.Parse(shadingLanguageVersion, KhronosVersion.ApiGlsl);
 					break;
 				case KhronosVersion.ApiGles2:
-					ShadingVersion = KhronosVersion.Parse(Gl.GetString(StringName.ShadingLanguageVersion), KhronosVersion.ApiEssl);
+					shadingLanguageVersion = Gl.GetString(StringName.ShadingLanguageVersion);
+					if (shadingLanguageVersion != null)
+					ShadingVersion = KhronosVersion.Parse(shadingLanguageVersion, KhronosVersion.ApiEssl);
 					break;
 			}
 
