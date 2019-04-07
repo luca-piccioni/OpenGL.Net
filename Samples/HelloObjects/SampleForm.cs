@@ -273,8 +273,8 @@ namespace HelloObjects
 			bitanCoordBuffer.Create(sphereGeometry.VertexArray.ArrayLength);
 			sphereGeometry.VertexArray.SetArray(bitanCoordBuffer, VertexArraySemantic.Bitangent);
 
-			sphereGeometry.VertexArray.GenerateTexCoords(new VertexArrayTexGen.Sphere());
-			sphereGeometry.VertexArray.GenerateTangents();
+			//sphereGeometry.VertexArray.GenerateTexCoords(ctx, new VertexArrayTexGen.Sphere());
+			//sphereGeometry.VertexArray.GenerateTangents();
 
 			sphereGeometry.ProgramTag = ShadersLibrary.Instance.CreateProgramTag("OpenGL.Standard+PhongFragment");
 
