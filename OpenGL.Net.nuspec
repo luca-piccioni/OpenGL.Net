@@ -19,6 +19,16 @@ It supports OpenGL 4.6 and OpenGL ES 3.2 with relative extensions, OpenGL for Wi
 No graphical toolkit integration is included in this package. UI backends are supported in separated packages (Windows.Forms, Xamarin.Forms, Broadcom VideoCore IV (Raspberry PI 2)).
         </description>
         <releaseNotes>
+* v0.8.0
+- Extensions added: GL_AMD_framebuffer_multisample_advanced, WGL_ATI_render_texture_rectangle, GL_MESAGE_framebuffer_flip_y, GL_NV_memory_attachment, GL_NV_mesh_shader, GL_NV_representative_fragment_test, GL_NV_scissor_exclusive, GL_NV_shading_rate_image, GL_QCOM_texture_foveated_subsampler_layout.
+- Added GL_AMD_shader_gpu_shader_half_float_fetch, GL_EXT_texture_format_sRGB_override, GL_EXT_shader_framebuffer_fetch_non_coherent and GL_INTEL_blackhole_render extensions.
+- Added ActiveTexture and MaxCombinedTextureImageUnits to GetPName.
+- GetnUniform parameter bufSize is implicit.
+- Added unsafe and generic overloads for Get commands and few others.
+- Using RTDL_LAZY flag for loading OpenGL (and other) libraries on Linux (RTLD_NOW prevent loading OpenGL functions for some configurations).
+- Fixed "Get" generic method argument with "out" modifier.
+- Built with VS 2015.
+
 * v0.7.1
 - Built with VS 2017 15.3.
 - Generic overrides for many commands.
@@ -56,6 +66,7 @@ No graphical toolkit integration is included in this package. UI backends are su
         <file src="OpenGL.Net/bin/net461/Release/OpenGL.Net.pdb" target="lib\net461" />
         <file src="OpenGL.Net/bin/monodroid/Release/OpenGL.Net.dll" target="lib\monoandroid" />
         <file src="OpenGL.Net/bin/monodroid/Release/OpenGL.Net.xml" target="lib\monoandroid" />
+<!--    
         <file src="OpenGL.Net/bin/monodroid/Release/OpenGL.Net.pdb" target="lib\monoandroid" />
         <file src="OpenGL.Net/bin/netcore/Release/netcoreapp1.1/OpenGL.Net.dll" target="lib\netcoreapp1.1" />
         <file src="OpenGL.Net/bin/netcore/Release/netcoreapp1.1/OpenGL.Net.xml" target="lib\netcoreapp1.1" />
@@ -63,5 +74,6 @@ No graphical toolkit integration is included in this package. UI backends are su
         <file src="OpenGL.Net/bin/netcore/Release/netcoreapp2.0/OpenGL.Net.dll" target="lib\netcoreapp2.0" />
         <file src="OpenGL.Net/bin/netcore/Release/netcoreapp2.0/OpenGL.Net.xml" target="lib\netcoreapp2.0" />
         <file src="OpenGL.Net/bin/netcore/Release/netcoreapp2.0/OpenGL.Net.pdb" target="lib\netcoreapp2.0" />
+-->
     </files>
 </package>

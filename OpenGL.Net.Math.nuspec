@@ -18,6 +18,10 @@ Implements most blittable data structures required for OpenGL interop. Vertices,
 Implements most of basic old-school OpenGL matrix math, i.e. projections or transforms.
         </description>
         <releaseNotes>
+* v0.8.0
+- Matrices and vertices implemented using structs
+- Removed previous matrices and vertices classes
+
 * v0.7.1
 - Built with VS 2017 15.3.
 - Include .NET Core targets (netcoreapp 1.1, netcoreapp 2.0).
@@ -58,11 +62,13 @@ Implements most of basic old-school OpenGL matrix math, i.e. projections or tran
         <file src="OpenGL.Net/bin/monodroid/Release/OpenGL.Net.Math.dll" target="lib\monoandroid" />
         <file src="OpenGL.Net/bin/monodroid/Release/OpenGL.Net.Math.xml" target="lib\monoandroid" />
         <file src="OpenGL.Net/bin/monodroid/Release/OpenGL.Net.Math.pdb" target="lib\monoandroid" />
+<!--
         <file src="OpenGL.Net/bin/netcore/Release/netcoreapp1.1/OpenGL.Net.Math.dll" target="lib\netcoreapp1.1" />
         <file src="OpenGL.Net/bin/netcore/Release/netcoreapp1.1/OpenGL.Net.Math.xml" target="lib\netcoreapp1.1" />
         <file src="OpenGL.Net/bin/netcore/Release/netcoreapp1.1/OpenGL.Net.Math.pdb" target="lib\netcoreapp1.1" />
         <file src="OpenGL.Net/bin/netcore/Release/netcoreapp2.0/OpenGL.Net.Math.dll" target="lib\netcoreapp2.0" />
         <file src="OpenGL.Net/bin/netcore/Release/netcoreapp2.0/OpenGL.Net.Math.xml" target="lib\netcoreapp2.0" />
         <file src="OpenGL.Net/bin/netcore/Release/netcoreapp2.0/OpenGL.Net.Math.pdb" target="lib\netcoreapp2.0" />
+-->
     </files>
 </package>

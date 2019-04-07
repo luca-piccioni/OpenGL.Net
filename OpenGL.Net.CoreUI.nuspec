@@ -20,6 +20,9 @@ Native window implementation for OpenGL.Net. The following platforms are support
 - Raspberry PI VC4 (not implemented yet)
         </description>
         <releaseNotes>
+* v0.8.0
+- No relevant changes.
+
 * v0.7.1
 - First release
 - Built with VS 2017 15.3.
@@ -47,11 +50,13 @@ Native window implementation for OpenGL.Net. The following platforms are support
         <file src="OpenGL.Net.CoreUI/bin/net461/Release/OpenGL.Net.CoreUI.dll" target="lib\net461" />
         <file src="OpenGL.Net.CoreUI/bin/net461/Release/OpenGL.Net.CoreUI.xml" target="lib\net461" />
         <file src="OpenGL.Net.CoreUI/bin/net461/Release/OpenGL.Net.CoreUI.pdb" target="lib\net461" />
+<!--
         <file src="OpenGL.Net.CoreUI/bin/netcore/Release/netcoreapp1.1/OpenGL.Net.CoreUI.dll" target="lib\netcoreapp1.1" />
         <file src="OpenGL.Net.CoreUI/bin/netcore/Release/netcoreapp1.1/OpenGL.Net.CoreUI.xml" target="lib\netcoreapp1.1" />
         <file src="OpenGL.Net.CoreUI/bin/netcore/Release/netcoreapp1.1/OpenGL.Net.CoreUI.pdb" target="lib\netcoreapp1.1" />
         <file src="OpenGL.Net.CoreUI/bin/netcore/Release/netcoreapp2.0/OpenGL.Net.CoreUI.dll" target="lib\netcoreapp2.0" />
         <file src="OpenGL.Net.CoreUI/bin/netcore/Release/netcoreapp2.0/OpenGL.Net.CoreUI.xml" target="lib\netcoreapp2.0" />
         <file src="OpenGL.Net.CoreUI/bin/netcore/Release/netcoreapp2.0/OpenGL.Net.CoreUI.pdb" target="lib\netcoreapp2.0" />
+-->
     </files>
 </package>

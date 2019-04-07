@@ -17,6 +17,9 @@ Modern OpenGL bindings for C#, Xamarin.Android utilities.
 It includes an SurfaceView implementation that ease the OpenGL context creation on Android.
         </description>
         <releaseNotes>
+* v0.8.0
+- No relevant changes.
+
 * v0.7.1
 - Built with VS 2017 15.3.
 
