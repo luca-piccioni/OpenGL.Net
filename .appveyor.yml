@@ -130,7 +130,7 @@ deploy:
   - provider: NuGet
     name: nuget_release
     api_key:
-      secure: oy2iqgg3e3jqg46uvsyqpvakoh5rqyeu7leva4xdfkbui4
+      secure: hsqF28ceXmiIE0aa6mNKtvNJJuvRx0wRbbj7M8I9UiktTv8m3pjq5LCJpdAKYuPY
     skip_symbols: true
     on:
       appveyor_repo_tag: true
