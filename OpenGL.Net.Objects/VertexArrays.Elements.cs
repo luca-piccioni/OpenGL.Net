@@ -46,12 +46,12 @@ namespace OpenGL.Objects
 			/// Specify which elements shall be drawn by indexing them, specifying an offset and the number of elements.
 			/// </summary>
 			/// <param name="vao">
-			/// The <see cref="Objects.VertexArrays"/> to which this element belongs to.
+			/// The <see cref="VertexArrays"/> to which this element belongs to.
 			/// </param>
 			/// <param name="mode">
 			/// A <see cref="PrimitiveType"/> that indicates how elements are interpreted.
 			/// </param>
-			protected Element(Objects.VertexArrays vao, PrimitiveType mode)
+			protected Element(VertexArrays vao, PrimitiveType mode)
 			{
 				if (vao == null)
 					throw new ArgumentNullException("vao");
@@ -60,9 +60,9 @@ namespace OpenGL.Objects
 			}
 
 			/// <summary>
-			/// The <see cref="Objects.VertexArrays"/> to which this element belongs to.
+			/// The <see cref="VertexArrays"/> to which this element belongs to.
 			/// </summary>
-			protected readonly Objects.VertexArrays _VertexArrayObject;
+			protected readonly VertexArrays _VertexArrayObject;
 
 			#endregion
 
@@ -130,10 +130,13 @@ namespace OpenGL.Objects
 			/// <summary>
 			/// Generate normals for this Element.
 			/// </summary>
-			/// <param name="vertexArray">
-			/// The <see cref="Objects.VertexArrays"/>
+			/// <param name="ctx">
+			/// The <see cref="GraphicsContext"/> used for accessing information.
 			/// </param>
-			public virtual void GenerateNormals(Objects.VertexArrays vertexArray)
+			/// <param name="vertexArray">
+			/// The <see cref="VertexArrays"/>
+			/// </param>
+			public virtual void GenerateNormals(GraphicsContext ctx, VertexArrays vertexArray)
 			{
 				throw new NotImplementedException();
 			}
@@ -141,10 +144,13 @@ namespace OpenGL.Objects
 			/// <summary>
 			/// Generate texture coordinates for this Element.
 			/// </summary>
-			/// <param name="vertexArray">
-			/// The <see cref="Objects.VertexArrays"/>
+			/// <param name="ctx">
+			/// The <see cref="GraphicsContext"/> used for accessing information.
 			/// </param>
-			public virtual void GenerateTexCoord(Objects.VertexArrays vertexArray, VertexArrayTexGenDelegate genTexCoordCallback)
+			/// <param name="vertexArray">
+			/// The <see cref="VertexArrays"/>
+			/// </param>
+			public virtual void GenerateTexCoord(GraphicsContext ctx, VertexArrays vertexArray, VertexArrayTexGenDelegate genTexCoordCallback)
 			{
 				throw new NotImplementedException();
 			}
@@ -152,10 +158,13 @@ namespace OpenGL.Objects
 			/// <summary>
 			/// Generate tangents for this Element.
 			/// </summary>
-			/// <param name="vertexArray">
-			/// The <see cref="Objects.VertexArrays"/>
+			/// <param name="ctx">
+			/// The <see cref="GraphicsContext"/> used for accessing information.
 			/// </param>
-			public virtual void GenerateTangents(Objects.VertexArrays vertexArray)
+			/// <param name="vertexArray">
+			/// The <see cref="VertexArrays"/>
+			/// </param>
+			public virtual void GenerateTangents(GraphicsContext ctx, VertexArrays vertexArray)
 			{
 				throw new NotImplementedException();
 			}
@@ -163,10 +172,13 @@ namespace OpenGL.Objects
 			/// <summary>
 			/// Generate bitangents for this Element.
 			/// </summary>
-			/// <param name="vertexArray">
-			/// The <see cref="Objects.VertexArrays"/>
+			/// <param name="ctx">
+			/// The <see cref="GraphicsContext"/> used for accessing information.
 			/// </param>
-			public virtual void GenerateBitangents(Objects.VertexArrays vertexArray)
+			/// <param name="vertexArray">
+			/// The <see cref="VertexArrays"/>
+			/// </param>
+			public virtual void GenerateBitangents(GraphicsContext ctx, VertexArrays vertexArray)
 			{
 				throw new NotImplementedException();
 			}
@@ -197,7 +209,7 @@ namespace OpenGL.Objects
 			/// Specify which elements shall be drawn, specifying an offset and the number of elements.
 			/// </summary>
 			/// <param name="vao">
-			/// The <see cref="Objects.VertexArrays"/> to which this element belongs to.
+			/// The <see cref="VertexArrays"/> to which this element belongs to.
 			/// </param>
 			/// <param name="mode">
 			/// A <see cref="PrimitiveType"/> that indicates how array elements are interpreted.
@@ -208,7 +220,7 @@ namespace OpenGL.Objects
 			/// <param name="count">
 			/// A <see cref="UInt32"/> that specify the number of array elements drawn.
 			/// </param>
-			public ArrayElement(Objects.VertexArrays vao, PrimitiveType mode, uint offset, uint count) :
+			public ArrayElement(VertexArrays vao, PrimitiveType mode, uint offset, uint count) :
 				base(vao, mode)
 			{
 				ElementOffset = offset;
@@ -225,7 +237,7 @@ namespace OpenGL.Objects
 			/// The array elements count is implictly defined as the vertex array length at <see cref="Draw(GraphicsContext)"/>
 			/// execution time.
 			/// </remarks>
-			public ArrayElement(Objects.VertexArrays vao, PrimitiveType mode) :
+			public ArrayElement(VertexArrays vao, PrimitiveType mode) :
 				this(vao, mode, 0, 0)
 			{
 				
@@ -306,10 +318,13 @@ namespace OpenGL.Objects
 			/// <summary>
 			/// Generate normals for this Element.
 			/// </summary>
-			/// <param name="vertexArray">
-			/// The <see cref="Objects.VertexArrays"/>
+			/// <param name="ctx">
+			/// The <see cref="GraphicsContext"/> used for accessing information.
 			/// </param>
-			public override void GenerateNormals(Objects.VertexArrays vertexArray)
+			/// <param name="vertexArray">
+			/// The <see cref="VertexArrays"/>
+			/// </param>
+			public override void GenerateNormals(GraphicsContext ctx, VertexArrays vertexArray)
 			{
 				IVertexArray positionArray = vertexArray.GetVertexArray(VertexArraySemantic.Position);
 				if (positionArray == null)
@@ -322,8 +337,8 @@ namespace OpenGL.Objects
 					throw new InvalidOperationException("normal array not set");
 
 				if (positionArray.Array != null)
-					positionArray.Array.Map();
-				normalArray.Array.Map();
+					positionArray.Array.Map(ctx, BufferAccess.ReadOnly);
+				normalArray.Array.Map(ctx, BufferAccess.ReadOnly);
 
 				try {
 					switch (ElementsMode) {
@@ -344,8 +359,8 @@ namespace OpenGL.Objects
 					}
 				} finally {
 					if (positionArray.Array != null)
-						positionArray.Array.Unmap();
-					normalArray.Array.Unmap();
+						positionArray.Array.Unmap(ctx);
+					normalArray.Array.Unmap(ctx);
 				}
 			}
 
@@ -390,10 +405,13 @@ namespace OpenGL.Objects
 			/// <summary>
 			/// Generate tangents for this Element.
 			/// </summary>
-			/// <param name="vertexArray">
-			/// The <see cref="Objects.VertexArrays"/>
+			/// <param name="ctx">
+			/// The <see cref="GraphicsContext"/> used for accessing information.
 			/// </param>
-			public override void GenerateTangents(Objects.VertexArrays vertexArray)
+			/// <param name="vertexArray">
+			/// The <see cref="VertexArrays"/>
+			/// </param>
+			public override void GenerateTangents(GraphicsContext ctx, VertexArrays vertexArray)
 			{
 				IVertexArray positionArray = vertexArray.GetVertexArray(VertexArraySemantic.Position);
 				if (positionArray == null)
@@ -421,12 +439,12 @@ namespace OpenGL.Objects
 					throw new InvalidOperationException("bitangent array not set");
 
 				if (positionArray.Array != null)
-					positionArray.Array.Map();
+					positionArray.Array.Map(ctx, BufferAccess.ReadOnly);
 				if (texArray.Array != null)
-					texArray.Array.Map();
-				normalArray.Array.Map();
-				tanArray.Array.Map();
-				bitanArray.Array.Map();
+					texArray.Array.Map(ctx, BufferAccess.ReadOnly);
+				normalArray.Array.Map(ctx, BufferAccess.ReadOnly);
+				tanArray.Array.Map(ctx, BufferAccess.ReadOnly);
+				bitanArray.Array.Map(ctx, BufferAccess.ReadOnly);
 
 				try {
 					switch (ElementsMode) {
@@ -444,12 +462,12 @@ namespace OpenGL.Objects
 					}
 				} finally {
 					if (positionArray.Array != null)
-						positionArray.Array.Unmap();
+						positionArray.Array.Unmap(ctx);
 					if (texArray.Array != null)
-						texArray.Array.Unmap();
-					normalArray.Array.Unmap();
-					tanArray.Array.Unmap();
-					bitanArray.Array.Unmap();
+						texArray.Array.Unmap(ctx);
+					normalArray.Array.Unmap(ctx);
+					tanArray.Array.Unmap(ctx);
+					bitanArray.Array.Unmap(ctx);
 				}
 			}
 
@@ -518,7 +536,7 @@ namespace OpenGL.Objects
 			/// Specify which elements shall be drawn, specifying an offset and the number of elements.
 			/// </summary>
 			/// <param name="vao">
-			/// The <see cref="Objects.VertexArrays"/> to which this element belongs to.
+			/// The <see cref="VertexArrays"/> to which this element belongs to.
 			/// </param>
 			/// <param name="mode">
 			/// A <see cref="PrimitiveType"/> that indicates how array elements are interpreted.
@@ -529,7 +547,7 @@ namespace OpenGL.Objects
 			/// <param name="counts">
 			/// A <see cref="T:Int32[]"/> that specify the number of array elements drawn.
 			/// </param>
-			public MultiArrayElement(Objects.VertexArrays vao, PrimitiveType mode, int[] offsets, int[] counts) :
+			public MultiArrayElement(VertexArrays vao, PrimitiveType mode, int[] offsets, int[] counts) :
 				base(vao, mode)
 			{
 				if (offsets == null)
@@ -748,8 +766,8 @@ namespace OpenGL.Objects
 						Gl.MultiDrawElements(ElementsMode, ArrayIndices.PrimitiveRestartOffsets, ArrayIndices.ElementsType, ArrayIndices.PrimitiveRestartCounts, ArrayIndices.PrimitiveRestartOffsets.Length);
 					}
 				} else {
-					uint count = (ElementCount == 0) ? ArrayIndices.GpuItemsCount : ElementCount;
-					Debug.Assert(count - ElementOffset <= ArrayIndices.GpuItemsCount, "element indices array out of bounds");
+					uint count = (ElementCount == 0) ? ArrayIndices.ItemsCount : ElementCount;
+					Debug.Assert(count - ElementOffset <= ArrayIndices.ItemsCount, "element indices array out of bounds");
 
 					// Disable primitive restart, if enabled
 					if (ctx.Extensions.PrimitiveRestart || ctx.Extensions.PrimitiveRestart_NV)
@@ -806,8 +824,8 @@ namespace OpenGL.Objects
 						throw new NotSupportedException("DrawInstanced primitive restart emulation not supported");
 					}
 				} else {
-					uint count = (ElementCount == 0) ? ArrayIndices.GpuItemsCount : ElementCount;
-					Debug.Assert(count - ElementOffset <= ArrayIndices.GpuItemsCount, "element indices array out of bounds");
+					uint count = (ElementCount == 0) ? ArrayIndices.ItemsCount : ElementCount;
+					Debug.Assert(count - ElementOffset <= ArrayIndices.ItemsCount, "element indices array out of bounds");
 
 					// Disable primitive restart, if enabled
 					if (ctx.Extensions.PrimitiveRestart || ctx.Extensions.PrimitiveRestart_NV)
@@ -826,8 +844,8 @@ namespace OpenGL.Objects
 			/// </param>
 			protected virtual void DrawElements(GraphicsContext ctx, IntPtr pointer)
 			{
-				uint count = (ElementCount == 0) ? ArrayIndices.GpuItemsCount : ElementCount;
-				Debug.Assert(count - ElementOffset <= ArrayIndices.GpuItemsCount, "element indices array out of bounds");
+				uint count = (ElementCount == 0) ? ArrayIndices.ItemsCount : ElementCount;
+				Debug.Assert(count - ElementOffset <= ArrayIndices.ItemsCount, "element indices array out of bounds");
 
 				// Draw elements as usual
 				Gl.DrawElements(ElementsMode, (int)count, ArrayIndices.ElementsType, pointer);
@@ -841,8 +859,8 @@ namespace OpenGL.Objects
 			/// </param>
 			protected virtual void DrawElementsInstanced(GraphicsContext ctx, IntPtr pointer, uint instances)
 			{
-				uint count = (ElementCount == 0) ? ArrayIndices.GpuItemsCount : ElementCount;
-				Debug.Assert(count - ElementOffset <= ArrayIndices.GpuItemsCount, "element indices array out of bounds");
+				uint count = (ElementCount == 0) ? ArrayIndices.ItemsCount : ElementCount;
+				Debug.Assert(count - ElementOffset <= ArrayIndices.ItemsCount, "element indices array out of bounds");
 
 				// Draw elements
 				Gl.DrawElementsInstanced(ElementsMode, (int)count, ArrayIndices.ElementsType, pointer, (int)instances);
@@ -851,10 +869,13 @@ namespace OpenGL.Objects
 			/// <summary>
 			/// Generate texture coordinates for this Element.
 			/// </summary>
-			/// <param name="vertexArray">
-			/// The <see cref="Objects.VertexArrays"/>
+			/// <param name="ctx">
+			/// The <see cref="GraphicsContext"/> used for accessing information.
 			/// </param>
-			public override void GenerateTexCoord(VertexArrays vertexArray, VertexArrayTexGenDelegate genTexCoordCallback)
+			/// <param name="vertexArray">
+			/// The <see cref="VertexArrays"/>
+			/// </param>
+			public override void GenerateTexCoord(GraphicsContext ctx, VertexArrays vertexArray, VertexArrayTexGenDelegate genTexCoordCallback)
 			{
 				IVertexArray positionArray = vertexArray.GetVertexArray(VertexArraySemantic.Position);
 				if (positionArray == null)
@@ -867,9 +888,9 @@ namespace OpenGL.Objects
 					throw new InvalidOperationException("texture array not set");
 
 				if (positionArray.Array != null)
-					positionArray.Array.Map();
-				texArray.Array.Map();
-				ArrayIndices.Map();
+					positionArray.Array.Map(ctx, BufferAccess.ReadOnly);
+				texArray.Array.Map(ctx, BufferAccess.ReadOnly);
+				ArrayIndices.Map(ctx, BufferAccess.ReadOnly);
 
 				try {
 					switch (ElementsMode) {
@@ -888,15 +909,15 @@ namespace OpenGL.Objects
 					}
 				} finally {
 					if (positionArray.Array != null)
-						positionArray.Array.Unmap();
-					texArray.Array.Unmap();
-					ArrayIndices.Unmap();
+						positionArray.Array.Unmap(ctx);
+					texArray.Array.Unmap(ctx);
+					ArrayIndices.Unmap(ctx);
 				}
 			}
 
 			private void GenerateTexCoordsTriangle3f(IVertexArray positionArray, IVertexArray texArray, VertexArrayTexGenDelegate genTexCoordCallback)
 			{
-				for (uint i = 0, v = ElementOffset; i < ArrayIndices.CpuItemsCount; i++, v++) {
+				for (uint i = 0, v = ElementOffset; i < ArrayIndices.ItemsCount; i++, v++) {
 					uint vIndex = ArrayIndices.GetIndex(v);
 
 					Vertex3f v0 = positionArray.GetElement<Vertex3f>(vIndex);
@@ -908,10 +929,13 @@ namespace OpenGL.Objects
 			/// <summary>
 			/// Generate tangents for this Element.
 			/// </summary>
-			/// <param name="vertexArray">
-			/// The <see cref="Objects.VertexArrays"/>
+			/// <param name="ctx">
+			/// The <see cref="GraphicsContext"/> used for accessing information.
 			/// </param>
-			public override void GenerateTangents(Objects.VertexArrays vertexArray)
+			/// <param name="vertexArray">
+			/// The <see cref="VertexArrays"/>
+			/// </param>
+			public override void GenerateTangents(GraphicsContext ctx, VertexArrays vertexArray)
 			{
 				IVertexArray positionArray = vertexArray.GetVertexArray(VertexArraySemantic.Position);
 				if (positionArray == null)
@@ -939,13 +963,13 @@ namespace OpenGL.Objects
 					throw new InvalidOperationException("bitangent array not set");
 
 				if (positionArray.Array != null)
-					positionArray.Array.Map();
+					positionArray.Array.Map(ctx, BufferAccess.ReadOnly);
 				if (texArray.Array != null)
-					texArray.Array.Map();
-				normalArray.Array.Map();
-				tanArray.Array.Map();
-				bitanArray.Array.Map();
-				ArrayIndices.Map();
+					texArray.Array.Map(ctx, BufferAccess.ReadOnly);
+				normalArray.Array.Map(ctx, BufferAccess.ReadOnly);
+				tanArray.Array.Map(ctx, BufferAccess.ReadOnly);
+				bitanArray.Array.Map(ctx, BufferAccess.ReadOnly);
+				ArrayIndices.Map(ctx, BufferAccess.ReadOnly);
 
 				try {
 					switch (ElementsMode) {
@@ -963,13 +987,13 @@ namespace OpenGL.Objects
 					}
 				} finally {
 					if (positionArray.Array != null)
-						positionArray.Array.Unmap();
+						positionArray.Array.Unmap(ctx);
 					if (texArray.Array != null)
-						texArray.Array.Unmap();
-					normalArray.Array.Unmap();
-					tanArray.Array.Unmap();
-					bitanArray.Array.Unmap();
-					ArrayIndices.Unmap();
+						texArray.Array.Unmap(ctx);
+					normalArray.Array.Unmap(ctx);
+					tanArray.Array.Unmap(ctx);
+					bitanArray.Array.Unmap(ctx);
+					ArrayIndices.Unmap(ctx);
 				}
 			}
 
@@ -977,7 +1001,7 @@ namespace OpenGL.Objects
 
 			private void GenerateTangentsTriangleStrip3f(IVertexArray positionArray, IVertexArray normalArray, IVertexArray texArray, IVertexArray tanArray, IVertexArray bitanArray)
 			{
-				uint count = ElementCount != 0 ? ElementCount : ArrayIndices.CpuItemsCount;
+				uint count = ElementCount != 0 ? ElementCount : ArrayIndices.ItemsCount;
 
 				uint     i0, i1, i2;
 				Vertex3f v0, v1, v2;

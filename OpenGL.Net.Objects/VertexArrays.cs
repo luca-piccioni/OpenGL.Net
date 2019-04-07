@@ -354,10 +354,10 @@ namespace OpenGL.Objects
 		/// generation requires user to allocate normal buffer following the other elements; and the position semantic
 		/// must be defined and meaninfull.
 		/// </exception>
-		public void GenerateNormals()
+		public void GenerateNormals(GraphicsContext ctx)
 		{
 			foreach (Element vertexElement in DrawElements)
-				vertexElement.GenerateNormals(this);
+				vertexElement.GenerateNormals(ctx, this);
 		}
 
 		/// <summary>
@@ -366,10 +366,10 @@ namespace OpenGL.Objects
 		/// <param name="genTexCoordCallback">
 		/// A <see cref="VertexArrayTexGenDelegate"/> used for generating texture coordinates.
 		/// </param>
-		public void GenerateTexCoords(VertexArrayTexGenDelegate genTexCoordCallback)
+		public void GenerateTexCoords(GraphicsContext ctx, VertexArrayTexGenDelegate genTexCoordCallback)
 		{
 			foreach (Element vertexElement in DrawElements)
-				vertexElement.GenerateTexCoord(this, genTexCoordCallback);
+				vertexElement.GenerateTexCoord(ctx, this, genTexCoordCallback);
 		}
 
 		/// <summary>
@@ -378,14 +378,12 @@ namespace OpenGL.Objects
 		/// <param name="vertexArrayTexGen">
 		/// A <see cref="IVertexArrayTexGen"/> used for generating texture coordinates.
 		/// </param>
-		public void GenerateTexCoords(IVertexArrayTexGen vertexArrayTexGen)
+		public void GenerateTexCoords(GraphicsContext ctx, IVertexArrayTexGen vertexArrayTexGen)
 		{
 			// Interface initialization (i.e. stats and other information)
 			vertexArrayTexGen.Initialize(this);
 			// Process texture coords as usual
-			GenerateTexCoords(delegate (Vertex3f position) {
-				return (vertexArrayTexGen.Generate(position));
-			});
+			GenerateTexCoords(ctx, position => vertexArrayTexGen.Generate(position));
 		}
 
 		/// <summary>
@@ -396,10 +394,10 @@ namespace OpenGL.Objects
 		/// generation requires user to allocate relatives buffer following the other elements; and the position semantic
 		/// and the texture coordinate semantic must be defined and meaninfull.
 		/// </exception>
-		public void GenerateTangents()
+		public void GenerateTangents(GraphicsContext ctx)
 		{
 			foreach (Element vertexElement in DrawElements)
-				vertexElement.GenerateTangents(this);
+				vertexElement.GenerateTangents(ctx, this);
 		}
 
 		#endregion

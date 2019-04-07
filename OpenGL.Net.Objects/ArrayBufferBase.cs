@@ -45,13 +45,18 @@ namespace OpenGL.Objects
 		/// <param name="bufferTarget">
 		/// A <see cref="BufferTarget"/> that specifies the buffer target.
 		/// </param>
+		/// <param name="itemSize">
+		/// A <see cref="uint"/> that specifies the size of a single item, in bytes.
+		/// </param>
 		/// <param name="hint">
 		/// An <see cref="BufferUsage"/> that specify the data buffer usage hints.
 		/// </param>
-		protected ArrayBufferBase(BufferTarget bufferTarget, BufferUsage hint) :
+		protected ArrayBufferBase(BufferTarget bufferTarget, uint itemSize, BufferUsage hint) :
 			base(bufferTarget, hint)
 		{
-
+			if (itemSize == 0)
+				throw new ArgumentException("invalid", nameof(itemSize));
+			ItemSize = itemSize;
 		}
 
 		/// <summary>
@@ -60,75 +65,33 @@ namespace OpenGL.Objects
 		/// <param name="bufferTarget">
 		/// A <see cref="BufferTarget"/> that specify the buffer target.
 		/// </param>
+		/// <param name="itemSize">
+		/// A <see cref="uint"/> that specifies the size of a single item, in bytes.
+		/// </param>
 		/// <param name="usageMask">
 		/// A <see cref="MapBufferUsageMask"/> that specifies the data buffer usage mask.
 		/// </param>
-		protected ArrayBufferBase(BufferTarget bufferTarget, MapBufferUsageMask usageMask) :
+		protected ArrayBufferBase(BufferTarget bufferTarget, uint itemSize, MapBufferUsageMask usageMask) :
 			base(bufferTarget, usageMask)
 		{
-
+			if (itemSize == 0)
+				throw new ArgumentException("invalid", nameof(itemSize));
+			ItemSize = itemSize;
 		}
 
 		#endregion
 
-		#region Item Size
+		#region Item
 
 		/// <summary>
 		/// Get the size of the item of this array buffer object, in bytes.
 		/// </summary>
-		public uint ItemSize
-		{
-			get { return _ItemSize; }
-			protected set
-			{
-				if (value == 0)
-					throw new InvalidOperationException("invalid value");
-				_ItemSize = value;
-			}
-		}
+		public readonly uint ItemSize;
 
 		/// <summary>
-		/// Size of the storage of the array buffer object, in basic machine units (bytes).
+		/// Get the GPU items count.
 		/// </summary>
-		private uint _ItemSize;
-
-		#endregion
-
-		#region Items Count
-
-		/// <summary>
-		/// Get the GPU items count, if this ArrayBufferBase is created; otherwise it returns the
-		/// CPU items count.
-		/// </summary>
-		public uint ItemsCount
-		{
-			get {
-				uint gpuItemsCount = GpuItemsCount;
-
-				if (gpuItemsCount > 0)
-					return gpuItemsCount;
-
-				return CpuItemsCount;
-			}
-		}
-
-		/// <summary>
-		/// Get the item count allocated for this array buffer object. In the case this ArrayBufferObject
-		/// has not been created yet, it returns the size of the client buffer.
-		/// </summary>
-		public uint GpuItemsCount
-		{
-			get { return GpuBufferSize / ItemSize; }
-		}
-
-		/// <summary>
-		/// Get the item count allocated in the client buffer of this buffer object. In the case this ArrayBufferObject
-		/// has not been defined yet, or the client buffer has been disposed due the context creation, it returns 0.
-		/// </summary>
-		public uint CpuItemsCount
-		{
-			get { return CpuBufferSize / ItemSize; }
-		}
+		public uint ItemsCount { get; private set; }
 
 		#endregion
 
@@ -252,34 +215,19 @@ namespace OpenGL.Objects
 
 		#region Create
 
-		#region Create(uint itemsCount)
-
 		/// <summary>
 		/// Create this ArrayBufferObject by specifing only the number of items.
 		/// </summary>
 		/// <param name="itemsCount">
 		/// A <see cref="uint"/> that specify the number of elements hold by this ArrayBufferObject.
 		/// </param>
-		/// <remarks>
-		/// <para>
-		/// Previous content of the client buffer is discarded.
-		/// </para>
-		/// </remarks>
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="itemsCount"/> is zero.
 		/// </exception>
-		public virtual void Create(uint itemsCount)
+		public void Create(uint itemsCount)
 		{
-			if (itemsCount == 0)
-				throw new ArgumentException("invalid", nameof(itemsCount));
-
-			// Allocate buffer
-			CreateCpuBuffer(itemsCount * ItemSize);
+			AddTechnique(new EmptyCreateTechnique(this, itemsCount * ItemSize));
 		}
-
-		#endregion
-
-		#region Create(GraphicsContext ctx, uint itemsCount)
 
 		/// <summary>
 		/// Create this ArrayBufferObject by specifing only the number of items.
@@ -290,448 +238,56 @@ namespace OpenGL.Objects
 		/// <param name="itemsCount">
 		/// A <see cref="uint"/> that specify the number of elements hold by this ArrayBufferObject.
 		/// </param>
-		/// <remarks>
-		/// <para>
-		/// Previous content of the client buffer is discarded, if any was defined.
-		/// </para>
-		/// </remarks>
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="itemsCount"/> is zero.
 		/// </exception>
-		public virtual void Create(GraphicsContext ctx, uint itemsCount)
+		public void Create(GraphicsContext ctx, uint itemsCount)
 		{
 			CheckCurrentContext(ctx);
 
-			if (itemsCount == 0)
-				throw new ArgumentException("invalid", nameof(itemsCount));
-
-			// Object already existing: resize client buffer, if any
-			if (CpuBufferAddress != IntPtr.Zero)
-				CreateCpuBuffer(itemsCount * ItemSize);
-			// If not exists, set GPU buffer size; otherwise keep in synch with client buffer size
-			CpuBufferSize = itemsCount * ItemSize;
-			// Allocate object
+			Create(itemsCount);
 			Create(ctx);
 		}
 
-		#endregion
-
-		#region Create(Array array, uint offset, uint count)
-
 		/// <summary>
-		/// Copy data from any source supported.
+		/// Create this ArrayBufferObject by specifing only the number of items.
 		/// </summary>
 		/// <param name="array">
-		/// The source array where the data comes from.
-		/// </param>
-		/// <param name="offset">
-		/// A <see cref="uint"/> that specify the first element to be copied.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="uint"/> that specify the number of items to copy. The items to copy are referred in terms
-		/// of the data layout of this <see cref="ArrayBuffer"/>, not of the element type of <paramref name="array"/>!
+		/// A <see cref="Array"/> that specifies the (new) content of this <see cref="ArrayBufferBase"/>.
 		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="array"/> is null.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if the rank of <paramref name="array"/> is different from 1.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if it is not possible to determine the element type of the array <paramref name="array"/>, or if the base type of
-		/// the array elements is not compatible with the base type of this <see cref="ArrayBuffer"/>.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if the size of the elements of <paramref name="array"/> is larger than <see cref="ItemSize"/>.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if <paramref name="offset"/> or <paramref name="count"/> let exceed the array boundaries.
-		/// </exception>
-		public virtual void Create(Array array, uint offset, uint count)
-		{
-			if (count == 0)
-				throw new ArgumentException("zero not allowed", nameof(count));
-
-			// Array element item size cannot exceed ItemSize
-			uint arrayItemSize = CheckArrayItemSize(array);
-
-			// Ensure that ClientBufferSize returns the correct client buffer size
-			CpuBufferSize = 0;
-			// Memory buffer shall be able to contains all data
-			if (CpuBufferSize < ItemSize * count)
-				CreateCpuBuffer(ItemSize * count);
-
-			// Copy on buffer
-			CopyBuffer(CpuBufferAddress, array, arrayItemSize, offset, count);
-		}
-
-		/// <summary>
-		/// Copy data from any source supported.
-		/// </summary>
-		/// <param name="array">
-		/// The source array where the data comes from.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="uint"/> that specify the number of items to copy. The items to copy are referred in terms
-		/// of the data layout of this <see cref="ArrayBuffer"/>, not of the element type of <paramref name="array"/>!
-		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="array"/> is null.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if the rank of <paramref name="array"/> is different from 1.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if it is not possible to determine the element type of the array <paramref name="array"/>, or if the base type of
-		/// the array elements is not compatible with the base type of this <see cref="ArrayBuffer"/>.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if the size of the elements of <paramref name="array"/> is larger than <see cref="ItemSize"/>.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if <paramref name="count"/> let exceed the array boundaries.
-		/// </exception>
-		public void Create(Array array, uint count)
-		{
-			Create(array, 0, count);
-		}
-
-		/// <summary>
-		/// Copy data from any source supported.
-		/// </summary>
-		/// <param name="array">
-		/// The source array where the data comes from.
-		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="array"/> is null.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if the rank of <paramref name="array"/> is different from 1.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if it is not possible to determine the element type of the array <paramref name="array"/>, or if the base type of
-		/// the array elements is not compatible with the base type of this <see cref="ArrayBuffer"/>.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if the size of the elements of <paramref name="array"/> is larger than <see cref="ItemSize"/>.
 		/// </exception>
 		public void Create(Array array)
 		{
-			Create(array, 0, (uint)array.Length);
+			AddTechnique(new ArrayCreateTechnique(this, array));
 		}
 
-		#endregion
-
-		#region Create(GraphicsContext ctx, Array array, uint offset, uint count)
-
 		/// <summary>
-		/// Copy data from any source supported, uploading data.
+		/// Create this ArrayBufferObject by specifing only the number of items.
 		/// </summary>
 		/// <param name="ctx">
-		/// The <see cref="GraphicsContext"/> used for copying data.
+		/// A <see cref="GraphicsContext"/> used to define this ArrayBufferObject.
 		/// </param>
 		/// <param name="array">
-		/// The source array where the data comes from.
+		/// A <see cref="Array"/> that specifies the (new) content of this <see cref="ArrayBufferBase"/>.
 		/// </param>
-		/// <param name="offset">
-		/// A <see cref="uint"/> that specify the first element to be copied.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="uint"/> that specify the number of items to copy. The items to copy are referred in terms
-		/// of the data layout of this <see cref="ArrayBuffer"/>, not of the element type of <paramref name="array"/>!
-		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="ctx"/> or <paramref name="array"/> is null.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if the rank of <paramref name="ctx"/> is not current on the calling thread.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if the rank of <paramref name="array"/> is different from 1.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if it is not possible to determine the element type of the array <paramref name="array"/>, or if the base type of
-		/// the array elements is not compatible with the base type of this <see cref="ArrayBuffer"/>.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if the size of the elements of <paramref name="array"/> is larger than <see cref="ItemSize"/>.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if <paramref name="offset"/> or <paramref name="count"/> let exceed the array boundaries.
-		/// </exception>
-		public virtual void Create(GraphicsContext ctx, Array array, uint offset, uint count)
-		{
-			CheckCurrentContext(ctx);
-
-			if (count == 0)
-				throw new ArgumentException("zero not allowed", nameof(count));
-
-			// Array element item size cannot exceed ItemSize
-			uint arrayItemSize = CheckArrayItemSize(array);
-
-			// Ensure enought buffer
-			Create(ctx, count);
-			// Copy data mapping GPU buffer
-			Map(ctx, BufferAccess.WriteOnly);
-			try {
-				// Copy on buffer
-				CopyBuffer(MappedBuffer, array, arrayItemSize, offset, count);
-			} finally {
-				Unmap(ctx);
-			}
-		}
-
-		/// <summary>
-		/// Copy data from any source supported, uploading data.
-		/// </summary>
-		/// <param name="ctx">
-		/// The <see cref="GraphicsContext"/> used for copying data.
-		/// </param>
-		/// <param name="array">
-		/// The source array where the data comes from.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="uint"/> that specify the number of items to copy. The items to copy are referred in terms
-		/// of the data layout of this <see cref="ArrayBuffer"/>, not of the element type of <paramref name="array"/>!
-		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="ctx"/> or <paramref name="array"/> is null.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if the rank of <paramref name="ctx"/> is not current on the calling thread.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if the rank of <paramref name="array"/> is different from 1.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if it is not possible to determine the element type of the array <paramref name="array"/>, or if the base type of
-		/// the array elements is not compatible with the base type of this <see cref="ArrayBuffer"/>.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if the size of the elements of <paramref name="array"/> is larger than <see cref="ItemSize"/>.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if <paramref name="count"/> let exceed the array boundaries.
-		/// </exception>
-		public void Create(GraphicsContext ctx, Array array, uint count)
-		{
-			Create(ctx, array, 0, count);
-		}
-
-		/// <summary>
-		/// Copy data from any source supported, uploading data.
-		/// </summary>
-		/// <param name="ctx">
-		/// The <see cref="GraphicsContext"/> used for copying data.
-		/// </param>
-		/// <param name="array">
-		/// The source array where the data comes from.
-		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="ctx"/> or <paramref name="array"/> is null.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if the rank of <paramref name="ctx"/> is not current on the calling thread.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if the rank of <paramref name="array"/> is different from 1.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if it is not possible to determine the element type of the array <paramref name="array"/>, or if the base type of
-		/// the array elements is not compatible with the base type of this <see cref="ArrayBuffer"/>.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if the size of the elements of <paramref name="array"/> is larger than <see cref="ItemSize"/>.
-		/// </exception>
-		public void Create(GraphicsContext ctx, Array array)
-		{
-			Create(ctx, array, 0, (uint)array.Length);
-		}
-
-		#endregion
-
-		/// <summary>
-		/// Copy an <see cref="Array"/> to a buffer.
-		/// </summary>
-		/// <param name="buffer">
-		/// A <see cref="IntPtr"/> that specify the buffer address.
-		/// </param>
-		/// <param name="array">
-		/// The source array where the data comes from.
-		/// </param>
-		/// <param name="arrayItemSize">
-		/// A <see cref="uint"/> that specify the size of the elements of <paramref name="array"/>.
-		/// </param>
-		/// <param name="offset">
-		/// A <see cref="uint"/> that specify the first element to be copied.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="uint"/> that specify the number of items to copy. The items to copy are referred in terms
-		/// of the data layout of this <see cref="ArrayBuffer"/>, not of the element type of <paramref name="array"/>!
-		/// </param>
-		protected virtual void CopyBuffer(IntPtr buffer, Array array, uint arrayItemSize, uint offset, uint count)
-		{
-			CopyArray(buffer, ItemSize, array, arrayItemSize, offset, count);
-		}
-
-		/// <summary>
-		/// Safety checks on input array instance.
-		/// </summary>
-		/// <param name="array">
-		/// The <see cref="Array"/> to be checked for validity and compatibility with this ArrayBufferObjectBase instance.
-		/// </param>
-		/// <returns>
-		/// It returns the size of the element of <paramref name="array"/>, in bytes.
-		/// </returns>
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="array"/> is null.
 		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if <paramref name="array"/> has a rank greater than 1.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if <paramref name="array"/> element type is not a value type.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if <paramref name="array"/> element type size is greater than <see cref="ItemSize"/>.
-		/// </exception>
-		private uint CheckArrayItemSize(Array array)
+		public void Create(GraphicsContext ctx, Array array)
 		{
-			if (array == null)
-				throw new ArgumentNullException(nameof(array));
-			if (array.Rank != 1)
-				throw new ArgumentException($"copying from array of rank {array.Rank} not supported");
+			CheckCurrentContext(ctx);
 
-			Type arrayElementType = array.GetType().GetElementType();
-			if (arrayElementType == null || !arrayElementType.IsValueType)
-				throw new ArgumentException("invalid array element type", nameof(array));
-
-			// Array element item size cannot exceed ItemSize
-			uint arrayItemSize = (uint)Marshal.SizeOf(arrayElementType);
-			if (arrayItemSize > ItemSize)
-				throw new ArgumentException("array element type too big", nameof(array));
-
-			return arrayItemSize;
+			Create(array);
+			Create(ctx);
 		}
 
 		#endregion
 
 		#region Update
 
-		/// <summary>
-		/// Copy data from any source supported, uploading data.
-		/// </summary>
-		/// <param name="ctx">
-		/// The <see cref="GraphicsContext"/> used for copying data.
-		/// </param>
-		/// <param name="array">
-		/// The source array where the data comes from.
-		/// </param>
-		/// <param name="offset">
-		/// A <see cref="uint"/> that specify the first element to be copied.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="uint"/> that specify the number of items to copy. The items to copy are referred in terms
-		/// of the data layout of this <see cref="ArrayBuffer"/>, not of the element type of <paramref name="array"/>!
-		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="ctx"/> or <paramref name="array"/> is null.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if the rank of <paramref name="ctx"/> is not current on the calling thread.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if the rank of <paramref name="array"/> is different from 1.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if it is not possible to determine the element type of the array <paramref name="array"/>, or if the base type of
-		/// the array elements is not compatible with the base type of this <see cref="ArrayBuffer"/>.
-		/// </exception>
-		public virtual void Update(GraphicsContext ctx, Array array, uint offset, uint count)
-		{
-			CheckThisExistence(ctx);
-
-			if (count == 0)
-				throw new ArgumentException("zero not allowed", nameof(count));
-			if (IsMapped)
-				throw new InvalidOperationException("mapped");
-
-			// Check whether this GPU buffer overflow that required array
-			uint arrayItemSize = CheckArrayItemSize(array);
-
-			// Buffer  must be bound
-			ctx.Bind(this);
-
-			if (arrayItemSize * count > GpuBufferSize)
-				CreateGpuBuffer(ctx, arrayItemSize * count, IntPtr.Zero);
-
-			// Copy data mapping GPU buffer
-			Map(ctx, BufferAccess.WriteOnly);
-			try {
-				// Copy on buffer
-				CopyBuffer(MappedBuffer, array, arrayItemSize, offset, count);
-			} finally {
-				Unmap(ctx);
-			}
-		}
-
-		/// <summary>
-		/// Copy data from any source supported, uploading data.
-		/// </summary>
-		/// <param name="ctx">
-		/// The <see cref="GraphicsContext"/> used for copying data.
-		/// </param>
-		/// <param name="array">
-		/// The source array where the data comes from.
-		/// </param>
-		/// <param name="count">
-		/// A <see cref="uint"/> that specify the number of items to copy. The items to copy are referred in terms
-		/// of the data layout of this <see cref="ArrayBuffer"/>, not of the element type of <paramref name="array"/>!
-		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="ctx"/> or <paramref name="array"/> is null.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if the rank of <paramref name="ctx"/> is not current on the calling thread.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if the rank of <paramref name="array"/> is different from 1.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if it is not possible to determine the element type of the array <paramref name="array"/>, or if the base type of
-		/// the array elements is not compatible with the base type of this <see cref="ArrayBuffer"/>.
-		/// </exception>
-		public void Update(GraphicsContext ctx, Array array, uint count)
-		{
-			Update(ctx, array, 0, count);
-		}
-
-		/// <summary>
-		/// Copy data from any source supported, uploading data.
-		/// </summary>
-		/// <param name="ctx">
-		/// The <see cref="GraphicsContext"/> used for copying data.
-		/// </param>
-		/// <param name="array">
-		/// The source array where the data comes from.
-		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="ctx"/> or <paramref name="array"/> is null.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if the rank of <paramref name="ctx"/> is not current on the calling thread.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if the rank of <paramref name="array"/> is different from 1.
-		/// </exception>
-		/// <exception cref="ArgumentException">
-		/// Exception thrown if it is not possible to determine the element type of the array <paramref name="array"/>, or if the base type of
-		/// the array elements is not compatible with the base type of this <see cref="ArrayBuffer"/>.
-		/// </exception>
-		public void Update(GraphicsContext ctx, Array array)
-		{
-			Update(ctx, array, 0, (uint)array.Length);
-		}
+		
 
 		#endregion
 
@@ -1161,7 +717,21 @@ namespace OpenGL.Objects
 
 		#endregion
 
-		#region BufferObject Overrides
+		#region Overrides
+
+		/// <summary>
+		/// The size of this Buffer, in bytes.
+		/// </summary>
+		public override uint Size
+		{
+			protected set
+			{
+				// Base implementation
+				base.Size = value;
+				// Derive items count
+				ItemsCount = value / ItemSize;
+			}
+		}
 
 		/// <summary>
 		/// Determine whether this object requires a name bound to a context or not.

@@ -19,45 +19,48 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+using System;
+using System.Collections.Generic;
 using NUnit.Framework;
 
 namespace OpenGL.Objects.Test
 {
 	class ArrayBufferTest : ArrayBufferBaseTest
 	{
-		#region Buffer.Map()
+		#region ArrayBuffer.Create
 
-		[Test, TestCaseSource(nameof(MapArrayBufferCpuSource))]
-		public void MapArrayBufferCpu(ArrayBuffer arrayBuffer)
+		[Test, TestCaseSource(nameof(TestCreateEmptySource)), Category("Objects")]
+		public void TestCreateEmpty(ArrayBuffer arrayBuffer)
 		{
-			MapBufferCpu(arrayBuffer);
-		}
-
-		public static ArrayBuffer[] MapArrayBufferCpuSource
-		{
-			get 
-			{
-				return new ArrayBuffer[] {
-					new ArrayBuffer(ArrayBufferItemType.Float2, BufferUsage.StaticDraw),
-					new ArrayBuffer(ArrayBufferItemType.Float4, BufferUsage.StaticDraw),
-				}; 
+			try {
+				// Test ArrayBufferBase interface
+				base.TestCreateEmpty(arrayBuffer);
+			} finally {
+				arrayBuffer.Dispose();
 			}
 		}
 
-		[Test, TestCaseSource(nameof(MapArrayBufferGenericCpuSource))]
-		public void MapArrayBufferGenericCpu(ArrayBuffer arrayBuffer)
+		public static ArrayBuffer[] TestCreateEmptySource
 		{
-			MapBufferCpu(arrayBuffer);
-		}
-
-		public static ArrayBuffer[] MapArrayBufferGenericCpuSource
-		{
-			get 
+			get
 			{
-				return new ArrayBuffer[] {
-					new ArrayBuffer<Vertex2f>(BufferUsage.StreamDraw),
-					new ArrayBuffer<Vertex4f>(BufferUsage.StreamDraw),
-				}; 
+				List<ArrayBuffer> source = new List<ArrayBuffer>();
+
+				foreach (ArrayBufferItemType arrayBufferItemType in Enum.GetValues(typeof(ArrayBufferItemType))) {
+					source.AddRange(new[] {
+							new ArrayBuffer(arrayBufferItemType, BufferUsage.StreamDraw),
+							new ArrayBuffer(arrayBufferItemType, BufferUsage.StaticRead),
+							new ArrayBuffer(arrayBufferItemType, BufferUsage.StreamCopy),
+							new ArrayBuffer(arrayBufferItemType, BufferUsage.DynamicDraw),
+							new ArrayBuffer(arrayBufferItemType, BufferUsage.DynamicRead),
+							new ArrayBuffer(arrayBufferItemType, BufferUsage.DynamicCopy),
+							new ArrayBuffer(arrayBufferItemType, BufferUsage.StreamDraw),
+							new ArrayBuffer(arrayBufferItemType, BufferUsage.StreamRead),
+							new ArrayBuffer(arrayBufferItemType, BufferUsage.StreamCopy),
+					});
+				}
+
+				return source.ToArray();
 			}
 		}
 

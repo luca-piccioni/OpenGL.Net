@@ -310,7 +310,7 @@ namespace OpenGL.Objects.Scene
 				VertexArrays vertexArray = new VertexArrays();
 				List<ObjFaceCoord> coords = new List<ObjFaceCoord>();
 				bool hasTexCoord = Material.DiffuseTexture != null;
-				bool hasNormals = true;
+				bool hasNormals = false;
 				bool hasTanCoord = hasTexCoord && Material.NormalTexture != null;
 
 				foreach (ObjFace f in Faces) {
@@ -364,7 +364,7 @@ namespace OpenGL.Objects.Scene
 					ArrayBuffer<Vertex3f> normalBuffer = new ArrayBuffer<Vertex3f>();
 					normalBuffer.Create(vertexCount);
 					vertexArray.SetArray(normalBuffer, VertexArraySemantic.Normal);
-					vertexArray.GenerateNormals();
+					// XXX vertexArray.GenerateNormals();
 				}
 
 				// Tangents
@@ -377,7 +377,7 @@ namespace OpenGL.Objects.Scene
 					bitanCoordBuffer.Create(vertexCount);
 					vertexArray.SetArray(bitanCoordBuffer, VertexArraySemantic.Bitangent);
 
-					vertexArray.GenerateTangents();
+					// XXX vertexArray.GenerateTangents();
 				}
 
 				return (vertexArray);

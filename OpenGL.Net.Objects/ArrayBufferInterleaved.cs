@@ -37,11 +37,9 @@ namespace OpenGL.Objects
 		/// An <see cref="BufferUsage"/> that specify the data buffer usage hints.
 		/// </param>
 		public ArrayBufferInterleaved(BufferUsage hint) :
-			base(BufferTarget.ArrayBuffer, hint)
+			base(BufferTarget.ArrayBuffer, (uint)Marshal.SizeOf(typeof(T)), hint)
 		{
 			try {
-				// Determine array item size
-				ItemSize = (uint)Marshal.SizeOf(typeof(T));
 				// Detect interleaved fields using reflection (cached)
 				List<InterleavedSectionBase> typeSections = ScanTypeSections();
 				// Get array sections for this instance
@@ -60,11 +58,9 @@ namespace OpenGL.Objects
 		/// A <see cref="MapBufferUsageMask"/> that specifies the data buffer usage mask.
 		/// </param>
 		public ArrayBufferInterleaved(MapBufferUsageMask usageMask) :
-			base(BufferTarget.ArrayBuffer, usageMask)
+			base(BufferTarget.ArrayBuffer, (uint)Marshal.SizeOf(typeof(T)), usageMask)
 		{
 			try {
-				// Determine array item size
-				ItemSize = (uint)Marshal.SizeOf(typeof(T));
 				// Detect interleaved fields using reflection (cached)
 				List<InterleavedSectionBase> typeSections = ScanTypeSections();
 				// Get array sections for this instance
@@ -177,13 +173,13 @@ namespace OpenGL.Objects
 		/// </returns>
 		public override Array ToArray()
 		{
-			if (CpuBufferAddress == IntPtr.Zero)
-				throw new InvalidOperationException("no client buffer");
+			if (MappedBuffer == IntPtr.Zero)
+				throw new InvalidOperationException("GPU buffer is inaccessible");
 
-			T[] genericArray = new T[CpuItemsCount];
+			T[] genericArray = new T[ItemsCount];
 
 			// Copy from buffer data to array data
-			Memory.Copy(genericArray, CpuBufferAddress, CpuItemsCount * ItemSize);
+			Memory.Copy(genericArray, MappedBuffer, ItemsCount * ItemSize);
 
 			return genericArray;
 		}
@@ -204,13 +200,13 @@ namespace OpenGL.Objects
 		{
 			CheckThisExistence(ctx);
 
-			T[] genericArray = new T[GpuItemsCount];
+			T[] genericArray = new T[ItemsCount];
 
 			// By checking existence, it's sure that we map the GPU buffer
 			Map(ctx, BufferAccess.ReadOnly);
 			try {
 				// Copy from mapped data to array data
-				Memory.Copy(genericArray, MappedBuffer, GpuItemsCount * ItemSize);
+				Memory.Copy(genericArray, MappedBuffer, ItemsCount * ItemSize);
 			} finally {
 				Unmap(ctx);
 			}

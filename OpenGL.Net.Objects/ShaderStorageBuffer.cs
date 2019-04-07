@@ -77,10 +77,9 @@ namespace OpenGL.Objects
 		public void Create(uint dataSize)
 		{
 			if (dataSize == 0)
-				throw new ArgumentException("invalid", "itemsCount");
+				throw new ArgumentException("invalid");
 
-			// Allocate buffer
-			CreateCpuBuffer(dataSize);
+			AddTechnique(new EmptyCreateTechnique(this, dataSize));
 		}
 
 		#endregion
@@ -108,15 +107,7 @@ namespace OpenGL.Objects
 		{
 			CheckCurrentContext(ctx);
 
-			if (dataSize == 0)
-				throw new ArgumentException("invalid", "itemsCount");
-
-			// Object already existing: resize client buffer, if any
-			if (CpuBufferAddress != IntPtr.Zero)
-				CreateCpuBuffer(dataSize);
-			// If not exists, set GPU buffer size; otherwise keep in synch with client buffer size
-			CpuBufferSize = dataSize;
-			// Allocate object
+			Create(dataSize);
 			Create(ctx);
 		}
 
@@ -124,7 +115,7 @@ namespace OpenGL.Objects
 
 		#endregion
 
-		#region BufferObject Overrides
+		#region Overrides
 
 		/// <summary>
 		/// Determine whether this object requires a name bound to a context or not.
@@ -146,7 +137,7 @@ namespace OpenGL.Objects
 		/// </returns>
 		protected override bool RequiresName(GraphicsContext ctx)
 		{
-			return (true);
+			return true;
 		}
 
 		#endregion
@@ -161,7 +152,7 @@ namespace OpenGL.Objects
 		/// </param>
 		BufferTarget IBindingIndexResource.GetBindingTarget(GraphicsContext ctx)
 		{
-			return (BufferTarget.ShaderStorageBuffer);
+			return BufferTarget.ShaderStorageBuffer;
 		}
 
 		/// <summary>

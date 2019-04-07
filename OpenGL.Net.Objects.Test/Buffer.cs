@@ -28,6 +28,22 @@ namespace OpenGL.Objects.Test
 
 		protected abstract void CreateGpuBuffer(Buffer buffer);
 
+		#region Buffer/CPU
+
+		/// <summary>
+		/// Test <see cref="Buffer"/> CPU buffer.
+		/// </summary>
+		/// <param name="buffer">
+		/// The <see cref="Buffer"/> instance to test.
+		/// </param>
+		protected void BufferCpu(Buffer buffer)
+		{
+			// No CPU buffer
+			Assert.AreEqual(0u, buffer.Size);
+		}
+
+		#endregion
+
 		#region Buffer.Map()
 
 		/// <summary>
@@ -36,15 +52,15 @@ namespace OpenGL.Objects.Test
 		/// <param name="buffer">
 		/// The <see cref="Buffer"/> instance to test.
 		/// </param>
-		protected void MapBufferCpu(Buffer buffer)
+		protected void MapBuffer(Buffer buffer)
 		{
 			// Initially not existing
 			Assert.IsFalse(buffer.Exists(_Context));
-			// No CPU buffer
-			Assert.AreEqual(0u, buffer.CpuBufferSize);
+			Assert.AreEqual(0u, buffer.Size);
+
 			// CPU buffer cannot be mapped
 			Assert.IsFalse(buffer.IsMapped);
-			Assert.Throws(Is.InstanceOf<Exception>(), delegate { buffer.Map(); });
+			Assert.Throws(Is.InstanceOf<Exception>(), delegate { buffer.Map(_Context, BufferAccess.ReadOnly); });
 
 			// Create a client instance
 			CreateCpuBuffer(buffer);
@@ -52,13 +68,13 @@ namespace OpenGL.Objects.Test
 			// Still not existing
 			Assert.IsFalse(buffer.Exists(_Context));
 			// We have CPU buffer
-			Assert.Greater(buffer.CpuBufferSize, 0u);
+			Assert.Greater(buffer.Size, 0u);
 			// Now it is possible to map
-			Assert.DoesNotThrow(delegate { buffer.Map(); });
+			Assert.DoesNotThrow(delegate { buffer.Map(_Context, BufferAccess.ReadOnly); });
 			Assert.IsTrue(buffer.IsMapped);
 
 			// Unmap
-			Assert.DoesNotThrow(delegate { buffer.Unmap(); });
+			Assert.DoesNotThrow(delegate { buffer.Unmap(_Context); });
 			// We are not mapped
 			Assert.IsFalse(buffer.IsMapped);
 		}
@@ -67,12 +83,24 @@ namespace OpenGL.Objects.Test
 
 		#region Immutability
 
-		protected static void CreateMutableBuffer(Buffer buffer)
+		/// <summary>
+		/// Test a mutable <see cref="Buffer"/>.
+		/// </summary>
+		/// <param name="buffer">
+		/// The <see cref="Buffer"/> instance to be tested.
+		/// </param>
+		protected static void TestMutableBuffer(Buffer buffer)
 		{
 			Assert.IsFalse(buffer.Immutable);
 		}
 
-		protected static void CreateImmutableBuffer(Buffer buffer)
+		/// <summary>
+		/// Test an immutable <see cref="Buffer"/>.
+		/// </summary>
+		/// <param name="buffer">
+		/// The <see cref="Buffer"/> instance to be tested.
+		/// </param>
+		protected static void TestImmutableBuffer(Buffer buffer)
 		{
 			Assert.IsTrue(buffer.Immutable);
 		}
