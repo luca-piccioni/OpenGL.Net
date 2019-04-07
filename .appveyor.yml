@@ -13,7 +13,7 @@ environment:
     - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
       SLN_PATH: OpenGL.Net_VC14.sln
       SLN_BUILD_OPTS: /nologo /verbosity:quiet /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
-      PUBLISH_NUGET: false
+      PUBLISH_NUGET: true
       HAS_NETCORE: false
 #    - APPVEYOR_BUILD_WORKER_IMAGE: Previous Visual Studio 2017
 #      SLN_PATH: OpenGL.Net_VC15.sln
