@@ -232,6 +232,20 @@ namespace OpenGL
 		private static bool _IsInitializing;
 
 		/// <summary>
+		/// Get or set the delegate used for loading function pointers for this API.
+		/// </summary>
+		public GetAddressDelegate GetFunctionPointerDelegate
+		{
+			get { return _GetAddressDelegate; }
+			set { _GetAddressDelegate = value ?? GetProcAddressGLOS; }
+		}
+
+		/// <summary>
+		/// Delegate used for loading function pointers for this API.
+		/// </summary>
+		private static GetAddressDelegate _GetAddressDelegate = GetProcAddressOS;
+
+		/// <summary>
 		/// Bind Windows EGL delegates.
 		/// </summary>
 		private static void BindAPI()
@@ -239,7 +253,7 @@ namespace OpenGL
 			string platformLibrary = GetPlatformLibrary();
 			try {
 				LogComment($"Querying EGL from {platformLibrary}");
-				BindAPI<Egl>(platformLibrary, GetProcAddressOS, CurrentVersion);
+				BindAPI<Egl>(platformLibrary, _GetAddressDelegate, CurrentVersion);
 				LogComment($"EGL availability: {IsAvailable}");
 			} catch (Exception exception) {
 				/* Fail-safe (it may fail due Egl access) */

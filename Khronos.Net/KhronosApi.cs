@@ -136,7 +136,7 @@ namespace Khronos
 		/// It returns a <see cref="IntPtr"/> that specifies the function pointer. If not defined, it
 		/// returns <see cref="IntPtr.Zero"/>.
 		/// </returns>
-		internal delegate IntPtr GetAddressDelegate(string path, string function);
+		public delegate IntPtr GetAddressDelegate(string path, string function);
 
 		/// <summary>
 		/// Utility for <see cref="GetAddressDelegate"/> for loading procedures using the OS loader.
