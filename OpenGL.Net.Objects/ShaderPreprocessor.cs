@@ -59,14 +59,14 @@ namespace OpenGL.Objects
 		/// </summary>
 		/// <param name="shaderSource"></param>
 		/// <returns></returns>
-		public static List<string> Process(List<string> shaderSource, ShaderCompilerContext cctx, ShaderIncludeLibrary includeLibrary, Stage stages)
+		public static List<string> Process(IEnumerable<string> shaderSource, ShaderCompilerContext cctx, ShaderIncludeLibrary includeLibrary, Stage stages)
 		{
 			if (shaderSource == null)
 				throw new ArgumentNullException("shaderSource");
 			if (cctx == null)
 				throw new ArgumentNullException("cctx");
 
-			List<string> processedSource = shaderSource;
+			List<string> processedSource = new List<string>(shaderSource);
 
 			if ((stages & Stage.Includes) != 0)
 				processedSource = ProcessIncludes(processedSource, cctx, includeLibrary);
@@ -115,7 +115,7 @@ namespace OpenGL.Objects
 		/// <exception cref="ArgumentNullException">
 		/// Exception throw if <paramref name="includeLibrary"/>, <paramref name="cctx"/> or <paramref name="shaderSource"/> is null.
 		/// </exception>
-		private static List<string> ProcessIncludes(List<string> shaderSource, ShaderCompilerContext cctx, ShaderIncludeLibrary includeLibrary)
+		private static List<string> ProcessIncludes(IEnumerable<string> shaderSource, ShaderCompilerContext cctx, ShaderIncludeLibrary includeLibrary)
 		{
 			if (includeLibrary == null)
 				throw new ArgumentNullException("includeLibrary");
@@ -288,9 +288,16 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Process a source using the preprocessor.
 		/// </summary>
-		/// <param name="shaderSource"></param>
-		/// <returns></returns>
-		private static List<string> ProcessConditionals(List<string> shaderSource, ShaderCompilerContext cctx)
+		/// <param name="shaderSource">
+		/// A <see cref="IEnumerable{T}"/> that specified the shader source to be processed.
+		/// </param>
+		/// <param name="cctx">
+		/// A <see cref="ShaderCompilerContext"/> defining the GLSL compilation parameters.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="List{T}"/>, which is the result of the processing of <paramref name="shaderSource"/>.
+		/// </returns>
+		private static List<string> ProcessConditionals(IEnumerable<string> shaderSource, ShaderCompilerContext cctx)
 		{
 			if (shaderSource == null)
 				throw new ArgumentNullException("shaderSource");

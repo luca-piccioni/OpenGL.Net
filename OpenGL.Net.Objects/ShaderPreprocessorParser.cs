@@ -52,18 +52,39 @@ namespace OpenGL.Objects
 
 		#region Conditional State
 
+		/// <summary>
+		/// Conditional state.
+		/// </summary>
 		class ConditionalState
 		{
+			/// <summary>
+			/// Construct a conditional state.
+			/// </summary>
+			/// <param name="directive">
+			/// A <see cref="string"/> identifying the first conditional directive (#if, #ifdef or #ifndef).
+			/// </param>
+			/// <param name="active">
+			/// Evaluated boolean condition of the <paramref name="directive"/>.
+			/// </param>
 			public ConditionalState(string directive, bool active)
 			{
 				Directive = directive;
 				Active = Branched = active;
 			}
 
+			/// <summary>
+			/// The token identifying the first conditional directive (#if, #ifdef or #ifndef).
+			/// </summary>
 			public string Directive;
 
+			/// <summary>
+			/// Evaluated boolean condition of the <see cref="Directive"/>.
+			/// </summary>
 			public bool Active;
 
+			/// <summary>
+			/// Boolean flag indicating whether a conditional branch has became active.
+			/// </summary>
 			public bool Branched;
 		}
 
@@ -94,8 +115,12 @@ namespace OpenGL.Objects
 					throw new InvalidOperationException("#elif without the corresponding conditional");
 			}
 
-			if (CurrentCondition.Branched == false)
-				CurrentCondition.Branched |= CurrentCondition.Active = EvaluateExpression(statement);
+			bool elifActive = EvaluateExpression(statement);
+
+			if (!CurrentCondition.Branched & elifActive)
+				CurrentCondition.Branched |= CurrentCondition.Active = elifActive;
+			else
+				CurrentCondition.Active = false;
 		}
 
 		public void Else()
@@ -103,7 +128,10 @@ namespace OpenGL.Objects
 			if (_ConditionStack.Count == 0)
 				throw new InvalidOperationException("#else without the corresponding conditional");
 
-			CurrentCondition.Branched |= CurrentCondition.Active = !CurrentCondition.Active;
+			if (!CurrentCondition.Branched)
+				CurrentCondition.Branched |= CurrentCondition.Active = true;
+			else
+				CurrentCondition.Active = false;
 			Debug.Assert(CurrentCondition.Branched);
 		}
 
