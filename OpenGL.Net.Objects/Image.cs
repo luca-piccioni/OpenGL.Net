@@ -277,6 +277,16 @@ namespace OpenGL.Objects
 
 		#region Managed Pixel Access
 
+		public void SetPixel<T>(uint w, uint h, T value) where T : struct
+		{
+			Marshal.StructureToPtr(value, GetPixelDataOffset(w, h), false);
+		}
+
+		public T GetPixel<T>(uint w, uint h) where T : struct
+		{
+			return (T)Marshal.PtrToStructure(GetPixelDataOffset(w, h), typeof(T));
+		}
+
 		private IntPtr GetPixelDataOffset(uint w, uint h)
 		{
 			switch (PixelLayout) {
