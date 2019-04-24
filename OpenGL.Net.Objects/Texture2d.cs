@@ -32,13 +32,13 @@ namespace OpenGL.Objects
 	/// <summary>
 	/// Two dimensional texture.
 	/// </summary>
-	[DebuggerDisplay("Texture2d: Width={Width} Height={Height} Format={PixelLayout}")]
-	public class Texture2d : Texture
+	[DebuggerDisplay("Texture2D: Width={Width} Height={Height} Format={PixelLayout}")]
+	public class Texture2D : Texture
 	{
 		#region Constructors
 
 		/// <summary>
-		/// Construct an undefined Texture2d.
+		/// Construct an undefined Texture2D.
 		/// </summary>
 		/// <remarks>
 		/// <para>
@@ -46,13 +46,13 @@ namespace OpenGL.Objects
 		/// of Create" methods (except <see cref="Create(GraphicsContext)"/>).
 		/// </para>
 		/// </remarks>
-		public Texture2d()
+		public Texture2D()
 		{
 
 		}
 
 		/// <summary>
-		/// Create Texture2d data, defining only the extents and the internal format.
+		/// Create Texture2D data, defining only the extents and the internal format.
 		/// </summary>
 		/// <param name="width">
 		/// A <see cref="UInt32"/> that specify the texture width.
@@ -80,13 +80,13 @@ namespace OpenGL.Objects
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="format"/> is not a supported internal format.
 		/// </exception>
-		public Texture2d(uint width, uint height, PixelLayout format)
+		public Texture2D(uint width, uint height, PixelLayout format)
 		{
 			Create(width, height, format);
 		}
 
 		/// <summary>
-		/// Create Texture2d data, defining only the extents and the internal format.
+		/// Create Texture2D data, defining only the extents and the internal format.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for creating this Texture. If it null, the current context
@@ -121,7 +121,7 @@ namespace OpenGL.Objects
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="format"/> is not a supported internal format.
 		/// </exception>
-		public Texture2d(GraphicsContext ctx, uint width, uint height, PixelLayout format)
+		public Texture2D(GraphicsContext ctx, uint width, uint height, PixelLayout format)
 		{
 			Create(ctx, width, height, format);
 		}
@@ -141,7 +141,7 @@ namespace OpenGL.Objects
 			/// Construct a EmptyTechnique.
 			/// </summary>
 			/// <param name="texture">
-			/// The <see cref="Texture2d"/> affected by this Technique.
+			/// The <see cref="Texture2D"/> affected by this Technique.
 			/// </param>
 			/// <param name="target">
 			/// A <see cref="TextureTarget"/> that specify the texture target.
@@ -158,7 +158,7 @@ namespace OpenGL.Objects
 			/// <param name="height">
 			/// The height of the texture.
 			/// </param>
-			public EmptyTechnique(Texture2d texture, TextureTarget target, uint level, PixelLayout pixelFormat, uint width, uint height) :
+			public EmptyTechnique(Texture2D texture, TextureTarget target, uint level, PixelLayout pixelFormat, uint width, uint height) :
 				base(texture)
 			{
 				_Texture2d = texture;
@@ -174,9 +174,9 @@ namespace OpenGL.Objects
 			#region Technique Overrides
 
 			/// <summary>
-			/// The <see cref="Texture2d"/> affected by this Technique.
+			/// The <see cref="Texture2D"/> affected by this Technique.
 			/// </summary>
-			protected readonly Texture2d _Texture2d;
+			protected readonly Texture2D _Texture2d;
 
 			/// <summary>
 			/// The texture target to use for creating the empty texture.
@@ -234,7 +234,7 @@ namespace OpenGL.Objects
 			/// Construct a ImmutableEmptyTechnique.
 			/// </summary>
 			/// <param name="texture">
-			/// The <see cref="Texture2d"/> affected by this Technique.
+			/// The <see cref="Texture2D"/> affected by this Technique.
 			/// </param>
 			/// <param name="target">
 			/// A <see cref="TextureTarget"/> that specify the texture target.
@@ -248,7 +248,7 @@ namespace OpenGL.Objects
 			/// <param name="height">
 			/// The height of the texture.
 			/// </param>
-			public ImmutableEmptyTechnique(Texture2d texture, TextureTarget target, PixelLayout pixelFormat, uint width, uint height) :
+			public ImmutableEmptyTechnique(Texture2D texture, TextureTarget target, PixelLayout pixelFormat, uint width, uint height) :
 				this(texture, target, pixelFormat, width, height, GetMipmapCompleteLevels(width, height, 1, 0))
 			{
 
@@ -258,7 +258,7 @@ namespace OpenGL.Objects
 			/// Construct a ImmutableEmptyTechnique.
 			/// </summary>
 			/// <param name="texture">
-			/// The <see cref="Texture2d"/> affected by this Technique.
+			/// The <see cref="Texture2D"/> affected by this Technique.
 			/// </param>
 			/// <param name="target">
 			/// A <see cref="TextureTarget"/> that specify the texture target.
@@ -275,7 +275,7 @@ namespace OpenGL.Objects
 			/// <param name="levels">
 			/// A <see cref="UInt32"/> that specify the number of levels defining the texture.
 			/// </param>
-			public ImmutableEmptyTechnique(Texture2d texture, TextureTarget target, PixelLayout pixelFormat, uint width, uint height, uint levels) :
+			public ImmutableEmptyTechnique(Texture2D texture, TextureTarget target, PixelLayout pixelFormat, uint width, uint height, uint levels) :
 				base(texture, target, 0, pixelFormat, width, height)
 			{
 				if (levels == 0)
@@ -323,7 +323,7 @@ namespace OpenGL.Objects
 		#region Create(width, height, pixelformat)
 
 		/// <summary>
-		/// Create a Texture2d, defining the texture extents and the internal format.
+		/// Create a Texture2D, defining the texture extents and the internal format.
 		/// </summary>
 		/// <param name="width">
 		/// A <see cref="UInt32"/> that specify the texture width.
@@ -367,7 +367,7 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
-		/// Create Texture2d data, defining only the extents and the internal format.
+		/// Create Texture2D data, defining only the extents and the internal format.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for creating this Texture.
@@ -416,7 +416,7 @@ namespace OpenGL.Objects
 		#region Create(width, height, level, pixelformat)
 
 		/// <summary>
-		/// Create a Texture2d, defining the texture extents and the internal format.
+		/// Create a Texture2D, defining the texture extents and the internal format.
 		/// </summary>
 		/// <param name="width">
 		/// A <see cref="UInt32"/> that specify the texture width.
@@ -459,7 +459,7 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
-		/// Create Texture2d data, defining only the extents and the internal format.
+		/// Create Texture2D data, defining only the extents and the internal format.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for creating this Texture.
@@ -511,7 +511,7 @@ namespace OpenGL.Objects
 		#region Create(width, height, pixelformat, levels)
 
 		/// <summary>
-		/// Create a Texture2d, defining the texture extents and the internal format.
+		/// Create a Texture2D, defining the texture extents and the internal format.
 		/// </summary>
 		/// <param name="width">
 		/// A <see cref="UInt32"/> that specify the texture width.
@@ -555,7 +555,7 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
-		/// Create Texture2d data, defining only the extents and the internal format.
+		/// Create Texture2D data, defining only the extents and the internal format.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for creating this Texture.
@@ -612,7 +612,7 @@ namespace OpenGL.Objects
 			/// Construct a EmptyTechnique.
 			/// </summary>
 			/// <param name="texture">
-			/// The <see cref="Texture2d"/> affected by this Technique.
+			/// The <see cref="Texture2D"/> affected by this Technique.
 			/// </param>
 			/// <param name="target">
 			/// A <see cref="TextureTarget"/> that specify the texture target.
@@ -626,7 +626,7 @@ namespace OpenGL.Objects
 			/// <param name="image">
 			/// The <see cref="Image"/> holding the texture data.
 			/// </param>
-			public ImageTechnique(Texture2d texture, TextureTarget target, PixelLayout pixelFormat, Image image) :
+			public ImageTechnique(Texture2D texture, TextureTarget target, PixelLayout pixelFormat, Image image) :
 				this(texture, target, 0, pixelFormat, image)
 			{
 
@@ -636,7 +636,7 @@ namespace OpenGL.Objects
 			/// Construct a EmptyTechnique.
 			/// </summary>
 			/// <param name="texture">
-			/// The <see cref="Texture2d"/> affected by this Technique.
+			/// The <see cref="Texture2D"/> affected by this Technique.
 			/// </param>
 			/// <param name="target">
 			/// A <see cref="TextureTarget"/> that specify the texture target.
@@ -650,7 +650,7 @@ namespace OpenGL.Objects
 			/// <param name="image">
 			/// The <see cref="Image"/> holding the texture data.
 			/// </param>
-			public ImageTechnique(Texture2d texture, TextureTarget target, uint level, PixelLayout pixelFormat, Image image) :
+			public ImageTechnique(Texture2D texture, TextureTarget target, uint level, PixelLayout pixelFormat, Image image) :
 				base(texture)
 			{
 				if (image == null)
@@ -669,9 +669,9 @@ namespace OpenGL.Objects
 			#region Technique Overrides
 
 			/// <summary>
-			/// The <see cref="Texture2d"/> affected by this Technique.
+			/// The <see cref="Texture2D"/> affected by this Technique.
 			/// </summary>
-			private readonly Texture2d _Texture2d;
+			private readonly Texture2D _Texture2d;
 
 			/// <summary>
 			/// The texture target to use for creating the empty texture.
@@ -726,7 +726,7 @@ namespace OpenGL.Objects
 		#region Create(Image)
 
 		/// <summary>
-		/// Create Texture2d data from a Image instance.
+		/// Create Texture2D data from a Image instance.
 		/// </summary>
 		/// <param name="image">
 		/// An <see cref="Image"/> holding the texture data.
@@ -761,7 +761,7 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
-		/// Create Texture2d from a Image instance.
+		/// Create Texture2D from a Image instance.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for creating this Texture. If it null, the current context
@@ -831,7 +831,7 @@ namespace OpenGL.Objects
 		#region Create(Image, level)
 
 		/// <summary>
-		/// Create Texture2d data from a Image instance.
+		/// Create Texture2D data from a Image instance.
 		/// </summary>
 		/// <param name="image">
 		/// An <see cref="Image"/> holding the texture data.

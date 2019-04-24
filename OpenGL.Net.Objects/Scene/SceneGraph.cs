@@ -344,7 +344,7 @@ namespace OpenGL.Objects.Scene
 				if (shadowSpotLight == null)
 					continue;
 
-				Texture2d shadowTex = shadowSpotLight._ShadowMap;
+				Texture2D shadowTex = shadowSpotLight._ShadowMap;
 				shadowTex.SamplerParams.CompareMode = false;
 
 				Matrix4x4f quadModel = model;

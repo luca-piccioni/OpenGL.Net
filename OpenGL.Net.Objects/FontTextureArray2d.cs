@@ -323,7 +323,7 @@ namespace OpenGL.Objects
 
 			string textureId = resourceBaseId + ".Texture";
 
-			_FontTexture = (TextureArray2d)ctx.GetSharedResource(textureId);
+			_FontTexture = (TextureArray2D)ctx.GetSharedResource(textureId);
 
 			if (_FontTexture == null) {
 				// Get the size required for all glyphs
@@ -337,7 +337,7 @@ namespace OpenGL.Objects
 				}
 
 				// Create texture
-				_FontTexture = new TextureArray2d();
+				_FontTexture = new TextureArray2D();
 				_FontTexture.Sampler = sampler;
 				_FontTexture.Create(ctx, (uint)Math.Ceiling(w), (uint)Math.Ceiling(h), z + 1, PixelLayout.R8, 1);
 
@@ -450,7 +450,7 @@ namespace OpenGL.Objects
 		/// <param name="s">
 		/// A <see cref="String"/> that specifies the characters for be drawn.
 		/// </param>
-		private void DrawStringCore(GraphicsContext ctx, TextureArray2d texture, ColorRGBAF color, List<GlyphModelType> glyphInstances)
+		private void DrawStringCore(GraphicsContext ctx, TextureArray2D texture, ColorRGBAF color, List<GlyphModelType> glyphInstances)
 		{
 			if (ctx.Extensions.InstancedArrays)
 				DrawStringCore_InstancedArrays(ctx, texture, color, glyphInstances);
@@ -472,7 +472,7 @@ namespace OpenGL.Objects
 		/// <param name="s">
 		/// A <see cref="String"/> that specifies the characters for be drawn.
 		/// </param>
-		private void DrawStringCore_Compatibility(GraphicsContext ctx, TextureArray2d texture, ColorRGBAF color, List<GlyphModelType> glyphsInstances)
+		private void DrawStringCore_Compatibility(GraphicsContext ctx, TextureArray2D texture, ColorRGBAF color, List<GlyphModelType> glyphsInstances)
 		{
 			ctx.Bind(_FontProgram);
 
@@ -520,7 +520,7 @@ namespace OpenGL.Objects
 		/// <param name="s">
 		/// A <see cref="String"/> that specifies the characters for be drawn.
 		/// </param>
-		private void DrawStringCore_Instanced(GraphicsContext ctx, TextureArray2d texture, ColorRGBAF color, List<GlyphModelType> glyphsInstances)
+		private void DrawStringCore_Instanced(GraphicsContext ctx, TextureArray2D texture, ColorRGBAF color, List<GlyphModelType> glyphsInstances)
 		{
 			ctx.Bind(_FontProgram);
 
@@ -562,7 +562,7 @@ namespace OpenGL.Objects
 		/// <param name="s">
 		/// A <see cref="String"/> that specifies the characters for be drawn.
 		/// </param>
-		private void DrawStringCore_InstancedArrays(GraphicsContext ctx, TextureArray2d texture, ColorRGBAF color, List<GlyphModelType> glyphInstances)
+		private void DrawStringCore_InstancedArrays(GraphicsContext ctx, TextureArray2D texture, ColorRGBAF color, List<GlyphModelType> glyphInstances)
 		{
 			ctx.Bind(_FontProgram);
 
@@ -600,7 +600,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Glyphs in texture array
 		/// </summary>
-		private TextureArray2d _FontTexture;
+		private TextureArray2D _FontTexture;
 
 		/// <summary>
 		/// Shader program used for drawing font glyphs.

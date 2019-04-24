@@ -305,7 +305,7 @@ namespace HelloObjects
 			if (File.Exists(texturePath)) {
 				try {
 					Image textureImage = ImageCodec.Instance.Load(texturePath);
-					Texture2d texture = new Texture2d();
+					Texture2D texture = new Texture2D();
 
 					texture.GenerateMipmaps();
 					texture.SamplerParams.MinFilter = TextureMinFilter.LinearMipmapNearest;
@@ -325,7 +325,7 @@ namespace HelloObjects
 			if (File.Exists(texturePath)) {
 				try {
 					Image textureImage = ImageCodec.Instance.Load(texturePath);
-					Texture2d texture = new Texture2d();
+					Texture2D texture = new Texture2D();
 
 					texture.GenerateMipmaps();
 					texture.SamplerParams.MinFilter = TextureMinFilter.LinearMipmapNearest;
@@ -345,7 +345,7 @@ namespace HelloObjects
 			if (File.Exists(texturePath)) {
 				try {
 					Image textureImage = ImageCodec.Instance.Load(texturePath);
-					Texture2d texture = new Texture2d();
+					Texture2D texture = new Texture2D();
 
 					texture.GenerateMipmaps();
 					texture.SamplerParams.MinFilter = TextureMinFilter.LinearMipmapNearest;
@@ -365,7 +365,7 @@ namespace HelloObjects
 			if (File.Exists(texturePath)) {
 				try {
 					Image textureImage = ImageCodec.Instance.Load(texturePath);
-					Texture2d texture = new Texture2d();
+					Texture2D texture = new Texture2D();
 
 					texture.GenerateMipmaps();
 					texture.SamplerParams.MinFilter = TextureMinFilter.LinearMipmapNearest;
@@ -385,7 +385,7 @@ namespace HelloObjects
 			if (File.Exists(texturePath)) {
 				try {
 					Image textureImage = ImageCodec.Instance.Load(texturePath);
-					Texture2d texture = new Texture2d();
+					Texture2D texture = new Texture2D();
 
 					// texture.RequestMipmapsCreation();
 					texture.SamplerParams.WrapCoordR = TextureWrapMode.Repeat;

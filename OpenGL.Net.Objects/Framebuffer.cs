@@ -430,7 +430,7 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
-		/// Texture attachment to Framebuffer (specialization for <see cref="TextureArray2d"/> and <see cref="Texture3d"/>).
+		/// Texture attachment to Framebuffer (specialization for <see cref="TextureArray2D"/> and <see cref="Texture3D"/>).
 		/// </summary>
 		private class TextureArrayAttachment : TextureAttachment
 		{
@@ -448,7 +448,7 @@ namespace OpenGL.Objects
 			/// <exception cref="ArgumentNullException">
 			/// Exception thrown if <paramref name="texture"/> is null.
 			/// </exception>
-			public TextureArrayAttachment(TextureArray2d texture, uint layer)
+			public TextureArrayAttachment(TextureArray2D texture, uint layer)
 				: this(texture, layer, 0)
 			{
 				
@@ -469,7 +469,7 @@ namespace OpenGL.Objects
 			/// <exception cref="ArgumentNullException">
 			/// Exception thrown if <paramref name="texture"/> is null.
 			/// </exception>
-			public TextureArrayAttachment(TextureArray2d texture, uint layer, uint textureLevel)
+			public TextureArrayAttachment(TextureArray2D texture, uint layer, uint textureLevel)
 				: base(texture, textureLevel)
 			{
 				Depth = layer;
@@ -533,7 +533,7 @@ namespace OpenGL.Objects
 
 		#endregion
 
-		#region AttachColor(Texture2d)
+		#region AttachColor(Texture2D)
 
 		/// <summary>
 		/// Attach a 2D texture image to color buffer.
@@ -542,9 +542,9 @@ namespace OpenGL.Objects
 		/// A <see cref="UInt32"/> that specify the framebuffer color attachment index.
 		/// </param>
 		/// <param name="texture">
-		/// A <see cref="Texture2d"/> which will be used for read/write operation on this RenderFrambuffer.
+		/// A <see cref="Texture2D"/> which will be used for read/write operation on this RenderFrambuffer.
 		/// </param>
-		public void AttachColor(uint attachmentIndex, Texture2d texture)
+		public void AttachColor(uint attachmentIndex, Texture2D texture)
 		{
 			AttachColor(attachmentIndex, new TextureAttachment(texture));
 		}
@@ -561,7 +561,7 @@ namespace OpenGL.Objects
 		/// <param name="attachment">
 		/// A <see cref="UInt32"/> that specify the framebuffer color attachment index.
 		/// </param>
-		public void AttachColor(uint attachmentIndex, Texture2d texture, uint level)
+		public void AttachColor(uint attachmentIndex, Texture2D texture, uint level)
 		{
 			AttachColor(attachmentIndex, new TextureAttachment(texture, level));
 		}
@@ -604,14 +604,14 @@ namespace OpenGL.Objects
 
 		#endregion
 
-		#region AttachColor(TextureArray2d)
+		#region AttachColor(TextureArray2D)
 
-		public void AttachColor(uint attachmentIndex, TextureArray2d texture, uint layer)
+		public void AttachColor(uint attachmentIndex, TextureArray2D texture, uint layer)
 		{
 			AttachColor(attachmentIndex, new TextureArrayAttachment(texture, layer));
 		}
 
-		public void AttachColor(uint attachmentIndex, TextureArray2d texture, uint layer, uint level)
+		public void AttachColor(uint attachmentIndex, TextureArray2D texture, uint layer, uint level)
 		{
 			AttachColor(attachmentIndex, new TextureArrayAttachment(texture, layer, level));
 		}
@@ -685,12 +685,12 @@ namespace OpenGL.Objects
 			AttachDepth(new RenderBufferAttachment(buffer));
 		}
 
-		public void AttachDepth(Texture2d texture)
+		public void AttachDepth(Texture2D texture)
 		{
 			AttachDepth(texture, 0);
 		}
 
-		public void AttachDepth(Texture2d texture, uint level)
+		public void AttachDepth(Texture2D texture, uint level)
 		{
 			AttachDepth(new TextureAttachment(texture, level));
 		}

@@ -136,7 +136,7 @@ namespace OpenGL.Objects.State
 		/// The front face material texture for emission component, if any.
 		/// </summary>
 		[ShaderUniformState()]
-		public Texture2d FrontMaterialEmissionTexture
+		public Texture2D FrontMaterialEmissionTexture
 		{
 			get { return (_FrontMaterialEmissionTexture); }
 			set { GraphicsResource.Swap(value, ref _FrontMaterialEmissionTexture); }
@@ -145,7 +145,7 @@ namespace OpenGL.Objects.State
 		/// <summary>
 		/// The front face material texture for emission component, if any.
 		/// </summary>
-		private Texture2d _FrontMaterialEmissionTexture;
+		private Texture2D _FrontMaterialEmissionTexture;
 
 		/// <summary>
 		/// The front face material texture for emission component, if any.
@@ -157,7 +157,7 @@ namespace OpenGL.Objects.State
 		/// The front face material texture for diffuse component, if any.
 		/// </summary>
 		[ShaderUniformState()]
-		public Texture2d FrontMaterialDiffuseTexture
+		public Texture2D FrontMaterialDiffuseTexture
 		{
 			get { return (_FrontMaterialDiffuseTexture); }
 			set { GraphicsResource.Swap(value, ref _FrontMaterialDiffuseTexture); }
@@ -166,7 +166,7 @@ namespace OpenGL.Objects.State
 		/// <summary>
 		/// The front face material texture for diffuse component, if any.
 		/// </summary>
-		private Texture2d _FrontMaterialDiffuseTexture;
+		private Texture2D _FrontMaterialDiffuseTexture;
 
 		/// <summary>
 		/// The front face material texture for diffuse component, if any.
@@ -178,7 +178,7 @@ namespace OpenGL.Objects.State
 		/// The front face material texture for normal component, if any.
 		/// </summary>
 		[ShaderUniformState()]
-		public Texture2d FrontMaterialNormalTexture
+		public Texture2D FrontMaterialNormalTexture
 		{
 			get { return (_FrontMaterialNormalTexture); }
 			set { GraphicsResource.Swap(value, ref _FrontMaterialNormalTexture); }
@@ -187,7 +187,7 @@ namespace OpenGL.Objects.State
 		/// <summary>
 		/// The front face material texture for normal component, if any.
 		/// </summary>
-		private Texture2d _FrontMaterialNormalTexture;
+		private Texture2D _FrontMaterialNormalTexture;
 
 		/// <summary>
 		/// The front face material texture for normal component, if any.
@@ -199,7 +199,7 @@ namespace OpenGL.Objects.State
 		/// The front face material texture for specular component, if any.
 		/// </summary>
 		[ShaderUniformState()]
-		public Texture2d FrontMaterialSpecularTexture
+		public Texture2D FrontMaterialSpecularTexture
 		{
 			get { return (_FrontMaterialSpecularTexture); }
 			set { GraphicsResource.Swap(value, ref _FrontMaterialSpecularTexture); }
@@ -208,7 +208,7 @@ namespace OpenGL.Objects.State
 		/// <summary>
 		/// The front face material texture for specular component, if any.
 		/// </summary>
-		private Texture2d _FrontMaterialSpecularTexture;
+		private Texture2D _FrontMaterialSpecularTexture;
 
 		/// <summary>
 		/// The front face material texture for specular component, if any.
@@ -220,7 +220,7 @@ namespace OpenGL.Objects.State
 		/// The front face material texture for ambient component, if any.
 		/// </summary>
 		[ShaderUniformState()]
-		public Texture2d FrontMaterialAmbientTexture
+		public Texture2D FrontMaterialAmbientTexture
 		{
 			get { return (_FrontMaterialAmbientTexture); }
 			set { GraphicsResource.Swap(value, ref _FrontMaterialAmbientTexture); }
@@ -229,7 +229,7 @@ namespace OpenGL.Objects.State
 		/// <summary>
 		/// The front face material texture for ambient component, if any.
 		/// </summary>
-		private Texture2d _FrontMaterialAmbientTexture;
+		private Texture2D _FrontMaterialAmbientTexture;
 
 		/// <summary>
 		/// The front face material texture for ambient component, if any.
@@ -241,7 +241,7 @@ namespace OpenGL.Objects.State
 		/// The front face material texture for displacement component, if any.
 		/// </summary>
 		[ShaderUniformState()]
-		public Texture2d FrontMaterialDisplacementTexture
+		public Texture2D FrontMaterialDisplacementTexture
 		{
 			get { return (_FrontMaterialDisplacementTexture); }
 			set { GraphicsResource.Swap(value, ref _FrontMaterialDisplacementTexture); }
@@ -250,7 +250,7 @@ namespace OpenGL.Objects.State
 		/// <summary>
 		/// The front face material texture for displacement component, if any.
 		/// </summary>
-		private Texture2d _FrontMaterialDisplacementTexture;
+		private Texture2D _FrontMaterialDisplacementTexture;
 
 		/// <summary>
 		/// The front face material texture for displacement component, if any.

@@ -144,7 +144,7 @@ namespace OpenGL.Objects.Scene
 		/// <summary>
 		/// Shadow map.
 		/// </summary>
-		internal Texture2d _ShadowMap;
+		internal Texture2D _ShadowMap;
 
 		/// <summary>
 		/// Shadow program.
@@ -288,7 +288,7 @@ namespace OpenGL.Objects.Scene
 				// Eventually clamp shadow map size to the current implementation limit
 				_ShadowMapSize = (uint)Math.Min(Gl.CurrentLimits.MaxTextureSize, _ShadowMapSize);
 
-				LinkResource(_ShadowMap = new Texture2d(_ShadowMapSize, _ShadowMapSize, ShadowMapFormat));
+				LinkResource(_ShadowMap = new Texture2D(_ShadowMapSize, _ShadowMapSize, ShadowMapFormat));
 				_ShadowMap.SamplerParams.MinFilter = TextureMinFilter.Nearest;
 				_ShadowMap.SamplerParams.MagFilter = TextureMagFilter.Nearest;
 #if !MONODROID

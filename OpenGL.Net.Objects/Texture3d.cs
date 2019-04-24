@@ -27,12 +27,12 @@ namespace OpenGL.Objects
 	/// <summary>
 	/// Three dimensional texture.
 	/// </summary>
-	public class Texture3d : Texture
+	public class Texture3D : Texture
 	{
 		#region Constructors
 
 		/// <summary>
-		/// Construct an undefined Texture3d.
+		/// Construct an undefined Texture3D.
 		/// </summary>
 		/// <remarks>
 		/// <para>
@@ -40,13 +40,13 @@ namespace OpenGL.Objects
 		/// of Create" methods (except <see cref="Create(GraphicsContext)"/>).
 		/// </para>
 		/// </remarks>
-		public Texture3d()
+		public Texture3D()
 		{
 
 		}
 
 		/// <summary>
-		/// Construct a Texture3d, defining the texture extents and the internal format.
+		/// Construct a Texture3D, defining the texture extents and the internal format.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for creating this Texture.
@@ -83,13 +83,13 @@ namespace OpenGL.Objects
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="format"/> is not a supported internal format.
 		/// </exception>
-		public Texture3d(uint width, uint height, uint depth, PixelLayout format)
+		public Texture3D(uint width, uint height, uint depth, PixelLayout format)
 		{
 			Create(width, height, depth, format);
 		}
 
 		/// <summary>
-		/// Construct a Texture3d, defining the texture extents and the internal format.
+		/// Construct a Texture3D, defining the texture extents and the internal format.
 		/// </summary>
 		/// <param name="width">
 		/// A <see cref="UInt32"/> that specify the texture width.
@@ -123,7 +123,7 @@ namespace OpenGL.Objects
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="format"/> is not a supported internal format.
 		/// </exception>
-		public Texture3d(GraphicsContext ctx, uint width, uint height, uint depth, PixelLayout format)
+		public Texture3D(GraphicsContext ctx, uint width, uint height, uint depth, PixelLayout format)
 		{
 			Create(ctx, width, height, depth, format);
 		}
@@ -141,7 +141,7 @@ namespace OpenGL.Objects
 			/// Construct a EmptyTechnique.
 			/// </summary>
 			/// <param name="texture">
-			/// The <see cref="Texture3d"/> affected by this Technique.
+			/// The <see cref="Texture3D"/> affected by this Technique.
 			/// </param>
 			/// <param name="target">
 			/// A <see cref="TextureTarget"/> that specify the texture target.
@@ -158,7 +158,7 @@ namespace OpenGL.Objects
 			/// <param name="depth">
 			/// The depth of the texture.
 			/// </param>
-			public EmptyTechnique(Texture3d texture, TextureTarget target, uint level, PixelLayout pixelFormat, uint width, uint height, uint depth) :
+			public EmptyTechnique(Texture3D texture, TextureTarget target, uint level, PixelLayout pixelFormat, uint width, uint height, uint depth) :
 				base(texture)
 			{
 				_Texture3d = texture;
@@ -171,9 +171,9 @@ namespace OpenGL.Objects
 			}
 
 			/// <summary>
-			/// The <see cref="Texture3d"/> affected by this Technique.
+			/// The <see cref="Texture3D"/> affected by this Technique.
 			/// </summary>
-			private readonly Texture3d _Texture3d;
+			private readonly Texture3D _Texture3d;
 
 			/// <summary>
 			/// The texture target to use for creating the empty texture.
@@ -226,7 +226,7 @@ namespace OpenGL.Objects
 		#region Create(uint, uint, uint, PixelLayout)
 
 		/// <summary>
-		/// Create a Texture3d, defining the texture extents and the internal format.
+		/// Create a Texture3D, defining the texture extents and the internal format.
 		/// </summary>
 		/// <param name="width">
 		/// A <see cref="UInt32"/> that specify the texture width.
@@ -271,7 +271,7 @@ namespace OpenGL.Objects
 		#region Create(GraphicsContext, uint, uint, uint, PixelLayout)
 
 		/// <summary>
-		/// Create a Texture3d, defining the texture extents and the internal format.
+		/// Create a Texture3D, defining the texture extents and the internal format.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for creating this Texture.
@@ -330,7 +330,7 @@ namespace OpenGL.Objects
 			/// Construct a EmptyTechnique.
 			/// </summary>
 			/// <param name="texture">
-			/// The <see cref="Texture3d"/> affected by this Technique.
+			/// The <see cref="Texture3D"/> affected by this Technique.
 			/// </param>
 			/// <param name="target">
 			/// A <see cref="TextureTarget"/> that specify the texture target.
@@ -341,7 +341,7 @@ namespace OpenGL.Objects
 			/// <param name="images">
 			/// The image set of the texture.
 			/// </param>
-			public ImageTechnique(Texture3d texture, TextureTarget target, PixelLayout pixelFormat, Image[] images) :
+			public ImageTechnique(Texture3D texture, TextureTarget target, PixelLayout pixelFormat, Image[] images) :
 				base(texture)
 			{
 				if (images == null)
@@ -361,9 +361,9 @@ namespace OpenGL.Objects
 			}
 
 			/// <summary>
-			/// The <see cref="Texture3d"/> affected by this Technique.
+			/// The <see cref="Texture3D"/> affected by this Technique.
 			/// </summary>
-			private readonly Texture3d _Texture3d;
+			private readonly Texture3D _Texture3d;
 
 			/// <summary>
 			/// The texture target to use for creating the empty texture.
@@ -422,7 +422,7 @@ namespace OpenGL.Objects
 		#region Create(Image[], PixelLayout)
 
 		/// <summary>
-		/// Create a Texture3d, defining the texture extents and the internal format.
+		/// Create a Texture3D, defining the texture extents and the internal format.
 		/// </summary>
 		/// <param name="images">
 		/// An array of <see cref="Image"/> that specify the texture data.
@@ -466,7 +466,7 @@ namespace OpenGL.Objects
 		#region Create(GraphicsContext, Image[], PixelLayout)
 
 		/// <summary>
-		/// Create a Texture3d, defining the texture extents and the internal format.
+		/// Create a Texture3D, defining the texture extents and the internal format.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for creating this Texture.

@@ -34,8 +34,8 @@ namespace OpenGL.Objects
 	/// derives from <see cref="Texture"/>, which define a base implementation without specifying the texture dimensionality.
 	/// </para>
 	/// <para>
-	/// Texture can be one dimensional (<see cref="Texture1d"/>), two dimensional (<see cref="Texture2d"/>), three dimensional
-	/// (<see cref="Texture3d"/>), cube mapped (<see cref="TextureCube"/>).
+	/// Texture can be one dimensional (<see cref="Texture1D"/>), two dimensional (<see cref="Texture2D"/>), three dimensional
+	/// (<see cref="Texture3D"/>), cube mapped (<see cref="TextureCube"/>).
 	/// </para>
 	/// </remarks>
 	[DebuggerDisplay("Texture: Pixel={PixelLayout}")]
@@ -1054,7 +1054,6 @@ namespace OpenGL.Objects
 					technique.Dispose();
 				}
 
-				// Layers updated only once
 				_Techniques.Clear();
 			}
 

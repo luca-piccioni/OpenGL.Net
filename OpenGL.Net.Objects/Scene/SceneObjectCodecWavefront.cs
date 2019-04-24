@@ -82,7 +82,7 @@ namespace OpenGL.Objects.Scene
 			/// <summary>
 			/// Ambient texture.
 			/// </summary>
-			public Texture2d AmbientTexture;
+			public Texture2D AmbientTexture;
 
 			/// <summary>
 			/// Diffuse color.
@@ -92,7 +92,7 @@ namespace OpenGL.Objects.Scene
 			/// <summary>
 			/// Diffuse texture.
 			/// </summary>
-			public Texture2d DiffuseTexture;
+			public Texture2D DiffuseTexture;
 
 			/// <summary>
 			/// Specular color.
@@ -102,7 +102,7 @@ namespace OpenGL.Objects.Scene
 			/// <summary>
 			/// Specular texture.
 			/// </summary>
-			public Texture2d SpecularTexture;
+			public Texture2D SpecularTexture;
 
 			/// <summary>
 			/// Specular exponent.
@@ -112,7 +112,7 @@ namespace OpenGL.Objects.Scene
 			/// <summary>
 			/// Normal texture.
 			/// </summary>
-			public Texture2d NormalTexture;
+			public Texture2D NormalTexture;
 
 			#endregion
 
@@ -874,14 +874,14 @@ namespace OpenGL.Objects.Scene
 			return (new ColorRGBAF(rgbValues[0], rgbValues[1], rgbValues[2]));
 		}
 
-		private static Texture2d ParseMaterialTexture(ObjContext objContext, ObjMaterial objMaterial, string[] commandTokens)
+		private static Texture2D ParseMaterialTexture(ObjContext objContext, ObjMaterial objMaterial, string[] commandTokens)
 		{
 			string textureFileName = commandTokens[commandTokens.Length - 1];
 			string textureFilePath = Path.Combine(Path.GetDirectoryName(objContext.Path), textureFileName);
 
 			try {
 				Image textureImage = ImageCodec.Instance.Load(textureFilePath);
-				Texture2d texture = new Texture2d();
+				Texture2D texture = new Texture2D();
 
 				texture.Create(textureImage);
 				texture.GenerateMipmaps();

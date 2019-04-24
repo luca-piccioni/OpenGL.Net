@@ -113,7 +113,7 @@ namespace OpenGL.Objects
 		/// A <see cref="uint"/> that specifies the array section index for supporting packed/interleaved arrays.
 		/// </param>
 		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if this BufferObject is not mapped (<see cref="IsMapped"/>).
+		/// Exception thrown if this BufferObject is not mapped (<see cref="Buffer.IsMapped"/>).
 		/// </exception>
 		public void SetElement<T>(T value, uint index, uint sectionIndex) where T : struct
 		{
@@ -159,7 +159,7 @@ namespace OpenGL.Objects
 		/// Interface abstracting an array section.
 		/// </summary>
 		/// <remarks>
-		/// The properties defined in this interface are meant to be used with the actual <see cref="Gl.VertexAttribPointer"/> call.
+		/// The properties defined in this interface are meant to be used with the actual Gl.VertexAttribPointer call.
 		/// </remarks>
 		protected internal interface IArraySection
 		{
@@ -513,6 +513,9 @@ namespace OpenGL.Objects
 		/// <param name="dst">
 		/// The <see cref="Array"/> that specify the destination memory where copy to.
 		/// </param>
+		/// <param name="dstOffset">
+		/// A <see cref="IntPtr"/> that specify the offset of the actual destination memory address respect <paramref name="dst"/>, in bytes.
+		/// </param>
 		/// <param name="dstStride">
 		/// A <see cref="IntPtr"/> that specify the number of bytes between two consecutive elements in the destination memory.
 		/// </param>
@@ -618,6 +621,9 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Create a strongly typed array following <see cref="ArrayBufferItemType"/>.
 		/// </summary>
+		/// <param name="arrayBufferItemType">
+		/// The <see cref="ArrayBufferItemType"/> that specifies the base type of the array elements.
+		/// </param>
 		/// <param name="itemCount">
 		/// A <see cref="uint"/> that specify the length of the array returned.
 		/// </param>

@@ -28,7 +28,7 @@ namespace OpenGL.Objects
 	/// Two dimensional texture using rectangle coordinates.
 	/// </summary>
 	[DebuggerDisplay("TextureRectangle: Width={Width} Height={Height} Format={PixelLayout}")]
-	public class TextureRectangle : Texture2d
+	public class TextureRectangle : Texture2D
 	{
 		#region Constructors
 
@@ -38,7 +38,7 @@ namespace OpenGL.Objects
 		/// <remarks>
 		/// <para>
 		/// It creates Texture object which has not defined extents, internal format and textels. To define this texture, call one
-		/// of <see cref="Texture2d.Create"/> or <see cref="Texture2d.CreateLazy"/> methods (except <see cref="Texture2d.Create(GraphicsContext)"/>).
+		/// of <see cref="Texture2D.Create"/> or <see cref="Texture2D.CreateLazy"/> methods (except <see cref="Texture2D.Create(GraphicsContext)"/>).
 		/// </para>
 		/// </remarks>
 		public TextureRectangle()
@@ -126,7 +126,7 @@ namespace OpenGL.Objects
 
 		#endregion
 
-		#region Texture2d Overrides
+		#region Texture2D Overrides
 
 		/// <summary>
 		/// Texture mapmaps level count (including the base level).

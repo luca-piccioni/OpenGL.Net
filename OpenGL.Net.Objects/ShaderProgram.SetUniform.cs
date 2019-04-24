@@ -1588,8 +1588,8 @@ namespace OpenGL.Objects
 				SetUniform(ctx, uniformName, (float)value);
 			} else if (valueType == typeof(ColorRGBAF)) {
 				SetUniform(ctx, uniformName, (ColorRGBAF)value);
-			} else if (valueType == typeof(Texture2d)) {
-				SetUniform(ctx, uniformName, (Texture2d)value);
+			} else if (valueType == typeof(Texture2D)) {
+				SetUniform(ctx, uniformName, (Texture2D)value);
 			} else if (valueType == typeof(TextureCube)) {
 				SetUniform(ctx, uniformName, (TextureCube)value);
 			} else

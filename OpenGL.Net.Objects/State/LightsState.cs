@@ -137,7 +137,7 @@ namespace OpenGL.Objects.State
 			/// <summary>
 			/// Shadow map (2D).
 			/// </summary>
-			public Texture2d ShadowMap2D;
+			public Texture2D ShadowMap2D;
 
 			#endregion
 
@@ -425,14 +425,14 @@ namespace OpenGL.Objects.State
 			} else
 				base.Apply(ctx, shaderProgram);		// Uniform block
 
-			// Dummy shadow map: Texture2d
+			// Dummy shadow map: Texture2D
 			// Note: necessary to avoid undefined behavior on glo_ShadowMap2D samplers
 			string resourceClassId = "OpenGL.Objects.ShadowMap.DummyTexture2d";
 
-			Texture2d dummyShadowMap = (Texture2d)ctx.GetSharedResource(resourceClassId);
+			Texture2D dummyShadowMap = (Texture2D)ctx.GetSharedResource(resourceClassId);
 
 			if (dummyShadowMap == null) {
-				dummyShadowMap = new Texture2d(1, 1, PixelLayout.Depth16);
+				dummyShadowMap = new Texture2D(1, 1, PixelLayout.Depth16);
 				dummyShadowMap.SamplerParams.CompareMode = true;
 				dummyShadowMap.SamplerParams.CompareFunc = DepthFunction.Never;
 				dummyShadowMap.Create(ctx);

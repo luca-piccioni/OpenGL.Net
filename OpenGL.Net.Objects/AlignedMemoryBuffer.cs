@@ -145,6 +145,9 @@ namespace OpenGL.Objects
 
 		#region Reset
 
+		/// <summary>
+		/// Reset the content of this AlignmentMemoryBuffer to zero.
+		/// </summary>
 		public void ResetBuffer()
 		{
 			if (IsDisposed)
