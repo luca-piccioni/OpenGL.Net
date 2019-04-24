@@ -63,6 +63,7 @@
     <Compile Include="ArrayBufferItemType.cs" />
     <Compile Include="Buffer.cs" />
     <Compile Include="Collections\StringDictionary.cs" />
+    <Compile Include="ComputeProgram.cs" />
     <Compile Include="ElementBuffer.cs" />
     <Compile Include="FeedbackBuffer.cs" />
     <Compile Include="FeedbackBufferFormat.cs" />
@@ -86,6 +87,7 @@
     <Compile Include="ImageFormat.cs" />
     <Compile Include="ImageInfo.cs" />
     <Compile Include="ImageSemantic.cs" />
+    <Compile Include="ImageUnit.cs" />
     <Compile Include="IMedia.cs" />
     <Compile Include="IMediaCodecPlugin.cs" />
     <Compile Include="IPlugin.cs" />

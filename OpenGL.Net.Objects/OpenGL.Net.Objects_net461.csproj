@@ -114,6 +114,7 @@
     <Compile Include="ArrayBufferItemAttribute.cs" />
     <Compile Include="ArrayBufferItemType.cs" />
     <Compile Include="Collections\StringDictionary.cs" />
+    <Compile Include="ComputeProgram.cs" />
     <Compile Include="Font.cs" />
     <Compile Include="FontFactory.cs" />
     <Compile Include="FontVertex.cs" />
@@ -121,6 +122,7 @@
     <Compile Include="FontTextureArray2d.cs" />
     <Compile Include="IBindingIndexResource.cs" />
     <Compile Include="IFont.cs" />
+    <Compile Include="ImageUnit.cs" />
     <Compile Include="IShaderUniformContainer.cs" />
     <Compile Include="PixelLayoutExtensions.cs" />
     <Compile Include="Sampler.cs" />

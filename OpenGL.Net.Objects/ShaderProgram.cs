@@ -1108,27 +1108,6 @@ namespace OpenGL.Objects
 
 		#endregion
 
-		#region Compute Shader
-
-		/// <summary>
-		/// Dispatch the compute shader.
-		/// </summary>
-		/// <param name="ctx"></param>
-		/// <param name="x"></param>
-		/// <param name="y"></param>
-		/// <param name="z"></param>
-		public void DispatchCompute(GraphicsContext ctx, uint x, uint y, uint z)
-		{
-			CheckCurrentContext(ctx);
-
-			// Ensure program bound
-			ctx.Bind(this);
-			// Dispatch
-			Gl.DispatchCompute(x, y, z);
-		}
-
-		#endregion
-
 		#region GraphicsResource Overrides
 
 		/// <summary>

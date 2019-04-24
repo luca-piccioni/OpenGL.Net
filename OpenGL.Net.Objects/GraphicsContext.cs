@@ -617,9 +617,11 @@ namespace OpenGL.Objects
 			// Reserved object name space
 			InitializeNamespace();
 
-			// Lazy texture bindings
+			// Lazy texture units
 			_TextureUnits = new TextureUnit[Limits.MaxCombinedTextureImageUnits];
 			_TextureUnitsIndex = (uint)(Limits.MaxCombinedTextureImageUnits - 1);
+			// Lazy image units
+			_ImageUnits = new ImageUnit[Limits.MaxImageUnits];
 			// Lazy binding
 			_BindingsUniform = new UniformBuffer[Limits.MaxUniformBufferBindings];
 			_BindingsUniformLruIndex = (uint)(Limits.MaxUniformBufferBindings - 1);
@@ -648,6 +650,8 @@ namespace OpenGL.Objects
 			// Reference texture bindings
 			_TextureUnits = sharedContext._TextureUnits;
 			_TextureUnitsIndex = sharedContext._TextureUnitsIndex;
+			// Reference image units
+			_ImageUnits = sharedContext._ImageUnits;
 			// Reference bindings for uniform blocks
 			_BindingsUniform = sharedContext._BindingsUniform;
 			_BindingsUniformLruIndex = sharedContext._BindingsUniformLruIndex;
@@ -1161,6 +1165,61 @@ namespace OpenGL.Objects
 		/// Index of the least recently used binding point for <see cref="_TextureUnits"/>
 		/// </summary>
 		private uint _TextureUnitsIndex;
+
+		#endregion
+
+		#region Lazy Server State - Image Units (Texture Image Binding)
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="texture"></param>
+		/// <param name="imageUnitState">
+		/// </param>
+		/// <returns></returns>
+		internal ImageUnit GetImageUnit(Texture texture, ImageUnitState imageUnitState)
+		{
+			if (texture == null)
+				throw new ArgumentNullException(nameof(texture));
+			if (_ImageUnits.Length == 0)
+				throw new InvalidOperationException("unsupported, requires GL >= 4.2 || GLES 3.1 || GL_ARB_shader_image_load_store");
+
+			// Find an exact match for texture/unitState
+			foreach (ImageUnit existingImageUnit in _ImageUnits) {
+				if (existingImageUnit == null)
+					continue;
+
+				if (!ReferenceEquals(existingImageUnit.Texture, texture))
+					continue;
+				if (existingImageUnit != imageUnitState)
+					continue;
+
+				return existingImageUnit;
+			}
+
+			// If we're here, it means that no image unit as currently bound that texture
+			// with that preset: allocate/override any free image unit
+
+			// Get the texture unit for texture
+			// ATM The simplest algo: the next one
+			uint imageUnitIndex = ++_ImageUnitsIndex % (uint)_ImageUnits.Length;
+			ImageUnit imageUnit;
+
+			if ((imageUnit = _ImageUnits[imageUnitIndex]) == null)
+				_ImageUnits[imageUnitIndex] = imageUnit = new ImageUnit(imageUnitIndex);
+
+			return imageUnit;
+		}
+
+		/// <summary>
+		/// Image units available for context.
+		/// </summary>
+		private ImageUnit[] _ImageUnits;
+
+		/// <summary>
+		/// Index of the least recently used binding point for <see cref="_ImageUnits"/>
+		/// </summary>
+		private uint _ImageUnitsIndex;
 
 		#endregion
 

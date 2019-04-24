@@ -245,39 +245,94 @@ namespace OpenGL.Objects
 				throw new ArgumentNullException("ctx");
 			if (cctx == null)
 				throw new ArgumentNullException("cctx");
-
 			if (_SourceStrings == null)
 				throw new InvalidOperationException("no source loaded");
 
-			List<string> shaderSource = new List<string>(256);
-			string[] shaderSourceStrings = _SourceStrings.ToArray();
+			List<string> sourceLines = new List<string>();
+			
+			// Initial status: original
+			AppendSourceStrings(sourceLines, _SourceStrings.ToArray());
 
 			// Append imposed header - Every source shall compile with this header
-			AppendHeader(ctx, cctx, shaderSource, cctx.ShaderVersion.VersionId);
+			int headerLine = 0;
+
+			if (ctx.ShadingVersion.Api == KhronosVersion.ApiGlsl) {
+				// Automatically prepend required shader version, if necessary
+				if (sourceLines.Count > 0 && !Regex.IsMatch(sourceLines[0], @"\s*#version \d+.*")) {
+					int version = cctx.ShaderVersion.VersionId;
+
+					if (version >= 150) {
+						// Starting from GLSL 1.50, profiles are implemented
+				
+						if ((ctx.Flags & GraphicsContextFlags.ForwardCompatible) != 0)
+							sourceLines.Insert(headerLine++, $"#version {version} core\n");
+						else
+							sourceLines.Insert(headerLine++, $"#version {version} compatibility\n");
+					} else
+						sourceLines.Insert(headerLine++, $"#version {version} core\n");
+				} else
+					headerLine++;		// #version already specified by implementor
+			
+				// #extension
+				if (ctx.Extensions.ShadingLanguageInclude_ARB)
+					sourceLines.Insert(headerLine++, "#extension GL_ARB_shading_language_include : require\n");
+
+				if (ctx.Extensions.UniformBufferObject_ARB)
+					sourceLines.Insert(headerLine++, "#extension GL_ARB_uniform_buffer_object : enable\n");
+				else
+					sourceLines.Insert(headerLine++, "#define DISABLE_GL_ARB_uniform_buffer_object\n");
+
+				if (ObjectStage == ShaderType.GeometryShader && ctx.Extensions.GeometryShader4_ARB)
+					sourceLines.Insert(headerLine++, "#extension GL_ARB_geometry_shader4 : enable\n");
+
+				if (ctx.Extensions.ShaderDrawParameters_ARB)
+					sourceLines.Insert(headerLine++, "#extension GL_ARB_shader_draw_parameters : enable\n");
+
+				foreach (ShaderExtension shaderExtension in cctx.Extensions) {
+					// Do not include any #extension directive on extensions not supported by driver
+					if (ctx.Extensions.HasExtensions(shaderExtension.Name) == false)
+						continue;
+					sourceLines.Insert(headerLine++, $"#extension {shaderExtension.Name} : {shaderExtension.Behavior.ToString().ToLowerInvariant()}\n");
+				}
+
+				// #pragma
+#if DEBUG
+				// Debug directives
+				sourceLines.Insert(headerLine++, "#pragma optimization(off)\n");
+				sourceLines.Insert(headerLine++, "#pragma debug(on)\n");
+#else
+				sourceLines.Insert(headerLine++, "#pragma optimization(on)\n");
+				sourceLines.Insert(headerLine++, "#pragma debug(off)\n");
+#endif
+			} else {
+				switch (ObjectStage) {
+					case ShaderType.FragmentShader:
+						sourceLines.Insert(headerLine++, "precision mediump float;\n");
+						break;
+				}
+				
+			}
 
 			// Append required #define statments
 			if (cctx.Defines != null) {
 				foreach (string def in cctx.Defines) {
-					shaderSource.Add(String.Format("#define {0} 1\n", def));
+					sourceLines.Insert(headerLine++, $"#define {def} 1\n");
 					Log("  Symbol: {0}", def);
 				}
 			}
 
-			// Append specific source for composing shader essence
-			AppendSourceStrings(shaderSource, shaderSourceStrings);
-
 			// Remove comment lines
-			shaderSource = CleanSource(shaderSource);
+			sourceLines = CleanSource(sourceLines);
 
 			// Preprocessing
 			// Manage #include preprocessor directives in the case GL_ARB_shading_language_include is not supported
 			// When #include are replaced, conditionals are processed too
 			if (ctx.Extensions.ShadingLanguageInclude_ARB == false)
-				shaderSource = ShaderPreprocessor.Process(shaderSource, cctx, ctx.IncludeLibrary, ShaderPreprocessor.Stage.All);
+				sourceLines = ShaderPreprocessor.Process(sourceLines, cctx, ctx.IncludeLibrary, ShaderPreprocessor.Stage.All);
 
-			shaderSource = CleanSource(shaderSource);
+			sourceLines = CleanSource(sourceLines);
 
-			return (shaderSource);
+			return sourceLines;
 		}
 
 		/// <summary>
@@ -323,84 +378,6 @@ namespace OpenGL.Objects
 		/// Regular expression for matching C comments.
 		/// </summary>
 		private static readonly Regex _RegexCCommentLine = new Regex(@"^\s*/\*(.|$)*\*/\s*$");
-
-		/// <summary>
-		/// Append default source header.
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for the compilation process.
-		/// </param>
-		/// <param name="sourceLines">
-		/// A <see cref="List{String}"/> which represent the current shader object
-		/// source lines.
-		/// </param>
-		/// <param name="version">
-		/// A <see cref="Int32"/> representing the shader language version to use in generated shader.
-		/// </param>
-		protected void AppendHeader(GraphicsContext ctx, ShaderCompilerContext cctx, List<string> sourceLines, int version)
-		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
-			if (cctx == null)
-				throw new ArgumentNullException("ctx");
-			if (sourceLines == null)
-				throw new ArgumentNullException("sourceLines");
-			
-			if (ctx.ShadingVersion.Api == KhronosVersion.ApiGlsl) {
-				// Prepend required shader version
-				if (version >= 150) {
-					// Starting from GLSL 1.50, profiles are implemented
-				
-					if ((ctx.Flags & GraphicsContextFlags.ForwardCompatible) != 0)
-						sourceLines.Add(String.Format("#version {0} core\n", version));
-					else
-						sourceLines.Add(String.Format("#version {0} compatibility\n", version));
-				} else {
-					sourceLines.Add(String.Format("#version {0}\n", version));
-				}
-			
-				// #extension
-				if (ctx.Extensions.ShadingLanguageInclude_ARB)
-					sourceLines.Add("#extension GL_ARB_shading_language_include : require\n");
-
-				if (ctx.Extensions.UniformBufferObject_ARB)
-					sourceLines.Add("#extension GL_ARB_uniform_buffer_object : enable\n");
-				else
-					sourceLines.Add("#define DISABLE_GL_ARB_uniform_buffer_object\n");
-
-				if (ObjectStage == ShaderType.GeometryShader && ctx.Extensions.GeometryShader4_ARB)
-					sourceLines.Add("#extension GL_ARB_geometry_shader4 : enable\n");
-
-				if (ctx.Extensions.ShaderDrawParameters_ARB)
-					sourceLines.Add("#extension GL_ARB_shader_draw_parameters : enable\n");
-
-				foreach (ShaderExtension shaderExtension in cctx.Extensions) {
-					// Do not include any #extension directive on extensions not supported by driver
-					if (ctx.Extensions.HasExtensions(shaderExtension.Name) == false)
-						continue;
-					sourceLines.Add(String.Format(
-						"#extension {0} : {1}\n", shaderExtension.Name, shaderExtension.Behavior.ToString().ToLowerInvariant())
-					);
-				}
-
-				// #pragma
-#if DEBUG
-				// Debug directives
-				sourceLines.Add("#pragma optimization(off)\n");
-				sourceLines.Add("#pragma debug(on)\n");
-#else
-				sourceLines.Add("#pragma optimization(on)\n");
-				sourceLines.Add("#pragma debug(off)\n");
-#endif
-			} else {
-				switch (ObjectStage) {
-					case ShaderType.FragmentShader:
-						sourceLines.Add("precision mediump float;\n");
-						break;
-				}
-				
-			}
-		}
 
 		/// <summary>
 		/// Append a constant array of strings.

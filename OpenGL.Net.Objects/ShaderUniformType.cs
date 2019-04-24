@@ -1,5 +1,5 @@
 
-// Copyright (C) 2011-2015 Luca Piccioni
+// Copyright (C) 2011-2019 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -248,12 +248,6 @@ namespace OpenGL.Objects
 		/// Texture 2D sampler.
 		/// </summary>
 		Sampler2D = Gl.SAMPLER_2D,
-#if !MONODROID
-		/// <summary>
-		/// Texture rectangle sampler.
-		/// </summary>
-		Sampler2DRect = Gl.SAMPLER_2D_RECT,
-#endif
 		/// <summary>
 		/// Texture 3D sampler.
 		/// </summary>
@@ -262,6 +256,12 @@ namespace OpenGL.Objects
 		/// Texture cube sampler.
 		/// </summary>
 		SamplerCube = Gl.SAMPLER_CUBE,
+#if !MONODROID
+		/// <summary>
+		/// Texture rectangle sampler.
+		/// </summary>
+		Sampler2DRect = Gl.SAMPLER_2D_RECT,
+#endif
 
 		#endregion
 
@@ -277,16 +277,16 @@ namespace OpenGL.Objects
 		/// Depth texture 2D sampler.
 		/// </summary>
 		Sampler2DShadow = Gl.SAMPLER_2D_SHADOW,
+		/// <summary>
+		/// Depth texture cube sampler.
+		/// </summary>
+		SamplerCubeShadow = Gl.SAMPLER_CUBE_SHADOW,
 #if !MONODROID
 		/// <summary>
 		/// Depth texture rectangle sampler.
 		/// </summary>
 		Sampler2DRectShadow = Gl.SAMPLER_2D_RECT_SHADOW,
 #endif
-		/// <summary>
-		/// Depth texture cube sampler.
-		/// </summary>
-		SamplerCubeShadow = Gl.SAMPLER_CUBE_SHADOW,
 
 		#endregion
 
@@ -302,6 +302,10 @@ namespace OpenGL.Objects
 		/// Texture 2D array sampler.
 		/// </summary>
 		Sampler2DArray = Gl.SAMPLER_2D_ARRAY,
+		/// <summary>
+		/// Texture 2D array sampler.
+		/// </summary>
+		SamplerCubeMapArray = Gl.SAMPLER_CUBE_MAP_ARRAY,
 
 		#endregion
 
@@ -414,6 +418,52 @@ namespace OpenGL.Objects
 		/// Texture cube sampler.
 		/// </summary>
 		UIntSamplerCube = Gl.UNSIGNED_INT_SAMPLER_CUBE,
+
+		#endregion
+
+		#region Images
+		
+		Image2D = Gl.IMAGE_2D,
+		Image3D = Gl.IMAGE_3D,
+		ImageCube = Gl.IMAGE_CUBE,
+		ImageBuffer = Gl.IMAGE_BUFFER,
+		Image2DArray = Gl.IMAGE_2D_ARRAY,
+		ImageCubeMapArray = Gl.IMAGE_CUBE_MAP_ARRAY,
+
+		IntImage2D = Gl.INT_IMAGE_2D,
+		IntImage3D = Gl.INT_IMAGE_3D,
+		IntImageCube = Gl.INT_IMAGE_CUBE,
+		IntImageBuffer = Gl.INT_IMAGE_BUFFER,
+		IntImage2DArray = Gl.INT_IMAGE_2D_ARRAY,
+		IntImageCubeMapArray = Gl.INT_IMAGE_CUBE_MAP_ARRAY,
+
+		UIntImage2D = Gl.UNSIGNED_INT_IMAGE_2D,
+		UIntImage3D = Gl.UNSIGNED_INT_IMAGE_3D,
+		UIntImageCube = Gl.UNSIGNED_INT_IMAGE_CUBE,
+		UIntImageBuffer = Gl.UNSIGNED_INT_IMAGE_BUFFER,
+		UIntImage2DArray = Gl.UNSIGNED_INT_IMAGE_2D_ARRAY,
+		UIntImageCubeMapArray = Gl.UNSIGNED_INT_IMAGE_CUBE_MAP_ARRAY,
+		UintAtomicCounter = Gl.UNSIGNED_INT_ATOMIC_COUNTER,
+
+#if !MONODROID
+		Image1D = Gl.IMAGE_1D,
+		Image1DArray = Gl.IMAGE_1D_ARRAY,
+		Image2DRect = Gl.IMAGE_2D_RECT,
+		Image2DMultisample = Gl.IMAGE_2D_MULTISAMPLE,
+		Image2DMultisampleArray = Gl.IMAGE_2D_MULTISAMPLE_ARRAY,
+
+		IntImage1D = Gl.INT_IMAGE_1D,
+		IntImage1DArray = Gl.INT_IMAGE_1D_ARRAY,
+		IntImage2DRect = Gl.INT_IMAGE_2D_RECT,
+		IntImage2DMultisample = Gl.INT_IMAGE_2D_MULTISAMPLE,
+		IntImage2DMultisampleArray = Gl.INT_IMAGE_2D_MULTISAMPLE_ARRAY,
+
+		UIntImage1D = Gl.UNSIGNED_INT_IMAGE_1D,
+		UIntImage2DRect = Gl.UNSIGNED_INT_IMAGE_2D_RECT,
+		UIntImage1DArray = Gl.UNSIGNED_INT_IMAGE_1D_ARRAY,
+		UIntImage2DMultisample = Gl.UNSIGNED_INT_IMAGE_2D_MULTISAMPLE,
+		UIntImage2DMultisampleArray = Gl.UNSIGNED_INT_IMAGE_2D_MULTISAMPLE_ARRAY,
+#endif
 
 		#endregion
 	}
