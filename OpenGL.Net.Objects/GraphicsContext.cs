@@ -627,7 +627,7 @@ namespace OpenGL.Objects
 			_BindingsUniformLruIndex = (uint)(Limits.MaxUniformBufferBindings - 1);
 			// Lazy binding indices
 			_BindingIndexes[BufferTarget.UniformBuffer] = new BindingIndexContext(BufferTarget.UniformBuffer, (uint)Limits.MaxUniformBufferBindings);
-			_BindingIndexes[BufferTarget.ShaderStorageBuffer] = new BindingIndexContext(BufferTarget.ShaderStorageBuffer, (uint)Limits.MaxUniformBufferBindings);
+			_BindingIndexes[BufferTarget.ShaderStorageBuffer] = new BindingIndexContext(BufferTarget.ShaderStorageBuffer, (uint)Limits.MaxShaderStorageBufferBindings);
 			// Shader include library (GLSL #include support)
 			_ShaderIncludeLibrary = new ShaderIncludeLibrary();
 			_ShaderIncludeLibrary.IncRef();
@@ -1171,12 +1171,18 @@ namespace OpenGL.Objects
 		#region Lazy Server State - Image Units (Texture Image Binding)
 
 		/// <summary>
-		/// 
+		/// Get the image unit most appropriate for a texture/preset combination.
 		/// </summary>
-		/// <param name="texture"></param>
-		/// <param name="imageUnitState">
+		/// <param name="texture">
+		/// The <see cref="Texture"/> to be bound on the returned image unit.
 		/// </param>
-		/// <returns></returns>
+		/// <param name="imageUnitState">
+		/// The <see cref="ImageUnitState"/> used to setup <paramref name="texture"/> access.
+		/// </param>
+		/// <returns>
+		/// It returns the <see cref="ImageUnit"/> on which <paramref name="texture"/> should be bound. There are chances to
+		/// avoid a GL command.
+		/// </returns>
 		internal ImageUnit GetImageUnit(Texture texture, ImageUnitState imageUnitState)
 		{
 			if (texture == null)

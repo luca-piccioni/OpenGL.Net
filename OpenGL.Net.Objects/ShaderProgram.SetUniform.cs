@@ -1260,6 +1260,123 @@ namespace OpenGL.Objects
 
 		#endregion
 
+		#region Set Uniform (image-compatible data)
+
+		/// <summary>
+		/// Set uniform state variable (image2D...). Not layered.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for operations.
+		/// </param>
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specify the variable name in the shader source.
+		/// </param>
+		/// <param name="texture">
+		/// A <see cref="Texture"/> holding the uniform variabile data (the texture name).
+		/// </param>
+		public void SetUniformImage(GraphicsContext ctx, string uniformName, Texture texture, BufferAccess access = BufferAccess.ReadOnly, int level = 0, InternalFormat? internalFormat = null)
+		{
+			CheckThatExistence(ctx, texture);
+
+			UniformBinding uniform = GetUniform(ctx, uniformName);
+			if (uniform == null || uniform.Location == -1)
+				return;
+
+			ImageUnitBinding imageUnitState = new ImageUnitBinding() {
+				Texture = texture,
+				Access = access,
+				Level = level,
+				Layered = false,
+				OverrideInternalFormat = internalFormat
+			};
+			
+			SetUniformImage(ctx, uniform, imageUnitState);
+		}
+
+		/// <summary>
+		/// Set uniform state variable (image2D...).Layered.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for operations.
+		/// </param>
+		/// <param name="uniformName">
+		/// A <see cref="String"/> that specify the variable name in the shader source.
+		/// </param>
+		/// <param name="texture">
+		/// A <see cref="Texture"/> holding the uniform variabile data (the texture name).
+		/// </param>
+		public void SetUniformImage(GraphicsContext ctx, string uniformName, Texture texture, int layer, BufferAccess access = BufferAccess.ReadOnly, int level = 0, InternalFormat? internalFormat = null)
+		{
+			CheckThatExistence(ctx, texture);
+
+			UniformBinding uniform = GetUniform(ctx, uniformName);
+			if (uniform == null || uniform.Location == -1)
+				return;
+
+			ImageUnitBinding imageUnitState = new ImageUnitBinding() {
+				Texture = texture,
+				Access = access,
+				Level = level,
+				Layered = true,
+				Layer = layer,
+				OverrideInternalFormat = internalFormat
+			};
+			
+			SetUniformImage(ctx, uniform, imageUnitState);
+		}
+
+		/// <summary>
+		/// Bind a <see cref="Texture"/> to an image unit, and setup relative state on this ShaderProgram.
+		/// </summary>
+		/// <param name="ctx">
+		/// The <see cref="GraphicsContext"/> managing this ShaderProgram.
+		/// </param>
+		/// <param name="uniform">
+		/// The <see cref="UniformBinding"/> that specifies the name of the uniform to be bound to the image unit.
+		/// </param>
+		/// <param name="texture">
+		/// A <see cref="Texture"/> holding the uniform variabile data (the texture name).
+		/// </param>
+		/// <param name="imageUnitBinding">
+		/// Specifies the state of the image unit.
+		/// </param>
+		private void SetUniformImage(GraphicsContext ctx, UniformBinding uniform, ImageUnitBinding imageUnitBinding)
+		{
+			ImageUnit imageUnit = ctx.GetImageUnit(imageUnitBinding.Texture, imageUnitBinding);
+
+#if ENABLE_LAZY_UNIFORM_VALUE
+			if (uniform.IsValueChanged((int)imageUnit.Index) == false)
+				return;
+#endif
+
+			CheckProgramBinding();
+			CheckUniformType(uniform, Gl.INT);
+
+			// Set uniform value (sampler)
+			// Cast to Int32 since the sampler type can be set only with glUniform1i
+			_UniformBackend.SetUniform(ctx, this, uniform, (int)imageUnit.Index);
+
+			// Validate program
+			Validate();
+
+#if ENABLE_LAZY_UNIFORM_VALUE
+			uniform.CacheValue((int)imageUnit.Index);
+#endif
+
+			// Ensure CPU/GPU image unit setup
+			imageUnit.Bind(ctx, imageUnitBinding.Texture, imageUnitBinding);
+
+			// Swap image unit bindings
+			ImageUnitBinding prevUnitBinding;
+
+			if (_ImageUnitBindings.TryGetValue(uniform.Name, out prevUnitBinding) && prevUnitBinding != null)
+				prevUnitBinding.Dispose();
+
+			_ImageUnitBindings[uniform.Name] = imageUnitBinding;
+		}
+
+		#endregion
+
 #if !MONODROID
 
 		#region Set Uniform (double-precision floating-point vector data)

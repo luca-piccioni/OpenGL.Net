@@ -1108,7 +1108,177 @@ namespace OpenGL.Objects
 
 		#endregion
 
-		#region GraphicsResource Overrides
+		#region Memory Barrier
+
+		/// <summary>
+		/// Defines a barrier ordering memory transactions
+		/// </summary>
+		/// <param name="memoryBarrierMask">
+		/// Specifies the barriers to insert.
+		/// </param>
+		public void MemoryBarrier(MemoryBarrierMask memoryBarrierMask = MemoryBarrierMask.AllBarrierBits)
+		{
+			Gl.MemoryBarrier(memoryBarrierMask);
+		}
+
+		#endregion
+
+		#region Images
+
+		/// <summary>
+		/// Link between image uniform and image unit preset.
+		/// </summary>
+		private class ImageUnitBinding : ImageUnitState, IDisposable
+		{
+			/// <summary>
+			/// Construct a ImageUnitBinding.
+			/// </summary>
+			public ImageUnitBinding()
+			{
+
+			}
+
+			/// <summary>
+			/// Construct a ImageUnitBinding.
+			/// </summary>
+			/// <param name="uniformName">
+			/// The <see cref="string"/> that specifies the name of the uniform.
+			/// </param>
+			public ImageUnitBinding(string uniformName)
+			{
+				if (uniformName == null)
+					throw new ArgumentNullException(nameof(uniformName));
+				UniformName = uniformName;
+			}
+
+			/// <summary>
+			/// The name of the image uniform.
+			/// </summary>
+			public readonly string UniformName;
+
+			/// <summary>
+			/// Get or set the texture currently bound on texture unit.
+			/// </summary>
+			public Texture Texture
+			{
+				get { return _Texture; }
+				set { Swap(value, ref _Texture); }
+			}
+
+			/// <summary>
+			/// Texture currently bound on texture unit.
+			/// </summary>
+			private Texture _Texture;
+
+			/// <summary>
+			/// Overrides the format used for accesses to bound texture.
+			/// </summary>
+			public InternalFormat? OverrideInternalFormat;
+
+			/// <summary>
+			/// Format used for accesses to bound texture.
+			/// </summary>
+			public override InternalFormat InternalFormat
+			{
+				get 
+				{
+					// Override first
+					if (OverrideInternalFormat.HasValue)
+						return OverrideInternalFormat.Value;
+					
+					// Match texture coordinate, if any.
+					Texture texture = Texture;
+					if (texture != null)
+						return texture.PixelLayout.ToInternalFormat();
+
+					// Base implementation (R8)
+					return base.InternalFormat;
+				}
+				set { base.InternalFormat = value; }
+			}
+
+			public void Dispose()
+			{
+				_Texture?.DecRef();
+			}
+		}
+
+		public void BindImage(string uniformName, Texture texture, BufferAccess access = BufferAccess.ReadOnly, int level = 0, InternalFormat? internalFormat = null)
+		{
+			ImageUnitBinding imageUnitBinding = new ImageUnitBinding(uniformName);
+
+			imageUnitBinding.Texture = texture;
+			imageUnitBinding.Level = level;
+			imageUnitBinding.Access = access;
+			imageUnitBinding.OverrideInternalFormat = internalFormat;
+
+			_ImageUnitBindings[uniformName] = imageUnitBinding;
+		}
+
+		public void BindImage(string uniformName, Texture3D texture, int layer, BufferAccess access = BufferAccess.ReadOnly, int level = 0, InternalFormat? internalFormat = null)
+		{
+			ImageUnitBinding imageUnitBinding = new ImageUnitBinding(uniformName);
+
+			imageUnitBinding.Texture = texture;
+			imageUnitBinding.Level = level;
+			imageUnitBinding.Layered = true;
+			imageUnitBinding.Layer = layer;
+			imageUnitBinding.Access = access;
+			imageUnitBinding.OverrideInternalFormat = internalFormat;
+
+			_ImageUnitBindings[uniformName] = imageUnitBinding;
+		}
+
+		public void BindImage(string uniformName, TextureArray2D texture, int layer, BufferAccess access = BufferAccess.ReadOnly, int level = 0, InternalFormat? internalFormat = null)
+		{
+			ImageUnitBinding imageUnitBinding = new ImageUnitBinding(uniformName);
+
+			imageUnitBinding.Texture = texture;
+			imageUnitBinding.Level = level;
+			imageUnitBinding.Layered = true;
+			imageUnitBinding.Layer = layer;
+			imageUnitBinding.Access = access;
+			imageUnitBinding.OverrideInternalFormat = internalFormat;
+
+			_ImageUnitBindings[uniformName] = imageUnitBinding;
+		}
+
+		public void BindImage(string uniformName, TextureCube texture, int layer, BufferAccess access = BufferAccess.ReadOnly, int level = 0, InternalFormat? internalFormat = null)
+		{
+			ImageUnitBinding imageUnitBinding = new ImageUnitBinding(uniformName);
+
+			imageUnitBinding.Texture = texture;
+			imageUnitBinding.Level = level;
+			imageUnitBinding.Layered = true;
+			imageUnitBinding.Layer = layer;
+			imageUnitBinding.Access = access;
+			imageUnitBinding.OverrideInternalFormat = internalFormat;
+
+			_ImageUnitBindings[uniformName] = imageUnitBinding;
+		}
+
+		protected void BindImages(GraphicsContext ctx)
+		{
+			CheckCurrentContext(ctx);
+
+			foreach (KeyValuePair<string, ImageUnitBinding> pair in _ImageUnitBindings) {
+				ImageUnitBinding imageBinding = pair.Value;
+				ImageUnit imageUnit = ctx.GetImageUnit(imageBinding.Texture, imageBinding);
+
+				SetUniform(ctx, pair.Key, (int)imageUnit.Index);
+
+				imageUnit.Bind(ctx, imageBinding.Texture, imageBinding);
+			}
+		}
+		
+		/// <summary>
+		/// The image units to bind before computation.
+		/// </summary>
+		private readonly Dictionary<string, ImageUnitBinding> _ImageUnitBindings = new Dictionary<string, ImageUnitBinding>();
+
+		#endregion
+
+		#region Overrides
 
 		/// <summary>
 		/// Shader program object class.
@@ -1226,6 +1396,9 @@ namespace OpenGL.Objects
 				// Release reference to attached program objects
 				foreach (Shader programObject in _ProgramObjects)
 					programObject.DecRef();
+				// Release references to texture used as images
+				foreach (KeyValuePair<string, ImageUnitBinding> pair in _ImageUnitBindings)
+					pair.Value.Dispose();
 			}
 			// Base implementation
 			base.Dispose(disposing);
