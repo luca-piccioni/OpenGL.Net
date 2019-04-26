@@ -1,4 +1,10 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project>
+
+  <PropertyGroup>
+    <BaseIntermediateOutputPath>obj\netcoreapp2.0</BaseIntermediateOutputPath>
+  </PropertyGroup>
+
+  <Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk" />
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
@@ -16,7 +22,6 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <OutputPath>bin\netcore\Release</OutputPath>
-    <BaseIntermediateOutputPath>obj\netcoreapp2.0</BaseIntermediateOutputPath>
     <DefineConstants>TRACE;NETCORE;HAVE_NUMERICS;RELEASE;NETCOREAPP2_0</DefineConstants>
     <DocumentationFile>bin\netcore\Release\netcoreapp2.0\OpenGL.Net.xml</DocumentationFile>
     <NoWarn>1701;1702;1705;1734</NoWarn>
@@ -25,21 +30,18 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <OutputPath>bin\netcore\x86\Release</OutputPath>
-    <BaseIntermediateOutputPath>obj\netcoreapp2.0</BaseIntermediateOutputPath>
     <DefineConstants>TRACE;NETCORE;HAVE_NUMERICS;RELEASE;NETCOREAPP2_0</DefineConstants>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <OutputPath>bin\netcore\Debug</OutputPath>
-    <BaseIntermediateOutputPath>obj\netcoreapp2.0</BaseIntermediateOutputPath>
     <DefineConstants>TRACE;NETCORE;HAVE_NUMERICS;NETCOREAPP2_0</DefineConstants>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <OutputPath>bin\netcore\x86\Debug</OutputPath>
-    <BaseIntermediateOutputPath>obj\netcoreapp2.0</BaseIntermediateOutputPath>
     <DefineConstants>TRACE;NETCORE;HAVE_NUMERICS;NETCOREAPP2_0</DefineConstants>
   </PropertyGroup>
 
@@ -112,5 +114,7 @@
   </ItemGroup>
 
   <Import Project="..\Khronos.Net\Khronos.Net.projitems" Label="Shared" />
+  
+  <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
 
 </Project>

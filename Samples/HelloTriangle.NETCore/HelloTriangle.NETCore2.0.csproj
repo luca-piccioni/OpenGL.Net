@@ -1,4 +1,10 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project>
+
+  <PropertyGroup>
+    <BaseIntermediateOutputPath>obj\netcoreapp2.0</BaseIntermediateOutputPath>
+  </PropertyGroup>
+
+  <Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk" />
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -9,32 +15,26 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <OutputPath>bin\netcoreapp2.0\Release\</OutputPath>
-    <BaseIntermediateOutputPath>obj\netcoreapp2.0</BaseIntermediateOutputPath>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutputPath>bin\netcoreapp2.0\Release\</OutputPath>
-    <BaseIntermediateOutputPath>obj\netcoreapp2.0</BaseIntermediateOutputPath>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
     <OutputPath>bin\netcoreapp2.0\Release\</OutputPath>
-    <BaseIntermediateOutputPath>obj\netcoreapp2.0</BaseIntermediateOutputPath>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <OutputPath>bin\netcoreapp2.0\Debug\</OutputPath>
-    <BaseIntermediateOutputPath>obj\netcoreapp2.0</BaseIntermediateOutputPath>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutputPath>bin\netcoreapp2.0\Debug\</OutputPath>
-    <BaseIntermediateOutputPath>obj\netcoreapp2.0</BaseIntermediateOutputPath>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
     <OutputPath>bin\netcoreapp2.0\Debug\</OutputPath>
-    <BaseIntermediateOutputPath>obj\netcoreapp2.0</BaseIntermediateOutputPath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -47,5 +47,7 @@
     <ProjectReference Include="..\..\OpenGL.Net.CoreUI\OpenGL.Net.CoreUI_netcore2.0.csproj" />
     <ProjectReference Include="..\..\OpenGL.Net\OpenGL.Net_netcore2.0.csproj" />
   </ItemGroup>
+
+  <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
 
 </Project>
