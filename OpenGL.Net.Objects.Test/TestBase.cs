@@ -1,5 +1,5 @@
 ﻿
-// Copyright (C) 2015-2017 Luca Piccioni
+// Copyright (C) 2015-2019 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -19,10 +19,6 @@
 // Macro utility for enabling OpenGL function calls logging
 #undef GL_LOG_ENABLED
 
-using System;
-using System.Reflection;
-
-using NSubstitute;
 using NUnit.Framework;
 
 namespace OpenGL.Objects.Test
@@ -30,7 +26,12 @@ namespace OpenGL.Objects.Test
 	/// <summary>
 	/// Base test for OpenGL.Objects namespace.
 	/// </summary>
-	[TestFixture, RequiresSTA]
+	/// <remarks>
+	/// - Create a device context
+	/// - Create a GL context
+	/// - Track IResource leaks (instanced not disposed explictly)
+	/// </remarks>
+	[TestFixture, Apartment(System.Threading.ApartmentState.STA)]
 	public class TestBase
 	{
 		#region Setup & Tear Down
@@ -38,8 +39,8 @@ namespace OpenGL.Objects.Test
 		/// <summary>
 		/// Create a window, create the device context and set a basic pixel format.
 		/// </summary>
-		[TestFixtureSetUp]
-		public void FixtureSetUp()
+		[OneTimeSetUp]
+		public void OneTimeSetUp()
 		{
 			_DeviceContext = DeviceContext.Create();
 			_Context = new GraphicsContext(_DeviceContext);
@@ -48,16 +49,19 @@ namespace OpenGL.Objects.Test
 		[SetUp()]
 		public void SetUp()
 		{
-			if (_Context.IsCurrent == false)
+			if (!_Context.IsCurrent)
 				_Context.MakeCurrent(true);
 		}
 
 		/// <summary>
-		/// Release resources allocated by <see cref="FixtureSetUp"/>.
+		/// Release resources allocated by <see cref="OneTimeSetUp"/>.
 		/// </summary>
-		[TestFixtureTearDown]
-		public void FixtureTearDown()
+		[OneTimeTearDown]
+		public void OneTimeTearDown()
 		{
+			_TestResources?.Dispose();
+			_TestResources = null;
+
 			if (_Context != null) {
 				_Context.Dispose();
 				_Context = null;
@@ -67,6 +71,8 @@ namespace OpenGL.Objects.Test
 				_DeviceContext.Dispose();
 				_DeviceContext = null;
 			}
+
+			Resource.CheckResourceLeaks(true);
 		}
 
 		/// <summary>
@@ -86,6 +92,25 @@ namespace OpenGL.Objects.Test
 		/// The graphics context.
 		/// </summary>
 		protected GraphicsContext _Context;
+
+		/// <summary>
+		/// Resources directly created by test instances.
+		/// </summary>
+		protected static ResourceCollection<IResource> TestResources
+		{
+			get
+			{
+				if (_TestResources == null)
+					_TestResources = new ResourceCollection<IResource>();
+
+				return _TestResources;
+			}
+		}
+
+		/// <summary>
+		/// Resources directly created by test instances.
+		/// </summary>
+		private static ResourceCollection<IResource> _TestResources;
 
 		#endregion
 	}

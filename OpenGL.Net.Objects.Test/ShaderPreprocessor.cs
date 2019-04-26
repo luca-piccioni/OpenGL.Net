@@ -36,11 +36,13 @@ namespace OpenGL.Objects.Test
 		[TestCaseSource("TestStatement_Conditional_Source")]
 		public void TestStatement_Conditional(string[] sourceLines)
 		{
-			List<string> ppSource = ShaderPreprocessor.Process(sourceLines, new ShaderCompilerContext(), new ShaderIncludeLibrary(), ShaderPreprocessor.Stage.All);
+			using (ShaderIncludeLibrary shaderIncludeLibrary = new ShaderIncludeLibrary()) {
+				List<string> ppSource = ShaderPreprocessor.Process(sourceLines, new ShaderCompilerContext(), shaderIncludeLibrary, ShaderPreprocessor.Stage.All);
 
-			Assert.Greater(ppSource.Count, 0);
-			foreach (string sourceLine in ppSource)
-				Assert.AreNotEqual(sourceLine.Trim(' ', '\t', '\n'), "Fail");
+				Assert.Greater(ppSource.Count, 0);
+				foreach (string sourceLine in ppSource)
+					Assert.AreNotEqual(sourceLine.Trim(' ', '\t', '\n'), "Fail");
+			}
 		}
 
 		private static object[] TestStatement_Conditional_Source
