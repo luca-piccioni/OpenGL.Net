@@ -354,7 +354,7 @@ namespace OpenGL.Objects
 					// Load source
 					shaderObject.LoadSource(shaderProgramObject.Path);
 					// Attach object
-					shaderProgram.AttachShader(shaderObject);
+					shaderProgram.Attach(shaderObject);
 				}
 
 				// Register attributes semantic
@@ -585,7 +585,7 @@ namespace OpenGL.Objects
 		{
 			get
 			{
-				return (_ShadersLibrary);
+				return _ShadersLibrary;
 			}
 		}
 

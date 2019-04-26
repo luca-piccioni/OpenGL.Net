@@ -1,5 +1,5 @@
 
-// Copyright (C) 2009-2017 Luca Piccioni
+// Copyright (C) 2009-2019 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -56,7 +56,7 @@ namespace OpenGL.Objects
 		#region Program Linkage
 
 		/// <summary>
-		/// Attach a ShaderObject to this ShaderProgram.
+		/// Attach a Shader to this ShaderProgram.
 		/// </summary>
 		/// <param name="shaderObject">
 		/// A <see cref="Shader"/> to be attached to this ShaderProgram.
@@ -64,57 +64,46 @@ namespace OpenGL.Objects
 		/// <exception cref="ArgumentNullException">
 		/// Exception thrown if <paramref name="shaderObject"/> is null.
 		/// </exception>
-		public void AttachShader(Shader shaderObject)
+		public void Attach(Shader shaderObject)
 		{
 			if (shaderObject == null)
-				throw new ArgumentNullException("sObject");
+				throw new ArgumentNullException(nameof(shaderObject));
+			if (_ProgramObjects.Contains(shaderObject))
+				throw new ArgumentException("already attached", nameof(shaderObject));
 
 			// Link object
 			_ProgramObjects.Add(shaderObject);
 			// Force relink
-			_Linked = false;
+			IsLinked = false;
 		}
 
 		/// <summary>
-		/// Detach an attached ShaderObject from this ShaderProgram.
+		/// Utility routines for detaching all shaders from this ShaderProgram.
 		/// </summary>
-		/// <param name="shaderObject">
-		/// A <see cref="Shader"/> to be detached to this ShaderProgram.
-		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="shaderObject"/> is null.
-		/// </exception>
-		public void DetachShader(Shader shaderObject)
+		private void DetachShaders(GraphicsContext ctx)
 		{
-			if (shaderObject == null)
-				throw new ArgumentNullException("shaderObject");
+			CheckThisExistence(ctx);
 
-			// Remove shader
-			_ProgramObjects.Remove(shaderObject);
+			// Get the currently attached shaders (avoid to re-attach same shaders)
+			int shadersCount;
+
+			Gl.GetProgram(ObjectName, ProgramProperty.AttachedShaders, out shadersCount);
+
+			uint[] shadersObject = new uint[shadersCount];
+
+			if (shadersCount > 0) {
+				Gl.GetAttachedShaders(ObjectName, out shadersCount, shadersObject);
+				Debug.Assert(shadersCount == shadersObject.Length);
+			}
+
+			foreach (uint shaderObjectName in shadersObject)
+				Gl.DetachShader(ObjectName, shaderObjectName);
 		}
 
 		/// <summary>
-		/// Check the attachment state of a ShaderObject on this ShaderProgram.
+		/// List of shader objects composing this shader program.
 		/// </summary>
-		/// <param name="shaderObject"></param>
-		/// <returns>
-		/// It returns a boolean value indicating the attachment state of <paramref name="shaderObject"/>.
-		/// </returns>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="shaderObject"/> is null.
-		/// </exception>
-		public bool IsAttachedShader(Shader shaderObject)
-		{
-			if (shaderObject == null)
-				throw new ArgumentNullException("shaderObject");
-
-			return (_ProgramObjects.Contains(shaderObject));
-		}
-
-		/// <summary>
-		/// List of cached shader objects composing this shader program.
-		/// </summary>
-		private readonly List<Shader> _ProgramObjects = new List<Shader>();
+		private readonly ResourceCollection<Shader> _ProgramObjects = new ResourceCollection<Shader>();
 
 		/// <summary>
 		/// Link this ShaderProgram.
@@ -131,7 +120,7 @@ namespace OpenGL.Objects
 		/// link, obtain every information about active uniform and input variables.
 		/// </para>
 		/// <para>
-		/// This routine generate the source code of each attached ShaderObject instance and
+		/// This routine generate the source code of each attached Shader instance and
 		/// compile it. This step is performed only if really required (tendentially every
 		/// shader object is already compiled).
 		/// </para>
@@ -155,33 +144,25 @@ namespace OpenGL.Objects
 				throw new ArgumentNullException("cctx");
 			
 			// Using a deep copy of the shader compiler context, since it will be modified by this ShaderProgram
-			// instance and the attached ShaderObject instances
+			// instance and the attached Shader instances
 			cctx = new ShaderCompilerContext(cctx);
 
 			#region Compile and Attach Shader Objects
 
-			// Be sure to take every attached shader
-			uint[] shadersObject = null;
+			// Ensure no shader is attached
+#if DEBUG
 			int shadersCount;
 
 			Gl.GetProgram(ObjectName, ProgramProperty.AttachedShaders, out shadersCount);
+			Debug.Assert(shadersCount == 0, "shaders attached, while they shouldn't");
+#endif
 
-			if (shadersCount > 0) {
-				shadersObject = new uint[shadersCount];
-				Gl.GetAttachedShaders(ObjectName, out shadersCount, shadersObject);
-				Debug.Assert(shadersCount == shadersObject.Length);
-			}
-
+			// Attach shaders
 			foreach (Shader shaderObject in _ProgramObjects) {
 				// Create shader object, if necessary
-				if (shaderObject.Exists(ctx) == false)
+				if (!shaderObject.Exists(ctx))
 					shaderObject.Create(ctx, cctx);
 
-				// Do not re-attach the same shader object
-				if ((shadersObject != null) && Array.Exists(shadersObject, delegate (uint item) { return (item == shaderObject.ObjectName); }))
-					continue;
-
-				// Attach shader object
 				Gl.AttachShader(ObjectName, shaderObject.ObjectName);
 			}
 
@@ -250,20 +231,23 @@ namespace OpenGL.Objects
 
 			#region Link Shader Program Objects
 
-			int lStatus;
+			int linkStatus;
 
 			Log("=== Link shader program {0}", Identifier ?? "<Unnamed>");
 
 			// Link shader program
 			Gl.LinkProgram(ObjectName);
 			// Check for linking errors
-			Gl.GetProgram(ObjectName, ProgramProperty.LinkStatus, out lStatus);
+			Gl.GetProgram(ObjectName, ProgramProperty.LinkStatus, out linkStatus);
+
+			// Ensure shaders can be deleted hereafter
+			DetachShaders(ctx);
 
 			// Release feedback varyings unmanaged memory
 			if (feedbackVaryingsPtrs != null)
 				feedbackVaryingsPtrs.FreeHGlobal();
 
-			if (lStatus != Gl.TRUE) {
+			if (linkStatus != Gl.TRUE) {
 				const int MaxInfoLength = 4096;
 
 				StringBuilder logInfo = new StringBuilder(MaxInfoLength);
@@ -283,8 +267,9 @@ namespace OpenGL.Objects
 
 				throw new ShaderException("shader program is not valid. Linker output for {0}: {1}\n", Identifier ?? "<Unnamed>", sb.ToString());
 			}
-			// Set linked flag
-			_Linked = true;
+			
+			// From now we're linked
+			IsLinked = true;
 
 			#endregion
 
@@ -468,10 +453,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Property to determine program linkage status.
 		/// </summary>
-		public bool IsLinked
-		{
-			get { return (_Linked); }
-		}
+		public bool IsLinked { get; private set; }
 
 		/// <summary>
 		/// Validate this shader program.
@@ -482,7 +464,7 @@ namespace OpenGL.Objects
 		[Conditional("DEBUG")]
 		private void Validate()
 		{
-			int lStatus;
+			int validationStatus;
 
 			if (IsLinked == false)
 				throw new InvalidOperationException("not linked");
@@ -490,9 +472,9 @@ namespace OpenGL.Objects
 			// Request program validation
 			Gl.ValidateProgram(ObjectName);
 			// Check for validation result
-			Gl.GetProgram(ObjectName, ProgramProperty.ValidateStatus, out lStatus);
+			Gl.GetProgram(ObjectName, ProgramProperty.ValidateStatus, out validationStatus);
 
-			if (lStatus != Gl.TRUE) {
+			if (validationStatus != Gl.TRUE) {
 				const int MaxInfoLength = 4096;
 
 				StringBuilder logInfo = new StringBuilder(256, MaxInfoLength);
@@ -512,11 +494,6 @@ namespace OpenGL.Objects
 				throw new InvalidOperationException(sb.ToString());
 			}
 		}
-
-		/// <summary>
-		/// Linked flag.
-		/// </summary>
-		private bool _Linked;
 
 		#endregion
 
@@ -1364,7 +1341,7 @@ namespace OpenGL.Objects
 				ctx.DebugObjectLabel(this, Identifier);
 
 			// Link this shader program
-			if (IsLinked == false)
+			if (!IsLinked)
 				Link(ctx, _CompilationParams);
 		}
 
@@ -1394,8 +1371,7 @@ namespace OpenGL.Objects
 		{
 			if (disposing) {
 				// Release reference to attached program objects
-				foreach (Shader programObject in _ProgramObjects)
-					programObject.DecRef();
+				_ProgramObjects.Dispose();
 				// Release references to texture used as images
 				foreach (KeyValuePair<string, ImageUnitBinding> pair in _ImageUnitBindings)
 					pair.Value.Dispose();

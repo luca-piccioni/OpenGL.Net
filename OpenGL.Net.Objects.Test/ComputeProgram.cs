@@ -59,7 +59,7 @@ namespace OpenGL.Objects.Test
 					"	imageStore(glo_ImageOutput, glo_ImageOutputCoords, max);",
 					"}"
 				});
-				computeProgram.AttachShader(computeShader);
+				computeProgram.Attach(computeShader);
 				computeProgram.Create(_Context);
 
 				using (Image image = new Image(PixelLayout.R8, Size, Size)) {

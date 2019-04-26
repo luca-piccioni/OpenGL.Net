@@ -29,9 +29,48 @@ namespace OpenGL.Objects.Test
 	[TestFixture]
 	class ShaderProgramTest : TestBase
 	{
-		#region Attach/Detach Shader
+		#region Linkage
 
-		
+		[Test]
+		public void ShaderProgram_CreateSimple()
+		{
+			using (ShaderProgram shaderProgram = new ShaderProgram("OpenGL.Objects.Test.ShaderProgram.Link"))
+			using (Shader vertexShader = new Shader(ShaderType.VertexShader))
+			using (Shader fragmentShader = new Shader(ShaderType.FragmentShader))
+			{
+				// Create shaders
+				vertexShader.LoadSource(new[] {
+					"#version 150",
+					"void main() {",
+					"	gl_Position = vec4(0.0, 0.0, 0.0, 1.0);",
+					"}",
+				});
+				Assert.IsFalse(vertexShader.Exists(_Context));
+
+				fragmentShader.LoadSource(new[] {
+					"#version 150",
+					"out vec4 test_Output;",
+					"void main() {",
+					"	test_Output = vec4(0.0, 0.0, 0.0, 1.0);",
+					"}",
+				});
+				
+
+				// Attach shaders
+				Assert.DoesNotThrow(() => { shaderProgram.Attach(vertexShader); });
+				Assert.DoesNotThrow(() => { shaderProgram.Attach(fragmentShader); });
+				// Attachment does not create resources
+				Assert.IsFalse(vertexShader.Exists(_Context));
+				Assert.IsFalse(fragmentShader.Exists(_Context));
+				
+				// Compile and link
+				Assert.IsFalse(shaderProgram.IsLinked);
+				shaderProgram.Create(_Context);
+				Assert.IsTrue(shaderProgram.IsLinked);
+				Assert.IsTrue(vertexShader.Exists(_Context));
+				Assert.IsTrue(fragmentShader.Exists(_Context));
+			}
+		}
 
 		#endregion
 
@@ -42,7 +81,7 @@ namespace OpenGL.Objects.Test
 			ShaderProgram shaderProgram = new ShaderProgram("SampleProgram");
 
 			foreach (Shader shader in shaderObjects)
-				shaderProgram.AttachShader(shader);
+				shaderProgram.Attach(shader);
 
 			shaderProgram.Create(ctx);
 		}
