@@ -1,4 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<Project>
+
+  <PropertyGroup>
+    <BaseIntermediateOutputPath>obj\netcore2.0</BaseIntermediateOutputPath>
+  </PropertyGroup>
+
+  <Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk" />
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
@@ -10,14 +16,12 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <OutputPath>bin\netcore\Release</OutputPath>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <BaseIntermediateOutputPath>obj\netcore2.0</BaseIntermediateOutputPath>
     <DefineConstants>TRACE;RELEASE;NETCORE;NETCOREAPP2_0</DefineConstants>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <OutputPath>bin\netcore\Debug</OutputPath>
-    <BaseIntermediateOutputPath>obj\netcore2.0</BaseIntermediateOutputPath>
     <DefineConstants>NETCORE;NETCOREAPP2_0</DefineConstants>
   </PropertyGroup>
 
@@ -137,5 +141,7 @@
       <DependentUpon>Vertex4.tt</DependentUpon>
     </Compile>
   </ItemGroup>
+
+  <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
 
 </Project>

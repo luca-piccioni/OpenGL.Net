@@ -31,10 +31,8 @@ using System.Runtime.InteropServices;
 //      Build Number
 //      Revision
 //
-#if !NETCORE
 [assembly: AssemblyVersion("0.4.0")]
 [assembly: AssemblyFileVersion("0.4.0")]
-#endif
 
 [assembly: InternalsVisibleTo("OpenGL.Net.VideoCore")]
 [assembly: InternalsVisibleTo("OpenWF.Net")]

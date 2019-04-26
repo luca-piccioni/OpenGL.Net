@@ -306,12 +306,19 @@ namespace Khronos
 
 			public const int RTLD_NOW = 2;
 
+#if NETCORE
+			[DllImport("dl")]
+			public static extern IntPtr dlopen(string filename, int flags);
+
+			[DllImport("dl")]
+			public static extern IntPtr dlsym(IntPtr handle, string symbol);
+#else
 			[DllImport("dl")]
 			public static extern IntPtr dlopen([MarshalAs(UnmanagedType.LPTStr)] string filename, int flags);
 
 			[DllImport("dl")]
 			public static extern IntPtr dlsym(IntPtr handle, [MarshalAs(UnmanagedType.LPTStr)] string symbol);
-
+#endif
 			[DllImport("dl")]
 			public static extern string dlerror();
 		}
