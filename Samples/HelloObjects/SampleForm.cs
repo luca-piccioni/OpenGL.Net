@@ -52,11 +52,11 @@ namespace HelloObjects
 		{
 			SceneObjectGeometry geometry = new SceneObjectGeometry("Plane");
 
-			geometry.VertexArray = VertexArrays.CreatePlane(1.0f, 1.0f, -1.0f, 1, 1);
+			geometry.VertexArray = VertexArrays.CreatePlane(1.0f, 1.0f, -10.0f, 1, 1);
 			// geometry.ObjectState.DefineState(new CullFaceState(FrontFaceDirection.Ccw, CullFaceMode.Back) { Culling = false });
 			geometry.ProgramTag = ShadersLibrary.Instance.CreateProgramTag("OpenGL.Standard");
 
-			return (geometry);
+			return geometry;
 		}
 
 		private SceneObjectGeometry CreateCubeGeometry()

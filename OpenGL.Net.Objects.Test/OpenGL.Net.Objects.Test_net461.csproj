@@ -115,6 +115,7 @@
   <ItemGroup>
     <Compile Include="ArrayBuffer.cs" />
     <Compile Include="ArrayBufferBase.cs" />
+    <Compile Include="ArrayBufferInterleaved.cs" />
     <Compile Include="Buffer.cs" />
     <Compile Include="ComputeProgram.cs" />
     <Compile Include="GraphicsContext.cs" />

@@ -345,13 +345,13 @@ namespace OpenGL.Objects
 
 			switch (ElementsType) {
 				case DrawElementsType.UnsignedByte:
-					vIndex = GetElement<byte>(index, 0);
+					vIndex = GetElementCore<byte>(index, 0);
 					break;
 				case DrawElementsType.UnsignedShort:
-					vIndex = GetElement<ushort>(index, 0);
+					vIndex = GetElementCore<ushort>(index, 0);
 					break;
 				case DrawElementsType.UnsignedInt:
-					vIndex = GetElement<uint>(index, 0);
+					vIndex = GetElementCore<uint>(index, 0);
 					break;
 				default:
 					throw new NotSupportedException(ElementsType + " not supported");
@@ -362,7 +362,7 @@ namespace OpenGL.Objects
 
 		#endregion
 
-		#region ArrayBufferObjectBase Overrides
+		#region Overrides
 
 		/// <summary>
 		/// Get the count of the array sections aggregated in this ArrayBufferObjectBase.

@@ -2034,6 +2034,51 @@ namespace OpenGL.Objects
 
 		#endregion
 
+		#region Shader/Program Binary Formats
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public bool IsProgramBinarySupported
+		{
+			get
+			{
+				if (!Extensions.GetProgramBinary_ARB)
+					return false;
+
+				GraphicsResource.CheckCurrentContext(this);
+
+				int binaryFormats = 0;
+
+				Gl.GetInteger(GetPName.NumProgramBinaryFormats, out binaryFormats);
+
+				return binaryFormats > 0;
+			}
+		}
+
+		public IEnumerable<int> ProgramBinaryFormats
+		{
+			get
+			{
+				if (!Extensions.GetProgramBinary_ARB)
+					return new int[0];
+
+				GraphicsResource.CheckCurrentContext(this);
+
+				int binaryFormatsCount = 0;
+
+				Gl.GetInteger(GetPName.NumProgramBinaryFormats, out binaryFormatsCount);
+
+				int[] binaryFormats = new int[binaryFormatsCount];
+				if (binaryFormatsCount > 0)
+					Gl.Get(GetPName.ProgramBinaryFormats, binaryFormats);
+
+				return binaryFormats;
+			}
+		}
+
+		#endregion
+
 		#region IDisposable Implementation
 
 		/// <summary>

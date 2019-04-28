@@ -105,8 +105,6 @@ namespace OpenGL.Objects
 			/// </param>
 			public VertexArray(ArrayBufferBase arrayBuffer, uint sectionIndex)
 			{
-				if (arrayBuffer != null && arrayBuffer.ItemsCount == 0)
-					throw new ArgumentException("zero items", "arrayBuffer");
 				if (arrayBuffer != null && sectionIndex >= arrayBuffer.ArraySectionsCount)
 					throw new ArgumentOutOfRangeException("out of bounds", "sectionIndex");
 
@@ -514,12 +512,12 @@ namespace OpenGL.Objects
 
 			public T GetElement<T>(uint index) where T : struct
 			{
-				return (ArrayBuffer.GetElement<T>(index, ArraySectionIndex));
+				return (ArrayBuffer.GetElementCore<T>(index, ArraySectionIndex));
 			}
 
 			public void SetElement<T>(T element, uint index) where T : struct
 			{
-				ArrayBuffer.SetElement<T>(element, index, ArraySectionIndex);
+				ArrayBuffer.SetElementCore<T>(element, index, ArraySectionIndex);
 			}
 
 			#endregion
@@ -762,7 +760,7 @@ namespace OpenGL.Objects
 		/// </exception>
 		public void SetArray(ArrayBufferBase arrayBuffer, uint sectionIndex, string attributeName, string blockName)
 		{
-			if (String.IsNullOrEmpty(attributeName))
+			if (string.IsNullOrEmpty(attributeName))
 				throw new ArgumentException("invalid name", "attributeName");
 
 			// Set vertex array

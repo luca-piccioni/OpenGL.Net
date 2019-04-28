@@ -566,10 +566,9 @@ namespace OpenGL.Objects
 		/// </exception>
 		public void Create(GraphicsContext ctx, ShaderCompilerContext cctx)
 		{
-			if (cctx == null)
-				throw new ArgumentNullException(nameof(cctx));
-
 			CheckCurrentContext(ctx);
+			if (cctx == null)
+				throw new ArgumentNullException("cctx");
 
 			// Cache compilation parameters (used by Compile)
 			_CompilationParams = cctx;

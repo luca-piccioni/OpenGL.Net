@@ -56,6 +56,67 @@ namespace OpenGL.Objects
 		#region Program Linkage
 
 		/// <summary>
+		/// Create this ShaderProgram, specifying the compiler parameters.
+		/// </summary>
+		/// <param name="cctx">
+		/// A <see cref="ShaderCompilerContext"/> that specify the compiler parameters used for compiling and
+		/// linking this ShaderProgram.
+		/// </param>
+		public void Create(ShaderCompilerContext cctx)
+		{
+			// Linkage status is reset is compilation parameters changes
+			IsLinked = CompilationParams != cctx;
+			// Cache compilation parameters (used by CreateObject)
+			CompilationParams = cctx;
+		}
+
+		/// <summary>
+		/// Create this ShaderProgram, specifying the compiler parameters.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for creating this object.
+		/// </param>
+		/// <param name="cctx">
+		/// A <see cref="ShaderCompilerContext"/> that specify the compiler parameters used for compiling and
+		/// linking this ShaderProgram.
+		/// </param>
+		public void Create(GraphicsContext ctx, ShaderCompilerContext cctx)
+		{
+			CheckCurrentContext(ctx);
+			if (cctx == null)
+				throw new ArgumentNullException("cctx");
+
+			// Cache compilation parameters (used by CreateObject)
+			_CompilationParams = cctx;
+			// Base implementation
+			base.Create(ctx);
+		}
+
+		/// <summary>
+		/// ShaderCompilerContext used for linkage. This property will not ever be null. If users set this property
+		/// to null, it reset to the default one.
+		/// </summary>
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown if the property setter is executed after the program has been created (i.e. linked).
+		/// </exception>
+		public ShaderCompilerContext CompilationParams
+		{
+			get { return _CompilationParams; }
+			set
+			{
+				if (value != _CompilationParams) {
+					_CompilationParams = value ?? new ShaderCompilerContext();
+					IsLinked = false;
+				}
+			}
+		}
+
+		/// <summary>
+		/// ShaderCompilerContext used for compilation.
+		/// </summary>
+		private ShaderCompilerContext _CompilationParams;
+
+		/// <summary>
 		/// Attach a Shader to this ShaderProgram.
 		/// </summary>
 		/// <param name="shaderObject">
@@ -119,34 +180,17 @@ namespace OpenGL.Objects
 		/// Generate shader program source code, compile and link it. After a successfull
 		/// link, obtain every information about active uniform and input variables.
 		/// </para>
-		/// <para>
-		/// This routine generate the source code of each attached Shader instance and
-		/// compile it. This step is performed only if really required (tendentially every
-		/// shader object is already compiled).
-		/// </para>
-		/// <para>
-		/// After having compiled every attached shader object, it's performed the linkage between
-		/// shader objects. After this process the ShaderProgram instance can be bound to issue
-		/// rendering commands.
-		/// </para>
 		/// </remarks>
-		/// <exception cref="InvalidOperationException">
-		/// Exception thrown in the case this ShaderProgram is already linked.
-		/// </exception>
 		/// <exception cref="ShaderException">
 		/// Exception throw in the case this ShaderProgram is not linkable.
 		/// </exception>
-		private void Link(GraphicsContext ctx, ShaderCompilerContext cctx)
+		private void Link(GraphicsContext ctx)
 		{
 			CheckCurrentContext(ctx);
 
-			if (cctx == null)
-				throw new ArgumentNullException("cctx");
+			if (_CompilationParams == null)
+				throw new InvalidOperationException("no compilation parameters");
 			
-			// Using a deep copy of the shader compiler context, since it will be modified by this ShaderProgram
-			// instance and the attached Shader instances
-			cctx = new ShaderCompilerContext(cctx);
-
 			#region Compile and Attach Shader Objects
 
 			// Ensure no shader is attached
@@ -158,12 +202,12 @@ namespace OpenGL.Objects
 #endif
 
 			// Attach shaders
-			foreach (Shader shaderObject in _ProgramObjects) {
-				// Create shader object, if necessary
-				if (!shaderObject.Exists(ctx))
-					shaderObject.Create(ctx, cctx);
+			foreach (Shader shader in _ProgramObjects) {
+				// Re-compile shader, if necessary
+				if (!shader.IsCompiled)
+					shader.Create(ctx, _CompilationParams);
 
-				Gl.AttachShader(ObjectName, shaderObject.ObjectName);
+				Gl.AttachShader(ObjectName, shader.ObjectName);
 			}
 
 			#endregion
@@ -173,7 +217,7 @@ namespace OpenGL.Objects
 			IntPtr[] feedbackVaryingsPtrs = null;
 
 			if ((_FeedbackVaryings != null) && (_FeedbackVaryings.Count > 0)) {
-				Log("Feedback varyings ({0}):", cctx.FeedbackVaryingsFormat);
+				Log("Feedback varyings ({0}):", _CompilationParams.FeedbackVaryingsFormat);
 				foreach (string feedbackVarying in _FeedbackVaryings)
 					Log("- {0}", feedbackVarying);
 
@@ -186,7 +230,7 @@ namespace OpenGL.Objects
 					feedbackVaryingsPtrs = feedbackVaryings.AllocHGlobal();
 
 					// Specify feedback varyings
-					Gl.TransformFeedbackVaryings(ObjectName, feedbackVaryingsPtrs, (int)cctx.FeedbackVaryingsFormat);
+					Gl.TransformFeedbackVaryings(ObjectName, feedbackVaryingsPtrs, (int)_CompilationParams.FeedbackVaryingsFormat);
 				} else if (ctx.Extensions.TransformFeedback2_NV) {
 					// Nothing to do ATM
 				} else
@@ -273,6 +317,20 @@ namespace OpenGL.Objects
 
 			#endregion
 
+			CollectionLinkedInformation(ctx, _CompilationParams);
+		}
+
+		/// <summary>
+		/// Introspect all information about this ShaderProgram.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for linking this ShaderProgram.
+		/// </param>
+		/// <param name="cctx">
+		/// A <see cref="ShaderCompilerContext"/> that specify additional compiler parameters.
+		/// </param>
+		private void CollectionLinkedInformation(GraphicsContext ctx, ShaderCompilerContext cctx)
+		{
 			CollectActiveUniforms(ctx);
 			CollectActiveUniformBlocks(ctx);
 
@@ -350,7 +408,7 @@ namespace OpenGL.Objects
 						_FeedbacksMap.Add(sb.ToString(), new FeedbackBinding((ShaderAttributeType)type, (uint)size));
 					}
 #if !MONODROID
-				} else if (Gl.CurrentExtensions.TransformFeedback2_NV) {
+				} else if (Gl.CurrentExtensions.TransformFeedback2_NV && cctx != null) {
 					// Activate varyings
 					foreach (string feedbackVaryingName in _FeedbackVaryings) {
 						Gl.ActiveVaryingNV(ObjectName, feedbackVaryingName);
@@ -497,65 +555,66 @@ namespace OpenGL.Objects
 
 		#endregion
 
-		#region Program Creation
+		#region Program Loading
 
 		/// <summary>
-		/// ShaderCompilerContext used for linkage. This property will not ever be null. If users set this property
-		/// to null, it reset to the default one.
+		/// Create this ShaderProgram, specifying the program binary.
 		/// </summary>
-		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if the property setter is executed after the program has been created (i.e. linked).
-		/// </exception>
-		public ShaderCompilerContext CompilationParams
-		{
-			get { return (_CompilationParams); }
-			set
-			{
-				if (IsLinked)
-					throw new InvalidOperationException("already linked");
-				_CompilationParams = value ?? new ShaderCompilerContext();
-			}
-		}
-
-		/// <summary>
-		/// ShaderCompilerContext used for compilation.
-		/// </summary>
-		private ShaderCompilerContext _CompilationParams;
-
-		/// <summary>
-		/// Create this ShaderProgram, specifying the compiler parameters.
-		/// </summary>
-		/// <param name="cctx">
-		/// A <see cref="ShaderCompilerContext"/> that specify the compiler parameters used for compiling and
-		/// linking this ShaderProgram.
+		/// <param name="programBinary">
+		/// 
 		/// </param>
-		public void Create(ShaderCompilerContext cctx)
+		public void Create(byte[] programBinary, int programBinaryFormat)
 		{
-			// Cache compilation parameters (used by CreateObject)
-			CompilationParams = cctx;
+			if (programBinary == null)
+				throw new ArgumentNullException(nameof(programBinary));
+
+			// Linkage status is reset is loading another binary
+			IsLinked = false;
+			// Cache load parameters (used by CreateObject)
+			_ProgramBinary = programBinary;
+			_ProgramBinaryFormat = programBinaryFormat;
 		}
 
 		/// <summary>
-		/// Create this ShaderProgram, specifying the compiler parameters.
+		/// Create this ShaderProgram, specifying the program binary.
+		/// </summary>
+		/// <param name="programBinary">
+		/// 
+		/// </param>
+		public void Create(GraphicsContext ctx, byte[] programBinary, int programBinaryFormat)
+		{
+			Create(programBinary, programBinaryFormat);
+			Create(ctx);
+		}
+
+		private byte[] _ProgramBinary;
+
+		private int _ProgramBinaryFormat;
+
+		/// <summary>
+		/// Load this ShaderProgram.
 		/// </summary>
 		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for creating this object.
+		/// A <see cref="GraphicsContext"/> used for linking this ShaderProgram.
 		/// </param>
-		/// <param name="cctx">
-		/// A <see cref="ShaderCompilerContext"/> that specify the compiler parameters used for compiling and
-		/// linking this ShaderProgram.
-		/// </param>
-		public void Create(GraphicsContext ctx, ShaderCompilerContext cctx)
+		private void Load(GraphicsContext ctx)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
-			if (cctx == null)
-				throw new ArgumentNullException("cctx");
+			CheckCurrentContext(ctx);
 
-			// Cache compilation parameters (used by CreateObject)
-			_CompilationParams = cctx;
-			// Base implementation
-			base.Create(ctx);
+			#region Load Binary Format
+
+			// This call is equivalent to a link operation
+			Gl.ProgramBinary(ObjectName, _ProgramBinaryFormat, _ProgramBinary, _ProgramBinary.Length);
+			// From now we're linked
+			IsLinked = true;
+
+			// No reason to keep a reference of binary
+			_ProgramBinary = null;
+			_ProgramBinaryFormat = 0;
+
+			#endregion
+
+			CollectionLinkedInformation(ctx, null);
 		}
 
 		#endregion
@@ -1027,60 +1086,34 @@ namespace OpenGL.Objects
 
 		#endregion
 
-		#region Program Binary
+		#region Get Program Binary
 
-		public void LoadBinary(GraphicsContext ctx)
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="ctx"></param>
+		/// <param name="binaryStream"></param>
+		public void GetBinary(GraphicsContext ctx, Stream binaryStream, out int programCacheFormat)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+			CheckCurrentContext(ctx);
+			CheckThisExistence(ctx);
 			if (!ctx.Extensions.GetProgramBinary_ARB)
 				throw new NotSupportedException("get_program_binary not supported");
-
-			string cachePath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-
-			cachePath = Path.Combine(cachePath, "XXX" + ".glsl");
-
-			byte[] programCache;
-
-			using (FileStream fs = new FileStream(cachePath, FileMode.Open, FileAccess.Read)) {
-				programCache = new byte[fs.Length];
-				fs.Read(programCache, 0, programCache.Length);
-			}
-
-			Gl.ProgramBinary(ObjectName, 0, programCache, programCache.Length);
-		}
-
-		public void SaveBinary(GraphicsContext ctx)
-		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
-			if (!ctx.Extensions.GetProgramBinary_ARB)
-				throw new NotSupportedException("get_program_binary not supported");
-			if (!IsLinked)
-				throw new InvalidOperationException("not linked");
 
 			int programCacheLength;
 
 			Gl.GetProgram(ObjectName, ProgramProperty.ProgramBinaryLength, out programCacheLength);
 
 			byte[] programCache = new byte[programCacheLength];
-			int programCacheFormat;
 
-			GCHandle programCacheBuffer = GCHandle.Alloc(programCache);
-
+			GCHandle programCacheBuffer = GCHandle.Alloc(programCache, GCHandleType.Pinned);
 			try {
 				Gl.GetProgramBinary(ObjectName, programCache.Length, out programCacheLength, out programCacheFormat, programCacheBuffer.AddrOfPinnedObject());
 			} finally {
 				programCacheBuffer.Free();
 			}
 
-			string cachePath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-
-			cachePath = Path.Combine(cachePath, "XXX" + ".glsl");
-
-			using (FileStream fs = new FileStream(cachePath, FileMode.Create, FileAccess.Write)) {
-				fs.Write(programCache, 0, programCache.Length);
-			}
+			binaryStream.Write(programCache, 0, programCache.Length);
 		}
 
 		#endregion
@@ -1341,8 +1374,12 @@ namespace OpenGL.Objects
 				ctx.DebugObjectLabel(this, Identifier);
 
 			// Link this shader program
-			if (!IsLinked)
-				Link(ctx, _CompilationParams);
+			if (!IsLinked) {
+				if (_ProgramBinary != null) {
+					Load(ctx);
+				} else
+					Link(ctx);
+			}
 		}
 
 		/// <summary>

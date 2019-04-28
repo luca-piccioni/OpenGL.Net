@@ -146,7 +146,7 @@ namespace OpenGL.Objects
 			protected readonly Buffer Buffer;
 
 			/// <summary>
-			/// Create the texture, using this technique.
+			/// Update the reference Buffer, using this technique.
 			/// </summary>
 			/// <param name="ctx">
 			/// A <see cref="GraphicsContext"/> used for allocating resources.
@@ -200,17 +200,32 @@ namespace OpenGL.Objects
 			#region Overrides
 
 			/// <summary>
-			/// Create the texture, using this technique.
+			/// Update the reference Buffer, using this technique.
 			/// </summary>
 			/// <param name="ctx">
 			/// A <see cref="GraphicsContext"/> used for allocating resources.
 			/// </param>
 			public override void Create(GraphicsContext ctx)
 			{
-				if (!Buffer.Immutable || !ctx.Extensions.BufferStorage_ARB)
+				if (!ctx.Extensions.BufferStorage_ARB || !Buffer.Immutable) {
+					
+					// Emulates glBufferStorage error checking (only for size)
+					if (Buffer.Immutable && Buffer.Size != 0)
+						throw new GlException(ErrorCode.InvalidOperation);
+
 					Gl.BufferData(Buffer.Target, _Size, IntPtr.Zero, Buffer.Hint);
-				else
-					Gl.BufferStorage(Buffer.Target, _Size, IntPtr.Zero, Buffer.UsageMask);
+
+				} else {
+
+					if (Buffer.Immutable)
+						Gl.BufferStorage(Buffer.Target, _Size, IntPtr.Zero, Buffer.UsageMask);
+					else
+						Gl.BufferData(Buffer.Target, _Size, IntPtr.Zero, Buffer.Hint);
+				}
+
+				// Explictly check for errors
+				Gl.CheckErrors();
+				
 				Buffer.Size = _Size;
 			}
 
@@ -273,17 +288,32 @@ namespace OpenGL.Objects
 			#region Overrides
 
 			/// <summary>
-			/// Create the texture, using this technique.
+			/// Update the reference Buffer, using this technique.
 			/// </summary>
 			/// <param name="ctx">
 			/// A <see cref="GraphicsContext"/> used for allocating resources.
 			/// </param>
 			public override void Create(GraphicsContext ctx)
 			{
-				if (!Buffer.Immutable || !ctx.Extensions.BufferStorage_ARB)
+				if (!ctx.Extensions.BufferStorage_ARB || !Buffer.Immutable) {
+					
+					// Emulates glBufferStorage error checking (only for size)
+					if (Buffer.Immutable && Buffer.Size != 0)
+						throw new GlException(ErrorCode.InvalidOperation);
+
 					Gl.BufferData(Buffer.Target, _Size, _Array, Buffer.Hint);
-				else
-					Gl.BufferStorage(Buffer.Target, _Size, _Array, Buffer.UsageMask);
+
+				} else {
+
+					if (Buffer.Immutable)
+						Gl.BufferStorage(Buffer.Target, _Size, _Array, Buffer.UsageMask);
+					else
+						Gl.BufferData(Buffer.Target, _Size, _Array, Buffer.Hint);
+				}
+
+				// Explictly check for errors
+				Gl.CheckErrors();
+				
 				Buffer.Size = _Size;
 			}
 
@@ -319,7 +349,7 @@ namespace OpenGL.Objects
 				base(buffer)
 			{
 				if (buffer.Immutable)
-					throw new ArgumentException("immutable", nameof(buffer));
+					throw new ArgumentException("immutable buffer", nameof(buffer));
 				_Array = array;
 				_BufferOffset = bufferOffset;
 			}
@@ -329,7 +359,7 @@ namespace OpenGL.Objects
 			#region Overrides
 
 			/// <summary>
-			/// Create the texture, using this technique.
+			/// Update the reference Buffer, using this technique.
 			/// </summary>
 			/// <param name="ctx">
 			/// A <see cref="GraphicsContext"/> used for allocating resources.
@@ -464,12 +494,12 @@ namespace OpenGL.Objects
 		public bool IsMapped { get { return MappedBuffer != IntPtr.Zero; } }
 
 		/// <summary>
-		/// Get the tointer to the mapped GPU buffer.
+		/// Get the pointer to the mapped GPU buffer.
 		/// </summary>
-		public IntPtr MappedBuffer { get; private set; } = IntPtr.Zero;
+		public IntPtr MappedBuffer { get; set; } = IntPtr.Zero;
 
 		/// <summary>
-		/// Set an element to this mapped Buffer.
+		/// Set an value to this mapped Buffer.
 		/// </summary>
 		/// <typeparam name="T">
 		/// A structure representing this Buffer element.
@@ -576,7 +606,7 @@ namespace OpenGL.Objects
 
 		#endregion
 
-		#region GraphicsResource Overrides
+		#region Overrides
 
 		/// <summary>
 		/// Buffer object class.

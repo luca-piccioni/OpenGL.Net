@@ -97,10 +97,6 @@ namespace OpenGL.Objects.Scene
 			set
 			{
 				SwapGpuResources(value, ref _VertexArray);
-
-				// Compute bounding box, if possible
-				if (_VertexArray != null)
-					_BoundingVolume = ComputeBoundingVolume(value);
 			}
 		}
 
@@ -242,9 +238,6 @@ namespace OpenGL.Objects.Scene
 				{
 					// Base implementation
 					base.VertexArray = value;
-					// Compute bounding box, if possible
-					if (value != null)
-						BoundingVolume = ComputeBoundingVolume(value);
 				}
 			}
 

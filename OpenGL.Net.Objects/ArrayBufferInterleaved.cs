@@ -72,34 +72,6 @@ namespace OpenGL.Objects
 			}
 		}
 
-		private static List<InterleavedSectionBase> ScanTypeSections()
-		{
-			List<InterleavedSectionBase> typeSections;
-
-			if (_TypeSections.TryGetValue(typeof(T), out typeSections))
-				return typeSections;
-
-			// Cache for type
-			uint itemSize = (uint)Marshal.SizeOf(typeof(T));
-
-			typeSections = new List<InterleavedSectionBase>();
-
-			foreach (FieldInfo field in typeof(T).GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)) {
-				typeSections.Add(new InterleavedSectionBase {
-					ItemType = ArrayBufferItem.GetArrayType(field.FieldType),
-					Normalized = false,
-					Offset = Marshal.OffsetOf(typeof(T), field.Name),
-					Stride = new IntPtr(itemSize)
-				});
-			}
-
-			_TypeSections.Add(typeof(T), typeSections);
-
-			return typeSections;
-		}
-
-		private static readonly Dictionary<Type, List<InterleavedSectionBase>> _TypeSections = new Dictionary<Type, List<InterleavedSectionBase>>();
-
 		#endregion
 
 		#region Interleaved Sections
@@ -137,11 +109,89 @@ namespace OpenGL.Objects
 			}
 		}
 
+		private static List<InterleavedSectionBase> ScanTypeSections()
+		{
+			List<InterleavedSectionBase> typeSections;
+
+			if (_TypeSections.TryGetValue(typeof(T), out typeSections))
+				return typeSections;
+
+			// Cache for type
+			uint itemSize = (uint)Marshal.SizeOf(typeof(T));
+
+			typeSections = new List<InterleavedSectionBase>();
+
+			foreach (FieldInfo field in typeof(T).GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)) {
+				typeSections.Add(new InterleavedSectionBase {
+					ItemType = ArrayBufferItem.GetArrayType(field.FieldType),
+					Normalized = false,
+					Offset = Marshal.OffsetOf(typeof(T), field.Name),
+					Stride = new IntPtr(itemSize)
+				});
+			}
+
+			_TypeSections.Add(typeof(T), typeSections);
+
+			return typeSections;
+		}
+
+		private static readonly Dictionary<Type, List<InterleavedSectionBase>> _TypeSections = new Dictionary<Type, List<InterleavedSectionBase>>();
+
 		private readonly List<InterleavedSection> _InterleavedSections;
-			
+
 		#endregion
 
-		#region ArrayBufferObjectBase Overrides
+		#region Element Access
+
+		/// <summary>
+		/// Set an element to this mapped ArrayBufferObjectBase.
+		/// </summary>
+		/// <typeparam name="T">
+		/// A structure representing this ArrayBufferObjectBase element.
+		/// </typeparam>
+		/// <param name="value">
+		/// A <typeparamref name="T"/> that specify the mapped BufferObject element.
+		/// </param>
+		/// <param name="index">
+		/// A <see cref="uint"/> that specify the index of the element to set.
+		/// </param>
+		/// <param name="sectionIndex">
+		/// A <see cref="uint"/> that specifies the array section index for supporting packed/interleaved arrays.
+		/// </param>
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown if this BufferObject is not mapped (<see cref="Buffer.IsMapped"/>).
+		/// </exception>
+		public void SetElement<ElementType>(ElementType value, uint index, uint sectionIndex) where ElementType : struct
+		{
+			SetElementCore(value, index, sectionIndex);
+		}
+
+		/// <summary>
+		/// Get an element from this mapped BufferObject.
+		/// </summary>
+		/// <typeparam name="T">
+		/// A structure representing this BufferObject element.
+		/// </typeparam>
+		/// <param name="index">
+		/// A <see cref="uint"/> that specify the index of the element to get.
+		/// </param>
+		/// <param name="sectionIndex">
+		/// A <see cref="uint"/> that specifies the array section index for supporting packed/interleaved arrays.
+		/// </param>
+		/// <returns>
+		/// It returns a structure of type <typeparamref name="T"/>, read from the mapped BufferObject
+		/// </returns>
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown if this BufferObject is not mapped (<see cref="Buffer.IsMapped"/>).
+		/// </exception>
+		public ElementType GetElement<ElementType>(uint index, uint sectionIndex) where ElementType : struct
+		{
+			return GetElementCore<ElementType>(index, sectionIndex);
+		}
+
+		#endregion
+
+		#region Overrides
 
 		/// <summary>
 		/// Get the count of the array sections aggregated in this ArrayBufferObjectBase.

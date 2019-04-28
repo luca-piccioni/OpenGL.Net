@@ -115,7 +115,7 @@ namespace OpenGL.Objects
 		/// <exception cref="InvalidOperationException">
 		/// Exception thrown if this BufferObject is not mapped (<see cref="Buffer.IsMapped"/>).
 		/// </exception>
-		public void SetElement<T>(T value, uint index, uint sectionIndex) where T : struct
+		protected internal void SetElementCore<T>(T value, uint index, uint sectionIndex) where T : struct
 		{
 			IArraySection arraySection = GetArraySection(sectionIndex);
 			uint stride = arraySection.Stride != IntPtr.Zero ? (uint)arraySection.Stride.ToInt32() : ItemSize;
@@ -142,7 +142,7 @@ namespace OpenGL.Objects
 		/// <exception cref="InvalidOperationException">
 		/// Exception thrown if this BufferObject is not mapped (<see cref="Buffer.IsMapped"/>).
 		/// </exception>
-		public T GetElement<T>(uint index, uint sectionIndex) where T : struct
+		protected internal T GetElementCore<T>(uint index, uint sectionIndex) where T : struct
 		{
 			IArraySection arraySection = GetArraySection(sectionIndex);
 			uint stride = arraySection.Stride != IntPtr.Zero ? (uint)arraySection.Stride.ToInt32() : ItemSize;

@@ -27,45 +27,96 @@ namespace OpenGL.Objects.Test
 {
 	abstract class ArrayBufferBaseTest : BufferTest
 	{
-		#region ArrayBufferBase.Create
-
-		/// <summary>
-		/// Test ArrayBufferBase creation using <see cref="ArrayBufferBase.Create(uint)"/>.
-		/// </summary>
-		/// <param name="arrayBuffer">
-		/// The <see cref="ArrayBufferBase"/> instance to test. It is required to be mutable.
-		/// </param>
-		protected void TestCreateEmpty(ArrayBufferBase arrayBuffer)
+		protected void ArrayBufferBase_TestEmptyTechnique_NonZero(ArrayBufferBase arrayBuffer)
 		{
-			// Buffer must be mutable
 			Assert.IsFalse(arrayBuffer.Immutable);
-
-			// No GPU buffer is allocated
 			Assert.AreEqual(0u, arrayBuffer.ItemsCount);
+
 			// Cannot create an empty CPU buffer
 			Assert.Throws(Is.InstanceOf<ArgumentException>(), delegate { arrayBuffer.Create(0); });
-
-			// Create empty GPU buffer
-			arrayBuffer.Create(16);
-			Assert.AreEqual(0u, arrayBuffer.ItemsCount);
-
-			// Current GPU buffer can be re-defined
-			arrayBuffer.Create(32);
-			Assert.AreEqual(0u, arrayBuffer.ItemsCount);
-
-			// Uploads data on GPU
-			arrayBuffer.Create(_Context);
-			Assert.AreEqual(32u, arrayBuffer.ItemsCount);
-
-			// CPU buffer can be re-defined while holding GPU buffer
-			Assert.DoesNotThrow(() => arrayBuffer.Create(64));
-			Assert.AreEqual(32u, arrayBuffer.ItemsCount);
-
-			// Uploads data on GPU (reallocation)
-			arrayBuffer.Create(_Context);
-			Assert.AreEqual(64u, arrayBuffer.ItemsCount);
+			// Cannot create an empty GPU buffer
+			Assert.Throws(Is.InstanceOf<ArgumentException>(), delegate { arrayBuffer.Create(_Context, 0); });
 		}
 
-		#endregion
+		protected void ArrayBufferBase_TestEmptyTechnique_CreateOnline(ArrayBufferBase arrayBuffer)
+		{
+			Assert.IsFalse(arrayBuffer.Immutable);
+			Assert.AreEqual(0u, arrayBuffer.ItemsCount);
+			Assert.AreEqual(0u, arrayBuffer.Size);
+
+			// Create empty buffer on GPU
+			arrayBuffer.Create(_Context, 16);
+			Assert.Greater(arrayBuffer.Size, 0u);
+			Assert.AreEqual(16u, arrayBuffer.ItemsCount);
+		}
+
+		protected void ArrayBufferBase_TestEmptyTechnique_CreateOffline(ArrayBufferBase arrayBuffer)
+		{
+			Assert.IsFalse(arrayBuffer.Immutable);
+			Assert.AreEqual(0u, arrayBuffer.ItemsCount);
+
+			// Create empty buffer, without uploading on GPU
+			arrayBuffer.Create(16);
+			Assert.AreEqual(0u, arrayBuffer.Size);
+			Assert.AreEqual(0u, arrayBuffer.ItemsCount);
+
+			// Uploads to GPU
+			arrayBuffer.Create(_Context);
+			Assert.Greater(arrayBuffer.Size, 0u);
+			Assert.AreEqual(16u, arrayBuffer.ItemsCount);
+		}
+
+		protected void ArrayBufferBase_TestArrayTechnique_NonZero(ArrayBufferBase arrayBuffer)
+		{
+			Assert.AreEqual(0u, arrayBuffer.ItemsCount);
+
+			// Cannot create with empty CPU array
+			Assert.Throws(Is.InstanceOf<ArgumentException>(), delegate { arrayBuffer.Create(new byte[0]); });
+			// Cannot create with empty GPU array
+			Assert.Throws(Is.InstanceOf<ArgumentException>(), delegate { arrayBuffer.Create(_Context, new byte[0]); });
+		}
+
+		protected void ArrayBufferBase_TestArrayTechnique_CreateOnline(ArrayBufferBase arrayBuffer)
+		{
+			Assert.AreEqual(0u, arrayBuffer.ItemsCount);
+			Assert.AreEqual(0u, arrayBuffer.Size);
+
+			arrayBuffer.Create(_Context, new ushort[16]);
+			Assert.AreEqual(32u, arrayBuffer.Size);
+		}
+
+		protected void ArrayBufferBase_TestArrayTechnique_CreateOffline(ArrayBufferBase arrayBuffer)
+		{
+			Assert.AreEqual(0u, arrayBuffer.Size);
+			Assert.AreEqual(0u, arrayBuffer.ItemsCount);
+
+			arrayBuffer.Create(new ushort[16]);
+			Assert.AreEqual(0u, arrayBuffer.Size);
+			Assert.AreEqual(0u, arrayBuffer.ItemsCount);
+
+			// Uploads to GPU
+			arrayBuffer.Create(_Context);
+			Assert.Equals(32u, arrayBuffer.Size);
+		}
+
+		protected void ArrayBufferBase_TestMap(ArrayBufferBase arrayBuffer)
+		{
+			Assert.AreEqual(0u, arrayBuffer.Size);
+			Assert.AreEqual(0u, arrayBuffer.ItemsCount);
+
+			arrayBuffer.Create(_Context, new float[64]);
+			arrayBuffer.Map(_Context, BufferAccess.ReadWrite);
+
+			for (int i = 0; i < 4; i++)
+				arrayBuffer.Set((byte)i, (ulong)i);
+
+			for (int i = 0; i < 4; i++)
+				Assert.AreEqual((byte)i, arrayBuffer.Get<byte>((ulong)i));
+
+			// Endianess??
+			Assert.AreEqual(BitConverter.ToUInt32(new byte[] { 0x00, 0x01, 0x02, 0x03 }, 0), arrayBuffer.Get<uint>(0));
+
+			arrayBuffer.Unmap(_Context);
+		}
 	}
 }

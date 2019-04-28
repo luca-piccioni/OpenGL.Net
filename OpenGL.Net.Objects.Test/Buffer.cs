@@ -28,24 +28,6 @@ namespace OpenGL.Objects.Test
 
 		protected abstract void CreateGpuBuffer(Buffer buffer);
 
-		#region Buffer/CPU
-
-		/// <summary>
-		/// Test <see cref="Buffer"/> CPU buffer.
-		/// </summary>
-		/// <param name="buffer">
-		/// The <see cref="Buffer"/> instance to test.
-		/// </param>
-		protected void BufferCpu(Buffer buffer)
-		{
-			// No CPU buffer
-			Assert.AreEqual(0u, buffer.Size);
-		}
-
-		#endregion
-
-		#region Buffer.Map()
-
 		/// <summary>
 		/// Test <see cref="Buffer"/> mapping, CPU buffer specifically.
 		/// </summary>
@@ -78,33 +60,5 @@ namespace OpenGL.Objects.Test
 			// We are not mapped
 			Assert.IsFalse(buffer.IsMapped);
 		}
-
-		#endregion
-
-		#region Immutability
-
-		/// <summary>
-		/// Test a mutable <see cref="Buffer"/>.
-		/// </summary>
-		/// <param name="buffer">
-		/// The <see cref="Buffer"/> instance to be tested.
-		/// </param>
-		protected static void TestMutableBuffer(Buffer buffer)
-		{
-			Assert.IsFalse(buffer.Immutable);
-		}
-
-		/// <summary>
-		/// Test an immutable <see cref="Buffer"/>.
-		/// </summary>
-		/// <param name="buffer">
-		/// The <see cref="Buffer"/> instance to be tested.
-		/// </param>
-		protected static void TestImmutableBuffer(Buffer buffer)
-		{
-			Assert.IsTrue(buffer.Immutable);
-		}
-
-		#endregion
 	}
 }

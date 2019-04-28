@@ -155,6 +155,50 @@ namespace OpenGL.Objects
 
 		#endregion
 
+		#region Element Access
+
+		/// <summary>
+		/// Set an element to this mapped ArrayBufferObjectBase.
+		/// </summary>
+		/// <typeparam name="T">
+		/// A structure representing this ArrayBufferObjectBase element.
+		/// </typeparam>
+		/// <param name="value">
+		/// A <typeparamref name="T"/> that specify the mapped BufferObject element.
+		/// </param>
+		/// <param name="index">
+		/// A <see cref="uint"/> that specify the index of the element to set.
+		/// </param>
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown if this BufferObject is not mapped (<see cref="Buffer.IsMapped"/>).
+		/// </exception>
+		public void SetElement<ElementType>(ElementType value, uint index) where ElementType : struct
+		{
+			SetElementCore(value, index, 0);
+		}
+
+		/// <summary>
+		/// Get an element from this mapped BufferObject.
+		/// </summary>
+		/// <typeparam name="T">
+		/// A structure representing this BufferObject element.
+		/// </typeparam>
+		/// <param name="index">
+		/// A <see cref="uint"/> that specify the index of the element to get.
+		/// </param>
+		/// <returns>
+		/// It returns a structure of type <typeparamref name="T"/>, read from the mapped BufferObject
+		/// </returns>
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown if this BufferObject is not mapped (<see cref="Buffer.IsMapped"/>).
+		/// </exception>
+		public ElementType GetElement<ElementType>(uint index) where ElementType : struct
+		{
+			return GetElementCore<ElementType>(index, 0);
+		}
+
+		#endregion
+
 		#region To Array
 
 		#region ToArray<T>()
@@ -213,106 +257,6 @@ namespace OpenGL.Objects
 		}
 
 		#endregion
-
-		#endregion
-
-		#region Strongly Typed Array Factory
-
-		/// <summary>
-		/// Create an array buffer object, using the generic class <see cref="ArrayBuffer{T}"/>, depending on a <see cref="ArrayBufferItemType"/>.
-		/// </summary>
-		/// <param name="vertexArrayType">
-		/// A <see cref="ArrayBufferItemType"/> that determine the generic argument of the created array buffer object.
-		/// </param>
-		/// <param name="hint">
-		/// A <see cref="BufferUsage"/> required for creating a <see cref="ArrayBuffer"/>.
-		/// </param>
-		/// <returns>
-		/// 
-		/// </returns>
-		public static ArrayBuffer CreateArrayObject(ArrayBufferItemType vertexArrayType, BufferUsage hint)
-		{
-			switch (vertexArrayType) {
-				case ArrayBufferItemType.Byte:
-					return new ArrayBuffer<sbyte>(hint);
-				case ArrayBufferItemType.Byte2:
-					return new ArrayBuffer<Vertex2b>(hint);
-				case ArrayBufferItemType.Byte3:
-					return new ArrayBuffer<Vertex3b>(hint);
-				case ArrayBufferItemType.Byte4:
-					return new ArrayBuffer<Vertex4b>(hint);
-				case ArrayBufferItemType.UByte:
-					return new ArrayBuffer<byte>(hint);
-				case ArrayBufferItemType.UByte2:
-					return new ArrayBuffer<Vertex2ub>(hint);
-				case ArrayBufferItemType.UByte3:
-					return new ArrayBuffer<Vertex3ub>(hint);
-				case ArrayBufferItemType.UByte4:
-					return new ArrayBuffer<Vertex4ub>(hint);
-				case ArrayBufferItemType.Short:
-					return new ArrayBuffer<short>(hint);
-				case ArrayBufferItemType.Short2:
-					return new ArrayBuffer<Vertex2s>(hint);
-				case ArrayBufferItemType.Short3:
-					return new ArrayBuffer<Vertex3s>(hint);
-				case ArrayBufferItemType.Short4:
-					return new ArrayBuffer<Vertex4s>(hint);
-				case ArrayBufferItemType.UShort:
-					return new ArrayBuffer<ushort>(hint);
-				case ArrayBufferItemType.UShort2:
-					return new ArrayBuffer<Vertex2us>(hint);
-				case ArrayBufferItemType.UShort3:
-					return new ArrayBuffer<Vertex3us>(hint);
-				case ArrayBufferItemType.UShort4:
-					return new ArrayBuffer<Vertex4us>(hint);
-				case ArrayBufferItemType.Int:
-					return new ArrayBuffer<int>(hint);
-				case ArrayBufferItemType.Int2:
-					return new ArrayBuffer<Vertex2i>(hint);
-				case ArrayBufferItemType.Int3:
-					return new ArrayBuffer<Vertex3i>(hint);
-				case ArrayBufferItemType.Int4:
-					return new ArrayBuffer<Vertex4i>(hint);
-				case ArrayBufferItemType.UInt:
-					return new ArrayBuffer<uint>(hint);
-				case ArrayBufferItemType.UInt2:
-					return new ArrayBuffer<Vertex2ui>(hint);
-				case ArrayBufferItemType.UInt3:
-					return new ArrayBuffer<Vertex3ui>(hint);
-				case ArrayBufferItemType.UInt4:
-					return new ArrayBuffer<Vertex4ui>(hint);
-				case ArrayBufferItemType.Float:
-					return new ArrayBuffer<float>(hint);
-				case ArrayBufferItemType.Float2:
-					return new ArrayBuffer<Vertex2f>(hint);
-				case ArrayBufferItemType.Float3:
-					return new ArrayBuffer<Vertex3f>(hint);
-				case ArrayBufferItemType.Float4:
-					return new ArrayBuffer<Vertex4f>(hint);
-				case ArrayBufferItemType.Float2x4:
-					return new ArrayBuffer<Matrix2x4f>(hint);
-				case ArrayBufferItemType.Float4x4:
-					return new ArrayBuffer<Matrix4x4f>(hint);
-				case ArrayBufferItemType.Double:
-					return new ArrayBuffer<double>(hint);
-				case ArrayBufferItemType.Double2:
-					return new ArrayBuffer<Vertex2d>(hint);
-				case ArrayBufferItemType.Double3:
-					return new ArrayBuffer<Vertex3d>(hint);
-				case ArrayBufferItemType.Double4:
-					return new ArrayBuffer<Vertex4d>(hint);
-				case ArrayBufferItemType.Half:
-					return new ArrayBuffer<HalfFloat>(hint);
-				case ArrayBufferItemType.Half2:
-					return new ArrayBuffer<Vertex2hf>(hint);
-				case ArrayBufferItemType.Half3:
-					return new ArrayBuffer<Vertex3hf>(hint);
-				case ArrayBufferItemType.Half4:
-					return new ArrayBuffer<Vertex4hf>(hint);
-				default:
-					throw new ArgumentException($"vertex array type {vertexArrayType} not supported");
-			}
-		}
 
 		#endregion
 
@@ -622,14 +566,110 @@ namespace OpenGL.Objects
 			return arrayObject;
 		}
 
+		/// <summary>
+		/// Create an array buffer object, using the generic class <see cref="ArrayBuffer{T}"/>, depending on a <see cref="ArrayBufferItemType"/>.
+		/// </summary>
+		/// <param name="vertexArrayType">
+		/// A <see cref="ArrayBufferItemType"/> that determine the generic argument of the created array buffer object.
+		/// </param>
+		/// <param name="hint">
+		/// A <see cref="BufferUsage"/> required for creating a <see cref="ArrayBuffer"/>.
+		/// </param>
+		/// <returns>
+		/// 
+		/// </returns>
+		private static ArrayBuffer CreateArrayObject(ArrayBufferItemType vertexArrayType, BufferUsage hint)
+		{
+			switch (vertexArrayType) {
+				case ArrayBufferItemType.Byte:
+					return new ArrayBuffer<sbyte>(hint);
+				case ArrayBufferItemType.Byte2:
+					return new ArrayBuffer<Vertex2b>(hint);
+				case ArrayBufferItemType.Byte3:
+					return new ArrayBuffer<Vertex3b>(hint);
+				case ArrayBufferItemType.Byte4:
+					return new ArrayBuffer<Vertex4b>(hint);
+				case ArrayBufferItemType.UByte:
+					return new ArrayBuffer<byte>(hint);
+				case ArrayBufferItemType.UByte2:
+					return new ArrayBuffer<Vertex2ub>(hint);
+				case ArrayBufferItemType.UByte3:
+					return new ArrayBuffer<Vertex3ub>(hint);
+				case ArrayBufferItemType.UByte4:
+					return new ArrayBuffer<Vertex4ub>(hint);
+				case ArrayBufferItemType.Short:
+					return new ArrayBuffer<short>(hint);
+				case ArrayBufferItemType.Short2:
+					return new ArrayBuffer<Vertex2s>(hint);
+				case ArrayBufferItemType.Short3:
+					return new ArrayBuffer<Vertex3s>(hint);
+				case ArrayBufferItemType.Short4:
+					return new ArrayBuffer<Vertex4s>(hint);
+				case ArrayBufferItemType.UShort:
+					return new ArrayBuffer<ushort>(hint);
+				case ArrayBufferItemType.UShort2:
+					return new ArrayBuffer<Vertex2us>(hint);
+				case ArrayBufferItemType.UShort3:
+					return new ArrayBuffer<Vertex3us>(hint);
+				case ArrayBufferItemType.UShort4:
+					return new ArrayBuffer<Vertex4us>(hint);
+				case ArrayBufferItemType.Int:
+					return new ArrayBuffer<int>(hint);
+				case ArrayBufferItemType.Int2:
+					return new ArrayBuffer<Vertex2i>(hint);
+				case ArrayBufferItemType.Int3:
+					return new ArrayBuffer<Vertex3i>(hint);
+				case ArrayBufferItemType.Int4:
+					return new ArrayBuffer<Vertex4i>(hint);
+				case ArrayBufferItemType.UInt:
+					return new ArrayBuffer<uint>(hint);
+				case ArrayBufferItemType.UInt2:
+					return new ArrayBuffer<Vertex2ui>(hint);
+				case ArrayBufferItemType.UInt3:
+					return new ArrayBuffer<Vertex3ui>(hint);
+				case ArrayBufferItemType.UInt4:
+					return new ArrayBuffer<Vertex4ui>(hint);
+				case ArrayBufferItemType.Float:
+					return new ArrayBuffer<float>(hint);
+				case ArrayBufferItemType.Float2:
+					return new ArrayBuffer<Vertex2f>(hint);
+				case ArrayBufferItemType.Float3:
+					return new ArrayBuffer<Vertex3f>(hint);
+				case ArrayBufferItemType.Float4:
+					return new ArrayBuffer<Vertex4f>(hint);
+				case ArrayBufferItemType.Float2x4:
+					return new ArrayBuffer<Matrix2x4f>(hint);
+				case ArrayBufferItemType.Float4x4:
+					return new ArrayBuffer<Matrix4x4f>(hint);
+				case ArrayBufferItemType.Double:
+					return new ArrayBuffer<double>(hint);
+				case ArrayBufferItemType.Double2:
+					return new ArrayBuffer<Vertex2d>(hint);
+				case ArrayBufferItemType.Double3:
+					return new ArrayBuffer<Vertex3d>(hint);
+				case ArrayBufferItemType.Double4:
+					return new ArrayBuffer<Vertex4d>(hint);
+				case ArrayBufferItemType.Half:
+					return new ArrayBuffer<HalfFloat>(hint);
+				case ArrayBufferItemType.Half2:
+					return new ArrayBuffer<Vertex2hf>(hint);
+				case ArrayBufferItemType.Half3:
+					return new ArrayBuffer<Vertex3hf>(hint);
+				case ArrayBufferItemType.Half4:
+					return new ArrayBuffer<Vertex4hf>(hint);
+				default:
+					throw new ArgumentException($"vertex array type {vertexArrayType} not supported");
+			}
+		}
+
 		#endregion
 
-		#region ArrayBufferObjectBase Overrides
+		#region Overrides
 
 		/// <summary>
 		/// Get the count of the array sections aggregated in this ArrayBufferObjectBase.
 		/// </summary>
-		protected internal override uint ArraySectionsCount { get { return ItemsCount > 0 ? 1U : 0U; } }
+		protected internal override uint ArraySectionsCount { get { return 1U; } }
 
 		/// <summary>
 		/// Get the specified section information.
@@ -657,7 +697,7 @@ namespace OpenGL.Objects
 		public override Array ToArray()
 		{
 			if (MappedBuffer == IntPtr.Zero)
-				throw new InvalidOperationException("no client buffer");
+				throw new InvalidOperationException("not mapped");
 
 			Array genericArray = CreateArray(ArrayType, ItemsCount);
 
@@ -699,7 +739,7 @@ namespace OpenGL.Objects
 
 		#endregion
 
-		#region ArrayBufferObjectBase.IArraySection Implementation
+		#region ArrayBufferBase.IArraySection Implementation
 
 		/// <summary>
 		/// The type of the elements of the array section.
@@ -784,7 +824,7 @@ namespace OpenGL.Objects
 		public T Min()
 		{
 			if (MappedBuffer == IntPtr.Zero)
-				throw new InvalidOperationException("GPU buffer not accessible");
+				throw new InvalidOperationException("not mapped/no data");
 
 			unsafe {
 				void* arrayPtr = MappedBuffer.ToPointer();
@@ -861,6 +901,9 @@ namespace OpenGL.Objects
 		/// <returns></returns>
 		public T Max()
 		{
+			if (MappedBuffer == IntPtr.Zero)
+				throw new InvalidOperationException("not mapped/no data");
+
 			unsafe {
 				void* arrayPtr = MappedBuffer.ToPointer();
 				object maxValue;
@@ -937,6 +980,9 @@ namespace OpenGL.Objects
 		/// <param name="max"></param>
 		public void MinMax(out T min, out T max)
 		{
+			if (MappedBuffer == IntPtr.Zero)
+				throw new InvalidOperationException("not mapped/no data");
+
 			unsafe {
 				void* arrayPtr = MappedBuffer.ToPointer();
 				object minValue, maxValue;

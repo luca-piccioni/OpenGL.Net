@@ -19,8 +19,6 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-using System;
-using System.Collections.Generic;
 using NUnit.Framework;
 
 namespace OpenGL.Objects.Test
@@ -28,35 +26,89 @@ namespace OpenGL.Objects.Test
 	[TestFixture(Category = "Objects")]
 	class ArrayBufferTest : ArrayBufferBaseTest
 	{
-		#region ArrayBuffer.Create
-
 		[Test]
-		public void TestCreateEmpty()
+		public void ArrayBuffer_TestEmptyTechnique_NonZero()
 		{
-			List<ArrayBuffer> source = new List<ArrayBuffer>();
-
-			foreach (ArrayBufferItemType arrayBufferItemType in Enum.GetValues(typeof(ArrayBufferItemType))) {
-				source.AddRange(new[] {
-						new ArrayBuffer(arrayBufferItemType, BufferUsage.StreamDraw),
-						new ArrayBuffer(arrayBufferItemType, BufferUsage.StaticRead),
-						new ArrayBuffer(arrayBufferItemType, BufferUsage.StreamCopy),
-						new ArrayBuffer(arrayBufferItemType, BufferUsage.DynamicDraw),
-						new ArrayBuffer(arrayBufferItemType, BufferUsage.DynamicRead),
-						new ArrayBuffer(arrayBufferItemType, BufferUsage.DynamicCopy),
-						new ArrayBuffer(arrayBufferItemType, BufferUsage.StreamDraw),
-						new ArrayBuffer(arrayBufferItemType, BufferUsage.StreamRead),
-						new ArrayBuffer(arrayBufferItemType, BufferUsage.StreamCopy),
-				});
+			using (ArrayBuffer arrayBuffer = new ArrayBuffer(ArrayBufferItemType.Float4, BufferUsage.DynamicDraw)) {
+				base.ArrayBufferBase_TestEmptyTechnique_NonZero(arrayBuffer);
 			}
-
-			TestResources.AddRange(source);
-
-			// Test ArrayBufferBase interface
-			foreach (ArrayBuffer arrayBuffer in source)
-				base.TestCreateEmpty(arrayBuffer);
 		}
 
-		#endregion
+		[Test]
+		public void ArrayBuffer_TestEmptyTechnique_CreateOnline()
+		{
+			using (ArrayBuffer arrayBuffer = new ArrayBuffer(ArrayBufferItemType.Float4, BufferUsage.DynamicDraw)) {
+				base.ArrayBufferBase_TestEmptyTechnique_CreateOnline(arrayBuffer);
+			}
+		}
+
+		[Test]
+		public void ArrayBuffer_TestEmptyTechnique_CreateOffline()
+		{
+			using (ArrayBuffer arrayBuffer = new ArrayBuffer(ArrayBufferItemType.Float4, BufferUsage.DynamicDraw)) {
+				base.ArrayBufferBase_TestEmptyTechnique_CreateOffline(arrayBuffer);
+			}
+		}
+
+		[Test]
+		public void ArrayBuffer_TestArrayTechnique_NonZero()
+		{
+			using (ArrayBuffer arrayBuffer = new ArrayBuffer(ArrayBufferItemType.Float4, BufferUsage.DynamicDraw)) {
+				base.ArrayBufferBase_TestArrayTechnique_NonZero(arrayBuffer);
+			}
+		}
+
+		[Test]
+		public void ArrayBuffer_TestArrayTechnique_CreateOnline()
+		{
+			using (ArrayBuffer arrayBuffer = new ArrayBuffer(ArrayBufferItemType.Float4, BufferUsage.DynamicDraw)) {
+				base.ArrayBufferBase_TestArrayTechnique_CreateOnline(arrayBuffer);
+			}
+		}
+
+		[Test]
+		public void ArrayBuffer_TestArrayTechnique_CreateOffline()
+		{
+			using (ArrayBuffer arrayBuffer = new ArrayBuffer(ArrayBufferItemType.Float4, BufferUsage.DynamicDraw)) {
+				base.ArrayBufferBase_TestEmptyTechnique_CreateOffline(arrayBuffer);
+			}
+		}
+
+		[Test]
+		public void ArrayBuffer_TestMap()
+		{
+			using (ArrayBuffer arrayBuffer = new ArrayBuffer(ArrayBufferItemType.Float4, BufferUsage.DynamicDraw)) {
+				base.ArrayBufferBase_TestMap(arrayBuffer);
+			}
+		}
+
+		[Test]
+		public void ArrayBuffer_TestCreateNonImmutable()
+		{
+			using (ArrayBuffer arrayBuffer = new ArrayBuffer(ArrayBufferItemType.Float4, BufferUsage.DynamicDraw)) {
+				// Using BufferUsage constructor make array buffer mutable
+				Assert.IsFalse(arrayBuffer.Immutable);
+
+				// Create on-line
+				Assert.DoesNotThrow(() => arrayBuffer.Create(_Context, 16));
+				// Being mutable, is can be reset even if size
+				Assert.DoesNotThrow(() => arrayBuffer.Create(_Context, 32));
+			}
+		}
+
+		[Test]
+		public void ArrayBuffer_TestCreateImmutable()
+		{
+			using (ArrayBuffer arrayBuffer = new ArrayBuffer(ArrayBufferItemType.Float4, MapBufferUsageMask.DynamicStorageBit)) {
+				// Using MapBufferUsageMask constructor make array buffer immutable
+				Assert.IsTrue(arrayBuffer.Immutable);
+
+				// Create on-line
+				Assert.DoesNotThrow(() => arrayBuffer.Create(_Context, 16));
+				// Being immutable, it cannot change size
+				Assert.Throws<GlException>(() => arrayBuffer.Create(_Context, 32));
+			}
+		}
 
 		#region Overrides
 
