@@ -39,6 +39,7 @@ namespace OpenGL.Objects.Test
 				
 				Assert.Throws<ArgumentException>(() => shader.LoadSource("Not.Existing.Resource"));
 
+				// Can reload source anytime
 				Assert.DoesNotThrow(() => shader.LoadSource(new[] { "#version 150", "void main {}" }));
 				Assert.DoesNotThrow(() => shader.LoadSource(new[] { "#version 150", "void main { /* Another */}" }));
 			}

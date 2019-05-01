@@ -32,7 +32,7 @@ namespace OpenGL.Objects.Test
 		[Test(Description = "Test ComputeProgram.SetUniformImage"), Category("Objects")]
 		public void ComputeProgram_SetUniformImage()
 		{
-			const uint Size = 1024;;
+			const uint Size = 1024;
 
 			using (ComputeProgram computeProgram = new ComputeProgram("OpenGL.Objects.Test.ComputeProgram"))
 			using (Shader computeShader = new Shader(ShaderType.ComputeShader))

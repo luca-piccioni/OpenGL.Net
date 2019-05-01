@@ -1351,7 +1351,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// 
 		/// </summary>
-		internal static readonly uint InvalidBindingIndex = uint.MaxValue;
+		internal const uint InvalidBindingIndex = uint.MaxValue;
 
 		#endregion
 

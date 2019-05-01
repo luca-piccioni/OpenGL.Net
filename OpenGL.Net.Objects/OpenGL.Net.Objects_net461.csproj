@@ -156,6 +156,7 @@
     <Compile Include="ShaderPreprocessorParser.cs" />
     <Compile Include="ShaderProgram.GetUniform.cs" />
     <Compile Include="ShaderProgram.SetUniform.cs" />
+    <Compile Include="ShaderProgram.StorageBuffer.cs" />
     <Compile Include="ShaderProgram.UniformBlock.cs" />
     <Compile Include="ShaderStorageBuffer.cs" />
     <Compile Include="Single.Extensions.cs" />

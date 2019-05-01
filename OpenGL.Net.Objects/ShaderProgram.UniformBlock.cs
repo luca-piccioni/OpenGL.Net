@@ -188,7 +188,7 @@ namespace OpenGL.Objects
 		private void CollectActiveUniformBlocks(GraphicsContext ctx)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			if (ctx.Extensions.UniformBufferObject_ARB == false)
 				return;

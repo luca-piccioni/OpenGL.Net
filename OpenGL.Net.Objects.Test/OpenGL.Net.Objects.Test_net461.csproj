@@ -126,6 +126,7 @@
     <Compile Include="ShaderPreprocessorParser.cs" />
     <Compile Include="ShaderProgram.cs" />
     <Compile Include="ShadersLibrary.cs" />
+    <Compile Include="ShaderStorageBuffer.cs" />
     <Compile Include="TestBase.cs" />
     <Compile Include="Texture2D.cs" />
     <Compile Include="VertexArrays.cs" />

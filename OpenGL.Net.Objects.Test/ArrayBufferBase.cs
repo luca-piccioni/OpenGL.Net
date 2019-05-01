@@ -108,13 +108,13 @@ namespace OpenGL.Objects.Test
 			arrayBuffer.Map(_Context, BufferAccess.ReadWrite);
 
 			for (int i = 0; i < 4; i++)
-				arrayBuffer.Set((byte)i, (ulong)i);
+				arrayBuffer.Store(_Context, (byte)i, (ulong)i);
 
 			for (int i = 0; i < 4; i++)
-				Assert.AreEqual((byte)i, arrayBuffer.Get<byte>((ulong)i));
+				Assert.AreEqual((byte)i, arrayBuffer.Load<byte>(_Context, (ulong)i));
 
 			// Endianess??
-			Assert.AreEqual(BitConverter.ToUInt32(new byte[] { 0x00, 0x01, 0x02, 0x03 }, 0), arrayBuffer.Get<uint>(0));
+			Assert.AreEqual(BitConverter.ToUInt32(new byte[] { 0x00, 0x01, 0x02, 0x03 }, 0), arrayBuffer.Load<uint>(_Context, 0));
 
 			arrayBuffer.Unmap(_Context);
 		}

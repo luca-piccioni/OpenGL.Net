@@ -333,6 +333,7 @@ namespace OpenGL.Objects
 		{
 			CollectActiveUniforms(ctx);
 			CollectActiveUniformBlocks(ctx);
+			CollectActiveStorageBuffers(ctx);
 
 			#region Collect Active Program Inputs
 

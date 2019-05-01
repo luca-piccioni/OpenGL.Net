@@ -21,8 +21,6 @@
 
 using UniformDictionary = OpenGL.Objects.Collections.StringDictionary<OpenGL.Objects.ShaderProgram.UniformBinding>;
 
-using UniformCacheDictionary = OpenGL.Objects.Collections.StringDictionary<object>;
-
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;

@@ -455,9 +455,16 @@ namespace OpenGL.Objects
 			if (ctx.Extensions.VertexBufferObject_ARB || ctx.Version.IsCompatible(Gl.Version_200_ES)) {
 				ctx.Bind(this);
 
-				MappedBuffer = Gl.MapBuffer(Target, mask);
-			} else
-				MappedBuffer = GpuBuffer.AlignedBuffer;
+				if ((MappedBuffer = Gl.MapBuffer(Target, mask)) == IntPtr.Zero)
+					Gl.CheckErrors();
+			} else {
+				if ((MappedBuffer = GpuBuffer.AlignedBuffer) == IntPtr.Zero)
+					throw new GlException(ErrorCode.InvalidOperation);
+			}
+
+			Debug.Assert(MappedBuffer != IntPtr.Zero);
+
+			_AccessMask = mask;
 		}
 
 		/// <summary>
@@ -499,6 +506,102 @@ namespace OpenGL.Objects
 		public IntPtr MappedBuffer { get; set; } = IntPtr.Zero;
 
 		/// <summary>
+		/// The access mask requested on last Map call.
+		/// </summary>
+		private BufferAccess _AccessMask = 0;
+
+		#endregion
+
+		#region Mapping Tracking
+
+		public IDisposable CreateMapGuard(GraphicsContext ctx, BufferAccess mask)
+		{
+			return new Mapper(ctx, this, mask);
+		}
+
+		private class Mapper : IDisposable
+		{
+			public Mapper(GraphicsContext ctx, Buffer thisBuffer, BufferAccess mask)
+			{
+				CheckCurrentContext(ctx);
+				CheckThatExistence(ctx, thisBuffer);
+
+				_Context = ctx;
+				_Buffer = thisBuffer;
+
+				// Leave unmapped if not mapped yet
+				_UnmapOnDispose = thisBuffer.MappedBuffer == IntPtr.Zero;
+
+				if (_UnmapOnDispose)
+					_Buffer.Map(_Context, mask);
+			}
+
+			private GraphicsContext _Context;
+
+			private Buffer _Buffer;
+
+			private bool _UnmapOnDispose;
+
+			public void Dispose()
+			{
+				if (_UnmapOnDispose)
+					_Buffer.Unmap(_Context);
+			}
+		}
+
+		#endregion
+
+		#region Mapped I/O
+
+		/// <summary>
+		/// Read a structure from this BufferObject.
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="ctx"></param>
+		/// <param name="offset"></param>
+		/// <returns></returns>
+		public T Load<T>(GraphicsContext ctx, ulong offset = 0) where T : struct
+		{
+			using (CreateMapGuard(ctx, BufferAccess.ReadOnly))
+				return Get<T>(offset);
+		}
+
+		public void Store<T>(GraphicsContext ctx, T value, ulong offset = 0) where T : struct
+		{
+			using (CreateMapGuard(ctx, BufferAccess.WriteOnly))
+				Set(value, offset);
+		}
+
+		/// <summary>
+		/// Read an array from this BufferObject
+		/// </summary>
+		/// <param name="ctx"></param>
+		/// <param name="value"></param>
+		/// <param name="size"></param>
+		/// <param name="offset"></param>
+		public void Load(GraphicsContext ctx, Array value, ulong size, ulong offset = 0)
+		{
+			if (value == null)
+				throw new ArgumentNullException(nameof(value));
+
+			using (CreateMapGuard(ctx, BufferAccess.ReadOnly))
+				Memory.Copy(value, new IntPtr(MappedBuffer.ToInt64() + (long)offset), size);
+		}
+
+		/// <summary>
+		/// Store an array to this BufferObject.
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="ctx"></param>
+		/// <param name="offset"></param>
+		/// <returns></returns>
+		public void Store(GraphicsContext ctx, Array value, ulong size, ulong offset = 0)
+		{
+			using (CreateMapGuard(ctx, BufferAccess.ReadOnly))
+				Memory.Copy(new IntPtr(MappedBuffer.ToInt64() + (long)offset), value, size);
+		}
+
+		/// <summary>
 		/// Set an value to this mapped Buffer.
 		/// </summary>
 		/// <typeparam name="T">
@@ -514,7 +617,7 @@ namespace OpenGL.Objects
 		/// <exception cref="InvalidOperationException">
 		/// Exception thrown if this Buffer is not mapped (<see cref="IsMapped"/>).
 		/// </exception>
-		public void Set<T>(T value, ulong offset) where T : struct
+		protected void Set<T>(T value, ulong offset) where T : struct
 		{
 			if (IsMapped == false)
 				throw new InvalidOperationException("not mapped");
@@ -545,7 +648,7 @@ namespace OpenGL.Objects
 		/// <exception cref="InvalidOperationException">
 		/// Exception thrown if this Buffer is not mapped (<see cref="IsMapped"/>).
 		/// </exception>
-		public void Set<T>(T[] array, ulong offset) where T : struct
+		protected void Set<T>(T[] array, ulong offset) where T : struct
 		{
 			if (IsMapped == false)
 				throw new InvalidOperationException("not mapped");
@@ -580,7 +683,7 @@ namespace OpenGL.Objects
 		/// <exception cref="InvalidOperationException">
 		/// Exception thrown if this Buffer is not mapped (<see cref="IsMapped"/>).
 		/// </exception>
-		public T Get<T>(ulong offset) where T : struct
+		protected T Get<T>(ulong offset) where T : struct
 		{
 			if (IsMapped == false)
 				throw new InvalidOperationException("not mapped");

@@ -158,7 +158,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Current binding point of the IBindingIndexResource.
 		/// </summary>
-		uint IBindingIndexResource.BindingIndex { get; set; }
+		uint IBindingIndexResource.BindingIndex { get; set; } = GraphicsContext.InvalidBindingIndex;
 
 		#endregion
 	}
