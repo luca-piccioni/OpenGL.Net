@@ -192,6 +192,29 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Copy memory.
+		/// </summary>
+		/// <param name="dst">
+		/// A <see cref="IntPtr"/> that specify the address of the destination unmanaged memory.
+		/// </param>
+		/// <param name="src">
+		/// A <see cref="Array"/> that specify the source array object.
+		/// </param>
+		/// <param name="bytes">
+		/// A <see cref="ulong"/> that specify the number of bytes to copy.
+		/// </param>
+		public static void Copy(IntPtr dst, Array src, ulong bytes)
+		{
+			using (MemoryLock srcLock = new MemoryLock(src)) {
+				_CopyPointer(
+					dst.ToPointer(),
+					srcLock.Address.ToPointer(),
+					bytes
+				);
+			}
+		}
+
+		/// <summary>
 		/// Managed-unsafe implementation of Copy.
 		/// </summary>
 		/// <param name="dst">
