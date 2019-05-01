@@ -207,6 +207,20 @@ namespace OpenGL.Objects
 			/// </param>
 			public override void Create(GraphicsContext ctx)
 			{
+				if (ctx.Extensions.DirectStateAccess_ARB || ctx.Version.IsCompatible(Gl.Version_450)) {
+					CreateDSA(ctx);
+				} else {
+					CreateCompatible(ctx);
+				}
+
+				// Explictly check for errors
+				Gl.CheckErrors();
+				
+				Buffer.Size = _Size;
+			}
+
+			private void CreateCompatible(GraphicsContext ctx)
+			{
 				if (!ctx.Extensions.BufferStorage_ARB || !Buffer.Immutable) {
 					
 					// Emulates glBufferStorage error checking (only for size)
@@ -222,11 +236,26 @@ namespace OpenGL.Objects
 					else
 						Gl.BufferData(Buffer.Target, _Size, IntPtr.Zero, Buffer.Hint);
 				}
+			}
 
-				// Explictly check for errors
-				Gl.CheckErrors();
-				
-				Buffer.Size = _Size;
+			private void CreateDSA(GraphicsContext ctx)
+			{
+				if (!ctx.Extensions.BufferStorage_ARB || !Buffer.Immutable) {
+					
+					// Emulates glBufferStorage error checking (only for size)
+					if (Buffer.Immutable && Buffer.Size != 0)
+						throw new GlException(ErrorCode.InvalidOperation);
+
+					Gl.NamedBufferData(Buffer.ObjectName,  _Size, IntPtr.Zero, Buffer.Hint);
+
+				} else {
+
+					if (Buffer.Immutable)
+						Gl.NamedBufferStorage(Buffer.ObjectName, _Size, IntPtr.Zero, Buffer.UsageMask);
+					else
+						Gl.NamedBufferData(Buffer.ObjectName, _Size, IntPtr.Zero, Buffer.Hint);
+
+				}
 			}
 
 			#endregion
@@ -295,20 +324,38 @@ namespace OpenGL.Objects
 			/// </param>
 			public override void Create(GraphicsContext ctx)
 			{
-				if (!ctx.Extensions.BufferStorage_ARB || !Buffer.Immutable) {
+				if (ctx.Extensions.DirectStateAccess_ARB || ctx.Version.IsCompatible(Gl.Version_450)) {
+					if (!ctx.Extensions.BufferStorage_ARB || !Buffer.Immutable) {
 					
-					// Emulates glBufferStorage error checking (only for size)
-					if (Buffer.Immutable && Buffer.Size != 0)
-						throw new GlException(ErrorCode.InvalidOperation);
+						// Emulates glBufferStorage error checking (only for size)
+						if (Buffer.Immutable && Buffer.Size != 0)
+							throw new GlException(ErrorCode.InvalidOperation);
 
-					Gl.BufferData(Buffer.Target, _Size, _Array, Buffer.Hint);
+						Gl.NamedBufferData(Buffer.ObjectName, _Size, _Array, Buffer.Hint);
 
+					} else {
+
+						if (Buffer.Immutable)
+							Gl.NamedBufferStorage(Buffer.ObjectName, _Size, _Array, Buffer.UsageMask);
+						else
+							Gl.NamedBufferData(Buffer.ObjectName, _Size, _Array, Buffer.Hint);
+					}
 				} else {
+					if (!ctx.Extensions.BufferStorage_ARB || !Buffer.Immutable) {
+					
+						// Emulates glBufferStorage error checking (only for size)
+						if (Buffer.Immutable && Buffer.Size != 0)
+							throw new GlException(ErrorCode.InvalidOperation);
 
-					if (Buffer.Immutable)
-						Gl.BufferStorage(Buffer.Target, _Size, _Array, Buffer.UsageMask);
-					else
 						Gl.BufferData(Buffer.Target, _Size, _Array, Buffer.Hint);
+
+					} else {
+
+						if (Buffer.Immutable)
+							Gl.BufferStorage(Buffer.Target, _Size, _Array, Buffer.UsageMask);
+						else
+							Gl.BufferData(Buffer.Target, _Size, _Array, Buffer.Hint);
+					}
 				}
 
 				// Explictly check for errors
@@ -451,13 +498,20 @@ namespace OpenGL.Objects
 			CheckThisExistence(ctx);
 
 			if (IsMapSupported(ctx)) {
-				ctx.Bind(this);
+#if !MONODROID
+				if (ctx.Extensions.DirectStateAccess_ARB || ctx.Version.IsCompatible(Gl.Version_450)) {
+					if ((MappedBuffer = Gl.MapNamedBuffer(ObjectName, mask)) == IntPtr.Zero)
+						Gl.CheckErrors();
+				} else {
+#endif
+					ctx.Bind(this);
 
-				if ((MappedBuffer = Gl.MapBuffer(Target, mask)) == IntPtr.Zero)
-					Gl.CheckErrors();
+					if ((MappedBuffer = Gl.MapBuffer(Target, mask)) == IntPtr.Zero)
+						Gl.CheckErrors();
+#if !MONODROID
+				}
+#endif
 			} else {
-
-				Log("Warning: requiring glMapBuffer but it is not supported.");
 
 				if (GpuBuffer == null)
 					throw new GlException(ErrorCode.InvalidOperation);
@@ -515,13 +569,20 @@ namespace OpenGL.Objects
 			uint mapSize = size != 0 ? size : Size;
 
 			if (IsMapRangeSupported(ctx)) {
-				ctx.Bind(this);
+#if !MONODROID
+				if (ctx.Extensions.DirectStateAccess_ARB || ctx.Version.IsCompatible(Gl.Version_450)) {
+					if ((MappedBuffer = Gl.MapNamedBufferRange(ObjectName, offset, mapSize, mask)) == IntPtr.Zero)
+						Gl.CheckErrors();
+				} else {
+#endif
+					ctx.Bind(this);
 
-				if ((MappedBuffer = Gl.MapBufferRange(Target, offset, mapSize, mask)) == IntPtr.Zero)
-					Gl.CheckErrors();
+					if ((MappedBuffer = Gl.MapBufferRange(Target, offset, mapSize, mask)) == IntPtr.Zero)
+						Gl.CheckErrors();
+#if !MONODROID
+				}
+#endif
 			} else {
-
-				Log("Warning: requiring glMapBufferRange but it is not supported.");
 
 				if (GpuBuffer == null)
 					throw new GlException(ErrorCode.InvalidOperation);
@@ -594,8 +655,14 @@ namespace OpenGL.Objects
 			MapSize = 0;
 
 			if (IsMapSupported(ctx) || IsMapRangeSupported(ctx)) {
-				// Unmap buffer object data (resident on server)
-				bool uncorrupted = Gl.UnmapBuffer(Target);
+				bool uncorrupted;
+
+				if (ctx.Extensions.DirectStateAccess_ARB || ctx.Version.IsCompatible(Gl.Version_450)) {
+					uncorrupted = Gl.UnmapNamedBuffer(ObjectName);
+				} else {
+					ctx.Bind(this);
+					uncorrupted = Gl.UnmapBuffer(Target);
+				}
 
 				if (uncorrupted == false)
 					throw new InvalidOperationException("corrupted buffer");
@@ -699,9 +766,13 @@ namespace OpenGL.Objects
 
 			uint mapSize = size != 0 ? size : Size;
 
-			ctx.Bind(this);
+			if (ctx.Extensions.DirectStateAccess_ARB || ctx.Version.IsCompatible(Gl.Version_450)) {
+				Gl.FlushMappedNamedBufferRange(ObjectName, offset, mapSize);
+			} else {
+				ctx.Bind(this);
 
-			Gl.FlushMappedBufferRange(Target, offset, mapSize);
+				Gl.FlushMappedBufferRange(Target, offset, mapSize);
+			}
 		}
 
 		/// <summary>
@@ -923,7 +994,32 @@ namespace OpenGL.Objects
 			if (base.Exists(ctx) == false)
 				return false;
 
-			return ctx.Extensions.VertexBufferObject_ARB || ctx.Version.IsCompatible(Gl.Version_200_ES) ? Gl.IsBuffer(ObjectName) : GpuBuffer != null;
+			return RequiresName(ctx) ? Gl.IsBuffer(ObjectName) : GpuBuffer != null;
+		}
+
+		/// <summary>
+		/// Determine whether this object requires a name bound to a context or not.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for creating this object name.
+		/// </param>
+		/// <returns>
+		/// It returns always false. Names are managed manually
+		/// </returns>
+		protected override bool RequiresName(GraphicsContext ctx)
+		{
+			CheckValidContext(ctx);
+
+			if (ctx.Extensions.VertexBufferObject_ARB)
+				return true;
+			if (ctx.Version.IsCompatible(Gl.Version_150))
+				return true;
+			if (ctx.Version.IsCompatible(Gl.Version_100_ES))
+				return true;
+			if (ctx.Version.IsCompatible(Gl.Version_200_ES))
+				return true;
+
+			return false;
 		}
 
 		/// <summary>
@@ -945,9 +1041,10 @@ namespace OpenGL.Objects
 		{
 			CheckCurrentContext(ctx);
 
-			Debug.Assert(ctx.Extensions.VertexBufferObject_ARB || ctx.Version.IsCompatible(Gl.Version_200_ES));
-
-			return Gl.GenBuffer();
+			if (ctx.Extensions.DirectStateAccess_ARB || ctx.Version.IsCompatible(Gl.Version_450))
+				return Gl.CreateBuffer();
+			else
+				return Gl.GenBuffer();
 		}
 
 		/// <summary>
@@ -971,8 +1068,6 @@ namespace OpenGL.Objects
 		protected override void DeleteName(GraphicsContext ctx, uint name)
 		{
 			CheckThisExistence(ctx);
-
-			Debug.Assert(ctx.Extensions.VertexBufferObject_ARB || ctx.Version.IsCompatible(Gl.Version_200_ES));
 
 			// Delete buffer object
 			Gl.DeleteBuffers(name);
@@ -998,7 +1093,8 @@ namespace OpenGL.Objects
 			CheckCurrentContext(ctx);
 
 			// Buffer must be bound
-			ctx.Bind(this, true);
+			if (!(ctx.Extensions.DirectStateAccess_ARB || ctx.Version.IsCompatible(Gl.Version_450)))
+				ctx.Bind(this, true);
 
 			if (_Techniques.Count > 0) {
 				

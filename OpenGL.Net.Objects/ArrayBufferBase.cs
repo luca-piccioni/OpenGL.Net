@@ -739,31 +739,6 @@ namespace OpenGL.Objects
 			}
 		}
 
-		/// <summary>
-		/// Determine whether this object requires a name bound to a context or not.
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for creating this object name.
-		/// </param>
-		/// <returns>
-		/// <para>
-		/// It returns a boolean value indicating whether this GraphicsResource implementation requires a name
-		/// generation on creation. In the case this routine returns true, the routine <see cref="CreateName"/>
-		/// will be called (and it must be overriden). In  the case this routine returns false, the routine
-		/// <see cref="CreateName"/> won't be called (and indeed it is not necessary to override it) and a
-		/// name is generated automatically in a context-independent manner.
-		/// </para>
-		/// <para>
-		/// This implementation check the GL_ARB_vertex_array_object extension availability.
-		/// </para>
-		/// </returns>
-		protected override bool RequiresName(GraphicsContext ctx)
-		{
-			CheckValidContext(ctx);
-
-			return ctx.Extensions.VertexBufferObject_ARB;
-		}
-
 		#endregion
 	}
 }
