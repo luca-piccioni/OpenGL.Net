@@ -450,21 +450,125 @@ namespace OpenGL.Objects
 		{
 			CheckThisExistence(ctx);
 
-			Debug.Assert(ctx.Extensions.VertexBufferObject_ARB || ctx.Version.IsCompatible(Gl.Version_200_ES) || GpuBuffer != null);
-
-			if (ctx.Extensions.VertexBufferObject_ARB || ctx.Version.IsCompatible(Gl.Version_200_ES)) {
+			if (IsMapSupported(ctx)) {
 				ctx.Bind(this);
 
 				if ((MappedBuffer = Gl.MapBuffer(Target, mask)) == IntPtr.Zero)
 					Gl.CheckErrors();
 			} else {
+
+				Log("Warning: requiring glMapBuffer but it is not supported.");
+
+				if (GpuBuffer == null)
+					throw new GlException(ErrorCode.InvalidOperation);
 				if ((MappedBuffer = GpuBuffer.AlignedBuffer) == IntPtr.Zero)
 					throw new GlException(ErrorCode.InvalidOperation);
 			}
 
 			Debug.Assert(MappedBuffer != IntPtr.Zero);
 
+			MapOffset = IntPtr.Zero;
+			MapSize = Size;
+			_Access = mask;
+		}
+
+		/// <summary>
+		/// Determine whether glMapBuffer is supported.
+		/// </summary>
+		/// <param name="ctx">
+		/// The <see cref="GraphicsContext"/> which is executed glMaBuffer on.
+		/// </param>
+		/// <returns>
+		/// It returns whether glMapBuffer is available on <paramref name="ctx"/>.
+		/// </returns>
+		private bool IsMapSupported(GraphicsContext ctx)
+		{
+			if (ctx.Extensions.VertexBufferObject_ARB)
+				return true;
+			if (ctx.Extensions.Mapbuffer_OES)
+				return true;
+			if (ctx.Version.IsCompatible(Gl.Version_150))
+				return true;
+
+			return false;
+		}
+
+		/// <summary>
+		/// Map a range of the GPU buffer allocated by this Buffer.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> required for mapping this Buffer.
+		/// </param>
+		/// <param name="mask">
+		/// A <see cref="BufferAccessMask"/> that specify the map access.
+		/// </param>
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown if this Buffer is already mapped.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown if this Buffer does not exist for <paramref name="ctx"/>.
+		/// </exception>
+		public void Map(GraphicsContext ctx, BufferAccessMask mask, IntPtr offset = default(IntPtr), uint size = 0)
+		{
+			CheckThisExistence(ctx);
+
+			uint mapSize = size != 0 ? size : Size;
+
+			if (IsMapRangeSupported(ctx)) {
+				ctx.Bind(this);
+
+				if ((MappedBuffer = Gl.MapBufferRange(Target, offset, mapSize, mask)) == IntPtr.Zero)
+					Gl.CheckErrors();
+			} else {
+
+				Log("Warning: requiring glMapBufferRange but it is not supported.");
+
+				if (GpuBuffer == null)
+					throw new GlException(ErrorCode.InvalidOperation);
+				if (GpuBuffer.AlignedBuffer == IntPtr.Zero)
+					throw new GlException(ErrorCode.InvalidOperation);
+
+				MappedBuffer = new IntPtr(GpuBuffer.AlignedBuffer.ToInt64() + offset.ToInt64());
+			}
+
+			// Determine map access
+			if (mask.HasFlag(BufferAccessMask.MapReadBit) && mask.HasFlag(BufferAccessMask.MapWriteBit))
+				_Access = BufferAccess.ReadWrite;
+			else if (mask.HasFlag(BufferAccessMask.MapReadBit))
+				_Access = BufferAccess.ReadOnly;
+			else if (mask.HasFlag(BufferAccessMask.MapWriteBit))
+				_Access = BufferAccess.WriteOnly;
+			else
+				_Access = 0;
+
+			Debug.Assert(MappedBuffer != IntPtr.Zero);
+
+			MapOffset = offset;
+			MapSize = mapSize;
 			_AccessMask = mask;
+		}
+
+		/// <summary>
+		/// Determine whether glMapBufferRange is supported.
+		/// </summary>
+		/// <param name="ctx">
+		/// The <see cref="GraphicsContext"/> which is executed glMapBufferRange on.
+		/// </param>
+		/// <returns>
+		/// It returns whether glMapBufferRange is available on <paramref name="ctx"/>.
+		/// </returns>
+		private bool IsMapRangeSupported(GraphicsContext ctx)
+		{
+			if (ctx.Extensions.MapBufferRange_ARB)
+				return true;
+			if (ctx.Extensions.MapBufferRange_EXT)
+				return true;
+			if (ctx.Version.IsCompatible(Gl.Version_300))
+				return true;
+			if (ctx.Version.IsCompatible(Gl.Version_300_ES))
+				return true;
+
+			return false;
 		}
 
 		/// <summary>
@@ -484,15 +588,18 @@ namespace OpenGL.Objects
 			if (IsMapped == false)
 				throw new InvalidOperationException("not mapped");
 
-			if (ctx.Extensions.VertexBufferObject_ARB || ctx.Version.IsCompatible(Gl.Version_200_ES)) {
+			// Removes reference for mapped buffer data
+			MappedBuffer = IntPtr.Zero;
+			MapOffset = IntPtr.Zero;
+			MapSize = 0;
+
+			if (IsMapSupported(ctx) || IsMapRangeSupported(ctx)) {
 				// Unmap buffer object data (resident on server)
 				bool uncorrupted = Gl.UnmapBuffer(Target);
 
 				if (uncorrupted == false)
 					throw new InvalidOperationException("corrupted buffer");
 			}
-			// Removes reference for mapped buffer data
-			MappedBuffer = IntPtr.Zero;
 		}
 
 		/// <summary>
@@ -503,12 +610,27 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Get the pointer to the mapped GPU buffer.
 		/// </summary>
-		public IntPtr MappedBuffer { get; set; } = IntPtr.Zero;
+		public IntPtr MappedBuffer { get; private set; } = IntPtr.Zero;
+		
+		/// <summary>
+		/// Get the offset of <see cref="MappedBuffer"/> respect the GPU buffer.
+		/// </summary>
+		public IntPtr MapOffset { get; private set; } = IntPtr.Zero;
+
+		/// <summary>
+		/// Get the number of bytes of GPU buffer are mapped by <see cref="MappedBuffer"/>.
+		/// </summary>
+		public uint MapSize { get; private set; } = 0;
 
 		/// <summary>
 		/// The access mask requested on last Map call.
 		/// </summary>
-		private BufferAccess _AccessMask = 0;
+		private BufferAccess _Access = 0;
+
+		/// <summary>
+		/// The access mask requested on last Map call.
+		/// </summary>
+		private BufferAccessMask _AccessMask = 0;
 
 		#endregion
 
@@ -552,6 +674,58 @@ namespace OpenGL.Objects
 		#endregion
 
 		#region Mapped I/O
+
+		/// <summary>
+		/// Indicate modifications to a range of the mapped buffer <see cref="MappedBuffer"/>.
+		/// </summary>
+		/// <param name="ctx"></param>
+		/// <param name="offset">
+		/// Specifies the start of the buffer subrange, in basic machine units.
+		/// </param>
+		/// <param name="size">
+		/// Specifies the length of the buffer subrange, in basic machine units.
+		/// </param>
+		public void Flush(GraphicsContext ctx, IntPtr offset = default(IntPtr), uint size = 0)
+		{
+			CheckThisExistence(ctx);
+			if (!IsMapped)
+				throw new InvalidOperationException("not mapped");
+
+			// Should we throw an exception?
+			if (!_AccessMask.HasFlag(BufferAccessMask.MapFlushExplicitBit))
+				return;
+			if (!IsFlushSupported(ctx))
+				return;
+
+			uint mapSize = size != 0 ? size : Size;
+
+			ctx.Bind(this);
+
+			Gl.FlushMappedBufferRange(Target, offset, mapSize);
+		}
+
+		/// <summary>
+		/// Determine whether glFlushMappedBufferRange is supported.
+		/// </summary>
+		/// <param name="ctx">
+		/// The <see cref="GraphicsContext"/> which is executed glFlushMappedBufferRange on.
+		/// </param>
+		/// <returns>
+		/// It returns whether glFlushMappedBufferRange is available on <paramref name="ctx"/>.
+		/// </returns>
+		private bool IsFlushSupported(GraphicsContext ctx)
+		{
+			if (ctx.Extensions.VertexArrayObject_ARB)
+				return true;
+			if (ctx.Extensions.VertexArrayObject_OES)
+				return true;
+			if (ctx.Version.IsCompatible(Gl.Version_300))
+				return true;
+			if (ctx.Version.IsCompatible(Gl.Version_300_ES))
+				return true;
+
+			return false;
+		}
 
 		/// <summary>
 		/// Read a structure from this BufferObject.
