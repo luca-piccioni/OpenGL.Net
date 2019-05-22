@@ -26,7 +26,7 @@ namespace OpenGL.Objects
 	/// <summary>
 	/// 
 	/// </summary>
-	public sealed class ShaderStorageBuffer : Buffer, IBindingIndexResource
+	public sealed class ShaderStorageBuffer : Buffer
 	{
 		#region Constructors
 
@@ -139,26 +139,6 @@ namespace OpenGL.Objects
 		{
 			return true;
 		}
-
-		#endregion
-
-		#region IBindingIndexResource Implementation
-
-		/// <summary>
-		/// Get the identifier of the binding point.
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for binding.
-		/// </param>
-		BufferTarget IBindingIndexResource.GetBindingTarget(GraphicsContext ctx)
-		{
-			return BufferTarget.ShaderStorageBuffer;
-		}
-
-		/// <summary>
-		/// Current binding point of the IBindingIndexResource.
-		/// </summary>
-		uint IBindingIndexResource.BindingIndex { get; set; } = GraphicsContext.InvalidBindingIndex;
 
 		#endregion
 	}
