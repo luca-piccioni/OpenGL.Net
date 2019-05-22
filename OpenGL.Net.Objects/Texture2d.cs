@@ -48,7 +48,7 @@ namespace OpenGL.Objects
 		/// </remarks>
 		public Texture2D()
 		{
-
+			
 		}
 
 		/// <summary>
@@ -131,7 +131,7 @@ namespace OpenGL.Objects
 		#region Create
 
 		/// <summary>
-		/// Technique defining an empty texture.
+		/// Technique defining an empty mutable texture.
 		/// </summary>
 		class EmptyTechnique : Technique
 		{
@@ -161,6 +161,9 @@ namespace OpenGL.Objects
 			public EmptyTechnique(Texture2D texture, TextureTarget target, uint level, PixelLayout pixelFormat, uint width, uint height) :
 				base(texture)
 			{
+				if (level == 0 && (width == 0 || height == 0))
+					throw new InvalidOperationException("empty base level not allowed");
+
 				_Texture2d = texture;
 				_Target = target;
 				_Level = level;
@@ -171,7 +174,7 @@ namespace OpenGL.Objects
 
 			#endregion
 
-			#region Technique Overrides
+			#region Overrides
 
 			/// <summary>
 			/// The <see cref="Texture2D"/> affected by this Technique.
@@ -285,7 +288,7 @@ namespace OpenGL.Objects
 
 			#endregion
 
-			#region EmptyTechnique Overrides
+			#region Overrides
 
 			/// <summary>
 			/// Texture mipmaps levels.
@@ -303,13 +306,20 @@ namespace OpenGL.Objects
 				// Define storage
 				InternalFormat internalFormat = _PixelFormat.ToInternalFormat();
 
-				if (ctx.Extensions.TextureStorage_ARB == false) {
+				if (!IsImmutableSupported(ctx)) {
 					PixelFormat format = _PixelFormat.ToDataFormat();
 
-					for (uint level = 0, w = _Width, h = _Height; level < _MipmapLevels; level++, w = Math.Max(1, w / 2), h = Math.Max(1, h / 2))
+					for (uint level = 0, w = _Width, h = _Height; level < _MipmapLevels; level++, w = Math.Max(1, w / 2), h = Math.Max(1, h / 2)) {
 						Gl.TexImage2D(_Target, (int)level, internalFormat, (int)w, (int)h, 0, format, /* Unused */ PixelType.UnsignedByte, IntPtr.Zero);
+
+						// Always check for errors
+						Gl.CheckErrors();
+					}
 				} else {
 					Gl.TexStorage2D(_Target, (int)_MipmapLevels, internalFormat, (int)_Width, (int)_Height);
+				
+					// Always check for errors
+					Gl.CheckErrors();
 				}
 
 				// Define mipmap array
@@ -356,6 +366,9 @@ namespace OpenGL.Objects
 		/// </exception>
 		public void Create(uint width, uint height, PixelLayout format)
 		{
+			if (ImmutableFix)
+				throw new InvalidOperationException("immutable storage (see GL_ARB_texture_storage)");
+
 			Technique technique;
 
 			if (Immutable)
@@ -403,6 +416,9 @@ namespace OpenGL.Objects
 		/// </exception>
 		public void Create(GraphicsContext ctx, uint width, uint height, PixelLayout format)
 		{
+			if (ImmutableFix)
+				throw new InvalidOperationException("immutable storage (see GL_ARB_texture_storage)");
+
 			CheckCurrentContext(ctx);
 
 			// Define technique
@@ -452,8 +468,8 @@ namespace OpenGL.Objects
 		/// </exception>
 		public void Create(uint width, uint height, uint level, PixelLayout format)
 		{
-			if (Immutable)
-				throw new InvalidOperationException("immutable texture");
+			if (ImmutableFix)
+				throw new InvalidOperationException("immutable storage (see GL_ARB_texture_storage)");
 
 			SetTechnique(new EmptyTechnique(this, TextureTarget, level, format, width, height));
 		}
@@ -498,6 +514,9 @@ namespace OpenGL.Objects
 		/// </exception>
 		public void Create(GraphicsContext ctx, uint width, uint height, uint level, PixelLayout format)
 		{
+			if (ImmutableFix)
+				throw new InvalidOperationException("immutable storage (see GL_ARB_texture_storage)");
+
 			CheckCurrentContext(ctx);
 
 			// Define technique
@@ -544,6 +563,9 @@ namespace OpenGL.Objects
 		/// </exception>
 		public void Create(uint width, uint height, PixelLayout format, uint levels)
 		{
+			if (ImmutableFix)
+				throw new InvalidOperationException("immutable storage (see GL_ARB_texture_storage)");
+
 			Technique technique;
 
 			if (Immutable)
@@ -591,6 +613,9 @@ namespace OpenGL.Objects
 		/// </exception>
 		public void Create(GraphicsContext ctx, uint width, uint height, PixelLayout format, uint levels)
 		{
+			if (ImmutableFix)
+				throw new InvalidOperationException("immutable storage (see GL_ARB_texture_storage)");
+
 			CheckCurrentContext(ctx);
 
 			// Define technique
@@ -754,6 +779,8 @@ namespace OpenGL.Objects
 		{
 			if (image == null)
 				throw new ArgumentNullException("image");
+			if (ImmutableFix)
+				throw new InvalidOperationException("immutable storage (see GL_ARB_texture_storage)");
 
 			// Define storage, the uploads image
 			Create(image.Width, image.Height, image.PixelLayout);
@@ -807,6 +834,8 @@ namespace OpenGL.Objects
 		{
 			if (bitmap == null)
 				throw new ArgumentNullException("bitmap");
+			if (ImmutableFix)
+				throw new InvalidOperationException("immutable storage (see GL_ARB_texture_storage)");
 
 			// Create image from bitmap
 			Image image = CoreImagingImageCodecPlugin.LoadFromBitmap(bitmap, new ImageCodecCriteria());
@@ -862,6 +891,8 @@ namespace OpenGL.Objects
 		{
 			if (image == null)
 				throw new ArgumentNullException("image");
+			if (ImmutableFix)
+				throw new InvalidOperationException("immutable storage (see GL_ARB_texture_storage)");
 
 			// Setup technique for creation
 			SetTechnique(new ImageTechnique(this, TextureTarget, level, image.PixelLayout, image));
@@ -887,6 +918,8 @@ namespace OpenGL.Objects
 		{
 			if (path == null)
 				throw new ArgumentNullException("path");
+			if (ImmutableFix)
+				throw new InvalidOperationException("immutable storage (see GL_ARB_texture_storage)");
 
 			CancelLoadAsync();
 
@@ -976,7 +1009,7 @@ namespace OpenGL.Objects
 
 				baseSize.z = 1;
 
-				return (baseSize);
+				return baseSize;
 			}
 		}
 
@@ -987,7 +1020,7 @@ namespace OpenGL.Objects
 		/// In the case a this Texture is defined by multiple targets (i.e. cube map textures), this property
 		/// shall returns always 0.
 		/// </remarks>
-		public override TextureTarget TextureTarget { get { return (TextureTarget.Texture2d); } }
+		public override TextureTarget TextureTarget { get { return TextureTarget.Texture2d; } }
 
 		/// <summary>
 		/// Uniform sampler type for managing this texture.
