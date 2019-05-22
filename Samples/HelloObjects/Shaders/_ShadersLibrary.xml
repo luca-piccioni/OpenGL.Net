@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ShadersLibrary xmlns="http://schemas.datacontract.org/2004/07/OpenGL.Objects" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	
+	<Includes>
+		<Include>
+			<Path>/Mass.glsl</Path>
+			<Resource>HelloObjects.Shaders.Mass.glsl</Resource>
+		</Include>
+	</Includes>
+	
+	<Objects>
+		<Object>
+			<Resource>HelloObjects.Shaders.MassForceCompute.glsl</Resource>
+			<TestStage>ComputeShader</TestStage>
+		</Object>
+		<Object>
+			<Resource>HelloObjects.Shaders.MassPositionCompute.glsl</Resource>
+			<TestStage>ComputeShader</TestStage>
+		</Object>
+	</Objects>
+
+	<Programs>
+		<Program>
+			<Id>HelloObjects.MassForceCompute</Id>
+			<Objects>
+				<Object>
+					<Resource>HelloObjects.Shaders.MassForceCompute.glsl</Resource>
+					<Stage>ComputeShader</Stage>
+				</Object>
+			</Objects>
+		</Program>
+
+		<Program>
+			<Id>HelloObjects.MassPositionCompute</Id>
+			<Objects>
+				<Object>
+					<Resource>HelloObjects.Shaders.MassPositionCompute.glsl</Resource>
+					<Stage>ComputeShader</Stage>
+				</Object>
+			</Objects>
+		</Program>
+	</Programs>
+	
+</ShadersLibrary>

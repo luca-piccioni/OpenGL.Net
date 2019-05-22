@@ -138,11 +138,15 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Shaders\Mass.glsl" />
+    <EmbeddedResource Include="Shaders\MassForceCompute.glsl" />
+    <EmbeddedResource Include="Shaders\MassPositionCompute.glsl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Shaders\_ShadersLibrary.xml" />
     <None Include="Data\BumbleBee\RB_BumblebeeEye_MASK.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

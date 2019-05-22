@@ -18,6 +18,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
@@ -46,467 +47,66 @@ namespace HelloObjects
 
 		#endregion
 
-		#region Colored Cube
+		#region 
 
-		private SceneObjectGeometry CreatePlane()
+		private struct Mass
 		{
-			SceneObjectGeometry geometry = new SceneObjectGeometry("Plane");
-
-			geometry.VertexArray = VertexArrays.CreatePlane(1.0f, 1.0f, -10.0f, 1, 1);
-			// geometry.ObjectState.DefineState(new CullFaceState(FrontFaceDirection.Ccw, CullFaceMode.Back) { Culling = false });
-			geometry.ProgramTag = ShadersLibrary.Instance.CreateProgramTag("OpenGL.Standard");
-
-			return geometry;
+			public Vertex4f Position;
+			public Vertex4f Velocity;
+			public Vertex4f Force;
 		}
 
-		private SceneObjectGeometry CreateCubeGeometry()
+		private void CreateResources(GraphicsContext ctx)
 		{
-			SceneObjectGeometry cubeGeometry = new SceneObjectGeometry("Cube");
+			// Program library
+			_Context.MergeShadersLibrary("HelloObjects.Shaders._ShadersLibrary.xml");
 
-			#region State
+			// Mass buffer
+			_MassBuffer = new ArrayBufferInterleaved<Mass>(BufferUsage.StaticDraw);
+			_Context.LinkResource(_MassBuffer);
 
-			cubeGeometry.ObjectState.DefineState(new CullFaceState(FrontFaceDirection.Ccw, CullFaceMode.Back));
-			cubeGeometry.ObjectState.DefineState(new TransformState());
+			// _MassBuffer.Immutable = false;
+			_MassBuffer.Create(_Size);
 
-			MaterialState cubeMaterialState = new MaterialState();
-			cubeMaterialState.FrontMaterial = new MaterialState.Material(ColorRGBAF.ColorWhite * 0.5f);
-			cubeMaterialState.FrontMaterial.Ambient = ColorRGBAF.ColorBlack;
-			cubeMaterialState.FrontMaterial.Diffuse = ColorRGBAF.ColorWhite * 0.5f;
-			cubeMaterialState.FrontMaterial.Specular = ColorRGBAF.ColorWhite * 0.5f;
-			cubeMaterialState.FrontMaterial.Shininess = 10.0f;
-			cubeGeometry.ObjectState.DefineState(cubeMaterialState);
+			// Map arrays
+			_MassArrays = new VertexArrays();
+			_Context.LinkResource(_MassArrays);
 
-			#endregion
+			_MassArrays.SetArray(_MassBuffer, 0, VertexArraySemantic.Position);
+			_MassArrays.SetElementArray(PrimitiveType.Points, 0, 1024);
+			_MassArrays.Create(_Context);
 
-			#region Vertex Arrays
+			// Programs
+			_ComputeEnergy = _Context.CreateProgram("HelloObjects.MassForceCompute");
+			_ComputePosition = _Context.CreateProgram("HelloObjects.MassPositionCompute");
+			_DrawMass = _Context.CreateProgram("OpenGL.Standard");
 
-			if (_CubeArrayPosition == null) {
-				_CubeArrayPosition = new ArrayBuffer<Vertex3f>();
-				_CubeArrayPosition.Create(ArrayPosition);
+			// Initiailize mass buffer
+			Random random = new Random();
+
+			_MassBuffer.Map(_Context, BufferAccessMask.MapWriteBit);
+			for (uint i = 0; i < _MassBuffer.ItemsCount; i++) {
+				Mass mass;
+
+				mass.Position = new Vertex4f((float)random.NextDouble(), (float)random.NextDouble(), (float)random.NextDouble(), 1.0f) * 256.0f;
+				mass.Velocity = new Vertex4f((float)random.NextDouble(), (float)random.NextDouble(), (float)random.NextDouble(), 1.0f) * 0.000f;
+				mass.Force = new Vertex4f(0.0f, 0.0f, 0.0f, (float)Math.Abs(random.NextDouble() * 100000.0));
+
+				_MassBuffer.SetElement(mass, i);
 			}
 
-			if (_CubeArrayColor == null) {
-				_CubeArrayColor = new ArrayBuffer<ColorRGBF>();
-				_CubeArrayColor.Create(ArrayColors);
-			}
-
-			if (_CubeArrayNormal == null) {
-				_CubeArrayNormal = new ArrayBuffer<Vertex3f>();
-				_CubeArrayNormal.Create(ArrayNormals);
-			}
-
-			if (_CubeArrays == null) {
-				_CubeArrays = new VertexArrays();
-				_CubeArrays.SetArray(_CubeArrayPosition, VertexArraySemantic.Position);
-				_CubeArrays.SetArray(_CubeArrayColor, VertexArraySemantic.Color);
-				_CubeArrays.SetArray(_CubeArrayNormal, VertexArraySemantic.Normal);
-				_CubeArrays.SetElementArray(PrimitiveType.Triangles);
-			}
-
-			cubeGeometry.VertexArray = _CubeArrays;
-
-			#endregion
-
-			#region Program
-
-			cubeGeometry.BoundingVolume = new BoundingBox(-Vertex3f.One * _CubeSize, Vertex3f.One * _CubeSize);
-
-			#endregion
-
-			return (cubeGeometry);
+			_MassBuffer.Unmap(_Context);
 		}
 
-		/// <summary>
-		/// Scene drawn on screen.
-		/// </summary>
-		SceneGraph _CubeScene;
+		ArrayBufferInterleaved<Mass> _MassBuffer;
 
-		/// <summary>
-		/// Shared array buffer: vertex positions.
-		/// </summary>
-		ArrayBuffer<Vertex3f> _CubeArrayPosition;
+		private ShaderProgram _ComputeEnergy;
 
-		/// <summary>
-		/// Shared array buffer: vertex colors.
-		/// </summary>
-		ArrayBuffer<ColorRGBF> _CubeArrayColor;
+		private ShaderProgram _ComputePosition;
 
-		/// <summary>
-		/// Shared array buffer: vertex normals.
-		/// </summary>
-		ArrayBuffer<Vertex3f> _CubeArrayNormal;
+		private ShaderProgram _DrawMass;
 
-		VertexArrays _CubeArrays;
-
-		private const float _CubeSize = 1.0f;
-
-		private Vertex3f[] ArrayPosition
-		{
-			get
-			{
-				Vertex3f[] arrayPosition = new Vertex3f[36];
-				int i = 0;
-
-				// +Y
-				arrayPosition[i++] = new Vertex3f(-_CubeSize, +_CubeSize, -_CubeSize);
-				arrayPosition[i++] = new Vertex3f(-_CubeSize, +_CubeSize, +_CubeSize);
-				arrayPosition[i++] = new Vertex3f(+_CubeSize, +_CubeSize, +_CubeSize);
-
-				arrayPosition[i++] = new Vertex3f(-_CubeSize, +_CubeSize, -_CubeSize);
-				arrayPosition[i++] = new Vertex3f(+_CubeSize, +_CubeSize, +_CubeSize);
-				arrayPosition[i++] = new Vertex3f(+_CubeSize, +_CubeSize, -_CubeSize);
-
-				// -Y
-				arrayPosition[i++] = new Vertex3f(-_CubeSize, -_CubeSize, -_CubeSize);
-				arrayPosition[i++] = new Vertex3f(+_CubeSize, -_CubeSize, -_CubeSize);
-				arrayPosition[i++] = new Vertex3f(+_CubeSize, -_CubeSize, +_CubeSize);
-
-				arrayPosition[i++] = new Vertex3f(-_CubeSize, -_CubeSize, -_CubeSize);
-				arrayPosition[i++] = new Vertex3f(+_CubeSize, -_CubeSize, +_CubeSize);
-				arrayPosition[i++] = new Vertex3f(-_CubeSize, -_CubeSize, +_CubeSize);
-
-				// +X
-				arrayPosition[i++] = new Vertex3f(+_CubeSize, -_CubeSize, -_CubeSize);
-				arrayPosition[i++] = new Vertex3f(+_CubeSize, +_CubeSize, -_CubeSize);
-				arrayPosition[i++] = new Vertex3f(+_CubeSize, +_CubeSize, +_CubeSize);
-
-				arrayPosition[i++] = new Vertex3f(+_CubeSize, -_CubeSize, -_CubeSize);
-				arrayPosition[i++] = new Vertex3f(+_CubeSize, +_CubeSize, +_CubeSize);
-				arrayPosition[i++] = new Vertex3f(+_CubeSize, -_CubeSize, +_CubeSize);
-
-				// -X
-				arrayPosition[i++] = new Vertex3f(-_CubeSize, -_CubeSize, -_CubeSize);
-				arrayPosition[i++] = new Vertex3f(-_CubeSize, -_CubeSize, +_CubeSize);
-				arrayPosition[i++] = new Vertex3f(-_CubeSize, +_CubeSize, +_CubeSize);
-
-				arrayPosition[i++] = new Vertex3f(-_CubeSize, -_CubeSize, -_CubeSize);
-				arrayPosition[i++] = new Vertex3f(-_CubeSize, +_CubeSize, +_CubeSize);
-				arrayPosition[i++] = new Vertex3f(-_CubeSize, +_CubeSize, -_CubeSize);
-
-				// +Z
-				arrayPosition[i++] = new Vertex3f(-_CubeSize, -_CubeSize, +_CubeSize);
-				arrayPosition[i++] = new Vertex3f(+_CubeSize, -_CubeSize, +_CubeSize);
-				arrayPosition[i++] = new Vertex3f(+_CubeSize, +_CubeSize, +_CubeSize);
-
-				arrayPosition[i++] = new Vertex3f(-_CubeSize, -_CubeSize, +_CubeSize);
-				arrayPosition[i++] = new Vertex3f(+_CubeSize, +_CubeSize, +_CubeSize);
-				arrayPosition[i++] = new Vertex3f(-_CubeSize, +_CubeSize, +_CubeSize);
-
-				// -Z
-				arrayPosition[i++] = new Vertex3f(-_CubeSize, -_CubeSize, -_CubeSize);
-				arrayPosition[i++] = new Vertex3f(-_CubeSize, +_CubeSize, -_CubeSize);
-				arrayPosition[i++] = new Vertex3f(+_CubeSize, +_CubeSize, -_CubeSize);
-
-				arrayPosition[i++] = new Vertex3f(-_CubeSize, -_CubeSize, -_CubeSize);
-				arrayPosition[i++] = new Vertex3f(+_CubeSize, +_CubeSize, -_CubeSize);
-				arrayPosition[i++] = new Vertex3f(+_CubeSize, -_CubeSize, -_CubeSize);
-
-				return (arrayPosition);
-			}
-		}
-
-		private Vertex3f[] ArrayNormals
-		{
-			get
-			{
-				Vertex3f[] arrayNormal = new Vertex3f[36];
-				int v = 0;
-
-				for (int i = 0; i < 6; i++)
-					arrayNormal[v++] = Vertex3f.UnitY;
-				for (int i = 0; i < 6; i++)
-					arrayNormal[v++] = -Vertex3f.UnitY;
-				for (int i = 0; i < 6; i++)
-					arrayNormal[v++] = Vertex3f.UnitX;
-				for (int i = 0; i < 6; i++)
-					arrayNormal[v++] = -Vertex3f.UnitX;
-				for (int i = 0; i < 6; i++)
-					arrayNormal[v++] = Vertex3f.UnitZ;
-				for (int i = 0; i < 6; i++)
-					arrayNormal[v++] = -Vertex3f.UnitZ;
-
-				return (arrayNormal);
-			}
-		}
-
-		private ColorRGBF[] ArrayColors
-		{
-			get
-			{
-				ColorRGBF[] arrayColor = new ColorRGBF[36];
-				int v = 0;
-
-				for (int i = 0; i < 12; i++)
-					arrayColor[v++] = ColorRGBF.ColorRed;
-				for (int i = 0; i < 12; i++)
-					arrayColor[v++] = ColorRGBF.ColorGreen;
-				for (int i = 0; i < 12; i++)
-					arrayColor[v++] = ColorRGBF.ColorBlue;
-
-				return (arrayColor);
-			}
-		}
-
-		#endregion
-
-		#region Material Sphere
-
-		private SceneObjectGeometry CreateSphere(string material)
-		{
-			SceneObjectGeometry sphereGeometry = new SceneObjectGeometry("Sphere");
-
-			sphereGeometry.ObjectState.DefineState(new CullFaceState(FrontFaceDirection.Ccw, CullFaceMode.Back));
-			sphereGeometry.ObjectState.DefineState(new TransformState());
-			sphereGeometry.LocalModelView = Matrix4x4f.Translated(0.0f, 4.0f, 0.0f);
-
-			sphereGeometry.VertexArray = VertexArrays.CreateSphere(4.0f, 32, 32);
-
-			ArrayBuffer<Vertex2f> texCoordBuffer = new ArrayBuffer<Vertex2f>();
-			texCoordBuffer.Create(sphereGeometry.VertexArray.ArrayLength);
-			sphereGeometry.VertexArray.SetArray(texCoordBuffer, VertexArraySemantic.TexCoord);
-
-			ArrayBuffer<Vertex3f> tanCoordBuffer = new ArrayBuffer<Vertex3f>();
-			tanCoordBuffer.Create(sphereGeometry.VertexArray.ArrayLength);
-			sphereGeometry.VertexArray.SetArray(tanCoordBuffer, VertexArraySemantic.Tangent);
-
-			ArrayBuffer<Vertex3f> bitanCoordBuffer = new ArrayBuffer<Vertex3f>();
-			bitanCoordBuffer.Create(sphereGeometry.VertexArray.ArrayLength);
-			sphereGeometry.VertexArray.SetArray(bitanCoordBuffer, VertexArraySemantic.Bitangent);
-
-			//sphereGeometry.VertexArray.GenerateTexCoords(ctx, new VertexArrayTexGen.Sphere());
-			//sphereGeometry.VertexArray.GenerateTangents();
-
-			sphereGeometry.ProgramTag = ShadersLibrary.Instance.CreateProgramTag("OpenGL.Standard+PhongFragment");
-
-			SetSphereMaterial(sphereGeometry, material);
-
-			return (sphereGeometry);
-		}
-
-		private void SetSphereMaterial(SceneObjectGeometry sphere, string material)
-		{
-			MaterialState sphereMaterial = new MaterialState();
-			sphereMaterial.FrontMaterial = new MaterialState.Material(ColorRGBAF.ColorWhite);
-			sphereMaterial.FrontMaterial.Ambient = ColorRGBAF.ColorWhite * 0.2f;
-			sphereMaterial.FrontMaterial.Diffuse = ColorRGBAF.ColorWhite * 0.8f;
-			sphereMaterial.FrontMaterial.Specular = ColorRGBAF.ColorWhite * 1.0f;
-			sphereMaterial.FrontMaterial.Shininess = 32.0f;
-
-			sphere.ObjectState.DefineState(sphereMaterial);
-
-			if (material == null)
-				return;
-
-			string basePath = Path.Combine("Data", "PhotosculptTextures");
-			string textureFilename, texturePath;
-
-			textureFilename = String.Format("photosculpt-{0}-{1}.jpg", material, "diffuse");
-			texturePath = Path.Combine(basePath, textureFilename);
-			if (File.Exists(texturePath)) {
-				try {
-					Image textureImage = ImageCodec.Instance.Load(texturePath);
-					Texture2D texture = new Texture2D();
-
-					texture.GenerateMipmaps();
-					texture.SamplerParams.MinFilter = TextureMinFilter.LinearMipmapNearest;
-					texture.SamplerParams.WrapCoordR = TextureWrapMode.Repeat; // Texture.Wrap.MirroredRepeat;
-					texture.SamplerParams.WrapCoordS = TextureWrapMode.Repeat;
-					texture.Create(textureImage);
-
-					sphereMaterial.FrontMaterialDiffuseTexture = texture;
-					sphereMaterial.FrontMaterialDiffuseTexCoord = 0;
-				} catch (Exception exception) {
-					throw new InvalidOperationException(String.Format("unable to load texture {0}", texturePath), exception);
-				}
-			}
-
-			textureFilename = String.Format("photosculpt-{0}-{1}.jpg", material, "normal");
-			texturePath = Path.Combine(basePath, textureFilename);
-			if (File.Exists(texturePath)) {
-				try {
-					Image textureImage = ImageCodec.Instance.Load(texturePath);
-					Texture2D texture = new Texture2D();
-
-					texture.GenerateMipmaps();
-					texture.SamplerParams.MinFilter = TextureMinFilter.LinearMipmapNearest;
-					texture.SamplerParams.WrapCoordR = TextureWrapMode.Repeat;
-					texture.SamplerParams.WrapCoordS = TextureWrapMode.Repeat;
-					texture.Create(textureImage);
-
-					sphereMaterial.FrontMaterialNormalTexture = texture;
-					sphereMaterial.FrontMaterialNormalTexCoord = 0;
-				} catch (Exception exception) {
-					throw new InvalidOperationException(String.Format("unable to load texture {0}", texturePath), exception);
-				}
-			}
-
-			textureFilename = String.Format("photosculpt-{0}-{1}.jpg", material, "specular");
-			texturePath = Path.Combine(basePath, textureFilename);
-			if (File.Exists(texturePath)) {
-				try {
-					Image textureImage = ImageCodec.Instance.Load(texturePath);
-					Texture2D texture = new Texture2D();
-
-					texture.GenerateMipmaps();
-					texture.SamplerParams.MinFilter = TextureMinFilter.LinearMipmapNearest;
-					texture.SamplerParams.WrapCoordR = TextureWrapMode.Repeat;
-					texture.SamplerParams.WrapCoordS = TextureWrapMode.Repeat;
-					texture.Create(textureImage);
-
-					sphereMaterial.FrontMaterialSpecularTexture = texture;
-					sphereMaterial.FrontMaterialSpecularTexCoord = 0;
-				} catch (Exception exception) {
-					throw new InvalidOperationException(String.Format("unable to load texture {0}", texturePath), exception);
-				}
-			}
-
-			textureFilename = String.Format("photosculpt-{0}-{1}.jpg", material, "ambientocclusion");
-			texturePath = Path.Combine(basePath, textureFilename);
-			if (File.Exists(texturePath)) {
-				try {
-					Image textureImage = ImageCodec.Instance.Load(texturePath);
-					Texture2D texture = new Texture2D();
-
-					texture.GenerateMipmaps();
-					texture.SamplerParams.MinFilter = TextureMinFilter.LinearMipmapNearest;
-					texture.SamplerParams.WrapCoordR = TextureWrapMode.Repeat;
-					texture.SamplerParams.WrapCoordS = TextureWrapMode.Repeat;
-					texture.Create(textureImage);
-
-					sphereMaterial.FrontMaterialAmbientTexture = texture;
-					sphereMaterial.FrontMaterialAmbientTexCoord = 0;
-				} catch (Exception exception) {
-					throw new InvalidOperationException(String.Format("unable to load texture {0}", texturePath), exception);
-				}
-			}
-
-			textureFilename = String.Format("photosculpt-{0}-{1}.jpg", material, "displace");
-			texturePath = Path.Combine(basePath, textureFilename);
-			if (File.Exists(texturePath)) {
-				try {
-					Image textureImage = ImageCodec.Instance.Load(texturePath);
-					Texture2D texture = new Texture2D();
-
-					// texture.RequestMipmapsCreation();
-					texture.SamplerParams.WrapCoordR = TextureWrapMode.Repeat;
-					texture.SamplerParams.WrapCoordS = TextureWrapMode.Repeat;
-					texture.SamplerParams.MinFilter = TextureMinFilter.Nearest;
-					texture.SamplerParams.MagFilter = TextureMagFilter.Nearest;
-					texture.MipmapMaxLevel = 0;
-					texture.Create(textureImage);
-
-					sphereMaterial.FrontMaterialDisplacementTexture = texture;
-					// sphereMaterial.FrontMaterialDisplacementTexCoord = 0;
-					sphereMaterial.FrontMaterialDisplacementFactor = 0.2f;
-				} catch (Exception exception) {
-					throw new InvalidOperationException(String.Format("unable to load texture {0}", texturePath), exception);
-				}
-			}
-		}
-
-		#endregion
-
-		#region Cube Mapping
-
-		private SceneObject CreateSkyBoxObject()
-		{
-			if (!Gl.CurrentExtensions.TextureCubeMap_ARB)
-				return (null);
-
-			SceneObjectGeometry skyboxObject = new SceneObjectGeometry();
-
-			#region Texture
-
-			OpenGL.Objects.Image[] cubeMap = new OpenGL.Objects.Image[6];
-
-			using (Stream imageStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("HelloObjects.Data.PiazzaDelPopolo.posx.jpg"))
-				cubeMap[0] = ImageCodec.Instance.Load(imageStream, ImageFormat.Jpeg);
-			using (Stream imageStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("HelloObjects.Data.PiazzaDelPopolo.negx.jpg"))
-				cubeMap[1] = ImageCodec.Instance.Load(imageStream, ImageFormat.Jpeg);
-			using (Stream imageStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("HelloObjects.Data.PiazzaDelPopolo.posy.jpg"))
-				cubeMap[2] = ImageCodec.Instance.Load(imageStream, ImageFormat.Jpeg);
-			using (Stream imageStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("HelloObjects.Data.PiazzaDelPopolo.negy.jpg"))
-				cubeMap[3] = ImageCodec.Instance.Load(imageStream, ImageFormat.Jpeg);
-			using (Stream imageStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("HelloObjects.Data.PiazzaDelPopolo.posz.jpg"))
-				cubeMap[4] = ImageCodec.Instance.Load(imageStream, ImageFormat.Jpeg);
-			using (Stream imageStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("HelloObjects.Data.PiazzaDelPopolo.negz.jpg"))
-				cubeMap[5] = ImageCodec.Instance.Load(imageStream, ImageFormat.Jpeg);
-
-			foreach (OpenGL.Objects.Image image in cubeMap)
-				image.FlipVertically();
-
-			TextureCube cubeMapTexture = new TextureCube();
-			cubeMapTexture.Create(PixelLayout.RGB24, cubeMap);
-
-			#endregion
-
-			#region State
-
-			skyboxObject.LocalModelView = Matrix4x4f.Scaled(170.0f, 170.0f, 170.0f);
-
-			skyboxObject.ObjectState.DefineState(new CullFaceState(FrontFaceDirection.Cw, CullFaceMode.Back));
-
-			ShaderUniformState skyboxUniformState = new ShaderUniformState("OpenGL.Skybox");
-			skyboxUniformState.SetUniformState("glo_CubeMapTexture", cubeMapTexture);
-			skyboxObject.ObjectState.DefineState(skyboxUniformState);
-
-			#endregion
-
-			#region Program
-
-			skyboxObject.ProgramTag = ShadersLibrary.Instance.CreateProgramTag("OpenGL.Skybox");
-			skyboxObject.Program.Create(_Context);
-
-			#endregion
-
-			#region Vertex Array
-
-			// Define vertex arrays
-			skyboxObject.VertexArray = new VertexArrays();
-			skyboxObject.VertexArray.SetArray(_CubeArrayPosition, VertexArraySemantic.Position);
-			skyboxObject.VertexArray.SetElementArray(PrimitiveType.Triangles);
-			skyboxObject.VertexArray.Create(_Context);
-
-			#endregion
-
-			return (skyboxObject);
-		}
-
-		#endregion
-
-		#region Mesh Loading
-
-		private SceneObject CreateBumbleBeeRB()
-		{
-			SceneObject bumbleBee = SceneObjectCodec.Instance.Load(@"Data\BumbleBee\RB-BumbleBee.obj");
-
-			bumbleBee.ObjectState.DefineState(new CullFaceState(FrontFaceDirection.Ccw, CullFaceMode.Back));
-			bumbleBee.LocalModelView =
-				Matrix4x4f.Translated(0.0f, 0.0f, 0.0f) *
-				Matrix4x4f.Scaled(0.03f, 0.03f, 0.03f) *
-				Matrix4x4f.RotatedX(-90.0f) *
-				Matrix4x4f.RotatedZ(+90.0f);
-
-			bumbleBee.ObjectFlags = SceneObjectFlags.BoundingBox;
-
-			return bumbleBee;
-		}
-
-		private SceneObject CreateBumbleBeeVH()
-		{
-			SceneObject bumbleBee = SceneObjectCodec.Instance.Load(@"Data\BumbleBee\VH-BumbleBee.obj");
-
-			bumbleBee.ObjectState.DefineState(new CullFaceState(FrontFaceDirection.Ccw, CullFaceMode.Back));
-			bumbleBee.LocalModelView =
-				Matrix4x4f.Translated(-10.0f, 0.0f, 0.0f) *
-				Matrix4x4f.Scaled(0.03f, 0.03f, 0.03f) *
-				Matrix4x4f.RotatedX(-90.0f) *
-				Matrix4x4f.RotatedZ(+90.0f);
-
-			bumbleBee.ObjectFlags = SceneObjectFlags.BoundingBox;
-
-			return bumbleBee;
-		}
+		private VertexArrays _MassArrays;
 
 		#endregion
 
@@ -529,24 +129,8 @@ namespace HelloObjects
 		{
 			// Wrap GL context with GraphicsContext
 			_Context = new GraphicsContext(e.DeviceContext, e.RenderContext);
-
-			// Scene
-			_CubeScene = new SceneGraph(SceneGraphFlags.None) {
-				SceneRoot = new SceneObjectGeometry(),
-				CurrentView = new SceneObjectCamera()
-			};
-
-			// Root object
-			// _CubeScene.SceneRoot.ObjectState.DefineState(new DepthTestState(DepthFunction.Less));
-
-			// Camera object
-			_CubeScene.SceneRoot.Link(_CubeScene.CurrentView);
-
-			// Horizontal plane
-			_CubeScene.SceneRoot.Link(CreatePlane());
-
-			// Create scene resource
-			_CubeScene.Create(_Context);
+			// Create resources
+			CreateResources(_Context);
 
 			Gl.ClearColor(0.1f, 0.1f, 0.1f, 0.0f);
 
@@ -560,7 +144,6 @@ namespace HelloObjects
 		/// <param name="e"></param>
 		private void ObjectsControl_ContextDestroying(object sender, GlControlEventArgs e)
 		{
-			_CubeScene.Dispose();
 			_Context.Dispose();
 		}
 
@@ -571,6 +154,33 @@ namespace HelloObjects
 		/// <param name="e"></param>
 		private void ObjectsControl_Render(object sender, GlControlEventArgs e)
 		{
+			float deltaTime = (float)_Crono.Elapsed.TotalSeconds * _TimeSpeed;
+			_Crono.Restart();
+
+			// Update force
+			_ComputeEnergy.SetStorageBuffer(_Context, "MassBuffer", _MassBuffer);
+
+			_ComputeEnergy.SetUniform(_Context, "glo_MassCount", (int)_MassBuffer.ItemsCount);
+			_ComputeEnergy.SetUniform(_Context, "glo_Gravity", _Gravity);
+			_ComputeEnergy.SetUniform(_Context, "glo_MinDistanceForGravity", 0.1f);
+
+			_ComputeEnergy.SetUniform(_Context, "glo_DeltaTime", deltaTime);
+
+			_ComputeEnergy.Compute(_Context, 1024);
+			_ComputeEnergy.MemoryBarrier(MemoryBarrierMask.ShaderStorageBarrierBit);
+
+			// Update positions
+			_ComputePosition.SetStorageBuffer(_Context, "MassBuffer", _MassBuffer);
+
+			_ComputePosition.SetUniform(_Context, "glo_MassCount", (int)_MassBuffer.ItemsCount);
+			_ComputePosition.SetUniform(_Context, "glo_Gravity", _Gravity);
+			_ComputePosition.SetUniform(_Context, "glo_MinDistanceForGravity", 0.1f);
+
+			_ComputePosition.SetUniform(_Context, "glo_DeltaTime", deltaTime);
+			_ComputePosition.Compute(_Context, 1024);
+			_ComputePosition.MemoryBarrier(MemoryBarrierMask.VertexAttribArrayBarrierBit);
+
+			// Draw scene
 			GlControl senderControl = (GlControl)sender;
 			float senderAspectRatio = (float)senderControl.Width / senderControl.Height;
 
@@ -579,22 +189,20 @@ namespace HelloObjects
 			Gl.ClearColor(1.0f, 0.0f, 0.0f, 1.0f);
 			Gl.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
 
-			_CubeScene.CurrentView.ProjectionMatrix = Matrix4x4f.Perspective(45.0f, senderAspectRatio, 0.1f, 100.0f);
-			// _CubeScene.CurrentView.LocalModelView = Matrix4x4f.Translated(0.0f, 0.0f, 10.0f);
-			//_CubeScene.CurrentView.LocalModelView =
-			//	Matrix4x4f.Translated(_ViewStrideLat, _ViewStrideAlt, 0.0f) *
-			//	Matrix4x4f.RotatedY(_ViewAzimuth) *
-			//	Matrix4x4f.RotatedX(_ViewElevation) *
-			//	Matrix4x4f.Translated(0.0f, 0.0f, _ViewLever);
-			//_CubeScene.CurrentView.LocalModelView =
-			//	Matrix4x4f.Translated(0.0f, 0.0f, _ViewLever) *
-			//	Matrix4x4f.RotatedX(_ViewElevation) *
-			//	Matrix4x4f.RotatedY(_ViewAzimuth) *
-			//	Matrix4x4f.Translated(_ViewStrideLat, _ViewStrideAlt, 0.0f);
-			_CubeScene.UpdateViewMatrix();
+			Matrix4x4f mvp = Matrix4x4f.Perspective(60.0f, senderAspectRatio, 0.1f, 16535.0f) * Matrix4x4f.Translated(-128.0f, -128.0f, -256.0f);
 
-			_CubeScene.Draw(_Context);
+			_DrawMass.SetUniform(_Context, "glo_ModelViewProjection", mvp);
+
+			_MassArrays.Draw(_Context, _DrawMass);
 		}
+
+		const uint _Size = 128;
+
+		float _Gravity = 1800f;
+
+		float _TimeSpeed = 1000.0f;
+
+		private Stopwatch _Crono = new Stopwatch();
 
 		/// <summary>
 		/// The GL context.
