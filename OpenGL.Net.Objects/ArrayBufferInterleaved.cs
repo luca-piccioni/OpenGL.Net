@@ -76,16 +76,42 @@ namespace OpenGL.Objects
 
 		#region Interleaved Sections
 
+		/// <summary>
+		/// An <see cref="ArrayBufferBase.IArraySection"/>, but inteleaved with other <see cref="InterleavedSectionBase"/>.
+		/// </summary>
+		/// <remarks>
+		/// Roughly a <see cref="InterleavedSectionBase"/> represents a field of a structure, representing the interleaved
+		/// vertices. Offset and types are defined directory from a generic type.
+		/// </remarks>
 		private class InterleavedSectionBase : IArraySection
 		{
+			/// <summary>
+			/// The type of the elements of the array section.
+			/// </summary>
 			public ArrayBufferItemType ItemType { get; set; }
 
+			/// <summary>
+			/// Get whether the array elements should be meant normalized (fixed point precision values).
+			/// </summary>
 			public bool Normalized { get; set; }
 
-			public IntPtr Offset { get; set; }
-
+			/// <summary>
+			/// Get the actual array buffer pointer. This is meant as offset of the currently CPU/GPU buffer.
+			/// </summary>
 			public virtual IntPtr Pointer { get; set; }
 
+			/// <summary>
+			/// Offset of the first element of the array section, in bytes.
+			/// </summary>
+			/// <remarks>
+			/// It should NOT take into account the client buffer address, even if the GL_ARB_vertex_buffer_object extension
+			/// is not supported by current implementation. It indicates an actual offset, in bytes.
+			/// </remarks>
+			public IntPtr Offset { get; set; }
+
+			/// <summary>
+			/// Offset between two element of the array section, in bytes. This is the structure size.
+			/// </summary>
 			public IntPtr Stride { get; set; }
 		}
 
@@ -109,6 +135,10 @@ namespace OpenGL.Objects
 			}
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
 		private static List<InterleavedSectionBase> ScanTypeSections()
 		{
 			List<InterleavedSectionBase> typeSections;
@@ -138,6 +168,36 @@ namespace OpenGL.Objects
 		private static readonly Dictionary<Type, List<InterleavedSectionBase>> _TypeSections = new Dictionary<Type, List<InterleavedSectionBase>>();
 
 		private readonly List<InterleavedSection> _InterleavedSections;
+
+		#endregion
+
+		#region Item Access
+
+		/// <summary>
+		/// Set an element to this mapped ArrayBufferObjectBase.
+		/// </summary>
+		/// <typeparam name="T">
+		/// A structure representing this ArrayBufferObjectBase element.
+		/// </typeparam>
+		/// <param name="value">
+		/// A <typeparamref name="T"/> that specify the mapped BufferObject element.
+		/// </param>
+		/// <param name="index">
+		/// A <see cref="uint"/> that specify the index of the element to set.
+		/// </param>
+		/// <param name="sectionIndex">
+		/// A <see cref="uint"/> that specifies the array section index for supporting packed/interleaved arrays.
+		/// </param>
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown if this BufferObject is not mapped (<see cref="Buffer.IsMapped"/>).
+		/// </exception>
+		public void SetElement(T value, uint index)
+		{
+			uint stride = ItemSize;
+			ulong itemOffset = stride * index;
+
+			Set(value, itemOffset);
+		}
 
 		#endregion
 
