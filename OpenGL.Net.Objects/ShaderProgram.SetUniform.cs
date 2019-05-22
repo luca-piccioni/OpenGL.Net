@@ -45,6 +45,7 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, float v)
 		{
 			CheckCurrentContext(ctx);
+			CheckThisExistence(ctx);
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -55,7 +56,6 @@ namespace OpenGL.Objects
 				return;
 #endif
 
-			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT, Gl.BOOL);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -149,6 +149,7 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex2f v)
 		{
 			CheckCurrentContext(ctx);
+			CheckThisExistence(ctx);
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -159,7 +160,6 @@ namespace OpenGL.Objects
 				return;
 #endif
 
-			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_VEC2, Gl.BOOL_VEC2);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -184,6 +184,7 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex3f v)
 		{
 			CheckCurrentContext(ctx);
+			CheckThisExistence(ctx);
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -194,7 +195,6 @@ namespace OpenGL.Objects
 				return;
 #endif
 
-			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_VEC3, Gl.BOOL_VEC3);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -219,6 +219,7 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex4f v)
 		{
 			CheckCurrentContext(ctx);
+			CheckThisExistence(ctx);
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -229,7 +230,6 @@ namespace OpenGL.Objects
 				return;
 #endif
 
-			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_VEC4, Gl.BOOL_VEC4);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -257,12 +257,12 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, float[] v)
 		{
 			CheckCurrentContext(ctx);
+			CheckThisExistence(ctx);
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
 				return;
 
-			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT, Gl.BOOL);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -286,12 +286,12 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex2f[] v)
 		{
 			CheckCurrentContext(ctx);
+			CheckThisExistence(ctx);
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
 				return;
 
-			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_VEC2, Gl.BOOL_VEC2);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -312,12 +312,12 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex3f[] v)
 		{
 			CheckCurrentContext(ctx);
+			CheckThisExistence(ctx);
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
 				return;
 
-			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_VEC3, Gl.BOOL_VEC3);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -338,12 +338,12 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex4f[] v)
 		{
 			CheckCurrentContext(ctx);
+			CheckThisExistence(ctx);
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
 				return;
 
-			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_VEC4, Gl.BOOL_VEC4);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -364,6 +364,7 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, ColorRGBAF v)
 		{
 			CheckCurrentContext(ctx);
+			CheckThisExistence(ctx);
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -374,7 +375,6 @@ namespace OpenGL.Objects
 				return;
 #endif
 
-			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_VEC4, Gl.BOOL_VEC4);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -399,12 +399,12 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, ColorRGBAF[] v)
 		{
 			CheckCurrentContext(ctx);
+			CheckThisExistence(ctx);
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
 				return;
 
-			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_VEC4, Gl.BOOL_VEC4);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -428,8 +428,8 @@ namespace OpenGL.Objects
 		/// </param>
 		public void SetUniform(GraphicsContext ctx, string uniformName, int v)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+			CheckCurrentContext(ctx);
+			CheckThisExistence(ctx);
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -440,7 +440,6 @@ namespace OpenGL.Objects
 				return;
 #endif
 
-			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT, Gl.BOOL);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -467,8 +466,8 @@ namespace OpenGL.Objects
 		/// </param>
 		public void SetUniform(GraphicsContext ctx, string uniformName, int x, int y)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+			CheckCurrentContext(ctx);
+			CheckThisExistence(ctx);
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -480,7 +479,6 @@ namespace OpenGL.Objects
 				return;
 #endif
 
-			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT_VEC2, Gl.BOOL_VEC2);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, x, y);
@@ -510,8 +508,8 @@ namespace OpenGL.Objects
 		/// </param>
 		public void SetUniform(GraphicsContext ctx, string uniformName, int x, int y, int z)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+			CheckCurrentContext(ctx);
+			CheckThisExistence(ctx);
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -523,7 +521,6 @@ namespace OpenGL.Objects
 				return;
 #endif
 
-			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT_VEC3, Gl.BOOL_VEC3);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, x, y, z);
@@ -556,8 +553,8 @@ namespace OpenGL.Objects
 		/// </param>
 		public void SetUniform(GraphicsContext ctx, string uniformName, int x, int y, int z, int w)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+			CheckCurrentContext(ctx);
+			CheckThisExistence(ctx);
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -569,7 +566,6 @@ namespace OpenGL.Objects
 				return;
 #endif
 
-			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT_VEC4, Gl.BOOL_VEC4);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, x, y, z, w);
@@ -594,6 +590,7 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex2i v)
 		{
 			CheckCurrentContext(ctx);
+			CheckThisExistence(ctx);
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -604,7 +601,6 @@ namespace OpenGL.Objects
 				return;
 #endif
 
-			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT_VEC2, Gl.BOOL_VEC2);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -629,6 +625,7 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex3i v)
 		{
 			CheckCurrentContext(ctx);
+			CheckThisExistence(ctx);
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -639,7 +636,6 @@ namespace OpenGL.Objects
 				return;
 #endif
 
-			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT_VEC3, Gl.BOOL_VEC3);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -664,6 +660,7 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex4i v)
 		{
 			CheckCurrentContext(ctx);
+			CheckThisExistence(ctx);
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -674,7 +671,6 @@ namespace OpenGL.Objects
 				return;
 #endif
 
-			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT_VEC4, Gl.BOOL_VEC4);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -702,8 +698,8 @@ namespace OpenGL.Objects
 		/// </param>
 		public void SetUniform(GraphicsContext ctx, string uniformName, uint v)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+			CheckCurrentContext(ctx);
+			CheckThisExistence(ctx);
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -714,7 +710,6 @@ namespace OpenGL.Objects
 				return;
 #endif
 
-			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.UNSIGNED_INT, Gl.BOOL);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -741,8 +736,8 @@ namespace OpenGL.Objects
 		/// </param>
 		public void SetUniform(GraphicsContext ctx, string uniformName, uint x, uint y)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+			CheckCurrentContext(ctx);
+			CheckThisExistence(ctx);
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -755,7 +750,6 @@ namespace OpenGL.Objects
 				return;
 #endif
 
-			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.UNSIGNED_INT_VEC2, Gl.BOOL_VEC2);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -785,8 +779,8 @@ namespace OpenGL.Objects
 		/// </param>
 		public void SetUniform(GraphicsContext ctx, string uniformName, uint x, uint y, uint z)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+			CheckCurrentContext(ctx);
+			CheckThisExistence(ctx);
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -799,7 +793,6 @@ namespace OpenGL.Objects
 				return;
 #endif
 
-			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.UNSIGNED_INT_VEC3, Gl.BOOL_VEC3);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -832,8 +825,8 @@ namespace OpenGL.Objects
 		/// </param>
 		public void SetUniform(GraphicsContext ctx, string uniformName, uint x, uint y, uint z, uint w)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+			CheckCurrentContext(ctx);
+			CheckThisExistence(ctx);
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -846,7 +839,6 @@ namespace OpenGL.Objects
 				return;
 #endif
 
-			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.UNSIGNED_INT_VEC4, Gl.BOOL_VEC4);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -871,6 +863,7 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex2ui v)
 		{
 			CheckCurrentContext(ctx);
+			CheckThisExistence(ctx);
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -881,7 +874,6 @@ namespace OpenGL.Objects
 				return;
 #endif
 
-			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT_VEC2, Gl.BOOL_VEC2);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -906,6 +898,7 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex3ui v)
 		{
 			CheckCurrentContext(ctx);
+			CheckThisExistence(ctx);
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -916,7 +909,6 @@ namespace OpenGL.Objects
 				return;
 #endif
 
-			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT_VEC3, Gl.BOOL_VEC3);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -941,6 +933,7 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex4ui v)
 		{
 			CheckCurrentContext(ctx);
+			CheckThisExistence(ctx);
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -951,7 +944,6 @@ namespace OpenGL.Objects
 				return;
 #endif
 
-			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT_VEC4, Gl.BOOL_VEC4);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -979,8 +971,8 @@ namespace OpenGL.Objects
 		/// </param>
 		public void SetUniform(GraphicsContext ctx, string uniformName, bool v)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+			CheckCurrentContext(ctx);
+			CheckThisExistence(ctx);
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -991,7 +983,6 @@ namespace OpenGL.Objects
 				return;
 #endif
 
-			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.BOOL);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -1018,8 +1009,8 @@ namespace OpenGL.Objects
 		/// </param>
 		public void SetUniform(GraphicsContext ctx, string uniformName, bool x, bool y)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+			CheckCurrentContext(ctx);
+			CheckThisExistence(ctx);
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -1032,7 +1023,6 @@ namespace OpenGL.Objects
 				return;
 #endif
 
-			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.BOOL_VEC2);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -1062,8 +1052,8 @@ namespace OpenGL.Objects
 		/// </param>
 		public void SetUniform(GraphicsContext ctx, string uniformName, bool x, bool y, bool z)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+			CheckCurrentContext(ctx);
+			CheckThisExistence(ctx);
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -1076,7 +1066,6 @@ namespace OpenGL.Objects
 				return;
 #endif
 
-			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.BOOL_VEC3);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -1109,8 +1098,8 @@ namespace OpenGL.Objects
 		/// </param>
 		public void SetUniform(GraphicsContext ctx, string uniformName, bool x, bool y, bool z, bool w)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+			CheckCurrentContext(ctx);
+			CheckThisExistence(ctx);
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -1123,7 +1112,6 @@ namespace OpenGL.Objects
 				return;
 #endif
 
-			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.BOOL_VEC4);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -1151,8 +1139,8 @@ namespace OpenGL.Objects
 		/// </param>
 		public void SetUniform(GraphicsContext ctx, string uniformName, Matrix3x3f m)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+			CheckCurrentContext(ctx);
+			CheckThisExistence(ctx);
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -1163,7 +1151,6 @@ namespace OpenGL.Objects
 				return;
 #endif
 
-			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_MAT3);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, m);
@@ -1187,8 +1174,8 @@ namespace OpenGL.Objects
 		/// </param>
 		public void SetUniform(GraphicsContext ctx, string uniformName, Matrix4x4f m)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+			CheckCurrentContext(ctx);
+			CheckThisExistence(ctx);
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -1199,7 +1186,6 @@ namespace OpenGL.Objects
 				return;
 #endif
 
-			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_MAT4);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, m);
@@ -1227,6 +1213,8 @@ namespace OpenGL.Objects
 		/// </param>
 		public void SetUniform(GraphicsContext ctx, string uniformName, Texture texture)
 		{
+			CheckCurrentContext(ctx);
+			CheckThisExistence(ctx);
 			CheckThatExistence(ctx, texture);
 
 			uint textureUnitIndex = texture.GetTextureUnit(ctx);
@@ -1243,7 +1231,6 @@ namespace OpenGL.Objects
 				return;
 #endif
 
-			CheckProgramBinding();
 			CheckUniformType(uniform, texture.SamplerType);
 
 			// Set uniform value (sampler)
@@ -1276,6 +1263,8 @@ namespace OpenGL.Objects
 		/// </param>
 		public void SetUniformImage(GraphicsContext ctx, string uniformName, Texture texture, BufferAccess access = BufferAccess.ReadOnly, int level = 0, InternalFormat? internalFormat = null)
 		{
+			CheckCurrentContext(ctx);
+			CheckThisExistence(ctx);
 			CheckThatExistence(ctx, texture);
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
@@ -1307,6 +1296,8 @@ namespace OpenGL.Objects
 		/// </param>
 		public void SetUniformImage(GraphicsContext ctx, string uniformName, Texture texture, int layer, BufferAccess access = BufferAccess.ReadOnly, int level = 0, InternalFormat? internalFormat = null)
 		{
+			CheckCurrentContext(ctx);
+			CheckThisExistence(ctx);
 			CheckThatExistence(ctx, texture);
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
@@ -1349,7 +1340,6 @@ namespace OpenGL.Objects
 				return;
 #endif
 
-			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT);
 
 			// Set uniform value (sampler)
@@ -1395,8 +1385,8 @@ namespace OpenGL.Objects
 		/// </param>
 		public void SetUniform(GraphicsContext ctx, string uniformName, double v)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+			CheckCurrentContext(ctx);
+			CheckThisExistence(ctx);
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -1407,7 +1397,6 @@ namespace OpenGL.Objects
 				return;
 #endif
 
-			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.DOUBLE);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -1500,8 +1489,8 @@ namespace OpenGL.Objects
 		/// </param>
 		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex2d v)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+			CheckCurrentContext(ctx);
+			CheckThisExistence(ctx);
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -1512,7 +1501,6 @@ namespace OpenGL.Objects
 				return;
 #endif
 
-			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.DOUBLE_VEC2);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -1536,8 +1524,8 @@ namespace OpenGL.Objects
 		/// </param>
 		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex3d v)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+			CheckCurrentContext(ctx);
+			CheckThisExistence(ctx);
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -1548,7 +1536,6 @@ namespace OpenGL.Objects
 				return;
 #endif
 
-			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.DOUBLE_VEC3);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -1572,8 +1559,8 @@ namespace OpenGL.Objects
 		/// </param>
 		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex4d v)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+			CheckCurrentContext(ctx);
+			CheckThisExistence(ctx);
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -1584,7 +1571,6 @@ namespace OpenGL.Objects
 				return;
 #endif
 
-			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.DOUBLE_VEC4);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -1612,14 +1598,13 @@ namespace OpenGL.Objects
 		/// </param>
 		public void SetUniform(GraphicsContext ctx, string uniformName, Matrix3x3d m)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+			CheckCurrentContext(ctx);
+			CheckThisExistence(ctx);
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
 				return;
 
-			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.DOUBLE_MAT3);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, m);
@@ -1639,14 +1624,13 @@ namespace OpenGL.Objects
 		/// </param>
 		public void SetUniform(GraphicsContext ctx, string uniformName, Matrix4x4d m)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+			CheckCurrentContext(ctx);
+			CheckThisExistence(ctx);
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
 				return;
 
-			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_MAT4);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, m);
@@ -1678,12 +1662,16 @@ namespace OpenGL.Objects
 		/// <exception cref="ArgumentNullException">
 		/// This exception is thrown if the parameter <paramref name="uniformName"/> is null.
 		/// </exception>
+		/// <exception cref="ArgumentNullException">
+		/// This exception is thrown if the parameter <paramref name="value"/> is null.
+		/// </exception>
 		public void SetUniform(GraphicsContext ctx, string uniformName, object value)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+			CheckCurrentContext(ctx);
+			CheckThisExistence(ctx);
+
 			if (value == null)
-				throw new ArgumentNullException("value");
+				throw new ArgumentNullException(nameof(value));
 
 			Type valueType = value.GetType();
 

@@ -562,8 +562,6 @@ namespace OpenGL.Objects.State
 				// Set uniform block
 				shaderProgram.SetUniformBlock(ctx, UniformBlockTag, _UniformBuffer);
 			} else {
-				// Start setting uniforms
-				shaderProgram.BindUniform(ctx);
 				// Apply uniforms to program
 				ApplyState(ctx, shaderProgram, String.Empty);
 			}

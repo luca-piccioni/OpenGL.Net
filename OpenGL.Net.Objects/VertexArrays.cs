@@ -150,6 +150,7 @@ namespace OpenGL.Objects
 		/// </param>
 		public void Draw(GraphicsContext ctx, ShaderProgram shader, params IElement[] elements)
 		{
+			CheckCurrentContext(ctx);
 			CheckThisExistence(ctx);
 
 			// Set vertex arrays

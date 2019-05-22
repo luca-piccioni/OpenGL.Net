@@ -183,9 +183,9 @@ namespace OpenGL.Objects
 		/// A <see cref="String"/> that specify the variable name in the shader source.
 		/// </param>
 		/// <param name="storageBuffer">
-		/// The <see cref="ShaderStorageBuffer"/> to be linked to <paramref name="storageBufferName"/>.
+		/// The <see cref="Buffer"/> to be linked to <paramref name="storageBufferName"/>.
 		/// </param>
-		public void SetStorageBuffer(GraphicsContext ctx, string storageBufferName, ShaderStorageBuffer storageBuffer)
+		public void SetStorageBuffer(GraphicsContext ctx, string storageBufferName, Buffer storageBuffer)
 		{
 			CheckCurrentContext(ctx);
 			if (storageBufferName == null)
@@ -204,11 +204,11 @@ namespace OpenGL.Objects
 			// Bind to the most appropriate binding index
 			IBindingIndexResource bindingIndexResource = storageBuffer;
 
-			ctx.Bind(bindingIndexResource);
+			ctx.BindIndex(bindingIndexResource);
 
 			// Avoid unnecessary glShaderStorageBlockBinding call
-			if (storageBufferBinding.BufferBinding == bindingIndexResource.BindingIndex)
-				return;
+			//if (storageBufferBinding.BufferBinding == bindingIndexResource.BindingIndex)
+			//	return;
 
 			Gl.ShaderStorageBlockBinding(ObjectName, storageBufferBinding.Index, bindingIndexResource.BindingIndex);
 			storageBufferBinding.BufferBinding = bindingIndexResource.BindingIndex;

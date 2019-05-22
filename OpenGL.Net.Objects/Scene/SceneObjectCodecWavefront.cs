@@ -884,7 +884,6 @@ namespace OpenGL.Objects.Scene
 				Texture2D texture = new Texture2D();
 
 				texture.Create(textureImage);
-				texture.GenerateMipmaps();
 
 				return (texture);
 			} catch (Exception exception) {

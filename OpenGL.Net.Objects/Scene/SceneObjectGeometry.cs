@@ -109,7 +109,7 @@ namespace OpenGL.Objects.Scene
 		/// Shader tag used for creating the actual program at run-time. The program is shared , shared to all
 		/// geometry instances, if any
 		/// </summary>
-		public ShadersLibrary.ProgramTag ProgramTag
+		internal ShadersLibrary.ProgramTag ProgramTag
 		{
 			get; set;
 		}

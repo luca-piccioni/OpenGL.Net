@@ -102,6 +102,7 @@
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.3.0\lib\netstandard1.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.XML" />
     <Reference Include="System.Xml.Serialization" />
   </ItemGroup>
@@ -114,7 +115,6 @@
     <Compile Include="ArrayBufferItemAttribute.cs" />
     <Compile Include="ArrayBufferItemType.cs" />
     <Compile Include="Collections\StringDictionary.cs" />
-    <Compile Include="ComputeProgram.cs" />
     <Compile Include="Font.cs" />
     <Compile Include="FontFactory.cs" />
     <Compile Include="FontVertex.cs" />
