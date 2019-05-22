@@ -35,7 +35,7 @@ namespace OpenGL.Objects
 	/// - Mapping
 	/// - Immutable storage support (GL_ARB_buffer_storage)
 	/// </remarks>
-	public abstract class Buffer : GraphicsResource, IBindingResource
+	public abstract class Buffer : GraphicsResource, IBindingResource, IBindingIndexResource
 	{
 		#region Constructors
 
@@ -954,6 +954,50 @@ namespace OpenGL.Objects
 
 		#endregion
 
+		#region Invalidation
+
+		/// <summary>
+		/// Invalidate the content of this Buffer.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> that created this Buffer.
+		/// </param>
+		public void Invalidate(GraphicsContext ctx)
+		{
+			if (ctx.Extensions.InvalidateSubdata_ARB || ctx.Version.IsCompatible(Gl.Version_430))
+				Gl.InvalidateBufferData(ObjectName);
+			else {
+				if (!Immutable && RequiresName(ctx)) {
+					ctx.Bind(this);
+					Gl.BufferData(Target, Size, IntPtr.Zero, Hint);
+				}
+			}
+
+			Gl.CheckErrors();
+		}
+
+		/// <summary>
+		/// Invalidate a range of the content of this Buffer.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> that created this Buffer.
+		/// </param>
+		public void Invalidate(GraphicsContext ctx, IntPtr offset, uint length)
+		{
+			if (ctx.Extensions.InvalidateSubdata_ARB || ctx.Version.IsCompatible(Gl.Version_430))
+				Gl.InvalidateBufferSubData(ObjectName, offset, length);
+			else {
+				if (!Immutable && RequiresName(ctx)) {
+					ctx.Bind(this);
+					Gl.BufferSubData(Target, offset, length, IntPtr.Zero);
+				}
+			}
+
+			Gl.CheckErrors();
+		}
+
+		#endregion
+
 		#region Overrides
 
 		/// <summary>
@@ -1229,6 +1273,26 @@ namespace OpenGL.Objects
 
 			return currentBufferObject == (int)ObjectName;
 		}
+
+		#endregion
+
+		#region IBindingIndexResource Implementation
+
+		/// <summary>
+		/// Get the identifier of the binding point.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for binding.
+		/// </param>
+		BufferTarget IBindingIndexResource.GetBindingTarget(GraphicsContext ctx)
+		{
+			return BufferTarget.ShaderStorageBuffer;
+		}
+
+		/// <summary>
+		/// Current binding point of the IBindingIndexResource.
+		/// </summary>
+		uint IBindingIndexResource.BindingIndex { get; set; } = GraphicsContext.InvalidBindingIndex;
 
 		#endregion
 	}
