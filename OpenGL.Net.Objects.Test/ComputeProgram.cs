@@ -34,7 +34,7 @@ namespace OpenGL.Objects.Test
 		{
 			const uint Size = 1024;
 
-			using (ComputeProgram computeProgram = new ComputeProgram("OpenGL.Objects.Test.ComputeProgram"))
+			using (ShaderProgram computeProgram = new ShaderProgram("OpenGL.Objects.Test.ComputeProgram"))
 			using (Shader computeShader = new Shader(ShaderType.ComputeShader))
 			using (Texture2D texture0 = new Texture2D())
 			using (Texture2D texture1 = new Texture2D(Size / 2, Size / 2, PixelLayout.R8))

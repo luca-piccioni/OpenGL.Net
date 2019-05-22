@@ -1,5 +1,5 @@
 ﻿
-// Copyright (C) 2016-2017 Luca Piccioni
+// Copyright (C) 2016-2019 Luca Piccioni
 // 
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -18,6 +18,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using NUnit.Framework;
 
@@ -29,9 +30,57 @@ namespace OpenGL.Objects.Test
 	[TestFixture(Category = @"Objects\ShadersLibrary")]
 	class ShadersLibraryTest : TestBase
 	{
+		[Test]
+		public void ShadersLibrary_SaveTo()
+		{
+			ShadersLibrary shadersLibrary = new ShadersLibrary();
+
+			shadersLibrary.Includes = new List<ShadersLibrary.Include>();
+			shadersLibrary.Includes.Add(
+				new ShadersLibrary.Include() {
+				 Path = "/Absolute/Path/To/Include", Resource = "Some.Resource.Identifier"
+				}
+			);
+
+			shadersLibrary.Objects = new List<ShadersLibrary.Object>();
+			shadersLibrary.Objects.Add(
+				new ShadersLibrary.Object() {
+					Resource = "Some.Object.Resource",
+					TestStage = "VertexShader"
+				}
+			);
+			shadersLibrary.Objects[0].Symbols = new ShadersLibrary.SymbolList();
+			shadersLibrary.Objects[0].Symbols.Add("DEFINE_SYMBOL");
+
+			shadersLibrary.Programs = new List<ShadersLibrary.Program>();
+			shadersLibrary.Programs.Add(new ShadersLibrary.Program() {
+				Id = "TestProgram",
+			});
+			shadersLibrary.Programs[0].Objects = new List<ShadersLibrary.Object>();
+			shadersLibrary.Programs[0].Objects.Add(new ShadersLibrary.Object() {
+				Resource = "Some.Object.Resource",
+				Stage = ShaderType.VertexShader,
+			});
+			shadersLibrary.Programs[0].Attributes = new List<ShadersLibrary.Attribute>();
+			shadersLibrary.Programs[0].Attributes.Add(new ShadersLibrary.Attribute() {
+				Name = "test_Attribute",
+				Location = -1,
+				Semantic = "Position"
+			});
+			
+			byte[] shaderLibraryBytes;
+
+			using (MemoryStream memoryStream = new MemoryStream()) {
+				shadersLibrary.Save(memoryStream);
+				shaderLibraryBytes = memoryStream.ToArray();
+			}
+
+			string shaderLibraryText = Encoding.UTF8.GetString(shaderLibraryBytes);
+		}
+
 		[Test(Description = "Test CreateProgram(string)")]
 		[TestCaseSource(nameof(ProgramIds))]
-		public void TestCreateProgram(string programId)
+		public void ShadersLibrary_CompileProgram(string programId)
 		{
 			ShadersLibrary.Program shaderProgramInfo = ShadersLibrary.Instance.GetProgram(programId);
 			Assert.IsNotNull(shaderProgramInfo);
@@ -68,11 +117,14 @@ namespace OpenGL.Objects.Test
 			}
 		}
 
-		public static string[] ProgramIds
+		/// <summary>
+		/// Shader programs available in OpenGL.Net.Objects.
+		/// </summary>
+		public static IEnumerable<string> ProgramIds
 		{
 			get
 			{
-				return (ShadersLibrary.Instance.Programs.ConvertAll(delegate (ShadersLibrary.Program item) { return (item.Id); }).ToArray());
+				return ShadersLibrary.Instance.GetPrograms();
 			}
 		}
 
@@ -114,7 +166,7 @@ namespace OpenGL.Objects.Test
 
 		[Test(Description = "Test ShaderLibrary objects compilation")]
 		[TestCaseSource(nameof(ObjectIds))]
-		public void TestCreateObject(ObjectContext ctx)
+		public void ShadersLibrary_CompileObject(ObjectContext ctx)
 		{
 			ShadersLibrary.Object shaderObjectInfo = ShadersLibrary.Instance.GetObject(ctx.ObjectId);
 			Assert.IsNotNull(shaderObjectInfo);
@@ -128,6 +180,9 @@ namespace OpenGL.Objects.Test
 			}
 		}
 
+		/// <summary>
+		/// Shader object compilation set available in OpenGL.Net.Objects.
+		/// </summary>
 		public static ObjectContext[] ObjectIds
 		{
 			get
@@ -136,7 +191,7 @@ namespace OpenGL.Objects.Test
 
 				foreach (ShadersLibrary.Object obj in ShadersLibrary.Instance.Objects) {
 					foreach (ShaderType objStage in obj.Stages)
-						objectIds.Add(new ObjectContext(obj.Path, objStage));
+						objectIds.Add(new ObjectContext(obj.Resource, objStage));
 				}
 
 				return (objectIds.ToArray());

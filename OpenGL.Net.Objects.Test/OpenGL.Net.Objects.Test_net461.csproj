@@ -128,6 +128,7 @@
     <Compile Include="ShadersLibrary.cs" />
     <Compile Include="ShaderStorageBuffer.cs" />
     <Compile Include="TestBase.cs" />
+    <Compile Include="Texture.cs" />
     <Compile Include="Texture2D.cs" />
     <Compile Include="VertexArrays.cs" />
   </ItemGroup>

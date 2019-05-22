@@ -45,7 +45,7 @@ namespace OpenGL.Objects.Test
 
 			const uint Size = 1024;
 
-			using (ComputeProgram program = new ComputeProgram("")) 
+			using (ShaderProgram program = new ShaderProgram("")) 
 			using (Shader computeShader = new Shader(ShaderType.ComputeShader))
 			using (ShaderStorageBuffer storageBuffer = new ShaderStorageBuffer(MapBufferUsageMask.MapReadBit))
 			{
