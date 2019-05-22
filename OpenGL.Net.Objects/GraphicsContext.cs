@@ -1363,7 +1363,7 @@ namespace OpenGL.Objects
 		/// <param name="bindingIndexResource">
 		/// 
 		/// </param>
-		public void Bind(IBindingIndexResource bindingIndexResource)
+		public void BindIndex(IBindingIndexResource bindingIndexResource)
 		{
 			if (bindingIndexResource == null)
 				throw new ArgumentNullException(nameof(bindingIndexResource));
@@ -1389,7 +1389,7 @@ namespace OpenGL.Objects
 		/// </summary>
 		/// <param name="bindingIndexResource"></param>
 		/// <param name="bindingIndex"></param>
-		public void Bind(IBindingIndexResource bindingIndexResource, uint bindingIndex)
+		public void BindIndex(IBindingIndexResource bindingIndexResource, uint bindingIndex)
 		{
 			if (bindingIndexResource == null)
 				throw new ArgumentNullException(nameof(bindingIndexResource));
@@ -1440,11 +1440,11 @@ namespace OpenGL.Objects
 				// Align object state
 				if (previousUniformBuffer != null)
 					previousUniformBuffer.BindingIndex = InvalidBindingIndex;
-				bindingIndexResource.BindingIndex = bindingIndex;
 #else
 				// Bind the uniform buffer
 				Gl.BindBufferBase(bindingTarget, bindingIndex, bindingIndexResource.ObjectName);
 #endif
+				bindingIndexResource.BindingIndex = bindingIndex;
 			}
 		}
 
@@ -1477,13 +1477,29 @@ namespace OpenGL.Objects
 		#region Program Creation/Caching
 
 		/// <summary>
+		/// Loads resources from an XML-based description of resources.
+		/// </summary>
+		/// <param name="resourcePath">
+		/// The path of the resource holding the XML document.
+		/// </param>
+		public void MergeShadersLibrary(string resourcePath)
+		{
+			ShadersLibrary embeddedShadersLibrary = ShadersLibrary.Load(resourcePath);
+
+			_ShaderIncludeLibrary.MergeLibrary(embeddedShadersLibrary);
+			_ShaderIncludeLibrary.Create(this);
+
+			ShadersLibrary.Instance.Merge(embeddedShadersLibrary);
+		}
+
+		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="programId"></param>
 		/// <returns></returns>
-		public ShaderProgram CreateProgram(string programId)
+		public ShaderProgram CreateProgram(string programId, bool link = true)
 		{
-			return CreateProgram(programId, null);
+			return CreateProgram(programId, null, link);
 		}
 
 		/// <summary>
@@ -1491,8 +1507,10 @@ namespace OpenGL.Objects
 		/// </summary>
 		/// <param name="programId"></param>
 		/// <param name="cctx"></param>
+		/// <param name="link">
+		/// </param>
 		/// <returns></returns>
-		public ShaderProgram CreateProgram(string programId, ShaderCompilerContext cctx)
+		public ShaderProgram CreateProgram(string programId, ShaderCompilerContext cctx, bool link = true)
 		{
 			if (string.IsNullOrEmpty(programId))
 				throw new ArgumentException("invalid program identifier", nameof(programId));
@@ -1504,17 +1522,23 @@ namespace OpenGL.Objects
 			ShaderCompilerContext compilerContext = cctx ?? libraryProgram.GetCompilerContext();
 
 			// Try to find cached program
-			ShaderProgram shaderProgram;
+			ShaderProgram shaderProgram = null;
 			string cacheHash = ComputeLibraryHash(libraryProgram, compilerContext);
 
-			if (_ProgramCache.TryGetValue(cacheHash, out shaderProgram))
-				return shaderProgram;
+			try {
+				if (_ProgramCache.TryGetValue(cacheHash, out shaderProgram))
+					return shaderProgram;
 
-			// Create the program instance
-			shaderProgram = libraryProgram.Create(compilerContext);
+				// Create the program instance
+				shaderProgram = libraryProgram.Create(compilerContext);
+				shaderProgram.IncRef();
 
-			if (_ProgramCache.ContainsKey(cacheHash) == false)
-				_ProgramCache.Add(cacheHash, shaderProgram);
+				if (_ProgramCache.ContainsKey(cacheHash) == false)
+					_ProgramCache.Add(cacheHash, shaderProgram);
+			} finally {
+				if (link && IsCurrent && !shaderProgram.Exists(this))
+					shaderProgram.Create(this);
+			}
 
 			return shaderProgram;
 		}
@@ -1524,7 +1548,7 @@ namespace OpenGL.Objects
 		/// </summary>
 		/// <param name="programTag"></param>
 		/// <returns></returns>
-		public ShaderProgram CreateProgram(ShadersLibrary.ProgramTag programTag)
+		internal ShaderProgram CreateProgram(ShadersLibrary.ProgramTag programTag)
 		{
 			return CreateProgram(programTag.Id, programTag.CompilerContext);
 		}
@@ -1569,6 +1593,32 @@ namespace OpenGL.Objects
 		#region Resource Caching/Sharing
 
 		/// <summary>
+		/// Get the shared resource by its identifier.
+		/// </summary>
+		/// <param name="id">
+		/// A <see cref="string"/> that specifies the resource identified. It cannot be null.
+		/// </param>
+		/// <returns>
+		/// It returns the <see cref="object"/> associated to <paramref name="id"/>. If no association is found,
+		/// it returns null.
+		/// </returns>
+		public object GetSharedResource(string id)
+		{
+			if (id == null)
+				throw new ArgumentNullException(nameof(id));
+
+			IGraphicsResource sharedResource;
+			if (_SharedResources.TryGetValue(id, out sharedResource))
+				return sharedResource;
+
+			object sharedObject;
+			if (_SharedObjects.TryGetValue(id, out sharedObject))
+				return sharedObject;
+
+			return null;
+		}
+
+		/// <summary>
 		/// Set a shared instance.
 		/// </summary>
 		/// <param name="id">
@@ -1589,6 +1639,11 @@ namespace OpenGL.Objects
 
 			_SharedObjects[id] = resource;
 		}
+
+		/// <summary>
+		/// Set of <see cref="IGraphicsResource"/> shared among objects using the same context.
+		/// </summary>
+		private readonly Dictionary<string, object> _SharedObjects = new Dictionary<string, object>();
 
 		/// <summary>
 		/// Set a shared <see cref="IGraphicsResource"/> instance.
@@ -1614,50 +1669,44 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
-		/// Get the shared resource by its identifier.
-		/// </summary>
-		/// <param name="id">
-		/// A <see cref="String"/> that specifies the resource identified. It cannot be null.
-		/// </param>
-		/// <returns>
-		/// It returns the <see cref="Object"/> associated to <paramref name="id"/>. If no association is found,
-		/// it returns null.
-		/// </returns>
-		public object GetSharedResource(string id)
-		{
-			if (id == null)
-				throw new ArgumentNullException(nameof(id));
-
-			IGraphicsResource sharedResource;
-			if (_SharedResources.TryGetValue(id, out sharedResource))
-				return sharedResource;
-
-			object sharedObject;
-			if (_SharedObjects.TryGetValue(id, out sharedObject))
-				return sharedObject;
-
-			return null;
-		}
-
-		/// <summary>
-		/// Dispose all shared resources.
-		/// </summary>
-		private void DisposeSharedResources()
-		{
-			foreach (IGraphicsResource graphicsResource in _SharedResources.Values)
-				graphicsResource.Dispose(this);
-			_SharedResources.Clear();
-		}
-
-		/// <summary>
-		/// Set of <see cref="IGraphicsResource"/> shared among objects using the same context.
-		/// </summary>
-		private readonly Dictionary<string, object> _SharedObjects = new Dictionary<string, object>();
-
-		/// <summary>
 		/// Set of <see cref="IGraphicsResource"/> shared among objects using the same context.
 		/// </summary>
 		private readonly Dictionary<string, IGraphicsResource> _SharedResources = new Dictionary<string, IGraphicsResource>();
+
+		public void LinkResource(IGraphicsResource resource)
+		{
+			_LinkedResources.Add(resource);
+		}
+
+		public void UnlinkResource(IGraphicsResource resource)
+		{
+			_LinkedResources.Remove(resource);
+		}
+
+		public void UnlinkResources()
+		{
+			_LinkedResources.Clear();
+		}
+
+		private readonly List<IGraphicsResource> _LinkedResources = new List<IGraphicsResource>();
+
+		/// <summary>
+		/// Dispose all shared and linked resources.
+		/// </summary>
+		private void DisposeSharedResources()
+		{
+			// Note: actually dereferencing resources (not really disposing)
+
+			foreach (IGraphicsResource graphicsResource in _SharedResources.Values)
+				graphicsResource.Dispose(this);
+			_SharedResources.Clear();
+
+			foreach (IGraphicsResource graphicsResource in _LinkedResources)
+				graphicsResource.Dispose(this);
+			_LinkedResources.Clear();
+
+			_SharedResources.Clear();
+		}
 
 		#endregion
 
