@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ShadersLibrary>
+<ShadersLibrary xmlns="http://schemas.datacontract.org/2004/07/OpenGL.Objects" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
 
-	<!-- Program Objects -->
 	<Objects>
-		<Object Path="OpenGL.Objects.Shaders.Standard.Vertex.glsl">
+		<Object>
+			<Resource>OpenGL.Objects.Shaders.Standard.Vertex.glsl</Resource>
+			<TestStage>VertexShader</TestStage>
 			<Symbols>
 				<Symbol>GLO_COLOR_PER_VERTEX</Symbol>
 				<Symbol>GLO_LIGHTING_PER_VERTEX</Symbol>
@@ -14,7 +15,9 @@
 			</Symbols>
 		</Object>
 
-		<Object Path="OpenGL.Objects.Shaders.Standard.Fragment.glsl">
+		<Object>
+			<Resource>OpenGL.Objects.Shaders.Standard.Fragment.glsl</Resource>
+			<TestStage>FragmentShader</TestStage>
 			<Symbols>
 				<Symbol>GLO_TEXTURED</Symbol>
 				<Symbol>GLO_COLOR_PER_VERTEX</Symbol>
@@ -30,131 +33,362 @@
 	<Programs>
 
 		<!-- Standard -->
-		<Program Id="OpenGL.Standard">
-			<Object Path="OpenGL.Objects.Shaders.Standard.Vertex.glsl" Stage="VertexShader" />
-			<Object Path="OpenGL.Objects.Shaders.Standard.Fragment.glsl" Stage="FragmentShader" />
-			<Attribute Name="glo_Position" Semantic="Position" Location="0" />
+		<Program>
+			<Id>OpenGL.Standard</Id>
+			<Objects>
+				<Object>
+					<Resource>OpenGL.Objects.Shaders.Standard.Vertex.glsl</Resource>
+					<Stage>VertexShader</Stage>
+				</Object>
+				<Object>
+					<Resource>OpenGL.Objects.Shaders.Standard.Fragment.glsl</Resource>
+					<Stage>FragmentShader</Stage>
+				</Object>
+			</Objects>
 
-			<Uniform Name="glo_ModelViewProjection" Semantic="ModelViewProjection" />
-			<Uniform Name="glo_UniformColor" Semantic="Color"/>
+			<Attributes>
+				<Attribute>
+					<Name>glo_Position</Name>
+					<Semantic>Position</Semantic>
+					<Location>0</Location>
+				</Attribute>
+			</Attributes>
+
+			<Uniforms>
+				<Uniform>
+					<Name>glo_ModelViewProjection</Name>
+					<Semantic>ModelViewProjection</Semantic>
+				</Uniform>
+				<Uniform>
+					<Name>glo_UniformColor</Name>
+					<Semantic>Color</Semantic>
+				</Uniform>
+			</Uniforms>
+
 		</Program>
 
 		<!-- Standard+Color -->
-		<Program Id="OpenGL.Standard+Color">
-			<Object Path="OpenGL.Objects.Shaders.Standard.Vertex.glsl" Stage="VertexShader" />
-			<Object Path="OpenGL.Objects.Shaders.Standard.Fragment.glsl" Stage="FragmentShader" >
-				<Symbols>
-					<Symbol>GLO_COLOR_PER_VERTEX</Symbol>
-				</Symbols>
-			</Object>
-			<Attribute Name="glo_Position" Semantic="Position" Location="0" />
-			<Attribute Name="glo_Color" Semantic="Color" Location="1" />
-			
+		<Program>
+			<Id>OpenGL.Standard+Color</Id>
+			<Objects>
+				<Object>
+					<Resource>OpenGL.Objects.Shaders.Standard.Vertex.glsl</Resource>
+					<Stage>VertexShader</Stage>
+				</Object>
+				<Object>
+					<Resource>OpenGL.Objects.Shaders.Standard.Fragment.glsl</Resource>
+					<Stage>FragmentShader</Stage>
+					<Symbols>
+						<Symbol>GLO_COLOR_PER_VERTEX</Symbol>
+					</Symbols>
+				</Object>
+			</Objects>
+
+			<Attributes>
+				<Attribute>
+					<Name>glo_Position</Name>
+					<Semantic>Position</Semantic>
+					<Location>0</Location>
+				</Attribute>
+				<Attribute>
+					<Name>glo_Color</Name>
+					<Semantic>Color</Semantic>
+					<Location>1</Location>
+				</Attribute>
+			</Attributes>
+
+			<Uniforms>
+				<Uniform>
+					<Name>glo_ModelViewProjection</Name>
+					<Semantic>ModelViewProjection</Semantic>
+				</Uniform>
+			</Uniforms>
+		</Program>
+
+		<!-- Standard+Texture -->
+		<Program>
+			<Id>OpenGL.Standard+Texture</Id>
+			<Objects>
+				<Object>
+					<Resource>OpenGL.Objects.Shaders.Standard.Vertex.glsl</Resource>
+					<Stage>VertexShader</Stage>
+				</Object>
+				<Object>
+					<Resource>OpenGL.Objects.Shaders.Standard.Fragment.glsl</Resource>
+					<Stage>FragmentShader</Stage>
+					<Symbols>
+						<Symbol>GLO_TEXTURED</Symbol>
+					</Symbols>
+				</Object>
+			</Objects>
+
+			<Attributes>
+				<Attribute>
+					<Name>glo_Position</Name>
+					<Semantic>Position</Semantic>
+					<Location>0</Location>
+				</Attribute>
+				<Attribute>
+					<Name>glo_TexCoord0</Name>
+					<Semantic>TexCoord</Semantic>
+					<Location>3</Location>
+				</Attribute>
+			</Attributes>
+
 			<Uniform Name="glo_ModelViewProjection" Semantic="ModelViewProjection" />
 		</Program>
 
-        <!-- Standard+Texture -->
-        <Program Id="OpenGL.Standard+Texture">
-            <Object Path="OpenGL.Objects.Shaders.Standard.Vertex.glsl" Stage="VertexShader" />
-            <Object Path="OpenGL.Objects.Shaders.Standard.Fragment.glsl" Stage="FragmentShader" >
-                <Symbols>
-                    <Symbol>GLO_TEXTURED</Symbol>
-                </Symbols>
-            </Object>
-            <Attribute Name="glo_Position" Semantic="Position" Location="0" />
-            <Attribute Name="glo_TexCoord0" Semantic="TexCoord" Location="1" />
-
-            <Uniform Name="glo_ModelViewProjection" Semantic="ModelViewProjection" />
-        </Program>
-
 		<!-- Standard+LambertVertex -->
-		<Program Id="OpenGL.Standard+LambertVertex">
-			<Object Path="OpenGL.Objects.Shaders.Standard.Vertex.glsl" Stage="VertexShader">
-				<Symbols>
-					<Symbol>GLO_LIGHTING_PER_VERTEX</Symbol>
-				</Symbols>
-			</Object>
-			<Object Path="OpenGL.Objects.Shaders.Light.LightMulti.glsl" Stage="VertexShader" />
-			<Object Path="OpenGL.Objects.Shaders.Light.LightDirectionalImpl.glsl" Stage="VertexShader" />
-			<Object Path="OpenGL.Objects.Shaders.Light.LightPointImpl.glsl" Stage="VertexShader" />
-			<Object Path="OpenGL.Objects.Shaders.Light.LightSpotImpl.glsl" Stage="VertexShader" />
-			<Object Path="OpenGL.Objects.Shaders.Light.ShadingLambert.glsl" Stage="VertexShader" />
-			<Object Path="OpenGL.Objects.Shaders.Standard.Fragment.glsl" Stage="FragmentShader">
-				<Symbols>
-					<Symbol>GLO_LIGHTING_PER_VERTEX</Symbol>
-				</Symbols>
-			</Object>
+		<Program>
+			<Id>OpenGL.Standard+LambertVertex</Id>
+			<Objects>
+				<Object>
+					<Resource>OpenGL.Objects.Shaders.Standard.Vertex.glsl</Resource>
+					<Stage>VertexShader</Stage>
+					<Symbols>
+						<Symbol>GLO_LIGHTING_PER_VERTEX</Symbol>
+					</Symbols>
+				</Object>
+				<Object>
+					<Resource>OpenGL.Objects.Shaders.Light.LightMulti.glsl</Resource>
+					<Stage>VertexShader</Stage>
+				</Object>
+				<Object>
+					<Resource>OpenGL.Objects.Shaders.Light.LightDirectionalImpl.glsl</Resource>
+					<Stage>VertexShader</Stage>
+				</Object>
+				<Object>
+					<Resource>OpenGL.Objects.Shaders.Light.LightPointImpl.glsl</Resource>
+					<Stage>VertexShader</Stage>
+				</Object>
+				<Object>
+					<Resource>OpenGL.Objects.Shaders.Light.LightSpotImpl.glsl</Resource>
+					<Stage>VertexShader</Stage>
+				</Object>
+				<Object>
+					<Resource>OpenGL.Objects.Shaders.Light.ShadingLambert.glsl</Resource>
+					<Stage>VertexShader</Stage>
+				</Object>
+				<Object>
+					<Resource>OpenGL.Objects.Shaders.Standard.Fragment.glsl</Resource>
+					<Stage>FragmentShader</Stage>
+					<Symbols>
+						<Symbol>GLO_LIGHTING_PER_VERTEX</Symbol>
+					</Symbols>
+				</Object>
+			</Objects>
 
-			<Attribute Name="glo_Position" Semantic="Position" Location="0" />
-			<Attribute Name="glo_Color" Semantic="Color" Location="1" />
-			<Attribute Name="glo_Normal" Semantic="Normal" Location="2" />
-			<Attribute Name="glo_TexCoord0" Semantic="TexCoord" Location="3" />
+			<Attributes>
+				<Attribute>
+					<Name>glo_Position</Name>
+					<Semantic>Position</Semantic>
+					<Location>0</Location>
+				</Attribute>
+				<Attribute>
+					<Name>glo_Color</Name>
+					<Semantic>Color</Semantic>
+					<Location>1</Location>
+				</Attribute>
+				<Attribute>
+					<Name>glo_Normal</Name>
+					<Semantic>Normal</Semantic>
+					<Location>2</Location>
+				</Attribute>
+				<Attribute>
+					<Name>glo_TexCoord0</Name>
+					<Semantic>TexCoord</Semantic>
+					<Location>3</Location>
+				</Attribute>
+			</Attributes>
 
-			<Uniform Name="glo_ModelViewProjection" Semantic="ModelViewProjection" />
-			<Uniform Name="glo_ModelView" Semantic="ModelView" />
-			<Uniform Name="glo_NormalMatrix" Semantic="NormalMatrix" />
+			<Uniforms>
+				<Uniform>
+					<Name>glo_ModelViewProjection</Name>
+					<Semantic>ModelViewProjection</Semantic>
+				</Uniform>
+				<Uniform>
+					<Name>glo_ModelView</Name>
+					<Semantic>ModelView</Semantic>
+				</Uniform>
+				<Uniform>
+					<Name>glo_NormalMatrix</Name>
+					<Semantic>NormalMatrix</Semantic>
+				</Uniform>
+			</Uniforms>
 		</Program>
 
 		<!-- Standard+PhongFragment+LightDirectional -->
-		<Program Id="OpenGL.Standard+PhongFragment+LightDirectional">
-			<Object Path="OpenGL.Objects.Shaders.Standard.Vertex.glsl" Stage="VertexShader">
-				<Symbols>
-					<Symbol>GLO_LIGHTING_PER_FRAGMENT</Symbol>
-					<!-- +GLO_COLOR_PER_VERTEX -->
-				</Symbols>
-			</Object>
-			<Object Path="OpenGL.Objects.Shaders.Standard.Fragment.glsl" Stage="FragmentShader">
-				<Symbols>
-					<Symbol>GLO_LIGHTING_PER_FRAGMENT</Symbol>
-					<!-- +GLO_COLOR_PER_VERTEX -->
-				</Symbols>
-			</Object>
-			<Object Path="OpenGL.Objects.Shaders.Light.LightDirectional.glsl" Stage="FragmentShader" />
-			<Object Path="OpenGL.Objects.Shaders.Light.LightDirectionalImpl.glsl" Stage="FragmentShader" />
-			<Object Path="OpenGL.Objects.Shaders.Light.ShadingPhong.glsl" Stage="FragmentShader" />
+		<Program>
+			<Id>OpenGL.Standard+PhongFragment+LightDirectional</Id>
+			<Objects>
+				<Object>
+					<Resource>OpenGL.Objects.Shaders.Standard.Vertex.glsl</Resource>
+					<Stage>VertexShader</Stage>
+					<Symbols>
+						<Symbol>GLO_LIGHTING_PER_FRAGMENT</Symbol>
+						<!-- +GLO_COLOR_PER_VERTEX -->
+					</Symbols>
+				</Object>
+				<Object>
+					<Resource>OpenGL.Objects.Shaders.Standard.Fragment.glsl</Resource>
+					<Stage>FragmentShader</Stage>
+					<Symbols>
+						<Symbol>GLO_LIGHTING_PER_FRAGMENT</Symbol>
+						<!-- +GLO_COLOR_PER_VERTEX -->
+					</Symbols>
+				</Object>
+				<Object>
+					<Resource>OpenGL.Objects.Shaders.Light.LightDirectional.glsl</Resource>
+					<Stage>FragmentShader</Stage>
+				</Object>
+				<Object>
+					<Resource>OpenGL.Objects.Shaders.Light.LightDirectionalImpl.glsl</Resource>
+					<Stage>FragmentShader</Stage>
+				</Object>
+				<Object>
+					<Resource>OpenGL.Objects.Shaders.Light.ShadingPhong.glsl</Resource>
+					<Stage>FragmentShader</Stage>
+				</Object>
+			</Objects>
 
-			<Attribute Name="glo_Position" Semantic="Position" Location="0" />
-			<Attribute Name="glo_Color" Semantic="Color" Location="1" />
-			<Attribute Name="glo_Normal" Semantic="Normal" Location="2" />
-			<Attribute Name="glo_TexCoord0" Semantic="TexCoord" Location="3" />
-			<Attribute Name="glo_Tangent" Semantic="Tangent" Location="4" />
-			<Attribute Name="glo_Bitangent" Semantic="Bitangent" Location="5" />
+			<Attributes>
+				<Attribute>
+					<Name>glo_Position</Name>
+					<Semantic>Position</Semantic>
+					<Location>0</Location>
+				</Attribute>
+				<Attribute>
+					<Name>glo_Color</Name>
+					<Semantic>Color</Semantic>
+					<Location>1</Location>
+				</Attribute>
+				<Attribute>
+					<Name>glo_Normal</Name>
+					<Semantic>Normal</Semantic>
+					<Location>2</Location>
+				</Attribute>
+				<Attribute>
+					<Name>glo_TexCoord0</Name>
+					<Semantic>TexCoord</Semantic>
+					<Location>3</Location>
+				</Attribute>
+				<Attribute>
+					<Name>glo_Tangent</Name>
+					<Semantic>Tangent</Semantic>
+					<Location>4</Location>
+				</Attribute>
+				<Attribute>
+					<Name>glo_Bitangent</Name>
+					<Semantic>Bitangent</Semantic>
+					<Location>5</Location>
+				</Attribute>
+			</Attributes>
 
-			<Uniform Name="glo_ModelViewProjection" Semantic="ModelViewProjection" />
-			<Uniform Name="glo_ModelView" Semantic="ModelView" />
-			<Uniform Name="glo_NormalMatrix" Semantic="NormalMatrix" />
+			<Uniforms>
+				<Uniform>
+					<Name>glo_ModelViewProjection</Name>
+					<Semantic>ModelViewProjection</Semantic>
+				</Uniform>
+				<Uniform>
+					<Name>glo_ModelView</Name>
+					<Semantic>ModelView</Semantic>
+				</Uniform>
+				<Uniform>
+					<Name>glo_NormalMatrix</Name>
+					<Semantic>NormalMatrix</Semantic>
+				</Uniform>
+			</Uniforms>
 		</Program>
 
 		<!-- Standard+PhongFragment (Multiple Lights) -->
 		<Program Id="OpenGL.Standard+PhongFragment">
-			<Object Path="OpenGL.Objects.Shaders.Standard.Vertex.glsl" Stage="VertexShader">
-				<Symbols>
-					<Symbol>GLO_LIGHTING_PER_FRAGMENT</Symbol>
-					<!-- +GLO_COLOR_PER_VERTEX -->
-				</Symbols>
-			</Object>
-			<Object Path="OpenGL.Objects.Shaders.Standard.Fragment.glsl" Stage="FragmentShader">
-				<Symbols>
-					<Symbol>GLO_LIGHTING_PER_FRAGMENT</Symbol>
-					<!-- +GLO_COLOR_PER_VERTEX -->
-				</Symbols>
-			</Object>
-			<Object Path="OpenGL.Objects.Shaders.Light.LightMulti.glsl" Stage="FragmentShader" />
-			<Object Path="OpenGL.Objects.Shaders.Light.LightDirectionalImpl.glsl" Stage="FragmentShader" />
-			<Object Path="OpenGL.Objects.Shaders.Light.LightPointImpl.glsl" Stage="FragmentShader" />
-			<Object Path="OpenGL.Objects.Shaders.Light.LightSpotImpl.glsl" Stage="FragmentShader" />
-			<Object Path="OpenGL.Objects.Shaders.Light.ShadingPhong.glsl" Stage="FragmentShader" />
+			<Id>OpenGL.Standard+PhongFragment</Id>
+			<Objects>
+				<Object>
+					<Resource>OpenGL.Objects.Shaders.Standard.Vertex.glsl</Resource>
+					<Stage>VertexShader</Stage>
+					<Symbols>
+						<Symbol>GLO_LIGHTING_PER_FRAGMENT</Symbol>
+						<!-- +GLO_COLOR_PER_VERTEX -->
+					</Symbols>
+				</Object>
+				<Object>
+					<Resource>OpenGL.Objects.Shaders.Standard.Fragment.glsl</Resource>
+					<Stage>FragmentShader</Stage>
+					<Symbols>
+						<Symbol>GLO_LIGHTING_PER_FRAGMENT</Symbol>
+						<!-- +GLO_COLOR_PER_VERTEX -->
+					</Symbols>
+				</Object>
+				<Object>
+					<Resource>OpenGL.Objects.Shaders.Light.LightMulti.glsl</Resource>
+					<Stage>FragmentShader</Stage>
+				</Object>
+				<Object>
+					<Resource>OpenGL.Objects.Shaders.Light.LightDirectionalImpl.glsl</Resource>
+					<Stage>FragmentShader</Stage>
+				</Object>
+				<Object>
+					<Resource>OpenGL.Objects.Shaders.Light.LightPointImpl.glsl</Resource>
+					<Stage>FragmentShader</Stage>
+				</Object>
+				<Object>
+					<Resource>OpenGL.Objects.Shaders.Light.LightSpotImpl.glsl</Resource>
+					<Stage>FragmentShader</Stage>
+				</Object>
+				<Object>
+					<Resource>OpenGL.Objects.Shaders.Light.ShadingPhong.glsl</Resource>
+					<Stage>FragmentShader</Stage>
+				</Object>
+			</Objects>
 
-			<Attribute Name="glo_Position" Semantic="Position" Location="0" />
-			<Attribute Name="glo_Color" Semantic="Color" Location="1" />
-			<Attribute Name="glo_Normal" Semantic="Normal" Location="2" />
-			<Attribute Name="glo_TexCoord0" Semantic="TexCoord" Location="3" />
-			<Attribute Name="glo_Tangent" Semantic="Tangent" Location="4" />
-			<Attribute Name="glo_Bitangent" Semantic="Bitangent" Location="5" />
+			<Attributes>
+				<Attribute>
+					<Name>glo_Position</Name>
+					<Semantic>Position</Semantic>
+					<Location>0</Location>
+				</Attribute>
+				<Attribute>
+					<Name>glo_Color</Name>
+					<Semantic>Color</Semantic>
+					<Location>1</Location>
+				</Attribute>
+				<Attribute>
+					<Name>glo_Normal</Name>
+					<Semantic>Normal</Semantic>
+					<Location>2</Location>
+				</Attribute>
+				<Attribute>
+					<Name>glo_TexCoord0</Name>
+					<Semantic>TexCoord</Semantic>
+					<Location>3</Location>
+				</Attribute>
+				<Attribute>
+					<Name>glo_Tangent</Name>
+					<Semantic>Tangent</Semantic>
+					<Location>4</Location>
+				</Attribute>
+				<Attribute>
+					<Name>glo_Bitangent</Name>
+					<Semantic>Bitangent</Semantic>
+					<Location>5</Location>
+				</Attribute>
+			</Attributes>
 
-			<Uniform Name="glo_ModelViewProjection" Semantic="ModelViewProjection" />
-			<Uniform Name="glo_ModelView" Semantic="ModelView" />
-			<Uniform Name="glo_NormalMatrix" Semantic="NormalMatrix" />
+			<Uniforms>
+				<Uniform>
+					<Name>glo_ModelViewProjection</Name>
+					<Semantic>ModelViewProjection</Semantic>
+				</Uniform>
+				<Uniform>
+					<Name>glo_ModelView</Name>
+					<Semantic>ModelView</Semantic>
+				</Uniform>
+				<Uniform>
+					<Name>glo_NormalMatrix</Name>
+					<Semantic>NormalMatrix</Semantic>
+				</Uniform>
+			</Uniforms>
 		</Program>
 		
 	</Programs>

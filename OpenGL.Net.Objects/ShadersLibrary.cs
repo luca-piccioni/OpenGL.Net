@@ -1,5 +1,5 @@
 ﻿
-// Copyright (C) 2015-2017 Luca Piccioni
+// Copyright (C) 2015-2019 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -21,19 +21,20 @@
 
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Reflection;
+using System.Runtime.Serialization;
 using System.Text;
-using System.Xml.Serialization;
+using System.Xml;
 
 namespace OpenGL.Objects
 {
 	/// <summary>
 	/// Shaders library.
 	/// </summary>
-	[XmlRoot("ShadersLibrary")]
-	public sealed class ShadersLibrary
+	[DataContract(Name = "ShadersLibrary")]
+	internal sealed class ShadersLibrary
 	{
 		#region Constructors
 
@@ -43,13 +44,14 @@ namespace OpenGL.Objects
 		static ShadersLibrary()
 		{
 			// Load OpenGL.Objects shaders library
-			Merge("OpenGL.Objects.Shaders._ShadersLibrary.xml");
-			Merge("OpenGL.Objects.Shaders.Light._ShadersLibrary.xml");
-			Merge("OpenGL.Objects.Shaders.Specialized._ShadersLibrary.xml");
-			Merge("OpenGL.Objects.Shaders.Standard._ShadersLibrary.xml");
-			Merge("OpenGL.Objects.Shaders.Shadow._ShadersLibrary.xml");
-			Merge("OpenGL.Objects.Shaders.Font._ShadersLibrary.xml");
-			Merge("OpenGL.Objects.Shaders.Skybox._ShadersLibrary.xml");
+			Instance.Merge("OpenGL.Objects.Shaders._ShadersLibrary.xml");
+			Instance.Merge("OpenGL.Objects.Shaders.Light._ShadersLibrary.xml");
+			Instance.Merge("OpenGL.Objects.Shaders.Standard._ShadersLibrary.xml");
+			Instance.Merge("OpenGL.Objects.Shaders.Font._ShadersLibrary.xml");
+
+			//Merge("OpenGL.Objects.Shaders.Specialized._ShadersLibrary.xml");
+			//Merge("OpenGL.Objects.Shaders.Shadow._ShadersLibrary.xml");
+			//Merge("OpenGL.Objects.Shaders.Skybox._ShadersLibrary.xml");
 		}
 
 		#endregion
@@ -57,58 +59,70 @@ namespace OpenGL.Objects
 		#region Includes
 
 		/// <summary>
-		/// Shader object.
+		/// Shader include object.
 		/// </summary>
-		[XmlType("Include")]
+		[DataContract(Name = "Include")]
+		[DebuggerDisplay("Include: Path={Path} Resource={Resource}")]
 		public class Include
 		{
 			/// <summary>
 			/// The path of the shader object source.
 			/// </summary>
-			[XmlAttribute("Id")]
-			public string Id;
+			[DataMember(Name = "Path", IsRequired = true, Order = 1)]
+			public string Path;
 
 			/// <summary>
 			/// Preprocessor symbols affecting the shader object compilation.
 			/// </summary>
-			[XmlElement("Path")]
-			public string Path;
+			[DataMember(Name = "Resource", IsRequired = true, Order = 2)]
+			public string Resource;
 		}
 
 		/// <summary>
 		/// List of paths specifying shader include sources.
 		/// </summary>
-		[XmlArray("Includes")]
-		[XmlArrayItem("Include")]
-		public readonly List<Include> Includes = new List<Include>();
+		[DataMember(Name = "Includes")]
+		public List<Include> Includes;
 
 		#endregion
 
 		#region Objects
 
 		/// <summary>
+		/// Utility class for serializing shader object symbol list.
+		/// </summary>
+		[CollectionDataContract(ItemName = "Symbol")]
+		public class SymbolList : List<string>
+		{
+			public SymbolList() { }
+
+			public SymbolList(IEnumerable<string> items) : base(items) { }
+		}
+
+		/// <summary>
 		/// Shader object.
 		/// </summary>
-		[XmlType("Object")]
+		[DataContract(Name = "Object")]
+		[DebuggerDisplay("Object: Resource={Resource} Stage={Stage}")]
 		public class Object
 		{
 			/// <summary>
 			/// The path of the shader object source.
 			/// </summary>
-			[XmlAttribute("Path")]
-			public string Path;
+			[DataMember(Name = "Resource", IsRequired = true, Order = 1)]
+			public string Resource;
 
 			/// <summary>
 			/// Shader object stage. Meaninful only if used under /ShadersLibrary/Programs.
 			/// </summary>
-			[XmlAttribute("Stage")]
+			[DataMember(Name = "Stage", Order = 2)]
 			public ShaderType Stage = ShaderType.VertexShader;
 
 			/// <summary>
 			/// Shader object stages used for testing compilation. Multiple stages are specified by
-			/// separating with spaces stage identifiers (<see cref="ShaderType"/>)
+			/// separating with spaces stage identifiers (<see cref="ShaderType"/>).
 			/// </summary>
-			[XmlAttribute("TestStage")]
+			[DataMember(Name = "TestStage", Order = 3)]
 			public string TestStage;
 
 			/// <summary>
@@ -122,18 +136,17 @@ namespace OpenGL.Objects
 						string[] stages = TestStage.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
 						foreach (string stage in stages)
-							yield return ((ShaderType)Enum.Parse(typeof(ShaderType), stage));
+							yield return (ShaderType)Enum.Parse(typeof(ShaderType), stage);
 					} else
-						yield return (Stage);
+						yield return Stage;
 				}
 			}
 
 			/// <summary>
 			/// Preprocessor symbols affecting the shader object compilation.
 			/// </summary>
-			[XmlArray("Symbols")]
-			[XmlArrayItem("Symbol")]
-			public readonly List<string> Symbols = new List<string>();
+			[DataMember(Name = "Symbols")]
+			public SymbolList Symbols;
 
 			/// <summary>
 			/// Create a shader object from this Object.
@@ -141,7 +154,7 @@ namespace OpenGL.Objects
 			/// <returns></returns>
 			public Shader Create()
 			{
-				return (Create(Stage));
+				return Create(Stage);
 			}
 
 			/// <summary>
@@ -153,9 +166,9 @@ namespace OpenGL.Objects
 				Shader shaderObject = new Shader(stage);
 
 				// Load source
-				shaderObject.LoadSource(Path);
+				shaderObject.LoadSource(Resource);
 
-				return (shaderObject);
+				return shaderObject;
 			}
 
 			/// <summary>
@@ -165,6 +178,9 @@ namespace OpenGL.Objects
 			/// <returns></returns>
 			internal void GetHashInfo(StringBuilder hashMessage, ShaderCompilerContext cctx)
 			{
+				if (hashMessage == null)
+					throw new ArgumentNullException(nameof(hashMessage));
+
 				// Shaders can be compiled at different stages
 				hashMessage.Append(Stage);
 				// All symbols known for this shader are included
@@ -179,25 +195,24 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// List of <see cref="Object"/> instances describing the available shader objects in library.
 		/// </summary>
-		[XmlArray("Objects")]
-		[XmlArrayItem("Object")]
-		public readonly List<Object> Objects = new List<Object>();
+		[DataMember(Name = "Objects")]
+		public List<Object> Objects;
 
 		/// <summary>
 		/// Get the definition of a object.
 		/// </summary>
 		/// <param name="objectId">
-		/// A <see cref="String"/> that specifies the object identifier.
+		/// A <see cref="string"/> that specifies the object identifier.
 		/// </param>
 		/// <returns>
-		/// It returns a <see cref="Object"/> describing the object identified with <paramref name="objectId"/>.
+		/// It returns a <see cref="Object"/> describing the object identified with <paramref name="objectId"/>, or null if not found.
 		/// </returns>
 		public Object GetObject(string objectId)
 		{
 			if (objectId == null)
-				throw new ArgumentNullException("programId");
+				throw new ArgumentNullException(nameof(objectId));
 
-			return (Objects.Find(delegate(Object item) { return (item.Path == objectId); }));
+			return Objects?.Find((item) => { return item.Resource == objectId; });
 		}
 
 		#endregion
@@ -250,79 +265,99 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
-		/// Program object.
+		/// Shader program attribute.
 		/// </summary>
-		[XmlType("Program")]
+		[DataContract(Name = "Attribute")]
+		[DebuggerDisplay("Attribute: Name={Name} Semantic={Semantic} Location={Location}")]
+		public class Attribute
+		{
+			/// <summary>
+			/// Attribute name.
+			/// </summary>
+			[DataMember(Name = "Name", IsRequired = true, Order = 1)]
+			public string Name;
+
+			/// <summary>
+			/// Attribute semantic.
+			/// </summary>
+			[DataMember(Name = "Semantic", Order = 2)]
+			public string Semantic;
+
+			/// <summary>
+			/// Attribute location.
+			/// </summary>
+			[DataMember(Name = "Location", EmitDefaultValue = false, Order = 3)]
+			public int Location = -1;
+
+			/// <summary>
+			/// Utility for setting default values on deserialization.
+			/// </summary>
+			/// <param name="context">
+			/// The <see cref="StreamingContext"/> of the deserializer.
+			/// </param>
+			[OnDeserializing]
+			private void OnDeserializing(StreamingContext context)
+			{
+				Location = -1;
+			}
+		}
+
+		/// <summary>
+		/// Shader program uniform.
+		/// </summary>
+		[DataContract(Name = "Uniform")]
+		[DebuggerDisplay("Uniform: Name={Name} Semantic={Semantic}")]
+		public class Uniform
+		{
+			/// <summary>
+			/// Uniform name.
+			/// </summary>
+			[DataMember(Name = "Name", IsRequired = true, Order = 1)]
+			public string Name;
+
+			/// <summary>
+			/// Uniform semantic.
+			/// </summary>
+			[DataMember(Name = "Semantic", Order = 2)]
+			public string Semantic;
+		}
+
+		/// <summary>
+		/// Shader program.
+		/// </summary>
+		[DataContract(Name = "Program")]
+		[DebuggerDisplay("Program: Id={Id}")]
 		public class Program
 		{
 			/// <summary>
 			/// The identifier of the shader program.
 			/// </summary>
-			[XmlAttribute("Id")]
+			[DataMember(Name = "Id", IsRequired = true, Order = 1)]
 			public string Id;
 
 			/// <summary>
 			/// Object linked to this shader program.
 			/// </summary>
-			[XmlElement("Object")]
-			public readonly List<Object> Objects = new List<Object>();
-
-			[XmlType("Attribute")]
-			public class Attribute
-			{
-				/// <summary>
-				/// Attribute name.
-				/// </summary>
-				[XmlAttribute("Name")]
-				public string Name;
-
-				/// <summary>
-				/// Attribute semantic.
-				/// </summary>
-				[XmlAttribute("Semantic")]
-				public string Semantic;
-
-				/// <summary>
-				/// Attribute location.
-				/// </summary>
-				[XmlAttribute("Location")]
-				[DefaultValue(-1)]
-				public int Location = -1;
-			}
+			[DataMember(Name = "Objects", IsRequired = true, Order = 2)]
+			public List<Object> Objects;
 
 			/// <summary>
-			/// 
+			/// Active attributes.
 			/// </summary>
-			[XmlElement("Attribute")]
-			public readonly List<Attribute> Attributes = new List<Attribute>();
-
-			[XmlType("Uniform")]
-			public class Uniform
-			{
-				/// <summary>
-				/// Uniform name.
-				/// </summary>
-				[XmlAttribute("Name")]
-				public string Name;
-
-				/// <summary>
-				/// Uniform semantic.
-				/// </summary>
-				[XmlAttribute("Semantic")]
-				public string Semantic;
-			}
+			[DataMember(Name = "Attributes", Order = 3)]
+			public List<Attribute> Attributes;
 
 			/// <summary>
-			/// 
+			/// Active uniforms.
 			/// </summary>
-			[XmlElement("Uniform")]
-			public readonly List<Uniform> Uniforms = new List<Uniform>();
+			[DataMember(Name = "Uniforms", Order = 4)]
+			public List<Uniform> Uniforms;
 
 			/// <summary>
-			/// 
+			/// GLSL extensions.
 			/// </summary>
-			[XmlElement("Extension")]
-			public readonly List<ShaderExtension> Extensions = new List<ShaderExtension>();
+			[DataMember(Name = "Extensions", Order = 5)]
+			public List<ShaderExtension> Extensions;
 
 			/// <summary>
 			/// Create a program from this Program.
@@ -330,7 +365,7 @@ namespace OpenGL.Objects
 			/// <returns></returns>
 			public ShaderProgram Create()
 			{
-				return (Create(GetCompilerContext()));
+				return Create(GetCompilerContext());
 			}
 
 			/// <summary>
@@ -340,7 +375,7 @@ namespace OpenGL.Objects
 			/// <returns></returns>
 			public ShaderProgram Create(ShaderCompilerContext cctx)
 			{
-				if (String.IsNullOrEmpty(Id))
+				if (string.IsNullOrEmpty(Id))
 					throw new InvalidOperationException("invalid program identifier");
 				if (cctx == null)
 					throw new ArgumentNullException("cctx");
@@ -348,45 +383,50 @@ namespace OpenGL.Objects
 				ShaderProgram shaderProgram = new ShaderProgram(Id);
 
 				// Attach required objects
-				foreach (Object shaderProgramObject in Objects) {
-					Shader shaderObject = new Shader(shaderProgramObject.Stage);
+				if (Objects != null)
+					foreach (Object shaderProgramObject in Objects) {
+						Shader shaderObject = new Shader(shaderProgramObject.Stage);
 
-					// Load source
-					shaderObject.LoadSource(shaderProgramObject.Path);
-					// Attach object
-					shaderProgram.Attach(shaderObject);
-				}
+						// Load source
+						shaderObject.LoadSource(shaderProgramObject.Resource);
+						// Attach object
+						shaderProgram.Attach(shaderObject);
+					}
 
 				// Register attributes semantic
-				foreach (Attribute attribute in Attributes) {
-					shaderProgram.SetAttributeSemantic(attribute.Name, attribute.Semantic);
-					if (attribute.Location >= 0)
-						shaderProgram.SetAttributeLocation(attribute.Name, attribute.Location);
-				}
+				if (Attributes != null)
+					foreach (Attribute attribute in Attributes) {
+						shaderProgram.SetAttributeSemantic(attribute.Name, attribute.Semantic);
+						if (attribute.Location >= 0)
+							shaderProgram.SetAttributeLocation(attribute.Name, attribute.Location);
+					}
 					
 				// Register uniforms semantic
-				foreach (Uniform uniform in Uniforms)
-					shaderProgram.SetUniformSemantic(uniform.Name, uniform.Semantic);
+				if (Uniforms != null)
+					foreach (Uniform uniform in Uniforms)
+						shaderProgram.SetUniformSemantic(uniform.Name, uniform.Semantic);
 
 				shaderProgram.Create(cctx);
 
-				return (shaderProgram);
+				return shaderProgram;
 			}
 
-			internal ShaderCompilerContext GetCompilerContext()
+			public ShaderCompilerContext GetCompilerContext()
 			{
 				ShaderCompilerContext shaderCompilerParams = new ShaderCompilerContext();
 
 				// Preprocessor symbols
 				foreach (Object shaderProgramObject in Objects) {
-					foreach (string preprocessorSymbol in shaderProgramObject.Symbols)
-						shaderCompilerParams.Defines.Add(preprocessorSymbol);
+					if (shaderProgramObject.Symbols != null)
+						foreach (string preprocessorSymbol in shaderProgramObject.Symbols)
+							shaderCompilerParams.Defines.Add(preprocessorSymbol);
 				}
 
 				// Shader extensions
-				shaderCompilerParams.Extensions.AddRange(Extensions);
+				if (Extensions != null)
+					shaderCompilerParams.Extensions.AddRange(Extensions);
 
-				return (shaderCompilerParams);
+				return shaderCompilerParams;
 			}
 
 			/// <summary>
@@ -394,7 +434,7 @@ namespace OpenGL.Objects
 			/// </summary>
 			/// <param name="cctx"></param>
 			/// <returns></returns>
-			internal string GetHashInfo(ShaderCompilerContext cctx)
+			public string GetHashInfo(ShaderCompilerContext cctx)
 			{
 				StringBuilder hashMessage = new StringBuilder();
 
@@ -424,15 +464,22 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// List of <see cref="Program"/> instances describing the available shader programs in library.
 		/// </summary>
-		[XmlArray("Programs")]
-		[XmlArrayItem("Program")]
-		public readonly List<Program> Programs = new List<Program>();
+		[DataMember(Name = "Programs")]
+		public List<Program> Programs;
+
+		/// <summary>
+		/// Get the programs identifier available in this ShaderLibrary.
+		/// </summary>
+		public ICollection<string> GetPrograms()
+		{
+			return Programs.ConvertAll(item => item.Id).ToArray();
+		}
 
 		/// <summary>
 		/// Get the definition of a program.
 		/// </summary>
 		/// <param name="programId">
-		/// A <see cref="String"/> that specifies the program identifier.
+		/// A <see cref="string"/> that specifies the program identifier.
 		/// </param>
 		/// <returns>
 		/// It returns a <see cref="Program"/> describing the program identified with <paramref name="programId"/>.
@@ -449,7 +496,7 @@ namespace OpenGL.Objects
 		/// Create a <see cref="ProgramTag"/> used for creating (lazily) a <see cref="ShaderProgram"/>.
 		/// </summary>
 		/// <param name="programId">
-		/// A <see cref="String"/> that specifies the program identifier.
+		/// A <see cref="string"/> that specifies the program identifier.
 		/// </param>
 		/// <returns>
 		/// It returns a <see cref="ProgramTag"/> for creating the program identified with <paramref name="programId"/>.
@@ -467,7 +514,7 @@ namespace OpenGL.Objects
 		/// Create a <see cref="ProgramTag"/> used for creating (lazily) a <see cref="ShaderProgram"/>.
 		/// </summary>
 		/// <param name="programId">
-		/// A <see cref="String"/> that specifies the program identifier.
+		/// A <see cref="string"/> that specifies the program identifier.
 		/// </param>
 		/// <param name="cctx">
 		/// A <see cref="ShaderCompilerContext"/> that specifies *additional* parameters to be applied/merged to the default
@@ -489,7 +536,7 @@ namespace OpenGL.Objects
 		/// Create a <see cref="ProgramTag"/> used for creating (lazily) a <see cref="ShaderProgram"/>.
 		/// </summary>
 		/// <param name="programId">
-		/// A <see cref="String"/> that specifies the program identifier.
+		/// A <see cref="string"/> that specifies the program identifier.
 		/// </param>
 		/// <param name="cctx">
 		/// A <see cref="ShaderCompilerContext"/> that specifies *additional* parameters to be applied/merged to the default
@@ -514,27 +561,48 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Load a ShadersLibrary from a Stream.
 		/// </summary>
-		/// <param name="libraryStream">
+		/// <param name="stream">
 		/// A <see cref="Stream"/> that reads a <see cref="ShadersLibrary"/> information.
 		/// </param>
 		/// <returns>
-		/// It returns a <see cref="ShadersLibrary"/> read from <paramref name="libraryStream"/>.
+		/// It returns a <see cref="ShadersLibrary"/> read from <paramref name="stream"/>.
 		/// </returns>
-		private static ShadersLibrary Load(Stream libraryStream)
+		public static ShadersLibrary Load(Stream stream)
 		{
-			if (libraryStream == null)
-				throw new ArgumentNullException("libraryStream");
+			if (stream == null)
+				throw new ArgumentNullException(nameof(stream));
 
-			XmlSerializer xmlSerializer = new XmlSerializer(typeof(ShadersLibrary));
-
-			return ((ShadersLibrary)xmlSerializer.Deserialize(libraryStream));
+			using (XmlDictionaryReader reader = XmlDictionaryReader.CreateTextReader(stream, new XmlDictionaryReaderQuotas())) {
+				return (ShadersLibrary)_Serializer.ReadObject(reader, true);
+			}
 		}
+
+		/// <summary>
+		/// Save this ShadersLibrary to a Stream.
+		/// </summary>
+		/// <param name="stream">
+		/// A <see cref="Stream"/> that reads a <see cref="ShadersLibrary"/> information.
+		/// </param>
+		public void Save(Stream stream)
+		{
+			if (stream == null)
+				throw new ArgumentNullException(nameof(stream));
+
+			using (XmlDictionaryWriter writer = XmlDictionaryWriter.CreateTextWriter(stream, Encoding.UTF8)) {
+				_Serializer.WriteObject(writer, this);
+			}
+		}
+
+		/// <summary>
+		/// The ShadersLibrary serialized.
+		/// </summary>
+		private static readonly DataContractSerializer _Serializer = new DataContractSerializer(typeof(ShadersLibrary));
 
 		/// <summary>
 		/// Load a ShadersLibrary from an embedded resource.
 		/// </summary>
 		/// <param name="resourcePath">
-		/// A <see cref="String"/> that specify the embedded resource path.
+		/// A <see cref="string"/> that specify the embedded resource path.
 		/// </param>
 		/// <returns>
 		/// It returns a <see cref="ShadersLibrary"/> read from <paramref name="resourcePath"/>.
@@ -545,7 +613,7 @@ namespace OpenGL.Objects
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if no embedded resource can be found.
 		/// </exception>
-		private static ShadersLibrary Load(string resourcePath)
+		public static ShadersLibrary Load(string resourcePath)
 		{
 			if (resourcePath == null)
 				throw new ArgumentNullException("resourcePath");
@@ -593,16 +661,40 @@ namespace OpenGL.Objects
 		/// Merge a ShaderLibrary loaded from an embedded resource with <see cref="Instance"/>.
 		/// </summary>
 		/// <param name="resourcePath">
-		/// A <see cref="String"/> that specify the embedded resource path.
+		/// A <see cref="string"/> that specify the embedded resources.
 		/// </param>
-		public static void Merge(string resourcePath)
+		public void Merge(string resourcePath)
 		{
-			ShadersLibrary embeddedShadersLibrary = Load(resourcePath);
+			ShadersLibrary embeddedShadersLibrary = ShadersLibrary.Load(resourcePath);
 
-			// Merge information
-			_ShadersLibrary.Includes.AddRange(embeddedShadersLibrary.Includes);
-			_ShadersLibrary.Objects.AddRange(embeddedShadersLibrary.Objects);
-			_ShadersLibrary.Programs.AddRange(embeddedShadersLibrary.Programs);
+			Merge(embeddedShadersLibrary);
+		}
+
+		/// <summary>
+		/// Merge a ShaderLibrary loaded from an embedded resource with <see cref="Instance"/>.
+		/// </summary>
+		/// <param name="shadersLibrary">
+		/// A <see cref="ShadersLibrary"/> that specify the embedded resources.
+		/// </param>
+		public void Merge(ShadersLibrary shadersLibrary)
+		{
+			if (shadersLibrary == null)
+				throw new ArgumentNullException(nameof(shadersLibrary));
+
+			if (_ShadersLibrary.Includes == null)
+				_ShadersLibrary.Includes = new List<Include>();
+			if (shadersLibrary.Includes != null)
+				_ShadersLibrary.Includes.AddRange(shadersLibrary.Includes);
+
+			if (_ShadersLibrary.Objects == null)
+				_ShadersLibrary.Objects = new List<Object>();
+			if (shadersLibrary.Objects != null)
+				_ShadersLibrary.Objects.AddRange(shadersLibrary.Objects);
+
+			if (_ShadersLibrary.Programs == null)
+				_ShadersLibrary.Programs = new List<Program>();
+			if (shadersLibrary.Programs != null)
+				_ShadersLibrary.Programs.AddRange(shadersLibrary.Programs);
 		}
 
 		/// <summary>

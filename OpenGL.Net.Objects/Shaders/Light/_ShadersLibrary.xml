@@ -1,38 +1,65 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ShadersLibrary>
+<ShadersLibrary xmlns="http://schemas.datacontract.org/2004/07/OpenGL.Objects" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
 
-	<!-- Include sources -->
 	<Includes>
-		<Include Id="/OpenGL/Light/MaterialState.glsl">
-			<Path>OpenGL.Objects.Shaders.Light.MaterialState.glsl</Path>
+		<Include>
+			<Path>/OpenGL/Light/MaterialState.glsl</Path>
+			<Resource>OpenGL.Objects.Shaders.Light.MaterialState.glsl</Resource>
 		</Include>
-		<Include Id="/OpenGL/Light/LightState.glsl">
-			<Path>OpenGL.Objects.Shaders.Light.LightState.glsl</Path>
+		<Include>
+			<Path>/OpenGL/Light/LightState.glsl</Path>
+			<Resource>OpenGL.Objects.Shaders.Light.LightState.glsl</Resource>
 		</Include>
-		<Include Id="/OpenGL/Light/ShadowState.glsl">
-			<Path>OpenGL.Objects.Shaders.Light.ShadowState.glsl</Path>
+		<Include>
+			<Path>/OpenGL/Light/ShadowState.glsl</Path>
+			<Resource>OpenGL.Objects.Shaders.Light.ShadowState.glsl</Resource>
 		</Include>
 	</Includes>
 
-	<!-- Program Objects -->
 	<Objects>
 		<!-- Lights (Common Implementation) -->
-		<Object Path="OpenGL.Objects.Shaders.Light.LightDirectionalImpl.glsl" />
-		<Object Path="OpenGL.Objects.Shaders.Light.LightPointImpl.glsl" />
-		<Object Path="OpenGL.Objects.Shaders.Light.LightSpotImpl.glsl" />
+		<Object>
+			<Resource>OpenGL.Objects.Shaders.Light.LightDirectionalImpl.glsl</Resource>
+			<TestStage>VertexShader FragmentShader</TestStage>
+		</Object>
+		<Object>
+			<Resource>OpenGL.Objects.Shaders.Light.LightPointImpl.glsl</Resource>
+			<TestStage>VertexShader FragmentShader</TestStage>
+		</Object>
+		<Object>
+			<Resource>OpenGL.Objects.Shaders.Light.LightSpotImpl.glsl</Resource>
+			<TestStage>VertexShader FragmentShader</TestStage>
+		</Object>
 		<!-- Lights (Single) -->
-		<Object Path="OpenGL.Objects.Shaders.Light.LightDirectional.glsl" />
-		<Object Path="OpenGL.Objects.Shaders.Light.LightPoint.glsl" />
-		<Object Path="OpenGL.Objects.Shaders.Light.LightSpot.glsl" />
+		<Object>
+			<Resource>OpenGL.Objects.Shaders.Light.LightDirectional.glsl</Resource>
+			<TestStage>VertexShader FragmentShader</TestStage>
+		</Object>
+		<Object>
+			<Resource>OpenGL.Objects.Shaders.Light.LightPoint.glsl</Resource>
+			<TestStage>VertexShader FragmentShader</TestStage>
+		</Object>
+		<Object>
+			<Resource>OpenGL.Objects.Shaders.Light.LightSpot.glsl</Resource>
+			<TestStage>VertexShader FragmentShader</TestStage>
+		</Object>
 		<!-- Lights (Multiple) -->
-		<Object Path="OpenGL.Objects.Shaders.Light.LightMulti.glsl">
+		<Object>
+			<Resource>OpenGL.Objects.Shaders.Light.LightMulti.glsl</Resource>
+			<TestStage>VertexShader FragmentShader</TestStage>
 			<Symbols>
 				<Symbol>GLO_MAX_LIGHTS_COUNT</Symbol>
 			</Symbols>
 		</Object>
 		<!-- Shading models -->
-		<Object Path="OpenGL.Objects.Shaders.Light.ShadingLambert.glsl" />
-		<Object Path="OpenGL.Objects.Shaders.Light.ShadingPhong.glsl" />
+		<Object>
+			<Resource>OpenGL.Objects.Shaders.Light.ShadingLambert.glsl</Resource>
+			<TestStage>VertexShader FragmentShader</TestStage>
+		</Object>
+		<Object>
+			<Resource>OpenGL.Objects.Shaders.Light.ShadingPhong.glsl</Resource>
+			<TestStage>FragmentShader</TestStage>
+		</Object>
 	</Objects>
 	
 </ShadersLibrary>

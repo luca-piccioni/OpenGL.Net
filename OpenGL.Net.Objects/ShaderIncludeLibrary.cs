@@ -27,7 +27,7 @@ namespace OpenGL.Objects
 	/// <summary>
 	/// Shader include library.
 	/// </summary>
-	sealed class ShaderIncludeLibrary : GraphicsResource
+	internal sealed class ShaderIncludeLibrary : GraphicsResource
 	{
 		#region Constructors
 
@@ -36,24 +36,36 @@ namespace OpenGL.Objects
 		/// </summary>
 		public ShaderIncludeLibrary()
 		{
-			// Load all include files defined by ShadersLibrary
-			foreach (ShadersLibrary.Include shaderLibraryInclude in ShadersLibrary.Instance.Includes) {
-				if (_IncludeFileSystem.ContainsKey(shaderLibraryInclude.Id))
-					throw new InvalidOperationException(String.Format("include path '{0}' is duplicated", shaderLibraryInclude.Id));
-
-				ShaderInclude shaderInclude = new ShaderInclude(shaderLibraryInclude.Id);
-
-				LinkResource(shaderInclude);
-
-				shaderInclude.LoadSource(shaderLibraryInclude.Path);
-
-				_IncludeFileSystem.Add(shaderInclude.IncludePath, shaderInclude);
-			}
+			// Load all include files defined by OpenGL.Net.Objects
+			// Note: includes are meant to be usable by external users
+			MergeLibrary(ShadersLibrary.Instance);
 		}
 
 		#endregion
 
 		#region Shader Include Collection
+
+		public void MergeLibrary(ShadersLibrary shadersLibrary)
+		{
+			if (shadersLibrary == null)
+				throw new ArgumentNullException(nameof(shadersLibrary));
+
+			if (shadersLibrary.Includes == null)
+				return;
+
+			foreach (ShadersLibrary.Include shaderLibraryInclude in shadersLibrary.Includes) {
+				if (_IncludeFileSystem.ContainsKey(shaderLibraryInclude.Path))
+					throw new InvalidOperationException(String.Format("include path '{0}' is duplicated", shaderLibraryInclude.Path));
+
+				ShaderInclude shaderInclude;
+
+				LinkResource(shaderInclude = new ShaderInclude(shaderLibraryInclude.Path));
+
+				shaderInclude.LoadSource(shaderLibraryInclude.Resource);
+
+				_IncludeFileSystem.Add(shaderInclude.IncludePath, shaderInclude);
+			}
+		}
 
 		/// <summary>
 		/// Determine whether an include source have a specific path.
