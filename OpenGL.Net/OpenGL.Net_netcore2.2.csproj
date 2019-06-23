@@ -1,0 +1,120 @@
+﻿<Project>
+
+  <PropertyGroup>
+    <BaseIntermediateOutputPath>obj\netcoreapp2.2</BaseIntermediateOutputPath>
+  </PropertyGroup>
+
+  <Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk" />
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AssemblyName>OpenGL.Net</AssemblyName>
+    <RootNamespace>OpenGL</RootNamespace>
+    <Authors>Luca Piccioni</Authors>
+    <Product>OpenGL.Net</Product>
+    <Copyright>Copyright (C) Luca Piccioni 2015-2017</Copyright>
+    <Version>0.5.1</Version>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <Platforms>AnyCPU;x86</Platforms>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <OutputPath>bin\netcore\Release</OutputPath>
+    <DefineConstants>TRACE;NETCORE;HAVE_NUMERICS;RELEASE;NETCOREAPP2_2</DefineConstants>
+    <DocumentationFile>bin\netcore\Release\netcoreapp2.2\OpenGL.Net.xml</DocumentationFile>
+    <NoWarn>1701;1702;1705;1734</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <OutputPath>bin\netcore\x86\Release</OutputPath>
+    <DefineConstants>TRACE;NETCORE;HAVE_NUMERICS;RELEASE;NETCOREAPP2_2</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <OutputPath>bin\netcore\Debug</OutputPath>
+    <DefineConstants>TRACE;NETCORE;HAVE_NUMERICS;NETCOREAPP2_2</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <OutputPath>bin\netcore\x86\Debug</OutputPath>
+    <DefineConstants>TRACE;NETCORE;HAVE_NUMERICS;NETCOREAPP2_2</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="obj\**" />
+    <EmbeddedResource Remove="obj\**" />
+    <None Remove="obj\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Angle.cs" />
+    <Compile Remove="ColorBGR.cs" />
+    <Compile Remove="ColorBGRA.cs" />
+    <Compile Remove="ColorR.cs" />
+    <Compile Remove="ColorRGB.cs" />
+    <Compile Remove="ColorRGBA.cs" />
+    <Compile Remove="ColorRGBARef.cs" />
+    <Compile Remove="Gl.NvOptmimus.cs" />
+    <Compile Remove="HalfFloat.cs" />
+    <Compile Remove="IColor.cs" />
+    <Compile Remove="IColorRGB.cs" />
+    <Compile Remove="IColorRGBA.cs" />
+    <Compile Remove="ICopiable.cs" />
+    <Compile Remove="IFragment.cs" />
+    <Compile Remove="IMatrix.cs" />
+    <Compile Remove="IMatrix3x3.cs" />
+    <Compile Remove="IMatrix4x4.cs" />
+    <Compile Remove="IModelMatrix.cs" />
+    <Compile Remove="IProjectionMatrix.cs" />
+    <Compile Remove="KhronosLogMap.cs" />
+    <Compile Remove="Matrix.cs" />
+    <Compile Remove="Matrix3x3.cs" />
+    <Compile Remove="Matrix4x4.cs" />
+    <Compile Remove="MatrixBase.cs" />
+    <Compile Remove="MatrixDouble.cs" />
+    <Compile Remove="MatrixDouble3x3.cs" />
+    <Compile Remove="MatrixDouble4x4.cs" />
+    <Compile Remove="ModelMatrix.cs" />
+    <Compile Remove="ModelMatrixDouble.cs" />
+    <Compile Remove="PixelLayout.cs" />
+    <Compile Remove="PixelSpace.cs" />
+    <Compile Remove="Plane.cs" />
+    <Compile Remove="ProjectionMatrix.cs" />
+    <Compile Remove="ProjectionMatrixDouble.cs" />
+    <Compile Remove="Quaternion.cs" />
+    <Compile Remove="SuppressUnmanagedCodeSecurityAttribute.cs" />
+    <Compile Remove="Vertex2.cs" />
+    <Compile Remove="Vertex3.cs" />
+    <Compile Remove="Vertex3Ref.cs" />
+    <Compile Remove="Vertex4.cs" />
+    <Compile Remove="Win32Exception.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="ColorBGR.tt" />
+    <None Remove="ColorBGRA.tt" />
+    <None Remove="ColorR.tt" />
+    <None Remove="ColorRGB.tt" />
+    <None Remove="ColorRGBA.tt" />
+    <None Remove="KhronosLogMapEgl.xml" />
+    <None Remove="KhronosLogMapGl.xml" />
+    <None Remove="KhronosLogMapGlx.xml" />
+    <None Remove="KhronosLogMapWgl.xml" />
+    <None Remove="LICENSE" />
+    <None Remove="Matrix.tt" />
+    <None Remove="Vertex2.tt" />
+    <None Remove="Vertex3.tt" />
+    <None Remove="Vertex3Ref.tt" />
+    <None Remove="Vertex4.tt" />
+  </ItemGroup>
+
+  <Import Project="..\Khronos.Net\Khronos.Net.projitems" Label="Shared" />
+  
+  <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
+
+</Project>
