@@ -1,3 +1,4 @@
+dist: trusty
 language: csharp
 mono:
   - 5.4.1
@@ -12,10 +13,10 @@ install:
   - sudo nuget update -self
   - sudo nuget restore OpenGL.Net_Mono.sln
   - sudo nuget restore OpenGL.Net_VC14.sln
-env:
-  - DISPLAY=":99.0"
-services:
-  - xvfb
+before_script:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 6 # give xvfb some time to start
 script:
   - mono --version
   - xbuild /p:Configuration=Release OpenGL.Net_Mono.sln
