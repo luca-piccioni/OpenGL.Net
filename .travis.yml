@@ -12,8 +12,8 @@ install:
   - sudo nuget update -self
   - sudo nuget restore OpenGL.Net_Mono.sln
   - sudo nuget restore OpenGL.Net_VC14.sln
-before_script:
-  - "export DISPLAY=:99.0"
+env:
+  - DISPLAY=":99.0"
 services:
   - xvfb
 script:
