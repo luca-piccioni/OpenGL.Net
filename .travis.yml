@@ -1,3 +1,4 @@
+dist: trusty
 language: csharp
 mono:
   - 5.4.1
