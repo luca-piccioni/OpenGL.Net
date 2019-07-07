@@ -498,9 +498,6 @@ namespace OpenGL
 		/// [GL4|GLES3.2] glShaderBinary: load pre-compiled shader binaries
 		/// </para>
 		/// </summary>
-		/// <param name="count">
-		/// Specifies the number of shader object handles contained in <paramref name="shaders"/>.
-		/// </param>
 		/// <param name="shaders">
 		/// Specifies the address of an array of shader handles into which to load pre-compiled shader binaries.
 		/// </param>
@@ -516,11 +513,11 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility", Api = "gl|glcore")]
-		public static void ShaderBinary(int count, uint[] shaders, int binaryformat, object binary, int length)
+		public static void ShaderBinary(uint[] shaders, int binaryformat, object binary, int length)
 		{
 			GCHandle pin_binary = GCHandle.Alloc(binary, GCHandleType.Pinned);
 			try {
-				ShaderBinary(count, shaders, binaryformat, pin_binary.AddrOfPinnedObject(), length);
+				ShaderBinary(shaders, binaryformat, pin_binary.AddrOfPinnedObject(), length);
 			} finally {
 				pin_binary.Free();
 			}
