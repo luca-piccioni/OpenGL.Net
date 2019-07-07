@@ -14017,7 +14017,7 @@ typedef unsigned int GLhandleARB;
             <glx type="render" opcode="135"/>
         </command>
         <command>
-            <proBLEND_EQUATIONto>void <name>glDepthRange</name></proBLEND_EQUATIONto>
+            <proto>void <name>glDepthRange</name></proto>
             <param><ptype>GLdouble</ptype> <name>near</name></param>
             <param><ptype>GLdouble</ptype> <name>far</name></param>
             <glx type="render" opcode="174"/>

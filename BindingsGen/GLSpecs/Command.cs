@@ -539,8 +539,12 @@ namespace BindingsGen.GLSpecs
 			bool isUnsafeCompatible = ((Flags & CommandFlags.UnsafeParams) != 0) && CommandParameterUnsafe.IsCompatible(ctx, this);
 
 			// Standard implementation - default
-			if (plainParams || (!isArrayLengthCompatible && !isStrongCompatible))
+			bool plainGenerated = false;
+
+			if (plainParams || (!isArrayLengthCompatible && !isStrongCompatible)) {
 				overridenParameters.Add(Parameters);
+				plainGenerated = true;
+			}
 
 			// Strongly typed implementation
 			if (isStrongCompatible)
@@ -548,6 +552,13 @@ namespace BindingsGen.GLSpecs
 
 			// Pinned object implementation
 			if (isPinnedObjCompatible) {
+				// In the cases where array-length and pinned object overrides exist, the plain wrapper must be defined,
+				// otherwise stackoverflow exception will occour.
+				if (!plainGenerated && isArrayLengthCompatible) {
+					overridenParameters.Add(Parameters);
+					plainGenerated = true;
+				}
+				
 				if (plainParams && isStrongCompatible)
 					overridenParameters.Add(GetPinnedParameters(ctx, false));
 				overridenParameters.Add(GetPinnedParameters(ctx, true));

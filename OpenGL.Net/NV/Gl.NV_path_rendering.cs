@@ -1072,6 +1072,41 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="coords">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		public static void PathCommandsNV(uint path, int numCommands, byte[] commands, int numCoords, int coordType, IntPtr coords)
+		{
+			unsafe {
+				fixed (byte* p_commands = commands)
+				{
+					Debug.Assert(Delegates.pglPathCommandsNV != null, "pglPathCommandsNV not implemented");
+					Delegates.pglPathCommandsNV(path, numCommands, p_commands, numCoords, coordType, coords);
+					LogCommand("glPathCommandsNV", null, path, numCommands, commands, numCoords, coordType, coords					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL] glPathCommandsNV: Binding for glPathCommandsNV.
+		/// </summary>
+		/// <param name="path">
+		/// A <see cref="T:uint"/>.
+		/// </param>
+		/// <param name="numCommands">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="commands">
+		/// A <see cref="T:byte[]"/>.
+		/// </param>
+		/// <param name="numCoords">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="coordType">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="coords">
 		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
@@ -1165,6 +1200,47 @@ namespace OpenGL
 			} finally {
 				pin_coords.Free();
 			}
+		}
+
+		/// <summary>
+		/// [GL] glPathSubCommandsNV: Binding for glPathSubCommandsNV.
+		/// </summary>
+		/// <param name="path">
+		/// A <see cref="T:uint"/>.
+		/// </param>
+		/// <param name="commandStart">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="commandsToDelete">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="numCommands">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="commands">
+		/// A <see cref="T:byte[]"/>.
+		/// </param>
+		/// <param name="numCoords">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="coordType">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="coords">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		public static void PathSubCommandsNV(uint path, int commandStart, int commandsToDelete, int numCommands, byte[] commands, int numCoords, int coordType, IntPtr coords)
+		{
+			unsafe {
+				fixed (byte* p_commands = commands)
+				{
+					Debug.Assert(Delegates.pglPathSubCommandsNV != null, "pglPathSubCommandsNV not implemented");
+					Delegates.pglPathSubCommandsNV(path, commandStart, commandsToDelete, numCommands, p_commands, numCoords, coordType, coords);
+					LogCommand("glPathSubCommandsNV", null, path, commandStart, commandsToDelete, numCommands, commands, numCoords, coordType, coords					);
+				}
+			}
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
