@@ -243,7 +243,7 @@ namespace OpenGL.CoreUI
 		
 		private IntPtr WindowsWndProc_MOUSEWHEEL(IntPtr hWnd, IntPtr wParam, IntPtr lParam)
 		{
-			short wheelTicks = (short)(((wParam.ToInt32() >> 16) & 0xFFFF) / /* WHEEL_DELTA */ 120);
+			short wheelTicks = (short)(((wParam.ToInt64() >> 16) & 0xFFFF) / /* WHEEL_DELTA */ 120);
 
 			OnMouseWheel(WindowsWndProc_GetMouseLocation(lParam), WindowsWndProc_GetMouseButtons(wParam), wheelTicks);
 
@@ -263,7 +263,7 @@ namespace OpenGL.CoreUI
 		private static MouseButton WindowsWndProc_GetMouseButtons(IntPtr wParam)
 		{
 			MouseButton buttons = MouseButton.None;
-			int wParamValue = wParam.ToInt32() & 0xFFFF;
+			int wParamValue = wParam.ToInt64() & 0xFFFF;
 
 			if ((wParamValue & 0x0001) != 0)
 				buttons |= MouseButton.Left;
