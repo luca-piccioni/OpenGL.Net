@@ -160,19 +160,19 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:FenceParameterNameNV"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
-		public static void GetFenceNV(uint fence, int pname, [Out] int[] @params)
+		public static void GetFenceNV(uint fence, FenceParameterNameNV pname, [Out] int[] @params)
 		{
 			unsafe {
 				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetFenceivNV != null, "pglGetFenceivNV not implemented");
-					Delegates.pglGetFenceivNV(fence, pname, p_params);
+					Delegates.pglGetFenceivNV(fence, (int)pname, p_params);
 					LogCommand("glGetFenceivNV", null, fence, pname, @params					);
 				}
 			}
@@ -201,13 +201,13 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="condition">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:FenceConditionNV"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_fence", Api = "gl|gles1|gles2")]
-		public static void SetFenceNV(uint fence, int condition)
+		public static void SetFenceNV(uint fence, FenceConditionNV condition)
 		{
 			Debug.Assert(Delegates.pglSetFenceNV != null, "pglSetFenceNV not implemented");
-			Delegates.pglSetFenceNV(fence, condition);
+			Delegates.pglSetFenceNV(fence, (int)condition);
 			LogCommand("glSetFenceNV", null, fence, condition			);
 			DebugCheckErrors(null);
 		}

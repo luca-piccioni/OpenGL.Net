@@ -61,7 +61,7 @@ namespace OpenGL.Objects
 			// Note: mutable storage is allowed to:
 			// - be mapped for reading/writing
 			// - specify information via glBufferSubData
-			UsageMask = MapBufferUsageMask.MapReadBit | MapBufferUsageMask.MapWriteBit | MapBufferUsageMask.DynamicStorageBit;
+			UsageMask = BufferStorageMask.MapReadBit | BufferStorageMask.MapWriteBit | BufferStorageMask.DynamicStorageBit;
 		}
 
 		/// <summary>
@@ -71,9 +71,9 @@ namespace OpenGL.Objects
 		/// A <see cref="BufferTarget"/> that specify the buffer object type.
 		/// </param>
 		/// <param name="usageMask">
-		/// An <see cref="MapBufferUsageMask"/> that specify the buffer storage usage mask.
+		/// An <see cref="BufferStorageMask"/> that specify the buffer storage usage mask.
 		/// </param>
-		protected Buffer(BufferTarget type, MapBufferUsageMask usageMask)
+		protected Buffer(BufferTarget type, BufferStorageMask usageMask)
 		{
 			// Store the buffer object type
 			Target = type;
@@ -104,7 +104,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Map storage flags, valid when GL_ARB_buffer_storage is implemented.
 		/// </summary>
-		public readonly MapBufferUsageMask UsageMask;
+		public readonly BufferStorageMask UsageMask;
 
 		#endregion
 
@@ -232,7 +232,7 @@ namespace OpenGL.Objects
 				} else {
 
 					if (Buffer.Immutable)
-						Gl.BufferStorage(Buffer.Target, _Size, IntPtr.Zero, Buffer.UsageMask);
+						Gl.BufferStorage((BufferStorageTarget)Buffer.Target, _Size, IntPtr.Zero, Buffer.UsageMask);
 					else
 						Gl.BufferData(Buffer.Target, _Size, IntPtr.Zero, Buffer.Hint);
 				}
@@ -352,7 +352,7 @@ namespace OpenGL.Objects
 					} else {
 
 						if (Buffer.Immutable)
-							Gl.BufferStorage(Buffer.Target, _Size, _Array, Buffer.UsageMask);
+							Gl.BufferStorage((BufferStorageTarget)Buffer.Target, _Size, _Array, Buffer.UsageMask);
 						else
 							Gl.BufferData(Buffer.Target, _Size, _Array, Buffer.Hint);
 					}
@@ -554,7 +554,7 @@ namespace OpenGL.Objects
 		/// A <see cref="GraphicsContext"/> required for mapping this Buffer.
 		/// </param>
 		/// <param name="mask">
-		/// A <see cref="BufferAccessMask"/> that specify the map access.
+		/// A <see cref="MapBufferAccessMask"/> that specify the map access.
 		/// </param>
 		/// <exception cref="InvalidOperationException">
 		/// Exception thrown if this Buffer is already mapped.
@@ -562,7 +562,7 @@ namespace OpenGL.Objects
 		/// <exception cref="InvalidOperationException">
 		/// Exception thrown if this Buffer does not exist for <paramref name="ctx"/>.
 		/// </exception>
-		public void Map(GraphicsContext ctx, BufferAccessMask mask, IntPtr offset = default(IntPtr), uint size = 0)
+		public void Map(GraphicsContext ctx, MapBufferAccessMask mask, IntPtr offset = default(IntPtr), uint size = 0)
 		{
 			CheckThisExistence(ctx);
 
@@ -593,11 +593,11 @@ namespace OpenGL.Objects
 			}
 
 			// Determine map access
-			if (mask.HasFlag(BufferAccessMask.MapReadBit) && mask.HasFlag(BufferAccessMask.MapWriteBit))
+			if (mask.HasFlag(MapBufferAccessMask.MapReadBit) && mask.HasFlag(MapBufferAccessMask.MapWriteBit))
 				_Access = BufferAccess.ReadWrite;
-			else if (mask.HasFlag(BufferAccessMask.MapReadBit))
+			else if (mask.HasFlag(MapBufferAccessMask.MapReadBit))
 				_Access = BufferAccess.ReadOnly;
-			else if (mask.HasFlag(BufferAccessMask.MapWriteBit))
+			else if (mask.HasFlag(MapBufferAccessMask.MapWriteBit))
 				_Access = BufferAccess.WriteOnly;
 			else
 				_Access = 0;
@@ -697,7 +697,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// The access mask requested on last Map call.
 		/// </summary>
-		private BufferAccessMask _AccessMask = 0;
+		private MapBufferAccessMask _AccessMask = 0;
 
 		#endregion
 
@@ -759,7 +759,7 @@ namespace OpenGL.Objects
 				throw new InvalidOperationException("not mapped");
 
 			// Should we throw an exception?
-			if (!_AccessMask.HasFlag(BufferAccessMask.MapFlushExplicitBit))
+			if (!_AccessMask.HasFlag(MapBufferAccessMask.MapFlushExplicitBit))
 				return;
 			if (!IsFlushSupported(ctx))
 				return;

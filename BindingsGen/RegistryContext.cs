@@ -43,12 +43,12 @@ namespace BindingsGen
 		/// Construct a RegistryContext.
 		/// </summary>
 		/// <param name="class">
-		/// A <see cref="String"/> that specifies the actual specification to build. It determines:
+		/// A <see cref="string"/> that specifies the actual specification to build. It determines:
 		/// - The name of the class to be generated (i.e. Gl, Wgl, Glx);
 		/// - The features selection to include in the generated sources
 		/// </param>
 		/// <param name="wordsClass">
-		/// A <see cref="String"/> that specifies the name of the words dictionary used for semplifying
+		/// A <see cref="string"/> that specifies the name of the words dictionary used for semplifying
 		/// names in this context. If it is null, it is automatically determined with <paramref name="class"/>.
 		/// </param>
 		private RegistryContext(string @class, string wordsClass)
@@ -78,16 +78,16 @@ namespace BindingsGen
 		/// Construct a RegistryContext.
 		/// </summary>
 		/// <param name="class">
-		/// A <see cref="String"/> that specifies the actual specification to build. It determines:
+		/// A <see cref="string"/> that specifies the actual specification to build. It determines:
 		/// - The name of the class to be generated (i.e. Gl, Wgl, Glx);
 		/// - The features selection to include in the generated sources
 		/// </param>
 		/// <param name="wordsClass">
-		/// A <see cref="String"/> that specifies the name of the words dictionary used for semplifying
+		/// A <see cref="string"/> that specifies the name of the words dictionary used for semplifying
 		/// names in this context. If it is null, it is automatically determined with <paramref name="class"/>.
 		/// </param>
 		/// <param name="registryPath">
-		/// A <see cref="String"/> that specifies the path of the OpenGL specification to parse.
+		/// A <see cref="string"/> that specifies the path of the OpenGL specification to parse.
 		/// </param>
 		public RegistryContext(string @class, string wordsClass, string registryPath) :
 			this(@class, wordsClass)
@@ -105,12 +105,12 @@ namespace BindingsGen
 		/// Construct a RegistryContext.
 		/// </summary>
 		/// <param name="class">
-		/// A <see cref="String"/> that specifies the actual specification to build. It determines:
+		/// A <see cref="string"/> that specifies the actual specification to build. It determines:
 		/// - The name of the class to be generated (i.e. Gl, Wgl, Glx);
 		/// - The features selection to include in the generated sources
 		/// </param>
 		/// <param name="wordsClass">
-		/// A <see cref="String"/> that specifies the name of the words dictionary used for semplifying
+		/// A <see cref="string"/> that specifies the name of the words dictionary used for semplifying
 		/// names in this context. If it is null, it is automatically determined with <paramref name="class"/>.
 		/// </param>
 		/// <param name="registry">
@@ -126,7 +126,7 @@ namespace BindingsGen
 		/// Determine whether an API element is supported by the generated class.
 		/// </summary>
 		/// <param name="api">
-		/// A <see cref="String"/> that specify the regular expression of the API element to be evaluated.
+		/// A <see cref="string"/> that specify the regular expression of the API element to be evaluated.
 		/// </param>
 		/// <returns>
 		/// It returns true if <paramref name="api"/> specify a supported API.

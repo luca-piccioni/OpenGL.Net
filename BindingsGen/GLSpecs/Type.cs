@@ -32,44 +32,44 @@ namespace BindingsGen.GLSpecs
 		/// Another type name this type requires to complete its definition.
 		/// </summary>
 		[XmlAttribute("requires")]
-		public String Requires;
+		public string Requires;
 
 		/// <summary>
 		/// Name of this type (if not defined in the tag body).
 		/// </summary>
 		[XmlAttribute("name")]
-		public String NameAttribute;
+		public string NameAttribute;
 
 		/// <summary>
 		/// Name of this type (if not defined in the tag body).
 		/// </summary>
 		[XmlElement("name")]
-		public String Name;
+		public string Name;
 
 		/// <summary>
 		/// An API name (see <feature> below) which specializes this definition of the named type, so that the same
 		/// API types may have different definitions for e.g. GL ES and GL.
 		/// </summary>
 		[XmlAttribute("api")]
-		public String Api;
+		public string Api;
 
 		/// <summary>
 		/// 
 		/// </summary>
 		[XmlElement("apientry")]
-		public String ApiEntry;
+		public string ApiEntry;
 
 		/// <summary>
 		/// Arbitrary string
 		/// </summary>
 		[XmlAttribute("comment")]
-		public String Comment;
+		public string Comment;
 
 		/// <summary>
 		/// C language definition.
 		/// </summary>
 		[XmlText()]
-		public String Definition;
+		public string Definition;
 
 		#endregion
 	}

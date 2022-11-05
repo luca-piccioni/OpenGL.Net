@@ -174,19 +174,19 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:OcclusionQueryParameterNameNV"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_occlusion_query")]
-		public static void GetOcclusionQueryNV(uint id, int pname, [Out] int[] @params)
+		public static void GetOcclusionQueryNV(uint id, OcclusionQueryParameterNameNV pname, [Out] int[] @params)
 		{
 			unsafe {
 				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetOcclusionQueryivNV != null, "pglGetOcclusionQueryivNV not implemented");
-					Delegates.pglGetOcclusionQueryivNV(id, pname, p_params);
+					Delegates.pglGetOcclusionQueryivNV(id, (int)pname, p_params);
 					LogCommand("glGetOcclusionQueryivNV", null, id, pname, @params					);
 				}
 			}
@@ -200,19 +200,19 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:OcclusionQueryParameterNameNV"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_occlusion_query")]
-		public static void GetOcclusionQueryuivNV(uint id, int pname, [Out] uint[] @params)
+		public static void GetOcclusionQueryuivNV(uint id, OcclusionQueryParameterNameNV pname, [Out] uint[] @params)
 		{
 			unsafe {
 				fixed (uint* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetOcclusionQueryuivNV != null, "pglGetOcclusionQueryuivNV not implemented");
-					Delegates.pglGetOcclusionQueryuivNV(id, pname, p_params);
+					Delegates.pglGetOcclusionQueryuivNV(id, (int)pname, p_params);
 					LogCommand("glGetOcclusionQueryuivNV", null, id, pname, @params					);
 				}
 			}

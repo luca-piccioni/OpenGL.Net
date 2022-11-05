@@ -34,14 +34,14 @@ namespace BindingsGen.GLSpecs
 		/// Extension name.
 		/// </summary>
 		[XmlAttribute("name")]
-		public String Name;
+		public string Name;
 
 		/// <summary>
 		/// A regular expression, with an implicit ˆ and $ bracketing it, which should match the api tag of a set
 		/// of <see cref="Feature"/>.
 		/// </summary>
 		[XmlAttribute("supported")]
-		public String Supported;
+		public string Supported;
 
 		/// <summary>
 		/// An additional preprocessor token used to protect an extension definition. Usually another feature or extension
@@ -49,13 +49,13 @@ namespace BindingsGen.GLSpecs
 		/// first.
 		/// </summary>
 		[XmlAttribute("protect")]
-		public String Protect;
+		public string Protect;
 
 		/// <summary>
 		/// Arbitrary string.
 		/// </summary>
 		[XmlAttribute("comment")]
-		public String Comment;
+		public string Comment;
 
 		/// <summary>
 		/// Zero or more <see cref="FeatureCommand"/>. Each item describes a set of interfaces that is required for this extension.

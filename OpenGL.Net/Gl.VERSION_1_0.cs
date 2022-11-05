@@ -5445,7 +5445,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		public static void CullFace(CullFaceMode mode)
+		public static void CullFace(TriangleFace mode)
 		{
 			Debug.Assert(Delegates.pglCullFace != null, "pglCullFace not implemented");
 			Delegates.pglCullFace((int)mode);
@@ -5548,7 +5548,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_NV_polygon_mode", Api = "gles2")]
-		public static void PolygonMode(MaterialFace face, PolygonMode mode)
+		public static void PolygonMode(TriangleFace face, PolygonMode mode)
 		{
 			Debug.Assert(Delegates.pglPolygonMode != null, "pglPolygonMode not implemented");
 			Delegates.pglPolygonMode((int)face, (int)mode);
@@ -8124,18 +8124,18 @@ namespace OpenGL
 		/// <summary>
 		/// [GL4] glDepthRange: specify mapping of depth values from normalized device coordinates to window coordinates
 		/// </summary>
-		/// <param name="nearVal">
-		/// Specifies the mapping of the near clipping plane to window coordinates. The initial value is 0.
+		/// <param name="n">
+		/// A <see cref="T:double"/>.
 		/// </param>
-		/// <param name="farVal">
-		/// Specifies the mapping of the far clipping plane to window coordinates. The initial value is 1.
+		/// <param name="f">
+		/// A <see cref="T:double"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
-		public static void DepthRange(double nearVal, double farVal)
+		public static void DepthRange(double n, double f)
 		{
 			Debug.Assert(Delegates.pglDepthRange != null, "pglDepthRange not implemented");
-			Delegates.pglDepthRange(nearVal, farVal);
-			LogCommand("glDepthRange", null, nearVal, farVal			);
+			Delegates.pglDepthRange(n, f);
+			LogCommand("glDepthRange", null, n, f			);
 			DebugCheckErrors(null);
 		}
 
@@ -11485,7 +11485,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void ColorMaterial(MaterialFace face, ColorMaterialParameter mode)
+		public static void ColorMaterial(TriangleFace face, ColorMaterialParameter mode)
 		{
 			Debug.Assert(Delegates.pglColorMaterial != null, "pglColorMaterial not implemented");
 			Delegates.pglColorMaterial((int)face, (int)mode);
@@ -11836,7 +11836,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void Material(MaterialFace face, MaterialParameter pname, float param)
+		public static void Material(TriangleFace face, MaterialParameter pname, float param)
 		{
 			Debug.Assert(Delegates.pglMaterialf != null, "pglMaterialf not implemented");
 			Delegates.pglMaterialf((int)face, (int)pname, param);
@@ -11860,7 +11860,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void Material(MaterialFace face, MaterialParameter pname, float[] @params)
+		public static void Material(TriangleFace face, MaterialParameter pname, float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -11887,7 +11887,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void Material(MaterialFace face, MaterialParameter pname, int param)
+		public static void Material(TriangleFace face, MaterialParameter pname, int param)
 		{
 			Debug.Assert(Delegates.pglMateriali != null, "pglMateriali not implemented");
 			Delegates.pglMateriali((int)face, (int)pname, param);
@@ -11908,7 +11908,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void Material(MaterialFace face, MaterialParameter pname, int[] @params)
+		public static void Material(TriangleFace face, MaterialParameter pname, int[] @params)
 		{
 			unsafe {
 				fixed (int* p_params = @params)
@@ -13642,7 +13642,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1", Profile = "common")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void GetMaterial(MaterialFace face, MaterialParameter pname, [Out] float[] @params)
+		public static void GetMaterial(TriangleFace face, MaterialParameter pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -13671,7 +13671,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_0")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void GetMaterial(MaterialFace face, MaterialParameter pname, [Out] int[] @params)
+		public static void GetMaterial(TriangleFace face, MaterialParameter pname, [Out] int[] @params)
 		{
 			unsafe {
 				fixed (int* p_params = @params)
@@ -15114,7 +15114,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[SuppressUnmanagedCodeSecurity]
-			internal delegate void glDepthRange(double near, double far);
+			internal delegate void glDepthRange(double n, double f);
 
 			[RequiredByFeature("GL_VERSION_1_0")]
 			[ThreadStatic]

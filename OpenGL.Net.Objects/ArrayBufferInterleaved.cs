@@ -55,9 +55,9 @@ namespace OpenGL.Objects
 		/// Construct an immutable ArrayBufferInterleaved specifying its item layout on GPU side.
 		/// </summary>
 		/// <param name="usageMask">
-		/// A <see cref="MapBufferUsageMask"/> that specifies the data buffer usage mask.
+		/// A <see cref="BufferStorageMask"/> that specifies the data buffer usage mask.
 		/// </param>
-		public ArrayBufferInterleaved(MapBufferUsageMask usageMask) :
+		public ArrayBufferInterleaved(BufferStorageMask usageMask) :
 			base(BufferTarget.ArrayBuffer, (uint)Marshal.SizeOf(typeof(T)), usageMask)
 		{
 			try {

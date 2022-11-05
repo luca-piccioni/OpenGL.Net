@@ -64,16 +64,16 @@ namespace OpenGL
 		/// [GL] glIndexMaterialEXT: Binding for glIndexMaterialEXT.
 		/// </summary>
 		/// <param name="face">
-		/// A <see cref="T:MaterialFace"/>.
+		/// A <see cref="T:TriangleFace"/>.
 		/// </param>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:IndexMaterialParameterEXT"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_index_material")]
-		public static void IndexMaterialEXT(MaterialFace face, int mode)
+		public static void IndexMaterialEXT(TriangleFace face, IndexMaterialParameterEXT mode)
 		{
 			Debug.Assert(Delegates.pglIndexMaterialEXT != null, "pglIndexMaterialEXT not implemented");
-			Delegates.pglIndexMaterialEXT((int)face, mode);
+			Delegates.pglIndexMaterialEXT((int)face, (int)mode);
 			LogCommand("glIndexMaterialEXT", null, face, mode			);
 			DebugCheckErrors(null);
 		}

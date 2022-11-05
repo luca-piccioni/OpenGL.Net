@@ -189,9 +189,6 @@ namespace OpenGL
 		/// <param name="pEntryPoint">
 		/// A <see cref="T:string"/>.
 		/// </param>
-		/// <param name="numSpecializationConstants">
-		/// A <see cref="T:uint"/>.
-		/// </param>
 		/// <param name="pConstantIndex">
 		/// A <see cref="T:uint[]"/>.
 		/// </param>
@@ -200,15 +197,15 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_6")]
 		[RequiredByFeature("GL_ARB_gl_spirv", Api = "gl|glcore")]
-		public static void SpecializeShader(uint shader, string pEntryPoint, uint numSpecializationConstants, uint[] pConstantIndex, uint[] pConstantValue)
+		public static void SpecializeShader(uint shader, string pEntryPoint, uint[] pConstantIndex, uint[] pConstantValue)
 		{
 			unsafe {
 				fixed (uint* p_pConstantIndex = pConstantIndex)
 				fixed (uint* p_pConstantValue = pConstantValue)
 				{
 					Debug.Assert(Delegates.pglSpecializeShader != null, "pglSpecializeShader not implemented");
-					Delegates.pglSpecializeShader(shader, pEntryPoint, numSpecializationConstants, p_pConstantIndex, p_pConstantValue);
-					LogCommand("glSpecializeShader", null, shader, pEntryPoint, numSpecializationConstants, pConstantIndex, pConstantValue					);
+					Delegates.pglSpecializeShader(shader, pEntryPoint, (uint)pConstantIndex.Length, p_pConstantIndex, p_pConstantValue);
+					LogCommand("glSpecializeShader", null, shader, pEntryPoint, pConstantIndex.Length, pConstantIndex, pConstantValue					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -279,7 +276,7 @@ namespace OpenGL
 		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:DrawElementsType"/>.
 		/// </param>
 		/// <param name="indirect">
 		/// A <see cref="T:IntPtr"/>.
@@ -295,10 +292,10 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_6")]
 		[RequiredByFeature("GL_ARB_indirect_parameters", Api = "gl|glcore")]
-		public static void MultiDrawElementsIndirect(PrimitiveType mode, int type, IntPtr indirect, IntPtr drawcount, int maxdrawcount, int stride)
+		public static void MultiDrawElementsIndirect(PrimitiveType mode, DrawElementsType type, IntPtr indirect, IntPtr drawcount, int maxdrawcount, int stride)
 		{
 			Debug.Assert(Delegates.pglMultiDrawElementsIndirectCount != null, "pglMultiDrawElementsIndirectCount not implemented");
-			Delegates.pglMultiDrawElementsIndirectCount((int)mode, type, indirect, drawcount, maxdrawcount, stride);
+			Delegates.pglMultiDrawElementsIndirectCount((int)mode, (int)type, indirect, drawcount, maxdrawcount, stride);
 			LogCommand("glMultiDrawElementsIndirectCount", null, mode, type, indirect, drawcount, maxdrawcount, stride			);
 			DebugCheckErrors(null);
 		}
@@ -310,7 +307,7 @@ namespace OpenGL
 		/// A <see cref="T:PrimitiveType"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:DrawElementsType"/>.
 		/// </param>
 		/// <param name="indirect">
 		/// A <see cref="T:object"/>.
@@ -326,7 +323,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_6")]
 		[RequiredByFeature("GL_ARB_indirect_parameters", Api = "gl|glcore")]
-		public static void MultiDrawElementsIndirect(PrimitiveType mode, int type, object indirect, IntPtr drawcount, int maxdrawcount, int stride)
+		public static void MultiDrawElementsIndirect(PrimitiveType mode, DrawElementsType type, object indirect, IntPtr drawcount, int maxdrawcount, int stride)
 		{
 			GCHandle pin_indirect = GCHandle.Alloc(indirect, GCHandleType.Pinned);
 			try {

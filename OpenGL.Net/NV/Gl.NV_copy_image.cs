@@ -49,7 +49,7 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="srcTarget">
-		/// A <see cref="T:BufferTarget"/>.
+		/// A <see cref="T:CopyBufferSubDataTarget"/>.
 		/// </param>
 		/// <param name="srcLevel">
 		/// A <see cref="T:int"/>.
@@ -67,7 +67,7 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="dstTarget">
-		/// A <see cref="T:BufferTarget"/>.
+		/// A <see cref="T:CopyBufferSubDataTarget"/>.
 		/// </param>
 		/// <param name="dstLevel">
 		/// A <see cref="T:int"/>.
@@ -91,7 +91,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_copy_image")]
-		public static void CopyImageSubDataNV(uint srcName, BufferTarget srcTarget, int srcLevel, int srcX, int srcY, int srcZ, uint dstName, BufferTarget dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int width, int height, int depth)
+		public static void CopyImageSubDataNV(uint srcName, CopyBufferSubDataTarget srcTarget, int srcLevel, int srcX, int srcY, int srcZ, uint dstName, CopyBufferSubDataTarget dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int width, int height, int depth)
 		{
 			Debug.Assert(Delegates.pglCopyImageSubDataNV != null, "pglCopyImageSubDataNV not implemented");
 			Delegates.pglCopyImageSubDataNV(srcName, (int)srcTarget, srcLevel, srcX, srcY, srcZ, dstName, (int)dstTarget, dstLevel, dstX, dstY, dstZ, width, height, depth);

@@ -71,7 +71,7 @@ namespace BindingsGen
 		/// Loads XML documentation for processing.
 		/// </summary>
 		/// <param name="xmlPath">
-		/// A <see cref="String"/> taht specifies the path to the XML documentation file.
+		/// A <see cref="string"/> taht specifies the path to the XML documentation file.
 		/// </param>
 		public abstract void Load(string xmlPath);
 
@@ -135,7 +135,7 @@ namespace BindingsGen
 		/// The relative <see cref="Command"/>.
 		/// </param>
 		/// <returns>
-		/// It returns a <see cref="IEnumerable{String}"/> that specifies the command remarks paragraphs.
+		/// It returns a <see cref="IEnumerable{string}"/> that specifies the command remarks paragraphs.
 		/// </returns>
 		public abstract IEnumerable<string> QueryCommandRemarks(RegistryContext ctx, Command command);
 
@@ -149,7 +149,7 @@ namespace BindingsGen
 		/// The relative <see cref="Command"/>.
 		/// </param>
 		/// <returns>
-		/// It returns a <see cref="IEnumerable{String}"/> that specifies the command "get" paragraphs.
+		/// It returns a <see cref="IEnumerable{string}"/> that specifies the command "get" paragraphs.
 		/// </returns>
 		public abstract IEnumerable<string> QueryCommandGets(RegistryContext ctx, Command command);
 
@@ -163,7 +163,7 @@ namespace BindingsGen
 		/// The relative <see cref="Command"/>.
 		/// </param>
 		/// <returns>
-		/// It returns a <see cref="IEnumerable{String}"/> that specifies the command "get" paragraphs.
+		/// It returns a <see cref="IEnumerable{string}"/> that specifies the command "get" paragraphs.
 		/// </returns>
 		public abstract IEnumerable<string> QueryCommandErrors(RegistryContext ctx, Command command);
 
@@ -177,7 +177,7 @@ namespace BindingsGen
 		/// The relative <see cref="Command"/>.
 		/// </param>
 		/// <returns>
-		/// It returns a <see cref="IEnumerable{String}"/> that specifies the command "see also" references.
+		/// It returns a <see cref="IEnumerable{string}"/> that specifies the command "see also" references.
 		/// </returns>
 		public abstract IEnumerable<string> QueryCommandSeeAlso(RegistryContext ctx, Command command);
 
@@ -189,7 +189,7 @@ namespace BindingsGen
 		/// Code documentation trimming.
 		/// </summary>
 		/// <param name="documentation">
-		/// A <see cref="String"/> that specifies the documentation to be trimmed.
+		/// A <see cref="string"/> that specifies the documentation to be trimmed.
 		/// </param>
 		/// <returns>
 		/// It returns <paramref name="documentation"/>, after having removed all new lines characters and reduced contiguous
@@ -351,7 +351,11 @@ namespace BindingsGen
 					} else if (absoluteUri.Scheme == "file" && (ofObjectToReturn == null || ofObjectToReturn == typeof(Stream))) {
 						string localPath = Path.GetFileName(absoluteUri.OriginalString);
 
-						return new FileStream(Path.Combine(DocumentPath, localPath), FileMode.Open, FileAccess.Read);
+						try {
+							return new FileStream(Path.Combine(DocumentPath, localPath), FileMode.Open, FileAccess.Read);
+						} catch {
+							return base.GetEntity(absoluteUri, role, ofObjectToReturn);
+						}
 					}
 
 					//otherwise use the default behavior of the XmlUrlResolver class (resolve resources from source)

@@ -95,9 +95,9 @@ namespace OpenGL.Objects
 		/// A <see cref="UInt32"/> that specify how many components have the array item.
 		/// </param>
 		/// <param name="usageMask">
-		/// A <see cref="MapBufferUsageMask"/> that specifies the data buffer usage mask.
+		/// A <see cref="BufferStorageMask"/> that specifies the data buffer usage mask.
 		/// </param>
-		public ArrayBuffer(VertexBaseType vertexBaseType, uint vertexLength, MapBufferUsageMask usageMask) :
+		public ArrayBuffer(VertexBaseType vertexBaseType, uint vertexLength, BufferStorageMask usageMask) :
 			this(vertexBaseType, vertexLength, 1, usageMask)
 		{
 
@@ -116,9 +116,9 @@ namespace OpenGL.Objects
 		/// A <see cref="UInt32"/> that specify how many columns have the array item of matrix type.
 		/// </param>
 		/// <param name="usageMask">
-		/// A <see cref="MapBufferUsageMask"/> that specifies the data buffer usage mask.
+		/// A <see cref="BufferStorageMask"/> that specifies the data buffer usage mask.
 		/// </param>
-		public ArrayBuffer(VertexBaseType vertexBaseType, uint vertexLength, uint vertexRank, MapBufferUsageMask usageMask) :
+		public ArrayBuffer(VertexBaseType vertexBaseType, uint vertexLength, uint vertexRank, BufferStorageMask usageMask) :
 			this(vertexBaseType.GetArrayBufferType(vertexLength, vertexRank), usageMask)
 		{
 
@@ -131,9 +131,9 @@ namespace OpenGL.Objects
 		/// A <see cref="ArrayBufferItemType"/> describing the item base type on GPU side.
 		/// </param>
 		/// <param name="usageMask">
-		/// A <see cref="MapBufferUsageMask"/> that specifies the data buffer usage mask.
+		/// A <see cref="BufferStorageMask"/> that specifies the data buffer usage mask.
 		/// </param>
-		public ArrayBuffer(ArrayBufferItemType format, MapBufferUsageMask usageMask) :
+		public ArrayBuffer(ArrayBufferItemType format, BufferStorageMask usageMask) :
 			base(BufferTarget.ArrayBuffer, format.GetItemSize(), usageMask)
 		{
 			_ArrayType = format;
@@ -784,7 +784,7 @@ namespace OpenGL.Objects
 		/// Construct an immutable ArrayBuffer.
 		/// </summary>
 		public ArrayBuffer() :
-			this(MapBufferUsageMask.None)
+			this((BufferStorageMask)0)
 		{
 
 		}
@@ -805,9 +805,9 @@ namespace OpenGL.Objects
 		/// Construct an immutable ArrayBuffer.
 		/// </summary>
 		/// <param name="usageMask">
-		/// A <see cref="MapBufferUsageMask"/> that specifies the data buffer usage mask.
+		/// A <see cref="BufferStorageMask"/> that specifies the data buffer usage mask.
 		/// </param>
-		public ArrayBuffer(MapBufferUsageMask usageMask) :
+		public ArrayBuffer(BufferStorageMask usageMask) :
 			base(ArrayBufferItem.GetArrayType(typeof(T)), usageMask)
 		{
 			

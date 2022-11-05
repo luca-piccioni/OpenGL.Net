@@ -37,20 +37,31 @@ namespace BindingsGen.GLSpecs
 		/// the same namespace.
 		/// </summary>
 		[XmlAttribute("namespace")]
-		public String Namespace;
+		public string Namespace;
 
 		/// <summary>
-		/// 
+		/// The group(s) which this enumeration block belongs to.
+		/// </summary>
+		public string[] Groups
+		{
+			get
+			{
+				return Group != null ? Regex.Split(Group, ",") : null;
+			}
+		}
+
+		/// <summary>
+		/// The group(s) which this enumeration block belongs to.
 		/// </summary>
 		[XmlAttribute("group")]
-		public String Group;
+		public string Group;
 
 		/// <summary>
 		/// A string describing the data type of the values of this group of enums, currently unused. The only string
 		/// used at present in the is bitmask.
 		/// </summary>
 		[XmlAttribute("type")]
-		public String Type;
+		public string Type;
 
 		/// <summary>
 		/// Integers defining the start and end of a reserved range of enumerants for a particular vendor or purpose.
@@ -58,7 +69,7 @@ namespace BindingsGen.GLSpecs
 		/// are made by the Khronos Registrar on request from implementers following the enum allocation policy.
 		/// </summary>
 		[XmlAttribute("start")]
-		public String Start;
+		public string Start;
 
 		/// <summary>
 		/// Integers defining the start and end of a reserved range of enumerants for a particular vendor or purpose.
@@ -66,19 +77,19 @@ namespace BindingsGen.GLSpecs
 		/// are made by the Khronos Registrar on request from implementers following the enum allocation policy.
 		/// </summary>
 		[XmlAttribute("end")]
-		public String End;
+		public string End;
 
 		/// <summary>
 		/// A string describing the vendor or purposes to whom a reserved range of enumerants is allocated.
 		/// </summary>
 		[XmlAttribute("vendor")]
-		public String Vendor;
+		public string Vendor;
 		
 		/// <summary>
 		/// Arbitrary string.
 		/// </summary>
 		[XmlAttribute("comment")]
-		public String Comment;
+		public string Comment;
 
 		/// <summary>
 		/// Enumerants belonging to this block.

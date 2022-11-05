@@ -266,6 +266,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ARB_depth_clamp", Api = "gl|glcore")]
 		[RequiredByFeature("GL_NV_depth_clamp")]
+		[RequiredByFeature("GL_EXT_depth_clamp", Api = "gles2")]
 		public const int DEPTH_CLAMP = 0x864F;
 
 		/// <summary>
@@ -928,6 +929,47 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// [GL4] glMultiDrawElementsBaseVertex: render multiple sets of primitives by specifying indices of array data elements and 
+		/// an index to apply to each index
+		/// </summary>
+		/// <param name="mode">
+		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
+		/// Gl.LINE_STRIP_ADJACENCY, Gl.LINES_ADJACENCY, Gl.TRIANGLE_STRIP, Gl.TRIANGLE_FAN, Gl.TRIANGLES, 
+		/// Gl.TRIANGLE_STRIP_ADJACENCY, Gl.TRIANGLES_ADJACENCY and Gl.PATCHES are accepted.
+		/// </param>
+		/// <param name="count">
+		/// Points to an array of the elements counts.
+		/// </param>
+		/// <param name="type">
+		/// Specifies the type of the values in <paramref name="indices"/>. Must be one of Gl.UNSIGNED_BYTE, Gl.UNSIGNED_SHORT, or 
+		/// Gl.UNSIGNED_INT.
+		/// </param>
+		/// <param name="indices">
+		/// Specifies a pointer to the location where the indices are stored.
+		/// </param>
+		/// <param name="basevertex">
+		/// Specifies a pointer to the location where the base vertices are stored.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_2")]
+		[RequiredByFeature("GL_ARB_draw_elements_base_vertex", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_draw_elements_base_vertex", Api = "gles2")]
+		[RequiredByFeature("GL_OES_draw_elements_base_vertex", Api = "gles2")]
+		public static void MultiDrawElementsBaseVertex(PrimitiveType mode, int[] count, DrawElementsType type, IntPtr[] indices, int[] basevertex)
+		{
+			unsafe {
+				fixed (int* p_count = count)
+				fixed (IntPtr* p_indices = indices)
+				fixed (int* p_basevertex = basevertex)
+				{
+					Debug.Assert(Delegates.pglMultiDrawElementsBaseVertex != null, "pglMultiDrawElementsBaseVertex not implemented");
+					Delegates.pglMultiDrawElementsBaseVertex((int)mode, p_count, (int)type, p_indices, count.Length, p_basevertex);
+					LogCommand("glMultiDrawElementsBaseVertex", null, mode, count, type, indices, count.Length, basevertex					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// [GL4] glProvokingVertex: specifiy the vertex to be used as the source of data for flat shaded varyings
 		/// </summary>
 		/// <param name="provokeMode">
@@ -962,12 +1004,12 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
 		[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
-		public static int FenceSync(SyncCondition condition, uint flags)
+		public static int FenceSync(SyncCondition condition, SyncBehaviorFlags flags)
 		{
 			int retValue;
 
 			Debug.Assert(Delegates.pglFenceSync != null, "pglFenceSync not implemented");
-			retValue = Delegates.pglFenceSync((int)condition, flags);
+			retValue = Delegates.pglFenceSync((int)condition, (uint)flags);
 			LogCommand("glFenceSync", retValue, condition, flags			);
 			DebugCheckErrors(retValue);
 
@@ -1068,10 +1110,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
 		[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
-		public static void WaitSync(int sync, uint flags, ulong timeout)
+		public static void WaitSync(int sync, SyncBehaviorFlags flags, ulong timeout)
 		{
 			Debug.Assert(Delegates.pglWaitSync != null, "pglWaitSync not implemented");
-			Delegates.pglWaitSync(sync, flags, timeout);
+			Delegates.pglWaitSync(sync, (uint)flags, timeout);
 			LogCommand("glWaitSync", null, sync, flags, timeout			);
 			DebugCheckErrors(null);
 		}
@@ -1092,6 +1134,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
 		[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 		public static void Get(int pname, [Out] long[] data)
 		{
 			unsafe {
@@ -1121,6 +1164,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
 		[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 		public static void Get(GetPName pname, [Out] long[] data)
 		{
 			unsafe {
@@ -1150,6 +1194,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
 		[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 		public static void Get(int pname, out long data)
 		{
 			unsafe {
@@ -1179,6 +1224,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
 		[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 		public static void Get(GetPName pname, out long data)
 		{
 			unsafe {
@@ -1208,6 +1254,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
 		[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 		public static unsafe void Get(GetPName pname, [Out] long* data)
 		{
 			Debug.Assert(Delegates.pglGetInteger64v != null, "pglGetInteger64v not implemented");
@@ -1232,6 +1279,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
 		[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 		public static void GetInteger64<T>(GetPName pname, out T data) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetInteger64v != null, "pglGetInteger64v not implemented");
@@ -1268,8 +1316,8 @@ namespace OpenGL
 		/// <param name="pname">
 		/// Specifies the parameter whose value to retrieve from the sync object specified in <paramref name="sync"/>.
 		/// </param>
-		/// <param name="bufSize">
-		/// Specifies the size of the buffer whose address is given in <paramref name="values"/>.
+		/// <param name="count">
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="length">
 		/// Specifies the address of an variable to receive the number of integers placed in <paramref name="values"/>.
@@ -1281,15 +1329,15 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
 		[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
-		public static void GetSync(int sync, SyncParameterName pname, int bufSize, out int length, [Out] int[] values)
+		public static void GetSync(int sync, SyncParameterName pname, int count, out int length, [Out] int[] values)
 		{
 			unsafe {
 				fixed (int* p_length = &length)
 				fixed (int* p_values = values)
 				{
 					Debug.Assert(Delegates.pglGetSynciv != null, "pglGetSynciv not implemented");
-					Delegates.pglGetSynciv(sync, (int)pname, bufSize, p_length, p_values);
-					LogCommand("glGetSynciv", null, sync, pname, bufSize, length, values					);
+					Delegates.pglGetSynciv(sync, (int)pname, count, p_length, p_values);
+					LogCommand("glGetSynciv", null, sync, pname, count, length, values					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1534,13 +1582,13 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-		public static void GetBufferParameter(BufferTarget target, int value, [Out] long[] data)
+		public static void GetBufferParameter(BufferTarget target, BufferPNameARB value, [Out] long[] data)
 		{
 			unsafe {
 				fixed (long* p_params = data)
 				{
 					Debug.Assert(Delegates.pglGetBufferParameteri64v != null, "pglGetBufferParameteri64v not implemented");
-					Delegates.pglGetBufferParameteri64v((int)target, value, p_params);
+					Delegates.pglGetBufferParameteri64v((int)target, (int)value, p_params);
 					LogCommand("glGetBufferParameteri64v", null, target, value, data					);
 				}
 			}
@@ -1669,13 +1717,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_multisample", Api = "gl|glcore")]
 		[RequiredByFeature("GL_NV_explicit_multisample")]
-		public static void GetMultisample(int pname, uint index, [Out] float[] val)
+		public static void GetMultisample(GetMultisamplePNameNV pname, uint index, [Out] float[] val)
 		{
 			unsafe {
 				fixed (float* p_val = val)
 				{
 					Debug.Assert(Delegates.pglGetMultisamplefv != null, "pglGetMultisamplefv not implemented");
-					Delegates.pglGetMultisamplefv(pname, index, p_val);
+					Delegates.pglGetMultisamplefv((int)pname, index, p_val);
 					LogCommand("glGetMultisamplefv", null, pname, index, val					);
 				}
 			}
@@ -1855,6 +1903,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
 			[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetInteger64v(int pname, long* data);
 
@@ -1862,6 +1911,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2", EntryPoint = "glGetInteger64vAPPLE")]
 			[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
+			[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2", EntryPoint = "glGetInteger64vEXT")]
 			[ThreadStatic]
 			internal static glGetInteger64v pglGetInteger64v;
 
@@ -1870,7 +1920,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_APPLE_sync", Api = "gles1|gles2")]
 			[RequiredByFeature("GL_ARB_sync", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity]
-			internal delegate void glGetSynciv(int sync, int pname, int bufSize, int* length, int* values);
+			internal delegate void glGetSynciv(int sync, int pname, int count, int* length, int* values);
 
 			[RequiredByFeature("GL_VERSION_3_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]

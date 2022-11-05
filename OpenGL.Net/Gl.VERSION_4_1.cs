@@ -504,8 +504,8 @@ namespace OpenGL
 		/// <param name="shaders">
 		/// Specifies the address of an array of shader handles into which to load pre-compiled shader binaries.
 		/// </param>
-		/// <param name="binaryformat">
-		/// A <see cref="T:int"/>.
+		/// <param name="binaryFormat">
+		/// Specifies the format of the shader binaries contained in <paramref name="binary"/>.
 		/// </param>
 		/// <param name="binary">
 		/// Specifies the address of an array of bytes containing pre-compiled binary shader code.
@@ -516,14 +516,14 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility", Api = "gl|glcore")]
-		public static void ShaderBinary(int count, uint[] shaders, int binaryformat, IntPtr binary, int length)
+		public static void ShaderBinary(int count, uint[] shaders, ShaderBinaryFormat binaryFormat, IntPtr binary, int length)
 		{
 			unsafe {
 				fixed (uint* p_shaders = shaders)
 				{
 					Debug.Assert(Delegates.pglShaderBinary != null, "pglShaderBinary not implemented");
-					Delegates.pglShaderBinary(count, p_shaders, binaryformat, binary, length);
-					LogCommand("glShaderBinary", null, count, shaders, binaryformat, binary, length					);
+					Delegates.pglShaderBinary(count, p_shaders, (int)binaryFormat, binary, length);
+					LogCommand("glShaderBinary", null, count, shaders, binaryFormat, binary, length					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -540,8 +540,8 @@ namespace OpenGL
 		/// <param name="shaders">
 		/// Specifies the address of an array of shader handles into which to load pre-compiled shader binaries.
 		/// </param>
-		/// <param name="binaryformat">
-		/// A <see cref="T:int"/>.
+		/// <param name="binaryFormat">
+		/// Specifies the format of the shader binaries contained in <paramref name="binary"/>.
 		/// </param>
 		/// <param name="binary">
 		/// Specifies the address of an array of bytes containing pre-compiled binary shader code.
@@ -552,11 +552,47 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility", Api = "gl|glcore")]
-		public static void ShaderBinary(int count, uint[] shaders, int binaryformat, object binary, int length)
+		public static void ShaderBinary(int count, uint[] shaders, int binaryFormat, IntPtr binary, int length)
+		{
+			unsafe {
+				fixed (uint* p_shaders = shaders)
+				{
+					Debug.Assert(Delegates.pglShaderBinary != null, "pglShaderBinary not implemented");
+					Delegates.pglShaderBinary(count, p_shaders, binaryFormat, binary, length);
+					LogCommand("glShaderBinary", null, count, shaders, binaryFormat, binary, length					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glShaderBinary: load pre-compiled shader binaries
+		/// </para>
+		/// </summary>
+		/// <param name="count">
+		/// Specifies the number of shader object handles contained in <paramref name="shaders"/>.
+		/// </param>
+		/// <param name="shaders">
+		/// Specifies the address of an array of shader handles into which to load pre-compiled shader binaries.
+		/// </param>
+		/// <param name="binaryFormat">
+		/// Specifies the format of the shader binaries contained in <paramref name="binary"/>.
+		/// </param>
+		/// <param name="binary">
+		/// Specifies the address of an array of bytes containing pre-compiled binary shader code.
+		/// </param>
+		/// <param name="length">
+		/// Specifies the length of the array whose address is given in <paramref name="binary"/>.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_ES2_compatibility", Api = "gl|glcore")]
+		public static void ShaderBinary(int count, uint[] shaders, ShaderBinaryFormat binaryFormat, object binary, int length)
 		{
 			GCHandle pin_binary = GCHandle.Alloc(binary, GCHandleType.Pinned);
 			try {
-				ShaderBinary(count, shaders, binaryformat, pin_binary.AddrOfPinnedObject(), length);
+				ShaderBinary(count, shaders, binaryFormat, pin_binary.AddrOfPinnedObject(), length);
 			} finally {
 				pin_binary.Free();
 			}
@@ -570,8 +606,8 @@ namespace OpenGL
 		/// <param name="shaders">
 		/// Specifies the address of an array of shader handles into which to load pre-compiled shader binaries.
 		/// </param>
-		/// <param name="binaryformat">
-		/// A <see cref="T:int"/>.
+		/// <param name="binaryFormat">
+		/// Specifies the format of the shader binaries contained in <paramref name="binary"/>.
 		/// </param>
 		/// <param name="binary">
 		/// Specifies the address of an array of bytes containing pre-compiled binary shader code.
@@ -582,14 +618,14 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_ES2_compatibility", Api = "gl|glcore")]
-		public static void ShaderBinary(uint[] shaders, int binaryformat, IntPtr binary, int length)
+		public static void ShaderBinary(uint[] shaders, ShaderBinaryFormat binaryFormat, IntPtr binary, int length)
 		{
 			unsafe {
 				fixed (uint* p_shaders = shaders)
 				{
 					Debug.Assert(Delegates.pglShaderBinary != null, "pglShaderBinary not implemented");
-					Delegates.pglShaderBinary(shaders.Length, p_shaders, binaryformat, binary, length);
-					LogCommand("glShaderBinary", null, shaders.Length, shaders, binaryformat, binary, length					);
+					Delegates.pglShaderBinary(shaders.Length, p_shaders, (int)binaryFormat, binary, length);
+					LogCommand("glShaderBinary", null, shaders.Length, shaders, binaryFormat, binary, length					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -3645,7 +3681,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniformMatrix4(uint program, int location, bool transpose, float[] value)
 		{
 			Debug.Assert(value.Length > 0 && (value.Length % 16) == 0, "empty or not multiple of 16");
@@ -3687,7 +3722,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static unsafe void ProgramUniformMatrix4(uint program, int location, int count, bool transpose, float* value)
 		{
 			Debug.Assert(Delegates.pglProgramUniformMatrix4fv != null, "pglProgramUniformMatrix4fv not implemented");
@@ -3722,7 +3756,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 		public static void ProgramUniformMatrix4f<T>(uint program, int location, int count, bool transpose, T value) where T : struct
 		{
@@ -5934,7 +5967,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_vertex_attrib_64bit")]
-		public static void VertexAttribLPointer(uint index, int size, VertexAttribType type, int stride, IntPtr pointer)
+		public static void VertexAttribLPointer(uint index, int size, VertexAttribLType type, int stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglVertexAttribLPointer != null, "pglVertexAttribLPointer not implemented");
 			Delegates.pglVertexAttribLPointer(index, size, (int)type, stride, pointer);
@@ -5971,7 +6004,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_1")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_64bit", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_vertex_attrib_64bit")]
-		public static void VertexAttribLPointer(uint index, int size, VertexAttribType type, int stride, object pointer)
+		public static void VertexAttribLPointer(uint index, int size, VertexAttribLType type, int stride, object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -6640,7 +6673,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_ES2_compatibility", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity]
-			internal delegate void glShaderBinary(int count, uint* shaders, int binaryformat, IntPtr binary, int length);
+			internal delegate void glShaderBinary(int count, uint* shaders, int binaryFormat, IntPtr binary, int length);
 
 			[RequiredByFeature("GL_VERSION_4_1")]
 			[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
@@ -7346,7 +7379,6 @@ namespace OpenGL
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glProgramUniformMatrix4fv(uint program, int location, int count, [MarshalAs(UnmanagedType.I1)] bool transpose, float* value);
 
@@ -7354,7 +7386,6 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_separate_shader_objects", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_direct_state_access", Api = "gl|glcore", EntryPoint = "glProgramUniformMatrix4fvEXT")]
-			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2", EntryPoint = "glProgramUniformMatrix4fvEXT")]
 			[RequiredByFeature("GL_EXT_separate_shader_objects", Api = "gles2", EntryPoint = "glProgramUniformMatrix4fvEXT")]
 			[ThreadStatic]
 			internal static glProgramUniformMatrix4fv pglProgramUniformMatrix4fv;

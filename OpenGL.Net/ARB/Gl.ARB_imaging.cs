@@ -43,48 +43,6 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// <para>
-		/// [GL2.1] Gl.Enable: If enabled, perform a 1D convolution operation on incoming RGBA color values. See 
-		/// Gl.ConvolutionFilter1D.
-		/// </para>
-		/// <para>
-		/// [GL2.1] Gl.Get: params returns a single boolean value indicating whether 1D convolution is enabled. The initial value is 
-		/// Gl.FALSE. See Gl.ConvolutionFilter1D.
-		/// </para>
-		/// </summary>
-		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_convolution")]
-		public const int CONVOLUTION_1D = 0x8010;
-
-		/// <summary>
-		/// <para>
-		/// [GL2.1] Gl.Enable: If enabled, perform a 2D convolution operation on incoming RGBA color values. See 
-		/// Gl.ConvolutionFilter2D.
-		/// </para>
-		/// <para>
-		/// [GL2.1] Gl.Get: params returns a single boolean value indicating whether 2D convolution is enabled. The initial value is 
-		/// Gl.FALSE. See Gl.ConvolutionFilter2D.
-		/// </para>
-		/// </summary>
-		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_convolution")]
-		public const int CONVOLUTION_2D = 0x8011;
-
-		/// <summary>
-		/// <para>
-		/// [GL2.1] Gl.Enable: If enabled, perform a two-dimensional convolution operation using a separable convolution filter on 
-		/// incoming RGBA color values. See Gl.SeparableFilter2D.
-		/// </para>
-		/// <para>
-		/// [GL2.1] Gl.Get: params returns a single boolean value indicating whether 2D separable convolution is enabled. The 
-		/// initial value is Gl.FALSE. See Gl.SeparableFilter2D.
-		/// </para>
-		/// </summary>
-		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_convolution")]
-		public const int SEPARABLE_2D = 0x8012;
-
-		/// <summary>
 		/// [GL2.1] Gl.GetConvolutionParameter: The convolution border mode. See Gl.ConvolutionParameter for a list of border modes.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -219,26 +177,6 @@ namespace OpenGL
 		public const int POST_CONVOLUTION_ALPHA_BIAS = 0x8023;
 
 		/// <summary>
-		/// <para>
-		/// [GL2.1] Gl.Enable: If enabled, histogram incoming RGBA color values. See Gl.Histogram.
-		/// </para>
-		/// <para>
-		/// [GL2.1] Gl.Get: params returns a single boolean value indicating whether histogram is enabled. The initial value is 
-		/// Gl.FALSE. See Gl.Histogram.
-		/// </para>
-		/// </summary>
-		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_histogram")]
-		public const int HISTOGRAM = 0x8024;
-
-		/// <summary>
-		/// [GL] Value of GL_PROXY_HISTOGRAM symbol.
-		/// </summary>
-		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_histogram")]
-		public const int PROXY_HISTOGRAM = 0x8025;
-
-		/// <summary>
 		/// [GL] Value of GL_HISTOGRAM_WIDTH symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
@@ -293,19 +231,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_histogram")]
 		public const int HISTOGRAM_SINK = 0x802D;
-
-		/// <summary>
-		/// <para>
-		/// [GL2.1] Gl.Enable: If enabled, compute the minimum and maximum values of incoming RGBA color values. See Gl.Minmax.
-		/// </para>
-		/// <para>
-		/// [GL2.1] Gl.Get: params returns a single boolean value indicating whether pixel minmax values are computed. The initial 
-		/// value is Gl.FALSE. See Gl.Minmax.
-		/// </para>
-		/// </summary>
-		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_histogram")]
-		public const int MINMAX = 0x802E;
 
 		/// <summary>
 		/// [GL] Value of GL_MINMAX_FORMAT symbol.
@@ -416,67 +341,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 		[RequiredByFeature("GL_SGI_color_matrix")]
 		public const int POST_COLOR_MATRIX_ALPHA_BIAS = 0x80BB;
-
-		/// <summary>
-		/// <para>
-		/// [GL2.1] Gl.Enable: If enabled, perform a color table lookup on the incoming RGBA color values. See Gl.ColorTable.
-		/// </para>
-		/// <para>
-		/// [GL2.1] Gl.Get: params returns a single boolean value indicating whether the color table lookup is enabled. See 
-		/// Gl.ColorTable.
-		/// </para>
-		/// </summary>
-		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
-		[RequiredByFeature("GL_SGI_color_table")]
-		public const int COLOR_TABLE = 0x80D0;
-
-		/// <summary>
-		/// <para>
-		/// [GL2.1] Gl.Enable: If enabled, perform a color table lookup on RGBA color values after convolution. See Gl.ColorTable.
-		/// </para>
-		/// <para>
-		/// [GL2.1] Gl.Get: params returns a single boolean value indicating whether post convolution lookup is enabled. The initial 
-		/// value is Gl.FALSE. See Gl.ColorTable.
-		/// </para>
-		/// </summary>
-		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
-		[RequiredByFeature("GL_SGI_color_table")]
-		public const int POST_CONVOLUTION_COLOR_TABLE = 0x80D1;
-
-		/// <summary>
-		/// <para>
-		/// [GL2.1] Gl.Enable: If enabled, perform a color table lookup on RGBA color values after color matrix transformation. See 
-		/// Gl.ColorTable.
-		/// </para>
-		/// <para>
-		/// [GL2.1] Gl.Get: params returns a single boolean value indicating whether post color matrix transformation lookup is 
-		/// enabled. The initial value is Gl.FALSE. See Gl.ColorTable.
-		/// </para>
-		/// </summary>
-		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
-		[RequiredByFeature("GL_SGI_color_table")]
-		public const int POST_COLOR_MATRIX_COLOR_TABLE = 0x80D2;
-
-		/// <summary>
-		/// [GL] Value of GL_PROXY_COLOR_TABLE symbol.
-		/// </summary>
-		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
-		[RequiredByFeature("GL_SGI_color_table")]
-		public const int PROXY_COLOR_TABLE = 0x80D3;
-
-		/// <summary>
-		/// [GL] Value of GL_PROXY_POST_CONVOLUTION_COLOR_TABLE symbol.
-		/// </summary>
-		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
-		[RequiredByFeature("GL_SGI_color_table")]
-		public const int PROXY_POST_CONVOLUTION_COLOR_TABLE = 0x80D4;
-
-		/// <summary>
-		/// [GL] Value of GL_PROXY_POST_COLOR_MATRIX_COLOR_TABLE symbol.
-		/// </summary>
-		[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
-		[RequiredByFeature("GL_SGI_color_table")]
-		public const int PROXY_POST_COLOR_MATRIX_COLOR_TABLE = 0x80D5;
 
 		/// <summary>
 		/// [GL] Value of GL_COLOR_TABLE_SCALE symbol.
@@ -827,7 +691,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_paletted_texture")]
-		public static void GetColorTableParameter(ColorTableTarget target, GetColorTableParameterPNameSGI pname, [Out] float[] @params)
+		public static void GetColorTableParameter(ColorTableTarget target, ColorTableParameterPName pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -857,7 +721,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_paletted_texture")]
-		public static void GetColorTableParameter(ColorTableTarget target, GetColorTableParameterPNameSGI pname, [Out] int[] @params)
+		public static void GetColorTableParameter(ColorTableTarget target, ColorTableParameterPName pname, [Out] int[] @params)
 		{
 			unsafe {
 				fixed (int* p_params = @params)
@@ -1160,7 +1024,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_convolution")]
-		public static void ConvolutionParameter(ConvolutionTarget target, ConvolutionParameterEXT pname, float @params)
+		public static void ConvolutionParameter(ConvolutionTarget target, ConvolutionParameter pname, float @params)
 		{
 			Debug.Assert(Delegates.pglConvolutionParameterf != null, "pglConvolutionParameterf not implemented");
 			Delegates.pglConvolutionParameterf((int)target, (int)pname, @params);
@@ -1182,7 +1046,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_convolution")]
-		public static void ConvolutionParameter(ConvolutionTarget target, ConvolutionParameterEXT pname, float[] @params)
+		public static void ConvolutionParameter(ConvolutionTarget target, ConvolutionParameter pname, float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -1209,7 +1073,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_convolution")]
-		public static void ConvolutionParameter(ConvolutionTarget target, ConvolutionParameterEXT pname, int @params)
+		public static void ConvolutionParameter(ConvolutionTarget target, ConvolutionParameter pname, int @params)
 		{
 			Debug.Assert(Delegates.pglConvolutionParameteri != null, "pglConvolutionParameteri not implemented");
 			Delegates.pglConvolutionParameteri((int)target, (int)pname, @params);
@@ -1231,7 +1095,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_convolution")]
-		public static void ConvolutionParameter(ConvolutionTarget target, ConvolutionParameterEXT pname, int[] @params)
+		public static void ConvolutionParameter(ConvolutionTarget target, ConvolutionParameter pname, int[] @params)
 		{
 			unsafe {
 				fixed (int* p_params = @params)
@@ -1389,7 +1253,7 @@ namespace OpenGL
 		/// Pointer to storage for the parameters to be retrieved.
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-		public static void GetConvolutionParameter(ConvolutionTarget target, ConvolutionParameterEXT pname, [Out] float[] @params)
+		public static void GetConvolutionParameter(ConvolutionTarget target, ConvolutionParameter pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -1418,7 +1282,7 @@ namespace OpenGL
 		/// Pointer to storage for the parameters to be retrieved.
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-		public static void GetConvolutionParameter(ConvolutionTarget target, ConvolutionParameterEXT pname, [Out] int[] @params)
+		public static void GetConvolutionParameter(ConvolutionTarget target, ConvolutionParameter pname, [Out] int[] @params)
 		{
 			unsafe {
 				fixed (int* p_params = @params)
@@ -1458,7 +1322,7 @@ namespace OpenGL
 		/// Pointer to storage for the span filter image (currently unused).
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-		public static void GetSeparableFilter(SeparableTarget target, PixelFormat format, PixelType type, IntPtr row, IntPtr column, IntPtr span)
+		public static void GetSeparableFilter(SeparableTargetEXT target, PixelFormat format, PixelType type, IntPtr row, IntPtr column, IntPtr span)
 		{
 			Debug.Assert(Delegates.pglGetSeparableFilter != null, "pglGetSeparableFilter not implemented");
 			Delegates.pglGetSeparableFilter((int)target, (int)format, (int)type, row, column, span);
@@ -1493,7 +1357,7 @@ namespace OpenGL
 		/// Pointer to storage for the span filter image (currently unused).
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-		public static void GetSeparableFilter(SeparableTarget target, PixelFormat format, PixelType type, object row, object column, object span)
+		public static void GetSeparableFilter(SeparableTargetEXT target, PixelFormat format, PixelType type, object row, object column, object span)
 		{
 			GCHandle pin_row = GCHandle.Alloc(row, GCHandleType.Pinned);
 			GCHandle pin_column = GCHandle.Alloc(column, GCHandleType.Pinned);
@@ -1548,7 +1412,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_convolution")]
-		public static void SeparableFilter2D(SeparableTarget target, InternalFormat internalformat, int width, int height, PixelFormat format, PixelType type, IntPtr row, IntPtr column)
+		public static void SeparableFilter2D(SeparableTargetEXT target, InternalFormat internalformat, int width, int height, PixelFormat format, PixelType type, IntPtr row, IntPtr column)
 		{
 			Debug.Assert(Delegates.pglSeparableFilter2D != null, "pglSeparableFilter2D not implemented");
 			Delegates.pglSeparableFilter2D((int)target, (int)internalformat, width, height, (int)format, (int)type, row, column);
@@ -1597,7 +1461,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_convolution")]
-		public static void SeparableFilter2D(SeparableTarget target, InternalFormat internalformat, int width, int height, PixelFormat format, PixelType type, object row, object column)
+		public static void SeparableFilter2D(SeparableTargetEXT target, InternalFormat internalformat, int width, int height, PixelFormat format, PixelType type, object row, object column)
 		{
 			GCHandle pin_row = GCHandle.Alloc(row, GCHandleType.Pinned);
 			GCHandle pin_column = GCHandle.Alloc(column, GCHandleType.Pinned);
@@ -1634,7 +1498,7 @@ namespace OpenGL
 		/// A pointer to storage for the returned histogram table.
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-		public static void GetHistogram(HistogramTarget target, bool reset, PixelFormat format, PixelType type, IntPtr values)
+		public static void GetHistogram(HistogramTargetEXT target, bool reset, PixelFormat format, PixelType type, IntPtr values)
 		{
 			Debug.Assert(Delegates.pglGetHistogram != null, "pglGetHistogram not implemented");
 			Delegates.pglGetHistogram((int)target, reset, (int)format, (int)type, values);
@@ -1667,7 +1531,7 @@ namespace OpenGL
 		/// A pointer to storage for the returned histogram table.
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-		public static void GetHistogram(HistogramTarget target, bool reset, PixelFormat format, PixelType type, object values)
+		public static void GetHistogram(HistogramTargetEXT target, bool reset, PixelFormat format, PixelType type, object values)
 		{
 			GCHandle pin_values = GCHandle.Alloc(values, GCHandleType.Pinned);
 			try {
@@ -1692,7 +1556,7 @@ namespace OpenGL
 		/// Pointer to storage for the returned values.
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-		public static void GetHistogramParameter(HistogramTarget target, GetHistogramParameterPName pname, [Out] float[] @params)
+		public static void GetHistogramParameter(HistogramTargetEXT target, GetHistogramParameterPNameEXT pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -1720,7 +1584,7 @@ namespace OpenGL
 		/// Pointer to storage for the returned values.
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-		public static void GetHistogramParameter(HistogramTarget target, GetHistogramParameterPName pname, [Out] int[] @params)
+		public static void GetHistogramParameter(HistogramTargetEXT target, GetHistogramParameterPNameEXT pname, [Out] int[] @params)
 		{
 			unsafe {
 				fixed (int* p_params = @params)
@@ -1754,7 +1618,7 @@ namespace OpenGL
 		/// A pointer to storage for the returned values.
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-		public static void GetMinmax(MinmaxTarget target, bool reset, PixelFormat format, PixelType type, IntPtr values)
+		public static void GetMinmax(MinmaxTargetEXT target, bool reset, PixelFormat format, PixelType type, IntPtr values)
 		{
 			Debug.Assert(Delegates.pglGetMinmax != null, "pglGetMinmax not implemented");
 			Delegates.pglGetMinmax((int)target, reset, (int)format, (int)type, values);
@@ -1783,7 +1647,7 @@ namespace OpenGL
 		/// A pointer to storage for the returned values.
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-		public static void GetMinmax(MinmaxTarget target, bool reset, PixelFormat format, PixelType type, object values)
+		public static void GetMinmax(MinmaxTargetEXT target, bool reset, PixelFormat format, PixelType type, object values)
 		{
 			GCHandle pin_values = GCHandle.Alloc(values, GCHandleType.Pinned);
 			try {
@@ -1806,7 +1670,7 @@ namespace OpenGL
 		/// A pointer to storage for the retrieved parameters.
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-		public static void GetMinmaxParameter(MinmaxTarget target, GetMinmaxParameterPName pname, [Out] float[] @params)
+		public static void GetMinmaxParameter(MinmaxTargetEXT target, GetMinmaxParameterPNameEXT pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -1832,7 +1696,7 @@ namespace OpenGL
 		/// A pointer to storage for the retrieved parameters.
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
-		public static void GetMinmaxParameter(MinmaxTarget target, GetMinmaxParameterPName pname, [Out] int[] @params)
+		public static void GetMinmaxParameter(MinmaxTargetEXT target, GetMinmaxParameterPNameEXT pname, [Out] int[] @params)
 		{
 			unsafe {
 				fixed (int* p_params = @params)
@@ -1867,7 +1731,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_histogram")]
-		public static void Histogram(HistogramTarget target, int width, InternalFormat internalformat, bool sink)
+		public static void Histogram(HistogramTargetEXT target, int width, InternalFormat internalformat, bool sink)
 		{
 			Debug.Assert(Delegates.pglHistogram != null, "pglHistogram not implemented");
 			Delegates.pglHistogram((int)target, width, (int)internalformat, sink);
@@ -1894,7 +1758,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_histogram")]
-		public static void Minmax(MinmaxTarget target, InternalFormat internalformat, bool sink)
+		public static void Minmax(MinmaxTargetEXT target, InternalFormat internalformat, bool sink)
 		{
 			Debug.Assert(Delegates.pglMinmax != null, "pglMinmax not implemented");
 			Delegates.pglMinmax((int)target, (int)internalformat, sink);
@@ -1910,7 +1774,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_histogram")]
-		public static void ResetHistogram(HistogramTarget target)
+		public static void ResetHistogram(HistogramTargetEXT target)
 		{
 			Debug.Assert(Delegates.pglResetHistogram != null, "pglResetHistogram not implemented");
 			Delegates.pglResetHistogram((int)target);
@@ -1926,7 +1790,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 		[RequiredByFeature("GL_EXT_histogram")]
-		public static void ResetMinmax(MinmaxTarget target)
+		public static void ResetMinmax(MinmaxTargetEXT target)
 		{
 			Debug.Assert(Delegates.pglResetMinmax != null, "pglResetMinmax not implemented");
 			Delegates.pglResetMinmax((int)target);

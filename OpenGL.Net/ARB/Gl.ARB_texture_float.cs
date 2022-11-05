@@ -46,7 +46,7 @@ namespace OpenGL
 		/// [GL] Value of GL_ALPHA32F_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_texture_float")]
-		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2|gl|glcore")]
 		public const int ALPHA32F_ARB = 0x8816;
 
 		/// <summary>
@@ -59,21 +59,21 @@ namespace OpenGL
 		/// [GL] Value of GL_LUMINANCE32F_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_texture_float")]
-		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2|gl|glcore")]
 		public const int LUMINANCE32F_ARB = 0x8818;
 
 		/// <summary>
 		/// [GL] Value of GL_LUMINANCE_ALPHA32F_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_texture_float")]
-		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2|gl|glcore")]
 		public const int LUMINANCE_ALPHA32F_ARB = 0x8819;
 
 		/// <summary>
 		/// [GL] Value of GL_ALPHA16F_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_texture_float")]
-		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2|gl|glcore")]
 		public const int ALPHA16F_ARB = 0x881C;
 
 		/// <summary>
@@ -86,14 +86,14 @@ namespace OpenGL
 		/// [GL] Value of GL_LUMINANCE16F_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_texture_float")]
-		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2|gl|glcore")]
 		public const int LUMINANCE16F_ARB = 0x881E;
 
 		/// <summary>
 		/// [GL] Value of GL_LUMINANCE_ALPHA16F_ARB symbol.
 		/// </summary>
 		[RequiredByFeature("GL_ARB_texture_float")]
-		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2|gl|glcore")]
 		public const int LUMINANCE_ALPHA16F_ARB = 0x881F;
 
 	}

@@ -80,6 +80,31 @@
     <param name="buffer" />
     <param name="offset" />
   </command>
+  <command name="glAsyncCopyImageSubDataNVX">
+    <param name="waitSemaphoreCount" />
+    <param name="waitSemaphoreArray" />
+    <param name="waitValueArray" />
+    <param name="srcGpu" />
+    <param name="dstGpuMask" />
+    <param name="srcName" />
+    <param name="srcTarget" flags="enum" />
+    <param name="srcLevel" />
+    <param name="srcX" />
+    <param name="srcY" />
+    <param name="srcZ" />
+    <param name="dstName" />
+    <param name="dstTarget" flags="enum" />
+    <param name="dstLevel" />
+    <param name="dstX" />
+    <param name="dstY" />
+    <param name="dstZ" />
+    <param name="srcWidth" />
+    <param name="srcHeight" />
+    <param name="srcDepth" />
+    <param name="signalSemaphoreCount" />
+    <param name="signalSemaphoreArray" />
+    <param name="signalValueArray" />
+  </command>
   <command name="glBegin">
     <param name="mode" flags="enum" />
   </command>
@@ -384,10 +409,10 @@
     <param name="dfactorAlpha" flags="enum" />
   </command>
   <command name="glBlendFuncSeparateINGR">
-    <param name="srcRGB" flags="enum" />
-    <param name="dstRGB" flags="enum" />
-    <param name="srcAlpha" flags="enum" />
-    <param name="dstAlpha" flags="enum" />
+    <param name="sfactorRGB" flags="enum" />
+    <param name="dfactorRGB" flags="enum" />
+    <param name="sfactorAlpha" flags="enum" />
+    <param name="dfactorAlpha" flags="enum" />
   </command>
   <command name="glBlendFuncSeparateIndexedAMD">
     <param name="buf" />
@@ -543,6 +568,14 @@
     <param name="target" flags="enum" />
     <param name="offset" />
     <param name="size" />
+    <param name="commit" />
+  </command>
+  <command name="glBufferPageCommitmentMemNV">
+    <param name="target" flags="enum" />
+    <param name="offset" />
+    <param name="size" />
+    <param name="memory" />
+    <param name="memOffset" />
     <param name="commit" />
   </command>
   <command name="glBufferParameteriAPPLE">
@@ -2665,6 +2698,15 @@
     <param name="pixelindex" />
     <param name="values" />
   </command>
+  <command name="glFramebufferShadingRateEXT">
+    <param name="target" flags="enum" />
+    <param name="attachment" flags="enum" />
+    <param name="texture" />
+    <param name="baseLayer" />
+    <param name="numLayers" />
+    <param name="texelWidth" />
+    <param name="texelHeight" />
+  </command>
   <command name="glFramebufferTexture">
     <param name="target" flags="enum" />
     <param name="attachment" flags="enum" />
@@ -2893,7 +2935,7 @@
     <param name="program" />
     <param name="shadertype" flags="enum" />
     <param name="index" />
-    <param name="bufsize" />
+    <param name="bufSize" />
     <param name="length" />
     <param name="name" />
   </command>
@@ -2901,7 +2943,7 @@
     <param name="program" />
     <param name="shadertype" flags="enum" />
     <param name="index" />
-    <param name="bufsize" />
+    <param name="bufSize" />
     <param name="length" />
     <param name="name" />
   </command>
@@ -3197,9 +3239,9 @@
   </command>
   <command name="glGetDebugMessageLogAMD">
     <param name="count" />
-    <param name="bufsize" />
+    <param name="bufSize" />
     <param name="categories" flags="enum" />
-    <param name="severities" />
+    <param name="severities" flags="enum" />
     <param name="ids" />
     <param name="lengths" />
     <param name="message" />
@@ -3319,6 +3361,12 @@
     <param name="pname" flags="enum" />
     <param name="params" />
   </command>
+  <command name="glGetFragmentShadingRatesEXT">
+    <param name="samples" />
+    <param name="maxCount" />
+    <param name="count" />
+    <param name="shadingRates" flags="enum" />
+  </command>
   <command name="glGetFramebufferAttachmentParameteriv">
     <param name="target" flags="enum" />
     <param name="attachment" flags="enum" />
@@ -3434,6 +3482,10 @@
     <param name="pname" flags="enum" />
     <param name="params" />
   </command>
+  <command name="glGetInteger64vEXT">
+    <param name="pname" flags="enum" />
+    <param name="data" />
+  </command>
   <command name="glGetIntegerIndexedvEXT">
     <param name="target" flags="enum" />
     <param name="index" />
@@ -3467,21 +3519,21 @@
     <param name="internalformat" flags="enum" />
     <param name="samples" />
     <param name="pname" flags="enum" />
-    <param name="bufSize" />
+    <param name="count" />
     <param name="params" />
   </command>
   <command name="glGetInternalformati64v">
     <param name="target" flags="enum" />
     <param name="internalformat" flags="enum" />
     <param name="pname" flags="enum" />
-    <param name="bufSize" />
+    <param name="count" />
     <param name="params" />
   </command>
   <command name="glGetInternalformativ">
     <param name="target" flags="enum" />
     <param name="internalformat" flags="enum" />
     <param name="pname" flags="enum" />
-    <param name="bufSize" />
+    <param name="count" />
     <param name="params" />
   </command>
   <command name="glGetInvariantBooleanvEXT">
@@ -4162,7 +4214,7 @@
     <param name="index" />
     <param name="propCount" />
     <param name="props" flags="enum" />
-    <param name="bufSize" />
+    <param name="count" />
     <param name="length" />
     <param name="params" />
   </command>
@@ -4172,7 +4224,7 @@
     <param name="index" />
     <param name="propCount" />
     <param name="props" flags="enum" />
-    <param name="bufSize" />
+    <param name="count" />
     <param name="length" />
     <param name="params" />
   </command>
@@ -4362,6 +4414,11 @@
     <param name="pname" flags="enum" />
     <param name="params" />
   </command>
+  <command name="glGetSemaphoreParameterivNV">
+    <param name="semaphore" />
+    <param name="pname" flags="enum" />
+    <param name="params" />
+  </command>
   <command name="glGetSemaphoreParameterui64vEXT">
     <param name="semaphore" />
     <param name="pname" flags="enum" />
@@ -4432,14 +4489,14 @@
   <command name="glGetSynciv">
     <param name="sync" />
     <param name="pname" flags="enum" />
-    <param name="bufSize" />
+    <param name="count" />
     <param name="length" />
     <param name="values" />
   </command>
   <command name="glGetSyncivAPPLE">
     <param name="sync" />
     <param name="pname" flags="enum" />
-    <param name="bufSize" />
+    <param name="count" />
     <param name="length" />
     <param name="values" />
   </command>
@@ -5869,7 +5926,7 @@
     <param name="count" />
     <param name="type" flags="enum" />
     <param name="indices" />
-    <param name="primcount" />
+    <param name="drawcount" />
     <param name="basevertex" />
   </command>
   <command name="glMultiDrawElementsEXT">
@@ -7654,7 +7711,7 @@
   <command name="glQueryResourceNV">
     <param name="queryType" flags="enum" />
     <param name="tagId" />
-    <param name="bufSize" />
+    <param name="count" />
     <param name="buffer" />
   </command>
   <command name="glReadBuffer">
@@ -7909,6 +7966,11 @@
     <param name="pointer" />
     <param name="ptrstride" />
   </command>
+  <command name="glSemaphoreParameterivNV">
+    <param name="semaphore" />
+    <param name="pname" flags="enum" />
+    <param name="params" />
+  </command>
   <command name="glSemaphoreParameterui64vEXT">
     <param name="semaphore" />
     <param name="pname" flags="enum" />
@@ -7959,7 +8021,7 @@
   <command name="glShaderBinary">
     <param name="count" />
     <param name="shaders" />
-    <param name="binaryformat" flags="enum" />
+    <param name="binaryFormat" flags="enum" />
     <param name="binary" />
     <param name="length" />
   </command>
@@ -7980,6 +8042,16 @@
     <param name="arg1" />
     <param name="arg2" />
     <param name="arg3" />
+  </command>
+  <command name="glShadingRateEXT">
+    <param name="rate" flags="enum" />
+  </command>
+  <command name="glShadingRateCombinerOpsEXT">
+    <param name="combinerOp0" flags="enum" />
+    <param name="combinerOp1" flags="enum" />
+  </command>
+  <command name="glShadingRateQCOM">
+    <param name="rate" flags="enum" />
   </command>
   <command name="glShadingRateImagePaletteNV">
     <param name="viewport" />
@@ -8499,6 +8571,20 @@
     <param name="depth" />
     <param name="commit" />
   </command>
+  <command name="glTexPageCommitmentMemNV">
+    <param name="target" flags="enum" />
+    <param name="layer" />
+    <param name="level" />
+    <param name="xoffset" />
+    <param name="yoffset" />
+    <param name="zoffset" />
+    <param name="width" />
+    <param name="height" />
+    <param name="depth" />
+    <param name="memory" />
+    <param name="offset" />
+    <param name="commit" />
+  </command>
   <command name="glTexParameterIiv">
     <param name="target" flags="enum" />
     <param name="pname" flags="enum" />
@@ -8640,6 +8726,23 @@
     <param name="height" />
     <param name="depth" />
     <param name="fixedsamplelocations" />
+  </command>
+  <command name="glTexStorageAttribs2DEXT">
+    <param name="target" flags="enum" />
+    <param name="levels" />
+    <param name="internalformat" flags="enum" />
+    <param name="width" />
+    <param name="height" />
+    <param name="attrib_list" />
+  </command>
+  <command name="glTexStorageAttribs3DEXT">
+    <param name="target" flags="enum" />
+    <param name="levels" />
+    <param name="internalformat" flags="enum" />
+    <param name="width" />
+    <param name="height" />
+    <param name="depth" />
+    <param name="attrib_list" />
   </command>
   <command name="glTexStorageMem1DEXT">
     <param name="target" flags="enum" />
@@ -9288,7 +9391,7 @@
   <command name="glVDPAUGetSurfaceivNV">
     <param name="surface" />
     <param name="pname" flags="enum" />
-    <param name="bufSize" />
+    <param name="count" />
     <param name="length" />
     <param name="values" />
   </command>
@@ -9303,6 +9406,13 @@
     <param name="target" flags="enum" />
     <param name="numTextureNames" />
     <param name="textureNames" />
+  </command>
+  <command name="glVDPAURegisterVideoSurfaceWithPictureStructureNV">
+    <param name="vdpSurface" />
+    <param name="target" flags="enum" />
+    <param name="numTextureNames" />
+    <param name="textureNames" />
+    <param name="isFrameStructure" />
   </command>
   <command name="glVDPAUSurfaceAccessNV">
     <param name="surface" />
@@ -9887,5 +9997,15 @@
     <param name="outY" flags="enum" />
     <param name="outZ" flags="enum" />
     <param name="outW" flags="enum" />
+  </command>
+  <command name="glFramebufferParameteriMESA">
+    <param name="target" flags="enum" />
+    <param name="pname" flags="enum" />
+    <param name="param" />
+  </command>
+  <command name="glGetFramebufferParameterivMESA">
+    <param name="target" flags="enum" />
+    <param name="pname" flags="enum" />
+    <param name="params" />
   </command>
 </KhronosLogMap>

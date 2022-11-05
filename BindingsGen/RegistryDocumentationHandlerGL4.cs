@@ -62,13 +62,13 @@ namespace BindingsGen
 		/// Translate the XHTML documentation into code documentation.
 		/// </summary>
 		/// <param name="documentation">
-		/// A <see cref="String"/> taht specifies the XHTML documentation.
+		/// A <see cref="string"/> taht specifies the XHTML documentation.
 		/// </param>
 		/// <param name="transform">
 		/// The <see cref="XslCompiledTransform"/> used to translate the XHTML documentation into code documentation.
 		/// </param>
 		/// <returns>
-		/// It returns a <see cref="T:List{String}"/> that specifies <paramref name="documentation"/> string.
+		/// It returns a <see cref="T:List{string}"/> that specifies <paramref name="documentation"/> string.
 		/// </returns>
 		private static string GetDocumentationLine(string documentation, XslCompiledTransform transform, RegistryContext ctx)
 		{
@@ -159,7 +159,7 @@ namespace BindingsGen
 		/// Loads XML documentation for processing.
 		/// </summary>
 		/// <param name="xmlPath">
-		/// A <see cref="String"/> taht specifies the path to the XML documentation file.
+		/// A <see cref="string"/> taht specifies the path to the XML documentation file.
 		/// </param>
 		public override void Load(string xmlPath)
 		{
@@ -386,7 +386,7 @@ namespace BindingsGen
 		/// The relative <see cref="Command"/>.
 		/// </param>
 		/// <returns>
-		/// It returns a <see cref="IEnumerable{String}"/> that specifies the command remarks paragraphs.
+		/// It returns a <see cref="IEnumerable{string}"/> that specifies the command remarks paragraphs.
 		/// </returns>
 		public override IEnumerable<string> QueryCommandRemarks(RegistryContext ctx, Command command)
 		{
@@ -418,7 +418,7 @@ namespace BindingsGen
 		/// The relative <see cref="Command"/>.
 		/// </param>
 		/// <returns>
-		/// It returns a <see cref="IEnumerable{String}"/> that specifies the command "get" paragraphs.
+		/// It returns a <see cref="IEnumerable{string}"/> that specifies the command "get" paragraphs.
 		/// </returns>
 		public override IEnumerable<string> QueryCommandGets(RegistryContext ctx, Command command)
 		{
@@ -447,7 +447,7 @@ namespace BindingsGen
 		/// The relative <see cref="Command"/>.
 		/// </param>
 		/// <returns>
-		/// It returns a <see cref="IEnumerable{String}"/> that specifies the command "get" paragraphs.
+		/// It returns a <see cref="IEnumerable{string}"/> that specifies the command "get" paragraphs.
 		/// </returns>
 		public override IEnumerable<string> QueryCommandErrors(RegistryContext ctx, Command command)
 		{
@@ -476,7 +476,7 @@ namespace BindingsGen
 		/// The relative <see cref="Command"/>.
 		/// </param>
 		/// <returns>
-		/// It returns a <see cref="IEnumerable{String}"/> that specifies the command "see also" references.
+		/// It returns a <see cref="IEnumerable{string}"/> that specifies the command "see also" references.
 		/// </returns>
 		public override IEnumerable<string> QueryCommandSeeAlso(RegistryContext ctx, Command command)
 		{

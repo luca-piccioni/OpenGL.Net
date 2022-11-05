@@ -43,48 +43,6 @@ namespace OpenGL
 	public partial class Gl
 	{
 		/// <summary>
-		/// [GL] Value of GL_CLIP_DISTANCE0 symbol.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_3_0")]
-		[RequiredByFeature("GL_APPLE_clip_distance", Api = "gles2")]
-		public const int CLIP_DISTANCE0 = 0x3000;
-
-		/// <summary>
-		/// [GL] Value of GL_CLIP_DISTANCE1 symbol.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_3_0")]
-		[RequiredByFeature("GL_APPLE_clip_distance", Api = "gles2")]
-		public const int CLIP_DISTANCE1 = 0x3001;
-
-		/// <summary>
-		/// [GL] Value of GL_CLIP_DISTANCE2 symbol.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_3_0")]
-		[RequiredByFeature("GL_APPLE_clip_distance", Api = "gles2")]
-		public const int CLIP_DISTANCE2 = 0x3002;
-
-		/// <summary>
-		/// [GL] Value of GL_CLIP_DISTANCE3 symbol.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_3_0")]
-		[RequiredByFeature("GL_APPLE_clip_distance", Api = "gles2")]
-		public const int CLIP_DISTANCE3 = 0x3003;
-
-		/// <summary>
-		/// [GL] Value of GL_CLIP_DISTANCE4 symbol.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_3_0")]
-		[RequiredByFeature("GL_APPLE_clip_distance", Api = "gles2")]
-		public const int CLIP_DISTANCE4 = 0x3004;
-
-		/// <summary>
-		/// [GL] Value of GL_CLIP_DISTANCE5 symbol.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_3_0")]
-		[RequiredByFeature("GL_APPLE_clip_distance", Api = "gles2")]
-		public const int CLIP_DISTANCE5 = 0x3005;
-
-		/// <summary>
 		/// [GL] Value of GL_CLIP_DISTANCE6 symbol.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_3_0")]
@@ -97,14 +55,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_APPLE_clip_distance", Api = "gles2")]
 		public const int CLIP_DISTANCE7 = 0x3007;
-
-		/// <summary>
-		/// [GL4] Gl.Get: data returns one value, the maximum number of application-defined clipping distances. The value must be at 
-		/// least 8.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_3_0")]
-		[RequiredByFeature("GL_APPLE_clip_distance", Api = "gles2")]
-		public const int MAX_CLIP_DISTANCES = 0x0D32;
 
 		/// <summary>
 		/// <para>
@@ -173,7 +123,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_float")]
-		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2|gl|glcore")]
 		public const int RGBA32F = 0x8814;
 
 		/// <summary>
@@ -183,7 +133,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_buffer_object_rgb32", Api = "gl|glcore")]
 		[RequiredByFeature("GL_ARB_texture_float")]
-		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2|gl|glcore")]
 		public const int RGB32F = 0x8815;
 
 		/// <summary>
@@ -193,7 +143,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_float")]
 		[RequiredByFeature("GL_EXT_color_buffer_half_float", Api = "gles2")]
-		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2|gl|glcore")]
 		public const int RGBA16F = 0x881A;
 
 		/// <summary>
@@ -203,7 +153,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_float")]
 		[RequiredByFeature("GL_EXT_color_buffer_half_float", Api = "gles2")]
-		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2|gl|glcore")]
 		public const int RGB16F = 0x881B;
 
 		/// <summary>
@@ -259,15 +209,6 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_color_buffer_float")]
 		public const int FIXED_ONLY = 0x891D;
-
-		/// <summary>
-		/// [GL4|GLES3.2] Gl.Get: data returns one value, the number components for varying variables, which must be at least 60.
-		/// </summary>
-		[RequiredByFeature("GL_VERSION_3_0")]
-		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
-		[RequiredByFeature("GL_ARB_geometry_shader4", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_geometry_shader4")]
-		public const int MAX_VARYING_COMPONENTS = 0x8B4B;
 
 		/// <summary>
 		/// [GL] Value of GL_TEXTURE_1D_ARRAY symbol.
@@ -933,7 +874,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_depth_buffer_float", Api = "gl|glcore")]
-		[RequiredByFeature("GL_NV_depth_buffer_float")]
+		[RequiredByFeature("GL_NV_depth_buffer_float", Api = "gl|glcore")]
 		public const int FLOAT_32_UNSIGNED_INT_24_8_REV = 0x8DAD;
 
 		/// <summary>
@@ -2067,7 +2008,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_texture_rg", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_texture_rg", Api = "gles2")]
-		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2|gl|glcore")]
 		public const int R8 = 0x8229;
 
 		/// <summary>
@@ -2086,7 +2027,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_texture_rg", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_texture_rg", Api = "gles2")]
-		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2|gl|glcore")]
 		public const int RG8 = 0x822B;
 
 		/// <summary>
@@ -2104,7 +2045,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_rg", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_color_buffer_half_float", Api = "gles2")]
-		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2|gl|glcore")]
 		public const int R16F = 0x822D;
 
 		/// <summary>
@@ -2113,7 +2054,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_rg", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2|gl|glcore")]
 		public const int R32F = 0x822E;
 
 		/// <summary>
@@ -2123,7 +2064,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_rg", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_color_buffer_half_float", Api = "gles2")]
-		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2|gl|glcore")]
 		public const int RG16F = 0x822F;
 
 		/// <summary>
@@ -2132,7 +2073,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_rg", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2|gl|glcore")]
 		public const int RG32F = 0x8230;
 
 		/// <summary>
@@ -2912,6 +2853,9 @@ namespace OpenGL
 		/// <param name="program">
 		/// The name of the target program object.
 		/// </param>
+		/// <param name="count">
+		/// The number of varying variables used for transform feedback.
+		/// </param>
 		/// <param name="varyings">
 		/// An array of <paramref name="count"/> zero-terminated strings specifying the names of the varying variables to use for 
 		/// transform feedback.
@@ -2923,10 +2867,37 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_transform_feedback")]
-		public static void TransformFeedbackVaryings(uint program, string[] varyings, int bufferMode)
+		public static void TransformFeedbackVaryings(uint program, int count, string[] varyings, TransformFeedbackBufferMode bufferMode)
 		{
 			Debug.Assert(Delegates.pglTransformFeedbackVaryings != null, "pglTransformFeedbackVaryings not implemented");
-			Delegates.pglTransformFeedbackVaryings(program, varyings.Length, varyings, bufferMode);
+			Delegates.pglTransformFeedbackVaryings(program, count, varyings, (int)bufferMode);
+			LogCommand("glTransformFeedbackVaryings", null, program, count, varyings, bufferMode			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// <para>
+		/// [GL4|GLES3.2] glTransformFeedbackVaryings: specify values to record in transform feedback buffers
+		/// </para>
+		/// </summary>
+		/// <param name="program">
+		/// The name of the target program object.
+		/// </param>
+		/// <param name="varyings">
+		/// An array of <paramref name="count"/> zero-terminated strings specifying the names of the varying variables to use for 
+		/// transform feedback.
+		/// </param>
+		/// <param name="bufferMode">
+		/// Identifies the mode used to capture the varying variables when transform feedback is active. <paramref 
+		/// name="bufferMode"/> must be Gl.INTERLEAVED_ATTRIBS or Gl.SEPARATE_ATTRIBS.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_transform_feedback")]
+		public static void TransformFeedbackVaryings(uint program, string[] varyings, TransformFeedbackBufferMode bufferMode)
+		{
+			Debug.Assert(Delegates.pglTransformFeedbackVaryings != null, "pglTransformFeedbackVaryings not implemented");
+			Delegates.pglTransformFeedbackVaryings(program, varyings.Length, varyings, (int)bufferMode);
 			LogCommand("glTransformFeedbackVaryings", null, program, varyings.Length, varyings, bufferMode			);
 			DebugCheckErrors(null);
 		}
@@ -2988,10 +2959,10 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ARB_color_buffer_float")]
-		public static void ClampColor(int target, int clamp)
+		public static void ClampColor(ClampColorTargetARB target, ClampColorModeARB clamp)
 		{
 			Debug.Assert(Delegates.pglClampColor != null, "pglClampColor not implemented");
-			Delegates.pglClampColor(target, clamp);
+			Delegates.pglClampColor((int)target, (int)clamp);
 			LogCommand("glClampColor", null, target, clamp			);
 			DebugCheckErrors(null);
 		}
@@ -3008,7 +2979,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_NV_conditional_render", Api = "gl|glcore|gles2")]
-		public static void BeginConditionalRender(uint id, ConditionalQueryMode mode)
+		public static void BeginConditionalRender(uint id, ConditionalRenderMode mode)
 		{
 			Debug.Assert(Delegates.pglBeginConditionalRender != null, "pglBeginConditionalRender not implemented");
 			Delegates.pglBeginConditionalRender(id, (int)mode);
@@ -3060,8 +3031,9 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
-		public static void VertexAttribIPointer(uint index, int size, VertexAttribType type, int stride, IntPtr pointer)
+		public static void VertexAttribIPointer(uint index, int size, VertexAttribIType type, int stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglVertexAttribIPointer != null, "pglVertexAttribIPointer not implemented");
 			Delegates.pglVertexAttribIPointer(index, size, (int)type, stride, pointer);
@@ -3099,8 +3071,9 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
-		public static void VertexAttribIPointer(uint index, int size, VertexAttribType type, int stride, object pointer)
+		public static void VertexAttribIPointer(uint index, int size, VertexAttribIType type, int stride, object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -3129,6 +3102,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void GetVertexAttribI(uint index, VertexAttribEnum pname, out int @params)
 		{
@@ -3162,6 +3136,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void GetVertexAttribI(uint index, VertexAttribEnum pname, out uint @params)
 		{
@@ -3186,6 +3161,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI1(uint index, int x)
 		{
@@ -3208,6 +3184,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI2(uint index, int x, int y)
 		{
@@ -3233,6 +3210,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI3(uint index, int x, int y, int z)
 		{
@@ -3264,6 +3242,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI4(uint index, int x, int y, int z, int w)
 		{
@@ -3283,6 +3262,7 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI1(uint index, uint x)
 		{
@@ -3305,6 +3285,7 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI2(uint index, uint x, uint y)
 		{
@@ -3330,6 +3311,7 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI3(uint index, uint x, uint y, uint z)
 		{
@@ -3361,6 +3343,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI4(uint index, uint x, uint y, uint z, uint w)
 		{
@@ -3381,6 +3364,7 @@ namespace OpenGL
 		/// attribute.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI1(uint index, int[] v)
 		{
@@ -3407,6 +3391,7 @@ namespace OpenGL
 		/// attribute.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static unsafe void VertexAttribI1(uint index, int* v)
 		{
@@ -3427,6 +3412,7 @@ namespace OpenGL
 		/// attribute.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI1i<T>(uint index, T v) where T : struct
 		{
@@ -3463,6 +3449,7 @@ namespace OpenGL
 		/// attribute.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI2(uint index, int[] v)
 		{
@@ -3489,6 +3476,7 @@ namespace OpenGL
 		/// attribute.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static unsafe void VertexAttribI2(uint index, int* v)
 		{
@@ -3509,6 +3497,7 @@ namespace OpenGL
 		/// attribute.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI2i<T>(uint index, T v) where T : struct
 		{
@@ -3545,6 +3534,7 @@ namespace OpenGL
 		/// attribute.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI3(uint index, int[] v)
 		{
@@ -3571,6 +3561,7 @@ namespace OpenGL
 		/// attribute.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static unsafe void VertexAttribI3(uint index, int* v)
 		{
@@ -3591,6 +3582,7 @@ namespace OpenGL
 		/// attribute.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI3i<T>(uint index, T v) where T : struct
 		{
@@ -3630,6 +3622,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI4(uint index, int[] v)
 		{
@@ -3659,6 +3652,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static unsafe void VertexAttribI4(uint index, int* v)
 		{
@@ -3682,6 +3676,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI4i<T>(uint index, T v) where T : struct
 		{
@@ -3718,6 +3713,7 @@ namespace OpenGL
 		/// attribute.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI1(uint index, uint[] v)
 		{
@@ -3744,6 +3740,7 @@ namespace OpenGL
 		/// attribute.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static unsafe void VertexAttribI1(uint index, uint* v)
 		{
@@ -3764,6 +3761,7 @@ namespace OpenGL
 		/// attribute.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI1ui<T>(uint index, T v) where T : struct
 		{
@@ -3800,6 +3798,7 @@ namespace OpenGL
 		/// attribute.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI2(uint index, uint[] v)
 		{
@@ -3826,6 +3825,7 @@ namespace OpenGL
 		/// attribute.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static unsafe void VertexAttribI2(uint index, uint* v)
 		{
@@ -3846,6 +3846,7 @@ namespace OpenGL
 		/// attribute.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI2ui<T>(uint index, T v) where T : struct
 		{
@@ -3882,6 +3883,7 @@ namespace OpenGL
 		/// attribute.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI3(uint index, uint[] v)
 		{
@@ -3908,6 +3910,7 @@ namespace OpenGL
 		/// attribute.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static unsafe void VertexAttribI3(uint index, uint* v)
 		{
@@ -3928,6 +3931,7 @@ namespace OpenGL
 		/// attribute.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI3ui<T>(uint index, T v) where T : struct
 		{
@@ -3967,6 +3971,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI4(uint index, uint[] v)
 		{
@@ -3996,6 +4001,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static unsafe void VertexAttribI4(uint index, uint* v)
 		{
@@ -4019,6 +4025,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI4ui<T>(uint index, T v) where T : struct
 		{
@@ -4055,6 +4062,7 @@ namespace OpenGL
 		/// attribute.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI4(uint index, sbyte[] v)
 		{
@@ -4081,6 +4089,7 @@ namespace OpenGL
 		/// attribute.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static unsafe void VertexAttribI4(uint index, sbyte* v)
 		{
@@ -4101,6 +4110,7 @@ namespace OpenGL
 		/// attribute.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI4b<T>(uint index, T v) where T : struct
 		{
@@ -4137,6 +4147,7 @@ namespace OpenGL
 		/// attribute.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI4(uint index, short[] v)
 		{
@@ -4163,6 +4174,7 @@ namespace OpenGL
 		/// attribute.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static unsafe void VertexAttribI4(uint index, short* v)
 		{
@@ -4183,6 +4195,7 @@ namespace OpenGL
 		/// attribute.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI4s<T>(uint index, T v) where T : struct
 		{
@@ -4219,6 +4232,7 @@ namespace OpenGL
 		/// attribute.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI4(uint index, byte[] v)
 		{
@@ -4245,6 +4259,7 @@ namespace OpenGL
 		/// attribute.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static unsafe void VertexAttribI4(uint index, byte* v)
 		{
@@ -4265,6 +4280,7 @@ namespace OpenGL
 		/// attribute.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI4ub<T>(uint index, T v) where T : struct
 		{
@@ -4301,6 +4317,7 @@ namespace OpenGL
 		/// attribute.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI4(uint index, ushort[] v)
 		{
@@ -4327,6 +4344,7 @@ namespace OpenGL
 		/// attribute.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static unsafe void VertexAttribI4(uint index, ushort* v)
 		{
@@ -4347,6 +4365,7 @@ namespace OpenGL
 		/// attribute.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_0")]
+		[RequiredByFeature("GL_EXT_gpu_shader4")]
 		[RequiredByFeature("GL_NV_vertex_program4")]
 		public static void VertexAttribI4us<T>(uint index, T v) where T : struct
 		{
@@ -6618,7 +6637,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_map_buffer_range", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_map_buffer_range", Api = "gles1|gles2")]
-		public static IntPtr MapBufferRange(BufferTarget target, IntPtr offset, uint length, BufferAccessMask access)
+		public static IntPtr MapBufferRange(BufferTarget target, IntPtr offset, uint length, MapBufferAccessMask access)
 		{
 			IntPtr retValue;
 
@@ -7015,244 +7034,290 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_gpu_shader4")]
 			[RequiredByFeature("GL_NV_vertex_program4")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribIPointer(uint index, int size, int type, int stride, IntPtr pointer);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_gpu_shader4", EntryPoint = "glVertexAttribIPointerEXT")]
 			[RequiredByFeature("GL_NV_vertex_program4", EntryPoint = "glVertexAttribIPointerEXT")]
 			[ThreadStatic]
 			internal static glVertexAttribIPointer pglVertexAttribIPointer;
 
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_gpu_shader4")]
 			[RequiredByFeature("GL_NV_vertex_program4")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetVertexAttribIiv(uint index, int pname, int* @params);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_gpu_shader4", EntryPoint = "glGetVertexAttribIivEXT")]
 			[RequiredByFeature("GL_NV_vertex_program4", EntryPoint = "glGetVertexAttribIivEXT")]
 			[ThreadStatic]
 			internal static glGetVertexAttribIiv pglGetVertexAttribIiv;
 
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_gpu_shader4")]
 			[RequiredByFeature("GL_NV_vertex_program4")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetVertexAttribIuiv(uint index, int pname, uint* @params);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_gpu_shader4", EntryPoint = "glGetVertexAttribIuivEXT")]
 			[RequiredByFeature("GL_NV_vertex_program4", EntryPoint = "glGetVertexAttribIuivEXT")]
 			[ThreadStatic]
 			internal static glGetVertexAttribIuiv pglGetVertexAttribIuiv;
 
 			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_EXT_gpu_shader4")]
 			[RequiredByFeature("GL_NV_vertex_program4")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribI1i(uint index, int x);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_EXT_gpu_shader4", EntryPoint = "glVertexAttribI1iEXT")]
 			[RequiredByFeature("GL_NV_vertex_program4", EntryPoint = "glVertexAttribI1iEXT")]
 			[ThreadStatic]
 			internal static glVertexAttribI1i pglVertexAttribI1i;
 
 			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_EXT_gpu_shader4")]
 			[RequiredByFeature("GL_NV_vertex_program4")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribI2i(uint index, int x, int y);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_EXT_gpu_shader4", EntryPoint = "glVertexAttribI2iEXT")]
 			[RequiredByFeature("GL_NV_vertex_program4", EntryPoint = "glVertexAttribI2iEXT")]
 			[ThreadStatic]
 			internal static glVertexAttribI2i pglVertexAttribI2i;
 
 			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_EXT_gpu_shader4")]
 			[RequiredByFeature("GL_NV_vertex_program4")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribI3i(uint index, int x, int y, int z);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_EXT_gpu_shader4", EntryPoint = "glVertexAttribI3iEXT")]
 			[RequiredByFeature("GL_NV_vertex_program4", EntryPoint = "glVertexAttribI3iEXT")]
 			[ThreadStatic]
 			internal static glVertexAttribI3i pglVertexAttribI3i;
 
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_gpu_shader4")]
 			[RequiredByFeature("GL_NV_vertex_program4")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribI4i(uint index, int x, int y, int z, int w);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_gpu_shader4", EntryPoint = "glVertexAttribI4iEXT")]
 			[RequiredByFeature("GL_NV_vertex_program4", EntryPoint = "glVertexAttribI4iEXT")]
 			[ThreadStatic]
 			internal static glVertexAttribI4i pglVertexAttribI4i;
 
 			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_EXT_gpu_shader4")]
 			[RequiredByFeature("GL_NV_vertex_program4")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribI1ui(uint index, uint x);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_EXT_gpu_shader4", EntryPoint = "glVertexAttribI1uiEXT")]
 			[RequiredByFeature("GL_NV_vertex_program4", EntryPoint = "glVertexAttribI1uiEXT")]
 			[ThreadStatic]
 			internal static glVertexAttribI1ui pglVertexAttribI1ui;
 
 			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_EXT_gpu_shader4")]
 			[RequiredByFeature("GL_NV_vertex_program4")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribI2ui(uint index, uint x, uint y);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_EXT_gpu_shader4", EntryPoint = "glVertexAttribI2uiEXT")]
 			[RequiredByFeature("GL_NV_vertex_program4", EntryPoint = "glVertexAttribI2uiEXT")]
 			[ThreadStatic]
 			internal static glVertexAttribI2ui pglVertexAttribI2ui;
 
 			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_EXT_gpu_shader4")]
 			[RequiredByFeature("GL_NV_vertex_program4")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribI3ui(uint index, uint x, uint y, uint z);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_EXT_gpu_shader4", EntryPoint = "glVertexAttribI3uiEXT")]
 			[RequiredByFeature("GL_NV_vertex_program4", EntryPoint = "glVertexAttribI3uiEXT")]
 			[ThreadStatic]
 			internal static glVertexAttribI3ui pglVertexAttribI3ui;
 
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_gpu_shader4")]
 			[RequiredByFeature("GL_NV_vertex_program4")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribI4ui(uint index, uint x, uint y, uint z, uint w);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_gpu_shader4", EntryPoint = "glVertexAttribI4uiEXT")]
 			[RequiredByFeature("GL_NV_vertex_program4", EntryPoint = "glVertexAttribI4uiEXT")]
 			[ThreadStatic]
 			internal static glVertexAttribI4ui pglVertexAttribI4ui;
 
 			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_EXT_gpu_shader4")]
 			[RequiredByFeature("GL_NV_vertex_program4")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribI1iv(uint index, int* v);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_EXT_gpu_shader4", EntryPoint = "glVertexAttribI1ivEXT")]
 			[RequiredByFeature("GL_NV_vertex_program4", EntryPoint = "glVertexAttribI1ivEXT")]
 			[ThreadStatic]
 			internal static glVertexAttribI1iv pglVertexAttribI1iv;
 
 			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_EXT_gpu_shader4")]
 			[RequiredByFeature("GL_NV_vertex_program4")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribI2iv(uint index, int* v);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_EXT_gpu_shader4", EntryPoint = "glVertexAttribI2ivEXT")]
 			[RequiredByFeature("GL_NV_vertex_program4", EntryPoint = "glVertexAttribI2ivEXT")]
 			[ThreadStatic]
 			internal static glVertexAttribI2iv pglVertexAttribI2iv;
 
 			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_EXT_gpu_shader4")]
 			[RequiredByFeature("GL_NV_vertex_program4")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribI3iv(uint index, int* v);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_EXT_gpu_shader4", EntryPoint = "glVertexAttribI3ivEXT")]
 			[RequiredByFeature("GL_NV_vertex_program4", EntryPoint = "glVertexAttribI3ivEXT")]
 			[ThreadStatic]
 			internal static glVertexAttribI3iv pglVertexAttribI3iv;
 
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_gpu_shader4")]
 			[RequiredByFeature("GL_NV_vertex_program4")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribI4iv(uint index, int* v);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_gpu_shader4", EntryPoint = "glVertexAttribI4ivEXT")]
 			[RequiredByFeature("GL_NV_vertex_program4", EntryPoint = "glVertexAttribI4ivEXT")]
 			[ThreadStatic]
 			internal static glVertexAttribI4iv pglVertexAttribI4iv;
 
 			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_EXT_gpu_shader4")]
 			[RequiredByFeature("GL_NV_vertex_program4")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribI1uiv(uint index, uint* v);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_EXT_gpu_shader4", EntryPoint = "glVertexAttribI1uivEXT")]
 			[RequiredByFeature("GL_NV_vertex_program4", EntryPoint = "glVertexAttribI1uivEXT")]
 			[ThreadStatic]
 			internal static glVertexAttribI1uiv pglVertexAttribI1uiv;
 
 			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_EXT_gpu_shader4")]
 			[RequiredByFeature("GL_NV_vertex_program4")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribI2uiv(uint index, uint* v);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_EXT_gpu_shader4", EntryPoint = "glVertexAttribI2uivEXT")]
 			[RequiredByFeature("GL_NV_vertex_program4", EntryPoint = "glVertexAttribI2uivEXT")]
 			[ThreadStatic]
 			internal static glVertexAttribI2uiv pglVertexAttribI2uiv;
 
 			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_EXT_gpu_shader4")]
 			[RequiredByFeature("GL_NV_vertex_program4")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribI3uiv(uint index, uint* v);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_EXT_gpu_shader4", EntryPoint = "glVertexAttribI3uivEXT")]
 			[RequiredByFeature("GL_NV_vertex_program4", EntryPoint = "glVertexAttribI3uivEXT")]
 			[ThreadStatic]
 			internal static glVertexAttribI3uiv pglVertexAttribI3uiv;
 
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_gpu_shader4")]
 			[RequiredByFeature("GL_NV_vertex_program4")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribI4uiv(uint index, uint* v);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+			[RequiredByFeature("GL_EXT_gpu_shader4", EntryPoint = "glVertexAttribI4uivEXT")]
 			[RequiredByFeature("GL_NV_vertex_program4", EntryPoint = "glVertexAttribI4uivEXT")]
 			[ThreadStatic]
 			internal static glVertexAttribI4uiv pglVertexAttribI4uiv;
 
 			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_EXT_gpu_shader4")]
 			[RequiredByFeature("GL_NV_vertex_program4")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribI4bv(uint index, sbyte* v);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_EXT_gpu_shader4", EntryPoint = "glVertexAttribI4bvEXT")]
 			[RequiredByFeature("GL_NV_vertex_program4", EntryPoint = "glVertexAttribI4bvEXT")]
 			[ThreadStatic]
 			internal static glVertexAttribI4bv pglVertexAttribI4bv;
 
 			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_EXT_gpu_shader4")]
 			[RequiredByFeature("GL_NV_vertex_program4")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribI4sv(uint index, short* v);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_EXT_gpu_shader4", EntryPoint = "glVertexAttribI4svEXT")]
 			[RequiredByFeature("GL_NV_vertex_program4", EntryPoint = "glVertexAttribI4svEXT")]
 			[ThreadStatic]
 			internal static glVertexAttribI4sv pglVertexAttribI4sv;
 
 			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_EXT_gpu_shader4")]
 			[RequiredByFeature("GL_NV_vertex_program4")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribI4ubv(uint index, byte* v);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_EXT_gpu_shader4", EntryPoint = "glVertexAttribI4ubvEXT")]
 			[RequiredByFeature("GL_NV_vertex_program4", EntryPoint = "glVertexAttribI4ubvEXT")]
 			[ThreadStatic]
 			internal static glVertexAttribI4ubv pglVertexAttribI4ubv;
 
 			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_EXT_gpu_shader4")]
 			[RequiredByFeature("GL_NV_vertex_program4")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glVertexAttribI4usv(uint index, ushort* v);
 
 			[RequiredByFeature("GL_VERSION_3_0")]
+			[RequiredByFeature("GL_EXT_gpu_shader4", EntryPoint = "glVertexAttribI4usvEXT")]
 			[RequiredByFeature("GL_NV_vertex_program4", EntryPoint = "glVertexAttribI4usvEXT")]
 			[ThreadStatic]
 			internal static glVertexAttribI4usv pglVertexAttribI4usv;

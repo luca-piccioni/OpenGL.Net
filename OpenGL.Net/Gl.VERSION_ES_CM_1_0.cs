@@ -465,7 +465,7 @@ namespace OpenGL
 		/// Returns the requested data.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		public static void GetMaterial(MaterialFace face, MaterialParameter pname, [Out] IntPtr[] @params)
+		public static void GetMaterial(TriangleFace face, MaterialParameter pname, [Out] IntPtr[] @params)
 		{
 			unsafe {
 				fixed (IntPtr* p_params = @params)
@@ -721,7 +721,7 @@ namespace OpenGL
 		/// Specifies the value that parameter Gl.SHININESS will be set to.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		public static void Material(MaterialFace face, MaterialParameter pname, IntPtr param)
+		public static void Material(TriangleFace face, MaterialParameter pname, IntPtr param)
 		{
 			Debug.Assert(Delegates.pglMaterialx != null, "pglMaterialx not implemented");
 			Delegates.pglMaterialx((int)face, (int)pname, param);
@@ -742,7 +742,7 @@ namespace OpenGL
 		/// Specifies the value that parameter Gl.SHININESS will be set to.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		public static void Material(MaterialFace face, MaterialParameter pname, IntPtr[] param)
+		public static void Material(TriangleFace face, MaterialParameter pname, IntPtr[] param)
 		{
 			unsafe {
 				fixed (IntPtr* p_param = param)
@@ -920,10 +920,10 @@ namespace OpenGL
 		/// Specifies the value that the parameter will be set to.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		public static void PointParameter(int pname, IntPtr param)
+		public static void PointParameter(PointParameterNameARB pname, IntPtr param)
 		{
 			Debug.Assert(Delegates.pglPointParameterx != null, "pglPointParameterx not implemented");
-			Delegates.pglPointParameterx(pname, param);
+			Delegates.pglPointParameterx((int)pname, param);
 			LogCommand("glPointParameterx", null, pname, param			);
 			DebugCheckErrors(null);
 		}
@@ -939,13 +939,13 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
-		public static void PointParameter(int pname, IntPtr[] @params)
+		public static void PointParameter(PointParameterNameARB pname, IntPtr[] @params)
 		{
 			unsafe {
 				fixed (IntPtr* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglPointParameterxv != null, "pglPointParameterxv not implemented");
-					Delegates.pglPointParameterxv(pname, p_params);
+					Delegates.pglPointParameterxv((int)pname, p_params);
 					LogCommand("glPointParameterxv", null, pname, @params					);
 				}
 			}

@@ -54,24 +54,24 @@ namespace OpenGL
 		/// <param name="shader">
 		/// A <see cref="T:uint"/>.
 		/// </param>
-		/// <param name="bufsize">
+		/// <param name="bufSize">
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="length">
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="source">
-		/// A <see cref="T:string"/>.
+		/// A <see cref="T:StringBuilder"/>.
 		/// </param>
 		[RequiredByFeature("GL_ANGLE_translated_shader_source", Api = "gles2")]
-		public static void GetTranslatedShaderSourceANGLE(uint shader, int bufsize, out int length, string source)
+		public static void GetTranslatedShaderSourceANGLE(uint shader, int bufSize, out int length, StringBuilder source)
 		{
 			unsafe {
 				fixed (int* p_length = &length)
 				{
 					Debug.Assert(Delegates.pglGetTranslatedShaderSourceANGLE != null, "pglGetTranslatedShaderSourceANGLE not implemented");
-					Delegates.pglGetTranslatedShaderSourceANGLE(shader, bufsize, p_length, source);
-					LogCommand("glGetTranslatedShaderSourceANGLE", null, shader, bufsize, length, source					);
+					Delegates.pglGetTranslatedShaderSourceANGLE(shader, bufSize, p_length, source);
+					LogCommand("glGetTranslatedShaderSourceANGLE", null, shader, bufSize, length, source					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -81,7 +81,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_ANGLE_translated_shader_source", Api = "gles2")]
 			[SuppressUnmanagedCodeSecurity]
-			internal delegate void glGetTranslatedShaderSourceANGLE(uint shader, int bufsize, int* length, string source);
+			internal delegate void glGetTranslatedShaderSourceANGLE(uint shader, int bufSize, int* length, StringBuilder source);
 
 			[RequiredByFeature("GL_ANGLE_translated_shader_source", Api = "gles2")]
 			[ThreadStatic]

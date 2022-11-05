@@ -100,19 +100,19 @@ namespace OpenGL
 		/// [GL] glPixelTransformParameteriEXT: Binding for glPixelTransformParameteriEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelTransformTargetEXT"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelTransformPNameEXT"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_pixel_transform")]
-		public static void PixelTransformParameterEXT(int target, int pname, int param)
+		public static void PixelTransformParameterEXT(PixelTransformTargetEXT target, PixelTransformPNameEXT pname, int param)
 		{
 			Debug.Assert(Delegates.pglPixelTransformParameteriEXT != null, "pglPixelTransformParameteriEXT not implemented");
-			Delegates.pglPixelTransformParameteriEXT(target, pname, param);
+			Delegates.pglPixelTransformParameteriEXT((int)target, (int)pname, param);
 			LogCommand("glPixelTransformParameteriEXT", null, target, pname, param			);
 			DebugCheckErrors(null);
 		}
@@ -121,19 +121,19 @@ namespace OpenGL
 		/// [GL] glPixelTransformParameterfEXT: Binding for glPixelTransformParameterfEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelTransformTargetEXT"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelTransformPNameEXT"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_pixel_transform")]
-		public static void PixelTransformParameterEXT(int target, int pname, float param)
+		public static void PixelTransformParameterEXT(PixelTransformTargetEXT target, PixelTransformPNameEXT pname, float param)
 		{
 			Debug.Assert(Delegates.pglPixelTransformParameterfEXT != null, "pglPixelTransformParameterfEXT not implemented");
-			Delegates.pglPixelTransformParameterfEXT(target, pname, param);
+			Delegates.pglPixelTransformParameterfEXT((int)target, (int)pname, param);
 			LogCommand("glPixelTransformParameterfEXT", null, target, pname, param			);
 			DebugCheckErrors(null);
 		}
@@ -142,23 +142,23 @@ namespace OpenGL
 		/// [GL] glPixelTransformParameterivEXT: Binding for glPixelTransformParameterivEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelTransformTargetEXT"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelTransformPNameEXT"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_pixel_transform")]
-		public static void PixelTransformParameterEXT(int target, int pname, int[] @params)
+		public static void PixelTransformParameterEXT(PixelTransformTargetEXT target, PixelTransformPNameEXT pname, int[] @params)
 		{
 			Debug.Assert(@params.Length >= 1);
 			unsafe {
 				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglPixelTransformParameterivEXT != null, "pglPixelTransformParameterivEXT not implemented");
-					Delegates.pglPixelTransformParameterivEXT(target, pname, p_params);
+					Delegates.pglPixelTransformParameterivEXT((int)target, (int)pname, p_params);
 					LogCommand("glPixelTransformParameterivEXT", null, target, pname, @params					);
 				}
 			}
@@ -169,23 +169,23 @@ namespace OpenGL
 		/// [GL] glPixelTransformParameterfvEXT: Binding for glPixelTransformParameterfvEXT.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelTransformTargetEXT"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelTransformPNameEXT"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_pixel_transform")]
-		public static void PixelTransformParameterEXT(int target, int pname, float[] @params)
+		public static void PixelTransformParameterEXT(PixelTransformTargetEXT target, PixelTransformPNameEXT pname, float[] @params)
 		{
 			Debug.Assert(@params.Length >= 1);
 			unsafe {
 				fixed (float* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglPixelTransformParameterfvEXT != null, "pglPixelTransformParameterfvEXT not implemented");
-					Delegates.pglPixelTransformParameterfvEXT(target, pname, p_params);
+					Delegates.pglPixelTransformParameterfvEXT((int)target, (int)pname, p_params);
 					LogCommand("glPixelTransformParameterfvEXT", null, target, pname, @params					);
 				}
 			}

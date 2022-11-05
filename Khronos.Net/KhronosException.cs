@@ -48,7 +48,7 @@ namespace Khronos
 		/// A <see cref="Int32"/> that specifies the error code.
 		/// </param>
 		/// <param name="message">
-		/// A <see cref="String"/> that specifies the exception message.
+		/// A <see cref="string"/> that specifies the exception message.
 		/// </param>
 		protected KhronosException(int errorCode, string message) :
 			base(message)
@@ -63,7 +63,7 @@ namespace Khronos
 		/// A <see cref="Int32"/> that specifies the error code.
 		/// </param>
 		/// <param name="message">
-		/// A <see cref="String"/> that specifies the exception message.
+		/// A <see cref="string"/> that specifies the exception message.
 		/// </param>
 		/// <param name="innerException">
 		/// The <see cref="Exception"/> wrapped by this Exception.

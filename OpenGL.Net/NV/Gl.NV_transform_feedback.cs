@@ -176,20 +176,49 @@ namespace OpenGL
 		/// <param name="program">
 		/// A <see cref="T:uint"/>.
 		/// </param>
+		/// <param name="count">
+		/// A <see cref="T:int"/>.
+		/// </param>
 		/// <param name="locations">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		/// <param name="bufferMode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TransformFeedbackBufferMode"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_transform_feedback")]
-		public static void TransformFeedbackVaryingsNV(uint program, int[] locations, int bufferMode)
+		public static void TransformFeedbackVaryingsNV(uint program, int count, int[] locations, TransformFeedbackBufferMode bufferMode)
 		{
 			unsafe {
 				fixed (int* p_locations = locations)
 				{
 					Debug.Assert(Delegates.pglTransformFeedbackVaryingsNV != null, "pglTransformFeedbackVaryingsNV not implemented");
-					Delegates.pglTransformFeedbackVaryingsNV(program, locations.Length, p_locations, bufferMode);
+					Delegates.pglTransformFeedbackVaryingsNV(program, count, p_locations, (int)bufferMode);
+					LogCommand("glTransformFeedbackVaryingsNV", null, program, count, locations, bufferMode					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL] glTransformFeedbackVaryingsNV: Binding for glTransformFeedbackVaryingsNV.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:uint"/>.
+		/// </param>
+		/// <param name="locations">
+		/// A <see cref="T:int[]"/>.
+		/// </param>
+		/// <param name="bufferMode">
+		/// A <see cref="T:TransformFeedbackBufferMode"/>.
+		/// </param>
+		[RequiredByFeature("GL_NV_transform_feedback")]
+		public static void TransformFeedbackVaryingsNV(uint program, int[] locations, TransformFeedbackBufferMode bufferMode)
+		{
+			unsafe {
+				fixed (int* p_locations = locations)
+				{
+					Debug.Assert(Delegates.pglTransformFeedbackVaryingsNV != null, "pglTransformFeedbackVaryingsNV not implemented");
+					Delegates.pglTransformFeedbackVaryingsNV(program, locations.Length, p_locations, (int)bufferMode);
 					LogCommand("glTransformFeedbackVaryingsNV", null, program, locations.Length, locations, bufferMode					);
 				}
 			}

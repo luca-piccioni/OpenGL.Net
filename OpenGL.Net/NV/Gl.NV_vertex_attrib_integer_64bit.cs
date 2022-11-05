@@ -476,13 +476,13 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:VertexAttribType"/>.
+		/// A <see cref="T:VertexAttribLType"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_attrib_integer_64bit", Api = "gl|glcore")]
-		public static void VertexAttribLFormatNV(uint index, int size, VertexAttribType type, int stride)
+		public static void VertexAttribLFormatNV(uint index, int size, VertexAttribLType type, int stride)
 		{
 			Debug.Assert(Delegates.pglVertexAttribLFormatNV != null, "pglVertexAttribLFormatNV not implemented");
 			Delegates.pglVertexAttribLFormatNV(index, size, (int)type, stride);

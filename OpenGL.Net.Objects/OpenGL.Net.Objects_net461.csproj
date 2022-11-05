@@ -163,7 +163,6 @@
     <Compile Include="Buffer.cs" />
     <Compile Include="CoreImageCodecPlugin.cs" />
     <Compile Include="ElementBuffer.cs" />
-    <Compile Include="FeedbackBufferFormat.cs" />
     <Compile Include="FeedbackBuffer.cs" />
     <Compile Include="Framebuffer.cs" />
     <Compile Include="GraphicsContext.cs" />

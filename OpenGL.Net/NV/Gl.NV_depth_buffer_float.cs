@@ -45,19 +45,19 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_DEPTH_COMPONENT32F_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_depth_buffer_float")]
+		[RequiredByFeature("GL_NV_depth_buffer_float", Api = "gl|glcore")]
 		public const int DEPTH_COMPONENT32F_NV = 0x8DAB;
 
 		/// <summary>
 		/// [GL] Value of GL_DEPTH32F_STENCIL8_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_depth_buffer_float")]
+		[RequiredByFeature("GL_NV_depth_buffer_float", Api = "gl|glcore")]
 		public const int DEPTH32F_STENCIL8_NV = 0x8DAC;
 
 		/// <summary>
 		/// [GL] Value of GL_DEPTH_BUFFER_FLOAT_MODE_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_depth_buffer_float")]
+		[RequiredByFeature("GL_NV_depth_buffer_float", Api = "gl|glcore")]
 		public const int DEPTH_BUFFER_FLOAT_MODE_NV = 0x8DAF;
 
 		/// <summary>
@@ -69,7 +69,7 @@ namespace OpenGL
 		/// <param name="zFar">
 		/// A <see cref="T:double"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_depth_buffer_float")]
+		[RequiredByFeature("GL_NV_depth_buffer_float", Api = "gl|glcore")]
 		public static void DepthRangedNV(double zNear, double zFar)
 		{
 			Debug.Assert(Delegates.pglDepthRangedNV != null, "pglDepthRangedNV not implemented");
@@ -84,7 +84,7 @@ namespace OpenGL
 		/// <param name="depth">
 		/// A <see cref="T:double"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_depth_buffer_float")]
+		[RequiredByFeature("GL_NV_depth_buffer_float", Api = "gl|glcore")]
 		public static void ClearDepthdNV(double depth)
 		{
 			Debug.Assert(Delegates.pglClearDepthdNV != null, "pglClearDepthdNV not implemented");
@@ -102,7 +102,7 @@ namespace OpenGL
 		/// <param name="zmax">
 		/// A <see cref="T:double"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_depth_buffer_float")]
+		[RequiredByFeature("GL_NV_depth_buffer_float", Api = "gl|glcore")]
 		public static void DepthBoundsdNV(double zmin, double zmax)
 		{
 			Debug.Assert(Delegates.pglDepthBoundsdNV != null, "pglDepthBoundsdNV not implemented");
@@ -113,27 +113,27 @@ namespace OpenGL
 
 		internal static unsafe partial class Delegates
 		{
-			[RequiredByFeature("GL_NV_depth_buffer_float")]
+			[RequiredByFeature("GL_NV_depth_buffer_float", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glDepthRangedNV(double zNear, double zFar);
 
-			[RequiredByFeature("GL_NV_depth_buffer_float")]
+			[RequiredByFeature("GL_NV_depth_buffer_float", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glDepthRangedNV pglDepthRangedNV;
 
-			[RequiredByFeature("GL_NV_depth_buffer_float")]
+			[RequiredByFeature("GL_NV_depth_buffer_float", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glClearDepthdNV(double depth);
 
-			[RequiredByFeature("GL_NV_depth_buffer_float")]
+			[RequiredByFeature("GL_NV_depth_buffer_float", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glClearDepthdNV pglClearDepthdNV;
 
-			[RequiredByFeature("GL_NV_depth_buffer_float")]
+			[RequiredByFeature("GL_NV_depth_buffer_float", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glDepthBoundsdNV(double zmin, double zmax);
 
-			[RequiredByFeature("GL_NV_depth_buffer_float")]
+			[RequiredByFeature("GL_NV_depth_buffer_float", Api = "gl|glcore")]
 			[ThreadStatic]
 			internal static glDepthBoundsdNV pglDepthBoundsdNV;
 

@@ -46,7 +46,7 @@ namespace OpenGL
 		/// [GL] Value of GL_BGRA8_EXT symbol.
 		/// </summary>
 		[RequiredByFeature("GL_APPLE_texture_format_BGRA8888", Api = "gles1|gles2")]
-		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2|gl|glcore")]
 		public const int BGRA8_EXT = 0x93A1;
 
 	}

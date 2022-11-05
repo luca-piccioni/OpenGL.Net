@@ -49,9 +49,9 @@ namespace OpenGL.Objects
 		/// Construct an UniformBufferObject.
 		/// </summary>
 		/// <param name="usageMask">
-		/// An <see cref="MapBufferUsageMask"/> that specify the buffer storage usage mask.
+		/// An <see cref="BufferStorageMask"/> that specify the buffer storage usage mask.
 		/// </param>
-		public UniformBuffer(MapBufferUsageMask usageMask) :
+		public UniformBuffer(BufferStorageMask usageMask) :
 			base(BufferTarget.UniformBuffer, usageMask)
 		{
 			

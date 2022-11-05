@@ -81,21 +81,21 @@ namespace OpenGL
 		/// <param name="pname">
 		/// A <see cref="T:InternalFormatPName"/>.
 		/// </param>
-		/// <param name="bufSize">
+		/// <param name="count">
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_internalformat_sample_query", Api = "gl|glcore|gles2")]
-		public static void GetInternalformatSampleNV(TextureTarget target, InternalFormat internalformat, int samples, InternalFormatPName pname, int bufSize, [Out] int[] @params)
+		public static void GetInternalformatSampleNV(TextureTarget target, InternalFormat internalformat, int samples, InternalFormatPName pname, int count, [Out] int[] @params)
 		{
 			unsafe {
 				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetInternalformatSampleivNV != null, "pglGetInternalformatSampleivNV not implemented");
-					Delegates.pglGetInternalformatSampleivNV((int)target, (int)internalformat, samples, (int)pname, bufSize, p_params);
-					LogCommand("glGetInternalformatSampleivNV", null, target, internalformat, samples, pname, bufSize, @params					);
+					Delegates.pglGetInternalformatSampleivNV((int)target, (int)internalformat, samples, (int)pname, count, p_params);
+					LogCommand("glGetInternalformatSampleivNV", null, target, internalformat, samples, pname, count, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -137,7 +137,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_NV_internalformat_sample_query", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity]
-			internal delegate void glGetInternalformatSampleivNV(int target, int internalformat, int samples, int pname, int bufSize, int* @params);
+			internal delegate void glGetInternalformatSampleivNV(int target, int internalformat, int samples, int pname, int count, int* @params);
 
 			[RequiredByFeature("GL_NV_internalformat_sample_query", Api = "gl|glcore|gles2")]
 			[ThreadStatic]

@@ -64,16 +64,16 @@ namespace OpenGL
 		/// [GL] glElementPointerATI: Binding for glElementPointerATI.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:ElementPointerTypeATI"/>.
 		/// </param>
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_element_array")]
-		public static void ElementPointerATI(int type, IntPtr pointer)
+		public static void ElementPointerATI(ElementPointerTypeATI type, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglElementPointerATI != null, "pglElementPointerATI not implemented");
-			Delegates.pglElementPointerATI(type, pointer);
+			Delegates.pglElementPointerATI((int)type, pointer);
 			LogCommand("glElementPointerATI", null, type, pointer			);
 			DebugCheckErrors(null);
 		}
@@ -82,13 +82,13 @@ namespace OpenGL
 		/// [GL] glElementPointerATI: Binding for glElementPointerATI.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:ElementPointerTypeATI"/>.
 		/// </param>
 		/// <param name="pointer">
 		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_element_array")]
-		public static void ElementPointerATI(int type, object pointer)
+		public static void ElementPointerATI(ElementPointerTypeATI type, object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {

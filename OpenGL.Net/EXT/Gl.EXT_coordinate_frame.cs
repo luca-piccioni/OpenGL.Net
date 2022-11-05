@@ -550,7 +550,7 @@ namespace OpenGL
 		/// [GL] glTangentPointerEXT: Binding for glTangentPointerEXT.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TangentPointerTypeEXT"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:int"/>.
@@ -559,10 +559,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_coordinate_frame")]
-		public static void TangentPointerEXT(int type, int stride, IntPtr pointer)
+		public static void TangentPointerEXT(TangentPointerTypeEXT type, int stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglTangentPointerEXT != null, "pglTangentPointerEXT not implemented");
-			Delegates.pglTangentPointerEXT(type, stride, pointer);
+			Delegates.pglTangentPointerEXT((int)type, stride, pointer);
 			LogCommand("glTangentPointerEXT", null, type, stride, pointer			);
 			DebugCheckErrors(null);
 		}
@@ -571,7 +571,7 @@ namespace OpenGL
 		/// [GL] glTangentPointerEXT: Binding for glTangentPointerEXT.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:TangentPointerTypeEXT"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:int"/>.
@@ -580,7 +580,7 @@ namespace OpenGL
 		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_coordinate_frame")]
-		public static void TangentPointerEXT(int type, int stride, object pointer)
+		public static void TangentPointerEXT(TangentPointerTypeEXT type, int stride, object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -594,7 +594,7 @@ namespace OpenGL
 		/// [GL] glBinormalPointerEXT: Binding for glBinormalPointerEXT.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:BinormalPointerTypeEXT"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:int"/>.
@@ -603,10 +603,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_coordinate_frame")]
-		public static void BinormalPointerEXT(int type, int stride, IntPtr pointer)
+		public static void BinormalPointerEXT(BinormalPointerTypeEXT type, int stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglBinormalPointerEXT != null, "pglBinormalPointerEXT not implemented");
-			Delegates.pglBinormalPointerEXT(type, stride, pointer);
+			Delegates.pglBinormalPointerEXT((int)type, stride, pointer);
 			LogCommand("glBinormalPointerEXT", null, type, stride, pointer			);
 			DebugCheckErrors(null);
 		}
@@ -615,7 +615,7 @@ namespace OpenGL
 		/// [GL] glBinormalPointerEXT: Binding for glBinormalPointerEXT.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:BinormalPointerTypeEXT"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:int"/>.
@@ -624,7 +624,7 @@ namespace OpenGL
 		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_coordinate_frame")]
-		public static void BinormalPointerEXT(int type, int stride, object pointer)
+		public static void BinormalPointerEXT(BinormalPointerTypeEXT type, int stride, object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {

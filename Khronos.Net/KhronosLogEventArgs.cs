@@ -48,7 +48,7 @@ namespace Khronos
 		/// A <see cref="KhronosLogContext"/> holding information about the API logged.
 		/// </param>
 		/// <param name="name">
-		/// A <see cref="String"/> that specifies the name of the command.
+		/// A <see cref="string"/> that specifies the name of the command.
 		/// </param>
 		/// <param name="args">
 		/// An array of objects that specifies the arguments of the <paramref name="name"/> command.

@@ -272,13 +272,13 @@ namespace OpenGL.Objects
 			public override void Create(GraphicsContext ctx)
 			{
 				// Define storage
-				InternalFormat internalFormat = _PixelFormat.ToInternalFormat();
+				SizedInternalFormat internalFormat = _PixelFormat.ToSizedInternalFormat();
 
 				if (ctx.Extensions.TextureStorage_ARB == false) {
 					PixelFormat format = _PixelFormat.ToDataFormat();
 
 					for (uint level = 0, w = _Width, h = _Height; level < _MipmapLevels; level++, w = Math.Max(1, w / 2), h = Math.Max(1, h / 2))
-						Gl.TexImage3D(_Target, (int)level, internalFormat, (int)w, (int)h, (int)_Layers, 0, format, /* Unused */ PixelType.UnsignedByte, IntPtr.Zero);
+						Gl.TexImage3D(_Target, (int)level, (InternalFormat)internalFormat, (int)w, (int)h, (int)_Layers, 0, format, /* Unused */ PixelType.UnsignedByte, IntPtr.Zero);
 				} else {
 					Gl.TexStorage3D(_Target, (int)_MipmapLevels, internalFormat, (int)_Width, (int)_Height, (int)_Layers);
 				}

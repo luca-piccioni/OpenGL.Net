@@ -181,18 +181,18 @@ namespace OpenGL
 		/// [GL] glTestObjectAPPLE: Binding for glTestObjectAPPLE.
 		/// </summary>
 		/// <param name="object">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:ObjectTypeAPPLE"/>.
 		/// </param>
 		/// <param name="name">
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_APPLE_fence")]
-		public static bool TestObjectAPPLE(int @object, uint name)
+		public static bool TestObjectAPPLE(ObjectTypeAPPLE @object, uint name)
 		{
 			bool retValue;
 
 			Debug.Assert(Delegates.pglTestObjectAPPLE != null, "pglTestObjectAPPLE not implemented");
-			retValue = Delegates.pglTestObjectAPPLE(@object, name);
+			retValue = Delegates.pglTestObjectAPPLE((int)@object, name);
 			LogCommand("glTestObjectAPPLE", retValue, @object, name			);
 			DebugCheckErrors(retValue);
 
@@ -203,16 +203,16 @@ namespace OpenGL
 		/// [GL] glFinishObjectAPPLE: Binding for glFinishObjectAPPLE.
 		/// </summary>
 		/// <param name="object">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:ObjectTypeAPPLE"/>.
 		/// </param>
 		/// <param name="name">
 		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_APPLE_fence")]
-		public static void FinishObjectAPPLE(int @object, int name)
+		public static void FinishObjectAPPLE(ObjectTypeAPPLE @object, int name)
 		{
 			Debug.Assert(Delegates.pglFinishObjectAPPLE != null, "pglFinishObjectAPPLE not implemented");
-			Delegates.pglFinishObjectAPPLE(@object, name);
+			Delegates.pglFinishObjectAPPLE((int)@object, name);
 			LogCommand("glFinishObjectAPPLE", null, @object, name			);
 			DebugCheckErrors(null);
 		}

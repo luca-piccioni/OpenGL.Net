@@ -35,13 +35,13 @@ namespace BindingsGen.GLSpecs
 		/// Enumerant name, a legal C preprocessor token name.
 		/// </summary>
 		[XmlAttribute("name")]
-		public String Name;
+		public string Name;
 
 		/// <summary>
 		/// Enumerant value, a legal C constant (usually a hexadecimal integer).
 		/// </summary>
 		[XmlAttribute("value")]
-		public String Value;
+		public string Value;
 
 		/// <summary>
 		/// An API name which specializes this definition of the named enum, so that different APIs may
@@ -49,7 +49,7 @@ namespace BindingsGen.GLSpecs
 		/// between GL and GL ES).
 		/// </summary>
 		[XmlAttribute("api")]
-		public String Api;
+		public string Api;
 
 		/// <summary>
 		/// A legal C suffix for the value to force it to a specific type. Currently only u and ull are used,
@@ -57,7 +57,7 @@ namespace BindingsGen.GLSpecs
 		/// eases parsing and sorting of values, and is rarely used.
 		/// </summary>
 		[XmlAttribute("type")]
-		public String Type;
+		public string Type;
 
 		/// <summary>
 		/// A name of another enumerant this is an alias of, used where token names have been changed as a result
@@ -67,13 +67,30 @@ namespace BindingsGen.GLSpecs
 		/// the OpenGL Specification. This might change in the future.
 		/// </summary>
 		[XmlAttribute("alias")]
-		public String Alias;
+		public string Alias;
 
 		/// <summary>
 		/// Arbitrary string.
 		/// </summary>
 		[XmlAttribute("comment")]
-		public String Command;
+		public string Command;
+
+		/// <summary>
+		/// The group(s) which this enumeration belongs to.
+		/// </summary>
+		public string[] Groups
+		{
+			get
+			{
+				return Group != null ? Regex.Split(Group, ",") : null;
+			}
+		}
+
+		/// <summary>
+		/// The group(s) which this enumeration belongs to.
+		/// </summary>
+		[XmlAttribute("group")]
+		public string Group;
 
 		#endregion
 
@@ -333,10 +350,7 @@ namespace BindingsGen.GLSpecs
 			}
 		}
 
-		/// <summary>
-		/// Get the actual enumerant declaration.
-		/// </summary>
-		private string Declaration
+		public string DeclarationType
 		{
 			get
 			{
@@ -352,9 +366,7 @@ namespace BindingsGen.GLSpecs
 					value = value.Substring(1, value.Length - 2);
 
 				if (value.StartsWith("0x")) {
-					if ((value.Length > 10) || (value.EndsWith("ull"))) {		// 0xXXXXXXXXXXull
-						// Remove ull suffix
-						value = value.Substring(0, value.Length - 3);
+					if ((value.Length > 10) || (value.EndsWith("ull"))) {       // 0xXXXXXXXXXXull
 						type = "ulong";
 					} else if (Regex.IsMatch(value, @"0x\w{8}") && (Name.Contains("_BIT") || Name.Contains("_MASK"))) {
 						type = "uint";
@@ -362,7 +374,7 @@ namespace BindingsGen.GLSpecs
 						type = "uint";
 					} else if (Regex.IsMatch(value, @"0x[8F]\w{7}")) {
 						type = "uint";
-					} else {													// 0xXXXX
+					} else {                                                    // 0xXXXX
 						type = "int";
 					}
 				} else if (value.EndsWith("u")) {
@@ -375,17 +387,55 @@ namespace BindingsGen.GLSpecs
 					type = "int";
 				}
 
+				return type;
+			}
+		}
+
+		private string DeclarationValue
+		{
+			get
+			{
+				if (Value == null)
+					throw new InvalidOperationException("missing specification");
+
+				string value = Value;
+
+				// Remove trailing \r
+				value = value.TrimEnd('\r');
+				// Remove parenthesis
+				if (value.StartsWith("(") && value.EndsWith(")"))
+					value = value.Substring(1, value.Length - 2);
+
+				if (value.StartsWith("0x")) {
+					if ((value.Length > 10) || (value.EndsWith("ull"))) {       // 0xXXXXXXXXXXull
+						value = value.Substring(0, value.Length - 3);
+					}
+				}
+
+				// Patterns
 				Match castMatch;
 
-				if ((castMatch = Regex.Match(value, @"\(\([\w\d_]+\)\(?(?<value>(\+|\-)?[\d\.]+)\)?\)")).Success) {
+				if ((castMatch = Regex.Match(value, @"\(\([\w\d_]+\)\(?(?<value>(\+|\-)?[\d\.]+)\)?\)")).Success)
 					value = castMatch.Groups["value"].Value;
-				}
 
-				if ((castMatch = Regex.Match(value, @"\([\w\d_]+\)\(?(?<value>(\+|\-)?[\d\.]+f?)\)?")).Success) {
+				if ((castMatch = Regex.Match(value, @"\([\w\d_]+\)\(?(?<value>(\+|\-)?[\d\.]+f?)\)?")).Success)
 					value = castMatch.Groups["value"].Value;
-				}
 
-				return (String.Format("public const {0} {1} = {2};", type, ImplementationName, value));
+				return value;
+			}
+		}
+
+		/// <summary>
+		/// Get the actual enumerant declaration.
+		/// </summary>
+		private string Declaration
+		{
+			get
+			{
+				if (Value == null)
+					throw new InvalidOperationException("missing specification");
+
+				return $"public const {DeclarationType} {ImplementationName} = {DeclarationValue};";
 			}
 		}
 

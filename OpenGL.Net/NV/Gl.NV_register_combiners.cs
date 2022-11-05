@@ -354,19 +354,19 @@ namespace OpenGL
 		/// [GL] glCombinerParameterfvNV: Binding for glCombinerParameterfvNV.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:CombinerParameterNV"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_register_combiners")]
-		public static void CombinerParameterNV(int pname, float[] @params)
+		public static void CombinerParameterNV(CombinerParameterNV pname, float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglCombinerParameterfvNV != null, "pglCombinerParameterfvNV not implemented");
-					Delegates.pglCombinerParameterfvNV(pname, p_params);
+					Delegates.pglCombinerParameterfvNV((int)pname, p_params);
 					LogCommand("glCombinerParameterfvNV", null, pname, @params					);
 				}
 			}
@@ -377,16 +377,16 @@ namespace OpenGL
 		/// [GL] glCombinerParameterfNV: Binding for glCombinerParameterfNV.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:CombinerParameterNV"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_register_combiners")]
-		public static void CombinerParameterNV(int pname, float param)
+		public static void CombinerParameterNV(CombinerParameterNV pname, float param)
 		{
 			Debug.Assert(Delegates.pglCombinerParameterfNV != null, "pglCombinerParameterfNV not implemented");
-			Delegates.pglCombinerParameterfNV(pname, param);
+			Delegates.pglCombinerParameterfNV((int)pname, param);
 			LogCommand("glCombinerParameterfNV", null, pname, param			);
 			DebugCheckErrors(null);
 		}
@@ -395,19 +395,19 @@ namespace OpenGL
 		/// [GL] glCombinerParameterivNV: Binding for glCombinerParameterivNV.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:CombinerParameterNV"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_register_combiners")]
-		public static void CombinerParameterNV(int pname, int[] @params)
+		public static void CombinerParameterNV(CombinerParameterNV pname, int[] @params)
 		{
 			unsafe {
 				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglCombinerParameterivNV != null, "pglCombinerParameterivNV not implemented");
-					Delegates.pglCombinerParameterivNV(pname, p_params);
+					Delegates.pglCombinerParameterivNV((int)pname, p_params);
 					LogCommand("glCombinerParameterivNV", null, pname, @params					);
 				}
 			}
@@ -418,16 +418,16 @@ namespace OpenGL
 		/// [GL] glCombinerParameteriNV: Binding for glCombinerParameteriNV.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:CombinerParameterNV"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_register_combiners")]
-		public static void CombinerParameterNV(int pname, int param)
+		public static void CombinerParameterNV(CombinerParameterNV pname, int param)
 		{
 			Debug.Assert(Delegates.pglCombinerParameteriNV != null, "pglCombinerParameteriNV not implemented");
-			Delegates.pglCombinerParameteriNV(pname, param);
+			Delegates.pglCombinerParameteriNV((int)pname, param);
 			LogCommand("glCombinerParameteriNV", null, pname, param			);
 			DebugCheckErrors(null);
 		}
@@ -436,28 +436,28 @@ namespace OpenGL
 		/// [GL] glCombinerInputNV: Binding for glCombinerInputNV.
 		/// </summary>
 		/// <param name="stage">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:CombinerStageNV"/>.
 		/// </param>
 		/// <param name="portion">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:CombinerPortionNV"/>.
 		/// </param>
 		/// <param name="variable">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:CombinerVariableNV"/>.
 		/// </param>
 		/// <param name="input">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:CombinerRegisterNV"/>.
 		/// </param>
 		/// <param name="mapping">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:CombinerMappingNV"/>.
 		/// </param>
 		/// <param name="componentUsage">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:CombinerComponentUsageNV"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_register_combiners")]
-		public static void CombinerInputNV(int stage, int portion, int variable, int input, int mapping, int componentUsage)
+		public static void CombinerInputNV(CombinerStageNV stage, CombinerPortionNV portion, CombinerVariableNV variable, CombinerRegisterNV input, CombinerMappingNV mapping, CombinerComponentUsageNV componentUsage)
 		{
 			Debug.Assert(Delegates.pglCombinerInputNV != null, "pglCombinerInputNV not implemented");
-			Delegates.pglCombinerInputNV(stage, portion, variable, input, mapping, componentUsage);
+			Delegates.pglCombinerInputNV((int)stage, (int)portion, (int)variable, (int)input, (int)mapping, (int)componentUsage);
 			LogCommand("glCombinerInputNV", null, stage, portion, variable, input, mapping, componentUsage			);
 			DebugCheckErrors(null);
 		}
@@ -466,25 +466,25 @@ namespace OpenGL
 		/// [GL] glCombinerOutputNV: Binding for glCombinerOutputNV.
 		/// </summary>
 		/// <param name="stage">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:CombinerStageNV"/>.
 		/// </param>
 		/// <param name="portion">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:CombinerPortionNV"/>.
 		/// </param>
 		/// <param name="abOutput">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:CombinerRegisterNV"/>.
 		/// </param>
 		/// <param name="cdOutput">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:CombinerRegisterNV"/>.
 		/// </param>
 		/// <param name="sumOutput">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:CombinerRegisterNV"/>.
 		/// </param>
 		/// <param name="scale">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:CombinerScaleNV"/>.
 		/// </param>
 		/// <param name="bias">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:CombinerBiasNV"/>.
 		/// </param>
 		/// <param name="abDotProduct">
 		/// A <see cref="T:bool"/>.
@@ -496,10 +496,10 @@ namespace OpenGL
 		/// A <see cref="T:bool"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_register_combiners")]
-		public static void CombinerOutputNV(int stage, int portion, int abOutput, int cdOutput, int sumOutput, int scale, int bias, bool abDotProduct, bool cdDotProduct, bool muxSum)
+		public static void CombinerOutputNV(CombinerStageNV stage, CombinerPortionNV portion, CombinerRegisterNV abOutput, CombinerRegisterNV cdOutput, CombinerRegisterNV sumOutput, CombinerScaleNV scale, CombinerBiasNV bias, bool abDotProduct, bool cdDotProduct, bool muxSum)
 		{
 			Debug.Assert(Delegates.pglCombinerOutputNV != null, "pglCombinerOutputNV not implemented");
-			Delegates.pglCombinerOutputNV(stage, portion, abOutput, cdOutput, sumOutput, scale, bias, abDotProduct, cdDotProduct, muxSum);
+			Delegates.pglCombinerOutputNV((int)stage, (int)portion, (int)abOutput, (int)cdOutput, (int)sumOutput, (int)scale, (int)bias, abDotProduct, cdDotProduct, muxSum);
 			LogCommand("glCombinerOutputNV", null, stage, portion, abOutput, cdOutput, sumOutput, scale, bias, abDotProduct, cdDotProduct, muxSum			);
 			DebugCheckErrors(null);
 		}
@@ -508,22 +508,22 @@ namespace OpenGL
 		/// [GL] glFinalCombinerInputNV: Binding for glFinalCombinerInputNV.
 		/// </summary>
 		/// <param name="variable">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:CombinerVariableNV"/>.
 		/// </param>
 		/// <param name="input">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:CombinerRegisterNV"/>.
 		/// </param>
 		/// <param name="mapping">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:CombinerMappingNV"/>.
 		/// </param>
 		/// <param name="componentUsage">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:CombinerComponentUsageNV"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_register_combiners")]
-		public static void FinalCombinerInputNV(int variable, int input, int mapping, int componentUsage)
+		public static void FinalCombinerInputNV(CombinerVariableNV variable, CombinerRegisterNV input, CombinerMappingNV mapping, CombinerComponentUsageNV componentUsage)
 		{
 			Debug.Assert(Delegates.pglFinalCombinerInputNV != null, "pglFinalCombinerInputNV not implemented");
-			Delegates.pglFinalCombinerInputNV(variable, input, mapping, componentUsage);
+			Delegates.pglFinalCombinerInputNV((int)variable, (int)input, (int)mapping, (int)componentUsage);
 			LogCommand("glFinalCombinerInputNV", null, variable, input, mapping, componentUsage			);
 			DebugCheckErrors(null);
 		}
@@ -532,28 +532,28 @@ namespace OpenGL
 		/// [GL] glGetCombinerInputParameterfvNV: Binding for glGetCombinerInputParameterfvNV.
 		/// </summary>
 		/// <param name="stage">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:CombinerStageNV"/>.
 		/// </param>
 		/// <param name="portion">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:CombinerPortionNV"/>.
 		/// </param>
 		/// <param name="variable">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:CombinerVariableNV"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:CombinerParameterNV"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_register_combiners")]
-		public static void GetCombinerInputParameterNV(int stage, int portion, int variable, int pname, [Out] float[] @params)
+		public static void GetCombinerInputParameterNV(CombinerStageNV stage, CombinerPortionNV portion, CombinerVariableNV variable, CombinerParameterNV pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetCombinerInputParameterfvNV != null, "pglGetCombinerInputParameterfvNV not implemented");
-					Delegates.pglGetCombinerInputParameterfvNV(stage, portion, variable, pname, p_params);
+					Delegates.pglGetCombinerInputParameterfvNV((int)stage, (int)portion, (int)variable, (int)pname, p_params);
 					LogCommand("glGetCombinerInputParameterfvNV", null, stage, portion, variable, pname, @params					);
 				}
 			}
@@ -564,28 +564,28 @@ namespace OpenGL
 		/// [GL] glGetCombinerInputParameterivNV: Binding for glGetCombinerInputParameterivNV.
 		/// </summary>
 		/// <param name="stage">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:CombinerStageNV"/>.
 		/// </param>
 		/// <param name="portion">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:CombinerPortionNV"/>.
 		/// </param>
 		/// <param name="variable">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:CombinerVariableNV"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:CombinerParameterNV"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_register_combiners")]
-		public static void GetCombinerInputParameterNV(int stage, int portion, int variable, int pname, [Out] int[] @params)
+		public static void GetCombinerInputParameterNV(CombinerStageNV stage, CombinerPortionNV portion, CombinerVariableNV variable, CombinerParameterNV pname, [Out] int[] @params)
 		{
 			unsafe {
 				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetCombinerInputParameterivNV != null, "pglGetCombinerInputParameterivNV not implemented");
-					Delegates.pglGetCombinerInputParameterivNV(stage, portion, variable, pname, p_params);
+					Delegates.pglGetCombinerInputParameterivNV((int)stage, (int)portion, (int)variable, (int)pname, p_params);
 					LogCommand("glGetCombinerInputParameterivNV", null, stage, portion, variable, pname, @params					);
 				}
 			}
@@ -596,25 +596,25 @@ namespace OpenGL
 		/// [GL] glGetCombinerOutputParameterfvNV: Binding for glGetCombinerOutputParameterfvNV.
 		/// </summary>
 		/// <param name="stage">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:CombinerStageNV"/>.
 		/// </param>
 		/// <param name="portion">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:CombinerPortionNV"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:CombinerParameterNV"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_register_combiners")]
-		public static void GetCombinerOutputParameterNV(int stage, int portion, int pname, [Out] float[] @params)
+		public static void GetCombinerOutputParameterNV(CombinerStageNV stage, CombinerPortionNV portion, CombinerParameterNV pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetCombinerOutputParameterfvNV != null, "pglGetCombinerOutputParameterfvNV not implemented");
-					Delegates.pglGetCombinerOutputParameterfvNV(stage, portion, pname, p_params);
+					Delegates.pglGetCombinerOutputParameterfvNV((int)stage, (int)portion, (int)pname, p_params);
 					LogCommand("glGetCombinerOutputParameterfvNV", null, stage, portion, pname, @params					);
 				}
 			}
@@ -625,25 +625,25 @@ namespace OpenGL
 		/// [GL] glGetCombinerOutputParameterivNV: Binding for glGetCombinerOutputParameterivNV.
 		/// </summary>
 		/// <param name="stage">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:CombinerStageNV"/>.
 		/// </param>
 		/// <param name="portion">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:CombinerPortionNV"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:CombinerParameterNV"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_register_combiners")]
-		public static void GetCombinerOutputParameterNV(int stage, int portion, int pname, [Out] int[] @params)
+		public static void GetCombinerOutputParameterNV(CombinerStageNV stage, CombinerPortionNV portion, CombinerParameterNV pname, [Out] int[] @params)
 		{
 			unsafe {
 				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetCombinerOutputParameterivNV != null, "pglGetCombinerOutputParameterivNV not implemented");
-					Delegates.pglGetCombinerOutputParameterivNV(stage, portion, pname, p_params);
+					Delegates.pglGetCombinerOutputParameterivNV((int)stage, (int)portion, (int)pname, p_params);
 					LogCommand("glGetCombinerOutputParameterivNV", null, stage, portion, pname, @params					);
 				}
 			}
@@ -654,22 +654,22 @@ namespace OpenGL
 		/// [GL] glGetFinalCombinerInputParameterfvNV: Binding for glGetFinalCombinerInputParameterfvNV.
 		/// </summary>
 		/// <param name="variable">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:CombinerVariableNV"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:CombinerParameterNV"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_register_combiners")]
-		public static void GetFinalCombinerInputParameterNV(int variable, int pname, [Out] float[] @params)
+		public static void GetFinalCombinerInputParameterNV(CombinerVariableNV variable, CombinerParameterNV pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetFinalCombinerInputParameterfvNV != null, "pglGetFinalCombinerInputParameterfvNV not implemented");
-					Delegates.pglGetFinalCombinerInputParameterfvNV(variable, pname, p_params);
+					Delegates.pglGetFinalCombinerInputParameterfvNV((int)variable, (int)pname, p_params);
 					LogCommand("glGetFinalCombinerInputParameterfvNV", null, variable, pname, @params					);
 				}
 			}
@@ -680,22 +680,22 @@ namespace OpenGL
 		/// [GL] glGetFinalCombinerInputParameterivNV: Binding for glGetFinalCombinerInputParameterivNV.
 		/// </summary>
 		/// <param name="variable">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:CombinerVariableNV"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:CombinerParameterNV"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_register_combiners")]
-		public static void GetFinalCombinerInputParameterNV(int variable, int pname, [Out] int[] @params)
+		public static void GetFinalCombinerInputParameterNV(CombinerVariableNV variable, CombinerParameterNV pname, [Out] int[] @params)
 		{
 			unsafe {
 				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetFinalCombinerInputParameterivNV != null, "pglGetFinalCombinerInputParameterivNV not implemented");
-					Delegates.pglGetFinalCombinerInputParameterivNV(variable, pname, p_params);
+					Delegates.pglGetFinalCombinerInputParameterivNV((int)variable, (int)pname, p_params);
 					LogCommand("glGetFinalCombinerInputParameterivNV", null, variable, pname, @params					);
 				}
 			}

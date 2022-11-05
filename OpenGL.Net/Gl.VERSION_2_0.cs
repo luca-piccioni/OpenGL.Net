@@ -1021,7 +1021,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ATI_separate_stencil")]
-		public static void StencilOpSeparate(StencilFaceDirection face, StencilOp sfail, StencilOp dpfail, StencilOp dppass)
+		public static void StencilOpSeparate(TriangleFace face, StencilOp sfail, StencilOp dpfail, StencilOp dppass)
 		{
 			Debug.Assert(Delegates.pglStencilOpSeparate != null, "pglStencilOpSeparate not implemented");
 			Delegates.pglStencilOpSeparate((int)face, (int)sfail, (int)dpfail, (int)dppass);
@@ -1053,7 +1053,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		public static void StencilFuncSeparate(StencilFaceDirection face, StencilFunction func, int @ref, uint mask)
+		public static void StencilFuncSeparate(TriangleFace face, StencilFunction func, int @ref, uint mask)
 		{
 			Debug.Assert(Delegates.pglStencilFuncSeparate != null, "pglStencilFuncSeparate not implemented");
 			Delegates.pglStencilFuncSeparate((int)face, (int)func, @ref, mask);
@@ -1077,7 +1077,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_2_0")]
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
-		public static void StencilMaskSeparate(StencilFaceDirection face, uint mask)
+		public static void StencilMaskSeparate(TriangleFace face, uint mask)
 		{
 			Debug.Assert(Delegates.pglStencilMaskSeparate != null, "pglStencilMaskSeparate not implemented");
 			Delegates.pglStencilMaskSeparate((int)face, mask);
@@ -1912,14 +1912,14 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void GetVertexAttrib(uint index, int pname, [Out] double[] @params)
+		public static void GetVertexAttrib(uint index, VertexAttribPropertyARB pname, [Out] double[] @params)
 		{
 			Debug.Assert(@params.Length >= 4);
 			unsafe {
 				fixed (double* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetVertexAttribdv != null, "pglGetVertexAttribdv not implemented");
-					Delegates.pglGetVertexAttribdv(index, pname, p_params);
+					Delegates.pglGetVertexAttribdv(index, (int)pname, p_params);
 					LogCommand("glGetVertexAttribdv", null, index, pname, @params					);
 				}
 			}
@@ -1949,14 +1949,14 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void GetVertexAttrib(uint index, int pname, [Out] float[] @params)
+		public static void GetVertexAttrib(uint index, VertexAttribPropertyARB pname, [Out] float[] @params)
 		{
 			Debug.Assert(@params.Length >= 4);
 			unsafe {
 				fixed (float* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetVertexAttribfv != null, "pglGetVertexAttribfv not implemented");
-					Delegates.pglGetVertexAttribfv(index, pname, p_params);
+					Delegates.pglGetVertexAttribfv(index, (int)pname, p_params);
 					LogCommand("glGetVertexAttribfv", null, index, pname, @params					);
 				}
 			}
@@ -1986,13 +1986,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void GetVertexAttrib(uint index, int pname, out float @params)
+		public static void GetVertexAttrib(uint index, VertexAttribPropertyARB pname, out float @params)
 		{
 			unsafe {
 				fixed (float* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetVertexAttribfv != null, "pglGetVertexAttribfv not implemented");
-					Delegates.pglGetVertexAttribfv(index, pname, p_params);
+					Delegates.pglGetVertexAttribfv(index, (int)pname, p_params);
 					LogCommand("glGetVertexAttribfv", null, index, pname, @params					);
 				}
 			}
@@ -2022,14 +2022,14 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void GetVertexAttrib(uint index, int pname, [Out] int[] @params)
+		public static void GetVertexAttrib(uint index, VertexAttribPropertyARB pname, [Out] int[] @params)
 		{
 			Debug.Assert(@params.Length >= 4);
 			unsafe {
 				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetVertexAttribiv != null, "pglGetVertexAttribiv not implemented");
-					Delegates.pglGetVertexAttribiv(index, pname, p_params);
+					Delegates.pglGetVertexAttribiv(index, (int)pname, p_params);
 					LogCommand("glGetVertexAttribiv", null, index, pname, @params					);
 				}
 			}
@@ -2059,13 +2059,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void GetVertexAttrib(uint index, int pname, out int @params)
+		public static void GetVertexAttrib(uint index, VertexAttribPropertyARB pname, out int @params)
 		{
 			unsafe {
 				fixed (int* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetVertexAttribiv != null, "pglGetVertexAttribiv not implemented");
-					Delegates.pglGetVertexAttribiv(index, pname, p_params);
+					Delegates.pglGetVertexAttribiv(index, (int)pname, p_params);
 					LogCommand("glGetVertexAttribiv", null, index, pname, @params					);
 				}
 			}
@@ -2093,13 +2093,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void GetVertexAttribPointer(uint index, int pname, out IntPtr pointer)
+		public static void GetVertexAttribPointer(uint index, VertexAttribPointerPropertyARB pname, out IntPtr pointer)
 		{
 			unsafe {
 				fixed (IntPtr* p_pointer = &pointer)
 				{
 					Debug.Assert(Delegates.pglGetVertexAttribPointerv != null, "pglGetVertexAttribPointerv not implemented");
-					Delegates.pglGetVertexAttribPointerv(index, pname, p_pointer);
+					Delegates.pglGetVertexAttribPointerv(index, (int)pname, p_pointer);
 					LogCommand("glGetVertexAttribPointerv", null, index, pname, pointer					);
 				}
 			}
@@ -2127,7 +2127,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
 		[RequiredByFeature("GL_NV_vertex_program")]
-		public static void GetVertexAttribPointer(uint index, int pname, object pointer)
+		public static void GetVertexAttribPointer(uint index, VertexAttribPointerPropertyARB pname, object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -6054,7 +6054,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static void VertexAttribPointer(uint index, int size, VertexAttribType type, bool normalized, int stride, IntPtr pointer)
+		public static void VertexAttribPointer(uint index, int size, VertexAttribPointerType type, bool normalized, int stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglVertexAttribPointer != null, "pglVertexAttribPointer not implemented");
 			Delegates.pglVertexAttribPointer(index, size, (int)type, normalized, stride, pointer);
@@ -6099,7 +6099,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_vertex_program")]
 		[RequiredByFeature("GL_ARB_vertex_shader")]
-		public static void VertexAttribPointer(uint index, int size, VertexAttribType type, bool normalized, int stride, object pointer)
+		public static void VertexAttribPointer(uint index, int size, VertexAttribPointerType type, bool normalized, int stride, object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {

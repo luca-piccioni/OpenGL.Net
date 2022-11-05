@@ -35,14 +35,14 @@ namespace BindingsGen.GLSpecs
 		/// API name this feature is for, such as gl or gles2.
 		/// </summary>
 		[XmlAttribute("api")]
-		public String Api;
+		public string Api;
 
 		/// <summary>
 		/// Version name, used as the C preprocessor token under which the version’s interfaces are protected against
 		/// multiple inclusion. Example: GL_VERSION_4_2.
 		/// </summary>
 		[XmlAttribute("name")]
-		public String Name;
+		public string Name;
 
 		/// <summary>
 		/// An additional preprocessor token used to protect a feature definition. Usually another feature or extension
@@ -50,19 +50,19 @@ namespace BindingsGen.GLSpecs
 		/// be defined first.
 		/// </summary>
 		[XmlAttribute("protect")]
-		public String Protect;
+		public string Protect;
 
 		/// <summary>
 		/// The feature version number, usually a string interpreted as majorNumber:minorNumber. Example: 4.2.
 		/// </summary>
 		[XmlAttribute("version")]
-		public String Version;
+		public string Version;
 
 		/// <summary>
 		/// The feature version number.
 		/// </summary>
 		[XmlAttribute("number")]
-		public String Number;
+		public string Number;
 
 		/// <summary>
 		/// Zero or more <see cref="FeatureCommand"/>. Each item describes a set of interfaces that is required for this feature.

@@ -52,17 +52,17 @@ namespace BindingsGen.GLSpecs
 
 		public string CommandCallConventionRegex;
 
-		public string CommandExitRegex = String.Empty;
+		public string CommandExitRegex = string.Empty;
 
 		/// <summary>
 		/// Append definitions recognized in a header file.
 		/// </summary>
 		/// <param name="path">
-		/// A <see cref="System.String"/> that specified the path of the header file.
+		/// A <see cref="System.string"/> that specified the path of the header file.
 		/// </param>
 		public void AppendHeader(string path, KhronosVersion feature)
 		{
-			string headerFeatureName = String.Format("{0}_VERSION_{1}_{2}", Class.ToUpperInvariant(), feature.Major, feature.Minor);
+			string headerFeatureName = string.Format("{0}_VERSION_{1}_{2}", Class.ToUpperInvariant(), feature.Major, feature.Minor);
 
 			AppendHeader(path, headerFeatureName);
 		}
@@ -71,7 +71,7 @@ namespace BindingsGen.GLSpecs
 		/// Append definitions recognized in a header file.
 		/// </summary>
 		/// <param name="path">
-		/// A <see cref="System.String"/> that specified the path of the header file.
+		/// A <see cref="System.string"/> that specified the path of the header file.
 		/// </param>
 		public void AppendHeader(string path, string headerFeatureName)
 		{
@@ -91,9 +91,9 @@ namespace BindingsGen.GLSpecs
 			string inlineComment = @"//(.*?)\r?\n";
 			string blockComment = @"/\*(.*?)\*/";
 			
-			headerText = Regex.Replace(headerText, String.Format("{0}|{1}", inlineComment, blockComment), delegate (Match match) {
+			headerText = Regex.Replace(headerText, string.Format("{0}|{1}", inlineComment, blockComment), delegate (Match match) {
 				if (match.Value.StartsWith("/*"))
-					return (String.Empty);
+					return (string.Empty);
 				if (match.Value.StartsWith("//"))
 					return (Environment.NewLine);
 				return (match.Value);
@@ -132,7 +132,7 @@ namespace BindingsGen.GLSpecs
 						_Enumerants.Add(enumerant);
 					}
 
-					return (String.Empty);
+					return (string.Empty);
 				}
 					
 				return (match.Value);
@@ -141,13 +141,13 @@ namespace BindingsGen.GLSpecs
 			// Remove no more necessary C preprocessor
 			string preprocessorDirective = @"#(if|ifndef|else|endif|define|include) ?.*\r?\n";
 
-			headerText = Regex.Replace(headerText, preprocessorDirective, String.Empty);
+			headerText = Regex.Replace(headerText, preprocessorDirective, string.Empty);
 
 			// Remove new lines
-			headerText = Regex.Replace(headerText, @"\r?\n", String.Empty);
+			headerText = Regex.Replace(headerText, @"\r?\n", string.Empty);
 			// Remove structures typedefs
 			string structTypedef = @"typedef struct ?\{(.*?)\}( +?)(.*?);";
-			headerText = Regex.Replace(headerText, structTypedef, String.Empty);
+			headerText = Regex.Replace(headerText, structTypedef, string.Empty);
 			// Remove multiple spaces
 			headerText = Regex.Replace(headerText, @" +", " ");
 
@@ -241,7 +241,7 @@ namespace BindingsGen.GLSpecs
 					for (int i = 0; i < args.Length; i++) {
 						string arg = args[i].Trim();
 
-						if (arg == String.Empty)
+						if (arg == string.Empty)
 							break;
 
 						// '*' denotes types, not names
@@ -265,7 +265,7 @@ namespace BindingsGen.GLSpecs
 
 							command.Parameters.Add(commandParameter);
 						} else
-							throw new InvalidOperationException(String.Format("unable to parse argument '{0}'", arg));
+							throw new InvalidOperationException(string.Format("unable to parse argument '{0}'", arg));
 					}
 
 					_Commands.Add(command);
@@ -342,22 +342,22 @@ namespace BindingsGen.GLSpecs
 
 		private static string ReplaceEnumMacro_VM_ENUM_BASE(string[] args)
 		{
-			return (String.Format("(({0} << 20) | ({1} << 12))", args[0], args[1]));
+			return (string.Format("(({0} << 20) | ({1} << 12))", args[0], args[1]));
 		}
 
 		private static string ReplaceEnumMacro_VX_DF_IMAGE(string[] args)
 		{
-			return (String.Format("(((byte){0}) | ((byte){1} << 8) | ((byte){2} << 16) | ((byte){3} << 24))", args[0], args[1], args[2], args[3]));
+			return (string.Format("(((byte){0}) | ((byte){1} << 8) | ((byte){2} << 16) | ((byte){3} << 24))", args[0], args[1], args[2], args[3]));
 		}
 
 		private static string ReplaceEnumMacro_VX_ATTRIBUTE_BASE(string[] args)
 		{
-			return (String.Format("((({0}) << 20) | ({1} << 8))", args[0], args[1]));
+			return (string.Format("((({0}) << 20) | ({1} << 8))", args[0], args[1]));
 		}
 
 		private static string ReplaceEnumMacro_VX_KERNEL_BASE(string[] args)
 		{
-			return (String.Format("((({0}) << 20) | ({1} << 12))", args[0], args[1]));
+			return (string.Format("((({0}) << 20) | ({1} << 12))", args[0], args[1]));
 		}
 
 		/// <summary>

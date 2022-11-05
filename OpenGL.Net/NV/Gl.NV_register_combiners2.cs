@@ -52,22 +52,22 @@ namespace OpenGL
 		/// [GL] glCombinerStageParameterfvNV: Binding for glCombinerStageParameterfvNV.
 		/// </summary>
 		/// <param name="stage">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:CombinerStageNV"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:CombinerParameterNV"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_register_combiners2")]
-		public static void CombinerStageParameterNV(int stage, int pname, float[] @params)
+		public static void CombinerStageParameterNV(CombinerStageNV stage, CombinerParameterNV pname, float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglCombinerStageParameterfvNV != null, "pglCombinerStageParameterfvNV not implemented");
-					Delegates.pglCombinerStageParameterfvNV(stage, pname, p_params);
+					Delegates.pglCombinerStageParameterfvNV((int)stage, (int)pname, p_params);
 					LogCommand("glCombinerStageParameterfvNV", null, stage, pname, @params					);
 				}
 			}
@@ -78,22 +78,22 @@ namespace OpenGL
 		/// [GL] glGetCombinerStageParameterfvNV: Binding for glGetCombinerStageParameterfvNV.
 		/// </summary>
 		/// <param name="stage">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:CombinerStageNV"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:CombinerParameterNV"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_register_combiners2")]
-		public static void GetCombinerStageParameterNV(int stage, int pname, [Out] float[] @params)
+		public static void GetCombinerStageParameterNV(CombinerStageNV stage, CombinerParameterNV pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetCombinerStageParameterfvNV != null, "pglGetCombinerStageParameterfvNV not implemented");
-					Delegates.pglGetCombinerStageParameterfvNV(stage, pname, p_params);
+					Delegates.pglGetCombinerStageParameterfvNV((int)stage, (int)pname, p_params);
 					LogCommand("glGetCombinerStageParameterfvNV", null, stage, pname, @params					);
 				}
 			}

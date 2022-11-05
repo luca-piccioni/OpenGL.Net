@@ -109,13 +109,9 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_gpu_multicast")]
 		public static void MulticastBufferSubDataNV(uint gpuMask, uint buffer, IntPtr offset, uint size, IntPtr data)
 		{
-			unsafe {
-				{
-					Debug.Assert(Delegates.pglMulticastBufferSubDataNV != null, "pglMulticastBufferSubDataNV not implemented");
-					Delegates.pglMulticastBufferSubDataNV(gpuMask, buffer, offset, size, data.ToPointer());
-					LogCommand("glMulticastBufferSubDataNV", null, gpuMask, buffer, offset, size, data					);
-				}
-			}
+			Debug.Assert(Delegates.pglMulticastBufferSubDataNV != null, "pglMulticastBufferSubDataNV not implemented");
+			Delegates.pglMulticastBufferSubDataNV(gpuMask, buffer, offset, size, data);
+			LogCommand("glMulticastBufferSubDataNV", null, gpuMask, buffer, offset, size, data			);
 			DebugCheckErrors(null);
 		}
 
@@ -482,7 +478,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_gpu_multicast")]
 			[SuppressUnmanagedCodeSecurity]
-			internal delegate void glMulticastBufferSubDataNV(uint gpuMask, uint buffer, IntPtr offset, uint size, void* data);
+			internal delegate void glMulticastBufferSubDataNV(uint gpuMask, uint buffer, IntPtr offset, uint size, IntPtr data);
 
 			[RequiredByFeature("GL_NV_gpu_multicast")]
 			[ThreadStatic]

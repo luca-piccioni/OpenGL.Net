@@ -57,9 +57,9 @@ namespace OpenGL.Objects.State
 		/// Construct a CullFaceState, enabling front/back face culling (front face is defaulted to CCW).
 		/// </summary>
 		/// <param name="culledFace">
-		/// A <see cref="CullFaceMode"/> that specify which faces are culled.
+		/// A <see cref="TriangleFace"/> that specify which faces are culled.
 		/// </param>
-		public CullFaceState(CullFaceMode culledFace) :
+		public CullFaceState(TriangleFace culledFace) :
 			this(FrontFaceDirection.Ccw, culledFace)
 		{
 			
@@ -72,9 +72,9 @@ namespace OpenGL.Objects.State
 		/// A <see cref="FrontFaceDirection"/> that specify how front faces are determined.
 		/// </param>
 		/// <param name="culledFace">
-		/// A <see cref="CullFaceMode"/> that specify which faces are culled.
+		/// A <see cref="TriangleFace"/> that specify which faces are culled.
 		/// </param>
-		public CullFaceState(FrontFaceDirection frontFace, CullFaceMode culledFace)
+		public CullFaceState(FrontFaceDirection frontFace, TriangleFace culledFace)
 		{
 			_FrontFaceMode = frontFace;
 			_Enabled = true;
@@ -102,8 +102,8 @@ namespace OpenGL.Objects.State
 			_Enabled = Gl.IsEnabled(EnableCap.CullFace);
 
 			// Determine which faces are culled
-			Gl.Get(GetPName.CullFaceMode, out cullFaceMode);
-			_CulledFace = (CullFaceMode)cullFaceMode;
+			Gl.Get(GetPName.CullFace, out cullFaceMode);
+			_CulledFace = (TriangleFace)cullFaceMode;
 		}
 		
 		#endregion
@@ -131,7 +131,7 @@ namespace OpenGL.Objects.State
 		/// <summary>
 		/// Face culled.
 		/// </summary>
-		public CullFaceMode CulledFace
+		public TriangleFace CulledFace
 		{
 			get { return (_CulledFace); }
 			set { _CulledFace = value; }
@@ -150,7 +150,7 @@ namespace OpenGL.Objects.State
 		/// <summary>
 		/// Face culled.
 		/// </summary>
-		private CullFaceMode _CulledFace = CullFaceMode.Back;
+		private TriangleFace _CulledFace = TriangleFace.Back;
 		
 		#endregion
 

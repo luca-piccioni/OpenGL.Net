@@ -252,18 +252,18 @@ namespace OpenGL
 		/// [GL] glGetCommandHeaderNV: Binding for glGetCommandHeaderNV.
 		/// </summary>
 		/// <param name="tokenID">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:CommandOpcodesNV"/>.
 		/// </param>
 		/// <param name="size">
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
-		public static uint GetNV(int tokenID, uint size)
+		public static uint GetNV(CommandOpcodesNV tokenID, uint size)
 		{
 			uint retValue;
 
 			Debug.Assert(Delegates.pglGetCommandHeaderNV != null, "pglGetCommandHeaderNV not implemented");
-			retValue = Delegates.pglGetCommandHeaderNV(tokenID, size);
+			retValue = Delegates.pglGetCommandHeaderNV((int)tokenID, size);
 			LogCommand("glGetCommandHeaderNV", retValue, tokenID, size			);
 			DebugCheckErrors(retValue);
 
@@ -520,11 +520,8 @@ namespace OpenGL
 		/// <param name="fbos">
 		/// A <see cref="T:uint[]"/>.
 		/// </param>
-		/// <param name="count">
-		/// A <see cref="T:uint"/>.
-		/// </param>
 		[RequiredByFeature("GL_NV_command_list", Api = "gl|glcore")]
-		public static void ListDrawCommandsStatesClientNV(uint list, uint segment, IntPtr[] indirects, int[] sizes, uint[] states, uint[] fbos, uint count)
+		public static void ListDrawCommandsStatesClientNV(uint list, uint segment, IntPtr[] indirects, int[] sizes, uint[] states, uint[] fbos)
 		{
 			unsafe {
 				fixed (IntPtr* p_indirects = indirects)
@@ -533,8 +530,8 @@ namespace OpenGL
 				fixed (uint* p_fbos = fbos)
 				{
 					Debug.Assert(Delegates.pglListDrawCommandsStatesClientNV != null, "pglListDrawCommandsStatesClientNV not implemented");
-					Delegates.pglListDrawCommandsStatesClientNV(list, segment, p_indirects, p_sizes, p_states, p_fbos, count);
-					LogCommand("glListDrawCommandsStatesClientNV", null, list, segment, indirects, sizes, states, fbos, count					);
+					Delegates.pglListDrawCommandsStatesClientNV(list, segment, p_indirects, p_sizes, p_states, p_fbos, (uint)indirects.Length);
+					LogCommand("glListDrawCommandsStatesClientNV", null, list, segment, indirects, sizes, states, fbos, indirects.Length					);
 				}
 			}
 			DebugCheckErrors(null);

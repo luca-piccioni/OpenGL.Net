@@ -34,7 +34,7 @@ namespace BindingsGen.GLSpecs
 		/// Group name, an arbitrary string for grouping a set of enums together within a broader namespace.
 		/// </summary>
 		[XmlAttribute("name")]
-		public String Name;
+		public string Name;
 
 		/// <summary>
 		/// EnumerantGroup may contain zero or more <see cref="Enumerant"/>. Each <see cref="Enumerant"/> tag may contain
@@ -48,7 +48,7 @@ namespace BindingsGen.GLSpecs
 		/// Arbitrary string.
 		/// </summary>
 		[XmlAttribute("comment")]
-		public String Comment;
+		public string Comment;
 
 		#endregion
 
@@ -61,7 +61,7 @@ namespace BindingsGen.GLSpecs
 			if (ctx == null)
 				throw new ArgumentNullException(nameof(ctx));
 
-			bool bitmask = Enums.TrueForAll(delegate(Enumerant item) {
+			bool bitmask = Enums.Exists(delegate(Enumerant item) {
 				Enumerant actualEnumerant = ctx.Registry.GetEnumerant(item.Name);
 
 				return (actualEnumerant == null || actualEnumerant.ParentEnumerantBlock.Type == "bitmask");
@@ -136,12 +136,14 @@ namespace BindingsGen.GLSpecs
 					uniqueEnums.AddRange(pair.Value);
 			}
 
+			string enumBackendType = bitmask ? "uint" : "int";
+
 			sw.WriteLine("/// <summary>");
 			sw.WriteLine("/// Strongly typed enumeration {0}.", Name);
 			sw.WriteLine("/// </summary>");
 			if (bitmask)
 				sw.WriteLine("[Flags()]");
-			sw.WriteLine("public enum {0}{1}", Name, bitmask ? " : uint" : String.Empty);
+			sw.WriteLine("public enum {0}{1}", Name, enumBackendType != "int" ? $" : {enumBackendType}" : string.Empty);
 			sw.WriteLine("{");
 			sw.Indent();
 			foreach (Enumerant enumerant in uniqueEnums) {
@@ -187,7 +189,10 @@ namespace BindingsGen.GLSpecs
 						sw.WriteLine(feature.GenerateRemovedByAttribute(classDefaultApi));
 				}
 
-				sw.WriteLine("{0} = {1}.{2},", camelCase, ctx.Class, bindingName);
+				if (enumerant.DeclarationType != enumBackendType && enumBackendType == "int")
+					sw.WriteLine($"{camelCase} = unchecked(({enumBackendType}){ctx.Class}.{bindingName}),");
+				else
+					sw.WriteLine("{0} = {1}.{2},", camelCase, ctx.Class, bindingName);
 				sw.WriteLine();
 			}
 			sw.Unindent();

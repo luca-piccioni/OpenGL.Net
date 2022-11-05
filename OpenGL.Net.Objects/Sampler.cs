@@ -77,39 +77,39 @@ namespace OpenGL.Objects
 		private void TexParameters(SamplerParameters samplerParams)
 		{
 			if (samplerParams.MinFilter != _ObjectParams.MinFilter) {
-				Gl.SamplerParameter(ObjectName, SamplerParameterName.TextureMinFilter, (int)samplerParams.MinFilter);
+				Gl.SamplerParameter(ObjectName, SamplerParameterI.TextureMinFilter, (int)samplerParams.MinFilter);
 				_ObjectParams.MinFilter = samplerParams.MinFilter;
 			}
-			
+
 			if (samplerParams.MagFilter != _ObjectParams.MagFilter) {
-				Gl.SamplerParameter(ObjectName, SamplerParameterName.TextureMagFilter, (int)samplerParams.MagFilter);
+				Gl.SamplerParameter(ObjectName, SamplerParameterI.TextureMagFilter, (int)samplerParams.MagFilter);
 				_ObjectParams.MagFilter = samplerParams.MagFilter;
 			}
 			
 			if (samplerParams.WrapCoordR != _ObjectParams.WrapCoordR) {
-				Gl.SamplerParameter(ObjectName, SamplerParameterName.TextureWrapR, (int)samplerParams.WrapCoordR);
+				Gl.SamplerParameter(ObjectName, SamplerParameterI.TextureWrapR, (int)samplerParams.WrapCoordR);
 				_ObjectParams.WrapCoordR = samplerParams.WrapCoordR;
 			}
 			
 			if (samplerParams.WrapCoordS != _ObjectParams.WrapCoordS) {
-				Gl.SamplerParameter(ObjectName, SamplerParameterName.TextureWrapS, (int)samplerParams.WrapCoordS);
+				Gl.SamplerParameter(ObjectName, SamplerParameterI.TextureWrapS, (int)samplerParams.WrapCoordS);
 				_ObjectParams.WrapCoordS = samplerParams.WrapCoordS;
 			}
 			
 			if (samplerParams.WrapCoordT != _ObjectParams.WrapCoordT) {
-				Gl.SamplerParameter(ObjectName, SamplerParameterName.TextureWrapT, (int)samplerParams.WrapCoordT);
+				Gl.SamplerParameter(ObjectName, SamplerParameterI.TextureWrapT, (int)samplerParams.WrapCoordT);
 				_ObjectParams.WrapCoordT = samplerParams.WrapCoordT;
 			}
 
 #if !MONODROID
 			if (samplerParams.CompareMode != _ObjectParams.CompareMode) {
-				Gl.SamplerParameter(ObjectName, SamplerParameterName.TextureCompareMode, samplerParams.CompareMode ? Gl.COMPARE_R_TO_TEXTURE : Gl.NONE);
+				Gl.SamplerParameter(ObjectName, SamplerParameterI.TextureCompareMode, samplerParams.CompareMode ? Gl.COMPARE_R_TO_TEXTURE : Gl.NONE);
 				_ObjectParams.CompareMode = samplerParams.CompareMode;
 			}
 #endif
 
 			if (samplerParams.CompareFunc != _ObjectParams.CompareFunc) {
-				Gl.SamplerParameter(ObjectName, SamplerParameterName.TextureCompareFunc, (int)samplerParams.CompareFunc);
+				Gl.SamplerParameter(ObjectName, SamplerParameterI.TextureCompareFunc, (int)samplerParams.CompareFunc);
 				_ObjectParams.CompareFunc = samplerParams.CompareFunc;
 			}
 		}

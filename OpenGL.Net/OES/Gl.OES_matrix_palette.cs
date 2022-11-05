@@ -95,10 +95,10 @@ namespace OpenGL
 		/// Specifies a pointer to the first matrix index of the first vertex in the array. The initial value is Gl..
 		/// </param>
 		[RequiredByFeature("GL_OES_matrix_palette", Api = "gles1")]
-		public static void MatrixIndexPointerOES(int size, int type, int stride, IntPtr pointer)
+		public static void MatrixIndexPointerOES(int size, MatrixIndexPointerTypeARB type, int stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglMatrixIndexPointerOES != null, "pglMatrixIndexPointerOES not implemented");
-			Delegates.pglMatrixIndexPointerOES(size, type, stride, pointer);
+			Delegates.pglMatrixIndexPointerOES(size, (int)type, stride, pointer);
 			LogCommand("glMatrixIndexPointerOES", null, size, type, stride, pointer			);
 			DebugCheckErrors(null);
 		}
@@ -122,7 +122,7 @@ namespace OpenGL
 		/// Specifies a pointer to the first matrix index of the first vertex in the array. The initial value is Gl..
 		/// </param>
 		[RequiredByFeature("GL_OES_matrix_palette", Api = "gles1")]
-		public static void MatrixIndexPointerOES(int size, int type, int stride, object pointer)
+		public static void MatrixIndexPointerOES(int size, MatrixIndexPointerTypeARB type, int stride, object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {

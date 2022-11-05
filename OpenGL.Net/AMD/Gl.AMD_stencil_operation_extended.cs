@@ -70,13 +70,13 @@ namespace OpenGL
 		/// [GL] glStencilOpValueAMD: Binding for glStencilOpValueAMD.
 		/// </summary>
 		/// <param name="face">
-		/// A <see cref="T:StencilFaceDirection"/>.
+		/// A <see cref="T:TriangleFace"/>.
 		/// </param>
 		/// <param name="value">
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_stencil_operation_extended")]
-		public static void StencilOpAMD(StencilFaceDirection face, uint value)
+		public static void StencilOpAMD(TriangleFace face, uint value)
 		{
 			Debug.Assert(Delegates.pglStencilOpValueAMD != null, "pglStencilOpValueAMD not implemented");
 			Delegates.pglStencilOpValueAMD((int)face, value);

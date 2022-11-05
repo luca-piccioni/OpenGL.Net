@@ -244,7 +244,7 @@ namespace OpenGL.Objects
 		/// <param name="uniformBlockName"></param>
 		/// <param name="usageMask"></param>
 		/// <returns></returns>
-		public UniformBuffer CreateUniformBlock(string uniformBlockName, MapBufferUsageMask usageMask)
+		public UniformBuffer CreateUniformBlock(string uniformBlockName, BufferStorageMask usageMask)
 		{
 			UniformBlockBinding uniformBlockBinding = GetUniformBlock(uniformBlockName);
 			if (uniformBlockBinding == null)

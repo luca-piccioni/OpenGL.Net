@@ -194,7 +194,7 @@ namespace OpenGL.Objects.State
 			} else {
 				if (ctx.Extensions.BlendMinmax_EXT) {
 					// Blend equation (RGBA)
-					Gl.Get(GetPName.BlendEquationRgb, out blendRgbEquation);
+					Gl.Get(GetPName.BlendEquation, out blendRgbEquation);
 					// Alpha equation is the same for RGB!
 					blendAlphaEquation = blendRgbEquation;
 				} else {

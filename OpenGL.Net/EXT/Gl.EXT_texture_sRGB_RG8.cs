@@ -45,7 +45,7 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_SRG8_EXT symbol.
 		/// </summary>
-		[RequiredByFeature("GL_EXT_texture_sRGB_RG8", Api = "gles2")]
+		[RequiredByFeature("GL_EXT_texture_sRGB_RG8", Api = "gles2|gl|glcore")]
 		public const int SRG8_EXT = 0x8FBE;
 
 	}

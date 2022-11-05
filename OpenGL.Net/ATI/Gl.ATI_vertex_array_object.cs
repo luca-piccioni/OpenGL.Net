@@ -100,15 +100,15 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="usage">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:ArrayObjectUsageATI"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_array_object")]
-		public static uint NewObjectBufferATI(int size, IntPtr pointer, int usage)
+		public static uint NewObjectBufferATI(int size, IntPtr pointer, ArrayObjectUsageATI usage)
 		{
 			uint retValue;
 
 			Debug.Assert(Delegates.pglNewObjectBufferATI != null, "pglNewObjectBufferATI not implemented");
-			retValue = Delegates.pglNewObjectBufferATI(size, pointer, usage);
+			retValue = Delegates.pglNewObjectBufferATI(size, pointer, (int)usage);
 			LogCommand("glNewObjectBufferATI", retValue, size, pointer, usage			);
 			DebugCheckErrors(retValue);
 
@@ -125,10 +125,10 @@ namespace OpenGL
 		/// A <see cref="T:object"/>.
 		/// </param>
 		/// <param name="usage">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:ArrayObjectUsageATI"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_array_object")]
-		public static uint NewObjectBufferATI(int size, object pointer, int usage)
+		public static uint NewObjectBufferATI(int size, object pointer, ArrayObjectUsageATI usage)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -173,13 +173,13 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="preserve">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PreserveModeATI"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_array_object")]
-		public static void UpdateObjectBufferATI(uint buffer, uint offset, int size, IntPtr pointer, int preserve)
+		public static void UpdateObjectBufferATI(uint buffer, uint offset, int size, IntPtr pointer, PreserveModeATI preserve)
 		{
 			Debug.Assert(Delegates.pglUpdateObjectBufferATI != null, "pglUpdateObjectBufferATI not implemented");
-			Delegates.pglUpdateObjectBufferATI(buffer, offset, size, pointer, preserve);
+			Delegates.pglUpdateObjectBufferATI(buffer, offset, size, pointer, (int)preserve);
 			LogCommand("glUpdateObjectBufferATI", null, buffer, offset, size, pointer, preserve			);
 			DebugCheckErrors(null);
 		}
@@ -200,10 +200,10 @@ namespace OpenGL
 		/// A <see cref="T:object"/>.
 		/// </param>
 		/// <param name="preserve">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PreserveModeATI"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_array_object")]
-		public static void UpdateObjectBufferATI(uint buffer, uint offset, int size, object pointer, int preserve)
+		public static void UpdateObjectBufferATI(uint buffer, uint offset, int size, object pointer, PreserveModeATI preserve)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -220,19 +220,19 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:ArrayObjectPNameATI"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_array_object")]
-		public static void GetObjectBufferATI(uint buffer, int pname, out float @params)
+		public static void GetObjectBufferATI(uint buffer, ArrayObjectPNameATI pname, out float @params)
 		{
 			unsafe {
 				fixed (float* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetObjectBufferfvATI != null, "pglGetObjectBufferfvATI not implemented");
-					Delegates.pglGetObjectBufferfvATI(buffer, pname, p_params);
+					Delegates.pglGetObjectBufferfvATI(buffer, (int)pname, p_params);
 					LogCommand("glGetObjectBufferfvATI", null, buffer, pname, @params					);
 				}
 			}
@@ -246,19 +246,19 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:ArrayObjectPNameATI"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_array_object")]
-		public static void GetObjectBufferATI(uint buffer, int pname, out int @params)
+		public static void GetObjectBufferATI(uint buffer, ArrayObjectPNameATI pname, out int @params)
 		{
 			unsafe {
 				fixed (int* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetObjectBufferivATI != null, "pglGetObjectBufferivATI not implemented");
-					Delegates.pglGetObjectBufferivATI(buffer, pname, p_params);
+					Delegates.pglGetObjectBufferivATI(buffer, (int)pname, p_params);
 					LogCommand("glGetObjectBufferivATI", null, buffer, pname, @params					);
 				}
 			}
@@ -290,7 +290,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:ScalarType"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:int"/>.
@@ -302,10 +302,10 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_array_object")]
-		public static void ArrayObjectATI(EnableCap array, int size, int type, int stride, uint buffer, uint offset)
+		public static void ArrayObjectATI(EnableCap array, int size, ScalarType type, int stride, uint buffer, uint offset)
 		{
 			Debug.Assert(Delegates.pglArrayObjectATI != null, "pglArrayObjectATI not implemented");
-			Delegates.pglArrayObjectATI((int)array, size, type, stride, buffer, offset);
+			Delegates.pglArrayObjectATI((int)array, size, (int)type, stride, buffer, offset);
 			LogCommand("glArrayObjectATI", null, array, size, type, stride, buffer, offset			);
 			DebugCheckErrors(null);
 		}
@@ -317,19 +317,19 @@ namespace OpenGL
 		/// A <see cref="T:EnableCap"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:ArrayObjectPNameATI"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_array_object")]
-		public static void GetArrayObjectATI(EnableCap array, int pname, out float @params)
+		public static void GetArrayObjectATI(EnableCap array, ArrayObjectPNameATI pname, out float @params)
 		{
 			unsafe {
 				fixed (float* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetArrayObjectfvATI != null, "pglGetArrayObjectfvATI not implemented");
-					Delegates.pglGetArrayObjectfvATI((int)array, pname, p_params);
+					Delegates.pglGetArrayObjectfvATI((int)array, (int)pname, p_params);
 					LogCommand("glGetArrayObjectfvATI", null, array, pname, @params					);
 				}
 			}
@@ -343,19 +343,19 @@ namespace OpenGL
 		/// A <see cref="T:EnableCap"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:ArrayObjectPNameATI"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_array_object")]
-		public static void GetArrayObjectATI(EnableCap array, int pname, out int @params)
+		public static void GetArrayObjectATI(EnableCap array, ArrayObjectPNameATI pname, out int @params)
 		{
 			unsafe {
 				fixed (int* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetArrayObjectivATI != null, "pglGetArrayObjectivATI not implemented");
-					Delegates.pglGetArrayObjectivATI((int)array, pname, p_params);
+					Delegates.pglGetArrayObjectivATI((int)array, (int)pname, p_params);
 					LogCommand("glGetArrayObjectivATI", null, array, pname, @params					);
 				}
 			}
@@ -369,7 +369,7 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:ScalarType"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:int"/>.
@@ -381,10 +381,10 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_array_object")]
-		public static void VariantArrayObjectATI(uint id, int type, int stride, uint buffer, uint offset)
+		public static void VariantArrayObjectATI(uint id, ScalarType type, int stride, uint buffer, uint offset)
 		{
 			Debug.Assert(Delegates.pglVariantArrayObjectATI != null, "pglVariantArrayObjectATI not implemented");
-			Delegates.pglVariantArrayObjectATI(id, type, stride, buffer, offset);
+			Delegates.pglVariantArrayObjectATI(id, (int)type, stride, buffer, offset);
 			LogCommand("glVariantArrayObjectATI", null, id, type, stride, buffer, offset			);
 			DebugCheckErrors(null);
 		}
@@ -396,19 +396,19 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:ArrayObjectPNameATI"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_array_object")]
-		public static void GetVariantArrayObjectATI(uint id, int pname, out float @params)
+		public static void GetVariantArrayObjectATI(uint id, ArrayObjectPNameATI pname, out float @params)
 		{
 			unsafe {
 				fixed (float* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetVariantArrayObjectfvATI != null, "pglGetVariantArrayObjectfvATI not implemented");
-					Delegates.pglGetVariantArrayObjectfvATI(id, pname, p_params);
+					Delegates.pglGetVariantArrayObjectfvATI(id, (int)pname, p_params);
 					LogCommand("glGetVariantArrayObjectfvATI", null, id, pname, @params					);
 				}
 			}
@@ -422,19 +422,19 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:ArrayObjectPNameATI"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_array_object")]
-		public static void GetVariantArrayObjectATI(uint id, int pname, out int @params)
+		public static void GetVariantArrayObjectATI(uint id, ArrayObjectPNameATI pname, out int @params)
 		{
 			unsafe {
 				fixed (int* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetVariantArrayObjectivATI != null, "pglGetVariantArrayObjectivATI not implemented");
-					Delegates.pglGetVariantArrayObjectivATI(id, pname, p_params);
+					Delegates.pglGetVariantArrayObjectivATI(id, (int)pname, p_params);
 					LogCommand("glGetVariantArrayObjectivATI", null, id, pname, @params					);
 				}
 			}

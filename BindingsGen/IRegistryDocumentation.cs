@@ -35,7 +35,7 @@ namespace BindingsGen
 		/// Index all documented OpenGL commands the the manual directory.
 		/// </summary>
 		/// <param name="path">
-		/// A <see cref="String"/> that specifies the path of the directory to scan for documentation.
+		/// A <see cref="string"/> that specifies the path of the directory to scan for documentation.
 		/// </param>
 		void ScanDocumentation(string path);
 

@@ -45,13 +45,13 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_SCISSOR_TEST_EXCLUSIVE_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_scissor_exclusive", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_scissor_exclusive", Api = "gl|glcore|gles2")]
 		public const int SCISSOR_TEST_EXCLUSIVE_NV = 0x9555;
 
 		/// <summary>
 		/// [GL] Value of GL_SCISSOR_BOX_EXCLUSIVE_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_scissor_exclusive", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_scissor_exclusive", Api = "gl|glcore|gles2")]
 		public const int SCISSOR_BOX_EXCLUSIVE_NV = 0x9556;
 
 		/// <summary>
@@ -69,7 +69,7 @@ namespace OpenGL
 		/// <param name="height">
 		/// A <see cref="T:int"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_scissor_exclusive", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_scissor_exclusive", Api = "gl|glcore|gles2")]
 		public static void ScissorNV(int x, int y, int width, int height)
 		{
 			Debug.Assert(Delegates.pglScissorExclusiveNV != null, "pglScissorExclusiveNV not implemented");
@@ -90,7 +90,7 @@ namespace OpenGL
 		/// <param name="v">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_scissor_exclusive", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_scissor_exclusive", Api = "gl|glcore|gles2")]
 		public static void ScissorExclusiveArrayvNV(uint first, int count, int[] v)
 		{
 			unsafe {
@@ -106,19 +106,19 @@ namespace OpenGL
 
 		internal static unsafe partial class Delegates
 		{
-			[RequiredByFeature("GL_NV_scissor_exclusive", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_scissor_exclusive", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glScissorExclusiveNV(int x, int y, int width, int height);
 
-			[RequiredByFeature("GL_NV_scissor_exclusive", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_scissor_exclusive", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glScissorExclusiveNV pglScissorExclusiveNV;
 
-			[RequiredByFeature("GL_NV_scissor_exclusive", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_scissor_exclusive", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glScissorExclusiveArrayvNV(uint first, int count, int* v);
 
-			[RequiredByFeature("GL_NV_scissor_exclusive", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_scissor_exclusive", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glScissorExclusiveArrayvNV pglScissorExclusiveArrayvNV;
 

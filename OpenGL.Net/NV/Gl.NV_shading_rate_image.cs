@@ -45,127 +45,127 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_SHADING_RATE_IMAGE_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore|gles2")]
 		public const int SHADING_RATE_IMAGE_NV = 0x9563;
 
 		/// <summary>
 		/// [GL] Value of GL_SHADING_RATE_NO_INVOCATIONS_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore|gles2")]
 		public const int SHADING_RATE_NO_INVOCATIONS_NV = 0x9564;
 
 		/// <summary>
 		/// [GL] Value of GL_SHADING_RATE_1_INVOCATION_PER_PIXEL_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore|gles2")]
 		public const int SHADING_RATE_1_INVOCATION_PER_PIXEL_NV = 0x9565;
 
 		/// <summary>
 		/// [GL] Value of GL_SHADING_RATE_1_INVOCATION_PER_1X2_PIXELS_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore|gles2")]
 		public const int SHADING_RATE_1_INVOCATION_PER_1X2_PIXELS_NV = 0x9566;
 
 		/// <summary>
 		/// [GL] Value of GL_SHADING_RATE_1_INVOCATION_PER_2X1_PIXELS_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore|gles2")]
 		public const int SHADING_RATE_1_INVOCATION_PER_2X1_PIXELS_NV = 0x9567;
 
 		/// <summary>
 		/// [GL] Value of GL_SHADING_RATE_1_INVOCATION_PER_2X2_PIXELS_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore|gles2")]
 		public const int SHADING_RATE_1_INVOCATION_PER_2X2_PIXELS_NV = 0x9568;
 
 		/// <summary>
 		/// [GL] Value of GL_SHADING_RATE_1_INVOCATION_PER_2X4_PIXELS_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore|gles2")]
 		public const int SHADING_RATE_1_INVOCATION_PER_2X4_PIXELS_NV = 0x9569;
 
 		/// <summary>
 		/// [GL] Value of GL_SHADING_RATE_1_INVOCATION_PER_4X2_PIXELS_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore|gles2")]
 		public const int SHADING_RATE_1_INVOCATION_PER_4X2_PIXELS_NV = 0x956A;
 
 		/// <summary>
 		/// [GL] Value of GL_SHADING_RATE_1_INVOCATION_PER_4X4_PIXELS_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore|gles2")]
 		public const int SHADING_RATE_1_INVOCATION_PER_4X4_PIXELS_NV = 0x956B;
 
 		/// <summary>
 		/// [GL] Value of GL_SHADING_RATE_2_INVOCATIONS_PER_PIXEL_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore|gles2")]
 		public const int SHADING_RATE_2_INVOCATIONS_PER_PIXEL_NV = 0x956C;
 
 		/// <summary>
 		/// [GL] Value of GL_SHADING_RATE_4_INVOCATIONS_PER_PIXEL_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore|gles2")]
 		public const int SHADING_RATE_4_INVOCATIONS_PER_PIXEL_NV = 0x956D;
 
 		/// <summary>
 		/// [GL] Value of GL_SHADING_RATE_8_INVOCATIONS_PER_PIXEL_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore|gles2")]
 		public const int SHADING_RATE_8_INVOCATIONS_PER_PIXEL_NV = 0x956E;
 
 		/// <summary>
 		/// [GL] Value of GL_SHADING_RATE_16_INVOCATIONS_PER_PIXEL_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore|gles2")]
 		public const int SHADING_RATE_16_INVOCATIONS_PER_PIXEL_NV = 0x956F;
 
 		/// <summary>
 		/// [GL] Value of GL_SHADING_RATE_IMAGE_BINDING_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore|gles2")]
 		public const int SHADING_RATE_IMAGE_BINDING_NV = 0x955B;
 
 		/// <summary>
 		/// [GL] Value of GL_SHADING_RATE_IMAGE_TEXEL_WIDTH_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore|gles2")]
 		public const int SHADING_RATE_IMAGE_TEXEL_WIDTH_NV = 0x955C;
 
 		/// <summary>
 		/// [GL] Value of GL_SHADING_RATE_IMAGE_TEXEL_HEIGHT_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore|gles2")]
 		public const int SHADING_RATE_IMAGE_TEXEL_HEIGHT_NV = 0x955D;
 
 		/// <summary>
 		/// [GL] Value of GL_SHADING_RATE_IMAGE_PALETTE_SIZE_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore|gles2")]
 		public const int SHADING_RATE_IMAGE_PALETTE_SIZE_NV = 0x955E;
 
 		/// <summary>
 		/// [GL] Value of GL_MAX_COARSE_FRAGMENT_SAMPLES_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore|gles2")]
 		public const int MAX_COARSE_FRAGMENT_SAMPLES_NV = 0x955F;
 
 		/// <summary>
 		/// [GL] Value of GL_SHADING_RATE_SAMPLE_ORDER_DEFAULT_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore|gles2")]
 		public const int SHADING_RATE_SAMPLE_ORDER_DEFAULT_NV = 0x95AE;
 
 		/// <summary>
 		/// [GL] Value of GL_SHADING_RATE_SAMPLE_ORDER_PIXEL_MAJOR_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore|gles2")]
 		public const int SHADING_RATE_SAMPLE_ORDER_PIXEL_MAJOR_NV = 0x95AF;
 
 		/// <summary>
 		/// [GL] Value of GL_SHADING_RATE_SAMPLE_ORDER_SAMPLE_MAJOR_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore|gles2")]
 		public const int SHADING_RATE_SAMPLE_ORDER_SAMPLE_MAJOR_NV = 0x95B0;
 
 		/// <summary>
@@ -174,7 +174,7 @@ namespace OpenGL
 		/// <param name="texture">
 		/// A <see cref="T:uint"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore|gles2")]
 		public static void BindShadingRateImageNV(uint texture)
 		{
 			Debug.Assert(Delegates.pglBindShadingRateImageNV != null, "pglBindShadingRateImageNV not implemented");
@@ -195,7 +195,7 @@ namespace OpenGL
 		/// <param name="rate">
 		/// A <see cref="T:int"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore|gles2")]
 		public static void GetShadingRateImagePaletteNV(uint viewport, uint entry, out int rate)
 		{
 			unsafe {
@@ -224,7 +224,7 @@ namespace OpenGL
 		/// <param name="location">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore|gles2")]
 		public static void GetShadingRateSampleLocationivNV(int rate, uint samples, uint index, [Out] int[] location)
 		{
 			Debug.Assert(location.Length >= 3);
@@ -245,7 +245,7 @@ namespace OpenGL
 		/// <param name="synchronize">
 		/// A <see cref="T:bool"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore|gles2")]
 		public static void ShadingRateImageBarrierNV(bool synchronize)
 		{
 			Debug.Assert(Delegates.pglShadingRateImageBarrierNV != null, "pglShadingRateImageBarrierNV not implemented");
@@ -266,7 +266,7 @@ namespace OpenGL
 		/// <param name="rates">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore|gles2")]
 		public static void ShadingRateImagePaletteNV(uint viewport, uint first, int[] rates)
 		{
 			unsafe {
@@ -286,7 +286,7 @@ namespace OpenGL
 		/// <param name="order">
 		/// A <see cref="T:int"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore|gles2")]
 		public static void ShadingRateSampleOrderNV(int order)
 		{
 			Debug.Assert(Delegates.pglShadingRateSampleOrderNV != null, "pglShadingRateSampleOrderNV not implemented");
@@ -307,7 +307,7 @@ namespace OpenGL
 		/// <param name="locations">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore|gles2")]
 		public static void ShadingRateSampleOrderCustomNV(int rate, uint samples, int[] locations)
 		{
 			unsafe {
@@ -323,59 +323,59 @@ namespace OpenGL
 
 		internal static unsafe partial class Delegates
 		{
-			[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glBindShadingRateImageNV(uint texture);
 
-			[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glBindShadingRateImageNV pglBindShadingRateImageNV;
 
-			[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetShadingRateImagePaletteNV(uint viewport, uint entry, int* rate);
 
-			[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glGetShadingRateImagePaletteNV pglGetShadingRateImagePaletteNV;
 
-			[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glGetShadingRateSampleLocationivNV(int rate, uint samples, uint index, int* location);
 
-			[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glGetShadingRateSampleLocationivNV pglGetShadingRateSampleLocationivNV;
 
-			[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glShadingRateImageBarrierNV([MarshalAs(UnmanagedType.I1)] bool synchronize);
 
-			[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glShadingRateImageBarrierNV pglShadingRateImageBarrierNV;
 
-			[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glShadingRateImagePaletteNV(uint viewport, uint first, int count, int* rates);
 
-			[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glShadingRateImagePaletteNV pglShadingRateImagePaletteNV;
 
-			[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glShadingRateSampleOrderNV(int order);
 
-			[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glShadingRateSampleOrderNV pglShadingRateSampleOrderNV;
 
-			[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glShadingRateSampleOrderCustomNV(int rate, uint samples, int* locations);
 
-			[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_shading_rate_image", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glShadingRateSampleOrderCustomNV pglShadingRateSampleOrderCustomNV;
 

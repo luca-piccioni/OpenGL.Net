@@ -45,292 +45,292 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_MESH_SHADER_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 		public const int MESH_SHADER_NV = 0x9559;
 
 		/// <summary>
 		/// [GL] Value of GL_TASK_SHADER_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 		public const int TASK_SHADER_NV = 0x955A;
 
 		/// <summary>
 		/// [GL] Value of GL_MAX_MESH_UNIFORM_BLOCKS_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 		public const int MAX_MESH_UNIFORM_BLOCKS_NV = 0x8E60;
 
 		/// <summary>
 		/// [GL] Value of GL_MAX_MESH_TEXTURE_IMAGE_UNITS_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 		public const int MAX_MESH_TEXTURE_IMAGE_UNITS_NV = 0x8E61;
 
 		/// <summary>
 		/// [GL] Value of GL_MAX_MESH_IMAGE_UNIFORMS_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 		public const int MAX_MESH_IMAGE_UNIFORMS_NV = 0x8E62;
 
 		/// <summary>
 		/// [GL] Value of GL_MAX_MESH_UNIFORM_COMPONENTS_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 		public const int MAX_MESH_UNIFORM_COMPONENTS_NV = 0x8E63;
 
 		/// <summary>
 		/// [GL] Value of GL_MAX_MESH_ATOMIC_COUNTER_BUFFERS_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 		public const int MAX_MESH_ATOMIC_COUNTER_BUFFERS_NV = 0x8E64;
 
 		/// <summary>
 		/// [GL] Value of GL_MAX_MESH_ATOMIC_COUNTERS_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 		public const int MAX_MESH_ATOMIC_COUNTERS_NV = 0x8E65;
 
 		/// <summary>
 		/// [GL] Value of GL_MAX_MESH_SHADER_STORAGE_BLOCKS_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 		public const int MAX_MESH_SHADER_STORAGE_BLOCKS_NV = 0x8E66;
 
 		/// <summary>
 		/// [GL] Value of GL_MAX_COMBINED_MESH_UNIFORM_COMPONENTS_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 		public const int MAX_COMBINED_MESH_UNIFORM_COMPONENTS_NV = 0x8E67;
 
 		/// <summary>
 		/// [GL] Value of GL_MAX_TASK_UNIFORM_BLOCKS_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 		public const int MAX_TASK_UNIFORM_BLOCKS_NV = 0x8E68;
 
 		/// <summary>
 		/// [GL] Value of GL_MAX_TASK_TEXTURE_IMAGE_UNITS_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 		public const int MAX_TASK_TEXTURE_IMAGE_UNITS_NV = 0x8E69;
 
 		/// <summary>
 		/// [GL] Value of GL_MAX_TASK_IMAGE_UNIFORMS_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 		public const int MAX_TASK_IMAGE_UNIFORMS_NV = 0x8E6A;
 
 		/// <summary>
 		/// [GL] Value of GL_MAX_TASK_UNIFORM_COMPONENTS_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 		public const int MAX_TASK_UNIFORM_COMPONENTS_NV = 0x8E6B;
 
 		/// <summary>
 		/// [GL] Value of GL_MAX_TASK_ATOMIC_COUNTER_BUFFERS_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 		public const int MAX_TASK_ATOMIC_COUNTER_BUFFERS_NV = 0x8E6C;
 
 		/// <summary>
 		/// [GL] Value of GL_MAX_TASK_ATOMIC_COUNTERS_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 		public const int MAX_TASK_ATOMIC_COUNTERS_NV = 0x8E6D;
 
 		/// <summary>
 		/// [GL] Value of GL_MAX_TASK_SHADER_STORAGE_BLOCKS_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 		public const int MAX_TASK_SHADER_STORAGE_BLOCKS_NV = 0x8E6E;
 
 		/// <summary>
 		/// [GL] Value of GL_MAX_COMBINED_TASK_UNIFORM_COMPONENTS_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 		public const int MAX_COMBINED_TASK_UNIFORM_COMPONENTS_NV = 0x8E6F;
 
 		/// <summary>
 		/// [GL] Value of GL_MAX_MESH_WORK_GROUP_INVOCATIONS_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 		public const int MAX_MESH_WORK_GROUP_INVOCATIONS_NV = 0x95A2;
 
 		/// <summary>
 		/// [GL] Value of GL_MAX_TASK_WORK_GROUP_INVOCATIONS_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 		public const int MAX_TASK_WORK_GROUP_INVOCATIONS_NV = 0x95A3;
 
 		/// <summary>
 		/// [GL] Value of GL_MAX_MESH_TOTAL_MEMORY_SIZE_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 		public const int MAX_MESH_TOTAL_MEMORY_SIZE_NV = 0x9536;
 
 		/// <summary>
 		/// [GL] Value of GL_MAX_TASK_TOTAL_MEMORY_SIZE_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 		public const int MAX_TASK_TOTAL_MEMORY_SIZE_NV = 0x9537;
 
 		/// <summary>
 		/// [GL] Value of GL_MAX_MESH_OUTPUT_VERTICES_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 		public const int MAX_MESH_OUTPUT_VERTICES_NV = 0x9538;
 
 		/// <summary>
 		/// [GL] Value of GL_MAX_MESH_OUTPUT_PRIMITIVES_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 		public const int MAX_MESH_OUTPUT_PRIMITIVES_NV = 0x9539;
 
 		/// <summary>
 		/// [GL] Value of GL_MAX_TASK_OUTPUT_COUNT_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 		public const int MAX_TASK_OUTPUT_COUNT_NV = 0x953A;
 
 		/// <summary>
 		/// [GL] Value of GL_MAX_DRAW_MESH_TASKS_COUNT_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 		public const int MAX_DRAW_MESH_TASKS_COUNT_NV = 0x953D;
 
 		/// <summary>
 		/// [GL] Value of GL_MAX_MESH_VIEWS_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 		public const int MAX_MESH_VIEWS_NV = 0x9557;
 
 		/// <summary>
 		/// [GL] Value of GL_MESH_OUTPUT_PER_VERTEX_GRANULARITY_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 		public const int MESH_OUTPUT_PER_VERTEX_GRANULARITY_NV = 0x92DF;
 
 		/// <summary>
 		/// [GL] Value of GL_MESH_OUTPUT_PER_PRIMITIVE_GRANULARITY_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 		public const int MESH_OUTPUT_PER_PRIMITIVE_GRANULARITY_NV = 0x9543;
 
 		/// <summary>
 		/// [GL] Value of GL_MAX_MESH_WORK_GROUP_SIZE_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 		public const int MAX_MESH_WORK_GROUP_SIZE_NV = 0x953B;
 
 		/// <summary>
 		/// [GL] Value of GL_MAX_TASK_WORK_GROUP_SIZE_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 		public const int MAX_TASK_WORK_GROUP_SIZE_NV = 0x953C;
 
 		/// <summary>
 		/// [GL] Value of GL_MESH_WORK_GROUP_SIZE_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 		public const int MESH_WORK_GROUP_SIZE_NV = 0x953E;
 
 		/// <summary>
 		/// [GL] Value of GL_TASK_WORK_GROUP_SIZE_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 		public const int TASK_WORK_GROUP_SIZE_NV = 0x953F;
 
 		/// <summary>
 		/// [GL] Value of GL_MESH_VERTICES_OUT_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 		public const int MESH_VERTICES_OUT_NV = 0x9579;
 
 		/// <summary>
 		/// [GL] Value of GL_MESH_PRIMITIVES_OUT_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 		public const int MESH_PRIMITIVES_OUT_NV = 0x957A;
 
 		/// <summary>
 		/// [GL] Value of GL_MESH_OUTPUT_TYPE_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 		public const int MESH_OUTPUT_TYPE_NV = 0x957B;
 
 		/// <summary>
 		/// [GL] Value of GL_UNIFORM_BLOCK_REFERENCED_BY_MESH_SHADER_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 		public const int UNIFORM_BLOCK_REFERENCED_BY_MESH_SHADER_NV = 0x959C;
 
 		/// <summary>
 		/// [GL] Value of GL_UNIFORM_BLOCK_REFERENCED_BY_TASK_SHADER_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 		public const int UNIFORM_BLOCK_REFERENCED_BY_TASK_SHADER_NV = 0x959D;
-
-		/// <summary>
-		/// [GL] Value of GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_MESH_SHADER_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
-		public const int ATOMIC_COUNTER_BUFFER_REFERENCED_BY_MESH_SHADER_NV = 0x959E;
-
-		/// <summary>
-		/// [GL] Value of GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_TASK_SHADER_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
-		public const int ATOMIC_COUNTER_BUFFER_REFERENCED_BY_TASK_SHADER_NV = 0x959F;
 
 		/// <summary>
 		/// [GL] Value of GL_REFERENCED_BY_MESH_SHADER_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 		public const int REFERENCED_BY_MESH_SHADER_NV = 0x95A0;
 
 		/// <summary>
 		/// [GL] Value of GL_REFERENCED_BY_TASK_SHADER_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 		public const int REFERENCED_BY_TASK_SHADER_NV = 0x95A1;
-
-		/// <summary>
-		/// [GL] Value of GL_MESH_SUBROUTINE_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
-		public const int MESH_SUBROUTINE_NV = 0x957C;
-
-		/// <summary>
-		/// [GL] Value of GL_TASK_SUBROUTINE_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
-		public const int TASK_SUBROUTINE_NV = 0x957D;
-
-		/// <summary>
-		/// [GL] Value of GL_MESH_SUBROUTINE_UNIFORM_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
-		public const int MESH_SUBROUTINE_UNIFORM_NV = 0x957E;
-
-		/// <summary>
-		/// [GL] Value of GL_TASK_SUBROUTINE_UNIFORM_NV symbol.
-		/// </summary>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
-		public const int TASK_SUBROUTINE_UNIFORM_NV = 0x957F;
 
 		/// <summary>
 		/// [GL] Value of GL_MESH_SHADER_BIT_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 		[Log(BitmaskName = "GL")]
 		public const uint MESH_SHADER_BIT_NV = 0x00000040;
 
 		/// <summary>
 		/// [GL] Value of GL_TASK_SHADER_BIT_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 		[Log(BitmaskName = "GL")]
 		public const uint TASK_SHADER_BIT_NV = 0x00000080;
+
+		/// <summary>
+		/// [GL] Value of GL_MESH_SUBROUTINE_NV symbol.
+		/// </summary>
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
+		public const int MESH_SUBROUTINE_NV = 0x957C;
+
+		/// <summary>
+		/// [GL] Value of GL_TASK_SUBROUTINE_NV symbol.
+		/// </summary>
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
+		public const int TASK_SUBROUTINE_NV = 0x957D;
+
+		/// <summary>
+		/// [GL] Value of GL_MESH_SUBROUTINE_UNIFORM_NV symbol.
+		/// </summary>
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
+		public const int MESH_SUBROUTINE_UNIFORM_NV = 0x957E;
+
+		/// <summary>
+		/// [GL] Value of GL_TASK_SUBROUTINE_UNIFORM_NV symbol.
+		/// </summary>
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
+		public const int TASK_SUBROUTINE_UNIFORM_NV = 0x957F;
+
+		/// <summary>
+		/// [GL] Value of GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_MESH_SHADER_NV symbol.
+		/// </summary>
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
+		public const int ATOMIC_COUNTER_BUFFER_REFERENCED_BY_MESH_SHADER_NV = 0x959E;
+
+		/// <summary>
+		/// [GL] Value of GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_TASK_SHADER_NV symbol.
+		/// </summary>
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
+		public const int ATOMIC_COUNTER_BUFFER_REFERENCED_BY_TASK_SHADER_NV = 0x959F;
 
 		/// <summary>
 		/// [GL] glDrawMeshTasksNV: Binding for glDrawMeshTasksNV.
@@ -341,7 +341,7 @@ namespace OpenGL
 		/// <param name="count">
 		/// A <see cref="T:uint"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 		public static void DrawMeshNV(uint first, uint count)
 		{
 			Debug.Assert(Delegates.pglDrawMeshTasksNV != null, "pglDrawMeshTasksNV not implemented");
@@ -356,7 +356,7 @@ namespace OpenGL
 		/// <param name="indirect">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 		public static void DrawMeshTasksIndirectNV(IntPtr indirect)
 		{
 			Debug.Assert(Delegates.pglDrawMeshTasksIndirectNV != null, "pglDrawMeshTasksIndirectNV not implemented");
@@ -377,7 +377,7 @@ namespace OpenGL
 		/// <param name="stride">
 		/// A <see cref="T:int"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 		public static void MultiDrawMeshTasksIndirectNV(IntPtr indirect, int drawcount, int stride)
 		{
 			Debug.Assert(Delegates.pglMultiDrawMeshTasksIndirectNV != null, "pglMultiDrawMeshTasksIndirectNV not implemented");
@@ -401,7 +401,7 @@ namespace OpenGL
 		/// <param name="stride">
 		/// A <see cref="T:int"/>.
 		/// </param>
-		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 		public static void MultiDrawMeshTasksIndirectCountNV(IntPtr indirect, IntPtr drawcount, int maxdrawcount, int stride)
 		{
 			Debug.Assert(Delegates.pglMultiDrawMeshTasksIndirectCountNV != null, "pglMultiDrawMeshTasksIndirectCountNV not implemented");
@@ -412,35 +412,35 @@ namespace OpenGL
 
 		internal static unsafe partial class Delegates
 		{
-			[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glDrawMeshTasksNV(uint first, uint count);
 
-			[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glDrawMeshTasksNV pglDrawMeshTasksNV;
 
-			[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glDrawMeshTasksIndirectNV(IntPtr indirect);
 
-			[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glDrawMeshTasksIndirectNV pglDrawMeshTasksIndirectNV;
 
-			[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glMultiDrawMeshTasksIndirectNV(IntPtr indirect, int drawcount, int stride);
 
-			[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glMultiDrawMeshTasksIndirectNV pglMultiDrawMeshTasksIndirectNV;
 
-			[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glMultiDrawMeshTasksIndirectCountNV(IntPtr indirect, IntPtr drawcount, int maxdrawcount, int stride);
 
-			[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore")]
+			[RequiredByFeature("GL_NV_mesh_shader", Api = "gl|glcore|gles2")]
 			[ThreadStatic]
 			internal static glMultiDrawMeshTasksIndirectCountNV pglMultiDrawMeshTasksIndirectCountNV;
 

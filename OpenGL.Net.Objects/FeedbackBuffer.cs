@@ -361,13 +361,13 @@ namespace OpenGL.Objects
 			
 			if (ctx.Extensions.TransformFeedback2_ARB) {
 				// Bind/create feedback buffer
-				Gl.BindTransformFeedback(TransformFeedbackTarget.TransformFeedback, ObjectName);
+				Gl.BindTransformFeedback(BindTransformFeedbackTarget.TransformFeedback, ObjectName);
 				
 				// Define feedback buffer
 				MapBufferObjects(ctx);
 	
 				// Reset feedback target binding
-				Gl.BindTransformFeedback(TransformFeedbackTarget.TransformFeedback, 0);
+				Gl.BindTransformFeedback(BindTransformFeedbackTarget.TransformFeedback, 0);
 			} else {
 				
 				ctx.Bind(this);
@@ -426,7 +426,7 @@ namespace OpenGL.Objects
 		{
 			if (ctx.Extensions.TransformFeedback2_ARB) {
 				// Bind this feedback buffer
-				Gl.BindTransformFeedback(TransformFeedbackTarget.TransformFeedback, ObjectName);
+				Gl.BindTransformFeedback(BindTransformFeedbackTarget.TransformFeedback, ObjectName);
 			} else {
 				base.BindCore(ctx);
 				MapBufferObjects(ctx);
@@ -443,7 +443,7 @@ namespace OpenGL.Objects
 		{
 			if (ctx.Extensions.TransformFeedback2_ARB) {
 				// Bind this  feedback buffer
-				Gl.BindTransformFeedback(TransformFeedbackTarget.TransformFeedback, InvalidObjectName);
+				Gl.BindTransformFeedback(BindTransformFeedbackTarget.TransformFeedback, InvalidObjectName);
 			} else
 				base.UnbindCore(ctx);
 		}

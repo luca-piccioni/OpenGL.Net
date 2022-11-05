@@ -87,14 +87,11 @@ namespace OpenGL
 		/// <param name="tagId">
 		/// A <see cref="T:int"/>.
 		/// </param>
-		/// <param name="bufSize">
-		/// A <see cref="T:uint"/>.
-		/// </param>
 		/// <param name="buffer">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_query_resource")]
-		public static int QueryResourceNV(int queryType, int tagId, uint bufSize, int[] buffer)
+		public static int QueryResourceNV(int queryType, int tagId, int[] buffer)
 		{
 			int retValue;
 
@@ -102,8 +99,8 @@ namespace OpenGL
 				fixed (int* p_buffer = buffer)
 				{
 					Debug.Assert(Delegates.pglQueryResourceNV != null, "pglQueryResourceNV not implemented");
-					retValue = Delegates.pglQueryResourceNV(queryType, tagId, bufSize, p_buffer);
-					LogCommand("glQueryResourceNV", retValue, queryType, tagId, bufSize, buffer					);
+					retValue = Delegates.pglQueryResourceNV(queryType, tagId, (uint)buffer.Length, p_buffer);
+					LogCommand("glQueryResourceNV", retValue, queryType, tagId, buffer.Length, buffer					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -115,7 +112,7 @@ namespace OpenGL
 		{
 			[RequiredByFeature("GL_NV_query_resource")]
 			[SuppressUnmanagedCodeSecurity]
-			internal delegate int glQueryResourceNV(int queryType, int tagId, uint bufSize, int* buffer);
+			internal delegate int glQueryResourceNV(int queryType, int tagId, uint count, int* buffer);
 
 			[RequiredByFeature("GL_NV_query_resource")]
 			[ThreadStatic]

@@ -500,7 +500,7 @@ namespace OpenGL
 			/// </param>
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_histogram")]
-			public static void Histogram(HistogramTarget target, int width, InternalFormat internalformat, bool sink)
+			public static void Histogram(HistogramTargetEXT target, int width, InternalFormat internalformat, bool sink)
 			{
 				Debug.Assert(Delegates.pglHistogram != null, "pglHistogram not implemented");
 				Delegates.pglHistogram((int)target, width, (int)internalformat, sink);
@@ -527,7 +527,7 @@ namespace OpenGL
 			/// </param>
 			[RequiredByFeature("GL_ARB_imaging", Profile = "compatibility")]
 			[RequiredByFeature("GL_EXT_histogram")]
-			public static void Minmax(MinmaxTarget target, InternalFormat internalformat, bool sink)
+			public static void Minmax(MinmaxTargetEXT target, InternalFormat internalformat, bool sink)
 			{
 				Debug.Assert(Delegates.pglMinmax != null, "pglMinmax not implemented");
 				Delegates.pglMinmax((int)target, (int)internalformat, sink);
@@ -628,6 +628,7 @@ namespace OpenGL
 			/// Gl.FALSE. See Gl.Histogram.
 			/// </para>
 			/// </summary>
+			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_histogram")]
 			public const int HISTOGRAM = 0x8024;
@@ -641,6 +642,7 @@ namespace OpenGL
 			/// value is Gl.FALSE. See Gl.Minmax.
 			/// </para>
 			/// </summary>
+			[RequiredByFeature("GL_VERSION_4_5")]
 			[RequiredByFeature("GL_ARB_imaging", Api = "gl|glcore")]
 			[RequiredByFeature("GL_EXT_histogram")]
 			public const int MINMAX = 0x802E;

@@ -177,7 +177,7 @@ namespace OpenGL
 		/// [GL] glBufferAttachMemoryNV: Binding for glBufferAttachMemoryNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:BufferTargetARB"/>.
+		/// A <see cref="T:BufferTarget"/>.
 		/// </param>
 		/// <param name="memory">
 		/// A <see cref="T:uint"/>.
@@ -186,7 +186,7 @@ namespace OpenGL
 		/// A <see cref="T:ulong"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_memory_attachment", Api = "gl|glcore|gles2")]
-		public static void BufferAttachMemoryNV(BufferTargetARB target, uint memory, ulong offset)
+		public static void BufferAttachMemoryNV(BufferTarget target, uint memory, ulong offset)
 		{
 			Debug.Assert(Delegates.pglBufferAttachMemoryNV != null, "pglBufferAttachMemoryNV not implemented");
 			Delegates.pglBufferAttachMemoryNV((int)target, memory, offset);

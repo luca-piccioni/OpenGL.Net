@@ -379,7 +379,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexAttribType"/>.
 		/// </param>
 		/// <param name="normalized">
 		/// A <see cref="T:bool"/>.
@@ -388,10 +388,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
-		public static void VertexAttribFormatNV(uint index, int size, int type, bool normalized, int stride)
+		public static void VertexAttribFormatNV(uint index, int size, VertexAttribType type, bool normalized, int stride)
 		{
 			Debug.Assert(Delegates.pglVertexAttribFormatNV != null, "pglVertexAttribFormatNV not implemented");
-			Delegates.pglVertexAttribFormatNV(index, size, type, normalized, stride);
+			Delegates.pglVertexAttribFormatNV(index, size, (int)type, normalized, stride);
 			LogCommand("glVertexAttribFormatNV", null, index, size, type, normalized, stride			);
 			DebugCheckErrors(null);
 		}
@@ -406,16 +406,16 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexAttribIType"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
-		public static void VertexAttribIFormatNV(uint index, int size, int type, int stride)
+		public static void VertexAttribIFormatNV(uint index, int size, VertexAttribIType type, int stride)
 		{
 			Debug.Assert(Delegates.pglVertexAttribIFormatNV != null, "pglVertexAttribIFormatNV not implemented");
-			Delegates.pglVertexAttribIFormatNV(index, size, type, stride);
+			Delegates.pglVertexAttribIFormatNV(index, size, (int)type, stride);
 			LogCommand("glVertexAttribIFormatNV", null, index, size, type, stride			);
 			DebugCheckErrors(null);
 		}
@@ -424,7 +424,7 @@ namespace OpenGL
 		/// [GL] glGetIntegerui64i_vNV: Binding for glGetIntegerui64i_vNV.
 		/// </summary>
 		/// <param name="value">
-		/// A <see cref="T:GetPName"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="index">
 		/// A <see cref="T:uint"/>.
@@ -433,13 +433,13 @@ namespace OpenGL
 		/// A <see cref="T:ulong[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_vertex_buffer_unified_memory", Api = "gl|glcore")]
-		public static void GetIntegerNV(GetPName value, uint index, [Out] ulong[] result)
+		public static void GetIntegerNV(int value, uint index, [Out] ulong[] result)
 		{
 			unsafe {
 				fixed (ulong* p_result = result)
 				{
 					Debug.Assert(Delegates.pglGetIntegerui64i_vNV != null, "pglGetIntegerui64i_vNV not implemented");
-					Delegates.pglGetIntegerui64i_vNV((int)value, index, p_result);
+					Delegates.pglGetIntegerui64i_vNV(value, index, p_result);
 					LogCommand("glGetIntegerui64i_vNV", null, value, index, result					);
 				}
 			}

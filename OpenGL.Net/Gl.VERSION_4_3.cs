@@ -2455,7 +2455,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_clear_buffer_object", Api = "gl|glcore")]
-		public static void ClearBufferData(BufferTarget target, InternalFormat internalformat, PixelFormat format, PixelType type, IntPtr data)
+		public static void ClearBufferData(BufferStorageTarget target, SizedInternalFormat internalformat, PixelFormat format, PixelType type, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglClearBufferData != null, "pglClearBufferData not implemented");
 			Delegates.pglClearBufferData((int)target, (int)internalformat, (int)format, (int)type, data);
@@ -2484,7 +2484,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_clear_buffer_object", Api = "gl|glcore")]
-		public static void ClearBufferData(BufferTarget target, InternalFormat internalformat, PixelFormat format, PixelType type, object data)
+		public static void ClearBufferData(BufferStorageTarget target, SizedInternalFormat internalformat, PixelFormat format, PixelType type, object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -2521,10 +2521,10 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_clear_buffer_object", Api = "gl|glcore")]
-		public static void ClearBufferSubData(int target, InternalFormat internalformat, IntPtr offset, uint size, PixelFormat format, PixelType type, IntPtr data)
+		public static void ClearBufferSubData(BufferTarget target, SizedInternalFormat internalformat, IntPtr offset, uint size, PixelFormat format, PixelType type, IntPtr data)
 		{
 			Debug.Assert(Delegates.pglClearBufferSubData != null, "pglClearBufferSubData not implemented");
-			Delegates.pglClearBufferSubData(target, (int)internalformat, offset, size, (int)format, (int)type, data);
+			Delegates.pglClearBufferSubData((int)target, (int)internalformat, offset, size, (int)format, (int)type, data);
 			LogCommand("glClearBufferSubData", null, target, internalformat, offset, size, format, type, data			);
 			DebugCheckErrors(null);
 		}
@@ -2556,7 +2556,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_clear_buffer_object", Api = "gl|glcore")]
-		public static void ClearBufferSubData(int target, InternalFormat internalformat, IntPtr offset, uint size, PixelFormat format, PixelType type, object data)
+		public static void ClearBufferSubData(BufferTarget target, SizedInternalFormat internalformat, IntPtr offset, uint size, PixelFormat format, PixelType type, object data)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {
@@ -2666,7 +2666,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_copy_image", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_copy_image", Api = "gles2")]
 		[RequiredByFeature("GL_OES_copy_image", Api = "gles2")]
-		public static void CopyImageSubData(uint srcName, BufferTarget srcTarget, int srcLevel, int srcX, int srcY, int srcZ, uint dstName, BufferTarget dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int srcWidth, int srcHeight, int srcDepth)
+		public static void CopyImageSubData(uint srcName, CopyImageSubDataTarget srcTarget, int srcLevel, int srcX, int srcY, int srcZ, uint dstName, CopyImageSubDataTarget dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int srcWidth, int srcHeight, int srcDepth)
 		{
 			Debug.Assert(Delegates.pglCopyImageSubData != null, "pglCopyImageSubData not implemented");
 			Delegates.pglCopyImageSubData(srcName, (int)srcTarget, srcLevel, srcX, srcY, srcZ, dstName, (int)dstTarget, dstLevel, dstX, dstY, dstZ, srcWidth, srcHeight, srcDepth);
@@ -2855,23 +2855,22 @@ namespace OpenGL
 		/// <param name="pname">
 		/// Specifies the type of information to query.
 		/// </param>
-		/// <param name="bufSize">
-		/// Specifies the maximum number of integers of the specified width that may be written to <paramref name="params"/> by the 
-		/// function.
+		/// <param name="count">
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="params">
 		/// Specifies the address of a variable into which to write the retrieved information.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
-		public static void GetInternalformat(TextureTarget target, InternalFormat internalformat, InternalFormatPName pname, int bufSize, [Out] long[] @params)
+		public static void GetInternalformat(TextureTarget target, InternalFormat internalformat, InternalFormatPName pname, int count, [Out] long[] @params)
 		{
 			unsafe {
 				fixed (long* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetInternalformati64v != null, "pglGetInternalformati64v not implemented");
-					Delegates.pglGetInternalformati64v((int)target, (int)internalformat, (int)pname, bufSize, p_params);
-					LogCommand("glGetInternalformati64v", null, target, internalformat, pname, bufSize, @params					);
+					Delegates.pglGetInternalformati64v((int)target, (int)internalformat, (int)pname, count, p_params);
+					LogCommand("glGetInternalformati64v", null, target, internalformat, pname, count, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -3077,6 +3076,9 @@ namespace OpenGL
 		/// <param name="target">
 		/// Specifies the target to which the framebuffer object is attached for Gl.InvalidateSubFramebuffer.
 		/// </param>
+		/// <param name="numAttachments">
+		/// Specifies the number of entries in the <paramref name="attachments"/> array.
+		/// </param>
 		/// <param name="attachments">
 		/// Specifies a pointer to an array identifying the attachments to be invalidated.
 		/// </param>
@@ -3095,13 +3097,55 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_invalidate_subdata", Api = "gl|glcore")]
-		public static void InvalidateSubFramebuffer(int target, int[] attachments, int x, int y, int width, int height)
+		public static void InvalidateSubFramebuffer(FramebufferTarget target, int numAttachments, int[] attachments, int x, int y, int width, int height)
 		{
 			unsafe {
 				fixed (int* p_attachments = attachments)
 				{
 					Debug.Assert(Delegates.pglInvalidateSubFramebuffer != null, "pglInvalidateSubFramebuffer not implemented");
-					Delegates.pglInvalidateSubFramebuffer(target, attachments.Length, p_attachments, x, y, width, height);
+					Delegates.pglInvalidateSubFramebuffer((int)target, numAttachments, p_attachments, x, y, width, height);
+					LogCommand("glInvalidateSubFramebuffer", null, target, numAttachments, attachments, x, y, width, height					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// <para>
+		/// [GL4] glInvalidateSubFramebuffer: invalidate the content of a region of some or all of a framebuffer's attachments
+		/// </para>
+		/// <para>
+		/// [GLES3.2] glInvalidateSubFramebuffer: Invalidate portions of the contents of attachments within a framebuffer
+		/// </para>
+		/// </summary>
+		/// <param name="target">
+		/// Specifies the target to which the framebuffer object is attached for Gl.InvalidateSubFramebuffer.
+		/// </param>
+		/// <param name="attachments">
+		/// Specifies a pointer to an array identifying the attachments to be invalidated.
+		/// </param>
+		/// <param name="x">
+		/// Specifies the X offset of the region to be invalidated.
+		/// </param>
+		/// <param name="y">
+		/// Specifies the Y offset of the region to be invalidated.
+		/// </param>
+		/// <param name="width">
+		/// Specifies the width of the region to be invalidated.
+		/// </param>
+		/// <param name="height">
+		/// Specifies the height of the region to be invalidated.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_4_3")]
+		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
+		[RequiredByFeature("GL_ARB_invalidate_subdata", Api = "gl|glcore")]
+		public static void InvalidateSubFramebuffer(FramebufferTarget target, int[] attachments, int x, int y, int width, int height)
+		{
+			unsafe {
+				fixed (int* p_attachments = attachments)
+				{
+					Debug.Assert(Delegates.pglInvalidateSubFramebuffer != null, "pglInvalidateSubFramebuffer not implemented");
+					Delegates.pglInvalidateSubFramebuffer((int)target, attachments.Length, p_attachments, x, y, width, height);
 					LogCommand("glInvalidateSubFramebuffer", null, target, attachments.Length, attachments, x, y, width, height					);
 				}
 			}
@@ -3391,7 +3435,7 @@ namespace OpenGL
 		/// <param name="props">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
-		/// <param name="bufSize">
+		/// <param name="count">
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="length">
@@ -3403,7 +3447,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
-		public static void GetProgramResource(uint program, ProgramInterface programInterface, uint index, int propCount, int[] props, int bufSize, out int length, [Out] int[] @params)
+		public static void GetProgramResource(uint program, ProgramInterface programInterface, uint index, int propCount, int[] props, int count, out int length, [Out] int[] @params)
 		{
 			unsafe {
 				fixed (int* p_props = props)
@@ -3411,8 +3455,8 @@ namespace OpenGL
 				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetProgramResourceiv != null, "pglGetProgramResourceiv not implemented");
-					Delegates.pglGetProgramResourceiv(program, (int)programInterface, index, propCount, p_props, bufSize, p_length, p_params);
-					LogCommand("glGetProgramResourceiv", null, program, programInterface, index, propCount, props, bufSize, length, @params					);
+					Delegates.pglGetProgramResourceiv(program, (int)programInterface, index, propCount, p_props, count, p_length, p_params);
+					LogCommand("glGetProgramResourceiv", null, program, programInterface, index, propCount, props, count, length, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -3549,7 +3593,7 @@ namespace OpenGL
 		/// Specifies the target to which the texture object is bound for Gl.TexBufferRange. Must be Gl.TEXTURE_BUFFER.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:InternalFormat"/>.
+		/// A <see cref="T:SizedInternalFormat"/>.
 		/// </param>
 		/// <param name="buffer">
 		/// Specifies the name of the buffer object whose storage to attach to the active buffer texture.
@@ -3565,7 +3609,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_texture_buffer_range", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_texture_buffer", Api = "gles2")]
 		[RequiredByFeature("GL_OES_texture_buffer", Api = "gles2")]
-		public static void TexBufferRange(TextureTarget target, InternalFormat internalformat, uint buffer, IntPtr offset, uint size)
+		public static void TexBufferRange(TextureTarget target, SizedInternalFormat internalformat, uint buffer, IntPtr offset, uint size)
 		{
 			Debug.Assert(Delegates.pglTexBufferRange != null, "pglTexBufferRange not implemented");
 			Delegates.pglTexBufferRange((int)target, (int)internalformat, buffer, offset, size);
@@ -3601,7 +3645,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_storage_multisample", Api = "gl|glcore")]
-		public static void TexStorage2DMultisample(TextureTarget target, int samples, InternalFormat internalformat, int width, int height, bool fixedsamplelocations)
+		public static void TexStorage2DMultisample(TextureTarget target, int samples, SizedInternalFormat internalformat, int width, int height, bool fixedsamplelocations)
 		{
 			Debug.Assert(Delegates.pglTexStorage2DMultisample != null, "pglTexStorage2DMultisample not implemented");
 			Delegates.pglTexStorage2DMultisample((int)target, samples, (int)internalformat, width, height, fixedsamplelocations);
@@ -3641,7 +3685,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_storage_multisample", Api = "gl|glcore")]
 		[RequiredByFeature("GL_OES_texture_storage_multisample_2d_array", Api = "gles2")]
-		public static void TexStorage3DMultisample(TextureTarget target, int samples, InternalFormat internalformat, int width, int height, int depth, bool fixedsamplelocations)
+		public static void TexStorage3DMultisample(TextureTarget target, int samples, SizedInternalFormat internalformat, int width, int height, int depth, bool fixedsamplelocations)
 		{
 			Debug.Assert(Delegates.pglTexStorage3DMultisample != null, "pglTexStorage3DMultisample not implemented");
 			Delegates.pglTexStorage3DMultisample((int)target, samples, (int)internalformat, width, height, depth, fixedsamplelocations);
@@ -3662,7 +3706,7 @@ namespace OpenGL
 		/// Specifies the name of a texture object of which to make a view.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:InternalFormat"/>.
+		/// A <see cref="T:SizedInternalFormat"/>.
 		/// </param>
 		/// <param name="minlevel">
 		/// Specifies lowest level of detail of the view.
@@ -3680,7 +3724,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_texture_view", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_texture_view", Api = "gles2")]
 		[RequiredByFeature("GL_OES_texture_view", Api = "gles2")]
-		public static void TextureView(uint texture, TextureTarget target, uint origtexture, InternalFormat internalformat, uint minlevel, uint numlevels, uint minlayer, uint numlayers)
+		public static void TextureView(uint texture, TextureTarget target, uint origtexture, SizedInternalFormat internalformat, uint minlevel, uint numlevels, uint minlayer, uint numlayers)
 		{
 			Debug.Assert(Delegates.pglTextureView != null, "pglTextureView not implemented");
 			Delegates.pglTextureView(texture, (int)target, origtexture, (int)internalformat, minlevel, numlevels, minlayer, numlayers);
@@ -3740,10 +3784,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_binding", Api = "gl|glcore")]
-		public static void VertexAttribFormat(uint attribindex, int size, int type, bool normalized, uint relativeoffset)
+		public static void VertexAttribFormat(uint attribindex, int size, VertexAttribType type, bool normalized, uint relativeoffset)
 		{
 			Debug.Assert(Delegates.pglVertexAttribFormat != null, "pglVertexAttribFormat not implemented");
-			Delegates.pglVertexAttribFormat(attribindex, size, type, normalized, relativeoffset);
+			Delegates.pglVertexAttribFormat(attribindex, size, (int)type, normalized, relativeoffset);
 			LogCommand("glVertexAttribFormat", null, attribindex, size, type, normalized, relativeoffset			);
 			DebugCheckErrors(null);
 		}
@@ -3768,10 +3812,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_binding", Api = "gl|glcore")]
-		public static void VertexAttribIFormat(uint attribindex, int size, int type, uint relativeoffset)
+		public static void VertexAttribIFormat(uint attribindex, int size, VertexAttribIType type, uint relativeoffset)
 		{
 			Debug.Assert(Delegates.pglVertexAttribIFormat != null, "pglVertexAttribIFormat not implemented");
-			Delegates.pglVertexAttribIFormat(attribindex, size, type, relativeoffset);
+			Delegates.pglVertexAttribIFormat(attribindex, size, (int)type, relativeoffset);
 			LogCommand("glVertexAttribIFormat", null, attribindex, size, type, relativeoffset			);
 			DebugCheckErrors(null);
 		}
@@ -3793,7 +3837,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_3")]
 		[RequiredByFeature("GL_ARB_vertex_attrib_binding", Api = "gl|glcore")]
-		public static void VertexAttribLFormat(uint attribindex, int size, VertexAttribType type, uint relativeoffset)
+		public static void VertexAttribLFormat(uint attribindex, int size, VertexAttribLType type, uint relativeoffset)
 		{
 			Debug.Assert(Delegates.pglVertexAttribLFormat != null, "pglVertexAttribLFormat not implemented");
 			Delegates.pglVertexAttribLFormat(attribindex, size, (int)type, relativeoffset);
@@ -4164,13 +4208,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_2", Api = "gles2")]
 		[RequiredByFeature("GL_KHR_debug")]
 		[RequiredByFeature("GL_KHR_debug", Api = "gles2")]
-		public static void GetObjectLabel(int identifier, uint name, int bufSize, out int length, StringBuilder label)
+		public static void GetObjectLabel(ObjectIdentifier identifier, uint name, int bufSize, out int length, StringBuilder label)
 		{
 			unsafe {
 				fixed (int* p_length = &length)
 				{
 					Debug.Assert(Delegates.pglGetObjectLabel != null, "pglGetObjectLabel not implemented");
-					Delegates.pglGetObjectLabel(identifier, name, bufSize, p_length, label);
+					Delegates.pglGetObjectLabel((int)identifier, name, bufSize, p_length, label);
 					LogCommand("glGetObjectLabel", null, identifier, name, bufSize, length, label					);
 				}
 			}
@@ -4385,7 +4429,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity]
-			internal delegate void glGetInternalformati64v(int target, int internalformat, int pname, int bufSize, long* @params);
+			internal delegate void glGetInternalformati64v(int target, int internalformat, int pname, int count, long* @params);
 
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
@@ -4524,7 +4568,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_program_interface_query", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity]
-			internal delegate void glGetProgramResourceiv(uint program, int programInterface, uint index, int propCount, int* props, int bufSize, int* length, int* @params);
+			internal delegate void glGetProgramResourceiv(uint program, int programInterface, uint index, int propCount, int* props, int count, int* length, int* @params);
 
 			[RequiredByFeature("GL_VERSION_4_3")]
 			[RequiredByFeature("GL_ES_VERSION_3_1", Api = "gles2")]

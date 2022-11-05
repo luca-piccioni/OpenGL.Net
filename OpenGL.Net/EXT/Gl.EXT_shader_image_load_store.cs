@@ -64,13 +64,13 @@ namespace OpenGL
 		/// A <see cref="T:BufferAccess"/>.
 		/// </param>
 		/// <param name="format">
-		/// A <see cref="T:InternalFormat"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_shader_image_load_store")]
-		public static void BindImageTextureEXT(uint index, uint texture, int level, bool layered, int layer, BufferAccess access, InternalFormat format)
+		public static void BindImageTextureEXT(uint index, uint texture, int level, bool layered, int layer, BufferAccess access, int format)
 		{
 			Debug.Assert(Delegates.pglBindImageTextureEXT != null, "pglBindImageTextureEXT not implemented");
-			Delegates.pglBindImageTextureEXT(index, texture, level, layered, layer, (int)access, (int)format);
+			Delegates.pglBindImageTextureEXT(index, texture, level, layered, layer, (int)access, format);
 			LogCommand("glBindImageTextureEXT", null, index, texture, level, layered, layer, access, format			);
 			DebugCheckErrors(null);
 		}

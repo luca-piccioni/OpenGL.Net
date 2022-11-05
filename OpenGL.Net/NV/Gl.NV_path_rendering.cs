@@ -1069,6 +1069,41 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="coordType">
+		/// A <see cref="T:PathCoordType"/>.
+		/// </param>
+		/// <param name="coords">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		public static void PathCommandsNV(uint path, int numCommands, byte[] commands, int numCoords, PathCoordType coordType, IntPtr coords)
+		{
+			unsafe {
+				fixed (byte* p_commands = commands)
+				{
+					Debug.Assert(Delegates.pglPathCommandsNV != null, "pglPathCommandsNV not implemented");
+					Delegates.pglPathCommandsNV(path, numCommands, p_commands, numCoords, (int)coordType, coords);
+					LogCommand("glPathCommandsNV", null, path, numCommands, commands, numCoords, coordType, coords					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL] glPathCommandsNV: Binding for glPathCommandsNV.
+		/// </summary>
+		/// <param name="path">
+		/// A <see cref="T:uint"/>.
+		/// </param>
+		/// <param name="numCommands">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="commands">
+		/// A <see cref="T:byte[]"/>.
+		/// </param>
+		/// <param name="numCoords">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="coordType">
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="coords">
@@ -1104,13 +1139,13 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="coordType">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PathCoordType"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void PathCommandsNV(uint path, int numCommands, byte[] commands, int numCoords, int coordType, object coords)
+		public static void PathCommandsNV(uint path, int numCommands, byte[] commands, int numCoords, PathCoordType coordType, object coords)
 		{
 			GCHandle pin_coords = GCHandle.Alloc(coords, GCHandleType.Pinned);
 			try {
@@ -1133,19 +1168,19 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="coordType">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PathCoordType"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void PathCommandsNV(uint path, byte[] commands, int numCoords, int coordType, IntPtr coords)
+		public static void PathCommandsNV(uint path, byte[] commands, int numCoords, PathCoordType coordType, IntPtr coords)
 		{
 			unsafe {
 				fixed (byte* p_commands = commands)
 				{
 					Debug.Assert(Delegates.pglPathCommandsNV != null, "pglPathCommandsNV not implemented");
-					Delegates.pglPathCommandsNV(path, commands.Length, p_commands, numCoords, coordType, coords);
+					Delegates.pglPathCommandsNV(path, commands.Length, p_commands, numCoords, (int)coordType, coords);
 					LogCommand("glPathCommandsNV", null, path, commands.Length, commands, numCoords, coordType, coords					);
 				}
 			}
@@ -1162,16 +1197,16 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="coordType">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PathCoordType"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void PathCoordsNV(uint path, int numCoords, int coordType, IntPtr coords)
+		public static void PathCoordsNV(uint path, int numCoords, PathCoordType coordType, IntPtr coords)
 		{
 			Debug.Assert(Delegates.pglPathCoordsNV != null, "pglPathCoordsNV not implemented");
-			Delegates.pglPathCoordsNV(path, numCoords, coordType, coords);
+			Delegates.pglPathCoordsNV(path, numCoords, (int)coordType, coords);
 			LogCommand("glPathCoordsNV", null, path, numCoords, coordType, coords			);
 			DebugCheckErrors(null);
 		}
@@ -1186,13 +1221,13 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="coordType">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PathCoordType"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void PathCoordsNV(uint path, int numCoords, int coordType, object coords)
+		public static void PathCoordsNV(uint path, int numCoords, PathCoordType coordType, object coords)
 		{
 			GCHandle pin_coords = GCHandle.Alloc(coords, GCHandleType.Pinned);
 			try {
@@ -1200,6 +1235,47 @@ namespace OpenGL
 			} finally {
 				pin_coords.Free();
 			}
+		}
+
+		/// <summary>
+		/// [GL] glPathSubCommandsNV: Binding for glPathSubCommandsNV.
+		/// </summary>
+		/// <param name="path">
+		/// A <see cref="T:uint"/>.
+		/// </param>
+		/// <param name="commandStart">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="commandsToDelete">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="numCommands">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="commands">
+		/// A <see cref="T:byte[]"/>.
+		/// </param>
+		/// <param name="numCoords">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="coordType">
+		/// A <see cref="T:PathCoordType"/>.
+		/// </param>
+		/// <param name="coords">
+		/// A <see cref="T:IntPtr"/>.
+		/// </param>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		public static void PathSubCommandsNV(uint path, int commandStart, int commandsToDelete, int numCommands, byte[] commands, int numCoords, PathCoordType coordType, IntPtr coords)
+		{
+			unsafe {
+				fixed (byte* p_commands = commands)
+				{
+					Debug.Assert(Delegates.pglPathSubCommandsNV != null, "pglPathSubCommandsNV not implemented");
+					Delegates.pglPathSubCommandsNV(path, commandStart, commandsToDelete, numCommands, p_commands, numCoords, (int)coordType, coords);
+					LogCommand("glPathSubCommandsNV", null, path, commandStart, commandsToDelete, numCommands, commands, numCoords, coordType, coords					);
+				}
+			}
+			DebugCheckErrors(null);
 		}
 
 		/// <summary>
@@ -1265,13 +1341,13 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="coordType">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PathCoordType"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void PathSubCommandsNV(uint path, int commandStart, int commandsToDelete, int numCommands, byte[] commands, int numCoords, int coordType, object coords)
+		public static void PathSubCommandsNV(uint path, int commandStart, int commandsToDelete, int numCommands, byte[] commands, int numCoords, PathCoordType coordType, object coords)
 		{
 			GCHandle pin_coords = GCHandle.Alloc(coords, GCHandleType.Pinned);
 			try {
@@ -1300,19 +1376,19 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="coordType">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PathCoordType"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void PathSubCommandsNV(uint path, int commandStart, int commandsToDelete, byte[] commands, int numCoords, int coordType, IntPtr coords)
+		public static void PathSubCommandsNV(uint path, int commandStart, int commandsToDelete, byte[] commands, int numCoords, PathCoordType coordType, IntPtr coords)
 		{
 			unsafe {
 				fixed (byte* p_commands = commands)
 				{
 					Debug.Assert(Delegates.pglPathSubCommandsNV != null, "pglPathSubCommandsNV not implemented");
-					Delegates.pglPathSubCommandsNV(path, commandStart, commandsToDelete, commands.Length, p_commands, numCoords, coordType, coords);
+					Delegates.pglPathSubCommandsNV(path, commandStart, commandsToDelete, commands.Length, p_commands, numCoords, (int)coordType, coords);
 					LogCommand("glPathSubCommandsNV", null, path, commandStart, commandsToDelete, commands.Length, commands, numCoords, coordType, coords					);
 				}
 			}
@@ -1332,16 +1408,16 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="coordType">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PathCoordType"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void PathSubCoordNV(uint path, int coordStart, int numCoords, int coordType, IntPtr coords)
+		public static void PathSubCoordNV(uint path, int coordStart, int numCoords, PathCoordType coordType, IntPtr coords)
 		{
 			Debug.Assert(Delegates.pglPathSubCoordsNV != null, "pglPathSubCoordsNV not implemented");
-			Delegates.pglPathSubCoordsNV(path, coordStart, numCoords, coordType, coords);
+			Delegates.pglPathSubCoordsNV(path, coordStart, numCoords, (int)coordType, coords);
 			LogCommand("glPathSubCoordsNV", null, path, coordStart, numCoords, coordType, coords			);
 			DebugCheckErrors(null);
 		}
@@ -1359,13 +1435,13 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="coordType">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PathCoordType"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void PathSubCoordNV(uint path, int coordStart, int numCoords, int coordType, object coords)
+		public static void PathSubCoordNV(uint path, int coordStart, int numCoords, PathCoordType coordType, object coords)
 		{
 			GCHandle pin_coords = GCHandle.Alloc(coords, GCHandleType.Pinned);
 			try {
@@ -3067,6 +3143,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 		public static int PathGlyphIndexRangeNV(int fontTarget, IntPtr fontName, PathFontStyle fontStyle, uint pathParameterTemplate, float emScale, uint[] baseAndCount)
 		{
+			Debug.Assert(baseAndCount.Length >= 2);
 			int retValue;
 
 			unsafe {
@@ -3326,26 +3403,66 @@ namespace OpenGL
 		/// <param name="props">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
-		/// <param name="bufSize">
+		/// <param name="count">
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="length">
-		/// A <see cref="T:int[]"/>.
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
-		public static void GetProgramResourceNV(uint program, ProgramInterface programInterface, uint index, int propCount, int[] props, int bufSize, [Out] int[] length, [Out] float[] @params)
+		public static void GetProgramResourceNV(uint program, ProgramInterface programInterface, uint index, int propCount, int[] props, int count, out int length, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (int* p_props = props)
-				fixed (int* p_length = length)
+				fixed (int* p_length = &length)
 				fixed (float* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetProgramResourcefvNV != null, "pglGetProgramResourcefvNV not implemented");
-					Delegates.pglGetProgramResourcefvNV(program, (int)programInterface, index, propCount, p_props, bufSize, p_length, p_params);
-					LogCommand("glGetProgramResourcefvNV", null, program, programInterface, index, propCount, props, bufSize, length, @params					);
+					Delegates.pglGetProgramResourcefvNV(program, (int)programInterface, index, propCount, p_props, count, p_length, p_params);
+					LogCommand("glGetProgramResourcefvNV", null, program, programInterface, index, propCount, props, count, length, @params					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL] glGetProgramResourcefvNV: Binding for glGetProgramResourcefvNV.
+		/// </summary>
+		/// <param name="program">
+		/// A <see cref="T:uint"/>.
+		/// </param>
+		/// <param name="programInterface">
+		/// A <see cref="T:ProgramInterface"/>.
+		/// </param>
+		/// <param name="index">
+		/// A <see cref="T:uint"/>.
+		/// </param>
+		/// <param name="propCount">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="props">
+		/// A <see cref="T:int[]"/>.
+		/// </param>
+		/// <param name="length">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:float[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
+		public static void GetProgramResourceNV(uint program, ProgramInterface programInterface, uint index, int propCount, int[] props, out int length, [Out] float[] @params)
+		{
+			unsafe {
+				fixed (int* p_props = props)
+				fixed (int* p_length = &length)
+				fixed (float* p_params = @params)
+				{
+					Debug.Assert(Delegates.pglGetProgramResourcefvNV != null, "pglGetProgramResourcefvNV not implemented");
+					Delegates.pglGetProgramResourcefvNV(program, (int)programInterface, index, propCount, p_props, @params.Length, p_length, p_params);
+					LogCommand("glGetProgramResourcefvNV", null, program, programInterface, index, propCount, props, @params.Length, length, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -3361,19 +3478,19 @@ namespace OpenGL
 		/// A <see cref="T:PathGenMode"/>.
 		/// </param>
 		/// <param name="colorFormat">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PathColorFormat"/>.
 		/// </param>
 		/// <param name="coeffs">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_path_rendering", Profile = "compatibility")]
-		public static void PathColorGenNV(PathColor color, PathGenMode genMode, int colorFormat, float[] coeffs)
+		public static void PathColorGenNV(PathColor color, PathGenMode genMode, PathColorFormat colorFormat, float[] coeffs)
 		{
 			unsafe {
 				fixed (float* p_coeffs = coeffs)
 				{
 					Debug.Assert(Delegates.pglPathColorGenNV != null, "pglPathColorGenNV not implemented");
-					Delegates.pglPathColorGenNV((int)color, (int)genMode, colorFormat, p_coeffs);
+					Delegates.pglPathColorGenNV((int)color, (int)genMode, (int)colorFormat, p_coeffs);
 					LogCommand("glPathColorGenNV", null, color, genMode, colorFormat, coeffs					);
 				}
 			}
@@ -3984,7 +4101,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity]
-			internal delegate void glGetProgramResourcefvNV(uint program, int programInterface, uint index, int propCount, int* props, int bufSize, int* length, float* @params);
+			internal delegate void glGetProgramResourcefvNV(uint program, int programInterface, uint index, int propCount, int* props, int count, int* length, float* @params);
 
 			[RequiredByFeature("GL_NV_path_rendering", Api = "gl|glcore|gles2")]
 			[ThreadStatic]

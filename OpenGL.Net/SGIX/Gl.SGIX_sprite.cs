@@ -88,16 +88,16 @@ namespace OpenGL
 		/// [GL] glSpriteParameterfSGIX: Binding for glSpriteParameterfSGIX.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:SpriteParameterNameSGIX"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIX_sprite")]
-		public static void SpriteParameterSGIX(int pname, float param)
+		public static void SpriteParameterSGIX(SpriteParameterNameSGIX pname, float param)
 		{
 			Debug.Assert(Delegates.pglSpriteParameterfSGIX != null, "pglSpriteParameterfSGIX not implemented");
-			Delegates.pglSpriteParameterfSGIX(pname, param);
+			Delegates.pglSpriteParameterfSGIX((int)pname, param);
 			LogCommand("glSpriteParameterfSGIX", null, pname, param			);
 			DebugCheckErrors(null);
 		}
@@ -106,19 +106,19 @@ namespace OpenGL
 		/// [GL] glSpriteParameterfvSGIX: Binding for glSpriteParameterfvSGIX.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:SpriteParameterNameSGIX"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIX_sprite")]
-		public static void SpriteParameterSGIX(int pname, float[] @params)
+		public static void SpriteParameterSGIX(SpriteParameterNameSGIX pname, float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglSpriteParameterfvSGIX != null, "pglSpriteParameterfvSGIX not implemented");
-					Delegates.pglSpriteParameterfvSGIX(pname, p_params);
+					Delegates.pglSpriteParameterfvSGIX((int)pname, p_params);
 					LogCommand("glSpriteParameterfvSGIX", null, pname, @params					);
 				}
 			}
@@ -129,16 +129,16 @@ namespace OpenGL
 		/// [GL] glSpriteParameteriSGIX: Binding for glSpriteParameteriSGIX.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:SpriteParameterNameSGIX"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIX_sprite")]
-		public static void SpriteParameterSGIX(int pname, int param)
+		public static void SpriteParameterSGIX(SpriteParameterNameSGIX pname, int param)
 		{
 			Debug.Assert(Delegates.pglSpriteParameteriSGIX != null, "pglSpriteParameteriSGIX not implemented");
-			Delegates.pglSpriteParameteriSGIX(pname, param);
+			Delegates.pglSpriteParameteriSGIX((int)pname, param);
 			LogCommand("glSpriteParameteriSGIX", null, pname, param			);
 			DebugCheckErrors(null);
 		}
@@ -147,19 +147,19 @@ namespace OpenGL
 		/// [GL] glSpriteParameterivSGIX: Binding for glSpriteParameterivSGIX.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:SpriteParameterNameSGIX"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_SGIX_sprite")]
-		public static void SpriteParameterSGIX(int pname, int[] @params)
+		public static void SpriteParameterSGIX(SpriteParameterNameSGIX pname, int[] @params)
 		{
 			unsafe {
 				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglSpriteParameterivSGIX != null, "pglSpriteParameterivSGIX not implemented");
-					Delegates.pglSpriteParameterivSGIX(pname, p_params);
+					Delegates.pglSpriteParameterivSGIX((int)pname, p_params);
 					LogCommand("glSpriteParameterivSGIX", null, pname, @params					);
 				}
 			}

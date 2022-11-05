@@ -749,6 +749,36 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// [GL4] glMultiDrawArrays: render multiple sets of primitives from array data
+		/// </summary>
+		/// <param name="mode">
+		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
+		/// Gl.LINE_STRIP_ADJACENCY, Gl.LINES_ADJACENCY, Gl.TRIANGLE_STRIP, Gl.TRIANGLE_FAN, Gl.TRIANGLES, 
+		/// Gl.TRIANGLE_STRIP_ADJACENCY, Gl.TRIANGLES_ADJACENCY and Gl.PATCHES are accepted.
+		/// </param>
+		/// <param name="first">
+		/// Points to an array of starting indices in the enabled arrays.
+		/// </param>
+		/// <param name="count">
+		/// Points to an array of the number of indices to be rendered.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_multi_draw_arrays", Api = "gl|gles1|gles2")]
+		public static void MultiDrawArrays(PrimitiveType mode, int[] first, int[] count)
+		{
+			unsafe {
+				fixed (int* p_first = first)
+				fixed (int* p_count = count)
+				{
+					Debug.Assert(Delegates.pglMultiDrawArrays != null, "pglMultiDrawArrays not implemented");
+					Delegates.pglMultiDrawArrays((int)mode, p_first, p_count, first.Length);
+					LogCommand("glMultiDrawArrays", null, mode, first, count, first.Length					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// [GL4] glMultiDrawElements: render multiple sets of primitives by specifying indices of array data elements
 		/// </summary>
 		/// <param name="mode">
@@ -786,6 +816,40 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// [GL4] glMultiDrawElements: render multiple sets of primitives by specifying indices of array data elements
+		/// </summary>
+		/// <param name="mode">
+		/// Specifies what kind of primitives to render. Symbolic constants Gl.POINTS, Gl.LINE_STRIP, Gl.LINE_LOOP, Gl.LINES, 
+		/// Gl.LINE_STRIP_ADJACENCY, Gl.LINES_ADJACENCY, Gl.TRIANGLE_STRIP, Gl.TRIANGLE_FAN, Gl.TRIANGLES, 
+		/// Gl.TRIANGLE_STRIP_ADJACENCY, Gl.TRIANGLES_ADJACENCY and Gl.PATCHES are accepted.
+		/// </param>
+		/// <param name="count">
+		/// Points to an array of the elements counts.
+		/// </param>
+		/// <param name="type">
+		/// Specifies the type of the values in <paramref name="indices"/>. Must be one of Gl.UNSIGNED_BYTE, Gl.UNSIGNED_SHORT, or 
+		/// Gl.UNSIGNED_INT.
+		/// </param>
+		/// <param name="indices">
+		/// Specifies a pointer to the location where the indices are stored.
+		/// </param>
+		[RequiredByFeature("GL_VERSION_1_4")]
+		[RequiredByFeature("GL_EXT_multi_draw_arrays", Api = "gl|gles1|gles2")]
+		public static void MultiDrawElements(PrimitiveType mode, int[] count, DrawElementsType type, IntPtr[] indices)
+		{
+			unsafe {
+				fixed (int* p_count = count)
+				fixed (IntPtr* p_indices = indices)
+				{
+					Debug.Assert(Delegates.pglMultiDrawElements != null, "pglMultiDrawElements not implemented");
+					Delegates.pglMultiDrawElements((int)mode, p_count, (int)type, p_indices, count.Length);
+					LogCommand("glMultiDrawElements", null, mode, count, type, indices, count.Length					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
 		/// <para>
 		/// [GL4] glPointParameterf: specify point parameters
 		/// </para>
@@ -804,10 +868,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_point_parameters")]
 		[RequiredByFeature("GL_EXT_point_parameters")]
 		[RequiredByFeature("GL_SGIS_point_parameters")]
-		public static void PointParameter(int pname, float param)
+		public static void PointParameter(PointParameterNameARB pname, float param)
 		{
 			Debug.Assert(Delegates.pglPointParameterf != null, "pglPointParameterf not implemented");
-			Delegates.pglPointParameterf(pname, param);
+			Delegates.pglPointParameterf((int)pname, param);
 			LogCommand("glPointParameterf", null, pname, param			);
 			DebugCheckErrors(null);
 		}
@@ -832,13 +896,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_point_parameters")]
 		[RequiredByFeature("GL_EXT_point_parameters")]
 		[RequiredByFeature("GL_SGIS_point_parameters")]
-		public static void PointParameter(int pname, float[] @params)
+		public static void PointParameter(PointParameterNameARB pname, float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglPointParameterfv != null, "pglPointParameterfv not implemented");
-					Delegates.pglPointParameterfv(pname, p_params);
+					Delegates.pglPointParameterfv((int)pname, p_params);
 					LogCommand("glPointParameterfv", null, pname, @params					);
 				}
 			}
@@ -856,10 +920,10 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_NV_point_sprite")]
-		public static void PointParameter(int pname, int param)
+		public static void PointParameter(PointParameterNameARB pname, int param)
 		{
 			Debug.Assert(Delegates.pglPointParameteri != null, "pglPointParameteri not implemented");
-			Delegates.pglPointParameteri(pname, param);
+			Delegates.pglPointParameteri((int)pname, param);
 			LogCommand("glPointParameteri", null, pname, param			);
 			DebugCheckErrors(null);
 		}
@@ -876,13 +940,13 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_NV_point_sprite")]
-		public static void PointParameter(int pname, int[] @params)
+		public static void PointParameter(PointParameterNameARB pname, int[] @params)
 		{
 			unsafe {
 				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglPointParameteriv != null, "pglPointParameteriv not implemented");
-					Delegates.pglPointParameteriv(pname, p_params);
+					Delegates.pglPointParameteriv((int)pname, p_params);
 					LogCommand("glPointParameteriv", null, pname, @params					);
 				}
 			}
@@ -984,7 +1048,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_fog_coord")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void FogCoordPointer(FogCoordinatePointerType type, int stride, IntPtr pointer)
+		public static void FogCoordPointer(FogPointerTypeEXT type, int stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglFogCoordPointer != null, "pglFogCoordPointer not implemented");
 			Delegates.pglFogCoordPointer((int)type, stride, pointer);
@@ -1009,7 +1073,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_4")]
 		[RequiredByFeature("GL_EXT_fog_coord")]
 		[RemovedByFeature("GL_VERSION_3_2", Profile = "core")]
-		public static void FogCoordPointer(FogCoordinatePointerType type, int stride, object pointer)
+		public static void FogCoordPointer(FogPointerTypeEXT type, int stride, object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {

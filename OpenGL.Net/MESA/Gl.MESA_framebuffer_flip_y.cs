@@ -45,9 +45,75 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_FRAMEBUFFER_FLIP_Y_MESA symbol.
 		/// </summary>
-		[RequiredByFeature("GL_MESA_framebuffer_flip_y", Api = "gles2")]
+		[RequiredByFeature("GL_MESA_framebuffer_flip_y", Api = "gl|glcore|gles2")]
 		public const int FRAMEBUFFER_FLIP_Y_MESA = 0x8BBB;
 
+		/// <summary>
+		/// [GL] glFramebufferParameteriMESA: Binding for glFramebufferParameteriMESA.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:FramebufferTarget"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:FramebufferParameterName"/>.
+		/// </param>
+		/// <param name="param">
+		/// A <see cref="T:int"/>.
+		/// </param>
+		[RequiredByFeature("GL_MESA_framebuffer_flip_y", Api = "gl|glcore|gles2")]
+		public static void FramebufferParameterMESA(FramebufferTarget target, FramebufferParameterName pname, int param)
+		{
+			Debug.Assert(Delegates.pglFramebufferParameteriMESA != null, "pglFramebufferParameteriMESA not implemented");
+			Delegates.pglFramebufferParameteriMESA((int)target, (int)pname, param);
+			LogCommand("glFramebufferParameteriMESA", null, target, pname, param			);
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL] glGetFramebufferParameterivMESA: Binding for glGetFramebufferParameterivMESA.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:FramebufferTarget"/>.
+		/// </param>
+		/// <param name="pname">
+		/// A <see cref="T:FramebufferAttachmentParameterName"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:int[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_MESA_framebuffer_flip_y", Api = "gl|glcore|gles2")]
+		public static void GetFramebufferParameterMESA(FramebufferTarget target, FramebufferAttachmentParameterName pname, [Out] int[] @params)
+		{
+			unsafe {
+				fixed (int* p_params = @params)
+				{
+					Debug.Assert(Delegates.pglGetFramebufferParameterivMESA != null, "pglGetFramebufferParameterivMESA not implemented");
+					Delegates.pglGetFramebufferParameterivMESA((int)target, (int)pname, p_params);
+					LogCommand("glGetFramebufferParameterivMESA", null, target, pname, @params					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		internal static unsafe partial class Delegates
+		{
+			[RequiredByFeature("GL_MESA_framebuffer_flip_y", Api = "gl|glcore|gles2")]
+			[SuppressUnmanagedCodeSecurity]
+			internal delegate void glFramebufferParameteriMESA(int target, int pname, int param);
+
+			[RequiredByFeature("GL_MESA_framebuffer_flip_y", Api = "gl|glcore|gles2")]
+			[ThreadStatic]
+			internal static glFramebufferParameteriMESA pglFramebufferParameteriMESA;
+
+			[RequiredByFeature("GL_MESA_framebuffer_flip_y", Api = "gl|glcore|gles2")]
+			[SuppressUnmanagedCodeSecurity]
+			internal delegate void glGetFramebufferParameterivMESA(int target, int pname, int* @params);
+
+			[RequiredByFeature("GL_MESA_framebuffer_flip_y", Api = "gl|glcore|gles2")]
+			[ThreadStatic]
+			internal static glGetFramebufferParameterivMESA pglGetFramebufferParameterivMESA;
+
+		}
 	}
 
 }

@@ -842,7 +842,7 @@ namespace OpenGL
 		/// [GL] glReplacementCodeuiVertex3fSUN: Binding for glReplacementCodeuiVertex3fSUN.
 		/// </summary>
 		/// <param name="rc">
-		/// A <see cref="T:uint"/>.
+		/// A <see cref="T:TriangleListSUN"/>.
 		/// </param>
 		/// <param name="x">
 		/// A <see cref="T:float"/>.
@@ -854,10 +854,10 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_SUN_vertex")]
-		public static void ReplacementCodeuiVertex3SUN(uint rc, float x, float y, float z)
+		public static void ReplacementCodeuiVertex3SUN(TriangleListSUN rc, float x, float y, float z)
 		{
 			Debug.Assert(Delegates.pglReplacementCodeuiVertex3fSUN != null, "pglReplacementCodeuiVertex3fSUN not implemented");
-			Delegates.pglReplacementCodeuiVertex3fSUN(rc, x, y, z);
+			Delegates.pglReplacementCodeuiVertex3fSUN((uint)rc, x, y, z);
 			LogCommand("glReplacementCodeuiVertex3fSUN", null, rc, x, y, z			);
 			DebugCheckErrors(null);
 		}
@@ -892,7 +892,7 @@ namespace OpenGL
 		/// [GL] glReplacementCodeuiColor4ubVertex3fSUN: Binding for glReplacementCodeuiColor4ubVertex3fSUN.
 		/// </summary>
 		/// <param name="rc">
-		/// A <see cref="T:uint"/>.
+		/// A <see cref="T:TriangleListSUN"/>.
 		/// </param>
 		/// <param name="r">
 		/// A <see cref="T:byte"/>.
@@ -916,10 +916,10 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_SUN_vertex")]
-		public static void ReplacementCodeuiColor4ubVertex3fSUN(uint rc, byte r, byte g, byte b, byte a, float x, float y, float z)
+		public static void ReplacementCodeuiColor4ubVertex3fSUN(TriangleListSUN rc, byte r, byte g, byte b, byte a, float x, float y, float z)
 		{
 			Debug.Assert(Delegates.pglReplacementCodeuiColor4ubVertex3fSUN != null, "pglReplacementCodeuiColor4ubVertex3fSUN not implemented");
-			Delegates.pglReplacementCodeuiColor4ubVertex3fSUN(rc, r, g, b, a, x, y, z);
+			Delegates.pglReplacementCodeuiColor4ubVertex3fSUN((uint)rc, r, g, b, a, x, y, z);
 			LogCommand("glReplacementCodeuiColor4ubVertex3fSUN", null, rc, r, g, b, a, x, y, z			);
 			DebugCheckErrors(null);
 		}
@@ -959,7 +959,7 @@ namespace OpenGL
 		/// [GL] glReplacementCodeuiColor3fVertex3fSUN: Binding for glReplacementCodeuiColor3fVertex3fSUN.
 		/// </summary>
 		/// <param name="rc">
-		/// A <see cref="T:uint"/>.
+		/// A <see cref="T:TriangleListSUN"/>.
 		/// </param>
 		/// <param name="r">
 		/// A <see cref="T:float"/>.
@@ -980,10 +980,10 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_SUN_vertex")]
-		public static void ReplacementCodeuiColor3fVertex3fSUN(uint rc, float r, float g, float b, float x, float y, float z)
+		public static void ReplacementCodeuiColor3fVertex3fSUN(TriangleListSUN rc, float r, float g, float b, float x, float y, float z)
 		{
 			Debug.Assert(Delegates.pglReplacementCodeuiColor3fVertex3fSUN != null, "pglReplacementCodeuiColor3fVertex3fSUN not implemented");
-			Delegates.pglReplacementCodeuiColor3fVertex3fSUN(rc, r, g, b, x, y, z);
+			Delegates.pglReplacementCodeuiColor3fVertex3fSUN((uint)rc, r, g, b, x, y, z);
 			LogCommand("glReplacementCodeuiColor3fVertex3fSUN", null, rc, r, g, b, x, y, z			);
 			DebugCheckErrors(null);
 		}
@@ -1023,7 +1023,7 @@ namespace OpenGL
 		/// [GL] glReplacementCodeuiNormal3fVertex3fSUN: Binding for glReplacementCodeuiNormal3fVertex3fSUN.
 		/// </summary>
 		/// <param name="rc">
-		/// A <see cref="T:uint"/>.
+		/// A <see cref="T:TriangleListSUN"/>.
 		/// </param>
 		/// <param name="nx">
 		/// A <see cref="T:float"/>.
@@ -1044,10 +1044,10 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_SUN_vertex")]
-		public static void ReplacementCodeuiNormal3fVertex3fSUN(uint rc, float nx, float ny, float nz, float x, float y, float z)
+		public static void ReplacementCodeuiNormal3fVertex3fSUN(TriangleListSUN rc, float nx, float ny, float nz, float x, float y, float z)
 		{
 			Debug.Assert(Delegates.pglReplacementCodeuiNormal3fVertex3fSUN != null, "pglReplacementCodeuiNormal3fVertex3fSUN not implemented");
-			Delegates.pglReplacementCodeuiNormal3fVertex3fSUN(rc, nx, ny, nz, x, y, z);
+			Delegates.pglReplacementCodeuiNormal3fVertex3fSUN((uint)rc, nx, ny, nz, x, y, z);
 			LogCommand("glReplacementCodeuiNormal3fVertex3fSUN", null, rc, nx, ny, nz, x, y, z			);
 			DebugCheckErrors(null);
 		}
@@ -1087,7 +1087,7 @@ namespace OpenGL
 		/// [GL] glReplacementCodeuiColor4fNormal3fVertex3fSUN: Binding for glReplacementCodeuiColor4fNormal3fVertex3fSUN.
 		/// </summary>
 		/// <param name="rc">
-		/// A <see cref="T:uint"/>.
+		/// A <see cref="T:TriangleListSUN"/>.
 		/// </param>
 		/// <param name="r">
 		/// A <see cref="T:float"/>.
@@ -1120,10 +1120,10 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_SUN_vertex")]
-		public static void ReplacementCodeuiColor4fNormal3fVertex3fSUN(uint rc, float r, float g, float b, float a, float nx, float ny, float nz, float x, float y, float z)
+		public static void ReplacementCodeuiColor4fNormal3fVertex3fSUN(TriangleListSUN rc, float r, float g, float b, float a, float nx, float ny, float nz, float x, float y, float z)
 		{
 			Debug.Assert(Delegates.pglReplacementCodeuiColor4fNormal3fVertex3fSUN != null, "pglReplacementCodeuiColor4fNormal3fVertex3fSUN not implemented");
-			Delegates.pglReplacementCodeuiColor4fNormal3fVertex3fSUN(rc, r, g, b, a, nx, ny, nz, x, y, z);
+			Delegates.pglReplacementCodeuiColor4fNormal3fVertex3fSUN((uint)rc, r, g, b, a, nx, ny, nz, x, y, z);
 			LogCommand("glReplacementCodeuiColor4fNormal3fVertex3fSUN", null, rc, r, g, b, a, nx, ny, nz, x, y, z			);
 			DebugCheckErrors(null);
 		}
@@ -1168,7 +1168,7 @@ namespace OpenGL
 		/// [GL] glReplacementCodeuiTexCoord2fVertex3fSUN: Binding for glReplacementCodeuiTexCoord2fVertex3fSUN.
 		/// </summary>
 		/// <param name="rc">
-		/// A <see cref="T:uint"/>.
+		/// A <see cref="T:TriangleListSUN"/>.
 		/// </param>
 		/// <param name="s">
 		/// A <see cref="T:float"/>.
@@ -1186,10 +1186,10 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_SUN_vertex")]
-		public static void ReplacementCodeuiTexCoord2fVertex3fSUN(uint rc, float s, float t, float x, float y, float z)
+		public static void ReplacementCodeuiTexCoord2fVertex3fSUN(TriangleListSUN rc, float s, float t, float x, float y, float z)
 		{
 			Debug.Assert(Delegates.pglReplacementCodeuiTexCoord2fVertex3fSUN != null, "pglReplacementCodeuiTexCoord2fVertex3fSUN not implemented");
-			Delegates.pglReplacementCodeuiTexCoord2fVertex3fSUN(rc, s, t, x, y, z);
+			Delegates.pglReplacementCodeuiTexCoord2fVertex3fSUN((uint)rc, s, t, x, y, z);
 			LogCommand("glReplacementCodeuiTexCoord2fVertex3fSUN", null, rc, s, t, x, y, z			);
 			DebugCheckErrors(null);
 		}
@@ -1229,7 +1229,7 @@ namespace OpenGL
 		/// [GL] glReplacementCodeuiTexCoord2fNormal3fVertex3fSUN: Binding for glReplacementCodeuiTexCoord2fNormal3fVertex3fSUN.
 		/// </summary>
 		/// <param name="rc">
-		/// A <see cref="T:uint"/>.
+		/// A <see cref="T:TriangleListSUN"/>.
 		/// </param>
 		/// <param name="s">
 		/// A <see cref="T:float"/>.
@@ -1256,10 +1256,10 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_SUN_vertex")]
-		public static void ReplacementCodeuiTexCoord2fNormal3fVertex3fSUN(uint rc, float s, float t, float nx, float ny, float nz, float x, float y, float z)
+		public static void ReplacementCodeuiTexCoord2fNormal3fVertex3fSUN(TriangleListSUN rc, float s, float t, float nx, float ny, float nz, float x, float y, float z)
 		{
 			Debug.Assert(Delegates.pglReplacementCodeuiTexCoord2fNormal3fVertex3fSUN != null, "pglReplacementCodeuiTexCoord2fNormal3fVertex3fSUN not implemented");
-			Delegates.pglReplacementCodeuiTexCoord2fNormal3fVertex3fSUN(rc, s, t, nx, ny, nz, x, y, z);
+			Delegates.pglReplacementCodeuiTexCoord2fNormal3fVertex3fSUN((uint)rc, s, t, nx, ny, nz, x, y, z);
 			LogCommand("glReplacementCodeuiTexCoord2fNormal3fVertex3fSUN", null, rc, s, t, nx, ny, nz, x, y, z			);
 			DebugCheckErrors(null);
 		}
@@ -1305,7 +1305,7 @@ namespace OpenGL
 		/// glReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fSUN.
 		/// </summary>
 		/// <param name="rc">
-		/// A <see cref="T:uint"/>.
+		/// A <see cref="T:TriangleListSUN"/>.
 		/// </param>
 		/// <param name="s">
 		/// A <see cref="T:float"/>.
@@ -1344,10 +1344,10 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_SUN_vertex")]
-		public static void ReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fSUN(uint rc, float s, float t, float r, float g, float b, float a, float nx, float ny, float nz, float x, float y, float z)
+		public static void ReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fSUN(TriangleListSUN rc, float s, float t, float r, float g, float b, float a, float nx, float ny, float nz, float x, float y, float z)
 		{
 			Debug.Assert(Delegates.pglReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fSUN != null, "pglReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fSUN not implemented");
-			Delegates.pglReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fSUN(rc, s, t, r, g, b, a, nx, ny, nz, x, y, z);
+			Delegates.pglReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fSUN((uint)rc, s, t, r, g, b, a, nx, ny, nz, x, y, z);
 			LogCommand("glReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fSUN", null, rc, s, t, r, g, b, a, nx, ny, nz, x, y, z			);
 			DebugCheckErrors(null);
 		}

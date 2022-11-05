@@ -177,7 +177,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:SecondaryColorPointerTypeIBM"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:int"/>.
@@ -189,13 +189,13 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_IBM_vertex_array_lists")]
-		public static void SecondaryColorPointerListIBM(int size, int type, int stride, IntPtr[] pointer, int ptrstride)
+		public static void SecondaryColorPointerListIBM(int size, SecondaryColorPointerTypeIBM type, int stride, IntPtr[] pointer, int ptrstride)
 		{
 			unsafe {
 				fixed (IntPtr* p_pointer = pointer)
 				{
 					Debug.Assert(Delegates.pglSecondaryColorPointerListIBM != null, "pglSecondaryColorPointerListIBM not implemented");
-					Delegates.pglSecondaryColorPointerListIBM(size, type, stride, p_pointer, ptrstride);
+					Delegates.pglSecondaryColorPointerListIBM(size, (int)type, stride, p_pointer, ptrstride);
 					LogCommand("glSecondaryColorPointerListIBM", null, size, type, stride, pointer, ptrstride					);
 				}
 			}
@@ -227,7 +227,7 @@ namespace OpenGL
 		/// [GL] glFogCoordPointerListIBM: Binding for glFogCoordPointerListIBM.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:FogCoordinatePointerType"/>.
+		/// A <see cref="T:FogPointerTypeIBM"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:int"/>.
@@ -239,7 +239,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_IBM_vertex_array_lists")]
-		public static void FogCoordPointerListIBM(FogCoordinatePointerType type, int stride, IntPtr[] pointer, int ptrstride)
+		public static void FogCoordPointerListIBM(FogPointerTypeIBM type, int stride, IntPtr[] pointer, int ptrstride)
 		{
 			unsafe {
 				fixed (IntPtr* p_pointer = pointer)

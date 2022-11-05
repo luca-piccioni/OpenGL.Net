@@ -100,13 +100,13 @@ namespace OpenGL
 		/// [GL] glApplyTextureEXT: Binding for glApplyTextureEXT.
 		/// </summary>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:LightTextureModeEXT"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_light_texture")]
-		public static void ApplyTextureEXT(int mode)
+		public static void ApplyTextureEXT(LightTextureModeEXT mode)
 		{
 			Debug.Assert(Delegates.pglApplyTextureEXT != null, "pglApplyTextureEXT not implemented");
-			Delegates.pglApplyTextureEXT(mode);
+			Delegates.pglApplyTextureEXT((int)mode);
 			LogCommand("glApplyTextureEXT", null, mode			);
 			DebugCheckErrors(null);
 		}
@@ -115,13 +115,13 @@ namespace OpenGL
 		/// [GL] glTextureLightEXT: Binding for glTextureLightEXT.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:LightTexturePNameEXT"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_light_texture")]
-		public static void TextureLightEXT(int pname)
+		public static void TextureLightEXT(LightTexturePNameEXT pname)
 		{
 			Debug.Assert(Delegates.pglTextureLightEXT != null, "pglTextureLightEXT not implemented");
-			Delegates.pglTextureLightEXT(pname);
+			Delegates.pglTextureLightEXT((int)pname);
 			LogCommand("glTextureLightEXT", null, pname			);
 			DebugCheckErrors(null);
 		}
@@ -130,13 +130,13 @@ namespace OpenGL
 		/// [GL] glTextureMaterialEXT: Binding for glTextureMaterialEXT.
 		/// </summary>
 		/// <param name="face">
-		/// A <see cref="T:MaterialFace"/>.
+		/// A <see cref="T:TriangleFace"/>.
 		/// </param>
 		/// <param name="mode">
 		/// A <see cref="T:MaterialParameter"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_light_texture")]
-		public static void TextureMaterialEXT(MaterialFace face, MaterialParameter mode)
+		public static void TextureMaterialEXT(TriangleFace face, MaterialParameter mode)
 		{
 			Debug.Assert(Delegates.pglTextureMaterialEXT != null, "pglTextureMaterialEXT not implemented");
 			Delegates.pglTextureMaterialEXT((int)face, (int)mode);

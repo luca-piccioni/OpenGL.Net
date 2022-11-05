@@ -64,20 +64,20 @@ namespace OpenGL
 		/// [GL] glCullParameterdvEXT: Binding for glCullParameterdvEXT.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:CullParameterEXT"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_cull_vertex")]
-		public static void CullParameterEXT(int pname, double[] @params)
+		public static void CullParameterEXT(CullParameterEXT pname, double[] @params)
 		{
 			Debug.Assert(@params.Length >= 4);
 			unsafe {
 				fixed (double* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglCullParameterdvEXT != null, "pglCullParameterdvEXT not implemented");
-					Delegates.pglCullParameterdvEXT(pname, p_params);
+					Delegates.pglCullParameterdvEXT((int)pname, p_params);
 					LogCommand("glCullParameterdvEXT", null, pname, @params					);
 				}
 			}
@@ -88,20 +88,20 @@ namespace OpenGL
 		/// [GL] glCullParameterfvEXT: Binding for glCullParameterfvEXT.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:CullParameterEXT"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_cull_vertex")]
-		public static void CullParameterEXT(int pname, float[] @params)
+		public static void CullParameterEXT(CullParameterEXT pname, float[] @params)
 		{
 			Debug.Assert(@params.Length >= 4);
 			unsafe {
 				fixed (float* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglCullParameterfvEXT != null, "pglCullParameterfvEXT not implemented");
-					Delegates.pglCullParameterfvEXT(pname, p_params);
+					Delegates.pglCullParameterfvEXT((int)pname, p_params);
 					LogCommand("glCullParameterfvEXT", null, pname, @params					);
 				}
 			}

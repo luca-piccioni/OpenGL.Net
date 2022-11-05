@@ -106,16 +106,16 @@ namespace OpenGL
 		/// [GL] glVertexStream1sATI: Binding for glVertexStream1sATI.
 		/// </summary>
 		/// <param name="stream">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexStreamATI"/>.
 		/// </param>
 		/// <param name="x">
 		/// A <see cref="T:short"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
-		public static void VertexStream1ATI(int stream, short x)
+		public static void VertexStream1ATI(VertexStreamATI stream, short x)
 		{
 			Debug.Assert(Delegates.pglVertexStream1sATI != null, "pglVertexStream1sATI not implemented");
-			Delegates.pglVertexStream1sATI(stream, x);
+			Delegates.pglVertexStream1sATI((int)stream, x);
 			LogCommand("glVertexStream1sATI", null, stream, x			);
 			DebugCheckErrors(null);
 		}
@@ -124,20 +124,20 @@ namespace OpenGL
 		/// [GL] glVertexStream1svATI: Binding for glVertexStream1svATI.
 		/// </summary>
 		/// <param name="stream">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexStreamATI"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:short[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
-		public static void VertexStream1ATI(int stream, short[] coords)
+		public static void VertexStream1ATI(VertexStreamATI stream, short[] coords)
 		{
 			Debug.Assert(coords.Length >= 1);
 			unsafe {
 				fixed (short* p_coords = coords)
 				{
 					Debug.Assert(Delegates.pglVertexStream1svATI != null, "pglVertexStream1svATI not implemented");
-					Delegates.pglVertexStream1svATI(stream, p_coords);
+					Delegates.pglVertexStream1svATI((int)stream, p_coords);
 					LogCommand("glVertexStream1svATI", null, stream, coords					);
 				}
 			}
@@ -148,16 +148,16 @@ namespace OpenGL
 		/// [GL] glVertexStream1iATI: Binding for glVertexStream1iATI.
 		/// </summary>
 		/// <param name="stream">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexStreamATI"/>.
 		/// </param>
 		/// <param name="x">
 		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
-		public static void VertexStream1ATI(int stream, int x)
+		public static void VertexStream1ATI(VertexStreamATI stream, int x)
 		{
 			Debug.Assert(Delegates.pglVertexStream1iATI != null, "pglVertexStream1iATI not implemented");
-			Delegates.pglVertexStream1iATI(stream, x);
+			Delegates.pglVertexStream1iATI((int)stream, x);
 			LogCommand("glVertexStream1iATI", null, stream, x			);
 			DebugCheckErrors(null);
 		}
@@ -166,20 +166,20 @@ namespace OpenGL
 		/// [GL] glVertexStream1ivATI: Binding for glVertexStream1ivATI.
 		/// </summary>
 		/// <param name="stream">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexStreamATI"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
-		public static void VertexStream1ATI(int stream, int[] coords)
+		public static void VertexStream1ATI(VertexStreamATI stream, int[] coords)
 		{
 			Debug.Assert(coords.Length >= 1);
 			unsafe {
 				fixed (int* p_coords = coords)
 				{
 					Debug.Assert(Delegates.pglVertexStream1ivATI != null, "pglVertexStream1ivATI not implemented");
-					Delegates.pglVertexStream1ivATI(stream, p_coords);
+					Delegates.pglVertexStream1ivATI((int)stream, p_coords);
 					LogCommand("glVertexStream1ivATI", null, stream, coords					);
 				}
 			}
@@ -190,16 +190,16 @@ namespace OpenGL
 		/// [GL] glVertexStream1fATI: Binding for glVertexStream1fATI.
 		/// </summary>
 		/// <param name="stream">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexStreamATI"/>.
 		/// </param>
 		/// <param name="x">
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
-		public static void VertexStream1ATI(int stream, float x)
+		public static void VertexStream1ATI(VertexStreamATI stream, float x)
 		{
 			Debug.Assert(Delegates.pglVertexStream1fATI != null, "pglVertexStream1fATI not implemented");
-			Delegates.pglVertexStream1fATI(stream, x);
+			Delegates.pglVertexStream1fATI((int)stream, x);
 			LogCommand("glVertexStream1fATI", null, stream, x			);
 			DebugCheckErrors(null);
 		}
@@ -208,20 +208,20 @@ namespace OpenGL
 		/// [GL] glVertexStream1fvATI: Binding for glVertexStream1fvATI.
 		/// </summary>
 		/// <param name="stream">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexStreamATI"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
-		public static void VertexStream1ATI(int stream, float[] coords)
+		public static void VertexStream1ATI(VertexStreamATI stream, float[] coords)
 		{
 			Debug.Assert(coords.Length >= 1);
 			unsafe {
 				fixed (float* p_coords = coords)
 				{
 					Debug.Assert(Delegates.pglVertexStream1fvATI != null, "pglVertexStream1fvATI not implemented");
-					Delegates.pglVertexStream1fvATI(stream, p_coords);
+					Delegates.pglVertexStream1fvATI((int)stream, p_coords);
 					LogCommand("glVertexStream1fvATI", null, stream, coords					);
 				}
 			}
@@ -232,16 +232,16 @@ namespace OpenGL
 		/// [GL] glVertexStream1dATI: Binding for glVertexStream1dATI.
 		/// </summary>
 		/// <param name="stream">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexStreamATI"/>.
 		/// </param>
 		/// <param name="x">
 		/// A <see cref="T:double"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
-		public static void VertexStream1ATI(int stream, double x)
+		public static void VertexStream1ATI(VertexStreamATI stream, double x)
 		{
 			Debug.Assert(Delegates.pglVertexStream1dATI != null, "pglVertexStream1dATI not implemented");
-			Delegates.pglVertexStream1dATI(stream, x);
+			Delegates.pglVertexStream1dATI((int)stream, x);
 			LogCommand("glVertexStream1dATI", null, stream, x			);
 			DebugCheckErrors(null);
 		}
@@ -250,20 +250,20 @@ namespace OpenGL
 		/// [GL] glVertexStream1dvATI: Binding for glVertexStream1dvATI.
 		/// </summary>
 		/// <param name="stream">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexStreamATI"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
-		public static void VertexStream1ATI(int stream, double[] coords)
+		public static void VertexStream1ATI(VertexStreamATI stream, double[] coords)
 		{
 			Debug.Assert(coords.Length >= 1);
 			unsafe {
 				fixed (double* p_coords = coords)
 				{
 					Debug.Assert(Delegates.pglVertexStream1dvATI != null, "pglVertexStream1dvATI not implemented");
-					Delegates.pglVertexStream1dvATI(stream, p_coords);
+					Delegates.pglVertexStream1dvATI((int)stream, p_coords);
 					LogCommand("glVertexStream1dvATI", null, stream, coords					);
 				}
 			}
@@ -274,7 +274,7 @@ namespace OpenGL
 		/// [GL] glVertexStream2sATI: Binding for glVertexStream2sATI.
 		/// </summary>
 		/// <param name="stream">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexStreamATI"/>.
 		/// </param>
 		/// <param name="x">
 		/// A <see cref="T:short"/>.
@@ -283,10 +283,10 @@ namespace OpenGL
 		/// A <see cref="T:short"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
-		public static void VertexStream2ATI(int stream, short x, short y)
+		public static void VertexStream2ATI(VertexStreamATI stream, short x, short y)
 		{
 			Debug.Assert(Delegates.pglVertexStream2sATI != null, "pglVertexStream2sATI not implemented");
-			Delegates.pglVertexStream2sATI(stream, x, y);
+			Delegates.pglVertexStream2sATI((int)stream, x, y);
 			LogCommand("glVertexStream2sATI", null, stream, x, y			);
 			DebugCheckErrors(null);
 		}
@@ -295,20 +295,20 @@ namespace OpenGL
 		/// [GL] glVertexStream2svATI: Binding for glVertexStream2svATI.
 		/// </summary>
 		/// <param name="stream">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexStreamATI"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:short[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
-		public static void VertexStream2ATI(int stream, short[] coords)
+		public static void VertexStream2ATI(VertexStreamATI stream, short[] coords)
 		{
 			Debug.Assert(coords.Length >= 2);
 			unsafe {
 				fixed (short* p_coords = coords)
 				{
 					Debug.Assert(Delegates.pglVertexStream2svATI != null, "pglVertexStream2svATI not implemented");
-					Delegates.pglVertexStream2svATI(stream, p_coords);
+					Delegates.pglVertexStream2svATI((int)stream, p_coords);
 					LogCommand("glVertexStream2svATI", null, stream, coords					);
 				}
 			}
@@ -319,7 +319,7 @@ namespace OpenGL
 		/// [GL] glVertexStream2iATI: Binding for glVertexStream2iATI.
 		/// </summary>
 		/// <param name="stream">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexStreamATI"/>.
 		/// </param>
 		/// <param name="x">
 		/// A <see cref="T:int"/>.
@@ -328,10 +328,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
-		public static void VertexStream2ATI(int stream, int x, int y)
+		public static void VertexStream2ATI(VertexStreamATI stream, int x, int y)
 		{
 			Debug.Assert(Delegates.pglVertexStream2iATI != null, "pglVertexStream2iATI not implemented");
-			Delegates.pglVertexStream2iATI(stream, x, y);
+			Delegates.pglVertexStream2iATI((int)stream, x, y);
 			LogCommand("glVertexStream2iATI", null, stream, x, y			);
 			DebugCheckErrors(null);
 		}
@@ -340,20 +340,20 @@ namespace OpenGL
 		/// [GL] glVertexStream2ivATI: Binding for glVertexStream2ivATI.
 		/// </summary>
 		/// <param name="stream">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexStreamATI"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
-		public static void VertexStream2ATI(int stream, int[] coords)
+		public static void VertexStream2ATI(VertexStreamATI stream, int[] coords)
 		{
 			Debug.Assert(coords.Length >= 2);
 			unsafe {
 				fixed (int* p_coords = coords)
 				{
 					Debug.Assert(Delegates.pglVertexStream2ivATI != null, "pglVertexStream2ivATI not implemented");
-					Delegates.pglVertexStream2ivATI(stream, p_coords);
+					Delegates.pglVertexStream2ivATI((int)stream, p_coords);
 					LogCommand("glVertexStream2ivATI", null, stream, coords					);
 				}
 			}
@@ -364,7 +364,7 @@ namespace OpenGL
 		/// [GL] glVertexStream2fATI: Binding for glVertexStream2fATI.
 		/// </summary>
 		/// <param name="stream">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexStreamATI"/>.
 		/// </param>
 		/// <param name="x">
 		/// A <see cref="T:float"/>.
@@ -373,10 +373,10 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
-		public static void VertexStream2ATI(int stream, float x, float y)
+		public static void VertexStream2ATI(VertexStreamATI stream, float x, float y)
 		{
 			Debug.Assert(Delegates.pglVertexStream2fATI != null, "pglVertexStream2fATI not implemented");
-			Delegates.pglVertexStream2fATI(stream, x, y);
+			Delegates.pglVertexStream2fATI((int)stream, x, y);
 			LogCommand("glVertexStream2fATI", null, stream, x, y			);
 			DebugCheckErrors(null);
 		}
@@ -385,20 +385,20 @@ namespace OpenGL
 		/// [GL] glVertexStream2fvATI: Binding for glVertexStream2fvATI.
 		/// </summary>
 		/// <param name="stream">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexStreamATI"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
-		public static void VertexStream2ATI(int stream, float[] coords)
+		public static void VertexStream2ATI(VertexStreamATI stream, float[] coords)
 		{
 			Debug.Assert(coords.Length >= 2);
 			unsafe {
 				fixed (float* p_coords = coords)
 				{
 					Debug.Assert(Delegates.pglVertexStream2fvATI != null, "pglVertexStream2fvATI not implemented");
-					Delegates.pglVertexStream2fvATI(stream, p_coords);
+					Delegates.pglVertexStream2fvATI((int)stream, p_coords);
 					LogCommand("glVertexStream2fvATI", null, stream, coords					);
 				}
 			}
@@ -409,7 +409,7 @@ namespace OpenGL
 		/// [GL] glVertexStream2dATI: Binding for glVertexStream2dATI.
 		/// </summary>
 		/// <param name="stream">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexStreamATI"/>.
 		/// </param>
 		/// <param name="x">
 		/// A <see cref="T:double"/>.
@@ -418,10 +418,10 @@ namespace OpenGL
 		/// A <see cref="T:double"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
-		public static void VertexStream2ATI(int stream, double x, double y)
+		public static void VertexStream2ATI(VertexStreamATI stream, double x, double y)
 		{
 			Debug.Assert(Delegates.pglVertexStream2dATI != null, "pglVertexStream2dATI not implemented");
-			Delegates.pglVertexStream2dATI(stream, x, y);
+			Delegates.pglVertexStream2dATI((int)stream, x, y);
 			LogCommand("glVertexStream2dATI", null, stream, x, y			);
 			DebugCheckErrors(null);
 		}
@@ -430,20 +430,20 @@ namespace OpenGL
 		/// [GL] glVertexStream2dvATI: Binding for glVertexStream2dvATI.
 		/// </summary>
 		/// <param name="stream">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexStreamATI"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
-		public static void VertexStream2ATI(int stream, double[] coords)
+		public static void VertexStream2ATI(VertexStreamATI stream, double[] coords)
 		{
 			Debug.Assert(coords.Length >= 2);
 			unsafe {
 				fixed (double* p_coords = coords)
 				{
 					Debug.Assert(Delegates.pglVertexStream2dvATI != null, "pglVertexStream2dvATI not implemented");
-					Delegates.pglVertexStream2dvATI(stream, p_coords);
+					Delegates.pglVertexStream2dvATI((int)stream, p_coords);
 					LogCommand("glVertexStream2dvATI", null, stream, coords					);
 				}
 			}
@@ -454,7 +454,7 @@ namespace OpenGL
 		/// [GL] glVertexStream3sATI: Binding for glVertexStream3sATI.
 		/// </summary>
 		/// <param name="stream">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexStreamATI"/>.
 		/// </param>
 		/// <param name="x">
 		/// A <see cref="T:short"/>.
@@ -466,10 +466,10 @@ namespace OpenGL
 		/// A <see cref="T:short"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
-		public static void VertexStream3ATI(int stream, short x, short y, short z)
+		public static void VertexStream3ATI(VertexStreamATI stream, short x, short y, short z)
 		{
 			Debug.Assert(Delegates.pglVertexStream3sATI != null, "pglVertexStream3sATI not implemented");
-			Delegates.pglVertexStream3sATI(stream, x, y, z);
+			Delegates.pglVertexStream3sATI((int)stream, x, y, z);
 			LogCommand("glVertexStream3sATI", null, stream, x, y, z			);
 			DebugCheckErrors(null);
 		}
@@ -478,20 +478,20 @@ namespace OpenGL
 		/// [GL] glVertexStream3svATI: Binding for glVertexStream3svATI.
 		/// </summary>
 		/// <param name="stream">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexStreamATI"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:short[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
-		public static void VertexStream3ATI(int stream, short[] coords)
+		public static void VertexStream3ATI(VertexStreamATI stream, short[] coords)
 		{
 			Debug.Assert(coords.Length >= 3);
 			unsafe {
 				fixed (short* p_coords = coords)
 				{
 					Debug.Assert(Delegates.pglVertexStream3svATI != null, "pglVertexStream3svATI not implemented");
-					Delegates.pglVertexStream3svATI(stream, p_coords);
+					Delegates.pglVertexStream3svATI((int)stream, p_coords);
 					LogCommand("glVertexStream3svATI", null, stream, coords					);
 				}
 			}
@@ -502,7 +502,7 @@ namespace OpenGL
 		/// [GL] glVertexStream3iATI: Binding for glVertexStream3iATI.
 		/// </summary>
 		/// <param name="stream">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexStreamATI"/>.
 		/// </param>
 		/// <param name="x">
 		/// A <see cref="T:int"/>.
@@ -514,10 +514,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
-		public static void VertexStream3ATI(int stream, int x, int y, int z)
+		public static void VertexStream3ATI(VertexStreamATI stream, int x, int y, int z)
 		{
 			Debug.Assert(Delegates.pglVertexStream3iATI != null, "pglVertexStream3iATI not implemented");
-			Delegates.pglVertexStream3iATI(stream, x, y, z);
+			Delegates.pglVertexStream3iATI((int)stream, x, y, z);
 			LogCommand("glVertexStream3iATI", null, stream, x, y, z			);
 			DebugCheckErrors(null);
 		}
@@ -526,20 +526,20 @@ namespace OpenGL
 		/// [GL] glVertexStream3ivATI: Binding for glVertexStream3ivATI.
 		/// </summary>
 		/// <param name="stream">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexStreamATI"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
-		public static void VertexStream3ATI(int stream, int[] coords)
+		public static void VertexStream3ATI(VertexStreamATI stream, int[] coords)
 		{
 			Debug.Assert(coords.Length >= 3);
 			unsafe {
 				fixed (int* p_coords = coords)
 				{
 					Debug.Assert(Delegates.pglVertexStream3ivATI != null, "pglVertexStream3ivATI not implemented");
-					Delegates.pglVertexStream3ivATI(stream, p_coords);
+					Delegates.pglVertexStream3ivATI((int)stream, p_coords);
 					LogCommand("glVertexStream3ivATI", null, stream, coords					);
 				}
 			}
@@ -550,7 +550,7 @@ namespace OpenGL
 		/// [GL] glVertexStream3fATI: Binding for glVertexStream3fATI.
 		/// </summary>
 		/// <param name="stream">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexStreamATI"/>.
 		/// </param>
 		/// <param name="x">
 		/// A <see cref="T:float"/>.
@@ -562,10 +562,10 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
-		public static void VertexStream3ATI(int stream, float x, float y, float z)
+		public static void VertexStream3ATI(VertexStreamATI stream, float x, float y, float z)
 		{
 			Debug.Assert(Delegates.pglVertexStream3fATI != null, "pglVertexStream3fATI not implemented");
-			Delegates.pglVertexStream3fATI(stream, x, y, z);
+			Delegates.pglVertexStream3fATI((int)stream, x, y, z);
 			LogCommand("glVertexStream3fATI", null, stream, x, y, z			);
 			DebugCheckErrors(null);
 		}
@@ -574,20 +574,20 @@ namespace OpenGL
 		/// [GL] glVertexStream3fvATI: Binding for glVertexStream3fvATI.
 		/// </summary>
 		/// <param name="stream">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexStreamATI"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
-		public static void VertexStream3ATI(int stream, float[] coords)
+		public static void VertexStream3ATI(VertexStreamATI stream, float[] coords)
 		{
 			Debug.Assert(coords.Length >= 3);
 			unsafe {
 				fixed (float* p_coords = coords)
 				{
 					Debug.Assert(Delegates.pglVertexStream3fvATI != null, "pglVertexStream3fvATI not implemented");
-					Delegates.pglVertexStream3fvATI(stream, p_coords);
+					Delegates.pglVertexStream3fvATI((int)stream, p_coords);
 					LogCommand("glVertexStream3fvATI", null, stream, coords					);
 				}
 			}
@@ -598,7 +598,7 @@ namespace OpenGL
 		/// [GL] glVertexStream3dATI: Binding for glVertexStream3dATI.
 		/// </summary>
 		/// <param name="stream">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexStreamATI"/>.
 		/// </param>
 		/// <param name="x">
 		/// A <see cref="T:double"/>.
@@ -610,10 +610,10 @@ namespace OpenGL
 		/// A <see cref="T:double"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
-		public static void VertexStream3ATI(int stream, double x, double y, double z)
+		public static void VertexStream3ATI(VertexStreamATI stream, double x, double y, double z)
 		{
 			Debug.Assert(Delegates.pglVertexStream3dATI != null, "pglVertexStream3dATI not implemented");
-			Delegates.pglVertexStream3dATI(stream, x, y, z);
+			Delegates.pglVertexStream3dATI((int)stream, x, y, z);
 			LogCommand("glVertexStream3dATI", null, stream, x, y, z			);
 			DebugCheckErrors(null);
 		}
@@ -622,20 +622,20 @@ namespace OpenGL
 		/// [GL] glVertexStream3dvATI: Binding for glVertexStream3dvATI.
 		/// </summary>
 		/// <param name="stream">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexStreamATI"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
-		public static void VertexStream3ATI(int stream, double[] coords)
+		public static void VertexStream3ATI(VertexStreamATI stream, double[] coords)
 		{
 			Debug.Assert(coords.Length >= 3);
 			unsafe {
 				fixed (double* p_coords = coords)
 				{
 					Debug.Assert(Delegates.pglVertexStream3dvATI != null, "pglVertexStream3dvATI not implemented");
-					Delegates.pglVertexStream3dvATI(stream, p_coords);
+					Delegates.pglVertexStream3dvATI((int)stream, p_coords);
 					LogCommand("glVertexStream3dvATI", null, stream, coords					);
 				}
 			}
@@ -646,7 +646,7 @@ namespace OpenGL
 		/// [GL] glVertexStream4sATI: Binding for glVertexStream4sATI.
 		/// </summary>
 		/// <param name="stream">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexStreamATI"/>.
 		/// </param>
 		/// <param name="x">
 		/// A <see cref="T:short"/>.
@@ -661,10 +661,10 @@ namespace OpenGL
 		/// A <see cref="T:short"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
-		public static void VertexStream4ATI(int stream, short x, short y, short z, short w)
+		public static void VertexStream4ATI(VertexStreamATI stream, short x, short y, short z, short w)
 		{
 			Debug.Assert(Delegates.pglVertexStream4sATI != null, "pglVertexStream4sATI not implemented");
-			Delegates.pglVertexStream4sATI(stream, x, y, z, w);
+			Delegates.pglVertexStream4sATI((int)stream, x, y, z, w);
 			LogCommand("glVertexStream4sATI", null, stream, x, y, z, w			);
 			DebugCheckErrors(null);
 		}
@@ -673,20 +673,20 @@ namespace OpenGL
 		/// [GL] glVertexStream4svATI: Binding for glVertexStream4svATI.
 		/// </summary>
 		/// <param name="stream">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexStreamATI"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:short[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
-		public static void VertexStream4ATI(int stream, short[] coords)
+		public static void VertexStream4ATI(VertexStreamATI stream, short[] coords)
 		{
 			Debug.Assert(coords.Length >= 4);
 			unsafe {
 				fixed (short* p_coords = coords)
 				{
 					Debug.Assert(Delegates.pglVertexStream4svATI != null, "pglVertexStream4svATI not implemented");
-					Delegates.pglVertexStream4svATI(stream, p_coords);
+					Delegates.pglVertexStream4svATI((int)stream, p_coords);
 					LogCommand("glVertexStream4svATI", null, stream, coords					);
 				}
 			}
@@ -697,7 +697,7 @@ namespace OpenGL
 		/// [GL] glVertexStream4iATI: Binding for glVertexStream4iATI.
 		/// </summary>
 		/// <param name="stream">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexStreamATI"/>.
 		/// </param>
 		/// <param name="x">
 		/// A <see cref="T:int"/>.
@@ -712,10 +712,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
-		public static void VertexStream4ATI(int stream, int x, int y, int z, int w)
+		public static void VertexStream4ATI(VertexStreamATI stream, int x, int y, int z, int w)
 		{
 			Debug.Assert(Delegates.pglVertexStream4iATI != null, "pglVertexStream4iATI not implemented");
-			Delegates.pglVertexStream4iATI(stream, x, y, z, w);
+			Delegates.pglVertexStream4iATI((int)stream, x, y, z, w);
 			LogCommand("glVertexStream4iATI", null, stream, x, y, z, w			);
 			DebugCheckErrors(null);
 		}
@@ -724,20 +724,20 @@ namespace OpenGL
 		/// [GL] glVertexStream4ivATI: Binding for glVertexStream4ivATI.
 		/// </summary>
 		/// <param name="stream">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexStreamATI"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
-		public static void VertexStream4ATI(int stream, int[] coords)
+		public static void VertexStream4ATI(VertexStreamATI stream, int[] coords)
 		{
 			Debug.Assert(coords.Length >= 4);
 			unsafe {
 				fixed (int* p_coords = coords)
 				{
 					Debug.Assert(Delegates.pglVertexStream4ivATI != null, "pglVertexStream4ivATI not implemented");
-					Delegates.pglVertexStream4ivATI(stream, p_coords);
+					Delegates.pglVertexStream4ivATI((int)stream, p_coords);
 					LogCommand("glVertexStream4ivATI", null, stream, coords					);
 				}
 			}
@@ -748,7 +748,7 @@ namespace OpenGL
 		/// [GL] glVertexStream4fATI: Binding for glVertexStream4fATI.
 		/// </summary>
 		/// <param name="stream">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexStreamATI"/>.
 		/// </param>
 		/// <param name="x">
 		/// A <see cref="T:float"/>.
@@ -763,10 +763,10 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
-		public static void VertexStream4ATI(int stream, float x, float y, float z, float w)
+		public static void VertexStream4ATI(VertexStreamATI stream, float x, float y, float z, float w)
 		{
 			Debug.Assert(Delegates.pglVertexStream4fATI != null, "pglVertexStream4fATI not implemented");
-			Delegates.pglVertexStream4fATI(stream, x, y, z, w);
+			Delegates.pglVertexStream4fATI((int)stream, x, y, z, w);
 			LogCommand("glVertexStream4fATI", null, stream, x, y, z, w			);
 			DebugCheckErrors(null);
 		}
@@ -775,20 +775,20 @@ namespace OpenGL
 		/// [GL] glVertexStream4fvATI: Binding for glVertexStream4fvATI.
 		/// </summary>
 		/// <param name="stream">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexStreamATI"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
-		public static void VertexStream4ATI(int stream, float[] coords)
+		public static void VertexStream4ATI(VertexStreamATI stream, float[] coords)
 		{
 			Debug.Assert(coords.Length >= 4);
 			unsafe {
 				fixed (float* p_coords = coords)
 				{
 					Debug.Assert(Delegates.pglVertexStream4fvATI != null, "pglVertexStream4fvATI not implemented");
-					Delegates.pglVertexStream4fvATI(stream, p_coords);
+					Delegates.pglVertexStream4fvATI((int)stream, p_coords);
 					LogCommand("glVertexStream4fvATI", null, stream, coords					);
 				}
 			}
@@ -799,7 +799,7 @@ namespace OpenGL
 		/// [GL] glVertexStream4dATI: Binding for glVertexStream4dATI.
 		/// </summary>
 		/// <param name="stream">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexStreamATI"/>.
 		/// </param>
 		/// <param name="x">
 		/// A <see cref="T:double"/>.
@@ -814,10 +814,10 @@ namespace OpenGL
 		/// A <see cref="T:double"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
-		public static void VertexStream4ATI(int stream, double x, double y, double z, double w)
+		public static void VertexStream4ATI(VertexStreamATI stream, double x, double y, double z, double w)
 		{
 			Debug.Assert(Delegates.pglVertexStream4dATI != null, "pglVertexStream4dATI not implemented");
-			Delegates.pglVertexStream4dATI(stream, x, y, z, w);
+			Delegates.pglVertexStream4dATI((int)stream, x, y, z, w);
 			LogCommand("glVertexStream4dATI", null, stream, x, y, z, w			);
 			DebugCheckErrors(null);
 		}
@@ -826,20 +826,20 @@ namespace OpenGL
 		/// [GL] glVertexStream4dvATI: Binding for glVertexStream4dvATI.
 		/// </summary>
 		/// <param name="stream">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexStreamATI"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
-		public static void VertexStream4ATI(int stream, double[] coords)
+		public static void VertexStream4ATI(VertexStreamATI stream, double[] coords)
 		{
 			Debug.Assert(coords.Length >= 4);
 			unsafe {
 				fixed (double* p_coords = coords)
 				{
 					Debug.Assert(Delegates.pglVertexStream4dvATI != null, "pglVertexStream4dvATI not implemented");
-					Delegates.pglVertexStream4dvATI(stream, p_coords);
+					Delegates.pglVertexStream4dvATI((int)stream, p_coords);
 					LogCommand("glVertexStream4dvATI", null, stream, coords					);
 				}
 			}
@@ -850,7 +850,7 @@ namespace OpenGL
 		/// [GL] glNormalStream3bATI: Binding for glNormalStream3bATI.
 		/// </summary>
 		/// <param name="stream">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexStreamATI"/>.
 		/// </param>
 		/// <param name="nx">
 		/// A <see cref="T:sbyte"/>.
@@ -862,10 +862,10 @@ namespace OpenGL
 		/// A <see cref="T:sbyte"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
-		public static void NormalStream3ATI(int stream, sbyte nx, sbyte ny, sbyte nz)
+		public static void NormalStream3ATI(VertexStreamATI stream, sbyte nx, sbyte ny, sbyte nz)
 		{
 			Debug.Assert(Delegates.pglNormalStream3bATI != null, "pglNormalStream3bATI not implemented");
-			Delegates.pglNormalStream3bATI(stream, nx, ny, nz);
+			Delegates.pglNormalStream3bATI((int)stream, nx, ny, nz);
 			LogCommand("glNormalStream3bATI", null, stream, nx, ny, nz			);
 			DebugCheckErrors(null);
 		}
@@ -874,20 +874,20 @@ namespace OpenGL
 		/// [GL] glNormalStream3bvATI: Binding for glNormalStream3bvATI.
 		/// </summary>
 		/// <param name="stream">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexStreamATI"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:sbyte[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
-		public static void NormalStream3ATI(int stream, sbyte[] coords)
+		public static void NormalStream3ATI(VertexStreamATI stream, sbyte[] coords)
 		{
 			Debug.Assert(coords.Length >= 3);
 			unsafe {
 				fixed (sbyte* p_coords = coords)
 				{
 					Debug.Assert(Delegates.pglNormalStream3bvATI != null, "pglNormalStream3bvATI not implemented");
-					Delegates.pglNormalStream3bvATI(stream, p_coords);
+					Delegates.pglNormalStream3bvATI((int)stream, p_coords);
 					LogCommand("glNormalStream3bvATI", null, stream, coords					);
 				}
 			}
@@ -898,7 +898,7 @@ namespace OpenGL
 		/// [GL] glNormalStream3sATI: Binding for glNormalStream3sATI.
 		/// </summary>
 		/// <param name="stream">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexStreamATI"/>.
 		/// </param>
 		/// <param name="nx">
 		/// A <see cref="T:short"/>.
@@ -910,10 +910,10 @@ namespace OpenGL
 		/// A <see cref="T:short"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
-		public static void NormalStream3ATI(int stream, short nx, short ny, short nz)
+		public static void NormalStream3ATI(VertexStreamATI stream, short nx, short ny, short nz)
 		{
 			Debug.Assert(Delegates.pglNormalStream3sATI != null, "pglNormalStream3sATI not implemented");
-			Delegates.pglNormalStream3sATI(stream, nx, ny, nz);
+			Delegates.pglNormalStream3sATI((int)stream, nx, ny, nz);
 			LogCommand("glNormalStream3sATI", null, stream, nx, ny, nz			);
 			DebugCheckErrors(null);
 		}
@@ -922,20 +922,20 @@ namespace OpenGL
 		/// [GL] glNormalStream3svATI: Binding for glNormalStream3svATI.
 		/// </summary>
 		/// <param name="stream">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexStreamATI"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:short[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
-		public static void NormalStream3ATI(int stream, short[] coords)
+		public static void NormalStream3ATI(VertexStreamATI stream, short[] coords)
 		{
 			Debug.Assert(coords.Length >= 3);
 			unsafe {
 				fixed (short* p_coords = coords)
 				{
 					Debug.Assert(Delegates.pglNormalStream3svATI != null, "pglNormalStream3svATI not implemented");
-					Delegates.pglNormalStream3svATI(stream, p_coords);
+					Delegates.pglNormalStream3svATI((int)stream, p_coords);
 					LogCommand("glNormalStream3svATI", null, stream, coords					);
 				}
 			}
@@ -946,7 +946,7 @@ namespace OpenGL
 		/// [GL] glNormalStream3iATI: Binding for glNormalStream3iATI.
 		/// </summary>
 		/// <param name="stream">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexStreamATI"/>.
 		/// </param>
 		/// <param name="nx">
 		/// A <see cref="T:int"/>.
@@ -958,10 +958,10 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
-		public static void NormalStream3ATI(int stream, int nx, int ny, int nz)
+		public static void NormalStream3ATI(VertexStreamATI stream, int nx, int ny, int nz)
 		{
 			Debug.Assert(Delegates.pglNormalStream3iATI != null, "pglNormalStream3iATI not implemented");
-			Delegates.pglNormalStream3iATI(stream, nx, ny, nz);
+			Delegates.pglNormalStream3iATI((int)stream, nx, ny, nz);
 			LogCommand("glNormalStream3iATI", null, stream, nx, ny, nz			);
 			DebugCheckErrors(null);
 		}
@@ -970,20 +970,20 @@ namespace OpenGL
 		/// [GL] glNormalStream3ivATI: Binding for glNormalStream3ivATI.
 		/// </summary>
 		/// <param name="stream">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexStreamATI"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
-		public static void NormalStream3ATI(int stream, int[] coords)
+		public static void NormalStream3ATI(VertexStreamATI stream, int[] coords)
 		{
 			Debug.Assert(coords.Length >= 3);
 			unsafe {
 				fixed (int* p_coords = coords)
 				{
 					Debug.Assert(Delegates.pglNormalStream3ivATI != null, "pglNormalStream3ivATI not implemented");
-					Delegates.pglNormalStream3ivATI(stream, p_coords);
+					Delegates.pglNormalStream3ivATI((int)stream, p_coords);
 					LogCommand("glNormalStream3ivATI", null, stream, coords					);
 				}
 			}
@@ -994,7 +994,7 @@ namespace OpenGL
 		/// [GL] glNormalStream3fATI: Binding for glNormalStream3fATI.
 		/// </summary>
 		/// <param name="stream">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexStreamATI"/>.
 		/// </param>
 		/// <param name="nx">
 		/// A <see cref="T:float"/>.
@@ -1006,10 +1006,10 @@ namespace OpenGL
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
-		public static void NormalStream3ATI(int stream, float nx, float ny, float nz)
+		public static void NormalStream3ATI(VertexStreamATI stream, float nx, float ny, float nz)
 		{
 			Debug.Assert(Delegates.pglNormalStream3fATI != null, "pglNormalStream3fATI not implemented");
-			Delegates.pglNormalStream3fATI(stream, nx, ny, nz);
+			Delegates.pglNormalStream3fATI((int)stream, nx, ny, nz);
 			LogCommand("glNormalStream3fATI", null, stream, nx, ny, nz			);
 			DebugCheckErrors(null);
 		}
@@ -1018,20 +1018,20 @@ namespace OpenGL
 		/// [GL] glNormalStream3fvATI: Binding for glNormalStream3fvATI.
 		/// </summary>
 		/// <param name="stream">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexStreamATI"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
-		public static void NormalStream3ATI(int stream, float[] coords)
+		public static void NormalStream3ATI(VertexStreamATI stream, float[] coords)
 		{
 			Debug.Assert(coords.Length >= 3);
 			unsafe {
 				fixed (float* p_coords = coords)
 				{
 					Debug.Assert(Delegates.pglNormalStream3fvATI != null, "pglNormalStream3fvATI not implemented");
-					Delegates.pglNormalStream3fvATI(stream, p_coords);
+					Delegates.pglNormalStream3fvATI((int)stream, p_coords);
 					LogCommand("glNormalStream3fvATI", null, stream, coords					);
 				}
 			}
@@ -1042,7 +1042,7 @@ namespace OpenGL
 		/// [GL] glNormalStream3dATI: Binding for glNormalStream3dATI.
 		/// </summary>
 		/// <param name="stream">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexStreamATI"/>.
 		/// </param>
 		/// <param name="nx">
 		/// A <see cref="T:double"/>.
@@ -1054,10 +1054,10 @@ namespace OpenGL
 		/// A <see cref="T:double"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
-		public static void NormalStream3ATI(int stream, double nx, double ny, double nz)
+		public static void NormalStream3ATI(VertexStreamATI stream, double nx, double ny, double nz)
 		{
 			Debug.Assert(Delegates.pglNormalStream3dATI != null, "pglNormalStream3dATI not implemented");
-			Delegates.pglNormalStream3dATI(stream, nx, ny, nz);
+			Delegates.pglNormalStream3dATI((int)stream, nx, ny, nz);
 			LogCommand("glNormalStream3dATI", null, stream, nx, ny, nz			);
 			DebugCheckErrors(null);
 		}
@@ -1066,20 +1066,20 @@ namespace OpenGL
 		/// [GL] glNormalStream3dvATI: Binding for glNormalStream3dvATI.
 		/// </summary>
 		/// <param name="stream">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexStreamATI"/>.
 		/// </param>
 		/// <param name="coords">
 		/// A <see cref="T:double[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
-		public static void NormalStream3ATI(int stream, double[] coords)
+		public static void NormalStream3ATI(VertexStreamATI stream, double[] coords)
 		{
 			Debug.Assert(coords.Length >= 3);
 			unsafe {
 				fixed (double* p_coords = coords)
 				{
 					Debug.Assert(Delegates.pglNormalStream3dvATI != null, "pglNormalStream3dvATI not implemented");
-					Delegates.pglNormalStream3dvATI(stream, p_coords);
+					Delegates.pglNormalStream3dvATI((int)stream, p_coords);
 					LogCommand("glNormalStream3dvATI", null, stream, coords					);
 				}
 			}
@@ -1090,13 +1090,13 @@ namespace OpenGL
 		/// [GL] glClientActiveVertexStreamATI: Binding for glClientActiveVertexStreamATI.
 		/// </summary>
 		/// <param name="stream">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexStreamATI"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
-		public static void ClientActiveVertexStreamATI(int stream)
+		public static void ClientActiveVertexStreamATI(VertexStreamATI stream)
 		{
 			Debug.Assert(Delegates.pglClientActiveVertexStreamATI != null, "pglClientActiveVertexStreamATI not implemented");
-			Delegates.pglClientActiveVertexStreamATI(stream);
+			Delegates.pglClientActiveVertexStreamATI((int)stream);
 			LogCommand("glClientActiveVertexStreamATI", null, stream			);
 			DebugCheckErrors(null);
 		}
@@ -1105,16 +1105,16 @@ namespace OpenGL
 		/// [GL] glVertexBlendEnviATI: Binding for glVertexBlendEnviATI.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexStreamATI"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
-		public static void VertexBlendEnvATI(int pname, int param)
+		public static void VertexBlendEnvATI(VertexStreamATI pname, int param)
 		{
 			Debug.Assert(Delegates.pglVertexBlendEnviATI != null, "pglVertexBlendEnviATI not implemented");
-			Delegates.pglVertexBlendEnviATI(pname, param);
+			Delegates.pglVertexBlendEnviATI((int)pname, param);
 			LogCommand("glVertexBlendEnviATI", null, pname, param			);
 			DebugCheckErrors(null);
 		}
@@ -1123,16 +1123,16 @@ namespace OpenGL
 		/// [GL] glVertexBlendEnvfATI: Binding for glVertexBlendEnvfATI.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexStreamATI"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_streams")]
-		public static void VertexBlendEnvATI(int pname, float param)
+		public static void VertexBlendEnvATI(VertexStreamATI pname, float param)
 		{
 			Debug.Assert(Delegates.pglVertexBlendEnvfATI != null, "pglVertexBlendEnvfATI not implemented");
-			Delegates.pglVertexBlendEnvfATI(pname, param);
+			Delegates.pglVertexBlendEnvfATI((int)pname, param);
 			LogCommand("glVertexBlendEnvfATI", null, pname, param			);
 			DebugCheckErrors(null);
 		}

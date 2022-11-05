@@ -52,7 +52,7 @@ namespace Khronos
 		/// A <see cref="Int32"/> that specifies that minor version number.
 		/// </param>
 		/// <param name="api">
-		/// A <see cref="String"/> that specifies the API name.
+		/// A <see cref="string"/> that specifies the API name.
 		/// </param>
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="major"/> is less or equals to 0, or if <paramref name="minor"/> is less than 0.
@@ -79,7 +79,7 @@ namespace Khronos
 		/// A <see cref="Int32"/> that specifies that revision version number.
 		/// </param>
 		/// <param name="api">
-		/// A <see cref="String"/> that specifies the API name.
+		/// A <see cref="string"/> that specifies the API name.
 		/// </param>
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="major"/> is less or equals to 0, or if <paramref name="minor"/> or
@@ -107,10 +107,10 @@ namespace Khronos
 		/// A <see cref="Int32"/> that specifies that revision version number.
 		/// </param>
 		/// <param name="api">
-		/// A <see cref="String"/> that specifies the API name.
+		/// A <see cref="string"/> that specifies the API name.
 		/// </param>
 		/// <param name="profile">
-		/// A <see cref="String"/> that specifies the API profile.
+		/// A <see cref="string"/> that specifies the API profile.
 		/// </param>
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="major"/> is less or equals to 0, or if <paramref name="minor"/> or
@@ -162,7 +162,7 @@ namespace Khronos
 		/// The other <see cref="KhronosVersion"/> to be copied.
 		/// </param>
 		/// <param name="profile">
-		/// A <see cref="String"/> that specifies the API profile. It can be null to indicate the default profile.
+		/// A <see cref="string"/> that specifies the API profile. It can be null to indicate the default profile.
 		/// </param>
 		public KhronosVersion(KhronosVersion other, string profile) :
 			this(other)
@@ -463,7 +463,7 @@ namespace Khronos
 
 		#endregion
 
-		#region String Parsing
+		#region string Parsing
 
 		/// <summary>
 		/// Internal method for parsing GL specification features.
@@ -520,7 +520,7 @@ namespace Khronos
 		/// Parse a KhronosVersion from a string.
 		/// </summary>
 		/// <param name="input">
-		/// A <see cref="String"/> that specifies the API version.
+		/// A <see cref="string"/> that specifies the API version.
 		/// </param>
 		/// <returns>
 		/// It returns a <see cref="KhronosVersion"/> based on the pattern recognized in <paramref name="input"/>.
@@ -540,10 +540,10 @@ namespace Khronos
 		/// Parse a KhronosVersion from a string.
 		/// </summary>
 		/// <param name="input">
-		/// A <see cref="String"/> that specifies the API version.
+		/// A <see cref="string"/> that specifies the API version.
 		/// </param>
 		/// <param name="api">
-		/// A <see cref="String"/> that specifies the API string to be set to the returned value. If null, it
+		/// A <see cref="string"/> that specifies the API string to be set to the returned value. If null, it
 		/// will be determined automatically from <paramref name="input"/>, or set to <see cref="ApiGl"/>.
 		/// </param>
 		/// <returns>

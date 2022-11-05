@@ -82,7 +82,7 @@ namespace OpenGL
 		/// [GL] glPixelDataRangeNV: Binding for glPixelDataRangeNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelDataRangeTargetNV"/>.
 		/// </param>
 		/// <param name="length">
 		/// A <see cref="T:int"/>.
@@ -91,10 +91,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_pixel_data_range")]
-		public static void PixelDataRangeNV(int target, int length, IntPtr pointer)
+		public static void PixelDataRangeNV(PixelDataRangeTargetNV target, int length, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglPixelDataRangeNV != null, "pglPixelDataRangeNV not implemented");
-			Delegates.pglPixelDataRangeNV(target, length, pointer);
+			Delegates.pglPixelDataRangeNV((int)target, length, pointer);
 			LogCommand("glPixelDataRangeNV", null, target, length, pointer			);
 			DebugCheckErrors(null);
 		}
@@ -103,7 +103,7 @@ namespace OpenGL
 		/// [GL] glPixelDataRangeNV: Binding for glPixelDataRangeNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelDataRangeTargetNV"/>.
 		/// </param>
 		/// <param name="length">
 		/// A <see cref="T:int"/>.
@@ -112,7 +112,7 @@ namespace OpenGL
 		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_pixel_data_range")]
-		public static void PixelDataRangeNV(int target, int length, object pointer)
+		public static void PixelDataRangeNV(PixelDataRangeTargetNV target, int length, object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
@@ -126,13 +126,13 @@ namespace OpenGL
 		/// [GL] glFlushPixelDataRangeNV: Binding for glFlushPixelDataRangeNV.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PixelDataRangeTargetNV"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_pixel_data_range")]
-		public static void FlushPixelDataRangeNV(int target)
+		public static void FlushPixelDataRangeNV(PixelDataRangeTargetNV target)
 		{
 			Debug.Assert(Delegates.pglFlushPixelDataRangeNV != null, "pglFlushPixelDataRangeNV not implemented");
-			Delegates.pglFlushPixelDataRangeNV(target);
+			Delegates.pglFlushPixelDataRangeNV((int)target);
 			LogCommand("glFlushPixelDataRangeNV", null, target			);
 			DebugCheckErrors(null);
 		}

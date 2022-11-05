@@ -320,6 +320,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_QCOM_extended_get", Api = "gles1|gles2")]
 		public static void ExtGetBufferPointervQCOM(int target, IntPtr[] @params)
 		{
+			Debug.Assert(@params.Length >= 1);
 			unsafe {
 				fixed (IntPtr* p_params = @params)
 				{

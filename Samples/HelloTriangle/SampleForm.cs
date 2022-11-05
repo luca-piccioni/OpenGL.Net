@@ -218,7 +218,7 @@ namespace HelloTriangle
 				Gl.EnableClientState(EnableCap.VertexArray);
 
 				// Set current client memory pointer for color: a vertex of 3 floats
-				Gl.ColorPointer(3, ColorPointerType.Float, 0, vertexColorLock.Address);
+				Gl.ColorPointer(3, (ColorPointerType)Gl.FLOAT, 0, vertexColorLock.Address);
 				// Color is used for drawing
 				Gl.EnableClientState(EnableCap.ColorArray);
 
@@ -391,13 +391,13 @@ namespace HelloTriangle
 				// Select the buffer object
 				Gl.BindBuffer(BufferTarget.ArrayBuffer, _BufferPosition.BufferName);
 				// Format the vertex information: 2 floats from the current buffer
-				Gl.VertexAttribPointer((uint)program.LocationPosition, 2, VertexAttribType.Float, false, 0, IntPtr.Zero);
+				Gl.VertexAttribPointer((uint)program.LocationPosition, 2, VertexAttribPointerType.Float, false, 0, IntPtr.Zero);
 				// Enable attribute
 				Gl.EnableVertexAttribArray((uint)program.LocationPosition);
 
 				// As above, but for color attribute
 				Gl.BindBuffer(BufferTarget.ArrayBuffer, _BufferColor.BufferName);
-				Gl.VertexAttribPointer((uint)program.LocationColor, 3, VertexAttribType.Float, false, 0, IntPtr.Zero);
+				Gl.VertexAttribPointer((uint)program.LocationColor, 3, VertexAttribPointerType.Float, false, 0, IntPtr.Zero);
 				Gl.EnableVertexAttribArray((uint)program.LocationColor);
 			}
 
@@ -493,10 +493,10 @@ namespace HelloTriangle
 			using (MemoryLock arrayPosition = new MemoryLock(_ArrayPosition))
 			using (MemoryLock arrayColor = new MemoryLock(_ArrayColor))
 			{
-				Gl.VertexAttribPointer((uint)_Program.LocationPosition, 2, VertexAttribType.Float, false, 0, arrayPosition.Address);
+				Gl.VertexAttribPointer((uint)_Program.LocationPosition, 2, VertexAttribPointerType.Float, false, 0, arrayPosition.Address);
 				Gl.EnableVertexAttribArray((uint)_Program.LocationPosition);
 
-				Gl.VertexAttribPointer((uint)_Program.LocationColor, 3, VertexAttribType.Float, false, 0, arrayColor.Address);
+				Gl.VertexAttribPointer((uint)_Program.LocationColor, 3, VertexAttribPointerType.Float, false, 0, arrayColor.Address);
 				Gl.EnableVertexAttribArray((uint)_Program.LocationColor);
 
 				Gl.UniformMatrix4f(_Program.LocationMVP, 1, false, projection * modelview);

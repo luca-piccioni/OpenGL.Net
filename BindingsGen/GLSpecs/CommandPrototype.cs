@@ -33,25 +33,25 @@ namespace BindingsGen.GLSpecs
 		/// The "unsafe" returned type (used in case <see cref="Type"/> is not defined).
 		/// </summary>
 		[XmlText()]
-		public String Definition;
+		public string Definition;
 
 		/// <summary>
 		/// The "unsafe" returned type.
 		/// </summary>
 		[XmlElement("ptype")]
-		public String Type;
+		public string Type;
 
 		/// <summary>
 		/// The name of the underlying Command.
 		/// </summary>
 		[XmlElement("name")]
-		public String Name;
+		public string Name;
 
 		/// <summary>
 		/// Determines the returned type, strongly typed (if defined).
 		/// </summary>
 		[XmlAttribute("group")]
-		public String Group;
+		public string Group;
 
 		#endregion
 

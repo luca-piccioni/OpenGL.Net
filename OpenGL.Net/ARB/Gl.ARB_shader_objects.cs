@@ -141,15 +141,15 @@ namespace OpenGL
 		/// [GL] glGetHandleARB: Binding for glGetHandleARB.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:ContainerType"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_shader_objects")]
-		public static uint GetHandleARB(int pname)
+		public static uint GetHandleARB(ContainerType pname)
 		{
 			uint retValue;
 
 			Debug.Assert(Delegates.pglGetHandleARB != null, "pglGetHandleARB not implemented");
-			retValue = Delegates.pglGetHandleARB(pname);
+			retValue = Delegates.pglGetHandleARB((int)pname);
 			LogCommand("glGetHandleARB", retValue, pname			);
 			DebugCheckErrors(retValue);
 

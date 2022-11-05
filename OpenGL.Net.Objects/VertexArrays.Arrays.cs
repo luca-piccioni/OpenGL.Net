@@ -170,31 +170,31 @@ namespace OpenGL.Objects
 					int vertexAttribArrayEnabled;
 
 					// Attribute pointer/offset
-					Gl.GetVertexAttribPointer(location, Gl.VERTEX_ATTRIB_ARRAY_POINTER, out vertexAttribPointer);
+					Gl.GetVertexAttribPointer(location, VertexAttribPointerPropertyARB.VertexAttribArrayPointer, out vertexAttribPointer);
 					Debug.Assert(vertexAttribPointer == new IntPtr(arraySection.Pointer.ToInt64() + arraySection.Offset.ToInt64()));
 					// Array buffer binding
-					Gl.GetVertexAttrib(location, Gl.VERTEX_ATTRIB_ARRAY_BUFFER_BINDING, out vertexAttribArrayBufferBinding);
+					Gl.GetVertexAttrib(location, VertexAttribPropertyARB.VertexAttribArrayBufferBinding, out vertexAttribArrayBufferBinding);
 					Debug.Assert(vertexAttribArrayBufferBinding == ArrayBuffer.ObjectName);
 					// Array size
-					Gl.GetVertexAttrib(location, Gl.VERTEX_ATTRIB_ARRAY_SIZE, out vertexAttribArraySize);
+					Gl.GetVertexAttrib(location, VertexAttribPropertyARB.VertexAttribArraySize, out vertexAttribArraySize);
 					Debug.Assert(vertexAttribArraySize == arrayLength);
 					// Array type
-					Gl.GetVertexAttrib(location, Gl.VERTEX_ATTRIB_ARRAY_TYPE, out vertexAttribArrayType);
+					Gl.GetVertexAttrib(location, VertexAttribPropertyARB.VertexAttribArrayType, out vertexAttribArrayType);
 					Debug.Assert(vertexAttribArrayType == arrayBaseType);
 					// Array normalized
-					Gl.GetVertexAttrib(location, Gl.VERTEX_ATTRIB_ARRAY_NORMALIZED, out vertexAttribArrayNormalized);
+					Gl.GetVertexAttrib(location, VertexAttribPropertyARB.VertexAttribArrayNormalized, out vertexAttribArrayNormalized);
 					Debug.Assert((vertexAttribArrayNormalized != 0) == arraySection.Normalized);
 					// Array size
-					Gl.GetVertexAttrib(location, Gl.VERTEX_ATTRIB_ARRAY_STRIDE, out vertexAttribArrayStride);
+					Gl.GetVertexAttrib(location, VertexAttribPropertyARB.VertexAttribArrayStride, out vertexAttribArrayStride);
 					Debug.Assert(vertexAttribArrayStride == arrayStride);
 					// Attribute enabled
-					Gl.GetVertexAttrib(location, Gl.VERTEX_ATTRIB_ARRAY_ENABLED, out vertexAttribArrayEnabled);
+					Gl.GetVertexAttrib(location, VertexAttribPropertyARB.VertexAttribArrayEnabled, out vertexAttribArrayEnabled);
 					Debug.Assert(vertexAttribArrayEnabled == Gl.TRUE);
 				} else {
 					int vertexAttribArrayEnabled;
 
 					// Attribute disabled
-					Gl.GetVertexAttrib(location, Gl.VERTEX_ATTRIB_ARRAY_ENABLED, out vertexAttribArrayEnabled);
+					Gl.GetVertexAttrib(location, VertexAttribPropertyARB.VertexAttribArrayEnabled, out vertexAttribArrayEnabled);
 					Debug.Assert(vertexAttribArrayEnabled == Gl.FALSE);
 				}
 			}
@@ -236,7 +236,7 @@ namespace OpenGL.Objects
 						case VertexBaseType.Float:
 							Gl.VertexAttribPointer(
 								location,
-								arrayLength, arrayBaseType, arraySection.Normalized,
+								arrayLength, (VertexAttribPointerType)arrayBaseType, arraySection.Normalized,
 								arrayStride, arraySection.Offset
 							);
 							break;
@@ -244,7 +244,7 @@ namespace OpenGL.Objects
 						case VertexBaseType.UInt:
 							Gl.VertexAttribIPointer(
 								location,
-								arrayLength, arrayBaseType,
+								arrayLength, (VertexAttribIType)arrayBaseType,
 								arrayStride, arraySection.Offset
 								);
 							break;
@@ -252,7 +252,7 @@ namespace OpenGL.Objects
 						case VertexBaseType.Double:
 							Gl.VertexAttribLPointer(
 								location,
-								arrayLength, arrayBaseType,
+								arrayLength, (VertexAttribLType)arrayBaseType,
 								arrayStride, arraySection.Offset
 								);
 							break;
@@ -278,7 +278,7 @@ namespace OpenGL.Objects
 							case VertexBaseType.Float:
 								Gl.VertexAttribPointer(
 									(uint)(location + i),
-									arrayLength, arrayBaseType, arraySection.Normalized,
+									arrayLength, (VertexAttribPointerType)arrayBaseType, arraySection.Normalized,
 									arrayStride, new IntPtr(arraySection.Offset.ToInt64() + columnOffset * i)
 								);
 								break;
@@ -286,7 +286,7 @@ namespace OpenGL.Objects
 							case VertexBaseType.UInt:
 								Gl.VertexAttribIPointer(
 									(uint)(location + i),
-									arrayLength, arrayBaseType,
+									arrayLength, (VertexAttribIType)arrayBaseType,
 									arrayStride, new IntPtr(arraySection.Offset.ToInt64() + columnOffset * i)
 									);
 								break;
@@ -294,7 +294,7 @@ namespace OpenGL.Objects
 							case VertexBaseType.Double:
 								Gl.VertexAttribLPointer(
 									(uint)(location + i),
-									arrayLength, arrayBaseType,
+									arrayLength, (VertexAttribLType)arrayBaseType,
 									arrayStride, new IntPtr(arraySection.Offset.ToInt64() + columnOffset * i)
 									);
 								break;

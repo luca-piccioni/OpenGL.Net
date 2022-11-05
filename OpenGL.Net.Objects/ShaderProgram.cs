@@ -418,8 +418,8 @@ namespace OpenGL.Objects
 					// Map active feedback
 					int feebackVaryings, feebackVaryingsMaxLength;
 
-					Gl.GetProgram(ObjectName, ProgramProperty.ActiveVaryingsNv, out feebackVaryings);
-					Gl.GetProgram(ObjectName, ProgramProperty.ActiveVaryingMaxLengthNv, out feebackVaryingsMaxLength);
+					Gl.GetProgram(ObjectName, (ProgramProperty)Gl.ACTIVE_VARYINGS_NV, out feebackVaryings);
+					Gl.GetProgram(ObjectName, (ProgramProperty)Gl.ACTIVE_VARYING_MAX_LENGTH_NV, out feebackVaryingsMaxLength);
 
 					for (uint i = 0; i < feebackVaryings; i++) {
 						StringBuilder sb = new StringBuilder(feebackVaryingsMaxLength * 2);
@@ -440,7 +440,7 @@ namespace OpenGL.Objects
 							feedbackLocations.Add(location);
 					}
 
-					Gl.TransformFeedbackVaryingsNV(ObjectName, feedbackLocations.ToArray(), (int)cctx.FeedbackVaryingsFormat);
+					Gl.TransformFeedbackVaryingsNV(ObjectName, feedbackLocations.ToArray(), cctx.FeedbackVaryingsFormat);
 
 					// Map active feedback
 

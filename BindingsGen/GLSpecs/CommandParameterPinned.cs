@@ -90,7 +90,7 @@ namespace BindingsGen.GLSpecs
 		{
 			get
 			{
-				string pinnedName = String.Format("pin_{0}", Name);
+				string pinnedName = string.Format("pin_{0}", Name);
 
 				return (TypeMap.IsCsKeyword(pinnedName) ? "@" + pinnedName : pinnedName);
 			}

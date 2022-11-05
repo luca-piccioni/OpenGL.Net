@@ -509,7 +509,7 @@ namespace OpenGL
 		/// [GL] glMaterialxOES: Binding for glMaterialxOES.
 		/// </summary>
 		/// <param name="face">
-		/// A <see cref="T:MaterialFace"/>.
+		/// A <see cref="T:TriangleFace"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:MaterialParameter"/>.
@@ -518,7 +518,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
-		public static void MaterialOES(MaterialFace face, MaterialParameter pname, IntPtr param)
+		public static void MaterialOES(TriangleFace face, MaterialParameter pname, IntPtr param)
 		{
 			Debug.Assert(Delegates.pglMaterialxOES != null, "pglMaterialxOES not implemented");
 			Delegates.pglMaterialxOES((int)face, (int)pname, param);
@@ -530,7 +530,7 @@ namespace OpenGL
 		/// [GL] glMaterialxvOES: Binding for glMaterialxvOES.
 		/// </summary>
 		/// <param name="face">
-		/// A <see cref="T:MaterialFace"/>.
+		/// A <see cref="T:TriangleFace"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:MaterialParameter"/>.
@@ -539,7 +539,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
-		public static void MaterialOES(MaterialFace face, MaterialParameter pname, IntPtr[] param)
+		public static void MaterialOES(TriangleFace face, MaterialParameter pname, IntPtr[] param)
 		{
 			unsafe {
 				fixed (IntPtr* p_param = param)
@@ -701,19 +701,19 @@ namespace OpenGL
 		/// [GL] glPointParameterxvOES: Binding for glPointParameterxvOES.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PointParameterNameARB"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point", Api = "gl|gles1")]
-		public static void PointParameterOES(int pname, IntPtr[] @params)
+		public static void PointParameterOES(PointParameterNameARB pname, IntPtr[] @params)
 		{
 			unsafe {
 				fixed (IntPtr* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglPointParameterxvOES != null, "pglPointParameterxvOES not implemented");
-					Delegates.pglPointParameterxvOES(pname, p_params);
+					Delegates.pglPointParameterxvOES((int)pname, p_params);
 					LogCommand("glPointParameterxvOES", null, pname, @params					);
 				}
 			}
@@ -943,7 +943,7 @@ namespace OpenGL
 		/// [GL] glGetMaterialxvOES: Binding for glGetMaterialxvOES.
 		/// </summary>
 		/// <param name="face">
-		/// A <see cref="T:MaterialFace"/>.
+		/// A <see cref="T:TriangleFace"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:MaterialParameter"/>.
@@ -952,7 +952,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point", Api = "gles1")]
-		public static void GetMaterialOES(MaterialFace face, MaterialParameter pname, [Out] IntPtr[] @params)
+		public static void GetMaterialOES(TriangleFace face, MaterialParameter pname, [Out] IntPtr[] @params)
 		{
 			unsafe {
 				fixed (IntPtr* p_params = @params)
@@ -969,16 +969,16 @@ namespace OpenGL
 		/// [GL] glPointParameterxOES: Binding for glPointParameterxOES.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PointParameterNameARB"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point", Api = "gles1")]
-		public static void PointParameterOES(int pname, IntPtr param)
+		public static void PointParameterOES(PointParameterNameARB pname, IntPtr param)
 		{
 			Debug.Assert(Delegates.pglPointParameterxOES != null, "pglPointParameterxOES not implemented");
-			Delegates.pglPointParameterxOES(pname, param);
+			Delegates.pglPointParameterxOES((int)pname, param);
 			LogCommand("glPointParameterxOES", null, pname, param			);
 			DebugCheckErrors(null);
 		}
@@ -1172,16 +1172,16 @@ namespace OpenGL
 		/// [GL] glConvolutionParameterxOES: Binding for glConvolutionParameterxOES.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:ConvolutionTarget"/>.
+		/// A <see cref="T:ConvolutionTargetEXT"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:ConvolutionParameterEXT"/>.
+		/// A <see cref="T:ConvolutionParameter"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void ConvolutionParameterOES(ConvolutionTarget target, ConvolutionParameterEXT pname, IntPtr param)
+		public static void ConvolutionParameterOES(ConvolutionTargetEXT target, ConvolutionParameter pname, IntPtr param)
 		{
 			Debug.Assert(Delegates.pglConvolutionParameterxOES != null, "pglConvolutionParameterxOES not implemented");
 			Delegates.pglConvolutionParameterxOES((int)target, (int)pname, param);
@@ -1193,16 +1193,16 @@ namespace OpenGL
 		/// [GL] glConvolutionParameterxvOES: Binding for glConvolutionParameterxvOES.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:ConvolutionTarget"/>.
+		/// A <see cref="T:ConvolutionTargetEXT"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:ConvolutionParameterEXT"/>.
+		/// A <see cref="T:ConvolutionParameter"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void ConvolutionParameterOES(ConvolutionTarget target, ConvolutionParameterEXT pname, IntPtr[] @params)
+		public static void ConvolutionParameterOES(ConvolutionTargetEXT target, ConvolutionParameter pname, IntPtr[] @params)
 		{
 			unsafe {
 				fixed (IntPtr* p_params = @params)
@@ -1343,16 +1343,16 @@ namespace OpenGL
 		/// [GL] glGetHistogramParameterxvOES: Binding for glGetHistogramParameterxvOES.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:HistogramTarget"/>.
+		/// A <see cref="T:HistogramTargetEXT"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:GetHistogramParameterPName"/>.
+		/// A <see cref="T:GetHistogramParameterPNameEXT"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void GetHistogramParameterOES(HistogramTarget target, GetHistogramParameterPName pname, [Out] IntPtr[] @params)
+		public static void GetHistogramParameterOES(HistogramTargetEXT target, GetHistogramParameterPNameEXT pname, [Out] IntPtr[] @params)
 		{
 			unsafe {
 				fixed (IntPtr* p_params = @params)
@@ -1421,7 +1421,7 @@ namespace OpenGL
 		/// [GL] glGetMaterialxOES: Binding for glGetMaterialxOES.
 		/// </summary>
 		/// <param name="face">
-		/// A <see cref="T:MaterialFace"/>.
+		/// A <see cref="T:TriangleFace"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:MaterialParameter"/>.
@@ -1430,7 +1430,7 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void GetMaterialOES(MaterialFace face, MaterialParameter pname, IntPtr param)
+		public static void GetMaterialOES(TriangleFace face, MaterialParameter pname, IntPtr param)
 		{
 			Debug.Assert(Delegates.pglGetMaterialxOES != null, "pglGetMaterialxOES not implemented");
 			Delegates.pglGetMaterialxOES((int)face, (int)pname, param);
@@ -1442,7 +1442,7 @@ namespace OpenGL
 		/// [GL] glGetMaterialxOES: Binding for glGetMaterialxOES.
 		/// </summary>
 		/// <param name="face">
-		/// A <see cref="T:MaterialFace"/>.
+		/// A <see cref="T:TriangleFace"/>.
 		/// </param>
 		/// <param name="pname">
 		/// A <see cref="T:MaterialParameter"/>.
@@ -1451,7 +1451,7 @@ namespace OpenGL
 		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_OES_fixed_point")]
-		public static void GetMaterialOES(MaterialFace face, MaterialParameter pname, object param)
+		public static void GetMaterialOES(TriangleFace face, MaterialParameter pname, object param)
 		{
 			GCHandle pin_param = GCHandle.Alloc(param, GCHandleType.Pinned);
 			try {

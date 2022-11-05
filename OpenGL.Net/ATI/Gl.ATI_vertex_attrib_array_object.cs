@@ -52,7 +52,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:VertexAttribType"/>.
+		/// A <see cref="T:VertexAttribPointerType"/>.
 		/// </param>
 		/// <param name="normalized">
 		/// A <see cref="T:bool"/>.
@@ -67,7 +67,7 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_attrib_array_object")]
-		public static void VertexAttribArrayObjectATI(uint index, int size, VertexAttribType type, bool normalized, int stride, uint buffer, uint offset)
+		public static void VertexAttribArrayObjectATI(uint index, int size, VertexAttribPointerType type, bool normalized, int stride, uint buffer, uint offset)
 		{
 			Debug.Assert(Delegates.pglVertexAttribArrayObjectATI != null, "pglVertexAttribArrayObjectATI not implemented");
 			Delegates.pglVertexAttribArrayObjectATI(index, size, (int)type, normalized, stride, buffer, offset);
@@ -82,19 +82,19 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:ArrayObjectPNameATI"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_attrib_array_object")]
-		public static void GetVertexAttribArrayObjectATI(uint index, int pname, [Out] float[] @params)
+		public static void GetVertexAttribArrayObjectATI(uint index, ArrayObjectPNameATI pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetVertexAttribArrayObjectfvATI != null, "pglGetVertexAttribArrayObjectfvATI not implemented");
-					Delegates.pglGetVertexAttribArrayObjectfvATI(index, pname, p_params);
+					Delegates.pglGetVertexAttribArrayObjectfvATI(index, (int)pname, p_params);
 					LogCommand("glGetVertexAttribArrayObjectfvATI", null, index, pname, @params					);
 				}
 			}
@@ -108,19 +108,19 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:ArrayObjectPNameATI"/>.
 		/// </param>
 		/// <param name="params">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_vertex_attrib_array_object")]
-		public static void GetVertexAttribArrayObjectATI(uint index, int pname, [Out] int[] @params)
+		public static void GetVertexAttribArrayObjectATI(uint index, ArrayObjectPNameATI pname, [Out] int[] @params)
 		{
 			unsafe {
 				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetVertexAttribArrayObjectivATI != null, "pglGetVertexAttribArrayObjectivATI not implemented");
-					Delegates.pglGetVertexAttribArrayObjectivATI(index, pname, p_params);
+					Delegates.pglGetVertexAttribArrayObjectivATI(index, (int)pname, p_params);
 					LogCommand("glGetVertexAttribArrayObjectivATI", null, index, pname, @params					);
 				}
 			}

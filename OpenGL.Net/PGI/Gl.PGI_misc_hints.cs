@@ -166,16 +166,16 @@ namespace OpenGL
 		/// [GL] glHintPGI: Binding for glHintPGI.
 		/// </summary>
 		/// <param name="target">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:HintTargetPGI"/>.
 		/// </param>
 		/// <param name="mode">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexHintsMaskPGI"/>.
 		/// </param>
 		[RequiredByFeature("GL_PGI_misc_hints")]
-		public static void HintPGI(int target, int mode)
+		public static void HintPGI(HintTargetPGI target, VertexHintsMaskPGI mode)
 		{
 			Debug.Assert(Delegates.pglHintPGI != null, "pglHintPGI not implemented");
-			Delegates.pglHintPGI(target, mode);
+			Delegates.pglHintPGI((int)target, (int)mode);
 			LogCommand("glHintPGI", null, target, mode			);
 			DebugCheckErrors(null);
 		}

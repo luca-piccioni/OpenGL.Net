@@ -352,7 +352,7 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:SamplerParameterName"/>.
+		/// A <see cref="T:SamplerParameterI"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:int"/>.
@@ -360,7 +360,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
-		public static void SamplerParameter(uint sampler, SamplerParameterName pname, int param)
+		public static void SamplerParameter(uint sampler, SamplerParameterI pname, int param)
 		{
 			Debug.Assert(Delegates.pglSamplerParameteri != null, "pglSamplerParameteri not implemented");
 			Delegates.pglSamplerParameteri(sampler, (int)pname, param);
@@ -375,7 +375,7 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:SamplerParameterName"/>.
+		/// A <see cref="T:SamplerParameterI"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:int[]"/>.
@@ -383,7 +383,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
-		public static void SamplerParameter(uint sampler, SamplerParameterName pname, int[] param)
+		public static void SamplerParameter(uint sampler, SamplerParameterI pname, int[] param)
 		{
 			unsafe {
 				fixed (int* p_param = param)
@@ -403,7 +403,7 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:SamplerParameterName"/>.
+		/// A <see cref="T:SamplerParameterI"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:int*"/>.
@@ -411,7 +411,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
-		public static unsafe void SamplerParameter(uint sampler, SamplerParameterName pname, int* param)
+		public static unsafe void SamplerParameter(uint sampler, SamplerParameterI pname, int* param)
 		{
 			Debug.Assert(Delegates.pglSamplerParameteriv != null, "pglSamplerParameteriv not implemented");
 			Delegates.pglSamplerParameteriv(sampler, (int)pname, param);
@@ -426,7 +426,7 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:SamplerParameterName"/>.
+		/// A <see cref="T:SamplerParameterI"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:T"/>.
@@ -434,7 +434,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
-		public static void SamplerParameteri<T>(uint sampler, SamplerParameterName pname, T param) where T : struct
+		public static void SamplerParameteri<T>(uint sampler, SamplerParameterI pname, T param) where T : struct
 		{
 			Debug.Assert(Delegates.pglSamplerParameteriv != null, "pglSamplerParameteriv not implemented");
 			#if NETCOREAPP1_1
@@ -465,7 +465,7 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:SamplerParameterName"/>.
+		/// A <see cref="T:SamplerParameterF"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:float"/>.
@@ -473,7 +473,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
-		public static void SamplerParameter(uint sampler, SamplerParameterName pname, float param)
+		public static void SamplerParameter(uint sampler, SamplerParameterF pname, float param)
 		{
 			Debug.Assert(Delegates.pglSamplerParameterf != null, "pglSamplerParameterf not implemented");
 			Delegates.pglSamplerParameterf(sampler, (int)pname, param);
@@ -488,7 +488,7 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:SamplerParameterName"/>.
+		/// A <see cref="T:SamplerParameterF"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:float[]"/>.
@@ -496,7 +496,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
-		public static void SamplerParameter(uint sampler, SamplerParameterName pname, float[] param)
+		public static void SamplerParameter(uint sampler, SamplerParameterF pname, float[] param)
 		{
 			unsafe {
 				fixed (float* p_param = param)
@@ -516,7 +516,7 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:SamplerParameterName"/>.
+		/// A <see cref="T:SamplerParameterF"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:float*"/>.
@@ -524,7 +524,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
-		public static unsafe void SamplerParameter(uint sampler, SamplerParameterName pname, float* param)
+		public static unsafe void SamplerParameter(uint sampler, SamplerParameterF pname, float* param)
 		{
 			Debug.Assert(Delegates.pglSamplerParameterfv != null, "pglSamplerParameterfv not implemented");
 			Delegates.pglSamplerParameterfv(sampler, (int)pname, param);
@@ -539,7 +539,7 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:SamplerParameterName"/>.
+		/// A <see cref="T:SamplerParameterF"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:T"/>.
@@ -547,7 +547,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
-		public static void SamplerParameterf<T>(uint sampler, SamplerParameterName pname, T param) where T : struct
+		public static void SamplerParameterf<T>(uint sampler, SamplerParameterF pname, T param) where T : struct
 		{
 			Debug.Assert(Delegates.pglSamplerParameterfv != null, "pglSamplerParameterfv not implemented");
 			#if NETCOREAPP1_1
@@ -578,7 +578,7 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:SamplerParameterName"/>.
+		/// A <see cref="T:SamplerParameterI"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:int[]"/>.
@@ -588,7 +588,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
 		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
-		public static void SamplerParameterI(uint sampler, SamplerParameterName pname, int[] param)
+		public static void SamplerParameterI(uint sampler, SamplerParameterI pname, int[] param)
 		{
 			unsafe {
 				fixed (int* p_param = param)
@@ -608,7 +608,7 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:SamplerParameterName"/>.
+		/// A <see cref="T:SamplerParameterI"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:int*"/>.
@@ -618,7 +618,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
 		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
-		public static unsafe void SamplerParameterI(uint sampler, SamplerParameterName pname, int* param)
+		public static unsafe void SamplerParameterI(uint sampler, SamplerParameterI pname, int* param)
 		{
 			Debug.Assert(Delegates.pglSamplerParameterIiv != null, "pglSamplerParameterIiv not implemented");
 			Delegates.pglSamplerParameterIiv(sampler, (int)pname, param);
@@ -633,7 +633,7 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:SamplerParameterName"/>.
+		/// A <see cref="T:SamplerParameterI"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:T"/>.
@@ -643,7 +643,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
 		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
-		public static void SamplerParameterIi<T>(uint sampler, SamplerParameterName pname, T param) where T : struct
+		public static void SamplerParameterIi<T>(uint sampler, SamplerParameterI pname, T param) where T : struct
 		{
 			Debug.Assert(Delegates.pglSamplerParameterIiv != null, "pglSamplerParameterIiv not implemented");
 			#if NETCOREAPP1_1
@@ -674,7 +674,7 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:SamplerParameterName"/>.
+		/// A <see cref="T:SamplerParameterI"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:uint[]"/>.
@@ -684,7 +684,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
 		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
-		public static void SamplerParameterI(uint sampler, SamplerParameterName pname, uint[] param)
+		public static void SamplerParameterI(uint sampler, SamplerParameterI pname, uint[] param)
 		{
 			unsafe {
 				fixed (uint* p_param = param)
@@ -704,7 +704,7 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:SamplerParameterName"/>.
+		/// A <see cref="T:SamplerParameterI"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:uint*"/>.
@@ -714,7 +714,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
 		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
-		public static unsafe void SamplerParameterI(uint sampler, SamplerParameterName pname, uint* param)
+		public static unsafe void SamplerParameterI(uint sampler, SamplerParameterI pname, uint* param)
 		{
 			Debug.Assert(Delegates.pglSamplerParameterIuiv != null, "pglSamplerParameterIuiv not implemented");
 			Delegates.pglSamplerParameterIuiv(sampler, (int)pname, param);
@@ -729,7 +729,7 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="pname">
-		/// A <see cref="T:SamplerParameterName"/>.
+		/// A <see cref="T:SamplerParameterI"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:T"/>.
@@ -739,7 +739,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
 		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
-		public static void SamplerParameterIui<T>(uint sampler, SamplerParameterName pname, T param) where T : struct
+		public static void SamplerParameterIui<T>(uint sampler, SamplerParameterI pname, T param) where T : struct
 		{
 			Debug.Assert(Delegates.pglSamplerParameterIuiv != null, "pglSamplerParameterIuiv not implemented");
 			#if NETCOREAPP1_1
@@ -782,7 +782,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
-		public static void GetSamplerParameter(uint sampler, SamplerParameterName pname, [Out] int[] @params)
+		public static void GetSamplerParameter(uint sampler, SamplerParameterI pname, [Out] int[] @params)
 		{
 			unsafe {
 				fixed (int* p_params = @params)
@@ -814,7 +814,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
-		public static void GetSamplerParameter(uint sampler, SamplerParameterName pname, out int @params)
+		public static void GetSamplerParameter(uint sampler, SamplerParameterI pname, out int @params)
 		{
 			unsafe {
 				fixed (int* p_params = &@params)
@@ -846,7 +846,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
-		public static unsafe void GetSamplerParameter(uint sampler, SamplerParameterName pname, [Out] int* @params)
+		public static unsafe void GetSamplerParameter(uint sampler, SamplerParameterI pname, [Out] int* @params)
 		{
 			Debug.Assert(Delegates.pglGetSamplerParameteriv != null, "pglGetSamplerParameteriv not implemented");
 			Delegates.pglGetSamplerParameteriv(sampler, (int)pname, @params);
@@ -873,7 +873,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
-		public static void GetSamplerParameteri<T>(uint sampler, SamplerParameterName pname, out T @params) where T : struct
+		public static void GetSamplerParameteri<T>(uint sampler, SamplerParameterI pname, out T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetSamplerParameteriv != null, "pglGetSamplerParameteriv not implemented");
 			@params = default(T);
@@ -919,7 +919,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
 		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
-		public static void GetSamplerParameterI(uint sampler, SamplerParameterName pname, [Out] int[] @params)
+		public static void GetSamplerParameterI(uint sampler, SamplerParameterI pname, [Out] int[] @params)
 		{
 			unsafe {
 				fixed (int* p_params = @params)
@@ -953,7 +953,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
 		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
-		public static void GetSamplerParameterI(uint sampler, SamplerParameterName pname, out int @params)
+		public static void GetSamplerParameterI(uint sampler, SamplerParameterI pname, out int @params)
 		{
 			unsafe {
 				fixed (int* p_params = &@params)
@@ -987,7 +987,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
 		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
-		public static unsafe void GetSamplerParameterI(uint sampler, SamplerParameterName pname, [Out] int* @params)
+		public static unsafe void GetSamplerParameterI(uint sampler, SamplerParameterI pname, [Out] int* @params)
 		{
 			Debug.Assert(Delegates.pglGetSamplerParameterIiv != null, "pglGetSamplerParameterIiv not implemented");
 			Delegates.pglGetSamplerParameterIiv(sampler, (int)pname, @params);
@@ -1016,7 +1016,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
 		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
-		public static void GetSamplerParameterIi<T>(uint sampler, SamplerParameterName pname, out T @params) where T : struct
+		public static void GetSamplerParameterIi<T>(uint sampler, SamplerParameterI pname, out T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetSamplerParameterIiv != null, "pglGetSamplerParameterIiv not implemented");
 			@params = default(T);
@@ -1060,7 +1060,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
-		public static void GetSamplerParameter(uint sampler, SamplerParameterName pname, [Out] float[] @params)
+		public static void GetSamplerParameter(uint sampler, SamplerParameterF pname, [Out] float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
@@ -1092,7 +1092,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
-		public static void GetSamplerParameter(uint sampler, SamplerParameterName pname, out float @params)
+		public static void GetSamplerParameter(uint sampler, SamplerParameterF pname, out float @params)
 		{
 			unsafe {
 				fixed (float* p_params = &@params)
@@ -1124,7 +1124,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
-		public static unsafe void GetSamplerParameter(uint sampler, SamplerParameterName pname, [Out] float* @params)
+		public static unsafe void GetSamplerParameter(uint sampler, SamplerParameterF pname, [Out] float* @params)
 		{
 			Debug.Assert(Delegates.pglGetSamplerParameterfv != null, "pglGetSamplerParameterfv not implemented");
 			Delegates.pglGetSamplerParameterfv(sampler, (int)pname, @params);
@@ -1151,7 +1151,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
-		public static void GetSamplerParameterf<T>(uint sampler, SamplerParameterName pname, out T @params) where T : struct
+		public static void GetSamplerParameterf<T>(uint sampler, SamplerParameterF pname, out T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetSamplerParameterfv != null, "pglGetSamplerParameterfv not implemented");
 			@params = default(T);
@@ -1197,7 +1197,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
 		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
-		public static void GetSamplerParameterI(uint sampler, SamplerParameterName pname, [Out] uint[] @params)
+		public static void GetSamplerParameterI(uint sampler, SamplerParameterI pname, [Out] uint[] @params)
 		{
 			unsafe {
 				fixed (uint* p_params = @params)
@@ -1231,7 +1231,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
 		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
-		public static void GetSamplerParameterI(uint sampler, SamplerParameterName pname, out uint @params)
+		public static void GetSamplerParameterI(uint sampler, SamplerParameterI pname, out uint @params)
 		{
 			unsafe {
 				fixed (uint* p_params = &@params)
@@ -1265,7 +1265,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
 		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
-		public static unsafe void GetSamplerParameterI(uint sampler, SamplerParameterName pname, [Out] uint* @params)
+		public static unsafe void GetSamplerParameterI(uint sampler, SamplerParameterI pname, [Out] uint* @params)
 		{
 			Debug.Assert(Delegates.pglGetSamplerParameterIuiv != null, "pglGetSamplerParameterIuiv not implemented");
 			Delegates.pglGetSamplerParameterIuiv(sampler, (int)pname, @params);
@@ -1294,7 +1294,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_sampler_objects", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_texture_border_clamp", Api = "gles2")]
 		[RequiredByFeature("GL_OES_texture_border_clamp", Api = "gles2")]
-		public static void GetSamplerParameterIui<T>(uint sampler, SamplerParameterName pname, out T @params) where T : struct
+		public static void GetSamplerParameterIui<T>(uint sampler, SamplerParameterI pname, out T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetSamplerParameterIuiv != null, "pglGetSamplerParameterIuiv not implemented");
 			@params = default(T);
@@ -1332,7 +1332,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_timer_query", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_disjoint_timer_query", Api = "gles2")]
-		public static void QueryCounter(uint id, QueryTarget target)
+		public static void QueryCounter(uint id, QueryCounterTarget target)
 		{
 			Debug.Assert(Delegates.pglQueryCounter != null, "pglQueryCounter not implemented");
 			Delegates.pglQueryCounter(id, (int)target);
@@ -1520,7 +1520,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
-		public static void VertexAttribP1(uint index, VertexAttribType type, bool normalized, uint value)
+		public static void VertexAttribP1(uint index, VertexAttribPointerType type, bool normalized, uint value)
 		{
 			Debug.Assert(Delegates.pglVertexAttribP1ui != null, "pglVertexAttribP1ui not implemented");
 			Delegates.pglVertexAttribP1ui(index, (int)type, normalized, value);
@@ -1535,7 +1535,7 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:VertexAttribType"/>.
+		/// A <see cref="T:VertexAttribPointerType"/>.
 		/// </param>
 		/// <param name="normalized">
 		/// A <see cref="T:bool"/>.
@@ -1545,7 +1545,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
-		public static void VertexAttribP1(uint index, VertexAttribType type, bool normalized, uint[] value)
+		public static void VertexAttribP1(uint index, VertexAttribPointerType type, bool normalized, uint[] value)
 		{
 			Debug.Assert(value.Length >= 1);
 			unsafe {
@@ -1580,7 +1580,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
-		public static void VertexAttribP2(uint index, VertexAttribType type, bool normalized, uint value)
+		public static void VertexAttribP2(uint index, VertexAttribPointerType type, bool normalized, uint value)
 		{
 			Debug.Assert(Delegates.pglVertexAttribP2ui != null, "pglVertexAttribP2ui not implemented");
 			Delegates.pglVertexAttribP2ui(index, (int)type, normalized, value);
@@ -1595,7 +1595,7 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:VertexAttribType"/>.
+		/// A <see cref="T:VertexAttribPointerType"/>.
 		/// </param>
 		/// <param name="normalized">
 		/// A <see cref="T:bool"/>.
@@ -1605,7 +1605,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
-		public static void VertexAttribP2(uint index, VertexAttribType type, bool normalized, uint[] value)
+		public static void VertexAttribP2(uint index, VertexAttribPointerType type, bool normalized, uint[] value)
 		{
 			Debug.Assert(value.Length >= 1);
 			unsafe {
@@ -1640,7 +1640,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
-		public static void VertexAttribP3(uint index, VertexAttribType type, bool normalized, uint value)
+		public static void VertexAttribP3(uint index, VertexAttribPointerType type, bool normalized, uint value)
 		{
 			Debug.Assert(Delegates.pglVertexAttribP3ui != null, "pglVertexAttribP3ui not implemented");
 			Delegates.pglVertexAttribP3ui(index, (int)type, normalized, value);
@@ -1655,7 +1655,7 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:VertexAttribType"/>.
+		/// A <see cref="T:VertexAttribPointerType"/>.
 		/// </param>
 		/// <param name="normalized">
 		/// A <see cref="T:bool"/>.
@@ -1665,7 +1665,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
-		public static void VertexAttribP3(uint index, VertexAttribType type, bool normalized, uint[] value)
+		public static void VertexAttribP3(uint index, VertexAttribPointerType type, bool normalized, uint[] value)
 		{
 			Debug.Assert(value.Length >= 1);
 			unsafe {
@@ -1700,7 +1700,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
-		public static void VertexAttribP4(uint index, VertexAttribType type, bool normalized, uint value)
+		public static void VertexAttribP4(uint index, VertexAttribPointerType type, bool normalized, uint value)
 		{
 			Debug.Assert(Delegates.pglVertexAttribP4ui != null, "pglVertexAttribP4ui not implemented");
 			Delegates.pglVertexAttribP4ui(index, (int)type, normalized, value);
@@ -1715,7 +1715,7 @@ namespace OpenGL
 		/// A <see cref="T:uint"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:VertexAttribType"/>.
+		/// A <see cref="T:VertexAttribPointerType"/>.
 		/// </param>
 		/// <param name="normalized">
 		/// A <see cref="T:bool"/>.
@@ -1725,7 +1725,7 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_3_3")]
 		[RequiredByFeature("GL_ARB_vertex_type_2_10_10_10_rev", Api = "gl|glcore")]
-		public static void VertexAttribP4(uint index, VertexAttribType type, bool normalized, uint[] value)
+		public static void VertexAttribP4(uint index, VertexAttribPointerType type, bool normalized, uint[] value)
 		{
 			Debug.Assert(value.Length >= 1);
 			unsafe {

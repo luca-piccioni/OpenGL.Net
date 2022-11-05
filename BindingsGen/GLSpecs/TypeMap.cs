@@ -59,19 +59,19 @@ namespace BindingsGen.GLSpecs
 			/// The name of the pair.
 			/// </summary>
 			[XmlAttribute("name")]
-			public String Name;
+			public string Name;
 
 			/// <summary>
 			/// The value associated to <see cref="Name"/>.
 			/// </summary>
 			[XmlAttribute("value")]
-			public String Value;
+			public string Value;
 
 			/// <summary>
 			/// The base type actually used instead of <see cref="Value"/>.
 			/// </summary>
 			[XmlAttribute("base")]
-			public String BaseType;
+			public string BaseType;
 		}
 
 		/// <summary>
@@ -84,7 +84,7 @@ namespace BindingsGen.GLSpecs
 		/// Get the value associated to a registered name.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="String"/> that specifies the name to map.
+		/// A <see cref="string"/> that specifies the name to map.
 		/// </param>
 		/// <returns>
 		/// It returns the value corresponding to <paramref name="type"/> in the case it is known, otherwise
@@ -99,7 +99,7 @@ namespace BindingsGen.GLSpecs
 		/// Get the value associated to a registered name.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="String"/> that specifies the name to map.
+		/// A <see cref="string"/> that specifies the name to map.
 		/// </param>
 		/// <returns>
 		/// It returns the value corresponding to <paramref name="type"/> in the case it is known, otherwise
@@ -131,7 +131,7 @@ namespace BindingsGen.GLSpecs
 		/// Determine whether a token is a reserved C# word.
 		/// </summary>
 		/// <param name="token">
-		/// A <see cref="String"/> that specifies the token to be asserted.
+		/// A <see cref="string"/> that specifies the token to be asserted.
 		/// </param>
 		/// <returns>
 		/// It returns a boolean value indicating whether <paramref name="token"/> is a reserved C# word.

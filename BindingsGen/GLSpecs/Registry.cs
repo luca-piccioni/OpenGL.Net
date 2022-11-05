@@ -29,7 +29,7 @@ namespace BindingsGen.GLSpecs
 		/// Contains arbitrary text, such as a copyright statement.
 		/// </summary>
 		[XmlElement("comment")]
-		public String Comment;
+		public string Comment;
 
 		/// <summary>
 		/// The <see cref="Groups"/> contains individual <see cref="EnumerantGroup"/> describing some of the group
@@ -47,8 +47,6 @@ namespace BindingsGen.GLSpecs
 		/// The <see cref="Groups"/> contains individual <see cref="EnumerantGroup"/> describing some of the group
 		/// annotations used for return and parameter types.
 		/// </summary>
-		[XmlArray("groups")]
-		[XmlArrayItem("group")]
 		public List<EnumerantGroup> Groups { get { return (_Groups); } }
 
 		private readonly List<EnumerantGroup> _Groups = new List<EnumerantGroup>();
@@ -268,15 +266,24 @@ namespace BindingsGen.GLSpecs
 		/// </summary>
 		internal void Link(RegistryContext ctx)
 		{
-			// Index enumeration groups
-			foreach (EnumerantGroup enumerantGroup in Groups) {
-				if (_EnumerantGroupRegistry.ContainsKey(enumerantGroup.Name)) {
-					Console.WriteLine("Enumeration group {0} is duplicated. Ignoring the late definition.", enumerantGroup.Name);
+			// Generate enumeration groups
+			// Note: previous specification explicitly defines enumerant groups; now this information in embedded in enumerant definition
+			foreach (Enumerant enumerant in Enumerants) {
+				if (enumerant.Group == null)
 					continue;
+
+				foreach (string enumerantGroupName in enumerant.Groups) {
+					EnumerantGroup enumerantGroup;
+
+					if (!_EnumerantGroupRegistry.TryGetValue(enumerantGroupName, out enumerantGroup))
+						_EnumerantGroupRegistry[enumerantGroupName] = enumerantGroup = new EnumerantGroup() { Name = enumerantGroupName };
+
+					enumerantGroup.Enums.Add(enumerant);
 				}
-				_EnumerantGroupRegistry.Add(enumerantGroup.Name, enumerantGroup);
 			}
-				
+
+			_Groups.AddRange(_EnumerantGroupRegistry.Values);
+
 			// Index commands
 			foreach (Command command in Commands)
 				_CommandRegistry.Add(command.Prototype.Name, command);

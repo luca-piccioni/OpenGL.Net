@@ -13,7 +13,7 @@ namespace BindingsGen.GLSpecs
 		/// The <see cref="Command"/> which generates the underlying fields applicable for the attribute.
 		/// </param>
 		/// <param name="defaultAPI">
-		/// A <see cref="String"/> that specifies the feature API, if <see cref="IFeature.Api"/> is not specified.
+		/// A <see cref="string"/> that specifies the feature API, if <see cref="IFeature.Api"/> is not specified.
 		/// </param>
 		/// <returns></returns>
 		public static string GenerateRequiredByAttribute(this IFeature feature, Command command, string defaultAPI)
@@ -35,14 +35,14 @@ namespace BindingsGen.GLSpecs
 					throw new InvalidOperationException("feature does not match any alias for command " + command.Prototype.Name);
 			}
 
-			string requiredByFeature = String.Format("[RequiredByFeature(\"{0}\"", feature.Name);
+			string requiredByFeature = string.Format("[RequiredByFeature(\"{0}\"", feature.Name);
 
 			if (feature.Api != null && feature.Api != defaultAPI)
-				requiredByFeature += String.Format(", Api = \"{0}\"", feature.Api);
+				requiredByFeature += string.Format(", Api = \"{0}\"", feature.Api);
 			if (feature.Profile != null)
-				requiredByFeature += String.Format(", Profile = \"{0}\"", feature.Profile);
+				requiredByFeature += string.Format(", Profile = \"{0}\"", feature.Profile);
 			if (entrypoint != null)
-				requiredByFeature += String.Format(", EntryPoint = \"{0}\"", entrypoint);
+				requiredByFeature += string.Format(", EntryPoint = \"{0}\"", entrypoint);
 
 			requiredByFeature += ")]";
 
@@ -55,12 +55,12 @@ namespace BindingsGen.GLSpecs
 		/// <returns></returns>
 		public static string GenerateRemovedByAttribute(this IFeature feature, string defaultAPI)
 		{
-			string removedByFeature = String.Format("[RemovedByFeature(\"{0}\"", feature.Name);
+			string removedByFeature = string.Format("[RemovedByFeature(\"{0}\"", feature.Name);
 
 			if (feature.Api != null && feature.Api != defaultAPI)
-				removedByFeature += String.Format(", Api = \"{0}\"", feature.Api);
+				removedByFeature += string.Format(", Api = \"{0}\"", feature.Api);
 			if (feature.Profile != null)
-				removedByFeature += String.Format(", Profile = \"{0}\"", feature.Profile);
+				removedByFeature += string.Format(", Profile = \"{0}\"", feature.Profile);
 
 			removedByFeature += ")]";
 

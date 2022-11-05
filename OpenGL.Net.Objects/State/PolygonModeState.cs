@@ -131,7 +131,7 @@ namespace OpenGL.Objects.State
 				throw new ArgumentNullException("ctx");
 
 			// Set polygon mode
-			Gl.PolygonMode(MaterialFace.FrontAndBack, RasterMode);
+			Gl.PolygonMode(TriangleFace.FrontAndBack, RasterMode);
 		}
 
 		/// <summary>

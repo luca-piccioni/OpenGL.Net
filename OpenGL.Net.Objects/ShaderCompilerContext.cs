@@ -220,7 +220,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Get/set the feedback varyings format.
 		/// </summary>
-		public FeedbackBufferFormat FeedbackVaryingsFormat
+		public TransformFeedbackBufferMode FeedbackVaryingsFormat
 		{
 			get { return (_FeedbackVaryingsFormat); }
 			set { _FeedbackVaryingsFormat = value; }
@@ -229,7 +229,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// The feedback varyings format.
 		/// </summary>
-		private FeedbackBufferFormat _FeedbackVaryingsFormat = FeedbackBufferFormat.Interleaved;
+		private TransformFeedbackBufferMode _FeedbackVaryingsFormat = TransformFeedbackBufferMode.InterleavedAttribs;
 
 		#endregion
 

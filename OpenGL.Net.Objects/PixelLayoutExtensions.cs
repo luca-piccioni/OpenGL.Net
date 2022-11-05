@@ -318,7 +318,7 @@ namespace OpenGL.Objects
 		/// A <see cref="PixelLayout"/> to determine the OpenGL internal format.
 		/// </param>
 		/// <returns>
-		/// It returns a <see cref="Int32"/> corresponding to the OpenGL enumeration value
+		/// It returns a <see cref="InternalFormat"/> corresponding to the OpenGL enumeration value
 		/// for the pixel/textel internal format.
 		/// </returns>
 		public static InternalFormat ToInternalFormat(this PixelLayout type)
@@ -461,6 +461,164 @@ namespace OpenGL.Objects
 					return InternalFormat.Rgb32ui;
 				case PixelLayout.UInteger4:
 					return InternalFormat.Rgba32ui;
+
+				#endregion
+
+				default:
+					throw new Exception($"unsupported pixel internal format {type}");
+			}
+		}
+
+		/// <summary>
+		/// Determine the OpenGL internal (sized) format corresponding to a <see cref="PixelLayout"/>.
+		/// </summary>
+		/// <param name="type">
+		/// A <see cref="PixelLayout"/> to determine the OpenGL internal format.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="SizedInternalFormat"/> corresponding to the OpenGL enumeration value
+		/// for the pixel/textel internal format.
+		/// </returns>
+		public static SizedInternalFormat ToSizedInternalFormat(this PixelLayout type)
+		{
+			switch (type) {
+
+				#region RGB/BGR Formats
+
+				case PixelLayout.RGB8:
+				case PixelLayout.BGR8:
+					return SizedInternalFormat.Rgb8;
+#if !MONODROID
+				case PixelLayout.RGB15:
+				case PixelLayout.BGR15:
+					return SizedInternalFormat.Rgb5;
+#endif
+				case PixelLayout.RGB16:
+				case PixelLayout.BGR16:
+					return SizedInternalFormat.Rgb8;
+				case PixelLayout.RGB24:
+				case PixelLayout.BGR24:
+					return SizedInternalFormat.Rgb8;
+				case PixelLayout.RGB48:
+				case PixelLayout.BGR48:
+					return SizedInternalFormat.Rgb16;
+				case PixelLayout.RGBF:
+				case PixelLayout.RGBD:
+				case PixelLayout.BGRF:
+					if (Gl.CurrentExtensions.TextureFloat_ARB)
+						return SizedInternalFormat.Rgba32f;
+					else
+						return SizedInternalFormat.Rgb8;
+				case PixelLayout.RGBHF:
+				case PixelLayout.BGRHF:
+					if (Gl.CurrentExtensions.TextureFloat_ARB)
+						return SizedInternalFormat.Rgb16f;
+					else
+						return SizedInternalFormat.Rgb8;
+
+				#endregion
+
+				#region sRGB Formats
+
+				case PixelLayout.SRGB24:
+				case PixelLayout.SBGR24:
+					return SizedInternalFormat.Srgb8;
+
+				#endregion
+
+				#region RGBA/BGRA Formats
+
+				//case PixelLayout.RGB30A2:
+				//case PixelLayout.BGR30A2:
+				case PixelLayout.RGBA32:
+				case PixelLayout.BGRA32:
+					return SizedInternalFormat.Rgba8;
+				case PixelLayout.RGBA64:
+				case PixelLayout.BGRA64:
+					return SizedInternalFormat.Rgba16;
+				case PixelLayout.RGBAF:
+				case PixelLayout.BGRAF:
+					if (Gl.CurrentExtensions.TextureFloat_ARB)
+						return SizedInternalFormat.Rgba32f;
+					else
+						return SizedInternalFormat.Rgba8;
+				case PixelLayout.RGBAHF:
+				case PixelLayout.BGRAHF:
+					if (Gl.CurrentExtensions.TextureFloat_ARB)
+						return SizedInternalFormat.Rgba16f;
+					else
+						return SizedInternalFormat.Rgba8;
+
+				#endregion
+
+				#region GRAY Internal Formats
+
+				case PixelLayout.R8:
+					return SizedInternalFormat.R8;
+				case PixelLayout.R16:
+					return SizedInternalFormat.R16;
+				case PixelLayout.GRAY16S:
+					return SizedInternalFormat.R16Snorm;
+				case PixelLayout.RF:
+					if (Gl.CurrentExtensions.TextureFloat_ARB)
+						return SizedInternalFormat.R32f;
+					else
+						return SizedInternalFormat.R8;
+				case PixelLayout.RHF:
+					if (Gl.CurrentExtensions.TextureFloat_ARB)
+						return SizedInternalFormat.R16f;
+					else
+						return SizedInternalFormat.R8;
+
+				#endregion
+
+				#region GRAYA Formats
+
+				//case PixelLayout.GRAYAF:
+				//	return (Gl.RG32F);
+
+				#endregion
+
+				#region Depth Formats
+
+				case PixelLayout.Depth16:
+					return SizedInternalFormat.DepthComponent16;
+				case PixelLayout.Depth24:
+					return SizedInternalFormat.DepthComponent24;
+				case PixelLayout.Depth32:
+					return SizedInternalFormat.DepthComponent32;
+				case PixelLayout.DepthF:
+					return SizedInternalFormat.DepthComponent32f;
+
+				#endregion
+
+				#region Depth/Stencil Formats
+
+				case PixelLayout.Depth24Stencil8:
+					return SizedInternalFormat.Depth24Stencil8;
+				case PixelLayout.Depth32FStencil8:
+					return SizedInternalFormat.Depth32fStencil8;
+
+				#endregion
+
+				#region Integer Formats
+
+				case PixelLayout.Integer1:
+					return SizedInternalFormat.R32i;
+				case PixelLayout.Integer2:
+					return SizedInternalFormat.Rg32i;
+				case PixelLayout.Integer3:
+					return SizedInternalFormat.Rgb32i;
+				case PixelLayout.Integer4:
+					return SizedInternalFormat.Rgba32i;
+				case PixelLayout.UInteger1:
+					return SizedInternalFormat.R32ui;
+				case PixelLayout.UInteger2:
+					return SizedInternalFormat.Rg32ui;
+				case PixelLayout.UInteger3:
+					return SizedInternalFormat.Rgb32ui;
+				case PixelLayout.UInteger4:
+					return SizedInternalFormat.Rgba32ui;
 
 				#endregion
 

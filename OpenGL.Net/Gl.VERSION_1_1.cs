@@ -239,7 +239,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_EXT_texture")]
-		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2|gl|glcore")]
 		[RequiredByFeature("GL_OES_required_internalformat", Api = "gles1|gles2")]
 		public const int RGB10 = 0x8052;
 
@@ -304,7 +304,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture")]
-		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2|gl|glcore")]
 		[RequiredByFeature("GL_OES_required_internalformat", Api = "gles1|gles2")]
 		public const int RGB10_A2 = 0x8059;
 
@@ -852,7 +852,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_EXT_texture")]
-		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2|gl|glcore")]
 		[RequiredByFeature("GL_OES_required_internalformat", Api = "gles1|gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public const int ALPHA8 = 0x803C;
@@ -886,7 +886,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_EXT_texture")]
-		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2|gl|glcore")]
 		[RequiredByFeature("GL_OES_required_internalformat", Api = "gles1|gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public const int LUMINANCE8 = 0x8040;
@@ -929,7 +929,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_1")]
 		[RequiredByFeature("GL_EXT_texture")]
-		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2|gl|glcore")]
 		[RequiredByFeature("GL_OES_required_internalformat", Api = "gles1|gles2")]
 		[RemovedByFeature("GL_VERSION_3_2")]
 		public const int LUMINANCE8_ALPHA8 = 0x8045;

@@ -84,7 +84,7 @@ namespace HelloObjects
 			// Initiailize mass buffer
 			Random random = new Random();
 
-			_MassBuffer.Map(_Context, BufferAccessMask.MapWriteBit);
+			_MassBuffer.Map(_Context, BufferAccess.WriteOnly);
 			for (uint i = 0; i < _MassBuffer.ItemsCount; i++) {
 				Mass mass;
 

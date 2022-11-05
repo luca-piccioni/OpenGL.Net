@@ -228,7 +228,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_buffer_storage", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_buffer_storage", Api = "gles2")]
-		public static void BufferStorage(BufferTarget target, uint size, IntPtr data, MapBufferUsageMask flags)
+		public static void BufferStorage(BufferStorageTarget target, uint size, IntPtr data, BufferStorageMask flags)
 		{
 			Debug.Assert(Delegates.pglBufferStorage != null, "pglBufferStorage not implemented");
 			Delegates.pglBufferStorage((int)target, size, data, (uint)flags);
@@ -258,7 +258,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_4")]
 		[RequiredByFeature("GL_ARB_buffer_storage", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_buffer_storage", Api = "gles2")]
-		public static void BufferStorage(BufferTarget target, uint size, object data, MapBufferUsageMask flags)
+		public static void BufferStorage(BufferStorageTarget target, uint size, object data, BufferStorageMask flags)
 		{
 			GCHandle pin_data = GCHandle.Alloc(data, GCHandleType.Pinned);
 			try {

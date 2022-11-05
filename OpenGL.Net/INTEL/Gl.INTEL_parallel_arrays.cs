@@ -157,13 +157,13 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:TexCoordPointerType"/>.
+		/// A <see cref="T:VertexPointerType"/>.
 		/// </param>
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_INTEL_parallel_arrays")]
-		public static void TexCoordPointerINTEL(int size, TexCoordPointerType type, IntPtr[] pointer)
+		public static void TexCoordPointerINTEL(int size, VertexPointerType type, IntPtr[] pointer)
 		{
 			Debug.Assert(pointer.Length >= 4);
 			unsafe {

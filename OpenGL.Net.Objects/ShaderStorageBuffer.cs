@@ -46,9 +46,9 @@ namespace OpenGL.Objects
 		/// Construct an ShaderStorageBuffer.
 		/// </summary>
 		/// <param name="usageMask">
-		/// A <see cref="MapBufferUsageMask"/> that specifies the data buffer usage mask.
+		/// A <see cref="BufferStorageMask"/> that specifies the data buffer usage mask.
 		/// </param>
-		public ShaderStorageBuffer(MapBufferUsageMask usageMask) :
+		public ShaderStorageBuffer(BufferStorageMask usageMask) :
 			base(BufferTarget.ShaderStorageBuffer, usageMask)
 		{
 			

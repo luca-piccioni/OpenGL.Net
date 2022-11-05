@@ -58,10 +58,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="flags">
-		/// A <see cref="T:MapBufferUsageMask"/>.
+		/// A <see cref="T:BufferStorageMask"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_external_buffer", Api = "gl|gles2")]
-		public static void BufferStorageEXT(int target, IntPtr offset, uint size, IntPtr clientBuffer, MapBufferUsageMask flags)
+		public static void BufferStorageEXT(int target, IntPtr offset, uint size, IntPtr clientBuffer, BufferStorageMask flags)
 		{
 			Debug.Assert(Delegates.pglBufferStorageExternalEXT != null, "pglBufferStorageExternalEXT not implemented");
 			Delegates.pglBufferStorageExternalEXT(target, offset, size, clientBuffer, (uint)flags);
@@ -85,10 +85,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		/// <param name="flags">
-		/// A <see cref="T:MapBufferUsageMask"/>.
+		/// A <see cref="T:BufferStorageMask"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_external_buffer", Api = "gl|gles2")]
-		public static void NamedBufferStorageEXT(uint buffer, IntPtr offset, uint size, IntPtr clientBuffer, MapBufferUsageMask flags)
+		public static void NamedBufferStorageEXT(uint buffer, IntPtr offset, uint size, IntPtr clientBuffer, BufferStorageMask flags)
 		{
 			Debug.Assert(Delegates.pglNamedBufferStorageExternalEXT != null, "pglNamedBufferStorageExternalEXT not implemented");
 			Delegates.pglNamedBufferStorageExternalEXT(buffer, offset, size, clientBuffer, (uint)flags);

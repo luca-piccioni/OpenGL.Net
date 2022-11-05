@@ -199,14 +199,14 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] glGetDebugMessageLogAMD: Binding for glGetDebugMessageLogAMD.
 		/// </summary>
-		/// <param name="bufsize">
+		/// <param name="bufSize">
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="categories">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		/// <param name="severities">
-		/// A <see cref="T:uint[]"/>.
+		/// A <see cref="T:int[]"/>.
 		/// </param>
 		/// <param name="ids">
 		/// A <see cref="T:uint[]"/>.
@@ -218,19 +218,19 @@ namespace OpenGL
 		/// A <see cref="T:StringBuilder"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_debug_output")]
-		public static uint GetDebugMessageLogAMD(int bufsize, [Out] int[] categories, [Out] uint[] severities, [Out] uint[] ids, [Out] int[] lengths, StringBuilder message)
+		public static uint GetDebugMessageLogAMD(int bufSize, [Out] int[] categories, [Out] int[] severities, [Out] uint[] ids, [Out] int[] lengths, StringBuilder message)
 		{
 			uint retValue;
 
 			unsafe {
 				fixed (int* p_categories = categories)
-				fixed (uint* p_severities = severities)
+				fixed (int* p_severities = severities)
 				fixed (uint* p_ids = ids)
 				fixed (int* p_lengths = lengths)
 				{
 					Debug.Assert(Delegates.pglGetDebugMessageLogAMD != null, "pglGetDebugMessageLogAMD not implemented");
-					retValue = Delegates.pglGetDebugMessageLogAMD((uint)categories.Length, bufsize, p_categories, p_severities, p_ids, p_lengths, message);
-					LogCommand("glGetDebugMessageLogAMD", retValue, categories.Length, bufsize, categories, severities, ids, lengths, message					);
+					retValue = Delegates.pglGetDebugMessageLogAMD((uint)categories.Length, bufSize, p_categories, p_severities, p_ids, p_lengths, message);
+					LogCommand("glGetDebugMessageLogAMD", retValue, categories.Length, bufSize, categories, severities, ids, lengths, message					);
 				}
 			}
 			DebugCheckErrors(retValue);
@@ -266,7 +266,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_AMD_debug_output")]
 			[SuppressUnmanagedCodeSecurity]
-			internal delegate uint glGetDebugMessageLogAMD(uint count, int bufsize, int* categories, uint* severities, uint* ids, int* lengths, StringBuilder message);
+			internal delegate uint glGetDebugMessageLogAMD(uint count, int bufSize, int* categories, int* severities, uint* ids, int* lengths, StringBuilder message);
 
 			[RequiredByFeature("GL_AMD_debug_output")]
 			[ThreadStatic]

@@ -35,7 +35,7 @@ namespace BindingsGen.GLSpecs
 		/// </summary>
 		/// <param name="path">
 		/// </param>
-		/// A <see cref="String"/> that specifies the path of the manifest resource.
+		/// A <see cref="string"/> that specifies the path of the manifest resource.
 		/// <returns>
 		/// It returns the <see cref="SpecWordsDictionary"/> loaded from <paramref name="path"/>.
 		/// </returns>
@@ -58,7 +58,7 @@ namespace BindingsGen.GLSpecs
 		/// Determine whether a word is known.
 		/// </summary>
 		/// <param name="word">
-		/// A <see cref="String"/> that specifies the word to be asserted.
+		/// A <see cref="string"/> that specifies the word to be asserted.
 		/// </param>
 		/// <returns>
 		/// It returns a boolean value indicating whether <paramref name="word"/> is known.
@@ -75,15 +75,15 @@ namespace BindingsGen.GLSpecs
 		/// A <see cref="RegistryContext"/> defining OpenGL specification information.
 		/// </param>
 		/// <param name="specificationName">
-		/// A <see cref="String"/> that specifies the command name.
+		/// A <see cref="string"/> that specifies the command name.
 		/// </param>
 		/// <returns>
-		/// It returns a <see cref="String"/> that is the reduced name (suitable for overriding commands) of
+		/// It returns a <see cref="string"/> that is the reduced name (suitable for overriding commands) of
 		/// <paramref name="specificationName"/>.
 		/// </returns>
 		public string GetOverridableName(RegistryContext ctx, string specificationName)
 		{
-			if (String.IsNullOrEmpty(specificationName))
+			if (string.IsNullOrEmpty(specificationName))
 				throw new ArgumentNullException(nameof(specificationName));
 
 			// Extract extension
@@ -102,7 +102,7 @@ namespace BindingsGen.GLSpecs
 			string postfix = specificationName;
 
 			foreach (string word in Words) {
-				postfix = postfix.Replace(word, String.Empty);
+				postfix = postfix.Replace(word, string.Empty);
 
 				if (postfix.Length == 0)
 					break;

@@ -1006,7 +1006,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_texture_storage", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2|gl|glcore")]
 		public const int TEXTURE_IMMUTABLE_FORMAT = 0x912F;
 
 		/// <summary>
@@ -1114,7 +1114,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:PrimitiveType"/>.
+		/// A <see cref="T:DrawElementsType"/>.
 		/// </param>
 		/// <param name="indices">
 		/// A <see cref="T:IntPtr"/>.
@@ -1131,7 +1131,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_base_instance", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_base_instance", Api = "gles2")]
-		public static void DrawElementsInstancedBaseVertexBaseInstance(PrimitiveType mode, int count, PrimitiveType type, IntPtr indices, int primcount, int basevertex, uint baseinstance)
+		public static void DrawElementsInstancedBaseVertexBaseInstance(PrimitiveType mode, int count, DrawElementsType type, IntPtr indices, int primcount, int basevertex, uint baseinstance)
 		{
 			Debug.Assert(Delegates.pglDrawElementsInstancedBaseVertexBaseInstance != null, "pglDrawElementsInstancedBaseVertexBaseInstance not implemented");
 			Delegates.pglDrawElementsInstancedBaseVertexBaseInstance((int)mode, count, (int)type, indices, primcount, basevertex, baseinstance);
@@ -1149,7 +1149,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:PrimitiveType"/>.
+		/// A <see cref="T:DrawElementsType"/>.
 		/// </param>
 		/// <param name="indices">
 		/// A <see cref="T:object"/>.
@@ -1166,7 +1166,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_base_instance", Api = "gl|glcore")]
 		[RequiredByFeature("GL_EXT_base_instance", Api = "gles2")]
-		public static void DrawElementsInstancedBaseVertexBaseInstance(PrimitiveType mode, int count, PrimitiveType type, object indices, int primcount, int basevertex, uint baseinstance)
+		public static void DrawElementsInstancedBaseVertexBaseInstance(PrimitiveType mode, int count, DrawElementsType type, object indices, int primcount, int basevertex, uint baseinstance)
 		{
 			GCHandle pin_indices = GCHandle.Alloc(indices, GCHandleType.Pinned);
 			try {
@@ -1192,9 +1192,8 @@ namespace OpenGL
 		/// <param name="pname">
 		/// Specifies the type of information to query.
 		/// </param>
-		/// <param name="bufSize">
-		/// Specifies the maximum number of integers of the specified width that may be written to <paramref name="params"/> by the 
-		/// function.
+		/// <param name="count">
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="params">
 		/// Specifies the address of a variable into which to write the retrieved information.
@@ -1202,14 +1201,14 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_internalformat_query", Api = "gl|glcore")]
-		public static void GetInternalformat(TextureTarget target, InternalFormat internalformat, InternalFormatPName pname, int bufSize, [Out] int[] @params)
+		public static void GetInternalformat(TextureTarget target, InternalFormat internalformat, InternalFormatPName pname, int count, [Out] int[] @params)
 		{
 			unsafe {
 				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglGetInternalformativ != null, "pglGetInternalformativ not implemented");
-					Delegates.pglGetInternalformativ((int)target, (int)internalformat, (int)pname, bufSize, p_params);
-					LogCommand("glGetInternalformativ", null, target, internalformat, pname, bufSize, @params					);
+					Delegates.pglGetInternalformativ((int)target, (int)internalformat, (int)pname, count, p_params);
+					LogCommand("glGetInternalformativ", null, target, internalformat, pname, count, @params					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -1349,15 +1348,15 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:InternalFormat"/>.
+		/// A <see cref="T:SizedInternalFormat"/>.
 		/// </param>
 		/// <param name="width">
 		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ARB_texture_storage", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
-		public static void TexStorage1D(TextureTarget target, int levels, InternalFormat internalformat, int width)
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2|gl|glcore")]
+		public static void TexStorage1D(TextureTarget target, int levels, SizedInternalFormat internalformat, int width)
 		{
 			Debug.Assert(Delegates.pglTexStorage1D != null, "pglTexStorage1D not implemented");
 			Delegates.pglTexStorage1D((int)target, levels, (int)internalformat, width);
@@ -1375,7 +1374,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:InternalFormat"/>.
+		/// A <see cref="T:SizedInternalFormat"/>.
 		/// </param>
 		/// <param name="width">
 		/// A <see cref="T:int"/>.
@@ -1387,8 +1386,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_texture_storage", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
-		public static void TexStorage2D(TextureTarget target, int levels, InternalFormat internalformat, int width, int height)
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2|gl|glcore")]
+		public static void TexStorage2D(TextureTarget target, int levels, SizedInternalFormat internalformat, int width, int height)
 		{
 			Debug.Assert(Delegates.pglTexStorage2D != null, "pglTexStorage2D not implemented");
 			Delegates.pglTexStorage2D((int)target, levels, (int)internalformat, width, height);
@@ -1406,7 +1405,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:InternalFormat"/>.
+		/// A <see cref="T:SizedInternalFormat"/>.
 		/// </param>
 		/// <param name="width">
 		/// A <see cref="T:int"/>.
@@ -1420,8 +1419,8 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_2")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_texture_storage", Api = "gl|glcore")]
-		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
-		public static void TexStorage3D(TextureTarget target, int levels, InternalFormat internalformat, int width, int height, int depth)
+		[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2|gl|glcore")]
+		public static void TexStorage3D(TextureTarget target, int levels, SizedInternalFormat internalformat, int width, int height, int depth)
 		{
 			Debug.Assert(Delegates.pglTexStorage3D != null, "pglTexStorage3D not implemented");
 			Delegates.pglTexStorage3D((int)target, levels, (int)internalformat, width, height, depth);
@@ -1525,7 +1524,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_internalformat_query", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity]
-			internal delegate void glGetInternalformativ(int target, int internalformat, int pname, int bufSize, int* @params);
+			internal delegate void glGetInternalformativ(int target, int internalformat, int pname, int count, int* @params);
 
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
@@ -1571,13 +1570,13 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ARB_texture_storage", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+			[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2|gl|glcore")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glTexStorage1D(int target, int levels, int internalformat, int width);
 
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ARB_texture_storage", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2", EntryPoint = "glTexStorage1DEXT")]
+			[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2|gl|glcore", EntryPoint = "glTexStorage1DEXT")]
 			[ThreadStatic]
 			internal static glTexStorage1D pglTexStorage1D;
 
@@ -1585,7 +1584,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_texture_storage", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+			[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2|gl|glcore")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glTexStorage2D(int target, int levels, int internalformat, int width, int height);
 
@@ -1593,21 +1592,21 @@ namespace OpenGL
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 			[RequiredByFeature("GL_ARB_texture_storage", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2", EntryPoint = "glTexStorage2DEXT")]
+			[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2|gl|glcore", EntryPoint = "glTexStorage2DEXT")]
 			[ThreadStatic]
 			internal static glTexStorage2D pglTexStorage2D;
 
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_texture_storage", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2")]
+			[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2|gl|glcore")]
 			[SuppressUnmanagedCodeSecurity]
 			internal delegate void glTexStorage3D(int target, int levels, int internalformat, int width, int height, int depth);
 
 			[RequiredByFeature("GL_VERSION_4_2")]
 			[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 			[RequiredByFeature("GL_ARB_texture_storage", Api = "gl|glcore")]
-			[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2", EntryPoint = "glTexStorage3DEXT")]
+			[RequiredByFeature("GL_EXT_texture_storage", Api = "gles1|gles2|gl|glcore", EntryPoint = "glTexStorage3DEXT")]
 			[ThreadStatic]
 			internal static glTexStorage3D pglTexStorage3D;
 

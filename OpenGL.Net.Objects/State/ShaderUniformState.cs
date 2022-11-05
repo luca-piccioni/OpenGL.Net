@@ -509,7 +509,7 @@ namespace OpenGL.Objects.State
 
 			// Create uniform buffer, if supported
 			if (UniformBlockTag != null && shaderProgram != null && shaderProgram.IsActiveUniformBlock(UniformBlockTag) && UniformBuffer == null) {
-				_UniformBuffer = shaderProgram.CreateUniformBlock(UniformBlockTag, MapBufferUsageMask.MapWriteBit);
+				_UniformBuffer = shaderProgram.CreateUniformBlock(UniformBlockTag, BufferStorageMask.MapWriteBit);
 				_UniformBuffer.Create(ctx);
 			}
 
@@ -554,7 +554,7 @@ namespace OpenGL.Objects.State
 			if (UniformBlockTag != null && shaderProgram != null && shaderProgram.IsActiveUniformBlock(UniformBlockTag)) {
 				// Ensure uniform buffer existing
 				if (UniformBuffer == null) {
-					_UniformBuffer = shaderProgram.CreateUniformBlock(UniformBlockTag, MapBufferUsageMask.MapWriteBit);
+					_UniformBuffer = shaderProgram.CreateUniformBlock(UniformBlockTag, BufferStorageMask.MapWriteBit);
 					_UniformBuffer.Create(ctx);
 				}
 				// Apply uniforms to uniform buffer

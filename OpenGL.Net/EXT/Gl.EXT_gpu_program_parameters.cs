@@ -46,7 +46,37 @@ namespace OpenGL
 		/// [GL] glProgramEnvParameters4fvEXT: Binding for glProgramEnvParameters4fvEXT.
 		/// </summary>
 		/// <param name="target">
+		/// A <see cref="T:ProgramTarget"/>.
+		/// </param>
+		/// <param name="index">
+		/// A <see cref="T:uint"/>.
+		/// </param>
+		/// <param name="count">
 		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:float[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_gpu_program_parameters")]
+		public static void ProgramEnvParameters4EXT(ProgramTarget target, uint index, int count, float[] @params)
+		{
+			Debug.Assert(@params.Length > 0 && (@params.Length % 4) == 0, "empty or not multiple of 4");
+			unsafe {
+				fixed (float* p_params = @params)
+				{
+					Debug.Assert(Delegates.pglProgramEnvParameters4fvEXT != null, "pglProgramEnvParameters4fvEXT not implemented");
+					Delegates.pglProgramEnvParameters4fvEXT((int)target, index, count, p_params);
+					LogCommand("glProgramEnvParameters4fvEXT", null, target, index, count, @params					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL] glProgramEnvParameters4fvEXT: Binding for glProgramEnvParameters4fvEXT.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:ProgramTarget"/>.
 		/// </param>
 		/// <param name="index">
 		/// A <see cref="T:uint"/>.
@@ -55,14 +85,14 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_gpu_program_parameters")]
-		public static void ProgramEnvParameters4EXT(int target, uint index, float[] @params)
+		public static void ProgramEnvParameters4EXT(ProgramTarget target, uint index, float[] @params)
 		{
 			Debug.Assert(@params.Length > 0 && (@params.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
 				fixed (float* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglProgramEnvParameters4fvEXT != null, "pglProgramEnvParameters4fvEXT not implemented");
-					Delegates.pglProgramEnvParameters4fvEXT(target, index, @params.Length / 4, p_params);
+					Delegates.pglProgramEnvParameters4fvEXT((int)target, index, @params.Length / 4, p_params);
 					LogCommand("glProgramEnvParameters4fvEXT", null, target, index, @params.Length / 4, @params					);
 				}
 			}
@@ -73,7 +103,37 @@ namespace OpenGL
 		/// [GL] glProgramLocalParameters4fvEXT: Binding for glProgramLocalParameters4fvEXT.
 		/// </summary>
 		/// <param name="target">
+		/// A <see cref="T:ProgramTarget"/>.
+		/// </param>
+		/// <param name="index">
+		/// A <see cref="T:uint"/>.
+		/// </param>
+		/// <param name="count">
 		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:float[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_gpu_program_parameters")]
+		public static void ProgramLocalParameters4EXT(ProgramTarget target, uint index, int count, float[] @params)
+		{
+			Debug.Assert(@params.Length > 0 && (@params.Length % 4) == 0, "empty or not multiple of 4");
+			unsafe {
+				fixed (float* p_params = @params)
+				{
+					Debug.Assert(Delegates.pglProgramLocalParameters4fvEXT != null, "pglProgramLocalParameters4fvEXT not implemented");
+					Delegates.pglProgramLocalParameters4fvEXT((int)target, index, count, p_params);
+					LogCommand("glProgramLocalParameters4fvEXT", null, target, index, count, @params					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL] glProgramLocalParameters4fvEXT: Binding for glProgramLocalParameters4fvEXT.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:ProgramTarget"/>.
 		/// </param>
 		/// <param name="index">
 		/// A <see cref="T:uint"/>.
@@ -82,14 +142,14 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_gpu_program_parameters")]
-		public static void ProgramLocalParameters4EXT(int target, uint index, float[] @params)
+		public static void ProgramLocalParameters4EXT(ProgramTarget target, uint index, float[] @params)
 		{
 			Debug.Assert(@params.Length > 0 && (@params.Length % 4) == 0, "empty or not multiple of 4");
 			unsafe {
 				fixed (float* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglProgramLocalParameters4fvEXT != null, "pglProgramLocalParameters4fvEXT not implemented");
-					Delegates.pglProgramLocalParameters4fvEXT(target, index, @params.Length / 4, p_params);
+					Delegates.pglProgramLocalParameters4fvEXT((int)target, index, @params.Length / 4, p_params);
 					LogCommand("glProgramLocalParameters4fvEXT", null, target, index, @params.Length / 4, @params					);
 				}
 			}

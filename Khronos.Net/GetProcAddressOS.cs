@@ -39,7 +39,7 @@ namespace Khronos
 		/// Add a path of a directory as additional path for searching libraries.
 		/// </summary>
 		/// <param name="libraryDirPath">
-		/// A <see cref="String"/> that specify the absolute path of the directory where the libraries are loaded using
+		/// A <see cref="string"/> that specify the absolute path of the directory where the libraries are loaded using
 		/// <see cref="GetProcAddress(string, string)"/> method.
 		/// </param>
 		void AddLibraryDirectory(string libraryDirPath);
@@ -48,10 +48,10 @@ namespace Khronos
 		/// Get a function pointer from a library, specified by path.
 		/// </summary>
 		/// <param name="library">
-		/// A <see cref="String"/> that specifies the path of the library defining the function.
+		/// A <see cref="string"/> that specifies the path of the library defining the function.
 		/// </param>
 		/// <param name="function">
-		/// A <see cref="String"/> that specifies the function name.
+		/// A <see cref="string"/> that specifies the function name.
 		/// </param>
 		/// <returns>
 		/// It returns an <see cref="IntPtr"/> that specifies the address of the function <paramref name="function"/>.
@@ -124,7 +124,7 @@ namespace Khronos
 		/// Add a path of a directory as additional path for searching libraries.
 		/// </summary>
 		/// <param name="libraryDirPath">
-		/// A <see cref="String"/> that specify the absolute path of the directory where the libraries are loaded using
+		/// A <see cref="string"/> that specify the absolute path of the directory where the libraries are loaded using
 		/// <see cref="GetProcAddress(string, string)"/> method.
 		/// </param>
 		public static void AddLibraryDirectory(string libraryDirPath)
@@ -136,10 +136,10 @@ namespace Khronos
 		/// Get a function pointer from a library, specified by path.
 		/// </summary>
 		/// <param name="library">
-		/// A <see cref="String"/> that specifies the path of the library defining the function.
+		/// A <see cref="string"/> that specifies the path of the library defining the function.
 		/// </param>
 		/// <param name="function">
-		/// A <see cref="String"/> that specifies the function name.
+		/// A <see cref="string"/> that specifies the function name.
 		/// </param>
 		/// <returns>
 		/// It returns an <see cref="IntPtr"/> that specifies the address of the function <paramref name="function"/>.
@@ -185,7 +185,7 @@ namespace Khronos
 		/// Add a path of a directory as additional path for searching libraries.
 		/// </summary>
 		/// <param name="libraryDirPath">
-		/// A <see cref="String"/> that specify the absolute path of the directory where the libraries are loaded using
+		/// A <see cref="string"/> that specify the absolute path of the directory where the libraries are loaded using
 		/// <see cref="GetProcAddress(string, string)"/> method.
 		/// </param>
 		public void AddLibraryDirectory(string libraryDirPath)
@@ -205,10 +205,10 @@ namespace Khronos
 		/// Get a function pointer from a library, specified by path.
 		/// </summary>
 		/// <param name="library">
-		/// A <see cref="String"/> that specifies the path of the library defining the function.
+		/// A <see cref="string"/> that specifies the path of the library defining the function.
 		/// </param>
 		/// <param name="function">
-		/// A <see cref="String"/> that specifies the function name.
+		/// A <see cref="string"/> that specifies the function name.
 		/// </param>
 		/// <returns>
 		/// It returns an <see cref="IntPtr"/> that specifies the address of the function <paramref name="function"/>.
@@ -227,7 +227,7 @@ namespace Khronos
 		/// A <see cref="IntPtr"/> which represents an opaque handle to the library containing the function.
 		/// </param>
 		/// <param name="function">
-		/// A <see cref="String"/> that specifies the function name.
+		/// A <see cref="string"/> that specifies the function name.
 		/// </param>
 		/// <returns>
 		/// It returns an <see cref="IntPtr"/> that specifies the address of the function <paramref name="function"/>.
@@ -251,7 +251,7 @@ namespace Khronos
 		/// Get the handle relative to the specified library.
 		/// </summary>
 		/// <param name="libraryPath">
-		/// A <see cref="String"/> that specify the path of the library to load.
+		/// A <see cref="string"/> that specify the path of the library to load.
 		/// </param>
 		/// <returns>
 		/// It returns a <see cref="IntPtr"/> that represents the handle of the library loaded from <paramref name="libraryPath"/>.
@@ -331,7 +331,7 @@ namespace Khronos
 		/// Add a path of a directory as additional path for searching libraries.
 		/// </summary>
 		/// <param name="libraryDirPath">
-		/// A <see cref="String"/> that specify the absolute path of the directory where the libraries are loaded using
+		/// A <see cref="string"/> that specify the absolute path of the directory where the libraries are loaded using
 		/// <see cref="GetProcAddress(string, string)"/> method.
 		/// </param>
 		public void AddLibraryDirectory(string libraryDirPath)
@@ -343,10 +343,10 @@ namespace Khronos
 		/// Get a function pointer from a library, specified by path.
 		/// </summary>
 		/// <param name="library">
-		/// A <see cref="String"/> that specifies the path of the library defining the function.
+		/// A <see cref="string"/> that specifies the path of the library defining the function.
 		/// </param>
 		/// <param name="function">
-		/// A <see cref="String"/> that specifies the function name.
+		/// A <see cref="string"/> that specifies the function name.
 		/// </param>
 		/// <returns>
 		/// It returns an <see cref="IntPtr"/> that specifies the address of the function <paramref name="function"/>.
@@ -365,7 +365,7 @@ namespace Khronos
 		/// A <see cref="IntPtr"/> which represents an opaque handle to the library containing the function.
 		/// </param>
 		/// <param name="function">
-		/// A <see cref="String"/> that specifies the function name.
+		/// A <see cref="string"/> that specifies the function name.
 		/// </param>
 		/// <returns>
 		/// It returns an <see cref="IntPtr"/> that specifies the address of the function <paramref name="function"/>.
@@ -445,7 +445,7 @@ namespace Khronos
 		/// Add a path of a directory as additional path for searching libraries.
 		/// </summary>
 		/// <param name="libraryDirPath">
-		/// A <see cref="String"/> that specify the absolute path of the directory where the libraries are loaded using
+		/// A <see cref="string"/> that specify the absolute path of the directory where the libraries are loaded using
 		/// <see cref="GetProcAddress(string, string)"/> method.
 		/// </param>
 		public void AddLibraryDirectory(string libraryDirPath)
@@ -457,10 +457,10 @@ namespace Khronos
 		/// Get a function pointer from a library, specified by path.
 		/// </summary>
 		/// <param name="library">
-		/// A <see cref="String"/> that specifies the path of the library defining the function.
+		/// A <see cref="string"/> that specifies the path of the library defining the function.
 		/// </param>
 		/// <param name="function">
-		/// A <see cref="String"/> that specifies the function name.
+		/// A <see cref="string"/> that specifies the function name.
 		/// </param>
 		/// <returns>
 		/// It returns an <see cref="IntPtr"/> that specifies the address of the function <paramref name="function"/>.
@@ -474,7 +474,7 @@ namespace Khronos
 		/// Get a function pointer from the OpenGL driver.
 		/// </summary>
 		/// <param name="function">
-		/// A <see cref="String"/> that specifies the function name.
+		/// A <see cref="string"/> that specifies the function name.
 		/// </param>
 		/// <returns>
 		/// It returns an <see cref="IntPtr"/> that specifies the address of the function <paramref name="function"/>.
@@ -505,7 +505,7 @@ namespace Khronos
 		/// Get a function pointer from the OpenGL driver.
 		/// </summary>
 		/// <param name="function">
-		/// A <see cref="String"/> that specifies the function name.
+		/// A <see cref="string"/> that specifies the function name.
 		/// </param>
 		/// <returns>
 		/// It returns an <see cref="IntPtr"/> that specifies the address of the function <paramref name="function"/>. If not
@@ -539,7 +539,7 @@ namespace Khronos
 		/// Add a path of a directory as additional path for searching libraries.
 		/// </summary>
 		/// <param name="libraryDirPath">
-		/// A <see cref="String"/> that specify the absolute path of the directory where the libraries are loaded using
+		/// A <see cref="string"/> that specify the absolute path of the directory where the libraries are loaded using
 		/// <see cref="GetProcAddress(string, string)"/> method.
 		/// </param>
 		public void AddLibraryDirectory(string libraryDirPath)
@@ -551,10 +551,10 @@ namespace Khronos
 		/// Get a function pointer from a library, specified by path.
 		/// </summary>
 		/// <param name="library">
-		/// A <see cref="String"/> that specifies the path of the library defining the function.
+		/// A <see cref="string"/> that specifies the path of the library defining the function.
 		/// </param>
 		/// <param name="function">
-		/// A <see cref="String"/> that specifies the function name.
+		/// A <see cref="string"/> that specifies the function name.
 		/// </param>
 		/// <returns>
 		/// It returns an <see cref="IntPtr"/> that specifies the address of the function <paramref name="function"/>.

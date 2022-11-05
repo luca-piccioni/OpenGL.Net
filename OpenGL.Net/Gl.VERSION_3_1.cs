@@ -746,7 +746,7 @@ namespace OpenGL
 		/// Specifies the target to which the texture is bound for Gl.TexBuffer. Must be Gl.TEXTURE_BUFFER.
 		/// </param>
 		/// <param name="internalformat">
-		/// A <see cref="T:InternalFormat"/>.
+		/// A <see cref="T:SizedInternalFormat"/>.
 		/// </param>
 		/// <param name="buffer">
 		/// Specifies the name of the buffer object whose storage to attach to the active buffer texture.
@@ -757,7 +757,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_texture_buffer", Api = "gles2")]
 		[RequiredByFeature("GL_EXT_texture_buffer_object")]
 		[RequiredByFeature("GL_OES_texture_buffer", Api = "gles2")]
-		public static void TexBuffer(TextureTarget target, InternalFormat internalformat, uint buffer)
+		public static void TexBuffer(TextureTarget target, SizedInternalFormat internalformat, uint buffer)
 		{
 			Debug.Assert(Delegates.pglTexBuffer != null, "pglTexBuffer not implemented");
 			Delegates.pglTexBuffer((int)target, (int)internalformat, buffer);
@@ -811,7 +811,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_copy_buffer", Api = "gl|glcore")]
 		[RequiredByFeature("GL_NV_copy_buffer", Api = "gles2")]
-		public static void CopyBufferSubData(BufferTarget readTarget, BufferTarget writeTarget, IntPtr readOffset, IntPtr writeOffset, uint size)
+		public static void CopyBufferSubData(CopyBufferSubDataTarget readTarget, CopyBufferSubDataTarget writeTarget, IntPtr readOffset, IntPtr writeOffset, uint size)
 		{
 			Debug.Assert(Delegates.pglCopyBufferSubData != null, "pglCopyBufferSubData not implemented");
 			Delegates.pglCopyBufferSubData((int)readTarget, (int)writeTarget, readOffset, writeOffset, size);

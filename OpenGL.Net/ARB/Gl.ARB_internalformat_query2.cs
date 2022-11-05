@@ -48,6 +48,120 @@ namespace OpenGL
 		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
 		public const int SRGB_DECODE_ARB = 0x8299;
 
+		/// <summary>
+		/// [GL] Value of GL_VIEW_CLASS_EAC_R11 symbol.
+		/// </summary>
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
+		public const int VIEW_CLASS_EAC_R11 = 0x9383;
+
+		/// <summary>
+		/// [GL] Value of GL_VIEW_CLASS_EAC_RG11 symbol.
+		/// </summary>
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
+		public const int VIEW_CLASS_EAC_RG11 = 0x9384;
+
+		/// <summary>
+		/// [GL] Value of GL_VIEW_CLASS_ETC2_RGB symbol.
+		/// </summary>
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
+		public const int VIEW_CLASS_ETC2_RGB = 0x9385;
+
+		/// <summary>
+		/// [GL] Value of GL_VIEW_CLASS_ETC2_RGBA symbol.
+		/// </summary>
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
+		public const int VIEW_CLASS_ETC2_RGBA = 0x9386;
+
+		/// <summary>
+		/// [GL] Value of GL_VIEW_CLASS_ETC2_EAC_RGBA symbol.
+		/// </summary>
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
+		public const int VIEW_CLASS_ETC2_EAC_RGBA = 0x9387;
+
+		/// <summary>
+		/// [GL] Value of GL_VIEW_CLASS_ASTC_4x4_RGBA symbol.
+		/// </summary>
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
+		public const int VIEW_CLASS_ASTC_4x4_RGBA = 0x9388;
+
+		/// <summary>
+		/// [GL] Value of GL_VIEW_CLASS_ASTC_5x4_RGBA symbol.
+		/// </summary>
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
+		public const int VIEW_CLASS_ASTC_5x4_RGBA = 0x9389;
+
+		/// <summary>
+		/// [GL] Value of GL_VIEW_CLASS_ASTC_5x5_RGBA symbol.
+		/// </summary>
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
+		public const int VIEW_CLASS_ASTC_5x5_RGBA = 0x938A;
+
+		/// <summary>
+		/// [GL] Value of GL_VIEW_CLASS_ASTC_6x5_RGBA symbol.
+		/// </summary>
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
+		public const int VIEW_CLASS_ASTC_6x5_RGBA = 0x938B;
+
+		/// <summary>
+		/// [GL] Value of GL_VIEW_CLASS_ASTC_6x6_RGBA symbol.
+		/// </summary>
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
+		public const int VIEW_CLASS_ASTC_6x6_RGBA = 0x938C;
+
+		/// <summary>
+		/// [GL] Value of GL_VIEW_CLASS_ASTC_8x5_RGBA symbol.
+		/// </summary>
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
+		public const int VIEW_CLASS_ASTC_8x5_RGBA = 0x938D;
+
+		/// <summary>
+		/// [GL] Value of GL_VIEW_CLASS_ASTC_8x6_RGBA symbol.
+		/// </summary>
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
+		public const int VIEW_CLASS_ASTC_8x6_RGBA = 0x938E;
+
+		/// <summary>
+		/// [GL] Value of GL_VIEW_CLASS_ASTC_8x8_RGBA symbol.
+		/// </summary>
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
+		public const int VIEW_CLASS_ASTC_8x8_RGBA = 0x938F;
+
+		/// <summary>
+		/// [GL] Value of GL_VIEW_CLASS_ASTC_10x5_RGBA symbol.
+		/// </summary>
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
+		public const int VIEW_CLASS_ASTC_10x5_RGBA = 0x9390;
+
+		/// <summary>
+		/// [GL] Value of GL_VIEW_CLASS_ASTC_10x6_RGBA symbol.
+		/// </summary>
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
+		public const int VIEW_CLASS_ASTC_10x6_RGBA = 0x9391;
+
+		/// <summary>
+		/// [GL] Value of GL_VIEW_CLASS_ASTC_10x8_RGBA symbol.
+		/// </summary>
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
+		public const int VIEW_CLASS_ASTC_10x8_RGBA = 0x9392;
+
+		/// <summary>
+		/// [GL] Value of GL_VIEW_CLASS_ASTC_10x10_RGBA symbol.
+		/// </summary>
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
+		public const int VIEW_CLASS_ASTC_10x10_RGBA = 0x9393;
+
+		/// <summary>
+		/// [GL] Value of GL_VIEW_CLASS_ASTC_12x10_RGBA symbol.
+		/// </summary>
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
+		public const int VIEW_CLASS_ASTC_12x10_RGBA = 0x9394;
+
+		/// <summary>
+		/// [GL] Value of GL_VIEW_CLASS_ASTC_12x12_RGBA symbol.
+		/// </summary>
+		[RequiredByFeature("GL_ARB_internalformat_query2", Api = "gl|glcore")]
+		public const int VIEW_CLASS_ASTC_12x12_RGBA = 0x9395;
+
 	}
 
 }

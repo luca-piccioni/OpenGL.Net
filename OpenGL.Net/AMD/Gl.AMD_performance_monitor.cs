@@ -373,6 +373,9 @@ namespace OpenGL
 		/// <param name="pname">
 		/// A <see cref="T:int"/>.
 		/// </param>
+		/// <param name="dataSize">
+		/// A <see cref="T:int"/>.
+		/// </param>
 		/// <param name="data">
 		/// A <see cref="T:uint[]"/>.
 		/// </param>
@@ -380,15 +383,15 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_performance_monitor", Api = "gl|glcore|gles2")]
-		public static void GetPerfMonitorCounterDataAMD(uint monitor, int pname, [Out] uint[] data, out int bytesWritten)
+		public static void GetPerfMonitorCounterDataAMD(uint monitor, int pname, int dataSize, [Out] uint[] data, out int bytesWritten)
 		{
 			unsafe {
 				fixed (uint* p_data = data)
 				fixed (int* p_bytesWritten = &bytesWritten)
 				{
 					Debug.Assert(Delegates.pglGetPerfMonitorCounterDataAMD != null, "pglGetPerfMonitorCounterDataAMD not implemented");
-					Delegates.pglGetPerfMonitorCounterDataAMD(monitor, pname, data.Length, p_data, p_bytesWritten);
-					LogCommand("glGetPerfMonitorCounterDataAMD", null, monitor, pname, data.Length, data, bytesWritten					);
+					Delegates.pglGetPerfMonitorCounterDataAMD(monitor, pname, dataSize, p_data, p_bytesWritten);
+					LogCommand("glGetPerfMonitorCounterDataAMD", null, monitor, pname, dataSize, data, bytesWritten					);
 				}
 			}
 			DebugCheckErrors(null);

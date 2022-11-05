@@ -69,9 +69,9 @@ namespace OpenGL.Objects
 		/// A <see cref="uint"/> that specifies the size of a single item, in bytes.
 		/// </param>
 		/// <param name="usageMask">
-		/// A <see cref="MapBufferUsageMask"/> that specifies the data buffer usage mask.
+		/// A <see cref="BufferStorageMask"/> that specifies the data buffer usage mask.
 		/// </param>
-		protected ArrayBufferBase(BufferTarget bufferTarget, uint itemSize, MapBufferUsageMask usageMask) :
+		protected ArrayBufferBase(BufferTarget bufferTarget, uint itemSize, BufferStorageMask usageMask) :
 			base(bufferTarget, usageMask)
 		{
 			if (itemSize == 0)

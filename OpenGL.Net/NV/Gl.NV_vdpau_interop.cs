@@ -471,7 +471,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_vdpau_interop")]
 			[SuppressUnmanagedCodeSecurity]
-			internal delegate void glVDPAUGetSurfaceivNV(IntPtr surface, int pname, int bufSize, int* length, int* values);
+			internal delegate void glVDPAUGetSurfaceivNV(IntPtr surface, int pname, int count, int* length, int* values);
 
 			[RequiredByFeature("GL_NV_vdpau_interop")]
 			[ThreadStatic]

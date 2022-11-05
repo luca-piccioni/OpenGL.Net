@@ -2522,8 +2522,8 @@ namespace OpenGL
 		/// <param name="index">
 		/// Specifies the index of the shader subroutine uniform.
 		/// </param>
-		/// <param name="bufsize">
-		/// Specifies the size of the buffer whose address is given in <paramref name="name"/>.
+		/// <param name="bufSize">
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="length">
 		/// Specifies the address of a variable into which is written the number of characters copied into <paramref name="name"/>.
@@ -2533,14 +2533,14 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
-		public static void GetActiveSubroutineUniformName(uint program, ShaderType shadertype, uint index, int bufsize, out int length, StringBuilder name)
+		public static void GetActiveSubroutineUniformName(uint program, ShaderType shadertype, uint index, int bufSize, out int length, StringBuilder name)
 		{
 			unsafe {
 				fixed (int* p_length = &length)
 				{
 					Debug.Assert(Delegates.pglGetActiveSubroutineUniformName != null, "pglGetActiveSubroutineUniformName not implemented");
-					Delegates.pglGetActiveSubroutineUniformName(program, (int)shadertype, index, bufsize, p_length, name);
-					LogCommand("glGetActiveSubroutineUniformName", null, program, shadertype, index, bufsize, length, name					);
+					Delegates.pglGetActiveSubroutineUniformName(program, (int)shadertype, index, bufSize, p_length, name);
+					LogCommand("glGetActiveSubroutineUniformName", null, program, shadertype, index, bufSize, length, name					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2558,8 +2558,8 @@ namespace OpenGL
 		/// <param name="index">
 		/// Specifies the index of the shader subroutine uniform.
 		/// </param>
-		/// <param name="bufsize">
-		/// Specifies the size of the buffer whose address is given in <paramref name="name"/>.
+		/// <param name="bufSize">
+		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="length">
 		/// Specifies the address of a variable which is to receive the length of the shader subroutine uniform name.
@@ -2569,14 +2569,14 @@ namespace OpenGL
 		/// </param>
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
-		public static void GetActiveSubroutineName(uint program, ShaderType shadertype, uint index, int bufsize, out int length, StringBuilder name)
+		public static void GetActiveSubroutineName(uint program, ShaderType shadertype, uint index, int bufSize, out int length, StringBuilder name)
 		{
 			unsafe {
 				fixed (int* p_length = &length)
 				{
 					Debug.Assert(Delegates.pglGetActiveSubroutineName != null, "pglGetActiveSubroutineName not implemented");
-					Delegates.pglGetActiveSubroutineName(program, (int)shadertype, index, bufsize, p_length, name);
-					LogCommand("glGetActiveSubroutineName", null, program, shadertype, index, bufsize, length, name					);
+					Delegates.pglGetActiveSubroutineName(program, (int)shadertype, index, bufSize, p_length, name);
+					LogCommand("glGetActiveSubroutineName", null, program, shadertype, index, bufSize, length, name					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -2762,7 +2762,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_VERSION_4_0")]
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_transform_feedback2", Api = "gl|glcore")]
-		public static void BindTransformFeedback(TransformFeedbackTarget target, uint id)
+		public static void BindTransformFeedback(BindTransformFeedbackTarget target, uint id)
 		{
 			Debug.Assert(Delegates.pglBindTransformFeedback != null, "pglBindTransformFeedback not implemented");
 			Delegates.pglBindTransformFeedback((int)target, id);
@@ -3349,7 +3349,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity]
-			internal delegate void glGetActiveSubroutineUniformName(uint program, int shadertype, uint index, int bufsize, int* length, StringBuilder name);
+			internal delegate void glGetActiveSubroutineUniformName(uint program, int shadertype, uint index, int bufSize, int* length, StringBuilder name);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
@@ -3359,7 +3359,7 @@ namespace OpenGL
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]
 			[SuppressUnmanagedCodeSecurity]
-			internal delegate void glGetActiveSubroutineName(uint program, int shadertype, uint index, int bufsize, int* length, StringBuilder name);
+			internal delegate void glGetActiveSubroutineName(uint program, int shadertype, uint index, int bufSize, int* length, StringBuilder name);
 
 			[RequiredByFeature("GL_VERSION_4_0")]
 			[RequiredByFeature("GL_ARB_shader_subroutine", Api = "gl|glcore")]

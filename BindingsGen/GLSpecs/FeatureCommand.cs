@@ -35,13 +35,13 @@ namespace BindingsGen.GLSpecs
 		/// for all API profiles.
 		/// </summary>
 		[XmlAttribute("profile")]
-		public String Profile;
+		public string Profile;
 
 		/// <summary>
 		/// Arbitrary string.
 		/// </summary>
 		[XmlAttribute("comment")]
-		public String Comment;
+		public string Comment;
 
 		/// <summary>
 		/// An API name (see section 4.2). Interfaces in the tag are only required (or removed) if the specified
@@ -52,7 +52,7 @@ namespace BindingsGen.GLSpecs
 		/// specific API.
 		/// </remarks>
 		[XmlAttribute("api")]
-		public String Api;
+		public string Api;
 
 		/// <summary>
 		/// Generic item required or removed by this FeatureCommand.
@@ -74,13 +74,13 @@ namespace BindingsGen.GLSpecs
 			/// Item name.
 			/// </summary>
 			[XmlAttribute("name")]
-			public String Name;
+			public string Name;
 
 			/// <summary>
 			/// Arbitrary string.
 			/// </summary>
 			[XmlAttribute("comment")]
-			public String Comment;
+			public string Comment;
 		}
 
 		/// <summary>

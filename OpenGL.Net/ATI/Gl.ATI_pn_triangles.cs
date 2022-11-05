@@ -100,16 +100,16 @@ namespace OpenGL
 		/// [GL] glPNTrianglesiATI: Binding for glPNTrianglesiATI.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PNTrianglesPNameATI"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:int"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_pn_triangles")]
-		public static void PNTrianglesATI(int pname, int param)
+		public static void PNTrianglesATI(PNTrianglesPNameATI pname, int param)
 		{
 			Debug.Assert(Delegates.pglPNTrianglesiATI != null, "pglPNTrianglesiATI not implemented");
-			Delegates.pglPNTrianglesiATI(pname, param);
+			Delegates.pglPNTrianglesiATI((int)pname, param);
 			LogCommand("glPNTrianglesiATI", null, pname, param			);
 			DebugCheckErrors(null);
 		}
@@ -118,16 +118,16 @@ namespace OpenGL
 		/// [GL] glPNTrianglesfATI: Binding for glPNTrianglesfATI.
 		/// </summary>
 		/// <param name="pname">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:PNTrianglesPNameATI"/>.
 		/// </param>
 		/// <param name="param">
 		/// A <see cref="T:float"/>.
 		/// </param>
 		[RequiredByFeature("GL_ATI_pn_triangles")]
-		public static void PNTrianglesATI(int pname, float param)
+		public static void PNTrianglesATI(PNTrianglesPNameATI pname, float param)
 		{
 			Debug.Assert(Delegates.pglPNTrianglesfATI != null, "pglPNTrianglesfATI not implemented");
-			Delegates.pglPNTrianglesfATI(pname, param);
+			Delegates.pglPNTrianglesfATI((int)pname, param);
 			LogCommand("glPNTrianglesfATI", null, pname, param			);
 			DebugCheckErrors(null);
 		}

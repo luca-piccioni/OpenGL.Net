@@ -64,10 +64,30 @@ namespace BindingsGen.GLSpecs
 		#region Specification
 
 		/// <summary>
+		/// Class name, object semantic.
+		/// </summary>
+		/// <remarks>
+		/// - program pipeline
+		/// - program
+		/// - texture
+		/// - buffer
+		/// - shader
+		/// - query
+		/// - framebuffer
+		/// - renderbuffer
+		/// - transform feedback
+		/// - vertex array
+		/// - sync
+		/// - ...
+		/// </remarks>
+		[XmlAttribute("class")]
+		public string Class;
+
+		/// <summary>
 		/// Group name, an arbitrary string
 		/// </summary>
 		[XmlAttribute("group")]
-		public String Group;
+		public string Group;
 
 		/// <summary>
 		/// The parameter length, either an integer specifying the number of elements of the parameter <ptype>, or a
@@ -75,7 +95,7 @@ namespace BindingsGen.GLSpecs
 		/// combination of other command parameter values, and possibly current GL state as well.
 		/// </summary>
 		[XmlAttribute("len")]
-		public String Length;
+		public string Length;
 
 		/// <summary>
 		/// The Type is optional, and contains text which is a valid type name found in Type, and indicates that this
@@ -83,18 +103,18 @@ namespace BindingsGen.GLSpecs
 		/// types which are expected to be found in other header files, should not be wrapped in Type.
 		/// </summary>
 		[XmlElement("ptype")]
-		public String Type;
+		public string Type;
 
 		/// <summary>
 		/// 
 		/// </summary>
 		[XmlText()]
-		public List<String> TypeDecorators = new List<String>();
+		public List<string> TypeDecorators = new List<string>();
 
 		/// <summary>
 		/// 
 		/// </summary>
-		public String TypeDecorator
+		public string TypeDecorator
 		{
 			get
 			{
@@ -109,7 +129,7 @@ namespace BindingsGen.GLSpecs
 		/// The name is required, and contains the parameter name being described.
 		/// </summary>
 		[XmlElement("name")]
-		public String Name;
+		public string Name;
 
 		/// <summary>
 		/// Overriden parameter.
@@ -129,7 +149,7 @@ namespace BindingsGen.GLSpecs
 			get
 			{
 				// No length information
-				if (String.IsNullOrEmpty(Length))
+				if (string.IsNullOrEmpty(Length))
 					return (CommandParameterLengthMode.None);
 
 				// Constant length?
@@ -282,7 +302,7 @@ namespace BindingsGen.GLSpecs
 			// Type[] + Length=1 -> out Type
 			if ((IsConstant == false) && implementationType.EndsWith("[]") && (Length == "1") && ((parentCommand.IsGetImplementation(ctx) || ((parentCommand.Flags & CommandFlags.OutParam) != 0))))
 				implementationType = implementationType.Substring(0, implementationType.Length - 2);
-			// String + Length!=null && !IsConst -> [Out] StringBuilder (in Get commands)
+			// string + Length!=null && !IsConst -> [Out] StringBuilder (in Get commands)
 			if ((IsConstant == false) && (implementationType == "string") && (Length != null) && ((parentCommand.IsGetImplementation(ctx) || ((parentCommand.Flags & CommandFlags.OutParam) != 0))))
 				implementationType = "StringBuilder";
 			// Support 'ref' argument
@@ -386,7 +406,7 @@ namespace BindingsGen.GLSpecs
 		{
 			get
 			{
-				string fixedName = String.Format("p_{0}", Name);
+				string fixedName = string.Format("p_{0}", Name);
 
 				return (TypeMap.IsCsKeyword(fixedName) ? "@" + fixedName : fixedName);
 			}
@@ -397,7 +417,7 @@ namespace BindingsGen.GLSpecs
 			string delegateVarName = ImplementationName;
 
 			if ((GetManagedImplementationType(parentCommand) == "IntPtr") && (GetImportType(parentCommand) != "IntPtr"))
-				delegateVarName = String.Format("{0}.ToPointer()", ImplementationName);
+				delegateVarName = string.Format("{0}.ToPointer()", ImplementationName);
 
 			return (delegateVarName);
 		}
@@ -437,11 +457,11 @@ namespace BindingsGen.GLSpecs
 
 			switch (SpecificationType) {
 				case "GLboolean":		// bool
-					attribute = (attribute ?? String.Empty) + "[MarshalAs(UnmanagedType.I1)]";
+					attribute = (attribute ?? string.Empty) + "[MarshalAs(UnmanagedType.I1)]";
 					break;
 				// Note: MarshalAsAttribute not applicable to bool*!
 				//case "GLboolean*":		// bool[]
-				//	attribute = (attribute ?? String.Empty) + "[MarshalAs(UnmanagedType.LPArray, ArraySubType = UnmanagedType.I1)]";
+				//	attribute = (attribute ?? string.Empty) + "[MarshalAs(UnmanagedType.LPArray, ArraySubType = UnmanagedType.I1)]";
 				//	break;
 			}
 
@@ -484,7 +504,7 @@ namespace BindingsGen.GLSpecs
 				if (type != null && type.StartsWith("const ")) {
 					// Remove any const modifier at the beginning of the type
 					// does .NET can take advantage of this information? AFAIK no
-					type = type.Substring(5); // .Replace("const", String.Empty);
+					type = type.Substring(5); // .Replace("const", string.Empty);
 				}
 
 				string importType = "IntPtr";
@@ -610,7 +630,7 @@ namespace BindingsGen.GLSpecs
 			if (IsFixed(ctx, parentCommand) == false)
 				return;
 
-			string dereference = String.Empty;
+			string dereference = string.Empty;
 
 			switch (GetImplementationTypeModifier(ctx, parentCommand)) {
 				case "out":

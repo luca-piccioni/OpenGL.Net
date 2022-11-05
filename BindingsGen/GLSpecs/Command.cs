@@ -41,25 +41,25 @@ namespace BindingsGen.GLSpecs
 			/// GLX command type.
 			/// </summary>
 			[XmlAttribute("type")]
-			public String Type;
+			public string Type;
 
 			/// <summary>
 			/// GLX command code.
 			/// </summary>
 			[XmlAttribute("opcode")]
-			public String Code;
+			public string Code;
 
 			/// <summary>
 			/// GLX command name.
 			/// </summary>
 			[XmlAttribute("name")]
-			public String Name;
+			public string Name;
 
 			/// <summary>
 			/// Arbitrary string.
 			/// </summary>
 			[XmlAttribute("comment")]
-			public String Comment;
+			public string Comment;
 		}
 
 		/// <summary>
@@ -74,7 +74,7 @@ namespace BindingsGen.GLSpecs
 			/// Arbitrary string.
 			/// </summary>
 			[XmlAttribute("name")]
-			public String Name;
+			public string Name;
 
 			#endregion
 		}
@@ -387,7 +387,7 @@ namespace BindingsGen.GLSpecs
 			}
 
 			// Determine extension name, if any
-			extensionName = String.Empty;
+			extensionName = string.Empty;
 
 			foreach (string extName in ctx.ExtensionsDictionary.Words) {
 				if (overridenName.EndsWith(extName)) {
@@ -1465,13 +1465,13 @@ namespace BindingsGen.GLSpecs
 
             // Note: it seems that GL implementations should managed UTF8 strings
 			if (marshalReturnedString)
-				return (String.Format("PtrToString({0})", ReturnVariableName));
+				return (string.Format("PtrToString({0})", ReturnVariableName));
 			else if (marshalReturnedStruct)
-				return (String.Format("({1})Marshal.PtrToStructure({0}, typeof({1}))", ReturnVariableName, GetImplementationReturnType(ctx)));
+				return (string.Format("({1})Marshal.PtrToStructure({0}, typeof({1}))", ReturnVariableName, GetImplementationReturnType(ctx)));
 			else if (returnType != delegateReturnType)
-				return (String.Format("({1}){0}", ReturnVariableName, GetImplementationReturnType(ctx)));
+				return (string.Format("({1}){0}", ReturnVariableName, GetImplementationReturnType(ctx)));
 			else
-				return (String.Format("{0}", ReturnVariableName));
+				return (string.Format("{0}", ReturnVariableName));
 		}
 
 		/// <summary>
@@ -1544,7 +1544,7 @@ namespace BindingsGen.GLSpecs
 				if (name.EndsWith(ext))
 					return (ext);
 
-			return (String.Empty);
+			return (string.Empty);
 		}
 
 		#endregion

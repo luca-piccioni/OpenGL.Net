@@ -151,7 +151,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexWeightPointerTypeEXT"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:int"/>.
@@ -160,10 +160,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_weighting")]
-		public static void VertexWeightPointerEXT(int size, int type, int stride, IntPtr pointer)
+		public static void VertexWeightPointerEXT(int size, VertexWeightPointerTypeEXT type, int stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglVertexWeightPointerEXT != null, "pglVertexWeightPointerEXT not implemented");
-			Delegates.pglVertexWeightPointerEXT(size, type, stride, pointer);
+			Delegates.pglVertexWeightPointerEXT(size, (int)type, stride, pointer);
 			LogCommand("glVertexWeightPointerEXT", null, size, type, stride, pointer			);
 			DebugCheckErrors(null);
 		}
@@ -175,7 +175,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:VertexWeightPointerTypeEXT"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:int"/>.
@@ -184,7 +184,7 @@ namespace OpenGL
 		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_vertex_weighting")]
-		public static void VertexWeightPointerEXT(int size, int type, int stride, object pointer)
+		public static void VertexWeightPointerEXT(int size, VertexWeightPointerTypeEXT type, int stride, object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {

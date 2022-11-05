@@ -76,7 +76,39 @@ namespace OpenGL
 		/// [GL] glProgramBufferParametersfvNV: Binding for glProgramBufferParametersfvNV.
 		/// </summary>
 		/// <param name="target">
+		/// A <see cref="T:ProgramTarget"/>.
+		/// </param>
+		/// <param name="bindingIndex">
+		/// A <see cref="T:uint"/>.
+		/// </param>
+		/// <param name="wordIndex">
+		/// A <see cref="T:uint"/>.
+		/// </param>
+		/// <param name="count">
 		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:float[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_NV_parameter_buffer_object")]
+		public static void ProgramBufferParametersNV(ProgramTarget target, uint bindingIndex, uint wordIndex, int count, float[] @params)
+		{
+			unsafe {
+				fixed (float* p_params = @params)
+				{
+					Debug.Assert(Delegates.pglProgramBufferParametersfvNV != null, "pglProgramBufferParametersfvNV not implemented");
+					Delegates.pglProgramBufferParametersfvNV((int)target, bindingIndex, wordIndex, count, p_params);
+					LogCommand("glProgramBufferParametersfvNV", null, target, bindingIndex, wordIndex, count, @params					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL] glProgramBufferParametersfvNV: Binding for glProgramBufferParametersfvNV.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:ProgramTarget"/>.
 		/// </param>
 		/// <param name="bindingIndex">
 		/// A <see cref="T:uint"/>.
@@ -88,13 +120,13 @@ namespace OpenGL
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_parameter_buffer_object")]
-		public static void ProgramBufferParametersNV(int target, uint bindingIndex, uint wordIndex, float[] @params)
+		public static void ProgramBufferParametersNV(ProgramTarget target, uint bindingIndex, uint wordIndex, float[] @params)
 		{
 			unsafe {
 				fixed (float* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglProgramBufferParametersfvNV != null, "pglProgramBufferParametersfvNV not implemented");
-					Delegates.pglProgramBufferParametersfvNV(target, bindingIndex, wordIndex, @params.Length, p_params);
+					Delegates.pglProgramBufferParametersfvNV((int)target, bindingIndex, wordIndex, @params.Length, p_params);
 					LogCommand("glProgramBufferParametersfvNV", null, target, bindingIndex, wordIndex, @params.Length, @params					);
 				}
 			}
@@ -105,7 +137,39 @@ namespace OpenGL
 		/// [GL] glProgramBufferParametersIivNV: Binding for glProgramBufferParametersIivNV.
 		/// </summary>
 		/// <param name="target">
+		/// A <see cref="T:ProgramTarget"/>.
+		/// </param>
+		/// <param name="bindingIndex">
+		/// A <see cref="T:uint"/>.
+		/// </param>
+		/// <param name="wordIndex">
+		/// A <see cref="T:uint"/>.
+		/// </param>
+		/// <param name="count">
 		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:int[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_NV_parameter_buffer_object")]
+		public static void ProgramBufferParametersINV(ProgramTarget target, uint bindingIndex, uint wordIndex, int count, int[] @params)
+		{
+			unsafe {
+				fixed (int* p_params = @params)
+				{
+					Debug.Assert(Delegates.pglProgramBufferParametersIivNV != null, "pglProgramBufferParametersIivNV not implemented");
+					Delegates.pglProgramBufferParametersIivNV((int)target, bindingIndex, wordIndex, count, p_params);
+					LogCommand("glProgramBufferParametersIivNV", null, target, bindingIndex, wordIndex, count, @params					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL] glProgramBufferParametersIivNV: Binding for glProgramBufferParametersIivNV.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:ProgramTarget"/>.
 		/// </param>
 		/// <param name="bindingIndex">
 		/// A <see cref="T:uint"/>.
@@ -117,13 +181,13 @@ namespace OpenGL
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_parameter_buffer_object")]
-		public static void ProgramBufferParametersINV(int target, uint bindingIndex, uint wordIndex, int[] @params)
+		public static void ProgramBufferParametersINV(ProgramTarget target, uint bindingIndex, uint wordIndex, int[] @params)
 		{
 			unsafe {
 				fixed (int* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglProgramBufferParametersIivNV != null, "pglProgramBufferParametersIivNV not implemented");
-					Delegates.pglProgramBufferParametersIivNV(target, bindingIndex, wordIndex, @params.Length, p_params);
+					Delegates.pglProgramBufferParametersIivNV((int)target, bindingIndex, wordIndex, @params.Length, p_params);
 					LogCommand("glProgramBufferParametersIivNV", null, target, bindingIndex, wordIndex, @params.Length, @params					);
 				}
 			}
@@ -134,7 +198,39 @@ namespace OpenGL
 		/// [GL] glProgramBufferParametersIuivNV: Binding for glProgramBufferParametersIuivNV.
 		/// </summary>
 		/// <param name="target">
+		/// A <see cref="T:ProgramTarget"/>.
+		/// </param>
+		/// <param name="bindingIndex">
+		/// A <see cref="T:uint"/>.
+		/// </param>
+		/// <param name="wordIndex">
+		/// A <see cref="T:uint"/>.
+		/// </param>
+		/// <param name="count">
 		/// A <see cref="T:int"/>.
+		/// </param>
+		/// <param name="params">
+		/// A <see cref="T:uint[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_NV_parameter_buffer_object")]
+		public static void ProgramBufferParametersINV(ProgramTarget target, uint bindingIndex, uint wordIndex, int count, uint[] @params)
+		{
+			unsafe {
+				fixed (uint* p_params = @params)
+				{
+					Debug.Assert(Delegates.pglProgramBufferParametersIuivNV != null, "pglProgramBufferParametersIuivNV not implemented");
+					Delegates.pglProgramBufferParametersIuivNV((int)target, bindingIndex, wordIndex, count, p_params);
+					LogCommand("glProgramBufferParametersIuivNV", null, target, bindingIndex, wordIndex, count, @params					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL] glProgramBufferParametersIuivNV: Binding for glProgramBufferParametersIuivNV.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:ProgramTarget"/>.
 		/// </param>
 		/// <param name="bindingIndex">
 		/// A <see cref="T:uint"/>.
@@ -146,13 +242,13 @@ namespace OpenGL
 		/// A <see cref="T:uint[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_parameter_buffer_object")]
-		public static void ProgramBufferParametersINV(int target, uint bindingIndex, uint wordIndex, uint[] @params)
+		public static void ProgramBufferParametersINV(ProgramTarget target, uint bindingIndex, uint wordIndex, uint[] @params)
 		{
 			unsafe {
 				fixed (uint* p_params = @params)
 				{
 					Debug.Assert(Delegates.pglProgramBufferParametersIuivNV != null, "pglProgramBufferParametersIuivNV not implemented");
-					Delegates.pglProgramBufferParametersIuivNV(target, bindingIndex, wordIndex, @params.Length, p_params);
+					Delegates.pglProgramBufferParametersIuivNV((int)target, bindingIndex, wordIndex, @params.Length, p_params);
 					LogCommand("glProgramBufferParametersIuivNV", null, target, bindingIndex, wordIndex, @params.Length, @params					);
 				}
 			}

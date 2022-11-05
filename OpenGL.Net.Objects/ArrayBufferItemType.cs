@@ -691,20 +691,10 @@ namespace OpenGL.Objects
 					return ColorPointerType.Byte;
 				case VertexBaseType.UByte:
 					return ColorPointerType.UnsignedByte;
-				case VertexBaseType.Short:
-					return ColorPointerType.Short;
 				case VertexBaseType.UShort:
 					return ColorPointerType.UnsignedShort;
-				case VertexBaseType.Int:
-					return ColorPointerType.Int;
 				case VertexBaseType.UInt:
 					return ColorPointerType.UnsignedInt;
-				case VertexBaseType.Float:
-					return ColorPointerType.Float;
-#if !MONODROID
-				case VertexBaseType.Double:
-					return ColorPointerType.Double;
-#endif
 				default:
 					throw new NotSupportedException($"color pointer of type {vertexArrayType} not supported");
 			}

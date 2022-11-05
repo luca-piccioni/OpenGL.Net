@@ -45,7 +45,7 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] Value of GL_REPRESENTATIVE_FRAGMENT_TEST_NV symbol.
 		/// </summary>
-		[RequiredByFeature("GL_NV_representative_fragment_test", Api = "gl|glcore")]
+		[RequiredByFeature("GL_NV_representative_fragment_test", Api = "gl|glcore|gles2")]
 		public const int REPRESENTATIVE_FRAGMENT_TEST_NV = 0x937F;
 
 	}

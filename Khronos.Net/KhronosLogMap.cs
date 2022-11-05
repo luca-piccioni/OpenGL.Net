@@ -120,7 +120,7 @@ namespace Khronos
 		/// Load a <see cref="KhronosLogMap"/> from an embedded resource.
 		/// </summary>
 		/// <param name="resourcePath">
-		/// A <see cref="String"/> that specifies the path of the Khronos API log map resource.
+		/// A <see cref="string"/> that specifies the path of the Khronos API log map resource.
 		/// </param>
 		/// <returns>
 		/// It returns the <see cref="KhronosLogMap"/> loaded from <paramref name="resourcePath"/>.
@@ -145,7 +145,7 @@ namespace Khronos
 		/// Load a <see cref="KhronosLogMap"/> from an embedded resource.
 		/// </summary>
 		/// <param name="resourcePath">
-		/// A <see cref="String"/> that specifies the path of the Khronos API log map resource.
+		/// A <see cref="string"/> that specifies the path of the Khronos API log map resource.
 		/// </param>
 		/// <param name="logMap">
 		/// The <see cref="KhronosLogMap"/> to be serialized into <paramref name="resourcePath"/>.

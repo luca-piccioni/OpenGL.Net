@@ -286,6 +286,7 @@ namespace OpenGL
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_2")]
 		[RequiredByFeature("GL_EXT_bgra")]
+		[RequiredByFeature("GL_MESA_bgra", Api = "gles2")]
 		public const int BGR = 0x80E0;
 
 		/// <summary>
@@ -328,6 +329,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_bgra")]
 		[RequiredByFeature("GL_EXT_read_format_bgra", Api = "gles1|gles2")]
 		[RequiredByFeature("GL_EXT_texture_format_BGRA8888", Api = "gles1|gles2")]
+		[RequiredByFeature("GL_MESA_bgra", Api = "gles2")]
 		[RequiredByFeature("GL_IMG_read_format", Api = "gles1|gles2")]
 		public const int BGRA = 0x80E1;
 

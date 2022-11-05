@@ -46,19 +46,45 @@ namespace OpenGL
 		/// [GL] glDiscardFramebufferEXT: Binding for glDiscardFramebufferEXT.
 		/// </summary>
 		/// <param name="target">
+		/// A <see cref="T:FramebufferTarget"/>.
+		/// </param>
+		/// <param name="numAttachments">
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="attachments">
 		/// A <see cref="T:int[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_discard_framebuffer", Api = "gles1|gles2")]
-		public static void DiscardFramebufferEXT(int target, int[] attachments)
+		public static void DiscardFramebufferEXT(FramebufferTarget target, int numAttachments, int[] attachments)
 		{
 			unsafe {
 				fixed (int* p_attachments = attachments)
 				{
 					Debug.Assert(Delegates.pglDiscardFramebufferEXT != null, "pglDiscardFramebufferEXT not implemented");
-					Delegates.pglDiscardFramebufferEXT(target, attachments.Length, p_attachments);
+					Delegates.pglDiscardFramebufferEXT((int)target, numAttachments, p_attachments);
+					LogCommand("glDiscardFramebufferEXT", null, target, numAttachments, attachments					);
+				}
+			}
+			DebugCheckErrors(null);
+		}
+
+		/// <summary>
+		/// [GL] glDiscardFramebufferEXT: Binding for glDiscardFramebufferEXT.
+		/// </summary>
+		/// <param name="target">
+		/// A <see cref="T:FramebufferTarget"/>.
+		/// </param>
+		/// <param name="attachments">
+		/// A <see cref="T:int[]"/>.
+		/// </param>
+		[RequiredByFeature("GL_EXT_discard_framebuffer", Api = "gles1|gles2")]
+		public static void DiscardFramebufferEXT(FramebufferTarget target, int[] attachments)
+		{
+			unsafe {
+				fixed (int* p_attachments = attachments)
+				{
+					Debug.Assert(Delegates.pglDiscardFramebufferEXT != null, "pglDiscardFramebufferEXT not implemented");
+					Delegates.pglDiscardFramebufferEXT((int)target, attachments.Length, p_attachments);
 					LogCommand("glDiscardFramebufferEXT", null, target, attachments.Length, attachments					);
 				}
 			}

@@ -31,7 +31,7 @@ namespace BindingsGen.GLSpecs
 		/// Command block namespace.
 		/// </summary>
 		[XmlAttribute("namespace")]
-		public String Namespace;
+		public string Namespace;
 
 		/// <summary>
 		/// Commands grouped by this CommandBlock.

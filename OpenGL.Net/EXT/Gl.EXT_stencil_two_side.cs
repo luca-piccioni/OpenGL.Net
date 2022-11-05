@@ -58,10 +58,10 @@ namespace OpenGL
 		/// [GL] glActiveStencilFaceEXT: Binding for glActiveStencilFaceEXT.
 		/// </summary>
 		/// <param name="face">
-		/// A <see cref="T:StencilFaceDirection"/>.
+		/// A <see cref="T:TriangleFace"/>.
 		/// </param>
 		[RequiredByFeature("GL_EXT_stencil_two_side")]
-		public static void ActiveStencilFaceEXT(StencilFaceDirection face)
+		public static void ActiveStencilFaceEXT(TriangleFace face)
 		{
 			Debug.Assert(Delegates.pglActiveStencilFaceEXT != null, "pglActiveStencilFaceEXT not implemented");
 			Delegates.pglActiveStencilFaceEXT((int)face);

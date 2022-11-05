@@ -304,13 +304,13 @@ namespace OpenGL.Objects
 			public override void Create(GraphicsContext ctx)
 			{
 				// Define storage
-				InternalFormat internalFormat = _PixelFormat.ToInternalFormat();
+				SizedInternalFormat internalFormat = _PixelFormat.ToSizedInternalFormat();
 
 				if (!IsImmutableSupported(ctx)) {
 					PixelFormat format = _PixelFormat.ToDataFormat();
 
 					for (uint level = 0, w = _Width, h = _Height; level < _MipmapLevels; level++, w = Math.Max(1, w / 2), h = Math.Max(1, h / 2)) {
-						Gl.TexImage2D(_Target, (int)level, internalFormat, (int)w, (int)h, 0, format, /* Unused */ PixelType.UnsignedByte, IntPtr.Zero);
+						Gl.TexImage2D(_Target, (int)level, (InternalFormat)internalFormat, (int)w, (int)h, 0, format, /* Unused */ PixelType.UnsignedByte, IntPtr.Zero);
 
 						// Always check for errors
 						Gl.CheckErrors();

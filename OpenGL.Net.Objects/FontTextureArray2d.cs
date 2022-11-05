@@ -220,7 +220,7 @@ namespace OpenGL.Objects
 				_GlyphInstances = (ArrayBufferInterleaved<GlyphInstance>)ctx.GetSharedResource(instanceArrayId);
 
 				if (_GlyphInstances == null) {
-					_GlyphInstances = new ArrayBufferInterleaved<GlyphInstance>(MapBufferUsageMask.MapWriteBit);
+					_GlyphInstances = new ArrayBufferInterleaved<GlyphInstance>(BufferStorageMask.MapWriteBit);
 					_GlyphInstances.Create(256);
 					// Share
 					ctx.SetSharedResource(instanceArrayId, _GlyphInstances);
@@ -380,7 +380,7 @@ namespace OpenGL.Objects
 		{
 			if (ctx.Extensions.UniformBufferObject_ARB && _FontProgram.IsActiveUniformBlock("Glyphs")) {
 				// Note: the above program uses uniform buffers, if supported
-				_GlyphUniformBuffer = _FontProgram.CreateUniformBlock("Glyphs", MapBufferUsageMask.MapWriteBit);
+				_GlyphUniformBuffer = _FontProgram.CreateUniformBlock("Glyphs", BufferStorageMask.MapWriteBit);
 				_GlyphUniformBuffer.Create(ctx);
 			}
 		}

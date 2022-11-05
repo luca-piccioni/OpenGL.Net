@@ -107,21 +107,21 @@ namespace OpenGL
 		/// <summary>
 		/// [GL] glGetCoverageModulationTableNV: Binding for glGetCoverageModulationTableNV.
 		/// </summary>
-		/// <param name="bufsize">
+		/// <param name="bufSize">
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="v">
 		/// A <see cref="T:float[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_NV_framebuffer_mixed_samples", Api = "gl|glcore|gles2")]
-		public static void GetCoverageModulationTableNV(int bufsize, [Out] float[] v)
+		public static void GetCoverageModulationTableNV(int bufSize, [Out] float[] v)
 		{
 			unsafe {
 				fixed (float* p_v = v)
 				{
 					Debug.Assert(Delegates.pglGetCoverageModulationTableNV != null, "pglGetCoverageModulationTableNV not implemented");
-					Delegates.pglGetCoverageModulationTableNV(bufsize, p_v);
-					LogCommand("glGetCoverageModulationTableNV", null, bufsize, v					);
+					Delegates.pglGetCoverageModulationTableNV(bufSize, p_v);
+					LogCommand("glGetCoverageModulationTableNV", null, bufSize, v					);
 				}
 			}
 			DebugCheckErrors(null);
@@ -154,7 +154,7 @@ namespace OpenGL
 
 			[RequiredByFeature("GL_NV_framebuffer_mixed_samples", Api = "gl|glcore|gles2")]
 			[SuppressUnmanagedCodeSecurity]
-			internal delegate void glGetCoverageModulationTableNV(int bufsize, float* v);
+			internal delegate void glGetCoverageModulationTableNV(int bufSize, float* v);
 
 			[RequiredByFeature("GL_NV_framebuffer_mixed_samples", Api = "gl|glcore|gles2")]
 			[ThreadStatic]

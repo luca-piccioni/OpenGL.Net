@@ -66,7 +66,7 @@ namespace BindingsGen
 		/// The <see cref="RegistryContext"/> holding the OpenGL specification information.
 		/// </param>
 		/// <param name="path">
-		/// A <see cref="String"/> that specifies the source code file path.
+		/// A <see cref="string"/> that specifies the source code file path.
 		/// </param>
 		public void GenerateStronglyTypedEnums(RegistryContext ctx, string path)
 		{
@@ -248,7 +248,7 @@ namespace BindingsGen
 				orphanEnums.Add(enumerant);
 			}
 
-			string orphanFile = Path.Combine(Program.BasePath, String.Format("{0}/{1}.Orphans.cs", Program.OutputBasePath, ctx.Class));
+			string orphanFile = Path.Combine(Program.BasePath, string.Format("{0}/{1}.Orphans.cs", Program.OutputBasePath, ctx.Class));
 
 			if ((orphanCommands.Count != 0) || (orphanEnums.Count != 0)) {
 				GenerateSource(ctx, orphanFile, delegate(RegistryContext cctx, SourceStreamWriter sw) {
@@ -344,7 +344,7 @@ namespace BindingsGen
 
 			#endregion
 
-			string path = Path.Combine(Program.BasePath, String.Format("{0}/{1}.Vb.cs", Program.OutputBasePath, ctx.Class));
+			string path = Path.Combine(Program.BasePath, string.Format("{0}/{1}.Vb.cs", Program.OutputBasePath, ctx.Class));
 
 			if (featureVbCommands.Count > 0) {
 				Console.WriteLine("Generate registry commands to {0}.", path);
@@ -425,7 +425,7 @@ namespace BindingsGen
 
 		public void GenerateExtensionsSupportClass(RegistryContext ctx)
 		{
-			string path = String.Format("{0}/{1}.Extensions.cs", Program.OutputBasePath, ctx.Class);
+			string path = string.Format("{0}/{1}.Extensions.cs", Program.OutputBasePath, ctx.Class);
 
 			Console.WriteLine("Generate registry khronosExtensions to {0}.", path);
 
@@ -524,7 +524,7 @@ namespace BindingsGen
 
 		public void GenerateLimitsSupportClass(RegistryContext ctx)
 		{
-			string path = String.Format("{0}/{1}.Limits.cs", Program.OutputBasePath, ctx.Class);
+			string path = string.Format("{0}/{1}.Limits.cs", Program.OutputBasePath, ctx.Class);
 
 			List<Enumerant> limitEnums = new List<Enumerant>();
 
@@ -641,7 +641,7 @@ namespace BindingsGen
 
 		public void GenerateVersionsSupportClass(RegistryContext ctx)
 		{
-			string path = String.Format("{0}/{1}.Versions.cs", Program.OutputBasePath, ctx.Class);
+			string path = string.Format("{0}/{1}.Versions.cs", Program.OutputBasePath, ctx.Class);
 
 			Console.WriteLine("Generate version support class to {0}.", path);
 
@@ -678,11 +678,11 @@ namespace BindingsGen
 					int versionValue = versionMajor * 100 + versionMinor * 10 + versionRev;
 
 					// Determine version/api name
-					string versionName = String.Format("Version_{0}", versionValue);
+					string versionName = string.Format("Version_{0}", versionValue);
 					string api = ctx.Class;
 
 					if (featureVersion.IsEsVersion) {
-						versionName = String.Format("Version_{0}_ES", versionValue);
+						versionName = string.Format("Version_{0}_ES", versionValue);
 						switch (versionMajor) {
 							case 1:
 								api = "Gles1";
@@ -693,7 +693,7 @@ namespace BindingsGen
 								break;
 						}
 					} else if (featureVersion.IsScVersion) {
-						versionName = String.Format("Version_{0}_SC", versionValue);
+						versionName = string.Format("Version_{0}_SC", versionValue);
 						api = "Glsc2";
 					}
 
@@ -726,7 +726,7 @@ namespace BindingsGen
 		/// The <see cref="RegistryContext"/> holding the OpenGL specification information.
 		/// </param>
 		/// <param name="path">
-		/// A <see cref="String"/> that specifies the source code file path.
+		/// A <see cref="string"/> that specifies the source code file path.
 		/// </param>
 		/// <param name="filter"></param>
 		public void GenerateSource(RegistryContext ctx, string path, CommandSerializerDelegate filter)
@@ -788,7 +788,7 @@ namespace BindingsGen
 		/// The <see cref="RegistryContext"/> holding the OpenGL specification information.
 		/// </param>
 		/// <param name="path">
-		/// A <see cref="String"/> that specifies the log map file path.
+		/// A <see cref="string"/> that specifies the log map file path.
 		/// </param>
 		public void GenerateLogMap(RegistryContext ctx, string path)
 		{
@@ -850,7 +850,7 @@ namespace BindingsGen
 		/// </returns>
 		private static string GetFeatureFilePath(IFeature feature, RegistryContext ctx)
 		{
-			string path = String.Format("{0}/{1}.{2}.cs", Program.OutputBasePath, ctx.Class, feature.Name.Substring(ctx.Class.Length + 1));
+			string path = string.Format("{0}/{1}.{2}.cs", Program.OutputBasePath, ctx.Class, feature.Name.Substring(ctx.Class.Length + 1));
 			string featureName = feature.Name.Substring(ctx.Class.Length + 1);
 			int separatorIndex = featureName.IndexOf('_');
 
@@ -858,10 +858,10 @@ namespace BindingsGen
 				string ext = featureName.Substring(0, separatorIndex);
 
 				if (ctx.ExtensionsDictionary.HasWord(ext)) {
-					string extensionDir = Path.Combine(Program.BasePath, String.Format("{0}/{1}", Program.OutputBasePath, ext));
+					string extensionDir = Path.Combine(Program.BasePath, string.Format("{0}/{1}", Program.OutputBasePath, ext));
 					if (!Directory.Exists(extensionDir))
 						Directory.CreateDirectory(extensionDir);
-					path = String.Format("{3}/{2}/{0}.{1}.cs", ctx.Class, featureName, ext, Program.OutputBasePath);
+					path = string.Format("{3}/{2}/{0}.{1}.cs", ctx.Class, featureName, ext, Program.OutputBasePath);
 				}
 			}
 

@@ -36,14 +36,14 @@ namespace Khronos
 		/// Construct a RequiredByFeatureAttribute, specifying the feature name.
 		/// </summary>
 		/// <param name="featureName">
-		/// A <see cref="String"/> that specifies the name of the feature that requires the element.
+		/// A <see cref="string"/> that specifies the name of the feature that requires the element.
 		/// </param>
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="featureName"/> is null or empty.
 		/// </exception>
 		public RequiredByFeatureAttribute(string featureName)
 		{
-			if (String.IsNullOrEmpty(featureName))
+			if (string.IsNullOrEmpty(featureName))
 				throw new ArgumentException("null or empty feature not allowed", nameof(featureName));
 			FeatureName = featureName;
 			FeatureVersion = KhronosVersion.ParseFeature(FeatureName);

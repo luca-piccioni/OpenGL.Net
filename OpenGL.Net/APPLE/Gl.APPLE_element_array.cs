@@ -64,16 +64,16 @@ namespace OpenGL
 		/// [GL] glElementPointerAPPLE: Binding for glElementPointerAPPLE.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:ElementPointerTypeATI"/>.
 		/// </param>
 		/// <param name="pointer">
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_APPLE_element_array")]
-		public static void ElementPointerAPPLE(int type, IntPtr pointer)
+		public static void ElementPointerAPPLE(ElementPointerTypeATI type, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglElementPointerAPPLE != null, "pglElementPointerAPPLE not implemented");
-			Delegates.pglElementPointerAPPLE(type, pointer);
+			Delegates.pglElementPointerAPPLE((int)type, pointer);
 			LogCommand("glElementPointerAPPLE", null, type, pointer			);
 			DebugCheckErrors(null);
 		}
@@ -82,13 +82,13 @@ namespace OpenGL
 		/// [GL] glElementPointerAPPLE: Binding for glElementPointerAPPLE.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:ElementPointerTypeATI"/>.
 		/// </param>
 		/// <param name="pointer">
 		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_APPLE_element_array")]
-		public static void ElementPointerAPPLE(int type, object pointer)
+		public static void ElementPointerAPPLE(ElementPointerTypeATI type, object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {

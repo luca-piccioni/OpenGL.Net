@@ -148,13 +148,13 @@ namespace OpenGL
 		/// [GL] glReplacementCodeuiSUN: Binding for glReplacementCodeuiSUN.
 		/// </summary>
 		/// <param name="code">
-		/// A <see cref="T:uint"/>.
+		/// A <see cref="T:TriangleListSUN"/>.
 		/// </param>
 		[RequiredByFeature("GL_SUN_triangle_list")]
-		public static void ReplacementCodeuiSUN(uint code)
+		public static void ReplacementCodeuiSUN(TriangleListSUN code)
 		{
 			Debug.Assert(Delegates.pglReplacementCodeuiSUN != null, "pglReplacementCodeuiSUN not implemented");
-			Delegates.pglReplacementCodeuiSUN(code);
+			Delegates.pglReplacementCodeuiSUN((uint)code);
 			LogCommand("glReplacementCodeuiSUN", null, code			);
 			DebugCheckErrors(null);
 		}
@@ -253,7 +253,7 @@ namespace OpenGL
 		/// [GL] glReplacementCodePointerSUN: Binding for glReplacementCodePointerSUN.
 		/// </summary>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:ReplacementCodeTypeSUN"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:int"/>.
@@ -262,13 +262,13 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr[]"/>.
 		/// </param>
 		[RequiredByFeature("GL_SUN_triangle_list")]
-		public static void ReplacementCodePointerSUN(int type, int stride, IntPtr[] pointer)
+		public static void ReplacementCodePointerSUN(ReplacementCodeTypeSUN type, int stride, IntPtr[] pointer)
 		{
 			unsafe {
 				fixed (IntPtr* p_pointer = pointer)
 				{
 					Debug.Assert(Delegates.pglReplacementCodePointerSUN != null, "pglReplacementCodePointerSUN not implemented");
-					Delegates.pglReplacementCodePointerSUN(type, stride, p_pointer);
+					Delegates.pglReplacementCodePointerSUN((int)type, stride, p_pointer);
 					LogCommand("glReplacementCodePointerSUN", null, type, stride, pointer					);
 				}
 			}

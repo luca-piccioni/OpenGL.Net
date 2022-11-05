@@ -39,7 +39,7 @@ namespace OpenGL.Objects
 		/// The <see cref="DrawElementsType"/> that specify how vertices are interpreted.
 		/// </param>
 		public ElementBuffer(DrawElementsType elementType) :
-			this(elementType, MapBufferUsageMask.None)
+			this(elementType, (BufferStorageMask)0)
 		{
 
 		}
@@ -67,9 +67,9 @@ namespace OpenGL.Objects
 		/// The <see cref="DrawElementsType"/> that specify how vertices are interpreted.
 		/// </param>
 		/// <param name="usageMask">
-		/// An <see cref="MapBufferUsageMask"/> that specify the buffer storage usage mask.
+		/// An <see cref="BufferStorageMask"/> that specify the buffer storage usage mask.
 		/// </param>
-		public ElementBuffer(DrawElementsType elementType, MapBufferUsageMask usageMask) :
+		public ElementBuffer(DrawElementsType elementType, BufferStorageMask usageMask) :
 			base(BufferTarget.ElementArrayBuffer, GetItemSize(elementType), usageMask)
 		{
 			ElementsType = elementType;
@@ -99,9 +99,9 @@ namespace OpenGL.Objects
 		/// 
 		/// </param>
 		/// <param name="usageMask">
-		/// An <see cref="MapBufferUsageMask"/> that specify the buffer storage usage mask.
+		/// An <see cref="BufferStorageMask"/> that specify the buffer storage usage mask.
 		/// </param>
-		protected ElementBuffer(Type elementType, MapBufferUsageMask usageMask) :
+		protected ElementBuffer(Type elementType, BufferStorageMask usageMask) :
 			base(BufferTarget.ElementArrayBuffer, GetItemSize(elementType), usageMask)
 		{
 			ElementsType = GetDrawElementsType(elementType);
@@ -512,7 +512,7 @@ namespace OpenGL.Objects
 		/// Construct an ElementBufferObject, implictly used with <see cref="BufferHint.StaticCpuDraw"/>.
 		/// </summary>
 		public ElementBuffer() :
-			this(MapBufferUsageMask.None)
+			this((BufferStorageMask)0)
 		{
 
 		}
@@ -533,9 +533,9 @@ namespace OpenGL.Objects
 		/// Construct an ElementBufferObject.
 		/// </summary>
 		/// <param name="usageMask">
-		/// An <see cref="MapBufferUsageMask"/> that specify the buffer storage usage mask.
+		/// An <see cref="BufferStorageMask"/> that specify the buffer storage usage mask.
 		/// </param>
-		public ElementBuffer(MapBufferUsageMask usageMask) :
+		public ElementBuffer(BufferStorageMask usageMask) :
 			base(typeof(T), usageMask)
 		{
 			

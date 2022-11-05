@@ -76,7 +76,7 @@ namespace OpenGL
 		/// A <see cref="T:TextureTarget"/>.
 		/// </param>
 		/// <param name="internalFormat">
-		/// A <see cref="T:InternalFormat"/>.
+		/// A <see cref="T:SizedInternalFormat"/>.
 		/// </param>
 		/// <param name="width">
 		/// A <see cref="T:int"/>.
@@ -94,7 +94,7 @@ namespace OpenGL
 		/// A <see cref="T:TextureStorageMaskAMD"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_sparse_texture")]
-		public static void TexStorageAMD(TextureTarget target, InternalFormat internalFormat, int width, int height, int depth, int layers, TextureStorageMaskAMD flags)
+		public static void TexStorageAMD(TextureTarget target, SizedInternalFormat internalFormat, int width, int height, int depth, int layers, TextureStorageMaskAMD flags)
 		{
 			Debug.Assert(Delegates.pglTexStorageSparseAMD != null, "pglTexStorageSparseAMD not implemented");
 			Delegates.pglTexStorageSparseAMD((int)target, (int)internalFormat, width, height, depth, layers, (uint)flags);
@@ -112,7 +112,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="internalFormat">
-		/// A <see cref="T:InternalFormat"/>.
+		/// A <see cref="T:SizedInternalFormat"/>.
 		/// </param>
 		/// <param name="width">
 		/// A <see cref="T:int"/>.
@@ -130,7 +130,7 @@ namespace OpenGL
 		/// A <see cref="T:TextureStorageMaskAMD"/>.
 		/// </param>
 		[RequiredByFeature("GL_AMD_sparse_texture")]
-		public static void TextureStorageAMD(uint texture, int target, InternalFormat internalFormat, int width, int height, int depth, int layers, TextureStorageMaskAMD flags)
+		public static void TextureStorageAMD(uint texture, int target, SizedInternalFormat internalFormat, int width, int height, int depth, int layers, TextureStorageMaskAMD flags)
 		{
 			Debug.Assert(Delegates.pglTextureStorageSparseAMD != null, "pglTextureStorageSparseAMD not implemented");
 			Delegates.pglTextureStorageSparseAMD(texture, target, (int)internalFormat, width, height, depth, layers, (uint)flags);

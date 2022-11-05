@@ -184,10 +184,10 @@ namespace OpenGL.Objects.State
 			// Stencil
 			if (ctx.Version >= Gl.Version_200) {
 				if (StencilMaskFront != StencilMaskBack) {
-					Gl.StencilMaskSeparate(StencilFaceDirection.Front, StencilMaskFront);
-					Gl.StencilMaskSeparate(StencilFaceDirection.Back, StencilMaskBack);
+					Gl.StencilMaskSeparate(TriangleFace.Front, StencilMaskFront);
+					Gl.StencilMaskSeparate(TriangleFace.Back, StencilMaskBack);
 				} else
-					Gl.StencilMaskSeparate(StencilFaceDirection.FrontAndBack, StencilMaskFront);
+					Gl.StencilMaskSeparate(TriangleFace.FrontAndBack, StencilMaskFront);
 			} else {
 				if (StencilMaskFront != StencilMaskBack)
 					throw new InvalidOperationException("seperate stencil mask not supported");
@@ -207,12 +207,12 @@ namespace OpenGL.Objects.State
 			if (ctx.Version >= Gl.Version_200) {
 				if (StencilMaskFront != StencilMaskBack) {
 					if (StencilMaskFront != currentState.StencilMaskFront)
-						Gl.StencilMaskSeparate(StencilFaceDirection.Front, StencilMaskFront);
+						Gl.StencilMaskSeparate(TriangleFace.Front, StencilMaskFront);
 					if (StencilMaskBack != currentState.StencilMaskBack)
-						Gl.StencilMaskSeparate(StencilFaceDirection.Back, StencilMaskBack);
+						Gl.StencilMaskSeparate(TriangleFace.Back, StencilMaskBack);
 				} else {
 					if (StencilMaskFront != currentState.StencilMaskFront || StencilMaskFront != currentState.StencilMaskBack)
-						Gl.StencilMaskSeparate(StencilFaceDirection.FrontAndBack, StencilMaskFront);
+						Gl.StencilMaskSeparate(TriangleFace.FrontAndBack, StencilMaskFront);
 				}
 			} else {
 				if (StencilMaskFront != StencilMaskBack)

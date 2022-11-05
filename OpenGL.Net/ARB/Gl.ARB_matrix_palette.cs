@@ -192,7 +192,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:MatrixIndexPointerTypeARB"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:int"/>.
@@ -201,10 +201,10 @@ namespace OpenGL
 		/// A <see cref="T:IntPtr"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_matrix_palette")]
-		public static void MatrixIndexPointerARB(int size, int type, int stride, IntPtr pointer)
+		public static void MatrixIndexPointerARB(int size, MatrixIndexPointerTypeARB type, int stride, IntPtr pointer)
 		{
 			Debug.Assert(Delegates.pglMatrixIndexPointerARB != null, "pglMatrixIndexPointerARB not implemented");
-			Delegates.pglMatrixIndexPointerARB(size, type, stride, pointer);
+			Delegates.pglMatrixIndexPointerARB(size, (int)type, stride, pointer);
 			LogCommand("glMatrixIndexPointerARB", null, size, type, stride, pointer			);
 			DebugCheckErrors(null);
 		}
@@ -216,7 +216,7 @@ namespace OpenGL
 		/// A <see cref="T:int"/>.
 		/// </param>
 		/// <param name="type">
-		/// A <see cref="T:int"/>.
+		/// A <see cref="T:MatrixIndexPointerTypeARB"/>.
 		/// </param>
 		/// <param name="stride">
 		/// A <see cref="T:int"/>.
@@ -225,7 +225,7 @@ namespace OpenGL
 		/// A <see cref="T:object"/>.
 		/// </param>
 		[RequiredByFeature("GL_ARB_matrix_palette")]
-		public static void MatrixIndexPointerARB(int size, int type, int stride, object pointer)
+		public static void MatrixIndexPointerARB(int size, MatrixIndexPointerTypeARB type, int stride, object pointer)
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {

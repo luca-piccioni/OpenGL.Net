@@ -1144,13 +1144,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
-		public static void GetBufferParameter(BufferTarget target, int value, [Out] int[] data)
+		public static void GetBufferParameter(BufferTarget target, BufferPNameARB value, [Out] int[] data)
 		{
 			unsafe {
 				fixed (int* p_params = data)
 				{
 					Debug.Assert(Delegates.pglGetBufferParameteriv != null, "pglGetBufferParameteriv not implemented");
-					Delegates.pglGetBufferParameteriv((int)target, value, p_params);
+					Delegates.pglGetBufferParameteriv((int)target, (int)value, p_params);
 					LogCommand("glGetBufferParameteriv", null, target, value, data					);
 				}
 			}
@@ -1177,13 +1177,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
-		public static void GetBufferParameter(BufferTarget target, int value, out int data)
+		public static void GetBufferParameter(BufferTarget target, BufferPNameARB value, out int data)
 		{
 			unsafe {
 				fixed (int* p_params = &data)
 				{
 					Debug.Assert(Delegates.pglGetBufferParameteriv != null, "pglGetBufferParameteriv not implemented");
-					Delegates.pglGetBufferParameteriv((int)target, value, p_params);
+					Delegates.pglGetBufferParameteriv((int)target, (int)value, p_params);
 					LogCommand("glGetBufferParameteriv", null, target, value, data					);
 				}
 			}
@@ -1210,10 +1210,10 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
-		public static unsafe void GetBufferParameter(BufferTarget target, int value, [Out] int* data)
+		public static unsafe void GetBufferParameter(BufferTarget target, BufferPNameARB value, [Out] int* data)
 		{
 			Debug.Assert(Delegates.pglGetBufferParameteriv != null, "pglGetBufferParameteriv not implemented");
-			Delegates.pglGetBufferParameteriv((int)target, value, data);
+			Delegates.pglGetBufferParameteriv((int)target, (int)value, data);
 			LogCommand("glGetBufferParameteriv", null, target, value, new IntPtr(data).ToString("X8")			);
 			DebugCheckErrors(null);
 		}
@@ -1238,7 +1238,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
 		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
-		public static void GetBufferParameteri<T>(BufferTarget target, int value, out T data) where T : struct
+		public static void GetBufferParameteri<T>(BufferTarget target, BufferPNameARB value, out T data) where T : struct
 		{
 			Debug.Assert(Delegates.pglGetBufferParameteriv != null, "pglGetBufferParameteriv not implemented");
 			data = default(T);
@@ -1246,7 +1246,7 @@ namespace OpenGL
 			GCHandle valueHandle = GCHandle.Alloc(data);
 			try {
 				unsafe {
-					Delegates.pglGetBufferParameteriv((int)target, value, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
+					Delegates.pglGetBufferParameteriv((int)target, (int)value, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
 				}
 			} finally {
 				valueHandle.Free();
@@ -1256,7 +1256,7 @@ namespace OpenGL
 				TypedReference refParams = __makeref(data);
 				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
 
-				Delegates.pglGetBufferParameteriv((int)target, value, (int*)refParamsPtr.ToPointer());
+				Delegates.pglGetBufferParameteriv((int)target, (int)value, (int*)refParamsPtr.ToPointer());
 			}
 			#endif
 			LogCommand("glGetBufferParameteriv", null, target, value, data			);
@@ -1282,13 +1282,13 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		[RequiredByFeature("GL_OES_mapbuffer", Api = "gles1|gles2")]
-		public static void GetBufferPointer(BufferTarget target, int pname, out IntPtr @params)
+		public static void GetBufferPointer(BufferTarget target, BufferPointerNameARB pname, out IntPtr @params)
 		{
 			unsafe {
 				fixed (IntPtr* p_params = &@params)
 				{
 					Debug.Assert(Delegates.pglGetBufferPointerv != null, "pglGetBufferPointerv not implemented");
-					Delegates.pglGetBufferPointerv((int)target, pname, p_params);
+					Delegates.pglGetBufferPointerv((int)target, (int)pname, p_params);
 					LogCommand("glGetBufferPointerv", null, target, pname, @params					);
 				}
 			}
@@ -1314,7 +1314,7 @@ namespace OpenGL
 		[RequiredByFeature("GL_ES_VERSION_3_0", Api = "gles2")]
 		[RequiredByFeature("GL_ARB_vertex_buffer_object")]
 		[RequiredByFeature("GL_OES_mapbuffer", Api = "gles1|gles2")]
-		public static void GetBufferPointer(BufferTarget target, int pname, object @params)
+		public static void GetBufferPointer(BufferTarget target, BufferPointerNameARB pname, object @params)
 		{
 			GCHandle pin_params = GCHandle.Alloc(@params, GCHandleType.Pinned);
 			try {
