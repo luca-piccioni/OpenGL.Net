@@ -7,7 +7,7 @@
   <Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk" />
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFrameworks>netcoreapp2.2;net8.0</TargetFrameworks>
     <AssemblyName>OpenGL.Net</AssemblyName>
     <RootNamespace>OpenGL</RootNamespace>
     <Authors>Luca Piccioni</Authors>
