@@ -19,7 +19,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-// Macro utility for logging platform-relared function calls
+// Macro utility for logging platform-related function calls
 #undef PLATFORM_LOG_ENABLED
 
 using System;
@@ -307,19 +307,19 @@ namespace Khronos
 			public const int RTLD_NOW = 2;
 
 #if NETCORE
-			[DllImport("dl")]
+			[DllImport("libc")]
 			public static extern IntPtr dlopen(string filename, int flags);
 
-			[DllImport("dl")]
+			[DllImport("libc")]
 			public static extern IntPtr dlsym(IntPtr handle, string symbol);
 #else
-			[DllImport("dl")]
+			[DllImport("libc")]
 			public static extern IntPtr dlopen([MarshalAs(UnmanagedType.LPTStr)] string filename, int flags);
 
-			[DllImport("dl")]
+			[DllImport("libc")]
 			public static extern IntPtr dlsym(IntPtr handle, [MarshalAs(UnmanagedType.LPTStr)] string symbol);
 #endif
-			[DllImport("dl")]
+			[DllImport("libc")]
 			public static extern string dlerror();
 		}
 
@@ -328,10 +328,10 @@ namespace Khronos
 		#region IGetProcAdress Implementation
 
 		/// <summary>
-		/// Add a path of a directory as additional path for searching libraries.
+		/// Add a path of a directory as an additional path for searching libraries.
 		/// </summary>
 		/// <param name="libraryDirPath">
-		/// A <see cref="string"/> that specify the absolute path of the directory where the libraries are loaded using
+		/// A <see cref="string"/> that specifies the absolute path of the directory where the libraries are loaded using
 		/// <see cref="GetProcAddress(string, string)"/> method.
 		/// </param>
 		public void AddLibraryDirectory(string libraryDirPath)
