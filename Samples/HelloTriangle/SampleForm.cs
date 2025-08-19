@@ -49,26 +49,27 @@ namespace HelloTriangle
 			InitializeComponent();
 		}
 
-		#endregion
+        #endregion
 
-		#region Event Handling
+        #region Event Handling
 
-		/// <summary>
-		/// Allocate GL resources or GL states.
-		/// </summary>
-		/// <param name="sender">
-		/// The <see cref="object"/> that has rasied the event.
-		/// </param>
-		/// <param name="e">
-		/// The <see cref="GlControlEventArgs"/> that specifies the event arguments.
-		/// </param>
-		private void RenderControl_ContextCreated(object sender, GlControlEventArgs e)
+        /// <summary>
+        /// Allocate GL resources or GL states.
+        /// </summary>
+        /// <param name="sender">
+        /// The <see cref="object"/> that has rasied the event.
+        /// </param>
+        /// <param name="e">
+        /// The <see cref="GlControlEventArgs"/> that specifies the event arguments.
+        /// </param>
+        private void RenderControl_ContextCreated(object sender, GlControlEventArgs e)
 		{
 			GlControl glControl = (GlControl)sender;
+            _debugProc = GLDebugProc;
 
-			// GL Debugging
-			if (Gl.CurrentExtensions != null && Gl.CurrentExtensions.DebugOutput_ARB) {
-				Gl.DebugMessageCallback(GLDebugProc, IntPtr.Zero);
+            // GL Debugging
+            if (Gl.CurrentExtensions != null && Gl.CurrentExtensions.DebugOutput_ARB) {
+				Gl.DebugMessageCallback(_debugProc, IntPtr.Zero);
 				Gl.DebugMessageControl(DebugSource.DontCare, DebugType.DontCare, DebugSeverity.DontCare, 0, null, true);
 			}
 
@@ -548,6 +549,8 @@ namespace HelloTriangle
 			0.0f, 0.0f, 1.0f
 		};
 
-		#endregion
-	}
+        #endregion
+
+        Gl.DebugProc _debugProc;
+    }
 }
