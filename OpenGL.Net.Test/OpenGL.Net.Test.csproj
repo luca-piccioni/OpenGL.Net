@@ -7,8 +7,6 @@
 
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 
-    <PostBuildEvent>IF NOT EXIST "$(TargetDir)ANGLE\" xcopy /Q /S /Y "$(SolutionDir)ANGLE" "$(TargetDir)ANGLE\"</PostBuildEvent>
-
   </PropertyGroup>
 
   <PropertyGroup>
@@ -41,8 +39,6 @@
     <Compile Include="**\*.cs" Exclude="obj\**;bin\**;**\*.tt" />
 
     <None Include="app.config" CopyToOutputDirectory="PreserveNewest" />
-
-    <Content Include="ANGLE\**" CopyToOutputDirectory="PreserveNewest" />
 
     <None Include="**\*.tt" />
   </ItemGroup>
