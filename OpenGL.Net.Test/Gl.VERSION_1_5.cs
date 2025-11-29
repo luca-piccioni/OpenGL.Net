@@ -96,10 +96,10 @@ namespace OpenGL.Test
 
 					Gl.BufferData(BufferTarget.ArrayBuffer, (uint)arrayBufferData.Length, arrayBufferData, BufferUsage.StaticDraw);
 
-					Gl.GetBufferParameter(BufferTarget.ArrayBuffer, Gl.BUFFER_SIZE, out arrayBufferDataParam);
+					Gl.GetBufferParameter(BufferTarget.ArrayBuffer, BufferPNameARB.BufferSize, out arrayBufferDataParam);
 					Assert.AreEqual(arrayBufferData.Length, arrayBufferDataParam);
 
-					Gl.GetBufferParameter(BufferTarget.ArrayBuffer, Gl.BUFFER_USAGE, out arrayBufferDataParam);
+					Gl.GetBufferParameter(BufferTarget.ArrayBuffer, BufferPNameARB.BufferUsage, out arrayBufferDataParam);
 					Assert.AreEqual((int)BufferUsage.StaticDraw, arrayBufferDataParam);
 
 #if !MONODROID
@@ -161,12 +161,12 @@ namespace OpenGL.Test
 						IntPtr arrayBufferPtrGet;
 						int arrayBufferPtrParam;
 
-						Gl.GetBufferParameter(BufferTarget.ArrayBuffer, Gl.BUFFER_MAPPED, out arrayBufferPtrParam);
+						Gl.GetBufferParameter(BufferTarget.ArrayBuffer, BufferPNameARB.BufferMapped, out arrayBufferPtrParam);
 						Assert.AreEqual(Gl.TRUE, arrayBufferPtrParam);
-						Gl.GetBufferParameter(BufferTarget.ArrayBuffer, Gl.BUFFER_ACCESS, out arrayBufferPtrParam);
+						Gl.GetBufferParameter(BufferTarget.ArrayBuffer, BufferPNameARB.BufferAccess, out arrayBufferPtrParam);
 						Assert.AreEqual((int)BufferAccess.WriteOnly, arrayBufferPtrParam);
 
-						Gl.GetBufferPointer(BufferTarget.ArrayBuffer, Gl.BUFFER_MAP_POINTER, out arrayBufferPtrGet);
+						Gl.GetBufferPointer(BufferTarget.ArrayBuffer, BufferPointerNameARB.BufferMapPointer, out arrayBufferPtrGet);
 						Assert.AreEqual(arrayBufferPtr, arrayBufferPtrGet);
 					} finally {
 						Gl.UnmapBuffer(BufferTarget.ArrayBuffer);

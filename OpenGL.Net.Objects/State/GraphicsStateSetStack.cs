@@ -131,6 +131,15 @@ namespace OpenGL.Objects.State
 		}
 
 		/// <summary>
+		/// Get the state set stack count.
+		/// </summary>
+		/// <returns></returns>
+		public int GetCount()
+		{
+			return _StateSetStack.Count;
+		}
+
+		/// <summary>
 		/// The GraphicsStateSet stack.
 		/// </summary>
 		private readonly LinkedList<GraphicsStateSet> _StateSetStack = new LinkedList<GraphicsStateSet>();

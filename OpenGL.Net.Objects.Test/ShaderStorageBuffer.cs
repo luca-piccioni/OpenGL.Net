@@ -31,7 +31,7 @@ namespace OpenGL.Objects.Test
 		public void ShaderStorageBuffer_TestCreation()
 		{
 			using (ShaderStorageBuffer ssbo = new ShaderStorageBuffer(BufferUsage.DynamicDraw)) {
-				ssbo.Create(_Context, (uint)Math.Min(1024 * 1024, _Context.Limits.MaxShaderStorageBlockSize));
+				ssbo.Create(_Context, (uint)Math.Min(1024 * 1024, Gl.CurrentLimits.MaxShaderStorageBlockSize));
 			}
 		}
 
@@ -47,7 +47,7 @@ namespace OpenGL.Objects.Test
 
 			using (ShaderProgram program = new ShaderProgram("")) 
 			using (Shader computeShader = new Shader(ShaderType.ComputeShader))
-			using (ShaderStorageBuffer storageBuffer = new ShaderStorageBuffer(MapBufferUsageMask.MapReadBit))
+			using (ShaderStorageBuffer storageBuffer = new ShaderStorageBuffer(BufferStorageMask.MapReadBit))
 			{
 				computeShader.LoadSource(new[] {
 					"#version 430",
@@ -60,7 +60,7 @@ namespace OpenGL.Objects.Test
 					"	data[gl_WorkGroupID.x * gl_WorkGroupID.y] = uint(gl_WorkGroupID.x * gl_WorkGroupID.y);",
 					"}"
 				});
-				program.Attach(computeShader);
+				program.AttachShader(computeShader);
 				program.Create(_Context);
 
 				storageBuffer.Create(_Context, Size * Size * 4);

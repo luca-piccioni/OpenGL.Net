@@ -21,10 +21,14 @@
 
 using System;
 using System.Diagnostics;
+using System.Drawing;
 
 namespace OpenGL.Objects.State
 {
-	[DebuggerDisplay("ViewportState: Modes={Modes} Factor={Factor} Units={Units}")]
+	/// <summary>
+	/// Viewport state.
+	/// </summary>
+	[DebuggerDisplay("ViewportState: Position={Position} Size={Size}")]
 	public class ViewportState : GraphicsState
 	{
 		#region Constructors
@@ -46,6 +50,18 @@ namespace OpenGL.Objects.State
 		/// <summary>
 		/// Construct the ViewportState representing the current state.
 		/// </summary>
+		/// <param name="rect"></param>
+		public ViewportState(Rectangle rect)
+		{
+			_Viewport[0] = rect.X;
+			_Viewport[1] = rect.Y;
+			_Viewport[2] = rect.Width;
+			_Viewport[3] = rect.Height;
+		}
+
+		/// <summary>
+		/// Construct the ViewportState representing the current state.
+		/// </summary>
 		/// <param name="ctx">
 		/// The <see cref="GraphicsContext"/> that specifies
 		/// </param>
@@ -61,16 +77,16 @@ namespace OpenGL.Objects.State
 		/// <summary>
 		/// Get the position of the viewport.
 		/// </summary>
-		public Vertex2i Position { get { return (new Vertex2i(_Viewport[0], _Viewport[1])); } }
+		public Vertex2i Position => new Vertex2i(_Viewport[0], _Viewport[1]);
 
 		/// <summary>
 		/// Get the size of the viewport.
 		/// </summary>
-		public Vertex2i Size { get { return (new Vertex2i(_Viewport[2], _Viewport[3])); } }
+		public Vertex2i Size => new Vertex2i(_Viewport[2], _Viewport[3]);
 
-		public int Width { get { return (_Viewport[2]); } }
+		public int Width => _Viewport[2];
 
-		public int Height { get { return (_Viewport[3]); } }
+		public int Height => _Viewport[3];
 
 		/// <summary>
 		/// Viewport coordinates.
@@ -89,22 +105,17 @@ namespace OpenGL.Objects.State
 		/// <summary>
 		/// The identifier of this GraphicsState.
 		/// </summary>
-		public override string StateIdentifier { get { return (StateId); } }
+		public override string StateIdentifier => (StateId);
 
 		/// <summary>
 		/// Unique index assigned to this GraphicsState.
 		/// </summary>
-		public static int StateSetIndex { get { return (_StateIndex); } }
+		public static int StateSetIndex { get; } = NextStateIndex();
 
 		/// <summary>
 		/// Unique index assigned to this GraphicsState.
 		/// </summary>
-		public override int StateIndex { get { return (_StateIndex); } }
-
-		/// <summary>
-		/// The index for this GraphicsState.
-		/// </summary>
-		private static int _StateIndex = NextStateIndex();
+		public override int StateIndex => StateSetIndex;
 
 		/// <summary>
 		/// Set ShaderProgram state.
@@ -118,7 +129,7 @@ namespace OpenGL.Objects.State
 		public override void Apply(GraphicsContext ctx, ShaderProgram program)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			ViewportState currentState = (ViewportState)ctx.GetCurrentState(StateIndex);
 
@@ -133,6 +144,7 @@ namespace OpenGL.Objects.State
 		private void ApplyStateCore(GraphicsContext ctx, ShaderProgram program)
 		{
 			Gl.Viewport(_Viewport[0], _Viewport[1], _Viewport[2], _Viewport[3]);
+			ApplyStateShader(ctx, program);
 		}
 
 		private void ApplyStateCore(GraphicsContext ctx, ShaderProgram program, ViewportState currentState)
@@ -140,6 +152,12 @@ namespace OpenGL.Objects.State
 			if (_Viewport[0] != currentState._Viewport[0] || _Viewport[1] != currentState._Viewport[1] ||
 				_Viewport[2] != currentState._Viewport[2] || _Viewport[3] != currentState._Viewport[3])
 				Gl.Viewport(_Viewport[0], _Viewport[1], _Viewport[2], _Viewport[3]);
+			ApplyStateShader(ctx, program);
+		}
+
+		private void ApplyStateShader(GraphicsContext ctx, ShaderProgram program)
+		{
+			program?.SetUniform(ctx, "glo_ViewportSize", new Vertex2f(_Viewport[2], _Viewport[3]));
 		}
 
 		/// <summary>

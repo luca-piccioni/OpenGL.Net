@@ -33,18 +33,6 @@ namespace OpenGL.Objects
 		#region Constructors
 
 		/// <summary>
-		/// Construct an ElementBufferObject, implictly used with <see cref="BufferUsage.StaticDraw"/>.
-		/// </summary>
-		/// <param name="elementType">
-		/// The <see cref="DrawElementsType"/> that specify how vertices are interpreted.
-		/// </param>
-		public ElementBuffer(DrawElementsType elementType) :
-			this(elementType, (BufferStorageMask)0)
-		{
-
-		}
-
-		/// <summary>
 		/// Construct an ElementBufferObject.
 		/// </summary>
 		/// <param name="elementType">
@@ -54,10 +42,32 @@ namespace OpenGL.Objects
 		/// An <see cref="BufferUsage"/> that specify the data buffer usage hints.
 		/// </param>
 		public ElementBuffer(DrawElementsType elementType, BufferUsage hint) :
-			base(BufferTarget.ElementArrayBuffer, GetItemSize(elementType), hint)
+			base(BufferTarget.ElementArrayBuffer, hint)
 		{
-			ElementsType = elementType;
-			RestartIndexKey = GetDefaultRestartIndex(elementType);
+			try {
+				ElementsType = elementType;
+				// Determine ElementsType and default RestartIndexKey
+				switch (elementType) {
+					case DrawElementsType.UnsignedByte:
+						ItemSize = 1;
+						RestartIndexKey = 0x000000FF;
+						break;
+					case DrawElementsType.UnsignedShort:
+						ItemSize = 2;
+						RestartIndexKey = 0x0000FFFF;
+						break;
+					case DrawElementsType.UnsignedInt:
+						ItemSize = 4;
+						RestartIndexKey = 0xFFFFFFFF;
+						break;
+					default:
+						throw new ArgumentException("type not supported", "elementType");
+				}
+			} catch {
+				// Avoid finalizer assertion failure (don't call dispose since it's virtual)
+				GC.SuppressFinalize(this);
+				throw;
+			}
 		}
 
 		/// <summary>
@@ -70,111 +80,195 @@ namespace OpenGL.Objects
 		/// An <see cref="BufferStorageMask"/> that specify the buffer storage usage mask.
 		/// </param>
 		public ElementBuffer(DrawElementsType elementType, BufferStorageMask usageMask) :
-			base(BufferTarget.ElementArrayBuffer, GetItemSize(elementType), usageMask)
+			base(BufferTarget.ElementArrayBuffer, usageMask)
 		{
-			ElementsType = elementType;
-			RestartIndexKey = GetDefaultRestartIndex(elementType);
+			try {
+				ElementsType = elementType;
+				// Determine ElementsType and default RestartIndexKey
+				switch (elementType) {
+					case DrawElementsType.UnsignedByte:
+						ItemSize = 1;
+						RestartIndexKey = 0x000000FF;
+						break;
+					case DrawElementsType.UnsignedShort:
+						ItemSize = 2;
+						RestartIndexKey = 0x0000FFFF;
+						break;
+					case DrawElementsType.UnsignedInt:
+						ItemSize = 4;
+						RestartIndexKey = 0xFFFFFFFF;
+						break;
+					default:
+						throw new ArgumentException("type not supported", "elementType");
+				}
+			} catch {
+				// Avoid finalizer assertion failure (don't call dispose since it's virtual)
+				GC.SuppressFinalize(this);
+				throw;
+			}
 		}
 
 		/// <summary>
 		/// Construct an ElementBufferObject.
 		/// </summary>
 		/// <param name="elementType">
-		/// 
+		/// The <see cref="DrawElementsType"/> that specify how vertices are interpreted.
+		/// </param>
+		/// <param name="hint">
+		/// An <see cref="BufferUsage"/> that specify the data buffer usage hints.
+		/// </param>
+		/// <param name="usageMask">
+		/// An <see cref="BufferStorageMask"/> that specify the buffer storage usage mask.
+		/// </param>
+		public ElementBuffer(DrawElementsType elementType, BufferUsage hint, BufferStorageMask usageMask) :
+			base(BufferTarget.ElementArrayBuffer, hint, usageMask)
+		{
+			try {
+				ElementsType = elementType;
+				// Determine ElementsType and default RestartIndexKey
+				switch (elementType) {
+					case DrawElementsType.UnsignedByte:
+						ItemSize = 1;
+						RestartIndexKey = 0x000000FF;
+						break;
+					case DrawElementsType.UnsignedShort:
+						ItemSize = 2;
+						RestartIndexKey = 0x0000FFFF;
+						break;
+					case DrawElementsType.UnsignedInt:
+						ItemSize = 4;
+						RestartIndexKey = 0xFFFFFFFF;
+						break;
+					default:
+						throw new ArgumentException("type not supported", "elementType");
+				}
+			} catch {
+				// Avoid finalizer assertion failure (don't call dispose since it's virtual)
+				GC.SuppressFinalize(this);
+				throw;
+			}
+		}
+
+		/// <summary>
+		/// Construct an ElementBufferObject.
+		/// </summary>
+		/// <param name="elementType">
+		/// The <see cref="Type"/> of the underlying buffer item.
 		/// </param>
 		/// <param name="hint">
 		/// An <see cref="BufferUsage"/> that specify the data buffer usage hints.
 		/// </param>
 		protected ElementBuffer(Type elementType, BufferUsage hint) :
-			base(BufferTarget.ElementArrayBuffer, GetItemSize(elementType), hint)
+			base(BufferTarget.ElementArrayBuffer, hint)
 		{
-			ElementsType = GetDrawElementsType(elementType);
-			RestartIndexKey = GetDefaultRestartIndex(elementType);
+			try {
+				// Determine ElementsType and default RestartIndexKey
+				switch (Type.GetTypeCode(elementType)) {
+					case TypeCode.Byte:
+						ElementsType = DrawElementsType.UnsignedByte;
+						ItemSize = 1;
+						RestartIndexKey = 0x000000FF;
+						break;
+					case TypeCode.UInt16:
+						ElementsType = DrawElementsType.UnsignedShort;
+						ItemSize = 2;
+						RestartIndexKey = 0x0000FFFF;
+						break;
+					case TypeCode.UInt32:
+						ElementsType = DrawElementsType.UnsignedInt;
+						ItemSize = 4;
+						RestartIndexKey = 0xFFFFFFFF;
+						break;
+					default:
+						throw new ArgumentException("type not supported", "elementType");
+				}
+			} catch {
+				// Avoid finalizer assertion failure (don't call dispose since it's virtual)
+				GC.SuppressFinalize(this);
+				throw;
+			}
 		}
 
 		/// <summary>
 		/// Construct an ElementBufferObject.
 		/// </summary>
 		/// <param name="elementType">
-		/// 
+		/// The <see cref="Type"/> of the underlying buffer item.
 		/// </param>
 		/// <param name="usageMask">
 		/// An <see cref="BufferStorageMask"/> that specify the buffer storage usage mask.
 		/// </param>
 		protected ElementBuffer(Type elementType, BufferStorageMask usageMask) :
-			base(BufferTarget.ElementArrayBuffer, GetItemSize(elementType), usageMask)
+			base(BufferTarget.ElementArrayBuffer, usageMask)
 		{
-			ElementsType = GetDrawElementsType(elementType);
-			RestartIndexKey = GetDefaultRestartIndex(elementType);
-		}
-
-		private static uint GetItemSize(DrawElementsType drawElementsType)
-		{
-			switch (drawElementsType) {
-				case DrawElementsType.UnsignedByte:
-					return 1;
-				case DrawElementsType.UnsignedShort:
-					return 2;
-				case DrawElementsType.UnsignedInt:
-					return 4;
-				default:
-					throw new ArgumentException("type not supported", nameof(drawElementsType));
+			try {
+				// Determine ElementsType and default RestartIndexKey
+				switch (Type.GetTypeCode(elementType)) {
+					case TypeCode.Byte:
+						ElementsType = DrawElementsType.UnsignedByte;
+						ItemSize = 1;
+						RestartIndexKey = 0x000000FF;
+						break;
+					case TypeCode.UInt16:
+						ElementsType = DrawElementsType.UnsignedShort;
+						ItemSize = 2;
+						RestartIndexKey = 0x0000FFFF;
+						break;
+					case TypeCode.UInt32:
+						ElementsType = DrawElementsType.UnsignedInt;
+						ItemSize = 4;
+						RestartIndexKey = 0xFFFFFFFF;
+						break;
+					default:
+						throw new ArgumentException("type not supported", "elementType");
+				}
+			} catch {
+				// Avoid finalizer assertion failure (don't call dispose since it's virtual)
+				GC.SuppressFinalize(this);
+				throw;
 			}
 		}
 
-		private static uint GetItemSize(Type elementType)
+		/// <summary>
+		/// Construct an ElementBufferObject.
+		/// </summary>
+		/// <param name="elementType">
+		/// The <see cref="Type"/> of the underlying buffer item.
+		/// </param>
+		/// <param name="hint">
+		/// An <see cref="BufferUsage"/> that specify the data buffer usage hints.
+		/// </param>
+		/// <param name="usageMask">
+		/// An <see cref="BufferStorageMask"/> that specify the buffer storage usage mask.
+		/// </param>
+		protected ElementBuffer(Type elementType, BufferUsage hint, BufferStorageMask usageMask) :
+			base(BufferTarget.ElementArrayBuffer, hint, usageMask)
 		{
-			switch (Type.GetTypeCode(elementType)) {
-				case TypeCode.Byte:
-					return 1;
-				case TypeCode.UInt16:
-					return 2;
-				case TypeCode.UInt32:
-					return 3;
-				default:
-					throw new ArgumentException("type not supported", nameof(elementType));
-			}
-		}
-
-		private static uint GetDefaultRestartIndex(DrawElementsType drawElementsType)
-		{
-			switch (drawElementsType) {
-				case DrawElementsType.UnsignedByte:
-					return 0x000000FF;
-				case DrawElementsType.UnsignedShort:
-					return 0x0000FFFF;
-				case DrawElementsType.UnsignedInt:
-					return 0xFFFFFFFF;
-				default:
-					throw new ArgumentException("type not supported", nameof(drawElementsType));
-			}
-		}
-
-		private static uint GetDefaultRestartIndex(Type elementType)
-		{
-			switch (Type.GetTypeCode(elementType)) {
-				case TypeCode.Byte:
-					return 0x000000FF;
-				case TypeCode.UInt16:
-					return 0x0000FFFF;
-				case TypeCode.UInt32:
-					return 0xFFFFFFFF;
-				default:
-					throw new ArgumentException("type not supported", nameof(elementType));
-			}
-		}
-
-		private static DrawElementsType GetDrawElementsType(Type elementType)
-		{
-			switch (Type.GetTypeCode(elementType)) {
-				case TypeCode.Byte:
-					return DrawElementsType.UnsignedByte;
-				case TypeCode.UInt16:
-					return DrawElementsType.UnsignedShort;
-				case TypeCode.UInt32:
-					return DrawElementsType.UnsignedInt;
-				default:
-					throw new ArgumentException("type not supported", nameof(elementType));
+			try {
+				// Determine ElementsType and default RestartIndexKey
+				switch (Type.GetTypeCode(elementType)) {
+					case TypeCode.Byte:
+						ElementsType = DrawElementsType.UnsignedByte;
+						ItemSize = 1;
+						RestartIndexKey = 0x000000FF;
+						break;
+					case TypeCode.UInt16:
+						ElementsType = DrawElementsType.UnsignedShort;
+						ItemSize = 2;
+						RestartIndexKey = 0x0000FFFF;
+						break;
+					case TypeCode.UInt32:
+						ElementsType = DrawElementsType.UnsignedInt;
+						ItemSize = 4;
+						RestartIndexKey = 0xFFFFFFFF;
+						break;
+					default:
+						throw new ArgumentException("type not supported", "elementType");
+				}
+			} catch {
+				// Avoid finalizer assertion failure (don't call dispose since it's virtual)
+				GC.SuppressFinalize(this);
+				throw;
 			}
 		}
 
@@ -196,11 +290,11 @@ namespace OpenGL.Objects
 			{
 				switch (ElementsType) {
 					case DrawElementsType.UnsignedByte:
-						return ArrayBufferItemType.UByte;
+						return (ArrayBufferItemType.UByte);
 					case DrawElementsType.UnsignedShort:
-						return ArrayBufferItemType.UShort;
+						return (ArrayBufferItemType.UShort);
 					case DrawElementsType.UnsignedInt:
-						return ArrayBufferItemType.UInt;
+						return (ArrayBufferItemType.UInt);
 					default:
 						throw new NotSupportedException();
 				}
@@ -232,18 +326,20 @@ namespace OpenGL.Objects
 		/// </returns>
 		private int[] GetRestartIndices(out IntPtr[] count)
 		{
-			if (MappedBuffer == IntPtr.Zero)
-				throw new InvalidOperationException("GPU buffer is not accessible");
-
-			switch (ElementsType) {
-				case DrawElementsType.UnsignedByte:
-					return GetRestartIndices_UnsignedByte(out count);
-				case DrawElementsType.UnsignedShort:
-					return GetRestartIndices_UnsignedShort(out count);
-				case DrawElementsType.UnsignedInt:
-					return GetRestartIndices_UnsignedInt(out count);
-				default:
-					throw new NotSupportedException();
+			Map();
+			try {
+				switch (ElementsType) {
+					case DrawElementsType.UnsignedByte:
+						return (GetRestartIndices_UnsignedByte(out count));
+					case DrawElementsType.UnsignedShort:
+						return (GetRestartIndices_UnsignedShort(out count));
+					case DrawElementsType.UnsignedInt:
+						return (GetRestartIndices_UnsignedInt(out count));
+					default:
+						throw new NotSupportedException();
+				}
+			} finally {
+				Unmap();
 			}
 		}
 
@@ -252,11 +348,11 @@ namespace OpenGL.Objects
 			unsafe {
 				List<int> offsets = new List<int>();
 				List<IntPtr> counts = new List<IntPtr>();
-				byte* indicesPtr = (byte*)MappedBuffer.ToPointer();
+				byte* indicesPtr = (byte*)CpuBufferAddress.ToPointer();
 				byte restartIndex = (byte)(RestartIndexKey & 0x000000FF);
 
 				offsets.Add(0);
-				for (int i = 0; i < ItemsCount; i++, indicesPtr++) {
+				for (int i = 0; i < GpuItemsCount; i++, indicesPtr++) {
 					if (indicesPtr[i] == restartIndex) {
 						int previousIndex = offsets[offsets.Count - 1];
 
@@ -264,12 +360,12 @@ namespace OpenGL.Objects
 						offsets.Add(i + 1);
 					}
 				}
-				counts.Add(new IntPtr((int)ItemsCount - offsets[offsets.Count - 1]));
+				counts.Add(new IntPtr((int)GpuItemsCount - offsets[offsets.Count - 1]));
 
 				Debug.Assert(offsets.Count == counts.Count);
 				count = counts.ToArray();
 
-				return offsets.ToArray();
+				return (offsets.ToArray());
 			}
 		}
 
@@ -279,10 +375,10 @@ namespace OpenGL.Objects
 			{
 				List<int> offsets = new List<int>();
 				List<IntPtr> counts = new List<IntPtr>();
-				ushort* indicesPtr = (ushort*)MappedBuffer.ToPointer();
+				ushort* indicesPtr = (ushort*)CpuBufferAddress.ToPointer();
 				ushort restartIndex = (ushort)(RestartIndexKey & 0x0000FFFF);
 
-				for (int i = 0; i < ItemsCount; i++) {
+				for (int i = 0; i < GpuItemsCount; i++) {
 					if (indicesPtr[i] == restartIndex) {
 						int previousIndex = offsets[offsets.Count - 1];
 
@@ -290,12 +386,12 @@ namespace OpenGL.Objects
 						offsets.Add(i + 1);
 					}
 				}
-				counts.Add(new IntPtr((int)ItemsCount - offsets[offsets.Count - 1]));
+				counts.Add(new IntPtr((int)GpuItemsCount - offsets[offsets.Count - 1]));
 
 				Debug.Assert(offsets.Count == counts.Count);
 				count = counts.ToArray();
 
-				return offsets.ToArray();
+				return (offsets.ToArray());
 			}
 		}
 
@@ -305,10 +401,10 @@ namespace OpenGL.Objects
 			{
 				List<int> offsets = new List<int>();
 				List<IntPtr> counts = new List<IntPtr>();
-				uint* indicesPtr = (uint*)MappedBuffer.ToPointer();
+				uint* indicesPtr = (uint*)CpuBufferAddress.ToPointer();
 				uint restartIndex = RestartIndexKey;
 
-				for (int i = 0; i < ItemsCount; i++) {
+				for (int i = 0; i < GpuItemsCount; i++) {
 					if (indicesPtr[i] == restartIndex) {
 						int previousIndex = offsets[offsets.Count - 1];
 
@@ -316,12 +412,12 @@ namespace OpenGL.Objects
 						offsets.Add(i + 1);
 					}
 				}
-				counts.Add(new IntPtr((int)ItemsCount - offsets[offsets.Count - 1]));
+				counts.Add(new IntPtr((int)GpuItemsCount - offsets[offsets.Count - 1]));
 
 				Debug.Assert(offsets.Count == counts.Count);
 				count = counts.ToArray();
 
-				return offsets.ToArray();
+				return (offsets.ToArray());
 			}
 		}
 
@@ -345,24 +441,24 @@ namespace OpenGL.Objects
 
 			switch (ElementsType) {
 				case DrawElementsType.UnsignedByte:
-					vIndex = GetElementCore<byte>(index, 0);
+					vIndex = GetElement<byte>(index, 0);
 					break;
 				case DrawElementsType.UnsignedShort:
-					vIndex = GetElementCore<ushort>(index, 0);
+					vIndex = GetElement<ushort>(index, 0);
 					break;
 				case DrawElementsType.UnsignedInt:
-					vIndex = GetElementCore<uint>(index, 0);
+					vIndex = GetElement<uint>(index, 0);
 					break;
 				default:
 					throw new NotSupportedException(ElementsType + " not supported");
 			}
 
-			return vIndex;
+			return (vIndex);
 		}
 
 		#endregion
 
-		#region Overrides
+		#region ArrayBufferObjectBase Overrides
 
 		/// <summary>
 		/// Get the count of the array sections aggregated in this ArrayBufferObjectBase.
@@ -370,7 +466,7 @@ namespace OpenGL.Objects
 		/// <exception cref="NotImplementedException">
 		/// Exception always thrown.
 		/// </exception>
-		protected internal override uint ArraySectionsCount { get { return 1; } }
+		protected internal override uint ArraySectionsCount { get { return (1); } }
 
 		/// <summary>
 		/// Get the specified section information.
@@ -379,12 +475,12 @@ namespace OpenGL.Objects
 		/// The <see cref="UInt32"/> that specify the array section index.
 		/// </param>
 		/// <returns>
-		/// It returns the <see cref="ArrayBufferBase.IArraySection"/> defining the array section.
+		/// It returns the <see cref="IArraySection"/> defining the array section.
 		/// </returns>
 		/// <exception cref="NotImplementedException">
 		/// Exception always thrown.
 		/// </exception>
-		protected internal override IArraySection GetArraySection(uint index) { return this; }
+		protected internal override IArraySection GetArraySection(uint index) { return (this); }
 
 		/// <summary>
 		/// Convert the client buffer in a strongly-typed array.
@@ -394,15 +490,15 @@ namespace OpenGL.Objects
 		/// </returns>
 		public override Array ToArray()
 		{
-			if (MappedBuffer == IntPtr.Zero)
-				throw new InvalidOperationException("GPU buffer is not accessible");
+			if (CpuBufferAddress == IntPtr.Zero)
+				throw new InvalidOperationException("no client buffer");
 
-			Array genericArray = CreateArray(ArrayType, ItemsCount);
+			Array genericArray = CreateArray(ArrayType, CpuItemsCount);
 
 			// Copy from buffer data to array data
-			Memory.Copy(genericArray, MappedBuffer, ItemsCount * ItemSize);
+			Memory.Copy(genericArray, CpuBufferAddress, CpuItemsCount * ItemSize);
 
-			return genericArray;
+			return (genericArray);
 		}
 
 		/// <summary>
@@ -422,18 +518,18 @@ namespace OpenGL.Objects
 			if (Exists(ctx) == false)
 				throw new InvalidOperationException("not existing");
 
-			Array genericArray = CreateArray(ArrayType, ItemsCount);
+			Array genericArray = CreateArray(ArrayType, GpuItemsCount);
 
 			// By checking existence, it's sure that we map the GPU buffer
 			Map(ctx, BufferAccess.ReadOnly);
 			try {
 				// Copy from mapped data to array data
-				Memory.Copy(genericArray, MappedBuffer, ItemsCount * ItemSize);
+				Memory.Copy(genericArray, MappedBuffer, GpuItemsCount * ItemSize);
 			} finally {
 				Unmap(ctx);
 			}
 
-			return genericArray;
+			return (genericArray);
 		}
 
 		/// <summary>
@@ -471,28 +567,42 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// The type of the elements of the array section.
 		/// </summary>
-		ArrayBufferItemType IArraySection.ItemType { get { throw new NotImplementedException(); } }
+		ArrayBufferItemType IArraySection.ItemType
+		{
+			get {
+				switch (ElementsType) {
+					case DrawElementsType.UnsignedByte:
+						return ArrayBufferItemType.UByte;
+					case DrawElementsType.UnsignedShort:
+						return ArrayBufferItemType.UShort;
+					case DrawElementsType.UnsignedInt:
+						return ArrayBufferItemType.UInt;
+					default:
+						throw new NotSupportedException();
+				}
+			}
+		}
 
 		/// <summary>
 		/// Get whether the array elements should be meant normalized (fixed point precision values).
 		/// </summary>
-		bool IArraySection.Normalized { get { return false; } }
+		bool IArraySection.Normalized { get { return (false); } }
 
 		/// <summary>
 		/// Get the actual array buffer pointer. It could be <see cref="IntPtr.Zero"/> indicating an actual GPU
 		/// buffer reference.
 		/// </summary>
-		IntPtr IArraySection.Pointer { get { return GpuBufferAddress; } }
+		IntPtr IArraySection.Pointer { get { return (GpuBufferAddress); } }
 
 		/// <summary>
 		/// Offset of the first element of the array section, in bytes.
 		/// </summary>
-		IntPtr IArraySection.Offset { get { return IntPtr.Zero; } }
+		IntPtr IArraySection.Offset { get { return (IntPtr.Zero); } }
 
 		/// <summary>
 		/// Offset between two element of the array section, in bytes.
 		/// </summary>
-		IntPtr IArraySection.Stride { get { return IntPtr.Zero; } }
+		IntPtr IArraySection.Stride { get { return (IntPtr.Zero); } }
 
 		#endregion
 	}
@@ -541,6 +651,21 @@ namespace OpenGL.Objects
 			
 		}
 
+		/// <summary>
+		/// Construct an ElementBufferObject.
+		/// </summary>
+		/// <param name="hint">
+		/// An <see cref="BufferUsage"/> that specify the data buffer usage hints.
+		/// </param>
+		/// <param name="usageMask">
+		/// An <see cref="BufferStorageMask"/> that specify the buffer storage usage mask.
+		/// </param>
+		public ElementBuffer(BufferUsage hint, BufferStorageMask usageMask) :
+			base(typeof(T), hint, usageMask)
+		{
+
+		}
+
 		#endregion
 
 		#region Restart Index
@@ -554,13 +679,13 @@ namespace OpenGL.Objects
 			{
 				switch (Type.GetTypeCode(typeof(T))) {
 					case TypeCode.Byte:
-						return 0x000000FF;
+						return (0x000000FF);
 					case TypeCode.UInt16:
-						return 0x0000FFFF;
+						return (0x0000FFFF);
 					case TypeCode.UInt32:
-						return 0xFFFFFFFF;
+						return (0xFFFFFFFF);
 					default:
-						throw new NotSupportedException($"type {typeof(T)} not supported");
+						throw new ArgumentException("type not supported", "elementType");
 				}
 			}
 		}

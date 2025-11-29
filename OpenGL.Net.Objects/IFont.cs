@@ -27,6 +27,34 @@ namespace OpenGL.Objects
 	public interface IFont : IGraphicsResource
 	{
 		/// <summary>
+		/// Measure the string width.
+		/// </summary>
+		/// <param name="format">
+		/// A composite format string.
+		/// </param>
+		/// <param name="args">
+		/// An System.Object array containing zero or more objects to format.
+		/// </param>
+		/// <returns>
+		/// It returns the width of the string rendered from <paramref name="format"/> and <paramref name="args"/>, in pixels.
+		/// </returns>
+		float GetStringWidth(string format, params object[] args);
+
+		/// <summary>
+		/// Measure the string height.
+		/// </summary>
+		/// <param name="format">
+		/// A composite format string.
+		/// </param>
+		/// <param name="args">
+		/// An System.Object array containing zero or more objects to format.
+		/// </param>
+		/// <returns>
+		/// It returns the width of the string rendered from <paramref name="format"/> and <paramref name="args"/>, in pixels.
+		/// </returns>
+		float GetStringHeight(string format, params object[] args);
+
+		/// <summary>
 		/// Draw a character sequence.
 		/// </summary>
 		/// <param name="ctx">

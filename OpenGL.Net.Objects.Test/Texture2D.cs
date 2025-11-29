@@ -28,7 +28,7 @@ namespace OpenGL.Objects.Test
 		[Test]
 		public void Texture2D_DefaultConstructor()
 		{
-			using (Texture2D texture = new Texture2D()) {
+			using (Texture2d texture = new Texture2d()) {
 				Texture_DefaultConstructor(texture);
 			}
 		}
@@ -36,7 +36,7 @@ namespace OpenGL.Objects.Test
 		[Test]
 		public void Texture2D_CreateEmptyImmutable()
 		{
-			using (Texture2D texture = new Texture2D()) {
+			using (Texture2d texture = new Texture2d()) {
 
 				texture.Create(64, 64, PixelLayout.RGBA32);
 				Assert.AreEqual(true, texture.IsDirty);
@@ -64,7 +64,7 @@ namespace OpenGL.Objects.Test
 
 				Assert.DoesNotThrow(() => texture.Create(_Context));
 
-				texture.AutomaticMipmaps = true;
+				Assert.DoesNotThrow(() => texture.GenerateMipmaps());
 				Assert.DoesNotThrow(() => texture.Create(_Context));
 			}
 		}
@@ -72,7 +72,7 @@ namespace OpenGL.Objects.Test
 		[Test]
 		public void Texture2D_CreateEmptyMutable()
 		{
-			using (Texture2D texture = new Texture2D() { Immutable = false }) {
+			using (Texture2d texture = new Texture2d() { Immutable = false }) {
 
 				texture.Create(64, 64, PixelLayout.RGBA32);
 				Assert.AreEqual(true, texture.IsDirty);
@@ -102,7 +102,7 @@ namespace OpenGL.Objects.Test
 
 				Assert.DoesNotThrow(() => texture.Create(_Context));
 
-				texture.AutomaticMipmaps = true;
+				Assert.DoesNotThrow(() => texture.GenerateMipmaps());
 				Assert.DoesNotThrow(() => texture.Create(_Context));
 			}
 		}

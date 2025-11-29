@@ -30,13 +30,13 @@ namespace OpenGL.Objects
 	/// <summary>
 	/// One dimensional texture.
 	/// </summary>
-	[DebuggerDisplay("Texture1D: Width={Width}")]
-	public class Texture1D : Texture
+	[DebuggerDisplay("Texture1d: Width={Width}")]
+	public class Texture1d : Texture
 	{
 		#region Constructors
 
 		/// <summary>
-		/// Construct an undefined Texture1D.
+		/// Construct an undefined Texture1d.
 		/// </summary>
 		/// <remarks>
 		/// <para>
@@ -44,13 +44,13 @@ namespace OpenGL.Objects
 		/// of Create" methods (except <see cref="Create(GraphicsContext)"/>).
 		/// </para>
 		/// </remarks>
-		public Texture1D()
+		public Texture1d()
 		{
 
 		}
 
 		/// <summary>
-		/// Create Texture1D data, defining only the extents and the internal format.
+		/// Create Texture2d data, defining only the extents and the internal format.
 		/// </summary>
 		/// <param name="width">
 		/// A <see cref="UInt32"/> that specify the texture width.
@@ -74,13 +74,13 @@ namespace OpenGL.Objects
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="format"/> is not a supported internal format.
 		/// </exception>
-		public Texture1D(uint width, PixelLayout format)
+		public Texture1d(uint width, PixelLayout format)
 		{
 			Create(width, format);
 		}
 
 		/// <summary>
-		/// Create Texture1D data, defining only the extents and the internal format.
+		/// Create Texture2d data, defining only the extents and the internal format.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for creating this Texture. If it null, the current context
@@ -111,7 +111,7 @@ namespace OpenGL.Objects
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="format"/> is not a supported internal format.
 		/// </exception>
-		public Texture1D(GraphicsContext ctx, uint width, PixelLayout format)
+		public Texture1d(GraphicsContext ctx, uint width, PixelLayout format)
 		{
 			Create(ctx, width, format);
 		}
@@ -129,7 +129,7 @@ namespace OpenGL.Objects
 			/// Construct a EmptyTechnique.
 			/// </summary>
 			/// <param name="texture">
-			/// The <see cref="Texture1D"/> affected by this Technique.
+			/// The <see cref="Texture1d"/> affected by this Technique.
 			/// </param>
 			/// <param name="level">
 			/// The specific level of the target to define. Defaults to zero.
@@ -140,8 +140,7 @@ namespace OpenGL.Objects
 			/// <param name="width">
 			/// The width of the texture.
 			/// </param>
-			public EmptyTechnique(Texture1D texture, uint level, PixelLayout pixelFormat, uint width) :
-				base(texture)
+			public EmptyTechnique(Texture1d texture, uint level, PixelLayout pixelFormat, uint width)
 			{
 				_Texture1d = texture;
 				_Level = level;
@@ -150,9 +149,9 @@ namespace OpenGL.Objects
 			}
 
 			/// <summary>
-			/// The <see cref="Texture1D"/> affected by this Technique.
+			/// The <see cref="Texture1d"/> affected by this Technique.
 			/// </summary>
-			private readonly Texture1D _Texture1d;
+			private readonly Texture1d _Texture1d;
 
 			/// <summary>
 			/// The specific level of the target to define. Defaults to zero.
@@ -190,7 +189,7 @@ namespace OpenGL.Objects
 		#region Create(uint, PixelLayout)
 
 		/// <summary>
-		/// Create a Texture1D, defining the texture extents and the internal format.
+		/// Create a Texture1d, defining the texture extents and the internal format.
 		/// </summary>
 		/// <param name="width">
 		/// A <see cref="UInt32"/> that specify the texture width.
@@ -227,7 +226,7 @@ namespace OpenGL.Objects
 		#region Create(GraphicsContext, uint, PixelLayout)
 
 		/// <summary>
-		/// Create Texture1D data, defining only the extents and the internal format.
+		/// Create Texture2d data, defining only the extents and the internal format.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for creating this Texture.
@@ -270,6 +269,154 @@ namespace OpenGL.Objects
 		#endregion
 
 		/// <summary>
+		/// Technique defining a texture based on arrays.
+		/// </summary>
+		class ArrayTechnique : Technique
+		{
+			/// <summary>
+			/// Construct a ArrayTechnique.
+			/// </summary>
+			/// <param name="texture">
+			/// The <see cref="Texture1d"/> affected by this Technique.
+			/// </param>
+			/// <param name="pixelFormat">
+			/// The texture pixel format.
+			/// </param>
+			/// <param name="array">
+			/// The <see cref="Array"/> that holds the texture data.
+			/// </param>
+			public ArrayTechnique(Texture1d texture, PixelLayout pixelFormat, Array array) :
+				this(texture, 0, pixelFormat, array)
+			{
+
+			}
+
+			/// <summary>
+			/// Construct a ArrayTechnique.
+			/// </summary>
+			/// <param name="texture">
+			/// The <see cref="Texture1d"/> affected by this Technique.
+			/// </param>
+			/// <param name="level">
+			/// The specific level of the target to define. Defaults to zero.
+			/// </param>
+			/// <param name="pixelFormat">
+			/// The texture pixel format.
+			/// </param>
+			/// <param name="array">
+			/// The <see cref="Array"/> that holds the texture data.
+			/// </param>
+			public ArrayTechnique(Texture1d texture, uint level, PixelLayout pixelFormat, Array array)
+			{
+				if (array == null)
+					throw new ArgumentNullException(nameof(array));
+				if (array.Rank > 1)
+					throw new ArgumentException("multi-dimensional array greater than 1", nameof(array));
+
+				_Texture1d = texture;
+				_Level = level;
+				_PixelFormat = pixelFormat;
+				_Array = array;
+			}
+
+			/// <summary>
+			/// The <see cref="Texture1d"/> affected by this Technique.
+			/// </summary>
+			private readonly Texture1d _Texture1d;
+
+			/// <summary>
+			/// The specific level of the target to define. Defaults to zero.
+			/// </summary>
+			private readonly uint _Level;
+
+			/// <summary>
+			/// The internal pixel format of textel.
+			/// </summary>
+			private readonly PixelLayout _PixelFormat;
+
+			/// <summary>
+			/// The array that represents the texture data.
+			/// </summary>
+			private readonly Array _Array;
+
+			/// <summary>
+			/// Create the texture, using this technique.
+			/// </summary>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> used for allocating resources.
+			/// </param>
+			public override void Create(GraphicsContext ctx)
+			{
+				InternalFormat internalFormat = _PixelFormat.ToInternalFormat();
+				PixelFormat format = _PixelFormat.ToDataFormat();
+				PixelType type = _PixelFormat.ToPixelType();
+
+				// Set pixel alignment
+				State.PixelUnpackState.Align((uint)_Array.Length).Apply(ctx, null);
+				// Upload texture contents
+				Gl.TexImage1D(TextureTarget.Texture1d, (int)_Level, internalFormat, _Array.Length, 0, format, type, _Array);
+				// Define texture properties
+				_Texture1d.SetMipmap(_PixelFormat, (uint)_Array.Length, 1, 1, _Level);
+			}
+		}
+
+		#region Create(Array)
+
+		/// <summary>
+		/// Create Texture1d data from a Image instance.
+		/// </summary>
+		/// <param name="pixelFormat">
+		/// The <see cref="PixelLayout"/> representing the format of <paramref name="array"/> items.
+		/// </param>
+		/// <param name="array">
+		/// An <see cref="Array"/> holding the texture data.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception throw if <paramref name="array"/> is null.
+		/// </exception>
+		public void Create(PixelLayout pixelFormat, Array array)
+		{
+			if (array == null)
+				throw new ArgumentNullException(nameof(array));
+
+			// Setup technique for creation
+			SetTechnique(new ArrayTechnique(this, pixelFormat, array));
+		}
+
+		#endregion
+
+		#region Create(GraphicsContext, Array)
+
+		/// <summary>
+		/// Create Texture1d from a Array instance.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for creating this Texture. If it null, the current context
+		/// will be used.
+		/// </param>
+		/// <param name="pixelFormat">
+		/// The <see cref="PixelLayout"/> representing the format of <paramref name="array"/> items.
+		/// </param>
+		/// <param name="array">
+		/// An <see cref="Array"/> holding the texture data.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception throw if <paramref name="array"/> is null.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown if <paramref name="ctx"/> is null and no context is current to the calling thread.
+		/// </exception>
+		public void Create(GraphicsContext ctx, PixelLayout pixelFormat, Array array)
+		{
+			// Define texture technique
+			Create(pixelFormat, array);
+			// Define texture
+			Create(ctx);
+		}
+
+		#endregion
+
+		/// <summary>
 		/// Technique defining a texture based on image.
 		/// </summary>
 		class ImageTechnique : Technique
@@ -278,7 +425,7 @@ namespace OpenGL.Objects
 			/// Construct a ImageTechnique.
 			/// </summary>
 			/// <param name="texture">
-			/// The <see cref="Texture1D"/> affected by this Technique.
+			/// The <see cref="Texture1d"/> affected by this Technique.
 			/// </param>
 			/// <param name="pixelFormat">
 			/// The texture pixel format.
@@ -286,7 +433,7 @@ namespace OpenGL.Objects
 			/// <param name="image">
 			/// The <see cref="Image"/> that holds the texture data.
 			/// </param>
-			public ImageTechnique(Texture1D texture, PixelLayout pixelFormat, Image image) :
+			public ImageTechnique(Texture1d texture, PixelLayout pixelFormat, Image image) :
 				this(texture, 0, pixelFormat, image)
 			{
 
@@ -296,7 +443,7 @@ namespace OpenGL.Objects
 			/// Construct a ImageTechnique.
 			/// </summary>
 			/// <param name="texture">
-			/// The <see cref="Texture1D"/> affected by this Technique.
+			/// The <see cref="Texture1d"/> affected by this Technique.
 			/// </param>
 			/// <param name="level">
 			/// The specific level of the target to define. Defaults to zero.
@@ -307,8 +454,7 @@ namespace OpenGL.Objects
 			/// <param name="image">
 			/// The <see cref="Image"/> that holds the texture data.
 			/// </param>
-			public ImageTechnique(Texture1D texture, uint level, PixelLayout pixelFormat, Image image) :
-				base(texture)
+			public ImageTechnique(Texture1d texture, uint level, PixelLayout pixelFormat, Image image)
 			{
 				if (image == null)
 					throw new ArgumentNullException("image");
@@ -323,9 +469,9 @@ namespace OpenGL.Objects
 			}
 
 			/// <summary>
-			/// The <see cref="Texture1D"/> affected by this Technique.
+			/// The <see cref="Texture1d"/> affected by this Technique.
 			/// </summary>
-			private readonly Texture1D _Texture1d;
+			private readonly Texture1d _Texture1d;
 
 			/// <summary>
 			/// The specific level of the target to define. Defaults to zero.
@@ -354,9 +500,8 @@ namespace OpenGL.Objects
 				PixelFormat format = _Image.PixelLayout.ToDataFormat();
 				PixelType type = _Image.PixelLayout.ToPixelType();
 
-				// Set pixel alignment
-				State.PixelAlignmentState.Unpack(_Image.Stride).Apply(ctx, null);
-
+				// Set pixel unpack
+				State.PixelUnpackState.Align(_Image.Stride).Apply(ctx, null);
 				// Upload texture contents
 				Gl.TexImage1D(TextureTarget.Texture1d, (int)_Level, internalFormat, (int)_Image.Width, 0, format, type, _Image.ImageBuffer);
 				// Define texture properties
@@ -376,7 +521,7 @@ namespace OpenGL.Objects
 		#region Create(Image)
 
 		/// <summary>
-		/// Create Texture1D data from a Image instance.
+		/// Create Texture1d data from a Image instance.
 		/// </summary>
 		/// <param name="image">
 		/// An <see cref="Image"/> holding the texture data.
@@ -414,7 +559,7 @@ namespace OpenGL.Objects
 		#region Create(GraphicsContext, Image)
 
 		/// <summary>
-		/// Create Texture1D from a Image instance.
+		/// Create Texture1d from a Image instance.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for creating this Texture. If it null, the current context
@@ -489,7 +634,7 @@ namespace OpenGL.Objects
 		#region CreateFromResource(string, string)
 
 		/// <summary>
-		/// Create Texture1D data from an embedded resource.
+		/// Create Texture1d data from an embedded resource.
 		/// </summary>
 		/// <param name="resourcePath">
 		/// An <see cref="String"/> that specify the embedded resource path.

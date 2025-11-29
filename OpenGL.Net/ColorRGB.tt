@@ -26,6 +26,7 @@
 // SOFTWARE.
 
 using System;
+using System.Diagnostics;
 #if HAVE_SYSTEM_DRAWING
 using System.Drawing;
 #endif
@@ -63,6 +64,7 @@ namespace OpenGL
 	/// <summary>
 	/// RGB color.
 	/// </summary>
+	[DebuggerDisplay("<#= className #>: R={Red} G={Green} B={Blue}")]
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	public struct <#= className #>
 	{

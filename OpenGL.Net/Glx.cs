@@ -84,26 +84,12 @@ namespace OpenGL
 		private static bool _IsRequired;
 
 		/// <summary>
-		/// Get or set the delegate used for loading function pointers for this API.
-		/// </summary>
-		public GetAddressDelegate GetFunctionPointerDelegate
-		{
-			get { return _GetAddressDelegate; }
-			set { _GetAddressDelegate = value ?? GetProcAddressGLOS; }
-		}
-
-		/// <summary>
-		/// Delegate used for loading function pointers for this API.
-		/// </summary>
-		private static GetAddressDelegate _GetAddressDelegate = GetProcAddressOS;
-
-		/// <summary>
 		/// Bind Windows EGL delegates.
 		/// </summary>
 		private static void BindAPI()
 		{
 			try {
-				BindAPI<Glx>(Library, _GetAddressDelegate, null);
+				BindAPI<Glx>(Library, GetProcAddressOS, null);
 			} catch (Exception) {
 				/* Fail-safe (it may fail due Egl access) */
 			}

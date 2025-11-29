@@ -26,6 +26,9 @@ namespace OpenGL
 	/// <summary>
 	/// Pixel format model.
 	/// </summary>
+	/// <remarks>
+	/// 
+	/// </remarks>
 	public enum PixelLayout : uint
 	{
 		/// <summary>
@@ -33,36 +36,66 @@ namespace OpenGL
 		/// </summary>
 		None,
 
-		#region Red Pixel Types
+		#region Red Pixel Types (Single Component)
 
 		/// <summary>
-		/// Grayscale composed by 8 bits.
+		/// Red composed by 8 bits.
 		/// </summary>
 		R8,
+
 		/// <summary>
-		/// Grayscale composed by 16 bits.
+		/// Red composed by 16 bits, normalized unsigned.
 		/// </summary>
 		R16,
+
 		/// <summary>
-		/// Grayscale composed by 16 bits.
+		/// Red composed by 16 bits, normalized unsigned, in Big Endian notation.
+		/// </summary>
+		R16_BE,
+
+		/// <summary>
+		/// Red composed by 16 bits, normalized signed.
+		/// </summary>
+		R16I,
+
+		/// <summary>
+		/// Red composed by 16 bits.
 		/// </summary>
 		R32,
+
 		/// <summary>
-		/// Grayscale composed by 16 bits.
+		/// Red composed by 16 bits.
 		/// </summary>
 		GRAY16S,
+
 		/// <summary>
-		/// Grayscale composed by floating point number (32 bit IEEE floating point).
+		/// Red composed by floating point number (32 bit IEEE floating point).
 		/// </summary>
 		RF,
+
 		/// <summary>
-		/// Grayscale composed by floating point number (64 bit IEEE floating point).
+		/// Red composed by floating point number (64 bit IEEE floating point).
 		/// </summary>
 		RD,
+
 		/// <summary>
-		/// Grayscale composed by half floating point number (16 bit IEEE floating point).
+		/// Red composed by half floating point number (16 bit IEEE floating point).
 		/// </summary>
 		RHF,
+
+		#endregion
+
+		#region Red+Green Pixel Types (Double Component)
+
+		/// <summary>
+		/// Red and Alpha composed by 16 bits.
+		/// </summary>
+		RG16,
+
+		/// <summary>
+		/// Red and Alpha composed by 32 bit floating-point.
+		/// </summary>
+		RG32F,
 
 		#endregion
 
@@ -410,6 +443,15 @@ namespace OpenGL
 		/// Depth value (single-precision floating-point).
 		/// </summary>
 		DepthF,
+
+		#endregion
+
+		#region Stencil Pixel Types
+
+		/// <summary>
+		/// Stencil value (8 bit).
+		/// </summary>
+		Stencil8,
 
 		#endregion
 

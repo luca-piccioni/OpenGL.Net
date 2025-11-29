@@ -307,7 +307,7 @@ namespace OpenGL
 		
 		#endregion
 
-		#region DeviceContext Overrides
+		#region Overrides
 
 		/// <summary>
 		/// Get this DeviceContext API version.
@@ -942,6 +942,35 @@ namespace OpenGL
 			_XVisualInfo = pixelFormat.XVisualInfo;
 
 			IsPixelFormatSet = true;
+		}
+
+		/// <summary>
+		/// Get the device pixel format index.
+		/// </summary>
+		public override int GetPixelFormatIndex()
+		{
+			// No actual pixel format index
+			return 1;
+		}
+
+		/// <summary>
+		/// Determine whether this DeviceContext support OpenGL swapping groups.
+		/// </summary>
+		public override bool SupportSwapGroup { get { return Glx.CurrentExtensions != null && Glx.CurrentExtensions.SwapGroup_NV; } }
+
+		/// <summary>
+		/// Join this DeviceContext to the specified swap group.
+		/// </summary>
+		/// <param name="swapGroupID">
+		/// The identifier of the OpenGL swap group. If zero, unbound this DeviceContext from any swap group.
+		/// </param>
+		public override bool JoinSwapGroup(uint swapGroupID)
+		{
+			// Silently ignore request if not supported
+			if (!SupportSwapGroup)
+				return false;
+
+			return Glx.JoinSwapGroupNV(_Display, _WindowHandle, swapGroupID);
 		}
 
 		#endregion

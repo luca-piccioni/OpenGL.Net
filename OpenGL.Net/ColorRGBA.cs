@@ -1,4 +1,11 @@
 ﻿
+
+
+
+
+
+
+
 // Copyright (C) 2009-2017 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,14 +32,17 @@ using System.Diagnostics;
 using System.Drawing;
 #endif
 using System.Runtime.InteropServices;
+using System.Runtime.Serialization;
 
 namespace OpenGL
 {
+
 	/// <summary>
 	/// RGBA color.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	public struct ColorRGBA32 : IEquatable<ColorRGBA32>
+	[Serializable()]
+	public struct ColorRGBA32 : IEquatable<ColorRGBA32>, ISerializable
 	{
 		#region Constructors
 
@@ -75,6 +85,57 @@ namespace OpenGL
 			this.g = g;
 			this.b = b;
 			this.a = a;
+		}
+
+		/// <summary>
+		/// Construct a ColorRGBA32 specifying RGB components.
+		/// </summary>
+		/// <param name="color">
+		/// A <see cref="ColorRGB24"/> that specify the red/green/blue components.
+		/// </param>
+		/// <param name="a">
+		/// A <see cref="byte"/> that specify the alpha component.
+		/// </param>
+		public ColorRGBA32(ColorRGB24 color, byte a)
+		{
+			r = color.r;
+			g = color.g;
+			b = color.b;
+			this.a = a;
+		}
+
+		/// <summary>
+		/// Construct a ColorRGBA32 specifying RGB components.
+		/// </summary>
+		/// <param name="color">
+		/// A <see cref="ColorRGB24"/> that specify the red/green/blue components.
+		/// </param>
+		/// <param name="a">
+		/// A <see cref="byte"/> that specify the alpha component.
+		/// </param>
+		public ColorRGBA32(ColorRGBA32 color, byte a)
+		{
+			r = color.r;
+			g = color.g;
+			b = color.b;
+			this.a = a;
+		}
+
+		/// <summary>
+		/// Construct a ColorRGBA32 from a serialization context.
+		/// </summary>
+		/// <param name="info">
+		/// The System.Runtime.Serialization.SerializationInfo to populate with data.
+		/// </param>
+		/// <param name="context">
+		/// The destination (see System.Runtime.Serialization.StreamingContext) for this serialization.
+		/// </param>
+		public ColorRGBA32(SerializationInfo info, StreamingContext context)
+		{
+			r = (byte)info.GetValue("r", typeof(byte));
+			g = (byte)info.GetValue("g", typeof(byte));
+			b = (byte)info.GetValue("b", typeof(byte));
+			a = (byte)info.GetValue("a", typeof(byte));
 		}
 
 		#endregion
@@ -177,7 +238,22 @@ namespace OpenGL
 			return c;
 		}
 
+		/// <summary>
+		/// Cast to Color operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="ColorRGBA32"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Color"/> initialized with the color components.
+		/// </returns>
+		public static explicit operator Color(ColorRGBA32 c)
+		{
+			return Color.FromArgb((int)(c[3] * byte.MaxValue), (int)(c[0] * byte.MaxValue), (int)(c[1] * byte.MaxValue), (int)(c[2] * byte.MaxValue));
+		}
+
 #endif
+
 		#endregion
 
 		#region Equality Operators
@@ -270,7 +346,8 @@ namespace OpenGL
 		/// Exception thrown when <paramref name="c"/> is less than 0 or greater than the number of components of this IColor implementation.
 		/// </exception>
 		public float this[int c]
-		{			get
+		{
+			get
 			{
 				switch (c) {
 					case 0: return (float)r / byte.MaxValue;
@@ -294,6 +371,7 @@ namespace OpenGL
 						throw new IndexOutOfRangeException();
 				}
 			}
+
 		}
 
 		#endregion
@@ -379,13 +457,36 @@ namespace OpenGL
 		}
 
 		#endregion
+
+		#region ISerializable Implementation
+
+		/// <summary>
+		/// Populates a System.Runtime.Serialization.SerializationInfo with the data needed to serialize the target object.
+		/// </summary>
+		/// <param name="info">
+		/// The System.Runtime.Serialization.SerializationInfo to populate with data.
+		/// </param>
+		/// <param name="context">
+		/// The destination (see System.Runtime.Serialization.StreamingContext) for this serialization.
+		/// </param>
+		public void GetObjectData(SerializationInfo info, StreamingContext context)
+		{
+			info.AddValue("r", r);
+			info.AddValue("g", g);
+			info.AddValue("b", b);
+			info.AddValue("a", a);
+		}
+
+		#endregion
 	}
+
 
 	/// <summary>
 	/// RGBA color.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	public struct ColorRGBA64 : IEquatable<ColorRGBA64>
+	[Serializable()]
+	public struct ColorRGBA64 : IEquatable<ColorRGBA64>, ISerializable
 	{
 		#region Constructors
 
@@ -428,6 +529,57 @@ namespace OpenGL
 			this.g = g;
 			this.b = b;
 			this.a = a;
+		}
+
+		/// <summary>
+		/// Construct a ColorRGBA64 specifying RGB components.
+		/// </summary>
+		/// <param name="color">
+		/// A <see cref="ColorRGB48"/> that specify the red/green/blue components.
+		/// </param>
+		/// <param name="a">
+		/// A <see cref="ushort"/> that specify the alpha component.
+		/// </param>
+		public ColorRGBA64(ColorRGB48 color, ushort a)
+		{
+			r = color.r;
+			g = color.g;
+			b = color.b;
+			this.a = a;
+		}
+
+		/// <summary>
+		/// Construct a ColorRGBA64 specifying RGB components.
+		/// </summary>
+		/// <param name="color">
+		/// A <see cref="ColorRGB48"/> that specify the red/green/blue components.
+		/// </param>
+		/// <param name="a">
+		/// A <see cref="ushort"/> that specify the alpha component.
+		/// </param>
+		public ColorRGBA64(ColorRGBA64 color, ushort a)
+		{
+			r = color.r;
+			g = color.g;
+			b = color.b;
+			this.a = a;
+		}
+
+		/// <summary>
+		/// Construct a ColorRGBA64 from a serialization context.
+		/// </summary>
+		/// <param name="info">
+		/// The System.Runtime.Serialization.SerializationInfo to populate with data.
+		/// </param>
+		/// <param name="context">
+		/// The destination (see System.Runtime.Serialization.StreamingContext) for this serialization.
+		/// </param>
+		public ColorRGBA64(SerializationInfo info, StreamingContext context)
+		{
+			r = (ushort)info.GetValue("r", typeof(ushort));
+			g = (ushort)info.GetValue("g", typeof(ushort));
+			b = (ushort)info.GetValue("b", typeof(ushort));
+			a = (ushort)info.GetValue("a", typeof(ushort));
 		}
 
 		#endregion
@@ -530,7 +682,22 @@ namespace OpenGL
 			return c;
 		}
 
+		/// <summary>
+		/// Cast to Color operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="ColorRGBA64"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Color"/> initialized with the color components.
+		/// </returns>
+		public static explicit operator Color(ColorRGBA64 c)
+		{
+			return Color.FromArgb((int)(c[3] * byte.MaxValue), (int)(c[0] * byte.MaxValue), (int)(c[1] * byte.MaxValue), (int)(c[2] * byte.MaxValue));
+		}
+
 #endif
+
 		#endregion
 
 		#region Equality Operators
@@ -623,7 +790,8 @@ namespace OpenGL
 		/// Exception thrown when <paramref name="c"/> is less than 0 or greater than the number of components of this IColor implementation.
 		/// </exception>
 		public float this[int c]
-		{			get
+		{
+			get
 			{
 				switch (c) {
 					case 0: return (float)r / ushort.MaxValue;
@@ -647,6 +815,7 @@ namespace OpenGL
 						throw new IndexOutOfRangeException();
 				}
 			}
+
 		}
 
 		#endregion
@@ -732,13 +901,36 @@ namespace OpenGL
 		}
 
 		#endregion
+
+		#region ISerializable Implementation
+
+		/// <summary>
+		/// Populates a System.Runtime.Serialization.SerializationInfo with the data needed to serialize the target object.
+		/// </summary>
+		/// <param name="info">
+		/// The System.Runtime.Serialization.SerializationInfo to populate with data.
+		/// </param>
+		/// <param name="context">
+		/// The destination (see System.Runtime.Serialization.StreamingContext) for this serialization.
+		/// </param>
+		public void GetObjectData(SerializationInfo info, StreamingContext context)
+		{
+			info.AddValue("r", r);
+			info.AddValue("g", g);
+			info.AddValue("b", b);
+			info.AddValue("a", a);
+		}
+
+		#endregion
 	}
+
 
 	/// <summary>
 	/// RGBA color.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	public struct ColorRGBAF : IEquatable<ColorRGBAF>
+	[Serializable()]
+	public struct ColorRGBAF : IEquatable<ColorRGBAF>, ISerializable
 	{
 		#region Constructors
 
@@ -781,6 +973,57 @@ namespace OpenGL
 			this.g = g;
 			this.b = b;
 			this.a = a;
+		}
+
+		/// <summary>
+		/// Construct a ColorRGBAF specifying RGB components.
+		/// </summary>
+		/// <param name="color">
+		/// A <see cref="ColorRGBF"/> that specify the red/green/blue components.
+		/// </param>
+		/// <param name="a">
+		/// A <see cref="float"/> that specify the alpha component.
+		/// </param>
+		public ColorRGBAF(ColorRGBF color, float a)
+		{
+			r = color.r;
+			g = color.g;
+			b = color.b;
+			this.a = a;
+		}
+
+		/// <summary>
+		/// Construct a ColorRGBAF specifying RGB components.
+		/// </summary>
+		/// <param name="color">
+		/// A <see cref="ColorRGBF"/> that specify the red/green/blue components.
+		/// </param>
+		/// <param name="a">
+		/// A <see cref="float"/> that specify the alpha component.
+		/// </param>
+		public ColorRGBAF(ColorRGBAF color, float a)
+		{
+			r = color.r;
+			g = color.g;
+			b = color.b;
+			this.a = a;
+		}
+
+		/// <summary>
+		/// Construct a ColorRGBAF from a serialization context.
+		/// </summary>
+		/// <param name="info">
+		/// The System.Runtime.Serialization.SerializationInfo to populate with data.
+		/// </param>
+		/// <param name="context">
+		/// The destination (see System.Runtime.Serialization.StreamingContext) for this serialization.
+		/// </param>
+		public ColorRGBAF(SerializationInfo info, StreamingContext context)
+		{
+			r = (float)info.GetValue("r", typeof(float));
+			g = (float)info.GetValue("g", typeof(float));
+			b = (float)info.GetValue("b", typeof(float));
+			a = (float)info.GetValue("a", typeof(float));
 		}
 
 		#endregion
@@ -883,7 +1126,22 @@ namespace OpenGL
 			return c;
 		}
 
+		/// <summary>
+		/// Cast to Color operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="ColorRGBAF"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Color"/> initialized with the color components.
+		/// </returns>
+		public static explicit operator Color(ColorRGBAF c)
+		{
+			return Color.FromArgb((int)(c[3] * byte.MaxValue), (int)(c[0] * byte.MaxValue), (int)(c[1] * byte.MaxValue), (int)(c[2] * byte.MaxValue));
+		}
+
 #endif
+
 		#endregion
 
 		#region Equality Operators
@@ -976,7 +1234,8 @@ namespace OpenGL
 		/// Exception thrown when <paramref name="c"/> is less than 0 or greater than the number of components of this IColor implementation.
 		/// </exception>
 		public float this[int c]
-		{			get
+		{
+			get
 			{
 				switch (c) {
 					case 0: return r;
@@ -1000,6 +1259,7 @@ namespace OpenGL
 						throw new IndexOutOfRangeException();
 				}
 			}
+
 		}
 
 		#endregion
@@ -1085,13 +1345,36 @@ namespace OpenGL
 		}
 
 		#endregion
+
+		#region ISerializable Implementation
+
+		/// <summary>
+		/// Populates a System.Runtime.Serialization.SerializationInfo with the data needed to serialize the target object.
+		/// </summary>
+		/// <param name="info">
+		/// The System.Runtime.Serialization.SerializationInfo to populate with data.
+		/// </param>
+		/// <param name="context">
+		/// The destination (see System.Runtime.Serialization.StreamingContext) for this serialization.
+		/// </param>
+		public void GetObjectData(SerializationInfo info, StreamingContext context)
+		{
+			info.AddValue("r", r);
+			info.AddValue("g", g);
+			info.AddValue("b", b);
+			info.AddValue("a", a);
+		}
+
+		#endregion
 	}
+
 
 	/// <summary>
 	/// RGBA color.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	public struct ColorRGBAHF : IEquatable<ColorRGBAHF>
+	[Serializable()]
+	public struct ColorRGBAHF : IEquatable<ColorRGBAHF>, ISerializable
 	{
 		#region Constructors
 
@@ -1134,6 +1417,57 @@ namespace OpenGL
 			this.g = g;
 			this.b = b;
 			this.a = a;
+		}
+
+		/// <summary>
+		/// Construct a ColorRGBAHF specifying RGB components.
+		/// </summary>
+		/// <param name="color">
+		/// A <see cref="ColorRGBHF"/> that specify the red/green/blue components.
+		/// </param>
+		/// <param name="a">
+		/// A <see cref="HalfFloat"/> that specify the alpha component.
+		/// </param>
+		public ColorRGBAHF(ColorRGBHF color, HalfFloat a)
+		{
+			r = color.r;
+			g = color.g;
+			b = color.b;
+			this.a = a;
+		}
+
+		/// <summary>
+		/// Construct a ColorRGBAHF specifying RGB components.
+		/// </summary>
+		/// <param name="color">
+		/// A <see cref="ColorRGBHF"/> that specify the red/green/blue components.
+		/// </param>
+		/// <param name="a">
+		/// A <see cref="HalfFloat"/> that specify the alpha component.
+		/// </param>
+		public ColorRGBAHF(ColorRGBAHF color, HalfFloat a)
+		{
+			r = color.r;
+			g = color.g;
+			b = color.b;
+			this.a = a;
+		}
+
+		/// <summary>
+		/// Construct a ColorRGBAHF from a serialization context.
+		/// </summary>
+		/// <param name="info">
+		/// The System.Runtime.Serialization.SerializationInfo to populate with data.
+		/// </param>
+		/// <param name="context">
+		/// The destination (see System.Runtime.Serialization.StreamingContext) for this serialization.
+		/// </param>
+		public ColorRGBAHF(SerializationInfo info, StreamingContext context)
+		{
+			r = (HalfFloat)info.GetValue("r", typeof(HalfFloat));
+			g = (HalfFloat)info.GetValue("g", typeof(HalfFloat));
+			b = (HalfFloat)info.GetValue("b", typeof(HalfFloat));
+			a = (HalfFloat)info.GetValue("a", typeof(HalfFloat));
 		}
 
 		#endregion
@@ -1236,7 +1570,22 @@ namespace OpenGL
 			return c;
 		}
 
+		/// <summary>
+		/// Cast to Color operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="ColorRGBAHF"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Color"/> initialized with the color components.
+		/// </returns>
+		public static explicit operator Color(ColorRGBAHF c)
+		{
+			return Color.FromArgb((int)(c[3] * byte.MaxValue), (int)(c[0] * byte.MaxValue), (int)(c[1] * byte.MaxValue), (int)(c[2] * byte.MaxValue));
+		}
+
 #endif
+
 		#endregion
 
 		#region Equality Operators
@@ -1329,7 +1678,8 @@ namespace OpenGL
 		/// Exception thrown when <paramref name="c"/> is less than 0 or greater than the number of components of this IColor implementation.
 		/// </exception>
 		public float this[int c]
-		{			get
+		{
+			get
 			{
 				switch (c) {
 					case 0: return r;
@@ -1353,6 +1703,7 @@ namespace OpenGL
 						throw new IndexOutOfRangeException();
 				}
 			}
+
 		}
 
 		#endregion
@@ -1438,6 +1789,28 @@ namespace OpenGL
 		}
 
 		#endregion
+
+		#region ISerializable Implementation
+
+		/// <summary>
+		/// Populates a System.Runtime.Serialization.SerializationInfo with the data needed to serialize the target object.
+		/// </summary>
+		/// <param name="info">
+		/// The System.Runtime.Serialization.SerializationInfo to populate with data.
+		/// </param>
+		/// <param name="context">
+		/// The destination (see System.Runtime.Serialization.StreamingContext) for this serialization.
+		/// </param>
+		public void GetObjectData(SerializationInfo info, StreamingContext context)
+		{
+			info.AddValue("r", r);
+			info.AddValue("g", g);
+			info.AddValue("b", b);
+			info.AddValue("a", a);
+		}
+
+		#endregion
 	}
+
 
 }

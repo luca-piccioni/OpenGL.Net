@@ -20,6 +20,7 @@
 // SOFTWARE.
 
 using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 using Khronos;
@@ -35,8 +36,9 @@ namespace HelloTriangle
 		static void Main()
 		{
 			string envDebug = Environment.GetEnvironmentVariable("DEBUG");
-			if (envDebug == "GL") {
+			if (envDebug != null) {
 				KhronosApi.Log += delegate(object sender, KhronosLogEventArgs e) {
+					Trace.WriteLine(e.ToString());
 					Console.WriteLine(e.ToString());
 				};
 				KhronosApi.LogEnabled = true;

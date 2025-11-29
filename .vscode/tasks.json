@@ -1,0 +1,277 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build",
+            "type": "shell",
+            "group": "build",
+            "windows": {
+                "command": "cmd.exe",
+                "args": [
+                    "/c",
+                    "\"${env:ProgramFiles}\\Microsoft Visual Studio\\2022\\Community\\VC\\Auxiliary\\Build\\vcvars64.bat\" && MSBuild.exe \"${workspaceFolder}/OpenGL.Net.sln\" /t:Build /p:Configuration=Release /p:Platform=\"Any CPU\" /m /v:m"
+                ],
+                "options": {
+                    "shell": {
+                        "executable": "cmd.exe",
+                        "args": [
+                            "/s",
+                            "/c"
+                        ]
+                    }
+                }
+            },
+            "problemMatcher": "$msCompile",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "detail": "Defaul build.",
+            "dependsOn": [
+                "Restore"
+            ]
+        },
+        {
+            "label": "Generate APIs",
+            "type": "shell",
+            "command": "${workspaceFolder}/BindingsGen/bin/Release/BindingsGen.exe",
+            "options": {
+                "cwd": "${workspaceFolder}/BindingsGen/bin/Release/"
+            },
+            "group": "build",
+            "dependsOn": [
+                "Build"
+            ],
+            "detail": "Generate Khronos APIs source code."
+        },
+        {
+            "label": "MSBuild (VS 2022)",
+            "type": "shell",
+            "group": "build",
+            "windows": {
+                "command": "cmd.exe",
+                "args": [
+                    "/c",
+                    "\"${env:ProgramFiles}\\Microsoft Visual Studio\\2022\\Community\\VC\\Auxiliary\\Build\\vcvars64.bat\" && MSBuild.exe \"${workspaceFolder}/OpenGL.Net.sln\" /t:${input:msbuildTargets} /p:Configuration=${input:buildConfiguration} /p:Platform=\"${input:buildPlatform}\" /m /v:m"
+                ],
+                "options": {
+                    "shell": {
+                        "executable": "cmd.exe",
+                        "args": [
+                            "/s",
+                            "/c"
+                        ]
+                    }
+                }
+            },
+            "problemMatcher": "$msCompile",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "detail": "Run arbitrary MSBuild targets (e.g. Clean, Restore, Pack). You will be prompted for target(s)."
+        },
+        {
+            "label": "MSBuild (VS 2022) - Clean",
+            "type": "shell",
+            "group": "build",
+            "windows": {
+                "command": "cmd.exe",
+                "args": [
+                    "/c",
+                    "\"${env:ProgramFiles}\\Microsoft Visual Studio\\2022\\Community\\VC\\Auxiliary\\Build\\vcvars64.bat\" && MSBuild.exe \"${workspaceFolder}/OpenGL.Net.sln\" /t:Clean /p:Configuration=Release /p:Platform=\"Any CPU\" /m /v:m && MSBuild.exe \"${workspaceFolder}/OpenGL.Net.sln\" /t:Clean /p:Configuration=Debug /p:Platform=\"Any CPU\" /m /v:m && MSBuild.exe \"${workspaceFolder}/OpenGL.Net.sln\" /t:Clean /p:Configuration=Release /p:Platform=\"x86\" /m /v:m && MSBuild.exe \"${workspaceFolder}/OpenGL.Net.sln\" /t:Clean /p:Configuration=Debug /p:Platform=\"x86\" /m /v:m && MSBuild.exe \"${workspaceFolder}/OpenGL.Net.sln\" /t:Clean /p:Configuration=Release /p:Platform=\"x64\" /m /v:m && MSBuild.exe \"${workspaceFolder}/OpenGL.Net.sln\" /t:Clean /p:Configuration=Debug /p:Platform=\"x64\" /m /v:m"
+                ],
+                "options": {
+                    "shell": {
+                        "executable": "cmd.exe",
+                        "args": [
+                            "/s",
+                            "/c"
+                        ]
+                    }
+                }
+            },
+            "problemMatcher": "$msCompile",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "detail": "Clean Release/Debug for Any CPU, x86 and x64."
+        },
+        {
+            "label": "Git Clean",
+            "type": "shell",
+            "command": "git clean -fdx",
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "detail": "Clean untracked files and directories."
+        },
+        {
+            "label": "Restore",
+            "type": "shell",
+            "command": "dotnet restore ${workspaceFolder}/OpenGL.Net.sln",
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "detail": "Restore NuGet packages for the solution."
+        },
+        {
+            "label": "List Outdated Packages",
+            "type": "shell",
+            "group": "build",
+            "command": "dotnet",
+            "args": [
+                "list",
+                "${workspaceFolder}/OpenGL.Net.sln",
+                "package",
+                "--outdated"
+            ],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "detail": "Show outdated NuGet packages for the solution. Requires dotnet in PATH."
+        },
+        {
+            "label": "Update Packages (dotnet-outdated)",
+            "type": "shell",
+            "group": "build",
+            "windows": {
+                "command": "powershell",
+                "args": [
+                    "-NoProfile",
+                    "-ExecutionPolicy",
+                    "ByPass",
+                    "-Command",
+                    "dotnet tool restore; dotnet outdated -u || Write-Host \"dotnet-outdated not installed; run 'dotnet tool install --global dotnet-outdated-tool'\""
+                ],
+                "options": {
+                    "shell": {
+                        "executable": "powershell",
+                        "args": [
+                            "-NoProfile",
+                            "-ExecutionPolicy",
+                            "ByPass",
+                            "-Command"
+                        ]
+                    }
+                }
+            },
+            "linux": {
+                "command": "bash",
+                "args": [
+                    "-lc",
+                    "dotnet tool restore; if dotnet outdated -u; then :; else echo 'dotnet-outdated not installed; run: dotnet tool install --global dotnet-outdated-tool'; fi"
+                ]
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "detail": "Attempt to update packages using the dotnet-outdated tool (if installed). Requires dotnet in PATH."
+        },
+        {
+            "label": "Pack NuGet packages",
+            "type": "shell",
+            "group": "build",
+            "windows": {
+                "command": "powershell",
+                "args": [
+                    "-NoProfile",
+                    "-ExecutionPolicy",
+                    "ByPass",
+                    "-Command",
+                    "dotnet pack \"${workspaceFolder}\\OpenGL.Net.sln\" -c Release -o \"${workspaceFolder}\\nuget\""
+                ],
+                "options": {
+                    "shell": {
+                        "executable": "powershell",
+                        "args": [
+                            "-NoProfile",
+                            "-ExecutionPolicy",
+                            "ByPass",
+                            "-Command"
+                        ]
+                    }
+                }
+            },
+            "linux": {
+                "command": "bash",
+                "args": [
+                    "-lc",
+                    "dotnet pack \"${workspaceFolder}/OpenGL.Net.sln\" -c Release -o \"${workspaceFolder}/nuget\""
+                ]
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "detail": "Create NuGet packages from the solution using 'dotnet pack'. Requires dotnet in PATH."
+        }
+    ],
+    "inputs": [
+        {
+            "id": "buildConfiguration",
+            "type": "pickString",
+            "description": "Select the build configuration",
+            "default": "Release",
+            "options": [
+                "Release",
+                "Debug"
+            ]
+        },
+        {
+            "id": "buildPlatform",
+            "type": "pickString",
+            "description": "Select the target platform",
+            "default": "Any CPU",
+            "options": [
+                "Any CPU",
+                "x86",
+                "x64"
+            ]
+        },
+        {
+            "id": "msbuildTargets",
+            "type": "pickString",
+            "description": "Enter the MSBuild target(s) to run",
+            "default": "Build",
+            "options": [
+                "Build",
+                "Clean",
+                "Rebuild",
+                "Publish",
+                "Pack"
+            ]
+        }
+    ]
+}

@@ -464,6 +464,20 @@ namespace OpenGL
 		}
 
 		/// <summary>
+		/// Cast to Vertex4f operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="<#= className #>"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex4f"/> initialized with the vector components.
+		/// </returns>
+		public static explicit operator Vertex4f(<#= className #> a)
+		{
+			return new Vertex4f((float)a.x, (float)a.y, 0.0f, 1.0f);
+		}
+
+		/// <summary>
 		/// Cast to Vertex2d operator.
 		/// </summary>
 		/// <param name="a">

@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>OffscreenTriangle</RootNamespace>
     <AssemblyName>OffscreenTriangle</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -70,6 +71,10 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
@@ -82,14 +87,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\OpenGL.Net\OpenGL.Net.Math_net35.csproj">
-      <Project>{013e33ae-b501-4a6e-87a1-4c3f6e071a06}</Project>
-      <Name>OpenGL.Net.Math_net35</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\OpenGL.Net\OpenGL.Net_net35.csproj">
-      <Project>{abb8dfa8-473a-4fc1-85c0-e21680772a58}</Project>
-      <Name>OpenGL.Net_net35</Name>
-    </ProjectReference>
+    <ProjectReference Include="..\\..\\OpenGL.Net\\OpenGL.Net.csproj" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup Condition=" '$(OS)' == 'Windows_NT' ">
@@ -99,6 +97,7 @@
     <PostBuildEvent>cp -R "$(SolutionDir)ANGLE" "$(TargetDir)ANGLE/"</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent></PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
 </Project>

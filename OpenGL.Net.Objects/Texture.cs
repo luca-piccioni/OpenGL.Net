@@ -34,13 +34,25 @@ namespace OpenGL.Objects
 	/// derives from <see cref="Texture"/>, which define a base implementation without specifying the texture dimensionality.
 	/// </para>
 	/// <para>
-	/// Texture can be one dimensional (<see cref="Texture1D"/>), two dimensional (<see cref="Texture2D"/>), three dimensional
-	/// (<see cref="Texture3D"/>), cube mapped (<see cref="TextureCube"/>).
+	/// Texture can be one dimensional (<see cref="Texture1d"/>), two dimensional (<see cref="Texture2d"/>), three dimensional
+	/// (<see cref="Texture3d"/>), cube mapped (<see cref="TextureCube"/>).
 	/// </para>
 	/// </remarks>
-	[DebuggerDisplay("Texture: Pixel={PixelLayout}")]
+	[DebuggerDisplay("Texture: Pixel={" + nameof(PixelLayout) + "}")]
 	public abstract class Texture : GraphicsResource
 	{
+		#region Constructors
+
+		/// <summary>
+		/// Construct a Texture.
+		/// </summary>
+		protected Texture()
+		{
+			
+		}
+
+		#endregion
+
 		#region Texture Properties
 
 		/// <summary>
@@ -53,34 +65,34 @@ namespace OpenGL.Objects
 				if (_Mipmaps == null)
 					return (PixelLayout.None);
 
-				if (_Mipmaps[BaseLevel] == null)
+				if (_Mipmaps[MipmapMinLevel] == null)
 					throw new InvalidOperationException("undefined base level");
 
-				return _Mipmaps[BaseLevel].InternalFormat;
+				return (_Mipmaps[MipmapMinLevel].InternalFormat);
 			}
 		}
 
 		/// <summary>
 		/// Texture size, in pixels, of the level 0 of the texture. In the case the level 0 is not defined,
-		/// find the closest mipmap and guess the level 0 size from it supposing a mipmap-complete case.
+		/// find the closest mipmap and guess the level 0 size from it.
 		/// </summary>
 		public virtual Vertex3ui BaseSize
 		{
 			get
 			{
 				if (_Mipmaps == null)
-					return Vertex3ui.Zero;
+					return (Vertex3ui.Zero);
 				if (_Mipmaps[0] != null)
-					return _Mipmaps[0].Size;
+					return (_Mipmaps[0].Size);
 
 				for (int i = 0; i < _Mipmaps.Length; i++) {
 					if (_Mipmaps[i] == null)
 						continue;
 
-					return _Mipmaps[i].Size * (uint)Math.Pow(2.0, i);
+					return (_Mipmaps[i].Size * (uint)Math.Pow(2.0, i));
 				}
 
-				return Vertex3ui.Zero;
+				return (Vertex3ui.Zero);
 			}
 		}
 
@@ -88,26 +100,26 @@ namespace OpenGL.Objects
 		/// Texture size, in pixels, of the base level of the texture.
 		/// </summary>
 		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if the mipmap level specified by <see cref="BaseLevel"/> is not defined.
+		/// Exception thrown if the mipmap level specified by <see cref="MipmapMinLevel"/> is not defined.
 		/// </exception>
 		public Vertex3ui Size
 		{
 			get
 			{
 				if (_Mipmaps == null)
-					return Vertex3ui.Zero;
+					return (Vertex3ui.Zero);
 
-				if (_Mipmaps[BaseLevel] == null)
+				if (_Mipmaps[MipmapMinLevel] == null)
 					throw new InvalidOperationException("undefined base level");
 
-				return _Mipmaps[BaseLevel].Size;
+				return (_Mipmaps[MipmapMinLevel].Size);
 			}
 		}
 
 		/// <summary>
 		/// Texture width, in pixels, of the base level of the texture.
 		/// </summary>
-		public uint Width { get { return Size.x; } }
+		public uint Width { get { return (Size.x); } }
 
 		/// <summary>
 		/// Texture height, in pixels, of the base level of the texture.
@@ -115,7 +127,7 @@ namespace OpenGL.Objects
 		/// <remarks>
 		/// In case the Texture implementation does not have two or more dimension, it shall return 1.
 		/// </remarks>
-		public uint Height { get { return Size.y; } }
+		public uint Height { get { return (Size.y); } }
 
 		/// <summary>
 		/// Texture depth, in pixels, of the base level of the texture.
@@ -123,7 +135,7 @@ namespace OpenGL.Objects
 		/// <remarks>
 		/// In case the Texture implementation does not have three or more dimension, it shall return 1.
 		/// </remarks>
-		public uint Depth { get { return Size.z; } }
+		public uint Depth { get { return (Size.z); } }
 
 		#endregion
 
@@ -268,7 +280,7 @@ namespace OpenGL.Objects
 			Image image = new Image(pixelType, (uint)width, (uint)height);
 
 			// Set pixel transfer
-			State.PixelAlignmentState.Pack(image.Stride).Apply(ctx, null);
+			State.PixelPackState.Align(image.Stride).Apply(ctx, null);
 
 			// Download texture contents
 			Gl.GetTexImage(target, (int)level, pixelType.ToDataFormat(), pixelType.ToPixelType(), image.ImageBuffer);
@@ -284,22 +296,28 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Get the level indicating the base mipmap level defined.
 		/// </summary>
-		public uint MipmapBaseLevel
+		public uint BaseLevel
 		{
 			get
 			{
-				return _Mipmaps != null ? (uint)Array.FindIndex(_Mipmaps, delegate (Mipmap item) { return item != null; }) : 0;
+				if (_Mipmaps != null)
+					return (uint) Array.FindIndex(_Mipmaps, item => item != null);
+				else
+					return 0;
 			}
 		}
 
 		/// <summary>
 		/// Get the level indicating the maximum mipmap level defined.
 		/// </summary>
-		public uint MipmapMaxLevel
+		public uint MaxLevel
 		{
 			get
 			{
-				return _Mipmaps != null ? (uint)Array.FindLastIndex(_Mipmaps, delegate (Mipmap item) { return item != null; }) : 0;
+				if (_Mipmaps != null)
+					return (uint) Array.FindLastIndex(_Mipmaps, item => item != null);
+				else
+					return 10000;
 			}
 		}
 
@@ -314,7 +332,7 @@ namespace OpenGL.Objects
 		/// </returns>
 		public bool HasMipMapLevel(uint level)
 		{
-			return _Mipmaps != null ? _Mipmaps[level] != null : false;
+			return (_Mipmaps[level] != null);
 		}
 
 		/// <summary>
@@ -325,22 +343,22 @@ namespace OpenGL.Objects
 			get
 			{
 				if (_Mipmaps == null)
-					return false;
-				if (_Mipmaps.Length != MipmapLevels)
-					return false;
+					return (false);
 
-				uint mipmapBaseLevel = MipmapBaseLevel;
+				Debug.Assert(_Mipmaps.Length == MipmapLevels);
+
+				uint mipmapBaseLevel = MipmapMinLevel;
 				
-				for (uint i = MipmapBaseLevel; i < MipmapMaxLevel; i++) {
+				for (uint i = MipmapMinLevel; i < MipmapMaxLevel; i++) {
 					// Mipmap level must be defined
 					if (_Mipmaps[i] == null)
-						return false;
+						return (false);
 					// Same internal format (compare with the base level)
 					if (_Mipmaps[i].InternalFormat != _Mipmaps[mipmapBaseLevel].InternalFormat)
-						return false;
+						return (false);
 					// The dimensions of the images follow the sequence described by GetMipmapSize
 					if (_Mipmaps[i].Size != GetMipmapSize(i))
-						return false;
+						return (false);
 				}
 
 				return (true);
@@ -478,10 +496,29 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Generate mipmaps for this Texture.
 		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for generating texture mipmaps.
+		/// </param>
+		public virtual void GenerateMipmaps(GraphicsContext ctx)
+		{
+			GenerateMipmaps(ctx, TextureTarget);
+		}
+
+		/// <summary>
+		/// Generate mipmaps for this Texture.
+		/// </summary>
 		/// <remarks>
-		/// The mipmaps are generated when executing <see cref="Create(GraphicsContext)"/>.
+		/// The mipmaps are generated when executing <see cref="CreateName(GraphicsContext)"/>.
 		/// </remarks>
-		public bool AutomaticMipmaps { get; set; } = true;
+		public virtual void GenerateMipmaps()
+		{
+			_RequiresMipMaps = true;
+		}
+
+		/// <summary>
+		/// Flag indicating whether this Texture shall ghave mipmaps created automatically at creationg time.
+		/// </summary>
+		private bool _RequiresMipMaps;
 
 		/// <summary>
 		/// Generate mipmaps for this Texture, replacing mipmaps level from 1 to <see cref="MipmapLevels"/> - 1.
@@ -497,43 +534,24 @@ namespace OpenGL.Objects
 		{
 			CheckCurrentContext(ctx);
 
-			// Bind this Texture
-			ctx.Bind(this);
-			// Ensure base/max level are updated
-			SetMipmapLevelRange(ctx);
-			// Generate mipmaps
-			Gl.GenerateMipmap(target);
+			if (ctx.Version >= Gl.Version_300) {
+				// Bind this Texture
+				ctx.Bind(this);
+				// Generate mipmaps
+				Gl.GenerateMipmap(target);
+			}
 
-			for (uint i = BaseLevel + 1; i < Math.Min(MipmapLevels, MaxLevel); i++) {
+			uint baseLevel = BaseLevel;
+
+			for (uint i = MipmapMinLevel + 1; i < MipmapLevels; i++) {
 				Vertex3ui mipmapSize = GetMipmapSize(i);
 
-				SetMipmap(_Mipmaps[BaseLevel].InternalFormat, mipmapSize.x, mipmapSize.y, mipmapSize.z, i);
+				Debug.Assert(_Mipmaps != null);
+				Debug.Assert(baseLevel < _Mipmaps.Length);
+				Debug.Assert(_Mipmaps[baseLevel] != null);
+
+				SetMipmap(_Mipmaps[baseLevel].InternalFormat, mipmapSize.x, mipmapSize.y, mipmapSize.z, i);
 			}
-		}
-
-		/// <summary>
-		/// Determine whether Texture mipmaps generation is supported. Otherwise NOT emulated.
-		/// </summary>
-		/// <param name="ctx">
-		/// The <see cref="GraphicsContext"/> creating this Texture.
-		/// </param>
-		/// <returns>
-		/// It returns whether Texture mipmaps generation is supported by <paramref name="ctx"/>.
-		/// </returns>
-		private static bool IsGenerateMipmapSupported(GraphicsContext ctx)
-		{
-			if (ctx.Extensions.FramebufferObject_ARB)
-				return true;
-			if (ctx.Extensions.FramebufferObject_EXT)
-				return true;
-			if (ctx.Version.IsCompatible(Gl.Version_300))
-				return true;
-			if (ctx.Version.IsCompatible(Gl.Version_200_ES))
-				return true;
-			if (ctx.Version.IsCompatible(Gl.Version_200_SC))
-				return true;
-
-			return false;
 		}
 
 		#endregion
@@ -541,100 +559,82 @@ namespace OpenGL.Objects
 		#region Mipmapping Levels
 
 		/// <summary>
-		/// Get or set the level indicating the base mipmap level used for drawing (the largest one).
+		/// Set texture mip-mapping levels (base and maximum).
 		/// </summary>
-		public uint BaseLevel
+		/// <param name="ctx">
+		/// The <see cref="GraphicsContext"/> that has created this texture.
+		/// </param>
+		public void SetMipmapLevelRange(GraphicsContext ctx)
+		{
+			Debug.Assert(_MipmapMinLevel <= _MipmapMaxLevel);
+			if (_MipmapMinLevel >= 0 || _MipmapMinLevelDirty)
+				Gl.TexParameter(TextureTarget, TextureParameterName.TextureBaseLevel, _MipmapMinLevel);
+			_MipmapMinLevelDirty = false;
+
+			if (_MipmapMaxLevel >= 0 || _MipmapMaxLevelDirty)
+				Gl.TexParameter(TextureTarget, TextureParameterName.TextureMaxLevel, _MipmapMaxLevel);
+			_MipmapMaxLevelDirty = false;
+		}
+
+		/// <summary>
+		/// Get or set the level indicating the base mipmap level used for drawing.
+		/// </summary>
+		public uint MipmapMinLevel
 		{
 			get
 			{
-				return _BaseLevel >= 0 ? (uint)_BaseLevel : 0;
+				return (_MipmapMinLevel >= 0 ? (uint)_MipmapMinLevel : 0);
 			}
 			set
 			{
 				if (value > MipmapMaxLevel)
 					throw new InvalidOperationException("exceed maximum mipmap level");
-				if (_BaseLevel != (int)value)
+				if (_MipmapMinLevel != (int)value)
 					_MipmapMinLevelDirty = true;
-				_BaseLevel = (int)value;
+				_MipmapMinLevel = (int)value;
 			}
 		}
 
 		/// <summary>
 		/// The index of the lowest (base) define mipmap level.
 		/// </summary>
-		private int _BaseLevel = 0;
+		private int _MipmapMinLevel = -1;
 
 		/// <summary>
-		/// Flag for indicating whether <see cref="_BaseLevel"/> has changed.
+		/// Flag for indicating whether <see cref="_MipmapMinLevel"/> has changed.
 		/// </summary>
 		private bool _MipmapMinLevelDirty;
 
 		/// <summary>
-		/// Get or set the level indicating the maximum mipmap level used for drawing (the smallest one).
+		/// Get or set the level indicating the maximum mipmap level used for drawing.
 		/// </summary>
-		public uint MaxLevel
+		public uint MipmapMaxLevel
 		{
 			get
 			{
-				return _MaxLevel >= 0 ? (uint)_MaxLevel : MipmapMaxLevel;
+				return (_MipmapMaxLevel >= 0 ? (uint)_MipmapMaxLevel : MipmapLevels);
 			}
 			set
 			{
-				if (value < BaseLevel)
+				if (value < MipmapMinLevel)
 					throw new InvalidOperationException("exceeded mipmap base level");
 				if (value > MipmapLevels)
 					throw new InvalidOperationException("exceeded mipmap levels count");
-				if (_MaxLevel != (int)value)
+				if (_MipmapMaxLevel != (int)value)
 					_MipmapMaxLevelDirty = true;
-				_MaxLevel = (int)value;
+				_MipmapMaxLevel = (int)value;
 			}
 		}
 
 		/// <summary>
 		/// The index of the highest (base) define mipmap level.
 		/// </summary>
-		private int _MaxLevel = 1000;
+		private int _MipmapMaxLevel = -1;
 
 		/// <summary>
-		/// Flag for indicating whether <see cref="_MaxLevel"/> has changed.
+		/// Flag for indicating whether <see cref="_MipmapMaxLevel"/> has changed.
 		/// </summary>
 		private bool _MipmapMaxLevelDirty;
-
-		/// <summary>
-		/// Guess the best values for <paramref name="BaseLevel"/> and <paramref name="MaxLevel"/>.
-		/// </summary>
-		/// <param name="ctx">
-		/// The <see cref="GraphicsContext"/> that has created this texture.
-		/// </param>
-		private void SyncMipmapLevelRange(GraphicsContext ctx)
-		{
-			Gl.GetTexParameter(TextureTarget, GetTextureParameter.TextureBaseLevel, out _BaseLevel);
-			_MipmapMinLevelDirty = false;
-
-			Gl.GetTexParameter(TextureTarget, GetTextureParameter.TextureMaxLevel, out _MaxLevel);
-			_MipmapMaxLevelDirty = false;
-		}
-
-		/// <summary>
-		/// Set texture mipmapping levels (base and maximum).
-		/// </summary>
-		/// <param name="ctx">
-		/// The <see cref="GraphicsContext"/> that has created this texture.
-		/// </param>
-		private void SetMipmapLevelRange(GraphicsContext ctx)
-		{
-			Debug.Assert(_BaseLevel <= _MaxLevel);
-
-			if (_BaseLevel >= 0 || _MipmapMinLevelDirty) {
-				Gl.TexParameter(TextureTarget, TextureParameterName.TextureBaseLevel, _BaseLevel);
-				_MipmapMinLevelDirty = false;
-			}
-
-			if (_MaxLevel >= 0 || _MipmapMaxLevelDirty) {
-				Gl.TexParameter(TextureTarget, TextureParameterName.TextureMaxLevel, _MaxLevel);
-				_MipmapMaxLevelDirty = false;
-			}
-		}
 
 		#endregion
 
@@ -780,34 +780,13 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Get whether the Texture has data to be updated.
 		/// </summary>
-		public bool IsDirty { get { return _Techniques.Count > 0; } }
+		public bool IsDirty { get { lock (_TechniquesLock) { return (_Techniques.Count > 0); } } }
 
 		/// <summary>
 		/// Technique for creating Texture layer(s).
 		/// </summary>
-		protected abstract class Technique : IDisposable
+		public abstract class Technique : IDisposable
 		{
-			/// <summary>
-			/// Construct a Technique.
-			/// </summary>
-			/// <param name="texture">
-			/// The <see cref="Texture"/> affected by this Technique.
-			/// </param>
-			/// <exception cref="ArgumentNullException">
-			/// Exception thrown if <paramref name="texture"/> is null.
-			/// </exception>
-			public Technique(Texture texture)
-			{
-				if (texture == null)
-					throw new ArgumentNullException("texture");
-				_Texture = texture;
-			}
-
-			/// <summary>
-			/// The <see cref="Texture"/> affected by this Technique.
-			/// </summary>
-			protected readonly Texture _Texture;
-
 			/// <summary>
 			/// Create the texture, using this technique.
 			/// </summary>
@@ -835,17 +814,50 @@ namespace OpenGL.Objects
 		{
 			if (technique == null)
 				throw new ArgumentNullException("technique");
-			if (ImmutableFix)
-				throw new InvalidOperationException("immutable storage (see GL_ARB_texture_storage)");
 
 			// Set technique
-			_Techniques.Add(technique);
+			lock (_TechniquesLock) {
+				_Techniques.Add(technique);
+			}
+
+			// Texture definition is updated
+			RaiseUpdated();
+		}
+
+		/// <summary>
+		/// Release resources associated with <see cref="SetTechnique"/>
+		/// </summary>
+		private void DisposeTechniques()
+		{
+			lock (_TechniquesLock) {
+				foreach (Technique technique in _Techniques)
+					technique.Dispose();
+				_Techniques.Clear();
+			}
 		}
 
 		/// <summary>
 		/// Technique used for creating this texture.
 		/// </summary>
 		private readonly List<Technique> _Techniques = new List<Technique>();
+
+		/// <summary>
+		/// Object used for accessing <see cref="_Techniques"/> asynchronously.
+		/// </summary>
+		private readonly object _TechniquesLock = new object();
+
+		/// <summary>
+		/// Event raised whenever the texture techniques are set.
+		/// </summary>
+		public event EventHandler<EventArgs> Updated;
+
+		/// <summary>
+		/// Raise the event <see cref="Updated"/>
+		/// </summary>
+		protected void RaiseUpdated()
+		{
+			Updated?.Invoke(this, EventArgs.Empty);
+		}
 
 		#endregion
 
@@ -856,11 +868,11 @@ namespace OpenGL.Objects
 		/// </summary>
 		public bool Immutable
 		{
-			get { return _Immutable; }
+			get { return (_Immutable); }
 			set
 			{
-				if (ImmutableFix)
-					throw new InvalidOperationException("immutable storage, see GL_ARB_texture_storage");
+				if (ObjectName != InvalidObjectName)
+					throw new InvalidOperationException("object already defined");
 				_Immutable = value;
 			}
 		}
@@ -869,36 +881,6 @@ namespace OpenGL.Objects
 		/// Flag indicating whether this Texture is immutable (GL_ARB_texture_storage).
 		/// </summary>
 		private bool _Immutable = true;
-
-		/// <summary>
-		/// Determine whether immutable texture has been defined.
-		/// </summary>
-		protected bool ImmutableFix { get; private set; }
-
-		/// <summary>
-		/// Determine whether immutable Texture is supported. Otherwise emulated.
-		/// </summary>
-		/// <param name="ctx">
-		/// The <see cref="GraphicsContext"/> creating this Texture.
-		/// </param>
-		/// <returns>
-		/// It returns whether immutable storage is supported by <paramref name="ctx"/>.
-		/// </returns>
-		internal static bool IsImmutableSupported(GraphicsContext ctx)
-		{
-			if (ctx.Extensions.TextureStorage_ARB)
-				return true;
-			if (ctx.Extensions.TextureStorage_EXT)
-				return true;
-			if (ctx.Version.IsCompatible(Gl.Version_420))
-				return true;
-			if (ctx.Version.IsCompatible(Gl.Version_200_ES))
-				return true;
-			if (ctx.Version.IsCompatible(Gl.Version_200_SC))
-				return true;
-
-			return false;
-		}
 
 		#endregion
 
@@ -912,30 +894,6 @@ namespace OpenGL.Objects
 		/// shall returns always 0.
 		/// </remarks>
 		public abstract TextureTarget TextureTarget { get; }
-
-		/// <summary>
-		/// Get the index of the default texture unit associated with this Texture. It is <see cref="UInt32.MaxValue"/>
-		/// to indicate that no texture unit is associated with this Texture.
-		/// </summary>
-		internal uint DefaultTextureUnit { get { return (_ActiveTextureUnits.Count > 0 ? _ActiveTextureUnits[0] : UInt32.MaxValue); } }
-
-		/// <summary>
-		/// Get the index of the texture unit associated with this Texture. IN the case the Texture has no texture unit associated,
-		/// bound this Texture onto the most appropriate texture unit.
-		/// </summary>
-		/// <param name="ctx"></param>
-		/// <returns></returns>
-		public uint GetTextureUnit(GraphicsContext ctx)
-		{
-			uint textureUnitIndex = DefaultTextureUnit;
-
-			if (textureUnitIndex == UInt32.MaxValue) {
-				ctx.Bind(this);
-				textureUnitIndex = DefaultTextureUnit;
-			}
-
-			return (textureUnitIndex);
-		}
 
 		/// <summary>
 		/// Get the identifier of the binding point.
@@ -981,10 +939,36 @@ namespace OpenGL.Objects
 			}
 		}
 
+		#endregion
+
+		#region Clear
+
 		/// <summary>
-		/// Index of the active texture units on which this texture is bound.
+		/// Clear the contents of this Texture.
 		/// </summary>
-		internal readonly List<uint> _ActiveTextureUnits = new List<uint>();
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> that would have created (or a sharing one) the object. This context shall be current to
+		/// the calling thread.
+		/// </param>
+		public void Clear(GraphicsContext ctx, PixelFormat dataFormat = PixelFormat.Rgba)
+		{
+			CheckCurrentContext(ctx);
+
+			if (ctx.Version < Gl.Version_440 && !ctx.Extensions.ClearTexture_ARB)
+				return;
+
+			if (_Mipmaps == null)
+				return;
+
+			for (int i = 0; i < _Mipmaps.Length; ++i) {
+				Mipmap mipmap = _Mipmaps[i];
+
+				if (mipmap == null)
+					continue;
+
+				Gl.ClearTexSubImage(ObjectName, i, 0, 0, 0, (int)mipmap.Size.x, (int)mipmap.Size.y, (int)mipmap.Size.z, dataFormat, PixelType.UnsignedByte, IntPtr.Zero);
+			}
+		}
 
 		#endregion
 
@@ -997,7 +981,7 @@ namespace OpenGL.Objects
 
 		#endregion
 
-		#region Overrides
+		#region GraphicsResource Overrides
 
 		/// <summary>
 		/// Texture object class.
@@ -1041,6 +1025,11 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
+		/// Determine whether this IGraphicsResource is effectively shareable between sharing <see cref="GraphicsContext"/> instances.
+		/// </summary>
+		public override bool IsShareable { get { return true; } }
+
+		/// <summary>
 		/// Create a Texture name.
 		/// </summary>
 		/// <param name="ctx">
@@ -1052,7 +1041,7 @@ namespace OpenGL.Objects
 		protected override uint CreateName(GraphicsContext ctx)
 		{
 			// Generate texture name
-			return Gl.GenTexture();
+			return (Gl.GenTexture());
 		}
 
 		/// <summary>
@@ -1080,9 +1069,6 @@ namespace OpenGL.Objects
 		{
 			CheckCurrentContext(ctx);
 
-			if (AutomaticMipmaps && !IsGenerateMipmapSupported(ctx))
-				throw new InvalidOperationException("automatic mipmaps generations not supported (see GL_ARB_framebuffer_object)");
-
 			// Base implementation
 			// Note: here Sampler can be created; required before ctx.Bind(this)
 			base.CreateObject(ctx);
@@ -1090,31 +1076,30 @@ namespace OpenGL.Objects
 			// Note: if Sampler is defined, automatically bind the sampler on texture unit
 			ctx.Bind(this);
 
-			if (_Techniques.Count > 0) {
+			// Apply texture techniques
+			lock (_TechniquesLock) {
+				if (_Techniques.Count > 0) {
 				
-				// Note: in the case of no techniques, texture will exists but it will be undefined (no storage defined)
+					// Note: in the case of no techniques, texture will exists but it will be undefined (no storage defined)
 
-				foreach (Technique technique in _Techniques) {
-					// Create/update texture using technique
-					technique.Create(ctx);
-					// Technique no more useful: dispose it
-					technique.Dispose();
+					foreach (Technique technique in _Techniques) {
+						// Create/update texture using technique
+						technique.Create(ctx);
+						// Technique no more useful: dispose it
+						technique.Dispose();
+					}
+
+					// Layers updated only once
+					_Techniques.Clear();
 				}
-
-				_Techniques.Clear();
 			}
 
-			if (AutomaticMipmaps) {
+			if (_RequiresMipMaps) {
 				// Generate mipmaps
-				GenerateMipmaps(ctx, TextureTarget);
+				GenerateMipmaps(ctx);
 				// ...and don't repeat
-				AutomaticMipmaps = false;
+				_RequiresMipMaps = false;
 			}
-
-			SyncMipmapLevelRange(ctx);
-
-			if (Immutable)
-				ImmutableFix = true;
 			
 			// Mipmap levels, if any
 			SetMipmapLevelRange(ctx);
@@ -1122,6 +1107,15 @@ namespace OpenGL.Objects
 			// Swizzle, if supported
 			ApplySwizzle(ctx);
 #endif
+		}
+
+		protected override void Dispose(bool disposing)
+		{
+			// Release techinques
+			// Note: perform disposition even when not disposing explictly since SetTechique can be called on disposed Texture
+			DisposeTechniques();
+			// Base implementation
+			base.Dispose(disposing);
 		}
 
 		#endregion

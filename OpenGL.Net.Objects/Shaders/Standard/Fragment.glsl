@@ -27,6 +27,11 @@
 // Vertex uniform color
 uniform vec4 glo_UniformColor = vec4(1.0);
 
+#if defined(GLO_OVERRIDE_FRAGMENT_DEPTH)
+// Fragments has uniform depth (0.0 -> far, 1.0 -> near)
+uniform float	glo_FragmentDepth = 1.0;
+#endif
+
 // Fragment color
 SHADER_IN vec4 glo_VertexColor;
 // Fragment normal (view space)
@@ -37,9 +42,13 @@ SHADER_IN vec2 glo_VertexTexCoord[1];
 SHADER_IN mat3 glo_VertexTBN;
 // Fragment vertex position (model-view space)
 SHADER_IN vec4 glo_VertexPositionModelView;
+// Vertex/Fragment depth of the primitive.
+SHADER_IN float glo_VertexPrimitiveDepthInstanced;
 
 // Fragment color
 OUT vec4		glo_FragColor;
+// Fragment depth
+// OUT float		gl_FragDepth;
 
 #if defined(GLO_LIGHTING_PER_FRAGMENT)
 
@@ -120,22 +129,34 @@ void mainLightingPerVertex()
 
 uniform sampler2D glo_Texture;
 
+uniform sampler1D glo_PaletteTexture;
+
+uniform float glo_PaletteTextureScale = 1.0;
+
 void mainTextured()
 {
 #if defined(GLO_COLOR_PER_VERTEX)
 	vec4 envColor = glo_VertexColor;
 #else
-	vec4 envColor = vec4(1.0, 1.0, 1.0, 1.0);
+	const vec4 envColor = vec4(1.0);
 #endif
 
+#if defined(GLO_PALETTE_TEXTURE)
+	// Note: support alpha blending
+	vec2 paletteIndex = textureLod(glo_Texture, glo_VertexTexCoord[0], 0).ra;
+	vec4 paletteColor = textureLod(glo_PaletteTexture, paletteIndex.x * glo_PaletteTextureScale, 0);
+
+	glo_FragColor = vec4(paletteColor.rgb * envColor.rgb, paletteColor.a * envColor.a * paletteIndex.y);
+#else
 	glo_FragColor = TEXTURE_2D(glo_Texture, glo_VertexTexCoord[0]) * envColor;
+#endif
 }
 
 #endif
 
 void main()
 {
-#if defined(GLO_LIGHTING_PER_FRAGMENT)
+#if   defined(GLO_LIGHTING_PER_FRAGMENT)
 	mainLightingPerFragment();
 #elif defined(GLO_LIGHTING_PER_VERTEX)
 	mainLightingPerVertex();
@@ -145,5 +166,11 @@ void main()
 	mainTextured();
 #else
 	glo_FragColor = glo_UniformColor;
+#endif
+
+#if   defined(GLO_OVERRIDE_FRAGMENT_DEPTH)
+	gl_FragDepth = glo_FragmentDepth;
+#elif defined(GLO_OVERRIDE_FRAGMENT_DEPTH_INSTANCED)
+	gl_FragDepth = glo_VertexPrimitiveDepthInstanced;
 #endif
 }

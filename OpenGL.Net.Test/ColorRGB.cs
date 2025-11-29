@@ -1,4 +1,11 @@
 ﻿
+
+
+
+
+
+
+
 // Copyright (C) 2017 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,6 +37,7 @@ using NUnit.Framework;
 
 namespace OpenGL.Test
 {
+
 	[TestFixture]
 	[Category("Math")]
 	internal class ColorRGB8Test : TestBase
@@ -53,6 +61,8 @@ namespace OpenGL.Test
 		#endregion
 
 		#region Cast Operators
+
+
 
 
 #if HAVE_SYSTEM_DRAWING
@@ -132,6 +142,7 @@ namespace OpenGL.Test
 		#endregion
 	}
 
+
 	[TestFixture]
 	[Category("Math")]
 	internal class ColorRGB15Test : TestBase
@@ -155,6 +166,8 @@ namespace OpenGL.Test
 		#endregion
 
 		#region Cast Operators
+
+
 
 
 #if HAVE_SYSTEM_DRAWING
@@ -234,6 +247,7 @@ namespace OpenGL.Test
 		#endregion
 	}
 
+
 	[TestFixture]
 	[Category("Math")]
 	internal class ColorRGB16Test : TestBase
@@ -257,6 +271,8 @@ namespace OpenGL.Test
 		#endregion
 
 		#region Cast Operators
+
+
 
 
 #if HAVE_SYSTEM_DRAWING
@@ -336,6 +352,7 @@ namespace OpenGL.Test
 		#endregion
 	}
 
+
 	[TestFixture]
 	[Category("Math")]
 	internal class ColorRGB24Test : TestBase
@@ -360,6 +377,7 @@ namespace OpenGL.Test
 
 		#region Cast Operators
 
+
 		[Test(Description = "Test (ColorRGBA32)ColorRGB24")]
 		public void ColorRGB24_CastToRGBA()
 		{
@@ -370,6 +388,8 @@ namespace OpenGL.Test
 			ColorRGB24 v = new ColorRGB24(r, g, b);
 			ColorRGBA32 vRGBA = v;
 		}
+
+
 
 		[Test(Description = "Test (Vertex4ub)ColorRGB24")]
 		public void ColorRGB24_CastToArray()
@@ -401,6 +421,7 @@ namespace OpenGL.Test
 			Assert.AreEqual(g, vArray.y);
 			Assert.AreEqual(b, vArray.z);
 		}
+
 
 #if HAVE_SYSTEM_DRAWING
 
@@ -479,6 +500,7 @@ namespace OpenGL.Test
 		#endregion
 	}
 
+
 	[TestFixture]
 	[Category("Math")]
 	internal class ColorRGB48Test : TestBase
@@ -503,6 +525,7 @@ namespace OpenGL.Test
 
 		#region Cast Operators
 
+
 		[Test(Description = "Test (ColorRGBA64)ColorRGB48")]
 		public void ColorRGB48_CastToRGBA()
 		{
@@ -513,6 +536,8 @@ namespace OpenGL.Test
 			ColorRGB48 v = new ColorRGB48(r, g, b);
 			ColorRGBA64 vRGBA = v;
 		}
+
+
 
 		[Test(Description = "Test (Vertex4ub)ColorRGB48")]
 		public void ColorRGB48_CastToArray()
@@ -544,6 +569,7 @@ namespace OpenGL.Test
 			Assert.AreEqual(g, vArray.y);
 			Assert.AreEqual(b, vArray.z);
 		}
+
 
 #if HAVE_SYSTEM_DRAWING
 
@@ -622,6 +648,7 @@ namespace OpenGL.Test
 		#endregion
 	}
 
+
 	[TestFixture]
 	[Category("Math")]
 	internal class ColorRGB96Test : TestBase
@@ -645,6 +672,8 @@ namespace OpenGL.Test
 		#endregion
 
 		#region Cast Operators
+
+
 
 		[Test(Description = "Test (Vertex4ub)ColorRGB96")]
 		public void ColorRGB96_CastToArray()
@@ -676,6 +705,7 @@ namespace OpenGL.Test
 			Assert.AreEqual(g, vArray.y);
 			Assert.AreEqual(b, vArray.z);
 		}
+
 
 #if HAVE_SYSTEM_DRAWING
 
@@ -754,6 +784,7 @@ namespace OpenGL.Test
 		#endregion
 	}
 
+
 	[TestFixture]
 	[Category("Math")]
 	internal class ColorRGBFTest : TestBase
@@ -778,6 +809,7 @@ namespace OpenGL.Test
 
 		#region Cast Operators
 
+
 		[Test(Description = "Test (ColorRGBAF)ColorRGBF")]
 		public void ColorRGBF_CastToRGBA()
 		{
@@ -788,6 +820,8 @@ namespace OpenGL.Test
 			ColorRGBF v = new ColorRGBF(r, g, b);
 			ColorRGBAF vRGBA = v;
 		}
+
+
 
 		[Test(Description = "Test (Vertex4ub)ColorRGBF")]
 		public void ColorRGBF_CastToArray()
@@ -819,6 +853,7 @@ namespace OpenGL.Test
 			Assert.AreEqual(g, vArray.y);
 			Assert.AreEqual(b, vArray.z);
 		}
+
 
 #if HAVE_SYSTEM_DRAWING
 
@@ -897,6 +932,7 @@ namespace OpenGL.Test
 		#endregion
 	}
 
+
 	[TestFixture]
 	[Category("Math")]
 	internal class ColorRGBDTest : TestBase
@@ -920,6 +956,8 @@ namespace OpenGL.Test
 		#endregion
 
 		#region Cast Operators
+
+
 
 		[Test(Description = "Test (Vertex4ub)ColorRGBD")]
 		public void ColorRGBD_CastToArray()
@@ -951,6 +989,7 @@ namespace OpenGL.Test
 			Assert.AreEqual(g, vArray.y);
 			Assert.AreEqual(b, vArray.z);
 		}
+
 
 #if HAVE_SYSTEM_DRAWING
 
@@ -1029,6 +1068,7 @@ namespace OpenGL.Test
 		#endregion
 	}
 
+
 	[TestFixture]
 	[Category("Math")]
 	internal class ColorRGBHFTest : TestBase
@@ -1053,6 +1093,7 @@ namespace OpenGL.Test
 
 		#region Cast Operators
 
+
 		[Test(Description = "Test (ColorRGBAHF)ColorRGBHF")]
 		public void ColorRGBHF_CastToRGBA()
 		{
@@ -1063,6 +1104,8 @@ namespace OpenGL.Test
 			ColorRGBHF v = new ColorRGBHF(r, g, b);
 			ColorRGBAHF vRGBA = v;
 		}
+
+
 
 		[Test(Description = "Test (Vertex4ub)ColorRGBHF")]
 		public void ColorRGBHF_CastToArray()
@@ -1094,6 +1137,7 @@ namespace OpenGL.Test
 			Assert.AreEqual(g, vArray.y);
 			Assert.AreEqual(b, vArray.z);
 		}
+
 
 #if HAVE_SYSTEM_DRAWING
 
@@ -1171,5 +1215,6 @@ namespace OpenGL.Test
 
 		#endregion
 	}
+
 
 }

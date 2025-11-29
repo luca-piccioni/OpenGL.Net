@@ -1,4 +1,11 @@
 ﻿
+
+
+
+
+
+
+
 // Copyright (C) 2017-2018 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -19,6 +26,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+
 using System;
 
 using NUnit.Framework;
@@ -27,12 +35,15 @@ namespace OpenGL.Test
 {
 	partial class Gl_VERSION_2_0
 	{
+
+
 		#region glUniform1fv
 
 		private uint CreateProgramUniform1f()
 		{
 			string[] srcVertex = {
 				"#version 150\n",
+
 				"uniform float uVec = 0.0;\n",
 				"void main() {\n",
 				"	gl_Position = vec4(uVec);\n",
@@ -48,8 +59,10 @@ namespace OpenGL.Test
 		[Test]
 		public void Uniform1f()
 		{
+
 			if (!HasVersion(Gl.Version_200) && !HasVersion(Gl.Version_200_ES) && !HasExtension("GL_ARB_shader_objects"))
 				Assert.Inconclusive("required features not implemented");
+
 
 			using (Device device = new Device())
 			using (new GLContext(device))
@@ -100,12 +113,16 @@ namespace OpenGL.Test
 
 		#endregion
 
+
+
+
 		#region glUniform1iv
 
 		private uint CreateProgramUniform1i()
 		{
 			string[] srcVertex = {
 				"#version 150\n",
+
 				"uniform int uVec = 0;\n",
 				"void main() {\n",
 				"	gl_Position = vec4(float(uVec));\n",
@@ -121,8 +138,10 @@ namespace OpenGL.Test
 		[Test]
 		public void Uniform1i()
 		{
+
 			if (!HasVersion(Gl.Version_200) && !HasVersion(Gl.Version_200_ES) && !HasExtension("GL_ARB_shader_objects"))
 				Assert.Inconclusive("required features not implemented");
+
 
 			using (Device device = new Device())
 			using (new GLContext(device))
@@ -173,12 +192,16 @@ namespace OpenGL.Test
 
 		#endregion
 
+
+
+
 		#region glUniform1uiv
 
 		private uint CreateProgramUniform1ui()
 		{
 			string[] srcVertex = {
 				"#version 150\n",
+
 				"uniform uint uVec = 0u;\n",
 				"void main() {\n",
 				"	gl_Position = vec4(float(uVec));\n",
@@ -194,8 +217,10 @@ namespace OpenGL.Test
 		[Test]
 		public void Uniform1ui()
 		{
+
 			if (!HasVersion(Gl.Version_300) && !HasVersion(Gl.Version_300_ES) && !HasExtension("GL_EXT_gpu_shader4"))
 				Assert.Inconclusive("required features not implemented");
+
 
 			using (Device device = new Device())
 			using (new GLContext(device))
@@ -246,7 +271,11 @@ namespace OpenGL.Test
 
 		#endregion
 
+
+
+
 #if !MONODROID
+
 
 		#region glUniform1dv
 
@@ -254,7 +283,9 @@ namespace OpenGL.Test
 		{
 			string[] srcVertex = {
 				"#version 150\n",
+
 				"#extension GL_ARB_gpu_shader_fp64 : enable\n",
+
 				"uniform double uVec = 0.0;\n",
 				"void main() {\n",
 				"	gl_Position = vec4(float(uVec));\n",
@@ -270,8 +301,10 @@ namespace OpenGL.Test
 		[Test]
 		public void Uniform1d()
 		{
+
 			if (!HasVersion(Gl.Version_400) && !HasExtension("GL_ARB_gpu_shader_fp64"))
 				Assert.Inconclusive("required features not implemented");
+
 
 			using (Device device = new Device())
 			using (new GLContext(device))
@@ -322,13 +355,18 @@ namespace OpenGL.Test
 
 		#endregion
 
+
 #endif
+
+
+
 		#region glUniform2fv
 
 		private uint CreateProgramUniform2f()
 		{
 			string[] srcVertex = {
 				"#version 150\n",
+
 				"uniform vec2 uVec = vec2(0.0);\n",
 				"void main() {\n",
 				"	gl_Position = vec4(uVec, 0, 1);\n",
@@ -344,8 +382,10 @@ namespace OpenGL.Test
 		[Test]
 		public void Uniform2f()
 		{
+
 			if (!HasVersion(Gl.Version_200) && !HasVersion(Gl.Version_200_ES) && !HasExtension("GL_ARB_shader_objects"))
 				Assert.Inconclusive("required features not implemented");
+
 
 			using (Device device = new Device())
 			using (new GLContext(device))
@@ -396,12 +436,16 @@ namespace OpenGL.Test
 
 		#endregion
 
+
+
+
 		#region glUniform2iv
 
 		private uint CreateProgramUniform2i()
 		{
 			string[] srcVertex = {
 				"#version 150\n",
+
 				"uniform ivec2 uVec = ivec2(0);\n",
 				"void main() {\n",
 				"	gl_Position = vec4(uVec, 0, 1);\n",
@@ -417,8 +461,10 @@ namespace OpenGL.Test
 		[Test]
 		public void Uniform2i()
 		{
+
 			if (!HasVersion(Gl.Version_200) && !HasVersion(Gl.Version_200_ES) && !HasExtension("GL_ARB_shader_objects"))
 				Assert.Inconclusive("required features not implemented");
+
 
 			using (Device device = new Device())
 			using (new GLContext(device))
@@ -469,12 +515,16 @@ namespace OpenGL.Test
 
 		#endregion
 
+
+
+
 		#region glUniform2uiv
 
 		private uint CreateProgramUniform2ui()
 		{
 			string[] srcVertex = {
 				"#version 150\n",
+
 				"uniform uvec2 uVec = uvec2(0u);\n",
 				"void main() {\n",
 				"	gl_Position = vec4(uVec, 0, 1);\n",
@@ -490,8 +540,10 @@ namespace OpenGL.Test
 		[Test]
 		public void Uniform2ui()
 		{
+
 			if (!HasVersion(Gl.Version_300) && !HasVersion(Gl.Version_300_ES) && !HasExtension("GL_EXT_gpu_shader4"))
 				Assert.Inconclusive("required features not implemented");
+
 
 			using (Device device = new Device())
 			using (new GLContext(device))
@@ -542,7 +594,11 @@ namespace OpenGL.Test
 
 		#endregion
 
+
+
+
 #if !MONODROID
+
 
 		#region glUniform2dv
 
@@ -550,7 +606,9 @@ namespace OpenGL.Test
 		{
 			string[] srcVertex = {
 				"#version 150\n",
+
 				"#extension GL_ARB_gpu_shader_fp64 : enable\n",
+
 				"uniform dvec2 uVec = dvec2(0.0);\n",
 				"void main() {\n",
 				"	gl_Position = vec4(uVec, 0, 1);\n",
@@ -566,8 +624,10 @@ namespace OpenGL.Test
 		[Test]
 		public void Uniform2d()
 		{
+
 			if (!HasVersion(Gl.Version_400) && !HasExtension("GL_ARB_gpu_shader_fp64"))
 				Assert.Inconclusive("required features not implemented");
+
 
 			using (Device device = new Device())
 			using (new GLContext(device))
@@ -618,13 +678,18 @@ namespace OpenGL.Test
 
 		#endregion
 
+
 #endif
+
+
+
 		#region glUniform3fv
 
 		private uint CreateProgramUniform3f()
 		{
 			string[] srcVertex = {
 				"#version 150\n",
+
 				"uniform vec3 uVec = vec3(0.0);\n",
 				"void main() {\n",
 				"	gl_Position = vec4(uVec, 1);\n",
@@ -640,8 +705,10 @@ namespace OpenGL.Test
 		[Test]
 		public void Uniform3f()
 		{
+
 			if (!HasVersion(Gl.Version_200) && !HasVersion(Gl.Version_200_ES) && !HasExtension("GL_ARB_shader_objects"))
 				Assert.Inconclusive("required features not implemented");
+
 
 			using (Device device = new Device())
 			using (new GLContext(device))
@@ -692,12 +759,16 @@ namespace OpenGL.Test
 
 		#endregion
 
+
+
+
 		#region glUniform3iv
 
 		private uint CreateProgramUniform3i()
 		{
 			string[] srcVertex = {
 				"#version 150\n",
+
 				"uniform ivec3 uVec = ivec3(0);\n",
 				"void main() {\n",
 				"	gl_Position = vec4(uVec, 1);\n",
@@ -713,8 +784,10 @@ namespace OpenGL.Test
 		[Test]
 		public void Uniform3i()
 		{
+
 			if (!HasVersion(Gl.Version_200) && !HasVersion(Gl.Version_200_ES) && !HasExtension("GL_ARB_shader_objects"))
 				Assert.Inconclusive("required features not implemented");
+
 
 			using (Device device = new Device())
 			using (new GLContext(device))
@@ -765,12 +838,16 @@ namespace OpenGL.Test
 
 		#endregion
 
+
+
+
 		#region glUniform3uiv
 
 		private uint CreateProgramUniform3ui()
 		{
 			string[] srcVertex = {
 				"#version 150\n",
+
 				"uniform uvec3 uVec = uvec3(0u);\n",
 				"void main() {\n",
 				"	gl_Position = vec4(uVec, 1);\n",
@@ -786,8 +863,10 @@ namespace OpenGL.Test
 		[Test]
 		public void Uniform3ui()
 		{
+
 			if (!HasVersion(Gl.Version_300) && !HasVersion(Gl.Version_300_ES) && !HasExtension("GL_EXT_gpu_shader4"))
 				Assert.Inconclusive("required features not implemented");
+
 
 			using (Device device = new Device())
 			using (new GLContext(device))
@@ -838,7 +917,11 @@ namespace OpenGL.Test
 
 		#endregion
 
+
+
+
 #if !MONODROID
+
 
 		#region glUniform3dv
 
@@ -846,7 +929,9 @@ namespace OpenGL.Test
 		{
 			string[] srcVertex = {
 				"#version 150\n",
+
 				"#extension GL_ARB_gpu_shader_fp64 : enable\n",
+
 				"uniform dvec3 uVec = dvec3(0.0);\n",
 				"void main() {\n",
 				"	gl_Position = vec4(uVec, 1);\n",
@@ -862,8 +947,10 @@ namespace OpenGL.Test
 		[Test]
 		public void Uniform3d()
 		{
+
 			if (!HasVersion(Gl.Version_400) && !HasExtension("GL_ARB_gpu_shader_fp64"))
 				Assert.Inconclusive("required features not implemented");
+
 
 			using (Device device = new Device())
 			using (new GLContext(device))
@@ -914,13 +1001,18 @@ namespace OpenGL.Test
 
 		#endregion
 
+
 #endif
+
+
+
 		#region glUniform4fv
 
 		private uint CreateProgramUniform4f()
 		{
 			string[] srcVertex = {
 				"#version 150\n",
+
 				"uniform vec4 uVec = vec4(0.0);\n",
 				"void main() {\n",
 				"	gl_Position = vec4(uVec);\n",
@@ -936,8 +1028,10 @@ namespace OpenGL.Test
 		[Test]
 		public void Uniform4f()
 		{
+
 			if (!HasVersion(Gl.Version_200) && !HasVersion(Gl.Version_200_ES) && !HasExtension("GL_ARB_shader_objects"))
 				Assert.Inconclusive("required features not implemented");
+
 
 			using (Device device = new Device())
 			using (new GLContext(device))
@@ -988,12 +1082,16 @@ namespace OpenGL.Test
 
 		#endregion
 
+
+
+
 		#region glUniform4iv
 
 		private uint CreateProgramUniform4i()
 		{
 			string[] srcVertex = {
 				"#version 150\n",
+
 				"uniform ivec4 uVec = ivec4(0);\n",
 				"void main() {\n",
 				"	gl_Position = vec4(uVec);\n",
@@ -1009,8 +1107,10 @@ namespace OpenGL.Test
 		[Test]
 		public void Uniform4i()
 		{
+
 			if (!HasVersion(Gl.Version_200) && !HasVersion(Gl.Version_200_ES) && !HasExtension("GL_ARB_shader_objects"))
 				Assert.Inconclusive("required features not implemented");
+
 
 			using (Device device = new Device())
 			using (new GLContext(device))
@@ -1061,12 +1161,16 @@ namespace OpenGL.Test
 
 		#endregion
 
+
+
+
 		#region glUniform4uiv
 
 		private uint CreateProgramUniform4ui()
 		{
 			string[] srcVertex = {
 				"#version 150\n",
+
 				"uniform uvec4 uVec = uvec4(0u);\n",
 				"void main() {\n",
 				"	gl_Position = vec4(uVec);\n",
@@ -1082,8 +1186,10 @@ namespace OpenGL.Test
 		[Test]
 		public void Uniform4ui()
 		{
+
 			if (!HasVersion(Gl.Version_300) && !HasVersion(Gl.Version_300_ES) && !HasExtension("GL_EXT_gpu_shader4"))
 				Assert.Inconclusive("required features not implemented");
+
 
 			using (Device device = new Device())
 			using (new GLContext(device))
@@ -1134,7 +1240,11 @@ namespace OpenGL.Test
 
 		#endregion
 
+
+
+
 #if !MONODROID
+
 
 		#region glUniform4dv
 
@@ -1142,7 +1252,9 @@ namespace OpenGL.Test
 		{
 			string[] srcVertex = {
 				"#version 150\n",
+
 				"#extension GL_ARB_gpu_shader_fp64 : enable\n",
+
 				"uniform dvec4 uVec = dvec4(0.0);\n",
 				"void main() {\n",
 				"	gl_Position = vec4(uVec);\n",
@@ -1158,8 +1270,10 @@ namespace OpenGL.Test
 		[Test]
 		public void Uniform4d()
 		{
+
 			if (!HasVersion(Gl.Version_400) && !HasExtension("GL_ARB_gpu_shader_fp64"))
 				Assert.Inconclusive("required features not implemented");
+
 
 			using (Device device = new Device())
 			using (new GLContext(device))
@@ -1210,7 +1324,10 @@ namespace OpenGL.Test
 
 		#endregion
 
+
 #endif
+
+
 		#region Common
 
 		private static T[] Array1<T>(T value) { return new T[] { value }; }

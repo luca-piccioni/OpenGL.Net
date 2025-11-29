@@ -21,8 +21,6 @@ using System.Text.RegularExpressions;
 
 using NUnit.Framework;
 
-using Khronos;
-
 namespace OpenGL.Test
 {
 	/// <summary>
@@ -33,7 +31,7 @@ namespace OpenGL.Test
 		/// <summary>
 		/// Test Wgl.GetExtensionsStringARB
 		/// </summary>
-		[Test, RequiredByFeature("WGL_ARB_extensions_string")]
+		[Test]
 		public void TestGetExtensionsStringARB()
 		{
 			if (Wgl.HasGetExtensionsStringARB == false)

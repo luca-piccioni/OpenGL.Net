@@ -19,15 +19,17 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+using Khronos;
 using System;
-using System.ComponentModel;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.Design.Serialization;
 using System.Diagnostics;
 using System.Drawing;
+using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
-
-using Khronos;
 
 namespace OpenGL
 {
@@ -409,13 +411,9 @@ namespace OpenGL
 			set
 			{
 				_Animation = value;
-				
-				if (DesignMode == false) {
-					if      (_AnimationTimer != null && AnimationTimer)
-						_AnimationTimer.Enabled = Animation;
-					else if (!AnimationTimer && Animation && !AnimationTimer && IsHandleCreated)
-						BeginInvoke(new Action(delegate() { Invalidate(); }));
-				}
+
+				if (IsHandleCreated)
+					ResetAnimationTimer();
 			}
 		}
 
@@ -438,8 +436,8 @@ namespace OpenGL
 			{
 				_AnimationTime = value;
 
-				if (_AnimationTimer != null && !DesignMode)
-					_AnimationTimer.Interval = Math.Max(1, _AnimationTime);
+				if (IsHandleCreated)
+					ResetAnimationTimer();
 			}
 		}
 
@@ -462,10 +460,8 @@ namespace OpenGL
 			{
 				_AnimationTimerFlag = value;
 
-				if      (_AnimationTimer == null && AnimationTimer && !DesignMode)
-					CreateAnimationTimer();
-				else if (_AnimationTimer != null && !AnimationTimer && !DesignMode)
-					_AnimationTimer.Enabled = false;
+				if (IsHandleCreated)
+					ResetAnimationTimer();
 			}
 		}
 
@@ -477,36 +473,48 @@ namespace OpenGL
 		/// <summary>
 		/// Create animation timer resources.
 		/// </summary>
-		private void CreateAnimationTimer()
+		private void ResetAnimationTimer()
 		{
-			if (_AnimationTimer == null) {
-				_AnimationTimer = new Timer();
-				_AnimationTimer.Tick += AnimationTimer_Tick;
-				_AnimationTimer.Interval = Math.Max(1, _AnimationTime);
-				_AnimationTimer.Enabled = Animation;
+			if (!DesignMode) {
+				if (Animation) {
+					// Add this device to the swap group
+					//bool res = _DeviceContext.JoinSwapGroup(1);
+					//Debug.Assert(res || !_DeviceContext.SupportSwapGroup);
+
+					if (_AnimationTimer == null)
+						_AnimationTimer = new System.Threading.Timer(AnimationTimer_Tick);
+					_AnimationTimer.Change(Math.Max(40, AnimationTime), Timeout.Infinite);
+				} else {
+					if (_AnimationTimer != null)
+						_AnimationTimer.Change(Timeout.Infinite, Timeout.Infinite);
+
+					// Remove this device from the swap group
+					//bool res = _DeviceContext.JoinSwapGroup(0);
+					//Debug.Assert(res || !_DeviceContext.SupportSwapGroup);
+				}
 			}
 		}
 
-		/// <summary>
-		/// Animation timer callback.
-		/// </summary>
-		/// <param name="sender">
-		/// The <see cref="Timer"/> that has triggered the event.
-		/// </param>
-		/// <param name="e">
-		/// The event arguments.
-		/// </param>
-		private void AnimationTimer_Tick(object sender, EventArgs e)
+		private void AnimationTimer_Tick(object objectState)
 		{
-			if (_AnimationInvalidated == 0)
-				Invalidate();
-			System.Threading.Interlocked.Add(ref _AnimationInvalidated, 1);
+			Debug.Assert(IsHandleCreated);
+
+			if (IsHandleCreated)
+				BeginInvoke(new Action(() => {
+					Invalidate();
+				}));
+
+			try {
+				_AnimationTimer.Change(Math.Max(40, AnimationTime), Timeout.Infinite);
+			} catch {
+				// Fail-safe
+			}
 		}
 
 		/// <summary>
 		/// Timer used 
 		/// </summary>
-		private Timer _AnimationTimer;
+		private System.Threading.Timer _AnimationTimer;
 
 		/// <summary>
 		/// Boolean used for avoiding excessive Invalidate() calls
@@ -758,6 +766,10 @@ namespace OpenGL
 		/// </summary>
 		protected virtual void MakeCurrentContext()
 		{
+			// CreateContext() may have failed
+			if (_RenderContext == IntPtr.Zero)
+				return;
+
 			// Make context current
 			if (_DeviceContext.MakeCurrent(_RenderContext) == false)
 				throw new InvalidOperationException("unable to make context current");
@@ -769,7 +781,7 @@ namespace OpenGL
 		protected virtual void DeleteContext()
 		{
 			// Remove this context from the sharing group
-			if (ContextSharing == ContextSharingOption.OwnContext && ContextSharingGroup != null) {
+			if (ContextSharing == ContextSharingOption.OwnContext && !string.IsNullOrEmpty(ContextSharingGroup)) {
 				List<IntPtr> sharingContextes;
 
 				// Get the list previously created
@@ -895,13 +907,16 @@ namespace OpenGL
 			}
 
 			// Allow other GlControl instances to share resources with this context
-			if (ContextSharing == ContextSharingOption.OwnContext && ContextSharingGroup != null) {
+			if (ContextSharing == ContextSharingOption.OwnContext && !string.IsNullOrEmpty(ContextSharingGroup)) {
 				List<IntPtr> sharingContextes;
 
 				// Get the list previously created
 				_SharingGroups.TryGetValue(ContextSharingGroup, out sharingContextes);
 				// ...and register this context among the others
 				sharingContextes.Add(_RenderContext);
+
+				// Give a chance to other GlControl instances to use SingleContext sharing option
+				_SharingControls[ContextSharingGroup] = this;
 			}
 		}
 
@@ -910,7 +925,7 @@ namespace OpenGL
 		/// </summary>
 		protected void ReuseOtherContext()
 		{
-			if (ContextSharingGroup == null)
+			if (string.IsNullOrEmpty(ContextSharingGroup))
 				throw new InvalidOperationException("undefined context sharing group");
 
 			if (_SharingControls.TryGetValue(ContextSharingGroup, out _SharingControl) == false)
@@ -921,6 +936,8 @@ namespace OpenGL
 			// ...but reset it when no more valid
 			_SharingControl.ContextCreated += SharingControl_ContextCreated;
 			_SharingControl.ContextDestroying += SharingControl_ContextDestroying;
+			// .. emulate context creation event
+			SharingControl_ContextCreated(_RenderContext, null);
 		}
 
 		/// <summary>
@@ -1124,38 +1141,6 @@ namespace OpenGL
 
 		#endregion
 
-		#region Statistics
-
-		/// <summary>
-		/// Get the time spent for drawing the last frame.
-		/// </summary>
-		[Browsable(false)]
-		public TimeSpan FrameDrawTime
-		{
-			get { return (_FrameDrawTime); }
-		}
-
-		/// <summary>
-		/// The time spent for drawing the last frame.
-		/// </summary>
-		private TimeSpan _FrameDrawTime;
-
-		/// <summary>
-		/// Get the time spent for swapping the last frame.
-		/// </summary>
-		[Browsable(false)]
-		public TimeSpan FrameSwapTime
-		{
-			get { return (_FrameSwapTime); }
-		}
-
-		/// <summary>
-		/// The time spent for drawing the last frame.
-		/// </summary>
-		private TimeSpan _FrameSwapTime;
-
-		#endregion
-
 		#region UserControl Overrides
 
 		/// <summary>
@@ -1189,22 +1174,29 @@ namespace OpenGL
 		/// </param>
 		protected override void OnHandleCreated(EventArgs e)
 		{
-			if (DesignMode == false) {
-				// Create device context
-				CreateDeviceContext();
-				// Create OpenGL context
-				CreateContext();
-				// The context is made current unconditionally: event handlers allocate resources
-				MakeCurrentContext();
-				// Event handling
-				OnContextCreated();
-				// Animation support
-				if (AnimationTimer && Animation)
-					CreateAnimationTimer();
-			}
+			try {
+				if (DesignMode == false) {
+					try {
+						// Create device context
+						CreateDeviceContext();
+						// Create OpenGL context
+						CreateContext();
+						// The context is made current unconditionally: event handlers allocate resources
+						MakeCurrentContext();
+						// Event handling
+						OnContextCreated();
 
-			// Base implementation
-			base.OnHandleCreated(e);
+						ResetAnimationTimer();
+
+					} catch (Exception exception) {
+						Khronos.KhronosApi.LogComment($"Unable to create GL context: {exception}");
+						throw;
+					}
+				}
+			} finally {
+				// Base implementation
+				base.OnHandleCreated(e);
+			}
 		}
 
 		/// <summary>
@@ -1216,17 +1208,15 @@ namespace OpenGL
 		protected override void OnHandleDestroyed(EventArgs e)
 		{
 			if (DesignMode == false) {
-				if (_RenderContext != IntPtr.Zero) {
-					// Event handling
-					OnContextDestroying();
-					// Destroy context
-					if (_SharingControl == null)
-						DeleteContext();
-				}
+				// Event handling
+				OnContextDestroying();
+				// Destroy context
+				DeleteContext();
 				// Destroy device context
-				_DeviceContext.DecRef();
+				_DeviceContext?.DecRef();
 				_DeviceContext = null;
 			}
+
 			// Base implementation
 			base.OnHandleDestroyed(e);
 		}
@@ -1241,19 +1231,15 @@ namespace OpenGL
 		{
 			if (DesignMode == false) {
 				Stopwatch sw = Stopwatch.StartNew();
-				
+
 				MakeCurrentContext();
 
 				// Draw
 				OnRender();
-				_FrameDrawTime = sw.Elapsed;
-
 				// Update
 				OnContextUpdate();
-
 				// Swap
 				_DeviceContext.SwapBuffers();
-				_FrameSwapTime = sw.Elapsed;
 			} else
 				DrawDesign(e);
 
@@ -1261,13 +1247,7 @@ namespace OpenGL
 			base.OnPaint(e);
 
 			// Animation support
-			System.Threading.Interlocked.Exchange(ref _AnimationInvalidated, 0);
-			// Exclusive animation
-			if (Animation && !AnimationTimer && !DesignMode) {
-				if (AnimationTime > 0)
-					System.Threading.Thread.Sleep(AnimationTime);
-				Invalidate();
-			}
+			Interlocked.Exchange(ref _AnimationInvalidated, 0);
 		}
 
 		/// <summary> 
@@ -1278,15 +1258,13 @@ namespace OpenGL
 		/// </param>
 		protected override void Dispose(bool disposing)
 		{
+			// Dispose animation timer
+			_AnimationTimer?.Change(Timeout.Infinite, Timeout.Infinite);
+			_AnimationTimer?.Dispose();
+
 			// Designer components disposition
 			if (disposing && (components != null))
 				components.Dispose();
-
-			// Dispose animation timer
-			if (_AnimationTimer != null) {
-				_AnimationTimer.Tick -= AnimationTimer_Tick;
-				_AnimationTimer.Dispose();
-			}
 
 			// Avoid reference leaks
 			if (_SharingControl != null) {
@@ -1294,7 +1272,7 @@ namespace OpenGL
 				_SharingControl.ContextCreated -= SharingControl_ContextCreated;
 			}
 			// This control cannot create context anymore
-			if (ContextSharing == ContextSharingOption.OwnContext && ContextSharingGroup != null)
+			if (ContextSharing == ContextSharingOption.OwnContext && !string.IsNullOrEmpty(ContextSharingGroup))
 				_SharingControls.Remove(ContextSharingGroup);
 
 			// Dispose resources
@@ -1350,5 +1328,73 @@ namespace OpenGL
 		public readonly IntPtr RenderContext;
 
 		#endregion
+	}
+
+	/// <summary>
+	/// Designer converter for <see cref="KhronosVersion"/> properties.
+	/// </summary>
+	[RequiredByFeature("System.Windows.Forms Designer")]
+	public class KhronosVersionConverter : TypeConverter
+	{
+		public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)
+		{
+			return sourceType == typeof(string) || base.CanConvertFrom(context, sourceType);
+		}
+
+		public override object ConvertFrom(ITypeDescriptorContext context, System.Globalization.CultureInfo culture, object value)
+		{
+			if (ReferenceEquals(value, null))
+				return base.ConvertFrom(context, culture, null);
+
+			Type valueType = value.GetType();
+
+			if (valueType == typeof(string)) {
+				string valueString = (string)value;
+
+				if (valueString == string.Empty)
+					return null;
+
+				return KhronosVersion.Parse(valueString);
+			}
+
+			// Base implementation
+			return base.ConvertFrom(context, culture, value);
+		}
+
+		public override bool CanConvertTo(ITypeDescriptorContext context, Type destinationType)
+		{
+			if (destinationType == typeof(string))
+				return true;
+			if (destinationType == typeof(InstanceDescriptor))
+				return true;
+
+			// Base implementation
+			return base.CanConvertTo(context, destinationType);
+		}
+
+		public override object ConvertTo(ITypeDescriptorContext context, System.Globalization.CultureInfo culture, object value, Type destinationType)
+		{
+			KhronosVersion version = value as KhronosVersion;
+
+			if (version != null) {
+				if (destinationType == typeof(string)) {
+					return version.ToString();
+				} else if (destinationType == typeof(InstanceDescriptor)) {
+					ConstructorInfo ctor = typeof(KhronosVersion).GetConstructor(new[] {
+						typeof(int), typeof(int), typeof(int), typeof(string), typeof(string)
+					});
+					if (ctor != null)
+						return new InstanceDescriptor(ctor, new object[] {
+							version.Major, version.Minor, version.Revision, version.Api, version.Profile
+						});
+				}
+			} else {
+				if (destinationType == typeof(string))
+					return "Current";
+			}
+
+			// Base implementation
+			return base.ConvertTo(context, culture, value, destinationType);
+		}
 	}
 }

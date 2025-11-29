@@ -29,14 +29,14 @@ namespace OpenGL
 	public enum PixelSpace
 	{
 		/// <summary>
-		/// Grayscale.
+		/// Red.
 		/// </summary>
 		Red,
 
 		/// <summary>
-		/// Gray scale and Alpha.
+		/// Red and Green.
 		/// </summary>
-		GrayAlpha,
+		RedGreen,
 
 		/// <summary>
 		/// RGB.
@@ -92,6 +92,11 @@ namespace OpenGL
 		/// Depth.
 		/// </summary>
 		Depth,
+
+		/// <summary>
+		/// Stencil.
+		/// </summary>
+		Stencil,
 
 		/// <summary>
 		/// Combined depth/stencil.

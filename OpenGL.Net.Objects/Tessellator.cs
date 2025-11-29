@@ -22,7 +22,6 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using System.Runtime.CompilerServices;
 
 namespace OpenGL.Objects
 {
@@ -41,7 +40,8 @@ namespace OpenGL.Objects
 			if (Glu.IsAvailable == false)
 				throw new NotSupportedException("GLU is required");
 
-			_Tess = Glu.NewTess();
+			if ((_Tess = Glu.NewTess()) == IntPtr.Zero)
+				throw new InvalidOperationException("unable to create tesserator");
 
 			// Register callbacks
 			TessCallback(Glu.TessCallbackType.TessBegin, new Glu.CallbackBeginDelegate(BeginCallback));

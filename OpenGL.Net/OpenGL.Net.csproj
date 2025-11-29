@@ -1,0 +1,149 @@
+<Project>
+
+  <PropertyGroup>
+    <BaseIntermediateOutputPath>obj\netstd2.0</BaseIntermediateOutputPath>
+  </PropertyGroup>
+
+  <Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk" />
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>OpenGL.Net</AssemblyName>
+    <RootNamespace>OpenGL</RootNamespace>
+    <Product>OpenGL.Net</Product>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <IsPackable>true</IsPackable>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <Description>Modern OpenGL bindings for C#.
+
+It supports OpenGL 4.6 and OpenGL ES 3.2, OpenGL for Windows (WGL), OpenGL for X11 1.4 (XGL), Native Platform Interface 1.5 (EGL).
+
+No graphical toolkit integration is included in this package. UI backends are supported in separated packages.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+	<Compile Remove="**\*" />
+	<EmbeddedResource Remove="**\*" />
+    <None Remove="**\*" />
+  </ItemGroup>
+  
+  <ItemGroup>
+	<Compile Include="DeviceContext*.cs" />
+	<Compile Include="DevicePixelformat.cs" />
+	<Compile Include="DevicePixelformatCollection.cs" />
+	<Compile Include="GetProcAddressGL.cs" />
+	<Compile Include="INativePBuffer.cs" />
+	<Compile Include="INativeWindow.cs" />
+	<Compile Include="KhronosAPI.cs" />
+	<Compile Include="LimitAttribute.cs" />
+	<Compile Include="Memory.cs" />
+	<Compile Include="MemoryLock.cs" />
+  </ItemGroup>
+  
+  <ItemGroup>
+	<Compile Include="Egl.cs" />
+	<Compile Include="Egl.*.cs" />
+	<Compile Include="EglEventArgs.cs" />
+	<Compile Include="EglException.cs" />
+  </ItemGroup>
+  
+  <ItemGroup>
+	<Compile Include="Gl.cs" />
+	<Compile Include="Gl.*.cs" />
+	<Compile Include="GlException.cs" />
+	<Compile Include="GlslVersion.cs" />
+	<Compile Include="3DFX\*.cs" />
+	<Compile Include="3DL\*.cs" />
+	<Compile Include="AMD\*.cs" />
+	<Compile Include="ANDROID\*.cs" />
+	<Compile Include="ANGLE\*.cs" />
+	<Compile Include="APPLE\*.cs" />
+	<Compile Include="ARB\*.cs" />
+	<Compile Include="ARM\*.cs" />
+	<Compile Include="ATI\*.cs" />
+	<Compile Include="DMP\*.cs" />
+	<Compile Include="EXT\*.cs" />
+	<Compile Include="FJ\*.cs" />
+	<Compile Include="GREMEDY\*.cs" />
+	<Compile Include="HI\*.cs" />
+	<Compile Include="HP\*.cs" />
+	<Compile Include="I3D\*.cs" />
+	<Compile Include="IBM\*.cs" />
+	<Compile Include="IMG\*.cs" />
+	<Compile Include="INGR\*.cs" />
+	<Compile Include="INTEL\*.cs" />
+	<Compile Include="KHR\*.cs" />
+	<Compile Include="MESA\*.cs" />
+	<Compile Include="MESAX\*.cs" />
+	<Compile Include="NOK\*.cs" />
+	<Compile Include="NV\*.cs" />
+	<Compile Include="NVX\*.cs" />
+	<Compile Include="OES\*.cs" />
+	<Compile Include="OML\*.cs" />
+	<Compile Include="OVR\*.cs" />
+	<Compile Include="PGI\*.cs" />
+	<Compile Include="QCOM\*.cs" />
+	<Compile Include="REND\*.cs" />
+	<Compile Include="S3\*.cs" />
+	<Compile Include="SGI\*.cs" />
+	<Compile Include="SGIS\*.cs" />
+	<Compile Include="SGIX\*.cs" />
+	<Compile Include="SUN\*.cs" />
+	<Compile Include="SUNX\*.cs" />
+	<Compile Include="TIZEN\*.cs" />
+	<Compile Include="VIV\*.cs" />
+	<Compile Include="WIN\*.cs" />
+  </ItemGroup>
+  
+  <ItemGroup>
+	<Compile Include="Glu.cs" />
+  </ItemGroup>
+  
+  <ItemGroup>
+	<Compile Include="Glx.cs" />
+	<Compile Include="Glx.*.cs" />
+	<Compile Include="GlxException.cs" />
+  </ItemGroup>
+  
+  <ItemGroup>
+	<Compile Include="Wgl.cs" />
+	<Compile Include="Wgl.*.cs" />
+	<Compile Include="WglException.cs" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Compile Remove="obj\**" />
+	<Compile Remove="Resources\**" />
+    <EmbeddedResource Remove="obj\**" />
+    <None Remove="obj\**" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Compile Remove="Gl.NvOptmimus.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="KhronosLogMapEgl.xml" />
+    <EmbeddedResource Include="KhronosLogMapGl.xml" />
+    <EmbeddedResource Include="KhronosLogMapGlx.xml" />
+    <EmbeddedResource Include="KhronosLogMapWgl.xml" />
+  </ItemGroup>
+
+  <Import Project="..\Khronos.Net\Khronos.Net.projitems" Label="Shared" />
+
+  <Import Project="..\OpenGL.Net.props" />
+
+  <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
+
+</Project>

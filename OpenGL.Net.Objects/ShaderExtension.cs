@@ -20,14 +20,14 @@
 // SOFTWARE.
 
 using System;
-using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 namespace OpenGL.Objects
 {
 	/// <summary>
 	/// Shader program extension.
 	/// </summary>
-	[DataContract(Name = "Extension")]
+	[XmlType("Extension")]
 	public class ShaderExtension
 	{
 		#region Constructor
@@ -46,7 +46,7 @@ namespace OpenGL.Objects
 		public ShaderExtension(string extensionName, ShaderExtensionBehavior behavior)
 		{
 			if (extensionName == null)
-				throw new ArgumentNullException(nameof(extensionName));
+				throw new ArgumentNullException("extensionName");
 			
 			Name = extensionName;
 			Behavior = behavior;
@@ -59,13 +59,13 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// The interface name.
 		/// </summary>
-		[DataMember]
+		[XmlAttribute("Name")]
 		public string Name;
 		
 		/// <summary>
 		/// The shader extension requested behavior.
 		/// </summary>
-		[DataMember]
+		[XmlAttribute("Behavior")]
 		public ShaderExtensionBehavior Behavior = ShaderExtensionBehavior.Warn;
 		
 		#endregion

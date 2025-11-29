@@ -62,14 +62,14 @@ namespace OpenGL.Objects.State
 		/// </returns>
 		protected static int NextStateIndex()
 		{
-			return (_StateIndex++);
+			return _StateIndex++;
 		}
 
 		/// <summary>
 		/// Get the total number of <see cref="IGraphicsState"/> implementations.
 		/// </summary>
 		/// <returns></returns>
-		protected internal static int GetStateCount() { return (_StateIndex); }
+		protected internal static int GetStateCount() { return _StateIndex; }
 
 		/// <summary>
 		/// The current state index for GraphicsState.
@@ -94,7 +94,7 @@ namespace OpenGL.Objects.State
 		/// </returns>
 		public static bool operator==(GraphicsState state1, GraphicsState state2)
 		{
-			return (Equals(state1, state2));
+			return Equals(state1, state2);
 		}
 
 		/// <summary>
@@ -111,7 +111,7 @@ namespace OpenGL.Objects.State
 		/// </returns>
 		public static bool operator!=(GraphicsState state1, GraphicsState state2)
 		{
-			return (!Equals(state1, state2));
+			return !Equals(state1, state2);
 		}
 
 		#endregion
@@ -137,7 +137,7 @@ namespace OpenGL.Objects.State
 			try {
 				return Equals((GraphicsState)obj);
 			} catch (InvalidCastException) {
-				return (false);
+				return false;
 			}
 		}
 
@@ -150,7 +150,7 @@ namespace OpenGL.Objects.State
 		/// </returns>
 		public override int GetHashCode()
 		{
-			return (StateIdentifier.GetHashCode());
+			return StateIdentifier.GetHashCode();
 		}
 		
 		/// <summary>
@@ -161,7 +161,7 @@ namespace OpenGL.Objects.State
 		/// </returns>
 		public override string ToString()
 		{
-			return (StateIdentifier);
+			return StateIdentifier;
 		}
 
 		#endregion
@@ -181,12 +181,12 @@ namespace OpenGL.Objects.State
 		/// <summary>
 		/// Flag indicating whether the state is context-bound.
 		/// </summary>
-		public virtual bool IsContextBound { get { return (true); } }
+		public virtual bool IsContextBound => true;
 
 		/// <summary>
 		/// Flag indicating whether the state can be applied on a <see cref="ShaderProgram"/>.
 		/// </summary>
-		public virtual bool IsProgramBound { get { return (false); } }
+		public virtual bool IsProgramBound => false;
 
 		/// <summary>
 		/// Create or update resources defined by this IGraphicsState, based on the associated <see cref="ShaderProgram"/>.
@@ -214,7 +214,7 @@ namespace OpenGL.Objects.State
 		/// Apply the render state define by this IGraphicsState.
 		/// </summary>
 		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used in conjuction with <paramref name="shaderProgram"/>.
+		/// A <see cref="GraphicsContext"/> used in conjunction with <paramref name="shaderProgram"/>.
 		/// </param>
 		/// <param name="shaderProgram">
 		/// The <see cref="ShaderProgram"/> holding the uniform state.
@@ -230,7 +230,7 @@ namespace OpenGL.Objects.State
 		/// </returns>
 		public virtual IGraphicsState Push()
 		{
-			return ((GraphicsState)MemberwiseClone());
+			return (GraphicsState)MemberwiseClone();
 		}
 
 		/// <summary>
@@ -272,9 +272,9 @@ namespace OpenGL.Objects.State
 		public virtual bool Equals(IGraphicsState other)
 		{
 			if (other == null)
-				throw new ArgumentNullException("other");
+				throw new ArgumentNullException(nameof(other));
 
-			return (other.StateIndex == StateIndex);
+			return other.StateIndex == StateIndex;
 		}
 
 		/// <summary>

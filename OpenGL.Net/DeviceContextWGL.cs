@@ -454,7 +454,7 @@ namespace OpenGL
 
 		#endregion
 
-		#region DeviceContext Overrides
+		#region Overrides
 
 		/// <summary>
 		/// Get this DeviceContext API version.
@@ -1057,6 +1057,8 @@ namespace OpenGL
 			if (Wgl.SetPixelFormat(DeviceContext, pixelFormatIndex, ref pDescriptor) == false)
 				throw new InvalidOperationException("unable to set pixel format", GetPlatformException());
 
+			_PixelFormatIndex = pixelFormatIndex;
+
 			IsPixelFormatSet = true;
 		}
 
@@ -1143,8 +1145,24 @@ namespace OpenGL
 			}
 #endif
 
+			_PixelFormatIndex = pixelFormat.FormatIndex;
+
 			IsPixelFormatSet = true;
 		}
+
+		/// <summary>
+		/// Get the device pixel format index.
+		/// </summary>
+		public override int GetPixelFormatIndex()
+		{
+			// No actual pixel format index
+			return _PixelFormatIndex;
+		}
+
+		/// <summary>
+		/// The device pixel format index.
+		/// </summary>
+		private int _PixelFormatIndex = -1;
 
 #if CHOOSE_PIXEL_FORMAT_FALLBACK
 
@@ -1179,6 +1197,26 @@ namespace OpenGL
 		}
 
 #endif
+
+		/// <summary>
+		/// Determine whether this DeviceContext support OpenGL swapping groups.
+		/// </summary>
+		public override bool SupportSwapGroup { get { return Wgl.CurrentExtensions != null && Wgl.CurrentExtensions.SwapGroup_NV; } }
+
+		/// <summary>
+		/// Join this DeviceContext to the specified swap group.
+		/// </summary>
+		/// <param name="swapGroupID">
+		/// The identifier of the OpenGL swap group. If zero, unbound this DeviceContext from any swap group.
+		/// </param>
+		public override bool JoinSwapGroup(uint swapGroupID)
+		{
+			// Silently ignore request if not supported
+			if (!SupportSwapGroup)
+				return false;
+
+			return Wgl.JoinSwapGroupNV(_WindowHandle, swapGroupID);
+		}
 
 		/// <summary>
 		/// Performs application-defined tasks associated with freeing, releasing, or resetting managed/unmanaged resources.

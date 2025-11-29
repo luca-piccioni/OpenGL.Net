@@ -21,11 +21,20 @@
 
 #include </OpenGL/Compatibility.glsl>
 #include </OpenGL/TransformState.glsl>
+#include </OpenGL/ClipDistance.glsl>
 #include </OpenGL/Light/LightState.glsl>
+#include </Geo/GeoProject.glsl>
 
+#if defined(GLO_POSITION_HP)
+// Vertex position
+LOCATION(0) ATTRIBUTE dvec4 glo_Position;
+#else
 // Vertex position
 LOCATION(0) ATTRIBUTE vec4 glo_Position;
+#endif
+
 // Vertex color
+// Note: this attribute can be instanced for batching uniform color per primitive
 LOCATION(1) ATTRIBUTE vec4 glo_Color;
 // Vertex normal
 LOCATION(2) ATTRIBUTE vec3 glo_Normal;
@@ -36,6 +45,11 @@ LOCATION(4) ATTRIBUTE vec3 glo_Tangent;
 // Vertex bitangent
 LOCATION(5) ATTRIBUTE vec3 glo_Bitangent;
 
+// The depth of the primitive.
+LOCATION(11) ATTRIBUTE float glo_PrimitiveDepthInstanced;
+// The vertex model-view-projection matrix, instanced.
+LOCATION(12) ATTRIBUTE mat4 glo_PrimitiveModelViewProjectionInstanced;
+
 // Vertex/Fragment color
 SHADER_OUT vec4 glo_VertexColor;
 // Vertex/Fragment normal (view space)
@@ -44,16 +58,32 @@ SHADER_OUT vec3 glo_VertexNormal;
 SHADER_OUT vec2 glo_VertexTexCoord[1];
 // Vertex/Fragment TBN space matrix
 SHADER_OUT mat3 glo_VertexTBN;
+// Vertex/Fragment depth of the primitive.
+SHADER_OUT float glo_VertexPrimitiveDepthInstanced;
 
 // Vertex/Fragment position (model-view space)
 SHADER_OUT vec4 glo_VertexPositionModelView;
 
 void main()
 {
+#if defined(GLO_GEOPROJECTION)
+	// Note: only xy components are meaningful (x: lon, y: lat)
+	vec2 gPosition = GeoProject(glo_Position.xy);
+	// z component is likely 0: passthru value (i.e. depth)
+	// w component always defaults to 1
+	vec4 vPosition = vec4(gPosition.xy, 0.0, 1.0);
+#else
 	vec4 vPosition = glo_Position;
-	vec3 vNormal = normalize(glo_Normal);
+#endif
 
-	gl_Position = glo_ModelViewProjection * vPosition;
+	vec3 vNormal = normalize(glo_Normal);
+#if defined(GLO_MVP_INSTANCED)
+	mat4 vMVP = glo_PrimitiveModelViewProjectionInstanced;
+#else
+	mat4 vMVP = glo_ModelViewProjection;
+#endif
+
+	gl_Position = vMVP * vPosition;
 
 	vec3 vNormalView = normalize(glo_NormalMatrix * vNormal);
 	vec3 vTangent = normalize(glo_Tangent);
@@ -70,10 +100,10 @@ void main()
 	// tbnT = normalize(tbnT - dot(tbnT, tbnN) * tbnN);
 	glo_VertexTBN = mat3(tbnT, tbnB, tbnN);
 
+#if defined(GLO_LIGHTING_PER_VERTEX)
+
 	// Positions required for lighting
 	glo_VertexPositionModelView = glo_ModelView * glo_Position;
-
-#if defined(GLO_LIGHTING_PER_VERTEX)
 
 	// Material initially defined by uniform colors
 	glo_MaterialType fragmentMaterial = glo_FrontMaterial;
@@ -86,4 +116,18 @@ void main()
 	glo_VertexColor = ComputeLightShading(fragmentMaterial, glo_VertexPositionModelView, glo_VertexNormal);
 
 #endif
+
+	// Support clipping planes (loop unroll because MESA complaints about it)
+	// for (int i = 0; i < 8; i++)
+	// 	gl_ClipDistance[i] = dot(vPosition, glo_ClipPlanes[i]);
+	gl_ClipDistance[0] = dot(vPosition, glo_ClipPlanes[0]);
+	gl_ClipDistance[1] = dot(vPosition, glo_ClipPlanes[1]);
+	gl_ClipDistance[2] = dot(vPosition, glo_ClipPlanes[2]);
+	gl_ClipDistance[3] = dot(vPosition, glo_ClipPlanes[3]);
+	gl_ClipDistance[4] = dot(vPosition, glo_ClipPlanes[4]);
+	gl_ClipDistance[5] = dot(vPosition, glo_ClipPlanes[5]);
+	gl_ClipDistance[6] = dot(vPosition, glo_ClipPlanes[6]);
+	gl_ClipDistance[7] = dot(vPosition, glo_ClipPlanes[7]);
+	// Primitive depth
+	glo_VertexPrimitiveDepthInstanced = glo_PrimitiveDepthInstanced;
 }

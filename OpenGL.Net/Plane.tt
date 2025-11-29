@@ -54,7 +54,7 @@ namespace OpenGL
 	/// Plane abstraction.
 	/// </summary>
 	[DebuggerDisplay("Plane: Normal={Normal} Distance={Distance}")]
-	public struct <#= className #>
+	public struct <#= className #> : IEquatable<<#= className #>>
 	{
 		#region Constructors
 
@@ -343,6 +343,126 @@ namespace OpenGL
 		public <#= baseType #> GetDistance(<#= vertex3 #> p)
 		{
 			return Normal * p - Distance;
+		}
+
+		#endregion
+
+		#region Equality Operators
+
+		/// <summary>
+		/// Equality operator.
+		/// </summary>
+		/// <param name="v1"></param>
+		/// <param name="v2"></param>
+		/// <returns></returns>
+		public static bool operator ==(<#= className #> v1, <#= className #> v2)
+		{
+			return (v1.Equals(v2));
+		}
+
+		/// <summary>
+		/// Inequality operator.
+		/// </summary>
+		/// <param name="v1"></param>
+		/// <param name="v2"></param>
+		/// <returns></returns>
+		public static bool operator !=(<#= className #> v1, <#= className #> v2)
+		{
+			return (!v1.Equals(v2));
+		}
+
+		#endregion
+
+		#region Cast Operators
+
+		/// <summary>
+		/// Cast to <#= baseType #> operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="<#= className #>"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:<#= baseType #>"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator <#= baseType #>[](<#= className #> a)
+		{
+			return new[] { a._A, a._B, a._C, a._D };
+		}
+
+<#
+		if (baseType != "double") {
+#>
+		/// <summary>
+		/// Cast to double[] operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="<#= className #>"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:double[]"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator double[](<#= className #> a)
+		{
+			return new double[] { a._A, a._B, a._C, a._D };
+		}
+
+<#
+		}
+#>
+		#endregion
+
+		#region IEquatable Implementation
+
+		/// <summary>
+		/// Indicates whether the this <#= className #> is equal to another <#= className #>.
+		/// </summary>
+		/// <param name="other">
+		/// The <see cref="<#= className #>"/> to compare with this <#= className #>.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this <#= className #> is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(<#= className #> other)
+		{
+			return (_A == other._A && _B == other._B && _C == other._C && _D == other._D);
+		}
+
+		/// <summary>
+		/// Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+		/// </summary>
+		/// <param name="obj">
+		/// The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>.
+		/// </param>
+		/// <returns>
+		/// It returns true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+		/// </returns>
+		public override bool Equals(object obj)
+		{
+			if (ReferenceEquals(null, obj))
+				return (false);
+			if (obj.GetType() != typeof(<#= className #>))
+				return (false);
+			
+			return (Equals((<#= className #>)obj));
+		}
+
+		/// <summary>
+		/// Serves as a hash function for a particular type. <see cref="M:System.Object.GetHashCode"/> is suitable for
+		/// use in hashing algorithms and data structures like a hash table.
+		/// </summary>
+		/// <returns>
+		/// A hash code for the current <see cref="T:System.Object"/>.
+		/// </returns>
+		public override int GetHashCode()
+		{
+			unchecked {
+				int result = _A.GetHashCode();
+				result = (result * 397) ^ _B.GetHashCode();
+				result = (result * 397) ^ _C.GetHashCode();
+				result = (result * 397) ^ _D.GetHashCode();
+
+				return result;
+			}
 		}
 
 		#endregion

@@ -1,4 +1,11 @@
-﻿// Copyright (C) 2009-2017 Luca Piccioni
+﻿
+
+
+
+
+
+
+// Copyright (C) 2009-2017 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -19,6 +26,7 @@
 // SOFTWARE.
 
 using System;
+using System.Diagnostics;
 #if HAVE_SYSTEM_DRAWING
 using System.Drawing;
 #endif
@@ -26,9 +34,11 @@ using System.Runtime.InteropServices;
 
 namespace OpenGL
 {
+
 	/// <summary>
 	/// RGB color.
 	/// </summary>
+	[DebuggerDisplay("ColorRGB8: R={Red} G={Green} B={Blue}")]
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	public struct ColorRGB8
 	{
@@ -46,6 +56,7 @@ namespace OpenGL
 		/// <param name="b">
 		/// A <see cref="byte"/> that specify the blue component.
 		/// </param>
+
 		public ColorRGB8(byte r, byte g, byte b)
 		{
 			// Reset structure
@@ -54,18 +65,22 @@ namespace OpenGL
 			Red = r; Green = g; Blue = b;
 		}
 
+
 		#endregion
 
 		#region Structure
+
 
 		/// <summary>
 		/// RGB color components (packed).
 		/// </summary>
 		public byte rgb;
 
+
 		#endregion
 
 		#region Cast Operators
+
 
 
 #if HAVE_SYSTEM_DRAWING
@@ -93,6 +108,7 @@ namespace OpenGL
 #endif
 
 		#endregion
+
 
 		#region Notable Colors
 
@@ -138,7 +154,9 @@ namespace OpenGL
 
 		#endregion
 
+
 		#region IColorRGB<byte> Implementation
+
 
 		/// <summary>
 		/// Get or set the red component.
@@ -149,6 +167,7 @@ namespace OpenGL
 			set { rgb = (byte)unchecked((rgb & ~0xE0) | (value >> 5) << 5); }
 		}
 
+
 		/// <summary>
 		/// Get or set the green component.
 		/// </summary>
@@ -158,6 +177,7 @@ namespace OpenGL
 			set { rgb = (byte)unchecked((rgb & ~0x38) | (value >> 5) << 3); }
 		}
 
+
 		/// <summary>
 		/// Get or set the blue component.
 		/// </summary>
@@ -166,6 +186,7 @@ namespace OpenGL
 			get { return (byte)((((rgb >> 0) & 0x03) / (float)0x03) * byte.MaxValue); }
 			set { rgb = (byte)unchecked((rgb & ~0x03) | (value >> 6)); }
 		}
+
 
 		#endregion
 
@@ -190,6 +211,7 @@ namespace OpenGL
 		/// </exception>
 		public float this[int c]
 		{
+
 			get
 			{
 				switch (c) {
@@ -212,14 +234,17 @@ namespace OpenGL
 						throw new IndexOutOfRangeException();
 				}
 			}
+
 		}
 
 		#endregion
 	}
 
+
 	/// <summary>
 	/// RGB color.
 	/// </summary>
+	[DebuggerDisplay("ColorRGB15: R={Red} G={Green} B={Blue}")]
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	public struct ColorRGB15
 	{
@@ -237,6 +262,7 @@ namespace OpenGL
 		/// <param name="b">
 		/// A <see cref="byte"/> that specify the blue component.
 		/// </param>
+
 		public ColorRGB15(byte r, byte g, byte b)
 		{
 			// Reset structure
@@ -245,18 +271,22 @@ namespace OpenGL
 			Red = r; Green = g; Blue = b;
 		}
 
+
 		#endregion
 
 		#region Structure
+
 
 		/// <summary>
 		/// RGB color components (packed).
 		/// </summary>
 		public ushort rgb;
 
+
 		#endregion
 
 		#region Cast Operators
+
 
 
 #if HAVE_SYSTEM_DRAWING
@@ -284,6 +314,7 @@ namespace OpenGL
 #endif
 
 		#endregion
+
 
 		#region Notable Colors
 
@@ -329,7 +360,9 @@ namespace OpenGL
 
 		#endregion
 
+
 		#region IColorRGB<byte> Implementation
+
 
 		/// <summary>
 		/// Get or set the red component.
@@ -340,6 +373,7 @@ namespace OpenGL
 			set { rgb = (ushort)unchecked((rgb & ~0x7C00) | (value >> 3) << 10); }
 		}
 
+
 		/// <summary>
 		/// Get or set the green component.
 		/// </summary>
@@ -349,6 +383,7 @@ namespace OpenGL
 			set { rgb = (ushort)unchecked((rgb & ~0x3E0) | (value >> 3) << 5); }
 		}
 
+
 		/// <summary>
 		/// Get or set the blue component.
 		/// </summary>
@@ -357,6 +392,7 @@ namespace OpenGL
 			get { return (byte)((((rgb >> 0) & 0x1F) / (float)0x1F) * byte.MaxValue); }
 			set { rgb = (ushort)unchecked((rgb & ~0x1F) | (value >> 3)); }
 		}
+
 
 		#endregion
 
@@ -381,6 +417,7 @@ namespace OpenGL
 		/// </exception>
 		public float this[int c]
 		{
+
 			get
 			{
 				switch (c) {
@@ -403,14 +440,17 @@ namespace OpenGL
 						throw new IndexOutOfRangeException();
 				}
 			}
+
 		}
 
 		#endregion
 	}
 
+
 	/// <summary>
 	/// RGB color.
 	/// </summary>
+	[DebuggerDisplay("ColorRGB16: R={Red} G={Green} B={Blue}")]
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	public struct ColorRGB16
 	{
@@ -428,6 +468,7 @@ namespace OpenGL
 		/// <param name="b">
 		/// A <see cref="byte"/> that specify the blue component.
 		/// </param>
+
 		public ColorRGB16(byte r, byte g, byte b)
 		{
 			// Reset structure
@@ -436,18 +477,22 @@ namespace OpenGL
 			Red = r; Green = g; Blue = b;
 		}
 
+
 		#endregion
 
 		#region Structure
+
 
 		/// <summary>
 		/// RGB color components (packed).
 		/// </summary>
 		public ushort rgb;
 
+
 		#endregion
 
 		#region Cast Operators
+
 
 
 #if HAVE_SYSTEM_DRAWING
@@ -475,6 +520,7 @@ namespace OpenGL
 #endif
 
 		#endregion
+
 
 		#region Notable Colors
 
@@ -520,7 +566,9 @@ namespace OpenGL
 
 		#endregion
 
+
 		#region IColorRGB<byte> Implementation
+
 
 		/// <summary>
 		/// Get or set the red component.
@@ -531,6 +579,7 @@ namespace OpenGL
 			set { rgb = (ushort)unchecked((rgb & ~0xF800) | (value >> 3) << 11); }
 		}
 
+
 		/// <summary>
 		/// Get or set the green component.
 		/// </summary>
@@ -540,6 +589,7 @@ namespace OpenGL
 			set { rgb = (ushort)unchecked((rgb & ~0x7E0) | (value >> 2) << 5); }
 		}
 
+
 		/// <summary>
 		/// Get or set the blue component.
 		/// </summary>
@@ -548,6 +598,7 @@ namespace OpenGL
 			get { return (byte)((((rgb >> 0) & 0x1F) / (float)0x1F) * byte.MaxValue); }
 			set { rgb = (ushort)unchecked((rgb & ~0x1F) | (value >> 3)); }
 		}
+
 
 		#endregion
 
@@ -572,6 +623,7 @@ namespace OpenGL
 		/// </exception>
 		public float this[int c]
 		{
+
 			get
 			{
 				switch (c) {
@@ -594,14 +646,17 @@ namespace OpenGL
 						throw new IndexOutOfRangeException();
 				}
 			}
+
 		}
 
 		#endregion
 	}
 
+
 	/// <summary>
 	/// RGB color.
 	/// </summary>
+	[DebuggerDisplay("ColorRGB24: R={Red} G={Green} B={Blue}")]
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	public struct ColorRGB24
 	{
@@ -619,6 +674,7 @@ namespace OpenGL
 		/// <param name="b">
 		/// A <see cref="byte"/> that specify the blue component.
 		/// </param>
+
 		public ColorRGB24(byte r, byte g, byte b)
 		{
 			// Setup RGB components
@@ -626,9 +682,11 @@ namespace OpenGL
 			this.g = g;
 			this.b = b;
 		}
+
 		#endregion
 
 		#region Structure
+
 
 		/// <summary>
 		/// Red color components.
@@ -644,9 +702,11 @@ namespace OpenGL
 		/// Blue color components.
 		/// </summary>
 		public byte b;
+
 		#endregion
 
 		#region Cast Operators
+
 
 		/// <summary>
 		/// Cast to ColorRGBA32 operator.
@@ -661,6 +721,7 @@ namespace OpenGL
 		{
 			return (new ColorRGBA32(a.r, a.g, a.b, byte.MaxValue));
 		}
+
 		/// <summary>
 		/// Cast to byte[] operator.
 		/// </summary>
@@ -695,6 +756,7 @@ namespace OpenGL
 			return (new Vertex3ub(a.r, a.g, a.b));
 		}
 
+
 #if HAVE_SYSTEM_DRAWING
 
 		/// <summary>
@@ -720,6 +782,7 @@ namespace OpenGL
 #endif
 
 		#endregion
+
 
 		#region Notable Colors
 
@@ -765,7 +828,9 @@ namespace OpenGL
 
 		#endregion
 
+
 		#region IColorRGB<byte> Implementation
+
 
 		/// <summary>
 		/// Get or set the red component.
@@ -776,6 +841,7 @@ namespace OpenGL
 			set { r = value; }
 		}
 
+
 		/// <summary>
 		/// Get or set the green component.
 		/// </summary>
@@ -785,6 +851,7 @@ namespace OpenGL
 			set { g = value; }
 		}
 
+
 		/// <summary>
 		/// Get or set the blue component.
 		/// </summary>
@@ -793,6 +860,7 @@ namespace OpenGL
 			get { return (b); }
 			set { b = value; }
 		}
+
 
 		#endregion
 
@@ -817,6 +885,7 @@ namespace OpenGL
 		/// </exception>
 		public float this[int c]
 		{
+
 			get
 			{
 				switch (c) {
@@ -839,14 +908,17 @@ namespace OpenGL
 						throw new IndexOutOfRangeException();
 				}
 			}
+
 		}
 
 		#endregion
 	}
 
+
 	/// <summary>
 	/// RGB color.
 	/// </summary>
+	[DebuggerDisplay("ColorRGB48: R={Red} G={Green} B={Blue}")]
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	public struct ColorRGB48
 	{
@@ -864,6 +936,7 @@ namespace OpenGL
 		/// <param name="b">
 		/// A <see cref="ushort"/> that specify the blue component.
 		/// </param>
+
 		public ColorRGB48(ushort r, ushort g, ushort b)
 		{
 			// Setup RGB components
@@ -871,9 +944,11 @@ namespace OpenGL
 			this.g = g;
 			this.b = b;
 		}
+
 		#endregion
 
 		#region Structure
+
 
 		/// <summary>
 		/// Red color components.
@@ -889,9 +964,11 @@ namespace OpenGL
 		/// Blue color components.
 		/// </summary>
 		public ushort b;
+
 		#endregion
 
 		#region Cast Operators
+
 
 		/// <summary>
 		/// Cast to ColorRGBA64 operator.
@@ -906,6 +983,7 @@ namespace OpenGL
 		{
 			return (new ColorRGBA64(a.r, a.g, a.b, ushort.MaxValue));
 		}
+
 		/// <summary>
 		/// Cast to ushort[] operator.
 		/// </summary>
@@ -940,6 +1018,7 @@ namespace OpenGL
 			return (new Vertex3us(a.r, a.g, a.b));
 		}
 
+
 #if HAVE_SYSTEM_DRAWING
 
 		/// <summary>
@@ -965,6 +1044,7 @@ namespace OpenGL
 #endif
 
 		#endregion
+
 
 		#region Notable Colors
 
@@ -1010,7 +1090,9 @@ namespace OpenGL
 
 		#endregion
 
+
 		#region IColorRGB<ushort> Implementation
+
 
 		/// <summary>
 		/// Get or set the red component.
@@ -1021,6 +1103,7 @@ namespace OpenGL
 			set { r = value; }
 		}
 
+
 		/// <summary>
 		/// Get or set the green component.
 		/// </summary>
@@ -1030,6 +1113,7 @@ namespace OpenGL
 			set { g = value; }
 		}
 
+
 		/// <summary>
 		/// Get or set the blue component.
 		/// </summary>
@@ -1038,6 +1122,7 @@ namespace OpenGL
 			get { return (b); }
 			set { b = value; }
 		}
+
 
 		#endregion
 
@@ -1062,6 +1147,7 @@ namespace OpenGL
 		/// </exception>
 		public float this[int c]
 		{
+
 			get
 			{
 				switch (c) {
@@ -1084,14 +1170,17 @@ namespace OpenGL
 						throw new IndexOutOfRangeException();
 				}
 			}
+
 		}
 
 		#endregion
 	}
 
+
 	/// <summary>
 	/// RGB color.
 	/// </summary>
+	[DebuggerDisplay("ColorRGB96: R={Red} G={Green} B={Blue}")]
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	public struct ColorRGB96
 	{
@@ -1109,6 +1198,7 @@ namespace OpenGL
 		/// <param name="b">
 		/// A <see cref="uint"/> that specify the blue component.
 		/// </param>
+
 		public ColorRGB96(uint r, uint g, uint b)
 		{
 			// Setup RGB components
@@ -1116,9 +1206,11 @@ namespace OpenGL
 			this.g = g;
 			this.b = b;
 		}
+
 		#endregion
 
 		#region Structure
+
 
 		/// <summary>
 		/// Red color components.
@@ -1134,9 +1226,11 @@ namespace OpenGL
 		/// Blue color components.
 		/// </summary>
 		public uint b;
+
 		#endregion
 
 		#region Cast Operators
+
 
 		/// <summary>
 		/// Cast to uint[] operator.
@@ -1172,6 +1266,7 @@ namespace OpenGL
 			return (new Vertex3ui(a.r, a.g, a.b));
 		}
 
+
 #if HAVE_SYSTEM_DRAWING
 
 		/// <summary>
@@ -1197,6 +1292,7 @@ namespace OpenGL
 #endif
 
 		#endregion
+
 
 		#region Notable Colors
 
@@ -1242,7 +1338,9 @@ namespace OpenGL
 
 		#endregion
 
+
 		#region IColorRGB<uint> Implementation
+
 
 		/// <summary>
 		/// Get or set the red component.
@@ -1253,6 +1351,7 @@ namespace OpenGL
 			set { r = value; }
 		}
 
+
 		/// <summary>
 		/// Get or set the green component.
 		/// </summary>
@@ -1262,6 +1361,7 @@ namespace OpenGL
 			set { g = value; }
 		}
 
+
 		/// <summary>
 		/// Get or set the blue component.
 		/// </summary>
@@ -1270,6 +1370,7 @@ namespace OpenGL
 			get { return (b); }
 			set { b = value; }
 		}
+
 
 		#endregion
 
@@ -1294,6 +1395,7 @@ namespace OpenGL
 		/// </exception>
 		public float this[int c]
 		{
+
 			get
 			{
 				switch (c) {
@@ -1316,14 +1418,17 @@ namespace OpenGL
 						throw new IndexOutOfRangeException();
 				}
 			}
+
 		}
 
 		#endregion
 	}
 
+
 	/// <summary>
 	/// RGB color.
 	/// </summary>
+	[DebuggerDisplay("ColorRGBF: R={Red} G={Green} B={Blue}")]
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	public struct ColorRGBF
 	{
@@ -1341,6 +1446,7 @@ namespace OpenGL
 		/// <param name="b">
 		/// A <see cref="float"/> that specify the blue component.
 		/// </param>
+
 		public ColorRGBF(float r, float g, float b)
 		{
 			// Setup RGB components
@@ -1348,9 +1454,11 @@ namespace OpenGL
 			this.g = g;
 			this.b = b;
 		}
+
 		#endregion
 
 		#region Structure
+
 
 		/// <summary>
 		/// Red color components.
@@ -1366,9 +1474,11 @@ namespace OpenGL
 		/// Blue color components.
 		/// </summary>
 		public float b;
+
 		#endregion
 
 		#region Cast Operators
+
 
 		/// <summary>
 		/// Cast to ColorRGBAF operator.
@@ -1383,6 +1493,7 @@ namespace OpenGL
 		{
 			return (new ColorRGBAF(a.r, a.g, a.b, 1.0f));
 		}
+
 		/// <summary>
 		/// Cast to float[] operator.
 		/// </summary>
@@ -1417,6 +1528,7 @@ namespace OpenGL
 			return (new Vertex3f(a.r, a.g, a.b));
 		}
 
+
 #if HAVE_SYSTEM_DRAWING
 
 		/// <summary>
@@ -1442,6 +1554,7 @@ namespace OpenGL
 #endif
 
 		#endregion
+
 
 		#region Notable Colors
 
@@ -1487,7 +1600,9 @@ namespace OpenGL
 
 		#endregion
 
+
 		#region IColorRGB<float> Implementation
+
 
 		/// <summary>
 		/// Get or set the red component.
@@ -1498,6 +1613,7 @@ namespace OpenGL
 			set { r = value; }
 		}
 
+
 		/// <summary>
 		/// Get or set the green component.
 		/// </summary>
@@ -1507,6 +1623,7 @@ namespace OpenGL
 			set { g = value; }
 		}
 
+
 		/// <summary>
 		/// Get or set the blue component.
 		/// </summary>
@@ -1515,6 +1632,7 @@ namespace OpenGL
 			get { return (b); }
 			set { b = value; }
 		}
+
 
 		#endregion
 
@@ -1539,6 +1657,7 @@ namespace OpenGL
 		/// </exception>
 		public float this[int c]
 		{
+
 			get
 			{
 				switch (c) {
@@ -1561,14 +1680,17 @@ namespace OpenGL
 						throw new IndexOutOfRangeException();
 				}
 			}
+
 		}
 
 		#endregion
 	}
 
+
 	/// <summary>
 	/// RGB color.
 	/// </summary>
+	[DebuggerDisplay("ColorRGBD: R={Red} G={Green} B={Blue}")]
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	public struct ColorRGBD
 	{
@@ -1586,6 +1708,7 @@ namespace OpenGL
 		/// <param name="b">
 		/// A <see cref="double"/> that specify the blue component.
 		/// </param>
+
 		public ColorRGBD(double r, double g, double b)
 		{
 			// Setup RGB components
@@ -1593,9 +1716,11 @@ namespace OpenGL
 			this.g = g;
 			this.b = b;
 		}
+
 		#endregion
 
 		#region Structure
+
 
 		/// <summary>
 		/// Red color components.
@@ -1611,9 +1736,11 @@ namespace OpenGL
 		/// Blue color components.
 		/// </summary>
 		public double b;
+
 		#endregion
 
 		#region Cast Operators
+
 
 		/// <summary>
 		/// Cast to double[] operator.
@@ -1649,6 +1776,7 @@ namespace OpenGL
 			return (new Vertex3d(a.r, a.g, a.b));
 		}
 
+
 #if HAVE_SYSTEM_DRAWING
 
 		/// <summary>
@@ -1674,6 +1802,7 @@ namespace OpenGL
 #endif
 
 		#endregion
+
 
 		#region Notable Colors
 
@@ -1719,7 +1848,9 @@ namespace OpenGL
 
 		#endregion
 
+
 		#region IColorRGB<double> Implementation
+
 
 		/// <summary>
 		/// Get or set the red component.
@@ -1730,6 +1861,7 @@ namespace OpenGL
 			set { r = value; }
 		}
 
+
 		/// <summary>
 		/// Get or set the green component.
 		/// </summary>
@@ -1739,6 +1871,7 @@ namespace OpenGL
 			set { g = value; }
 		}
 
+
 		/// <summary>
 		/// Get or set the blue component.
 		/// </summary>
@@ -1747,6 +1880,7 @@ namespace OpenGL
 			get { return (b); }
 			set { b = value; }
 		}
+
 
 		#endregion
 
@@ -1771,6 +1905,7 @@ namespace OpenGL
 		/// </exception>
 		public float this[int c]
 		{
+
 			get
 			{
 				switch (c) {
@@ -1793,14 +1928,17 @@ namespace OpenGL
 						throw new IndexOutOfRangeException();
 				}
 			}
+
 		}
 
 		#endregion
 	}
 
+
 	/// <summary>
 	/// RGB color.
 	/// </summary>
+	[DebuggerDisplay("ColorRGBHF: R={Red} G={Green} B={Blue}")]
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
 	public struct ColorRGBHF
 	{
@@ -1818,6 +1956,7 @@ namespace OpenGL
 		/// <param name="b">
 		/// A <see cref="HalfFloat"/> that specify the blue component.
 		/// </param>
+
 		public ColorRGBHF(HalfFloat r, HalfFloat g, HalfFloat b)
 		{
 			// Setup RGB components
@@ -1825,9 +1964,11 @@ namespace OpenGL
 			this.g = g;
 			this.b = b;
 		}
+
 		#endregion
 
 		#region Structure
+
 
 		/// <summary>
 		/// Red color components.
@@ -1843,9 +1984,11 @@ namespace OpenGL
 		/// Blue color components.
 		/// </summary>
 		public HalfFloat b;
+
 		#endregion
 
 		#region Cast Operators
+
 
 		/// <summary>
 		/// Cast to ColorRGBAHF operator.
@@ -1860,6 +2003,7 @@ namespace OpenGL
 		{
 			return (new ColorRGBAHF(a.r, a.g, a.b, (HalfFloat)1.0f));
 		}
+
 		/// <summary>
 		/// Cast to HalfFloat[] operator.
 		/// </summary>
@@ -1894,6 +2038,7 @@ namespace OpenGL
 			return (new Vertex3hf(a.r, a.g, a.b));
 		}
 
+
 #if HAVE_SYSTEM_DRAWING
 
 		/// <summary>
@@ -1920,7 +2065,9 @@ namespace OpenGL
 
 		#endregion
 
+
 		#region IColorRGB<HalfFloat> Implementation
+
 
 		/// <summary>
 		/// Get or set the red component.
@@ -1931,6 +2078,7 @@ namespace OpenGL
 			set { r = value; }
 		}
 
+
 		/// <summary>
 		/// Get or set the green component.
 		/// </summary>
@@ -1940,6 +2088,7 @@ namespace OpenGL
 			set { g = value; }
 		}
 
+
 		/// <summary>
 		/// Get or set the blue component.
 		/// </summary>
@@ -1948,6 +2097,7 @@ namespace OpenGL
 			get { return (b); }
 			set { b = value; }
 		}
+
 
 		#endregion
 
@@ -1972,6 +2122,7 @@ namespace OpenGL
 		/// </exception>
 		public float this[int c]
 		{
+
 			get
 			{
 				switch (c) {
@@ -1994,9 +2145,11 @@ namespace OpenGL
 						throw new IndexOutOfRangeException();
 				}
 			}
+
 		}
 
 		#endregion
 	}
+
 
 }

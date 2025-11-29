@@ -1,4 +1,11 @@
 ﻿
+
+
+
+
+
+
+
 // Copyright (C) 2017 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,6 +50,7 @@ namespace OpenGL.Test
 			return (random.NextDouble() * (maxValue - minValue) + minValue);
 		}
 	}
+
 
 	[TestFixture, Category("Math")]
 	class Vertex2ubTest : Vertex2TestBase
@@ -104,6 +112,7 @@ namespace OpenGL.Test
 		#endregion
 
 		#region Arithmetic Operators
+
 
 		[Test(Description = "Test Vertex2ub.operator+(Vertex2ub, Vertex2ub)")]
 		public void Vertex2ub_OperatorAdd()
@@ -215,6 +224,7 @@ namespace OpenGL.Test
 			Assert.AreEqual((byte)(y1 / s), v.y);
 		}
 
+
 		[Test(Description = "Test Vertex2ub.operator*(Vertex2ub, byte)")]
 		public void Vertex2ub_OperatorScalarMultiply()
 		{
@@ -248,6 +258,7 @@ namespace OpenGL.Test
 			Assert.AreEqual((byte)(x1 / s), v.x);
 			Assert.AreEqual((byte)(y1 / s), v.y);
 		}
+
 
 		#endregion
 
@@ -309,12 +320,14 @@ namespace OpenGL.Test
 
 		#region Vertex Methods
 
+
 		[Test(Description = "Test Vertex2ub.Module()")]
 		public void Vertex2ub_Module()
 		{
 			Assert.AreEqual(2.236068f, new Vertex2ub((byte)1.0, (byte)2.0).Module(), 1e-4f);
 			Assert.AreEqual(5.385165f, new Vertex2ub((byte)2.0, (byte)5.0).Module(), 1e-4f);
 		}
+
 
 		[Test(Description = "Test Vertex2ub.ModuleSquared()")]
 		public void Vertex2ub_ModuleSquared()
@@ -588,6 +601,7 @@ namespace OpenGL.Test
 		#endregion
 	}
 
+
 	[TestFixture, Category("Math")]
 	class Vertex2bTest : Vertex2TestBase
 	{
@@ -649,6 +663,7 @@ namespace OpenGL.Test
 
 		#region Arithmetic Operators
 
+
 		[Test(Description = "Test Vertex2b.operator-(Vertex2b))")]
 		public void Vertex2b_OperatorNegate()
 		{
@@ -663,6 +678,7 @@ namespace OpenGL.Test
 			Assert.AreEqual(-x, n.x);
 			Assert.AreEqual(-y, n.y);
 		}
+
 		[Test(Description = "Test Vertex2b.operator+(Vertex2b, Vertex2b)")]
 		public void Vertex2b_OperatorAdd()
 		{
@@ -773,6 +789,7 @@ namespace OpenGL.Test
 			Assert.AreEqual((sbyte)(y1 / s), v.y);
 		}
 
+
 		[Test(Description = "Test Vertex2b.operator*(Vertex2b, sbyte)")]
 		public void Vertex2b_OperatorScalarMultiply()
 		{
@@ -806,6 +823,7 @@ namespace OpenGL.Test
 			Assert.AreEqual((sbyte)(x1 / s), v.x);
 			Assert.AreEqual((sbyte)(y1 / s), v.y);
 		}
+
 
 		#endregion
 
@@ -867,12 +885,14 @@ namespace OpenGL.Test
 
 		#region Vertex Methods
 
+
 		[Test(Description = "Test Vertex2b.Module()")]
 		public void Vertex2b_Module()
 		{
 			Assert.AreEqual(2.236068f, new Vertex2b((sbyte)1.0, (sbyte)2.0).Module(), 1e-4f);
 			Assert.AreEqual(5.385165f, new Vertex2b((sbyte)2.0, (sbyte)5.0).Module(), 1e-4f);
 		}
+
 
 		[Test(Description = "Test Vertex2b.ModuleSquared()")]
 		public void Vertex2b_ModuleSquared()
@@ -1146,6 +1166,7 @@ namespace OpenGL.Test
 		#endregion
 	}
 
+
 	[TestFixture, Category("Math")]
 	class Vertex2usTest : Vertex2TestBase
 	{
@@ -1206,6 +1227,7 @@ namespace OpenGL.Test
 		#endregion
 
 		#region Arithmetic Operators
+
 
 		[Test(Description = "Test Vertex2us.operator+(Vertex2us, Vertex2us)")]
 		public void Vertex2us_OperatorAdd()
@@ -1317,6 +1339,7 @@ namespace OpenGL.Test
 			Assert.AreEqual((ushort)(y1 / s), v.y);
 		}
 
+
 		[Test(Description = "Test Vertex2us.operator*(Vertex2us, ushort)")]
 		public void Vertex2us_OperatorScalarMultiply()
 		{
@@ -1350,6 +1373,7 @@ namespace OpenGL.Test
 			Assert.AreEqual((ushort)(x1 / s), v.x);
 			Assert.AreEqual((ushort)(y1 / s), v.y);
 		}
+
 
 		#endregion
 
@@ -1411,12 +1435,14 @@ namespace OpenGL.Test
 
 		#region Vertex Methods
 
+
 		[Test(Description = "Test Vertex2us.Module()")]
 		public void Vertex2us_Module()
 		{
 			Assert.AreEqual(2.236068f, new Vertex2us((ushort)1.0, (ushort)2.0).Module(), 1e-4f);
 			Assert.AreEqual(5.385165f, new Vertex2us((ushort)2.0, (ushort)5.0).Module(), 1e-4f);
 		}
+
 
 		[Test(Description = "Test Vertex2us.ModuleSquared()")]
 		public void Vertex2us_ModuleSquared()
@@ -1690,6 +1716,7 @@ namespace OpenGL.Test
 		#endregion
 	}
 
+
 	[TestFixture, Category("Math")]
 	class Vertex2sTest : Vertex2TestBase
 	{
@@ -1751,6 +1778,7 @@ namespace OpenGL.Test
 
 		#region Arithmetic Operators
 
+
 		[Test(Description = "Test Vertex2s.operator-(Vertex2s))")]
 		public void Vertex2s_OperatorNegate()
 		{
@@ -1765,6 +1793,7 @@ namespace OpenGL.Test
 			Assert.AreEqual(-x, n.x);
 			Assert.AreEqual(-y, n.y);
 		}
+
 		[Test(Description = "Test Vertex2s.operator+(Vertex2s, Vertex2s)")]
 		public void Vertex2s_OperatorAdd()
 		{
@@ -1875,6 +1904,7 @@ namespace OpenGL.Test
 			Assert.AreEqual((short)(y1 / s), v.y);
 		}
 
+
 		[Test(Description = "Test Vertex2s.operator*(Vertex2s, short)")]
 		public void Vertex2s_OperatorScalarMultiply()
 		{
@@ -1908,6 +1938,7 @@ namespace OpenGL.Test
 			Assert.AreEqual((short)(x1 / s), v.x);
 			Assert.AreEqual((short)(y1 / s), v.y);
 		}
+
 
 		#endregion
 
@@ -1969,12 +2000,14 @@ namespace OpenGL.Test
 
 		#region Vertex Methods
 
+
 		[Test(Description = "Test Vertex2s.Module()")]
 		public void Vertex2s_Module()
 		{
 			Assert.AreEqual(2.236068f, new Vertex2s((short)1.0, (short)2.0).Module(), 1e-4f);
 			Assert.AreEqual(5.385165f, new Vertex2s((short)2.0, (short)5.0).Module(), 1e-4f);
 		}
+
 
 		[Test(Description = "Test Vertex2s.ModuleSquared()")]
 		public void Vertex2s_ModuleSquared()
@@ -2248,6 +2281,7 @@ namespace OpenGL.Test
 		#endregion
 	}
 
+
 	[TestFixture, Category("Math")]
 	class Vertex2uiTest : Vertex2TestBase
 	{
@@ -2308,6 +2342,7 @@ namespace OpenGL.Test
 		#endregion
 
 		#region Arithmetic Operators
+
 
 		[Test(Description = "Test Vertex2ui.operator+(Vertex2ui, Vertex2ui)")]
 		public void Vertex2ui_OperatorAdd()
@@ -2419,6 +2454,7 @@ namespace OpenGL.Test
 			Assert.AreEqual((uint)(y1 / s), v.y);
 		}
 
+
 		[Test(Description = "Test Vertex2ui.operator*(Vertex2ui, uint)")]
 		public void Vertex2ui_OperatorScalarMultiply()
 		{
@@ -2452,6 +2488,7 @@ namespace OpenGL.Test
 			Assert.AreEqual((uint)(x1 / s), v.x);
 			Assert.AreEqual((uint)(y1 / s), v.y);
 		}
+
 
 		#endregion
 
@@ -2513,12 +2550,14 @@ namespace OpenGL.Test
 
 		#region Vertex Methods
 
+
 		[Test(Description = "Test Vertex2ui.Module()")]
 		public void Vertex2ui_Module()
 		{
 			Assert.AreEqual(2.236068f, new Vertex2ui((uint)1.0, (uint)2.0).Module(), 1e-4f);
 			Assert.AreEqual(5.385165f, new Vertex2ui((uint)2.0, (uint)5.0).Module(), 1e-4f);
 		}
+
 
 		[Test(Description = "Test Vertex2ui.ModuleSquared()")]
 		public void Vertex2ui_ModuleSquared()
@@ -2792,6 +2831,7 @@ namespace OpenGL.Test
 		#endregion
 	}
 
+
 	[TestFixture, Category("Math")]
 	class Vertex2iTest : Vertex2TestBase
 	{
@@ -2853,6 +2893,7 @@ namespace OpenGL.Test
 
 		#region Arithmetic Operators
 
+
 		[Test(Description = "Test Vertex2i.operator-(Vertex2i))")]
 		public void Vertex2i_OperatorNegate()
 		{
@@ -2867,6 +2908,7 @@ namespace OpenGL.Test
 			Assert.AreEqual(-x, n.x);
 			Assert.AreEqual(-y, n.y);
 		}
+
 		[Test(Description = "Test Vertex2i.operator+(Vertex2i, Vertex2i)")]
 		public void Vertex2i_OperatorAdd()
 		{
@@ -2977,6 +3019,7 @@ namespace OpenGL.Test
 			Assert.AreEqual((int)(y1 / s), v.y);
 		}
 
+
 		[Test(Description = "Test Vertex2i.operator*(Vertex2i, int)")]
 		public void Vertex2i_OperatorScalarMultiply()
 		{
@@ -3010,6 +3053,7 @@ namespace OpenGL.Test
 			Assert.AreEqual((int)(x1 / s), v.x);
 			Assert.AreEqual((int)(y1 / s), v.y);
 		}
+
 
 		#endregion
 
@@ -3071,12 +3115,14 @@ namespace OpenGL.Test
 
 		#region Vertex Methods
 
+
 		[Test(Description = "Test Vertex2i.Module()")]
 		public void Vertex2i_Module()
 		{
 			Assert.AreEqual(2.236068f, new Vertex2i((int)1.0, (int)2.0).Module(), 1e-4f);
 			Assert.AreEqual(5.385165f, new Vertex2i((int)2.0, (int)5.0).Module(), 1e-4f);
 		}
+
 
 		[Test(Description = "Test Vertex2i.ModuleSquared()")]
 		public void Vertex2i_ModuleSquared()
@@ -3350,6 +3396,7 @@ namespace OpenGL.Test
 		#endregion
 	}
 
+
 	[TestFixture, Category("Math")]
 	class Vertex2fTest : Vertex2TestBase
 	{
@@ -3411,6 +3458,7 @@ namespace OpenGL.Test
 
 		#region Arithmetic Operators
 
+
 		[Test(Description = "Test Vertex2f.operator-(Vertex2f))")]
 		public void Vertex2f_OperatorNegate()
 		{
@@ -3425,6 +3473,7 @@ namespace OpenGL.Test
 			Assert.AreEqual(-x, n.x);
 			Assert.AreEqual(-y, n.y);
 		}
+
 		[Test(Description = "Test Vertex2f.operator+(Vertex2f, Vertex2f)")]
 		public void Vertex2f_OperatorAdd()
 		{
@@ -3536,6 +3585,7 @@ namespace OpenGL.Test
 		}
 
 
+
 		#endregion
 
 		#region Equality Operators
@@ -3596,12 +3646,14 @@ namespace OpenGL.Test
 
 		#region Vertex Methods
 
+
 		[Test(Description = "Test Vertex2f.Module()")]
 		public void Vertex2f_Module()
 		{
 			Assert.AreEqual(2.236068f, new Vertex2f((float)1.0, (float)2.0).Module(), 1e-4f);
 			Assert.AreEqual(5.385165f, new Vertex2f((float)2.0, (float)5.0).Module(), 1e-4f);
 		}
+
 
 		[Test(Description = "Test Vertex2f.ModuleSquared()")]
 		public void Vertex2f_ModuleSquared()
@@ -3875,6 +3927,7 @@ namespace OpenGL.Test
 		#endregion
 	}
 
+
 	[TestFixture, Category("Math")]
 	class Vertex2dTest : Vertex2TestBase
 	{
@@ -3936,6 +3989,7 @@ namespace OpenGL.Test
 
 		#region Arithmetic Operators
 
+
 		[Test(Description = "Test Vertex2d.operator-(Vertex2d))")]
 		public void Vertex2d_OperatorNegate()
 		{
@@ -3950,6 +4004,7 @@ namespace OpenGL.Test
 			Assert.AreEqual(-x, n.x);
 			Assert.AreEqual(-y, n.y);
 		}
+
 		[Test(Description = "Test Vertex2d.operator+(Vertex2d, Vertex2d)")]
 		public void Vertex2d_OperatorAdd()
 		{
@@ -4061,6 +4116,7 @@ namespace OpenGL.Test
 		}
 
 
+
 		#endregion
 
 		#region Equality Operators
@@ -4121,12 +4177,14 @@ namespace OpenGL.Test
 
 		#region Vertex Methods
 
+
 		[Test(Description = "Test Vertex2d.Module()")]
 		public void Vertex2d_Module()
 		{
 			Assert.AreEqual(2.236068f, new Vertex2d((double)1.0, (double)2.0).Module(), 1e-4f);
 			Assert.AreEqual(5.385165f, new Vertex2d((double)2.0, (double)5.0).Module(), 1e-4f);
 		}
+
 
 		[Test(Description = "Test Vertex2d.ModuleSquared()")]
 		public void Vertex2d_ModuleSquared()
@@ -4400,6 +4458,7 @@ namespace OpenGL.Test
 		#endregion
 	}
 
+
 	[TestFixture, Category("Math")]
 	class Vertex2hfTest : Vertex2TestBase
 	{
@@ -4460,6 +4519,7 @@ namespace OpenGL.Test
 		#endregion
 
 		#region Arithmetic Operators
+
 
 		[Test(Description = "Test Vertex2hf.operator+(Vertex2hf, Vertex2hf)")]
 		public void Vertex2hf_OperatorAdd()
@@ -4572,6 +4632,7 @@ namespace OpenGL.Test
 		}
 
 
+
 		#endregion
 
 		#region Equality Operators
@@ -4632,12 +4693,14 @@ namespace OpenGL.Test
 
 		#region Vertex Methods
 
+
 		[Test(Description = "Test Vertex2hf.Module()")]
 		public void Vertex2hf_Module()
 		{
 			Assert.AreEqual(2.236068f, new Vertex2hf((HalfFloat)1.0, (HalfFloat)2.0).Module(), 1e-4f);
 			Assert.AreEqual(5.385165f, new Vertex2hf((HalfFloat)2.0, (HalfFloat)5.0).Module(), 1e-4f);
 		}
+
 
 		[Test(Description = "Test Vertex2hf.ModuleSquared()")]
 		public void Vertex2hf_ModuleSquared()
@@ -4910,5 +4973,6 @@ namespace OpenGL.Test
 
 		#endregion
 	}
+
 
 }

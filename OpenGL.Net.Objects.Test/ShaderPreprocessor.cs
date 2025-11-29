@@ -37,7 +37,7 @@ namespace OpenGL.Objects.Test
 		public void TestStatement_Conditional(string[] sourceLines)
 		{
 			using (ShaderIncludeLibrary shaderIncludeLibrary = new ShaderIncludeLibrary()) {
-				List<string> ppSource = ShaderPreprocessor.Process(sourceLines, new ShaderCompilerContext(), shaderIncludeLibrary, ShaderPreprocessor.Stage.All);
+				List<string> ppSource = ShaderPreprocessor.Process(new List<string>(sourceLines), new ShaderCompilerContext(), shaderIncludeLibrary, ShaderPreprocessor.Stage.All);
 
 				Assert.Greater(ppSource.Count, 0);
 				foreach (string sourceLine in ppSource)

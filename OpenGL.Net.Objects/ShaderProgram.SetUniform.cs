@@ -45,7 +45,8 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, float v)
 		{
 			CheckCurrentContext(ctx);
-			CheckThisExistence(ctx);
+
+			Khronos.KhronosApi.LogComment($"Set uniform '{uniformName}' to {v}");
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -56,6 +57,7 @@ namespace OpenGL.Objects
 				return;
 #endif
 
+			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT, Gl.BOOL);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -149,7 +151,8 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex2f v)
 		{
 			CheckCurrentContext(ctx);
-			CheckThisExistence(ctx);
+
+			Khronos.KhronosApi.LogComment($"Set uniform '{uniformName}' to {v}");
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -160,6 +163,7 @@ namespace OpenGL.Objects
 				return;
 #endif
 
+			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_VEC2, Gl.BOOL_VEC2);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -184,7 +188,8 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex3f v)
 		{
 			CheckCurrentContext(ctx);
-			CheckThisExistence(ctx);
+
+			Khronos.KhronosApi.LogComment($"Set uniform '{uniformName}' to {v}");
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -195,6 +200,7 @@ namespace OpenGL.Objects
 				return;
 #endif
 
+			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_VEC3, Gl.BOOL_VEC3);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -219,7 +225,8 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex4f v)
 		{
 			CheckCurrentContext(ctx);
-			CheckThisExistence(ctx);
+
+			Khronos.KhronosApi.LogComment($"Set uniform '{uniformName}' to {v}");
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -230,6 +237,7 @@ namespace OpenGL.Objects
 				return;
 #endif
 
+			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_VEC4, Gl.BOOL_VEC4);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -257,12 +265,14 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, float[] v)
 		{
 			CheckCurrentContext(ctx);
-			CheckThisExistence(ctx);
+
+			Khronos.KhronosApi.LogComment($"Set uniform '{uniformName}' to {v}");
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
 				return;
 
+			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT, Gl.BOOL);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -286,12 +296,14 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex2f[] v)
 		{
 			CheckCurrentContext(ctx);
-			CheckThisExistence(ctx);
+
+			Khronos.KhronosApi.LogComment($"Set uniform '{uniformName}' to {v}");
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
 				return;
 
+			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_VEC2, Gl.BOOL_VEC2);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -312,12 +324,14 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex3f[] v)
 		{
 			CheckCurrentContext(ctx);
-			CheckThisExistence(ctx);
+
+			Khronos.KhronosApi.LogComment($"Set uniform '{uniformName}' to {v}");
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
 				return;
 
+			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_VEC3, Gl.BOOL_VEC3);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -338,12 +352,14 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex4f[] v)
 		{
 			CheckCurrentContext(ctx);
-			CheckThisExistence(ctx);
+
+			Khronos.KhronosApi.LogComment($"Set uniform '{uniformName}' to {v}");
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
 				return;
 
+			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_VEC4, Gl.BOOL_VEC4);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -364,7 +380,8 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, ColorRGBAF v)
 		{
 			CheckCurrentContext(ctx);
-			CheckThisExistence(ctx);
+
+			Khronos.KhronosApi.LogComment($"Set uniform '{uniformName}' to {v}");
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -375,6 +392,7 @@ namespace OpenGL.Objects
 				return;
 #endif
 
+			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_VEC4, Gl.BOOL_VEC4);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -399,12 +417,14 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, ColorRGBAF[] v)
 		{
 			CheckCurrentContext(ctx);
-			CheckThisExistence(ctx);
+
+			Khronos.KhronosApi.LogComment($"Set uniform '{uniformName}' to {v}");
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
 				return;
 
+			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_VEC4, Gl.BOOL_VEC4);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -429,7 +449,8 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, int v)
 		{
 			CheckCurrentContext(ctx);
-			CheckThisExistence(ctx);
+
+			Khronos.KhronosApi.LogComment($"Set uniform '{uniformName}' to {v}");
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -440,6 +461,7 @@ namespace OpenGL.Objects
 				return;
 #endif
 
+			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT, Gl.BOOL);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -467,7 +489,8 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, int x, int y)
 		{
 			CheckCurrentContext(ctx);
-			CheckThisExistence(ctx);
+
+			Khronos.KhronosApi.LogComment($"Set uniform '{uniformName}' to {x},{y}");
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -479,6 +502,7 @@ namespace OpenGL.Objects
 				return;
 #endif
 
+			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT_VEC2, Gl.BOOL_VEC2);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, x, y);
@@ -509,7 +533,8 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, int x, int y, int z)
 		{
 			CheckCurrentContext(ctx);
-			CheckThisExistence(ctx);
+
+			Khronos.KhronosApi.LogComment($"Set uniform '{uniformName}' to {x},{y},{z}");
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -521,6 +546,7 @@ namespace OpenGL.Objects
 				return;
 #endif
 
+			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT_VEC3, Gl.BOOL_VEC3);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, x, y, z);
@@ -554,7 +580,8 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, int x, int y, int z, int w)
 		{
 			CheckCurrentContext(ctx);
-			CheckThisExistence(ctx);
+
+			Khronos.KhronosApi.LogComment($"Set uniform '{uniformName}' to {x},{y},{z},{z}");
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -566,6 +593,7 @@ namespace OpenGL.Objects
 				return;
 #endif
 
+			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT_VEC4, Gl.BOOL_VEC4);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, x, y, z, w);
@@ -590,7 +618,8 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex2i v)
 		{
 			CheckCurrentContext(ctx);
-			CheckThisExistence(ctx);
+
+			Khronos.KhronosApi.LogComment($"Set uniform '{uniformName}' to {v}");
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -601,6 +630,7 @@ namespace OpenGL.Objects
 				return;
 #endif
 
+			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT_VEC2, Gl.BOOL_VEC2);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -625,7 +655,8 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex3i v)
 		{
 			CheckCurrentContext(ctx);
-			CheckThisExistence(ctx);
+
+			Khronos.KhronosApi.LogComment($"Set uniform '{uniformName}' to {v}");
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -636,6 +667,7 @@ namespace OpenGL.Objects
 				return;
 #endif
 
+			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT_VEC3, Gl.BOOL_VEC3);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -660,7 +692,8 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex4i v)
 		{
 			CheckCurrentContext(ctx);
-			CheckThisExistence(ctx);
+
+			Khronos.KhronosApi.LogComment($"Set uniform '{uniformName}' to {v}");
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -671,6 +704,7 @@ namespace OpenGL.Objects
 				return;
 #endif
 
+			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT_VEC4, Gl.BOOL_VEC4);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -699,7 +733,8 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, uint v)
 		{
 			CheckCurrentContext(ctx);
-			CheckThisExistence(ctx);
+
+			Khronos.KhronosApi.LogComment($"Set uniform '{uniformName}' to {v}");
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -710,6 +745,7 @@ namespace OpenGL.Objects
 				return;
 #endif
 
+			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.UNSIGNED_INT, Gl.BOOL);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -737,7 +773,8 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, uint x, uint y)
 		{
 			CheckCurrentContext(ctx);
-			CheckThisExistence(ctx);
+
+			Khronos.KhronosApi.LogComment($"Set uniform '{uniformName}' to {x},{y}");
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -750,6 +787,7 @@ namespace OpenGL.Objects
 				return;
 #endif
 
+			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.UNSIGNED_INT_VEC2, Gl.BOOL_VEC2);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -780,7 +818,8 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, uint x, uint y, uint z)
 		{
 			CheckCurrentContext(ctx);
-			CheckThisExistence(ctx);
+
+			Khronos.KhronosApi.LogComment($"Set uniform '{uniformName}' to {x},{y},{z}");
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -793,6 +832,7 @@ namespace OpenGL.Objects
 				return;
 #endif
 
+			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.UNSIGNED_INT_VEC3, Gl.BOOL_VEC3);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -826,7 +866,8 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, uint x, uint y, uint z, uint w)
 		{
 			CheckCurrentContext(ctx);
-			CheckThisExistence(ctx);
+
+			Khronos.KhronosApi.LogComment($"Set uniform '{uniformName}' to {x},{y},{z},{w}");
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -839,6 +880,7 @@ namespace OpenGL.Objects
 				return;
 #endif
 
+			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.UNSIGNED_INT_VEC4, Gl.BOOL_VEC4);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -863,7 +905,8 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex2ui v)
 		{
 			CheckCurrentContext(ctx);
-			CheckThisExistence(ctx);
+
+			Khronos.KhronosApi.LogComment($"Set uniform '{uniformName}' to {v}");
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -874,6 +917,7 @@ namespace OpenGL.Objects
 				return;
 #endif
 
+			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT_VEC2, Gl.BOOL_VEC2);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -898,7 +942,8 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex3ui v)
 		{
 			CheckCurrentContext(ctx);
-			CheckThisExistence(ctx);
+
+			Khronos.KhronosApi.LogComment($"Set uniform '{uniformName}' to {v}");
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -909,6 +954,7 @@ namespace OpenGL.Objects
 				return;
 #endif
 
+			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT_VEC3, Gl.BOOL_VEC3);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -933,7 +979,8 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex4ui v)
 		{
 			CheckCurrentContext(ctx);
-			CheckThisExistence(ctx);
+
+			Khronos.KhronosApi.LogComment($"Set uniform '{uniformName}' to {v}");
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -944,6 +991,7 @@ namespace OpenGL.Objects
 				return;
 #endif
 
+			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.INT_VEC4, Gl.BOOL_VEC4);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -972,7 +1020,8 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, bool v)
 		{
 			CheckCurrentContext(ctx);
-			CheckThisExistence(ctx);
+
+			Khronos.KhronosApi.LogComment($"Set uniform '{uniformName}' to {v}");
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -983,6 +1032,7 @@ namespace OpenGL.Objects
 				return;
 #endif
 
+			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.BOOL);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -1010,7 +1060,8 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, bool x, bool y)
 		{
 			CheckCurrentContext(ctx);
-			CheckThisExistence(ctx);
+
+			Khronos.KhronosApi.LogComment($"Set uniform '{uniformName}' to {x},{y}");
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -1023,6 +1074,7 @@ namespace OpenGL.Objects
 				return;
 #endif
 
+			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.BOOL_VEC2);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -1053,7 +1105,8 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, bool x, bool y, bool z)
 		{
 			CheckCurrentContext(ctx);
-			CheckThisExistence(ctx);
+
+			Khronos.KhronosApi.LogComment($"Set uniform '{uniformName}' to {x},{y},{z}");
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -1066,6 +1119,7 @@ namespace OpenGL.Objects
 				return;
 #endif
 
+			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.BOOL_VEC3);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -1099,7 +1153,8 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, bool x, bool y, bool z, bool w)
 		{
 			CheckCurrentContext(ctx);
-			CheckThisExistence(ctx);
+
+			Khronos.KhronosApi.LogComment($"Set uniform '{uniformName}' to {x},{y},{z},{w}");
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -1112,6 +1167,7 @@ namespace OpenGL.Objects
 				return;
 #endif
 
+			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.BOOL_VEC4);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -1140,7 +1196,8 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, Matrix3x3f m)
 		{
 			CheckCurrentContext(ctx);
-			CheckThisExistence(ctx);
+
+			Khronos.KhronosApi.LogComment($"Set uniform '{uniformName}' to {m}");
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -1151,6 +1208,7 @@ namespace OpenGL.Objects
 				return;
 #endif
 
+			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_MAT3);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, m);
@@ -1175,7 +1233,8 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, Matrix4x4f m)
 		{
 			CheckCurrentContext(ctx);
-			CheckThisExistence(ctx);
+
+			Khronos.KhronosApi.LogComment($"Set uniform '{uniformName}' to {m}");
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -1186,6 +1245,7 @@ namespace OpenGL.Objects
 				return;
 #endif
 
+			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_MAT4);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, m);
@@ -1214,10 +1274,12 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, Texture texture)
 		{
 			CheckCurrentContext(ctx);
-			CheckThisExistence(ctx);
+
+			Khronos.KhronosApi.LogComment($"Set uniform '{uniformName}' to {texture}");
+
 			CheckThatExistence(ctx, texture);
 
-			uint textureUnitIndex = texture.GetTextureUnit(ctx);
+			uint textureUnitIndex = ctx.GetTextureUnitIndex(texture);
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -1231,6 +1293,7 @@ namespace OpenGL.Objects
 				return;
 #endif
 
+			CheckProgramBinding();
 			CheckUniformType(uniform, texture.SamplerType);
 
 			// Set uniform value (sampler)
@@ -1243,126 +1306,6 @@ namespace OpenGL.Objects
 #if ENABLE_LAZY_UNIFORM_VALUE
 			uniform.CacheValue(textureUnitIndex);
 #endif
-		}
-
-		#endregion
-
-		#region Set Uniform (image-compatible data)
-
-		/// <summary>
-		/// Set uniform state variable (image2D...). Not layered.
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for operations.
-		/// </param>
-		/// <param name="uniformName">
-		/// A <see cref="String"/> that specify the variable name in the shader source.
-		/// </param>
-		/// <param name="texture">
-		/// A <see cref="Texture"/> holding the uniform variabile data (the texture name).
-		/// </param>
-		public void SetUniformImage(GraphicsContext ctx, string uniformName, Texture texture, BufferAccess access = BufferAccess.ReadOnly, int level = 0, InternalFormat? internalFormat = null)
-		{
-			CheckCurrentContext(ctx);
-			CheckThisExistence(ctx);
-			CheckThatExistence(ctx, texture);
-
-			UniformBinding uniform = GetUniform(ctx, uniformName);
-			if (uniform == null || uniform.Location == -1)
-				return;
-
-			ImageUnitBinding imageUnitState = new ImageUnitBinding() {
-				Texture = texture,
-				Access = access,
-				Level = level,
-				Layered = false,
-				OverrideInternalFormat = internalFormat
-			};
-			
-			SetUniformImage(ctx, uniform, imageUnitState);
-		}
-
-		/// <summary>
-		/// Set uniform state variable (image2D...).Layered.
-		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for operations.
-		/// </param>
-		/// <param name="uniformName">
-		/// A <see cref="String"/> that specify the variable name in the shader source.
-		/// </param>
-		/// <param name="texture">
-		/// A <see cref="Texture"/> holding the uniform variabile data (the texture name).
-		/// </param>
-		public void SetUniformImage(GraphicsContext ctx, string uniformName, Texture texture, int layer, BufferAccess access = BufferAccess.ReadOnly, int level = 0, InternalFormat? internalFormat = null)
-		{
-			CheckCurrentContext(ctx);
-			CheckThisExistence(ctx);
-			CheckThatExistence(ctx, texture);
-
-			UniformBinding uniform = GetUniform(ctx, uniformName);
-			if (uniform == null || uniform.Location == -1)
-				return;
-
-			ImageUnitBinding imageUnitState = new ImageUnitBinding() {
-				Texture = texture,
-				Access = access,
-				Level = level,
-				Layered = true,
-				Layer = layer,
-				OverrideInternalFormat = internalFormat
-			};
-			
-			SetUniformImage(ctx, uniform, imageUnitState);
-		}
-
-		/// <summary>
-		/// Bind a <see cref="Texture"/> to an image unit, and setup relative state on this ShaderProgram.
-		/// </summary>
-		/// <param name="ctx">
-		/// The <see cref="GraphicsContext"/> managing this ShaderProgram.
-		/// </param>
-		/// <param name="uniform">
-		/// The <see cref="UniformBinding"/> that specifies the name of the uniform to be bound to the image unit.
-		/// </param>
-		/// <param name="texture">
-		/// A <see cref="Texture"/> holding the uniform variabile data (the texture name).
-		/// </param>
-		/// <param name="imageUnitBinding">
-		/// Specifies the state of the image unit.
-		/// </param>
-		private void SetUniformImage(GraphicsContext ctx, UniformBinding uniform, ImageUnitBinding imageUnitBinding)
-		{
-			ImageUnit imageUnit = ctx.GetImageUnit(imageUnitBinding.Texture, imageUnitBinding);
-
-#if ENABLE_LAZY_UNIFORM_VALUE
-			if (uniform.IsValueChanged((int)imageUnit.Index) == false)
-				return;
-#endif
-
-			CheckUniformType(uniform, Gl.INT);
-
-			// Set uniform value (sampler)
-			// Cast to Int32 since the sampler type can be set only with glUniform1i
-			_UniformBackend.SetUniform(ctx, this, uniform, (int)imageUnit.Index);
-
-			// Validate program
-			Validate();
-
-#if ENABLE_LAZY_UNIFORM_VALUE
-			uniform.CacheValue((int)imageUnit.Index);
-#endif
-
-			// Ensure CPU/GPU image unit setup
-			imageUnit.Bind(ctx, imageUnitBinding.Texture, imageUnitBinding);
-
-			// Swap image unit bindings
-			ImageUnitBinding prevUnitBinding;
-
-			if (_ImageUnitBindings.TryGetValue(uniform.Name, out prevUnitBinding) && prevUnitBinding != null)
-				prevUnitBinding.Dispose();
-
-			_ImageUnitBindings[uniform.Name] = imageUnitBinding;
 		}
 
 		#endregion
@@ -1386,7 +1329,8 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, double v)
 		{
 			CheckCurrentContext(ctx);
-			CheckThisExistence(ctx);
+
+			Khronos.KhronosApi.LogComment($"Set uniform '{uniformName}' to {v}");
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -1397,6 +1341,7 @@ namespace OpenGL.Objects
 				return;
 #endif
 
+			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.DOUBLE);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -1490,7 +1435,8 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex2d v)
 		{
 			CheckCurrentContext(ctx);
-			CheckThisExistence(ctx);
+
+			Khronos.KhronosApi.LogComment($"Set uniform '{uniformName}' to {v}");
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -1501,6 +1447,7 @@ namespace OpenGL.Objects
 				return;
 #endif
 
+			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.DOUBLE_VEC2);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -1525,7 +1472,8 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex3d v)
 		{
 			CheckCurrentContext(ctx);
-			CheckThisExistence(ctx);
+
+			Khronos.KhronosApi.LogComment($"Set uniform '{uniformName}' to {v}");
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -1536,6 +1484,7 @@ namespace OpenGL.Objects
 				return;
 #endif
 
+			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.DOUBLE_VEC3);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -1560,7 +1509,8 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, Vertex4d v)
 		{
 			CheckCurrentContext(ctx);
-			CheckThisExistence(ctx);
+
+			Khronos.KhronosApi.LogComment($"Set uniform '{uniformName}' to {v}");
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -1571,6 +1521,7 @@ namespace OpenGL.Objects
 				return;
 #endif
 
+			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.DOUBLE_VEC4);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, v);
@@ -1599,12 +1550,14 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, Matrix3x3d m)
 		{
 			CheckCurrentContext(ctx);
-			CheckThisExistence(ctx);
+
+			Khronos.KhronosApi.LogComment($"Set uniform '{uniformName}' to {m}");
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
 				return;
 
+			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.DOUBLE_MAT3);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, m);
@@ -1625,12 +1578,14 @@ namespace OpenGL.Objects
 		public void SetUniform(GraphicsContext ctx, string uniformName, Matrix4x4d m)
 		{
 			CheckCurrentContext(ctx);
-			CheckThisExistence(ctx);
+
+			Khronos.KhronosApi.LogComment($"Set uniform '{uniformName}' to {m}");
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
 				return;
 
+			CheckProgramBinding();
 			CheckUniformType(uniform, Gl.FLOAT_MAT4);
 
 			_UniformBackend.SetUniform(ctx, this, uniform, m);
@@ -1662,16 +1617,14 @@ namespace OpenGL.Objects
 		/// <exception cref="ArgumentNullException">
 		/// This exception is thrown if the parameter <paramref name="uniformName"/> is null.
 		/// </exception>
-		/// <exception cref="ArgumentNullException">
-		/// This exception is thrown if the parameter <paramref name="value"/> is null.
-		/// </exception>
 		public void SetUniform(GraphicsContext ctx, string uniformName, object value)
 		{
 			CheckCurrentContext(ctx);
-			CheckThisExistence(ctx);
+
+			Khronos.KhronosApi.LogComment($"Set uniform '{uniformName}' to {value} (as object)");
 
 			if (value == null)
-				throw new ArgumentNullException(nameof(value));
+				throw new ArgumentNullException("value");
 
 			Type valueType = value.GetType();
 
@@ -1693,8 +1646,8 @@ namespace OpenGL.Objects
 				SetUniform(ctx, uniformName, (float)value);
 			} else if (valueType == typeof(ColorRGBAF)) {
 				SetUniform(ctx, uniformName, (ColorRGBAF)value);
-			} else if (valueType == typeof(Texture2D)) {
-				SetUniform(ctx, uniformName, (Texture2D)value);
+			} else if (valueType == typeof(Texture2d)) {
+				SetUniform(ctx, uniformName, (Texture2d)value);
 			} else if (valueType == typeof(TextureCube)) {
 				SetUniform(ctx, uniformName, (TextureCube)value);
 			} else

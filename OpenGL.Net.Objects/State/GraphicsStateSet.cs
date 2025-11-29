@@ -40,7 +40,7 @@ namespace OpenGL.Objects.State
 	/// to be applied. This operation is performed using Merge method.
 	/// </para>
 	/// </remarks>
-	[DebuggerDisplay("GraphicsStateSet: States={_RenderStates.Count}")]
+	[DebuggerDisplay("GraphicsStateSet: States={_RenderStates.Length}")]
 	public class GraphicsStateSet
 	{
 		#region Constructors
@@ -50,21 +50,30 @@ namespace OpenGL.Objects.State
 		/// </summary>
 		static GraphicsStateSet()
 		{
+			// ReSharper disable once NotAccessedVariable
+			// ReSharper disable once JoinDeclarationAndInitializer
 			int index;
 
-			index = ViewportState.StateSetIndex;
-			index = PixelAlignmentState.StateSetIndex;
-			index = PrimitiveRestartState.StateSetIndex;
-			index = TransformState.StateSetIndex;
-			index = CullFaceState.StateSetIndex;
+			// Note: invoke StateSetIndex statically
+			// Note: keep the alphabetical order
 			index = BlendState.StateSetIndex;
+			index = ClippingPlaneState.StateSetIndex;
+			index = CullFaceState.StateSetIndex;
 			index = DepthTestState.StateSetIndex;
-			index = PolygonModeState.StateSetIndex;
-			index = PolygonOffsetState.StateSetIndex;
-			index = ShaderUniformState.StateSetIndex;
 			index = LightsState.StateSetIndex;
 			index = MaterialState.StateSetIndex;
+			index = MultisampleState.StateSetIndex;
+			index = PixelPackState.StateSetIndex;
+			index = PixelUnpackState.StateSetIndex;
+			index = PolygonModeState.StateSetIndex;
+			index = PolygonOffsetState.StateSetIndex;
+			index = PrimitiveRestartState.StateSetIndex;
+			index = ScissorTestState.StateSetIndex;
+			index = ShaderUniformState.StateSetIndex;
 			index = ShadowsState.StateSetIndex;
+			index = StencilTestState.StateSetIndex;
+			index = TransformState.StateSetIndex;
+			index = ViewportState.StateSetIndex;
 			index = WriteMaskState.StateSetIndex;
 		}
 
@@ -83,13 +92,19 @@ namespace OpenGL.Objects.State
 			GraphicsStateSet renderStateSet = new GraphicsStateSet();
 
 			// Instantiate all context-bound states
-			renderStateSet.DefineState(PixelAlignmentState.DefaultState);
-			renderStateSet.DefineState(TransformState.DefaultState);
-			renderStateSet.DefineState(DepthTestState.DefaultState);
+			// Note: keep alphabetical order
 			renderStateSet.DefineState(BlendState.DefaultState);
+			renderStateSet.DefineState(ClippingPlaneState.DefaultState);
 			renderStateSet.DefineState(CullFaceState.DefaultState);
+			renderStateSet.DefineState(DepthTestState.DefaultState);
+			renderStateSet.DefineState(PixelPackState.DefaultState);
+			renderStateSet.DefineState(PixelUnpackState.DefaultState);
 			renderStateSet.DefineState(PolygonOffsetState.DefaultState);
-
+			renderStateSet.DefineState(PolygonModeState.DefaultState);
+			renderStateSet.DefineState(TransformState.DefaultState);
+			renderStateSet.DefineState(WriteMaskState.DefaultState);
+			renderStateSet.DefineState(StencilTestState.DefaultState);
+			// renderStateSet.DefineState(ScissorTestState.DefaultState);
 			return (renderStateSet);
 		}
 
@@ -112,14 +127,19 @@ namespace OpenGL.Objects.State
 			GraphicsStateSet renderStateSet = new GraphicsStateSet();
 
 			// Instantiate all context-bound states
-			renderStateSet.DefineState(new PolygonModeState(ctx));
 			renderStateSet.DefineState(new BlendState(ctx));
-			renderStateSet.DefineState(new DepthTestState(ctx));
+			renderStateSet.DefineState(new ClippingPlaneState(ctx));
 			renderStateSet.DefineState(new CullFaceState(ctx));
-			//renderStateSet.DefineState(new RenderBufferState(ctx));
-			//renderStateSet.DefineState(new ViewportState(ctx));
-			//renderStateSet.DefineState(new TransformState(ctx));
-			
+			renderStateSet.DefineState(new DepthTestState(ctx));
+			// renderStateSet.DefineState(new PixelPackState(ctx));
+			// renderStateSet.DefineState(new PixelUnpackState(ctx));
+			renderStateSet.DefineState(new PolygonOffsetState(ctx));
+			renderStateSet.DefineState(new PolygonModeState(ctx));
+			// renderStateSet.DefineState(new TransformState(ctx));
+			renderStateSet.DefineState(new WriteMaskState(ctx));
+			// renderStateSet.DefineState(new StencilTestState(ctx));
+			renderStateSet.DefineState(new ScissorTestState(ctx));
+
 			return (renderStateSet);
 		}
 

@@ -35,6 +35,7 @@
 #define SHADER_OUT out
 #define OUT out
 
+#define TEXTURE_1D							texture
 #define TEXTURE_2D							texture
 #define TEXTURE_3D							texture
 #define TEXTURE_RECT						texture
@@ -47,6 +48,7 @@
 #define SHADER_OUT							varying
 #define OUT
 
+#define TEXTURE_1D							texture1D
 #define TEXTURE_2D							texture2D
 #define TEXTURE_3D							texture3D
 #define TEXTURE_RECT						texture2DRect

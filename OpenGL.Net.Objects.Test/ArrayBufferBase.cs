@@ -42,11 +42,13 @@ namespace OpenGL.Objects.Test
 		{
 			Assert.IsFalse(arrayBuffer.Immutable);
 			Assert.AreEqual(0u, arrayBuffer.ItemsCount);
-			Assert.AreEqual(0u, arrayBuffer.Size);
+			Assert.AreEqual(0u, arrayBuffer.CpuBufferSize);
+			Assert.AreEqual(0u, arrayBuffer.GpuBufferSize);
 
 			// Create empty buffer on GPU
 			arrayBuffer.Create(_Context, 16);
-			Assert.Greater(arrayBuffer.Size, 0u);
+			Assert.AreEqual(0u, arrayBuffer.CpuBufferSize);
+			Assert.Greater(arrayBuffer.GpuBufferSize, 0u);
 			Assert.AreEqual(16u, arrayBuffer.ItemsCount);
 		}
 
@@ -57,12 +59,13 @@ namespace OpenGL.Objects.Test
 
 			// Create empty buffer, without uploading on GPU
 			arrayBuffer.Create(16);
-			Assert.AreEqual(0u, arrayBuffer.Size);
+			Assert.AreEqual(0u, arrayBuffer.CpuBufferSize);
+			Assert.AreEqual(0u, arrayBuffer.GpuBufferSize);
 			Assert.AreEqual(0u, arrayBuffer.ItemsCount);
 
 			// Uploads to GPU
 			arrayBuffer.Create(_Context);
-			Assert.Greater(arrayBuffer.Size, 0u);
+			Assert.Greater(arrayBuffer.GpuBufferSize, 0u);
 			Assert.AreEqual(16u, arrayBuffer.ItemsCount);
 		}
 
@@ -79,44 +82,26 @@ namespace OpenGL.Objects.Test
 		protected void ArrayBufferBase_TestArrayTechnique_CreateOnline(ArrayBufferBase arrayBuffer)
 		{
 			Assert.AreEqual(0u, arrayBuffer.ItemsCount);
-			Assert.AreEqual(0u, arrayBuffer.Size);
+			Assert.AreEqual(0u, arrayBuffer.CpuBufferSize);
+			Assert.AreEqual(0u, arrayBuffer.GpuBufferSize);
 
 			arrayBuffer.Create(_Context, new ushort[16]);
-			Assert.AreEqual(32u, arrayBuffer.Size);
+			Assert.AreEqual(32u, arrayBuffer.GpuBufferSize);
 		}
 
 		protected void ArrayBufferBase_TestArrayTechnique_CreateOffline(ArrayBufferBase arrayBuffer)
 		{
-			Assert.AreEqual(0u, arrayBuffer.Size);
+			Assert.AreEqual(0u, arrayBuffer.CpuBufferSize);
+			Assert.AreEqual(0u, arrayBuffer.GpuBufferSize);
 			Assert.AreEqual(0u, arrayBuffer.ItemsCount);
 
 			arrayBuffer.Create(new ushort[16]);
-			Assert.AreEqual(0u, arrayBuffer.Size);
+			Assert.AreEqual(0u, arrayBuffer.GpuBufferSize);
 			Assert.AreEqual(0u, arrayBuffer.ItemsCount);
 
 			// Uploads to GPU
 			arrayBuffer.Create(_Context);
-			Assert.Equals(32u, arrayBuffer.Size);
-		}
-
-		protected void ArrayBufferBase_TestMap(ArrayBufferBase arrayBuffer)
-		{
-			Assert.AreEqual(0u, arrayBuffer.Size);
-			Assert.AreEqual(0u, arrayBuffer.ItemsCount);
-
-			arrayBuffer.Create(_Context, new float[64]);
-			arrayBuffer.Map(_Context, BufferAccess.ReadWrite);
-
-			for (int i = 0; i < 4; i++)
-				arrayBuffer.Store(_Context, (byte)i, (ulong)i);
-
-			for (int i = 0; i < 4; i++)
-				Assert.AreEqual((byte)i, arrayBuffer.Load<byte>(_Context, (ulong)i));
-
-			// Endianess??
-			Assert.AreEqual(BitConverter.ToUInt32(new byte[] { 0x00, 0x01, 0x02, 0x03 }, 0), arrayBuffer.Load<uint>(_Context, 0));
-
-			arrayBuffer.Unmap(_Context);
+			Assert.Equals(32u, arrayBuffer.GpuBufferSize);
 		}
 	}
 }

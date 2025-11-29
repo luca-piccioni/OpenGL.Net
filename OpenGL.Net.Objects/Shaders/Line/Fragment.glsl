@@ -23,17 +23,40 @@
 
 // Vertex uniform color
 uniform vec4 glo_UniformColor = vec4(1.0, 1.0, 1.0, 1.0);
+// Line stipple pattern
+uniform uint glo_LineStipple = uint(0x0000FFFF);
+// Line stipple repeat factor
+uniform float glo_LineStippleFactor = 1.0;
+// Line stipple repeat factor scalle
+uniform float glo_LineStippleFactorScale = 1.0;
 
 // Processed primitive vertex color (vertex color)
 SHADER_IN vec4 glo_VertexColor;
 // Processed primitive vertex color (geometry color)
 SHADER_IN vec4 glo_GeoColor;
+// Processed primitive depth
+SHADER_IN float glo_GeoDepth;
+// Processed primitive stipple coordinate
+SHADER_IN float glo_GeoStippleCoord;
+
+#if defined(GLO_OVERRIDE_FRAGMENT_DEPTH)
+// Fragments has uniform depth (0.0 -> far, 1.0 -> near)
+uniform float	glo_FragmentDepth = 1.0;
+#endif
 
 // The fragment color
 SHADER_OUT vec4 glo_FragColor;
+// Fragment depth
+// OUT float		gl_FragDepth;
 
 void main()
 {
+#if defined(GLO_LINE_STIPPLE)
+	uint patternBitPosition = uint(round(glo_GeoStippleCoord * glo_LineStippleFactorScale / glo_LineStippleFactor)) & 15U;
+	if ((glo_LineStipple & (1U << patternBitPosition)) == 0U)
+		discard;
+#endif
+
 #if defined(GLO_COLOR_PER_VERTEX)
 
 #if __VERSION__ >= 150
@@ -43,9 +66,13 @@ void main()
 #endif
 	
 #else
-
 	glo_FragColor = glo_UniformColor;
+#endif
 
+#if   defined(GLO_OVERRIDE_FRAGMENT_DEPTH)
+	gl_FragDepth = glo_FragmentDepth;
+#elif defined(GLO_OVERRIDE_FRAGMENT_DEPTH_INSTANCED)
+	gl_FragDepth = glo_GeoDepth;
 #endif
 }
 

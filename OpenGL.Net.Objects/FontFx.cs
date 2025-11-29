@@ -92,31 +92,29 @@ namespace OpenGL.Objects
 	/// <summary>
 	/// Halo effect.
 	/// </summary>
-	public class FontFxHalo : FontFx
+	public sealed class FontFxHalo : FontFx
 	{
-		#region Constructors
-
-		/// <summary>
-		/// Default constructor.
-		/// </summary>
-		public FontFxHalo()
-		{
-
-		}
-
-		#endregion
-
 		#region Parameters
-
-		/// <summary>
-		/// Halo color.
-		/// </summary>
-		internal ColorRGBAF HaloColor = ColorRGBAF.ColorBlack;
 
 		/// <summary>
 		/// Halo thickness, in pixels.
 		/// </summary>
-		internal float HaloWidth = 1.5f;
+		public float HaloWidth = 2.0f;
+
+		#endregion
+
+		#region Overrides
+
+		/// <summary>
+		/// Returns a string that represents the current object.
+		/// </summary>
+		/// <returns>
+		/// A string that represents the current object.
+		/// </returns>
+		public override string ToString()
+		{
+			return $"FontFxHalo-{HaloWidth:F1}";
+		}
 
 		#endregion
 	}

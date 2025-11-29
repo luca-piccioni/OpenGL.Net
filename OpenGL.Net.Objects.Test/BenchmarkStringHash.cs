@@ -22,6 +22,8 @@ using System.Collections.Generic;
 using System.Numerics;
 using System.Runtime.CompilerServices;
 
+using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Running;
 using NUnit.Framework;
 
 using OpenGL.Objects.Collections;
@@ -29,7 +31,8 @@ using OpenGL.Test;
 
 namespace OpenGL.Objects.Test
 {
-	[TestFixture, RequiresSTA]
+	[TestFixture]
+	[CPUUsageDiagnoser]
 	class BenchmarkStringHash : BenchmarkBase
 	{
 		static BenchmarkStringHash()
@@ -41,7 +44,7 @@ namespace OpenGL.Objects.Test
 				dictStrings[i] = GetRandomString(random);
 
 			_HashStrings = new string[BenchmarkStringHashSize * 2];
-			for (int i = 0; i < _HashStrings.Length; i++) {
+			for (int i = 0; i < _HashStrings.Length; i++s) {
 				switch (i % 2) {
 					case 0:
 						_HashStrings[i] = dictStrings[i / 2];

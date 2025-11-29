@@ -56,13 +56,13 @@ namespace OpenGL.Objects.State
 		/// Add a shadow map to ths state.
 		/// </summary>
 		/// <param name="shadowMap">
-		/// The <see cref="Texture2D"/> that specifies the shadow map texture.
+		/// The <see cref="Texture2d"/> that specifies the shadow map texture.
 		/// </param>
 		/// <param name="mvp">
 		/// The <see cref="Matrix4x4f"/> that specifies the model-view-projection-bias matrix to transform vertex
 		/// from object-space to light-space.
 		/// </param>
-		public void AddShadowMap(Texture2D shadowMap, Matrix4x4f mvp)
+		public void AddShadowMap(Texture2d shadowMap, Matrix4x4f mvp)
 		{
 			_ShadowMap2D.Add(new ShadowMap2DContext(shadowMap, mvp));
 		}
@@ -76,13 +76,13 @@ namespace OpenGL.Objects.State
 			/// Construct a ShadowMap2DContext.
 			/// </summary>
 			/// <param name="shadowMap">
-			/// The <see cref="Texture2D"/> that specifies the shadow map texture.
+			/// The <see cref="Texture2d"/> that specifies the shadow map texture.
 			/// </param>
 			/// <param name="mvp">
 			/// The <see cref="Matrix4x4f"/> that specifies the model-view-projection-bias matrix to transform vertex
 			/// from object-space to light-space.
 			/// </param>
-			public ShadowMap2DContext(Texture2D shadowMap, Matrix4x4f mvp)
+			public ShadowMap2DContext(Texture2d shadowMap, Matrix4x4f mvp)
 			{
 				if (shadowMap == null)
 					throw new ArgumentNullException("shadowMap");
@@ -96,7 +96,7 @@ namespace OpenGL.Objects.State
 			/// <summary>
 			/// The shadow map backend (2D texture).
 			/// </summary>
-			public readonly Texture2D ShadowMap;
+			public readonly Texture2d ShadowMap;
 
 			/// <summary>
 			/// The model-view-projection-bias matrix to transform vertex from object-space to light-space.
@@ -113,7 +113,7 @@ namespace OpenGL.Objects.State
 		/// 
 		/// </summary>
 		[ShaderUniformState("glo_ShadowMap2D")]
-		private Texture2D[] ShadowMap2D
+		private Texture2d[] ShadowMap2D
 		{
 			get
 			{
@@ -196,14 +196,14 @@ namespace OpenGL.Objects.State
 
 			#region Shadow Map 2D (Dummy)
 
-			// Dummy shadow map: Texture2D
+			// Dummy shadow map: Texture2d
 			// Note: necessary to avoid undefined behavior on glo_ShadowMap2D samplers
 			string resourceClassId = "OpenGL.Objects.ShadowMap.DummyTexture2d";
 
-			Texture2D dummyShadowMap = (Texture2D)ctx.GetSharedResource(resourceClassId);
+			Texture2d dummyShadowMap = (Texture2d)ctx.GetSharedResource(resourceClassId);
 
 			if (dummyShadowMap == null) {
-				dummyShadowMap = new Texture2D(1, 1, PixelLayout.Depth16);
+				dummyShadowMap = new Texture2d(1, 1, PixelLayout.Depth16);
 				dummyShadowMap.SamplerParams.CompareMode = true;
 				dummyShadowMap.SamplerParams.CompareFunc = DepthFunction.Never;
 				dummyShadowMap.Create(ctx);

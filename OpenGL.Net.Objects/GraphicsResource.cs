@@ -520,6 +520,11 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
+		/// Determine whether this IGraphicsResource is effectively shareable between sharing <see cref="GraphicsContext"/> instances.
+		/// </summary>
+		public abstract bool IsShareable { get; }
+
+		/// <summary>
 		/// Create this GraphicsResource.
 		/// </summary>
 		/// <param name="ctx">
@@ -589,7 +594,9 @@ namespace OpenGL.Objects
 			}
 
 			// Store object name space to check on deletion
+			Debug.Assert(_ObjectNameSpace == Guid.Empty || _ObjectNameSpace == ctx.ObjectNameSpace);
 			_ObjectNameSpace = ctx.ObjectNameSpace;
+			Debug.Assert(_ObjectNameSpace != Guid.Empty);
 
 			// Create object
 			CreateObject(ctx);
@@ -757,6 +764,11 @@ namespace OpenGL.Objects
 		/// Buffer object class.
 		/// </summary>
 		public override Guid ObjectClass { get { return (ThisObjectClass); } }
+
+		/// <summary>
+		/// Determine whether this IGraphicsResource is effectively shareable between sharing <see cref="GraphicsContext"/> instances.
+		/// </summary>
+		public override bool IsShareable { get { return false; } }
 
 		#endregion
 	}

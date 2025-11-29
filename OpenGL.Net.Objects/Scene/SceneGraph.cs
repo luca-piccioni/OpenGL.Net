@@ -186,7 +186,6 @@ namespace OpenGL.Objects.Scene
 			// View parameters
 			SceneRoot.LocalProjection = ProjectionMatrix;
 			SceneRoot.LocalModelView = ViewMatrix;
-			SceneRoot.LocalModelViewProjection = ProjectionMatrix * ViewMatrix;
 
 			using (SceneGraphContext ctxScene = new SceneGraphContext(this)) {
 				ObjectBatchContext objectBatchContext = new ObjectBatchContext();
@@ -344,7 +343,7 @@ namespace OpenGL.Objects.Scene
 				if (shadowSpotLight == null)
 					continue;
 
-				Texture2D shadowTex = shadowSpotLight._ShadowMap;
+				Texture2d shadowTex = shadowSpotLight._ShadowMap;
 				shadowTex.SamplerParams.CompareMode = false;
 
 				Matrix4x4f quadModel = model;

@@ -40,10 +40,10 @@ namespace OpenGL
 		/// <param name="errorCode">
 		/// A <see cref="ErrorCode"/> that specifies the error code.
 		/// </param>
-		public GlException(ErrorCode errorCode) :
+		internal GlException(ErrorCode errorCode) :
 			base((int)errorCode, GetErrorMessage(errorCode))
 		{
-			
+
 		}
 
 		#endregion

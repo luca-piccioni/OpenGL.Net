@@ -25,18 +25,14 @@ using System.ComponentModel;
 using System.Linq;
 using System.IO;
 using System.Reflection;
-#if NETFRAMEWORK
 using System.Xml.Serialization;
-#endif
 
 namespace Khronos
 {
 	/// <summary>
 	/// Contains metedata information for Khronos API commands.
 	/// </summary>
-#if NETFRAMEWORK
 	[XmlType("KhronosLogMap")]
-#endif
 	public sealed class KhronosLogMap
 	{
 		#region XML Schema
@@ -70,45 +66,33 @@ namespace Khronos
 		/// <summary>
 		/// Command element.
 		/// </summary>
-#if NETFRAMEWORK
 		[XmlType("command")]
-#endif
 		public sealed class Command
 		{
 			/// <summary>
 			/// Command name.
 			/// </summary>
-#if NETFRAMEWORK
 			[XmlAttribute("name")]
-#endif
 			public string Name;
 
 			/// <summary>
 			/// Command parameters flags.
 			/// </summary>
-#if NETFRAMEWORK
 			[XmlElement("param")]
-#endif
 			public CommandParam[] Params;
 		}
 
 		/// <summary>
 		/// Command parameter element.
 		/// </summary>
-#if NETFRAMEWORK
 		[XmlType("command_param")]
-#endif
 		public sealed class CommandParam
 		{
-#if NETFRAMEWORK
 			[XmlAttribute("name")]
-#endif
 			public string Name;
 
-#if NETFRAMEWORK
 			[XmlAttribute("flags")]
 			[DefaultValue(KhronosLogCommandParameterFlags.None)]
-#endif
 			public KhronosLogCommandParameterFlags Flags = KhronosLogCommandParameterFlags.None;
 		}
 
@@ -130,15 +114,11 @@ namespace Khronos
 			if (resourcePath == null)
 				throw new ArgumentNullException(nameof(resourcePath));
 
-#if NETFRAMEWORK
 			using (Stream xmlStream = Assembly.GetCallingAssembly().GetManifestResourceStream(resourcePath)) {
 				if (xmlStream == null)
 					throw new ArgumentException($"resource {resourcePath} not defined in calling assembly", nameof(resourcePath));
 				return (KhronosLogMap)_XmlSerializer.Deserialize(xmlStream);
 			}
-#else
-			throw new NotImplementedException();
-#endif
 		}
 
 		/// <summary>
@@ -157,32 +137,19 @@ namespace Khronos
 			if (logMap == null)
 				throw new ArgumentNullException(nameof(logMap));
 
-#if NETFRAMEWORK
 			using (FileStream fs = new FileStream(resourcePath, FileMode.Create, FileAccess.Write)) {
 				_XmlSerializer.Serialize(fs, logMap);
 			}
-#else
-			throw new NotImplementedException();
-#endif
 		}
 
-#if NETFRAMEWORK
 		/// <summary>
 		/// XML serializer used by <see cref="Load"/> for loading log maps.
 		/// </summary>
 		private static readonly XmlSerializer _XmlSerializer = new XmlSerializer(typeof(KhronosLogMap));
-#endif
 
 		#endregion
 
 		#region Information Query
-
-		//public string GetCommandParameterName(string commandName, int paramIndex)
-		//{
-		//	CommandParam commandParam = GetCommandParam(commandName, paramIndex);
-
-		//	return commandParam == null ? $"param{paramIndex}" : commandParam.Name;
-		//}
 
 		/// <summary>
 		/// Get the flags associated to the parameters of a command.

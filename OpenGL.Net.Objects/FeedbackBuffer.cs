@@ -108,7 +108,7 @@ namespace OpenGL.Objects
 				ArrayAttachment arrayAttachment = pair.Value;
 				ArrayBufferBase.IArraySection arraySection = arrayAttachment.ArrayBuffer.GetArraySection(arrayAttachment.ArraySectionIndex);
 
-				Gl.BindBufferRange(BufferTarget.TransformFeedbackBuffer, pair.Key, arrayAttachment.ArrayBuffer.ObjectName, arraySection.Offset, arrayAttachment.ArrayBuffer.Size - (uint)arraySection.Offset.ToInt32());
+				Gl.BindBufferRange(BufferTarget.TransformFeedbackBuffer, pair.Key, arrayAttachment.ArrayBuffer.ObjectName, arraySection.Offset, arrayAttachment.ArrayBuffer.GpuBufferSize - (uint)arraySection.Offset.ToInt32());
 			}
 		}
 		

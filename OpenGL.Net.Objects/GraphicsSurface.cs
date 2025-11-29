@@ -20,6 +20,7 @@
 // SOFTWARE.
 
 using System;
+using System.Runtime.InteropServices;
 
 namespace OpenGL.Objects
 {
@@ -346,7 +347,7 @@ namespace OpenGL.Objects
 			image.Create(pType, width, height);
 
 			// Set pixel transfer
-			State.PixelAlignmentState.Pack(image.Stride).Apply(ctx, null);
+			State.PixelPackState.Align(image.Stride).Apply(ctx, null);
 
 			// Grab frame buffer pixels
 			PixelFormat rFormat = pType.ToDataFormat();
@@ -358,6 +359,35 @@ namespace OpenGL.Objects
 			UnbindRead(ctx);
 
 			return (image);
+		}
+
+		protected T ReadFragment<T>(GraphicsContext ctx, ReadBufferMode rBuffer, uint x, uint y, PixelLayout pType) where T : struct
+		{
+			T fragment = default(T);
+
+			// Bind for reading
+			BindRead(ctx);
+			// Set for reading
+			Gl.ReadBuffer(rBuffer);
+
+			// Set pixel transfer
+			State.PixelPackState.Align(1).Apply(ctx, null);
+
+			// Grab frame buffer pixels
+			PixelFormat rFormat = pType.ToDataFormat();
+			PixelType rType = pType.ToPixelType();
+
+			unsafe {
+				TypedReference refValue = __makeref(fragment);
+				IntPtr refValuePtr = *(IntPtr*)(&refValue);
+
+				Gl.ReadPixels((int)x, (int)y, 1, 1, rFormat, rType, refValuePtr);
+			}
+
+			// Unbind from reading
+			UnbindRead(ctx);
+
+			return fragment;
 		}
 
 		/// <summary>
@@ -406,6 +436,15 @@ namespace OpenGL.Objects
 			// Reset read configuration
 			Gl.ReadBuffer(Gl.NONE);
 		}
+
+		#endregion
+
+		#region GraphicsResource Overrides
+
+		/// <summary>
+		/// Determine whether this IGraphicsResource is effectively shareable between sharing <see cref="GraphicsContext"/> instances.
+		/// </summary>
+		public override bool IsShareable { get { return false; } }
 
 		#endregion
 

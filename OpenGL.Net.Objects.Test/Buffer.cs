@@ -38,7 +38,7 @@ namespace OpenGL.Objects.Test
 		{
 			// Initially not existing
 			Assert.IsFalse(buffer.Exists(_Context));
-			Assert.AreEqual(0u, buffer.Size);
+			Assert.AreEqual(0u, buffer.GpuBufferSize);
 
 			// CPU buffer cannot be mapped
 			Assert.IsFalse(buffer.IsMapped);
@@ -50,7 +50,7 @@ namespace OpenGL.Objects.Test
 			// Still not existing
 			Assert.IsFalse(buffer.Exists(_Context));
 			// We have CPU buffer
-			Assert.Greater(buffer.Size, 0u);
+			Assert.Greater(buffer.GpuBufferSize, 0u);
 			// Now it is possible to map
 			Assert.DoesNotThrow(delegate { buffer.Map(_Context, BufferAccess.ReadOnly); });
 			Assert.IsTrue(buffer.IsMapped);

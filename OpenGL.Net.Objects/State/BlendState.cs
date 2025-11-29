@@ -256,7 +256,7 @@ namespace OpenGL.Objects.State
 		/// <summary>
 		/// Determine whether the blending is enabled.
 		/// </summary>
-		public bool Enabled { get { return (_Enabled); } }
+		public bool Enabled { get { return (_Enabled); } set { _Enabled = value; } }
 		
 		/// <summary>
 		/// Determine whether blending equation is separated for RGB and Alpha components.
@@ -266,12 +266,12 @@ namespace OpenGL.Objects.State
 		/// <summary>
 		/// Blend equation for RGB components.
 		/// </summary>
-		public BlendEquationMode RgbEquation { get { return (_RgbEquation); } }
+		public BlendEquationMode RgbEquation { get { return (_RgbEquation); } set { _RgbEquation = value; } }
 
 		/// <summary>
 		/// Blend equation for alpha components.
 		/// </summary>
-		public BlendEquationMode AlphaEquation { get { return (_AlphaEquation); } }
+		public BlendEquationMode AlphaEquation { get { return (_AlphaEquation); } set { _AlphaEquation = value; } }
 
 		/// <summary>
 		/// Determine whether blending function is separated for RGB and Alpha components.
@@ -462,7 +462,7 @@ namespace OpenGL.Objects.State
 		public override void Apply(GraphicsContext ctx, ShaderProgram program)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			BlendState currentState = (BlendState)ctx.GetCurrentState(StateIndex);
 

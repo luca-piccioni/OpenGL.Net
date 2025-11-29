@@ -1,0 +1,23 @@
+<Project>
+  
+  <PropertyGroup>
+    <Version>1.0.1-beta</Version>
+    <Copyright>Copyright (C) Luca Piccioni 2015-2025</Copyright>
+    <Authors>Luca Piccioni</Authors>
+    <Company>OpenGL.Net</Company>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(IsPackable)' != 'false'">
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageTags>OpenGL;OpenGL-ES;GLSL;GLES;EGL;WGL;GLX;GPU;Graphics;3D</PackageTags>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(IsPackable)' != 'false'">
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+</Project>

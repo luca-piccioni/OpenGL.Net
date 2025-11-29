@@ -28,7 +28,7 @@ namespace OpenGL.Objects
 	/// Two dimensional texture using rectangle coordinates.
 	/// </summary>
 	[DebuggerDisplay("TextureRectangle: Width={Width} Height={Height} Format={PixelLayout}")]
-	public class TextureRectangle : Texture2D
+	public class TextureRectangle : Texture2d
 	{
 		#region Constructors
 
@@ -38,7 +38,7 @@ namespace OpenGL.Objects
 		/// <remarks>
 		/// <para>
 		/// It creates Texture object which has not defined extents, internal format and textels. To define this texture, call one
-		/// of <see cref="Texture2D.Create"/> or <see cref="Texture2D.CreateLazy"/> methods (except <see cref="Texture2D.Create(GraphicsContext)"/>).
+		/// of <see cref="Texture2d.Create"/> or <see cref="Texture2d.CreateLazy"/> methods (except <see cref="Texture2d.Create(GraphicsContext)"/>).
 		/// </para>
 		/// </remarks>
 		public TextureRectangle()
@@ -126,7 +126,7 @@ namespace OpenGL.Objects
 
 		#endregion
 
-		#region Texture2D Overrides
+		#region Texture2d Overrides
 
 		/// <summary>
 		/// Texture mapmaps level count (including the base level).
@@ -141,27 +141,27 @@ namespace OpenGL.Objects
 		/// </remarks>
 		protected override uint MipmapLevels { get { return (1); } }
 
-		///// <summary>
-		///// Generate mipmaps for this Texture.
-		///// </summary>
-		///// <param name="ctx">
-		///// A <see cref="GraphicsContext"/> used for generating texture mipmaps.
-		///// </param>
-		//public override void GenerateMipmaps(GraphicsContext ctx)
-		//{
-		//	throw new InvalidOperationException("TextureRectangle doesn't support mipmapping");
-		//}
+		/// <summary>
+		/// Generate mipmaps for this Texture.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for generating texture mipmaps.
+		/// </param>
+		public override void GenerateMipmaps(GraphicsContext ctx)
+		{
+			throw new InvalidOperationException("TextureRectangle doesn't support mipmapping");
+		}
 
-		///// <summary>
-		///// Generate mipmaps for this Texture.
-		///// </summary>
-		///// <remarks>
-		///// The mipmaps are generated when executing <see cref="CreateName(GraphicsContext)"/>.
-		///// </remarks>
-		//public override void GenerateMipmaps()
-		//{
-		//	throw new InvalidOperationException("TextureRectangle doesn't support mipmapping");
-		//}
+		/// <summary>
+		/// Generate mipmaps for this Texture.
+		/// </summary>
+		/// <remarks>
+		/// The mipmaps are generated when executing <see cref="CreateName(GraphicsContext)"/>.
+		/// </remarks>
+		public override void GenerateMipmaps()
+		{
+			throw new InvalidOperationException("TextureRectangle doesn't support mipmapping");
+		}
 
 		/// <summary>
 		/// Determine the derived Texture target.

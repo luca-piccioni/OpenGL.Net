@@ -25,7 +25,7 @@ using System.Windows.Forms;
 
 using OpenGL;
 using OpenGL.Objects;
-using OpenGL.Objects.Scene;
+// using OpenGL.Objects.Scene;
 using OpenGL.Objects.State;
 
 namespace HelloObjects
@@ -59,43 +59,43 @@ namespace HelloObjects
 		private void CreateResources(GraphicsContext ctx)
 		{
 			// Program library
-			_Context.MergeShadersLibrary("HelloObjects.Shaders._ShadersLibrary.xml");
+			ShadersLibrary.Merge("HelloObjects.Shaders._ShadersLibrary.xml");
 
-			// Mass buffer
-			_MassBuffer = new ArrayBufferInterleaved<Mass>(BufferUsage.StaticDraw);
-			_Context.LinkResource(_MassBuffer);
-
-			// _MassBuffer.Immutable = false;
-			_MassBuffer.Create(_Size);
-
-			// Map arrays
-			_MassArrays = new VertexArrays();
-			_Context.LinkResource(_MassArrays);
-
-			_MassArrays.SetArray(_MassBuffer, 0, VertexArraySemantic.Position);
-			_MassArrays.SetElementArray(PrimitiveType.Points, 0, 1024);
-			_MassArrays.Create(_Context);
-
-			// Programs
-			_ComputeEnergy = _Context.CreateProgram("HelloObjects.MassForceCompute");
-			_ComputePosition = _Context.CreateProgram("HelloObjects.MassPositionCompute");
-			_DrawMass = _Context.CreateProgram("OpenGL.Standard");
-
-			// Initiailize mass buffer
-			Random random = new Random();
-
-			_MassBuffer.Map(_Context, BufferAccess.WriteOnly);
-			for (uint i = 0; i < _MassBuffer.ItemsCount; i++) {
-				Mass mass;
-
-				mass.Position = new Vertex4f((float)random.NextDouble(), (float)random.NextDouble(), (float)random.NextDouble(), 1.0f) * 256.0f;
-				mass.Velocity = new Vertex4f((float)random.NextDouble(), (float)random.NextDouble(), (float)random.NextDouble(), 1.0f) * 0.000f;
-				mass.Force = new Vertex4f(0.0f, 0.0f, 0.0f, (float)Math.Abs(random.NextDouble() * 100000.0));
-
-				_MassBuffer.SetElement(mass, i);
-			}
-
-			_MassBuffer.Unmap(_Context);
+			// // Mass buffer
+			// _MassBuffer = new ArrayBufferInterleaved<Mass>(BufferUsage.StaticDraw);
+			// _Context.LinkResource(_MassBuffer); 
+			// 
+			// // _MassBuffer.Immutable = false;
+			// _MassBuffer.Create(_Size);
+			// 
+			// // Map arrays
+			// _MassArrays = new VertexArrays();
+			// _Context.LinkResource(_MassArrays);
+			// 
+			// _MassArrays.SetArray(_MassBuffer, 0, VertexArraySemantic.Position);
+			// _MassArrays.SetElementArray(PrimitiveType.Points, 0, 1024);
+			// _MassArrays.Create(_Context);
+			// 
+			// // Programs
+			// _ComputeEnergy = _Context.CreateProgram("HelloObjects.MassForceCompute");
+			// _ComputePosition = _Context.CreateProgram("HelloObjects.MassPositionCompute");
+			// _DrawMass = _Context.CreateProgram("OpenGL.Standard");
+			// 
+			// // Initiailize mass buffer
+			// Random random = new Random();
+			// 
+			// _MassBuffer.Map(_Context, BufferAccess.WriteOnly);
+			// for (uint i = 0; i < _MassBuffer.ItemsCount; i++) {
+			// 	Mass mass;
+			// 
+			// 	mass.Position = new Vertex4f((float)random.NextDouble(), (float)random.NextDouble(), (float)random.NextDouble(), 1.0f) * 256.0f;
+			// 	mass.Velocity = new Vertex4f((float)random.NextDouble(), (float)random.NextDouble(), (float)random.NextDouble(), 1.0f) * 0.000f;
+			// 	mass.Force = new Vertex4f(0.0f, 0.0f, 0.0f, (float)Math.Abs(random.NextDouble() * 100000.0));
+			// 
+			// 	_MassBuffer.SetElement(mass, i);
+			// }
+			// 
+			// _MassBuffer.Unmap(_Context);
 		}
 
 		ArrayBufferInterleaved<Mass> _MassBuffer;
@@ -158,42 +158,42 @@ namespace HelloObjects
 			_Crono.Restart();
 
 			// Update force
-			_ComputeEnergy.SetStorageBuffer(_Context, "MassBuffer", _MassBuffer);
-
-			_ComputeEnergy.SetUniform(_Context, "glo_MassCount", (int)_MassBuffer.ItemsCount);
-			_ComputeEnergy.SetUniform(_Context, "glo_Gravity", _Gravity);
-			_ComputeEnergy.SetUniform(_Context, "glo_MinDistanceForGravity", 0.1f);
-
-			_ComputeEnergy.SetUniform(_Context, "glo_DeltaTime", deltaTime);
-
-			_ComputeEnergy.Compute(_Context, 1024);
-			_ComputeEnergy.MemoryBarrier(MemoryBarrierMask.ShaderStorageBarrierBit);
-
-			// Update positions
-			_ComputePosition.SetStorageBuffer(_Context, "MassBuffer", _MassBuffer);
-
-			_ComputePosition.SetUniform(_Context, "glo_MassCount", (int)_MassBuffer.ItemsCount);
-			_ComputePosition.SetUniform(_Context, "glo_Gravity", _Gravity);
-			_ComputePosition.SetUniform(_Context, "glo_MinDistanceForGravity", 0.1f);
-
-			_ComputePosition.SetUniform(_Context, "glo_DeltaTime", deltaTime);
-			_ComputePosition.Compute(_Context, 1024);
-			_ComputePosition.MemoryBarrier(MemoryBarrierMask.VertexAttribArrayBarrierBit);
-
-			// Draw scene
-			GlControl senderControl = (GlControl)sender;
-			float senderAspectRatio = (float)senderControl.Width / senderControl.Height;
-
-			// Clear
-			Gl.Viewport(0, 0, senderControl.Width, senderControl.Height);
-			Gl.ClearColor(1.0f, 0.0f, 0.0f, 1.0f);
-			Gl.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
-
-			Matrix4x4f mvp = Matrix4x4f.Perspective(60.0f, senderAspectRatio, 0.1f, 16535.0f) * Matrix4x4f.Translated(-128.0f, -128.0f, -256.0f);
-
-			_DrawMass.SetUniform(_Context, "glo_ModelViewProjection", mvp);
-
-			_MassArrays.Draw(_Context, _DrawMass);
+			// _ComputeEnergy.SetStorageBuffer(_Context, "MassBuffer", _MassBuffer);
+			// 
+			// _ComputeEnergy.SetUniform(_Context, "glo_MassCount", (int)_MassBuffer.ItemsCount);
+			// _ComputeEnergy.SetUniform(_Context, "glo_Gravity", _Gravity);
+			// _ComputeEnergy.SetUniform(_Context, "glo_MinDistanceForGravity", 0.1f);
+			// 
+			// _ComputeEnergy.SetUniform(_Context, "glo_DeltaTime", deltaTime);
+			// 
+			// _ComputeEnergy.Compute(_Context, 1024);
+			// _ComputeEnergy.MemoryBarrier(MemoryBarrierMask.ShaderStorageBarrierBit);
+			// 
+			// // Update positions
+			// _ComputePosition.SetStorageBuffer(_Context, "MassBuffer", _MassBuffer);
+			// 
+			// _ComputePosition.SetUniform(_Context, "glo_MassCount", (int)_MassBuffer.ItemsCount);
+			// _ComputePosition.SetUniform(_Context, "glo_Gravity", _Gravity);
+			// _ComputePosition.SetUniform(_Context, "glo_MinDistanceForGravity", 0.1f);
+			// 
+			// _ComputePosition.SetUniform(_Context, "glo_DeltaTime", deltaTime);
+			// _ComputePosition.Compute(_Context, 1024);
+			// _ComputePosition.MemoryBarrier(MemoryBarrierMask.VertexAttribArrayBarrierBit);
+			// 
+			// // Draw scene
+			// GlControl senderControl = (GlControl)sender;
+			// float senderAspectRatio = (float)senderControl.Width / senderControl.Height;
+			// 
+			// // Clear
+			// Gl.Viewport(0, 0, senderControl.Width, senderControl.Height);
+			// Gl.ClearColor(1.0f, 0.0f, 0.0f, 1.0f);
+			// Gl.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
+			// 
+			// Matrix4x4f mvp = Matrix4x4f.Perspective(60.0f, senderAspectRatio, 0.1f, 16535.0f) * Matrix4x4f.Translated(-128.0f, -128.0f, -256.0f);
+			// 
+			// _DrawMass.SetUniform(_Context, "glo_ModelViewProjection", mvp);
+			// 
+			// _MassArrays.Draw(_Context, _DrawMass);
 		}
 
 		const uint _Size = 128;

@@ -1,0 +1,51 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+
+    <RootNamespace>OpenGL.Objects.Test</RootNamespace>
+    <AssemblyName>OpenGL.Net.Objects.Test</AssemblyName>
+
+    <DefineConstants>TRACE;NETFRAMEWORK;HAVE_SYSTEM_DRAWING;HAVE_NUMERICS</DefineConstants>
+
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+	<Compile Remove="**\*" />
+	<EmbeddedResource Remove="**\*" />
+	<None Remove="**\*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Testing framework -->
+    <PackageReference Include="NUnit" Version="3.14.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="5.1.0" />
+
+    <!-- Mocking framework -->
+    <PackageReference Include="NSubstitute" Version="3.1.0" />
+
+    <ProjectReference Include="..\OpenGL.Net\OpenGL.Net.Math.csproj" />
+    <ProjectReference Include="..\OpenGL.Net\OpenGL.Net.csproj" />
+    <ProjectReference Include="..\OpenGL.Net.Objects\OpenGL.Net.Objects.csproj" />
+    <ProjectReference Include="..\OpenGL.Net.Test\OpenGL.Net.Test.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="**\*.cs" Exclude="obj\**;bin\**;**\*.tt" />
+
+    <None Include="**\*.tt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="BenchmarkStringHash.cs" />
+    <Compile Remove="ComputeProgram.cs" />
+    <Compile Remove="ShaderStorageBuffer.cs" />
+  </ItemGroup>
+
+</Project>

@@ -68,7 +68,7 @@ namespace OpenGL.Objects.State
 		/// The actual model-view matrix used for transforming vertex arrays space.
 		/// </summary>
 		[ShaderUniformState]
-		public Matrix4x4f? Projection { get; set; }
+		public Matrix4x4f Projection { get; set; } = Matrix4x4f.Identity;
 
 		/// <summary>
 		/// The actual model-view matrix used for transforming vertex arrays space.
@@ -80,28 +80,13 @@ namespace OpenGL.Objects.State
 		/// The actual model-view-projection matrix used for drawing vertex arrays.
 		/// </summary>
 		[ShaderUniformState]
-		public Matrix4x4f? ModelViewProjection
-		{
-			get
-			{
-				if (!_ModelViewProjection.HasValue && Projection.HasValue)
-					return Projection.Value * ModelView;		// Lazily computed
-				
-				return _ModelViewProjection;
-			}
-			set { _ModelViewProjection = value; }
-		}
-
-		/// <summary>
-		/// Backend value for ModelViewProjection.
-		/// </summary>
-		private Matrix4x4f? _ModelViewProjection;
+		public Matrix4x4f ModelViewProjection => Projection * ModelView;
 
 		/// <summary>
 		/// The normal matrix, derived from <see cref="ModelView"/>.
 		/// </summary>
 		[ShaderUniformState]
-		public Matrix3x3f NormalMatrix { get { return (new Matrix3x3f(ModelView, 3, 3).Inverse.Transposed); } }
+		public Matrix3x3f NormalMatrix => (new Matrix3x3f(ModelView, 3, 3).Inverse.Transposed);
 
 		#endregion
 
@@ -138,7 +123,7 @@ namespace OpenGL.Objects.State
 		/// <remarks>
 		/// It returns always true, since it supports also fixed pipeline.
 		/// </remarks>
-		public override bool IsContextBound { get { return (true); } }
+		public override bool IsContextBound { get { return (false); } }
 
 		/// <summary>
 		/// Flag indicating whether the state can be applied on a <see cref="ShaderProgram"/>.
@@ -163,7 +148,7 @@ namespace OpenGL.Objects.State
 				// Fixed pipeline rendering requires server state
 				
 #if !MONODROID
-				Matrix4x4f p = Projection ?? Matrix4x4f.Identity;
+				Matrix4x4f p = Projection;
 
 				if (ctx.Extensions.DirectStateAccess_EXT) {
 					// Set projection and model-view matrix
@@ -184,14 +169,9 @@ namespace OpenGL.Objects.State
 				// Shader implementation (TransformState.glsl)
 				ctx.Bind(shaderProgram);
 
-				// Usual matrices
-				Debug.Assert(ModelViewProjection.HasValue);
-				if (ModelViewProjection.HasValue)
-					shaderProgram.SetUniform(ctx, "glo_ModelViewProjection", ModelViewProjection.Value);
-
+				shaderProgram.SetUniform(ctx, "glo_ModelViewProjection", ModelViewProjection);
 				if (shaderProgram.IsActiveUniform("glo_NormalMatrix"))
 					shaderProgram.SetUniform(ctx, "glo_NormalMatrix", NormalMatrix);
-
 				if (shaderProgram.IsActiveUniform("glo_ModelView"))
 					shaderProgram.SetUniform(ctx, "glo_ModelView", ModelView);
 			}
@@ -211,15 +191,8 @@ namespace OpenGL.Objects.State
 			try {
 				TransformState otherState = (TransformState)state;
 
-				if (otherState.Projection.HasValue)
-					Projection = otherState.Projection.Value;
+				Projection = otherState.Projection;
 				ModelView = ModelView * otherState.ModelView;
-				if (_ModelViewProjection.HasValue && !otherState.Projection.HasValue)
-					_ModelViewProjection = _ModelViewProjection.Value * otherState.ModelView;
-				else
-					_ModelViewProjection = otherState.ModelViewProjection.Value;
-				Debug.Assert(_ModelViewProjection.HasValue);
-				Debug.Assert(_ModelViewProjection.Value.Equals((Matrix4x4f)(Projection * ModelView), 1e-3f));
 			} catch (InvalidCastException) {
 				throw new ArgumentException("not a TransformState", nameof(state));
 			}

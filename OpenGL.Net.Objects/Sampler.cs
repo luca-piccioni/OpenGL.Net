@@ -80,7 +80,7 @@ namespace OpenGL.Objects
 				Gl.SamplerParameter(ObjectName, SamplerParameterI.TextureMinFilter, (int)samplerParams.MinFilter);
 				_ObjectParams.MinFilter = samplerParams.MinFilter;
 			}
-
+			
 			if (samplerParams.MagFilter != _ObjectParams.MagFilter) {
 				Gl.SamplerParameter(ObjectName, SamplerParameterI.TextureMagFilter, (int)samplerParams.MagFilter);
 				_ObjectParams.MagFilter = samplerParams.MagFilter;
@@ -158,6 +158,11 @@ namespace OpenGL.Objects
 
 			return (!ctx.Extensions.SamplerObjects_ARB || Gl.IsSampler(ObjectName));
 		}
+
+		/// <summary>
+		/// Determine whether this IGraphicsResource is effectively shareable between sharing <see cref="GraphicsContext"/> instances.
+		/// </summary>
+		public override bool IsShareable { get { return true; } }
 
 		/// <summary>
 		/// Determine whether this object requires a name bound to a context or not.

@@ -166,6 +166,9 @@ namespace OpenGL
 					_Renderer = GetString(StringName.Renderer);
 
 					if (EnvDebug || EnvExperimental) {
+						// Rebind OpenGL API: many function pointers are not loaded because no Extension were queried
+						BindAPI();
+
 						Debug.Assert(CurrentVersion != null && CurrentExtensions != null);
 						CheckExtensionCommands<Gl>(CurrentVersion, CurrentExtensions, EnvExperimental);
 					}
@@ -330,20 +333,6 @@ namespace OpenGL
 		#region API Binding
 
 		/// <summary>
-		/// Get or set the delegate used for loading function pointers for this API.
-		/// </summary>
-		public GetAddressDelegate GetFunctionPointerDelegate
-		{
-			get { return _GetAddressDelegate; }
-			set { _GetAddressDelegate = value ?? GetProcAddressGLOS; }
-		}
-
-		/// <summary>
-		/// Delegate used for loading function pointers for this API.
-		/// </summary>
-		private static GetAddressDelegate _GetAddressDelegate = GetProcAddressGLOS;
-
-		/// <summary>
 		/// Bind the OpenGL delegates for the API corresponding to the current OpenGL context.
 		/// </summary>
 		public static void BindAPI()
@@ -365,7 +354,7 @@ namespace OpenGL
 			if (version == null)
 				throw new ArgumentNullException(nameof(version));
 
-			BindAPI<Gl>(GetPlatformLibrary(version), _GetAddressDelegate, version, extensions);
+			BindAPI<Gl>(GetPlatformLibrary(version), GetProcAddressGLOS, version, extensions);
 		}
 
 		/// <summary>
@@ -438,7 +427,7 @@ namespace OpenGL
 		/// </param>
 		internal static void BindAPIFunction(KhronosVersion version, ExtensionsCollection extensions, string functionName)
 		{
-			BindAPIFunction<Gl>(GetPlatformLibrary(version), functionName, _GetAddressDelegate, version, extensions);
+			BindAPIFunction<Gl>(GetPlatformLibrary(version), functionName, GetProcAddressGLOS, version, extensions);
 		}
 
 		/// <summary>

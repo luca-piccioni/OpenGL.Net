@@ -41,6 +41,38 @@ namespace OpenGL.Objects.State
 		}
 
 		/// <summary>
+		/// Default constructor.
+		/// </summary>
+		public WriteMaskState(GraphicsContext ctx)
+		{
+			if (ctx == null)
+				throw new ArgumentNullException("ctx");
+
+			
+			int[] colorMask = new int[4];
+
+			Gl.Get(GetPName.ColorWritemask, colorMask);
+
+			ColorMaskR = colorMask[0] != 0;
+			ColorMaskG = colorMask[1] != 0;
+			ColorMaskB = colorMask[2] != 0;
+			ColorMaskA = colorMask[3] != 0;
+
+			int depthMask;
+			Gl.Get(GetPName.DepthWritemask, out depthMask);
+
+			DepthMask = depthMask != 0;
+
+			int frontStencilMask;
+			Gl.Get(GetPName.StencilWritemask, out frontStencilMask);
+			StencilMaskFront = (UInt32)frontStencilMask;
+
+			int backStencilMask;
+			Gl.Get((GetPName)Gl.STENCIL_BACK_WRITEMASK, out backStencilMask);
+			StencilMaskBack = (UInt32)backStencilMask;
+		}
+
+		/// <summary>
 		/// Construct a WriteMaskState for masking color and depth buffers.
 		/// </summary>
 		/// <param name="colorMask"></param>
@@ -104,7 +136,7 @@ namespace OpenGL.Objects.State
 		/// </summary>
 		public bool StencilMask
 		{
-			get { return (StencilMaskFront != UInt32.MaxValue || StencilMaskBack != UInt32.MaxValue); }
+			get { return (StencilMaskFront != 0 || StencilMaskBack != 0); }
 			set { StencilMaskFront = StencilMaskBack = value ? UInt32.MaxValue : 0; }
 		}
 

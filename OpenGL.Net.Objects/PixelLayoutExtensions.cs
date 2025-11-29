@@ -35,12 +35,17 @@ namespace OpenGL.Objects
 			switch (type) {
 				case PixelLayout.R8:
 				case PixelLayout.R16:
+				case PixelLayout.R16_BE:
+				case PixelLayout.R16I:
 				case PixelLayout.R32:
 				case PixelLayout.GRAY16S:
 				case PixelLayout.RF:
 				case PixelLayout.RD:
 				case PixelLayout.RHF:
 					return PixelSpace.Red;
+				case PixelLayout.RG16:
+				case PixelLayout.RG32F:
+					return PixelSpace.RedGreen;
 				case PixelLayout.RGB8:
 				case PixelLayout.RGB15:
 				case PixelLayout.RGB16:
@@ -99,6 +104,8 @@ namespace OpenGL.Objects
 				case PixelLayout.CMYK64:
 				case PixelLayout.CMYKA40:
 					return PixelSpace.CMYK;
+				case PixelLayout.Stencil8:
+					return PixelSpace.Stencil;
 				case PixelLayout.Depth16:
 				case PixelLayout.Depth24:
 				case PixelLayout.Depth32:
@@ -127,10 +134,14 @@ namespace OpenGL.Objects
 				case PixelLayout.R8:
 				case PixelLayout.RGB8:
 				case PixelLayout.BGR8:
+				case PixelLayout.Stencil8:
 					return 8;
 				case PixelLayout.R16:
+				case PixelLayout.R16_BE:
+				case PixelLayout.R16I:
 				case PixelLayout.GRAY16S:
 				case PixelLayout.RHF:
+				case PixelLayout.RG16:
 				case PixelLayout.RGB15:
 				case PixelLayout.RGB16:
 				case PixelLayout.BGR15:
@@ -164,6 +175,7 @@ namespace OpenGL.Objects
 				case PixelLayout.BGRHF:
 					return 48;
 				case PixelLayout.RD:
+				case PixelLayout.RG32F:
 				case PixelLayout.RGBA64:
 				case PixelLayout.RGBAHF:
 				case PixelLayout.BGRA64:
@@ -318,12 +330,45 @@ namespace OpenGL.Objects
 		/// A <see cref="PixelLayout"/> to determine the OpenGL internal format.
 		/// </param>
 		/// <returns>
-		/// It returns a <see cref="InternalFormat"/> corresponding to the OpenGL enumeration value
+		/// It returns a <see cref="Int32"/> corresponding to the OpenGL enumeration value
 		/// for the pixel/textel internal format.
 		/// </returns>
 		public static InternalFormat ToInternalFormat(this PixelLayout type)
 		{
 			switch (type) {
+
+				#region Red Internal Formats
+
+				case PixelLayout.R8:
+					return InternalFormat.R8;
+				case PixelLayout.R16:
+				case PixelLayout.R16_BE:
+					return InternalFormat.R16;
+				case PixelLayout.R16I:
+					return InternalFormat.R16Snorm;
+				case PixelLayout.GRAY16S:
+					return InternalFormat.R16Snorm;
+				case PixelLayout.RF:
+					if (Gl.CurrentExtensions.TextureFloat_ARB)
+						return InternalFormat.R32f;
+					else
+						return InternalFormat.R8;
+				case PixelLayout.RHF:
+					if (Gl.CurrentExtensions.TextureFloat_ARB)
+						return InternalFormat.R16f;
+					else
+						return InternalFormat.R8;
+
+				#endregion
+
+				#region Red/Green Formats
+
+				case PixelLayout.RG16:
+					return InternalFormat.Rg16;
+				case PixelLayout.RG32F:
+					return InternalFormat.Rg32f;
+
+				#endregion
 
 				#region RGB/BGR Formats
 
@@ -393,27 +438,6 @@ namespace OpenGL.Objects
 
 				#endregion
 
-				#region GRAY Internal Formats
-
-				case PixelLayout.R8:
-					return InternalFormat.R8;
-				case PixelLayout.R16:
-					return InternalFormat.R16;
-				case PixelLayout.GRAY16S:
-					return InternalFormat.R16Snorm;
-				case PixelLayout.RF:
-					if (Gl.CurrentExtensions.TextureFloat_ARB)
-						return InternalFormat.R32f;
-					else
-						return InternalFormat.R8;
-				case PixelLayout.RHF:
-					if (Gl.CurrentExtensions.TextureFloat_ARB)
-						return InternalFormat.R16f;
-					else
-						return InternalFormat.R8;
-
-				#endregion
-
 				#region GRAYA Formats
 
 				//case PixelLayout.GRAYAF:
@@ -431,6 +455,13 @@ namespace OpenGL.Objects
 					return InternalFormat.DepthComponent32;
 				case PixelLayout.DepthF:
 					return InternalFormat.DepthComponent32f;
+
+				#endregion
+
+				#region Stencil Formats
+
+				case PixelLayout.Stencil8:
+					return (InternalFormat)Gl.STENCIL_INDEX8;		// XXX InternalFormat missing Stencil* formats.
 
 				#endregion
 
@@ -469,178 +500,221 @@ namespace OpenGL.Objects
 			}
 		}
 
-		/// <summary>
-		/// Determine the OpenGL internal (sized) format corresponding to a <see cref="PixelLayout"/>.
-		/// </summary>
-		/// <param name="type">
-		/// A <see cref="PixelLayout"/> to determine the OpenGL internal format.
-		/// </param>
-		/// <returns>
-		/// It returns a <see cref="SizedInternalFormat"/> corresponding to the OpenGL enumeration value
-		/// for the pixel/textel internal format.
-		/// </returns>
-		public static SizedInternalFormat ToSizedInternalFormat(this PixelLayout type)
+        /// <summary>
+        /// Determine the OpenGL internal format corresponding to a <see cref="PixelLayout"/>.
+        /// </summary>
+        /// <param name="type">
+        /// A <see cref="PixelLayout"/> to determine the OpenGL internal format.
+        /// </param>
+        /// <returns>
+        /// It returns a <see cref="Int32"/> corresponding to the OpenGL enumeration value
+        /// for the pixel/textel internal format.
+        /// </returns>
+        public static SizedInternalFormat ToSizedInternalFormat(this PixelLayout type)
+        {
+            switch (type) {
+
+                #region Red Internal Formats
+
+                case PixelLayout.R8:
+                    return SizedInternalFormat.R8;
+                case PixelLayout.R16:
+                case PixelLayout.R16_BE:
+                    return SizedInternalFormat.R16;
+                case PixelLayout.R16I:
+                    return SizedInternalFormat.R16Snorm;
+                case PixelLayout.GRAY16S:
+                    return SizedInternalFormat.R16Snorm;
+                case PixelLayout.RF:
+                    if (Gl.CurrentExtensions.TextureFloat_ARB)
+                        return SizedInternalFormat.R32f;
+                    else
+                        return SizedInternalFormat.R8;
+                case PixelLayout.RHF:
+                    if (Gl.CurrentExtensions.TextureFloat_ARB)
+                        return SizedInternalFormat.R16f;
+                    else
+                        return SizedInternalFormat.R8;
+
+                #endregion
+
+                #region Red/Green Formats
+
+                case PixelLayout.RG16:
+                    return SizedInternalFormat.Rg16;
+                case PixelLayout.RG32F:
+                    return SizedInternalFormat.Rg32f;
+
+                #endregion
+
+                #region RGB/BGR Formats
+
+                case PixelLayout.RGB8:
+                case PixelLayout.BGR8:
+                    return SizedInternalFormat.Rgb8;
+#if !MONODROID
+                case PixelLayout.RGB15:
+                case PixelLayout.BGR15:
+                    return SizedInternalFormat.Rgb5;
+#endif
+                case PixelLayout.RGB16:
+                case PixelLayout.BGR16:
+                    return SizedInternalFormat.Rgb8;
+                case PixelLayout.RGB24:
+                case PixelLayout.BGR24:
+                    return SizedInternalFormat.Rgb8;
+                case PixelLayout.RGB48:
+                case PixelLayout.BGR48:
+                    return SizedInternalFormat.Rgb16;
+                case PixelLayout.RGBF:
+                case PixelLayout.RGBD:
+                case PixelLayout.BGRF:
+                    if (Gl.CurrentExtensions.TextureFloat_ARB)
+                        return SizedInternalFormat.Rgba32f;
+                    else
+                        return SizedInternalFormat.Rgb8;
+                case PixelLayout.RGBHF:
+                case PixelLayout.BGRHF:
+                    if (Gl.CurrentExtensions.TextureFloat_ARB)
+                        return SizedInternalFormat.Rgb16f;
+                    else
+                        return SizedInternalFormat.Rgb8;
+
+                #endregion
+
+                #region sRGB Formats
+
+                case PixelLayout.SRGB24:
+                case PixelLayout.SBGR24:
+                    return SizedInternalFormat.Srgb8;
+
+                #endregion
+
+                #region RGBA/BGRA Formats
+
+                //case PixelLayout.RGB30A2:
+                //case PixelLayout.BGR30A2:
+                case PixelLayout.RGBA32:
+                case PixelLayout.BGRA32:
+                    return SizedInternalFormat.Rgba8;
+                case PixelLayout.RGBA64:
+                case PixelLayout.BGRA64:
+                    return SizedInternalFormat.Rgba16;
+                case PixelLayout.RGBAF:
+                case PixelLayout.BGRAF:
+                    if (Gl.CurrentExtensions.TextureFloat_ARB)
+                        return SizedInternalFormat.Rgba32f;
+                    else
+                        return SizedInternalFormat.Rgba8;
+                case PixelLayout.RGBAHF:
+                case PixelLayout.BGRAHF:
+                    if (Gl.CurrentExtensions.TextureFloat_ARB)
+                        return SizedInternalFormat.Rgba16f;
+                    else
+                        return SizedInternalFormat.Rgba8;
+
+                #endregion
+
+                #region GRAYA Formats
+
+                //case PixelLayout.GRAYAF:
+                //	return (Gl.RG32F);
+
+                #endregion
+
+                #region Depth Formats
+
+                case PixelLayout.Depth16:
+                    return SizedInternalFormat.DepthComponent16;
+                case PixelLayout.Depth24:
+                    return SizedInternalFormat.DepthComponent24;
+                case PixelLayout.Depth32:
+                    return SizedInternalFormat.DepthComponent32;
+                case PixelLayout.DepthF:
+                    return SizedInternalFormat.DepthComponent32f;
+
+                #endregion
+
+                #region Stencil Formats
+
+                case PixelLayout.Stencil8:
+                    return (SizedInternalFormat)Gl.STENCIL_INDEX8;       // XXX InternalFormat missing Stencil* formats.
+
+                #endregion
+
+                #region Depth/Stencil Formats
+
+                case PixelLayout.Depth24Stencil8:
+                    return SizedInternalFormat.Depth24Stencil8;
+                case PixelLayout.Depth32FStencil8:
+                    return SizedInternalFormat.Depth32fStencil8;
+
+                #endregion
+
+                #region Integer Formats
+
+                case PixelLayout.Integer1:
+                    return SizedInternalFormat.R32i;
+                case PixelLayout.Integer2:
+                    return SizedInternalFormat.Rg32i;
+                case PixelLayout.Integer3:
+                    return SizedInternalFormat.Rgb32i;
+                case PixelLayout.Integer4:
+                    return SizedInternalFormat.Rgba32i;
+                case PixelLayout.UInteger1:
+                    return SizedInternalFormat.R32ui;
+                case PixelLayout.UInteger2:
+                    return SizedInternalFormat.Rg32ui;
+                case PixelLayout.UInteger3:
+                    return SizedInternalFormat.Rgb32ui;
+                case PixelLayout.UInteger4:
+                    return SizedInternalFormat.Rgba32ui;
+
+                #endregion
+
+                default:
+                    throw new Exception($"unsupported pixel internal format {type}");
+            }
+        }
+
+        /// <summary>
+        /// Determine whether a <see cref="PixelLayout"/> is supported by some OpenGL implementation as internal format.
+        /// </summary>
+        /// <param name="type">
+        /// A <see cref="PixelLayout"/> to test for OpenGL support.
+        /// </param>
+        /// <returns>
+        /// It returns a boolean value indicating whether the current OpenGL implementation supports for the pixel type <paramref name="type"/>. The
+        /// OpenGL support means that texture data could be specified in the pixel format <paramref name="type"/>, and it is stored internally with
+        /// the same pixel format.
+        /// </returns>
+        public static bool IsSupportedInternalFormat(this PixelLayout type)
 		{
 			switch (type) {
 
-				#region RGB/BGR Formats
-
-				case PixelLayout.RGB8:
-				case PixelLayout.BGR8:
-					return SizedInternalFormat.Rgb8;
-#if !MONODROID
-				case PixelLayout.RGB15:
-				case PixelLayout.BGR15:
-					return SizedInternalFormat.Rgb5;
-#endif
-				case PixelLayout.RGB16:
-				case PixelLayout.BGR16:
-					return SizedInternalFormat.Rgb8;
-				case PixelLayout.RGB24:
-				case PixelLayout.BGR24:
-					return SizedInternalFormat.Rgb8;
-				case PixelLayout.RGB48:
-				case PixelLayout.BGR48:
-					return SizedInternalFormat.Rgb16;
-				case PixelLayout.RGBF:
-				case PixelLayout.RGBD:
-				case PixelLayout.BGRF:
-					if (Gl.CurrentExtensions.TextureFloat_ARB)
-						return SizedInternalFormat.Rgba32f;
-					else
-						return SizedInternalFormat.Rgb8;
-				case PixelLayout.RGBHF:
-				case PixelLayout.BGRHF:
-					if (Gl.CurrentExtensions.TextureFloat_ARB)
-						return SizedInternalFormat.Rgb16f;
-					else
-						return SizedInternalFormat.Rgb8;
-
-				#endregion
-
-				#region sRGB Formats
-
-				case PixelLayout.SRGB24:
-				case PixelLayout.SBGR24:
-					return SizedInternalFormat.Srgb8;
-
-				#endregion
-
-				#region RGBA/BGRA Formats
-
-				//case PixelLayout.RGB30A2:
-				//case PixelLayout.BGR30A2:
-				case PixelLayout.RGBA32:
-				case PixelLayout.BGRA32:
-					return SizedInternalFormat.Rgba8;
-				case PixelLayout.RGBA64:
-				case PixelLayout.BGRA64:
-					return SizedInternalFormat.Rgba16;
-				case PixelLayout.RGBAF:
-				case PixelLayout.BGRAF:
-					if (Gl.CurrentExtensions.TextureFloat_ARB)
-						return SizedInternalFormat.Rgba32f;
-					else
-						return SizedInternalFormat.Rgba8;
-				case PixelLayout.RGBAHF:
-				case PixelLayout.BGRAHF:
-					if (Gl.CurrentExtensions.TextureFloat_ARB)
-						return SizedInternalFormat.Rgba16f;
-					else
-						return SizedInternalFormat.Rgba8;
-
-				#endregion
-
-				#region GRAY Internal Formats
+				#region Red Formats
 
 				case PixelLayout.R8:
-					return SizedInternalFormat.R8;
 				case PixelLayout.R16:
-					return SizedInternalFormat.R16;
+				case PixelLayout.R16I:
+					return Gl.CurrentExtensions.TextureSwizzle_ARB;
 				case PixelLayout.GRAY16S:
-					return SizedInternalFormat.R16Snorm;
+					return Gl.CurrentExtensions.TextureSnorm_EXT;
 				case PixelLayout.RF:
-					if (Gl.CurrentExtensions.TextureFloat_ARB)
-						return SizedInternalFormat.R32f;
-					else
-						return SizedInternalFormat.R8;
+					return Gl.CurrentExtensions.TextureFloat_ARB;
 				case PixelLayout.RHF:
-					if (Gl.CurrentExtensions.TextureFloat_ARB)
-						return SizedInternalFormat.R16f;
-					else
-						return SizedInternalFormat.R8;
+					return Gl.CurrentExtensions.TextureFloat_ARB && Gl.CurrentExtensions.HalfFloatPixel_ARB;
 
 				#endregion
 
-				#region GRAYA Formats
+				#region Reg/Green Formats
 
-				//case PixelLayout.GRAYAF:
-				//	return (Gl.RG32F);
-
-				#endregion
-
-				#region Depth Formats
-
-				case PixelLayout.Depth16:
-					return SizedInternalFormat.DepthComponent16;
-				case PixelLayout.Depth24:
-					return SizedInternalFormat.DepthComponent24;
-				case PixelLayout.Depth32:
-					return SizedInternalFormat.DepthComponent32;
-				case PixelLayout.DepthF:
-					return SizedInternalFormat.DepthComponent32f;
+				case PixelLayout.RG16:
+					return Gl.CurrentExtensions.TextureRg_ARB || Gl.CurrentExtensions.TextureRg_EXT;
+				case PixelLayout.RG32F:
+					return (Gl.CurrentExtensions.TextureRg_ARB || Gl.CurrentExtensions.TextureRg_EXT) && Gl.CurrentExtensions.TextureFloat_ARB;
 
 				#endregion
-
-				#region Depth/Stencil Formats
-
-				case PixelLayout.Depth24Stencil8:
-					return SizedInternalFormat.Depth24Stencil8;
-				case PixelLayout.Depth32FStencil8:
-					return SizedInternalFormat.Depth32fStencil8;
-
-				#endregion
-
-				#region Integer Formats
-
-				case PixelLayout.Integer1:
-					return SizedInternalFormat.R32i;
-				case PixelLayout.Integer2:
-					return SizedInternalFormat.Rg32i;
-				case PixelLayout.Integer3:
-					return SizedInternalFormat.Rgb32i;
-				case PixelLayout.Integer4:
-					return SizedInternalFormat.Rgba32i;
-				case PixelLayout.UInteger1:
-					return SizedInternalFormat.R32ui;
-				case PixelLayout.UInteger2:
-					return SizedInternalFormat.Rg32ui;
-				case PixelLayout.UInteger3:
-					return SizedInternalFormat.Rgb32ui;
-				case PixelLayout.UInteger4:
-					return SizedInternalFormat.Rgba32ui;
-
-				#endregion
-
-				default:
-					throw new Exception($"unsupported pixel internal format {type}");
-			}
-		}
-
-		/// <summary>
-		/// Determine whether a <see cref="PixelLayout"/> is supported by some OpenGL implementation as internal format.
-		/// </summary>
-		/// <param name="type">
-		/// A <see cref="PixelLayout"/> to test for OpenGL support.
-		/// </param>
-		/// <returns>
-		/// It returns a boolean value indicating whether the current OpenGL implementation supports for the pixel type <paramref name="type"/>. The
-		/// OpenGL support means that texture data could be specified in the pixel format <paramref name="type"/>, and it is stored internally with
-		/// the same pixel format.
-		/// </returns>
-		public static bool IsSupportedInternalFormat(this PixelLayout type)
-		{
-			switch (type) {
 
 				#region RGB/RGBA Formats
 
@@ -696,27 +770,6 @@ namespace OpenGL.Objects
 
 				#endregion
 
-				#region GRAY Formats
-
-				case PixelLayout.R8:
-				case PixelLayout.R16:
-					return Gl.CurrentExtensions.TextureSwizzle_ARB;
-				case PixelLayout.GRAY16S:
-					return Gl.CurrentExtensions.TextureSnorm_EXT;
-				case PixelLayout.RF:
-					return Gl.CurrentExtensions.TextureSwizzle_ARB && Gl.CurrentExtensions.TextureFloat_ARB;
-				case PixelLayout.RHF:
-					return Gl.CurrentExtensions.TextureSwizzle_ARB && Gl.CurrentExtensions.TextureFloat_ARB && Gl.CurrentExtensions.HalfFloatPixel_ARB;
-
-				#endregion
-
-				#region GRAY Formats
-
-				//case PixelLayout.GRAYAF:
-				//	return (Gl.CurrentExtensions.TextureRg_ARB && Gl.CurrentExtensions.TextureSwizzle_ARB && Gl.CurrentExtensions.TextureFloat_ARB);
-
-				#endregion
-
 				#region CMYK Formats
 
 				case PixelLayout.CMY24:
@@ -724,6 +777,13 @@ namespace OpenGL.Objects
 				case PixelLayout.CMYK64:
 				case PixelLayout.CMYKA40:
 					return false;
+
+				#endregion
+
+				#region Stencil Formats
+
+				case PixelLayout.Stencil8:
+					return Gl.CurrentExtensions.TextureStencil8_ARB;
 
 				#endregion
 
@@ -783,6 +843,27 @@ namespace OpenGL.Objects
 		public static PixelFormat ToDataFormat(this PixelLayout type)
 		{
 			switch (type) {
+
+				#region Red
+
+				case PixelLayout.R8:
+				case PixelLayout.R16:
+				case PixelLayout.R16_BE:
+				case PixelLayout.R16I:
+				case PixelLayout.GRAY16S:
+				case PixelLayout.RF:
+				case PixelLayout.RHF:
+					return PixelFormat.Red;
+
+				#endregion
+
+				#region Reg/Green
+
+				case PixelLayout.RG16:
+				case PixelLayout.RG32F:
+					return PixelFormat.Rg;
+
+				#endregion
 
 				#region RGB Internal Formats
 
@@ -850,24 +931,6 @@ namespace OpenGL.Objects
 
 				#endregion
 
-				#region GRAY
-
-				case PixelLayout.R8:
-				case PixelLayout.R16:
-				case PixelLayout.GRAY16S:
-				case PixelLayout.RF:
-				case PixelLayout.RHF:
-					return PixelFormat.Red;
-
-				#endregion
-
-				#region GRAYA Formats
-
-				//case PixelLayout.GRAYAF:
-				//	return (PixelFormat.Rg);
-
-				#endregion
-
 				#region Depth Formats
 
 				case PixelLayout.Depth16:
@@ -875,6 +938,13 @@ namespace OpenGL.Objects
 				case PixelLayout.Depth32:
 				case PixelLayout.DepthF:
 					return PixelFormat.DepthComponent;
+
+				#endregion
+
+				#region Stencil Formats
+
+				case PixelLayout.Stencil8:
+					return PixelFormat.StencilIndex;
 
 				#endregion
 
@@ -938,6 +1008,28 @@ namespace OpenGL.Objects
 		{
 			switch (type) {
 
+				#region Red Formats
+
+				case PixelLayout.R8:
+				case PixelLayout.R16:
+				case PixelLayout.R16_BE:
+				case PixelLayout.R16I:
+				case PixelLayout.GRAY16S:
+					return true;
+				
+				case PixelLayout.RHF:
+					return Gl.CurrentExtensions.HalfFloatPixel_ARB;
+
+				#endregion
+
+				#region Red/Green Formats
+
+				case PixelLayout.RG16:
+				case PixelLayout.RG32F:
+					return true;
+
+				#endregion
+
 				#region RGB/RGBA Formats
 
 				case PixelLayout.RGB8:
@@ -991,26 +1083,6 @@ namespace OpenGL.Objects
 
 				#endregion
 
-				#region GRAY Formats
-
-				case PixelLayout.R8:
-				case PixelLayout.R16:
-				case PixelLayout.GRAY16S:
-				//case PixelLayout.GRAYF:
-					return true;
-				
-				case PixelLayout.RHF:
-					return Gl.CurrentExtensions.HalfFloatPixel_ARB;
-
-				#endregion
-
-				#region GRAYA Formats
-
-				//case PixelLayout.GRAYAF:
-				//	return (Gl.CurrentExtensions.TextureRg_ARB);
-
-				#endregion
-
 				#region CMYK Formats
 
 				case PixelLayout.CMY24:
@@ -1027,6 +1099,13 @@ namespace OpenGL.Objects
 				case PixelLayout.Depth24:
 				case PixelLayout.Depth32:
 				case PixelLayout.DepthF:
+					return false;
+
+				#endregion
+
+				#region Stencil Formats
+
+				case PixelLayout.Stencil8:
 					return false;
 
 				#endregion
@@ -1141,6 +1220,33 @@ namespace OpenGL.Objects
 		{
 			switch (type) {
 
+				#region R Data Types
+
+				case PixelLayout.R8:
+					return PixelType.UnsignedByte;
+				case PixelLayout.R16:
+				case PixelLayout.R16_BE:
+					return PixelType.UnsignedShort;
+				case PixelLayout.R16I:
+					return PixelType.Short;
+				case PixelLayout.GRAY16S:
+					return PixelType.Short;
+				case PixelLayout.RF:
+					return PixelType.Float;
+				case PixelLayout.RHF:
+					return PixelType.HalfFloat;
+
+				#endregion
+
+				#region RG Data Type
+
+				case PixelLayout.RG16:
+					return PixelType.UnsignedByte;
+				case PixelLayout.RG32F:
+					return PixelType.Float;
+
+				#endregion
+
 				#region RGB Data Types
 
 #if !MONODROID
@@ -1227,25 +1333,10 @@ namespace OpenGL.Objects
 
 				#endregion
 
-				#region GRAY Data Types
+				#region Stencil Data Types
 
-				case PixelLayout.R8:
+				case PixelLayout.Stencil8:
 					return PixelType.UnsignedByte;
-				case PixelLayout.R16:
-					return PixelType.UnsignedShort;
-				case PixelLayout.GRAY16S:
-					return PixelType.Short;
-				case PixelLayout.RF:
-					return PixelType.Float;
-				case PixelLayout.RHF:
-					return PixelType.HalfFloat;
-
-				#endregion
-
-				#region GRAYA Data Types
-
-				//case PixelLayout.GRAYAF:
-				//	return (PixelType.Float);
 
 				#endregion
 
@@ -1318,7 +1409,6 @@ namespace OpenGL.Objects
 				case PixelLayout.BGRAHF:
 				case PixelLayout.RF:
 				case PixelLayout.RHF:
-				//case PixelLayout.GRAYAF:
 					return true;
 				default:
 					return false;
@@ -1356,6 +1446,27 @@ namespace OpenGL.Objects
 		public static bool IsUnsignedIntegerPixel(this PixelLayout type)
 		{
 			return type == PixelLayout.UInteger1 || type == PixelLayout.UInteger2 || type == PixelLayout.UInteger3 || type == PixelLayout.UInteger4;
+		}
+
+		#endregion
+
+		#region Endianess
+
+		/// <summary>
+		/// Determine whether a PixelLayout is stored in memory using Big Endian notation.
+		/// </summary>
+		/// <param name="pixelLayout">
+		/// This <see cref="PixelLayout"/> to test.
+		/// </param>
+		/// <returns></returns>
+		public static bool IsBigEndian(this PixelLayout pixelLayout)
+		{
+			switch (pixelLayout) {
+				case PixelLayout.R16_BE:
+					return true;
+				default:
+					return false;
+			}
 		}
 
 		#endregion

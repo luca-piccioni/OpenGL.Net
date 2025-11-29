@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <OutputType>Library</OutputType>
+    <RootNamespace>OpenGL.CoreUI.Test</RootNamespace>
+    <AssemblyName>OpenGL.Net.CoreUI.Test</AssemblyName>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NUnit" Version="3.6.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OpenGL.Net.CoreUI\OpenGL.Net.CoreUI.csproj">
+      <Project>{8ba9350b-43fb-4dd7-8f53-90f508795ae8}</Project>
+      <Name>OpenGL.Net.CoreUI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OpenGL.Net\OpenGL.Net.csproj">
+      <Project>{9e3018f3-770e-4cfd-87d0-baee66e9fe8f}</Project>
+      <Name>OpenGL.Net</Name>
+    </ProjectReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+
+  <Import Project="..\OpenGL.Net.targets" />
+</Project>

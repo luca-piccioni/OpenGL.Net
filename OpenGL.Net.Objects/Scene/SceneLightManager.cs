@@ -130,7 +130,7 @@ namespace OpenGL.Objects.Scene
 							SceneGraphFlags.None
 						))
 				{
-					shadowGraph.SceneRoot.ObjectState.DefineState(new State.CullFaceState(TriangleFace.Back));
+					shadowGraph.SceneRoot.ObjectState.DefineState(new State.CullFaceState(CullFaceMode.Back));
 					sceneLight.UpdateShadowMap(ctx, shadowGraph);
 				}
 			}

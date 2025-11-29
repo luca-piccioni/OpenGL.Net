@@ -1,4 +1,11 @@
 ﻿
+
+
+
+
+
+
+
 // Copyright (C) 2017 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,6 +50,7 @@ namespace OpenGL.Test
 			return (random.NextDouble() * (maxValue - minValue) + minValue);
 		}
 	}
+
 
 	[TestFixture, Category("Math")]
 	class Vertex3ubTest : Vertex3TestBase
@@ -109,6 +117,7 @@ namespace OpenGL.Test
 		#endregion
 
 		#region Arithmetic Operators
+
 
 		[Test]
 		public void Vertex3ub_OperatorAdd()
@@ -283,6 +292,7 @@ namespace OpenGL.Test
 			Assert.AreEqual(Vertex3f.UnitZ, c);
 		}
 
+
 		[Test]
 		public void Vertex3ub_OperatorScalarMultiply()
 		{
@@ -320,6 +330,7 @@ namespace OpenGL.Test
 			Assert.AreEqual((byte)(y1 / s), v.y);
 			Assert.AreEqual((byte)(z1 / s), v.z);
 		}
+
 
 		#endregion
 
@@ -403,12 +414,14 @@ namespace OpenGL.Test
 
 		#region Vertex Methods
 
+
 		[Test]
 		public void Vertex3ub_Module()
 		{
 			Assert.AreEqual(3.741657f, new Vertex3ub((byte)1.0, (byte)2.0, (byte)3.0).Module(), 1e-4f);
 			Assert.AreEqual(8.83176f, new Vertex3ub((byte)2.0, (byte)5.0, (byte)7.0).Module(), 1e-4f);
 		}
+
 
 		[Test]
 		public void Vertex3ub_ModuleSquared()
@@ -665,6 +678,7 @@ namespace OpenGL.Test
 		#endregion
 	}
 
+
 	[TestFixture, Category("Math")]
 	class Vertex3bTest : Vertex3TestBase
 	{
@@ -731,6 +745,7 @@ namespace OpenGL.Test
 
 		#region Arithmetic Operators
 
+
 		[Test]
 		public void Vertex3b_OperatorNegate()
 		{
@@ -747,6 +762,7 @@ namespace OpenGL.Test
 			Assert.AreEqual(-y, n.y);
 			Assert.AreEqual(-z, n.z);
 		}
+
 		[Test]
 		public void Vertex3b_OperatorAdd()
 		{
@@ -920,6 +936,7 @@ namespace OpenGL.Test
 			Assert.AreEqual(Vertex3f.UnitZ, c);
 		}
 
+
 		[Test]
 		public void Vertex3b_OperatorScalarMultiply()
 		{
@@ -957,6 +974,7 @@ namespace OpenGL.Test
 			Assert.AreEqual((sbyte)(y1 / s), v.y);
 			Assert.AreEqual((sbyte)(z1 / s), v.z);
 		}
+
 
 		#endregion
 
@@ -1040,12 +1058,14 @@ namespace OpenGL.Test
 
 		#region Vertex Methods
 
+
 		[Test]
 		public void Vertex3b_Module()
 		{
 			Assert.AreEqual(3.741657f, new Vertex3b((sbyte)1.0, (sbyte)2.0, (sbyte)3.0).Module(), 1e-4f);
 			Assert.AreEqual(8.83176f, new Vertex3b((sbyte)2.0, (sbyte)5.0, (sbyte)7.0).Module(), 1e-4f);
 		}
+
 
 		[Test]
 		public void Vertex3b_ModuleSquared()
@@ -1302,6 +1322,7 @@ namespace OpenGL.Test
 		#endregion
 	}
 
+
 	[TestFixture, Category("Math")]
 	class Vertex3usTest : Vertex3TestBase
 	{
@@ -1367,6 +1388,7 @@ namespace OpenGL.Test
 		#endregion
 
 		#region Arithmetic Operators
+
 
 		[Test]
 		public void Vertex3us_OperatorAdd()
@@ -1541,6 +1563,7 @@ namespace OpenGL.Test
 			Assert.AreEqual(Vertex3f.UnitZ, c);
 		}
 
+
 		[Test]
 		public void Vertex3us_OperatorScalarMultiply()
 		{
@@ -1578,6 +1601,7 @@ namespace OpenGL.Test
 			Assert.AreEqual((ushort)(y1 / s), v.y);
 			Assert.AreEqual((ushort)(z1 / s), v.z);
 		}
+
 
 		#endregion
 
@@ -1661,12 +1685,14 @@ namespace OpenGL.Test
 
 		#region Vertex Methods
 
+
 		[Test]
 		public void Vertex3us_Module()
 		{
 			Assert.AreEqual(3.741657f, new Vertex3us((ushort)1.0, (ushort)2.0, (ushort)3.0).Module(), 1e-4f);
 			Assert.AreEqual(8.83176f, new Vertex3us((ushort)2.0, (ushort)5.0, (ushort)7.0).Module(), 1e-4f);
 		}
+
 
 		[Test]
 		public void Vertex3us_ModuleSquared()
@@ -1923,6 +1949,7 @@ namespace OpenGL.Test
 		#endregion
 	}
 
+
 	[TestFixture, Category("Math")]
 	class Vertex3sTest : Vertex3TestBase
 	{
@@ -1989,6 +2016,7 @@ namespace OpenGL.Test
 
 		#region Arithmetic Operators
 
+
 		[Test]
 		public void Vertex3s_OperatorNegate()
 		{
@@ -2005,6 +2033,7 @@ namespace OpenGL.Test
 			Assert.AreEqual(-y, n.y);
 			Assert.AreEqual(-z, n.z);
 		}
+
 		[Test]
 		public void Vertex3s_OperatorAdd()
 		{
@@ -2178,6 +2207,7 @@ namespace OpenGL.Test
 			Assert.AreEqual(Vertex3f.UnitZ, c);
 		}
 
+
 		[Test]
 		public void Vertex3s_OperatorScalarMultiply()
 		{
@@ -2215,6 +2245,7 @@ namespace OpenGL.Test
 			Assert.AreEqual((short)(y1 / s), v.y);
 			Assert.AreEqual((short)(z1 / s), v.z);
 		}
+
 
 		#endregion
 
@@ -2298,12 +2329,14 @@ namespace OpenGL.Test
 
 		#region Vertex Methods
 
+
 		[Test]
 		public void Vertex3s_Module()
 		{
 			Assert.AreEqual(3.741657f, new Vertex3s((short)1.0, (short)2.0, (short)3.0).Module(), 1e-4f);
 			Assert.AreEqual(8.83176f, new Vertex3s((short)2.0, (short)5.0, (short)7.0).Module(), 1e-4f);
 		}
+
 
 		[Test]
 		public void Vertex3s_ModuleSquared()
@@ -2560,6 +2593,7 @@ namespace OpenGL.Test
 		#endregion
 	}
 
+
 	[TestFixture, Category("Math")]
 	class Vertex3uiTest : Vertex3TestBase
 	{
@@ -2625,6 +2659,7 @@ namespace OpenGL.Test
 		#endregion
 
 		#region Arithmetic Operators
+
 
 		[Test]
 		public void Vertex3ui_OperatorAdd()
@@ -2799,6 +2834,7 @@ namespace OpenGL.Test
 			Assert.AreEqual(Vertex3f.UnitZ, c);
 		}
 
+
 		[Test]
 		public void Vertex3ui_OperatorScalarMultiply()
 		{
@@ -2836,6 +2872,7 @@ namespace OpenGL.Test
 			Assert.AreEqual((uint)(y1 / s), v.y);
 			Assert.AreEqual((uint)(z1 / s), v.z);
 		}
+
 
 		#endregion
 
@@ -2919,12 +2956,14 @@ namespace OpenGL.Test
 
 		#region Vertex Methods
 
+
 		[Test]
 		public void Vertex3ui_Module()
 		{
 			Assert.AreEqual(3.741657f, new Vertex3ui((uint)1.0, (uint)2.0, (uint)3.0).Module(), 1e-4f);
 			Assert.AreEqual(8.83176f, new Vertex3ui((uint)2.0, (uint)5.0, (uint)7.0).Module(), 1e-4f);
 		}
+
 
 		[Test]
 		public void Vertex3ui_ModuleSquared()
@@ -3181,6 +3220,7 @@ namespace OpenGL.Test
 		#endregion
 	}
 
+
 	[TestFixture, Category("Math")]
 	class Vertex3iTest : Vertex3TestBase
 	{
@@ -3247,6 +3287,7 @@ namespace OpenGL.Test
 
 		#region Arithmetic Operators
 
+
 		[Test]
 		public void Vertex3i_OperatorNegate()
 		{
@@ -3263,6 +3304,7 @@ namespace OpenGL.Test
 			Assert.AreEqual(-y, n.y);
 			Assert.AreEqual(-z, n.z);
 		}
+
 		[Test]
 		public void Vertex3i_OperatorAdd()
 		{
@@ -3436,6 +3478,7 @@ namespace OpenGL.Test
 			Assert.AreEqual(Vertex3f.UnitZ, c);
 		}
 
+
 		[Test]
 		public void Vertex3i_OperatorScalarMultiply()
 		{
@@ -3473,6 +3516,7 @@ namespace OpenGL.Test
 			Assert.AreEqual((int)(y1 / s), v.y);
 			Assert.AreEqual((int)(z1 / s), v.z);
 		}
+
 
 		#endregion
 
@@ -3556,12 +3600,14 @@ namespace OpenGL.Test
 
 		#region Vertex Methods
 
+
 		[Test]
 		public void Vertex3i_Module()
 		{
 			Assert.AreEqual(3.741657f, new Vertex3i((int)1.0, (int)2.0, (int)3.0).Module(), 1e-4f);
 			Assert.AreEqual(8.83176f, new Vertex3i((int)2.0, (int)5.0, (int)7.0).Module(), 1e-4f);
 		}
+
 
 		[Test]
 		public void Vertex3i_ModuleSquared()
@@ -3818,6 +3864,7 @@ namespace OpenGL.Test
 		#endregion
 	}
 
+
 	[TestFixture, Category("Math")]
 	class Vertex3fTest : Vertex3TestBase
 	{
@@ -3884,6 +3931,7 @@ namespace OpenGL.Test
 
 		#region Arithmetic Operators
 
+
 		[Test]
 		public void Vertex3f_OperatorNegate()
 		{
@@ -3900,6 +3948,7 @@ namespace OpenGL.Test
 			Assert.AreEqual(-y, n.y);
 			Assert.AreEqual(-z, n.z);
 		}
+
 		[Test]
 		public void Vertex3f_OperatorAdd()
 		{
@@ -4074,6 +4123,7 @@ namespace OpenGL.Test
 		}
 
 
+
 		#endregion
 
 		#region Equality Operators
@@ -4156,12 +4206,14 @@ namespace OpenGL.Test
 
 		#region Vertex Methods
 
+
 		[Test]
 		public void Vertex3f_Module()
 		{
 			Assert.AreEqual(3.741657f, new Vertex3f((float)1.0, (float)2.0, (float)3.0).Module(), 1e-4f);
 			Assert.AreEqual(8.83176f, new Vertex3f((float)2.0, (float)5.0, (float)7.0).Module(), 1e-4f);
 		}
+
 
 		[Test]
 		public void Vertex3f_ModuleSquared()
@@ -4418,6 +4470,7 @@ namespace OpenGL.Test
 		#endregion
 	}
 
+
 	[TestFixture, Category("Math")]
 	class Vertex3dTest : Vertex3TestBase
 	{
@@ -4484,6 +4537,7 @@ namespace OpenGL.Test
 
 		#region Arithmetic Operators
 
+
 		[Test]
 		public void Vertex3d_OperatorNegate()
 		{
@@ -4500,6 +4554,7 @@ namespace OpenGL.Test
 			Assert.AreEqual(-y, n.y);
 			Assert.AreEqual(-z, n.z);
 		}
+
 		[Test]
 		public void Vertex3d_OperatorAdd()
 		{
@@ -4674,6 +4729,7 @@ namespace OpenGL.Test
 		}
 
 
+
 		#endregion
 
 		#region Equality Operators
@@ -4756,12 +4812,14 @@ namespace OpenGL.Test
 
 		#region Vertex Methods
 
+
 		[Test]
 		public void Vertex3d_Module()
 		{
 			Assert.AreEqual(3.741657f, new Vertex3d((double)1.0, (double)2.0, (double)3.0).Module(), 1e-4f);
 			Assert.AreEqual(8.83176f, new Vertex3d((double)2.0, (double)5.0, (double)7.0).Module(), 1e-4f);
 		}
+
 
 		[Test]
 		public void Vertex3d_ModuleSquared()
@@ -5018,6 +5076,7 @@ namespace OpenGL.Test
 		#endregion
 	}
 
+
 	[TestFixture, Category("Math")]
 	class Vertex3hfTest : Vertex3TestBase
 	{
@@ -5083,6 +5142,7 @@ namespace OpenGL.Test
 		#endregion
 
 		#region Arithmetic Operators
+
 
 		[Test]
 		public void Vertex3hf_OperatorAdd()
@@ -5258,6 +5318,7 @@ namespace OpenGL.Test
 		}
 
 
+
 		#endregion
 
 		#region Equality Operators
@@ -5340,12 +5401,14 @@ namespace OpenGL.Test
 
 		#region Vertex Methods
 
+
 		[Test]
 		public void Vertex3hf_Module()
 		{
 			Assert.AreEqual(3.741657f, new Vertex3hf((HalfFloat)1.0, (HalfFloat)2.0, (HalfFloat)3.0).Module(), 1e-4f);
 			Assert.AreEqual(8.83176f, new Vertex3hf((HalfFloat)2.0, (HalfFloat)5.0, (HalfFloat)7.0).Module(), 1e-4f);
 		}
+
 
 		[Test]
 		public void Vertex3hf_ModuleSquared()
@@ -5601,5 +5664,6 @@ namespace OpenGL.Test
 
 		#endregion
 	}
+
 
 }

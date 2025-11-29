@@ -1,5 +1,5 @@
 ﻿
-// Copyright (C) 2019 Luca Piccioni
+// Copyright (C) 2017 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -26,7 +26,7 @@ namespace OpenGL.Objects
 	/// <summary>
 	/// 
 	/// </summary>
-	public sealed class ShaderStorageBuffer : Buffer
+	public sealed class ShaderStorageBuffer : Buffer, IBindingIndexResource
 	{
 		#region Constructors
 
@@ -77,9 +77,10 @@ namespace OpenGL.Objects
 		public void Create(uint dataSize)
 		{
 			if (dataSize == 0)
-				throw new ArgumentException("invalid");
+				throw new ArgumentException("invalid", "itemsCount");
 
-			AddTechnique(new EmptyCreateTechnique(this, dataSize));
+			// Allocate buffer
+			CreateCpuBuffer(dataSize);
 		}
 
 		#endregion
@@ -107,7 +108,15 @@ namespace OpenGL.Objects
 		{
 			CheckCurrentContext(ctx);
 
-			Create(dataSize);
+			if (dataSize == 0)
+				throw new ArgumentException("invalid", "itemsCount");
+
+			// Object already existing: resize client buffer, if any
+			if (CpuBufferAddress != IntPtr.Zero)
+				CreateCpuBuffer(dataSize);
+			// If not exists, set GPU buffer size; otherwise keep in synch with client buffer size
+			CpuBufferSize = dataSize;
+			// Allocate object
 			Create(ctx);
 		}
 
@@ -115,7 +124,7 @@ namespace OpenGL.Objects
 
 		#endregion
 
-		#region Overrides
+		#region BufferObject Overrides
 
 		/// <summary>
 		/// Determine whether this object requires a name bound to a context or not.
@@ -137,8 +146,28 @@ namespace OpenGL.Objects
 		/// </returns>
 		protected override bool RequiresName(GraphicsContext ctx)
 		{
-			return true;
+			return (true);
 		}
+
+		#endregion
+
+		#region IBindingIndexResource Implementation
+
+		/// <summary>
+		/// Get the identifier of the binding point.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for binding.
+		/// </param>
+		BufferTarget IBindingIndexResource.GetBindingTarget(GraphicsContext ctx)
+		{
+			return (BufferTarget.ShaderStorageBuffer);
+		}
+
+		/// <summary>
+		/// Current binding point of the IBindingIndexResource.
+		/// </summary>
+		uint IBindingIndexResource.BindingIndex { get; set; }
 
 		#endregion
 	}

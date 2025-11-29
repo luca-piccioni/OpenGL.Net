@@ -19,6 +19,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+/// Preprocessor macro for enabling support for font rendering using instanced arrays
+#define SUPPORT_INSTANCED_ARRAYS
+
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -46,10 +49,40 @@ namespace OpenGL.Objects
 		/// <param name="fontStyle">
 		/// The <see cref="FontStyle"/> that specifies the stryle of the font.
 		/// </param>
+		/// <param name="programPostfix">
+		/// 
+		/// </param>
+		/// <param name="effects">
+		/// 
+		/// </param>
 		public FontTextureArray2d(FontFamily fontFamily, uint emSize, FontStyle fontStyle, params FontFx[] effects)
+			: this(fontFamily, emSize, fontStyle, null, effects)
+		{
+			
+		}
+
+		/// <summary>
+		/// Construct a Font based on texture arrays.
+		/// </summary>
+		/// <param name="fontFamily">
+		/// The <see cref="FontFamily"/> that specifies the family of the font.
+		/// </param>
+		/// <param name="emSize">
+		/// The <see cref="UInt32"/> that specifies the font size.
+		/// </param>
+		/// <param name="fontStyle">
+		/// The <see cref="FontStyle"/> that specifies the stryle of the font.
+		/// </param>
+		/// <param name="programPostfix">
+		/// 
+		/// </param>
+		/// <param name="effects">
+		/// 
+		/// </param>
+		public FontTextureArray2d(FontFamily fontFamily, uint emSize, FontStyle fontStyle, string programPostfix, params FontFx[] effects)
 			: base(fontFamily, emSize, fontStyle, effects)
 		{
-
+			_FontProgramPostfix = programPostfix;
 		}
 
 		#endregion
@@ -91,6 +124,8 @@ namespace OpenGL.Objects
 		/// </summary>
 		private Dictionary<char, Glyph> _GlyphMetadata;
 
+#if SUPPORT_INSTANCED_ARRAYS
+
 		/// <summary>
 		/// Instanced glyph array element.
 		/// </summary>
@@ -112,6 +147,8 @@ namespace OpenGL.Objects
 			/// </summary>
 			public Vertex2f GlyphTexParams;
 		}
+
+#endif
 
 		/// <summary>
 		/// Get a list of <see cref="GlyphModelType"/> for a specific string and model-view-projection matrix.
@@ -180,6 +217,7 @@ namespace OpenGL.Objects
 				}
 			}
 
+#if SUPPORT_INSTANCED_ARRAYS
 			// Set instances (in case of GL_ARB_instanced_arrays)
 			// Note: update only once the array buffer
 			if (_GlyphInstances != null) {
@@ -196,6 +234,7 @@ namespace OpenGL.Objects
 					_GlyphInstances.Unmap(ctx);
 				}
 			}
+#endif
 		}
 
 		/// <summary>
@@ -206,36 +245,39 @@ namespace OpenGL.Objects
 		{
 			CheckCurrentContext(ctx);
 
+			// Basic prefix for shared resources
+			const string ResourceClassId = "OpenGL.Objects.FontTextureArray2d";
+			// Super-sampling factor
+			const float SuperSamplingFactor = 2.0f;
+			// The string format
 			StringFormat stringFormat = StringFormat.GenericTypographic;
+			// Support halo effect
+			float haloDisplacement = _FxHalo?.HaloWidth ?? 0.0f;
 
-			// Font-wide resources
-			string resourceClassId = "OpenGL.Objects.FontTextureArray2d";
-			string resourceBaseId = String.Format("{0}.{1}-{2}-{3}", resourceClassId, Family, Size, Style);
+			string resourceBaseId = $"{ResourceClassId}.{Family}-{Size}-{Style}";
+			string resourceFxId = string.Empty;
+
+			if (_FxShadow != null)
+				resourceFxId += $"+{_FxShadow}";
+			if (_FxHalo != null)
+				resourceFxId += $"+{_FxHalo}";
+
+#if SUPPORT_INSTANCED_ARRAYS
 
 			#region Instanced Arrays
 
 			if (ctx.Extensions.InstancedArrays) {
-				string instanceArrayId = resourceClassId + ".InstanceArray";
+				LinkResource(_GlyphInstances = new ArrayBufferInterleaved<GlyphInstance>(BufferStorageMask.MapWriteBit));
 
-				_GlyphInstances = (ArrayBufferInterleaved<GlyphInstance>)ctx.GetSharedResource(instanceArrayId);
-
-				if (_GlyphInstances == null) {
-					_GlyphInstances = new ArrayBufferInterleaved<GlyphInstance>(BufferStorageMask.MapWriteBit);
-					_GlyphInstances.Create(256);
-					// Share
-					ctx.SetSharedResource(instanceArrayId, _GlyphInstances);
-				}
-				LinkResource(_GlyphInstances);
+				_GlyphInstances.Create(256);
 			} else
 				_GlyphInstances = null;
 
 			#endregion
 
+#endif
+
 			#region Vertex Array
-
-			string vertexArrayId = resourceClassId + ".VertexArray";
-
-			_VertexArrays = (VertexArrays)ctx.GetSharedResource(vertexArrayId);
 
 			if (_VertexArrays == null) {
 				_VertexArrays = new VertexArrays();
@@ -248,14 +290,15 @@ namespace OpenGL.Objects
 					new Vertex2f(1.0f, 0.0f),
 				});
 				_VertexArrays.SetArray(arrayPosition, VertexArraySemantic.Position);
+
+#if SUPPORT_INSTANCED_ARRAYS
 				if (ctx.Extensions.InstancedArrays) {
 					_VertexArrays.SetInstancedArray(_GlyphInstances, 0, 1, "glo_GlyphModelViewProjection");
 					_VertexArrays.SetInstancedArray(_GlyphInstances, 1, 1, "glo_GlyphVertexParams");
 					_VertexArrays.SetInstancedArray(_GlyphInstances, 2, 1, "glo_GlyphTexParams");
 				}
+#endif
 				_VertexArrays.SetElementArray(PrimitiveType.TriangleStrip);
-				// Share
-				ctx.SetSharedResource(vertexArrayId, _VertexArrays);
 			}
 			LinkResource(_VertexArrays);
 
@@ -263,7 +306,7 @@ namespace OpenGL.Objects
 
 			#region Glyphs Metadata
 
-			string glyphDbId = resourceBaseId + ".GlyphDb";
+			string glyphDbId = resourceBaseId + resourceFxId + ".GlyphDb";
 			
 			_GlyphMetadata = (Dictionary<char, Glyph>)ctx.GetSharedResource(glyphDbId);
 			
@@ -291,12 +334,12 @@ namespace OpenGL.Objects
 								break;
 							default:
 								glyphSize = g.MeasureString(c.ToString(), font, 0, stringFormat);
+								// Support halo effect
+								glyphSize += new SizeF(haloDisplacement * 2.0f, haloDisplacement * 2.0f);
 								break;
 						}
 						
-						Glyph glyph = new Glyph(c, glyphSize, layer++, new SizeF(1.0f, 1.0f));
-
-						_GlyphMetadata.Add(c, glyph);
+						_GlyphMetadata.Add(c, new Glyph(c, glyphSize, layer++, new SizeF(1.0f, 1.0f)));
 					}
 				}
 
@@ -306,24 +349,11 @@ namespace OpenGL.Objects
 
 			#endregion
 
-			#region Glyph Sampler
-
-			string samplerId = resourceBaseId + ".Sampler";
-
-			Sampler sampler = (Sampler)ctx.GetSharedResource(samplerId);
-
-			if (sampler == null) {
-				sampler = new Sampler();
-				sampler.Parameters.MinFilter = TextureMinFilter.Linear;
-			}
-
-			#endregion
-
 			#region Glyph Texture
 
-			string textureId = resourceBaseId + ".Texture";
+			string textureId = resourceBaseId + resourceFxId + ".Texture";
 
-			_FontTexture = (TextureArray2D)ctx.GetSharedResource(textureId);
+			_FontTexture = (TextureArray2d)ctx.GetSharedResource(textureId);
 
 			if (_FontTexture == null) {
 				// Get the size required for all glyphs
@@ -336,33 +366,91 @@ namespace OpenGL.Objects
 					z = Math.Max(z, glyph.Layer);
 				}
 
-				// Create texture
-				_FontTexture = new TextureArray2D();
-				_FontTexture.Sampler = sampler;
-				_FontTexture.Create(ctx, (uint)Math.Ceiling(w), (uint)Math.Ceiling(h), z + 1, PixelLayout.R8, 1);
+				// Overcome pixel-alignment requirement with super-sampling
+				w *= SuperSamplingFactor;
+				h *= SuperSamplingFactor;
 
-				using (System.Drawing.Font font = new System.Drawing.Font(Family, Size, Style))
-				using (Brush brush = new SolidBrush(Color.White))
-				{
-					foreach (Glyph glyph in _GlyphMetadata.Values) {
-						using (Bitmap bitmap = new Bitmap((int)_FontTexture.Width, (int)_FontTexture.Height, System.Drawing.Imaging.PixelFormat.Format24bppRgb))
-						using (Graphics g = Graphics.FromImage(bitmap)) {
+				if (_FxHalo == null) {
+					// Create texture
+					// Note: R=Color and Alpha
+					_FontTexture = new TextureArray2d();
+					_FontTexture.Sampler = new Sampler();
+					_FontTexture.Sampler.Parameters.MinFilter = TextureMinFilter.Linear;
+					_FontTexture.Swizzle(Texture.SwizzleValue.Red, Texture.SwizzleValue.Zero, Texture.SwizzleValue.Zero, Texture.SwizzleValue.Red);
+					_FontTexture.Create(ctx, (uint)Math.Ceiling(w), (uint)Math.Ceiling(h), z + 1, PixelLayout.R8, 1);
+
+					using (System.Drawing.Font font = new System.Drawing.Font(Family, Size * SuperSamplingFactor, Style))
+					using (Brush brush = new SolidBrush(Color.White)) 
+					using (Bitmap bitmap = new Bitmap((int)_FontTexture.Width, (int)_FontTexture.Height, System.Drawing.Imaging.PixelFormat.Format24bppRgb))
+					using (Graphics g = Graphics.FromImage(bitmap)) 
+					{
+						foreach (Glyph glyph in _GlyphMetadata.Values) {
 							// Recompute texture scaling
 							glyph.TexScale = new SizeF(
-								glyph.GlyphSize.Width / bitmap.Width,
-								glyph.GlyphSize.Height / bitmap.Height
+								glyph.GlyphSize.Width / bitmap.Width * SuperSamplingFactor,
+								glyph.GlyphSize.Height / bitmap.Height * SuperSamplingFactor
 							);
 
 							// Avoid grid fitting
 							g.TextRenderingHint = TextRenderingHint.AntiAlias;
-							g.Clear(Color.Black);
+							g.Clear(Color.FromArgb(0, 0, 0, 0));
 
-							g.DrawString(glyph.GlyphChar.ToString(), font, brush, 0.0f, 0.0f, stringFormat);
+							const float GlyphOffset = SuperSamplingFactor / 8.0f;
 
-							_FontTexture.Create(ctx, PixelLayout.R8, bitmap, glyph.Layer);
+							for (float x = -GlyphOffset; x < +GlyphOffset; x += GlyphOffset / 2.0f)
+								for (float y = -GlyphOffset; y < +GlyphOffset; y += GlyphOffset / 2.0f)
+									g.DrawString(glyph.GlyphChar.ToString(), font, brush, x, y, stringFormat);
+
+							_FontTexture.Update(ctx, bitmap, glyph.Layer);
+						}
+					}
+				} else {
+					// Take into account halo thickness
+					w += haloDisplacement * 2.0f;
+					h += haloDisplacement * 2.0f;
+
+					// Create texture
+					// Note: R=Color G=Alpha
+					_FontTexture = new TextureArray2d();
+					_FontTexture.Sampler = new Sampler();
+					_FontTexture.Sampler.Parameters.MinFilter = TextureMinFilter.Linear;
+					_FontTexture.Swizzle(Texture.SwizzleValue.Red, Texture.SwizzleValue.Zero, Texture.SwizzleValue.Zero, Texture.SwizzleValue.Green);
+					_FontTexture.Create(ctx, (uint)Math.Ceiling(w), (uint)Math.Ceiling(h), z + 1, PixelLayout.RG16, 1);
+
+					using (System.Drawing.Font font = new System.Drawing.Font(Family, Size * SuperSamplingFactor, Style))
+					using (Brush brush = new SolidBrush(Color.FromArgb(255, 255, 255)))     // White + Opaque
+					using (Brush haloBrush = new SolidBrush(Color.FromArgb(0, 255, 255)))   // Black + Opaque
+					using (Bitmap bitmap = new Bitmap((int)_FontTexture.Width, (int)_FontTexture.Height, System.Drawing.Imaging.PixelFormat.Format24bppRgb))
+					using (Graphics g = Graphics.FromImage(bitmap))
+					{
+						foreach (Glyph glyph in _GlyphMetadata.Values) {
+							// Recompute texture scaling
+							glyph.TexScale = new SizeF(
+								glyph.GlyphSize.Width  / bitmap.Width  * SuperSamplingFactor,
+								glyph.GlyphSize.Height / bitmap.Height * SuperSamplingFactor
+							);
+
+							// Avoid grid fitting
+							g.TextRenderingHint = TextRenderingHint.AntiAlias;
+							g.Clear(Color.FromArgb(0, 0, 0, 0)); // Black + Transparent
+
+							float haloOffset = SuperSamplingFactor / 2.0f + _FxHalo.HaloWidth;
+
+							for (float x = -haloOffset; x < +haloOffset; x += haloOffset / 5.0f)
+							for (float y = -haloOffset; y < +haloOffset; y += haloOffset / 5.0f)
+								g.DrawString(glyph.GlyphChar.ToString(), font, haloBrush, haloDisplacement + x, haloDisplacement + y, stringFormat);
+
+							const float GlyphOffset = SuperSamplingFactor / 8.0f;
+
+							for (float x = -GlyphOffset; x < +GlyphOffset; x += GlyphOffset / 2.0f)
+							for (float y = -GlyphOffset; y < +GlyphOffset; y += GlyphOffset / 2.0f)
+								g.DrawString(glyph.GlyphChar.ToString(), font, brush, haloDisplacement + x, haloDisplacement + y, stringFormat);
+
+							_FontTexture.Update(ctx, bitmap, glyph.Layer);
 						}
 					}
 				}
+				
 
 				// Share
 				ctx.SetSharedResource(textureId, _FontTexture);
@@ -387,7 +475,19 @@ namespace OpenGL.Objects
 
 		#endregion
 
-		#region FontBase Overrides
+		#region OverrideDepth Support
+
+		/// <summary>
+		/// Text depth, if supported.
+		/// </summary>
+		/// <remarks>
+		/// The value 0.0f indicates near, instead the value 1.0f indicates far.
+		/// </remarks>
+		public float OverrideDepth = 0.0f;
+
+		#endregion
+
+		#region Overrides
 
 		/// <summary>
 		/// Actually create this GraphicsResource resources.
@@ -397,21 +497,47 @@ namespace OpenGL.Objects
 		/// </param>
 		protected override void CreateObject(GraphicsContext ctx)
 		{
+			string programProstfix = string.Empty;
+
+			if (_FontProgramPostfix != null)
+				programProstfix = $"+{_FontProgramPostfix}";
+
 			// Get shared resources
 			LinkSharedResources(ctx);
 			// Determine program according to implementation
 			if (ctx.Extensions.DrawInstanced_ARB) {
+#if SUPPORT_INSTANCED_ARRAYS
 				if (ctx.Extensions.InstancedArrays)
-					LinkResource(_FontProgram = ctx.CreateProgram("OpenGL.FontTextureArray+InstancedArrays"));
+					LinkResource(_FontProgram = ctx.CreateProgram("OpenGL.FontTextureArray+InstancedArrays" + programProstfix));
 				else
-					LinkResource(_FontProgram = ctx.CreateProgram("OpenGL.FontTextureArray+Instanced"));
+#endif
+					LinkResource(_FontProgram = ctx.CreateProgram("OpenGL.FontTextureArray+Instanced" + programProstfix));
 			} else {
-				LinkResource(_FontProgram = ctx.CreateProgram("OpenGL.FontTextureArray"));
+				LinkResource(_FontProgram = ctx.CreateProgram("OpenGL.FontTextureArray" + programProstfix));
 			}
 			// Base implementation
 			base.CreateObject(ctx);
 			// Process resources
 			PostSharedResources(ctx);
+		}
+
+		/// <summary>
+		/// Get glyph information.
+		/// </summary>
+		/// <param name="c">
+		/// The character relative to the returned glyph.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="Font.GlyphBase"/> relative to <paramref name="c"/>, if found; otherwise it returns null.
+		/// </returns>
+		protected override GlyphBase GetGlyph(char c)
+		{
+			Glyph glyph;
+
+			if (_GlyphMetadata.TryGetValue(c, out glyph))
+				return glyph;
+
+			return null;
 		}
 
 		/// <summary>
@@ -450,11 +576,14 @@ namespace OpenGL.Objects
 		/// <param name="s">
 		/// A <see cref="String"/> that specifies the characters for be drawn.
 		/// </param>
-		private void DrawStringCore(GraphicsContext ctx, TextureArray2D texture, ColorRGBAF color, List<GlyphModelType> glyphInstances)
+		private void DrawStringCore(GraphicsContext ctx, TextureArray2d texture, ColorRGBAF color, List<GlyphModelType> glyphInstances)
 		{
+#if SUPPORT_INSTANCED_ARRAYS
 			if (ctx.Extensions.InstancedArrays)
 				DrawStringCore_InstancedArrays(ctx, texture, color, glyphInstances);
-			else if (ctx.Extensions.DrawInstanced_ARB)
+			else
+#endif
+			if (ctx.Extensions.DrawInstanced_ARB)
 				DrawStringCore_Instanced(ctx, texture, color, glyphInstances);
 			else
 				DrawStringCore_Compatibility(ctx, texture, color, glyphInstances);
@@ -472,13 +601,14 @@ namespace OpenGL.Objects
 		/// <param name="s">
 		/// A <see cref="String"/> that specifies the characters for be drawn.
 		/// </param>
-		private void DrawStringCore_Compatibility(GraphicsContext ctx, TextureArray2D texture, ColorRGBAF color, List<GlyphModelType> glyphsInstances)
+		private void DrawStringCore_Compatibility(GraphicsContext ctx, TextureArray2d texture, ColorRGBAF color, List<GlyphModelType> glyphsInstances)
 		{
 			ctx.Bind(_FontProgram);
 
 			// Set uniforms
 			_FontProgram.SetUniform(ctx, "glo_UniformColor", color);
 			_FontProgram.SetUniform(ctx, "glo_FontGlyph", texture);
+			_FontProgram.SetUniform(ctx, "glo_OverrideDepth", OverrideDepth);
 
 			// Rasterize it
 			State.BlendState.AlphaBlending.Apply(ctx, _FontProgram);
@@ -520,13 +650,14 @@ namespace OpenGL.Objects
 		/// <param name="s">
 		/// A <see cref="String"/> that specifies the characters for be drawn.
 		/// </param>
-		private void DrawStringCore_Instanced(GraphicsContext ctx, TextureArray2D texture, ColorRGBAF color, List<GlyphModelType> glyphsInstances)
+		private void DrawStringCore_Instanced(GraphicsContext ctx, TextureArray2d texture, ColorRGBAF color, List<GlyphModelType> glyphsInstances)
 		{
 			ctx.Bind(_FontProgram);
 
 			// Set uniforms
 			_FontProgram.SetUniform(ctx, "glo_UniformColor", color);
 			_FontProgram.SetUniform(ctx, "glo_FontGlyph", texture);
+			_FontProgram.SetUniform(ctx, "glo_OverrideDepth", OverrideDepth);
 
 			// Set instances
 			if (_GlyphUniformBuffer == null) {
@@ -550,6 +681,8 @@ namespace OpenGL.Objects
 			_VertexArrays.DrawInstanced(ctx, _FontProgram, (uint)glyphsInstances.Count);
 		}
 
+#if SUPPORT_INSTANCED_ARRAYS
+
 		/// <summary>
 		/// Draw a character sequence (base method).
 		/// </summary>
@@ -562,13 +695,14 @@ namespace OpenGL.Objects
 		/// <param name="s">
 		/// A <see cref="String"/> that specifies the characters for be drawn.
 		/// </param>
-		private void DrawStringCore_InstancedArrays(GraphicsContext ctx, TextureArray2D texture, ColorRGBAF color, List<GlyphModelType> glyphInstances)
+		private void DrawStringCore_InstancedArrays(GraphicsContext ctx, TextureArray2d texture, ColorRGBAF color, List<GlyphModelType> glyphInstances)
 		{
 			ctx.Bind(_FontProgram);
 
 			// Set uniforms
 			_FontProgram.SetUniform(ctx, "glo_UniformColor", color);
 			_FontProgram.SetUniform(ctx, "glo_FontGlyph", texture);
+			_FontProgram.SetUniform(ctx, "glo_OverrideDepth", OverrideDepth);
 
 			// Rasterize it
 			State.BlendState.AlphaBlending.Apply(ctx, _FontProgram);
@@ -576,10 +710,14 @@ namespace OpenGL.Objects
 			_VertexArrays.DrawInstanced(ctx, _FontProgram, (uint)glyphInstances.Count);
 		}
 
+#endif
+
 		/// <summary>
 		/// The font glyph vertex array.
 		/// </summary>
 		private VertexArrays _VertexArrays;
+
+#if SUPPORT_INSTANCED_ARRAYS
 
 		/// <summary>
 		/// Glyph instances array buffer.
@@ -588,6 +726,8 @@ namespace OpenGL.Objects
 		/// Used only if GL_ARB_instanced_array is implemented
 		/// </remarks>
 		private ArrayBufferInterleaved<GlyphInstance> _GlyphInstances;
+
+#endif
 
 		/// <summary>
 		/// Uniform buffer backing the instanced glyph uniform information.
@@ -600,12 +740,17 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Glyphs in texture array
 		/// </summary>
-		private TextureArray2D _FontTexture;
+		private TextureArray2d _FontTexture;
 
 		/// <summary>
 		/// Shader program used for drawing font glyphs.
 		/// </summary>
 		private ShaderProgram _FontProgram;
+
+		/// <summary>
+		/// Optional postfix used ffor creating <see cref="_FontProgram"/>.
+		/// </summary>
+		private string _FontProgramPostfix;
 
 		#endregion
 	}

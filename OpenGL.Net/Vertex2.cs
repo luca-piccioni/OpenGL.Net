@@ -1,4 +1,11 @@
 ﻿
+
+
+
+
+
+
+
 // Copyright (C) 2009-2017 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,6 +32,7 @@ using System.Runtime.InteropServices;
 
 namespace OpenGL
 {
+
 	/// <summary>
 	/// Vertex value type (byte coordinates).
 	/// </summary>
@@ -87,6 +95,7 @@ namespace OpenGL
 		#endregion
 
 		#region Arithmetic Operators
+
 
 		/// <summary>
 		/// Add operator.
@@ -238,6 +247,7 @@ namespace OpenGL
 			return (float)(v1.x * v2.x + v1.y * v2.y);
 		}
 
+
 		/// <summary>
 		/// Scalar multiply operator.
 		/// </summary>
@@ -281,6 +291,7 @@ namespace OpenGL
 
 			return (v);
 		}
+
 
 		#endregion
 
@@ -382,6 +393,7 @@ namespace OpenGL
 			return new[] { a.x, a.y };
 		}
 
+
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
@@ -395,6 +407,7 @@ namespace OpenGL
 		{
 			return new Vertex2f((float)a.x, (float)a.y);
 		}
+
 
 		#endregion
 
@@ -616,6 +629,7 @@ namespace OpenGL
 
 		#endregion
 
+
 		#region Notable Vertex
 
 		/// <summary>
@@ -638,6 +652,7 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex2ub UnitY = new Vertex2ub(0, 1);
 
+
 		/// <summary>
 		/// Vertex with lowest values.
 		/// </summary>
@@ -648,7 +663,9 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex2ub Maximum = new Vertex2ub(byte.MaxValue);
 
+
 		#endregion
+
 
 		#region IEquatable Implementation
 
@@ -706,6 +723,7 @@ namespace OpenGL
 
 		#region Object Overrides
 
+
 		/// <summary>
 		/// Stringify this Vertex2ub.
 		/// </summary>
@@ -717,8 +735,10 @@ namespace OpenGL
 			return (String.Format("|{0}, {1}|", x, y));
 		}
 
+
 		#endregion
 	}
+
 
 	/// <summary>
 	/// Vertex value type (sbyte coordinates).
@@ -783,6 +803,7 @@ namespace OpenGL
 
 		#region Arithmetic Operators
 
+
 		/// <summary>
 		/// Negate operator.
 		/// </summary>
@@ -796,6 +817,7 @@ namespace OpenGL
 		{
 			return (new Vertex2b((sbyte)(-v.x), (sbyte)(-v.y)));
 		}
+
 
 		/// <summary>
 		/// Add operator.
@@ -947,6 +969,7 @@ namespace OpenGL
 			return (float)(v1.x * v2.x + v1.y * v2.y);
 		}
 
+
 		/// <summary>
 		/// Scalar multiply operator.
 		/// </summary>
@@ -990,6 +1013,7 @@ namespace OpenGL
 
 			return (v);
 		}
+
 
 		#endregion
 
@@ -1091,6 +1115,7 @@ namespace OpenGL
 			return new[] { a.x, a.y };
 		}
 
+
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
@@ -1104,6 +1129,7 @@ namespace OpenGL
 		{
 			return new Vertex2f((float)a.x, (float)a.y);
 		}
+
 
 		#endregion
 
@@ -1325,6 +1351,7 @@ namespace OpenGL
 
 		#endregion
 
+
 		#region Notable Vertex
 
 		/// <summary>
@@ -1347,6 +1374,7 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex2b UnitY = new Vertex2b(0, 1);
 
+
 		/// <summary>
 		/// Vertex with lowest values.
 		/// </summary>
@@ -1357,7 +1385,9 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex2b Maximum = new Vertex2b(sbyte.MaxValue);
 
+
 		#endregion
+
 
 		#region IEquatable Implementation
 
@@ -1415,6 +1445,7 @@ namespace OpenGL
 
 		#region Object Overrides
 
+
 		/// <summary>
 		/// Stringify this Vertex2b.
 		/// </summary>
@@ -1426,8 +1457,10 @@ namespace OpenGL
 			return (String.Format("|{0}, {1}|", x, y));
 		}
 
+
 		#endregion
 	}
+
 
 	/// <summary>
 	/// Vertex value type (ushort coordinates).
@@ -1491,6 +1524,7 @@ namespace OpenGL
 		#endregion
 
 		#region Arithmetic Operators
+
 
 		/// <summary>
 		/// Add operator.
@@ -1642,6 +1676,7 @@ namespace OpenGL
 			return (float)(v1.x * v2.x + v1.y * v2.y);
 		}
 
+
 		/// <summary>
 		/// Scalar multiply operator.
 		/// </summary>
@@ -1685,6 +1720,7 @@ namespace OpenGL
 
 			return (v);
 		}
+
 
 		#endregion
 
@@ -1786,6 +1822,7 @@ namespace OpenGL
 			return new[] { a.x, a.y };
 		}
 
+
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
@@ -1799,6 +1836,7 @@ namespace OpenGL
 		{
 			return new Vertex2f((float)a.x, (float)a.y);
 		}
+
 
 		#endregion
 
@@ -2020,6 +2058,7 @@ namespace OpenGL
 
 		#endregion
 
+
 		#region Notable Vertex
 
 		/// <summary>
@@ -2042,6 +2081,7 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex2us UnitY = new Vertex2us(0, 1);
 
+
 		/// <summary>
 		/// Vertex with lowest values.
 		/// </summary>
@@ -2052,7 +2092,9 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex2us Maximum = new Vertex2us(ushort.MaxValue);
 
+
 		#endregion
+
 
 		#region IEquatable Implementation
 
@@ -2110,6 +2152,7 @@ namespace OpenGL
 
 		#region Object Overrides
 
+
 		/// <summary>
 		/// Stringify this Vertex2us.
 		/// </summary>
@@ -2121,8 +2164,10 @@ namespace OpenGL
 			return (String.Format("|{0}, {1}|", x, y));
 		}
 
+
 		#endregion
 	}
+
 
 	/// <summary>
 	/// Vertex value type (short coordinates).
@@ -2187,6 +2232,7 @@ namespace OpenGL
 
 		#region Arithmetic Operators
 
+
 		/// <summary>
 		/// Negate operator.
 		/// </summary>
@@ -2200,6 +2246,7 @@ namespace OpenGL
 		{
 			return (new Vertex2s((short)(-v.x), (short)(-v.y)));
 		}
+
 
 		/// <summary>
 		/// Add operator.
@@ -2351,6 +2398,7 @@ namespace OpenGL
 			return (float)(v1.x * v2.x + v1.y * v2.y);
 		}
 
+
 		/// <summary>
 		/// Scalar multiply operator.
 		/// </summary>
@@ -2394,6 +2442,7 @@ namespace OpenGL
 
 			return (v);
 		}
+
 
 		#endregion
 
@@ -2495,6 +2544,7 @@ namespace OpenGL
 			return new[] { a.x, a.y };
 		}
 
+
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
@@ -2508,6 +2558,7 @@ namespace OpenGL
 		{
 			return new Vertex2f((float)a.x, (float)a.y);
 		}
+
 
 		#endregion
 
@@ -2729,6 +2780,7 @@ namespace OpenGL
 
 		#endregion
 
+
 		#region Notable Vertex
 
 		/// <summary>
@@ -2751,6 +2803,7 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex2s UnitY = new Vertex2s(0, 1);
 
+
 		/// <summary>
 		/// Vertex with lowest values.
 		/// </summary>
@@ -2761,7 +2814,9 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex2s Maximum = new Vertex2s(short.MaxValue);
 
+
 		#endregion
+
 
 		#region IEquatable Implementation
 
@@ -2819,6 +2874,7 @@ namespace OpenGL
 
 		#region Object Overrides
 
+
 		/// <summary>
 		/// Stringify this Vertex2s.
 		/// </summary>
@@ -2830,8 +2886,10 @@ namespace OpenGL
 			return (String.Format("|{0}, {1}|", x, y));
 		}
 
+
 		#endregion
 	}
+
 
 	/// <summary>
 	/// Vertex value type (uint coordinates).
@@ -2895,6 +2953,7 @@ namespace OpenGL
 		#endregion
 
 		#region Arithmetic Operators
+
 
 		/// <summary>
 		/// Add operator.
@@ -3046,6 +3105,7 @@ namespace OpenGL
 			return (float)(v1.x * v2.x + v1.y * v2.y);
 		}
 
+
 		/// <summary>
 		/// Scalar multiply operator.
 		/// </summary>
@@ -3089,6 +3149,7 @@ namespace OpenGL
 
 			return (v);
 		}
+
 
 		#endregion
 
@@ -3190,6 +3251,7 @@ namespace OpenGL
 			return new[] { a.x, a.y };
 		}
 
+
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
@@ -3203,6 +3265,7 @@ namespace OpenGL
 		{
 			return new Vertex2f((float)a.x, (float)a.y);
 		}
+
 
 		#endregion
 
@@ -3424,6 +3487,7 @@ namespace OpenGL
 
 		#endregion
 
+
 		#region Notable Vertex
 
 		/// <summary>
@@ -3446,6 +3510,7 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex2ui UnitY = new Vertex2ui(0, 1);
 
+
 		/// <summary>
 		/// Vertex with lowest values.
 		/// </summary>
@@ -3456,7 +3521,9 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex2ui Maximum = new Vertex2ui(uint.MaxValue);
 
+
 		#endregion
+
 
 		#region IEquatable Implementation
 
@@ -3514,6 +3581,7 @@ namespace OpenGL
 
 		#region Object Overrides
 
+
 		/// <summary>
 		/// Stringify this Vertex2ui.
 		/// </summary>
@@ -3525,8 +3593,10 @@ namespace OpenGL
 			return (String.Format("|{0}, {1}|", x, y));
 		}
 
+
 		#endregion
 	}
+
 
 	/// <summary>
 	/// Vertex value type (int coordinates).
@@ -3591,6 +3661,7 @@ namespace OpenGL
 
 		#region Arithmetic Operators
 
+
 		/// <summary>
 		/// Negate operator.
 		/// </summary>
@@ -3604,6 +3675,7 @@ namespace OpenGL
 		{
 			return (new Vertex2i((int)(-v.x), (int)(-v.y)));
 		}
+
 
 		/// <summary>
 		/// Add operator.
@@ -3755,6 +3827,7 @@ namespace OpenGL
 			return (float)(v1.x * v2.x + v1.y * v2.y);
 		}
 
+
 		/// <summary>
 		/// Scalar multiply operator.
 		/// </summary>
@@ -3798,6 +3871,7 @@ namespace OpenGL
 
 			return (v);
 		}
+
 
 		#endregion
 
@@ -3899,6 +3973,7 @@ namespace OpenGL
 			return new[] { a.x, a.y };
 		}
 
+
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
@@ -3912,6 +3987,7 @@ namespace OpenGL
 		{
 			return new Vertex2f((float)a.x, (float)a.y);
 		}
+
 
 		#endregion
 
@@ -4133,6 +4209,7 @@ namespace OpenGL
 
 		#endregion
 
+
 		#region Notable Vertex
 
 		/// <summary>
@@ -4155,6 +4232,7 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex2i UnitY = new Vertex2i(0, 1);
 
+
 		/// <summary>
 		/// Vertex with lowest values.
 		/// </summary>
@@ -4165,7 +4243,9 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex2i Maximum = new Vertex2i(int.MaxValue);
 
+
 		#endregion
+
 
 		#region IEquatable Implementation
 
@@ -4223,6 +4303,7 @@ namespace OpenGL
 
 		#region Object Overrides
 
+
 		/// <summary>
 		/// Stringify this Vertex2i.
 		/// </summary>
@@ -4234,8 +4315,10 @@ namespace OpenGL
 			return (String.Format("|{0}, {1}|", x, y));
 		}
 
+
 		#endregion
 	}
+
 
 	/// <summary>
 	/// Vertex value type (float coordinates).
@@ -4300,6 +4383,7 @@ namespace OpenGL
 
 		#region Arithmetic Operators
 
+
 		/// <summary>
 		/// Negate operator.
 		/// </summary>
@@ -4313,6 +4397,7 @@ namespace OpenGL
 		{
 			return (new Vertex2f((float)(-v.x), (float)(-v.y)));
 		}
+
 
 		/// <summary>
 		/// Add operator.
@@ -4465,6 +4550,7 @@ namespace OpenGL
 		}
 
 
+
 		#endregion
 
 		#region Equality Operators
@@ -4565,6 +4651,7 @@ namespace OpenGL
 			return new[] { a.x, a.y };
 		}
 
+
 		/// <summary>
 		/// Cast to Vertex3f operator.
 		/// </summary>
@@ -4577,6 +4664,20 @@ namespace OpenGL
 		public static explicit operator Vertex3f(Vertex2f a)
 		{
 			return new Vertex3f((float)a.x, (float)a.y, 0.0f);
+		}
+
+		/// <summary>
+		/// Cast to Vertex4f operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Vertex2f"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Vertex4f"/> initialized with the vector components.
+		/// </returns>
+		public static explicit operator Vertex4f(Vertex2f a)
+		{
+			return new Vertex4f((float)a.x, (float)a.y, 0.0f, 1.0f);
 		}
 
 		/// <summary>
@@ -4606,6 +4707,7 @@ namespace OpenGL
 		{
 			return new Vertex3d(a.x, a.y, 0.0);
 		}
+
 
 		#endregion
 
@@ -4827,6 +4929,7 @@ namespace OpenGL
 
 		#endregion
 
+
 		#region Notable Vertex
 
 		/// <summary>
@@ -4849,6 +4952,7 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex2f UnitY = new Vertex2f(0.0f, 1.0f);
 
+
 		/// <summary>
 		/// Vertex with lowest values.
 		/// </summary>
@@ -4859,7 +4963,9 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex2f Maximum = new Vertex2f(float.MaxValue);
 
+
 		#endregion
+
 
 		#region IEquatable Implementation
 
@@ -4917,6 +5023,7 @@ namespace OpenGL
 
 		#region Object Overrides
 
+
 		/// <summary>
 		/// Stringify this Vertex2f.
 		/// </summary>
@@ -4928,8 +5035,10 @@ namespace OpenGL
 			return (String.Format("|{0:F4}, {1:F4}|", x, y));
 		}
 
+
 		#endregion
 	}
+
 
 	/// <summary>
 	/// Vertex value type (double coordinates).
@@ -4994,6 +5103,7 @@ namespace OpenGL
 
 		#region Arithmetic Operators
 
+
 		/// <summary>
 		/// Negate operator.
 		/// </summary>
@@ -5007,6 +5117,7 @@ namespace OpenGL
 		{
 			return (new Vertex2d((double)(-v.x), (double)(-v.y)));
 		}
+
 
 		/// <summary>
 		/// Add operator.
@@ -5159,6 +5270,7 @@ namespace OpenGL
 		}
 
 
+
 		#endregion
 
 		#region Equality Operators
@@ -5259,6 +5371,7 @@ namespace OpenGL
 			return new[] { a.x, a.y };
 		}
 
+
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
@@ -5272,6 +5385,7 @@ namespace OpenGL
 		{
 			return new Vertex2f((float)a.x, (float)a.y);
 		}
+
 
 		#endregion
 
@@ -5493,6 +5607,7 @@ namespace OpenGL
 
 		#endregion
 
+
 		#region Notable Vertex
 
 		/// <summary>
@@ -5515,6 +5630,7 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex2d UnitY = new Vertex2d(0.0, 1.0);
 
+
 		/// <summary>
 		/// Vertex with lowest values.
 		/// </summary>
@@ -5525,7 +5641,9 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex2d Maximum = new Vertex2d(double.MaxValue);
 
+
 		#endregion
+
 
 		#region IEquatable Implementation
 
@@ -5583,6 +5701,7 @@ namespace OpenGL
 
 		#region Object Overrides
 
+
 		/// <summary>
 		/// Stringify this Vertex2d.
 		/// </summary>
@@ -5594,8 +5713,10 @@ namespace OpenGL
 			return (String.Format("|{0:F4}, {1:F4}|", x, y));
 		}
 
+
 		#endregion
 	}
+
 
 	/// <summary>
 	/// Vertex value type (HalfFloat coordinates).
@@ -5660,6 +5781,7 @@ namespace OpenGL
 
 		#region Arithmetic Operators
 
+
 		/// <summary>
 		/// Negate operator.
 		/// </summary>
@@ -5673,6 +5795,7 @@ namespace OpenGL
 		{
 			return (new Vertex2hf((HalfFloat)(-v.x), (HalfFloat)(-v.y)));
 		}
+
 
 		/// <summary>
 		/// Add operator.
@@ -5825,6 +5948,7 @@ namespace OpenGL
 		}
 
 
+
 		#endregion
 
 		#region Equality Operators
@@ -5925,6 +6049,7 @@ namespace OpenGL
 			return new[] { a.x, a.y };
 		}
 
+
 		/// <summary>
 		/// Cast to Vertex2f operator.
 		/// </summary>
@@ -5938,6 +6063,7 @@ namespace OpenGL
 		{
 			return new Vertex2f((float)a.x, (float)a.y);
 		}
+
 
 		#endregion
 
@@ -6159,6 +6285,7 @@ namespace OpenGL
 
 		#endregion
 
+
 		#region Notable Vertex
 
 		/// <summary>
@@ -6181,6 +6308,7 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex2hf UnitY = new Vertex2hf(new HalfFloat(0.0f), new HalfFloat(1.0f));
 
+
 		/// <summary>
 		/// Vertex with lowest values.
 		/// </summary>
@@ -6191,7 +6319,9 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex2hf Maximum = new Vertex2hf(new HalfFloat(HalfFloat.MaxValue));
 
+
 		#endregion
+
 
 		#region IEquatable Implementation
 
@@ -6249,6 +6379,7 @@ namespace OpenGL
 
 		#region Object Overrides
 
+
 		/// <summary>
 		/// Stringify this Vertex2hf.
 		/// </summary>
@@ -6260,7 +6391,9 @@ namespace OpenGL
 			return (String.Format("|{0:F4}, {1:F4}|", x, y));
 		}
 
+
 		#endregion
 	}
+
 
 }

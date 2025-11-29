@@ -1,4 +1,3 @@
-
 # Appveyor configuration file
 
 # Suggested by https://github.com/kf6kjg in https://github.com/luca-piccioni/OpenGL.Net/issues/44; great idea
@@ -10,21 +9,10 @@ init:
 
 environment:
   matrix:
-    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
-      SLN_PATH: OpenGL.Net_VC14.sln
+    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2022
+      SLN_PATH: OpenGL.Net.sln
       SLN_BUILD_OPTS: /nologo /verbosity:quiet /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
       PUBLISH_NUGET: true
-      HAS_NETCORE: false
-#    - APPVEYOR_BUILD_WORKER_IMAGE: Previous Visual Studio 2017
-#      SLN_PATH: OpenGL.Net_VC15.sln
-#      SLN_BUILD_OPTS: /nologo /verbosity:quiet /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
-#      PUBLISH_NUGET: true
-#      HAS_NETCORE: true
-#    - APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu
-#      SLN_PATH: OpenGL.Net_Mono.sln
-#      SLN_BUILD_OPTS: /nologo /verbosity:quiet
-#      PUBLISH_NUGET: false
-#      HAS_NETCORE: false
 
 pull_requests:
   do_not_increment_build_number: true
@@ -47,82 +35,18 @@ assembly_info:
   assembly_informational_version: "{version}"
 
 before_build:
-  - sh: sudo DEBIAN_FRONTEND=noninteractive apt-get -yq install nuget
-  - sh: sudo nuget update -self
-  - sh: sudo nuget restore $SLN_PATH
-  - sh: sudo nuget restore OpenGL.Net_VC14.sln
-  - cmd: nuget restore %SLN_PATH%
+  - cmd: dotnet restore $SLN_PATH
 
 build_script:
-  - sh: msbuild $SLN_PATH $SLN_BUILD_OPTS /p:Configuration=Release /p:Platform="Any CPU"
-  - sh: msbuild $SLN_PATH $SLN_BUILD_OPTS /p:Configuration=Release /p:Platform="x86"
-  - sh: msbuild $SLN_PATH $SLN_BUILD_OPTS /p:Configuration=Release /p:Platform="x64"
-  - sh: msbuild $SLN_PATH $SLN_BUILD_OPTS /p:Configuration=Debug /p:Platform="Any CPU"
-  - sh: msbuild $SLN_PATH $SLN_BUILD_OPTS /p:Configuration=Debug /p:Platform="x86"
-  - sh: msbuild $SLN_PATH $SLN_BUILD_OPTS /p:Configuration=Debug /p:Platform="x64"
-  - sh: echo Build completed
-  - cmd: msbuild %SLN_PATH% %SLN_BUILD_OPTS% /p:Configuration=Release /p:Platform="Any CPU"
-  - cmd: msbuild %SLN_PATH% %SLN_BUILD_OPTS% /p:Configuration=Release /p:Platform="x86"
-  - cmd: msbuild %SLN_PATH% %SLN_BUILD_OPTS% /p:Configuration=Release /p:Platform="x64"
-  - cmd: msbuild %SLN_PATH% %SLN_BUILD_OPTS% /p:Configuration=Debug /p:Platform="Any CPU"
-  - cmd: msbuild %SLN_PATH% %SLN_BUILD_OPTS% /p:Configuration=Debug /p:Platform="x86"
-  - cmd: msbuild %SLN_PATH% %SLN_BUILD_OPTS% /p:Configuration=Debug /p:Platform="x64"
-  - cmd: echo Build completed
+  - cmd: msbuild $SLN_PATH $SLN_BUILD_OPTS /p:Configuration=Release /p:Platform="Any CPU"
+after_build:
+  - cmd: dotnet pack $SLN_PATH $SLN_BUILD_OPTS /p:Configuration=Release /p:Platform="Any CPU"
 
-# Happy to have a GL 1.1 software driver ^^
 test: off
 
-test_script:
-  - sh: mono --version
-  - sh: msbuild OpenGL.Net.Test/OpenGL.Net.Test_net461.csproj $SLN_BUILD_OPTS /t:UnitTest /p:NUnitConsole=nunit3-console /p:NUnitResultFormat=";format=AppVeyor" /p:Configuration=Release /p:Platform="x86"
-  - sh: msbuild OpenGL.Net.Test/OpenGL.Net.Test_net461.csproj $SLN_BUILD_OPTS /t:UnitTest /p:NUnitConsole=nunit3-console /p:NUnitResultFormat=";format=AppVeyor" /p:Configuration=Release /p:Platform="x64"
-  - sh: msbuild OpenGL.Net.Test/OpenGL.Net.Test_net35.csproj  $SLN_BUILD_OPTS /t:UnitTest /p:NUnitConsole=nunit3-console /p:NUnitResultFormat=";format=AppVeyor" /p:Configuration=Release /p:Platform="x86"
-  - sh: msbuild OpenGL.Net.Test/OpenGL.Net.Test_net35.csproj  $SLN_BUILD_OPTS /t:UnitTest /p:NunitConsole=nunit3-console /p:NUnitResultFormat=";format=AppVeyor" /p:Configuration=Release /p:Platform="x64"
-  - sh: echo Unit tests completed
-  - cmd: msbuild OpenGL.Net.Test\OpenGL.Net.Test_net461.csproj %SLN_BUILD_OPTS% /t:UnitTest /p:NUnitConsole=nunit3-console /p:NUnitResultFormat=;format=AppVeyor /p:Configuration=Release /p:Platform="x86"
-  - cmd: msbuild OpenGL.Net.Test\OpenGL.Net.Test_net461.csproj %SLN_BUILD_OPTS% /t:UnitTest /p:NUnitConsole=nunit3-console /p:NUnitResultFormat=;format=AppVeyor /p:Configuration=Release /p:Platform="x64"
-  - cmd: msbuild OpenGL.Net.Test\OpenGL.Net.Test_net35.csproj %SLN_BUILD_OPTS% /t:UnitTest /p:NUnitConsole=nunit3-console /p:NUnitResultFormat=;format=AppVeyor /p:Configuration=Release /p:Platform="x86"
-  - cmd: msbuild OpenGL.Net.Test\OpenGL.Net.Test_net35.csproj %SLN_BUILD_OPTS% /t:UnitTest /p:NUnitConsole=nunit3-console /p:NUnitResultFormat=;format=AppVeyor /p:Configuration=Release /p:Platform="x64"
-  - cmd: msbuild OpenGL.Net.CoreUI.Test\OpenGL.Net.CoreUI.Test_net461.csproj %SLN_BUILD_OPTS% /t:UnitTest /p:NUnitConsole=nunit3-console /p:NUnitResultFormat=;format=AppVeyor /p:Configuration=Release /p:Platform="x86"
-  - cmd: msbuild OpenGL.Net.CoreUI.Test\OpenGL.Net.CoreUI.Test_net461.csproj %SLN_BUILD_OPTS% /t:UnitTest /p:NUnitConsole=nunit3-console /p:NUnitResultFormat=;format=AppVeyor /p:Configuration=Release /p:Platform="x64"
-  - cmd: echo Unit tests completed
-
-after_test:
-  - cmd: msbuild OpenGL.Net.Test\OpenGL.Net.Test_net461.csproj %SLN_BUILD_OPTS% /t:Coverage /p:Configuration=Release /p:Platform="x86"
-  - cmd: msbuild OpenGL.Net.Test\OpenGL.Net.Test_net461.csproj %SLN_BUILD_OPTS% /t:Coverage /p:Configuration=Release /p:Platform="x64"
-  - cmd: msbuild OpenGL.Net.Test\OpenGL.Net.Test_net35.csproj %SLN_BUILD_OPTS% /t:Coverage /p:Configuration=Release /p:Platform="x86"
-  - cmd: msbuild OpenGL.Net.Test\OpenGL.Net.Test_net35.csproj %SLN_BUILD_OPTS% /t:Coverage /p:Configuration=Release /p:Platform="x64"
-  - cmd: msbuild OpenGL.Net.CoreUI.Test\OpenGL.Net.CoreUI.Test_net461.csproj %SLN_BUILD_OPTS% /t:Coverage /p:Configuration=Release /p:Platform="x86"
-  - cmd: msbuild OpenGL.Net.CoreUI.Test\OpenGL.Net.CoreUI.Test_net461.csproj %SLN_BUILD_OPTS% /t:Coverage /p:Configuration=Release /p:Platform="x64"
-  - cmd: pip install codecov
-  - ps: |
-      $covFiles = Get-ChildItem -Filter cov*.xml
-      foreach ($file in $covFiles) {
-        $path = $file.FullName
-        $idxTag = $path.IndexOf("_")
-        $idxPlatform = $path.LastIndexOf("\")
-    
-        $platform = $path.Substring($idxPlatform + 4, 3)
-        $filter = "${platform}_$($path.Substring($idxTag+1).TrimEnd('.xml'))"
-
-        $ArgList = @(
-          '-f',"`"$path`""
-          '-F',"`"$filter`""
-        )
-        Start-Process -FilePath codecov -ArgumentList $ArgList
-      }
-  - cmd: IF "%PUBLISH_NUGET%"=="true" nuget pack OpenGL.Net.nuspec -Version %APPVEYOR_BUILD_VERSION%
-  - cmd: IF "%PUBLISH_NUGET%"=="true" nuget pack OpenGL.Net.Math.nuspec -Version %APPVEYOR_BUILD_VERSION%
-  - cmd: IF "%PUBLISH_NUGET%"=="true" nuget pack OpenGL.Net.WinForms.nuspec -Version %APPVEYOR_BUILD_VERSION%
-  - cmd: IF "%PUBLISH_NUGET%"=="true" nuget pack OpenGL.Net.Xamarin.Android.nuspec -Version %APPVEYOR_BUILD_VERSION%
-  - cmd: IF "%PUBLISH_NUGET%"=="true" nuget pack OpenGL.Net.VideoCore.nuspec -Version %APPVEYOR_BUILD_VERSION%
-  - cmd: IF "%PUBLISH_NUGET%"=="true" nuget pack OpenGL.Net.CoreProfile.nuspec -Version %APPVEYOR_BUILD_VERSION%
-  - cmd: IF "%PUBLISH_NUGET%"=="true" nuget pack OpenGL.Net.ES2Profile.nuspec -Version %APPVEYOR_BUILD_VERSION%
-  - cmd: IF "%PUBLISH_NUGET%"=="true" nuget pack OpenGL.Net.CoreUI.nuspec -Version %APPVEYOR_BUILD_VERSION%
-#  - cmd: IF "%PUBLISH_NUGET%"=="true" nuget pack OpenGL.Net.Objects.nuspec -Version %APPVEYOR_BUILD_VERSION%
-
 artifacts:
-  - path: '*.nupkg'
+  - path: 'nuget/*.nupkg'
+  - name: NuGet
 
 deploy:
   - provider: NuGet

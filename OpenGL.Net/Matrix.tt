@@ -943,8 +943,34 @@ for (int c1 = 0; c1 < c; c1++) for (int r1 = 0; r1 < r; r1++) {
 			this = this * RotatedZ(angle);
 		}
 
-		#endregion
+		/// <summary>
+		/// Construct a <#= className #> resetting the rotation components.
+		/// </summary>
+		/// <returns>
+		/// A <see cref="<#= className #>"/> representing a matrix without rotation components.
+		/// </returns>
+		public <#= className #> RotatedReset()
+		{
+			<#= className #> r = new <#= className #>(this);
 
+<# for (int y = 0; y < Math.Min(r, 3); y++) for (int x = 0; x < Math.Min(c, 3); x++) { #>
+			r._M<#= x #><#= y #> = <#= x == y ? one : zero #>;
+<# } #>
+
+			return r;
+		}
+
+		/// <summary>
+		/// Reset rotation components.
+		/// </summary>
+		public void RotateReset()
+		{
+<# for (int y = 0; y < Math.Min(r, 3); y++) for (int x = 0; x < Math.Min(c, 3); x++) { #>
+			_M<#= x #><#= y #> = <#= x == y ? one : zero #>;
+<# } #>
+		}
+
+		#endregion
 <# } #>
 <# if (c == r && c >= 3) { #>
 		#region Scaling

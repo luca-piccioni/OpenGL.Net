@@ -26,7 +26,7 @@ using System.Text;
 namespace OpenGL.Objects
 {
 	/// <summary>
-	/// Font abstracton.
+	/// Font abstraction.
 	/// </summary>
 	abstract class Font : UserGraphicsResource, IFont
 	{
@@ -124,6 +124,17 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
+		/// Get glyph information.
+		/// </summary>
+		/// <param name="c">
+		/// The character relative to the returned glyph.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="GlyphBase"/> relative to <paramref name="c"/>, if found; otherwise it returns null.
+		/// </returns>
+		protected abstract GlyphBase GetGlyph(char c);
+
+		/// <summary>
 		/// Get the characters to be included in font glyphs.
 		/// </summary>
 		/// <returns></returns>
@@ -131,7 +142,7 @@ namespace OpenGL.Objects
 		{
 			StringBuilder sb = new StringBuilder();
 			
-			for (int i = 1; i <= 127; i++) {
+			for (int i = 1; i <= 255; i++) {
 				string asciiChar = Char.ConvertFromUtf32(i);
 
 				if (Char.IsControl(asciiChar[0]))
@@ -146,6 +157,66 @@ namespace OpenGL.Objects
 		#endregion
 
 		#region IFont Implementation
+
+		/// <summary>
+		/// Measure the string width.
+		/// </summary>
+		/// <param name="format">
+		/// A composite format string.
+		/// </param>
+		/// <param name="args">
+		/// An System.Object array containing zero or more objects to format.
+		/// </param>
+		/// <returns>
+		/// It returns the width of the string rendered from <paramref name="format"/> and <paramref name="args"/>, in pixels.
+		/// </returns>
+		public virtual float GetStringWidth(string format, params object[] args)
+		{
+			float max = 0.0f;
+			string formattedString = string.Format(format, args);
+			float width = 0.0f;
+			foreach (string line in formattedString.Split('\n')) {
+				foreach (char c in line) {
+					GlyphBase glyph = GetGlyph(c);
+					if (glyph == null)
+						continue;
+
+					width += glyph.GlyphSize.Width;
+				}
+				if (width > max)
+					max = width;
+				width = 0;
+			}
+			return max;
+		}
+
+		/// <summary>
+		/// Measure the string height.
+		/// </summary>
+		/// <param name="format">
+		/// A composite format string.
+		/// </param>
+		/// <param name="args">
+		/// An System.Object array containing zero or more objects to format.
+		/// </param>
+		/// <returns>
+		/// It returns the width of the string rendered from <paramref name="format"/> and <paramref name="args"/>, in pixels.
+		/// </returns>
+		public virtual float GetStringHeight(string format, params object[] args)
+		{
+			string formattedString = string.Format(format, args);
+			float height = 0.0f;
+			string[] phrases = formattedString.Split('\n');			
+			foreach (char c in formattedString) {
+				GlyphBase glyph = GetGlyph(c);
+				if (glyph == null)
+					continue;
+
+				height = Math.Max(height, glyph.GlyphSize.Height);
+			}
+			
+			return height * phrases.Length;
+		}
 
 		/// <summary>
 		/// Draw a character sequence.

@@ -19,7 +19,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+using System;
 using System.IO;
+using System.Reflection;
 
 namespace OpenGL.Objects
 {
@@ -54,7 +56,79 @@ namespace OpenGL.Objects
 		/// The type which following plugin factory conventions.
 		/// </summary>
 		private const string PluginFactoryType = "OpenGL.ImageCodecFactory";
-		
+
+		#endregion
+
+		#region Embedded Resource Load
+
+		/// <summary>
+		/// Load media from embedded resource stream.
+		/// </summary>
+		/// <param name="stream">
+		/// A <see cref="Stream"/> where the media data is stored.
+		/// </param>
+		/// <param name="format">
+		/// The <see cref="String"/> which defines the format of the stream data.
+		/// </param>
+		/// <param name="criteria">
+		/// A <see cref="MediaCodecCriteria"/> that specify parameters for loading an media stream.
+		/// </param>
+		/// <returns>
+		/// An <typeparamref name="TMedia"/> holding the media data.
+		/// </returns>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="stream"/> or <paramref name="criteria"/> is null.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="stream"/> is not readable or seekable.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown if no plugin is available for <paramref name="format"/> (filtered by
+		/// <paramref name="criteria"/>) or all plugins are not able to load media from
+		/// <paramref name="stream"/>.
+		/// </exception>
+		/// <exception cref="NotSupportedException">
+		/// Exception thrown if <paramref name="format"/> is not supported by any loaded plugin.
+		/// </exception>
+		public Image LoadResource(string resourcePath, string format, ImageCodecCriteria criteria, string assemblyName = null)
+		{
+			if (resourcePath == null)
+				throw new ArgumentNullException(nameof(resourcePath));
+
+			Assembly[] resourceAssemblies;
+
+			if (assemblyName == null) {
+				// Default assemblies
+				resourceAssemblies = new[] {
+					Assembly.GetExecutingAssembly(),
+					Assembly.GetCallingAssembly(),
+					Assembly.GetEntryAssembly()
+				};
+			} else {
+				resourceAssemblies = new[] {
+					Assembly.Load(assemblyName)
+				};
+			}
+
+			Stream resourceStream = null;
+
+			try {
+				for (int i = 0; i < resourceAssemblies.Length && resourceStream == null; i++) {
+					if (resourceAssemblies[i] == null)
+						continue;
+					resourceStream = resourceAssemblies[i].GetManifestResourceStream(resourcePath);
+				}
+
+				if (resourceStream == null)
+					throw new ArgumentException("resource " + resourcePath + " not found", "resourcePath");
+
+				return Load(resourceStream, format, criteria);
+			} finally {
+				if (resourceStream != null)
+					resourceStream.Dispose();
+			}
+		}
+
 		#endregion
 
 		#region MediaCodec<IImageCodecPlugin, Image, ImageInfo> Overrides

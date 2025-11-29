@@ -1,5 +1,5 @@
 
-// Copyright (C) 2011-2017 Luca Piccioni
+// Copyright (C) 2011-2018 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -44,18 +44,6 @@ namespace OpenGL.Objects
 	/// </remarks>
 	public partial class VertexArrays : GraphicsResource, IBindingResource
 	{
-		#region Constructors
-
-		/// <summary>
-		/// Construct an empty vertex array.
-		/// </summary>
-		public VertexArrays()
-		{
-
-		}
-
-		#endregion
-
 		#region Draw
 
 		/// <summary>
@@ -133,6 +121,8 @@ namespace OpenGL.Objects
 
 			if (_FeedbackBuffer != null)
 				_FeedbackBuffer.End(ctx);
+
+			ctx.Unbind(this);
 		}
 
 		/// <summary>
@@ -150,7 +140,6 @@ namespace OpenGL.Objects
 		/// </param>
 		public void Draw(GraphicsContext ctx, ShaderProgram shader, params IElement[] elements)
 		{
-			CheckCurrentContext(ctx);
 			CheckThisExistence(ctx);
 
 			// Set vertex arrays
@@ -172,7 +161,7 @@ namespace OpenGL.Objects
 					_FeedbackBuffer.Begin(ctx, attributeElement.ElementsMode);
 
 				attributeElement.Draw(ctx);
-
+				
 				if (_FeedbackBuffer != null)
 					_FeedbackBuffer.End(ctx);
 			}
@@ -207,10 +196,10 @@ namespace OpenGL.Objects
 					ShaderProgram.AttributeBinding attributeBinding = shaderProgram.GetActiveAttribute(attributeName);
 
 					IVertexArray currentVertexArray = _VertexArrayState[attributeBinding.Location];
-					//if (ReferenceEquals(shaderVertexArray, currentVertexArray) == false) {
-					shaderVertexArray.SetVertexAttribute(ctx, attributeBinding, attributeName);
-					_VertexArrayState[attributeBinding.Location] = shaderVertexArray;
-					//}
+					if (ReferenceEquals(shaderVertexArray, currentVertexArray) == false) {
+						shaderVertexArray.SetVertexAttribute(ctx, attributeBinding, attributeName);
+						_VertexArrayState[attributeBinding.Location] = shaderVertexArray;
+					}
 
 					attributesSet++;
 				}
@@ -265,6 +254,32 @@ namespace OpenGL.Objects
 
 		#endregion
 
+		#region Draw Multiple
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="ctx"></param>
+		/// <param name="offsets"></param>
+		/// <param name="lengths"></param>
+		public virtual void DrawMultiple(GraphicsContext ctx, ShaderProgram shader, PrimitiveType primitive, int[] offsets, int[] lengths)
+		{
+			CheckThisExistence(ctx);
+
+			// Set vertex arrays
+			SetVertexArrayState(ctx, shader);
+
+			// Fixed or programmable pipeline?
+			if (shader != null)
+				ctx.Bind(shader);
+			else
+				ctx.ResetProgram();
+
+			Gl.MultiDrawArrays(primitive, offsets, lengths, offsets.Length);
+		}
+
+		#endregion
+
 		#region Draw Instanced
 
 		/// <summary>
@@ -300,7 +315,7 @@ namespace OpenGL.Objects
 			if (!ctx.Extensions.DrawInstanced_ARB)
 				throw new NotSupportedException("GL_ARB_draw_instanced not implemented");
 			if (shader != null && shader.Exists(ctx) == false)
-				throw new ArgumentException("not existing", "shader");
+				throw new ArgumentException("not existing", nameof(shader));
 
 			// Set vertex arrays
 			SetVertexArrayState(ctx, shader);
@@ -355,10 +370,10 @@ namespace OpenGL.Objects
 		/// generation requires user to allocate normal buffer following the other elements; and the position semantic
 		/// must be defined and meaninfull.
 		/// </exception>
-		public void GenerateNormals(GraphicsContext ctx)
+		public void GenerateNormals()
 		{
 			foreach (Element vertexElement in DrawElements)
-				vertexElement.GenerateNormals(ctx, this);
+				vertexElement.GenerateNormals(this);
 		}
 
 		/// <summary>
@@ -367,10 +382,10 @@ namespace OpenGL.Objects
 		/// <param name="genTexCoordCallback">
 		/// A <see cref="VertexArrayTexGenDelegate"/> used for generating texture coordinates.
 		/// </param>
-		public void GenerateTexCoords(GraphicsContext ctx, VertexArrayTexGenDelegate genTexCoordCallback)
+		public void GenerateTexCoords(VertexArrayTexGenDelegate genTexCoordCallback)
 		{
 			foreach (Element vertexElement in DrawElements)
-				vertexElement.GenerateTexCoord(ctx, this, genTexCoordCallback);
+				vertexElement.GenerateTexCoord(this, genTexCoordCallback);
 		}
 
 		/// <summary>
@@ -379,12 +394,14 @@ namespace OpenGL.Objects
 		/// <param name="vertexArrayTexGen">
 		/// A <see cref="IVertexArrayTexGen"/> used for generating texture coordinates.
 		/// </param>
-		public void GenerateTexCoords(GraphicsContext ctx, IVertexArrayTexGen vertexArrayTexGen)
+		public void GenerateTexCoords(IVertexArrayTexGen vertexArrayTexGen)
 		{
 			// Interface initialization (i.e. stats and other information)
 			vertexArrayTexGen.Initialize(this);
 			// Process texture coords as usual
-			GenerateTexCoords(ctx, position => vertexArrayTexGen.Generate(position));
+			GenerateTexCoords(delegate (Vertex3f position) {
+				return vertexArrayTexGen.Generate(position);
+			});
 		}
 
 		/// <summary>
@@ -395,10 +412,10 @@ namespace OpenGL.Objects
 		/// generation requires user to allocate relatives buffer following the other elements; and the position semantic
 		/// and the texture coordinate semantic must be defined and meaninfull.
 		/// </exception>
-		public void GenerateTangents(GraphicsContext ctx)
+		public void GenerateTangents()
 		{
 			foreach (Element vertexElement in DrawElements)
-				vertexElement.GenerateTangents(ctx, this);
+				vertexElement.GenerateTangents(this);
 		}
 
 		#endregion
@@ -446,7 +463,7 @@ namespace OpenGL.Objects
 			elementBuffer.Create(indices);
 			vertexArray.SetElementArray(PrimitiveType.TriangleStrip, elementBuffer);
 
-			return (vertexArray);
+			return vertexArray;
 		}
 
 		/// <summary>
@@ -532,7 +549,7 @@ namespace OpenGL.Objects
 				indices[idx + 1] = (ushort)(offset + j);
 			}
 			indices[idx] = (ushort)(vertexCount - 1);           /* repeat first slice's idx for closing off shape */
-			indices[idx + 1] = (ushort)(offset);
+			indices[idx + 1] = (ushort)offset;
 		}
 
 		/// <summary>
@@ -548,7 +565,7 @@ namespace OpenGL.Objects
 			int size = Math.Abs(n);
 
 			/* Determine the angle between samples */
-			float angle = (halfCircle ? 1 : 2) * (float)Math.PI / (float)((n == 0) ? 1 : n);
+			float angle = (halfCircle ? 1 : 2) * (float)Math.PI / (float)(n == 0 ? 1 : n);
 
 			/* Allocate memory for n samples, plus duplicate of first entry at the end */
 			sint = new float[size + 1];
@@ -635,7 +652,7 @@ namespace OpenGL.Objects
 			elementBuffer.RestartIndexEnabled = true;
 			vertexArray.SetElementArray(PrimitiveType.TriangleStrip, elementBuffer);
 
-			return (vertexArray);
+			return vertexArray;
 		}
 
 		#endregion
@@ -670,7 +687,7 @@ namespace OpenGL.Objects
 
 			vertexArray.SetElementArray(PrimitiveType.TriangleFan);
 
-			return (vertexArray);
+			return vertexArray;
 		}
 
 		#endregion
@@ -685,12 +702,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Vertex array object class.
 		/// </summary>
-		public override Guid ObjectClass
-		{
-			get {
-				return (ThisObjectClass);
-			}
-		}
+		public override Guid ObjectClass => ThisObjectClass;
 
 		/// <summary>
 		/// Determine whether this BufferObject really exists for a specific context.
@@ -716,17 +728,19 @@ namespace OpenGL.Objects
 		/// </exception>
 		public override bool Exists(GraphicsContext ctx)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
-			if (ctx.IsCurrent == false)
-				throw new ArgumentException("not current", "ctx");
+			CheckCurrentContext(ctx);
 
 			// Object name space test (and 'ctx' sanity checks)
 			if (base.Exists(ctx) == false)
-				return (false);
+				return false;
 
-			return (!RequiresName(ctx) || Gl.IsVertexArray(ObjectName));
+			return !RequiresName(ctx) || Gl.IsVertexArray(ObjectName);
 		}
+
+		/// <summary>
+		/// Determine whether this IGraphicsResource is effectively shareable between sharing <see cref="GraphicsContext"/> instances.
+		/// </summary>
+		public override bool IsShareable { get { return false; } }
 
 		/// <summary>
 		/// Determine whether this object requires a name bound to a context or not.
@@ -740,9 +754,9 @@ namespace OpenGL.Objects
 		protected override bool RequiresName(GraphicsContext ctx)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
-			return (ctx.Extensions.VertexArrayObject_ARB || ctx.Extensions.VertexArrayObject_OES);
+			return ctx.Extensions.VertexArrayObject_ARB || ctx.Extensions.VertexArrayObject_OES;
 		}
 
 		/// <summary>
@@ -762,14 +776,11 @@ namespace OpenGL.Objects
 		/// </exception>
 		protected override uint CreateName(GraphicsContext ctx)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
-			if (ctx.IsCurrent == false)
-				throw new ArgumentException("not current");
+			CheckCurrentContext(ctx);
 
 			Debug.Assert(ctx.Extensions.VertexArrayObject_ARB || ctx.Extensions.VertexArrayObject_OES || ctx.Version.IsCompatible(Gl.Version_300_ES));
 
-			return (Gl.GenVertexArray());
+			return Gl.CreateVertexArray();
 		}
 
 		/// <summary>
@@ -792,6 +803,7 @@ namespace OpenGL.Objects
 		/// </exception>
 		protected override void DeleteName(GraphicsContext ctx, uint name)
 		{
+			CheckCurrentContext(ctx);
 			CheckThisExistence(ctx);
 
 			Debug.Assert(ctx.Extensions.VertexArrayObject_ARB || ctx.Extensions.VertexArrayObject_OES || ctx.Version.IsCompatible(Gl.Version_300_ES));
@@ -826,19 +838,16 @@ namespace OpenGL.Objects
 			// Validate vertex array object
 			Validate();
 
+			// Modify the state of this VAO
+			ctx.Bind(this);
 			// Create vertex arrays
 			foreach (IVertexArray vertexArray in DrawArrays)
 				vertexArray.Create(ctx);
-
 			// Create element arrays
-			foreach (Element element in DrawElements)
+			foreach (IElement element in DrawElements)
 				element.Create(ctx);
-
 			// Create feedback buffer
-			if (_FeedbackBuffer != null)
-				_FeedbackBuffer.Create(ctx);
-
-			ctx.Bind(this);
+			_FeedbackBuffer?.Create(ctx);
 		}
 
 		/// <summary>
@@ -854,11 +863,11 @@ namespace OpenGL.Objects
 			base.Dispose(disposing);
 			// Dispose related resources
 			if (disposing) {
-				// Unreference all collected array buffer objects
-				foreach (VertexArray vertexArray in _VertexArrays.Values)
+				// Dereference all collected array buffer objects
+				foreach (IVertexArray vertexArray in _VertexArrays.Values)
 					vertexArray.Dispose();
-				// Unreference all collected array indices
-				foreach (Element vertexIndices in _Elements)
+				// Dereference all collected array indices
+				foreach (IElement vertexIndices in _Elements)
 					vertexIndices.Dispose();
 			}
 		}
@@ -877,9 +886,9 @@ namespace OpenGL.Objects
 		{
 			// Cannot lazy binding on textures if GL_ARB_vertex_array_object is not supported
 			if (!ctx.Extensions.VertexArrayObject_ARB && !ctx.Extensions.VertexArrayObject_OES && !ctx.Version.IsCompatible(Gl.Version_300_ES))
-				return (0);
+				return 0;
 
-			return (Gl.VERTEX_ARRAY_BINDING);
+			return Gl.VERTEX_ARRAY_BINDING;
 		}
 
 		/// <summary>
@@ -925,7 +934,7 @@ namespace OpenGL.Objects
 			Debug.Assert(bindingTarget != 0);
 			Gl.Get(bindingTarget, out currentBufferObject);
 
-			return (currentBufferObject == (int)ObjectName);
+			return currentBufferObject == (int)ObjectName;
 		}
 
 		#endregion

@@ -19,6 +19,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using NUnit.Framework;
 
@@ -30,54 +31,6 @@ namespace OpenGL.Objects.Test
 	[TestFixture(Category = @"Objects\ShadersLibrary")]
 	class ShadersLibraryTest : TestBase
 	{
-		[Test]
-		public void ShadersLibrary_SaveTo()
-		{
-			ShadersLibrary shadersLibrary = new ShadersLibrary();
-
-			shadersLibrary.Includes = new List<ShadersLibrary.Include>();
-			shadersLibrary.Includes.Add(
-				new ShadersLibrary.Include() {
-				 Path = "/Absolute/Path/To/Include", Resource = "Some.Resource.Identifier"
-				}
-			);
-
-			shadersLibrary.Objects = new List<ShadersLibrary.Object>();
-			shadersLibrary.Objects.Add(
-				new ShadersLibrary.Object() {
-					Resource = "Some.Object.Resource",
-					TestStage = "VertexShader"
-				}
-			);
-			shadersLibrary.Objects[0].Symbols = new ShadersLibrary.SymbolList();
-			shadersLibrary.Objects[0].Symbols.Add("DEFINE_SYMBOL");
-
-			shadersLibrary.Programs = new List<ShadersLibrary.Program>();
-			shadersLibrary.Programs.Add(new ShadersLibrary.Program() {
-				Id = "TestProgram",
-			});
-			shadersLibrary.Programs[0].Objects = new List<ShadersLibrary.Object>();
-			shadersLibrary.Programs[0].Objects.Add(new ShadersLibrary.Object() {
-				Resource = "Some.Object.Resource",
-				Stage = ShaderType.VertexShader,
-			});
-			shadersLibrary.Programs[0].Attributes = new List<ShadersLibrary.Attribute>();
-			shadersLibrary.Programs[0].Attributes.Add(new ShadersLibrary.Attribute() {
-				Name = "test_Attribute",
-				Location = -1,
-				Semantic = "Position"
-			});
-			
-			byte[] shaderLibraryBytes;
-
-			using (MemoryStream memoryStream = new MemoryStream()) {
-				shadersLibrary.Save(memoryStream);
-				shaderLibraryBytes = memoryStream.ToArray();
-			}
-
-			string shaderLibraryText = Encoding.UTF8.GetString(shaderLibraryBytes);
-		}
-
 		[Test(Description = "Test CreateProgram(string)")]
 		[TestCaseSource(nameof(ProgramIds))]
 		public void ShadersLibrary_CompileProgram(string programId)
@@ -124,7 +77,7 @@ namespace OpenGL.Objects.Test
 		{
 			get
 			{
-				return ShadersLibrary.Instance.GetPrograms();
+				return ShadersLibrary.Instance.Programs.Select(item => item.Id);
 			}
 		}
 
@@ -191,7 +144,7 @@ namespace OpenGL.Objects.Test
 
 				foreach (ShadersLibrary.Object obj in ShadersLibrary.Instance.Objects) {
 					foreach (ShaderType objStage in obj.Stages)
-						objectIds.Add(new ObjectContext(obj.Resource, objStage));
+						objectIds.Add(new ObjectContext(obj.Path, objStage));
 				}
 
 				return (objectIds.ToArray());

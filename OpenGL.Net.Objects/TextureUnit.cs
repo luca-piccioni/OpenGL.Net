@@ -21,6 +21,8 @@
 
 // Symbol for disabling redundant texture unit object binding
 #define ENABLE_LAZY_TEXTURE_UNIT_BINDING
+// Symbol for disabling redundant texture unit object binding
+#undef ENABLE_LAZY_TEXTURE_PARAMETERS
 
 using System;
 using System.Diagnostics;
@@ -43,14 +45,9 @@ namespace OpenGL.Objects
 			Index = index;
 		}
 
-		/// <summary>
-		/// The index of the TextureUnit.
-		/// </summary>
-		public readonly uint Index;
-
 		#endregion
 
-		#region Active Unit
+		#region Unit Index
 
 		/// <summary>
 		/// Set this TextureUnit as the current one.
@@ -60,6 +57,11 @@ namespace OpenGL.Objects
 		{
 			ctx.ActiveTexture(Index);
 		}
+
+		/// <summary>
+		/// The index of the TextureUnit.
+		/// </summary>
+		public readonly uint Index;
 
 		#endregion
 
@@ -72,16 +74,15 @@ namespace OpenGL.Objects
 		/// The <see cref="GraphicsContext"/> managing this TextureUnit.
 		/// </param>
 		/// <param name="texture">
-		/// The <see cref="Texture"/> to be bound to this TextureUnit.
+		/// The <see cref="Texture"/> to be bound to this TextureUnit. If null, unlink the current texture
+		/// from this TextureUnit.
 		/// </param>
-		/// <exception cref="ArgumentNullException">
-		/// Exception thrown if <paramref name="texture"/> is null.
-		/// </exception>
 		public void Bind(GraphicsContext ctx, Texture texture)
 		{
 			GraphicsResource.CheckCurrentContext(ctx);
-			if (texture == null)
-				throw new ArgumentNullException("texture");
+
+			if (texture != null && texture.ObjectName == GraphicsResource.InvalidObjectName)
+				throw new ArgumentException("not existing", nameof(texture));
 
 			// Required to be active
 			Activate(ctx);
@@ -95,27 +96,36 @@ namespace OpenGL.Objects
 			if (true) {
 #endif
 				// Since here, the texture is bound to the texture unit
-				Gl.BindTexture(texture.TextureTarget, texture.ObjectName);
+				const TextureTarget InvalidTextureTarget = (TextureTarget) 0;
 
-				// Break previous texture relationship, if any
-				if (currTexture != null)
-					currTexture._ActiveTextureUnits.Remove(Index);
+				TextureTarget currentTarget = texture?.TextureTarget ?? InvalidTextureTarget;
+				uint currentObject = texture?.ObjectName ?? GraphicsResource.InvalidObjectName;
 
-				// Add texture relationship
-				_Texture = new WeakReference(texture);
+				if (currentTarget == InvalidTextureTarget && currTexture != null)
+					currentTarget = currTexture.TextureTarget;
 
-				Debug.Assert(texture._ActiveTextureUnits.Contains(Index) == false);
-				texture._ActiveTextureUnits.Add(Index);
+				Debug.Assert(currentTarget != 0);
+				if (currentTarget != 0) {
+					Gl.BindTexture(currentTarget, currentObject);
+
+					if (texture != null && currentObject != GraphicsResource.InvalidObjectName)
+						_Texture = new WeakReference(texture);
+					else
+						_Texture = null;
+				}
+
 			} else {
 				// Texture already bound to texture unit, Gl.BindTexture not necessary
 #if DEBUG
-				int textureBindingTarget = texture.GetBindingTarget(ctx);
-				int currentTextureObject;
-		
-				Debug.Assert(textureBindingTarget != 0);
-				Gl.Get(textureBindingTarget, out currentTextureObject);
+				if (texture != null) {
+					int textureBindingTarget = texture.GetBindingTarget(ctx);
+					int currentTextureObject;
 
-				Debug.Assert(currentTextureObject == texture.ObjectName);
+					Debug.Assert(textureBindingTarget != 0);
+					Gl.Get(textureBindingTarget, out currentTextureObject);
+
+					Debug.Assert(currentTextureObject == texture.ObjectName);
+				}
 #endif
 			}
 		}
@@ -220,7 +230,7 @@ namespace OpenGL.Objects
 		#region Sampler Parameters
 
 		/// <summary>
-		/// Update sampler parameters, accorndly to <see cref="Texture"/> and <see cref="Sampler"/> properties.
+		/// Update sampler parameters, accordingly to <see cref="Texture"/> and <see cref="Sampler"/> properties.
 		/// </summary>
 		/// <param name="ctx">
 		/// The <see cref="GraphicsContext"/> managing this TextureUnit.
@@ -243,7 +253,7 @@ namespace OpenGL.Objects
 					// Ensure sampler parameters in sync
 					sampler.Bind(ctx, this);
 					// Fast path? No need to update texture unit parameters
-					return;		
+					return;
 				} else {
 					// Note: even if ARB_sampler_objects is not supported, a Sampler overrides
 					samplerParams = sampler.Parameters;
@@ -255,7 +265,7 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
-		/// Apply texture unit sampler parameteres, using compatibility methods.
+		/// Apply texture unit sampler parameters, using compatibility methods.
 		/// </summary>
 		/// <param name="textureTarget">
 		/// The <see cref="TextureTarget"/> that specifies the texture target to apply sampler.
@@ -265,6 +275,7 @@ namespace OpenGL.Objects
 		/// </param>
 		private void TexParameters(TextureTarget textureTarget, SamplerParameters texParameters)
 		{
+#if ENABLE_LAZY_TEXTURE_PARAMETERS
 			if (texParameters.MinFilter != _CurrentSamplerParams.MinFilter) {
 				Gl.TexParameter(textureTarget, TextureParameterName.TextureMinFilter, (int)texParameters.MinFilter);
 				_CurrentSamplerParams.MinFilter = texParameters.MinFilter;
@@ -299,6 +310,17 @@ namespace OpenGL.Objects
 				Gl.TexParameter(textureTarget, TextureParameterName.TextureCompareFunc, (int)texParameters.CompareFunc);
 				_CurrentSamplerParams.CompareFunc = texParameters.CompareFunc;
 			}
+#else
+			Gl.TexParameter(textureTarget, TextureParameterName.TextureMinFilter, (int)texParameters.MinFilter);
+			Gl.TexParameter(textureTarget, TextureParameterName.TextureMagFilter, (int)texParameters.MagFilter);
+			Gl.TexParameter(textureTarget, TextureParameterName.TextureWrapR, (int)texParameters.WrapCoordR);
+			Gl.TexParameter(textureTarget, TextureParameterName.TextureWrapS, (int)texParameters.WrapCoordS);
+			Gl.TexParameter(textureTarget, TextureParameterName.TextureWrapT, (int)texParameters.WrapCoordT);
+#if !MONODROID
+			Gl.TexParameter(textureTarget, TextureParameterName.TextureCompareMode, texParameters.CompareMode ? Gl.COMPARE_R_TO_TEXTURE : Gl.NONE);
+#endif
+			Gl.TexParameter(textureTarget, TextureParameterName.TextureCompareFunc, (int)texParameters.CompareFunc);
+#endif
 		}
 
 		/// <summary>

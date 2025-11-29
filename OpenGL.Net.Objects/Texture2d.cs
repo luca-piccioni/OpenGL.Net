@@ -32,13 +32,13 @@ namespace OpenGL.Objects
 	/// <summary>
 	/// Two dimensional texture.
 	/// </summary>
-	[DebuggerDisplay("Texture2D: Width={Width} Height={Height} Format={PixelLayout}")]
-	public class Texture2D : Texture
+	[DebuggerDisplay("Texture2d: Name={ObjectName} Width={Width} Height={Height} Format={PixelLayout}")]
+	public class Texture2d : Texture
 	{
 		#region Constructors
 
 		/// <summary>
-		/// Construct an undefined Texture2D.
+		/// Construct an undefined Texture2d.
 		/// </summary>
 		/// <remarks>
 		/// <para>
@@ -46,13 +46,13 @@ namespace OpenGL.Objects
 		/// of Create" methods (except <see cref="Create(GraphicsContext)"/>).
 		/// </para>
 		/// </remarks>
-		public Texture2D()
+		public Texture2d()
 		{
-			
+
 		}
 
 		/// <summary>
-		/// Create Texture2D data, defining only the extents and the internal format.
+		/// Create Texture2d data, defining only the extents and the internal format.
 		/// </summary>
 		/// <param name="width">
 		/// A <see cref="UInt32"/> that specify the texture width.
@@ -80,13 +80,13 @@ namespace OpenGL.Objects
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="format"/> is not a supported internal format.
 		/// </exception>
-		public Texture2D(uint width, uint height, PixelLayout format)
+		public Texture2d(uint width, uint height, PixelLayout format)
 		{
 			Create(width, height, format);
 		}
 
 		/// <summary>
-		/// Create Texture2D data, defining only the extents and the internal format.
+		/// Create Texture2d data, defining only the extents and the internal format.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for creating this Texture. If it null, the current context
@@ -121,7 +121,7 @@ namespace OpenGL.Objects
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if <paramref name="format"/> is not a supported internal format.
 		/// </exception>
-		public Texture2D(GraphicsContext ctx, uint width, uint height, PixelLayout format)
+		public Texture2d(GraphicsContext ctx, uint width, uint height, PixelLayout format)
 		{
 			Create(ctx, width, height, format);
 		}
@@ -131,9 +131,9 @@ namespace OpenGL.Objects
 		#region Create
 
 		/// <summary>
-		/// Technique defining an empty mutable texture.
+		/// Technique defining an empty texture.
 		/// </summary>
-		class EmptyTechnique : Technique
+		private class EmptyTechnique : Technique
 		{
 			#region Constructors
 
@@ -141,7 +141,7 @@ namespace OpenGL.Objects
 			/// Construct a EmptyTechnique.
 			/// </summary>
 			/// <param name="texture">
-			/// The <see cref="Texture2D"/> affected by this Technique.
+			/// The <see cref="Texture2d"/> affected by this Technique.
 			/// </param>
 			/// <param name="target">
 			/// A <see cref="TextureTarget"/> that specify the texture target.
@@ -158,12 +158,8 @@ namespace OpenGL.Objects
 			/// <param name="height">
 			/// The height of the texture.
 			/// </param>
-			public EmptyTechnique(Texture2D texture, TextureTarget target, uint level, PixelLayout pixelFormat, uint width, uint height) :
-				base(texture)
+			public EmptyTechnique(Texture2d texture, TextureTarget target, uint level, PixelLayout pixelFormat, uint width, uint height)
 			{
-				if (level == 0 && (width == 0 || height == 0))
-					throw new InvalidOperationException("empty base level not allowed");
-
 				_Texture2d = texture;
 				_Target = target;
 				_Level = level;
@@ -174,12 +170,12 @@ namespace OpenGL.Objects
 
 			#endregion
 
-			#region Overrides
+			#region Technique Overrides
 
 			/// <summary>
-			/// The <see cref="Texture2D"/> affected by this Technique.
+			/// The <see cref="Texture2d"/> affected by this Technique.
 			/// </summary>
-			protected readonly Texture2D _Texture2d;
+			protected readonly Texture2d _Texture2d;
 
 			/// <summary>
 			/// The texture target to use for creating the empty texture.
@@ -229,7 +225,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Technique defining an immutable empty texture.
 		/// </summary>
-		class ImmutableEmptyTechnique : EmptyTechnique
+		private class ImmutableEmptyTechnique : EmptyTechnique
 		{
 			#region Constructors
 
@@ -237,7 +233,7 @@ namespace OpenGL.Objects
 			/// Construct a ImmutableEmptyTechnique.
 			/// </summary>
 			/// <param name="texture">
-			/// The <see cref="Texture2D"/> affected by this Technique.
+			/// The <see cref="Texture2d"/> affected by this Technique.
 			/// </param>
 			/// <param name="target">
 			/// A <see cref="TextureTarget"/> that specify the texture target.
@@ -251,7 +247,7 @@ namespace OpenGL.Objects
 			/// <param name="height">
 			/// The height of the texture.
 			/// </param>
-			public ImmutableEmptyTechnique(Texture2D texture, TextureTarget target, PixelLayout pixelFormat, uint width, uint height) :
+			public ImmutableEmptyTechnique(Texture2d texture, TextureTarget target, PixelLayout pixelFormat, uint width, uint height) :
 				this(texture, target, pixelFormat, width, height, GetMipmapCompleteLevels(width, height, 1, 0))
 			{
 
@@ -261,7 +257,7 @@ namespace OpenGL.Objects
 			/// Construct a ImmutableEmptyTechnique.
 			/// </summary>
 			/// <param name="texture">
-			/// The <see cref="Texture2D"/> affected by this Technique.
+			/// The <see cref="Texture2d"/> affected by this Technique.
 			/// </param>
 			/// <param name="target">
 			/// A <see cref="TextureTarget"/> that specify the texture target.
@@ -278,7 +274,7 @@ namespace OpenGL.Objects
 			/// <param name="levels">
 			/// A <see cref="UInt32"/> that specify the number of levels defining the texture.
 			/// </param>
-			public ImmutableEmptyTechnique(Texture2D texture, TextureTarget target, PixelLayout pixelFormat, uint width, uint height, uint levels) :
+			public ImmutableEmptyTechnique(Texture2d texture, TextureTarget target, PixelLayout pixelFormat, uint width, uint height, uint levels) :
 				base(texture, target, 0, pixelFormat, width, height)
 			{
 				if (levels == 0)
@@ -288,12 +284,12 @@ namespace OpenGL.Objects
 
 			#endregion
 
-			#region Overrides
+			#region EmptyTechnique Overrides
 
 			/// <summary>
 			/// Texture mipmaps levels.
 			/// </summary>
-			protected readonly uint _MipmapLevels;
+			private readonly uint _MipmapLevels;
 
 			/// <summary>
 			/// Create the texture, using this technique.
@@ -304,22 +300,16 @@ namespace OpenGL.Objects
 			public override void Create(GraphicsContext ctx)
 			{
 				// Define storage
-				SizedInternalFormat internalFormat = _PixelFormat.ToSizedInternalFormat();
-
-				if (!IsImmutableSupported(ctx)) {
+				if (ctx.Extensions.TextureStorage_ARB == false) {
 					PixelFormat format = _PixelFormat.ToDataFormat();
+					InternalFormat internalFormat = _PixelFormat.ToInternalFormat();
 
-					for (uint level = 0, w = _Width, h = _Height; level < _MipmapLevels; level++, w = Math.Max(1, w / 2), h = Math.Max(1, h / 2)) {
-						Gl.TexImage2D(_Target, (int)level, (InternalFormat)internalFormat, (int)w, (int)h, 0, format, /* Unused */ PixelType.UnsignedByte, IntPtr.Zero);
-
-						// Always check for errors
-						Gl.CheckErrors();
-					}
+					for (uint level = 0, w = _Width, h = _Height; level < _MipmapLevels; level++, w = Math.Max(1, w / 2), h = Math.Max(1, h / 2))
+						Gl.TexImage2D(_Target, (int)level, internalFormat, (int)w, (int)h, 0, format, /* Unused */ PixelType.UnsignedByte, IntPtr.Zero);
 				} else {
+					SizedInternalFormat internalFormat = _PixelFormat.ToSizedInternalFormat();
+					
 					Gl.TexStorage2D(_Target, (int)_MipmapLevels, internalFormat, (int)_Width, (int)_Height);
-				
-					// Always check for errors
-					Gl.CheckErrors();
 				}
 
 				// Define mipmap array
@@ -333,7 +323,7 @@ namespace OpenGL.Objects
 		#region Create(width, height, pixelformat)
 
 		/// <summary>
-		/// Create a Texture2D, defining the texture extents and the internal format.
+		/// Create a Texture2d, defining the texture extents and the internal format.
 		/// </summary>
 		/// <param name="width">
 		/// A <see cref="UInt32"/> that specify the texture width.
@@ -366,9 +356,6 @@ namespace OpenGL.Objects
 		/// </exception>
 		public void Create(uint width, uint height, PixelLayout format)
 		{
-			if (ImmutableFix)
-				throw new InvalidOperationException("immutable storage (see GL_ARB_texture_storage)");
-
 			Technique technique;
 
 			if (Immutable)
@@ -380,7 +367,7 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
-		/// Create Texture2D data, defining only the extents and the internal format.
+		/// Create Texture2d data, defining only the extents and the internal format.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for creating this Texture.
@@ -416,9 +403,6 @@ namespace OpenGL.Objects
 		/// </exception>
 		public void Create(GraphicsContext ctx, uint width, uint height, PixelLayout format)
 		{
-			if (ImmutableFix)
-				throw new InvalidOperationException("immutable storage (see GL_ARB_texture_storage)");
-
 			CheckCurrentContext(ctx);
 
 			// Define technique
@@ -432,7 +416,7 @@ namespace OpenGL.Objects
 		#region Create(width, height, level, pixelformat)
 
 		/// <summary>
-		/// Create a Texture2D, defining the texture extents and the internal format.
+		/// Create a Texture2d, defining the texture extents and the internal format.
 		/// </summary>
 		/// <param name="width">
 		/// A <see cref="UInt32"/> that specify the texture width.
@@ -468,14 +452,14 @@ namespace OpenGL.Objects
 		/// </exception>
 		public void Create(uint width, uint height, uint level, PixelLayout format)
 		{
-			if (ImmutableFix)
-				throw new InvalidOperationException("immutable storage (see GL_ARB_texture_storage)");
+			if (Immutable)
+				throw new InvalidOperationException("immutable texture");
 
 			SetTechnique(new EmptyTechnique(this, TextureTarget, level, format, width, height));
 		}
 
 		/// <summary>
-		/// Create Texture2D data, defining only the extents and the internal format.
+		/// Create Texture2d data, defining only the extents and the internal format.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for creating this Texture.
@@ -514,9 +498,6 @@ namespace OpenGL.Objects
 		/// </exception>
 		public void Create(GraphicsContext ctx, uint width, uint height, uint level, PixelLayout format)
 		{
-			if (ImmutableFix)
-				throw new InvalidOperationException("immutable storage (see GL_ARB_texture_storage)");
-
 			CheckCurrentContext(ctx);
 
 			// Define technique
@@ -530,7 +511,7 @@ namespace OpenGL.Objects
 		#region Create(width, height, pixelformat, levels)
 
 		/// <summary>
-		/// Create a Texture2D, defining the texture extents and the internal format.
+		/// Create a Texture2d, defining the texture extents and the internal format.
 		/// </summary>
 		/// <param name="width">
 		/// A <see cref="UInt32"/> that specify the texture width.
@@ -563,9 +544,6 @@ namespace OpenGL.Objects
 		/// </exception>
 		public void Create(uint width, uint height, PixelLayout format, uint levels)
 		{
-			if (ImmutableFix)
-				throw new InvalidOperationException("immutable storage (see GL_ARB_texture_storage)");
-
 			Technique technique;
 
 			if (Immutable)
@@ -577,7 +555,7 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
-		/// Create Texture2D data, defining only the extents and the internal format.
+		/// Create Texture2d data, defining only the extents and the internal format.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for creating this Texture.
@@ -613,15 +591,266 @@ namespace OpenGL.Objects
 		/// </exception>
 		public void Create(GraphicsContext ctx, uint width, uint height, PixelLayout format, uint levels)
 		{
-			if (ImmutableFix)
-				throw new InvalidOperationException("immutable storage (see GL_ARB_texture_storage)");
-
 			CheckCurrentContext(ctx);
 
 			// Define technique
 			Create(width, height, format, levels);
 			// Actually create texture
 			Create(ctx);
+		}
+
+		#endregion
+
+		/// <summary>
+		/// Technique defining a texture based on memory pointer.
+		/// </summary>
+		private class UnmanagedTechnique : Technique
+		{
+			#region Constructors
+
+			/// <summary>
+			/// Construct a UnmanagedTechnique.
+			/// </summary>
+			/// <param name="texture">
+			/// The <see cref="Texture2d"/> affected by this Technique.
+			/// </param>
+			/// <param name="target">
+			/// A <see cref="TextureTarget"/> that specify the texture target.
+			/// </param>
+			/// <param name="pixelFormat">
+			/// The texture pixel format.
+			/// </param>
+			/// <param name="unmanagedPtr">
+			/// The <see cref="IntPtr"/> holding the texture data.
+			/// </param>
+			/// <param name="lineStride">
+			/// The line stride of the data pointed by <paramref name="unmanagedPtr"/>.
+			/// </param>
+			public UnmanagedTechnique(Texture2d texture, TextureTarget target, uint level, PixelLayout pixelFormat, IntPtr unmanagedPtr, uint width, uint height, uint lineStride)
+			{
+				_Target = target;
+				_Level = level;
+				_PixelFormat = pixelFormat;
+				_UnmanagedPtr = unmanagedPtr;
+				_Width = width;
+				_Height = height;
+				_LineStride = lineStride;
+			}
+
+			#endregion
+
+			#region Technique Overrides
+
+			/// <summary>
+			/// The texture target to use for creating the empty texture.
+			/// </summary>
+			private readonly TextureTarget _Target;
+
+			/// <summary>
+			/// The specific level of the target to define. Defaults to zero.
+			/// </summary>
+			private readonly uint _Level;
+
+			/// <summary>
+			/// The internal pixel format of textel.
+			/// </summary>
+			private readonly PixelLayout _PixelFormat;
+
+			/// <summary>
+			/// The image that represents the texture data.
+			/// </summary>
+			private readonly IntPtr _UnmanagedPtr;
+
+			/// <summary>
+			/// The unmanaged image width, in pixels.
+			/// </summary>
+			private readonly uint _Width;
+
+			/// <summary>
+			/// The unmanaged image height, in pixels.
+			/// </summary>
+			private readonly uint _Height;
+
+			/// <summary>
+			/// The unmanaged image line stride.
+			/// </summary>
+			private readonly uint _LineStride;
+
+			/// <summary>
+			/// Create the texture, using this technique.
+			/// </summary>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> used for allocating resources.
+			/// </param>
+			public override void Create(GraphicsContext ctx)
+			{
+				PixelFormat format = _PixelFormat.ToDataFormat();
+				PixelType type = _PixelFormat.ToPixelType();
+
+				// Set pixel unpack
+				new State.PixelUnpackState(_PixelFormat, _LineStride).Apply(ctx, null);
+				// Upload texture contents
+				Gl.TexSubImage2D(_Target, (int)_Level, 0, 0, (int)_Width, (int)_Height, format, type, _UnmanagedPtr);
+			}
+
+			/// <summary>
+			/// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+			/// </summary>
+			public override void Dispose()
+			{
+				// Nothing to do
+			}
+
+			#endregion
+		}
+
+		#region Create(PixelLayout pixelFormat, IntPtr unmanagedPtr, uint width, uint height, uint lineStride, uint level)
+
+		public void Create(PixelLayout pixelFormat, IntPtr unmanagedPtr, uint width, uint height, uint lineStride, uint level = 0)
+		{
+			// Define storage, the uploads image
+			Create(width, height, pixelFormat);
+			SetTechnique(new UnmanagedTechnique(this, TextureTarget, level, pixelFormat, unmanagedPtr, width, height, lineStride));
+		}
+
+		public void Create(GraphicsContext ctx, PixelLayout pixelFormat, IntPtr unmanagedPtr, uint width, uint height, uint lineStride, uint level = 0)
+		{
+			// Define texture technique
+			Create(pixelFormat, unmanagedPtr, width, height, lineStride, level);
+			// Define texture
+			Create(ctx);
+		}
+
+		#endregion
+
+		/// <summary>
+		/// Technique defining a texture based on arrays.
+		/// </summary>
+		private class ArrayTechnique : Technique
+		{
+			/// <summary>
+			/// Construct a ArrayTechnique.
+			/// </summary>
+			/// <param name="texture">
+			/// The <see cref="Texture2d"/> affected by this Technique.
+			/// </param>
+			/// <param name="level">
+			/// The specific level of the target to define. Defaults to zero.
+			/// </param>
+			/// <param name="pixelFormat">
+			/// The texture pixel format.
+			/// </param>
+			/// <param name="array">
+			/// The <see cref="Array"/> that holds the texture data.
+			/// </param>
+			public ArrayTechnique(Texture2d texture, uint level, PixelLayout pixelFormat, Array array, uint width, uint height)
+			{
+				if (texture == null)
+					throw new ArgumentNullException(nameof(texture));
+				if (array == null)
+					throw new ArgumentNullException(nameof(array));
+				if (array.Rank > 1)
+					throw new ArgumentException("multi-dimensional array greater than 1", nameof(array));
+
+				_Texture = texture;
+				_Level = level;
+				_PixelFormat = pixelFormat;
+				_Array = array;
+				_Width = width;
+				_Height = height;
+			}
+
+			/// <summary>
+			/// The <see cref="Texture2d"/> affected by this Technique.
+			/// </summary>
+			protected readonly Texture2d _Texture;
+
+			/// <summary>
+			/// The specific level of the target to define. Defaults to zero.
+			/// </summary>
+			protected readonly uint _Level;
+
+			/// <summary>
+			/// The internal pixel format of textel.
+			/// </summary>
+			protected readonly PixelLayout _PixelFormat;
+
+			/// <summary>
+			/// The array that represents the texture data.
+			/// </summary>
+			protected readonly Array _Array;
+
+			/// <summary>
+			/// The width of the image specified by <see cref="_Array"/>, in pixels.
+			/// </summary>
+			protected readonly uint _Width;
+
+			/// <summary>
+			/// The height of the image specified by <see cref="_Array"/>, in pixels.
+			/// </summary>
+			protected readonly uint _Height;
+
+			/// <summary>
+			/// Create the texture, using this technique.
+			/// </summary>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> used for allocating resources.
+			/// </param>
+			public override void Create(GraphicsContext ctx)
+			{
+				InternalFormat internalFormat = _PixelFormat.ToInternalFormat();
+				PixelFormat format = _PixelFormat.ToDataFormat();
+				PixelType type = _PixelFormat.ToPixelType();
+
+				// Set pixel unpack
+				new State.PixelUnpackState(_PixelFormat, _Width * _PixelFormat.GetBytesCount()).Apply(ctx, null);
+				// Upload texture contents (defining storage)
+				Gl.TexImage2D(_Texture.TextureTarget, (int)_Level, internalFormat, (int)_Width, (int)_Height, 0, format, type, _Array);
+				// Define texture properties
+				_Texture.SetMipmap(_PixelFormat, _Width, _Height, 1, _Level);
+			}
+		}
+
+		#region Create(Array, width, height, pixelFormat)
+
+		/// <summary>
+		/// Create a Texture2d, defining the texture extents and the internal format.
+		/// </summary>
+		/// <param name="array">
+		/// The managed array holding the texture data.
+		/// </param>
+		/// <param name="width">
+		/// A <see cref="UInt32"/> that specify the texture width.
+		/// </param>
+		/// <param name="height">
+		/// A <see cref="UInt32"/> that specify the texture height.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="PixelLayout"/> determining the texture internal format.
+		/// </param>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="width"/> or <paramref name="height"/> is zero.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="format"/> equals to <see cref="PixelLayout.None"/>.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown if no context is current to the calling thread.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="width"/> or <paramref name="height"/> is greater than
+		/// the maximum allowed for 2D textures.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if NPOT texture are not supported by current context, and <paramref name="width"/> or <paramref name="height"/>
+		/// is not a power-of-two value.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="format"/> is not a supported internal format.
+		/// </exception>
+		public void Create(Array array, uint width, uint height, PixelLayout format)
+		{
+			SetTechnique(new ArrayTechnique(this, 0, format, array, width, height));
 		}
 
 		#endregion
@@ -637,13 +866,10 @@ namespace OpenGL.Objects
 			/// Construct a EmptyTechnique.
 			/// </summary>
 			/// <param name="texture">
-			/// The <see cref="Texture2D"/> affected by this Technique.
+			/// The <see cref="Texture2d"/> affected by this Technique.
 			/// </param>
 			/// <param name="target">
 			/// A <see cref="TextureTarget"/> that specify the texture target.
-			/// </param>
-			/// <param name="level">
-			/// The specific level of the target to define. Defaults to zero.
 			/// </param>
 			/// <param name="pixelFormat">
 			/// The texture pixel format.
@@ -651,7 +877,7 @@ namespace OpenGL.Objects
 			/// <param name="image">
 			/// The <see cref="Image"/> holding the texture data.
 			/// </param>
-			public ImageTechnique(Texture2D texture, TextureTarget target, PixelLayout pixelFormat, Image image) :
+			public ImageTechnique(Texture2d texture, TextureTarget target, PixelLayout pixelFormat, Image image) :
 				this(texture, target, 0, pixelFormat, image)
 			{
 
@@ -661,7 +887,7 @@ namespace OpenGL.Objects
 			/// Construct a EmptyTechnique.
 			/// </summary>
 			/// <param name="texture">
-			/// The <see cref="Texture2D"/> affected by this Technique.
+			/// The <see cref="Texture2d"/> affected by this Technique.
 			/// </param>
 			/// <param name="target">
 			/// A <see cref="TextureTarget"/> that specify the texture target.
@@ -675,8 +901,7 @@ namespace OpenGL.Objects
 			/// <param name="image">
 			/// The <see cref="Image"/> holding the texture data.
 			/// </param>
-			public ImageTechnique(Texture2D texture, TextureTarget target, uint level, PixelLayout pixelFormat, Image image) :
-				base(texture)
+			public ImageTechnique(Texture2d texture, TextureTarget target, uint level, PixelLayout pixelFormat, Image image)
 			{
 				if (image == null)
 					throw new ArgumentNullException("image");
@@ -689,34 +914,34 @@ namespace OpenGL.Objects
 				_Image.IncRef();		// Referenced
 			}
 
-			#endregion
+            #endregion
 
-			#region Technique Overrides
+            #region Technique Overrides
 
-			/// <summary>
-			/// The <see cref="Texture2D"/> affected by this Technique.
-			/// </summary>
-			private readonly Texture2D _Texture2d;
+            /// <summary>
+            /// The <see cref="Texture2d"/> affected by this Technique.
+            /// </summary>
+            protected readonly Texture2d _Texture2d;
 
-			/// <summary>
-			/// The texture target to use for creating the empty texture.
-			/// </summary>
-			private readonly TextureTarget _Target;
+            /// <summary>
+            /// The texture target to use for creating the empty texture.
+            /// </summary>
+            protected readonly TextureTarget _Target;
 
-			/// <summary>
-			/// The specific level of the target to define. Defaults to zero.
-			/// </summary>
-			public readonly uint _Level;
+            /// <summary>
+            /// The specific level of the target to define. Defaults to zero.
+            /// </summary>
+            protected readonly uint _Level;
 
 			/// <summary>
 			/// The internal pixel format of textel.
 			/// </summary>
-			private readonly PixelLayout _PixelFormat;
+			protected readonly PixelLayout _PixelFormat;
 
-			/// <summary>
-			/// The image that represents the texture data.
-			/// </summary>
-			private readonly Image _Image;
+            /// <summary>
+            /// The image that represents the texture data.
+            /// </summary>
+            protected readonly Image _Image;
 
 			/// <summary>
 			/// Create the texture, using this technique.
@@ -726,14 +951,16 @@ namespace OpenGL.Objects
 			/// </param>
 			public override void Create(GraphicsContext ctx)
 			{
+				InternalFormat internalFormat = _Image.PixelLayout.ToInternalFormat();
 				PixelFormat format = _Image.PixelLayout.ToDataFormat();
 				PixelType type = _Image.PixelLayout.ToPixelType();
 
-				// Set pixel alignment
-				State.PixelAlignmentState.Unpack(_Image.Stride).Apply(ctx, null);
-				
+				// Set pixel unpack
+				new State.PixelUnpackState(_PixelFormat, _Image.Stride).Apply(ctx, null);
 				// Upload texture contents
-				Gl.TexSubImage2D(_Target, (int)_Level, 0, 0, (int)_Image.Width, (int)_Image.Height, format, type, _Image.ImageBuffer);
+				Gl.TexImage2D(_Target, (int)_Level, internalFormat, (int)_Image.Width, (int)_Image.Height, 0, format, type, _Image.ImageBuffer);
+				// Update mipmap metadata
+				_Texture2d.SetMipmap(_Image.PixelLayout, _Image.Width, _Image.Height, 0, _Level);
 			}
 
 			/// <summary>
@@ -751,7 +978,7 @@ namespace OpenGL.Objects
 		#region Create(Image)
 
 		/// <summary>
-		/// Create Texture2D data from a Image instance.
+		/// Create Texture2d data from a Image instance.
 		/// </summary>
 		/// <param name="image">
 		/// An <see cref="Image"/> holding the texture data.
@@ -779,16 +1006,14 @@ namespace OpenGL.Objects
 		{
 			if (image == null)
 				throw new ArgumentNullException("image");
-			if (ImmutableFix)
-				throw new InvalidOperationException("immutable storage (see GL_ARB_texture_storage)");
 
 			// Define storage, the uploads image
 			Create(image.Width, image.Height, image.PixelLayout);
-			SetTechnique(new ImageTechnique(this, TextureTarget, image.PixelLayout, image));
+			Update(image, 0);
 		}
 
 		/// <summary>
-		/// Create Texture2D from a Image instance.
+		/// Create Texture2d from a Image instance.
 		/// </summary>
 		/// <param name="ctx">
 		/// A <see cref="GraphicsContext"/> used for creating this Texture. If it null, the current context
@@ -834,8 +1059,6 @@ namespace OpenGL.Objects
 		{
 			if (bitmap == null)
 				throw new ArgumentNullException("bitmap");
-			if (ImmutableFix)
-				throw new InvalidOperationException("immutable storage (see GL_ARB_texture_storage)");
 
 			// Create image from bitmap
 			Image image = CoreImagingImageCodecPlugin.LoadFromBitmap(bitmap, new ImageCodecCriteria());
@@ -857,10 +1080,10 @@ namespace OpenGL.Objects
 
 #endif
 
-		#region Create(Image, level)
+		#region Create(Image, Level)
 
 		/// <summary>
-		/// Create Texture2D data from a Image instance.
+		/// Create Texture2d data from a Image instance.
 		/// </summary>
 		/// <param name="image">
 		/// An <see cref="Image"/> holding the texture data.
@@ -891,8 +1114,6 @@ namespace OpenGL.Objects
 		{
 			if (image == null)
 				throw new ArgumentNullException("image");
-			if (ImmutableFix)
-				throw new InvalidOperationException("immutable storage (see GL_ARB_texture_storage)");
 
 			// Setup technique for creation
 			SetTechnique(new ImageTechnique(this, TextureTarget, level, image.PixelLayout, image));
@@ -918,8 +1139,6 @@ namespace OpenGL.Objects
 		{
 			if (path == null)
 				throw new ArgumentNullException("path");
-			if (ImmutableFix)
-				throw new InvalidOperationException("immutable storage (see GL_ARB_texture_storage)");
 
 			CancelLoadAsync();
 
@@ -968,6 +1187,255 @@ namespace OpenGL.Objects
 
 		#endregion
 
+		#region Update
+
+		/// <summary>
+		/// Technique updating a texture based on arrays.
+		/// </summary>
+		private class ArrayUpdateTechnique : ArrayTechnique
+		{
+			/// <summary>
+			/// Construct a ArrayTechnique.
+			/// </summary>
+			/// <param name="texture">
+			/// The <see cref="Texture2d"/> affected by this Technique.
+			/// </param>
+			/// <param name="level">
+			/// The specific level of the target to define. Defaults to zero.
+			/// </param>
+			/// <param name="pixelFormat">
+			/// The texture pixel format.
+			/// </param>
+			/// <param name="array">
+			/// The <see cref="Array"/> that holds the texture data.
+			/// </param>
+			public ArrayUpdateTechnique(Texture2d texture, uint level, PixelLayout pixelFormat, Array array, uint width, uint height, uint xOffset, uint yOffset) :
+				base(texture, level, pixelFormat, array, width, height)
+			{
+				_OffsetX = xOffset;
+				_OffsetY = yOffset;
+			}
+
+			/// <summary>
+			/// Specifies a texel offset in the x direction within the texture array.
+			/// </summary>
+			private readonly uint _OffsetX;
+
+			/// <summary>
+			/// Specifies a texel offset in the y direction within the texture array.
+			/// </summary>
+			private readonly uint _OffsetY;
+
+			/// <summary>
+			/// Create the texture, using this technique.
+			/// </summary>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> used for allocating resources.
+			/// </param>
+			public override void Create(GraphicsContext ctx)
+			{
+				PixelFormat format = _PixelFormat.ToDataFormat();
+				PixelType type = _PixelFormat.ToPixelType();
+
+				// Set pixel unpack
+				new State.PixelUnpackState(_PixelFormat, _Width * _PixelFormat.GetBytesCount()).Apply(ctx, null);
+				
+				// Upload texture contents (storage must be defined previously)
+				Gl.TexSubImage2D(_Texture.TextureTarget, (int) _Level, (int)_OffsetX, (int)_OffsetY, (int)_Width, (int)_Height, format, type, _Array);
+			}
+		}
+
+		#region Update(Array, width, height, pixelFormat, xOffset, yOffset)
+
+		/// <summary>
+		/// Update a Texture2d.
+		/// </summary>
+		/// <param name="array">
+		/// The managed array holding the texture data.
+		/// </param>
+		/// <param name="width">
+		/// A <see cref="UInt32"/> that specify the texture width.
+		/// </param>
+		/// <param name="height">
+		/// A <see cref="UInt32"/> that specify the texture height.
+		/// </param>
+		/// <param name="format">
+		/// A <see cref="PixelLayout"/> determining the texture internal format.
+		/// </param>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="width"/> or <paramref name="height"/> is zero.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="format"/> equals to <see cref="PixelLayout.None"/>.
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown if no context is current to the calling thread.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="width"/> or <paramref name="height"/> is greater than
+		/// the maximum allowed for 2D textures.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if NPOT texture are not supported by current context, and <paramref name="width"/> or <paramref name="height"/>
+		/// is not a power-of-two value.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="format"/> is not a supported internal format.
+		/// </exception>
+		public void Update(Array array, uint width, uint height, PixelLayout format, uint xOffset = 0, uint yOffset = 0)
+		{
+			SetTechnique(new ArrayUpdateTechnique(this, 0, format, array, width, height, xOffset, yOffset));
+		}
+
+		#endregion
+
+		/// <summary>
+		/// Technique updating a texture based on image.
+		/// </summary>
+		private class ImageUpdateTechnique : ImageTechnique
+		{
+			#region Constructors
+
+			/// <summary>
+			/// Construct a EmptyTechnique.
+			/// </summary>
+			/// <param name="texture">
+			/// The <see cref="Texture2d"/> affected by this Technique.
+			/// </param>
+			/// <param name="target">
+			/// A <see cref="TextureTarget"/> that specify the texture target.
+			/// </param>
+			/// <param name="level">
+			/// The specific level of the target to define. Defaults to zero.
+			/// </param>
+			/// <param name="pixelFormat">
+			/// The texture pixel format.
+			/// </param>
+			/// <param name="image">
+			/// The <see cref="Image"/> holding the texture data.
+			/// </param>
+			public ImageUpdateTechnique(Texture2d texture, TextureTarget target, PixelLayout pixelFormat, Image image) :
+				base(texture, target, 0, pixelFormat, image)
+			{
+
+            }
+
+            /// <summary>
+            /// Construct a EmptyTechnique.
+            /// </summary>
+            /// <param name="texture">
+            /// The <see cref="Texture2d"/> affected by this Technique.
+            /// </param>
+            /// <param name="target">
+            /// A <see cref="TextureTarget"/> that specify the texture target.
+            /// </param>
+            /// <param name="level">
+            /// The specific level of the target to define. Defaults to zero.
+            /// </param>
+            /// <param name="pixelFormat">
+            /// The texture pixel format.
+            /// </param>
+            /// <param name="image">
+            /// The <see cref="Image"/> holding the texture data.
+            /// </param>
+            public ImageUpdateTechnique(Texture2d texture, TextureTarget target, uint level, PixelLayout pixelFormat, Image image) :
+                base(texture, target, level, pixelFormat, image)
+            {
+                
+            }
+
+			#endregion
+
+			#region Technique Overrides
+
+			/// <summary>
+			/// Create the texture, using this technique.
+			/// </summary>
+			/// <param name="ctx">
+			/// A <see cref="GraphicsContext"/> used for allocating resources.
+			/// </param>
+			public override void Create(GraphicsContext ctx)
+			{
+				PixelFormat format = _Image.PixelLayout.ToDataFormat();
+				PixelType type = _Image.PixelLayout.ToPixelType();
+
+				// Set pixel unpack
+				new State.PixelUnpackState(_PixelFormat, _Image.Stride).Apply(ctx, null);
+				// Upload texture contents
+				Gl.TexSubImage2D(_Target, (int)_Level, 0, 0, (int)_Image.Width, (int)_Image.Height, format, type, _Image.ImageBuffer);
+
+				// Remarks: do not update mipmap metadata: already defined
+			}
+
+			/// <summary>
+			/// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+			/// </summary>
+			public override void Dispose()
+			{
+				if (_Image != null)
+					_Image.DecRef();
+			}
+
+			#endregion
+		}
+
+		#region Update(Image)
+
+		/// <summary>
+		/// Update a Texture2d.
+		/// </summary>
+		/// <param name="image">
+		/// An <see cref="Image"/> holding the texture data.
+		/// </param>
+		/// <param name="level">
+		/// A <see cref="UInt32"/> that specify the texture level to create/update.
+		/// </param>
+		/// <exception cref="ArgumentNullException">
+		/// Exception throw if <paramref name="image"/> is null.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="image"/> pixel data is not allocated (i.e. image not defined).
+		/// </exception>
+		/// <exception cref="InvalidOperationException">
+		/// Exception thrown if no context is current to the calling thread.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="image"/> width or height are greater than the maximum allowed for 2D textures.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if NPOT texture are not supported by current context, and <paramref name="image"/> width or height are
+		/// not a power-of-two value.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="image"/> format (<see cref="Image.PixelFormat"/> is not a supported internal format.
+		/// </exception>
+		public void Update(Image image, uint level)
+		{
+			SetTechnique(new ImageUpdateTechnique(this, TextureTarget, level, image.PixelLayout, image));
+		}
+
+		#endregion
+
+		#region Update(PixelLayout pixelFormat, IntPtr unmanagedPtr, uint width, uint height, uint lineStride, uint level)
+
+		public void Update(PixelLayout pixelFormat, IntPtr unmanagedPtr, uint width, uint height, uint lineStride, uint level = 0)
+		{
+			// Update texture
+			SetTechnique(new UnmanagedTechnique(this, TextureTarget, level, pixelFormat, unmanagedPtr, width, height, lineStride));
+		}
+
+		public void Update(GraphicsContext ctx, PixelLayout pixelFormat, IntPtr unmanagedPtr, uint width, uint height, uint lineStride, uint level = 0)
+		{
+			// Update texture
+			Update(pixelFormat, unmanagedPtr, width, height, lineStride, level);
+			// Force update
+			Create(ctx);
+		}
+
+		#endregion
+
+		#endregion
+
 #if !MONODROID
 
 		#region Texture Download
@@ -1009,7 +1477,7 @@ namespace OpenGL.Objects
 
 				baseSize.z = 1;
 
-				return baseSize;
+				return (baseSize);
 			}
 		}
 
@@ -1020,7 +1488,7 @@ namespace OpenGL.Objects
 		/// In the case a this Texture is defined by multiple targets (i.e. cube map textures), this property
 		/// shall returns always 0.
 		/// </remarks>
-		public override TextureTarget TextureTarget { get { return TextureTarget.Texture2d; } }
+		public override TextureTarget TextureTarget { get { return (TextureTarget.Texture2d); } }
 
 		/// <summary>
 		/// Uniform sampler type for managing this texture.

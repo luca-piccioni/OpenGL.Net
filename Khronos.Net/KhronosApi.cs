@@ -19,13 +19,12 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-// Preprocessor symbol for enabling function logging output
-#undef DEBUG_VERBOSE
-
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -53,7 +52,7 @@ namespace Khronos
 	/// </remarks>
 	public class KhronosApi
 	{
-		#region string Encoding
+		#region String Encoding
 
 		/// <summary>
 		/// Copies all characters up to the first null character from an
@@ -645,7 +644,7 @@ namespace Khronos
 		/// <summary>
 		/// Base class for managing OpenGL extensions.
 		/// </summary>
-		public abstract class ExtensionsCollection
+		public abstract class ExtensionsCollection : IEnumerable<KeyValuePair<string, bool>>
 		{
 			/// <summary>
 			/// Check whether the specified extension is supported by current platform.
@@ -738,9 +737,9 @@ namespace Khronos
 #if NETSTANDARD1_1 || NETSTANDARD1_4 || NETCORE
 				IEnumerable<FieldInfo> thisTypeFields = thisType.GetTypeInfo().DeclaredFields;
 #else
+				// Extensions boolean fields
 				IEnumerable<FieldInfo> thisTypeFields = thisType.GetFields(BindingFlags.Instance | BindingFlags.Public);
 #endif
-
 				foreach (FieldInfo fieldInfo in thisTypeFields) {
 					// Check boolean field (defensive)
 					// Debug.Assert(fieldInfo.FieldType == typeof(bool));
@@ -791,15 +790,51 @@ namespace Khronos
 			/// Registry of supported extensions.
 			/// </summary>
 			private readonly Dictionary<string, bool> _ExtensionsRegistry = new Dictionary<string, bool>();
+
+			#region IEnumerable
+
+			/// <summary>
+			/// Returns an enumerator that iterates through the extension registry.
+			/// </summary>
+			public IEnumerator<KeyValuePair<string, bool>> GetEnumerator()
+			{
+				return _ExtensionsRegistry.GetEnumerator();
+			}
+
+			/// <summary>
+			/// Returns a non-generic enumerator.
+			/// </summary>
+			IEnumerator IEnumerable.GetEnumerator()
+			{
+				return GetEnumerator();
+			}
+
+			#endregion
 		}
 
 		#endregion
 
 		#region Command Checking
 
+		protected static void ValidateExtensionCommands<T>(KhronosVersion version, ExtensionsCollection extensions)
+		{
+			if (version == null)
+				throw new ArgumentNullException(nameof(version));
+			if (extensions == null)
+				throw new ArgumentNullException(nameof(extensions));
+
+			FunctionContext functionContext = GetFunctionContext(typeof(T));
+			Debug.Assert(functionContext != null);
+
+			LogComment($"Validate commands for {version}");
+
+			foreach (FieldInfo fi in functionContext.Delegates) {
+
+			}
+		}
+
 		/// <summary>
-		/// Check whether commands implemented by the current driver have a corresponding extension declaring the
-		/// support of them.
+		/// Check whether commands implemented by the current driver have a corresponding extension declaring the support of them.
 		/// </summary>
 		/// <typeparam name="T">
 		/// The type of the KhronosApi to inspect for commands.
@@ -810,6 +845,13 @@ namespace Khronos
 		/// <param name="extensions">
 		/// The <see cref="ExtensionsCollection"/> that specifies the extensions supported by the driver.
 		/// </param>
+		/// <remarks>
+		/// - Validate that all API commands (functions) expected for a given version and extension set are actually available (i.e., implemented as delegates).
+		/// - Finds commands that are defined but not officially supported.
+		/// - Log mismatches between expected and defined commands.
+		/// - Optionally enable extensions dynamically if their commands are defined but not officially advertised.
+		/// - Warn about partial or experimental supportb(commands present but extensions not advertised).
+		/// </remarks>
 		protected static void CheckExtensionCommands<T>(KhronosVersion version, ExtensionsCollection extensions, bool enableExtensions) where T : KhronosApi
 		{
 			if (version == null)
@@ -817,13 +859,15 @@ namespace Khronos
 			if (extensions == null)
 				throw new ArgumentNullException(nameof(extensions));
 
-#if NETSTANDARD1_1 || NETSTANDARD1_4 || NETCORE
-			throw new NotImplementedException();
-#else
+			Type khronosApiType = typeof(T);
+			string khronosApiName = khronosApiType.Name.ToLower();
 			FunctionContext functionContext = GetFunctionContext(typeof(T));
 			Debug.Assert(functionContext != null);
 
 			LogComment($"Checking commands for {version}");
+
+			// Missing methods indexed by supported features
+			Dictionary<string, List<string>> missingMethods = new Dictionary<string, List<string>>();
 
 			Dictionary<string, List<Type>> hiddenVersions = new Dictionary<string, List<Type>>();
 			Dictionary<string, bool> hiddenExtensions = new Dictionary<string, bool>();
@@ -831,23 +875,40 @@ namespace Khronos
 			foreach (FieldInfo fi in functionContext.Delegates) {
 				Delegate fiDelegateType = (Delegate)fi.GetValue(null);
 				bool commandDefined = fiDelegateType != null;
+				string commandName = fi.Name.Substring(1);
 				bool supportedByFeature = false;
 
-#if DEBUG_VERBOSE
-				string commandName = fi.Name.Substring(3);
-#endif
 				// Get the delegate type
 				Type delegateType = fi.DeclaringType?.GetNestedType(fi.Name.Substring(1), BindingFlags.Public | BindingFlags.NonPublic);
 				if (delegateType == null)
 					continue;		// Support fields names not in sync with delegate types
-				// TODO Why not use 'fi' directly for getting attributes? They should be in sync
-				IEnumerable<object> requiredByFeatureAttributes = delegateType.GetCustomAttributes(typeof(RequiredByFeatureAttribute), false);
-	
+				
+				// Check for support coherence
+				IEnumerable<RequiredByFeatureAttribute> requiredByFeatureAttributes = fi.GetCustomAttributes(typeof(RequiredByFeatureAttribute), false).OfType<RequiredByFeatureAttribute>();
 				foreach (RequiredByFeatureAttribute requiredByFeatureAttribute in requiredByFeatureAttributes)
 					supportedByFeature |= requiredByFeatureAttribute.IsSupported(version, extensions);
 
-				// Find the underlying extension
-				RequiredByFeatureAttribute hiddenVersionAttrib = null;
+				// As expected:
+				// - command defined and advertized/supported by implementation
+				// - command not defined and not advertized/supported by implementation
+				if (commandDefined == supportedByFeature)
+					continue;
+
+				if (!commandDefined) {
+					List<RequiredByFeatureAttribute> requiredBy = requiredByFeatureAttributes.Where(attr => attr.IsSupported(version, extensions)).ToList();
+
+					LogComment($"- The command {commandName} is not defined, but required by:");
+					foreach (RequiredByFeatureAttribute requiredAttrib in requiredBy)
+						LogComment($"  - {requiredAttrib.FeatureName} as {requiredAttrib.EntryPoint ?? commandName}");
+
+				} else {
+
+				}
+
+				continue;
+
+					// Find the underlying extension
+					RequiredByFeatureAttribute hiddenVersionAttrib = null;
 				RequiredByFeatureAttribute hiddenExtensionAttrib = null;
 
 				foreach (RequiredByFeatureAttribute requiredByFeatureAttribute in requiredByFeatureAttributes) {
@@ -863,7 +924,6 @@ namespace Khronos
 				}
 
 				if (commandDefined != supportedByFeature) {
-#if DEBUG_VERBOSE
 					string supportString = "any feature";
 
 					if (hiddenVersionAttrib != null) {
@@ -877,12 +937,9 @@ namespace Khronos
 							supportString = string.Empty;
 						supportString += hiddenExtensionAttrib.FeatureName;
 					}
-#endif
 
 					if (commandDefined) {
-#if DEBUG_VERBOSE
-						LogComment("The command {0} is defined, but {1} support is not advertised.", commandName, supportString);
-#endif
+						LogComment($"The command {commandName} is defined, but {supportString} support is not advertised.");
 						if (hiddenVersionAttrib != null && hiddenExtensionAttrib == null) {
 							List<Type> versionDelegates;
 
@@ -897,9 +954,7 @@ namespace Khronos
 								hiddenExtensions.Add(hiddenExtensionAttrib.FeatureName, true);
 						}
 					} else {
-#if DEBUG_VERBOSE
-						LogComment("The command {0} is not defined, but required by some feature.", commandName);
-#endif
+						LogComment($"The command {commandName} is not defined, but required by some feature.");
 					}
 				}
 
@@ -937,7 +992,6 @@ namespace Khronos
 				if (sync)
 					extensions.SyncMembers(version);
 			}
-#endif
 		}
 
 		#endregion

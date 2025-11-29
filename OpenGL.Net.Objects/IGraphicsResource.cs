@@ -141,6 +141,11 @@ namespace OpenGL.Objects
 		#region Resource Management
 
 		/// <summary>
+		/// Determine whether this IGraphicsResource is effectively shareable between sharing <see cref="GraphicsContext"/> instances.
+		/// </summary>
+		bool IsShareable { get; }
+
+		/// <summary>
 		/// Create this IGraphicsResource.
 		/// </summary>
 		/// <param name="ctx">

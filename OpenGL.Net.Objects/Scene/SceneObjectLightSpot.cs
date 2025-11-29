@@ -144,7 +144,7 @@ namespace OpenGL.Objects.Scene
 		/// <summary>
 		/// Shadow map.
 		/// </summary>
-		internal Texture2D _ShadowMap;
+		internal Texture2d _ShadowMap;
 
 		/// <summary>
 		/// Shadow program.
@@ -179,13 +179,7 @@ namespace OpenGL.Objects.Scene
 
 			#region Program
 
-			string programId = resourceClassId + ".Program";
-
-			if ((_BoundingVolumeProgram = (ShaderProgram)ctx.GetSharedResource(programId)) == null) {
-				_BoundingVolumeProgram = ctx.CreateProgram("OpenGL.Standard");
-				ctx.SetSharedResource(programId, _BoundingVolumeProgram);
-			}
-			LinkResource(_BoundingVolumeArrays);
+			LinkResource(_BoundingVolumeProgram = ctx.CreateProgram("OpenGL.Standard"));
 
 			#endregion
 		}
@@ -215,13 +209,14 @@ namespace OpenGL.Objects.Scene
 				float lightVolumeDepth = 100.0f;
 				float lightVolumeSize = lightVolumeDepth * (float)Math.Tan(Angle.ToRadians(FalloffAngle));
 
-				boundingVolumeModel.ModelViewProjection =
-					(boundingVolumeModel.ModelViewProjection * LightMatrix) *
-					Matrix4x4f.Translated(0.0f, 0.0f, lightVolumeDepth) *
-					Matrix4x4f.Scaled(lightVolumeSize, lightVolumeSize, lightVolumeDepth);
+				// XXX
+				//boundingVolumeModel.ModelViewProjection =
+				//	(boundingVolumeModel.ModelViewProjection * LightMatrix) *
+				//	Matrix4x4f.Translated(0.0f, 0.0f, lightVolumeDepth) *
+				//	Matrix4x4f.Scaled(lightVolumeSize, lightVolumeSize, lightVolumeDepth);
 
 				// Uniform color
-				ShaderUniformState uniformState = new ShaderUniformState("UniformState");
+				ShaderUniformState uniformState = new ShaderUniformState();
 				uniformState.SetUniformState("glo_UniformColor", new ColorRGBAF(1.0f, 1.0f, 0.0f, 0.5f));
 				boundingVolumeState.DefineState(uniformState);
 				// Alpha blending
@@ -288,7 +283,7 @@ namespace OpenGL.Objects.Scene
 				// Eventually clamp shadow map size to the current implementation limit
 				_ShadowMapSize = (uint)Math.Min(Gl.CurrentLimits.MaxTextureSize, _ShadowMapSize);
 
-				LinkResource(_ShadowMap = new Texture2D(_ShadowMapSize, _ShadowMapSize, ShadowMapFormat));
+				LinkResource(_ShadowMap = new Texture2d(_ShadowMapSize, _ShadowMapSize, ShadowMapFormat));
 				_ShadowMap.SamplerParams.MinFilter = TextureMinFilter.Nearest;
 				_ShadowMap.SamplerParams.MagFilter = TextureMagFilter.Nearest;
 #if !MONODROID

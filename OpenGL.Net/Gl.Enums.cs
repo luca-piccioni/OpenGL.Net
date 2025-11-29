@@ -3401,6 +3401,16 @@ namespace OpenGL
 		UnsignedByte = Gl.UNSIGNED_BYTE,
 
 		/// <summary>
+		/// Strongly typed for value GL_SHORT.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_EXT_render_snorm", Api = "gles2")]
+		Short = Gl.SHORT,
+
+		/// <summary>
 		/// Strongly typed for value GL_UNSIGNED_SHORT.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -3412,6 +3422,14 @@ namespace OpenGL
 		UnsignedShort = Gl.UNSIGNED_SHORT,
 
 		/// <summary>
+		/// Strongly typed for value GL_INT.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		Int = Gl.INT,
+
+		/// <summary>
 		/// Strongly typed for value GL_UNSIGNED_INT.
 		/// </summary>
 		[RequiredByFeature("GL_VERSION_1_0")]
@@ -3421,6 +3439,25 @@ namespace OpenGL
 		[RequiredByFeature("GL_OES_depth_texture", Api = "gles2")]
 		[RequiredByFeature("GL_OES_element_index_uint", Api = "gles1|gles2")]
 		UnsignedInt = Gl.UNSIGNED_INT,
+
+		/// <summary>
+		/// Strongly typed for value GL_FLOAT.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_0")]
+		[RequiredByFeature("GL_VERSION_ES_CM_1_0", Api = "gles1")]
+		[RequiredByFeature("GL_ES_VERSION_2_0", Api = "gles2")]
+		[RequiredByFeature("GL_SC_VERSION_2_0", Api = "glsc2")]
+		[RequiredByFeature("GL_ARB_vertex_shader")]
+		[RequiredByFeature("GL_OES_texture_float", Api = "gles2")]
+		Float = Gl.FLOAT,
+
+		/// <summary>
+		/// Strongly typed for value GL_DOUBLE.
+		/// </summary>
+		[RequiredByFeature("GL_VERSION_1_1")]
+		[RequiredByFeature("GL_ARB_gpu_shader_fp64", Api = "gl|glcore")]
+		[RequiredByFeature("GL_EXT_vertex_attrib_64bit")]
+		Double = Gl.DOUBLE,
 
 	}
 
@@ -23110,6 +23147,18 @@ namespace OpenGL
 		[RequiredByFeature("GL_EXT_transform_feedback")]
 		[RequiredByFeature("GL_NV_transform_feedback")]
 		TransformFeedbackBufferMode = Gl.TRANSFORM_FEEDBACK_BUFFER_MODE,
+
+		/// <summary>
+		/// Strongly typed for value GL_ACTIVE_VARYINGS_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_transform_feedback")]
+		ActiveVaryingsNv = Gl.ACTIVE_VARYINGS_NV,
+
+		/// <summary>
+		/// Strongly typed for value GL_ACTIVE_VARYING_MAX_LENGTH_NV.
+		/// </summary>
+		[RequiredByFeature("GL_NV_transform_feedback")]
+		ActiveVaryingMaxLengthNv = Gl.ACTIVE_VARYING_MAX_LENGTH_NV,
 
 		/// <summary>
 		/// Strongly typed for value GL_TRANSFORM_FEEDBACK_VARYINGS.

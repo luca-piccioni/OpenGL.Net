@@ -236,6 +236,8 @@ namespace BindingsGen
 				glRegistryProcessor.GenerateLogMap(ctx, Path.Combine(BasePath, "OpenGL.Net/KhronosLogMapEgl.xml"));
 			}
 
+#if SUPPORT_OPENWF
+
 			// OpenWF
 
 			OutputBasePath = "OpenWF.Net";
@@ -279,6 +281,10 @@ namespace BindingsGen
 				glRegistryProcessor.GenerateVbCommands(ctx);
 			}
 
+#endif
+
+#if SUPPORT_OPENVX
+
 			// OpenVX
 
 			OutputBasePath = "OpenVX.Net";
@@ -320,6 +326,8 @@ namespace BindingsGen
 				glRegistryProcessor = new RegistryProcessor(ctx.Registry, "OpenVX");
 				glRegistryProcessor.GenerateCommandsAndEnums(ctx);
 			}
+
+#endif
 		}
 
 		public static bool DocDisabled;

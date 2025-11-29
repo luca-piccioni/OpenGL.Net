@@ -1,4 +1,11 @@
 ﻿
+
+
+
+
+
+
+
 // Copyright (C) 2009-2017 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,6 +36,7 @@ using System.Numerics;
 
 namespace OpenGL
 {
+
 	/// <summary>
 	/// Vertex value type (byte coordinates).
 	/// </summary>
@@ -124,6 +132,7 @@ namespace OpenGL
 
 		#region Arithmetic Operators
 
+
 		/// <summary>
 		/// Add operator.
 		/// </summary>
@@ -175,6 +184,7 @@ namespace OpenGL
 			return new Vertex4ub((byte)(v1.x * scalar), (byte)(v1.y * scalar), (byte)(v1.z * scalar), v1.w);
 		}
 
+
 		/// <summary>
 		/// Scalar multiply operator.
 		/// </summary>
@@ -191,6 +201,7 @@ namespace OpenGL
 		{
 			return new Vertex4ub((byte)(v1.x * scalar), (byte)(v1.y * scalar), (byte)(v1.z * scalar), v1.w);
 		}
+
 
 		/// <summary>
 		/// Scalar divide operator.
@@ -209,6 +220,7 @@ namespace OpenGL
 			return new Vertex4ub((byte)(v1.x / scalar), (byte)(v1.y / scalar), (byte)(v1.z / scalar), v1.w);
 		}
 
+
 		/// <summary>
 		/// Scalar multiply operator.
 		/// </summary>
@@ -225,6 +237,7 @@ namespace OpenGL
 		{
 			return new Vertex4ub((byte)(v1.x / scalar), (byte)(v1.y / scalar), (byte)(v1.z / scalar), v1.w);
 		}
+
 
 		#endregion
 
@@ -270,6 +283,7 @@ namespace OpenGL
 			return new[] { a.x, a.y, a.z, a.w };
 		}
 
+
 		/// <summary>
 		/// Cast to Vertex3ub operator.
 		/// </summary>
@@ -283,6 +297,7 @@ namespace OpenGL
 		{
 			return new Vertex3ub((byte)((float)v.x / v.w), (byte)((float)v.y / v.w), (byte)((float)v.z / v.w));
 		}
+
 
 		/// <summary>
 		/// Cast to Vertex2f operator.
@@ -299,6 +314,7 @@ namespace OpenGL
 
 			return new Vertex2f((float)v3.x, (float)v3.y);
 		}
+
 
 		/// <summary>
 		/// Cast to Vertex3f operator.
@@ -330,6 +346,7 @@ namespace OpenGL
 			return new Vertex4f((float)v.x, (float)v.y, (float)v.z, (float)v.w);
 		}
 
+
 		/// <summary>
 		/// Cast to Vertex3d operator.
 		/// </summary>
@@ -359,6 +376,7 @@ namespace OpenGL
 		{
 			return new Vertex4d(v.x, v.y, v.z, v.w);
 		}
+
 
 		#endregion
 
@@ -427,6 +445,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 
+
 			byte x = (byte)byte.MaxValue, y = (byte)byte.MaxValue, z = (byte)byte.MaxValue;
 
 			for (int i = 0; i < v.Length; i++) {
@@ -437,6 +456,7 @@ namespace OpenGL
 			}
 
 			return (new Vertex4ub(x, y, z));
+
 		}
 
 		/// <summary>
@@ -456,6 +476,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 
+
 			byte x = (byte)byte.MaxValue, y = (byte)byte.MaxValue, z = (byte)byte.MaxValue;
 
 			for (uint i = 0; i < count; i++) {
@@ -466,6 +487,7 @@ namespace OpenGL
 			}
 
 			return new Vertex4ub(x, y, z);
+
 		}
 
 		/// <summary>
@@ -482,6 +504,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 			
+
 			byte x = (byte)byte.MinValue, y = (byte)byte.MinValue, z = (byte)byte.MinValue;
 
 			for (int i = 0; i < v.Length; i++) {
@@ -492,6 +515,7 @@ namespace OpenGL
 			}
 
 			return (new Vertex4ub(x, y, z));
+
 		}
 
 		/// <summary>
@@ -511,6 +535,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 			
+
 			byte x = (byte)byte.MinValue, y = (byte)byte.MinValue, z = (byte)byte.MinValue;
 
 			for (uint i = 0; i < count; i++) {
@@ -521,6 +546,7 @@ namespace OpenGL
 			}
 
 			return (new Vertex4ub(x, y, z));
+
 		}
 
 		/// <summary>
@@ -540,6 +566,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 			
+
 			byte minx = (byte)byte.MaxValue, miny = (byte)byte.MaxValue, minz = (byte)byte.MaxValue;
 			byte maxx = (byte)byte.MinValue, maxy = (byte)byte.MinValue, maxz = (byte)byte.MinValue;
 
@@ -551,6 +578,7 @@ namespace OpenGL
 
 			min = new Vertex4ub(minx, miny, minz);
 			max = new Vertex4ub(maxx, maxy, maxz);
+
 		}
 
 		/// <summary>
@@ -573,6 +601,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 			
+
 			byte minx = (byte)byte.MaxValue, miny = (byte)byte.MaxValue, minz = (byte)byte.MaxValue;
 			byte maxx = (byte)byte.MinValue, maxy = (byte)byte.MinValue, maxz = (byte)byte.MinValue;
 
@@ -584,10 +613,12 @@ namespace OpenGL
 
 			min = new Vertex4ub(minx, miny, minz);
 			max = new Vertex4ub(maxx, maxy, maxz);
+
 		}
 
 		#endregion
 		
+
 		#region Notable Vertex
 
 		/// <summary>
@@ -615,6 +646,7 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex4ub UnitZ = new Vertex4ub(0, 0, 1, 1);
 
+
 		/// <summary>
 		/// Vertex with lowest values.
 		/// </summary>
@@ -625,7 +657,9 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex4ub Maximum = new Vertex4ub(byte.MaxValue);
 
+
 		#endregion
+
 
 		#region IEquatable Implementation
 
@@ -733,6 +767,7 @@ namespace OpenGL
 
 		#region Object Overrides
 
+
 		/// <summary>
 		/// Stringify this Vertex4ub.
 		/// </summary>
@@ -744,8 +779,10 @@ namespace OpenGL
 			return (String.Format("|{0}, {1}, {2}, {3}|", x, y, z, w));
 		}
 
+
 		#endregion
 	}
+
 
 	/// <summary>
 	/// Vertex value type (sbyte coordinates).
@@ -842,6 +879,7 @@ namespace OpenGL
 
 		#region Arithmetic Operators
 
+
 		/// <summary>
 		/// Negate operator.
 		/// </summary>
@@ -855,6 +893,7 @@ namespace OpenGL
 		{
 			return new Vertex4b((sbyte)(-v.x), (sbyte)(-v.y), (sbyte)(-v.z), (sbyte)(-v.w));
 		}
+
 
 		/// <summary>
 		/// Add operator.
@@ -907,6 +946,7 @@ namespace OpenGL
 			return new Vertex4b((sbyte)(v1.x * scalar), (sbyte)(v1.y * scalar), (sbyte)(v1.z * scalar), v1.w);
 		}
 
+
 		/// <summary>
 		/// Scalar multiply operator.
 		/// </summary>
@@ -923,6 +963,7 @@ namespace OpenGL
 		{
 			return new Vertex4b((sbyte)(v1.x * scalar), (sbyte)(v1.y * scalar), (sbyte)(v1.z * scalar), v1.w);
 		}
+
 
 		/// <summary>
 		/// Scalar divide operator.
@@ -941,6 +982,7 @@ namespace OpenGL
 			return new Vertex4b((sbyte)(v1.x / scalar), (sbyte)(v1.y / scalar), (sbyte)(v1.z / scalar), v1.w);
 		}
 
+
 		/// <summary>
 		/// Scalar multiply operator.
 		/// </summary>
@@ -957,6 +999,7 @@ namespace OpenGL
 		{
 			return new Vertex4b((sbyte)(v1.x / scalar), (sbyte)(v1.y / scalar), (sbyte)(v1.z / scalar), v1.w);
 		}
+
 
 		#endregion
 
@@ -1002,6 +1045,7 @@ namespace OpenGL
 			return new[] { a.x, a.y, a.z, a.w };
 		}
 
+
 		/// <summary>
 		/// Cast to Vertex3b operator.
 		/// </summary>
@@ -1015,6 +1059,7 @@ namespace OpenGL
 		{
 			return new Vertex3b((sbyte)((float)v.x / v.w), (sbyte)((float)v.y / v.w), (sbyte)((float)v.z / v.w));
 		}
+
 
 		/// <summary>
 		/// Cast to Vertex2f operator.
@@ -1031,6 +1076,7 @@ namespace OpenGL
 
 			return new Vertex2f((float)v3.x, (float)v3.y);
 		}
+
 
 		/// <summary>
 		/// Cast to Vertex3f operator.
@@ -1062,6 +1108,7 @@ namespace OpenGL
 			return new Vertex4f((float)v.x, (float)v.y, (float)v.z, (float)v.w);
 		}
 
+
 		/// <summary>
 		/// Cast to Vertex3d operator.
 		/// </summary>
@@ -1091,6 +1138,7 @@ namespace OpenGL
 		{
 			return new Vertex4d(v.x, v.y, v.z, v.w);
 		}
+
 
 		#endregion
 
@@ -1159,6 +1207,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 
+
 			sbyte x = (sbyte)sbyte.MaxValue, y = (sbyte)sbyte.MaxValue, z = (sbyte)sbyte.MaxValue;
 
 			for (int i = 0; i < v.Length; i++) {
@@ -1169,6 +1218,7 @@ namespace OpenGL
 			}
 
 			return (new Vertex4b(x, y, z));
+
 		}
 
 		/// <summary>
@@ -1188,6 +1238,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 
+
 			sbyte x = (sbyte)sbyte.MaxValue, y = (sbyte)sbyte.MaxValue, z = (sbyte)sbyte.MaxValue;
 
 			for (uint i = 0; i < count; i++) {
@@ -1198,6 +1249,7 @@ namespace OpenGL
 			}
 
 			return new Vertex4b(x, y, z);
+
 		}
 
 		/// <summary>
@@ -1214,6 +1266,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 			
+
 			sbyte x = (sbyte)sbyte.MinValue, y = (sbyte)sbyte.MinValue, z = (sbyte)sbyte.MinValue;
 
 			for (int i = 0; i < v.Length; i++) {
@@ -1224,6 +1277,7 @@ namespace OpenGL
 			}
 
 			return (new Vertex4b(x, y, z));
+
 		}
 
 		/// <summary>
@@ -1243,6 +1297,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 			
+
 			sbyte x = (sbyte)sbyte.MinValue, y = (sbyte)sbyte.MinValue, z = (sbyte)sbyte.MinValue;
 
 			for (uint i = 0; i < count; i++) {
@@ -1253,6 +1308,7 @@ namespace OpenGL
 			}
 
 			return (new Vertex4b(x, y, z));
+
 		}
 
 		/// <summary>
@@ -1272,6 +1328,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 			
+
 			sbyte minx = (sbyte)sbyte.MaxValue, miny = (sbyte)sbyte.MaxValue, minz = (sbyte)sbyte.MaxValue;
 			sbyte maxx = (sbyte)sbyte.MinValue, maxy = (sbyte)sbyte.MinValue, maxz = (sbyte)sbyte.MinValue;
 
@@ -1283,6 +1340,7 @@ namespace OpenGL
 
 			min = new Vertex4b(minx, miny, minz);
 			max = new Vertex4b(maxx, maxy, maxz);
+
 		}
 
 		/// <summary>
@@ -1305,6 +1363,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 			
+
 			sbyte minx = (sbyte)sbyte.MaxValue, miny = (sbyte)sbyte.MaxValue, minz = (sbyte)sbyte.MaxValue;
 			sbyte maxx = (sbyte)sbyte.MinValue, maxy = (sbyte)sbyte.MinValue, maxz = (sbyte)sbyte.MinValue;
 
@@ -1316,10 +1375,12 @@ namespace OpenGL
 
 			min = new Vertex4b(minx, miny, minz);
 			max = new Vertex4b(maxx, maxy, maxz);
+
 		}
 
 		#endregion
 		
+
 		#region Notable Vertex
 
 		/// <summary>
@@ -1347,6 +1408,7 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex4b UnitZ = new Vertex4b(0, 0, 1, 1);
 
+
 		/// <summary>
 		/// Vertex with lowest values.
 		/// </summary>
@@ -1357,7 +1419,9 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex4b Maximum = new Vertex4b(sbyte.MaxValue);
 
+
 		#endregion
+
 
 		#region IEquatable Implementation
 
@@ -1465,6 +1529,7 @@ namespace OpenGL
 
 		#region Object Overrides
 
+
 		/// <summary>
 		/// Stringify this Vertex4b.
 		/// </summary>
@@ -1476,8 +1541,10 @@ namespace OpenGL
 			return (String.Format("|{0}, {1}, {2}, {3}|", x, y, z, w));
 		}
 
+
 		#endregion
 	}
+
 
 	/// <summary>
 	/// Vertex value type (ushort coordinates).
@@ -1574,6 +1641,7 @@ namespace OpenGL
 
 		#region Arithmetic Operators
 
+
 		/// <summary>
 		/// Add operator.
 		/// </summary>
@@ -1625,6 +1693,7 @@ namespace OpenGL
 			return new Vertex4us((ushort)(v1.x * scalar), (ushort)(v1.y * scalar), (ushort)(v1.z * scalar), v1.w);
 		}
 
+
 		/// <summary>
 		/// Scalar multiply operator.
 		/// </summary>
@@ -1641,6 +1710,7 @@ namespace OpenGL
 		{
 			return new Vertex4us((ushort)(v1.x * scalar), (ushort)(v1.y * scalar), (ushort)(v1.z * scalar), v1.w);
 		}
+
 
 		/// <summary>
 		/// Scalar divide operator.
@@ -1659,6 +1729,7 @@ namespace OpenGL
 			return new Vertex4us((ushort)(v1.x / scalar), (ushort)(v1.y / scalar), (ushort)(v1.z / scalar), v1.w);
 		}
 
+
 		/// <summary>
 		/// Scalar multiply operator.
 		/// </summary>
@@ -1675,6 +1746,7 @@ namespace OpenGL
 		{
 			return new Vertex4us((ushort)(v1.x / scalar), (ushort)(v1.y / scalar), (ushort)(v1.z / scalar), v1.w);
 		}
+
 
 		#endregion
 
@@ -1720,6 +1792,7 @@ namespace OpenGL
 			return new[] { a.x, a.y, a.z, a.w };
 		}
 
+
 		/// <summary>
 		/// Cast to Vertex3us operator.
 		/// </summary>
@@ -1733,6 +1806,7 @@ namespace OpenGL
 		{
 			return new Vertex3us((ushort)((float)v.x / v.w), (ushort)((float)v.y / v.w), (ushort)((float)v.z / v.w));
 		}
+
 
 		/// <summary>
 		/// Cast to Vertex2f operator.
@@ -1749,6 +1823,7 @@ namespace OpenGL
 
 			return new Vertex2f((float)v3.x, (float)v3.y);
 		}
+
 
 		/// <summary>
 		/// Cast to Vertex3f operator.
@@ -1780,6 +1855,7 @@ namespace OpenGL
 			return new Vertex4f((float)v.x, (float)v.y, (float)v.z, (float)v.w);
 		}
 
+
 		/// <summary>
 		/// Cast to Vertex3d operator.
 		/// </summary>
@@ -1809,6 +1885,7 @@ namespace OpenGL
 		{
 			return new Vertex4d(v.x, v.y, v.z, v.w);
 		}
+
 
 		#endregion
 
@@ -1877,6 +1954,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 
+
 			ushort x = (ushort)ushort.MaxValue, y = (ushort)ushort.MaxValue, z = (ushort)ushort.MaxValue;
 
 			for (int i = 0; i < v.Length; i++) {
@@ -1887,6 +1965,7 @@ namespace OpenGL
 			}
 
 			return (new Vertex4us(x, y, z));
+
 		}
 
 		/// <summary>
@@ -1906,6 +1985,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 
+
 			ushort x = (ushort)ushort.MaxValue, y = (ushort)ushort.MaxValue, z = (ushort)ushort.MaxValue;
 
 			for (uint i = 0; i < count; i++) {
@@ -1916,6 +1996,7 @@ namespace OpenGL
 			}
 
 			return new Vertex4us(x, y, z);
+
 		}
 
 		/// <summary>
@@ -1932,6 +2013,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 			
+
 			ushort x = (ushort)ushort.MinValue, y = (ushort)ushort.MinValue, z = (ushort)ushort.MinValue;
 
 			for (int i = 0; i < v.Length; i++) {
@@ -1942,6 +2024,7 @@ namespace OpenGL
 			}
 
 			return (new Vertex4us(x, y, z));
+
 		}
 
 		/// <summary>
@@ -1961,6 +2044,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 			
+
 			ushort x = (ushort)ushort.MinValue, y = (ushort)ushort.MinValue, z = (ushort)ushort.MinValue;
 
 			for (uint i = 0; i < count; i++) {
@@ -1971,6 +2055,7 @@ namespace OpenGL
 			}
 
 			return (new Vertex4us(x, y, z));
+
 		}
 
 		/// <summary>
@@ -1990,6 +2075,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 			
+
 			ushort minx = (ushort)ushort.MaxValue, miny = (ushort)ushort.MaxValue, minz = (ushort)ushort.MaxValue;
 			ushort maxx = (ushort)ushort.MinValue, maxy = (ushort)ushort.MinValue, maxz = (ushort)ushort.MinValue;
 
@@ -2001,6 +2087,7 @@ namespace OpenGL
 
 			min = new Vertex4us(minx, miny, minz);
 			max = new Vertex4us(maxx, maxy, maxz);
+
 		}
 
 		/// <summary>
@@ -2023,6 +2110,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 			
+
 			ushort minx = (ushort)ushort.MaxValue, miny = (ushort)ushort.MaxValue, minz = (ushort)ushort.MaxValue;
 			ushort maxx = (ushort)ushort.MinValue, maxy = (ushort)ushort.MinValue, maxz = (ushort)ushort.MinValue;
 
@@ -2034,10 +2122,12 @@ namespace OpenGL
 
 			min = new Vertex4us(minx, miny, minz);
 			max = new Vertex4us(maxx, maxy, maxz);
+
 		}
 
 		#endregion
 		
+
 		#region Notable Vertex
 
 		/// <summary>
@@ -2065,6 +2155,7 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex4us UnitZ = new Vertex4us(0, 0, 1, 1);
 
+
 		/// <summary>
 		/// Vertex with lowest values.
 		/// </summary>
@@ -2075,7 +2166,9 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex4us Maximum = new Vertex4us(ushort.MaxValue);
 
+
 		#endregion
+
 
 		#region IEquatable Implementation
 
@@ -2183,6 +2276,7 @@ namespace OpenGL
 
 		#region Object Overrides
 
+
 		/// <summary>
 		/// Stringify this Vertex4us.
 		/// </summary>
@@ -2194,8 +2288,10 @@ namespace OpenGL
 			return (String.Format("|{0}, {1}, {2}, {3}|", x, y, z, w));
 		}
 
+
 		#endregion
 	}
+
 
 	/// <summary>
 	/// Vertex value type (short coordinates).
@@ -2292,6 +2388,7 @@ namespace OpenGL
 
 		#region Arithmetic Operators
 
+
 		/// <summary>
 		/// Negate operator.
 		/// </summary>
@@ -2305,6 +2402,7 @@ namespace OpenGL
 		{
 			return new Vertex4s((short)(-v.x), (short)(-v.y), (short)(-v.z), (short)(-v.w));
 		}
+
 
 		/// <summary>
 		/// Add operator.
@@ -2357,6 +2455,7 @@ namespace OpenGL
 			return new Vertex4s((short)(v1.x * scalar), (short)(v1.y * scalar), (short)(v1.z * scalar), v1.w);
 		}
 
+
 		/// <summary>
 		/// Scalar multiply operator.
 		/// </summary>
@@ -2373,6 +2472,7 @@ namespace OpenGL
 		{
 			return new Vertex4s((short)(v1.x * scalar), (short)(v1.y * scalar), (short)(v1.z * scalar), v1.w);
 		}
+
 
 		/// <summary>
 		/// Scalar divide operator.
@@ -2391,6 +2491,7 @@ namespace OpenGL
 			return new Vertex4s((short)(v1.x / scalar), (short)(v1.y / scalar), (short)(v1.z / scalar), v1.w);
 		}
 
+
 		/// <summary>
 		/// Scalar multiply operator.
 		/// </summary>
@@ -2407,6 +2508,7 @@ namespace OpenGL
 		{
 			return new Vertex4s((short)(v1.x / scalar), (short)(v1.y / scalar), (short)(v1.z / scalar), v1.w);
 		}
+
 
 		#endregion
 
@@ -2452,6 +2554,7 @@ namespace OpenGL
 			return new[] { a.x, a.y, a.z, a.w };
 		}
 
+
 		/// <summary>
 		/// Cast to Vertex3s operator.
 		/// </summary>
@@ -2465,6 +2568,7 @@ namespace OpenGL
 		{
 			return new Vertex3s((short)((float)v.x / v.w), (short)((float)v.y / v.w), (short)((float)v.z / v.w));
 		}
+
 
 		/// <summary>
 		/// Cast to Vertex2f operator.
@@ -2481,6 +2585,7 @@ namespace OpenGL
 
 			return new Vertex2f((float)v3.x, (float)v3.y);
 		}
+
 
 		/// <summary>
 		/// Cast to Vertex3f operator.
@@ -2512,6 +2617,7 @@ namespace OpenGL
 			return new Vertex4f((float)v.x, (float)v.y, (float)v.z, (float)v.w);
 		}
 
+
 		/// <summary>
 		/// Cast to Vertex3d operator.
 		/// </summary>
@@ -2541,6 +2647,7 @@ namespace OpenGL
 		{
 			return new Vertex4d(v.x, v.y, v.z, v.w);
 		}
+
 
 		#endregion
 
@@ -2609,6 +2716,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 
+
 			short x = (short)short.MaxValue, y = (short)short.MaxValue, z = (short)short.MaxValue;
 
 			for (int i = 0; i < v.Length; i++) {
@@ -2619,6 +2727,7 @@ namespace OpenGL
 			}
 
 			return (new Vertex4s(x, y, z));
+
 		}
 
 		/// <summary>
@@ -2638,6 +2747,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 
+
 			short x = (short)short.MaxValue, y = (short)short.MaxValue, z = (short)short.MaxValue;
 
 			for (uint i = 0; i < count; i++) {
@@ -2648,6 +2758,7 @@ namespace OpenGL
 			}
 
 			return new Vertex4s(x, y, z);
+
 		}
 
 		/// <summary>
@@ -2664,6 +2775,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 			
+
 			short x = (short)short.MinValue, y = (short)short.MinValue, z = (short)short.MinValue;
 
 			for (int i = 0; i < v.Length; i++) {
@@ -2674,6 +2786,7 @@ namespace OpenGL
 			}
 
 			return (new Vertex4s(x, y, z));
+
 		}
 
 		/// <summary>
@@ -2693,6 +2806,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 			
+
 			short x = (short)short.MinValue, y = (short)short.MinValue, z = (short)short.MinValue;
 
 			for (uint i = 0; i < count; i++) {
@@ -2703,6 +2817,7 @@ namespace OpenGL
 			}
 
 			return (new Vertex4s(x, y, z));
+
 		}
 
 		/// <summary>
@@ -2722,6 +2837,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 			
+
 			short minx = (short)short.MaxValue, miny = (short)short.MaxValue, minz = (short)short.MaxValue;
 			short maxx = (short)short.MinValue, maxy = (short)short.MinValue, maxz = (short)short.MinValue;
 
@@ -2733,6 +2849,7 @@ namespace OpenGL
 
 			min = new Vertex4s(minx, miny, minz);
 			max = new Vertex4s(maxx, maxy, maxz);
+
 		}
 
 		/// <summary>
@@ -2755,6 +2872,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 			
+
 			short minx = (short)short.MaxValue, miny = (short)short.MaxValue, minz = (short)short.MaxValue;
 			short maxx = (short)short.MinValue, maxy = (short)short.MinValue, maxz = (short)short.MinValue;
 
@@ -2766,10 +2884,12 @@ namespace OpenGL
 
 			min = new Vertex4s(minx, miny, minz);
 			max = new Vertex4s(maxx, maxy, maxz);
+
 		}
 
 		#endregion
 		
+
 		#region Notable Vertex
 
 		/// <summary>
@@ -2797,6 +2917,7 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex4s UnitZ = new Vertex4s(0, 0, 1, 1);
 
+
 		/// <summary>
 		/// Vertex with lowest values.
 		/// </summary>
@@ -2807,7 +2928,9 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex4s Maximum = new Vertex4s(short.MaxValue);
 
+
 		#endregion
+
 
 		#region IEquatable Implementation
 
@@ -2915,6 +3038,7 @@ namespace OpenGL
 
 		#region Object Overrides
 
+
 		/// <summary>
 		/// Stringify this Vertex4s.
 		/// </summary>
@@ -2926,8 +3050,10 @@ namespace OpenGL
 			return (String.Format("|{0}, {1}, {2}, {3}|", x, y, z, w));
 		}
 
+
 		#endregion
 	}
+
 
 	/// <summary>
 	/// Vertex value type (uint coordinates).
@@ -3024,6 +3150,7 @@ namespace OpenGL
 
 		#region Arithmetic Operators
 
+
 		/// <summary>
 		/// Add operator.
 		/// </summary>
@@ -3075,6 +3202,7 @@ namespace OpenGL
 			return new Vertex4ui((uint)(v1.x * scalar), (uint)(v1.y * scalar), (uint)(v1.z * scalar), v1.w);
 		}
 
+
 		/// <summary>
 		/// Scalar multiply operator.
 		/// </summary>
@@ -3091,6 +3219,7 @@ namespace OpenGL
 		{
 			return new Vertex4ui((uint)(v1.x * scalar), (uint)(v1.y * scalar), (uint)(v1.z * scalar), v1.w);
 		}
+
 
 		/// <summary>
 		/// Scalar divide operator.
@@ -3109,6 +3238,7 @@ namespace OpenGL
 			return new Vertex4ui((uint)(v1.x / scalar), (uint)(v1.y / scalar), (uint)(v1.z / scalar), v1.w);
 		}
 
+
 		/// <summary>
 		/// Scalar multiply operator.
 		/// </summary>
@@ -3125,6 +3255,7 @@ namespace OpenGL
 		{
 			return new Vertex4ui((uint)(v1.x / scalar), (uint)(v1.y / scalar), (uint)(v1.z / scalar), v1.w);
 		}
+
 
 		#endregion
 
@@ -3170,6 +3301,7 @@ namespace OpenGL
 			return new[] { a.x, a.y, a.z, a.w };
 		}
 
+
 		/// <summary>
 		/// Cast to Vertex3ui operator.
 		/// </summary>
@@ -3183,6 +3315,7 @@ namespace OpenGL
 		{
 			return new Vertex3ui((uint)((float)v.x / v.w), (uint)((float)v.y / v.w), (uint)((float)v.z / v.w));
 		}
+
 
 		/// <summary>
 		/// Cast to Vertex2f operator.
@@ -3199,6 +3332,7 @@ namespace OpenGL
 
 			return new Vertex2f((float)v3.x, (float)v3.y);
 		}
+
 
 		/// <summary>
 		/// Cast to Vertex3f operator.
@@ -3230,6 +3364,7 @@ namespace OpenGL
 			return new Vertex4f((float)v.x, (float)v.y, (float)v.z, (float)v.w);
 		}
 
+
 		/// <summary>
 		/// Cast to Vertex3d operator.
 		/// </summary>
@@ -3259,6 +3394,7 @@ namespace OpenGL
 		{
 			return new Vertex4d(v.x, v.y, v.z, v.w);
 		}
+
 
 		#endregion
 
@@ -3327,6 +3463,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 
+
 			uint x = (uint)uint.MaxValue, y = (uint)uint.MaxValue, z = (uint)uint.MaxValue;
 
 			for (int i = 0; i < v.Length; i++) {
@@ -3337,6 +3474,7 @@ namespace OpenGL
 			}
 
 			return (new Vertex4ui(x, y, z));
+
 		}
 
 		/// <summary>
@@ -3356,6 +3494,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 
+
 			uint x = (uint)uint.MaxValue, y = (uint)uint.MaxValue, z = (uint)uint.MaxValue;
 
 			for (uint i = 0; i < count; i++) {
@@ -3366,6 +3505,7 @@ namespace OpenGL
 			}
 
 			return new Vertex4ui(x, y, z);
+
 		}
 
 		/// <summary>
@@ -3382,6 +3522,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 			
+
 			uint x = (uint)uint.MinValue, y = (uint)uint.MinValue, z = (uint)uint.MinValue;
 
 			for (int i = 0; i < v.Length; i++) {
@@ -3392,6 +3533,7 @@ namespace OpenGL
 			}
 
 			return (new Vertex4ui(x, y, z));
+
 		}
 
 		/// <summary>
@@ -3411,6 +3553,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 			
+
 			uint x = (uint)uint.MinValue, y = (uint)uint.MinValue, z = (uint)uint.MinValue;
 
 			for (uint i = 0; i < count; i++) {
@@ -3421,6 +3564,7 @@ namespace OpenGL
 			}
 
 			return (new Vertex4ui(x, y, z));
+
 		}
 
 		/// <summary>
@@ -3440,6 +3584,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 			
+
 			uint minx = (uint)uint.MaxValue, miny = (uint)uint.MaxValue, minz = (uint)uint.MaxValue;
 			uint maxx = (uint)uint.MinValue, maxy = (uint)uint.MinValue, maxz = (uint)uint.MinValue;
 
@@ -3451,6 +3596,7 @@ namespace OpenGL
 
 			min = new Vertex4ui(minx, miny, minz);
 			max = new Vertex4ui(maxx, maxy, maxz);
+
 		}
 
 		/// <summary>
@@ -3473,6 +3619,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 			
+
 			uint minx = (uint)uint.MaxValue, miny = (uint)uint.MaxValue, minz = (uint)uint.MaxValue;
 			uint maxx = (uint)uint.MinValue, maxy = (uint)uint.MinValue, maxz = (uint)uint.MinValue;
 
@@ -3484,10 +3631,12 @@ namespace OpenGL
 
 			min = new Vertex4ui(minx, miny, minz);
 			max = new Vertex4ui(maxx, maxy, maxz);
+
 		}
 
 		#endregion
 		
+
 		#region Notable Vertex
 
 		/// <summary>
@@ -3515,6 +3664,7 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex4ui UnitZ = new Vertex4ui(0, 0, 1, 1);
 
+
 		/// <summary>
 		/// Vertex with lowest values.
 		/// </summary>
@@ -3525,7 +3675,9 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex4ui Maximum = new Vertex4ui(uint.MaxValue);
 
+
 		#endregion
+
 
 		#region IEquatable Implementation
 
@@ -3633,6 +3785,7 @@ namespace OpenGL
 
 		#region Object Overrides
 
+
 		/// <summary>
 		/// Stringify this Vertex4ui.
 		/// </summary>
@@ -3644,8 +3797,10 @@ namespace OpenGL
 			return (String.Format("|{0}, {1}, {2}, {3}|", x, y, z, w));
 		}
 
+
 		#endregion
 	}
+
 
 	/// <summary>
 	/// Vertex value type (int coordinates).
@@ -3742,6 +3897,7 @@ namespace OpenGL
 
 		#region Arithmetic Operators
 
+
 		/// <summary>
 		/// Negate operator.
 		/// </summary>
@@ -3755,6 +3911,7 @@ namespace OpenGL
 		{
 			return new Vertex4i((int)(-v.x), (int)(-v.y), (int)(-v.z), (int)(-v.w));
 		}
+
 
 		/// <summary>
 		/// Add operator.
@@ -3807,6 +3964,7 @@ namespace OpenGL
 			return new Vertex4i((int)(v1.x * scalar), (int)(v1.y * scalar), (int)(v1.z * scalar), v1.w);
 		}
 
+
 		/// <summary>
 		/// Scalar multiply operator.
 		/// </summary>
@@ -3823,6 +3981,7 @@ namespace OpenGL
 		{
 			return new Vertex4i((int)(v1.x * scalar), (int)(v1.y * scalar), (int)(v1.z * scalar), v1.w);
 		}
+
 
 		/// <summary>
 		/// Scalar divide operator.
@@ -3841,6 +4000,7 @@ namespace OpenGL
 			return new Vertex4i((int)(v1.x / scalar), (int)(v1.y / scalar), (int)(v1.z / scalar), v1.w);
 		}
 
+
 		/// <summary>
 		/// Scalar multiply operator.
 		/// </summary>
@@ -3857,6 +4017,7 @@ namespace OpenGL
 		{
 			return new Vertex4i((int)(v1.x / scalar), (int)(v1.y / scalar), (int)(v1.z / scalar), v1.w);
 		}
+
 
 		#endregion
 
@@ -3902,6 +4063,7 @@ namespace OpenGL
 			return new[] { a.x, a.y, a.z, a.w };
 		}
 
+
 		/// <summary>
 		/// Cast to Vertex3i operator.
 		/// </summary>
@@ -3915,6 +4077,7 @@ namespace OpenGL
 		{
 			return new Vertex3i((int)((float)v.x / v.w), (int)((float)v.y / v.w), (int)((float)v.z / v.w));
 		}
+
 
 		/// <summary>
 		/// Cast to Vertex2f operator.
@@ -3931,6 +4094,7 @@ namespace OpenGL
 
 			return new Vertex2f((float)v3.x, (float)v3.y);
 		}
+
 
 		/// <summary>
 		/// Cast to Vertex3f operator.
@@ -3962,6 +4126,7 @@ namespace OpenGL
 			return new Vertex4f((float)v.x, (float)v.y, (float)v.z, (float)v.w);
 		}
 
+
 		/// <summary>
 		/// Cast to Vertex3d operator.
 		/// </summary>
@@ -3991,6 +4156,7 @@ namespace OpenGL
 		{
 			return new Vertex4d(v.x, v.y, v.z, v.w);
 		}
+
 
 		#endregion
 
@@ -4059,6 +4225,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 
+
 			int x = (int)int.MaxValue, y = (int)int.MaxValue, z = (int)int.MaxValue;
 
 			for (int i = 0; i < v.Length; i++) {
@@ -4069,6 +4236,7 @@ namespace OpenGL
 			}
 
 			return (new Vertex4i(x, y, z));
+
 		}
 
 		/// <summary>
@@ -4088,6 +4256,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 
+
 			int x = (int)int.MaxValue, y = (int)int.MaxValue, z = (int)int.MaxValue;
 
 			for (uint i = 0; i < count; i++) {
@@ -4098,6 +4267,7 @@ namespace OpenGL
 			}
 
 			return new Vertex4i(x, y, z);
+
 		}
 
 		/// <summary>
@@ -4114,6 +4284,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 			
+
 			int x = (int)int.MinValue, y = (int)int.MinValue, z = (int)int.MinValue;
 
 			for (int i = 0; i < v.Length; i++) {
@@ -4124,6 +4295,7 @@ namespace OpenGL
 			}
 
 			return (new Vertex4i(x, y, z));
+
 		}
 
 		/// <summary>
@@ -4143,6 +4315,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 			
+
 			int x = (int)int.MinValue, y = (int)int.MinValue, z = (int)int.MinValue;
 
 			for (uint i = 0; i < count; i++) {
@@ -4153,6 +4326,7 @@ namespace OpenGL
 			}
 
 			return (new Vertex4i(x, y, z));
+
 		}
 
 		/// <summary>
@@ -4172,6 +4346,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 			
+
 			int minx = (int)int.MaxValue, miny = (int)int.MaxValue, minz = (int)int.MaxValue;
 			int maxx = (int)int.MinValue, maxy = (int)int.MinValue, maxz = (int)int.MinValue;
 
@@ -4183,6 +4358,7 @@ namespace OpenGL
 
 			min = new Vertex4i(minx, miny, minz);
 			max = new Vertex4i(maxx, maxy, maxz);
+
 		}
 
 		/// <summary>
@@ -4205,6 +4381,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 			
+
 			int minx = (int)int.MaxValue, miny = (int)int.MaxValue, minz = (int)int.MaxValue;
 			int maxx = (int)int.MinValue, maxy = (int)int.MinValue, maxz = (int)int.MinValue;
 
@@ -4216,10 +4393,12 @@ namespace OpenGL
 
 			min = new Vertex4i(minx, miny, minz);
 			max = new Vertex4i(maxx, maxy, maxz);
+
 		}
 
 		#endregion
 		
+
 		#region Notable Vertex
 
 		/// <summary>
@@ -4247,6 +4426,7 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex4i UnitZ = new Vertex4i(0, 0, 1, 1);
 
+
 		/// <summary>
 		/// Vertex with lowest values.
 		/// </summary>
@@ -4257,7 +4437,9 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex4i Maximum = new Vertex4i(int.MaxValue);
 
+
 		#endregion
+
 
 		#region IEquatable Implementation
 
@@ -4365,6 +4547,7 @@ namespace OpenGL
 
 		#region Object Overrides
 
+
 		/// <summary>
 		/// Stringify this Vertex4i.
 		/// </summary>
@@ -4376,8 +4559,10 @@ namespace OpenGL
 			return (String.Format("|{0}, {1}, {2}, {3}|", x, y, z, w));
 		}
 
+
 		#endregion
 	}
+
 
 	/// <summary>
 	/// Vertex value type (float coordinates).
@@ -4474,6 +4659,7 @@ namespace OpenGL
 
 		#region Arithmetic Operators
 
+
 		/// <summary>
 		/// Negate operator.
 		/// </summary>
@@ -4487,6 +4673,7 @@ namespace OpenGL
 		{
 			return new Vertex4f((float)(-v.x), (float)(-v.y), (float)(-v.z), (float)(-v.w));
 		}
+
 
 		/// <summary>
 		/// Add operator.
@@ -4539,6 +4726,7 @@ namespace OpenGL
 			return new Vertex4f((float)(v1.x * scalar), (float)(v1.y * scalar), (float)(v1.z * scalar), v1.w);
 		}
 
+
 		/// <summary>
 		/// Scalar divide operator.
 		/// </summary>
@@ -4555,6 +4743,7 @@ namespace OpenGL
 		{
 			return new Vertex4f((float)(v1.x / scalar), (float)(v1.y / scalar), (float)(v1.z / scalar), v1.w);
 		}
+
 
 		#endregion
 
@@ -4600,6 +4789,7 @@ namespace OpenGL
 			return new[] { a.x, a.y, a.z, a.w };
 		}
 
+
 		/// <summary>
 		/// Cast to Vertex3f operator.
 		/// </summary>
@@ -4613,6 +4803,7 @@ namespace OpenGL
 		{
 			return new Vertex3f((float)((float)v.x / v.w), (float)((float)v.y / v.w), (float)((float)v.z / v.w));
 		}
+
 
 		/// <summary>
 		/// Cast to Vertex2f operator.
@@ -4629,6 +4820,7 @@ namespace OpenGL
 
 			return new Vertex2f((float)v3.x, (float)v3.y);
 		}
+
 
 		/// <summary>
 		/// Cast to Vertex3d operator.
@@ -4659,6 +4851,7 @@ namespace OpenGL
 		{
 			return new Vertex4d(v.x, v.y, v.z, v.w);
 		}
+
 
 		#endregion
 
@@ -4727,6 +4920,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 
+
 #if HAVE_NUMERICS
 			Vector3 min = new Vector3(float.MaxValue, float.MaxValue, float.MaxValue);
 
@@ -4735,6 +4929,7 @@ namespace OpenGL
 
 			return (new Vertex4f(min.X, min.Y, min.Z));
 #else
+
 			float x = (float)float.MaxValue, y = (float)float.MaxValue, z = (float)float.MaxValue;
 
 			for (int i = 0; i < v.Length; i++) {
@@ -4745,7 +4940,9 @@ namespace OpenGL
 			}
 
 			return (new Vertex4f(x, y, z));
+
 #endif
+
 		}
 
 		/// <summary>
@@ -4765,6 +4962,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 
+
 #if HAVE_NUMERICS
 			Vector3 min = new Vector3(float.MaxValue, float.MaxValue, float.MaxValue);
 
@@ -4773,6 +4971,7 @@ namespace OpenGL
 
 			return new Vertex4f(min.X, min.Y, min.Z);
 #else
+
 			float x = (float)float.MaxValue, y = (float)float.MaxValue, z = (float)float.MaxValue;
 
 			for (uint i = 0; i < count; i++) {
@@ -4783,7 +4982,9 @@ namespace OpenGL
 			}
 
 			return new Vertex4f(x, y, z);
+
 #endif
+
 		}
 
 		/// <summary>
@@ -4800,6 +5001,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 			
+
 #if HAVE_NUMERICS
 			Vector3 max = new Vector3(float.MinValue, float.MinValue, float.MinValue);
 
@@ -4808,6 +5010,7 @@ namespace OpenGL
 
 			return (new Vertex4f(max.X, max.Y, max.Z));
 #else
+
 			float x = (float)float.MinValue, y = (float)float.MinValue, z = (float)float.MinValue;
 
 			for (int i = 0; i < v.Length; i++) {
@@ -4818,7 +5021,9 @@ namespace OpenGL
 			}
 
 			return (new Vertex4f(x, y, z));
+
 #endif
+
 		}
 
 		/// <summary>
@@ -4838,6 +5043,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 			
+
 #if HAVE_NUMERICS
 			Vector3 max = new Vector3(float.MinValue, float.MinValue, float.MinValue);
 
@@ -4846,6 +5052,7 @@ namespace OpenGL
 
 			return (new Vertex4f(max.X, max.Y, max.Z));
 #else
+
 			float x = (float)float.MinValue, y = (float)float.MinValue, z = (float)float.MinValue;
 
 			for (uint i = 0; i < count; i++) {
@@ -4856,7 +5063,9 @@ namespace OpenGL
 			}
 
 			return (new Vertex4f(x, y, z));
+
 #endif
+
 		}
 
 		/// <summary>
@@ -4876,6 +5085,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 			
+
 #if HAVE_NUMERICS
 			Vector3 vmin = new Vector3(float.MaxValue, float.MaxValue, float.MaxValue);
 			Vector3 vmax = new Vector3(float.MinValue, float.MinValue, float.MinValue);
@@ -4890,6 +5100,7 @@ namespace OpenGL
 			min = new Vertex4f(vmin.X, vmin.Y, vmin.Z);
 			max = new Vertex4f(vmax.X, vmax.Y, vmax.Z);
 #else
+
 			float minx = (float)float.MaxValue, miny = (float)float.MaxValue, minz = (float)float.MaxValue;
 			float maxx = (float)float.MinValue, maxy = (float)float.MinValue, maxz = (float)float.MinValue;
 
@@ -4901,7 +5112,9 @@ namespace OpenGL
 
 			min = new Vertex4f(minx, miny, minz);
 			max = new Vertex4f(maxx, maxy, maxz);
+
 #endif
+
 		}
 
 		/// <summary>
@@ -4924,6 +5137,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 			
+
 #if HAVE_NUMERICS
 			Vector3 vmin = new Vector3(float.MaxValue, float.MaxValue, float.MaxValue);
 			Vector3 vmax = new Vector3(float.MinValue, float.MinValue, float.MinValue);
@@ -4938,6 +5152,7 @@ namespace OpenGL
 			min = new Vertex4f(vmin.X, vmin.Y, vmin.Z);
 			max = new Vertex4f(vmax.X, vmax.Y, vmax.Z);
 #else
+
 			float minx = (float)float.MaxValue, miny = (float)float.MaxValue, minz = (float)float.MaxValue;
 			float maxx = (float)float.MinValue, maxy = (float)float.MinValue, maxz = (float)float.MinValue;
 
@@ -4949,11 +5164,14 @@ namespace OpenGL
 
 			min = new Vertex4f(minx, miny, minz);
 			max = new Vertex4f(maxx, maxy, maxz);
+
 #endif
+
 		}
 
 		#endregion
 		
+
 		#region Notable Vertex
 
 		/// <summary>
@@ -4981,6 +5199,7 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex4f UnitZ = new Vertex4f(0.0f, 0.0f, 1.0f, 1.0f);
 
+
 		/// <summary>
 		/// Vertex with lowest values.
 		/// </summary>
@@ -4991,7 +5210,9 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex4f Maximum = new Vertex4f(float.MaxValue);
 
+
 		#endregion
+
 
 		#region IEquatable Implementation
 
@@ -5099,6 +5320,7 @@ namespace OpenGL
 
 		#region Object Overrides
 
+
 		/// <summary>
 		/// Stringify this Vertex4f.
 		/// </summary>
@@ -5110,8 +5332,10 @@ namespace OpenGL
 			return (String.Format("|{0:F4}, {1:F4}, {2:F4}, {3:F4}|", x, y, z, w));
 		}
 
+
 		#endregion
 	}
+
 
 	/// <summary>
 	/// Vertex value type (double coordinates).
@@ -5208,6 +5432,7 @@ namespace OpenGL
 
 		#region Arithmetic Operators
 
+
 		/// <summary>
 		/// Negate operator.
 		/// </summary>
@@ -5221,6 +5446,7 @@ namespace OpenGL
 		{
 			return new Vertex4d((double)(-v.x), (double)(-v.y), (double)(-v.z), (double)(-v.w));
 		}
+
 
 		/// <summary>
 		/// Add operator.
@@ -5273,6 +5499,7 @@ namespace OpenGL
 			return new Vertex4d((double)(v1.x * scalar), (double)(v1.y * scalar), (double)(v1.z * scalar), v1.w);
 		}
 
+
 		/// <summary>
 		/// Scalar multiply operator.
 		/// </summary>
@@ -5289,6 +5516,7 @@ namespace OpenGL
 		{
 			return new Vertex4d((double)(v1.x * scalar), (double)(v1.y * scalar), (double)(v1.z * scalar), v1.w);
 		}
+
 
 		/// <summary>
 		/// Scalar divide operator.
@@ -5307,6 +5535,7 @@ namespace OpenGL
 			return new Vertex4d((double)(v1.x / scalar), (double)(v1.y / scalar), (double)(v1.z / scalar), v1.w);
 		}
 
+
 		/// <summary>
 		/// Scalar multiply operator.
 		/// </summary>
@@ -5323,6 +5552,7 @@ namespace OpenGL
 		{
 			return new Vertex4d((double)(v1.x / scalar), (double)(v1.y / scalar), (double)(v1.z / scalar), v1.w);
 		}
+
 
 		#endregion
 
@@ -5368,6 +5598,7 @@ namespace OpenGL
 			return new[] { a.x, a.y, a.z, a.w };
 		}
 
+
 		/// <summary>
 		/// Cast to Vertex3d operator.
 		/// </summary>
@@ -5381,6 +5612,7 @@ namespace OpenGL
 		{
 			return new Vertex3d(v.x / v.w, v.y / v.w, v.z / v.w);
 		}
+
 
 		/// <summary>
 		/// Cast to Vertex2f operator.
@@ -5397,6 +5629,7 @@ namespace OpenGL
 
 			return new Vertex2f((float)v3.x, (float)v3.y);
 		}
+
 
 		/// <summary>
 		/// Cast to Vertex3f operator.
@@ -5427,6 +5660,7 @@ namespace OpenGL
 		{
 			return new Vertex4f((float)v.x, (float)v.y, (float)v.z, (float)v.w);
 		}
+
 
 		#endregion
 
@@ -5495,6 +5729,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 
+
 			double x = (double)double.MaxValue, y = (double)double.MaxValue, z = (double)double.MaxValue;
 
 			for (int i = 0; i < v.Length; i++) {
@@ -5505,6 +5740,7 @@ namespace OpenGL
 			}
 
 			return (new Vertex4d(x, y, z));
+
 		}
 
 		/// <summary>
@@ -5524,6 +5760,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 
+
 			double x = (double)double.MaxValue, y = (double)double.MaxValue, z = (double)double.MaxValue;
 
 			for (uint i = 0; i < count; i++) {
@@ -5534,6 +5771,7 @@ namespace OpenGL
 			}
 
 			return new Vertex4d(x, y, z);
+
 		}
 
 		/// <summary>
@@ -5550,6 +5788,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 			
+
 			double x = (double)double.MinValue, y = (double)double.MinValue, z = (double)double.MinValue;
 
 			for (int i = 0; i < v.Length; i++) {
@@ -5560,6 +5799,7 @@ namespace OpenGL
 			}
 
 			return (new Vertex4d(x, y, z));
+
 		}
 
 		/// <summary>
@@ -5579,6 +5819,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 			
+
 			double x = (double)double.MinValue, y = (double)double.MinValue, z = (double)double.MinValue;
 
 			for (uint i = 0; i < count; i++) {
@@ -5589,6 +5830,7 @@ namespace OpenGL
 			}
 
 			return (new Vertex4d(x, y, z));
+
 		}
 
 		/// <summary>
@@ -5608,6 +5850,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 			
+
 			double minx = (double)double.MaxValue, miny = (double)double.MaxValue, minz = (double)double.MaxValue;
 			double maxx = (double)double.MinValue, maxy = (double)double.MinValue, maxz = (double)double.MinValue;
 
@@ -5619,6 +5862,7 @@ namespace OpenGL
 
 			min = new Vertex4d(minx, miny, minz);
 			max = new Vertex4d(maxx, maxy, maxz);
+
 		}
 
 		/// <summary>
@@ -5641,6 +5885,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 			
+
 			double minx = (double)double.MaxValue, miny = (double)double.MaxValue, minz = (double)double.MaxValue;
 			double maxx = (double)double.MinValue, maxy = (double)double.MinValue, maxz = (double)double.MinValue;
 
@@ -5652,10 +5897,12 @@ namespace OpenGL
 
 			min = new Vertex4d(minx, miny, minz);
 			max = new Vertex4d(maxx, maxy, maxz);
+
 		}
 
 		#endregion
 		
+
 		#region Notable Vertex
 
 		/// <summary>
@@ -5683,6 +5930,7 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex4d UnitZ = new Vertex4d(0.0, 0.0, 1.0, 1.0);
 
+
 		/// <summary>
 		/// Vertex with lowest values.
 		/// </summary>
@@ -5693,7 +5941,9 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex4d Maximum = new Vertex4d(double.MaxValue);
 
+
 		#endregion
+
 
 		#region IEquatable Implementation
 
@@ -5801,6 +6051,7 @@ namespace OpenGL
 
 		#region Object Overrides
 
+
 		/// <summary>
 		/// Stringify this Vertex4d.
 		/// </summary>
@@ -5812,8 +6063,10 @@ namespace OpenGL
 			return (String.Format("|{0:F4}, {1:F4}, {2:F4}, {3:F4}|", x, y, z, w));
 		}
 
+
 		#endregion
 	}
+
 
 	/// <summary>
 	/// Vertex value type (HalfFloat coordinates).
@@ -5910,6 +6163,7 @@ namespace OpenGL
 
 		#region Arithmetic Operators
 
+
 		/// <summary>
 		/// Negate operator.
 		/// </summary>
@@ -5923,6 +6177,7 @@ namespace OpenGL
 		{
 			return new Vertex4hf((HalfFloat)(-v.x), (HalfFloat)(-v.y), (HalfFloat)(-v.z), (HalfFloat)(-v.w));
 		}
+
 
 		/// <summary>
 		/// Add operator.
@@ -5975,6 +6230,7 @@ namespace OpenGL
 			return new Vertex4hf((HalfFloat)(v1.x * scalar), (HalfFloat)(v1.y * scalar), (HalfFloat)(v1.z * scalar), v1.w);
 		}
 
+
 		/// <summary>
 		/// Scalar multiply operator.
 		/// </summary>
@@ -5991,6 +6247,7 @@ namespace OpenGL
 		{
 			return new Vertex4hf((HalfFloat)(v1.x * scalar), (HalfFloat)(v1.y * scalar), (HalfFloat)(v1.z * scalar), v1.w);
 		}
+
 
 		/// <summary>
 		/// Scalar divide operator.
@@ -6009,6 +6266,7 @@ namespace OpenGL
 			return new Vertex4hf((HalfFloat)(v1.x / scalar), (HalfFloat)(v1.y / scalar), (HalfFloat)(v1.z / scalar), v1.w);
 		}
 
+
 		/// <summary>
 		/// Scalar multiply operator.
 		/// </summary>
@@ -6025,6 +6283,7 @@ namespace OpenGL
 		{
 			return new Vertex4hf((HalfFloat)(v1.x / scalar), (HalfFloat)(v1.y / scalar), (HalfFloat)(v1.z / scalar), v1.w);
 		}
+
 
 		#endregion
 
@@ -6070,6 +6329,7 @@ namespace OpenGL
 			return new[] { a.x, a.y, a.z, a.w };
 		}
 
+
 		/// <summary>
 		/// Cast to Vertex3hf operator.
 		/// </summary>
@@ -6083,6 +6343,7 @@ namespace OpenGL
 		{
 			return new Vertex3hf((HalfFloat)((float)v.x / v.w), (HalfFloat)((float)v.y / v.w), (HalfFloat)((float)v.z / v.w));
 		}
+
 
 		/// <summary>
 		/// Cast to Vertex2f operator.
@@ -6099,6 +6360,7 @@ namespace OpenGL
 
 			return new Vertex2f((float)v3.x, (float)v3.y);
 		}
+
 
 		/// <summary>
 		/// Cast to Vertex3f operator.
@@ -6130,6 +6392,7 @@ namespace OpenGL
 			return new Vertex4f((float)v.x, (float)v.y, (float)v.z, (float)v.w);
 		}
 
+
 		/// <summary>
 		/// Cast to Vertex3d operator.
 		/// </summary>
@@ -6159,6 +6422,7 @@ namespace OpenGL
 		{
 			return new Vertex4d(v.x, v.y, v.z, v.w);
 		}
+
 
 		#endregion
 
@@ -6227,6 +6491,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 
+
 			HalfFloat x = (HalfFloat)HalfFloat.MaxValue, y = (HalfFloat)HalfFloat.MaxValue, z = (HalfFloat)HalfFloat.MaxValue;
 
 			for (int i = 0; i < v.Length; i++) {
@@ -6237,6 +6502,7 @@ namespace OpenGL
 			}
 
 			return (new Vertex4hf(x, y, z));
+
 		}
 
 		/// <summary>
@@ -6256,6 +6522,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 
+
 			HalfFloat x = (HalfFloat)HalfFloat.MaxValue, y = (HalfFloat)HalfFloat.MaxValue, z = (HalfFloat)HalfFloat.MaxValue;
 
 			for (uint i = 0; i < count; i++) {
@@ -6266,6 +6533,7 @@ namespace OpenGL
 			}
 
 			return new Vertex4hf(x, y, z);
+
 		}
 
 		/// <summary>
@@ -6282,6 +6550,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 			
+
 			HalfFloat x = (HalfFloat)HalfFloat.MinValue, y = (HalfFloat)HalfFloat.MinValue, z = (HalfFloat)HalfFloat.MinValue;
 
 			for (int i = 0; i < v.Length; i++) {
@@ -6292,6 +6561,7 @@ namespace OpenGL
 			}
 
 			return (new Vertex4hf(x, y, z));
+
 		}
 
 		/// <summary>
@@ -6311,6 +6581,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 			
+
 			HalfFloat x = (HalfFloat)HalfFloat.MinValue, y = (HalfFloat)HalfFloat.MinValue, z = (HalfFloat)HalfFloat.MinValue;
 
 			for (uint i = 0; i < count; i++) {
@@ -6321,6 +6592,7 @@ namespace OpenGL
 			}
 
 			return (new Vertex4hf(x, y, z));
+
 		}
 
 		/// <summary>
@@ -6340,6 +6612,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 			
+
 			HalfFloat minx = (HalfFloat)HalfFloat.MaxValue, miny = (HalfFloat)HalfFloat.MaxValue, minz = (HalfFloat)HalfFloat.MaxValue;
 			HalfFloat maxx = (HalfFloat)HalfFloat.MinValue, maxy = (HalfFloat)HalfFloat.MinValue, maxz = (HalfFloat)HalfFloat.MinValue;
 
@@ -6351,6 +6624,7 @@ namespace OpenGL
 
 			min = new Vertex4hf(minx, miny, minz);
 			max = new Vertex4hf(maxx, maxy, maxz);
+
 		}
 
 		/// <summary>
@@ -6373,6 +6647,7 @@ namespace OpenGL
 			if (v == null)
 				throw new ArgumentNullException(nameof(v));
 			
+
 			HalfFloat minx = (HalfFloat)HalfFloat.MaxValue, miny = (HalfFloat)HalfFloat.MaxValue, minz = (HalfFloat)HalfFloat.MaxValue;
 			HalfFloat maxx = (HalfFloat)HalfFloat.MinValue, maxy = (HalfFloat)HalfFloat.MinValue, maxz = (HalfFloat)HalfFloat.MinValue;
 
@@ -6384,10 +6659,12 @@ namespace OpenGL
 
 			min = new Vertex4hf(minx, miny, minz);
 			max = new Vertex4hf(maxx, maxy, maxz);
+
 		}
 
 		#endregion
 		
+
 		#region Notable Vertex
 
 		/// <summary>
@@ -6415,6 +6692,7 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex4hf UnitZ = new Vertex4hf((HalfFloat)0.0f, (HalfFloat)0.0f, (HalfFloat)1.0f, (HalfFloat)1.0f);
 
+
 		/// <summary>
 		/// Vertex with lowest values.
 		/// </summary>
@@ -6425,7 +6703,9 @@ namespace OpenGL
 		/// </summary>
 		public static readonly Vertex4hf Maximum = new Vertex4hf(new HalfFloat(HalfFloat.MaxValue));
 
+
 		#endregion
+
 
 		#region IEquatable Implementation
 
@@ -6533,6 +6813,7 @@ namespace OpenGL
 
 		#region Object Overrides
 
+
 		/// <summary>
 		/// Stringify this Vertex4hf.
 		/// </summary>
@@ -6544,7 +6825,9 @@ namespace OpenGL
 			return (String.Format("|{0:F4}, {1:F4}, {2:F4}, {3:F4}|", x, y, z, w));
 		}
 
+
 		#endregion
 	}
+
 
 }

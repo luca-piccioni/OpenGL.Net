@@ -1,4 +1,11 @@
 ﻿
+
+
+
+
+
+
+
 // Copyright (C) 2017-2018 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,6 +37,7 @@ using NUnit.Framework;
 
 namespace OpenGL.Test
 {
+
 	[TestFixture, Category("Math")]
 	internal class ColorRGBA32Test : TestBase
 	{
@@ -271,6 +279,7 @@ namespace OpenGL.Test
 
 		#endregion
 	}
+
 
 	[TestFixture, Category("Math")]
 	internal class ColorRGBA64Test : TestBase
@@ -514,6 +523,7 @@ namespace OpenGL.Test
 		#endregion
 	}
 
+
 	[TestFixture, Category("Math")]
 	internal class ColorRGBAFTest : TestBase
 	{
@@ -756,6 +766,7 @@ namespace OpenGL.Test
 		#endregion
 	}
 
+
 	[TestFixture, Category("Math")]
 	internal class ColorRGBAHFTest : TestBase
 	{
@@ -997,5 +1008,6 @@ namespace OpenGL.Test
 
 		#endregion
 	}
+
 
 }

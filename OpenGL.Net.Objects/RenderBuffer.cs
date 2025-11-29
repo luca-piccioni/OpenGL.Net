@@ -142,6 +142,10 @@ namespace OpenGL.Objects
 			Gl.BindRenderbuffer(RenderbufferTarget.Renderbuffer, ObjectName);
 			// Define buffer storage
 			Gl.RenderbufferStorage(RenderbufferTarget.Renderbuffer, _InternalFormat.ToInternalFormat(), (int)w, (int)h);
+			Gl.CheckErrors();
+
+			_Width = w;
+			_Height = h;
 		}
 
 		/// <summary>
@@ -198,6 +202,11 @@ namespace OpenGL.Objects
 
 			return (Gl.IsRenderbuffer(ObjectName));
 		}
+
+		/// <summary>
+		/// Determine whether this IGraphicsResource is effectively shareable between sharing <see cref="GraphicsContext"/> instances.
+		/// </summary>
+		public override bool IsShareable { get { return true; } }
 
 		/// <summary>
 		/// Create a RenderBuffer name.

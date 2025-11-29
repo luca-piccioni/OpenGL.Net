@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
@@ -31,8 +31,10 @@ using System.Runtime.InteropServices;
 //      Build Number
 //      Revision
 //
-[assembly: AssemblyVersion("0.4.0")]
-[assembly: AssemblyFileVersion("0.4.0")]
+#if !NETCORE
+[assembly: AssemblyVersion("1.0.8.*")]
+[assembly: AssemblyFileVersion("1.0.8")]
+#endif
 
 [assembly: InternalsVisibleTo("OpenGL.Net.VideoCore")]
 [assembly: InternalsVisibleTo("OpenWF.Net")]

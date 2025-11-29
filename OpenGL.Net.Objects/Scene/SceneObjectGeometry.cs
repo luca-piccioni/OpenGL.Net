@@ -97,6 +97,10 @@ namespace OpenGL.Objects.Scene
 			set
 			{
 				SwapGpuResources(value, ref _VertexArray);
+
+				// Compute bounding box, if possible
+				if (_VertexArray != null)
+					_BoundingVolume = ComputeBoundingVolume(value);
 			}
 		}
 
@@ -109,7 +113,7 @@ namespace OpenGL.Objects.Scene
 		/// Shader tag used for creating the actual program at run-time. The program is shared , shared to all
 		/// geometry instances, if any
 		/// </summary>
-		internal ShadersLibrary.ProgramTag ProgramTag
+		public ShadersLibrary.ProgramTag ProgramTag
 		{
 			get; set;
 		}
@@ -238,6 +242,9 @@ namespace OpenGL.Objects.Scene
 				{
 					// Base implementation
 					base.VertexArray = value;
+					// Compute bounding box, if possible
+					if (value != null)
+						BoundingVolume = ComputeBoundingVolume(value);
 				}
 			}
 
@@ -440,10 +447,11 @@ namespace OpenGL.Objects.Scene
 			Vertex3f avg = (max + min) / 2.0f;
 
 			// Scale model matrix in order to represent the bounding box with the correct size and barycenter
-			transformState.ModelViewProjection =
-				transformState.ModelViewProjection * 
-				Matrix4x4f.Translated(avg.x, avg.y, avg.z) *
-				Matrix4x4f.Scaled(size.x, size.y, size.z);
+			// XXX
+			//transformState.ModelViewProjection =
+			//	transformState.ModelViewProjection * 
+			//	Matrix4x4f.Translated(avg.x, avg.y, avg.z) *
+			//	Matrix4x4f.Scaled(size.x, size.y, size.z);
 		}
 
 		/// <summary>

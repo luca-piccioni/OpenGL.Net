@@ -46,6 +46,8 @@ namespace OpenGL.Objects
 					return (4);
 				case Bitangent:
 					return (5);
+				case ModelViewProjection:
+					return 12;
 				default:
 					return (ShaderProgram.AttributeBinding.InvalidLocation);
 			}
@@ -90,5 +92,15 @@ namespace OpenGL.Objects
 		/// Texture coordinate.
 		/// </summary>
 		public const string TexCoord = "TexCoord";
+
+		/// <summary>
+		/// Model-view-projection matrix.
+		/// </summary>
+		public const string ModelViewProjection = "ModelViewProjection";
+
+		/// <summary>
+		/// Fragment depth.
+		/// </summary>
+		public const string OverrideDepth = "OverrideDepth";
 	}
 }

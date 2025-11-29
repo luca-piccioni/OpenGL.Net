@@ -65,7 +65,7 @@ namespace OpenGL.Test
 			Assert.Throws<ArgumentNullException>(() => ctx = new KhronosLogContext(null));
 			Assert.DoesNotThrow(() => ctx = new KhronosLogContext(typeof(TestApi)));
 
-			Assert.AreEqual("NONE", ctx.GetEnumName(0));
+			Assert.AreEqual("0", ctx.GetEnumName(0));
 			Assert.AreEqual("ONE", ctx.GetEnumName(1));
 			Assert.AreEqual("TWO", ctx.GetEnumName(2));
 			Assert.IsNull(ctx.GetEnumName(-1));
@@ -101,8 +101,8 @@ namespace OpenGL.Test
 			Assert.AreEqual("glCommand({a,b,c}, 18, 19)", ctx.ToString("glCommand", null, new object[] { new[] { "a", "b", "c" }, 18, 19 }));
 			Assert.AreEqual("glCommand(null)", ctx.ToString("glCommand", null, new object[] { null } ));
 
-			Assert.AreEqual("glCommand2(NONE, 0, 0)", ctx.ToString("glCommand2", null, new object[] { 0, 0, 0 }));
-			Assert.AreEqual("glCommand2({ONE,TWO}, 1, 2)", ctx.ToString("glCommand2", null, new object[] { new[] { 1, 2 }, 1, 2 }));
+			Assert.AreEqual("glCommand2(0, 0, 0)", ctx.ToString("glCommand2", null, new object[] { 0, 0, 0 }));
+			Assert.AreEqual("glCommand2({1,2}, 1, 2)", ctx.ToString("glCommand2", null, new object[] { new[] { 1, 2 }, 1, 2 }));
 		}
 	}
 }

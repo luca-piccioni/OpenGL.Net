@@ -108,7 +108,7 @@ namespace OpenGL.Test
 			using (Device device = new Device())
 			using (new GLContext(device))
 			{
-				foreach (CullFaceMode cullFaceMode in (CullFaceMode[])Enum.GetValues(typeof(CullFaceMode))) {
+				foreach (TriangleFace cullFaceMode in (TriangleFace[])Enum.GetValues(typeof(TriangleFace))) {
 					int getCullFaceMode;
 					int[] getCullFaceModev;
 

@@ -281,7 +281,7 @@ namespace OpenGL.Objects
 
 		#endregion
 
-		#region FontBase Overrides
+		#region Overrides
 
 		/// <summary>
 		/// Actually create this GraphicsResource resources.
@@ -297,6 +297,25 @@ namespace OpenGL.Objects
 			LinkResource(_FontProgram = ctx.CreateProgram("OpenGL.FontPatch"));
 			// Base implementation
 			base.CreateObject(ctx);
+		}
+
+		/// <summary>
+		/// Get glyph information.
+		/// </summary>
+		/// <param name="c">
+		/// The character relative to the returned glyph.
+		/// </param>
+		/// <returns>
+		/// It returns a <see cref="Font.GlyphBase"/> relative to <paramref name="c"/>, if found; otherwise it returns null.
+		/// </returns>
+		protected override GlyphBase GetGlyph(char c)
+		{
+			Glyph glyph;
+
+			if (_Glyphs.TryGetValue(c, out glyph))
+				return glyph;
+
+			return null;
 		}
 
 		/// <summary>

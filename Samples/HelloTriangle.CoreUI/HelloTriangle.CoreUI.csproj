@@ -9,9 +9,12 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>HelloTriangle.CoreUI</RootNamespace>
     <AssemblyName>HelloTriangle.CoreUI</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+    <IsPackable>false</IsPackable>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -88,10 +91,6 @@
     <ProjectReference Include="..\..\OpenGL.Net.CoreUI\OpenGL.Net.CoreUI_net461.csproj">
       <Project>{8ba9350b-43fb-4dd7-8f53-90f508795ae8}</Project>
       <Name>OpenGL.Net.CoreUI_net461</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\OpenGL.Net\OpenGL.Net.Math_net461.csproj">
-      <Project>{05dfbc0c-afbc-4ed0-bf43-80d7bb4e8dfd}</Project>
-      <Name>OpenGL.Net.Math_net461</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\OpenGL.Net\OpenGL.Net_net461.csproj">
       <Project>{9e3018f3-770e-4cfd-87d0-baee66e9fe8f}</Project>

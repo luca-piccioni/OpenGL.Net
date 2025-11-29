@@ -1,177 +1,139 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ShadersLibrary xmlns="http://schemas.datacontract.org/2004/07/OpenGL.Objects" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+<ShadersLibrary>
 
 	<!-- Program Objects -->
 	<Objects>
-		<Object>
-			<Resource>OpenGL.Objects.Shaders.Font.Vertex.FontPatch.glsl</Resource>
-			<TestStage>VertexShader</TestStage>
-		</Object>
-		<Object>
-			<Resource>OpenGL.Objects.Shaders.Font.Fragment.FontPatch.glsl</Resource>
-			<TestStage>FragmentShader</TestStage>
-		</Object>
-		<Object>
-			<Resource>OpenGL.Objects.Shaders.Font.Vertex.FontTextureArray.glsl</Resource>
-			<TestStage>VertexShader</TestStage>
-		</Object>
-		<Object>
-			<Resource>OpenGL.Objects.Shaders.Font.Fragment.FontTextureArray.glsl</Resource>
-			<TestStage>FragmentShader</TestStage>
-		</Object>
+		<Object Path="OpenGL.Objects.Shaders.Font.Vertex.FontPatch.glsl" TestStage="VertexShader" />
+		<Object Path="OpenGL.Objects.Shaders.Font.Fragment.FontPatch.glsl" TestStage="FragmentShader" />
+		<Object Path="OpenGL.Objects.Shaders.Font.Vertex.FontTextureArray.glsl" TestStage="VertexShader" />
+		<Object Path="OpenGL.Objects.Shaders.Font.Fragment.FontTextureArray.glsl" TestStage="FragmentShader" />
 	</Objects>
 
 	<Programs>
 
 		<!-- FontPatch -->
-		<Program>
-			<Id>OpenGL.FontPatch</Id>
-			<Objects>
-				<Object>
-					<Resource>OpenGL.Objects.Shaders.Font.Vertex.FontPatch.glsl</Resource>
-					<Stage>VertexShader</Stage>
-				</Object>
-				<Object>
-					<Resource>OpenGL.Objects.Shaders.Font.Fragment.FontPatch.glsl</Resource>
-					<Stage>FragmentShader</Stage>
-				</Object>
-			</Objects>
+		<Program Id="OpenGL.FontPatch">
+			<Object Path="OpenGL.Objects.Shaders.Font.Vertex.FontPatch.glsl" Stage="VertexShader" />
+			<Object Path="OpenGL.Objects.Shaders.Font.Fragment.FontPatch.glsl" Stage="FragmentShader" />
+			
+			<Attribute Name="glo_Position" Semantic="Position" Location="0" />
 
-			<Attributes>
-				<Attribute>
-					<Name>glo_Position</Name>
-					<Semantic>Position</Semantic>
-					<Location>0</Location>
-				</Attribute>
-			</Attributes>
+			<Uniform Name="glo_ModelViewProjection" Semantic="ModelViewProjection" />
+			<Uniform Name="glo_UniformColor" Semantic="Color"/>
 
-			<Uniforms>
-				<Uniform>
-					<Name>glo_ModelViewProjection</Name>
-					<Semantic>ModelViewProjection</Semantic>
-				</Uniform>
-				<Uniform>
-					<Name>glo_UniformColor</Name>
-					<Semantic>Color</Semantic>
-				</Uniform>
-			</Uniforms>
-
-			<Extensions>
-				<Extension>
-					<Name>GL_ARB_shader_draw_parameters</Name>
-					<Behavior>Enable</Behavior>
-				</Extension>
-			</Extensions>
-
+			<Extension Name="GL_ARB_shader_draw_parameters" Behavior="Enable" />
 		</Program>
+    
+    <!-- FontPatch+OverrideDepth -->
+    <Program Id="OpenGL.FontPatch+OverrideDepth">
+      <Object Path="OpenGL.Objects.Shaders.Font.Vertex.FontPatch.glsl" Stage="VertexShader" />
+      <Object Path="OpenGL.Objects.Shaders.Font.Fragment.FontPatch.glsl" Stage="FragmentShader">
+        <Symbols>
+          <Symbol>GLO_OVERRIDE_FRAGMENT_DEPTH</Symbol>
+        </Symbols>
+      </Object>
 
-		<!-- FontTextureArray -->
-		<Program>
-			<Id>OpenGL.FontTextureArray</Id>
-			<Objects>
-				<Object>
-					<Resource>OpenGL.Objects.Shaders.Font.Vertex.FontTextureArray.glsl</Resource>
-					<Stage>VertexShader</Stage>
-				</Object>
-				<Object>
-					<Resource>OpenGL.Objects.Shaders.Font.Fragment.FontTextureArray.glsl</Resource>
-					<Stage>FragmentShader</Stage>
-				</Object>
-			</Objects>
+      <Attribute Name="glo_Position" Semantic="Position" Location="0" />
 
-			<Attributes>
-				<Attribute>
-					<Name>glo_Position</Name>
-					<Semantic>Position</Semantic>
-					<Location>0</Location>
-				</Attribute>
-			</Attributes>
+      <Uniform Name="glo_ModelViewProjection" Semantic="ModelViewProjection" />
+      <Uniform Name="glo_UniformColor" Semantic="Color"/>
+      <Uniform Name="glo_FragmentDepth"/>
 
-			<Uniforms>
-				<Uniform>
-					<Name>glo_ModelViewProjection</Name>
-					<Semantic>ModelViewProjection</Semantic>
-				</Uniform>
-				<Uniform>
-					<Name>glo_UniformColor</Name>
-					<Semantic>Color</Semantic>
-				</Uniform>
-			</Uniforms>
-		</Program>
+      <Extension Name="GL_ARB_shader_draw_parameters" Behavior="Enable" />
+    </Program>
 
-		<!-- FontTextureArray+Instanced -->
-		<Program>
-			<Id>OpenGL.FontTextureArray+Instanced</Id>
-			<Objects>
-				<Object>
-					<Resource>OpenGL.Objects.Shaders.Font.Vertex.FontTextureArray.glsl</Resource>
-					<Stage>VertexShader</Stage>
-					<Symbols>
-						<Symbol>GLO_INSTANCED</Symbol>
-					</Symbols>
-				</Object>
-				<Object>
-					<Resource>OpenGL.Objects.Shaders.Font.Fragment.FontTextureArray.glsl</Resource>
-					<Stage>FragmentShader</Stage>
-				</Object>
-			</Objects>
+    <!-- FontTextureArray+Instanced -->
+    <Program Id="OpenGL.FontTextureArray">
+      <Object Path="OpenGL.Objects.Shaders.Font.Vertex.FontTextureArray.glsl" Stage="VertexShader" />
+      <Object Path="OpenGL.Objects.Shaders.Font.Fragment.FontTextureArray.glsl" Stage="FragmentShader" />
 
-			<Attributes>
-				<Attribute>
-					<Name>glo_Position</Name>
-					<Semantic>Position</Semantic>
-					<Location>0</Location>
-				</Attribute>
-			</Attributes>
+      <Attribute Name="glo_Position" Semantic="Position" Location="0" />
 
-			<Uniforms>
-				<Uniform>
-					<Name>glo_ModelViewProjection</Name>
-					<Semantic>ModelViewProjection</Semantic>
-				</Uniform>
-				<Uniform>
-					<Name>glo_UniformColor</Name>
-					<Semantic>Color</Semantic>
-				</Uniform>
-			</Uniforms>
-		</Program>
+      <Uniform Name="glo_ModelViewProjection" Semantic="ModelViewProjection" />
+      <Uniform Name="glo_UniformColor" Semantic="Color"/>
+    </Program>
+
+    <!-- FontTextureArray+Instanced+OverrideDepth -->
+    <Program Id="OpenGL.FontTextureArray+OverrideDepth">
+      <Object Path="OpenGL.Objects.Shaders.Font.Vertex.FontTextureArray.glsl" Stage="VertexShader" />
+      <Object Path="OpenGL.Objects.Shaders.Font.Fragment.FontTextureArray.glsl" Stage="FragmentShader">
+        <Symbols>
+          <Symbol>GLO_OVERRIDE_FRAGMENT_DEPTH</Symbol>
+        </Symbols>
+      </Object>
+
+      <Attribute Name="glo_Position" Semantic="Position" Location="0" />
+
+      <Uniform Name="glo_ModelViewProjection" Semantic="ModelViewProjection" />
+      <Uniform Name="glo_UniformColor" Semantic="Color"/>
+      <Uniform Name="glo_FragmentDepth"/>
+    </Program>
+
+    <!-- FontTextureArray+Instanced -->
+    <Program Id="OpenGL.FontTextureArray+Instanced">
+      <Object Path="OpenGL.Objects.Shaders.Font.Vertex.FontTextureArray.glsl" Stage="VertexShader">
+        <Symbols>
+          <Symbol>GLO_INSTANCED</Symbol>
+        </Symbols>
+      </Object>
+      <Object Path="OpenGL.Objects.Shaders.Font.Fragment.FontTextureArray.glsl" Stage="FragmentShader" />
+
+      <Attribute Name="glo_Position" Semantic="Position" Location="0" />
+
+      <Uniform Name="glo_UniformColor" Semantic="Color"/>
+    </Program>
+
+    <!-- FontTextureArray+Instanced+OverrideDepth -->
+    <Program Id="OpenGL.FontTextureArray+Instanced+OverrideDepth">
+      <Object Path="OpenGL.Objects.Shaders.Font.Vertex.FontTextureArray.glsl" Stage="VertexShader">
+        <Symbols>
+          <Symbol>GLO_INSTANCED</Symbol>
+        </Symbols>
+      </Object>
+      <Object Path="OpenGL.Objects.Shaders.Font.Fragment.FontTextureArray.glsl" Stage="FragmentShader">
+        <Symbols>
+          <Symbol>GLO_OVERRIDE_FRAGMENT_DEPTH</Symbol>
+        </Symbols>
+      </Object>
+
+      <Attribute Name="glo_Position" Semantic="Position" Location="0" />
+
+      <Uniform Name="glo_UniformColor" Semantic="Color"/>
+      <Uniform Name="glo_FragmentDepth"/>
+    </Program>
 
 		<!-- FontTextureArray+InstancedArrays -->
 		<Program Id="OpenGL.FontTextureArray+InstancedArrays">
-			<Id>OpenGL.FontTextureArray+InstancedArrays</Id>
-			<Objects>
-				<Object>
-					<Resource>OpenGL.Objects.Shaders.Font.Vertex.FontTextureArray.glsl</Resource>
-					<Stage>VertexShader</Stage>
-					<Symbols>
-						<Symbol>GLO_INSTANCED_ARRAY</Symbol>
-					</Symbols>
-				</Object>
-				<Object>
-					<Resource>OpenGL.Objects.Shaders.Font.Fragment.FontTextureArray.glsl</Resource>
-					<Stage>FragmentShader</Stage>
-				</Object>
-			</Objects>
+			<Object Path="OpenGL.Objects.Shaders.Font.Vertex.FontTextureArray.glsl" Stage="VertexShader">
+        <Symbols>
+          <Symbol>GLO_INSTANCED_ARRAY</Symbol>
+        </Symbols>
+      </Object>
+			<Object Path="OpenGL.Objects.Shaders.Font.Fragment.FontTextureArray.glsl" Stage="FragmentShader" />
+			
+			<Attribute Name="glo_Position" Semantic="Position" Location="0" />
 
-			<Attributes>
-				<Attribute>
-					<Name>glo_Position</Name>
-					<Semantic>Position</Semantic>
-					<Location>0</Location>
-				</Attribute>
-			</Attributes>
-
-			<Uniforms>
-				<Uniform>
-					<Name>glo_ModelViewProjection</Name>
-					<Semantic>ModelViewProjection</Semantic>
-				</Uniform>
-				<Uniform>
-					<Name>glo_UniformColor</Name>
-					<Semantic>Color</Semantic>
-				</Uniform>
-			</Uniforms>
+			<Uniform Name="glo_UniformColor" Semantic="Color"/>
 		</Program>
+
+    <!-- FontTextureArray+InstancedArrays+OverrideDepth -->
+    <Program Id="OpenGL.FontTextureArray+InstancedArrays+OverrideDepth">
+      <Object Path="OpenGL.Objects.Shaders.Font.Vertex.FontTextureArray.glsl" Stage="VertexShader">
+        <Symbols>
+          <Symbol>GLO_INSTANCED_ARRAY</Symbol>
+        </Symbols>
+      </Object>
+      <Object Path="OpenGL.Objects.Shaders.Font.Fragment.FontTextureArray.glsl" Stage="FragmentShader">
+        <Symbols>
+          <Symbol>GLO_OVERRIDE_FRAGMENT_DEPTH</Symbol>
+        </Symbols>
+      </Object>
+
+      <Attribute Name="glo_Position" Semantic="Position" Location="0" />
+
+      <Uniform Name="glo_UniformColor" Semantic="Color"/>
+      <Uniform Name="glo_FragmentDepth"/>
+    </Program>
 
 	</Programs>
 

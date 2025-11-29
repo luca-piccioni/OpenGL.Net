@@ -19,7 +19,6 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-
 using System;
 using System.Diagnostics;
 
@@ -34,7 +33,7 @@ namespace OpenGL.Objects.State
 		#region Constructors
 		
 		/// <summary>
-		/// Construct a default DepthTestState.
+		/// Construct a default DepthTestState (depth test disabled).
 		/// </summary>
 		public DepthTestState()
 		{
@@ -42,7 +41,7 @@ namespace OpenGL.Objects.State
 		}
 
 		/// <summary>
-		/// Construct a DepthTestState.
+		/// Construct a DepthTestState (depth test enabled).
 		/// </summary>
 		/// <param name="depthFunction">
 		/// A <see cref="DepthFunction"/> that specify the test function to apply.

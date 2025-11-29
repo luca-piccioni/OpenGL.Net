@@ -109,8 +109,7 @@ namespace OpenGL.Objects
 			/// <param name="size">
 			/// The size of the texture.
 			/// </param>
-			public EmptyTechnique(TextureCube texture, PixelLayout pixelFormat, uint size) :
-				base(texture)
+			public EmptyTechnique(TextureCube texture, PixelLayout pixelFormat, uint size)
 			{
 				_TextureCube = texture;
 				_PixelFormat = pixelFormat;
@@ -189,8 +188,7 @@ namespace OpenGL.Objects
 			/// <param name="images">
 			/// The texture data.
 			/// </param>
-			public ImageTechnique(TextureCube texture, PixelLayout pixelFormat, Image[] images) :
-				base(texture)
+			public ImageTechnique(TextureCube texture, PixelLayout pixelFormat, Image[] images)
 			{
 				if (images == null)
 					throw new ArgumentNullException("images");
@@ -237,9 +235,8 @@ namespace OpenGL.Objects
 				for (int i = 0; i < 6; i++) {
 					Image image = _Images[i];
 
-					// Set pixel alignment
-					State.PixelAlignmentState.Unpack(image.Stride).Apply(ctx, null);
-
+					// Set pixel unpack
+					State.PixelUnpackState.Align(image.Stride).Apply(ctx, null);
 					// Upload texture contents
 					Gl.TexImage2D(_CubeTargets[i], 0, internalFormat, (int)image.Width, (int)image.Height, 0, format, type, image.ImageBuffer);
 				}

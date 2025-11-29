@@ -1,4 +1,11 @@
 ﻿
+
+
+
+
+
+
+
 // Copyright (C) 2009-2017 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,6 +32,7 @@ using System.Runtime.InteropServices;
 
 namespace OpenGL
 {
+
 	/// <summary>
 	/// R color (single component).
 	/// </summary>
@@ -77,6 +85,7 @@ namespace OpenGL
 		/// </exception>
 		public float this[int c]
 		{
+
 			get
 			{
 				switch (c) {
@@ -95,10 +104,12 @@ namespace OpenGL
 						throw new IndexOutOfRangeException();
 				}
 			}
+
 		}
 
 		#endregion
 	}
+
 
 	/// <summary>
 	/// R color (single component).
@@ -152,6 +163,7 @@ namespace OpenGL
 		/// </exception>
 		public float this[int c]
 		{
+
 			get
 			{
 				switch (c) {
@@ -170,10 +182,12 @@ namespace OpenGL
 						throw new IndexOutOfRangeException();
 				}
 			}
+
 		}
 
 		#endregion
 	}
+
 
 	/// <summary>
 	/// R color (single component).
@@ -227,6 +241,7 @@ namespace OpenGL
 		/// </exception>
 		public float this[int c]
 		{
+
 			get
 			{
 				switch (c) {
@@ -245,10 +260,12 @@ namespace OpenGL
 						throw new IndexOutOfRangeException();
 				}
 			}
+
 		}
 
 		#endregion
 	}
+
 
 	/// <summary>
 	/// R color (single component).
@@ -302,6 +319,7 @@ namespace OpenGL
 		/// </exception>
 		public float this[int c]
 		{
+
 			get
 			{
 				switch (c) {
@@ -320,10 +338,12 @@ namespace OpenGL
 						throw new IndexOutOfRangeException();
 				}
 			}
+
 		}
 
 		#endregion
 	}
+
 
 	/// <summary>
 	/// R color (single component).
@@ -377,6 +397,7 @@ namespace OpenGL
 		/// </exception>
 		public float this[int c]
 		{
+
 			get
 			{
 				switch (c) {
@@ -395,10 +416,12 @@ namespace OpenGL
 						throw new IndexOutOfRangeException();
 				}
 			}
+
 		}
 
 		#endregion
 	}
+
 
 	/// <summary>
 	/// R color (single component).
@@ -452,6 +475,7 @@ namespace OpenGL
 		/// </exception>
 		public float this[int c]
 		{
+
 			get
 			{
 				switch (c) {
@@ -470,9 +494,11 @@ namespace OpenGL
 						throw new IndexOutOfRangeException();
 				}
 			}
+
 		}
 
 		#endregion
 	}
+
 
 }

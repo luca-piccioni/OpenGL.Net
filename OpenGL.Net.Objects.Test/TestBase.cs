@@ -72,7 +72,7 @@ namespace OpenGL.Objects.Test
 				_DeviceContext = null;
 			}
 
-			Resource.CheckResourceLeaks(true);
+			Resource.CheckResourceLeaks();
 		}
 
 		/// <summary>

@@ -1,5 +1,5 @@
 ﻿
-// Copyright (C) 2017 Luca Piccioni
+// Copyright (C) 2017-2019 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -21,7 +21,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Text.RegularExpressions;
 
 namespace OpenGL.Objects
@@ -52,45 +51,27 @@ namespace OpenGL.Objects
 
 		#region Conditional State
 
-		/// <summary>
-		/// Conditional state.
-		/// </summary>
 		class ConditionalState
 		{
-			/// <summary>
-			/// Construct a conditional state.
-			/// </summary>
-			/// <param name="directive">
-			/// A <see cref="string"/> identifying the first conditional directive (#if, #ifdef or #ifndef).
-			/// </param>
-			/// <param name="active">
-			/// Evaluated boolean condition of the <paramref name="directive"/>.
-			/// </param>
 			public ConditionalState(string directive, bool active)
 			{
 				Directive = directive;
 				Active = Branched = active;
 			}
 
-			/// <summary>
-			/// The token identifying the first conditional directive (#if, #ifdef or #ifndef).
-			/// </summary>
 			public string Directive;
 
-			/// <summary>
-			/// Evaluated boolean condition of the <see cref="Directive"/>.
-			/// </summary>
 			public bool Active;
 
-			/// <summary>
-			/// Boolean flag indicating whether a conditional branch has became active.
-			/// </summary>
 			public bool Branched;
 		}
 
 		public void If(string statement)
 		{
-			_ConditionStack.Push(new ConditionalState("if", EvaluateExpression(statement)));
+			bool condition = EvaluateExpression(statement);
+
+			_ConditionStack.Push(new ConditionalState("if", condition));
+			CurrentCondition.Branched |= condition;
 		}
 
 		public void IfDef(string statement)
@@ -115,11 +96,10 @@ namespace OpenGL.Objects
 					throw new InvalidOperationException("#elif without the corresponding conditional");
 			}
 
-			bool elifActive = EvaluateExpression(statement);
-
-			if (!CurrentCondition.Branched & elifActive)
-				CurrentCondition.Branched |= CurrentCondition.Active = elifActive;
-			else
+			if (!CurrentCondition.Branched) {
+				CurrentCondition.Active = EvaluateExpression(statement);
+				CurrentCondition.Branched |= CurrentCondition.Active;
+			} else
 				CurrentCondition.Active = false;
 		}
 
@@ -128,11 +108,7 @@ namespace OpenGL.Objects
 			if (_ConditionStack.Count == 0)
 				throw new InvalidOperationException("#else without the corresponding conditional");
 
-			if (!CurrentCondition.Branched)
-				CurrentCondition.Branched |= CurrentCondition.Active = true;
-			else
-				CurrentCondition.Active = false;
-			Debug.Assert(CurrentCondition.Branched);
+			CurrentCondition.Active = !CurrentCondition.Branched;
 		}
 
 		public void Endif()

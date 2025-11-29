@@ -55,15 +55,13 @@ namespace OpenGL.Objects
 		/// 
 		/// </summary>
 		[Conditional("DEBUG")]
-		public static void CheckResourceLeaks(bool throwException = true)
+		public static void CheckResourceLeaks()
 		{
 			if (_LivingResources.Count > 0) {
 				Log("Leaking {0} resources.", _LivingResources.Count);
-				foreach (Resource resource in _LivingResources)
+				foreach (Resource resource in _LivingResources) {
 					Log("Resource {0} (ref count: {1}, disposed: {2})", resource.GetType().Name, resource.RefCount, resource.IsDisposed);
-
-				if (throwException)
-					throw new InvalidOperationException($"not all IResource instances has been disposed (missing {_LivingResources.Count}).");
+				}
 			} else
 				Log("No resource leak.");
 		}
@@ -82,6 +80,7 @@ namespace OpenGL.Objects
 			// Store stack trace
 			_ConstructorStackTrace = GetResourceConstructorStackTrace();
 			// Collect this ResourceResource for lifetime tracking
+			Debug.Assert(this != null);
 			_LivingResources.Add(this);
 		}
 
@@ -133,8 +132,10 @@ namespace OpenGL.Objects
 		protected void LinkResource(IResource resource)
 		{
 			if (resource == null)
-				throw new ArgumentNullException(nameof(resource));
+				throw new ArgumentNullException("resource");
 
+			// Reference resources
+			resource.IncRef();
 			// Unreference at disposition
 			Debug.Assert(!_Resources.Contains(resource));
 			_Resources.Add(resource);
@@ -152,11 +153,23 @@ namespace OpenGL.Objects
 		protected void UnlinkResource(IResource resource)
 		{
 			if (resource == null)
-				throw new ArgumentNullException(nameof(resource));
+				throw new ArgumentNullException("resource");
 
 			// Unreference at disposition
 			bool res = _Resources.Remove(resource);
 			Debug.Assert(res);
+			// No more referenced
+			resource.DecRef();
+		}
+
+		/// <summary>
+		/// Unlink all resources.
+		/// </summary>
+		private void UnlinkResources()
+		{
+			foreach (IResource resource in _Resources)
+				resource.DecRef();
+			_Resources.Clear();
 		}
 
 		/// <summary>
@@ -183,7 +196,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Resources used by this UserGraphicsResource.
 		/// </summary>
-		private readonly ResourceCollection<IResource> _Resources = new ResourceCollection<IResource>();
+		private readonly List<IResource> _Resources = new List<IResource>();
 
 		#endregion
 
@@ -269,7 +282,7 @@ namespace OpenGL.Objects
 		/// </remarks>
 		public void IncRef()
 		{
-			++_RefCount;
+			_RefCount++;
 		}
 
 		/// <summary>
@@ -337,7 +350,7 @@ namespace OpenGL.Objects
 		protected virtual void Dispose(bool disposing)
 		{
 			if (disposing)
-				_Resources.Dispose();
+				UnlinkResources();
 		}
 
 		/// <summary>

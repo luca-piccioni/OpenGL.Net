@@ -1,5 +1,5 @@
 ﻿
-// Copyright (C) 2011-2015 Luca Piccioni
+// Copyright (C) 2011-2018 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -22,7 +22,6 @@
 using System;
 using System.Diagnostics;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 
 namespace OpenGL.Objects
 {
@@ -82,6 +81,7 @@ namespace OpenGL.Objects
 			/// Set an element from the array, as defined in the underlying VertexArrayObject instance.
 			/// </summary>
 			/// <typeparam name="T"></typeparam>
+			/// <param name="element"></param>
 			/// <param name="index"></param>
 			/// <returns></returns>
 			void SetElement<T>(T element, uint index) where T : struct;
@@ -105,12 +105,14 @@ namespace OpenGL.Objects
 			/// </param>
 			public VertexArray(ArrayBufferBase arrayBuffer, uint sectionIndex)
 			{
-				if (arrayBuffer != null && sectionIndex >= arrayBuffer.ArraySectionsCount)
-					throw new ArgumentOutOfRangeException("out of bounds", "sectionIndex");
+				// XXX We should be able to setup buffers created later
+				// if (arrayBuffer != null && arrayBuffer.ItemsCount == 0)
+				// 	throw new ArgumentException("zero items", "arrayBuffer");
+				// if (arrayBuffer != null && sectionIndex >= arrayBuffer.ArraySectionsCount)
+				//	throw new ArgumentOutOfRangeException("out of bounds", "sectionIndex");
 
 				ArrayBuffer = arrayBuffer;
-				if (ArrayBuffer != null)
-					ArrayBuffer.IncRef();
+				ArrayBuffer?.IncRef();
 				ArraySectionIndex = sectionIndex;
 			}
 
@@ -183,7 +185,7 @@ namespace OpenGL.Objects
 					Debug.Assert(vertexAttribArrayType == arrayBaseType);
 					// Array normalized
 					Gl.GetVertexAttrib(location, VertexAttribPropertyARB.VertexAttribArrayNormalized, out vertexAttribArrayNormalized);
-					Debug.Assert((vertexAttribArrayNormalized != 0) == arraySection.Normalized);
+					Debug.Assert(vertexAttribArrayNormalized != 0 == arraySection.Normalized);
 					// Array size
 					Gl.GetVertexAttrib(location, VertexAttribPropertyARB.VertexAttribArrayStride, out vertexAttribArrayStride);
 					Debug.Assert(vertexAttribArrayStride == arrayStride);
@@ -212,7 +214,7 @@ namespace OpenGL.Objects
 			/// </param>
 			internal virtual void EnableVertexAttribute(GraphicsContext ctx, uint location, ShaderAttributeType type)
 			{
-				// Avoid rendundant buffer binding and relative vertex array setup
+				// Avoid redundant buffer binding and relative vertex array setup
 				if ((ctx.Extensions.VertexArrayObject_ARB || ctx.Version.IsCompatible(Gl.Version_300_ES)) && IsDirty == false) {
 					// CheckVertexAttribute(ctx, location);
 					return;
@@ -221,12 +223,12 @@ namespace OpenGL.Objects
 				ArrayBufferBase.IArraySection arraySection = ArrayBuffer.GetArraySection(ArraySectionIndex);
 				int arrayStride = arraySection.Stride.ToInt32();
 
-				ctx.Bind(ArrayBuffer);
+				ctx.Bind(ArrayBuffer, true);
 
 				uint arrayRank = arraySection.ItemType.GetArrayRank();
 
 				if (arrayRank == 1) {
-					VertexAttribType arrayBaseType = (VertexAttribType)arraySection.ItemType.GetVertexBaseType();
+					// VertexAttribType arrayBaseType = (VertexAttribType)arraySection.ItemType.GetVertexBaseType();
 					int arrayLength = (int)arraySection.ItemType.GetArrayLength();
 
 					// Enable vertex attribute
@@ -234,31 +236,43 @@ namespace OpenGL.Objects
 					// Bind varying attribute to currently bound buffer object
 					switch (ArrayBufferItem.GetArrayBaseType(type)) {
 						case VertexBaseType.Float:
+						{
+							VertexAttribPointerType arrayBaseType = (VertexAttribPointerType)arraySection.ItemType.GetVertexBaseType();
+
 							Gl.VertexAttribPointer(
 								location,
-								arrayLength, (VertexAttribPointerType)arrayBaseType, arraySection.Normalized,
+								arrayLength, arrayBaseType, arraySection.Normalized,
 								arrayStride, arraySection.Offset
 							);
 							break;
+						}
 						case VertexBaseType.Int:
 						case VertexBaseType.UInt:
+						{
+							VertexAttribIType arrayBaseType = (VertexAttribIType)arraySection.ItemType.GetVertexBaseType();
+
 							Gl.VertexAttribIPointer(
 								location,
-								arrayLength, (VertexAttribIType)arrayBaseType,
+								arrayLength, arrayBaseType,
 								arrayStride, arraySection.Offset
-								);
+							);
 							break;
+						}
 #if !MONODROID
 						case VertexBaseType.Double:
+						{
+							VertexAttribLType arrayBaseType = (VertexAttribLType)arraySection.ItemType.GetVertexBaseType();
+
 							Gl.VertexAttribLPointer(
 								location,
-								arrayLength, (VertexAttribLType)arrayBaseType,
+								arrayLength, arrayBaseType,
 								arrayStride, arraySection.Offset
-								);
+							);
 							break;
+						}
 #endif
 						default:
-							throw new NotSupportedException(String.Format("vertex attribute type {0} not supported", type));
+							throw new NotSupportedException($"vertex attribute type {type} not supported");
 					}
 
 					// Set attribute divisor
@@ -267,7 +281,7 @@ namespace OpenGL.Objects
 					ArrayBufferItemType columnType = arraySection.ItemType.GetMatrixColumnType();
 					uint columnOffset = columnType.GetItemSize();
 
-					VertexAttribType arrayBaseType = (VertexAttribType)columnType.GetVertexBaseType();
+					//VertexAttribType arrayBaseType = (VertexAttribType)columnType.GetVertexBaseType();
 					int arrayLength = (int)columnType.GetArrayLength();
 
 					for (int i = 0; i < arrayRank; i++) {
@@ -276,35 +290,48 @@ namespace OpenGL.Objects
 						// Bind varying attribute to currently bound buffer object
 						switch (ArrayBufferItem.GetArrayBaseType(type)) {
 							case VertexBaseType.Float:
+							{
+								VertexAttribPointerType arrayBaseType = (VertexAttribPointerType)columnType.GetVertexBaseType();
+
 								Gl.VertexAttribPointer(
 									(uint)(location + i),
-									arrayLength, (VertexAttribPointerType)arrayBaseType, arraySection.Normalized,
+									arrayLength, arrayBaseType, arraySection.Normalized,
 									arrayStride, new IntPtr(arraySection.Offset.ToInt64() + columnOffset * i)
 								);
 								break;
+							}
+								
 							case VertexBaseType.Int:
 							case VertexBaseType.UInt:
+							{
+								VertexAttribIType arrayBaseType = (VertexAttribIType)columnType.GetVertexBaseType();
+
 								Gl.VertexAttribIPointer(
 									(uint)(location + i),
-									arrayLength, (VertexAttribIType)arrayBaseType,
+									arrayLength, arrayBaseType,
 									arrayStride, new IntPtr(arraySection.Offset.ToInt64() + columnOffset * i)
-									);
+								);
 								break;
+							}
 #if !MONODROID
 							case VertexBaseType.Double:
+							{
+								VertexAttribLType arrayBaseType = (VertexAttribLType)columnType.GetVertexBaseType();
+
 								Gl.VertexAttribLPointer(
 									(uint)(location + i),
-									arrayLength, (VertexAttribLType)arrayBaseType,
+									arrayLength, arrayBaseType,
 									arrayStride, new IntPtr(arraySection.Offset.ToInt64() + columnOffset * i)
-									);
+								);
 								break;
+							}
 #endif
 							default:
-								throw new NotSupportedException(String.Format("vertex attribute type {0} not supported", type));
+								throw new NotSupportedException($"vertex attribute type {type} not supported");
 						}
-						// Set attribute divisor
-						SetAttributeDivisor(ctx, (uint)(location + i), type);
 					}
+					// Set attribute divisor
+					SetAttributeDivisor(ctx, location, type);
 				}
 			}
 
@@ -320,8 +347,8 @@ namespace OpenGL.Objects
 			/// <param name="ctx">
 			/// The <see cref="GraphicsContext"/> on which the shader program is bound.
 			/// </param>
-			/// <param name="attributeBinding">
-			/// The <see cref="ShaderProgram.AttributeBinding"/> representing the generic vertex attribute.
+			/// <param name="location">
+			/// The <see cref="uint"/> representing the generic vertex attribute.
 			/// </param>
 			internal virtual void DisableVertexAttribute(GraphicsContext ctx, uint location)
 			{
@@ -387,7 +414,7 @@ namespace OpenGL.Objects
 
 					int arrayLength = (int)arraySection.ItemType.GetArrayLength();
 					if (arrayLength != 3)
-						throw new NotSupportedException(String.Format("normal pointer of length {0} not supported", arrayLength));
+						throw new NotSupportedException($"normal pointer of length {arrayLength} not supported");
 
 					// Bind the array buffer
 					ctx.Bind(ArrayBuffer);
@@ -441,24 +468,23 @@ namespace OpenGL.Objects
 			/// </param>
 			public void Create(GraphicsContext ctx)
 			{
-				if (ArrayBuffer.Exists(ctx) == false)
-					ArrayBuffer.Create(ctx);
+				ArrayBuffer.Create(ctx);
 			}
 
 			/// <summary>
 			/// The <see cref="ArrayBufferBase"/> holding the array information.
 			/// </summary>
-			public ArrayBufferBase Array { get { return (ArrayBuffer); } }
+			public ArrayBufferBase Array => ArrayBuffer;
 
 			/// <summary>
 			/// The section of the array referred by this vertex array.
 			/// </summary>
-			public ArrayBufferBase.IArraySection ArraySection { get { return (ArrayBuffer.GetArraySection(ArraySectionIndex)); } }
+			public ArrayBufferBase.IArraySection ArraySection => ArrayBuffer.GetArraySection(ArraySectionIndex);
 
 			/// <summary>
 			/// Get the length of the vertex array.
 			/// </summary>
-			public uint Length { get { return (ArrayBuffer.ItemsCount); } }
+			public uint Length => ArrayBuffer.ItemsCount;
 
 			/// <summary>
 			/// Set the vertex attribute.
@@ -475,7 +501,7 @@ namespace OpenGL.Objects
 			public void SetVertexAttribute(GraphicsContext ctx, ShaderProgram.AttributeBinding programAttrib, string attributeName)
 			{
 				if (attributeName == null)
-					throw new ArgumentNullException("attributeName");
+					throw new ArgumentNullException(nameof(attributeName));
 
 				if (programAttrib != null) {
 					// Enable/Disable shader attribute
@@ -499,7 +525,7 @@ namespace OpenGL.Objects
 							SetTexCoordAttribute(ctx);
 							break;
 						default:
-							throw new NotSupportedException(String.Format("attribute {0} not supported on fixed pipeline", attributeName));
+							throw new NotSupportedException($"attribute {attributeName} not supported on fixed pipeline");
 					}
 #else
 					throw new NotSupportedException("fixed pipeline not supported");
@@ -512,12 +538,12 @@ namespace OpenGL.Objects
 
 			public T GetElement<T>(uint index) where T : struct
 			{
-				return (ArrayBuffer.GetElementCore<T>(index, ArraySectionIndex));
+				return ArrayBuffer.GetElement<T>(index, ArraySectionIndex);
 			}
 
 			public void SetElement<T>(T element, uint index) where T : struct
 			{
-				ArrayBuffer.SetElementCore<T>(element, index, ArraySectionIndex);
+				ArrayBuffer.SetElement<T>(element, index, ArraySectionIndex);
 			}
 
 			#endregion
@@ -529,8 +555,7 @@ namespace OpenGL.Objects
 			/// </summary>
 			public void Dispose()
 			{
-				if (ArrayBuffer != null)
-					ArrayBuffer.DecRef();
+				ArrayBuffer?.DecRef();
 			}
 
 			#endregion
@@ -585,17 +610,17 @@ namespace OpenGL.Objects
 			/// <summary>
 			/// The <see cref="ArrayBufferBase"/> holding the array information.
 			/// </summary>
-			public ArrayBufferBase Array { get { return (null); } }
+			public ArrayBufferBase Array { get { return null; } }
 
 			/// <summary>
 			/// The section of the array referred by this vertex array.
 			/// </summary>
-			public ArrayBufferBase.IArraySection ArraySection { get { return (null); } }
+			public ArrayBufferBase.IArraySection ArraySection { get { return null; } }
 
 			/// <summary>
 			/// Get the length of the vertex array.
 			/// </summary>
-			public uint Length { get { return (0); } }
+			public uint Length { get { return 0; } }
 
 			/// <summary>
 			/// Set the vertex attribute.
@@ -612,9 +637,9 @@ namespace OpenGL.Objects
 			public void SetVertexAttribute(GraphicsContext ctx, ShaderProgram.AttributeBinding programAttrib, string attributeName)
 			{
 				if (programAttrib == null)
-					throw new ArgumentNullException("programAttrib");
+					throw new ArgumentNullException(nameof(programAttrib));
 				if (attributeName == null)
-					throw new ArgumentNullException("attributeName");
+					throw new ArgumentNullException(nameof(attributeName));
 
 				switch (programAttrib.Type) {
 					case ShaderAttributeType.Float:
@@ -630,7 +655,7 @@ namespace OpenGL.Objects
 						Gl.VertexAttrib4(programAttrib.Location, (float)DefaultValue.x, (float)DefaultValue.y, (float)DefaultValue.z, (float)DefaultValue.w);
 						break;
 					default:
-						throw new NotImplementedException(String.Format("default value for attributes of type {0} not implemented", programAttrib.Type));
+						throw new NotImplementedException($"default value for attributes of type {programAttrib.Type} not implemented");
 				}
 			}
 
@@ -682,7 +707,7 @@ namespace OpenGL.Objects
 				base(arrayBuffer, sectionIndex)
 			{
 				if (divisor == 0)
-					throw new ArgumentException("invalid value", "divisor");
+					throw new ArgumentException("invalid value", nameof(divisor));
 
 				Divisor = divisor;
 			}
@@ -761,7 +786,7 @@ namespace OpenGL.Objects
 		public void SetArray(ArrayBufferBase arrayBuffer, uint sectionIndex, string attributeName, string blockName)
 		{
 			if (string.IsNullOrEmpty(attributeName))
-				throw new ArgumentException("invalid name", "attributeName");
+				throw new ArgumentException("invalid name", nameof(attributeName));
 
 			// Set vertex array
 			SetVertexArray(new VertexArray(arrayBuffer, sectionIndex), attributeName, blockName);
@@ -873,8 +898,8 @@ namespace OpenGL.Objects
 		/// </exception>
 		public void SetArrayDefault(Vertex4d defaultValue, string attributeName, string blockName)
 		{
-			if (String.IsNullOrEmpty(attributeName))
-				throw new ArgumentException("invalid name", "attributeName");
+			if (string.IsNullOrEmpty(attributeName))
+				throw new ArgumentException("invalid name", nameof(attributeName));
 
 			// Set vertex array
 			SetVertexArray(new DefaultVertexArray(defaultValue), attributeName, blockName);
@@ -931,8 +956,8 @@ namespace OpenGL.Objects
 		/// </exception>
 		public void SetInstancedArray(ArrayBufferBase arrayBuffer, uint sectionIndex, uint divisor, string attributeName, string blockName)
 		{
-			if (String.IsNullOrEmpty(attributeName))
-				throw new ArgumentException("invalid name", "attributeName");
+			if (string.IsNullOrEmpty(attributeName))
+				throw new ArgumentException("invalid name", nameof(attributeName));
 
 			// Set vertex array
 			SetVertexArray(new InstancedVertexArray(arrayBuffer, sectionIndex, divisor), attributeName, blockName);
@@ -1038,9 +1063,9 @@ namespace OpenGL.Objects
 		internal void SetVertexArray(IVertexArray vertexArray, string attributeName, string blockName)
 		{
 			if (vertexArray == null)
-				throw new ArgumentNullException("vertexArray");
-			if (String.IsNullOrEmpty(attributeName))
-				throw new ArgumentException("invalid name", "attributeName");
+				throw new ArgumentNullException(nameof(vertexArray));
+			if (string.IsNullOrEmpty(attributeName))
+				throw new ArgumentException("invalid name", nameof(attributeName));
 
 			IVertexArray previousVertexArray;
 
@@ -1053,7 +1078,7 @@ namespace OpenGL.Objects
 			// Map buffer object with input name including block name also
 			if (blockName != null) {
 				// Attribute referenced in block
-				attributeName = String.Format("{0}.{1}", blockName, attributeName);
+				attributeName = $"{blockName}.{attributeName}";
 
 				// Dispose previous vertex array
 				if (_VertexArrays.TryGetValue(attributeName, out previousVertexArray))
@@ -1077,18 +1102,18 @@ namespace OpenGL.Objects
 		/// </returns>
 		internal IVertexArray GetVertexArray(string attributeName, string attributeBlock)
 		{
-			if (String.IsNullOrEmpty(attributeName))
-				throw new ArgumentException("invalid attribute name", "attributeName");
+			if (string.IsNullOrEmpty(attributeName))
+				throw new ArgumentException("invalid attribute name", nameof(attributeName));
 
 			IVertexArray vertexArray;
 
 			if (attributeBlock != null)
-				attributeName = String.Format("{0}.{1}", attributeBlock, attributeName);
+				attributeName = $"{attributeBlock}.{attributeName}";
 
 			if (_VertexArrays.TryGetValue(attributeName, out vertexArray) == false)
-				return (null);
+				return null;
 
-			return (vertexArray);
+			return vertexArray;
 		}
 
 		/// <summary>
@@ -1102,7 +1127,7 @@ namespace OpenGL.Objects
 		/// </returns>
 		internal IVertexArray GetVertexArray(string semantic)
 		{
-			return (GetVertexArray(semantic, SemanticBlockName));
+			return GetVertexArray(semantic, SemanticBlockName);
 		}
 
 		internal IVertexArray GetVertexArray(string attributeName, ShaderProgram shaderProgram)
@@ -1118,27 +1143,24 @@ namespace OpenGL.Objects
 					shaderVertexArray = GetVertexArray(semantic);
 			}
 
-			return (shaderVertexArray);
+			return shaderVertexArray;
 		}
 
 		/// <summary>
 		/// The vertex array length, based on the property <see cref="ArrayBufferBase.GpuItemsCount"/> of the
 		/// array objects compositing this vertex array.
 		/// </summary>
-		public uint ArrayLength
-		{
-			get { return (_VertexArrayLength); }
-		}
+		public uint ArrayLength => _VertexArrayLength;
 
 		/// <summary>
 		/// The the minimum length of the arrays compositing this vertex array.
 		/// </summary>
-		private void UpdateVertexArrayLength()
+		public void UpdateVertexArrayLength()
 		{
 			if (_VertexArrays.Count == 0)
 				throw new InvalidOperationException("no arrays");
 
-			uint minLength = UInt32.MaxValue;
+			uint minLength = uint.MaxValue;
 
 			foreach (KeyValuePair<string, IVertexArray> pair in _VertexArrays)
 				minLength = Math.Min(minLength, pair.Value.Length);
@@ -1165,7 +1187,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Determine the actual <see cref="IVertexArray"/> instances used for drawing.
 		/// </summary>
-		internal virtual IEnumerable<IVertexArray> DrawArrays { get { return (_VertexArrays.Values); } }
+		internal virtual IEnumerable<IVertexArray> DrawArrays => _VertexArrays.Values;
 
 		/// <summary>
 		/// Array buffer objects required by this vertex array object.

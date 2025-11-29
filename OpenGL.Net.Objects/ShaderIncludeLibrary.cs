@@ -27,7 +27,7 @@ namespace OpenGL.Objects
 	/// <summary>
 	/// Shader include library.
 	/// </summary>
-	internal sealed class ShaderIncludeLibrary : GraphicsResource
+	sealed class ShaderIncludeLibrary : GraphicsResource
 	{
 		#region Constructors
 
@@ -36,36 +36,23 @@ namespace OpenGL.Objects
 		/// </summary>
 		public ShaderIncludeLibrary()
 		{
-			// Load all include files defined by OpenGL.Net.Objects
-			// Note: includes are meant to be usable by external users
-			MergeLibrary(ShadersLibrary.Instance);
+			// Load all include files defined by ShadersLibrary
+			foreach (ShadersLibrary.Include shaderLibraryInclude in ShadersLibrary.Instance.Includes) {
+				if (_IncludeFileSystem.ContainsKey(shaderLibraryInclude.Id))
+					throw new InvalidOperationException(String.Format("include path '{0}' is duplicated", shaderLibraryInclude.Id));
+
+				ShaderInclude shaderInclude = new ShaderInclude(shaderLibraryInclude.Id);
+
+				shaderInclude.LoadSource(shaderLibraryInclude.Path);
+				shaderInclude.IncRef();
+
+				_IncludeFileSystem.Add(shaderInclude.IncludePath, shaderInclude);
+			}
 		}
 
 		#endregion
 
 		#region Shader Include Collection
-
-		public void MergeLibrary(ShadersLibrary shadersLibrary)
-		{
-			if (shadersLibrary == null)
-				throw new ArgumentNullException(nameof(shadersLibrary));
-
-			if (shadersLibrary.Includes == null)
-				return;
-
-			foreach (ShadersLibrary.Include shaderLibraryInclude in shadersLibrary.Includes) {
-				if (_IncludeFileSystem.ContainsKey(shaderLibraryInclude.Path))
-					throw new InvalidOperationException(String.Format("include path '{0}' is duplicated", shaderLibraryInclude.Path));
-
-				ShaderInclude shaderInclude;
-
-				LinkResource(shaderInclude = new ShaderInclude(shaderLibraryInclude.Path));
-
-				shaderInclude.LoadSource(shaderLibraryInclude.Resource);
-
-				_IncludeFileSystem.Add(shaderInclude.IncludePath, shaderInclude);
-			}
-		}
 
 		/// <summary>
 		/// Determine whether an include source have a specific path.
@@ -78,12 +65,12 @@ namespace OpenGL.Objects
 		/// </returns>
 		public bool IsPathDefined(string path)
 		{
-			return _IncludeFileSystem.ContainsKey(path);
+			return (_IncludeFileSystem.ContainsKey(path));
 		}
 		
 		public ShaderInclude GetInclude(string path)
 		{
-			return _IncludeFileSystem[path];
+			return (_IncludeFileSystem[path]);
 		}
 		
 		/// <summary>
@@ -93,7 +80,7 @@ namespace OpenGL.Objects
 		
 		#endregion
 		
-		#region Overrides
+		#region GraphicsResource Overrides
 		
 		/// <summary>
 		/// Shader include object class.
@@ -118,9 +105,14 @@ namespace OpenGL.Objects
 		/// </returns>
 		protected override bool RequiresName(GraphicsContext ctx)
 		{
-			return false;
+			return (false);
 		}
-		
+
+		/// <summary>
+		/// Determine whether this IGraphicsResource is effectively shareable between sharing <see cref="GraphicsContext"/> instances.
+		/// </summary>
+		public override bool IsShareable { get { return false; } }
+
 		/// <summary>
 		/// Actually create this GraphicsResource resources.
 		/// </summary>
@@ -132,7 +124,51 @@ namespace OpenGL.Objects
 			foreach (ShaderInclude shaderInclude in _IncludeFileSystem.Values)
 				shaderInclude.Create(ctx);
 		}
-
+		
+		/// <summary>
+		/// Delete this GraphicsResource.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> used for deleting this object. The IGraphicsResource shall belong to the object space to this
+		/// <see cref="GraphicsContext"/>. The <see cref="GraphicsContext"/> shall be current to the calling thread.
+		/// </param>
+		/// <remarks>
+		/// <para>
+		/// After this method, the resource must have deallocated every graphic resource associated with it. Normally it should be possible
+		/// to create again the resources by calling <see cref="Create"/>.
+		/// </para>
+		/// <para>
+		/// This methods shall be the preferred way to deallocate graphic resources.
+		/// </para>
+		/// <para>
+		/// After a successfull call to Create, <see cref="Exists"/> shall return true.
+		/// </para>
+		/// <para>
+		/// The actual implementation deletes the name (<see cref="DeleteName"/>) only if the implementation requires a context related name
+		/// (<see cref="RequiresName"/>). In the case derived classes requires more complex resource deletion pattern, this method could
+		/// be overriden for that purpose, paying attention to call the base implementation.
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="Create"/>
+		/// <exception cref="ArgumentNullException">
+		/// Exception thrown if <paramref name="ctx"/> is null.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if <paramref name="ctx"/> is not current to the calling thread.
+		/// </exception>
+		/// <exception cref="ArgumentException">
+		/// Exception thrown if this object doesn't exists for <paramref name="ctx"/> (this is determined by calling <see cref="Exists"/>
+		/// method), or this resource has a name and <paramref name="ctx"/> is not current to the calling thread.
+		/// </exception>
+		public override void Delete(GraphicsContext ctx)
+		{
+			// Base implementation
+			base.Delete(ctx);
+			// Dispose shader includes
+			foreach (ShaderInclude shaderInclude in _IncludeFileSystem.Values)
+				shaderInclude.DecRef();
+		}
+		
 		#endregion
 	}
 }

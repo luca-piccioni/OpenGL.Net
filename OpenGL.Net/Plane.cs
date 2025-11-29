@@ -1,4 +1,10 @@
 ﻿
+
+
+
+
+
+
 // Copyright (C) 2010-2017 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -26,11 +32,12 @@ using System.Runtime.CompilerServices;
 
 namespace OpenGL
 {
+
 	/// <summary>
 	/// Plane abstraction.
 	/// </summary>
 	[DebuggerDisplay("Plane: Normal={Normal} Distance={Distance}")]
-	public struct Planef
+	public struct Planef : IEquatable<Planef>
 	{
 		#region Constructors
 
@@ -322,13 +329,130 @@ namespace OpenGL
 		}
 
 		#endregion
+
+		#region Equality Operators
+
+		/// <summary>
+		/// Equality operator.
+		/// </summary>
+		/// <param name="v1"></param>
+		/// <param name="v2"></param>
+		/// <returns></returns>
+		public static bool operator ==(Planef v1, Planef v2)
+		{
+			return (v1.Equals(v2));
+		}
+
+		/// <summary>
+		/// Inequality operator.
+		/// </summary>
+		/// <param name="v1"></param>
+		/// <param name="v2"></param>
+		/// <returns></returns>
+		public static bool operator !=(Planef v1, Planef v2)
+		{
+			return (!v1.Equals(v2));
+		}
+
+		#endregion
+
+		#region Cast Operators
+
+		/// <summary>
+		/// Cast to float operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Planef"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:float"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator float[](Planef a)
+		{
+			return new[] { a._A, a._B, a._C, a._D };
+		}
+
+
+		/// <summary>
+		/// Cast to double[] operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Planef"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:double[]"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator double[](Planef a)
+		{
+			return new double[] { a._A, a._B, a._C, a._D };
+		}
+
+
+		#endregion
+
+		#region IEquatable Implementation
+
+		/// <summary>
+		/// Indicates whether the this Planef is equal to another Planef.
+		/// </summary>
+		/// <param name="other">
+		/// The <see cref="Planef"/> to compare with this Planef.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this Planef is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(Planef other)
+		{
+			return (_A == other._A && _B == other._B && _C == other._C && _D == other._D);
+		}
+
+		/// <summary>
+		/// Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+		/// </summary>
+		/// <param name="obj">
+		/// The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>.
+		/// </param>
+		/// <returns>
+		/// It returns true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+		/// </returns>
+		public override bool Equals(object obj)
+		{
+			if (ReferenceEquals(null, obj))
+				return (false);
+			if (obj.GetType() != typeof(Planef))
+				return (false);
+			
+			return (Equals((Planef)obj));
+		}
+
+		/// <summary>
+		/// Serves as a hash function for a particular type. <see cref="M:System.Object.GetHashCode"/> is suitable for
+		/// use in hashing algorithms and data structures like a hash table.
+		/// </summary>
+		/// <returns>
+		/// A hash code for the current <see cref="T:System.Object"/>.
+		/// </returns>
+		public override int GetHashCode()
+		{
+			unchecked {
+				int result = _A.GetHashCode();
+				result = (result * 397) ^ _B.GetHashCode();
+				result = (result * 397) ^ _C.GetHashCode();
+				result = (result * 397) ^ _D.GetHashCode();
+
+				return result;
+			}
+		}
+
+		#endregion
 	}
+
 
 	/// <summary>
 	/// Plane abstraction.
 	/// </summary>
 	[DebuggerDisplay("Plane: Normal={Normal} Distance={Distance}")]
-	public struct Planed
+	public struct Planed : IEquatable<Planed>
 	{
 		#region Constructors
 
@@ -620,6 +744,108 @@ namespace OpenGL
 		}
 
 		#endregion
+
+		#region Equality Operators
+
+		/// <summary>
+		/// Equality operator.
+		/// </summary>
+		/// <param name="v1"></param>
+		/// <param name="v2"></param>
+		/// <returns></returns>
+		public static bool operator ==(Planed v1, Planed v2)
+		{
+			return (v1.Equals(v2));
+		}
+
+		/// <summary>
+		/// Inequality operator.
+		/// </summary>
+		/// <param name="v1"></param>
+		/// <param name="v2"></param>
+		/// <returns></returns>
+		public static bool operator !=(Planed v1, Planed v2)
+		{
+			return (!v1.Equals(v2));
+		}
+
+		#endregion
+
+		#region Cast Operators
+
+		/// <summary>
+		/// Cast to double operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="Planed"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="T:double"/> initialized with the vector components.
+		/// </returns>
+		public static implicit operator double[](Planed a)
+		{
+			return new[] { a._A, a._B, a._C, a._D };
+		}
+
+
+		#endregion
+
+		#region IEquatable Implementation
+
+		/// <summary>
+		/// Indicates whether the this Planed is equal to another Planed.
+		/// </summary>
+		/// <param name="other">
+		/// The <see cref="Planed"/> to compare with this Planed.
+		/// </param>
+		/// <returns>
+		/// It returns true if the this Planed is equal to <paramref name="other"/>; otherwise, false.
+		/// </returns>
+		public bool Equals(Planed other)
+		{
+			return (_A == other._A && _B == other._B && _C == other._C && _D == other._D);
+		}
+
+		/// <summary>
+		/// Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+		/// </summary>
+		/// <param name="obj">
+		/// The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>.
+		/// </param>
+		/// <returns>
+		/// It returns true if the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>; otherwise, false.
+		/// </returns>
+		public override bool Equals(object obj)
+		{
+			if (ReferenceEquals(null, obj))
+				return (false);
+			if (obj.GetType() != typeof(Planed))
+				return (false);
+			
+			return (Equals((Planed)obj));
+		}
+
+		/// <summary>
+		/// Serves as a hash function for a particular type. <see cref="M:System.Object.GetHashCode"/> is suitable for
+		/// use in hashing algorithms and data structures like a hash table.
+		/// </summary>
+		/// <returns>
+		/// A hash code for the current <see cref="T:System.Object"/>.
+		/// </returns>
+		public override int GetHashCode()
+		{
+			unchecked {
+				int result = _A.GetHashCode();
+				result = (result * 397) ^ _B.GetHashCode();
+				result = (result * 397) ^ _C.GetHashCode();
+				result = (result * 397) ^ _D.GetHashCode();
+
+				return result;
+			}
+		}
+
+		#endregion
 	}
+
 
 }

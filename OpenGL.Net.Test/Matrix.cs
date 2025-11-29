@@ -1,4 +1,11 @@
 ﻿
+
+
+
+
+
+
+
 // Copyright (C) 2018 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -32,6 +39,7 @@ using NUnit.Framework;
 
 namespace OpenGL.Test
 {
+
 	[TestFixture, Category("Math")]
 	internal class Matrix2x2fTest : TestBase
 	{
@@ -41,8 +49,13 @@ namespace OpenGL.Test
 		public void Matrix2x2f_Constructor1()
 		{
 			Matrix2x2f m = new Matrix2x2f(
+
 				(float)0, (float)1, 
+
+
 				(float)2, (float)3
+
+
 			);
 
 			for (uint c = 0, idx = 0; c < 2; c++) for (uint r = 0; r < 2; r++, idx++)
@@ -54,13 +67,23 @@ namespace OpenGL.Test
 		{
 			Assert.Throws<ArgumentNullException>(() => new Matrix2x2f(null, 0));
 			Assert.Throws<ArgumentException>(() => new Matrix2x2f(new[] { 
+
 				(float)0, (float)1, 
+
+
 				(float)2, (float)3
+
+
 			} , 1));
 
 			Matrix2x2f m = new Matrix2x2f(new[] {
+
 				(float)0, (float)1, 
+
+
 				(float)2, (float)3
+
+
 			});
 
 			for (uint c = 0, idx = 0; c < 2; c++) for (uint r = 0; r < 2; r++, idx++)
@@ -77,6 +100,7 @@ namespace OpenGL.Test
 				Assert.That(m1[c, r], Is.EqualTo(m2[c, r]).Within(1e-5f));
 		}
 
+
 		#endregion
 
 		#region Columns & Rows
@@ -86,13 +110,22 @@ namespace OpenGL.Test
 		{
 			Matrix2x2f m = CreateRandomMatrix();
 
+
 			Vertex2f c0 = m.Column0;
+
 			Assert.AreEqual(c0.x, m[0, 0]);
+
 			Assert.AreEqual(c0.y, m[0, 1]);
 
+
+
 			Vertex2f c1 = m.Column1;
+
 			Assert.AreEqual(c1.x, m[1, 0]);
+
 			Assert.AreEqual(c1.y, m[1, 1]);
+
+
 
 		}
 
@@ -101,8 +134,11 @@ namespace OpenGL.Test
 		{
 			Matrix2x2f m = CreateRandomMatrix();
 
+
 			Vertex2f r0 = m.Row0;
+
 			Vertex2f r1 = m.Row1;
+
 		}
 
 		#endregion
@@ -115,27 +151,38 @@ namespace OpenGL.Test
 			Matrix2x2f m = new Matrix2x2f();
 			float r;
 
+
 			r = Next(0.0f, 1.0f);
 			m[0, 0] = r;
 			Assert.That(r, Is.EqualTo(m[0, 0]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[0, 1] = r;
 			Assert.That(r, Is.EqualTo(m[0, 1]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[1, 0] = r;
 			Assert.That(r, Is.EqualTo(m[1, 0]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[1, 1] = r;
 			Assert.That(r, Is.EqualTo(m[1, 1]).Within(1e-5f));
 
+
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[0, 2] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[0, 2]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[1, 2] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[1, 2]);
+
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[2, 0] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[2, 0]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[2, 1] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[2, 1]);
+
 		}
 
 		[Test]
@@ -149,6 +196,7 @@ namespace OpenGL.Test
 			for (uint c = 0; c < 2; c++) for (uint r = 0; r < 2; r++, idx += 1.0f)
 				Assert.That(idx * 2.0f, Is.EqualTo(m[c, r]).Within(1e-5f));
 		}
+
 
 		[Test]
 		public void Matrix2x2f_MultiplyVertex2f()
@@ -166,6 +214,7 @@ namespace OpenGL.Test
 			Matrix2x2f r = m1 * m2;
 		}
 
+
 		#endregion
 
 		#region Cast Operators
@@ -181,6 +230,7 @@ namespace OpenGL.Test
 			for (uint c = 0, idx = 0; c < 2; c++) for (uint r = 0; r < 2; r++, idx++)
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-5f));
 		}
+
 
 		[Test]
 		public void Matrix2x2f_CastToMatrix2x2d()
@@ -216,7 +266,10 @@ namespace OpenGL.Test
 
 		#endregion
 
+
+
 		#region Rotation
+
 
 		[Test]
 		public void Matrix2x2f_RotatedZ()
@@ -231,6 +284,7 @@ namespace OpenGL.Test
 			r1 = Matrix2x2f.RotatedZ(+90.0f);
 			r2 = Matrix2x2f.RotatedZ(+180.0f);
 			Assert.IsTrue((r1 * r1).Equals(r2, 1e-5f));
+
 
 		}
 
@@ -249,9 +303,12 @@ namespace OpenGL.Test
 			m.RotateZ(+180.0f);
 			Assert.IsTrue(m.Equals(Matrix2x2f.RotatedZ(+180.0f), 1e-5f));
 
+
 		}
 
 		#endregion
+
+
 
 		#region Transposition
 
@@ -261,11 +318,17 @@ namespace OpenGL.Test
 			Matrix2x2f m = CreateRandomMatrix();
 			Matrix2x2f t = m.Transposed;
 
+
 			Assert.That(m[0, 0], Is.EqualTo(t[0, 0]).Within(1e-5f));
+
 			Assert.That(m[0, 1], Is.EqualTo(t[1, 0]).Within(1e-5f));
+
 			Assert.That(m[1, 0], Is.EqualTo(t[0, 1]).Within(1e-5f));
+
 			Assert.That(m[1, 1], Is.EqualTo(t[1, 1]).Within(1e-5f));
+
 		}
+
 
 		[Test]
 		public void Matrix2x2f_Transpose()
@@ -275,13 +338,20 @@ namespace OpenGL.Test
 
 			m.Transpose();
 
+
 			Assert.That(n[0, 0], Is.EqualTo(m[0, 0]).Within(1e-5f));
+
 			Assert.That(n[0, 1], Is.EqualTo(m[1, 0]).Within(1e-5f));
+
 			Assert.That(n[1, 0], Is.EqualTo(m[0, 1]).Within(1e-5f));
+
 			Assert.That(n[1, 1], Is.EqualTo(m[1, 1]).Within(1e-5f));
+
 		}
 
+
 		#endregion
+
 
 		#region Inversion
 
@@ -323,6 +393,7 @@ namespace OpenGL.Test
 
 		#endregion
 
+
 		#region IEquatable Implementation
 
 		[Test]
@@ -330,22 +401,27 @@ namespace OpenGL.Test
 		{
 			Matrix2x2f m = new Matrix2x2f();
 
+
 			m[0, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix2x2f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix2x2f.Zero, 0.50f));
 			m[0, 0] = 0.0f;
+
 			m[0, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix2x2f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix2x2f.Zero, 0.50f));
 			m[0, 1] = 0.0f;
+
 			m[1, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix2x2f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix2x2f.Zero, 0.50f));
 			m[1, 0] = 0.0f;
+
 			m[1, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix2x2f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix2x2f.Zero, 0.50f));
 			m[1, 1] = 0.0f;
+
 		}
 
 		[Test]
@@ -378,22 +454,27 @@ namespace OpenGL.Test
 			
 			Assert.DoesNotThrow(() => cache = m.GetHashCode());
 
+
 			m[0, 0] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[0, 1] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 0] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 1] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 		}
 
 		#endregion
@@ -416,33 +497,59 @@ namespace OpenGL.Test
 		private static Matrix2x2f CreateRandomMatrix()
 		{
 			return new Matrix2x2f(new[] {
+
 				Next(0.0f, 1.0f), Next(0.0f, 1.0f), 
+
+
 				Next(0.0f, 1.0f), Next(0.0f, 1.0f)
+
+
 			});
 		}
 
 		private static Matrix2x2f CreateSequenceMatrix()
 		{
 			return new Matrix2x2f(new[] {
+
 				(float)0, (float)1, 
+
+
 				(float)2, (float)3
+
+
 			});
 		}
+
 
 		private static Matrix2x2f CreateInvertibleMatrix()
 		{
 			Matrix2x2f m = new Matrix2x2f();
 
+
+
 			m[0, 0] = Next(1.0f, 2.0f);
+
+
+
 			m[0, 1] = Next(0.0f, 0.5f);
+
+
+
 			m[1, 0] = Next(0.0f, 0.5f);
+
+
+
 			m[1, 1] = Next(1.0f, 2.0f);
+
+
 
 			return m;
 		}
 
+
 		#endregion
 	}
+
 
 	[TestFixture, Category("Math")]
 	internal class Matrix2x3fTest : TestBase
@@ -453,8 +560,13 @@ namespace OpenGL.Test
 		public void Matrix2x3f_Constructor1()
 		{
 			Matrix2x3f m = new Matrix2x3f(
+
 				(float)0, (float)1, (float)2, 
+
+
 				(float)3, (float)4, (float)5
+
+
 			);
 
 			for (uint c = 0, idx = 0; c < 2; c++) for (uint r = 0; r < 3; r++, idx++)
@@ -466,13 +578,23 @@ namespace OpenGL.Test
 		{
 			Assert.Throws<ArgumentNullException>(() => new Matrix2x3f(null, 0));
 			Assert.Throws<ArgumentException>(() => new Matrix2x3f(new[] { 
+
 				(float)0, (float)1, (float)2, 
+
+
 				(float)3, (float)4, (float)5
+
+
 			} , 1));
 
 			Matrix2x3f m = new Matrix2x3f(new[] {
+
 				(float)0, (float)1, (float)2, 
+
+
 				(float)3, (float)4, (float)5
+
+
 			});
 
 			for (uint c = 0, idx = 0; c < 2; c++) for (uint r = 0; r < 3; r++, idx++)
@@ -489,6 +611,7 @@ namespace OpenGL.Test
 				Assert.That(m1[c, r], Is.EqualTo(m2[c, r]).Within(1e-5f));
 		}
 
+
 		#endregion
 
 		#region Columns & Rows
@@ -498,15 +621,26 @@ namespace OpenGL.Test
 		{
 			Matrix2x3f m = CreateRandomMatrix();
 
+
 			Vertex3f c0 = m.Column0;
+
 			Assert.AreEqual(c0.x, m[0, 0]);
+
 			Assert.AreEqual(c0.y, m[0, 1]);
+
 			Assert.AreEqual(c0.z, m[0, 2]);
 
+
+
 			Vertex3f c1 = m.Column1;
+
 			Assert.AreEqual(c1.x, m[1, 0]);
+
 			Assert.AreEqual(c1.y, m[1, 1]);
+
 			Assert.AreEqual(c1.z, m[1, 2]);
+
+
 
 		}
 
@@ -515,9 +649,13 @@ namespace OpenGL.Test
 		{
 			Matrix2x3f m = CreateRandomMatrix();
 
+
 			Vertex2f r0 = m.Row0;
+
 			Vertex2f r1 = m.Row1;
+
 			Vertex2f r2 = m.Row2;
+
 		}
 
 		#endregion
@@ -530,35 +668,49 @@ namespace OpenGL.Test
 			Matrix2x3f m = new Matrix2x3f();
 			float r;
 
+
 			r = Next(0.0f, 1.0f);
 			m[0, 0] = r;
 			Assert.That(r, Is.EqualTo(m[0, 0]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[0, 1] = r;
 			Assert.That(r, Is.EqualTo(m[0, 1]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[0, 2] = r;
 			Assert.That(r, Is.EqualTo(m[0, 2]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[1, 0] = r;
 			Assert.That(r, Is.EqualTo(m[1, 0]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[1, 1] = r;
 			Assert.That(r, Is.EqualTo(m[1, 1]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[1, 2] = r;
 			Assert.That(r, Is.EqualTo(m[1, 2]).Within(1e-5f));
 
+
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[0, 3] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[0, 3]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[1, 3] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[1, 3]);
+
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[2, 0] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[2, 0]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[2, 1] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[2, 1]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[2, 2] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[2, 2]);
+
 		}
 
 		[Test]
@@ -572,6 +724,7 @@ namespace OpenGL.Test
 			for (uint c = 0; c < 2; c++) for (uint r = 0; r < 3; r++, idx += 1.0f)
 				Assert.That(idx * 2.0f, Is.EqualTo(m[c, r]).Within(1e-5f));
 		}
+
 
 		#endregion
 
@@ -588,6 +741,7 @@ namespace OpenGL.Test
 			for (uint c = 0, idx = 0; c < 2; c++) for (uint r = 0; r < 3; r++, idx++)
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-5f));
 		}
+
 
 		[Test]
 		public void Matrix2x3f_CastToMatrix2x3d()
@@ -623,6 +777,9 @@ namespace OpenGL.Test
 
 		#endregion
 
+
+
+
 		#region Transposition
 
 		[Test]
@@ -631,15 +788,24 @@ namespace OpenGL.Test
 			Matrix2x3f m = CreateRandomMatrix();
 			Matrix3x2f t = m.Transposed;
 
+
 			Assert.That(m[0, 0], Is.EqualTo(t[0, 0]).Within(1e-5f));
+
 			Assert.That(m[0, 1], Is.EqualTo(t[1, 0]).Within(1e-5f));
+
 			Assert.That(m[0, 2], Is.EqualTo(t[2, 0]).Within(1e-5f));
+
 			Assert.That(m[1, 0], Is.EqualTo(t[0, 1]).Within(1e-5f));
+
 			Assert.That(m[1, 1], Is.EqualTo(t[1, 1]).Within(1e-5f));
+
 			Assert.That(m[1, 2], Is.EqualTo(t[2, 1]).Within(1e-5f));
+
 		}
 
+
 		#endregion
+
 
 		#region IEquatable Implementation
 
@@ -648,30 +814,37 @@ namespace OpenGL.Test
 		{
 			Matrix2x3f m = new Matrix2x3f();
 
+
 			m[0, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix2x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix2x3f.Zero, 0.50f));
 			m[0, 0] = 0.0f;
+
 			m[0, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix2x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix2x3f.Zero, 0.50f));
 			m[0, 1] = 0.0f;
+
 			m[0, 2] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix2x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix2x3f.Zero, 0.50f));
 			m[0, 2] = 0.0f;
+
 			m[1, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix2x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix2x3f.Zero, 0.50f));
 			m[1, 0] = 0.0f;
+
 			m[1, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix2x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix2x3f.Zero, 0.50f));
 			m[1, 1] = 0.0f;
+
 			m[1, 2] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix2x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix2x3f.Zero, 0.50f));
 			m[1, 2] = 0.0f;
+
 		}
 
 		[Test]
@@ -704,30 +877,37 @@ namespace OpenGL.Test
 			
 			Assert.DoesNotThrow(() => cache = m.GetHashCode());
 
+
 			m[0, 0] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[0, 1] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[0, 2] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 0] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 1] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 2] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 		}
 
 		#endregion
@@ -750,21 +930,33 @@ namespace OpenGL.Test
 		private static Matrix2x3f CreateRandomMatrix()
 		{
 			return new Matrix2x3f(new[] {
+
 				Next(0.0f, 1.0f), Next(0.0f, 1.0f), Next(0.0f, 1.0f), 
+
+
 				Next(0.0f, 1.0f), Next(0.0f, 1.0f), Next(0.0f, 1.0f)
+
+
 			});
 		}
 
 		private static Matrix2x3f CreateSequenceMatrix()
 		{
 			return new Matrix2x3f(new[] {
+
 				(float)0, (float)1, (float)2, 
+
+
 				(float)3, (float)4, (float)5
+
+
 			});
 		}
 
+
 		#endregion
 	}
+
 
 	[TestFixture, Category("Math")]
 	internal class Matrix2x4fTest : TestBase
@@ -775,8 +967,13 @@ namespace OpenGL.Test
 		public void Matrix2x4f_Constructor1()
 		{
 			Matrix2x4f m = new Matrix2x4f(
+
 				(float)0, (float)1, (float)2, (float)3, 
+
+
 				(float)4, (float)5, (float)6, (float)7
+
+
 			);
 
 			for (uint c = 0, idx = 0; c < 2; c++) for (uint r = 0; r < 4; r++, idx++)
@@ -788,13 +985,23 @@ namespace OpenGL.Test
 		{
 			Assert.Throws<ArgumentNullException>(() => new Matrix2x4f(null, 0));
 			Assert.Throws<ArgumentException>(() => new Matrix2x4f(new[] { 
+
 				(float)0, (float)1, (float)2, (float)3, 
+
+
 				(float)4, (float)5, (float)6, (float)7
+
+
 			} , 1));
 
 			Matrix2x4f m = new Matrix2x4f(new[] {
+
 				(float)0, (float)1, (float)2, (float)3, 
+
+
 				(float)4, (float)5, (float)6, (float)7
+
+
 			});
 
 			for (uint c = 0, idx = 0; c < 2; c++) for (uint r = 0; r < 4; r++, idx++)
@@ -811,6 +1018,7 @@ namespace OpenGL.Test
 				Assert.That(m1[c, r], Is.EqualTo(m2[c, r]).Within(1e-5f));
 		}
 
+
 		#endregion
 
 		#region Columns & Rows
@@ -820,17 +1028,30 @@ namespace OpenGL.Test
 		{
 			Matrix2x4f m = CreateRandomMatrix();
 
+
 			Vertex4f c0 = m.Column0;
+
 			Assert.AreEqual(c0.x, m[0, 0]);
+
 			Assert.AreEqual(c0.y, m[0, 1]);
+
 			Assert.AreEqual(c0.z, m[0, 2]);
+
 			Assert.AreEqual(c0.w, m[0, 3]);
 
+
+
 			Vertex4f c1 = m.Column1;
+
 			Assert.AreEqual(c1.x, m[1, 0]);
+
 			Assert.AreEqual(c1.y, m[1, 1]);
+
 			Assert.AreEqual(c1.z, m[1, 2]);
+
 			Assert.AreEqual(c1.w, m[1, 3]);
+
+
 
 		}
 
@@ -839,10 +1060,15 @@ namespace OpenGL.Test
 		{
 			Matrix2x4f m = CreateRandomMatrix();
 
+
 			Vertex2f r0 = m.Row0;
+
 			Vertex2f r1 = m.Row1;
+
 			Vertex2f r2 = m.Row2;
+
 			Vertex2f r3 = m.Row3;
+
 		}
 
 		#endregion
@@ -855,43 +1081,60 @@ namespace OpenGL.Test
 			Matrix2x4f m = new Matrix2x4f();
 			float r;
 
+
 			r = Next(0.0f, 1.0f);
 			m[0, 0] = r;
 			Assert.That(r, Is.EqualTo(m[0, 0]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[0, 1] = r;
 			Assert.That(r, Is.EqualTo(m[0, 1]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[0, 2] = r;
 			Assert.That(r, Is.EqualTo(m[0, 2]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[0, 3] = r;
 			Assert.That(r, Is.EqualTo(m[0, 3]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[1, 0] = r;
 			Assert.That(r, Is.EqualTo(m[1, 0]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[1, 1] = r;
 			Assert.That(r, Is.EqualTo(m[1, 1]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[1, 2] = r;
 			Assert.That(r, Is.EqualTo(m[1, 2]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[1, 3] = r;
 			Assert.That(r, Is.EqualTo(m[1, 3]).Within(1e-5f));
 
+
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[0, 4] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[0, 4]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[1, 4] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[1, 4]);
+
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[2, 0] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[2, 0]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[2, 1] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[2, 1]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[2, 2] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[2, 2]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[2, 3] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[2, 3]);
+
 		}
 
 		[Test]
@@ -905,6 +1148,7 @@ namespace OpenGL.Test
 			for (uint c = 0; c < 2; c++) for (uint r = 0; r < 4; r++, idx += 1.0f)
 				Assert.That(idx * 2.0f, Is.EqualTo(m[c, r]).Within(1e-5f));
 		}
+
 
 		#endregion
 
@@ -921,6 +1165,7 @@ namespace OpenGL.Test
 			for (uint c = 0, idx = 0; c < 2; c++) for (uint r = 0; r < 4; r++, idx++)
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-5f));
 		}
+
 
 		[Test]
 		public void Matrix2x4f_CastToMatrix2x4d()
@@ -956,6 +1201,9 @@ namespace OpenGL.Test
 
 		#endregion
 
+
+
+
 		#region Transposition
 
 		[Test]
@@ -964,17 +1212,28 @@ namespace OpenGL.Test
 			Matrix2x4f m = CreateRandomMatrix();
 			Matrix4x2f t = m.Transposed;
 
+
 			Assert.That(m[0, 0], Is.EqualTo(t[0, 0]).Within(1e-5f));
+
 			Assert.That(m[0, 1], Is.EqualTo(t[1, 0]).Within(1e-5f));
+
 			Assert.That(m[0, 2], Is.EqualTo(t[2, 0]).Within(1e-5f));
+
 			Assert.That(m[0, 3], Is.EqualTo(t[3, 0]).Within(1e-5f));
+
 			Assert.That(m[1, 0], Is.EqualTo(t[0, 1]).Within(1e-5f));
+
 			Assert.That(m[1, 1], Is.EqualTo(t[1, 1]).Within(1e-5f));
+
 			Assert.That(m[1, 2], Is.EqualTo(t[2, 1]).Within(1e-5f));
+
 			Assert.That(m[1, 3], Is.EqualTo(t[3, 1]).Within(1e-5f));
+
 		}
 
+
 		#endregion
+
 
 		#region IEquatable Implementation
 
@@ -983,38 +1242,47 @@ namespace OpenGL.Test
 		{
 			Matrix2x4f m = new Matrix2x4f();
 
+
 			m[0, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix2x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix2x4f.Zero, 0.50f));
 			m[0, 0] = 0.0f;
+
 			m[0, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix2x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix2x4f.Zero, 0.50f));
 			m[0, 1] = 0.0f;
+
 			m[0, 2] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix2x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix2x4f.Zero, 0.50f));
 			m[0, 2] = 0.0f;
+
 			m[0, 3] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix2x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix2x4f.Zero, 0.50f));
 			m[0, 3] = 0.0f;
+
 			m[1, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix2x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix2x4f.Zero, 0.50f));
 			m[1, 0] = 0.0f;
+
 			m[1, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix2x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix2x4f.Zero, 0.50f));
 			m[1, 1] = 0.0f;
+
 			m[1, 2] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix2x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix2x4f.Zero, 0.50f));
 			m[1, 2] = 0.0f;
+
 			m[1, 3] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix2x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix2x4f.Zero, 0.50f));
 			m[1, 3] = 0.0f;
+
 		}
 
 		[Test]
@@ -1047,38 +1315,47 @@ namespace OpenGL.Test
 			
 			Assert.DoesNotThrow(() => cache = m.GetHashCode());
 
+
 			m[0, 0] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[0, 1] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[0, 2] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[0, 3] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 0] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 1] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 2] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 3] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 		}
 
 		#endregion
@@ -1101,21 +1378,33 @@ namespace OpenGL.Test
 		private static Matrix2x4f CreateRandomMatrix()
 		{
 			return new Matrix2x4f(new[] {
+
 				Next(0.0f, 1.0f), Next(0.0f, 1.0f), Next(0.0f, 1.0f), Next(0.0f, 1.0f), 
+
+
 				Next(0.0f, 1.0f), Next(0.0f, 1.0f), Next(0.0f, 1.0f), Next(0.0f, 1.0f)
+
+
 			});
 		}
 
 		private static Matrix2x4f CreateSequenceMatrix()
 		{
 			return new Matrix2x4f(new[] {
+
 				(float)0, (float)1, (float)2, (float)3, 
+
+
 				(float)4, (float)5, (float)6, (float)7
+
+
 			});
 		}
 
+
 		#endregion
 	}
+
 
 	[TestFixture, Category("Math")]
 	internal class Matrix3x2fTest : TestBase
@@ -1126,9 +1415,16 @@ namespace OpenGL.Test
 		public void Matrix3x2f_Constructor1()
 		{
 			Matrix3x2f m = new Matrix3x2f(
+
 				(float)0, (float)1, 
+
+
 				(float)2, (float)3, 
+
+
 				(float)4, (float)5
+
+
 			);
 
 			for (uint c = 0, idx = 0; c < 3; c++) for (uint r = 0; r < 2; r++, idx++)
@@ -1140,15 +1436,29 @@ namespace OpenGL.Test
 		{
 			Assert.Throws<ArgumentNullException>(() => new Matrix3x2f(null, 0));
 			Assert.Throws<ArgumentException>(() => new Matrix3x2f(new[] { 
+
 				(float)0, (float)1, 
+
+
 				(float)2, (float)3, 
+
+
 				(float)4, (float)5
+
+
 			} , 1));
 
 			Matrix3x2f m = new Matrix3x2f(new[] {
+
 				(float)0, (float)1, 
+
+
 				(float)2, (float)3, 
+
+
 				(float)4, (float)5
+
+
 			});
 
 			for (uint c = 0, idx = 0; c < 3; c++) for (uint r = 0; r < 2; r++, idx++)
@@ -1165,6 +1475,7 @@ namespace OpenGL.Test
 				Assert.That(m1[c, r], Is.EqualTo(m2[c, r]).Within(1e-5f));
 		}
 
+
 		#endregion
 
 		#region Columns & Rows
@@ -1174,17 +1485,30 @@ namespace OpenGL.Test
 		{
 			Matrix3x2f m = CreateRandomMatrix();
 
+
 			Vertex2f c0 = m.Column0;
+
 			Assert.AreEqual(c0.x, m[0, 0]);
+
 			Assert.AreEqual(c0.y, m[0, 1]);
 
+
+
 			Vertex2f c1 = m.Column1;
+
 			Assert.AreEqual(c1.x, m[1, 0]);
+
 			Assert.AreEqual(c1.y, m[1, 1]);
 
+
+
 			Vertex2f c2 = m.Column2;
+
 			Assert.AreEqual(c2.x, m[2, 0]);
+
 			Assert.AreEqual(c2.y, m[2, 1]);
+
+
 
 		}
 
@@ -1193,8 +1517,11 @@ namespace OpenGL.Test
 		{
 			Matrix3x2f m = CreateRandomMatrix();
 
+
 			Vertex3f r0 = m.Row0;
+
 			Vertex3f r1 = m.Row1;
+
 		}
 
 		#endregion
@@ -1207,35 +1534,49 @@ namespace OpenGL.Test
 			Matrix3x2f m = new Matrix3x2f();
 			float r;
 
+
 			r = Next(0.0f, 1.0f);
 			m[0, 0] = r;
 			Assert.That(r, Is.EqualTo(m[0, 0]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[0, 1] = r;
 			Assert.That(r, Is.EqualTo(m[0, 1]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[1, 0] = r;
 			Assert.That(r, Is.EqualTo(m[1, 0]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[1, 1] = r;
 			Assert.That(r, Is.EqualTo(m[1, 1]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[2, 0] = r;
 			Assert.That(r, Is.EqualTo(m[2, 0]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[2, 1] = r;
 			Assert.That(r, Is.EqualTo(m[2, 1]).Within(1e-5f));
 
+
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[0, 2] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[0, 2]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[1, 2] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[1, 2]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[2, 2] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[2, 2]);
+
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[3, 0] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[3, 0]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[3, 1] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[3, 1]);
+
 		}
 
 		[Test]
@@ -1249,6 +1590,7 @@ namespace OpenGL.Test
 			for (uint c = 0; c < 3; c++) for (uint r = 0; r < 2; r++, idx += 1.0f)
 				Assert.That(idx * 2.0f, Is.EqualTo(m[c, r]).Within(1e-5f));
 		}
+
 
 		#endregion
 
@@ -1265,6 +1607,7 @@ namespace OpenGL.Test
 			for (uint c = 0, idx = 0; c < 3; c++) for (uint r = 0; r < 2; r++, idx++)
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-5f));
 		}
+
 
 		[Test]
 		public void Matrix3x2f_CastToMatrix3x2d()
@@ -1300,6 +1643,9 @@ namespace OpenGL.Test
 
 		#endregion
 
+
+
+
 		#region Transposition
 
 		[Test]
@@ -1308,15 +1654,24 @@ namespace OpenGL.Test
 			Matrix3x2f m = CreateRandomMatrix();
 			Matrix2x3f t = m.Transposed;
 
+
 			Assert.That(m[0, 0], Is.EqualTo(t[0, 0]).Within(1e-5f));
+
 			Assert.That(m[0, 1], Is.EqualTo(t[1, 0]).Within(1e-5f));
+
 			Assert.That(m[1, 0], Is.EqualTo(t[0, 1]).Within(1e-5f));
+
 			Assert.That(m[1, 1], Is.EqualTo(t[1, 1]).Within(1e-5f));
+
 			Assert.That(m[2, 0], Is.EqualTo(t[0, 2]).Within(1e-5f));
+
 			Assert.That(m[2, 1], Is.EqualTo(t[1, 2]).Within(1e-5f));
+
 		}
 
+
 		#endregion
+
 
 		#region IEquatable Implementation
 
@@ -1325,30 +1680,37 @@ namespace OpenGL.Test
 		{
 			Matrix3x2f m = new Matrix3x2f();
 
+
 			m[0, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x2f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x2f.Zero, 0.50f));
 			m[0, 0] = 0.0f;
+
 			m[0, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x2f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x2f.Zero, 0.50f));
 			m[0, 1] = 0.0f;
+
 			m[1, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x2f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x2f.Zero, 0.50f));
 			m[1, 0] = 0.0f;
+
 			m[1, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x2f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x2f.Zero, 0.50f));
 			m[1, 1] = 0.0f;
+
 			m[2, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x2f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x2f.Zero, 0.50f));
 			m[2, 0] = 0.0f;
+
 			m[2, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x2f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x2f.Zero, 0.50f));
 			m[2, 1] = 0.0f;
+
 		}
 
 		[Test]
@@ -1381,30 +1743,37 @@ namespace OpenGL.Test
 			
 			Assert.DoesNotThrow(() => cache = m.GetHashCode());
 
+
 			m[0, 0] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[0, 1] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 0] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 1] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[2, 0] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[2, 1] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 		}
 
 		#endregion
@@ -1427,23 +1796,39 @@ namespace OpenGL.Test
 		private static Matrix3x2f CreateRandomMatrix()
 		{
 			return new Matrix3x2f(new[] {
+
 				Next(0.0f, 1.0f), Next(0.0f, 1.0f), 
+
+
 				Next(0.0f, 1.0f), Next(0.0f, 1.0f), 
+
+
 				Next(0.0f, 1.0f), Next(0.0f, 1.0f)
+
+
 			});
 		}
 
 		private static Matrix3x2f CreateSequenceMatrix()
 		{
 			return new Matrix3x2f(new[] {
+
 				(float)0, (float)1, 
+
+
 				(float)2, (float)3, 
+
+
 				(float)4, (float)5
+
+
 			});
 		}
 
+
 		#endregion
 	}
+
 
 	[TestFixture, Category("Math")]
 	internal class Matrix3x3fTest : TestBase
@@ -1454,9 +1839,16 @@ namespace OpenGL.Test
 		public void Matrix3x3f_Constructor1()
 		{
 			Matrix3x3f m = new Matrix3x3f(
+
 				(float)0, (float)1, (float)2, 
+
+
 				(float)3, (float)4, (float)5, 
+
+
 				(float)6, (float)7, (float)8
+
+
 			);
 
 			for (uint c = 0, idx = 0; c < 3; c++) for (uint r = 0; r < 3; r++, idx++)
@@ -1468,15 +1860,29 @@ namespace OpenGL.Test
 		{
 			Assert.Throws<ArgumentNullException>(() => new Matrix3x3f(null, 0));
 			Assert.Throws<ArgumentException>(() => new Matrix3x3f(new[] { 
+
 				(float)0, (float)1, (float)2, 
+
+
 				(float)3, (float)4, (float)5, 
+
+
 				(float)6, (float)7, (float)8
+
+
 			} , 1));
 
 			Matrix3x3f m = new Matrix3x3f(new[] {
+
 				(float)0, (float)1, (float)2, 
+
+
 				(float)3, (float)4, (float)5, 
+
+
 				(float)6, (float)7, (float)8
+
+
 			});
 
 			for (uint c = 0, idx = 0; c < 3; c++) for (uint r = 0; r < 3; r++, idx++)
@@ -1493,6 +1899,7 @@ namespace OpenGL.Test
 				Assert.That(m1[c, r], Is.EqualTo(m2[c, r]).Within(1e-5f));
 		}
 
+
 		[Test]
 		public void Matrix3x3f_Constructor4()
 		{
@@ -1503,6 +1910,7 @@ namespace OpenGL.Test
 			Assert.Throws<ArgumentOutOfRangeException>(() => c = new Matrix3x3f(m, 3, 4));
 		}
 
+
 		#endregion
 
 		#region Columns & Rows
@@ -1512,20 +1920,36 @@ namespace OpenGL.Test
 		{
 			Matrix3x3f m = CreateRandomMatrix();
 
+
 			Vertex3f c0 = m.Column0;
+
 			Assert.AreEqual(c0.x, m[0, 0]);
+
 			Assert.AreEqual(c0.y, m[0, 1]);
+
 			Assert.AreEqual(c0.z, m[0, 2]);
 
+
+
 			Vertex3f c1 = m.Column1;
+
 			Assert.AreEqual(c1.x, m[1, 0]);
+
 			Assert.AreEqual(c1.y, m[1, 1]);
+
 			Assert.AreEqual(c1.z, m[1, 2]);
 
+
+
 			Vertex3f c2 = m.Column2;
+
 			Assert.AreEqual(c2.x, m[2, 0]);
+
 			Assert.AreEqual(c2.y, m[2, 1]);
+
 			Assert.AreEqual(c2.z, m[2, 2]);
+
+
 
 		}
 
@@ -1534,9 +1958,13 @@ namespace OpenGL.Test
 		{
 			Matrix3x3f m = CreateRandomMatrix();
 
+
 			Vertex3f r0 = m.Row0;
+
 			Vertex3f r1 = m.Row1;
+
 			Vertex3f r2 = m.Row2;
+
 		}
 
 		#endregion
@@ -1549,46 +1977,64 @@ namespace OpenGL.Test
 			Matrix3x3f m = new Matrix3x3f();
 			float r;
 
+
 			r = Next(0.0f, 1.0f);
 			m[0, 0] = r;
 			Assert.That(r, Is.EqualTo(m[0, 0]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[0, 1] = r;
 			Assert.That(r, Is.EqualTo(m[0, 1]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[0, 2] = r;
 			Assert.That(r, Is.EqualTo(m[0, 2]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[1, 0] = r;
 			Assert.That(r, Is.EqualTo(m[1, 0]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[1, 1] = r;
 			Assert.That(r, Is.EqualTo(m[1, 1]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[1, 2] = r;
 			Assert.That(r, Is.EqualTo(m[1, 2]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[2, 0] = r;
 			Assert.That(r, Is.EqualTo(m[2, 0]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[2, 1] = r;
 			Assert.That(r, Is.EqualTo(m[2, 1]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[2, 2] = r;
 			Assert.That(r, Is.EqualTo(m[2, 2]).Within(1e-5f));
 
+
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[0, 3] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[0, 3]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[1, 3] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[1, 3]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[2, 3] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[2, 3]);
+
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[3, 0] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[3, 0]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[3, 1] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[3, 1]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[3, 2] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[3, 2]);
+
 		}
 
 		[Test]
@@ -1602,6 +2048,7 @@ namespace OpenGL.Test
 			for (uint c = 0; c < 3; c++) for (uint r = 0; r < 3; r++, idx += 1.0f)
 				Assert.That(idx * 2.0f, Is.EqualTo(m[c, r]).Within(1e-5f));
 		}
+
 
 		[Test]
 		public void Matrix3x3f_MultiplyVertex3f()
@@ -1619,6 +2066,7 @@ namespace OpenGL.Test
 			Matrix3x3f r = m1 * m2;
 		}
 
+
 		#endregion
 
 		#region Cast Operators
@@ -1634,6 +2082,7 @@ namespace OpenGL.Test
 			for (uint c = 0, idx = 0; c < 3; c++) for (uint r = 0; r < 3; r++, idx++)
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-5f));
 		}
+
 
 		[Test]
 		public void Matrix3x3f_CastToMatrix3x3d()
@@ -1669,7 +2118,10 @@ namespace OpenGL.Test
 
 		#endregion
 
+
+
 		#region Rotation
+
 
 		[Test]
 		public void Matrix3x3f_RotatedX()
@@ -1749,6 +2201,7 @@ namespace OpenGL.Test
 			Assert.IsTrue(v.Equals(Vertex3f.UnitX, 1e-5f));
 		}
 
+
 		[Test]
 		public void Matrix3x3f_RotatedZ()
 		{
@@ -1763,8 +2216,10 @@ namespace OpenGL.Test
 			r2 = Matrix3x3f.RotatedZ(+180.0f);
 			Assert.IsTrue((r1 * r1).Equals(r2, 1e-5f));
 
+
 			Vertex3f v = Matrix3x3f.RotatedZ(+90.0f) * Vertex3f.UnitX;
 			Assert.IsTrue(v.Equals(Vertex3f.UnitY, 1e-5f));
+
 		}
 
 		[Test]
@@ -1782,13 +2237,17 @@ namespace OpenGL.Test
 			m.RotateZ(+180.0f);
 			Assert.IsTrue(m.Equals(Matrix3x3f.RotatedZ(+180.0f), 1e-5f));
 
+
 			m = Matrix3x3f.Identity;
 			m.RotateZ(+90.0f);
 			Vertex3f v = m * Vertex3f.UnitX;
 			Assert.IsTrue(v.Equals(Vertex3f.UnitY, 1e-5f));
+
 		}
 
 		#endregion
+
+
 
 		#region Scaling
 
@@ -1850,6 +2309,7 @@ namespace OpenGL.Test
 
 		#endregion
 
+
 		#region Transposition
 
 		[Test]
@@ -1858,16 +2318,27 @@ namespace OpenGL.Test
 			Matrix3x3f m = CreateRandomMatrix();
 			Matrix3x3f t = m.Transposed;
 
+
 			Assert.That(m[0, 0], Is.EqualTo(t[0, 0]).Within(1e-5f));
+
 			Assert.That(m[0, 1], Is.EqualTo(t[1, 0]).Within(1e-5f));
+
 			Assert.That(m[0, 2], Is.EqualTo(t[2, 0]).Within(1e-5f));
+
 			Assert.That(m[1, 0], Is.EqualTo(t[0, 1]).Within(1e-5f));
+
 			Assert.That(m[1, 1], Is.EqualTo(t[1, 1]).Within(1e-5f));
+
 			Assert.That(m[1, 2], Is.EqualTo(t[2, 1]).Within(1e-5f));
+
 			Assert.That(m[2, 0], Is.EqualTo(t[0, 2]).Within(1e-5f));
+
 			Assert.That(m[2, 1], Is.EqualTo(t[1, 2]).Within(1e-5f));
+
 			Assert.That(m[2, 2], Is.EqualTo(t[2, 2]).Within(1e-5f));
+
 		}
+
 
 		[Test]
 		public void Matrix3x3f_Transpose()
@@ -1877,18 +2348,30 @@ namespace OpenGL.Test
 
 			m.Transpose();
 
+
 			Assert.That(n[0, 0], Is.EqualTo(m[0, 0]).Within(1e-5f));
+
 			Assert.That(n[0, 1], Is.EqualTo(m[1, 0]).Within(1e-5f));
+
 			Assert.That(n[0, 2], Is.EqualTo(m[2, 0]).Within(1e-5f));
+
 			Assert.That(n[1, 0], Is.EqualTo(m[0, 1]).Within(1e-5f));
+
 			Assert.That(n[1, 1], Is.EqualTo(m[1, 1]).Within(1e-5f));
+
 			Assert.That(n[1, 2], Is.EqualTo(m[2, 1]).Within(1e-5f));
+
 			Assert.That(n[2, 0], Is.EqualTo(m[0, 2]).Within(1e-5f));
+
 			Assert.That(n[2, 1], Is.EqualTo(m[1, 2]).Within(1e-5f));
+
 			Assert.That(n[2, 2], Is.EqualTo(m[2, 2]).Within(1e-5f));
+
 		}
 
+
 		#endregion
+
 
 		#region Inversion
 
@@ -1930,6 +2413,7 @@ namespace OpenGL.Test
 
 		#endregion
 
+
 		#region IEquatable Implementation
 
 		[Test]
@@ -1937,42 +2421,52 @@ namespace OpenGL.Test
 		{
 			Matrix3x3f m = new Matrix3x3f();
 
+
 			m[0, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x3f.Zero, 0.50f));
 			m[0, 0] = 0.0f;
+
 			m[0, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x3f.Zero, 0.50f));
 			m[0, 1] = 0.0f;
+
 			m[0, 2] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x3f.Zero, 0.50f));
 			m[0, 2] = 0.0f;
+
 			m[1, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x3f.Zero, 0.50f));
 			m[1, 0] = 0.0f;
+
 			m[1, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x3f.Zero, 0.50f));
 			m[1, 1] = 0.0f;
+
 			m[1, 2] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x3f.Zero, 0.50f));
 			m[1, 2] = 0.0f;
+
 			m[2, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x3f.Zero, 0.50f));
 			m[2, 0] = 0.0f;
+
 			m[2, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x3f.Zero, 0.50f));
 			m[2, 1] = 0.0f;
+
 			m[2, 2] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x3f.Zero, 0.50f));
 			m[2, 2] = 0.0f;
+
 		}
 
 		[Test]
@@ -2005,42 +2499,52 @@ namespace OpenGL.Test
 			
 			Assert.DoesNotThrow(() => cache = m.GetHashCode());
 
+
 			m[0, 0] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[0, 1] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[0, 2] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 0] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 1] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 2] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[2, 0] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[2, 1] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[2, 2] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 		}
 
 		#endregion
@@ -2063,40 +2567,85 @@ namespace OpenGL.Test
 		private static Matrix3x3f CreateRandomMatrix()
 		{
 			return new Matrix3x3f(new[] {
+
 				Next(0.0f, 1.0f), Next(0.0f, 1.0f), Next(0.0f, 1.0f), 
+
+
 				Next(0.0f, 1.0f), Next(0.0f, 1.0f), Next(0.0f, 1.0f), 
+
+
 				Next(0.0f, 1.0f), Next(0.0f, 1.0f), Next(0.0f, 1.0f)
+
+
 			});
 		}
 
 		private static Matrix3x3f CreateSequenceMatrix()
 		{
 			return new Matrix3x3f(new[] {
+
 				(float)0, (float)1, (float)2, 
+
+
 				(float)3, (float)4, (float)5, 
+
+
 				(float)6, (float)7, (float)8
+
+
 			});
 		}
+
 
 		private static Matrix3x3f CreateInvertibleMatrix()
 		{
 			Matrix3x3f m = new Matrix3x3f();
 
+
+
 			m[0, 0] = Next(1.0f, 2.0f);
+
+
+
 			m[0, 1] = Next(0.0f, 0.5f);
+
+
+
 			m[0, 2] = Next(0.0f, 0.5f);
+
+
+
 			m[1, 0] = Next(0.0f, 0.5f);
+
+
+
 			m[1, 1] = Next(1.0f, 2.0f);
+
+
+
 			m[1, 2] = Next(0.0f, 0.5f);
+
+
+
 			m[2, 0] = Next(0.0f, 0.5f);
+
+
+
 			m[2, 1] = Next(0.0f, 0.5f);
+
+
+
 			m[2, 2] = Next(1.0f, 2.0f);
+
+
 
 			return m;
 		}
 
+
 		#endregion
 	}
+
 
 	[TestFixture, Category("Math")]
 	internal class Matrix3x4fTest : TestBase
@@ -2107,9 +2656,16 @@ namespace OpenGL.Test
 		public void Matrix3x4f_Constructor1()
 		{
 			Matrix3x4f m = new Matrix3x4f(
+
 				(float)0, (float)1, (float)2, (float)3, 
+
+
 				(float)4, (float)5, (float)6, (float)7, 
+
+
 				(float)8, (float)9, (float)10, (float)11
+
+
 			);
 
 			for (uint c = 0, idx = 0; c < 3; c++) for (uint r = 0; r < 4; r++, idx++)
@@ -2121,15 +2677,29 @@ namespace OpenGL.Test
 		{
 			Assert.Throws<ArgumentNullException>(() => new Matrix3x4f(null, 0));
 			Assert.Throws<ArgumentException>(() => new Matrix3x4f(new[] { 
+
 				(float)0, (float)1, (float)2, (float)3, 
+
+
 				(float)4, (float)5, (float)6, (float)7, 
+
+
 				(float)8, (float)9, (float)10, (float)11
+
+
 			} , 1));
 
 			Matrix3x4f m = new Matrix3x4f(new[] {
+
 				(float)0, (float)1, (float)2, (float)3, 
+
+
 				(float)4, (float)5, (float)6, (float)7, 
+
+
 				(float)8, (float)9, (float)10, (float)11
+
+
 			});
 
 			for (uint c = 0, idx = 0; c < 3; c++) for (uint r = 0; r < 4; r++, idx++)
@@ -2146,6 +2716,7 @@ namespace OpenGL.Test
 				Assert.That(m1[c, r], Is.EqualTo(m2[c, r]).Within(1e-5f));
 		}
 
+
 		#endregion
 
 		#region Columns & Rows
@@ -2155,23 +2726,42 @@ namespace OpenGL.Test
 		{
 			Matrix3x4f m = CreateRandomMatrix();
 
+
 			Vertex4f c0 = m.Column0;
+
 			Assert.AreEqual(c0.x, m[0, 0]);
+
 			Assert.AreEqual(c0.y, m[0, 1]);
+
 			Assert.AreEqual(c0.z, m[0, 2]);
+
 			Assert.AreEqual(c0.w, m[0, 3]);
 
+
+
 			Vertex4f c1 = m.Column1;
+
 			Assert.AreEqual(c1.x, m[1, 0]);
+
 			Assert.AreEqual(c1.y, m[1, 1]);
+
 			Assert.AreEqual(c1.z, m[1, 2]);
+
 			Assert.AreEqual(c1.w, m[1, 3]);
 
+
+
 			Vertex4f c2 = m.Column2;
+
 			Assert.AreEqual(c2.x, m[2, 0]);
+
 			Assert.AreEqual(c2.y, m[2, 1]);
+
 			Assert.AreEqual(c2.z, m[2, 2]);
+
 			Assert.AreEqual(c2.w, m[2, 3]);
+
+
 
 		}
 
@@ -2180,10 +2770,15 @@ namespace OpenGL.Test
 		{
 			Matrix3x4f m = CreateRandomMatrix();
 
+
 			Vertex3f r0 = m.Row0;
+
 			Vertex3f r1 = m.Row1;
+
 			Vertex3f r2 = m.Row2;
+
 			Vertex3f r3 = m.Row3;
+
 		}
 
 		#endregion
@@ -2196,57 +2791,79 @@ namespace OpenGL.Test
 			Matrix3x4f m = new Matrix3x4f();
 			float r;
 
+
 			r = Next(0.0f, 1.0f);
 			m[0, 0] = r;
 			Assert.That(r, Is.EqualTo(m[0, 0]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[0, 1] = r;
 			Assert.That(r, Is.EqualTo(m[0, 1]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[0, 2] = r;
 			Assert.That(r, Is.EqualTo(m[0, 2]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[0, 3] = r;
 			Assert.That(r, Is.EqualTo(m[0, 3]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[1, 0] = r;
 			Assert.That(r, Is.EqualTo(m[1, 0]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[1, 1] = r;
 			Assert.That(r, Is.EqualTo(m[1, 1]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[1, 2] = r;
 			Assert.That(r, Is.EqualTo(m[1, 2]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[1, 3] = r;
 			Assert.That(r, Is.EqualTo(m[1, 3]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[2, 0] = r;
 			Assert.That(r, Is.EqualTo(m[2, 0]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[2, 1] = r;
 			Assert.That(r, Is.EqualTo(m[2, 1]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[2, 2] = r;
 			Assert.That(r, Is.EqualTo(m[2, 2]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[2, 3] = r;
 			Assert.That(r, Is.EqualTo(m[2, 3]).Within(1e-5f));
 
+
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[0, 4] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[0, 4]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[1, 4] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[1, 4]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[2, 4] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[2, 4]);
+
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[3, 0] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[3, 0]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[3, 1] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[3, 1]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[3, 2] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[3, 2]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[3, 3] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[3, 3]);
+
 		}
 
 		[Test]
@@ -2260,6 +2877,7 @@ namespace OpenGL.Test
 			for (uint c = 0; c < 3; c++) for (uint r = 0; r < 4; r++, idx += 1.0f)
 				Assert.That(idx * 2.0f, Is.EqualTo(m[c, r]).Within(1e-5f));
 		}
+
 
 		#endregion
 
@@ -2276,6 +2894,7 @@ namespace OpenGL.Test
 			for (uint c = 0, idx = 0; c < 3; c++) for (uint r = 0; r < 4; r++, idx++)
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-5f));
 		}
+
 
 		[Test]
 		public void Matrix3x4f_CastToMatrix3x4d()
@@ -2311,6 +2930,9 @@ namespace OpenGL.Test
 
 		#endregion
 
+
+
+
 		#region Transposition
 
 		[Test]
@@ -2319,21 +2941,36 @@ namespace OpenGL.Test
 			Matrix3x4f m = CreateRandomMatrix();
 			Matrix4x3f t = m.Transposed;
 
+
 			Assert.That(m[0, 0], Is.EqualTo(t[0, 0]).Within(1e-5f));
+
 			Assert.That(m[0, 1], Is.EqualTo(t[1, 0]).Within(1e-5f));
+
 			Assert.That(m[0, 2], Is.EqualTo(t[2, 0]).Within(1e-5f));
+
 			Assert.That(m[0, 3], Is.EqualTo(t[3, 0]).Within(1e-5f));
+
 			Assert.That(m[1, 0], Is.EqualTo(t[0, 1]).Within(1e-5f));
+
 			Assert.That(m[1, 1], Is.EqualTo(t[1, 1]).Within(1e-5f));
+
 			Assert.That(m[1, 2], Is.EqualTo(t[2, 1]).Within(1e-5f));
+
 			Assert.That(m[1, 3], Is.EqualTo(t[3, 1]).Within(1e-5f));
+
 			Assert.That(m[2, 0], Is.EqualTo(t[0, 2]).Within(1e-5f));
+
 			Assert.That(m[2, 1], Is.EqualTo(t[1, 2]).Within(1e-5f));
+
 			Assert.That(m[2, 2], Is.EqualTo(t[2, 2]).Within(1e-5f));
+
 			Assert.That(m[2, 3], Is.EqualTo(t[3, 2]).Within(1e-5f));
+
 		}
 
+
 		#endregion
+
 
 		#region IEquatable Implementation
 
@@ -2342,54 +2979,67 @@ namespace OpenGL.Test
 		{
 			Matrix3x4f m = new Matrix3x4f();
 
+
 			m[0, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x4f.Zero, 0.50f));
 			m[0, 0] = 0.0f;
+
 			m[0, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x4f.Zero, 0.50f));
 			m[0, 1] = 0.0f;
+
 			m[0, 2] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x4f.Zero, 0.50f));
 			m[0, 2] = 0.0f;
+
 			m[0, 3] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x4f.Zero, 0.50f));
 			m[0, 3] = 0.0f;
+
 			m[1, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x4f.Zero, 0.50f));
 			m[1, 0] = 0.0f;
+
 			m[1, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x4f.Zero, 0.50f));
 			m[1, 1] = 0.0f;
+
 			m[1, 2] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x4f.Zero, 0.50f));
 			m[1, 2] = 0.0f;
+
 			m[1, 3] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x4f.Zero, 0.50f));
 			m[1, 3] = 0.0f;
+
 			m[2, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x4f.Zero, 0.50f));
 			m[2, 0] = 0.0f;
+
 			m[2, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x4f.Zero, 0.50f));
 			m[2, 1] = 0.0f;
+
 			m[2, 2] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x4f.Zero, 0.50f));
 			m[2, 2] = 0.0f;
+
 			m[2, 3] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix3x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix3x4f.Zero, 0.50f));
 			m[2, 3] = 0.0f;
+
 		}
 
 		[Test]
@@ -2422,54 +3072,67 @@ namespace OpenGL.Test
 			
 			Assert.DoesNotThrow(() => cache = m.GetHashCode());
 
+
 			m[0, 0] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[0, 1] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[0, 2] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[0, 3] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 0] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 1] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 2] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 3] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[2, 0] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[2, 1] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[2, 2] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[2, 3] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 		}
 
 		#endregion
@@ -2492,23 +3155,39 @@ namespace OpenGL.Test
 		private static Matrix3x4f CreateRandomMatrix()
 		{
 			return new Matrix3x4f(new[] {
+
 				Next(0.0f, 1.0f), Next(0.0f, 1.0f), Next(0.0f, 1.0f), Next(0.0f, 1.0f), 
+
+
 				Next(0.0f, 1.0f), Next(0.0f, 1.0f), Next(0.0f, 1.0f), Next(0.0f, 1.0f), 
+
+
 				Next(0.0f, 1.0f), Next(0.0f, 1.0f), Next(0.0f, 1.0f), Next(0.0f, 1.0f)
+
+
 			});
 		}
 
 		private static Matrix3x4f CreateSequenceMatrix()
 		{
 			return new Matrix3x4f(new[] {
+
 				(float)0, (float)1, (float)2, (float)3, 
+
+
 				(float)4, (float)5, (float)6, (float)7, 
+
+
 				(float)8, (float)9, (float)10, (float)11
+
+
 			});
 		}
 
+
 		#endregion
 	}
+
 
 	[TestFixture, Category("Math")]
 	internal class Matrix4x2fTest : TestBase
@@ -2519,10 +3198,19 @@ namespace OpenGL.Test
 		public void Matrix4x2f_Constructor1()
 		{
 			Matrix4x2f m = new Matrix4x2f(
+
 				(float)0, (float)1, 
+
+
 				(float)2, (float)3, 
+
+
 				(float)4, (float)5, 
+
+
 				(float)6, (float)7
+
+
 			);
 
 			for (uint c = 0, idx = 0; c < 4; c++) for (uint r = 0; r < 2; r++, idx++)
@@ -2534,17 +3222,35 @@ namespace OpenGL.Test
 		{
 			Assert.Throws<ArgumentNullException>(() => new Matrix4x2f(null, 0));
 			Assert.Throws<ArgumentException>(() => new Matrix4x2f(new[] { 
+
 				(float)0, (float)1, 
+
+
 				(float)2, (float)3, 
+
+
 				(float)4, (float)5, 
+
+
 				(float)6, (float)7
+
+
 			} , 1));
 
 			Matrix4x2f m = new Matrix4x2f(new[] {
+
 				(float)0, (float)1, 
+
+
 				(float)2, (float)3, 
+
+
 				(float)4, (float)5, 
+
+
 				(float)6, (float)7
+
+
 			});
 
 			for (uint c = 0, idx = 0; c < 4; c++) for (uint r = 0; r < 2; r++, idx++)
@@ -2561,6 +3267,7 @@ namespace OpenGL.Test
 				Assert.That(m1[c, r], Is.EqualTo(m2[c, r]).Within(1e-5f));
 		}
 
+
 		#endregion
 
 		#region Columns & Rows
@@ -2570,21 +3277,38 @@ namespace OpenGL.Test
 		{
 			Matrix4x2f m = CreateRandomMatrix();
 
+
 			Vertex2f c0 = m.Column0;
+
 			Assert.AreEqual(c0.x, m[0, 0]);
+
 			Assert.AreEqual(c0.y, m[0, 1]);
 
+
+
 			Vertex2f c1 = m.Column1;
+
 			Assert.AreEqual(c1.x, m[1, 0]);
+
 			Assert.AreEqual(c1.y, m[1, 1]);
 
+
+
 			Vertex2f c2 = m.Column2;
+
 			Assert.AreEqual(c2.x, m[2, 0]);
+
 			Assert.AreEqual(c2.y, m[2, 1]);
 
+
+
 			Vertex2f c3 = m.Column3;
+
 			Assert.AreEqual(c3.x, m[3, 0]);
+
 			Assert.AreEqual(c3.y, m[3, 1]);
+
+
 
 		}
 
@@ -2593,8 +3317,11 @@ namespace OpenGL.Test
 		{
 			Matrix4x2f m = CreateRandomMatrix();
 
+
 			Vertex4f r0 = m.Row0;
+
 			Vertex4f r1 = m.Row1;
+
 		}
 
 		#endregion
@@ -2607,43 +3334,60 @@ namespace OpenGL.Test
 			Matrix4x2f m = new Matrix4x2f();
 			float r;
 
+
 			r = Next(0.0f, 1.0f);
 			m[0, 0] = r;
 			Assert.That(r, Is.EqualTo(m[0, 0]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[0, 1] = r;
 			Assert.That(r, Is.EqualTo(m[0, 1]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[1, 0] = r;
 			Assert.That(r, Is.EqualTo(m[1, 0]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[1, 1] = r;
 			Assert.That(r, Is.EqualTo(m[1, 1]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[2, 0] = r;
 			Assert.That(r, Is.EqualTo(m[2, 0]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[2, 1] = r;
 			Assert.That(r, Is.EqualTo(m[2, 1]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[3, 0] = r;
 			Assert.That(r, Is.EqualTo(m[3, 0]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[3, 1] = r;
 			Assert.That(r, Is.EqualTo(m[3, 1]).Within(1e-5f));
 
+
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[0, 2] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[0, 2]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[1, 2] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[1, 2]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[2, 2] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[2, 2]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[3, 2] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[3, 2]);
+
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[4, 0] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[4, 0]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[4, 1] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[4, 1]);
+
 		}
 
 		[Test]
@@ -2657,6 +3401,7 @@ namespace OpenGL.Test
 			for (uint c = 0; c < 4; c++) for (uint r = 0; r < 2; r++, idx += 1.0f)
 				Assert.That(idx * 2.0f, Is.EqualTo(m[c, r]).Within(1e-5f));
 		}
+
 
 		#endregion
 
@@ -2673,6 +3418,7 @@ namespace OpenGL.Test
 			for (uint c = 0, idx = 0; c < 4; c++) for (uint r = 0; r < 2; r++, idx++)
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-5f));
 		}
+
 
 		[Test]
 		public void Matrix4x2f_CastToMatrix4x2d()
@@ -2708,6 +3454,9 @@ namespace OpenGL.Test
 
 		#endregion
 
+
+
+
 		#region Transposition
 
 		[Test]
@@ -2716,17 +3465,28 @@ namespace OpenGL.Test
 			Matrix4x2f m = CreateRandomMatrix();
 			Matrix2x4f t = m.Transposed;
 
+
 			Assert.That(m[0, 0], Is.EqualTo(t[0, 0]).Within(1e-5f));
+
 			Assert.That(m[0, 1], Is.EqualTo(t[1, 0]).Within(1e-5f));
+
 			Assert.That(m[1, 0], Is.EqualTo(t[0, 1]).Within(1e-5f));
+
 			Assert.That(m[1, 1], Is.EqualTo(t[1, 1]).Within(1e-5f));
+
 			Assert.That(m[2, 0], Is.EqualTo(t[0, 2]).Within(1e-5f));
+
 			Assert.That(m[2, 1], Is.EqualTo(t[1, 2]).Within(1e-5f));
+
 			Assert.That(m[3, 0], Is.EqualTo(t[0, 3]).Within(1e-5f));
+
 			Assert.That(m[3, 1], Is.EqualTo(t[1, 3]).Within(1e-5f));
+
 		}
 
+
 		#endregion
+
 
 		#region IEquatable Implementation
 
@@ -2735,38 +3495,47 @@ namespace OpenGL.Test
 		{
 			Matrix4x2f m = new Matrix4x2f();
 
+
 			m[0, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x2f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x2f.Zero, 0.50f));
 			m[0, 0] = 0.0f;
+
 			m[0, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x2f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x2f.Zero, 0.50f));
 			m[0, 1] = 0.0f;
+
 			m[1, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x2f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x2f.Zero, 0.50f));
 			m[1, 0] = 0.0f;
+
 			m[1, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x2f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x2f.Zero, 0.50f));
 			m[1, 1] = 0.0f;
+
 			m[2, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x2f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x2f.Zero, 0.50f));
 			m[2, 0] = 0.0f;
+
 			m[2, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x2f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x2f.Zero, 0.50f));
 			m[2, 1] = 0.0f;
+
 			m[3, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x2f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x2f.Zero, 0.50f));
 			m[3, 0] = 0.0f;
+
 			m[3, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x2f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x2f.Zero, 0.50f));
 			m[3, 1] = 0.0f;
+
 		}
 
 		[Test]
@@ -2799,38 +3568,47 @@ namespace OpenGL.Test
 			
 			Assert.DoesNotThrow(() => cache = m.GetHashCode());
 
+
 			m[0, 0] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[0, 1] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 0] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 1] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[2, 0] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[2, 1] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[3, 0] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[3, 1] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 		}
 
 		#endregion
@@ -2853,25 +3631,45 @@ namespace OpenGL.Test
 		private static Matrix4x2f CreateRandomMatrix()
 		{
 			return new Matrix4x2f(new[] {
+
 				Next(0.0f, 1.0f), Next(0.0f, 1.0f), 
+
+
 				Next(0.0f, 1.0f), Next(0.0f, 1.0f), 
+
+
 				Next(0.0f, 1.0f), Next(0.0f, 1.0f), 
+
+
 				Next(0.0f, 1.0f), Next(0.0f, 1.0f)
+
+
 			});
 		}
 
 		private static Matrix4x2f CreateSequenceMatrix()
 		{
 			return new Matrix4x2f(new[] {
+
 				(float)0, (float)1, 
+
+
 				(float)2, (float)3, 
+
+
 				(float)4, (float)5, 
+
+
 				(float)6, (float)7
+
+
 			});
 		}
 
+
 		#endregion
 	}
+
 
 	[TestFixture, Category("Math")]
 	internal class Matrix4x3fTest : TestBase
@@ -2882,10 +3680,19 @@ namespace OpenGL.Test
 		public void Matrix4x3f_Constructor1()
 		{
 			Matrix4x3f m = new Matrix4x3f(
+
 				(float)0, (float)1, (float)2, 
+
+
 				(float)3, (float)4, (float)5, 
+
+
 				(float)6, (float)7, (float)8, 
+
+
 				(float)9, (float)10, (float)11
+
+
 			);
 
 			for (uint c = 0, idx = 0; c < 4; c++) for (uint r = 0; r < 3; r++, idx++)
@@ -2897,17 +3704,35 @@ namespace OpenGL.Test
 		{
 			Assert.Throws<ArgumentNullException>(() => new Matrix4x3f(null, 0));
 			Assert.Throws<ArgumentException>(() => new Matrix4x3f(new[] { 
+
 				(float)0, (float)1, (float)2, 
+
+
 				(float)3, (float)4, (float)5, 
+
+
 				(float)6, (float)7, (float)8, 
+
+
 				(float)9, (float)10, (float)11
+
+
 			} , 1));
 
 			Matrix4x3f m = new Matrix4x3f(new[] {
+
 				(float)0, (float)1, (float)2, 
+
+
 				(float)3, (float)4, (float)5, 
+
+
 				(float)6, (float)7, (float)8, 
+
+
 				(float)9, (float)10, (float)11
+
+
 			});
 
 			for (uint c = 0, idx = 0; c < 4; c++) for (uint r = 0; r < 3; r++, idx++)
@@ -2924,6 +3749,7 @@ namespace OpenGL.Test
 				Assert.That(m1[c, r], Is.EqualTo(m2[c, r]).Within(1e-5f));
 		}
 
+
 		#endregion
 
 		#region Columns & Rows
@@ -2933,25 +3759,46 @@ namespace OpenGL.Test
 		{
 			Matrix4x3f m = CreateRandomMatrix();
 
+
 			Vertex3f c0 = m.Column0;
+
 			Assert.AreEqual(c0.x, m[0, 0]);
+
 			Assert.AreEqual(c0.y, m[0, 1]);
+
 			Assert.AreEqual(c0.z, m[0, 2]);
 
+
+
 			Vertex3f c1 = m.Column1;
+
 			Assert.AreEqual(c1.x, m[1, 0]);
+
 			Assert.AreEqual(c1.y, m[1, 1]);
+
 			Assert.AreEqual(c1.z, m[1, 2]);
 
+
+
 			Vertex3f c2 = m.Column2;
+
 			Assert.AreEqual(c2.x, m[2, 0]);
+
 			Assert.AreEqual(c2.y, m[2, 1]);
+
 			Assert.AreEqual(c2.z, m[2, 2]);
 
+
+
 			Vertex3f c3 = m.Column3;
+
 			Assert.AreEqual(c3.x, m[3, 0]);
+
 			Assert.AreEqual(c3.y, m[3, 1]);
+
 			Assert.AreEqual(c3.z, m[3, 2]);
+
+
 
 		}
 
@@ -2960,9 +3807,13 @@ namespace OpenGL.Test
 		{
 			Matrix4x3f m = CreateRandomMatrix();
 
+
 			Vertex4f r0 = m.Row0;
+
 			Vertex4f r1 = m.Row1;
+
 			Vertex4f r2 = m.Row2;
+
 		}
 
 		#endregion
@@ -2975,57 +3826,79 @@ namespace OpenGL.Test
 			Matrix4x3f m = new Matrix4x3f();
 			float r;
 
+
 			r = Next(0.0f, 1.0f);
 			m[0, 0] = r;
 			Assert.That(r, Is.EqualTo(m[0, 0]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[0, 1] = r;
 			Assert.That(r, Is.EqualTo(m[0, 1]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[0, 2] = r;
 			Assert.That(r, Is.EqualTo(m[0, 2]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[1, 0] = r;
 			Assert.That(r, Is.EqualTo(m[1, 0]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[1, 1] = r;
 			Assert.That(r, Is.EqualTo(m[1, 1]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[1, 2] = r;
 			Assert.That(r, Is.EqualTo(m[1, 2]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[2, 0] = r;
 			Assert.That(r, Is.EqualTo(m[2, 0]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[2, 1] = r;
 			Assert.That(r, Is.EqualTo(m[2, 1]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[2, 2] = r;
 			Assert.That(r, Is.EqualTo(m[2, 2]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[3, 0] = r;
 			Assert.That(r, Is.EqualTo(m[3, 0]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[3, 1] = r;
 			Assert.That(r, Is.EqualTo(m[3, 1]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[3, 2] = r;
 			Assert.That(r, Is.EqualTo(m[3, 2]).Within(1e-5f));
 
+
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[0, 3] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[0, 3]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[1, 3] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[1, 3]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[2, 3] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[2, 3]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[3, 3] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[3, 3]);
+
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[4, 0] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[4, 0]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[4, 1] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[4, 1]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[4, 2] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[4, 2]);
+
 		}
 
 		[Test]
@@ -3039,6 +3912,7 @@ namespace OpenGL.Test
 			for (uint c = 0; c < 4; c++) for (uint r = 0; r < 3; r++, idx += 1.0f)
 				Assert.That(idx * 2.0f, Is.EqualTo(m[c, r]).Within(1e-5f));
 		}
+
 
 		#endregion
 
@@ -3055,6 +3929,7 @@ namespace OpenGL.Test
 			for (uint c = 0, idx = 0; c < 4; c++) for (uint r = 0; r < 3; r++, idx++)
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-5f));
 		}
+
 
 		[Test]
 		public void Matrix4x3f_CastToMatrix4x3d()
@@ -3090,6 +3965,9 @@ namespace OpenGL.Test
 
 		#endregion
 
+
+
+
 		#region Transposition
 
 		[Test]
@@ -3098,21 +3976,36 @@ namespace OpenGL.Test
 			Matrix4x3f m = CreateRandomMatrix();
 			Matrix3x4f t = m.Transposed;
 
+
 			Assert.That(m[0, 0], Is.EqualTo(t[0, 0]).Within(1e-5f));
+
 			Assert.That(m[0, 1], Is.EqualTo(t[1, 0]).Within(1e-5f));
+
 			Assert.That(m[0, 2], Is.EqualTo(t[2, 0]).Within(1e-5f));
+
 			Assert.That(m[1, 0], Is.EqualTo(t[0, 1]).Within(1e-5f));
+
 			Assert.That(m[1, 1], Is.EqualTo(t[1, 1]).Within(1e-5f));
+
 			Assert.That(m[1, 2], Is.EqualTo(t[2, 1]).Within(1e-5f));
+
 			Assert.That(m[2, 0], Is.EqualTo(t[0, 2]).Within(1e-5f));
+
 			Assert.That(m[2, 1], Is.EqualTo(t[1, 2]).Within(1e-5f));
+
 			Assert.That(m[2, 2], Is.EqualTo(t[2, 2]).Within(1e-5f));
+
 			Assert.That(m[3, 0], Is.EqualTo(t[0, 3]).Within(1e-5f));
+
 			Assert.That(m[3, 1], Is.EqualTo(t[1, 3]).Within(1e-5f));
+
 			Assert.That(m[3, 2], Is.EqualTo(t[2, 3]).Within(1e-5f));
+
 		}
 
+
 		#endregion
+
 
 		#region IEquatable Implementation
 
@@ -3121,54 +4014,67 @@ namespace OpenGL.Test
 		{
 			Matrix4x3f m = new Matrix4x3f();
 
+
 			m[0, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x3f.Zero, 0.50f));
 			m[0, 0] = 0.0f;
+
 			m[0, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x3f.Zero, 0.50f));
 			m[0, 1] = 0.0f;
+
 			m[0, 2] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x3f.Zero, 0.50f));
 			m[0, 2] = 0.0f;
+
 			m[1, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x3f.Zero, 0.50f));
 			m[1, 0] = 0.0f;
+
 			m[1, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x3f.Zero, 0.50f));
 			m[1, 1] = 0.0f;
+
 			m[1, 2] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x3f.Zero, 0.50f));
 			m[1, 2] = 0.0f;
+
 			m[2, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x3f.Zero, 0.50f));
 			m[2, 0] = 0.0f;
+
 			m[2, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x3f.Zero, 0.50f));
 			m[2, 1] = 0.0f;
+
 			m[2, 2] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x3f.Zero, 0.50f));
 			m[2, 2] = 0.0f;
+
 			m[3, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x3f.Zero, 0.50f));
 			m[3, 0] = 0.0f;
+
 			m[3, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x3f.Zero, 0.50f));
 			m[3, 1] = 0.0f;
+
 			m[3, 2] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x3f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x3f.Zero, 0.50f));
 			m[3, 2] = 0.0f;
+
 		}
 
 		[Test]
@@ -3201,54 +4107,67 @@ namespace OpenGL.Test
 			
 			Assert.DoesNotThrow(() => cache = m.GetHashCode());
 
+
 			m[0, 0] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[0, 1] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[0, 2] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 0] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 1] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 2] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[2, 0] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[2, 1] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[2, 2] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[3, 0] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[3, 1] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[3, 2] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 		}
 
 		#endregion
@@ -3271,25 +4190,45 @@ namespace OpenGL.Test
 		private static Matrix4x3f CreateRandomMatrix()
 		{
 			return new Matrix4x3f(new[] {
+
 				Next(0.0f, 1.0f), Next(0.0f, 1.0f), Next(0.0f, 1.0f), 
+
+
 				Next(0.0f, 1.0f), Next(0.0f, 1.0f), Next(0.0f, 1.0f), 
+
+
 				Next(0.0f, 1.0f), Next(0.0f, 1.0f), Next(0.0f, 1.0f), 
+
+
 				Next(0.0f, 1.0f), Next(0.0f, 1.0f), Next(0.0f, 1.0f)
+
+
 			});
 		}
 
 		private static Matrix4x3f CreateSequenceMatrix()
 		{
 			return new Matrix4x3f(new[] {
+
 				(float)0, (float)1, (float)2, 
+
+
 				(float)3, (float)4, (float)5, 
+
+
 				(float)6, (float)7, (float)8, 
+
+
 				(float)9, (float)10, (float)11
+
+
 			});
 		}
 
+
 		#endregion
 	}
+
 
 	[TestFixture, Category("Math")]
 	internal class Matrix4x4fTest : TestBase
@@ -3300,10 +4239,19 @@ namespace OpenGL.Test
 		public void Matrix4x4f_Constructor1()
 		{
 			Matrix4x4f m = new Matrix4x4f(
+
 				(float)0, (float)1, (float)2, (float)3, 
+
+
 				(float)4, (float)5, (float)6, (float)7, 
+
+
 				(float)8, (float)9, (float)10, (float)11, 
+
+
 				(float)12, (float)13, (float)14, (float)15
+
+
 			);
 
 			for (uint c = 0, idx = 0; c < 4; c++) for (uint r = 0; r < 4; r++, idx++)
@@ -3315,17 +4263,35 @@ namespace OpenGL.Test
 		{
 			Assert.Throws<ArgumentNullException>(() => new Matrix4x4f(null, 0));
 			Assert.Throws<ArgumentException>(() => new Matrix4x4f(new[] { 
+
 				(float)0, (float)1, (float)2, (float)3, 
+
+
 				(float)4, (float)5, (float)6, (float)7, 
+
+
 				(float)8, (float)9, (float)10, (float)11, 
+
+
 				(float)12, (float)13, (float)14, (float)15
+
+
 			} , 1));
 
 			Matrix4x4f m = new Matrix4x4f(new[] {
+
 				(float)0, (float)1, (float)2, (float)3, 
+
+
 				(float)4, (float)5, (float)6, (float)7, 
+
+
 				(float)8, (float)9, (float)10, (float)11, 
+
+
 				(float)12, (float)13, (float)14, (float)15
+
+
 			});
 
 			for (uint c = 0, idx = 0; c < 4; c++) for (uint r = 0; r < 4; r++, idx++)
@@ -3342,6 +4308,7 @@ namespace OpenGL.Test
 				Assert.That(m1[c, r], Is.EqualTo(m2[c, r]).Within(1e-5f));
 		}
 
+
 		#endregion
 
 		#region Columns & Rows
@@ -3351,29 +4318,54 @@ namespace OpenGL.Test
 		{
 			Matrix4x4f m = CreateRandomMatrix();
 
+
 			Vertex4f c0 = m.Column0;
+
 			Assert.AreEqual(c0.x, m[0, 0]);
+
 			Assert.AreEqual(c0.y, m[0, 1]);
+
 			Assert.AreEqual(c0.z, m[0, 2]);
+
 			Assert.AreEqual(c0.w, m[0, 3]);
 
+
+
 			Vertex4f c1 = m.Column1;
+
 			Assert.AreEqual(c1.x, m[1, 0]);
+
 			Assert.AreEqual(c1.y, m[1, 1]);
+
 			Assert.AreEqual(c1.z, m[1, 2]);
+
 			Assert.AreEqual(c1.w, m[1, 3]);
 
+
+
 			Vertex4f c2 = m.Column2;
+
 			Assert.AreEqual(c2.x, m[2, 0]);
+
 			Assert.AreEqual(c2.y, m[2, 1]);
+
 			Assert.AreEqual(c2.z, m[2, 2]);
+
 			Assert.AreEqual(c2.w, m[2, 3]);
 
+
+
 			Vertex4f c3 = m.Column3;
+
 			Assert.AreEqual(c3.x, m[3, 0]);
+
 			Assert.AreEqual(c3.y, m[3, 1]);
+
 			Assert.AreEqual(c3.z, m[3, 2]);
+
 			Assert.AreEqual(c3.w, m[3, 3]);
+
+
 
 		}
 
@@ -3382,10 +4374,15 @@ namespace OpenGL.Test
 		{
 			Matrix4x4f m = CreateRandomMatrix();
 
+
 			Vertex4f r0 = m.Row0;
+
 			Vertex4f r1 = m.Row1;
+
 			Vertex4f r2 = m.Row2;
+
 			Vertex4f r3 = m.Row3;
+
 		}
 
 		#endregion
@@ -3398,71 +4395,98 @@ namespace OpenGL.Test
 			Matrix4x4f m = new Matrix4x4f();
 			float r;
 
+
 			r = Next(0.0f, 1.0f);
 			m[0, 0] = r;
 			Assert.That(r, Is.EqualTo(m[0, 0]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[0, 1] = r;
 			Assert.That(r, Is.EqualTo(m[0, 1]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[0, 2] = r;
 			Assert.That(r, Is.EqualTo(m[0, 2]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[0, 3] = r;
 			Assert.That(r, Is.EqualTo(m[0, 3]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[1, 0] = r;
 			Assert.That(r, Is.EqualTo(m[1, 0]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[1, 1] = r;
 			Assert.That(r, Is.EqualTo(m[1, 1]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[1, 2] = r;
 			Assert.That(r, Is.EqualTo(m[1, 2]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[1, 3] = r;
 			Assert.That(r, Is.EqualTo(m[1, 3]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[2, 0] = r;
 			Assert.That(r, Is.EqualTo(m[2, 0]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[2, 1] = r;
 			Assert.That(r, Is.EqualTo(m[2, 1]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[2, 2] = r;
 			Assert.That(r, Is.EqualTo(m[2, 2]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[2, 3] = r;
 			Assert.That(r, Is.EqualTo(m[2, 3]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[3, 0] = r;
 			Assert.That(r, Is.EqualTo(m[3, 0]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[3, 1] = r;
 			Assert.That(r, Is.EqualTo(m[3, 1]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[3, 2] = r;
 			Assert.That(r, Is.EqualTo(m[3, 2]).Within(1e-5f));
+
 			r = Next(0.0f, 1.0f);
 			m[3, 3] = r;
 			Assert.That(r, Is.EqualTo(m[3, 3]).Within(1e-5f));
 
+
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[0, 4] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[0, 4]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[1, 4] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[1, 4]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[2, 4] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[2, 4]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[3, 4] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[3, 4]);
+
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[4, 0] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[4, 0]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[4, 1] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[4, 1]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[4, 2] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[4, 2]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[4, 3] = 0.0f);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[4, 3]);
+
 		}
 
 		[Test]
@@ -3476,6 +4500,7 @@ namespace OpenGL.Test
 			for (uint c = 0; c < 4; c++) for (uint r = 0; r < 4; r++, idx += 1.0f)
 				Assert.That(idx * 2.0f, Is.EqualTo(m[c, r]).Within(1e-5f));
 		}
+
 
 		[Test]
 		public void Matrix4x4f_MultiplyVertex4f()
@@ -3493,6 +4518,7 @@ namespace OpenGL.Test
 			Matrix4x4f r = m1 * m2;
 		}
 
+
 		#endregion
 
 		#region Cast Operators
@@ -3508,6 +4534,7 @@ namespace OpenGL.Test
 			for (uint c = 0, idx = 0; c < 4; c++) for (uint r = 0; r < 4; r++, idx++)
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-5f));
 		}
+
 
 		[Test]
 		public void Matrix4x4f_CastToMatrix4x4d()
@@ -3542,6 +4569,7 @@ namespace OpenGL.Test
 		}
 
 		#endregion
+
 
 		#region Projections
 
@@ -3700,7 +4728,10 @@ namespace OpenGL.Test
 
 		#endregion
 
+
+
 		#region Rotation
+
 
 		[Test]
 		public void Matrix4x4f_RotatedX()
@@ -3780,6 +4811,7 @@ namespace OpenGL.Test
 			Assert.IsTrue(v.Equals(Vertex4f.UnitX, 1e-5f));
 		}
 
+
 		[Test]
 		public void Matrix4x4f_RotatedZ()
 		{
@@ -3794,8 +4826,10 @@ namespace OpenGL.Test
 			r2 = Matrix4x4f.RotatedZ(+180.0f);
 			Assert.IsTrue((r1 * r1).Equals(r2, 1e-5f));
 
+
 			Vertex4f v = Matrix4x4f.RotatedZ(+90.0f) * Vertex4f.UnitX;
 			Assert.IsTrue(v.Equals(Vertex4f.UnitY, 1e-5f));
+
 		}
 
 		[Test]
@@ -3813,13 +4847,17 @@ namespace OpenGL.Test
 			m.RotateZ(+180.0f);
 			Assert.IsTrue(m.Equals(Matrix4x4f.RotatedZ(+180.0f), 1e-5f));
 
+
 			m = Matrix4x4f.Identity;
 			m.RotateZ(+90.0f);
 			Vertex4f v = m * Vertex4f.UnitX;
 			Assert.IsTrue(v.Equals(Vertex4f.UnitY, 1e-5f));
+
 		}
 
 		#endregion
+
+
 
 		#region Scaling
 
@@ -3881,6 +4919,7 @@ namespace OpenGL.Test
 
 		#endregion
 
+
 		#region Transposition
 
 		[Test]
@@ -3889,23 +4928,41 @@ namespace OpenGL.Test
 			Matrix4x4f m = CreateRandomMatrix();
 			Matrix4x4f t = m.Transposed;
 
+
 			Assert.That(m[0, 0], Is.EqualTo(t[0, 0]).Within(1e-5f));
+
 			Assert.That(m[0, 1], Is.EqualTo(t[1, 0]).Within(1e-5f));
+
 			Assert.That(m[0, 2], Is.EqualTo(t[2, 0]).Within(1e-5f));
+
 			Assert.That(m[0, 3], Is.EqualTo(t[3, 0]).Within(1e-5f));
+
 			Assert.That(m[1, 0], Is.EqualTo(t[0, 1]).Within(1e-5f));
+
 			Assert.That(m[1, 1], Is.EqualTo(t[1, 1]).Within(1e-5f));
+
 			Assert.That(m[1, 2], Is.EqualTo(t[2, 1]).Within(1e-5f));
+
 			Assert.That(m[1, 3], Is.EqualTo(t[3, 1]).Within(1e-5f));
+
 			Assert.That(m[2, 0], Is.EqualTo(t[0, 2]).Within(1e-5f));
+
 			Assert.That(m[2, 1], Is.EqualTo(t[1, 2]).Within(1e-5f));
+
 			Assert.That(m[2, 2], Is.EqualTo(t[2, 2]).Within(1e-5f));
+
 			Assert.That(m[2, 3], Is.EqualTo(t[3, 2]).Within(1e-5f));
+
 			Assert.That(m[3, 0], Is.EqualTo(t[0, 3]).Within(1e-5f));
+
 			Assert.That(m[3, 1], Is.EqualTo(t[1, 3]).Within(1e-5f));
+
 			Assert.That(m[3, 2], Is.EqualTo(t[2, 3]).Within(1e-5f));
+
 			Assert.That(m[3, 3], Is.EqualTo(t[3, 3]).Within(1e-5f));
+
 		}
+
 
 		[Test]
 		public void Matrix4x4f_Transpose()
@@ -3915,25 +4972,44 @@ namespace OpenGL.Test
 
 			m.Transpose();
 
+
 			Assert.That(n[0, 0], Is.EqualTo(m[0, 0]).Within(1e-5f));
+
 			Assert.That(n[0, 1], Is.EqualTo(m[1, 0]).Within(1e-5f));
+
 			Assert.That(n[0, 2], Is.EqualTo(m[2, 0]).Within(1e-5f));
+
 			Assert.That(n[0, 3], Is.EqualTo(m[3, 0]).Within(1e-5f));
+
 			Assert.That(n[1, 0], Is.EqualTo(m[0, 1]).Within(1e-5f));
+
 			Assert.That(n[1, 1], Is.EqualTo(m[1, 1]).Within(1e-5f));
+
 			Assert.That(n[1, 2], Is.EqualTo(m[2, 1]).Within(1e-5f));
+
 			Assert.That(n[1, 3], Is.EqualTo(m[3, 1]).Within(1e-5f));
+
 			Assert.That(n[2, 0], Is.EqualTo(m[0, 2]).Within(1e-5f));
+
 			Assert.That(n[2, 1], Is.EqualTo(m[1, 2]).Within(1e-5f));
+
 			Assert.That(n[2, 2], Is.EqualTo(m[2, 2]).Within(1e-5f));
+
 			Assert.That(n[2, 3], Is.EqualTo(m[3, 2]).Within(1e-5f));
+
 			Assert.That(n[3, 0], Is.EqualTo(m[0, 3]).Within(1e-5f));
+
 			Assert.That(n[3, 1], Is.EqualTo(m[1, 3]).Within(1e-5f));
+
 			Assert.That(n[3, 2], Is.EqualTo(m[2, 3]).Within(1e-5f));
+
 			Assert.That(n[3, 3], Is.EqualTo(m[3, 3]).Within(1e-5f));
+
 		}
 
+
 		#endregion
+
 
 		#region Inversion
 
@@ -3975,6 +5051,7 @@ namespace OpenGL.Test
 
 		#endregion
 
+
 		#region IEquatable Implementation
 
 		[Test]
@@ -3982,70 +5059,87 @@ namespace OpenGL.Test
 		{
 			Matrix4x4f m = new Matrix4x4f();
 
+
 			m[0, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x4f.Zero, 0.50f));
 			m[0, 0] = 0.0f;
+
 			m[0, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x4f.Zero, 0.50f));
 			m[0, 1] = 0.0f;
+
 			m[0, 2] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x4f.Zero, 0.50f));
 			m[0, 2] = 0.0f;
+
 			m[0, 3] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x4f.Zero, 0.50f));
 			m[0, 3] = 0.0f;
+
 			m[1, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x4f.Zero, 0.50f));
 			m[1, 0] = 0.0f;
+
 			m[1, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x4f.Zero, 0.50f));
 			m[1, 1] = 0.0f;
+
 			m[1, 2] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x4f.Zero, 0.50f));
 			m[1, 2] = 0.0f;
+
 			m[1, 3] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x4f.Zero, 0.50f));
 			m[1, 3] = 0.0f;
+
 			m[2, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x4f.Zero, 0.50f));
 			m[2, 0] = 0.0f;
+
 			m[2, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x4f.Zero, 0.50f));
 			m[2, 1] = 0.0f;
+
 			m[2, 2] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x4f.Zero, 0.50f));
 			m[2, 2] = 0.0f;
+
 			m[2, 3] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x4f.Zero, 0.50f));
 			m[2, 3] = 0.0f;
+
 			m[3, 0] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x4f.Zero, 0.50f));
 			m[3, 0] = 0.0f;
+
 			m[3, 1] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x4f.Zero, 0.50f));
 			m[3, 1] = 0.0f;
+
 			m[3, 2] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x4f.Zero, 0.50f));
 			m[3, 2] = 0.0f;
+
 			m[3, 3] = 0.5f;
 			Assert.IsFalse(m.Equals(Matrix4x4f.Zero, 0.25f));
 			Assert.IsTrue(m.Equals(Matrix4x4f.Zero, 0.50f));
 			m[3, 3] = 0.0f;
+
 		}
 
 		[Test]
@@ -4078,70 +5172,87 @@ namespace OpenGL.Test
 			
 			Assert.DoesNotThrow(() => cache = m.GetHashCode());
 
+
 			m[0, 0] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[0, 1] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[0, 2] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[0, 3] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 0] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 1] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 2] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 3] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[2, 0] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[2, 1] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[2, 2] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[2, 3] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[3, 0] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[3, 1] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[3, 2] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[3, 3] = Next(0.0f, 1.0f);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 		}
 
 		#endregion
@@ -4164,49 +5275,119 @@ namespace OpenGL.Test
 		private static Matrix4x4f CreateRandomMatrix()
 		{
 			return new Matrix4x4f(new[] {
+
 				Next(0.0f, 1.0f), Next(0.0f, 1.0f), Next(0.0f, 1.0f), Next(0.0f, 1.0f), 
+
+
 				Next(0.0f, 1.0f), Next(0.0f, 1.0f), Next(0.0f, 1.0f), Next(0.0f, 1.0f), 
+
+
 				Next(0.0f, 1.0f), Next(0.0f, 1.0f), Next(0.0f, 1.0f), Next(0.0f, 1.0f), 
+
+
 				Next(0.0f, 1.0f), Next(0.0f, 1.0f), Next(0.0f, 1.0f), Next(0.0f, 1.0f)
+
+
 			});
 		}
 
 		private static Matrix4x4f CreateSequenceMatrix()
 		{
 			return new Matrix4x4f(new[] {
+
 				(float)0, (float)1, (float)2, (float)3, 
+
+
 				(float)4, (float)5, (float)6, (float)7, 
+
+
 				(float)8, (float)9, (float)10, (float)11, 
+
+
 				(float)12, (float)13, (float)14, (float)15
+
+
 			});
 		}
+
 
 		private static Matrix4x4f CreateInvertibleMatrix()
 		{
 			Matrix4x4f m = new Matrix4x4f();
 
+
+
 			m[0, 0] = Next(1.0f, 2.0f);
+
+
+
 			m[0, 1] = Next(0.0f, 0.5f);
+
+
+
 			m[0, 2] = Next(0.0f, 0.5f);
+
+
+
 			m[0, 3] = Next(0.0f, 0.5f);
+
+
+
 			m[1, 0] = Next(0.0f, 0.5f);
+
+
+
 			m[1, 1] = Next(1.0f, 2.0f);
+
+
+
 			m[1, 2] = Next(0.0f, 0.5f);
+
+
+
 			m[1, 3] = Next(0.0f, 0.5f);
+
+
+
 			m[2, 0] = Next(0.0f, 0.5f);
+
+
+
 			m[2, 1] = Next(0.0f, 0.5f);
+
+
+
 			m[2, 2] = Next(1.0f, 2.0f);
+
+
+
 			m[2, 3] = Next(0.0f, 0.5f);
+
+
+
 			m[3, 0] = Next(0.0f, 0.5f);
+
+
+
 			m[3, 1] = Next(0.0f, 0.5f);
+
+
+
 			m[3, 2] = Next(0.0f, 0.5f);
+
+
+
 			m[3, 3] = Next(1.0f, 2.0f);
+
+
 
 			return m;
 		}
 
+
 		#endregion
 	}
+
 
 	[TestFixture, Category("Math")]
 	internal class Matrix2x2dTest : TestBase
@@ -4217,8 +5398,13 @@ namespace OpenGL.Test
 		public void Matrix2x2d_Constructor1()
 		{
 			Matrix2x2d m = new Matrix2x2d(
+
 				(double)0, (double)1, 
+
+
 				(double)2, (double)3
+
+
 			);
 
 			for (uint c = 0, idx = 0; c < 2; c++) for (uint r = 0; r < 2; r++, idx++)
@@ -4230,13 +5416,23 @@ namespace OpenGL.Test
 		{
 			Assert.Throws<ArgumentNullException>(() => new Matrix2x2d(null, 0));
 			Assert.Throws<ArgumentException>(() => new Matrix2x2d(new[] { 
+
 				(double)0, (double)1, 
+
+
 				(double)2, (double)3
+
+
 			} , 1));
 
 			Matrix2x2d m = new Matrix2x2d(new[] {
+
 				(double)0, (double)1, 
+
+
 				(double)2, (double)3
+
+
 			});
 
 			for (uint c = 0, idx = 0; c < 2; c++) for (uint r = 0; r < 2; r++, idx++)
@@ -4253,6 +5449,7 @@ namespace OpenGL.Test
 				Assert.That(m1[c, r], Is.EqualTo(m2[c, r]).Within(1e-10));
 		}
 
+
 		#endregion
 
 		#region Columns & Rows
@@ -4262,13 +5459,22 @@ namespace OpenGL.Test
 		{
 			Matrix2x2d m = CreateRandomMatrix();
 
+
 			Vertex2d c0 = m.Column0;
+
 			Assert.AreEqual(c0.x, m[0, 0]);
+
 			Assert.AreEqual(c0.y, m[0, 1]);
 
+
+
 			Vertex2d c1 = m.Column1;
+
 			Assert.AreEqual(c1.x, m[1, 0]);
+
 			Assert.AreEqual(c1.y, m[1, 1]);
+
+
 
 		}
 
@@ -4277,8 +5483,11 @@ namespace OpenGL.Test
 		{
 			Matrix2x2d m = CreateRandomMatrix();
 
+
 			Vertex2d r0 = m.Row0;
+
 			Vertex2d r1 = m.Row1;
+
 		}
 
 		#endregion
@@ -4291,27 +5500,38 @@ namespace OpenGL.Test
 			Matrix2x2d m = new Matrix2x2d();
 			double r;
 
+
 			r = Next(0.0, 1.0);
 			m[0, 0] = r;
 			Assert.That(r, Is.EqualTo(m[0, 0]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[0, 1] = r;
 			Assert.That(r, Is.EqualTo(m[0, 1]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[1, 0] = r;
 			Assert.That(r, Is.EqualTo(m[1, 0]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[1, 1] = r;
 			Assert.That(r, Is.EqualTo(m[1, 1]).Within(1e-10));
 
+
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[0, 2] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[0, 2]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[1, 2] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[1, 2]);
+
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[2, 0] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[2, 0]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[2, 1] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[2, 1]);
+
 		}
 
 		[Test]
@@ -4325,6 +5545,7 @@ namespace OpenGL.Test
 			for (uint c = 0; c < 2; c++) for (uint r = 0; r < 2; r++, idx += 1.0)
 				Assert.That(idx * 2.0, Is.EqualTo(m[c, r]).Within(1e-10));
 		}
+
 
 		[Test]
 		public void Matrix2x2d_MultiplyVertex2d()
@@ -4342,6 +5563,7 @@ namespace OpenGL.Test
 			Matrix2x2d r = m1 * m2;
 		}
 
+
 		#endregion
 
 		#region Cast Operators
@@ -4357,6 +5579,7 @@ namespace OpenGL.Test
 			for (uint c = 0, idx = 0; c < 2; c++) for (uint r = 0; r < 2; r++, idx++)
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-10));
 		}
+
 
 		[Test]
 		public void Matrix2x2d_CastToMatrix2x2f()
@@ -4392,7 +5615,10 @@ namespace OpenGL.Test
 
 		#endregion
 
+
+
 		#region Rotation
+
 
 		[Test]
 		public void Matrix2x2d_RotatedZ()
@@ -4407,6 +5633,7 @@ namespace OpenGL.Test
 			r1 = Matrix2x2d.RotatedZ(+90.0);
 			r2 = Matrix2x2d.RotatedZ(+180.0);
 			Assert.IsTrue((r1 * r1).Equals(r2, 1e-10));
+
 
 		}
 
@@ -4425,9 +5652,12 @@ namespace OpenGL.Test
 			m.RotateZ(+180.0);
 			Assert.IsTrue(m.Equals(Matrix2x2d.RotatedZ(+180.0), 1e-10));
 
+
 		}
 
 		#endregion
+
+
 
 		#region Transposition
 
@@ -4437,11 +5667,17 @@ namespace OpenGL.Test
 			Matrix2x2d m = CreateRandomMatrix();
 			Matrix2x2d t = m.Transposed;
 
+
 			Assert.That(m[0, 0], Is.EqualTo(t[0, 0]).Within(1e-10));
+
 			Assert.That(m[0, 1], Is.EqualTo(t[1, 0]).Within(1e-10));
+
 			Assert.That(m[1, 0], Is.EqualTo(t[0, 1]).Within(1e-10));
+
 			Assert.That(m[1, 1], Is.EqualTo(t[1, 1]).Within(1e-10));
+
 		}
+
 
 		[Test]
 		public void Matrix2x2d_Transpose()
@@ -4451,13 +5687,20 @@ namespace OpenGL.Test
 
 			m.Transpose();
 
+
 			Assert.That(n[0, 0], Is.EqualTo(m[0, 0]).Within(1e-10));
+
 			Assert.That(n[0, 1], Is.EqualTo(m[1, 0]).Within(1e-10));
+
 			Assert.That(n[1, 0], Is.EqualTo(m[0, 1]).Within(1e-10));
+
 			Assert.That(n[1, 1], Is.EqualTo(m[1, 1]).Within(1e-10));
+
 		}
 
+
 		#endregion
+
 
 		#region Inversion
 
@@ -4499,6 +5742,7 @@ namespace OpenGL.Test
 
 		#endregion
 
+
 		#region IEquatable Implementation
 
 		[Test]
@@ -4506,22 +5750,27 @@ namespace OpenGL.Test
 		{
 			Matrix2x2d m = new Matrix2x2d();
 
+
 			m[0, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix2x2d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix2x2d.Zero, 0.50));
 			m[0, 0] = 0.0;
+
 			m[0, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix2x2d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix2x2d.Zero, 0.50));
 			m[0, 1] = 0.0;
+
 			m[1, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix2x2d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix2x2d.Zero, 0.50));
 			m[1, 0] = 0.0;
+
 			m[1, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix2x2d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix2x2d.Zero, 0.50));
 			m[1, 1] = 0.0;
+
 		}
 
 		[Test]
@@ -4554,22 +5803,27 @@ namespace OpenGL.Test
 			
 			Assert.DoesNotThrow(() => cache = m.GetHashCode());
 
+
 			m[0, 0] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[0, 1] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 0] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 1] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 		}
 
 		#endregion
@@ -4592,33 +5846,59 @@ namespace OpenGL.Test
 		private static Matrix2x2d CreateRandomMatrix()
 		{
 			return new Matrix2x2d(new[] {
+
 				Next(0.0, 1.0), Next(0.0, 1.0), 
+
+
 				Next(0.0, 1.0), Next(0.0, 1.0)
+
+
 			});
 		}
 
 		private static Matrix2x2d CreateSequenceMatrix()
 		{
 			return new Matrix2x2d(new[] {
+
 				(double)0, (double)1, 
+
+
 				(double)2, (double)3
+
+
 			});
 		}
+
 
 		private static Matrix2x2d CreateInvertibleMatrix()
 		{
 			Matrix2x2d m = new Matrix2x2d();
 
+
+
 			m[0, 0] = Next(1.0, 2.0);
+
+
+
 			m[0, 1] = Next(0.0, 0.5);
+
+
+
 			m[1, 0] = Next(0.0, 0.5);
+
+
+
 			m[1, 1] = Next(1.0, 2.0);
+
+
 
 			return m;
 		}
 
+
 		#endregion
 	}
+
 
 	[TestFixture, Category("Math")]
 	internal class Matrix2x3dTest : TestBase
@@ -4629,8 +5909,13 @@ namespace OpenGL.Test
 		public void Matrix2x3d_Constructor1()
 		{
 			Matrix2x3d m = new Matrix2x3d(
+
 				(double)0, (double)1, (double)2, 
+
+
 				(double)3, (double)4, (double)5
+
+
 			);
 
 			for (uint c = 0, idx = 0; c < 2; c++) for (uint r = 0; r < 3; r++, idx++)
@@ -4642,13 +5927,23 @@ namespace OpenGL.Test
 		{
 			Assert.Throws<ArgumentNullException>(() => new Matrix2x3d(null, 0));
 			Assert.Throws<ArgumentException>(() => new Matrix2x3d(new[] { 
+
 				(double)0, (double)1, (double)2, 
+
+
 				(double)3, (double)4, (double)5
+
+
 			} , 1));
 
 			Matrix2x3d m = new Matrix2x3d(new[] {
+
 				(double)0, (double)1, (double)2, 
+
+
 				(double)3, (double)4, (double)5
+
+
 			});
 
 			for (uint c = 0, idx = 0; c < 2; c++) for (uint r = 0; r < 3; r++, idx++)
@@ -4665,6 +5960,7 @@ namespace OpenGL.Test
 				Assert.That(m1[c, r], Is.EqualTo(m2[c, r]).Within(1e-10));
 		}
 
+
 		#endregion
 
 		#region Columns & Rows
@@ -4674,15 +5970,26 @@ namespace OpenGL.Test
 		{
 			Matrix2x3d m = CreateRandomMatrix();
 
+
 			Vertex3d c0 = m.Column0;
+
 			Assert.AreEqual(c0.x, m[0, 0]);
+
 			Assert.AreEqual(c0.y, m[0, 1]);
+
 			Assert.AreEqual(c0.z, m[0, 2]);
 
+
+
 			Vertex3d c1 = m.Column1;
+
 			Assert.AreEqual(c1.x, m[1, 0]);
+
 			Assert.AreEqual(c1.y, m[1, 1]);
+
 			Assert.AreEqual(c1.z, m[1, 2]);
+
+
 
 		}
 
@@ -4691,9 +5998,13 @@ namespace OpenGL.Test
 		{
 			Matrix2x3d m = CreateRandomMatrix();
 
+
 			Vertex2d r0 = m.Row0;
+
 			Vertex2d r1 = m.Row1;
+
 			Vertex2d r2 = m.Row2;
+
 		}
 
 		#endregion
@@ -4706,35 +6017,49 @@ namespace OpenGL.Test
 			Matrix2x3d m = new Matrix2x3d();
 			double r;
 
+
 			r = Next(0.0, 1.0);
 			m[0, 0] = r;
 			Assert.That(r, Is.EqualTo(m[0, 0]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[0, 1] = r;
 			Assert.That(r, Is.EqualTo(m[0, 1]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[0, 2] = r;
 			Assert.That(r, Is.EqualTo(m[0, 2]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[1, 0] = r;
 			Assert.That(r, Is.EqualTo(m[1, 0]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[1, 1] = r;
 			Assert.That(r, Is.EqualTo(m[1, 1]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[1, 2] = r;
 			Assert.That(r, Is.EqualTo(m[1, 2]).Within(1e-10));
 
+
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[0, 3] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[0, 3]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[1, 3] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[1, 3]);
+
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[2, 0] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[2, 0]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[2, 1] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[2, 1]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[2, 2] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[2, 2]);
+
 		}
 
 		[Test]
@@ -4748,6 +6073,7 @@ namespace OpenGL.Test
 			for (uint c = 0; c < 2; c++) for (uint r = 0; r < 3; r++, idx += 1.0)
 				Assert.That(idx * 2.0, Is.EqualTo(m[c, r]).Within(1e-10));
 		}
+
 
 		#endregion
 
@@ -4764,6 +6090,7 @@ namespace OpenGL.Test
 			for (uint c = 0, idx = 0; c < 2; c++) for (uint r = 0; r < 3; r++, idx++)
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-10));
 		}
+
 
 		[Test]
 		public void Matrix2x3d_CastToMatrix2x3f()
@@ -4799,6 +6126,9 @@ namespace OpenGL.Test
 
 		#endregion
 
+
+
+
 		#region Transposition
 
 		[Test]
@@ -4807,15 +6137,24 @@ namespace OpenGL.Test
 			Matrix2x3d m = CreateRandomMatrix();
 			Matrix3x2d t = m.Transposed;
 
+
 			Assert.That(m[0, 0], Is.EqualTo(t[0, 0]).Within(1e-10));
+
 			Assert.That(m[0, 1], Is.EqualTo(t[1, 0]).Within(1e-10));
+
 			Assert.That(m[0, 2], Is.EqualTo(t[2, 0]).Within(1e-10));
+
 			Assert.That(m[1, 0], Is.EqualTo(t[0, 1]).Within(1e-10));
+
 			Assert.That(m[1, 1], Is.EqualTo(t[1, 1]).Within(1e-10));
+
 			Assert.That(m[1, 2], Is.EqualTo(t[2, 1]).Within(1e-10));
+
 		}
 
+
 		#endregion
+
 
 		#region IEquatable Implementation
 
@@ -4824,30 +6163,37 @@ namespace OpenGL.Test
 		{
 			Matrix2x3d m = new Matrix2x3d();
 
+
 			m[0, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix2x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix2x3d.Zero, 0.50));
 			m[0, 0] = 0.0;
+
 			m[0, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix2x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix2x3d.Zero, 0.50));
 			m[0, 1] = 0.0;
+
 			m[0, 2] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix2x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix2x3d.Zero, 0.50));
 			m[0, 2] = 0.0;
+
 			m[1, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix2x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix2x3d.Zero, 0.50));
 			m[1, 0] = 0.0;
+
 			m[1, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix2x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix2x3d.Zero, 0.50));
 			m[1, 1] = 0.0;
+
 			m[1, 2] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix2x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix2x3d.Zero, 0.50));
 			m[1, 2] = 0.0;
+
 		}
 
 		[Test]
@@ -4880,30 +6226,37 @@ namespace OpenGL.Test
 			
 			Assert.DoesNotThrow(() => cache = m.GetHashCode());
 
+
 			m[0, 0] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[0, 1] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[0, 2] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 0] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 1] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 2] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 		}
 
 		#endregion
@@ -4926,21 +6279,33 @@ namespace OpenGL.Test
 		private static Matrix2x3d CreateRandomMatrix()
 		{
 			return new Matrix2x3d(new[] {
+
 				Next(0.0, 1.0), Next(0.0, 1.0), Next(0.0, 1.0), 
+
+
 				Next(0.0, 1.0), Next(0.0, 1.0), Next(0.0, 1.0)
+
+
 			});
 		}
 
 		private static Matrix2x3d CreateSequenceMatrix()
 		{
 			return new Matrix2x3d(new[] {
+
 				(double)0, (double)1, (double)2, 
+
+
 				(double)3, (double)4, (double)5
+
+
 			});
 		}
 
+
 		#endregion
 	}
+
 
 	[TestFixture, Category("Math")]
 	internal class Matrix2x4dTest : TestBase
@@ -4951,8 +6316,13 @@ namespace OpenGL.Test
 		public void Matrix2x4d_Constructor1()
 		{
 			Matrix2x4d m = new Matrix2x4d(
+
 				(double)0, (double)1, (double)2, (double)3, 
+
+
 				(double)4, (double)5, (double)6, (double)7
+
+
 			);
 
 			for (uint c = 0, idx = 0; c < 2; c++) for (uint r = 0; r < 4; r++, idx++)
@@ -4964,13 +6334,23 @@ namespace OpenGL.Test
 		{
 			Assert.Throws<ArgumentNullException>(() => new Matrix2x4d(null, 0));
 			Assert.Throws<ArgumentException>(() => new Matrix2x4d(new[] { 
+
 				(double)0, (double)1, (double)2, (double)3, 
+
+
 				(double)4, (double)5, (double)6, (double)7
+
+
 			} , 1));
 
 			Matrix2x4d m = new Matrix2x4d(new[] {
+
 				(double)0, (double)1, (double)2, (double)3, 
+
+
 				(double)4, (double)5, (double)6, (double)7
+
+
 			});
 
 			for (uint c = 0, idx = 0; c < 2; c++) for (uint r = 0; r < 4; r++, idx++)
@@ -4987,6 +6367,7 @@ namespace OpenGL.Test
 				Assert.That(m1[c, r], Is.EqualTo(m2[c, r]).Within(1e-10));
 		}
 
+
 		#endregion
 
 		#region Columns & Rows
@@ -4996,17 +6377,30 @@ namespace OpenGL.Test
 		{
 			Matrix2x4d m = CreateRandomMatrix();
 
+
 			Vertex4d c0 = m.Column0;
+
 			Assert.AreEqual(c0.x, m[0, 0]);
+
 			Assert.AreEqual(c0.y, m[0, 1]);
+
 			Assert.AreEqual(c0.z, m[0, 2]);
+
 			Assert.AreEqual(c0.w, m[0, 3]);
 
+
+
 			Vertex4d c1 = m.Column1;
+
 			Assert.AreEqual(c1.x, m[1, 0]);
+
 			Assert.AreEqual(c1.y, m[1, 1]);
+
 			Assert.AreEqual(c1.z, m[1, 2]);
+
 			Assert.AreEqual(c1.w, m[1, 3]);
+
+
 
 		}
 
@@ -5015,10 +6409,15 @@ namespace OpenGL.Test
 		{
 			Matrix2x4d m = CreateRandomMatrix();
 
+
 			Vertex2d r0 = m.Row0;
+
 			Vertex2d r1 = m.Row1;
+
 			Vertex2d r2 = m.Row2;
+
 			Vertex2d r3 = m.Row3;
+
 		}
 
 		#endregion
@@ -5031,43 +6430,60 @@ namespace OpenGL.Test
 			Matrix2x4d m = new Matrix2x4d();
 			double r;
 
+
 			r = Next(0.0, 1.0);
 			m[0, 0] = r;
 			Assert.That(r, Is.EqualTo(m[0, 0]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[0, 1] = r;
 			Assert.That(r, Is.EqualTo(m[0, 1]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[0, 2] = r;
 			Assert.That(r, Is.EqualTo(m[0, 2]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[0, 3] = r;
 			Assert.That(r, Is.EqualTo(m[0, 3]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[1, 0] = r;
 			Assert.That(r, Is.EqualTo(m[1, 0]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[1, 1] = r;
 			Assert.That(r, Is.EqualTo(m[1, 1]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[1, 2] = r;
 			Assert.That(r, Is.EqualTo(m[1, 2]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[1, 3] = r;
 			Assert.That(r, Is.EqualTo(m[1, 3]).Within(1e-10));
 
+
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[0, 4] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[0, 4]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[1, 4] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[1, 4]);
+
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[2, 0] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[2, 0]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[2, 1] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[2, 1]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[2, 2] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[2, 2]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[2, 3] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[2, 3]);
+
 		}
 
 		[Test]
@@ -5081,6 +6497,7 @@ namespace OpenGL.Test
 			for (uint c = 0; c < 2; c++) for (uint r = 0; r < 4; r++, idx += 1.0)
 				Assert.That(idx * 2.0, Is.EqualTo(m[c, r]).Within(1e-10));
 		}
+
 
 		#endregion
 
@@ -5097,6 +6514,7 @@ namespace OpenGL.Test
 			for (uint c = 0, idx = 0; c < 2; c++) for (uint r = 0; r < 4; r++, idx++)
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-10));
 		}
+
 
 		[Test]
 		public void Matrix2x4d_CastToMatrix2x4f()
@@ -5132,6 +6550,9 @@ namespace OpenGL.Test
 
 		#endregion
 
+
+
+
 		#region Transposition
 
 		[Test]
@@ -5140,17 +6561,28 @@ namespace OpenGL.Test
 			Matrix2x4d m = CreateRandomMatrix();
 			Matrix4x2d t = m.Transposed;
 
+
 			Assert.That(m[0, 0], Is.EqualTo(t[0, 0]).Within(1e-10));
+
 			Assert.That(m[0, 1], Is.EqualTo(t[1, 0]).Within(1e-10));
+
 			Assert.That(m[0, 2], Is.EqualTo(t[2, 0]).Within(1e-10));
+
 			Assert.That(m[0, 3], Is.EqualTo(t[3, 0]).Within(1e-10));
+
 			Assert.That(m[1, 0], Is.EqualTo(t[0, 1]).Within(1e-10));
+
 			Assert.That(m[1, 1], Is.EqualTo(t[1, 1]).Within(1e-10));
+
 			Assert.That(m[1, 2], Is.EqualTo(t[2, 1]).Within(1e-10));
+
 			Assert.That(m[1, 3], Is.EqualTo(t[3, 1]).Within(1e-10));
+
 		}
 
+
 		#endregion
+
 
 		#region IEquatable Implementation
 
@@ -5159,38 +6591,47 @@ namespace OpenGL.Test
 		{
 			Matrix2x4d m = new Matrix2x4d();
 
+
 			m[0, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix2x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix2x4d.Zero, 0.50));
 			m[0, 0] = 0.0;
+
 			m[0, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix2x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix2x4d.Zero, 0.50));
 			m[0, 1] = 0.0;
+
 			m[0, 2] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix2x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix2x4d.Zero, 0.50));
 			m[0, 2] = 0.0;
+
 			m[0, 3] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix2x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix2x4d.Zero, 0.50));
 			m[0, 3] = 0.0;
+
 			m[1, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix2x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix2x4d.Zero, 0.50));
 			m[1, 0] = 0.0;
+
 			m[1, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix2x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix2x4d.Zero, 0.50));
 			m[1, 1] = 0.0;
+
 			m[1, 2] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix2x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix2x4d.Zero, 0.50));
 			m[1, 2] = 0.0;
+
 			m[1, 3] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix2x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix2x4d.Zero, 0.50));
 			m[1, 3] = 0.0;
+
 		}
 
 		[Test]
@@ -5223,38 +6664,47 @@ namespace OpenGL.Test
 			
 			Assert.DoesNotThrow(() => cache = m.GetHashCode());
 
+
 			m[0, 0] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[0, 1] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[0, 2] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[0, 3] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 0] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 1] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 2] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 3] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 		}
 
 		#endregion
@@ -5277,21 +6727,33 @@ namespace OpenGL.Test
 		private static Matrix2x4d CreateRandomMatrix()
 		{
 			return new Matrix2x4d(new[] {
+
 				Next(0.0, 1.0), Next(0.0, 1.0), Next(0.0, 1.0), Next(0.0, 1.0), 
+
+
 				Next(0.0, 1.0), Next(0.0, 1.0), Next(0.0, 1.0), Next(0.0, 1.0)
+
+
 			});
 		}
 
 		private static Matrix2x4d CreateSequenceMatrix()
 		{
 			return new Matrix2x4d(new[] {
+
 				(double)0, (double)1, (double)2, (double)3, 
+
+
 				(double)4, (double)5, (double)6, (double)7
+
+
 			});
 		}
 
+
 		#endregion
 	}
+
 
 	[TestFixture, Category("Math")]
 	internal class Matrix3x2dTest : TestBase
@@ -5302,9 +6764,16 @@ namespace OpenGL.Test
 		public void Matrix3x2d_Constructor1()
 		{
 			Matrix3x2d m = new Matrix3x2d(
+
 				(double)0, (double)1, 
+
+
 				(double)2, (double)3, 
+
+
 				(double)4, (double)5
+
+
 			);
 
 			for (uint c = 0, idx = 0; c < 3; c++) for (uint r = 0; r < 2; r++, idx++)
@@ -5316,15 +6785,29 @@ namespace OpenGL.Test
 		{
 			Assert.Throws<ArgumentNullException>(() => new Matrix3x2d(null, 0));
 			Assert.Throws<ArgumentException>(() => new Matrix3x2d(new[] { 
+
 				(double)0, (double)1, 
+
+
 				(double)2, (double)3, 
+
+
 				(double)4, (double)5
+
+
 			} , 1));
 
 			Matrix3x2d m = new Matrix3x2d(new[] {
+
 				(double)0, (double)1, 
+
+
 				(double)2, (double)3, 
+
+
 				(double)4, (double)5
+
+
 			});
 
 			for (uint c = 0, idx = 0; c < 3; c++) for (uint r = 0; r < 2; r++, idx++)
@@ -5341,6 +6824,7 @@ namespace OpenGL.Test
 				Assert.That(m1[c, r], Is.EqualTo(m2[c, r]).Within(1e-10));
 		}
 
+
 		#endregion
 
 		#region Columns & Rows
@@ -5350,17 +6834,30 @@ namespace OpenGL.Test
 		{
 			Matrix3x2d m = CreateRandomMatrix();
 
+
 			Vertex2d c0 = m.Column0;
+
 			Assert.AreEqual(c0.x, m[0, 0]);
+
 			Assert.AreEqual(c0.y, m[0, 1]);
 
+
+
 			Vertex2d c1 = m.Column1;
+
 			Assert.AreEqual(c1.x, m[1, 0]);
+
 			Assert.AreEqual(c1.y, m[1, 1]);
 
+
+
 			Vertex2d c2 = m.Column2;
+
 			Assert.AreEqual(c2.x, m[2, 0]);
+
 			Assert.AreEqual(c2.y, m[2, 1]);
+
+
 
 		}
 
@@ -5369,8 +6866,11 @@ namespace OpenGL.Test
 		{
 			Matrix3x2d m = CreateRandomMatrix();
 
+
 			Vertex3d r0 = m.Row0;
+
 			Vertex3d r1 = m.Row1;
+
 		}
 
 		#endregion
@@ -5383,35 +6883,49 @@ namespace OpenGL.Test
 			Matrix3x2d m = new Matrix3x2d();
 			double r;
 
+
 			r = Next(0.0, 1.0);
 			m[0, 0] = r;
 			Assert.That(r, Is.EqualTo(m[0, 0]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[0, 1] = r;
 			Assert.That(r, Is.EqualTo(m[0, 1]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[1, 0] = r;
 			Assert.That(r, Is.EqualTo(m[1, 0]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[1, 1] = r;
 			Assert.That(r, Is.EqualTo(m[1, 1]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[2, 0] = r;
 			Assert.That(r, Is.EqualTo(m[2, 0]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[2, 1] = r;
 			Assert.That(r, Is.EqualTo(m[2, 1]).Within(1e-10));
 
+
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[0, 2] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[0, 2]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[1, 2] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[1, 2]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[2, 2] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[2, 2]);
+
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[3, 0] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[3, 0]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[3, 1] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[3, 1]);
+
 		}
 
 		[Test]
@@ -5425,6 +6939,7 @@ namespace OpenGL.Test
 			for (uint c = 0; c < 3; c++) for (uint r = 0; r < 2; r++, idx += 1.0)
 				Assert.That(idx * 2.0, Is.EqualTo(m[c, r]).Within(1e-10));
 		}
+
 
 		#endregion
 
@@ -5441,6 +6956,7 @@ namespace OpenGL.Test
 			for (uint c = 0, idx = 0; c < 3; c++) for (uint r = 0; r < 2; r++, idx++)
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-10));
 		}
+
 
 		[Test]
 		public void Matrix3x2d_CastToMatrix3x2f()
@@ -5476,6 +6992,9 @@ namespace OpenGL.Test
 
 		#endregion
 
+
+
+
 		#region Transposition
 
 		[Test]
@@ -5484,15 +7003,24 @@ namespace OpenGL.Test
 			Matrix3x2d m = CreateRandomMatrix();
 			Matrix2x3d t = m.Transposed;
 
+
 			Assert.That(m[0, 0], Is.EqualTo(t[0, 0]).Within(1e-10));
+
 			Assert.That(m[0, 1], Is.EqualTo(t[1, 0]).Within(1e-10));
+
 			Assert.That(m[1, 0], Is.EqualTo(t[0, 1]).Within(1e-10));
+
 			Assert.That(m[1, 1], Is.EqualTo(t[1, 1]).Within(1e-10));
+
 			Assert.That(m[2, 0], Is.EqualTo(t[0, 2]).Within(1e-10));
+
 			Assert.That(m[2, 1], Is.EqualTo(t[1, 2]).Within(1e-10));
+
 		}
 
+
 		#endregion
+
 
 		#region IEquatable Implementation
 
@@ -5501,30 +7029,37 @@ namespace OpenGL.Test
 		{
 			Matrix3x2d m = new Matrix3x2d();
 
+
 			m[0, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x2d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x2d.Zero, 0.50));
 			m[0, 0] = 0.0;
+
 			m[0, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x2d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x2d.Zero, 0.50));
 			m[0, 1] = 0.0;
+
 			m[1, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x2d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x2d.Zero, 0.50));
 			m[1, 0] = 0.0;
+
 			m[1, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x2d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x2d.Zero, 0.50));
 			m[1, 1] = 0.0;
+
 			m[2, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x2d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x2d.Zero, 0.50));
 			m[2, 0] = 0.0;
+
 			m[2, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x2d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x2d.Zero, 0.50));
 			m[2, 1] = 0.0;
+
 		}
 
 		[Test]
@@ -5557,30 +7092,37 @@ namespace OpenGL.Test
 			
 			Assert.DoesNotThrow(() => cache = m.GetHashCode());
 
+
 			m[0, 0] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[0, 1] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 0] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 1] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[2, 0] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[2, 1] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 		}
 
 		#endregion
@@ -5603,23 +7145,39 @@ namespace OpenGL.Test
 		private static Matrix3x2d CreateRandomMatrix()
 		{
 			return new Matrix3x2d(new[] {
+
 				Next(0.0, 1.0), Next(0.0, 1.0), 
+
+
 				Next(0.0, 1.0), Next(0.0, 1.0), 
+
+
 				Next(0.0, 1.0), Next(0.0, 1.0)
+
+
 			});
 		}
 
 		private static Matrix3x2d CreateSequenceMatrix()
 		{
 			return new Matrix3x2d(new[] {
+
 				(double)0, (double)1, 
+
+
 				(double)2, (double)3, 
+
+
 				(double)4, (double)5
+
+
 			});
 		}
 
+
 		#endregion
 	}
+
 
 	[TestFixture, Category("Math")]
 	internal class Matrix3x3dTest : TestBase
@@ -5630,9 +7188,16 @@ namespace OpenGL.Test
 		public void Matrix3x3d_Constructor1()
 		{
 			Matrix3x3d m = new Matrix3x3d(
+
 				(double)0, (double)1, (double)2, 
+
+
 				(double)3, (double)4, (double)5, 
+
+
 				(double)6, (double)7, (double)8
+
+
 			);
 
 			for (uint c = 0, idx = 0; c < 3; c++) for (uint r = 0; r < 3; r++, idx++)
@@ -5644,15 +7209,29 @@ namespace OpenGL.Test
 		{
 			Assert.Throws<ArgumentNullException>(() => new Matrix3x3d(null, 0));
 			Assert.Throws<ArgumentException>(() => new Matrix3x3d(new[] { 
+
 				(double)0, (double)1, (double)2, 
+
+
 				(double)3, (double)4, (double)5, 
+
+
 				(double)6, (double)7, (double)8
+
+
 			} , 1));
 
 			Matrix3x3d m = new Matrix3x3d(new[] {
+
 				(double)0, (double)1, (double)2, 
+
+
 				(double)3, (double)4, (double)5, 
+
+
 				(double)6, (double)7, (double)8
+
+
 			});
 
 			for (uint c = 0, idx = 0; c < 3; c++) for (uint r = 0; r < 3; r++, idx++)
@@ -5669,6 +7248,7 @@ namespace OpenGL.Test
 				Assert.That(m1[c, r], Is.EqualTo(m2[c, r]).Within(1e-10));
 		}
 
+
 		[Test]
 		public void Matrix3x3d_Constructor4()
 		{
@@ -5679,6 +7259,7 @@ namespace OpenGL.Test
 			Assert.Throws<ArgumentOutOfRangeException>(() => c = new Matrix3x3d(m, 3, 4));
 		}
 
+
 		#endregion
 
 		#region Columns & Rows
@@ -5688,20 +7269,36 @@ namespace OpenGL.Test
 		{
 			Matrix3x3d m = CreateRandomMatrix();
 
+
 			Vertex3d c0 = m.Column0;
+
 			Assert.AreEqual(c0.x, m[0, 0]);
+
 			Assert.AreEqual(c0.y, m[0, 1]);
+
 			Assert.AreEqual(c0.z, m[0, 2]);
 
+
+
 			Vertex3d c1 = m.Column1;
+
 			Assert.AreEqual(c1.x, m[1, 0]);
+
 			Assert.AreEqual(c1.y, m[1, 1]);
+
 			Assert.AreEqual(c1.z, m[1, 2]);
 
+
+
 			Vertex3d c2 = m.Column2;
+
 			Assert.AreEqual(c2.x, m[2, 0]);
+
 			Assert.AreEqual(c2.y, m[2, 1]);
+
 			Assert.AreEqual(c2.z, m[2, 2]);
+
+
 
 		}
 
@@ -5710,9 +7307,13 @@ namespace OpenGL.Test
 		{
 			Matrix3x3d m = CreateRandomMatrix();
 
+
 			Vertex3d r0 = m.Row0;
+
 			Vertex3d r1 = m.Row1;
+
 			Vertex3d r2 = m.Row2;
+
 		}
 
 		#endregion
@@ -5725,46 +7326,64 @@ namespace OpenGL.Test
 			Matrix3x3d m = new Matrix3x3d();
 			double r;
 
+
 			r = Next(0.0, 1.0);
 			m[0, 0] = r;
 			Assert.That(r, Is.EqualTo(m[0, 0]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[0, 1] = r;
 			Assert.That(r, Is.EqualTo(m[0, 1]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[0, 2] = r;
 			Assert.That(r, Is.EqualTo(m[0, 2]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[1, 0] = r;
 			Assert.That(r, Is.EqualTo(m[1, 0]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[1, 1] = r;
 			Assert.That(r, Is.EqualTo(m[1, 1]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[1, 2] = r;
 			Assert.That(r, Is.EqualTo(m[1, 2]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[2, 0] = r;
 			Assert.That(r, Is.EqualTo(m[2, 0]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[2, 1] = r;
 			Assert.That(r, Is.EqualTo(m[2, 1]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[2, 2] = r;
 			Assert.That(r, Is.EqualTo(m[2, 2]).Within(1e-10));
 
+
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[0, 3] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[0, 3]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[1, 3] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[1, 3]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[2, 3] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[2, 3]);
+
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[3, 0] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[3, 0]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[3, 1] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[3, 1]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[3, 2] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[3, 2]);
+
 		}
 
 		[Test]
@@ -5778,6 +7397,7 @@ namespace OpenGL.Test
 			for (uint c = 0; c < 3; c++) for (uint r = 0; r < 3; r++, idx += 1.0)
 				Assert.That(idx * 2.0, Is.EqualTo(m[c, r]).Within(1e-10));
 		}
+
 
 		[Test]
 		public void Matrix3x3d_MultiplyVertex3d()
@@ -5795,6 +7415,7 @@ namespace OpenGL.Test
 			Matrix3x3d r = m1 * m2;
 		}
 
+
 		#endregion
 
 		#region Cast Operators
@@ -5810,6 +7431,7 @@ namespace OpenGL.Test
 			for (uint c = 0, idx = 0; c < 3; c++) for (uint r = 0; r < 3; r++, idx++)
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-10));
 		}
+
 
 		[Test]
 		public void Matrix3x3d_CastToMatrix3x3f()
@@ -5845,7 +7467,10 @@ namespace OpenGL.Test
 
 		#endregion
 
+
+
 		#region Rotation
+
 
 		[Test]
 		public void Matrix3x3d_RotatedX()
@@ -5925,6 +7550,7 @@ namespace OpenGL.Test
 			Assert.IsTrue(v.Equals(Vertex3d.UnitX, 1e-10));
 		}
 
+
 		[Test]
 		public void Matrix3x3d_RotatedZ()
 		{
@@ -5939,8 +7565,10 @@ namespace OpenGL.Test
 			r2 = Matrix3x3d.RotatedZ(+180.0);
 			Assert.IsTrue((r1 * r1).Equals(r2, 1e-10));
 
+
 			Vertex3d v = Matrix3x3d.RotatedZ(+90.0) * Vertex3d.UnitX;
 			Assert.IsTrue(v.Equals(Vertex3d.UnitY, 1e-10));
+
 		}
 
 		[Test]
@@ -5958,13 +7586,17 @@ namespace OpenGL.Test
 			m.RotateZ(+180.0);
 			Assert.IsTrue(m.Equals(Matrix3x3d.RotatedZ(+180.0), 1e-10));
 
+
 			m = Matrix3x3d.Identity;
 			m.RotateZ(+90.0);
 			Vertex3d v = m * Vertex3d.UnitX;
 			Assert.IsTrue(v.Equals(Vertex3d.UnitY, 1e-10));
+
 		}
 
 		#endregion
+
+
 
 		#region Scaling
 
@@ -6026,6 +7658,7 @@ namespace OpenGL.Test
 
 		#endregion
 
+
 		#region Transposition
 
 		[Test]
@@ -6034,16 +7667,27 @@ namespace OpenGL.Test
 			Matrix3x3d m = CreateRandomMatrix();
 			Matrix3x3d t = m.Transposed;
 
+
 			Assert.That(m[0, 0], Is.EqualTo(t[0, 0]).Within(1e-10));
+
 			Assert.That(m[0, 1], Is.EqualTo(t[1, 0]).Within(1e-10));
+
 			Assert.That(m[0, 2], Is.EqualTo(t[2, 0]).Within(1e-10));
+
 			Assert.That(m[1, 0], Is.EqualTo(t[0, 1]).Within(1e-10));
+
 			Assert.That(m[1, 1], Is.EqualTo(t[1, 1]).Within(1e-10));
+
 			Assert.That(m[1, 2], Is.EqualTo(t[2, 1]).Within(1e-10));
+
 			Assert.That(m[2, 0], Is.EqualTo(t[0, 2]).Within(1e-10));
+
 			Assert.That(m[2, 1], Is.EqualTo(t[1, 2]).Within(1e-10));
+
 			Assert.That(m[2, 2], Is.EqualTo(t[2, 2]).Within(1e-10));
+
 		}
+
 
 		[Test]
 		public void Matrix3x3d_Transpose()
@@ -6053,18 +7697,30 @@ namespace OpenGL.Test
 
 			m.Transpose();
 
+
 			Assert.That(n[0, 0], Is.EqualTo(m[0, 0]).Within(1e-10));
+
 			Assert.That(n[0, 1], Is.EqualTo(m[1, 0]).Within(1e-10));
+
 			Assert.That(n[0, 2], Is.EqualTo(m[2, 0]).Within(1e-10));
+
 			Assert.That(n[1, 0], Is.EqualTo(m[0, 1]).Within(1e-10));
+
 			Assert.That(n[1, 1], Is.EqualTo(m[1, 1]).Within(1e-10));
+
 			Assert.That(n[1, 2], Is.EqualTo(m[2, 1]).Within(1e-10));
+
 			Assert.That(n[2, 0], Is.EqualTo(m[0, 2]).Within(1e-10));
+
 			Assert.That(n[2, 1], Is.EqualTo(m[1, 2]).Within(1e-10));
+
 			Assert.That(n[2, 2], Is.EqualTo(m[2, 2]).Within(1e-10));
+
 		}
 
+
 		#endregion
+
 
 		#region Inversion
 
@@ -6106,6 +7762,7 @@ namespace OpenGL.Test
 
 		#endregion
 
+
 		#region IEquatable Implementation
 
 		[Test]
@@ -6113,42 +7770,52 @@ namespace OpenGL.Test
 		{
 			Matrix3x3d m = new Matrix3x3d();
 
+
 			m[0, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x3d.Zero, 0.50));
 			m[0, 0] = 0.0;
+
 			m[0, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x3d.Zero, 0.50));
 			m[0, 1] = 0.0;
+
 			m[0, 2] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x3d.Zero, 0.50));
 			m[0, 2] = 0.0;
+
 			m[1, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x3d.Zero, 0.50));
 			m[1, 0] = 0.0;
+
 			m[1, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x3d.Zero, 0.50));
 			m[1, 1] = 0.0;
+
 			m[1, 2] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x3d.Zero, 0.50));
 			m[1, 2] = 0.0;
+
 			m[2, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x3d.Zero, 0.50));
 			m[2, 0] = 0.0;
+
 			m[2, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x3d.Zero, 0.50));
 			m[2, 1] = 0.0;
+
 			m[2, 2] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x3d.Zero, 0.50));
 			m[2, 2] = 0.0;
+
 		}
 
 		[Test]
@@ -6181,42 +7848,52 @@ namespace OpenGL.Test
 			
 			Assert.DoesNotThrow(() => cache = m.GetHashCode());
 
+
 			m[0, 0] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[0, 1] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[0, 2] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 0] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 1] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 2] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[2, 0] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[2, 1] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[2, 2] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 		}
 
 		#endregion
@@ -6239,40 +7916,85 @@ namespace OpenGL.Test
 		private static Matrix3x3d CreateRandomMatrix()
 		{
 			return new Matrix3x3d(new[] {
+
 				Next(0.0, 1.0), Next(0.0, 1.0), Next(0.0, 1.0), 
+
+
 				Next(0.0, 1.0), Next(0.0, 1.0), Next(0.0, 1.0), 
+
+
 				Next(0.0, 1.0), Next(0.0, 1.0), Next(0.0, 1.0)
+
+
 			});
 		}
 
 		private static Matrix3x3d CreateSequenceMatrix()
 		{
 			return new Matrix3x3d(new[] {
+
 				(double)0, (double)1, (double)2, 
+
+
 				(double)3, (double)4, (double)5, 
+
+
 				(double)6, (double)7, (double)8
+
+
 			});
 		}
+
 
 		private static Matrix3x3d CreateInvertibleMatrix()
 		{
 			Matrix3x3d m = new Matrix3x3d();
 
+
+
 			m[0, 0] = Next(1.0, 2.0);
+
+
+
 			m[0, 1] = Next(0.0, 0.5);
+
+
+
 			m[0, 2] = Next(0.0, 0.5);
+
+
+
 			m[1, 0] = Next(0.0, 0.5);
+
+
+
 			m[1, 1] = Next(1.0, 2.0);
+
+
+
 			m[1, 2] = Next(0.0, 0.5);
+
+
+
 			m[2, 0] = Next(0.0, 0.5);
+
+
+
 			m[2, 1] = Next(0.0, 0.5);
+
+
+
 			m[2, 2] = Next(1.0, 2.0);
+
+
 
 			return m;
 		}
 
+
 		#endregion
 	}
+
 
 	[TestFixture, Category("Math")]
 	internal class Matrix3x4dTest : TestBase
@@ -6283,9 +8005,16 @@ namespace OpenGL.Test
 		public void Matrix3x4d_Constructor1()
 		{
 			Matrix3x4d m = new Matrix3x4d(
+
 				(double)0, (double)1, (double)2, (double)3, 
+
+
 				(double)4, (double)5, (double)6, (double)7, 
+
+
 				(double)8, (double)9, (double)10, (double)11
+
+
 			);
 
 			for (uint c = 0, idx = 0; c < 3; c++) for (uint r = 0; r < 4; r++, idx++)
@@ -6297,15 +8026,29 @@ namespace OpenGL.Test
 		{
 			Assert.Throws<ArgumentNullException>(() => new Matrix3x4d(null, 0));
 			Assert.Throws<ArgumentException>(() => new Matrix3x4d(new[] { 
+
 				(double)0, (double)1, (double)2, (double)3, 
+
+
 				(double)4, (double)5, (double)6, (double)7, 
+
+
 				(double)8, (double)9, (double)10, (double)11
+
+
 			} , 1));
 
 			Matrix3x4d m = new Matrix3x4d(new[] {
+
 				(double)0, (double)1, (double)2, (double)3, 
+
+
 				(double)4, (double)5, (double)6, (double)7, 
+
+
 				(double)8, (double)9, (double)10, (double)11
+
+
 			});
 
 			for (uint c = 0, idx = 0; c < 3; c++) for (uint r = 0; r < 4; r++, idx++)
@@ -6322,6 +8065,7 @@ namespace OpenGL.Test
 				Assert.That(m1[c, r], Is.EqualTo(m2[c, r]).Within(1e-10));
 		}
 
+
 		#endregion
 
 		#region Columns & Rows
@@ -6331,23 +8075,42 @@ namespace OpenGL.Test
 		{
 			Matrix3x4d m = CreateRandomMatrix();
 
+
 			Vertex4d c0 = m.Column0;
+
 			Assert.AreEqual(c0.x, m[0, 0]);
+
 			Assert.AreEqual(c0.y, m[0, 1]);
+
 			Assert.AreEqual(c0.z, m[0, 2]);
+
 			Assert.AreEqual(c0.w, m[0, 3]);
 
+
+
 			Vertex4d c1 = m.Column1;
+
 			Assert.AreEqual(c1.x, m[1, 0]);
+
 			Assert.AreEqual(c1.y, m[1, 1]);
+
 			Assert.AreEqual(c1.z, m[1, 2]);
+
 			Assert.AreEqual(c1.w, m[1, 3]);
 
+
+
 			Vertex4d c2 = m.Column2;
+
 			Assert.AreEqual(c2.x, m[2, 0]);
+
 			Assert.AreEqual(c2.y, m[2, 1]);
+
 			Assert.AreEqual(c2.z, m[2, 2]);
+
 			Assert.AreEqual(c2.w, m[2, 3]);
+
+
 
 		}
 
@@ -6356,10 +8119,15 @@ namespace OpenGL.Test
 		{
 			Matrix3x4d m = CreateRandomMatrix();
 
+
 			Vertex3d r0 = m.Row0;
+
 			Vertex3d r1 = m.Row1;
+
 			Vertex3d r2 = m.Row2;
+
 			Vertex3d r3 = m.Row3;
+
 		}
 
 		#endregion
@@ -6372,57 +8140,79 @@ namespace OpenGL.Test
 			Matrix3x4d m = new Matrix3x4d();
 			double r;
 
+
 			r = Next(0.0, 1.0);
 			m[0, 0] = r;
 			Assert.That(r, Is.EqualTo(m[0, 0]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[0, 1] = r;
 			Assert.That(r, Is.EqualTo(m[0, 1]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[0, 2] = r;
 			Assert.That(r, Is.EqualTo(m[0, 2]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[0, 3] = r;
 			Assert.That(r, Is.EqualTo(m[0, 3]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[1, 0] = r;
 			Assert.That(r, Is.EqualTo(m[1, 0]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[1, 1] = r;
 			Assert.That(r, Is.EqualTo(m[1, 1]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[1, 2] = r;
 			Assert.That(r, Is.EqualTo(m[1, 2]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[1, 3] = r;
 			Assert.That(r, Is.EqualTo(m[1, 3]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[2, 0] = r;
 			Assert.That(r, Is.EqualTo(m[2, 0]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[2, 1] = r;
 			Assert.That(r, Is.EqualTo(m[2, 1]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[2, 2] = r;
 			Assert.That(r, Is.EqualTo(m[2, 2]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[2, 3] = r;
 			Assert.That(r, Is.EqualTo(m[2, 3]).Within(1e-10));
 
+
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[0, 4] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[0, 4]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[1, 4] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[1, 4]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[2, 4] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[2, 4]);
+
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[3, 0] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[3, 0]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[3, 1] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[3, 1]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[3, 2] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[3, 2]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[3, 3] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[3, 3]);
+
 		}
 
 		[Test]
@@ -6436,6 +8226,7 @@ namespace OpenGL.Test
 			for (uint c = 0; c < 3; c++) for (uint r = 0; r < 4; r++, idx += 1.0)
 				Assert.That(idx * 2.0, Is.EqualTo(m[c, r]).Within(1e-10));
 		}
+
 
 		#endregion
 
@@ -6452,6 +8243,7 @@ namespace OpenGL.Test
 			for (uint c = 0, idx = 0; c < 3; c++) for (uint r = 0; r < 4; r++, idx++)
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-10));
 		}
+
 
 		[Test]
 		public void Matrix3x4d_CastToMatrix3x4f()
@@ -6487,6 +8279,9 @@ namespace OpenGL.Test
 
 		#endregion
 
+
+
+
 		#region Transposition
 
 		[Test]
@@ -6495,21 +8290,36 @@ namespace OpenGL.Test
 			Matrix3x4d m = CreateRandomMatrix();
 			Matrix4x3d t = m.Transposed;
 
+
 			Assert.That(m[0, 0], Is.EqualTo(t[0, 0]).Within(1e-10));
+
 			Assert.That(m[0, 1], Is.EqualTo(t[1, 0]).Within(1e-10));
+
 			Assert.That(m[0, 2], Is.EqualTo(t[2, 0]).Within(1e-10));
+
 			Assert.That(m[0, 3], Is.EqualTo(t[3, 0]).Within(1e-10));
+
 			Assert.That(m[1, 0], Is.EqualTo(t[0, 1]).Within(1e-10));
+
 			Assert.That(m[1, 1], Is.EqualTo(t[1, 1]).Within(1e-10));
+
 			Assert.That(m[1, 2], Is.EqualTo(t[2, 1]).Within(1e-10));
+
 			Assert.That(m[1, 3], Is.EqualTo(t[3, 1]).Within(1e-10));
+
 			Assert.That(m[2, 0], Is.EqualTo(t[0, 2]).Within(1e-10));
+
 			Assert.That(m[2, 1], Is.EqualTo(t[1, 2]).Within(1e-10));
+
 			Assert.That(m[2, 2], Is.EqualTo(t[2, 2]).Within(1e-10));
+
 			Assert.That(m[2, 3], Is.EqualTo(t[3, 2]).Within(1e-10));
+
 		}
 
+
 		#endregion
+
 
 		#region IEquatable Implementation
 
@@ -6518,54 +8328,67 @@ namespace OpenGL.Test
 		{
 			Matrix3x4d m = new Matrix3x4d();
 
+
 			m[0, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x4d.Zero, 0.50));
 			m[0, 0] = 0.0;
+
 			m[0, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x4d.Zero, 0.50));
 			m[0, 1] = 0.0;
+
 			m[0, 2] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x4d.Zero, 0.50));
 			m[0, 2] = 0.0;
+
 			m[0, 3] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x4d.Zero, 0.50));
 			m[0, 3] = 0.0;
+
 			m[1, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x4d.Zero, 0.50));
 			m[1, 0] = 0.0;
+
 			m[1, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x4d.Zero, 0.50));
 			m[1, 1] = 0.0;
+
 			m[1, 2] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x4d.Zero, 0.50));
 			m[1, 2] = 0.0;
+
 			m[1, 3] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x4d.Zero, 0.50));
 			m[1, 3] = 0.0;
+
 			m[2, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x4d.Zero, 0.50));
 			m[2, 0] = 0.0;
+
 			m[2, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x4d.Zero, 0.50));
 			m[2, 1] = 0.0;
+
 			m[2, 2] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x4d.Zero, 0.50));
 			m[2, 2] = 0.0;
+
 			m[2, 3] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix3x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix3x4d.Zero, 0.50));
 			m[2, 3] = 0.0;
+
 		}
 
 		[Test]
@@ -6598,54 +8421,67 @@ namespace OpenGL.Test
 			
 			Assert.DoesNotThrow(() => cache = m.GetHashCode());
 
+
 			m[0, 0] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[0, 1] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[0, 2] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[0, 3] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 0] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 1] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 2] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 3] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[2, 0] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[2, 1] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[2, 2] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[2, 3] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 		}
 
 		#endregion
@@ -6668,23 +8504,39 @@ namespace OpenGL.Test
 		private static Matrix3x4d CreateRandomMatrix()
 		{
 			return new Matrix3x4d(new[] {
+
 				Next(0.0, 1.0), Next(0.0, 1.0), Next(0.0, 1.0), Next(0.0, 1.0), 
+
+
 				Next(0.0, 1.0), Next(0.0, 1.0), Next(0.0, 1.0), Next(0.0, 1.0), 
+
+
 				Next(0.0, 1.0), Next(0.0, 1.0), Next(0.0, 1.0), Next(0.0, 1.0)
+
+
 			});
 		}
 
 		private static Matrix3x4d CreateSequenceMatrix()
 		{
 			return new Matrix3x4d(new[] {
+
 				(double)0, (double)1, (double)2, (double)3, 
+
+
 				(double)4, (double)5, (double)6, (double)7, 
+
+
 				(double)8, (double)9, (double)10, (double)11
+
+
 			});
 		}
 
+
 		#endregion
 	}
+
 
 	[TestFixture, Category("Math")]
 	internal class Matrix4x2dTest : TestBase
@@ -6695,10 +8547,19 @@ namespace OpenGL.Test
 		public void Matrix4x2d_Constructor1()
 		{
 			Matrix4x2d m = new Matrix4x2d(
+
 				(double)0, (double)1, 
+
+
 				(double)2, (double)3, 
+
+
 				(double)4, (double)5, 
+
+
 				(double)6, (double)7
+
+
 			);
 
 			for (uint c = 0, idx = 0; c < 4; c++) for (uint r = 0; r < 2; r++, idx++)
@@ -6710,17 +8571,35 @@ namespace OpenGL.Test
 		{
 			Assert.Throws<ArgumentNullException>(() => new Matrix4x2d(null, 0));
 			Assert.Throws<ArgumentException>(() => new Matrix4x2d(new[] { 
+
 				(double)0, (double)1, 
+
+
 				(double)2, (double)3, 
+
+
 				(double)4, (double)5, 
+
+
 				(double)6, (double)7
+
+
 			} , 1));
 
 			Matrix4x2d m = new Matrix4x2d(new[] {
+
 				(double)0, (double)1, 
+
+
 				(double)2, (double)3, 
+
+
 				(double)4, (double)5, 
+
+
 				(double)6, (double)7
+
+
 			});
 
 			for (uint c = 0, idx = 0; c < 4; c++) for (uint r = 0; r < 2; r++, idx++)
@@ -6737,6 +8616,7 @@ namespace OpenGL.Test
 				Assert.That(m1[c, r], Is.EqualTo(m2[c, r]).Within(1e-10));
 		}
 
+
 		#endregion
 
 		#region Columns & Rows
@@ -6746,21 +8626,38 @@ namespace OpenGL.Test
 		{
 			Matrix4x2d m = CreateRandomMatrix();
 
+
 			Vertex2d c0 = m.Column0;
+
 			Assert.AreEqual(c0.x, m[0, 0]);
+
 			Assert.AreEqual(c0.y, m[0, 1]);
 
+
+
 			Vertex2d c1 = m.Column1;
+
 			Assert.AreEqual(c1.x, m[1, 0]);
+
 			Assert.AreEqual(c1.y, m[1, 1]);
 
+
+
 			Vertex2d c2 = m.Column2;
+
 			Assert.AreEqual(c2.x, m[2, 0]);
+
 			Assert.AreEqual(c2.y, m[2, 1]);
 
+
+
 			Vertex2d c3 = m.Column3;
+
 			Assert.AreEqual(c3.x, m[3, 0]);
+
 			Assert.AreEqual(c3.y, m[3, 1]);
+
+
 
 		}
 
@@ -6769,8 +8666,11 @@ namespace OpenGL.Test
 		{
 			Matrix4x2d m = CreateRandomMatrix();
 
+
 			Vertex4d r0 = m.Row0;
+
 			Vertex4d r1 = m.Row1;
+
 		}
 
 		#endregion
@@ -6783,43 +8683,60 @@ namespace OpenGL.Test
 			Matrix4x2d m = new Matrix4x2d();
 			double r;
 
+
 			r = Next(0.0, 1.0);
 			m[0, 0] = r;
 			Assert.That(r, Is.EqualTo(m[0, 0]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[0, 1] = r;
 			Assert.That(r, Is.EqualTo(m[0, 1]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[1, 0] = r;
 			Assert.That(r, Is.EqualTo(m[1, 0]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[1, 1] = r;
 			Assert.That(r, Is.EqualTo(m[1, 1]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[2, 0] = r;
 			Assert.That(r, Is.EqualTo(m[2, 0]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[2, 1] = r;
 			Assert.That(r, Is.EqualTo(m[2, 1]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[3, 0] = r;
 			Assert.That(r, Is.EqualTo(m[3, 0]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[3, 1] = r;
 			Assert.That(r, Is.EqualTo(m[3, 1]).Within(1e-10));
 
+
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[0, 2] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[0, 2]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[1, 2] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[1, 2]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[2, 2] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[2, 2]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[3, 2] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[3, 2]);
+
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[4, 0] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[4, 0]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[4, 1] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[4, 1]);
+
 		}
 
 		[Test]
@@ -6833,6 +8750,7 @@ namespace OpenGL.Test
 			for (uint c = 0; c < 4; c++) for (uint r = 0; r < 2; r++, idx += 1.0)
 				Assert.That(idx * 2.0, Is.EqualTo(m[c, r]).Within(1e-10));
 		}
+
 
 		#endregion
 
@@ -6849,6 +8767,7 @@ namespace OpenGL.Test
 			for (uint c = 0, idx = 0; c < 4; c++) for (uint r = 0; r < 2; r++, idx++)
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-10));
 		}
+
 
 		[Test]
 		public void Matrix4x2d_CastToMatrix4x2f()
@@ -6884,6 +8803,9 @@ namespace OpenGL.Test
 
 		#endregion
 
+
+
+
 		#region Transposition
 
 		[Test]
@@ -6892,17 +8814,28 @@ namespace OpenGL.Test
 			Matrix4x2d m = CreateRandomMatrix();
 			Matrix2x4d t = m.Transposed;
 
+
 			Assert.That(m[0, 0], Is.EqualTo(t[0, 0]).Within(1e-10));
+
 			Assert.That(m[0, 1], Is.EqualTo(t[1, 0]).Within(1e-10));
+
 			Assert.That(m[1, 0], Is.EqualTo(t[0, 1]).Within(1e-10));
+
 			Assert.That(m[1, 1], Is.EqualTo(t[1, 1]).Within(1e-10));
+
 			Assert.That(m[2, 0], Is.EqualTo(t[0, 2]).Within(1e-10));
+
 			Assert.That(m[2, 1], Is.EqualTo(t[1, 2]).Within(1e-10));
+
 			Assert.That(m[3, 0], Is.EqualTo(t[0, 3]).Within(1e-10));
+
 			Assert.That(m[3, 1], Is.EqualTo(t[1, 3]).Within(1e-10));
+
 		}
 
+
 		#endregion
+
 
 		#region IEquatable Implementation
 
@@ -6911,38 +8844,47 @@ namespace OpenGL.Test
 		{
 			Matrix4x2d m = new Matrix4x2d();
 
+
 			m[0, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x2d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x2d.Zero, 0.50));
 			m[0, 0] = 0.0;
+
 			m[0, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x2d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x2d.Zero, 0.50));
 			m[0, 1] = 0.0;
+
 			m[1, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x2d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x2d.Zero, 0.50));
 			m[1, 0] = 0.0;
+
 			m[1, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x2d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x2d.Zero, 0.50));
 			m[1, 1] = 0.0;
+
 			m[2, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x2d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x2d.Zero, 0.50));
 			m[2, 0] = 0.0;
+
 			m[2, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x2d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x2d.Zero, 0.50));
 			m[2, 1] = 0.0;
+
 			m[3, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x2d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x2d.Zero, 0.50));
 			m[3, 0] = 0.0;
+
 			m[3, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x2d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x2d.Zero, 0.50));
 			m[3, 1] = 0.0;
+
 		}
 
 		[Test]
@@ -6975,38 +8917,47 @@ namespace OpenGL.Test
 			
 			Assert.DoesNotThrow(() => cache = m.GetHashCode());
 
+
 			m[0, 0] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[0, 1] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 0] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 1] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[2, 0] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[2, 1] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[3, 0] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[3, 1] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 		}
 
 		#endregion
@@ -7029,25 +8980,45 @@ namespace OpenGL.Test
 		private static Matrix4x2d CreateRandomMatrix()
 		{
 			return new Matrix4x2d(new[] {
+
 				Next(0.0, 1.0), Next(0.0, 1.0), 
+
+
 				Next(0.0, 1.0), Next(0.0, 1.0), 
+
+
 				Next(0.0, 1.0), Next(0.0, 1.0), 
+
+
 				Next(0.0, 1.0), Next(0.0, 1.0)
+
+
 			});
 		}
 
 		private static Matrix4x2d CreateSequenceMatrix()
 		{
 			return new Matrix4x2d(new[] {
+
 				(double)0, (double)1, 
+
+
 				(double)2, (double)3, 
+
+
 				(double)4, (double)5, 
+
+
 				(double)6, (double)7
+
+
 			});
 		}
 
+
 		#endregion
 	}
+
 
 	[TestFixture, Category("Math")]
 	internal class Matrix4x3dTest : TestBase
@@ -7058,10 +9029,19 @@ namespace OpenGL.Test
 		public void Matrix4x3d_Constructor1()
 		{
 			Matrix4x3d m = new Matrix4x3d(
+
 				(double)0, (double)1, (double)2, 
+
+
 				(double)3, (double)4, (double)5, 
+
+
 				(double)6, (double)7, (double)8, 
+
+
 				(double)9, (double)10, (double)11
+
+
 			);
 
 			for (uint c = 0, idx = 0; c < 4; c++) for (uint r = 0; r < 3; r++, idx++)
@@ -7073,17 +9053,35 @@ namespace OpenGL.Test
 		{
 			Assert.Throws<ArgumentNullException>(() => new Matrix4x3d(null, 0));
 			Assert.Throws<ArgumentException>(() => new Matrix4x3d(new[] { 
+
 				(double)0, (double)1, (double)2, 
+
+
 				(double)3, (double)4, (double)5, 
+
+
 				(double)6, (double)7, (double)8, 
+
+
 				(double)9, (double)10, (double)11
+
+
 			} , 1));
 
 			Matrix4x3d m = new Matrix4x3d(new[] {
+
 				(double)0, (double)1, (double)2, 
+
+
 				(double)3, (double)4, (double)5, 
+
+
 				(double)6, (double)7, (double)8, 
+
+
 				(double)9, (double)10, (double)11
+
+
 			});
 
 			for (uint c = 0, idx = 0; c < 4; c++) for (uint r = 0; r < 3; r++, idx++)
@@ -7100,6 +9098,7 @@ namespace OpenGL.Test
 				Assert.That(m1[c, r], Is.EqualTo(m2[c, r]).Within(1e-10));
 		}
 
+
 		#endregion
 
 		#region Columns & Rows
@@ -7109,25 +9108,46 @@ namespace OpenGL.Test
 		{
 			Matrix4x3d m = CreateRandomMatrix();
 
+
 			Vertex3d c0 = m.Column0;
+
 			Assert.AreEqual(c0.x, m[0, 0]);
+
 			Assert.AreEqual(c0.y, m[0, 1]);
+
 			Assert.AreEqual(c0.z, m[0, 2]);
 
+
+
 			Vertex3d c1 = m.Column1;
+
 			Assert.AreEqual(c1.x, m[1, 0]);
+
 			Assert.AreEqual(c1.y, m[1, 1]);
+
 			Assert.AreEqual(c1.z, m[1, 2]);
 
+
+
 			Vertex3d c2 = m.Column2;
+
 			Assert.AreEqual(c2.x, m[2, 0]);
+
 			Assert.AreEqual(c2.y, m[2, 1]);
+
 			Assert.AreEqual(c2.z, m[2, 2]);
 
+
+
 			Vertex3d c3 = m.Column3;
+
 			Assert.AreEqual(c3.x, m[3, 0]);
+
 			Assert.AreEqual(c3.y, m[3, 1]);
+
 			Assert.AreEqual(c3.z, m[3, 2]);
+
+
 
 		}
 
@@ -7136,9 +9156,13 @@ namespace OpenGL.Test
 		{
 			Matrix4x3d m = CreateRandomMatrix();
 
+
 			Vertex4d r0 = m.Row0;
+
 			Vertex4d r1 = m.Row1;
+
 			Vertex4d r2 = m.Row2;
+
 		}
 
 		#endregion
@@ -7151,57 +9175,79 @@ namespace OpenGL.Test
 			Matrix4x3d m = new Matrix4x3d();
 			double r;
 
+
 			r = Next(0.0, 1.0);
 			m[0, 0] = r;
 			Assert.That(r, Is.EqualTo(m[0, 0]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[0, 1] = r;
 			Assert.That(r, Is.EqualTo(m[0, 1]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[0, 2] = r;
 			Assert.That(r, Is.EqualTo(m[0, 2]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[1, 0] = r;
 			Assert.That(r, Is.EqualTo(m[1, 0]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[1, 1] = r;
 			Assert.That(r, Is.EqualTo(m[1, 1]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[1, 2] = r;
 			Assert.That(r, Is.EqualTo(m[1, 2]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[2, 0] = r;
 			Assert.That(r, Is.EqualTo(m[2, 0]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[2, 1] = r;
 			Assert.That(r, Is.EqualTo(m[2, 1]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[2, 2] = r;
 			Assert.That(r, Is.EqualTo(m[2, 2]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[3, 0] = r;
 			Assert.That(r, Is.EqualTo(m[3, 0]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[3, 1] = r;
 			Assert.That(r, Is.EqualTo(m[3, 1]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[3, 2] = r;
 			Assert.That(r, Is.EqualTo(m[3, 2]).Within(1e-10));
 
+
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[0, 3] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[0, 3]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[1, 3] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[1, 3]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[2, 3] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[2, 3]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[3, 3] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[3, 3]);
+
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[4, 0] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[4, 0]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[4, 1] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[4, 1]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[4, 2] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[4, 2]);
+
 		}
 
 		[Test]
@@ -7215,6 +9261,7 @@ namespace OpenGL.Test
 			for (uint c = 0; c < 4; c++) for (uint r = 0; r < 3; r++, idx += 1.0)
 				Assert.That(idx * 2.0, Is.EqualTo(m[c, r]).Within(1e-10));
 		}
+
 
 		#endregion
 
@@ -7231,6 +9278,7 @@ namespace OpenGL.Test
 			for (uint c = 0, idx = 0; c < 4; c++) for (uint r = 0; r < 3; r++, idx++)
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-10));
 		}
+
 
 		[Test]
 		public void Matrix4x3d_CastToMatrix4x3f()
@@ -7266,6 +9314,9 @@ namespace OpenGL.Test
 
 		#endregion
 
+
+
+
 		#region Transposition
 
 		[Test]
@@ -7274,21 +9325,36 @@ namespace OpenGL.Test
 			Matrix4x3d m = CreateRandomMatrix();
 			Matrix3x4d t = m.Transposed;
 
+
 			Assert.That(m[0, 0], Is.EqualTo(t[0, 0]).Within(1e-10));
+
 			Assert.That(m[0, 1], Is.EqualTo(t[1, 0]).Within(1e-10));
+
 			Assert.That(m[0, 2], Is.EqualTo(t[2, 0]).Within(1e-10));
+
 			Assert.That(m[1, 0], Is.EqualTo(t[0, 1]).Within(1e-10));
+
 			Assert.That(m[1, 1], Is.EqualTo(t[1, 1]).Within(1e-10));
+
 			Assert.That(m[1, 2], Is.EqualTo(t[2, 1]).Within(1e-10));
+
 			Assert.That(m[2, 0], Is.EqualTo(t[0, 2]).Within(1e-10));
+
 			Assert.That(m[2, 1], Is.EqualTo(t[1, 2]).Within(1e-10));
+
 			Assert.That(m[2, 2], Is.EqualTo(t[2, 2]).Within(1e-10));
+
 			Assert.That(m[3, 0], Is.EqualTo(t[0, 3]).Within(1e-10));
+
 			Assert.That(m[3, 1], Is.EqualTo(t[1, 3]).Within(1e-10));
+
 			Assert.That(m[3, 2], Is.EqualTo(t[2, 3]).Within(1e-10));
+
 		}
 
+
 		#endregion
+
 
 		#region IEquatable Implementation
 
@@ -7297,54 +9363,67 @@ namespace OpenGL.Test
 		{
 			Matrix4x3d m = new Matrix4x3d();
 
+
 			m[0, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x3d.Zero, 0.50));
 			m[0, 0] = 0.0;
+
 			m[0, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x3d.Zero, 0.50));
 			m[0, 1] = 0.0;
+
 			m[0, 2] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x3d.Zero, 0.50));
 			m[0, 2] = 0.0;
+
 			m[1, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x3d.Zero, 0.50));
 			m[1, 0] = 0.0;
+
 			m[1, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x3d.Zero, 0.50));
 			m[1, 1] = 0.0;
+
 			m[1, 2] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x3d.Zero, 0.50));
 			m[1, 2] = 0.0;
+
 			m[2, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x3d.Zero, 0.50));
 			m[2, 0] = 0.0;
+
 			m[2, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x3d.Zero, 0.50));
 			m[2, 1] = 0.0;
+
 			m[2, 2] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x3d.Zero, 0.50));
 			m[2, 2] = 0.0;
+
 			m[3, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x3d.Zero, 0.50));
 			m[3, 0] = 0.0;
+
 			m[3, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x3d.Zero, 0.50));
 			m[3, 1] = 0.0;
+
 			m[3, 2] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x3d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x3d.Zero, 0.50));
 			m[3, 2] = 0.0;
+
 		}
 
 		[Test]
@@ -7377,54 +9456,67 @@ namespace OpenGL.Test
 			
 			Assert.DoesNotThrow(() => cache = m.GetHashCode());
 
+
 			m[0, 0] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[0, 1] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[0, 2] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 0] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 1] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 2] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[2, 0] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[2, 1] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[2, 2] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[3, 0] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[3, 1] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[3, 2] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 		}
 
 		#endregion
@@ -7447,25 +9539,45 @@ namespace OpenGL.Test
 		private static Matrix4x3d CreateRandomMatrix()
 		{
 			return new Matrix4x3d(new[] {
+
 				Next(0.0, 1.0), Next(0.0, 1.0), Next(0.0, 1.0), 
+
+
 				Next(0.0, 1.0), Next(0.0, 1.0), Next(0.0, 1.0), 
+
+
 				Next(0.0, 1.0), Next(0.0, 1.0), Next(0.0, 1.0), 
+
+
 				Next(0.0, 1.0), Next(0.0, 1.0), Next(0.0, 1.0)
+
+
 			});
 		}
 
 		private static Matrix4x3d CreateSequenceMatrix()
 		{
 			return new Matrix4x3d(new[] {
+
 				(double)0, (double)1, (double)2, 
+
+
 				(double)3, (double)4, (double)5, 
+
+
 				(double)6, (double)7, (double)8, 
+
+
 				(double)9, (double)10, (double)11
+
+
 			});
 		}
 
+
 		#endregion
 	}
+
 
 	[TestFixture, Category("Math")]
 	internal class Matrix4x4dTest : TestBase
@@ -7476,10 +9588,19 @@ namespace OpenGL.Test
 		public void Matrix4x4d_Constructor1()
 		{
 			Matrix4x4d m = new Matrix4x4d(
+
 				(double)0, (double)1, (double)2, (double)3, 
+
+
 				(double)4, (double)5, (double)6, (double)7, 
+
+
 				(double)8, (double)9, (double)10, (double)11, 
+
+
 				(double)12, (double)13, (double)14, (double)15
+
+
 			);
 
 			for (uint c = 0, idx = 0; c < 4; c++) for (uint r = 0; r < 4; r++, idx++)
@@ -7491,17 +9612,35 @@ namespace OpenGL.Test
 		{
 			Assert.Throws<ArgumentNullException>(() => new Matrix4x4d(null, 0));
 			Assert.Throws<ArgumentException>(() => new Matrix4x4d(new[] { 
+
 				(double)0, (double)1, (double)2, (double)3, 
+
+
 				(double)4, (double)5, (double)6, (double)7, 
+
+
 				(double)8, (double)9, (double)10, (double)11, 
+
+
 				(double)12, (double)13, (double)14, (double)15
+
+
 			} , 1));
 
 			Matrix4x4d m = new Matrix4x4d(new[] {
+
 				(double)0, (double)1, (double)2, (double)3, 
+
+
 				(double)4, (double)5, (double)6, (double)7, 
+
+
 				(double)8, (double)9, (double)10, (double)11, 
+
+
 				(double)12, (double)13, (double)14, (double)15
+
+
 			});
 
 			for (uint c = 0, idx = 0; c < 4; c++) for (uint r = 0; r < 4; r++, idx++)
@@ -7518,6 +9657,7 @@ namespace OpenGL.Test
 				Assert.That(m1[c, r], Is.EqualTo(m2[c, r]).Within(1e-10));
 		}
 
+
 		#endregion
 
 		#region Columns & Rows
@@ -7527,29 +9667,54 @@ namespace OpenGL.Test
 		{
 			Matrix4x4d m = CreateRandomMatrix();
 
+
 			Vertex4d c0 = m.Column0;
+
 			Assert.AreEqual(c0.x, m[0, 0]);
+
 			Assert.AreEqual(c0.y, m[0, 1]);
+
 			Assert.AreEqual(c0.z, m[0, 2]);
+
 			Assert.AreEqual(c0.w, m[0, 3]);
 
+
+
 			Vertex4d c1 = m.Column1;
+
 			Assert.AreEqual(c1.x, m[1, 0]);
+
 			Assert.AreEqual(c1.y, m[1, 1]);
+
 			Assert.AreEqual(c1.z, m[1, 2]);
+
 			Assert.AreEqual(c1.w, m[1, 3]);
 
+
+
 			Vertex4d c2 = m.Column2;
+
 			Assert.AreEqual(c2.x, m[2, 0]);
+
 			Assert.AreEqual(c2.y, m[2, 1]);
+
 			Assert.AreEqual(c2.z, m[2, 2]);
+
 			Assert.AreEqual(c2.w, m[2, 3]);
 
+
+
 			Vertex4d c3 = m.Column3;
+
 			Assert.AreEqual(c3.x, m[3, 0]);
+
 			Assert.AreEqual(c3.y, m[3, 1]);
+
 			Assert.AreEqual(c3.z, m[3, 2]);
+
 			Assert.AreEqual(c3.w, m[3, 3]);
+
+
 
 		}
 
@@ -7558,10 +9723,15 @@ namespace OpenGL.Test
 		{
 			Matrix4x4d m = CreateRandomMatrix();
 
+
 			Vertex4d r0 = m.Row0;
+
 			Vertex4d r1 = m.Row1;
+
 			Vertex4d r2 = m.Row2;
+
 			Vertex4d r3 = m.Row3;
+
 		}
 
 		#endregion
@@ -7574,71 +9744,98 @@ namespace OpenGL.Test
 			Matrix4x4d m = new Matrix4x4d();
 			double r;
 
+
 			r = Next(0.0, 1.0);
 			m[0, 0] = r;
 			Assert.That(r, Is.EqualTo(m[0, 0]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[0, 1] = r;
 			Assert.That(r, Is.EqualTo(m[0, 1]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[0, 2] = r;
 			Assert.That(r, Is.EqualTo(m[0, 2]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[0, 3] = r;
 			Assert.That(r, Is.EqualTo(m[0, 3]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[1, 0] = r;
 			Assert.That(r, Is.EqualTo(m[1, 0]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[1, 1] = r;
 			Assert.That(r, Is.EqualTo(m[1, 1]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[1, 2] = r;
 			Assert.That(r, Is.EqualTo(m[1, 2]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[1, 3] = r;
 			Assert.That(r, Is.EqualTo(m[1, 3]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[2, 0] = r;
 			Assert.That(r, Is.EqualTo(m[2, 0]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[2, 1] = r;
 			Assert.That(r, Is.EqualTo(m[2, 1]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[2, 2] = r;
 			Assert.That(r, Is.EqualTo(m[2, 2]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[2, 3] = r;
 			Assert.That(r, Is.EqualTo(m[2, 3]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[3, 0] = r;
 			Assert.That(r, Is.EqualTo(m[3, 0]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[3, 1] = r;
 			Assert.That(r, Is.EqualTo(m[3, 1]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[3, 2] = r;
 			Assert.That(r, Is.EqualTo(m[3, 2]).Within(1e-10));
+
 			r = Next(0.0, 1.0);
 			m[3, 3] = r;
 			Assert.That(r, Is.EqualTo(m[3, 3]).Within(1e-10));
 
+
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[0, 4] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[0, 4]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[1, 4] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[1, 4]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[2, 4] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[2, 4]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[3, 4] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[3, 4]);
+
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[4, 0] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[4, 0]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[4, 1] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[4, 1]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[4, 2] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[4, 2]);
+
 			Assert.Throws<ArgumentOutOfRangeException>(() => m[4, 3] = 0.0);
 			Assert.Throws<ArgumentOutOfRangeException>(() => r = m[4, 3]);
+
 		}
 
 		[Test]
@@ -7652,6 +9849,7 @@ namespace OpenGL.Test
 			for (uint c = 0; c < 4; c++) for (uint r = 0; r < 4; r++, idx += 1.0)
 				Assert.That(idx * 2.0, Is.EqualTo(m[c, r]).Within(1e-10));
 		}
+
 
 		[Test]
 		public void Matrix4x4d_MultiplyVertex4d()
@@ -7669,6 +9867,7 @@ namespace OpenGL.Test
 			Matrix4x4d r = m1 * m2;
 		}
 
+
 		#endregion
 
 		#region Cast Operators
@@ -7684,6 +9883,7 @@ namespace OpenGL.Test
 			for (uint c = 0, idx = 0; c < 4; c++) for (uint r = 0; r < 4; r++, idx++)
 				Assert.That(mArray[idx], Is.EqualTo(m[c, r]).Within(1e-10));
 		}
+
 
 		[Test]
 		public void Matrix4x4d_CastToMatrix4x4f()
@@ -7718,6 +9918,7 @@ namespace OpenGL.Test
 		}
 
 		#endregion
+
 
 		#region Projections
 
@@ -7876,7 +10077,10 @@ namespace OpenGL.Test
 
 		#endregion
 
+
+
 		#region Rotation
+
 
 		[Test]
 		public void Matrix4x4d_RotatedX()
@@ -7956,6 +10160,7 @@ namespace OpenGL.Test
 			Assert.IsTrue(v.Equals(Vertex4d.UnitX, 1e-10));
 		}
 
+
 		[Test]
 		public void Matrix4x4d_RotatedZ()
 		{
@@ -7970,8 +10175,10 @@ namespace OpenGL.Test
 			r2 = Matrix4x4d.RotatedZ(+180.0);
 			Assert.IsTrue((r1 * r1).Equals(r2, 1e-10));
 
+
 			Vertex4d v = Matrix4x4d.RotatedZ(+90.0) * Vertex4d.UnitX;
 			Assert.IsTrue(v.Equals(Vertex4d.UnitY, 1e-10));
+
 		}
 
 		[Test]
@@ -7989,13 +10196,17 @@ namespace OpenGL.Test
 			m.RotateZ(+180.0);
 			Assert.IsTrue(m.Equals(Matrix4x4d.RotatedZ(+180.0), 1e-10));
 
+
 			m = Matrix4x4d.Identity;
 			m.RotateZ(+90.0);
 			Vertex4d v = m * Vertex4d.UnitX;
 			Assert.IsTrue(v.Equals(Vertex4d.UnitY, 1e-10));
+
 		}
 
 		#endregion
+
+
 
 		#region Scaling
 
@@ -8057,6 +10268,7 @@ namespace OpenGL.Test
 
 		#endregion
 
+
 		#region Transposition
 
 		[Test]
@@ -8065,23 +10277,41 @@ namespace OpenGL.Test
 			Matrix4x4d m = CreateRandomMatrix();
 			Matrix4x4d t = m.Transposed;
 
+
 			Assert.That(m[0, 0], Is.EqualTo(t[0, 0]).Within(1e-10));
+
 			Assert.That(m[0, 1], Is.EqualTo(t[1, 0]).Within(1e-10));
+
 			Assert.That(m[0, 2], Is.EqualTo(t[2, 0]).Within(1e-10));
+
 			Assert.That(m[0, 3], Is.EqualTo(t[3, 0]).Within(1e-10));
+
 			Assert.That(m[1, 0], Is.EqualTo(t[0, 1]).Within(1e-10));
+
 			Assert.That(m[1, 1], Is.EqualTo(t[1, 1]).Within(1e-10));
+
 			Assert.That(m[1, 2], Is.EqualTo(t[2, 1]).Within(1e-10));
+
 			Assert.That(m[1, 3], Is.EqualTo(t[3, 1]).Within(1e-10));
+
 			Assert.That(m[2, 0], Is.EqualTo(t[0, 2]).Within(1e-10));
+
 			Assert.That(m[2, 1], Is.EqualTo(t[1, 2]).Within(1e-10));
+
 			Assert.That(m[2, 2], Is.EqualTo(t[2, 2]).Within(1e-10));
+
 			Assert.That(m[2, 3], Is.EqualTo(t[3, 2]).Within(1e-10));
+
 			Assert.That(m[3, 0], Is.EqualTo(t[0, 3]).Within(1e-10));
+
 			Assert.That(m[3, 1], Is.EqualTo(t[1, 3]).Within(1e-10));
+
 			Assert.That(m[3, 2], Is.EqualTo(t[2, 3]).Within(1e-10));
+
 			Assert.That(m[3, 3], Is.EqualTo(t[3, 3]).Within(1e-10));
+
 		}
+
 
 		[Test]
 		public void Matrix4x4d_Transpose()
@@ -8091,25 +10321,44 @@ namespace OpenGL.Test
 
 			m.Transpose();
 
+
 			Assert.That(n[0, 0], Is.EqualTo(m[0, 0]).Within(1e-10));
+
 			Assert.That(n[0, 1], Is.EqualTo(m[1, 0]).Within(1e-10));
+
 			Assert.That(n[0, 2], Is.EqualTo(m[2, 0]).Within(1e-10));
+
 			Assert.That(n[0, 3], Is.EqualTo(m[3, 0]).Within(1e-10));
+
 			Assert.That(n[1, 0], Is.EqualTo(m[0, 1]).Within(1e-10));
+
 			Assert.That(n[1, 1], Is.EqualTo(m[1, 1]).Within(1e-10));
+
 			Assert.That(n[1, 2], Is.EqualTo(m[2, 1]).Within(1e-10));
+
 			Assert.That(n[1, 3], Is.EqualTo(m[3, 1]).Within(1e-10));
+
 			Assert.That(n[2, 0], Is.EqualTo(m[0, 2]).Within(1e-10));
+
 			Assert.That(n[2, 1], Is.EqualTo(m[1, 2]).Within(1e-10));
+
 			Assert.That(n[2, 2], Is.EqualTo(m[2, 2]).Within(1e-10));
+
 			Assert.That(n[2, 3], Is.EqualTo(m[3, 2]).Within(1e-10));
+
 			Assert.That(n[3, 0], Is.EqualTo(m[0, 3]).Within(1e-10));
+
 			Assert.That(n[3, 1], Is.EqualTo(m[1, 3]).Within(1e-10));
+
 			Assert.That(n[3, 2], Is.EqualTo(m[2, 3]).Within(1e-10));
+
 			Assert.That(n[3, 3], Is.EqualTo(m[3, 3]).Within(1e-10));
+
 		}
 
+
 		#endregion
+
 
 		#region Inversion
 
@@ -8151,6 +10400,7 @@ namespace OpenGL.Test
 
 		#endregion
 
+
 		#region IEquatable Implementation
 
 		[Test]
@@ -8158,70 +10408,87 @@ namespace OpenGL.Test
 		{
 			Matrix4x4d m = new Matrix4x4d();
 
+
 			m[0, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x4d.Zero, 0.50));
 			m[0, 0] = 0.0;
+
 			m[0, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x4d.Zero, 0.50));
 			m[0, 1] = 0.0;
+
 			m[0, 2] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x4d.Zero, 0.50));
 			m[0, 2] = 0.0;
+
 			m[0, 3] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x4d.Zero, 0.50));
 			m[0, 3] = 0.0;
+
 			m[1, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x4d.Zero, 0.50));
 			m[1, 0] = 0.0;
+
 			m[1, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x4d.Zero, 0.50));
 			m[1, 1] = 0.0;
+
 			m[1, 2] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x4d.Zero, 0.50));
 			m[1, 2] = 0.0;
+
 			m[1, 3] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x4d.Zero, 0.50));
 			m[1, 3] = 0.0;
+
 			m[2, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x4d.Zero, 0.50));
 			m[2, 0] = 0.0;
+
 			m[2, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x4d.Zero, 0.50));
 			m[2, 1] = 0.0;
+
 			m[2, 2] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x4d.Zero, 0.50));
 			m[2, 2] = 0.0;
+
 			m[2, 3] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x4d.Zero, 0.50));
 			m[2, 3] = 0.0;
+
 			m[3, 0] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x4d.Zero, 0.50));
 			m[3, 0] = 0.0;
+
 			m[3, 1] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x4d.Zero, 0.50));
 			m[3, 1] = 0.0;
+
 			m[3, 2] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x4d.Zero, 0.50));
 			m[3, 2] = 0.0;
+
 			m[3, 3] = 0.5;
 			Assert.IsFalse(m.Equals(Matrix4x4d.Zero, 0.25));
 			Assert.IsTrue(m.Equals(Matrix4x4d.Zero, 0.50));
 			m[3, 3] = 0.0;
+
 		}
 
 		[Test]
@@ -8254,70 +10521,87 @@ namespace OpenGL.Test
 			
 			Assert.DoesNotThrow(() => cache = m.GetHashCode());
 
+
 			m[0, 0] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[0, 1] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[0, 2] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[0, 3] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 0] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 1] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 2] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[1, 3] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[2, 0] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[2, 1] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[2, 2] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[2, 3] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[3, 0] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[3, 1] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[3, 2] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 			m[3, 3] = Next(0.0, 1.0);
 			hashCode = m.GetHashCode();
 			Assert.AreNotEqual(cache, hashCode);
 			cache = hashCode;
+
 		}
 
 		#endregion
@@ -8340,48 +10624,118 @@ namespace OpenGL.Test
 		private static Matrix4x4d CreateRandomMatrix()
 		{
 			return new Matrix4x4d(new[] {
+
 				Next(0.0, 1.0), Next(0.0, 1.0), Next(0.0, 1.0), Next(0.0, 1.0), 
+
+
 				Next(0.0, 1.0), Next(0.0, 1.0), Next(0.0, 1.0), Next(0.0, 1.0), 
+
+
 				Next(0.0, 1.0), Next(0.0, 1.0), Next(0.0, 1.0), Next(0.0, 1.0), 
+
+
 				Next(0.0, 1.0), Next(0.0, 1.0), Next(0.0, 1.0), Next(0.0, 1.0)
+
+
 			});
 		}
 
 		private static Matrix4x4d CreateSequenceMatrix()
 		{
 			return new Matrix4x4d(new[] {
+
 				(double)0, (double)1, (double)2, (double)3, 
+
+
 				(double)4, (double)5, (double)6, (double)7, 
+
+
 				(double)8, (double)9, (double)10, (double)11, 
+
+
 				(double)12, (double)13, (double)14, (double)15
+
+
 			});
 		}
+
 
 		private static Matrix4x4d CreateInvertibleMatrix()
 		{
 			Matrix4x4d m = new Matrix4x4d();
 
+
+
 			m[0, 0] = Next(1.0, 2.0);
+
+
+
 			m[0, 1] = Next(0.0, 0.5);
+
+
+
 			m[0, 2] = Next(0.0, 0.5);
+
+
+
 			m[0, 3] = Next(0.0, 0.5);
+
+
+
 			m[1, 0] = Next(0.0, 0.5);
+
+
+
 			m[1, 1] = Next(1.0, 2.0);
+
+
+
 			m[1, 2] = Next(0.0, 0.5);
+
+
+
 			m[1, 3] = Next(0.0, 0.5);
+
+
+
 			m[2, 0] = Next(0.0, 0.5);
+
+
+
 			m[2, 1] = Next(0.0, 0.5);
+
+
+
 			m[2, 2] = Next(1.0, 2.0);
+
+
+
 			m[2, 3] = Next(0.0, 0.5);
+
+
+
 			m[3, 0] = Next(0.0, 0.5);
+
+
+
 			m[3, 1] = Next(0.0, 0.5);
+
+
+
 			m[3, 2] = Next(0.0, 0.5);
+
+
+
 			m[3, 3] = Next(1.0, 2.0);
+
+
 
 			return m;
 		}
 
+
 		#endregion
 	}
+
 
 }

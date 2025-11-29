@@ -1,5 +1,5 @@
 
-// Copyright (C) 2012-2019 Luca Piccioni
+// Copyright (C) 2012-2017 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -81,8 +81,8 @@ namespace OpenGL.Objects
 		/// <returns></returns>
 		public T this[int index]
 		{
-			get { return (_Resources[index]); }
-			set { _Resources[index] = value; }
+			get { return (mResources[index]); }
+			set { mResources[index] = value; }
 		}
 
 		#endregion
@@ -108,7 +108,7 @@ namespace OpenGL.Objects
 			// Reference the reasource
 			item.IncRef();
 			// Collect resource
-			_Resources.Add(item);
+			mResources.Add(item);
 		}
 
 		/// <summary>
@@ -119,9 +119,9 @@ namespace OpenGL.Objects
 			if (IsDisposed)
 				throw new ObjectDisposedException("ResourceCollection");
 
-			foreach (T resource in _Resources)
+			foreach (T resource in mResources)
 				resource.DecRef();
-			_Resources.Clear();
+			mResources.Clear();
 		}
 
 		/// <summary>
@@ -137,7 +137,7 @@ namespace OpenGL.Objects
 		{
 			if (IsDisposed)
 				throw new ObjectDisposedException("ResourceCollection");
-			return (_Resources.Contains(item));
+			return (mResources.Contains(item));
 		}
 
 		/// <summary>
@@ -164,7 +164,7 @@ namespace OpenGL.Objects
 		{
 			if (IsDisposed)
 				throw new ObjectDisposedException("ResourceCollection");
-			_Resources.CopyTo(array, arrayIndex);
+			mResources.CopyTo(array, arrayIndex);
 		}
 
 		/// <summary>
@@ -181,7 +181,7 @@ namespace OpenGL.Objects
 			if (IsDisposed)
 				throw new ObjectDisposedException("ResourceCollection");
 
-			bool flag = _Resources.Remove(item);
+			bool flag = mResources.Remove(item);
 
 			if (flag)
 				item.DecRef();
@@ -201,7 +201,7 @@ namespace OpenGL.Objects
 			{
 				if (IsDisposed)
 					throw new ObjectDisposedException("ResourceCollection");
-				return (_Resources.Count);
+				return (mResources.Count);
 			}
 		}
 
@@ -216,7 +216,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// The collection of resources.
 		/// </summary>
-		private readonly List<T> _Resources = new List<T>();
+		private readonly List<T> mResources = new List<T>();
 
 		#endregion
 
@@ -232,7 +232,7 @@ namespace OpenGL.Objects
 		{
 			if (IsDisposed)
 				throw new ObjectDisposedException("ResourceCollection");
-			return (_Resources.GetEnumerator());
+			return (mResources.GetEnumerator());
 		}
 
 		/// <summary>
@@ -257,13 +257,14 @@ namespace OpenGL.Objects
 		/// </summary>
 		~ResourceCollection()
 		{
+			Debug.Assert(IsDisposed, "ResourceCollection not disposed");
 			Dispose(false);
 		}
 
 		/// <summary>
 		/// Get whether this instance has been disposed.
 		/// </summary>
-		public bool IsDisposed { get { return (_Disposed); } }
+		public bool IsDisposed { get { return (mDisposed); } }
 
 		/// <summary>
 		/// Performs application-defined tasks associated with freeing, releasing, or resetting managed/unmanaged resources.
@@ -291,13 +292,13 @@ namespace OpenGL.Objects
 			Dispose(true);
 
 			// Mask as disposed
-			_Disposed = true;
+			mDisposed = true;
 		}
 
 		/// <summary>
 		/// Flag indicating that this instance has been disposed.
 		/// </summary>
-		private bool _Disposed;
+		private bool mDisposed;
 
 		#endregion
 	}

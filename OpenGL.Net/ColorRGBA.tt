@@ -32,11 +32,13 @@ using System.Diagnostics;
 using System.Drawing;
 #endif
 using System.Runtime.InteropServices;
+using System.Runtime.Serialization;
 
 namespace OpenGL
 {
 <#
 	string[] postfixes =			new[] { "32",     "64",     "F",     "HF"        };
+	string[] rgbPostfixes =			new[] { "24",     "48",     "F",     "HF"        };
 	string[] baseTypes =			new[] { "byte",   "ushort", "float", "HalfFloat" };
 	string[] pixelTypes =			new[] { "RGBA32", "RGBA64", "RGBAF", "RGBAHF"     };
 	string[] structType =			new[] { "byte",   "ushort", "float", "HalfFloat" };
@@ -49,6 +51,7 @@ namespace OpenGL
 
 	for (int i = 0; i < postfixes.Length; i++) {
 		string className = String.Format("ColorRGBA{0}", postfixes[i]);
+		string rgbClassName = String.Format("ColorRGB{0}", rgbPostfixes[i]);
 		string baseType = baseTypes[i];
 		string componentType = structType[i];
 		string pixelType = pixelTypes[i];
@@ -64,7 +67,8 @@ namespace OpenGL
 	/// RGBA color.
 	/// </summary>
 	[StructLayout(LayoutKind.Sequential, Pack = 1)]
-	public struct <#= className #> : IEquatable<<#= className #>>
+	[Serializable()]
+	public struct <#= className #> : IEquatable<<#= className #>>, ISerializable
 	{
 		#region Constructors
 
@@ -107,6 +111,57 @@ namespace OpenGL
 			this.g = g;
 			this.b = b;
 			this.a = a;
+		}
+
+		/// <summary>
+		/// Construct a <#= className #> specifying RGB components.
+		/// </summary>
+		/// <param name="color">
+		/// A <see cref="<#= rgbClassName #>"/> that specify the red/green/blue components.
+		/// </param>
+		/// <param name="a">
+		/// A <see cref="<#= baseType #>"/> that specify the alpha component.
+		/// </param>
+		public <#= className #>(<#= rgbClassName #> color, <#= baseType #> a)
+		{
+			r = color.r;
+			g = color.g;
+			b = color.b;
+			this.a = a;
+		}
+
+		/// <summary>
+		/// Construct a <#= className #> specifying RGB components.
+		/// </summary>
+		/// <param name="color">
+		/// A <see cref="<#= rgbClassName #>"/> that specify the red/green/blue components.
+		/// </param>
+		/// <param name="a">
+		/// A <see cref="<#= baseType #>"/> that specify the alpha component.
+		/// </param>
+		public <#= className #>(<#= className #> color, <#= baseType #> a)
+		{
+			r = color.r;
+			g = color.g;
+			b = color.b;
+			this.a = a;
+		}
+
+		/// <summary>
+		/// Construct a <#= className #> from a serialization context.
+		/// </summary>
+		/// <param name="info">
+		/// The System.Runtime.Serialization.SerializationInfo to populate with data.
+		/// </param>
+		/// <param name="context">
+		/// The destination (see System.Runtime.Serialization.StreamingContext) for this serialization.
+		/// </param>
+		public <#= className #>(SerializationInfo info, StreamingContext context)
+		{
+			r = (<#= baseType #>)info.GetValue("r", typeof(<#= baseType #>));
+			g = (<#= baseType #>)info.GetValue("g", typeof(<#= baseType #>));
+			b = (<#= baseType #>)info.GetValue("b", typeof(<#= baseType #>));
+			a = (<#= baseType #>)info.GetValue("a", typeof(<#= baseType #>));
 		}
 
 		#endregion
@@ -209,7 +264,22 @@ namespace OpenGL
 			return c;
 		}
 
+		/// <summary>
+		/// Cast to Color operator.
+		/// </summary>
+		/// <param name="a">
+		/// A <see cref="<#= className #>"/> to be casted.
+		/// </param>
+		/// <returns>
+		/// A <see cref="Color"/> initialized with the color components.
+		/// </returns>
+		public static explicit operator Color(<#= className #> c)
+		{
+			return Color.FromArgb((int)(c[3] * byte.MaxValue), (int)(c[0] * byte.MaxValue), (int)(c[1] * byte.MaxValue), (int)(c[2] * byte.MaxValue));
+		}
+
 #endif
+
 		#endregion
 
 		#region Equality Operators
@@ -435,6 +505,27 @@ namespace OpenGL
 
 				return result;
 			}
+		}
+
+		#endregion
+
+		#region ISerializable Implementation
+
+		/// <summary>
+		/// Populates a System.Runtime.Serialization.SerializationInfo with the data needed to serialize the target object.
+		/// </summary>
+		/// <param name="info">
+		/// The System.Runtime.Serialization.SerializationInfo to populate with data.
+		/// </param>
+		/// <param name="context">
+		/// The destination (see System.Runtime.Serialization.StreamingContext) for this serialization.
+		/// </param>
+		public void GetObjectData(SerializationInfo info, StreamingContext context)
+		{
+			info.AddValue("r", r);
+			info.AddValue("g", g);
+			info.AddValue("b", b);
+			info.AddValue("a", a);
 		}
 
 		#endregion

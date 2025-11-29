@@ -1,0 +1,50 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+
+    <DefineConstants>TRACE;NETFRAMEWORK;HAVE_SYSTEM_DRAWING;HAVE_NUMERICS</DefineConstants>
+
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+
+    <PostBuildEvent>IF NOT EXIST "$(TargetDir)ANGLE\" xcopy /Q /S /Y "$(SolutionDir)ANGLE" "$(TargetDir)ANGLE\"</PostBuildEvent>
+
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+	<Compile Remove="**\*" />
+	<EmbeddedResource Remove="**\*" />
+	<None Remove="**\*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Core benchmarking libraries -->
+    <PackageReference Include="BenchmarkDotNet" Version="0.10.13" />
+    <PackageReference Include="BenchmarkDotNet.Core" Version="0.10.13" />
+    <PackageReference Include="BenchmarkDotNet.Toolchains.Roslyn" Version="0.10.13" />
+
+    <!-- Testing framework -->
+    <PackageReference Include="NUnit" Version="3.14.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="5.1.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.1" />
+
+    <ProjectReference Include="..\OpenGL.Net\OpenGL.Net.Math.csproj" />
+    <ProjectReference Include="..\OpenGL.Net\OpenGL.Net.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="**\*.cs" Exclude="obj\**;bin\**;**\*.tt" />
+
+    <None Include="app.config" CopyToOutputDirectory="PreserveNewest" />
+
+    <Content Include="ANGLE\**" CopyToOutputDirectory="PreserveNewest" />
+
+    <None Include="**\*.tt" />
+  </ItemGroup>
+
+</Project>

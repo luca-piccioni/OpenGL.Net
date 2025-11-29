@@ -1,4 +1,10 @@
 ﻿
+
+
+
+
+
+
 // Copyright (C) 2016-2018 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,6 +31,7 @@ using NUnit.Framework;
 
 namespace OpenGL.Test
 {
+
 	[TestFixture, Category("Math")]
 	internal class PlanefTest : TestBase
 	{
@@ -292,6 +299,7 @@ namespace OpenGL.Test
 			// Assert.IsTrue(planeF.GetDistance(new Vertex3f(0.0f, 0.0f, -5.0f)) > 0.0f);
 		}
 	}
+
 	[TestFixture, Category("Math")]
 	internal class PlanedTest : TestBase
 	{
@@ -559,4 +567,5 @@ namespace OpenGL.Test
 			// Assert.IsTrue(planeF.GetDistance(new Vertex3d(0.0f, 0.0f, -5.0f)) > 0.0f);
 		}
 	}
+
 }

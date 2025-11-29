@@ -57,8 +57,8 @@ namespace OpenGL.Objects.Test
 				
 
 				// Attach shaders
-				Assert.DoesNotThrow(() => { shaderProgram.Attach(vertexShader); });
-				Assert.DoesNotThrow(() => { shaderProgram.Attach(fragmentShader); });
+				Assert.DoesNotThrow(() => { shaderProgram.AttachShader(vertexShader); });
+				Assert.DoesNotThrow(() => { shaderProgram.AttachShader(fragmentShader); });
 				// Attachment does not create resources
 				Assert.IsFalse(vertexShader.Exists(_Context));
 				Assert.IsFalse(fragmentShader.Exists(_Context));
@@ -75,8 +75,8 @@ namespace OpenGL.Objects.Test
 		[Test]
 		public void ShaderProgram_SaveBinary()
 		{
-			if (!_Context.IsProgramBinarySupported)
-				Assert.Inconclusive();
+			if (!_Context.Extensions.GetProgramBinary_ARB)
+				Assert.Inconclusive("Gl extension GL_ARB_get_program_binary not supported");
 
 			byte[] programBinary = null;
 			int programBinaryFormat = 0;
@@ -103,26 +103,22 @@ namespace OpenGL.Objects.Test
 				});
 				
 
-				shaderProgram.Attach(vertexShader);
-				shaderProgram.Attach(fragmentShader);
+				shaderProgram.AttachShader(vertexShader);
+				shaderProgram.AttachShader(fragmentShader);
 				shaderProgram.Create(_Context);
 
 				Assert.IsTrue(shaderProgram.IsLinked);
 				Assert.AreEqual("vPosition", shaderProgram.ActiveAttributes.First());
 
 				Assert.DoesNotThrow(() => {
-					using (MemoryStream memoryStream = new MemoryStream()) {
-						shaderProgram.GetBinary(_Context, memoryStream, out programBinaryFormat);
-
-						programBinary = memoryStream.ToArray();
-					}
+					programBinary = shaderProgram.SaveBinary(_Context, out programBinaryFormat);
 				});
 			}
 
 			// Save program to binary format
 			using (ShaderProgram shaderProgram = new ShaderProgram("OpenGL.Objects.Test.ShaderProgram.Link"))
 			{
-				shaderProgram.Create(_Context, programBinary, programBinaryFormat);
+				shaderProgram.LoadBinary(_Context, programBinary, programBinaryFormat);
 
 				Assert.IsTrue(shaderProgram.IsLinked);
 				Assert.AreEqual("vPosition", shaderProgram.ActiveAttributes.First());
@@ -136,7 +132,7 @@ namespace OpenGL.Objects.Test
 			ShaderProgram shaderProgram = new ShaderProgram("SampleProgram");
 
 			foreach (Shader shader in shaderObjects)
-				shaderProgram.Attach(shader);
+				shaderProgram.AttachShader(shader);
 
 			shaderProgram.Create(ctx);
 		}

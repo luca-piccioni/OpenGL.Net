@@ -48,17 +48,55 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Create an <see cref="IFont"/> implementation for the specified font.
 		/// </summary>
+		/// <param name="fontFamily">
+		/// 
+		/// </param>
+		/// <param name="emSize"></param>
+		/// <returns></returns>
+		public static IFont CreateFont(FontFamily fontFamily, uint emSize, params FontFx[] effects)
+		{
+			return CreateFont(fontFamily, emSize, FontStyle.Regular, FontType.Textured, null, effects);
+		}
+
+		/// <summary>
+		/// Create an <see cref="IFont"/> implementation for the specified font.
+		/// </summary>
+		/// <param name="fontFamily">
+		/// 
+		/// </param>
+		/// <param name="emSize"></param>
+		/// <returns></returns>
+		public static IFont CreateFont(FontFamily fontFamily, uint emSize, string programPostfix, params FontFx[] effects)
+		{
+			return CreateFont(fontFamily, emSize, FontStyle.Regular, FontType.Textured, programPostfix, effects);
+		}
+
+		/// <summary>
+		/// Create an <see cref="IFont"/> implementation for the specified font.
+		/// </summary>
 		/// <param name="fontFamily"></param>
 		/// <param name="emSize"></param>
 		/// <param name="fontType"></param>
 		/// <returns></returns>
-		public static IFont CreateFont(FontFamily fontFamily, uint emSize, FontStyle fontStyle, FontType fontType, params FontFx[] effects)
+		public static IFont CreateFont(FontFamily fontFamily, uint emSize, FontStyle fontStyle, FontType fontType,params FontFx[] effects)
+		{
+			return CreateFont(fontFamily, emSize, fontStyle, fontType, null, effects);
+		}
+
+		/// <summary>
+		/// Create an <see cref="IFont"/> implementation for the specified font.
+		/// </summary>
+		/// <param name="fontFamily"></param>
+		/// <param name="emSize"></param>
+		/// <param name="fontType"></param>
+		/// <returns></returns>
+		public static IFont CreateFont(FontFamily fontFamily, uint emSize, FontStyle fontStyle, FontType fontType, string programPostfix, params FontFx[] effects)
 		{
 			switch (fontType) {
 				case FontType.Vector:
 					return new FontVertex(fontFamily, emSize, fontStyle, effects);
 				case FontType.Textured:
-					return new FontTextureArray2d(fontFamily, emSize, fontStyle, effects);
+					return new FontTextureArray2d(fontFamily, emSize, fontStyle, programPostfix, effects);
 				default:
 					throw new NotSupportedException(fontType + " is not supported");
 			}

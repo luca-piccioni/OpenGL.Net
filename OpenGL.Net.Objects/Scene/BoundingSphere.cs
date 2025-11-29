@@ -77,11 +77,11 @@ namespace OpenGL.Objects.Scene
 		/// It returns a boolean value indicating whether this bound volume is entirely
 		/// clipped by <paramref name="clippingPlanes"/>.
 		/// </returns>
-		public bool IsClipped(IEnumerable<Plane> clippingPlanes, State.TransformState objectModel)
+		public bool IsClipped(IEnumerable<Planef> clippingPlanes, State.TransformState objectModel)
 		{
 			Vertex3f sphereOrigin = (Vertex3f)objectModel.ModelView.Position;
 
-			foreach (Plane plane in clippingPlanes) {
+			foreach (Planef plane in clippingPlanes) {
 				if (plane.GetDistance(sphereOrigin) < _Radius)
 					return (true);
 			}
@@ -114,7 +114,7 @@ namespace OpenGL.Objects.Scene
 			}
 		}
 
-		bool IBoundingVolume.IsClipped(IEnumerable<Plane> clippingPlanes, IMatrix4x4 viewModel)
+		bool IBoundingVolume.IsClipped(IEnumerable<Planef> clippingPlanes, IMatrix4x4 viewModel)
 		{
 			throw new NotImplementedException();
 		}

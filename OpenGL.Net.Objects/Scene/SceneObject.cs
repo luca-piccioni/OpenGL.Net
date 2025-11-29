@@ -457,7 +457,7 @@ namespace OpenGL.Objects.Scene
 		/// transform states of parent objects. It can be null to specify whether the projection is inherited from the
 		/// previous state.
 		/// </summary>
-		public Matrix4x4f? LocalProjection
+		public Matrix4x4f LocalProjection
 		{
 			get { return ((TransformState)ObjectState[TransformState.StateSetIndex]).Projection; }
 			set { ((TransformState)ObjectState[TransformState.StateSetIndex]).Projection = value; }
@@ -486,10 +486,9 @@ namespace OpenGL.Objects.Scene
 		/// The local model: the transformation of the current vertex arrays object space, without considering
 		/// inherited transform states of parent objects.
 		/// </summary>
-		public Matrix4x4f? LocalModelViewProjection
+		public Matrix4x4f LocalModelViewProjection
 		{
 			get { return (((TransformState)ObjectState[TransformState.StateSetIndex]).ModelViewProjection); }
-			set { ((TransformState)ObjectState[TransformState.StateSetIndex]).ModelViewProjection = value; }
 		}
 
 		/// <summary>

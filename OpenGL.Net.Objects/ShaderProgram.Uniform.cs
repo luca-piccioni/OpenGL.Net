@@ -21,6 +21,8 @@
 
 using UniformDictionary = OpenGL.Objects.Collections.StringDictionary<OpenGL.Objects.ShaderProgram.UniformBinding>;
 
+using UniformCacheDictionary = OpenGL.Objects.Collections.StringDictionary<object>;
+
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -506,8 +508,8 @@ namespace OpenGL.Objects
 
 			// Undiscovered uniform?
 			int uniformLocation = Gl.GetUniformLocation(ObjectName, uniformName);
-			// Do not repeat GetUniformLocation
-			_UniformMap.Add(uniformName, uniformBinding = new UniformBinding(uniformName, uniformLocation));
+            // Do not repeat GetUniformLocation
+            _UniformMap.Add(uniformName, uniformBinding = new UniformBinding(uniformName, uniformLocation));
 
 			return (uniformBinding);
 		}
@@ -572,15 +574,55 @@ namespace OpenGL.Objects
 			throw new InvalidOperationException("uniform type mismatch");
 		}
 
+		/// <summary>
+		/// Check whether this ShaderProgram is bound.
+		/// </summary>
+		[Conditional("GL_DEBUG_PENDANTIC")]
+		private void CheckProgramBinding()
+		{
+			int program;
+
+			Gl.Get(Gl.CURRENT_PROGRAM, out program);
+
+			if (program == InvalidObjectName || program != ObjectName)
+				throw new InvalidOperationException("no shader program bound");
+		}
+
 		#endregion
 
 		#region Uniform Backend Interface
+
+		/// <summary>
+		/// Bind this program for setting uniform values, if necessary.
+		/// </summary>
+		/// <param name="ctx">
+		/// The <see cref="GraphicsContext"/> used for binding the underlying program.
+		/// </param>
+		public void BindUniform(GraphicsContext ctx)
+		{
+			_UniformBackend.Bind(ctx, this);
+		}
 
 		/// <summary>
 		/// Backend implemented for loading uniform state.
 		/// </summary>
 		interface IUniformBackend
 		{
+			#region Program Binding
+
+			/// <summary>
+			/// Bind the program for setting uniforms.
+			/// </summary>
+			/// <param name="ctx">
+			/// The <see cref="GraphicsContext"/> used for binding the underlying program.
+			/// </param>
+			/// <param name="program">
+			/// The <see cref="ShaderProgram"/> to be bound for setting uniforms.
+			/// </param>
+			void Bind(GraphicsContext ctx, ShaderProgram program);
+
+			#endregion
+
 			#region Set/Get Uniform (single-precision floating-point vector data)
 
 			void SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, float v);
@@ -733,40 +775,48 @@ namespace OpenGL.Objects
 		{
 			#region IUniformBackend Implementation
 
+			#region Program Binding
+
+			/// <summary>
+			/// Bind the program for setting uniforms.
+			/// </summary>
+			/// <param name="ctx">
+			/// The <see cref="GraphicsContext"/> used for binding the underlying program.
+			/// </param>
+			/// <param name="program">
+			/// The <see cref="ShaderProgram"/> to be bound for setting uniforms.
+			/// </param>
+			public void Bind(GraphicsContext ctx, ShaderProgram program)
+			{
+				ctx.Bind(program);
+			}
+
+			#endregion
+
 			#region Set/Get Uniform (single-precision floating-point vector data)
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, float v)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				Gl.Uniform1(uniform.Location, v);
 			}
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, float x, float y)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				Gl.Uniform2(uniform.Location, x, y);
 			}
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, float x, float y, float z)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				Gl.Uniform3(uniform.Location, x, y, z);
 			}
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, float x, float y, float z, float w)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				Gl.Uniform4(uniform.Location, x, y, z, w);
 			}
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Vertex2f v)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				unsafe {
 					Gl.Uniform2(uniform.Location, 1, (float*)&v);
 				}
@@ -774,8 +824,6 @@ namespace OpenGL.Objects
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Vertex3f v)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				unsafe {
 					Gl.Uniform3(uniform.Location, 1, (float*)&v);
 				}
@@ -783,8 +831,6 @@ namespace OpenGL.Objects
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Vertex4f v)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				unsafe {
 					Gl.Uniform4(uniform.Location, 1, (float*)&v);
 				}
@@ -792,19 +838,31 @@ namespace OpenGL.Objects
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, float[] v)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				unsafe {
 					fixed (float* p_v = v) {
-						Gl.Uniform2(uniform.Location, v.Length, p_v);
+						switch (v.Length) {
+							case 1:
+								Gl.Uniform1(uniform.Location, v.Length, p_v);
+								break;
+							case 2:
+								Gl.Uniform2(uniform.Location, v.Length, p_v);
+								break;
+							case 3:
+								Gl.Uniform3(uniform.Location, v.Length, p_v);
+								break;
+							case 4:
+								Gl.Uniform4(uniform.Location, v.Length, p_v);
+								break;
+							default:
+								throw new ArgumentException("unsupported uniform length", nameof(v));
+						}
+						
 					}
 				}
 			}
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Vertex2f[] v)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				unsafe {
 					fixed (Vertex2f* p_v = v) {
 						Gl.Uniform2(uniform.Location, v.Length, (float*)p_v);
@@ -814,8 +872,6 @@ namespace OpenGL.Objects
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Vertex3f[] v)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				unsafe {
 					fixed (Vertex3f* p_v = v) {
 						Gl.Uniform3(uniform.Location, v.Length, (float*)p_v);
@@ -825,8 +881,6 @@ namespace OpenGL.Objects
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Vertex4f[] v)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				unsafe {
 					fixed (Vertex4f* p_v = v) {
 						Gl.Uniform4(uniform.Location, v.Length, (float*)p_v);
@@ -836,8 +890,6 @@ namespace OpenGL.Objects
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, ColorRGBAF c)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				unsafe {
 					Gl.Uniform4(uniform.Location, 1, (float*)&c);
 				}
@@ -845,8 +897,6 @@ namespace OpenGL.Objects
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, ColorRGBAF[] c)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				unsafe {
 					fixed (ColorRGBAF* p_c = c) {
 						Gl.Uniform4(uniform.Location, c.Length, (float*)p_c);
@@ -860,36 +910,26 @@ namespace OpenGL.Objects
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, int v)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				Gl.Uniform1(uniform.Location, v);
 			}
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, int x, int y)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				Gl.Uniform2(uniform.Location, x, y);
 			}
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, int x, int y, int z)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				Gl.Uniform3(uniform.Location, x, y, z);
 			}
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, int x, int y, int z, int w)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				Gl.Uniform4(uniform.Location, x, y, z, w);
 			}
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Vertex2i v)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				unsafe {
 					Gl.Uniform2(uniform.Location, 1, (int*)&v);
 				}
@@ -897,8 +937,6 @@ namespace OpenGL.Objects
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Vertex3i v)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				unsafe {
 					Gl.Uniform3(uniform.Location, 1, (int*)&v);
 				}
@@ -906,8 +944,6 @@ namespace OpenGL.Objects
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Vertex4i v)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				unsafe {
 					Gl.Uniform4(uniform.Location, 1, (int*)&v);
 				}
@@ -915,8 +951,6 @@ namespace OpenGL.Objects
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Vertex2i[] v)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				unsafe {
 					fixed (Vertex2i* p_v = v) {
 						Gl.Uniform2(uniform.Location, v.Length, (int*)p_v);
@@ -926,8 +960,6 @@ namespace OpenGL.Objects
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Vertex3i[] v)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				unsafe {
 					fixed (Vertex3i* p_v = v) {
 						Gl.Uniform3(uniform.Location, v.Length, (int*)p_v);
@@ -937,8 +969,6 @@ namespace OpenGL.Objects
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Vertex4i[] v)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				unsafe {
 					fixed (Vertex4i* p_v = v) {
 						Gl.Uniform4(uniform.Location, v.Length, (int*)p_v);
@@ -952,36 +982,26 @@ namespace OpenGL.Objects
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, uint v)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				Gl.Uniform1(uniform.Location, v);
 			}
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, uint x, uint y)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				Gl.Uniform2(uniform.Location, x, y);
 			}
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, uint x, uint y, uint z)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				Gl.Uniform3(uniform.Location, x, y, z);
 			}
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, uint x, uint y, uint z, uint w)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				Gl.Uniform4(uniform.Location, x, y, z, w);
 			}
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Vertex2ui v)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				unsafe {
 					Gl.Uniform2(uniform.Location, 1, (uint*)&v);
 				}
@@ -989,8 +1009,6 @@ namespace OpenGL.Objects
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Vertex3ui v)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				unsafe {
 					Gl.Uniform3(uniform.Location, 1, (uint*)&v);
 				}
@@ -998,8 +1016,6 @@ namespace OpenGL.Objects
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Vertex4ui v)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				unsafe {
 					Gl.Uniform4(uniform.Location, 1, (uint*)&v);
 				}
@@ -1007,8 +1023,6 @@ namespace OpenGL.Objects
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Vertex2ui[] v)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				unsafe {
 					fixed (Vertex2ui* p_v = v) {
 						Gl.Uniform2(uniform.Location, v.Length, (uint*)p_v);
@@ -1018,8 +1032,6 @@ namespace OpenGL.Objects
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Vertex3ui[] v)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				unsafe {
 					fixed (Vertex3ui* p_v = v) {
 						Gl.Uniform3(uniform.Location, v.Length, (uint*)p_v);
@@ -1029,8 +1041,6 @@ namespace OpenGL.Objects
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Vertex4ui[] v)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				unsafe {
 					fixed (Vertex4ui* p_v = v) {
 						Gl.Uniform4(uniform.Location, v.Length, (uint*)p_v);
@@ -1044,29 +1054,21 @@ namespace OpenGL.Objects
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, bool v)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				Gl.Uniform1(uniform.Location, v ? 1 : 0);
 			}
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, bool x, bool y)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				Gl.Uniform2(uniform.Location, x ? 1 : 0, y ? 1 : 0);
 			}
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, bool x, bool y, bool z)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				Gl.Uniform3(uniform.Location, x ? 1 : 0, y ? 1 : 0, z ? 1 : 0);
 			}
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, bool x, bool y, bool z, bool w)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				Gl.Uniform4(uniform.Location, x ? 1 : 0, y ? 1 : 0, z ? 1 : 0, w ? 1 : 0);
 			}
 
@@ -1076,15 +1078,11 @@ namespace OpenGL.Objects
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Matrix3x3f m)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				Gl.UniformMatrix3f(uniform.Location, 1, false, m);
 			}
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Matrix4x4f m)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				Gl.UniformMatrix4f(uniform.Location, 1, false, m);
 			}
 
@@ -1096,36 +1094,26 @@ namespace OpenGL.Objects
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, double v)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				Gl.Uniform1(uniform.Location, v);
 			}
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, double x, double y)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				Gl.Uniform2(uniform.Location, x, y);
 			}
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, double x, double y, double z)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				Gl.Uniform3(uniform.Location, x, y, z);
 			}
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, double x, double y, double z, double w)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				Gl.Uniform4(uniform.Location, x, y, z, w);
 			}
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Vertex2d v)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				unsafe {
 					Gl.Uniform2(uniform.Location, 1, (double*)&v);
 				}
@@ -1133,8 +1121,6 @@ namespace OpenGL.Objects
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Vertex3d v)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				unsafe {
 					Gl.Uniform3(uniform.Location, 1, (double*)&v);
 				}
@@ -1142,8 +1128,6 @@ namespace OpenGL.Objects
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Vertex4d v)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				unsafe {
 					Gl.Uniform4(uniform.Location, 1, (double*)&v);
 				}
@@ -1151,8 +1135,6 @@ namespace OpenGL.Objects
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Vertex2d[] v)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				unsafe {
 					fixed (Vertex2d* p_v = v) {
 						Gl.Uniform2(uniform.Location, v.Length, (double*)p_v);
@@ -1162,8 +1144,6 @@ namespace OpenGL.Objects
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Vertex3d[] v)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				unsafe {
 					fixed (Vertex3d* p_v = v) {
 						Gl.Uniform3(uniform.Location, v.Length, (double*)p_v);
@@ -1173,8 +1153,6 @@ namespace OpenGL.Objects
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Vertex4d[] v)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				unsafe {
 					fixed (Vertex4d* p_v = v) {
 						Gl.Uniform4(uniform.Location, v.Length, (double*)p_v);
@@ -1188,15 +1166,11 @@ namespace OpenGL.Objects
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Matrix3x3d m)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				Gl.UniformMatrix3d(uniform.Location, 1, false, m);
 			}
 
 			void IUniformBackend.SetUniform(GraphicsContext ctx, ShaderProgram program, UniformBinding uniform, Matrix4x4d m)
 			{
-				// Ensure program bound (lazy binding)
-				ctx.Bind(program);
 				Gl.UniformMatrix4d(uniform.Location, 1, false, m);
 			}
 
@@ -1218,6 +1192,24 @@ namespace OpenGL.Objects
 		class UniformBackendSeparate : IUniformBackend
 		{
 			#region IUniformBackend Implementation
+
+			#region Program Binding
+
+			/// <summary>
+			/// Bind the program for setting uniforms.
+			/// </summary>
+			/// <param name="ctx">
+			/// The <see cref="GraphicsContext"/> used for binding the underlying program.
+			/// </param>
+			/// <param name="program">
+			/// The <see cref="ShaderProgram"/> to be bound for setting uniforms.
+			/// </param>
+			public void Bind(GraphicsContext ctx, ShaderProgram program)
+			{
+				// Program is not required to be bound
+			}
+
+			#endregion
 
 			#region Set/Get Uniform (single-precision floating-point vector data)
 

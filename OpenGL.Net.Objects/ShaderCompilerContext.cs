@@ -1,5 +1,5 @@
 
-// Copyright (C) 2011-2019 Luca Piccioni
+// Copyright (C) 2011-2017 Luca Piccioni
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -21,6 +21,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using System.Xml.Serialization;
 
 using Khronos;
@@ -48,8 +49,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Default compilation context.
 		/// </summary>
-		public ShaderCompilerContext() :
-			this(Gl.CurrentShadingVersion, null)
+		public ShaderCompilerContext() : this(Gl.CurrentShadingVersion, null)
 		{
 
 		}
@@ -60,8 +60,7 @@ namespace OpenGL.Objects
 		/// <param name="defines">
 		/// The list of preprocessor definitions included in each shader source.
 		/// </param>
-		public ShaderCompilerContext(params string[] defines) :
-			this(Gl.CurrentShadingVersion, defines)
+		public ShaderCompilerContext(params string[] defines) : this(Gl.CurrentShadingVersion, defines)
 		{
 
 		}
@@ -138,15 +137,10 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// #define preprocessor directives used for compilation.
 		/// </summary>
-		/// <remarks>
-		/// Each item in the returned list should be a single symbol (implictly defined to 1).
-		/// Using the returned reference, you can manipulate directly the preprocessor symbols.
-		/// By setting this property, reset the entire symbols set, but the returned reference doesn't change.
-		/// </remarks>
 		[XmlElement("PreprocessorSymbol")]
 		public List<string> Defines
 		{
-			get { return _Define; }
+			get { return (_Define); }
 			set
 			{
 				_Define.Clear();
@@ -220,7 +214,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Get/set the feedback varyings format.
 		/// </summary>
-		public TransformFeedbackBufferMode FeedbackVaryingsFormat
+		public FeedbackBufferFormat FeedbackVaryingsFormat
 		{
 			get { return (_FeedbackVaryingsFormat); }
 			set { _FeedbackVaryingsFormat = value; }
@@ -229,7 +223,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// The feedback varyings format.
 		/// </summary>
-		private TransformFeedbackBufferMode _FeedbackVaryingsFormat = TransformFeedbackBufferMode.InterleavedAttribs;
+		private FeedbackBufferFormat _FeedbackVaryingsFormat = FeedbackBufferFormat.Interleaved;
 
 		#endregion
 
@@ -251,50 +245,25 @@ namespace OpenGL.Objects
 
 		#endregion
 
-		#region Operators
+		#region Equality Operators
 
 		/// <summary>
-		/// Equality operator.
+		/// Test for equality two <see cref="ShaderCompilerContext"/> instances.
 		/// </summary>
-		/// <param name="left">
-		/// A <see cref="ShaderCompilerContext"/> to compare with <paramref name="right"/>.
-		/// </param>
-		/// <param name="right">
-		/// A <see cref="ShaderCompilerContext"/> to compare with <paramref name="left"/>.
-		/// </param>
-		/// <returns>
-		/// It returns a boolean value indicating whether <paramref name="left"/> equals <paramref name="right"/>.
-		/// </returns>
-		public static bool operator ==(ShaderCompilerContext left, ShaderCompilerContext right)
+		/// <param name="a"></param>
+		/// <param name="b"></param>
+		/// <returns></returns>
+		public static bool operator ==(ShaderCompilerContext a, ShaderCompilerContext b)
 		{
-			if (ReferenceEquals(left, right))
-				return true;
-			if (ReferenceEquals(left, null))
-				return false;
+			if (ReferenceEquals(null, b))
+				return (false);
 
-			return left.Equals(right);
+			return (a.Equals(b));
 		}
 
-		/// <summary>
-		/// Inequality operator.
-		/// </summary>
-		/// <param name="left">
-		/// A <see cref="ShaderCompilerContext"/> to compare with <paramref name="right"/>.
-		/// </param>
-		/// <param name="right">
-		/// A <see cref="ShaderCompilerContext"/> to compare with <paramref name="left"/>.
-		/// </param>
-		/// <returns>
-		/// It returns a boolean value indicating whether <paramref name="left"/> doesn't equals <paramref name="right"/>.
-		/// </returns>
-		public static bool operator !=(ShaderCompilerContext left, ShaderCompilerContext right)
+		public static bool operator !=(ShaderCompilerContext a, ShaderCompilerContext b)
 		{
-			if (ReferenceEquals(left, right))
-				return false;
-			if (ReferenceEquals(left, null))
-				return false;
-
-			return !left.Equals(right);
+			return (a.Equals(b));
 		}
 
 		#endregion
@@ -313,38 +282,38 @@ namespace OpenGL.Objects
 		public bool Equals(ShaderCompilerContext other)
 		{
 			if (ReferenceEquals(null, other))
-				return false;
+				return (false);
 			if (ReferenceEquals(this, other))
-				return true;
+				return (true);
 
 			// Compare shading language version
 			if (ShaderVersion != other.ShaderVersion)
-				return false;
+				return (false);
 
 			// Compare preprocessor definitions (order independent)
 			if (Defines.Count != other.Defines.Count)
-				return false;
+				return (false);
 			foreach (string defineSymbol in Defines)
 				if (other.Defines.Contains(defineSymbol) == false)
-					return false;
+					return (false);
 
 			// Compare preprocessor includes (order dependent)
 			if (Includes.Count != other.Includes.Count)
-				return false;
+				return (false);
 			for (int i = 0; i < _Includes.Count; i++)
 				if (_Includes[i] != other._Includes[i])
-					return false;
+					return (false);
 
 			// Feedback varying format
 			if (_FeedbackVaryingsFormat != other._FeedbackVaryingsFormat)
-				return false;
+				return (false);
 
-			return true;
+			return (true);
 		}
 
 		#endregion
 
-		#region Overrides
+		#region Object Overrides
 
 		/// <summary>
 		/// Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
@@ -358,13 +327,13 @@ namespace OpenGL.Objects
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
-				return false;
+				return (false);
 			if (ReferenceEquals(this, obj))
-				return true;
+				return (true);
 			if ((obj.GetType() != typeof(ShaderCompilerContext)) && (obj.GetType().IsSubclassOf(typeof(ShaderCompilerContext)) == false))
-				return false;
+				return (false);
 
-			return Equals((ShaderCompilerContext)obj);
+			return (Equals((ShaderCompilerContext)obj));
 		}
 
 		/// <summary>

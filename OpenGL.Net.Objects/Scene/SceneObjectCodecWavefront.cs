@@ -82,7 +82,7 @@ namespace OpenGL.Objects.Scene
 			/// <summary>
 			/// Ambient texture.
 			/// </summary>
-			public Texture2D AmbientTexture;
+			public Texture2d AmbientTexture;
 
 			/// <summary>
 			/// Diffuse color.
@@ -92,7 +92,7 @@ namespace OpenGL.Objects.Scene
 			/// <summary>
 			/// Diffuse texture.
 			/// </summary>
-			public Texture2D DiffuseTexture;
+			public Texture2d DiffuseTexture;
 
 			/// <summary>
 			/// Specular color.
@@ -102,7 +102,7 @@ namespace OpenGL.Objects.Scene
 			/// <summary>
 			/// Specular texture.
 			/// </summary>
-			public Texture2D SpecularTexture;
+			public Texture2d SpecularTexture;
 
 			/// <summary>
 			/// Specular exponent.
@@ -112,7 +112,7 @@ namespace OpenGL.Objects.Scene
 			/// <summary>
 			/// Normal texture.
 			/// </summary>
-			public Texture2D NormalTexture;
+			public Texture2d NormalTexture;
 
 			#endregion
 
@@ -310,7 +310,7 @@ namespace OpenGL.Objects.Scene
 				VertexArrays vertexArray = new VertexArrays();
 				List<ObjFaceCoord> coords = new List<ObjFaceCoord>();
 				bool hasTexCoord = Material.DiffuseTexture != null;
-				bool hasNormals = false;
+				bool hasNormals = true;
 				bool hasTanCoord = hasTexCoord && Material.NormalTexture != null;
 
 				foreach (ObjFace f in Faces) {
@@ -364,7 +364,7 @@ namespace OpenGL.Objects.Scene
 					ArrayBuffer<Vertex3f> normalBuffer = new ArrayBuffer<Vertex3f>();
 					normalBuffer.Create(vertexCount);
 					vertexArray.SetArray(normalBuffer, VertexArraySemantic.Normal);
-					// XXX vertexArray.GenerateNormals();
+					vertexArray.GenerateNormals();
 				}
 
 				// Tangents
@@ -377,7 +377,7 @@ namespace OpenGL.Objects.Scene
 					bitanCoordBuffer.Create(vertexCount);
 					vertexArray.SetArray(bitanCoordBuffer, VertexArraySemantic.Bitangent);
 
-					// XXX vertexArray.GenerateTangents();
+					vertexArray.GenerateTangents();
 				}
 
 				return (vertexArray);
@@ -874,16 +874,17 @@ namespace OpenGL.Objects.Scene
 			return (new ColorRGBAF(rgbValues[0], rgbValues[1], rgbValues[2]));
 		}
 
-		private static Texture2D ParseMaterialTexture(ObjContext objContext, ObjMaterial objMaterial, string[] commandTokens)
+		private static Texture2d ParseMaterialTexture(ObjContext objContext, ObjMaterial objMaterial, string[] commandTokens)
 		{
 			string textureFileName = commandTokens[commandTokens.Length - 1];
 			string textureFilePath = Path.Combine(Path.GetDirectoryName(objContext.Path), textureFileName);
 
 			try {
 				Image textureImage = ImageCodec.Instance.Load(textureFilePath);
-				Texture2D texture = new Texture2D();
+				Texture2d texture = new Texture2d();
 
 				texture.Create(textureImage);
+				texture.GenerateMipmaps();
 
 				return (texture);
 			} catch (Exception exception) {

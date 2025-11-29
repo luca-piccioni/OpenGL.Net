@@ -37,7 +37,7 @@ namespace OpenGL.Objects
 		/// Construct an UniformBufferObject.
 		/// </summary>
 		/// <param name="hint">
-		/// An <see cref="BufferUsage"/> that specify the data buffer usage hint.
+		/// An <see cref="BufferHint"/> that specify the data buffer usage hint.
 		/// </param>
 		public UniformBuffer(BufferUsage hint) :
 			base(BufferTarget.UniformBuffer, hint)
@@ -80,9 +80,10 @@ namespace OpenGL.Objects
 		public void Create(uint dataSize)
 		{
 			if (dataSize == 0)
-				throw new ArgumentException("invalid");
+				throw new ArgumentException("invalid", "itemsCount");
 
-			AddTechnique(new EmptyCreateTechnique(this, dataSize));
+			// Allocate buffer
+			CreateCpuBuffer(dataSize);
 		}
 
 		#endregion
@@ -110,7 +111,15 @@ namespace OpenGL.Objects
 		{
 			CheckCurrentContext(ctx);
 
-			Create(dataSize);
+			if (dataSize == 0)
+				throw new ArgumentException("invalid", "itemsCount");
+
+			// Object already existing: resize client buffer, if any
+			if (CpuBufferAddress != IntPtr.Zero)
+				CreateCpuBuffer(dataSize);
+			// If not exists, set GPU buffer size; otherwise keep in synch with client buffer size
+			CpuBufferSize = dataSize;
+			// Allocate object
 			Create(ctx);
 		}
 

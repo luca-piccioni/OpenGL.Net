@@ -35,9 +35,6 @@ namespace Khronos
 	/// Version abstraction for Khrono APIs.
 	/// </summary>
 	[DebuggerDisplay("KhronosVersion: Version={Major}.{Minor}.{Revision} API='{Api}' Profile={Profile}")]
-#if NETFRAMEWORK
-	[TypeConverter(typeof(KhronosVersionConverter))]
-#endif
 	public class KhronosVersion : IEquatable<KhronosVersion>, IComparable<KhronosVersion>
 	{
 		#region Constructors
@@ -777,76 +774,4 @@ namespace Khronos
 
 		#endregion
 	}
-
-#if NETFRAMEWORK
-
-	/// <summary>
-	/// Designer converter for <see cref="KhronosVersion"/> properties.
-	/// </summary>
-	[RequiredByFeature("System.Windows.Forms Designer")]
-	public class KhronosVersionConverter : TypeConverter
-	{
-		public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)
-		{
-			return sourceType == typeof(string) || base.CanConvertFrom(context, sourceType);
-		}
-
-		public override object ConvertFrom(ITypeDescriptorContext context, System.Globalization.CultureInfo culture, object value)
-		{
-			if (ReferenceEquals(value, null))
-				return base.ConvertFrom(context, culture, null);
-			
-			Type valueType = value.GetType();
-
-			if (valueType == typeof(string)) {
-				string valueString = (string)value;
-
-				if (valueString == string.Empty)
-					return null;
-
-				return KhronosVersion.Parse(valueString);
-			}
-
-			// Base implementation
-			return base.ConvertFrom(context, culture, value);
-		}
-
-		public override bool CanConvertTo(ITypeDescriptorContext context, Type destinationType)
-		{
-			if (destinationType == typeof(string)) 
-				return true;
-			if (destinationType == typeof(InstanceDescriptor)) 
-				return true;
-
-			// Base implementation
-			return base.CanConvertTo(context, destinationType);
-		}
-
-		public override object ConvertTo(ITypeDescriptorContext context, System.Globalization.CultureInfo culture, object value, Type destinationType)
-		{
-			KhronosVersion version = value as KhronosVersion;
-
-			if (version != null) {
-				if (destinationType == typeof(string)) {
-					return version.ToString();
-				} else if (destinationType == typeof(InstanceDescriptor)) {
-					ConstructorInfo ctor = typeof(KhronosVersion).GetConstructor(new[] {
-						typeof(int), typeof(int), typeof(int), typeof(string), typeof(string)
-					});
-					if (ctor != null) 
-						return new InstanceDescriptor(ctor, new object[] {
-							version.Major, version.Minor, version.Revision, version.Api, version.Profile
-						});
-				}
-			} else {
-				if (destinationType == typeof(string))
-					return "Current";
-			}
-
-			// Base implementation
-			return base.ConvertTo(context, culture, value, destinationType);
-		}
-	}
-
-#endif
 }

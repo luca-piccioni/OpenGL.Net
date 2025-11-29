@@ -562,6 +562,8 @@ namespace OpenGL.Objects.State
 				// Set uniform block
 				shaderProgram.SetUniformBlock(ctx, UniformBlockTag, _UniformBuffer);
 			} else {
+				// Start setting uniforms
+				shaderProgram.BindUniform(ctx);
 				// Apply uniforms to program
 				ApplyState(ctx, shaderProgram, String.Empty);
 			}
@@ -628,10 +630,31 @@ namespace OpenGL.Objects.State
 		/// <summary>
 		/// Default constructor.
 		/// </summary>
+		public ShaderUniformState() :
+			this("OpenGL.ShaderUniformState")
+		{
+
+		}
+
+		/// <summary>
+		/// Default constructor.
+		/// </summary>
+		public ShaderUniformState(params Tuple<string, object>[] uniforms)
+		{
+			if (uniforms == null)
+				throw new ArgumentNullException(nameof(uniforms));
+
+			foreach (Tuple<string, object> uniform in uniforms)
+				SetUniformState(uniform.Item1, uniform.Item2);
+		}
+
+		/// <summary>
+		/// Default constructor.
+		/// </summary>
 		/// <param name="stateId">
 		/// A <see cref="String"/> that specifies the state identifier.
 		/// </param>
-		public ShaderUniformState(string stateId)
+		private ShaderUniformState(string stateId)
 		{
 			if (stateId == null)
 				throw new ArgumentNullException("stateId");

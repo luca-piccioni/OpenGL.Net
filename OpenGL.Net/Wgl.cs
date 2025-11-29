@@ -65,20 +65,6 @@ namespace OpenGL
 		#region API Binding
 
 		/// <summary>
-		/// Get or set the delegate used for loading function pointers for this API.
-		/// </summary>
-		public GetAddressDelegate GetFunctionPointerDelegate
-		{
-			get { return _GetAddressDelegate; }
-			set { _GetAddressDelegate = value ?? GetProcAddressGLOS; }
-		}
-
-		/// <summary>
-		/// Delegate used for loading function pointers for this API.
-		/// </summary>
-		private static GetAddressDelegate _GetAddressDelegate = GetProcAddressGLOS;
-
-		/// <summary>
 		/// Bind Windows WGL delegates.
 		/// </summary>
 		/// <remarks>
@@ -93,7 +79,7 @@ namespace OpenGL
 		/// </remarks>
 		public static void BindAPI()
 		{
-			BindAPI<Wgl>(Library, _GetAddressDelegate, null);
+			BindAPI<Wgl>(Library, GetProcAddressGLOS, null);
 		}
 
 		/// <summary>

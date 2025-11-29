@@ -93,7 +93,7 @@ namespace OpenGL.Objects
 
 		#endregion
 
-		#region Source Code
+		#region Source Loading
 
 		/// <summary>
 		/// Load the shader source from a stream.
@@ -107,8 +107,6 @@ namespace OpenGL.Objects
 		public void LoadSource(Stream sourceStream)
 		{
 			_SourceStrings = Shader.LoadSourceLines(sourceStream);
-			// Ensure upload
-			IsUploaded = false;
 		}
 
 		/// <summary>
@@ -123,11 +121,9 @@ namespace OpenGL.Objects
 		/// <exception cref="ArgumentException">
 		/// Exception thrown if no embedded resource can be found.
 		/// </exception>
-		public void LoadSource(string resourcePath)
+		public void LoadSource(string resourcePath, string assemblyName = null)
 		{
-			_SourceStrings = Shader.LoadSourceLines(resourcePath);
-			// Ensure upload
-			IsUploaded = false;
+			_SourceStrings = Shader.LoadSourceLines(resourcePath, assemblyName);
 		}
 
 		/// <summary>
@@ -139,11 +135,9 @@ namespace OpenGL.Objects
 		public void LoadSource(IEnumerable<string> sourceStrings)
 		{
 			if (sourceStrings == null)
-				throw new ArgumentNullException(nameof(sourceStrings));
+				throw new ArgumentNullException("sourceStrings");
 
 			_SourceStrings = new List<string>(sourceStrings);
-			// Ensure upload
-			IsUploaded = false;
 		}
 
 		#endregion
@@ -174,23 +168,18 @@ namespace OpenGL.Objects
 		{
 			get
 			{
-				return _SourceStrings.AsReadOnly();
+				return (_SourceStrings.AsReadOnly());
 			}
 		}
 
 		/// <summary>
 		/// Include source strings.
 		/// </summary>
-		private List<string> _SourceStrings;
-
-		/// <summary>
-		/// Flag indicating whether this object is compiled.
-		/// </summary>
-		public bool IsUploaded { get; private set; }
+		protected List<string> _SourceStrings;
 
 		#endregion
 
-		#region Overrides
+		#region GraphicsResource Overrides
 
 		/// <summary>
 		/// Shader include object class.
@@ -200,7 +189,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Shader include object class.
 		/// </summary>
-		public override Guid ObjectClass { get { return ThisObjectClass; } }
+		public override Guid ObjectClass { get { return (ThisObjectClass); } }
 
 		/// <summary>
 		/// Determine whether this BufferObject really exists for a specific context.
@@ -231,14 +220,19 @@ namespace OpenGL.Objects
 				return (false);
 
 #if !MONODROID
-			if (ctx.Extensions.ShadingLanguageInclude_ARB)
-				return Gl.IsNamedStringARB(IncludePath.Length, IncludePath);
+			if (ctx.Extensions.ShadingLanguageInclude_ARB == true)
+				return (Gl.IsNamedStringARB(IncludePath.Length, IncludePath));
 
-			return true;
+			return (true);
 #else
-			return false;
+			return (false);
 #endif
 		}
+
+		/// <summary>
+		/// Determine whether this IGraphicsResource is effectively shareable between sharing <see cref="GraphicsContext"/> instances.
+		/// </summary>
+		public override bool IsShareable { get { return true; } }
 
 		/// <summary>
 		/// Determine whether this object requires a name bound to a context or not.
@@ -251,7 +245,7 @@ namespace OpenGL.Objects
 		/// </returns>
 		protected override bool RequiresName(GraphicsContext ctx)
 		{
-			return false;
+			return (false);
 		}
 		
 		/// <summary>
@@ -265,7 +259,7 @@ namespace OpenGL.Objects
 #if !MONODROID
 			CheckCurrentContext(ctx);
 
-			if (ctx.Extensions.ShadingLanguageInclude_ARB && !IsUploaded) {
+			if (ctx.Extensions.ShadingLanguageInclude_ARB) {
 				List<string> source = Shader.CleanSource(Source);
 
 				// Build include source string
@@ -277,7 +271,6 @@ namespace OpenGL.Objects
 				Gl.NamedStringARB(Gl.SHADER_INCLUDE_ARB, -1, IncludePath, -1, sb.ToString());
 			}
 #endif
-			IsUploaded = true;
 		}
 		
 		/// <summary>
@@ -288,7 +281,8 @@ namespace OpenGL.Objects
 		/// </param>
 		public override void Delete(GraphicsContext ctx)
 		{
-			CheckCurrentContext(ctx);
+			if (ctx == null)
+				throw new ArgumentNullException("ctx");
 
 			// Base implementation
 			base.Delete(ctx);

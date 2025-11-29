@@ -87,10 +87,12 @@ namespace OpenGL.Objects
 				// Single plane formats
 				case PixelLayout.R8:
 				case PixelLayout.R16:
+				case PixelLayout.R16_BE:
+				case PixelLayout.R16I:
 				case PixelLayout.GRAY16S:
 				case PixelLayout.RF:
 				case PixelLayout.RHF:
-				//case PixelLayout.GRAYAF:
+				case PixelLayout.RG16:
 				case PixelLayout.RGB8:
 				case PixelLayout.RGB15:
 				case PixelLayout.RGB16:
@@ -122,6 +124,7 @@ namespace OpenGL.Objects
 				case PixelLayout.CMYK32:
 				case PixelLayout.CMYK64:
 				case PixelLayout.CMYKA40:
+				case PixelLayout.Stencil8:
 				case PixelLayout.Depth16:
 				case PixelLayout.Depth24:
 				case PixelLayout.Depth32:
@@ -238,22 +241,22 @@ namespace OpenGL.Objects
 		/// Gets the image buffer for every image plane scanlines. Image planes are allocated contiguosly, as defined
 		/// by the specific pixel format, if planar.
 		/// </summary>
-		public IntPtr ImageBuffer { get { return (_PixelBuffers.AlignedBuffer); } }
+		public IntPtr ImageBuffer => (_PixelBuffers.AlignedBuffer);
 
 		/// <summary>
 		/// Gets the image planes scan-lines.
 		/// </summary>
-		public IntPtr[] ImagePlanes { get { return (_PixelPlanes); } }
+		public IntPtr[] ImagePlanes => (_PixelPlanes);
 
 		/// <summary>
 		/// Image line width, in bytes
 		/// </summary>
-		public uint Stride { get { return (_ImageInfo.Width * PixelLayout.GetBytesCount()); } }
+		public uint Stride => (_ImageInfo.Width * PixelLayout.GetBytesCount());
 
 		/// <summary>
 		/// Image size, in bytes.
 		/// </summary>
-		public uint Size { get { return (_PixelBuffers != null ? _PixelBuffers.Size : 0); } }
+		public uint Size => _PixelBuffers?.Size ?? 0;
 
 		/// <summary>
 		/// Image pixel format.
@@ -261,7 +264,7 @@ namespace OpenGL.Objects
 		/// <returns>
 		/// It returns a <see cref="PixelLayout"/> that specify the image color resolution.
 		/// </returns>
-		public PixelLayout PixelLayout { get { return (_ImageInfo.PixelType); } }
+		public PixelLayout PixelLayout => (_ImageInfo.PixelType);
 
 		/// <summary>
 		/// Pixel arrays defining image layers.
@@ -277,22 +280,14 @@ namespace OpenGL.Objects
 
 		#region Managed Pixel Access
 
-		public void SetPixel<T>(uint w, uint h, T value) where T : struct
-		{
-			Marshal.StructureToPtr(value, GetPixelDataOffset(w, h), false);
-		}
-
-		public T GetPixel<T>(uint w, uint h) where T : struct
-		{
-			return (T)Marshal.PtrToStructure(GetPixelDataOffset(w, h), typeof(T));
-		}
-
 		private IntPtr GetPixelDataOffset(uint w, uint h)
 		{
 			switch (PixelLayout) {
 				// Single plane formats
 				case PixelLayout.R8:
 				case PixelLayout.R16:
+				case PixelLayout.R16_BE:
+				case PixelLayout.R16I:
 				case PixelLayout.GRAY16S:
 				//case PixelLayout.GRAYF:
 				case PixelLayout.RHF:
@@ -328,6 +323,7 @@ namespace OpenGL.Objects
 				case PixelLayout.CMYK32:
 				case PixelLayout.CMYK64:
 				case PixelLayout.CMYKA40:
+				case PixelLayout.Stencil8:
 				case PixelLayout.Depth16:
 				case PixelLayout.Depth24:
 				case PixelLayout.Depth32:
@@ -380,6 +376,15 @@ namespace OpenGL.Objects
 		}
 
 		#endregion
+
+		#endregion
+
+		#region Palette Support
+
+		/// <summary>
+		/// Optional palette associated to the image.
+		/// </summary>
+		public ColorRGBF[] Palette { get; set; }
 
 		#endregion
 

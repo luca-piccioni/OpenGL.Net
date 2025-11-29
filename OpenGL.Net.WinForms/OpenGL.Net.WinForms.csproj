@@ -1,0 +1,64 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net48</TargetFrameworks>
+    <UseWindowsForms>true</UseWindowsForms>
+    <OutputType>Library</OutputType>
+    <AssemblyName>OpenGL.Net.WinForms</AssemblyName>
+    <RootNamespace>OpenGL</RootNamespace>
+
+    <LangVersion>latest</LangVersion>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>bin\$(Configuration)\OpenGL.Net.WinForms.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="**\*" />
+    <EmbeddedResource Remove="**\*" />
+    <None Remove="**\*" />
+  </ItemGroup>
+	
+  <ItemGroup>
+    <Compile Include="GlControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GlControl.Designer.cs">
+      <DependentUpon>GlControl.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="GlControl.resx">
+      <DependentUpon>GlControl.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OpenGL.Net\OpenGL.Net.csproj" />
+    <ProjectReference Include="..\OpenGL.Net\OpenGL.Net.Math.csproj" />
+  </ItemGroup>
+
+  <Import Project="..\OpenGL.Net.props" />
+
+</Project>

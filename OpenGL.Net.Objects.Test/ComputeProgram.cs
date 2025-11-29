@@ -36,8 +36,8 @@ namespace OpenGL.Objects.Test
 
 			using (ShaderProgram computeProgram = new ShaderProgram("OpenGL.Objects.Test.ComputeProgram"))
 			using (Shader computeShader = new Shader(ShaderType.ComputeShader))
-			using (Texture2D texture0 = new Texture2D())
-			using (Texture2D texture1 = new Texture2D(Size / 2, Size / 2, PixelLayout.R8))
+			using (Texture2d texture0 = new Texture2d())
+			using (Texture2d texture1 = new Texture2d(Size / 2, Size / 2, PixelLayout.R8))
 			{
 				computeShader.LoadSource(new[] {
 					"#version 430",
@@ -59,7 +59,7 @@ namespace OpenGL.Objects.Test
 					"	imageStore(glo_ImageOutput, glo_ImageOutputCoords, max);",
 					"}"
 				});
-				computeProgram.Attach(computeShader);
+				computeProgram.AttachShader(computeShader);
 				computeProgram.Create(_Context);
 
 				using (Image image = new Image(PixelLayout.R8, Size, Size)) {
@@ -83,7 +83,7 @@ namespace OpenGL.Objects.Test
 				computeProgram.SetUniformImage(_Context, "glo_ImageInput", texture0, BufferAccess.ReadOnly);
 				computeProgram.SetUniformImage(_Context, "glo_ImageOutput", texture1, BufferAccess.WriteOnly);
 
-				computeProgram.Compute(_Context, texture1.Width, texture1.Height);
+				computeProgram.DispatchCompute(_Context, texture1.Width, texture1.Height, 1);
 				computeProgram.MemoryBarrier(MemoryBarrierMask.BufferUpdateBarrierBit);
 
 				using (Image result = texture1.Get(_Context, PixelLayout.R8, 0)) {
@@ -95,11 +95,6 @@ namespace OpenGL.Objects.Test
 					}
 				}
 			}
-		}
-
-		public void ComputeProgram_BindUniformImage()
-		{
-
 		}
 	}
 }

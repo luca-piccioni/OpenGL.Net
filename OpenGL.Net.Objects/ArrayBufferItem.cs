@@ -68,9 +68,9 @@ namespace OpenGL.Objects
 		public ArrayBufferItem(VertexBaseType vertexBaseType, uint vertexLength, uint vertexRank)
 		{
 			if (vertexLength < 1 || vertexLength > 4)
-				throw new ArgumentOutOfRangeException(nameof(vertexLength), vertexLength, "must be in [1,4] range");
+				throw new ArgumentOutOfRangeException("vertexLength", vertexLength, "must be in [1,4] range");
 			if (vertexRank < 1 || vertexRank > 4)
-				throw new ArgumentOutOfRangeException(nameof(vertexRank), vertexRank, "must be in [1,4] range");
+				throw new ArgumentOutOfRangeException("vertexRank", vertexRank, "must be in [1,4] range");
 
 			ArrayType = vertexBaseType.GetArrayBufferType(vertexLength, vertexRank);
 		}
@@ -98,7 +98,7 @@ namespace OpenGL.Objects
 		public ArrayBufferItem(ArrayBufferItemAttribute attribute)
 		{
 			if (attribute == null)
-				throw new ArgumentNullException(nameof(attribute));
+				throw new ArgumentNullException("attribute");
 
 			ArrayType = attribute.ArrayBaseType.GetArrayBufferType(attribute.ArrayLength, attribute.ArrayRank);
 		}
@@ -134,7 +134,16 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Determine whether the integer values shall be considered normalized floating-point.
 		/// </summary>
-		public bool Normalized { get; set; }
+		public bool Normalized
+		{
+			get { return (_Normalized); }
+			set { _Normalized = value; }
+		}
+
+		/// <summary>
+		/// Determine whether the integer values shall be considered normalized floating-point.
+		/// </summary>
+		private bool _Normalized;
 
 		#endregion
 
@@ -158,7 +167,7 @@ namespace OpenGL.Objects
 		public static bool IsDataSupported(GraphicsContext ctx, VertexBaseType baseType)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException(nameof(ctx));
+				throw new ArgumentNullException("ctx");
 
 			switch (baseType) {
 				case VertexBaseType.Half:
@@ -202,14 +211,14 @@ namespace OpenGL.Objects
 		public static ArrayBufferItemType GetArrayType(Type type)
 		{
 			if (type == null)
-				throw new ArgumentNullException(nameof(type));
+				throw new ArgumentNullException("type");
 
 			// Support .NET Framework types
 			// Support OpenGL.Net.Math types
 			// Support unknown types using ArrayBufferItemAttribute
 
 			// Single-Precision Floating-Point Types
-			if      (type == typeof(float))
+			if      (type == typeof(Single))
 				return (ArrayBufferItemType.Float);
 			else if (type == typeof(Vertex2f))
 				return (ArrayBufferItemType.Float2);
@@ -220,7 +229,7 @@ namespace OpenGL.Objects
 
 			// Signed Integer Types
 
-			else if (type == typeof(short))
+			else if (type == typeof(Int16))
 				return (ArrayBufferItemType.Short);
 			else if (type == typeof(Vertex2s))
 				return (ArrayBufferItemType.Short2);
@@ -229,7 +238,7 @@ namespace OpenGL.Objects
 			else if (type == typeof(Vertex4s))
 				return (ArrayBufferItemType.Short4);
 
-			else if (type == typeof(int))
+			else if (type == typeof(Int32))
 				return (ArrayBufferItemType.Int);
 			else if (type == typeof(Vertex2i))
 				return (ArrayBufferItemType.Int2);
@@ -240,7 +249,7 @@ namespace OpenGL.Objects
 
 			// Unsigned Integer Types
 
-			else if (type == typeof(ushort))
+			else if (type == typeof(UInt16))
 				return (ArrayBufferItemType.UShort);
 			else if (type == typeof(Vertex2us))
 				return (ArrayBufferItemType.UShort2);
@@ -249,7 +258,7 @@ namespace OpenGL.Objects
 			else if (type == typeof(Vertex4us))
 				return (ArrayBufferItemType.UShort4);
 
-			else if (type == typeof(uint))
+			else if (type == typeof(UInt32))
 				return (ArrayBufferItemType.UInt);
 			else if (type == typeof(Vertex2ui))
 				return (ArrayBufferItemType.UInt2);
@@ -257,6 +266,17 @@ namespace OpenGL.Objects
 				return (ArrayBufferItemType.UInt3);
 			else if (type == typeof(Vertex4ui))
 				return (ArrayBufferItemType.UInt4);
+
+			// Double-Precision Floating-Point Types
+
+			else if (type == typeof(double))
+				return (ArrayBufferItemType.Double);
+			else if (type == typeof(Vertex2d))
+				return (ArrayBufferItemType.Double2);
+			else if (type == typeof(Vertex3d))
+				return (ArrayBufferItemType.Double3);
+			else if (type == typeof(Vertex4d))
+				return (ArrayBufferItemType.Double4);
 
 			// Half-Precision Floating-Point Types
 
@@ -279,12 +299,10 @@ namespace OpenGL.Objects
 			else if (type == typeof(Matrix4x4d))
 				return (ArrayBufferItemType.Double4x4);
 
-			else if (type == typeof(sbyte))
+			else if (type == typeof(SByte))
 				return (ArrayBufferItemType.Byte);
-			else if (type == typeof(byte))
+			else if (type == typeof(Byte))
 				return (ArrayBufferItemType.UByte);
-			else if (type == typeof(double))
-				return (ArrayBufferItemType.Double);
 
 			else {
 				ArrayBufferItemAttribute attribute = (ArrayBufferItemAttribute) Attribute.GetCustomAttribute(type, typeof(ArrayBufferItemAttribute));
@@ -292,7 +310,7 @@ namespace OpenGL.Objects
 					return (attribute.ArrayType);
 			}
 
-			throw new ArgumentException("not corresponding information", nameof(type));
+			throw new ArgumentException("not corresponding information", "type");
 		}
 
 		/// <summary>
@@ -303,30 +321,30 @@ namespace OpenGL.Objects
 		public static VertexBaseType GetArrayBaseType(Type type)
 		{
 			if (type == null)
-				throw new ArgumentNullException(nameof(type));
+				throw new ArgumentNullException("type");
 
-			if (type == typeof(float))
+			if (type == typeof(Single))
 				return (VertexBaseType.Float);
 			if (type == typeof(HalfFloat))
 				return (VertexBaseType.Half);
-			if (type == typeof(int))
+			if (type == typeof(Int32))
 				return (VertexBaseType.Int);
-			if (type == typeof(uint))
+			if (type == typeof(UInt32))
 				return (VertexBaseType.UInt);
-			if (type == typeof(short))
+			if (type == typeof(Int16))
 				return (VertexBaseType.Short);
-			if (type == typeof(ushort))
+			if (type == typeof(UInt16))
 				return (VertexBaseType.UShort);
-			if (type == typeof(byte))
+			if (type == typeof(Byte))
 				return (VertexBaseType.UByte);
-			if (type == typeof(sbyte))
+			if (type == typeof(SByte))
 				return (VertexBaseType.Byte);
 
 			ArrayBufferItemAttribute attribute = (ArrayBufferItemAttribute)Attribute.GetCustomAttribute(type, typeof(ArrayBufferItemAttribute));
 			if (attribute != null)
 				return (attribute.ArrayBaseType);
 
-			throw new ArgumentException($"unable to match type {type.Name}");
+			throw new ArgumentException(String.Format("unable to match type {0}", type.Name));
 		}
 
 		/// <summary>
@@ -383,7 +401,7 @@ namespace OpenGL.Objects
 					return (VertexBaseType.Double);
 #endif
 				default:
-					throw new ArgumentException($"unrecognized shader attribute type {shaderAttributeType}");
+					throw new ArgumentException(String.Format("unrecognized shader attribute type {0}", shaderAttributeType));
 			}
 		}
 
@@ -496,6 +514,7 @@ namespace OpenGL.Objects
 			unchecked {
 				int result = BaseType.GetHashCode();
 				result = (result * 397) ^ ArrayLength.GetHashCode();
+				result = (result * 397) ^ Normalized.GetHashCode();
 
 				return result;
 			}

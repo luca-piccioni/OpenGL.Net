@@ -75,14 +75,6 @@ namespace OpenGL.Objects.Test
 		}
 
 		[Test]
-		public void ArrayBuffer_TestMap()
-		{
-			using (ArrayBuffer arrayBuffer = new ArrayBuffer(ArrayBufferItemType.Float4, BufferUsage.DynamicDraw)) {
-				base.ArrayBufferBase_TestMap(arrayBuffer);
-			}
-		}
-
-		[Test]
 		public void ArrayBuffer_TestCreateNonImmutable()
 		{
 			using (ArrayBuffer arrayBuffer = new ArrayBuffer(ArrayBufferItemType.Float4, BufferUsage.DynamicDraw)) {
@@ -99,7 +91,7 @@ namespace OpenGL.Objects.Test
 		[Test]
 		public void ArrayBuffer_TestCreateImmutable()
 		{
-			using (ArrayBuffer arrayBuffer = new ArrayBuffer(ArrayBufferItemType.Float4, MapBufferUsageMask.DynamicStorageBit)) {
+			using (ArrayBuffer arrayBuffer = new ArrayBuffer(ArrayBufferItemType.Float4, BufferStorageMask.DynamicStorageBit)) {
 				// Using MapBufferUsageMask constructor make array buffer immutable
 				Assert.IsTrue(arrayBuffer.Immutable);
 

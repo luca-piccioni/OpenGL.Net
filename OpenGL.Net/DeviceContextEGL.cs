@@ -557,7 +557,7 @@ namespace OpenGL
 
 		#endregion
 
-		#region DeviceContext Overrides
+		#region Overrides
 
 		/// <summary>
 		/// Get this DeviceContext API version.
@@ -1125,6 +1125,32 @@ namespace OpenGL
 			_Config = configs[0];
 
 			IsPixelFormatSet = true;
+		}
+
+		/// <summary>
+		/// Get the device pixel format index.
+		/// </summary>
+		public override int GetPixelFormatIndex()
+		{
+			// No actual pixel format index
+			return 1;
+		}
+
+		/// <summary>
+		/// Determine whether this DeviceContext support OpenGL swapping groups.
+		/// </summary>
+		public override bool SupportSwapGroup { get { return false; } }
+
+		/// <summary>
+		/// Join this DeviceContext to the specified swap group.
+		/// </summary>
+		/// <param name="swapGroupID">
+		/// The identifier of the OpenGL swap group. If zero, unbound this DeviceContext from any swap group.
+		/// </param>
+		public override bool JoinSwapGroup(uint swapGroupID)
+		{
+			// Apparently EGL does not support swap groups
+			return false;
 		}
 
 		/// <summary>

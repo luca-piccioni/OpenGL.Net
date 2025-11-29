@@ -21,6 +21,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.InteropServices;
 
@@ -31,19 +32,26 @@ namespace OpenGL.Objects
 		#region Constructors
 
 		/// <summary>
-		/// Construct a mutable ArrayBufferInterleaved specifying its item layout on GPU side.
+		/// Construct an ArrayBufferInterleaved specifying its item layout on GPU side.
 		/// </summary>
+		/// <param name="format">
+		/// A <see cref="ArrayBufferItemType"/> describing the item base type on GPU side.
+		/// </param>
 		/// <param name="hint">
 		/// An <see cref="BufferUsage"/> that specify the data buffer usage hints.
 		/// </param>
 		public ArrayBufferInterleaved(BufferUsage hint) :
-			base(BufferTarget.ArrayBuffer, (uint)Marshal.SizeOf(typeof(T)), hint)
+			base(hint)
 		{
 			try {
+				// Determine array item size
+				ItemSize = (uint)Marshal.SizeOf(typeof(T));
 				// Detect interleaved fields using reflection (cached)
 				List<InterleavedSectionBase> typeSections = ScanTypeSections();
 				// Get array sections for this instance
-				_InterleavedSections = typeSections.ConvertAll(item => new InterleavedSection(this, item));
+				_InterleavedSections = typeSections.ConvertAll(delegate (InterleavedSectionBase item) {
+					return (new InterleavedSection(this, item));
+				});
 			} catch {
 				// Avoid finalizer assertion failure (don't call dispose since it's virtual)
 				GC.SuppressFinalize(this);
@@ -52,19 +60,23 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
-		/// Construct an immutable ArrayBufferInterleaved specifying its item layout on GPU side.
+		/// Construct an ArrayBufferInterleaved specifying its item layout on GPU side.
 		/// </summary>
 		/// <param name="usageMask">
 		/// A <see cref="BufferStorageMask"/> that specifies the data buffer usage mask.
 		/// </param>
 		public ArrayBufferInterleaved(BufferStorageMask usageMask) :
-			base(BufferTarget.ArrayBuffer, (uint)Marshal.SizeOf(typeof(T)), usageMask)
+			base(usageMask)
 		{
 			try {
+				// Determine array item size
+				ItemSize = (uint)Marshal.SizeOf(typeof(T));
 				// Detect interleaved fields using reflection (cached)
 				List<InterleavedSectionBase> typeSections = ScanTypeSections();
 				// Get array sections for this instance
-				_InterleavedSections = typeSections.ConvertAll(item => new InterleavedSection(this, item));
+				_InterleavedSections = typeSections.ConvertAll(delegate (InterleavedSectionBase item) {
+					return (new InterleavedSection(this, item));
+				});
 			} catch {
 				// Avoid finalizer assertion failure (don't call dispose since it's virtual)
 				GC.SuppressFinalize(this);
@@ -72,50 +84,54 @@ namespace OpenGL.Objects
 			}
 		}
 
+		private static List<InterleavedSectionBase> ScanTypeSections()
+		{
+			List<InterleavedSectionBase> typeSections;
+
+			// Determine array item size
+			uint itemSize = (uint)Marshal.SizeOf(typeof(T));
+
+			if (_TypeSections.TryGetValue(typeof(T), out typeSections) == false) {
+				// Cache for type
+				typeSections = new List<InterleavedSectionBase>();
+
+				foreach (FieldInfo field in typeof(T).GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)) {
+					InterleavedSectionBase structSection = new InterleavedSectionBase();
+					
+					structSection.ItemType = ArrayBufferItem.GetArrayType(field.FieldType);
+					structSection.Normalized = false;
+					structSection.Offset = Marshal.OffsetOf(typeof(T), field.Name);
+					structSection.Stride = new IntPtr(itemSize);
+
+					typeSections.Add(structSection);
+				}
+
+				_TypeSections.Add(typeof(T), typeSections);
+			}
+
+			return (typeSections);
+		}
+
+		private static readonly Dictionary<Type, List<InterleavedSectionBase>> _TypeSections = new Dictionary<Type, List<InterleavedSectionBase>>();
+
 		#endregion
 
 		#region Interleaved Sections
 
-		/// <summary>
-		/// An <see cref="ArrayBufferBase.IArraySection"/>, but inteleaved with other <see cref="InterleavedSectionBase"/>.
-		/// </summary>
-		/// <remarks>
-		/// Roughly a <see cref="InterleavedSectionBase"/> represents a field of a structure, representing the interleaved
-		/// vertices. Offset and types are defined directory from a generic type.
-		/// </remarks>
-		private class InterleavedSectionBase : IArraySection
+		class InterleavedSectionBase : IArraySection
 		{
-			/// <summary>
-			/// The type of the elements of the array section.
-			/// </summary>
 			public ArrayBufferItemType ItemType { get; set; }
 
-			/// <summary>
-			/// Get whether the array elements should be meant normalized (fixed point precision values).
-			/// </summary>
 			public bool Normalized { get; set; }
 
-			/// <summary>
-			/// Get the actual array buffer pointer. This is meant as offset of the currently CPU/GPU buffer.
-			/// </summary>
-			public virtual IntPtr Pointer { get; set; }
-
-			/// <summary>
-			/// Offset of the first element of the array section, in bytes.
-			/// </summary>
-			/// <remarks>
-			/// It should NOT take into account the client buffer address, even if the GL_ARB_vertex_buffer_object extension
-			/// is not supported by current implementation. It indicates an actual offset, in bytes.
-			/// </remarks>
 			public IntPtr Offset { get; set; }
 
-			/// <summary>
-			/// Offset between two element of the array section, in bytes. This is the structure size.
-			/// </summary>
+			public virtual IntPtr Pointer { get; set; }
+
 			public IntPtr Stride { get; set; }
 		}
 
-		private class InterleavedSection : InterleavedSectionBase
+		class InterleavedSection : InterleavedSectionBase
 		{
 			public InterleavedSection(ArrayBufferBase arrayBuffer, InterleavedSectionBase otherSection)
 			{
@@ -127,136 +143,24 @@ namespace OpenGL.Objects
 				Stride = otherSection.Stride;
 			}
 
-			private readonly ArrayBufferBase _ParentArray;
+			private ArrayBufferBase _ParentArray;
 
 			public override IntPtr Pointer
 			{
-				get { return _ParentArray.GpuBufferAddress; }
+				get { return (_ParentArray.GpuBufferAddress); }
 			}
 		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <returns></returns>
-		private static List<InterleavedSectionBase> ScanTypeSections()
-		{
-			List<InterleavedSectionBase> typeSections;
-
-			if (_TypeSections.TryGetValue(typeof(T), out typeSections))
-				return typeSections;
-
-			// Cache for type
-			uint itemSize = (uint)Marshal.SizeOf(typeof(T));
-
-			typeSections = new List<InterleavedSectionBase>();
-
-			foreach (FieldInfo field in typeof(T).GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)) {
-				typeSections.Add(new InterleavedSectionBase {
-					ItemType = ArrayBufferItem.GetArrayType(field.FieldType),
-					Normalized = false,
-					Offset = Marshal.OffsetOf(typeof(T), field.Name),
-					Stride = new IntPtr(itemSize)
-				});
-			}
-
-			_TypeSections.Add(typeof(T), typeSections);
-
-			return typeSections;
-		}
-
-		private static readonly Dictionary<Type, List<InterleavedSectionBase>> _TypeSections = new Dictionary<Type, List<InterleavedSectionBase>>();
 
 		private readonly List<InterleavedSection> _InterleavedSections;
-
+			
 		#endregion
 
-		#region Item Access
-
-		/// <summary>
-		/// Set an element to this mapped ArrayBufferObjectBase.
-		/// </summary>
-		/// <typeparam name="T">
-		/// A structure representing this ArrayBufferObjectBase element.
-		/// </typeparam>
-		/// <param name="value">
-		/// A <typeparamref name="T"/> that specify the mapped BufferObject element.
-		/// </param>
-		/// <param name="index">
-		/// A <see cref="uint"/> that specify the index of the element to set.
-		/// </param>
-		/// <param name="sectionIndex">
-		/// A <see cref="uint"/> that specifies the array section index for supporting packed/interleaved arrays.
-		/// </param>
-		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if this BufferObject is not mapped (<see cref="Buffer.IsMapped"/>).
-		/// </exception>
-		public void SetElement(T value, uint index)
-		{
-			uint stride = ItemSize;
-			ulong itemOffset = stride * index;
-
-			Set(value, itemOffset);
-		}
-
-		#endregion
-
-		#region Element Access
-
-		/// <summary>
-		/// Set an element to this mapped ArrayBufferObjectBase.
-		/// </summary>
-		/// <typeparam name="T">
-		/// A structure representing this ArrayBufferObjectBase element.
-		/// </typeparam>
-		/// <param name="value">
-		/// A <typeparamref name="T"/> that specify the mapped BufferObject element.
-		/// </param>
-		/// <param name="index">
-		/// A <see cref="uint"/> that specify the index of the element to set.
-		/// </param>
-		/// <param name="sectionIndex">
-		/// A <see cref="uint"/> that specifies the array section index for supporting packed/interleaved arrays.
-		/// </param>
-		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if this BufferObject is not mapped (<see cref="Buffer.IsMapped"/>).
-		/// </exception>
-		public void SetElement<ElementType>(ElementType value, uint index, uint sectionIndex) where ElementType : struct
-		{
-			SetElementCore(value, index, sectionIndex);
-		}
-
-		/// <summary>
-		/// Get an element from this mapped BufferObject.
-		/// </summary>
-		/// <typeparam name="T">
-		/// A structure representing this BufferObject element.
-		/// </typeparam>
-		/// <param name="index">
-		/// A <see cref="uint"/> that specify the index of the element to get.
-		/// </param>
-		/// <param name="sectionIndex">
-		/// A <see cref="uint"/> that specifies the array section index for supporting packed/interleaved arrays.
-		/// </param>
-		/// <returns>
-		/// It returns a structure of type <typeparamref name="T"/>, read from the mapped BufferObject
-		/// </returns>
-		/// <exception cref="InvalidOperationException">
-		/// Exception thrown if this BufferObject is not mapped (<see cref="Buffer.IsMapped"/>).
-		/// </exception>
-		public ElementType GetElement<ElementType>(uint index, uint sectionIndex) where ElementType : struct
-		{
-			return GetElementCore<ElementType>(index, sectionIndex);
-		}
-
-		#endregion
-
-		#region Overrides
+		#region ArrayBufferObjectBase Overrides
 
 		/// <summary>
 		/// Get the count of the array sections aggregated in this ArrayBufferObjectBase.
 		/// </summary>
-		protected internal override uint ArraySectionsCount { get { return (uint)_InterleavedSections.Count; } }
+		protected internal override uint ArraySectionsCount { get { return ((uint)_InterleavedSections.Count); } }
 
 		/// <summary>
 		/// Get the specified section information.
@@ -270,9 +174,9 @@ namespace OpenGL.Objects
 		protected internal override IArraySection GetArraySection(uint index)
 		{
 			if (index >= ArraySectionsCount)
-				throw new ArgumentOutOfRangeException(nameof(index), index, "greater or equal to ArraySectionsCount");
+				throw new ArgumentOutOfRangeException("greater or equal to ArraySectionsCount", index, "index");
 
-			return _InterleavedSections[(int)index];
+			return (_InterleavedSections[(int)index]);
 		}
 
 		/// <summary>
@@ -283,15 +187,15 @@ namespace OpenGL.Objects
 		/// </returns>
 		public override Array ToArray()
 		{
-			if (MappedBuffer == IntPtr.Zero)
-				throw new InvalidOperationException("GPU buffer is inaccessible");
+			if (CpuBufferAddress == IntPtr.Zero)
+				throw new InvalidOperationException("no client buffer");
 
-			T[] genericArray = new T[ItemsCount];
+			T[] genericArray = new T[CpuItemsCount];
 
 			// Copy from buffer data to array data
-			Memory.Copy(genericArray, MappedBuffer, ItemsCount * ItemSize);
+			Memory.Copy(genericArray, CpuBufferAddress, CpuItemsCount * ItemSize);
 
-			return genericArray;
+			return (genericArray);
 		}
 
 		/// <summary>
@@ -310,18 +214,18 @@ namespace OpenGL.Objects
 		{
 			CheckThisExistence(ctx);
 
-			T[] genericArray = new T[ItemsCount];
+			T[] genericArray = new T[GpuItemsCount];
 
 			// By checking existence, it's sure that we map the GPU buffer
 			Map(ctx, BufferAccess.ReadOnly);
 			try {
 				// Copy from mapped data to array data
-				Memory.Copy(genericArray, MappedBuffer, ItemsCount * ItemSize);
+				Memory.Copy(genericArray, MappedBuffer, GpuItemsCount * ItemSize);
 			} finally {
 				Unmap(ctx);
 			}
 
-			return genericArray;
+			return (genericArray);
 		}
 
 		#endregion

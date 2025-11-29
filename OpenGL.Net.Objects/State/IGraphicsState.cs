@@ -80,7 +80,7 @@ namespace OpenGL.Objects.State
 		/// Apply the render state defined by this IGraphicsState.
 		/// </summary>
 		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used in conjuction with <paramref name="shaderProgram"/>.
+		/// A <see cref="GraphicsContext"/> used in conjunction with <paramref name="shaderProgram"/>.
 		/// </param>
 		/// <param name="shaderProgram">
 		/// The <see cref="ShaderProgram"/> holding the uniform state.

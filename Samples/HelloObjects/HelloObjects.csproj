@@ -1,0 +1,82 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net48</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <RootNamespace>HelloObjects</RootNamespace>
+    <AssemblyName>HelloObjects</AssemblyName>
+    <Platforms>AnyCPU;x86;x64</Platforms>
+    <RuntimeIdentifiers>win-x86;win-x64</RuntimeIdentifiers>
+  </PropertyGroup>
+
+  <!-- Configuration-specific settings -->
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <Optimize>false</Optimize>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <Optimize>true</Optimize>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+
+  <!-- Project references -->
+  <ItemGroup>
+    <ProjectReference Include="..\..\OpenGL.Net.Objects\OpenGL.Net.Objects.csproj" />
+    <ProjectReference Include="..\..\OpenGL.Net.WinForms\OpenGL.Net.WinForms.csproj" />
+    <ProjectReference Include="..\..\OpenGL.Net\OpenGL.Net.csproj" />
+    <ProjectReference Include="..\..\OpenGL.Net\OpenGL.Net.Math.csproj" />
+  </ItemGroup>
+
+  <!-- Embedded resources (custom files, shaders, etc.) -->
+  <ItemGroup>
+    <EmbeddedResource Include="Shaders\Mass.glsl" />
+    <EmbeddedResource Include="Shaders\MassForceCompute.glsl" />
+    <EmbeddedResource Include="Shaders\MassPositionCompute.glsl" />
+    <EmbeddedResource Include="Shaders\_ShadersLibrary.xml" />
+  </ItemGroup>
+
+  <!-- Content files with copy instructions -->
+  <ItemGroup>
+    <Content Include="Data\BumbleBee\RB-BumbleBee.mtl" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="Data\BumbleBee\RB-BumbleBee.obj" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="Data\BumbleBee\VH-BumbleBee.mtl" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="Data\BumbleBee\VH-BumbleBee.obj" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="Data\BumbleBee\RB_BumblebeeEye_MASK.png" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="Data\BumbleBee\RB_Bumblebee_TEXTSET_Color_NormX.png" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="Data\BumbleBee\VH_BumblebeeEngineCasters_TEXTSET_Color_NormX.png" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="Data\BumbleBee\VH_BumblebeeNew_TEXTSET_Color_NormX.png" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <!-- App.config is treated as Content automatically -->
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+  </PropertyGroup>
+</Project>

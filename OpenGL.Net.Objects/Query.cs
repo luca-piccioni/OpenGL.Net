@@ -162,6 +162,11 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
+		/// Determine whether this IGraphicsResource is effectively shareable between sharing <see cref="GraphicsContext"/> instances.
+		/// </summary>
+		public override bool IsShareable { get { return false; } }
+
+		/// <summary>
 		/// Create a BufferObject name.
 		/// </summary>
 		/// <param name="ctx">

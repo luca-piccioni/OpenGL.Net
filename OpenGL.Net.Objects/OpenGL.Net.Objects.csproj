@@ -1,0 +1,150 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>OpenGL.Net.Objects</AssemblyName>
+    <RootNamespace>OpenGL</RootNamespace>
+    <Authors>Luca Piccioni</Authors>
+    <Product>OpenGL.Net</Product>
+    <Copyright>Copyright (C) Luca Piccioni 2015-2017</Copyright>
+    <Version>0.5.2</Version>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  
+  <ItemGroup>
+	<Compile Remove="**\*" />
+	<EmbeddedResource Remove="**\*" />
+    <None Remove="**\*" />
+  </ItemGroup>
+  
+  <ItemGroup>
+	<Compile Include="Collections\*.cs" />
+	<Compile Include="State\*.cs" />
+	<Compile Include="AlignedMemoryBuffer.cs" />
+	<Compile Include="ArrayBuffer*.cs" />
+	<Compile Include="Assembly.cs" />
+	<Compile Include="Buffer.cs" />
+	<Compile Include="CoreImageCodecPlugin.cs" />
+	<Compile Include="ElementBuffer.cs" />
+	<Compile Include="FeedbackBuffer.cs" />
+	<Compile Include="FeedbackBufferFormat.cs" />
+	<Compile Include="Font.cs" />
+	<Compile Include="FontFactory.cs" />
+	<Compile Include="FontFx.cs" />
+	<Compile Include="FontTextureArray2d.cs" />
+	<Compile Include="FontVertex.cs" />
+	<Compile Include="FrameBuffer.cs" />
+	<Compile Include="GpuMemoryInfo.cs" />
+	<Compile Include="GraphicsContext.cs" />
+	<Compile Include="GraphicsContext.Draw.cs" />
+	<Compile Include="GraphicsContextFlags.cs" />
+	<Compile Include="GraphicsResource.cs" />
+	<Compile Include="GraphicsSurface.cs" />
+	<Compile Include="IBindingIndexResource.cs" />
+	<Compile Include="IBindingResource.cs" />
+	<Compile Include="IDisposableExtensions.cs" />
+	<Compile Include="IFont.cs" />
+	<Compile Include="IGraphicsDisposable.cs" />
+	<Compile Include="IGraphicsResource.cs" />
+	<Compile Include="IGraphicsResource.Extensions.cs" />
+	<Compile Include="IGraphicsSurface.cs" />	
+	<Compile Include="IImageCodecPlugin.cs" />	
+	<Compile Include="Image.cs" />	
+	<Compile Include="ImageCodec.cs" />
+	<Compile Include="ImageCodecCriteria.cs" />
+	<Compile Include="ImageFormat.cs" />
+	<Compile Include="ImageInfo.cs" />
+	<Compile Include="ImageSemantic.cs" />
+	<Compile Include="IMedia.cs" />
+	<Compile Include="IMediaCodecPlugin.cs" />
+	<Compile Include="IPlugin.cs" />
+	<Compile Include="IResource.cs" />
+	<Compile Include="IShaderUniformContainer.cs" />
+	<Compile Include="MediaCodec.cs" />
+	<Compile Include="MediaCodecCriteria.cs" />
+	<Compile Include="MediaFormatAttribute.cs" />
+	<Compile Include="MediaInfo.cs" />
+	<Compile Include="PixelLayoutExtensions.cs" />
+	<Compile Include="PluginLoader.cs" />
+	<Compile Include="Query.cs" />
+	<Compile Include="RenderBuffer.cs" />
+	<Compile Include="Resource.cs" />
+	<Compile Include="ResourceCollection.cs" />
+	<Compile Include="Sampler.cs" />
+	<Compile Include="SamplerParameters.cs" />
+	<Compile Include="Shader.cs" />
+	<Compile Include="ShaderAttributeType.cs" />
+	<Compile Include="ShaderCompilerContext.cs" />
+	<Compile Include="ShaderException.cs" />
+	<Compile Include="ShaderExtension.cs" />
+	<Compile Include="ShaderExtensionBehavior.cs" />
+	<Compile Include="ShaderInclude.cs" />
+	<Compile Include="ShaderIncludeLibrary.cs" />
+	<Compile Include="ShaderPreprocessor.cs" />
+	<Compile Include="ShaderPreprocessorParser.cs" />
+	<Compile Include="ShaderProgram.cs" />
+	<Compile Include="ShaderProgram.*.cs" />
+	<Compile Include="ShadersLibrary.cs" />
+	<Compile Include="ShaderStorageBuffer.cs" />
+	<Compile Include="ShaderUniformType.cs" />
+	<Compile Include="Single.Extensions.cs" />
+	<Compile Include="String.Extensions.cs" />
+	<Compile Include="Tessellator.cs" />
+	<Compile Include="Texture.cs" />
+	<Compile Include="Texture1d.cs" />
+	<Compile Include="Texture2d.cs" />
+	<Compile Include="Texture3d.cs" />
+	<Compile Include="TextureArray2d.cs" />
+	<Compile Include="TextureCube.cs" />
+	<Compile Include="TextureRectangle.cs" />
+	<Compile Include="TextureUnit.cs" />
+	<Compile Include="UniformBuffer.cs" />
+	<Compile Include="UniformBuffer.*.cs" />
+	<Compile Include="VertexArrays.cs" />
+	<Compile Include="VertexArrayTexGen.cs" />
+	<Compile Include="VertexArrays.*.cs" />
+	<Compile Include="VertexArraySemantic.cs" />
+	<Compile Include="VertexBaseType.cs" />
+	<Compile Include="VertexMesh.cs" />
+	<Compile Include="Vincenty.cs" />
+  </ItemGroup>
+	
+  <ItemGroup>
+	<EmbeddedResource Include="Shaders\**\*.glsl" />
+	<EmbeddedResource Include="Shaders\**\*.xml" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Compile Remove="obj\**" />
+	<Compile Remove="Resources\**" />
+    <EmbeddedResource Remove="obj\**" />
+    <None Remove="obj\**" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PegGrammar Include="ShaderPreprocessorParser.peg" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Pegasus" Version="4.1.0" />
+    <PackageReference Include="System.Drawing.Common" Version="9.0.9" />
+    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OpenGL.Net\OpenGL.Net.csproj" />
+    <ProjectReference Include="..\OpenGL.Net\OpenGL.Net.Math.csproj" />
+  </ItemGroup>
+
+  <Import Project="..\OpenGL.Net.props" />
+
+</Project>

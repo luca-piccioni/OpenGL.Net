@@ -49,13 +49,30 @@ namespace OpenGL.Objects
 			/// <summary>
 			/// Attach this Attachment.
 			/// </summary>
+			/// <param name="ctx">
+			/// The <see cref="GraphicsContext"/> used for drawing.
+			/// </param>
 			/// <param name="target">
 			/// The target of the attachment.
 			/// </param>
 			/// <param name="attachment">
 			/// The index of the attachment, in case the attachment type allow multiple attachments (i.e. color).
 			/// </param>
-			public abstract void Attach(FramebufferTarget target, FramebufferAttachment attachment);
+			public abstract void Attach(GraphicsContext ctx, FramebufferTarget target, FramebufferAttachment attachment);
+
+			/// <summary>
+			/// Detach this Attachment.
+			/// </summary>
+			/// <param name="ctx">
+			/// The <see cref="GraphicsContext"/> used for drawing.
+			/// </param>
+			/// <param name="target">
+			/// The target of the attachment.
+			/// </param>
+			/// <param name="attachment">
+			/// The index of the attachment, in case the attachment type allow multiple attachments (i.e. color).
+			/// </param>
+			public abstract void Detach(GraphicsContext ctx, FramebufferTarget target, FramebufferAttachment attachment);
 
 			/// <summary>
 			/// Attachment is dirty (potentionally not bound to this framebuffer)
@@ -149,10 +166,28 @@ namespace OpenGL.Objects
 			/// <param name="attachment">
 			/// The index of the attachment, in case the attachment type allow multiple attachments (i.e. color).
 			/// </param>
-			public override void Attach(FramebufferTarget target, FramebufferAttachment attachment)
+			public override void Attach(GraphicsContext ctx, FramebufferTarget target, FramebufferAttachment attachment)
 			{
  				// Attach render buffer
 				Gl.FramebufferRenderbuffer(target, attachment, RenderbufferTarget.Renderbuffer, Buffer.ObjectName);
+			}
+
+			/// <summary>
+			/// Detach this Attachment.
+			/// </summary>
+			/// <param name="ctx">
+			/// The <see cref="GraphicsContext"/> used for drawing.
+			/// </param>
+			/// <param name="target">
+			/// The target of the attachment.
+			/// </param>
+			/// <param name="attachment">
+			/// The index of the attachment, in case the attachment type allow multiple attachments (i.e. color).
+			/// </param>
+			public override void Detach(GraphicsContext ctx, FramebufferTarget target, FramebufferAttachment attachment)
+			{
+				// Attach render buffer
+				Gl.FramebufferRenderbuffer(target, attachment, RenderbufferTarget.Renderbuffer, InvalidObjectName);
 			}
 
 			/// <summary>
@@ -299,10 +334,30 @@ namespace OpenGL.Objects
 			/// <param name="attachment">
 			/// The index of the attachment, in case the attachment type allow multiple attachments (i.e. color).
 			/// </param>
-			public override void Attach(FramebufferTarget target, FramebufferAttachment attachment)
+			public override void Attach(GraphicsContext ctx, FramebufferTarget target, FramebufferAttachment attachment)
 			{
+				// Ensure no texture unit can sample this texture
+				ctx.Unbind(Texture);
 				// Attach color texture
 				Gl.FramebufferTexture2D(target, attachment, TextureTarget, Texture.ObjectName, (int)TextureLevel);
+			}
+
+			/// <summary>
+			/// Detach this Attachment.
+			/// </summary>
+			/// <param name="ctx">
+			/// The <see cref="GraphicsContext"/> used for drawing.
+			/// </param>
+			/// <param name="target">
+			/// The target of the attachment.
+			/// </param>
+			/// <param name="attachment">
+			/// The index of the attachment, in case the attachment type allow multiple attachments (i.e. color).
+			/// </param>
+			public override void Detach(GraphicsContext ctx, FramebufferTarget target, FramebufferAttachment attachment)
+			{
+				// Detach color texture
+				Gl.FramebufferTexture2D(target, attachment, TextureTarget, InvalidObjectName, 0);
 			}
 
 			/// <summary>
@@ -328,7 +383,7 @@ namespace OpenGL.Objects
 			{
 				get
 				{
-					uint h = Texture.Width;
+					uint h = Texture.Height;
 
 					for (uint lod = 0; lod < TextureLevel; lod++)
 						h = Math.Max(1, h / 2);
@@ -430,7 +485,7 @@ namespace OpenGL.Objects
 		}
 
 		/// <summary>
-		/// Texture attachment to Framebuffer (specialization for <see cref="TextureArray2D"/> and <see cref="Texture3D"/>).
+		/// Texture attachment to Framebuffer (specialization for <see cref="TextureArray2d"/> and <see cref="Texture3d"/>).
 		/// </summary>
 		private class TextureArrayAttachment : TextureAttachment
 		{
@@ -448,7 +503,7 @@ namespace OpenGL.Objects
 			/// <exception cref="ArgumentNullException">
 			/// Exception thrown if <paramref name="texture"/> is null.
 			/// </exception>
-			public TextureArrayAttachment(TextureArray2D texture, uint layer)
+			public TextureArrayAttachment(TextureArray2d texture, uint layer)
 				: this(texture, layer, 0)
 			{
 				
@@ -469,7 +524,7 @@ namespace OpenGL.Objects
 			/// <exception cref="ArgumentNullException">
 			/// Exception thrown if <paramref name="texture"/> is null.
 			/// </exception>
-			public TextureArrayAttachment(TextureArray2D texture, uint layer, uint textureLevel)
+			public TextureArrayAttachment(TextureArray2d texture, uint layer, uint textureLevel)
 				: base(texture, textureLevel)
 			{
 				Depth = layer;
@@ -497,10 +552,28 @@ namespace OpenGL.Objects
 			/// <param name="attachment">
 			/// The index of the attachment, in case the attachment type allow multiple attachments (i.e. color).
 			/// </param>
-			public override void Attach(FramebufferTarget target, FramebufferAttachment attachment)
+			public override void Attach(GraphicsContext ctx, FramebufferTarget target, FramebufferAttachment attachment)
 			{
 				// Attach color texture
 				Gl.FramebufferTextureLayer(target, attachment, Texture.ObjectName, (int)TextureLevel, (int)Depth);
+			}
+
+			/// <summary>
+			/// Detach this Attachment.
+			/// </summary>
+			/// <param name="ctx">
+			/// The <see cref="GraphicsContext"/> used for drawing.
+			/// </param>
+			/// <param name="target">
+			/// The target of the attachment.
+			/// </param>
+			/// <param name="attachment">
+			/// The index of the attachment, in case the attachment type allow multiple attachments (i.e. color).
+			/// </param>
+			public override void Detach(GraphicsContext ctx, FramebufferTarget target, FramebufferAttachment attachment)
+			{
+				// Detach color texture
+				Gl.FramebufferTextureLayer(target, attachment, InvalidObjectName, 0, 0);
 			}
 
 			#endregion
@@ -521,19 +594,19 @@ namespace OpenGL.Objects
 		/// <param name="buffer">
 		/// A <see cref="RenderBuffer"/> which will be used for read/write operation on this RenderFrambuffer.
 		/// </param>
-		public void AttachColor(uint attachmentIndex, RenderBuffer buffer)
+		public void AttachColor(GraphicsContext ctx, uint attachmentIndex, RenderBuffer buffer)
 		{
 			if (buffer == null)
 				throw new ArgumentNullException("buffer");
 			if (buffer.BufferType != RenderBuffer.Type.Color)
 				throw new ArgumentException("buffer is not a color buffer type");
 
-			AttachColor(attachmentIndex, new RenderBufferAttachment(buffer));
+			AttachColor(ctx, attachmentIndex, new RenderBufferAttachment(buffer));
 		}
 
 		#endregion
 
-		#region AttachColor(Texture2D)
+		#region AttachColor(Texture2d)
 
 		/// <summary>
 		/// Attach a 2D texture image to color buffer.
@@ -542,11 +615,11 @@ namespace OpenGL.Objects
 		/// A <see cref="UInt32"/> that specify the framebuffer color attachment index.
 		/// </param>
 		/// <param name="texture">
-		/// A <see cref="Texture2D"/> which will be used for read/write operation on this RenderFrambuffer.
+		/// A <see cref="Texture2d"/> which will be used for read/write operation on this RenderFrambuffer.
 		/// </param>
-		public void AttachColor(uint attachmentIndex, Texture2D texture)
+		public void AttachColor(GraphicsContext ctx, uint attachmentIndex, Texture2d texture)
 		{
-			AttachColor(attachmentIndex, new TextureAttachment(texture));
+			AttachColor(ctx, attachmentIndex, new TextureAttachment(texture));
 		}
 
 		/// <summary>
@@ -561,9 +634,9 @@ namespace OpenGL.Objects
 		/// <param name="attachment">
 		/// A <see cref="UInt32"/> that specify the framebuffer color attachment index.
 		/// </param>
-		public void AttachColor(uint attachmentIndex, Texture2D texture, uint level)
+		public void AttachColor(GraphicsContext ctx, uint attachmentIndex, Texture2d texture, uint level)
 		{
-			AttachColor(attachmentIndex, new TextureAttachment(texture, level));
+			AttachColor(ctx, attachmentIndex, new TextureAttachment(texture, level));
 		}
 
 		#endregion
@@ -581,9 +654,9 @@ namespace OpenGL.Objects
 		/// <param name="texture">
 		/// A <see cref="Texture"/> which will be used for read/write operation on this RenderFrambuffer.
 		/// </param>
-		public void AttachColor(uint attachmentIndex, TextureRectangle texture)
+		public void AttachColor(GraphicsContext ctx, uint attachmentIndex, TextureRectangle texture)
 		{
-			AttachColor(attachmentIndex, new TextureAttachment(texture));
+			AttachColor(ctx, attachmentIndex, new TextureAttachment(texture));
 		}
 
 		#endregion
@@ -592,28 +665,28 @@ namespace OpenGL.Objects
 
 		#region AttachColor(TextureCube)
 
-		public void AttachColor(uint attachmentIndex, TextureCube texture, TextureCube.CubeFace cubeFace)
+		public void AttachColor(GraphicsContext ctx, uint attachmentIndex, TextureCube texture, TextureCube.CubeFace cubeFace)
 		{
-			AttachColor(attachmentIndex, new TextureCubeAttachment(texture, cubeFace));
+			AttachColor(ctx, attachmentIndex, new TextureCubeAttachment(texture, cubeFace));
 		}
 
-		public void AttachColor(uint attachmentIndex, TextureCube texture, TextureCube.CubeFace cubeFace, uint level)
+		public void AttachColor(GraphicsContext ctx, uint attachmentIndex, TextureCube texture, TextureCube.CubeFace cubeFace, uint level)
 		{
-			AttachColor(attachmentIndex, new TextureCubeAttachment(texture, cubeFace, level));
+			AttachColor(ctx, attachmentIndex, new TextureCubeAttachment(texture, cubeFace, level));
 		}
 
 		#endregion
 
-		#region AttachColor(TextureArray2D)
+		#region AttachColor(TextureArray2d)
 
-		public void AttachColor(uint attachmentIndex, TextureArray2D texture, uint layer)
+		public void AttachColor(GraphicsContext ctx, uint attachmentIndex, TextureArray2d texture, uint layer)
 		{
-			AttachColor(attachmentIndex, new TextureArrayAttachment(texture, layer));
+			AttachColor(ctx, attachmentIndex, new TextureArrayAttachment(texture, layer));
 		}
 
-		public void AttachColor(uint attachmentIndex, TextureArray2D texture, uint layer, uint level)
+		public void AttachColor(GraphicsContext ctx, uint attachmentIndex, TextureArray2d texture, uint layer, uint level)
 		{
-			AttachColor(attachmentIndex, new TextureArrayAttachment(texture, layer, level));
+			AttachColor(ctx, attachmentIndex, new TextureArrayAttachment(texture, layer, level));
 		}
 
 		#endregion
@@ -627,7 +700,7 @@ namespace OpenGL.Objects
 		/// <param name="attachment">
 		/// A <see cref="Attachment"/> which will be used for read/write operation on this RenderFrambuffer.
 		/// </param>
-		private void AttachColor(uint attachmentIndex, Attachment attachment)
+		private void AttachColor(GraphicsContext ctx, uint attachmentIndex, Attachment attachment)
 		{
 			if (attachment == null)
 				throw new ArgumentNullException("attachment");
@@ -635,7 +708,7 @@ namespace OpenGL.Objects
 				throw new ArgumentException(String.Format("attachment index {0} is greater than the maximum allowed", attachmentIndex), "attachmentIndex");
 
 			// Detach
-			DetachColor(attachmentIndex);
+			DetachColor(ctx, attachmentIndex);
 			// Reset color attachment
 			_ColorBuffers[attachmentIndex] = attachment;
 		}
@@ -646,12 +719,13 @@ namespace OpenGL.Objects
 		/// <param name="attachment">
 		/// A <see cref="UInt32"/> that specify the framebuffer color attachment index.
 		/// </param>
-		public void DetachColor(uint attachmentIndex)
+		public void DetachColor(GraphicsContext ctx, uint attachmentIndex)
 		{
 			if (attachmentIndex >= Gl.CurrentLimits.MaxColorAttachments)
 				throw new ArgumentException(String.Format("attachment index {0} is greater than the maximum allowed", attachmentIndex), "attachmentIndex");
 
 			if (_ColorBuffers[attachmentIndex] != null) {
+				_ColorBuffers[attachmentIndex].Detach(ctx, FramebufferTarget.Framebuffer, (FramebufferAttachment)((uint)FramebufferAttachment.ColorAttachment0 + attachmentIndex));
 				_ColorBuffers[attachmentIndex].Dispose();
 				_ColorBuffers[attachmentIndex] = null;
 			}
@@ -660,10 +734,10 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Detach all color attachment.
 		/// </summary>
-		public void DetachColors()
+		public void DetachColors(GraphicsContext ctx)
 		{
 			for (uint i = 0; i < (uint)Gl.CurrentLimits.MaxColorAttachments; i++)
-				DetachColor(i);
+				DetachColor(ctx, i);
 		}
 
 		/// <summary>
@@ -680,17 +754,17 @@ namespace OpenGL.Objects
 			if (buffer == null)
 				throw new ArgumentNullException("buffer");
 			if (buffer.BufferType != RenderBuffer.Type.Depth)
-				throw new ArgumentException("buffer is not a color buffer type");
+				throw new ArgumentException("buffer is not a depth buffer type");
 
 			AttachDepth(new RenderBufferAttachment(buffer));
 		}
 
-		public void AttachDepth(Texture2D texture)
+		public void AttachDepth(Texture2d texture)
 		{
 			AttachDepth(texture, 0);
 		}
 
-		public void AttachDepth(Texture2D texture, uint level)
+		public void AttachDepth(Texture2d texture, uint level)
 		{
 			AttachDepth(new TextureAttachment(texture, level));
 		}
@@ -745,8 +819,34 @@ namespace OpenGL.Objects
 			if (buffer.BufferType != RenderBuffer.Type.Stencil)
 				throw new ArgumentException("buffer is not a stencil buffer type");
 
-			// Reset buffer color attachment
-			_StencilBuffer = buffer;
+			// Attach stencil
+			AttachStencil(new RenderBufferAttachment(buffer));
+		}
+
+		public void AttachStencil(Texture2d texture)
+		{
+			if (texture == null)
+				throw new ArgumentNullException(nameof(texture));
+
+			// Attach stencil
+			AttachStencil(new TextureAttachment(texture));
+		}
+
+		/// <summary>
+		/// Attach a resource to stencil buffer.
+		/// </summary>
+		/// <param name="attachment">
+		/// A <see cref="Attachment"/> which will be used for read/write operation on this RenderFrambuffer.
+		/// </param>
+		private void AttachStencil(Attachment attachment)
+		{
+			if (attachment == null)
+				throw new ArgumentNullException("attachment");
+
+			// Detach
+			DetachStencil();
+			// Reset stencil attachment
+			_StencilBuffer = attachment;
 		}
 
 		/// <summary>
@@ -754,13 +854,73 @@ namespace OpenGL.Objects
 		/// </summary>
 		public void DetachStencil()
 		{
+			_StencilBuffer?.Dispose();
 			_StencilBuffer = null;
 		}
 
 		/// <summary>
 		/// RenderBuffer used as depth attachment.
 		/// </summary>
-		private RenderBuffer _StencilBuffer = null;
+		private Attachment _StencilBuffer = null;
+
+		#endregion
+
+		#region Depth Stencil Buffer Attachment
+
+		public void AttachDepthStencil(RenderBuffer buffer)
+		{
+			if (buffer == null)
+				throw new ArgumentNullException("buffer");
+			if (buffer.BufferType != RenderBuffer.Type.DepthStencil)
+				throw new ArgumentException("buffer is not a depth stencil buffer type");
+
+			AttachDepthStencil(new RenderBufferAttachment(buffer));
+		}
+
+		public void AttachDepthStencil(Texture2d texture)
+		{
+			AttachDepthStencil(texture, 0);
+		}
+
+		public void AttachDepthStencil(Texture2d texture, uint level)
+		{
+			AttachDepthStencil(new TextureAttachment(texture, level));
+		}
+
+#if !MONODROID
+
+		public void AttachDepthStencil(TextureRectangle texture)
+		{
+			AttachDepthStencil(new TextureRectangleAttachment(texture));
+		}
+
+#endif
+
+		private void AttachDepthStencil(Attachment attachment)
+		{
+			if (attachment == null)
+				throw new ArgumentNullException("attachment");
+
+			DetachDepthStencil();
+
+			_DepthStencilAttachment = attachment;
+		}
+
+		/// <summary>
+		/// Detach depth buffer.
+		/// </summary>
+		public void DetachDepthStencil()
+		{
+			if (_DepthStencilAttachment != null) {
+				_DepthStencilAttachment.Dispose();
+				_DepthStencilAttachment = null;
+			}
+		}
+
+		/// <summary>
+		/// Depth attachment.
+		/// </summary>
+		private Attachment _DepthStencilAttachment;
 
 		#endregion
 
@@ -795,6 +955,11 @@ namespace OpenGL.Objects
 		public Image ReadColorBuffer(GraphicsContext ctx, uint attachment, uint x, uint y, uint width, uint height, PixelLayout pType)
 		{
 			return (ReadBuffer(ctx, (ReadBufferMode)(Gl.COLOR_ATTACHMENT0 + (int)attachment), x, y, width, height, pType));
+		}
+
+		public T ReadColorFragment<T>(GraphicsContext ctx, uint attachment, uint x, uint y, PixelLayout pType) where T : struct
+		{
+			return ReadFragment<T>(ctx, (ReadBufferMode)(Gl.COLOR_ATTACHMENT0 + (int)attachment), x, y, pType);
 		}
 
 		/// <summary>
@@ -902,7 +1067,7 @@ namespace OpenGL.Objects
 		/// Bind this GraphicsSurface for drawing.
 		/// </summary>
 		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> to wich associate its rendering result to this GraphicsSurface.
+		/// A <see cref="GraphicsContext"/> to which associate its rendering result to this GraphicsSurface.
 		/// </param>
 		public override void BindDraw(GraphicsContext ctx)
 		{
@@ -917,7 +1082,7 @@ namespace OpenGL.Objects
 					// Ensure created buffer
 					_ColorBuffers[i].Create(ctx);
 					// Ensure attached buffer
-					_ColorBuffers[i].Attach(FramebufferTarget.DrawFramebuffer,  FramebufferAttachment.ColorAttachment0 + (int)i);
+					_ColorBuffers[i].Attach(ctx, FramebufferTarget.DrawFramebuffer,  FramebufferAttachment.ColorAttachment0 + (int)i);
 					_ColorBuffers[i].Dirty = false;
 				}
 
@@ -930,8 +1095,16 @@ namespace OpenGL.Objects
 				// Ensure created buffer
 				_DepthAttachment.Create(ctx);
 				// Ensure attached buffer
-				_DepthAttachment.Attach(FramebufferTarget.DrawFramebuffer, FramebufferAttachment.DepthAttachment);
+				_DepthAttachment.Attach(ctx, FramebufferTarget.DrawFramebuffer, FramebufferAttachment.DepthAttachment);
 				_DepthAttachment.Dirty = false;
+			}
+
+			if (_DepthStencilAttachment != null && _DepthStencilAttachment.Dirty) {
+				// Ensure created buffer
+				_DepthStencilAttachment.Create(ctx);
+				// Ensure attached buffer
+				_DepthStencilAttachment.Attach(ctx, FramebufferTarget.DrawFramebuffer, (FramebufferAttachment)Gl.DEPTH_STENCIL_ATTACHMENT);
+				_DepthStencilAttachment.Dirty = false;
 			}
 
 			// Validate completeness status
@@ -974,7 +1147,7 @@ namespace OpenGL.Objects
 					// Ensure created buffer
 					_ColorBuffers[i].Create(ctx);
 					// Ensure attached buffer
-					_ColorBuffers[i].Attach(FramebufferTarget.DrawFramebuffer, FramebufferAttachment.ColorAttachment0 + (int)i);
+					_ColorBuffers[i].Attach(ctx, FramebufferTarget.DrawFramebuffer, FramebufferAttachment.ColorAttachment0 + (int)i);
 					_ColorBuffers[i].Dirty = false;
 				}
 			}
@@ -1186,7 +1359,12 @@ namespace OpenGL.Objects
 					_DepthAttachment.Dispose();
 					_DepthAttachment = null;
 				}
-				
+
+				if (_DepthStencilAttachment != null) {
+					_DepthStencilAttachment.Dispose();
+					_DepthStencilAttachment = null;
+				}
+
 				if (_StencilBuffer != null) {
 					_StencilBuffer.Dispose();
 					_StencilBuffer = null;
@@ -1195,6 +1373,59 @@ namespace OpenGL.Objects
 
 			// Base implementation
 			base.Dispose(disposing);
+		}
+
+		#endregion
+	}
+
+	/// <summary>
+	/// Default framebuffer utility.
+	/// </summary>
+	public sealed class DefaultFramebuffer : GraphicsSurface
+	{
+		#region Framebuffer Grabbing
+
+		public T ReadColorFragment<T>(GraphicsContext ctx, uint x, uint y, PixelLayout pType) where T : struct
+		{
+			return ReadFragment<T>(ctx, ReadBufferMode.Front, x, y, pType);
+		}
+
+		#endregion
+
+		#region Overrides
+
+		/// <summary>
+		/// Bind this GraphicsSurface for reading.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> to wich associate its read result to this GraphicsSurface.
+		/// </param>
+		public override void BindRead(GraphicsContext ctx)
+		{
+			// Bind the default framebuffer
+			Gl.BindFramebuffer(FramebufferTarget.ReadFramebuffer, InvalidObjectName);
+		}
+
+		/// <summary>
+		/// Unbind this GraphicsSurface for reading.
+		/// </summary>
+		/// <param name="ctx">
+		/// A <see cref="GraphicsContext"/> to wich disassociate its read result from this GraphicsSurface.
+		/// </param>
+		public override void UnbindRead(GraphicsContext ctx) { }
+
+		public override Guid ObjectClass { get; } = Guid.Empty;
+		public override DeviceContext GetDeviceContext()
+		{
+			return null;
+		}
+
+		public override DevicePixelFormat BufferFormat { get; } = null;
+		public override bool Swappable { get; } = true;
+		public override int SwapInterval { get; set; } = 1;
+		public override void SwapSurface()
+		{
+			throw new NotImplementedException();
 		}
 
 		#endregion

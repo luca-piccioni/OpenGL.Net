@@ -19,15 +19,17 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+using Khronos;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-
-using Khronos;
+using System.Runtime.CompilerServices;
 
 // ReSharper disable RedundantIfElseBlock
 // ReSharper disable SwitchStatementMissingSomeCases
 // ReSharper disable InheritdocConsiderUsage
+
+[assembly: InternalsVisibleTo("OpenGL.Net.Test")]
 
 namespace OpenGL
 {
@@ -561,6 +563,13 @@ namespace OpenGL
 			if (ctx == IntPtr.Zero || current != true)
 				return current;
 
+			// Performs Gl.BindAPI only if effectively required
+			int boundHandle = GetPixelFormatIndex();
+
+			if (_BoundAPI >= 0 && _BoundAPI == boundHandle)
+				return true;
+
+			// Bind GL API function pointers
 			switch (DefaultAPI) {
 				case KhronosVersion.ApiGlsc2:
 					// Special OpenGL SC2 management: loads only SC2 requirements
@@ -572,8 +581,21 @@ namespace OpenGL
 					break;
 			}
 
+			// Optimize next MakeCurrent executions
+			_BoundAPI = boundHandle;
+
 			return true;
 		}
+
+		/// <summary>
+		/// Handle used to optimize <see cref="MakeCurrent(IntPtr)"/> implementation.
+		/// </summary>
+		/// <remarks>
+		/// The <see cref="ThreadStaticAttribute"/> is required because <see cref="Gl"/> function pointer fields have see cref="ThreadStaticAttribute"/>
+		/// attribute as well.
+		/// </remarks>
+		[ThreadStatic]
+		private static int _BoundAPI = int.MinValue;
 
 		/// <summary>
 		/// Makes the context current on the calling thread.
@@ -664,9 +686,31 @@ namespace OpenGL
 		public abstract void SetPixelFormat(DevicePixelFormat pixelFormat);
 
 		/// <summary>
+		/// Get the device pixel format index.
+		/// </summary>
+		public abstract int GetPixelFormatIndex();
+
+		/// <summary>
 		/// Get the flag indicating whether this DeviceContext has a pixel format defined.
 		/// </summary>
 		public bool IsPixelFormatSet { get; protected set; }
+
+		#endregion
+
+		#region Swap Group Support
+
+		/// <summary>
+		/// Determine whether this DeviceContext support OpenGL swapping groups.
+		/// </summary>
+		public abstract bool SupportSwapGroup { get; }
+
+		/// <summary>
+		/// Join this DeviceContext to the specified swap group.
+		/// </summary>
+		/// <param name="swapGroupID">
+		/// The identifier of the OpenGL swap group. If zero, unbound this DeviceContext from any swap group.
+		/// </param>
+		public abstract bool JoinSwapGroup(uint swapGroupID);
 
 		#endregion
 
