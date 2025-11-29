@@ -1284,23 +1284,9 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetInteger64v != null, "pglGetInteger64v not implemented");
 			data = default(T);
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(data);
-			try {
-				unsafe {
-					Delegates.pglGetInteger64v((int)pname, (long*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refData = __makeref(data);
-				IntPtr refDataPtr = *(IntPtr*)(&refData);
-
-				Delegates.pglGetInteger64v((int)pname, (long*)refDataPtr.ToPointer());
+				Delegates.pglGetInteger64v((int)pname, (long*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref data));
 			}
-			#endif
 			LogCommand("glGetInteger64v", null, pname, data			);
 			DebugCheckErrors(null);
 		}
@@ -1544,23 +1530,9 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetInteger64i_v != null, "pglGetInteger64i_v not implemented");
 			data = default(T);
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(data);
-			try {
-				unsafe {
-					Delegates.pglGetInteger64i_v((int)target, index, (long*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refData = __makeref(data);
-				IntPtr refDataPtr = *(IntPtr*)(&refData);
-
-				Delegates.pglGetInteger64i_v((int)target, index, (long*)refDataPtr.ToPointer());
+				Delegates.pglGetInteger64i_v((int)target, index, (long*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref data));
 			}
-			#endif
 			LogCommand("glGetInteger64i_v", null, target, index, data			);
 			DebugCheckErrors(null);
 		}

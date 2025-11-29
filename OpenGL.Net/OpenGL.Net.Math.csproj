@@ -1,7 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <BaseIntermediateOutputPath>obj\netstd2.0</BaseIntermediateOutputPath>
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>OpenGL.Net.Math</AssemblyName>
     <RootNamespace>OpenGL</RootNamespace>

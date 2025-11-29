@@ -77,12 +77,15 @@ The **Framebuffer** class represents an OpenGL framebuffer object (FBO).
 An FBO is a collection of attachments (color, depth, stencil, and multisample buffers) that can be rendered to directly instead of the default window framebuffer.  
 This class wraps all the low‑level `gl*Framebuffer*` calls and offers a type‑safe, resource‑managed API that is fully integrated with the rest of the `OpenGL.Net.Objects` framework.
 
-| Property | Description |
-|----------|-------------|
-| `Id` | The native framebuffer handle. |
-| `ColorAttachments` | Collection of attached color textures. |
-| `DepthAttachment` | Depth renderbuffer or texture. |
-| `IsComplete` | Checks `glCheckFramebufferStatus`. |
+#### Public API
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `Id` | `uint` | The native OpenGL framebuffer handle. |
+| `ColorAttachments` | `Dictionary<FramebufferAttachment, Texture>` | Maps attachment points to the attached color textures. |
+| `DepthAttachment` | `Renderbuffer` or `Texture` | The depth (or depth‑stencil) buffer attached to the FBO. |
+| `IsComplete` | `bool` | Returns the result of `glCheckFramebufferStatus`. |
+| `AttachmentCount` | `int` | Number of attachments currently bound. |
 
 **Key Methods**
 

@@ -49,13 +49,6 @@ namespace HelloObjects
 
 		#region 
 
-		private struct Mass
-		{
-			public Vertex4f Position;
-			public Vertex4f Velocity;
-			public Vertex4f Force;
-		}
-
 		private void CreateResources(GraphicsContext ctx)
 		{
 			// Program library
@@ -97,16 +90,6 @@ namespace HelloObjects
 			// 
 			// _MassBuffer.Unmap(_Context);
 		}
-
-		ArrayBufferInterleaved<Mass> _MassBuffer;
-
-		private ShaderProgram _ComputeEnergy;
-
-		private ShaderProgram _ComputePosition;
-
-		private ShaderProgram _DrawMass;
-
-		private VertexArrays _MassArrays;
 
 		#endregion
 
@@ -154,9 +137,6 @@ namespace HelloObjects
 		/// <param name="e"></param>
 		private void ObjectsControl_Render(object sender, GlControlEventArgs e)
 		{
-			float deltaTime = (float)_Crono.Elapsed.TotalSeconds * _TimeSpeed;
-			_Crono.Restart();
-
 			// Update force
 			// _ComputeEnergy.SetStorageBuffer(_Context, "MassBuffer", _MassBuffer);
 			// 
@@ -195,14 +175,6 @@ namespace HelloObjects
 			// 
 			// _MassArrays.Draw(_Context, _DrawMass);
 		}
-
-		const uint _Size = 128;
-
-		float _Gravity = 1800f;
-
-		float _TimeSpeed = 1000.0f;
-
-		private Stopwatch _Crono = new Stopwatch();
 
 		/// <summary>
 		/// The GL context.

@@ -9,7 +9,7 @@
                 "command": "cmd.exe",
                 "args": [
                     "/c",
-                    "\"${env:ProgramFiles}\\Microsoft Visual Studio\\2022\\Community\\VC\\Auxiliary\\Build\\vcvars64.bat\" && MSBuild.exe \"${workspaceFolder}/OpenGL.Net.sln\" /t:Build /p:Configuration=Release /p:Platform=\"Any CPU\" /m /v:m"
+                    "dotnet build"
                 ],
                 "options": {
                     "shell": {

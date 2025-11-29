@@ -211,7 +211,9 @@ namespace OpenGL.Test
 			a = new KhronosVersion(1, 0, 0, "api");
 			Assert.IsFalse(a > null);
 			Assert.IsFalse(null > a);
+#pragma warning disable CS1718
 			Assert.IsFalse(a > a);
+#pragma warning restore CS1718
 
 			b = new KhronosVersion(1, 0, 0, "api");
 			Assert.IsFalse(a > b);
@@ -237,7 +239,9 @@ namespace OpenGL.Test
 			a = new KhronosVersion(1, 0, 0, "api");
 			Assert.IsFalse(a < null);
 			Assert.IsFalse(null < a);
+#pragma warning disable CS1718
 			Assert.IsFalse(a < a);
+#pragma warning restore CS1718
 
 			b = new KhronosVersion(1, 0, 0, "api");
 			Assert.IsFalse(a < b);
@@ -263,7 +267,9 @@ namespace OpenGL.Test
 			a = new KhronosVersion(1, 0, 0, "api");
 			Assert.IsFalse(a >= null);
 			Assert.IsFalse(null >= a);
+#pragma warning disable CS1718
 			Assert.IsTrue(a >= a);
+#pragma warning restore CS1718
 
 			b = new KhronosVersion(0, 9, 0, "api");
 			Assert.IsTrue(a >= b);
@@ -289,7 +295,9 @@ namespace OpenGL.Test
 			a = new KhronosVersion(1, 0, 0, "api");
 			Assert.IsFalse(a <= null);
 			Assert.IsFalse(null <= a);
+#pragma warning disable CS1718
 			Assert.IsTrue(a <= a);
+#pragma warning restore CS1718
 
 			b = new KhronosVersion(1, 1, 0, "api");
 			Assert.IsTrue(a <= b);

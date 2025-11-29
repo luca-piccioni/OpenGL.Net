@@ -140,6 +140,10 @@ No graphical toolkit integration is included in this package. UI backends are su
     <EmbeddedResource Include="KhronosLogMapWgl.xml" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.1.2" />
+  </ItemGroup>
+
   <Import Project="..\Khronos.Net\Khronos.Net.projitems" Label="Shared" />
 
   <Import Project="..\OpenGL.Net.props" />

@@ -905,62 +905,62 @@ namespace Khronos
 
 				}
 
-				continue;
-
+				if (enableExtensions) {
 					// Find the underlying extension
 					RequiredByFeatureAttribute hiddenVersionAttrib = null;
-				RequiredByFeatureAttribute hiddenExtensionAttrib = null;
+					RequiredByFeatureAttribute hiddenExtensionAttrib = null;
 
-				foreach (RequiredByFeatureAttribute requiredByFeatureAttribute in requiredByFeatureAttributes) {
-					if (requiredByFeatureAttribute.IsSupportedApi(version.Api) == false) {
-						// Version attribute
-						if (hiddenVersionAttrib == null)
-							hiddenVersionAttrib = requiredByFeatureAttribute;
-					} else {
-						// Extension attribute
-						if (hiddenExtensionAttrib == null)
-							hiddenExtensionAttrib = requiredByFeatureAttribute;
-					}
-				}
-
-				if (commandDefined != supportedByFeature) {
-					string supportString = "any feature";
-
-					if (hiddenVersionAttrib != null) {
-						supportString = hiddenVersionAttrib.FeatureName;
-						if (hiddenExtensionAttrib != null)
-							supportString += " or ";
+					foreach (RequiredByFeatureAttribute requiredByFeatureAttribute in requiredByFeatureAttributes) {
+						if (requiredByFeatureAttribute.IsSupportedApi(version.Api) == false) {
+							// Version attribute
+							if (hiddenVersionAttrib == null)
+								hiddenVersionAttrib = requiredByFeatureAttribute;
+						} else {
+							// Extension attribute
+							if (hiddenExtensionAttrib == null)
+								hiddenExtensionAttrib = requiredByFeatureAttribute;
+						}
 					}
 
-					if (hiddenExtensionAttrib != null) {
-						if (hiddenVersionAttrib == null)
-							supportString = string.Empty;
-						supportString += hiddenExtensionAttrib.FeatureName;
-					}
+					if (commandDefined != supportedByFeature) {
+						string supportString = "any feature";
 
-					if (commandDefined) {
-						LogComment($"The command {commandName} is defined, but {supportString} support is not advertised.");
-						if (hiddenVersionAttrib != null && hiddenExtensionAttrib == null) {
-							List<Type> versionDelegates;
-
-							if (hiddenVersions.TryGetValue(hiddenVersionAttrib.FeatureName, out versionDelegates) == false)
-								hiddenVersions.Add(hiddenVersionAttrib.FeatureName, versionDelegates = new List<Type>());
-							versionDelegates.Add(delegateType);
+						if (hiddenVersionAttrib != null) {
+							supportString = hiddenVersionAttrib.FeatureName;
+							if (hiddenExtensionAttrib != null)
+								supportString += " or ";
 						}
 
 						if (hiddenExtensionAttrib != null) {
-							// Eventually leave to false for incomplete extensions
-							if (hiddenExtensions.ContainsKey(hiddenExtensionAttrib.FeatureName) == false)
-								hiddenExtensions.Add(hiddenExtensionAttrib.FeatureName, true);
+							if (hiddenVersionAttrib == null)
+								supportString = string.Empty;
+							supportString += hiddenExtensionAttrib.FeatureName;
 						}
-					} else {
-						LogComment($"The command {commandName} is not defined, but required by some feature.");
-					}
-				}
 
-				// Partial extensions are not supported
-				if (hiddenExtensionAttrib != null && commandDefined == false && hiddenExtensions.ContainsKey(hiddenExtensionAttrib.FeatureName))
-					hiddenExtensions[hiddenExtensionAttrib.FeatureName] = false;
+						if (commandDefined) {
+							LogComment($"The command {commandName} is defined, but {supportString} support is not advertised.");
+							if (hiddenVersionAttrib != null && hiddenExtensionAttrib == null) {
+								List<Type> versionDelegates;
+
+								if (hiddenVersions.TryGetValue(hiddenVersionAttrib.FeatureName, out versionDelegates) == false)
+									hiddenVersions.Add(hiddenVersionAttrib.FeatureName, versionDelegates = new List<Type>());
+								versionDelegates.Add(delegateType);
+							}
+
+							if (hiddenExtensionAttrib != null) {
+								// Eventually leave to false for incomplete extensions
+								if (hiddenExtensions.ContainsKey(hiddenExtensionAttrib.FeatureName) == false)
+									hiddenExtensions.Add(hiddenExtensionAttrib.FeatureName, true);
+							}
+						} else {
+							LogComment($"The command {commandName} is not defined, but required by some feature.");
+						}
+					}
+
+					// Partial extensions are not supported
+					if (hiddenExtensionAttrib != null && commandDefined == false && hiddenExtensions.ContainsKey(hiddenExtensionAttrib.FeatureName))
+						hiddenExtensions[hiddenExtensionAttrib.FeatureName] = false;
+				}
 			}
 
 			if (hiddenExtensions.Count > 0) {

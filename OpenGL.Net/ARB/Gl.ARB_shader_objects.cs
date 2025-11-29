@@ -246,23 +246,9 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetObjectParameterfvARB != null, "pglGetObjectParameterfvARB not implemented");
 			@params = default(T);
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(@params);
-			try {
-				unsafe {
-					Delegates.pglGetObjectParameterfvARB(obj, pname, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refParams = __makeref(@params);
-				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
-
-				Delegates.pglGetObjectParameterfvARB(obj, pname, (float*)refParamsPtr.ToPointer());
+				Delegates.pglGetObjectParameterfvARB(obj, pname, (float*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref @params));
 			}
-			#endif
 			LogCommand("glGetObjectParameterfvARB", null, obj, pname, @params			);
 			DebugCheckErrors(null);
 		}
@@ -357,23 +343,9 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetObjectParameterivARB != null, "pglGetObjectParameterivARB not implemented");
 			@params = default(T);
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(@params);
-			try {
-				unsafe {
-					Delegates.pglGetObjectParameterivARB(obj, pname, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refParams = __makeref(@params);
-				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
-
-				Delegates.pglGetObjectParameterivARB(obj, pname, (int*)refParamsPtr.ToPointer());
+				Delegates.pglGetObjectParameterivARB(obj, pname, (int*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref @params));
 			}
-			#endif
 			LogCommand("glGetObjectParameterivARB", null, obj, pname, @params			);
 			DebugCheckErrors(null);
 		}

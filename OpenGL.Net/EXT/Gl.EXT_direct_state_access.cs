@@ -118,23 +118,9 @@ namespace OpenGL
 		public static void MatrixLoadfEXT<T>(MatrixMode mode, T m) where T : struct
 		{
 			Debug.Assert(Delegates.pglMatrixLoadfEXT != null, "pglMatrixLoadfEXT not implemented");
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(m);
-			try {
-				unsafe {
-					Delegates.pglMatrixLoadfEXT((int)mode, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refM = __makeref(m);
-				IntPtr refMPtr = *(IntPtr*)(&refM);
-
-				Delegates.pglMatrixLoadfEXT((int)mode, (float*)refMPtr.ToPointer());
+				Delegates.pglMatrixLoadfEXT((int)mode, (float*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref m));
 			}
-			#endif
 			LogCommand("glMatrixLoadfEXT", null, mode, m			);
 			DebugCheckErrors(null);
 		}
@@ -197,23 +183,9 @@ namespace OpenGL
 		public static void MatrixLoaddEXT<T>(MatrixMode mode, T m) where T : struct
 		{
 			Debug.Assert(Delegates.pglMatrixLoaddEXT != null, "pglMatrixLoaddEXT not implemented");
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(m);
-			try {
-				unsafe {
-					Delegates.pglMatrixLoaddEXT((int)mode, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refM = __makeref(m);
-				IntPtr refMPtr = *(IntPtr*)(&refM);
-
-				Delegates.pglMatrixLoaddEXT((int)mode, (double*)refMPtr.ToPointer());
+				Delegates.pglMatrixLoaddEXT((int)mode, (double*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref m));
 			}
-			#endif
 			LogCommand("glMatrixLoaddEXT", null, mode, m			);
 			DebugCheckErrors(null);
 		}
@@ -276,23 +248,9 @@ namespace OpenGL
 		public static void MatrixMultfEXT<T>(MatrixMode mode, T m) where T : struct
 		{
 			Debug.Assert(Delegates.pglMatrixMultfEXT != null, "pglMatrixMultfEXT not implemented");
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(m);
-			try {
-				unsafe {
-					Delegates.pglMatrixMultfEXT((int)mode, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refM = __makeref(m);
-				IntPtr refMPtr = *(IntPtr*)(&refM);
-
-				Delegates.pglMatrixMultfEXT((int)mode, (float*)refMPtr.ToPointer());
+				Delegates.pglMatrixMultfEXT((int)mode, (float*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref m));
 			}
-			#endif
 			LogCommand("glMatrixMultfEXT", null, mode, m			);
 			DebugCheckErrors(null);
 		}
@@ -355,23 +313,9 @@ namespace OpenGL
 		public static void MatrixMultdEXT<T>(MatrixMode mode, T m) where T : struct
 		{
 			Debug.Assert(Delegates.pglMatrixMultdEXT != null, "pglMatrixMultdEXT not implemented");
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(m);
-			try {
-				unsafe {
-					Delegates.pglMatrixMultdEXT((int)mode, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refM = __makeref(m);
-				IntPtr refMPtr = *(IntPtr*)(&refM);
-
-				Delegates.pglMatrixMultdEXT((int)mode, (double*)refMPtr.ToPointer());
+				Delegates.pglMatrixMultdEXT((int)mode, (double*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref m));
 			}
-			#endif
 			LogCommand("glMatrixMultdEXT", null, mode, m			);
 			DebugCheckErrors(null);
 		}
@@ -774,23 +718,9 @@ namespace OpenGL
 		public static void TextureParameterfEXT<T>(uint texture, TextureTarget target, TextureParameterName pname, T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglTextureParameterfvEXT != null, "pglTextureParameterfvEXT not implemented");
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(@params);
-			try {
-				unsafe {
-					Delegates.pglTextureParameterfvEXT(texture, (int)target, (int)pname, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refParams = __makeref(@params);
-				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
-
-				Delegates.pglTextureParameterfvEXT(texture, (int)target, (int)pname, (float*)refParamsPtr.ToPointer());
+				Delegates.pglTextureParameterfvEXT(texture, (int)target, (int)pname, (float*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref @params));
 			}
-			#endif
 			LogCommand("glTextureParameterfvEXT", null, texture, target, pname, @params			);
 			DebugCheckErrors(null);
 		}
@@ -891,23 +821,9 @@ namespace OpenGL
 		public static void TextureParameteriEXT<T>(uint texture, TextureTarget target, TextureParameterName pname, T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglTextureParameterivEXT != null, "pglTextureParameterivEXT not implemented");
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(@params);
-			try {
-				unsafe {
-					Delegates.pglTextureParameterivEXT(texture, (int)target, (int)pname, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refParams = __makeref(@params);
-				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
-
-				Delegates.pglTextureParameterivEXT(texture, (int)target, (int)pname, (int*)refParamsPtr.ToPointer());
+				Delegates.pglTextureParameterivEXT(texture, (int)target, (int)pname, (int*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref @params));
 			}
-			#endif
 			LogCommand("glTextureParameterivEXT", null, texture, target, pname, @params			);
 			DebugCheckErrors(null);
 		}
@@ -1549,23 +1465,9 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetTextureParameterfvEXT != null, "pglGetTextureParameterfvEXT not implemented");
 			@params = default(T);
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(@params);
-			try {
-				unsafe {
-					Delegates.pglGetTextureParameterfvEXT(texture, (int)target, (int)pname, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refParams = __makeref(@params);
-				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
-
-				Delegates.pglGetTextureParameterfvEXT(texture, (int)target, (int)pname, (float*)refParamsPtr.ToPointer());
+				Delegates.pglGetTextureParameterfvEXT(texture, (int)target, (int)pname, (float*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref @params));
 			}
-			#endif
 			LogCommand("glGetTextureParameterfvEXT", null, texture, target, pname, @params			);
 			DebugCheckErrors(null);
 		}
@@ -1672,23 +1574,9 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetTextureParameterivEXT != null, "pglGetTextureParameterivEXT not implemented");
 			@params = default(T);
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(@params);
-			try {
-				unsafe {
-					Delegates.pglGetTextureParameterivEXT(texture, (int)target, (int)pname, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refParams = __makeref(@params);
-				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
-
-				Delegates.pglGetTextureParameterivEXT(texture, (int)target, (int)pname, (int*)refParamsPtr.ToPointer());
+				Delegates.pglGetTextureParameterivEXT(texture, (int)target, (int)pname, (int*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref @params));
 			}
-			#endif
 			LogCommand("glGetTextureParameterivEXT", null, texture, target, pname, @params			);
 			DebugCheckErrors(null);
 		}
@@ -1807,23 +1695,9 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetTextureLevelParameterfvEXT != null, "pglGetTextureLevelParameterfvEXT not implemented");
 			@params = default(T);
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(@params);
-			try {
-				unsafe {
-					Delegates.pglGetTextureLevelParameterfvEXT(texture, (int)target, level, (int)pname, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refParams = __makeref(@params);
-				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
-
-				Delegates.pglGetTextureLevelParameterfvEXT(texture, (int)target, level, (int)pname, (float*)refParamsPtr.ToPointer());
+				Delegates.pglGetTextureLevelParameterfvEXT(texture, (int)target, level, (int)pname, (float*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref @params));
 			}
-			#endif
 			LogCommand("glGetTextureLevelParameterfvEXT", null, texture, target, level, pname, @params			);
 			DebugCheckErrors(null);
 		}
@@ -1942,23 +1816,9 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetTextureLevelParameterivEXT != null, "pglGetTextureLevelParameterivEXT not implemented");
 			@params = default(T);
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(@params);
-			try {
-				unsafe {
-					Delegates.pglGetTextureLevelParameterivEXT(texture, (int)target, level, (int)pname, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refParams = __makeref(@params);
-				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
-
-				Delegates.pglGetTextureLevelParameterivEXT(texture, (int)target, level, (int)pname, (int*)refParamsPtr.ToPointer());
+				Delegates.pglGetTextureLevelParameterivEXT(texture, (int)target, level, (int)pname, (int*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref @params));
 			}
-			#endif
 			LogCommand("glGetTextureLevelParameterivEXT", null, texture, target, level, pname, @params			);
 			DebugCheckErrors(null);
 		}
@@ -4916,23 +4776,9 @@ namespace OpenGL
 		public static void MatrixLoadTransposefEXT<T>(MatrixMode mode, T m) where T : struct
 		{
 			Debug.Assert(Delegates.pglMatrixLoadTransposefEXT != null, "pglMatrixLoadTransposefEXT not implemented");
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(m);
-			try {
-				unsafe {
-					Delegates.pglMatrixLoadTransposefEXT((int)mode, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refM = __makeref(m);
-				IntPtr refMPtr = *(IntPtr*)(&refM);
-
-				Delegates.pglMatrixLoadTransposefEXT((int)mode, (float*)refMPtr.ToPointer());
+				Delegates.pglMatrixLoadTransposefEXT((int)mode, (float*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref m));
 			}
-			#endif
 			LogCommand("glMatrixLoadTransposefEXT", null, mode, m			);
 			DebugCheckErrors(null);
 		}
@@ -4995,23 +4841,9 @@ namespace OpenGL
 		public static void MatrixLoadTransposedEXT<T>(MatrixMode mode, T m) where T : struct
 		{
 			Debug.Assert(Delegates.pglMatrixLoadTransposedEXT != null, "pglMatrixLoadTransposedEXT not implemented");
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(m);
-			try {
-				unsafe {
-					Delegates.pglMatrixLoadTransposedEXT((int)mode, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refM = __makeref(m);
-				IntPtr refMPtr = *(IntPtr*)(&refM);
-
-				Delegates.pglMatrixLoadTransposedEXT((int)mode, (double*)refMPtr.ToPointer());
+				Delegates.pglMatrixLoadTransposedEXT((int)mode, (double*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref m));
 			}
-			#endif
 			LogCommand("glMatrixLoadTransposedEXT", null, mode, m			);
 			DebugCheckErrors(null);
 		}
@@ -5074,23 +4906,9 @@ namespace OpenGL
 		public static void MatrixMultTransposefEXT<T>(MatrixMode mode, T m) where T : struct
 		{
 			Debug.Assert(Delegates.pglMatrixMultTransposefEXT != null, "pglMatrixMultTransposefEXT not implemented");
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(m);
-			try {
-				unsafe {
-					Delegates.pglMatrixMultTransposefEXT((int)mode, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refM = __makeref(m);
-				IntPtr refMPtr = *(IntPtr*)(&refM);
-
-				Delegates.pglMatrixMultTransposefEXT((int)mode, (float*)refMPtr.ToPointer());
+				Delegates.pglMatrixMultTransposefEXT((int)mode, (float*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref m));
 			}
-			#endif
 			LogCommand("glMatrixMultTransposefEXT", null, mode, m			);
 			DebugCheckErrors(null);
 		}
@@ -5153,23 +4971,9 @@ namespace OpenGL
 		public static void MatrixMultTransposedEXT<T>(MatrixMode mode, T m) where T : struct
 		{
 			Debug.Assert(Delegates.pglMatrixMultTransposedEXT != null, "pglMatrixMultTransposedEXT not implemented");
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(m);
-			try {
-				unsafe {
-					Delegates.pglMatrixMultTransposedEXT((int)mode, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refM = __makeref(m);
-				IntPtr refMPtr = *(IntPtr*)(&refM);
-
-				Delegates.pglMatrixMultTransposedEXT((int)mode, (double*)refMPtr.ToPointer());
+				Delegates.pglMatrixMultTransposedEXT((int)mode, (double*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref m));
 			}
-			#endif
 			LogCommand("glMatrixMultTransposedEXT", null, mode, m			);
 			DebugCheckErrors(null);
 		}
@@ -5355,23 +5159,9 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetNamedBufferParameterivEXT != null, "pglGetNamedBufferParameterivEXT not implemented");
 			@params = default(T);
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(@params);
-			try {
-				unsafe {
-					Delegates.pglGetNamedBufferParameterivEXT(buffer, (int)pname, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refParams = __makeref(@params);
-				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
-
-				Delegates.pglGetNamedBufferParameterivEXT(buffer, (int)pname, (int*)refParamsPtr.ToPointer());
+				Delegates.pglGetNamedBufferParameterivEXT(buffer, (int)pname, (int*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref @params));
 			}
-			#endif
 			LogCommand("glGetNamedBufferParameterivEXT", null, buffer, pname, @params			);
 			DebugCheckErrors(null);
 		}
@@ -5595,23 +5385,9 @@ namespace OpenGL
 		public static void TextureParameterIiEXT<T>(uint texture, TextureTarget target, TextureParameterName pname, T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglTextureParameterIivEXT != null, "pglTextureParameterIivEXT not implemented");
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(@params);
-			try {
-				unsafe {
-					Delegates.pglTextureParameterIivEXT(texture, (int)target, (int)pname, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refParams = __makeref(@params);
-				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
-
-				Delegates.pglTextureParameterIivEXT(texture, (int)target, (int)pname, (int*)refParamsPtr.ToPointer());
+				Delegates.pglTextureParameterIivEXT(texture, (int)target, (int)pname, (int*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref @params));
 			}
-			#endif
 			LogCommand("glTextureParameterIivEXT", null, texture, target, pname, @params			);
 			DebugCheckErrors(null);
 		}
@@ -5688,23 +5464,9 @@ namespace OpenGL
 		public static void TextureParameterIuiEXT<T>(uint texture, TextureTarget target, TextureParameterName pname, T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglTextureParameterIuivEXT != null, "pglTextureParameterIuivEXT not implemented");
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(@params);
-			try {
-				unsafe {
-					Delegates.pglTextureParameterIuivEXT(texture, (int)target, (int)pname, (uint*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refParams = __makeref(@params);
-				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
-
-				Delegates.pglTextureParameterIuivEXT(texture, (int)target, (int)pname, (uint*)refParamsPtr.ToPointer());
+				Delegates.pglTextureParameterIuivEXT(texture, (int)target, (int)pname, (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref @params));
 			}
-			#endif
 			LogCommand("glTextureParameterIuivEXT", null, texture, target, pname, @params			);
 			DebugCheckErrors(null);
 		}
@@ -5811,23 +5573,9 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetTextureParameterIivEXT != null, "pglGetTextureParameterIivEXT not implemented");
 			@params = default(T);
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(@params);
-			try {
-				unsafe {
-					Delegates.pglGetTextureParameterIivEXT(texture, (int)target, (int)pname, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refParams = __makeref(@params);
-				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
-
-				Delegates.pglGetTextureParameterIivEXT(texture, (int)target, (int)pname, (int*)refParamsPtr.ToPointer());
+				Delegates.pglGetTextureParameterIivEXT(texture, (int)target, (int)pname, (int*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref @params));
 			}
-			#endif
 			LogCommand("glGetTextureParameterIivEXT", null, texture, target, pname, @params			);
 			DebugCheckErrors(null);
 		}
@@ -5934,23 +5682,9 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetTextureParameterIuivEXT != null, "pglGetTextureParameterIuivEXT not implemented");
 			@params = default(T);
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(@params);
-			try {
-				unsafe {
-					Delegates.pglGetTextureParameterIuivEXT(texture, (int)target, (int)pname, (uint*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refParams = __makeref(@params);
-				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
-
-				Delegates.pglGetTextureParameterIuivEXT(texture, (int)target, (int)pname, (uint*)refParamsPtr.ToPointer());
+				Delegates.pglGetTextureParameterIuivEXT(texture, (int)target, (int)pname, (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref @params));
 			}
-			#endif
 			LogCommand("glGetTextureParameterIuivEXT", null, texture, target, pname, @params			);
 			DebugCheckErrors(null);
 		}
@@ -6966,23 +6700,9 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetNamedRenderbufferParameterivEXT != null, "pglGetNamedRenderbufferParameterivEXT not implemented");
 			@params = default(T);
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(@params);
-			try {
-				unsafe {
-					Delegates.pglGetNamedRenderbufferParameterivEXT(renderbuffer, (int)pname, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refParams = __makeref(@params);
-				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
-
-				Delegates.pglGetNamedRenderbufferParameterivEXT(renderbuffer, (int)pname, (int*)refParamsPtr.ToPointer());
+				Delegates.pglGetNamedRenderbufferParameterivEXT(renderbuffer, (int)pname, (int*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref @params));
 			}
-			#endif
 			LogCommand("glGetNamedRenderbufferParameterivEXT", null, renderbuffer, pname, @params			);
 			DebugCheckErrors(null);
 		}
@@ -7276,23 +6996,9 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetNamedFramebufferAttachmentParameterivEXT != null, "pglGetNamedFramebufferAttachmentParameterivEXT not implemented");
 			@params = default(T);
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(@params);
-			try {
-				unsafe {
-					Delegates.pglGetNamedFramebufferAttachmentParameterivEXT(framebuffer, (int)attachment, (int)pname, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refParams = __makeref(@params);
-				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
-
-				Delegates.pglGetNamedFramebufferAttachmentParameterivEXT(framebuffer, (int)attachment, (int)pname, (int*)refParamsPtr.ToPointer());
+				Delegates.pglGetNamedFramebufferAttachmentParameterivEXT(framebuffer, (int)attachment, (int)pname, (int*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref @params));
 			}
-			#endif
 			LogCommand("glGetNamedFramebufferAttachmentParameterivEXT", null, framebuffer, attachment, pname, @params			);
 			DebugCheckErrors(null);
 		}
@@ -7482,23 +7188,9 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetFramebufferParameterivEXT != null, "pglGetFramebufferParameterivEXT not implemented");
 			@params = default(T);
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(@params);
-			try {
-				unsafe {
-					Delegates.pglGetFramebufferParameterivEXT(framebuffer, (int)pname, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refParams = __makeref(@params);
-				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
-
-				Delegates.pglGetFramebufferParameterivEXT(framebuffer, (int)pname, (int*)refParamsPtr.ToPointer());
+				Delegates.pglGetFramebufferParameterivEXT(framebuffer, (int)pname, (int*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref @params));
 			}
-			#endif
 			LogCommand("glGetFramebufferParameterivEXT", null, framebuffer, pname, @params			);
 			DebugCheckErrors(null);
 		}
@@ -8492,23 +8184,9 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetNamedFramebufferParameterivEXT != null, "pglGetNamedFramebufferParameterivEXT not implemented");
 			@params = default(T);
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(@params);
-			try {
-				unsafe {
-					Delegates.pglGetNamedFramebufferParameterivEXT(framebuffer, (int)pname, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refParams = __makeref(@params);
-				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
-
-				Delegates.pglGetNamedFramebufferParameterivEXT(framebuffer, (int)pname, (int*)refParamsPtr.ToPointer());
+				Delegates.pglGetNamedFramebufferParameterivEXT(framebuffer, (int)pname, (int*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref @params));
 			}
-			#endif
 			LogCommand("glGetNamedFramebufferParameterivEXT", null, framebuffer, pname, @params			);
 			DebugCheckErrors(null);
 		}

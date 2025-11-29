@@ -33,6 +33,8 @@
 
     <ProjectReference Include="..\OpenGL.Net\OpenGL.Net.Math.csproj" />
     <ProjectReference Include="..\OpenGL.Net\OpenGL.Net.csproj" />
+
+    <PackageReference Include="Microsoft.DotNet.PlatformAbstractions" Version="1.1.2" />
   </ItemGroup>
 
   <ItemGroup>

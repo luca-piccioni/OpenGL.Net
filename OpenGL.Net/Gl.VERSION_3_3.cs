@@ -437,23 +437,9 @@ namespace OpenGL
 		public static void SamplerParameteri<T>(uint sampler, SamplerParameterI pname, T param) where T : struct
 		{
 			Debug.Assert(Delegates.pglSamplerParameteriv != null, "pglSamplerParameteriv not implemented");
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(param);
-			try {
-				unsafe {
-					Delegates.pglSamplerParameteriv(sampler, (int)pname, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refParam = __makeref(param);
-				IntPtr refParamPtr = *(IntPtr*)(&refParam);
-
-				Delegates.pglSamplerParameteriv(sampler, (int)pname, (int*)refParamPtr.ToPointer());
+				Delegates.pglSamplerParameteriv(sampler, (int)pname, (int*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref param));
 			}
-			#endif
 			LogCommand("glSamplerParameteriv", null, sampler, pname, param			);
 			DebugCheckErrors(null);
 		}
@@ -550,23 +536,9 @@ namespace OpenGL
 		public static void SamplerParameterf<T>(uint sampler, SamplerParameterF pname, T param) where T : struct
 		{
 			Debug.Assert(Delegates.pglSamplerParameterfv != null, "pglSamplerParameterfv not implemented");
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(param);
-			try {
-				unsafe {
-					Delegates.pglSamplerParameterfv(sampler, (int)pname, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refParam = __makeref(param);
-				IntPtr refParamPtr = *(IntPtr*)(&refParam);
-
-				Delegates.pglSamplerParameterfv(sampler, (int)pname, (float*)refParamPtr.ToPointer());
+				Delegates.pglSamplerParameterfv(sampler, (int)pname, (float*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref param));
 			}
-			#endif
 			LogCommand("glSamplerParameterfv", null, sampler, pname, param			);
 			DebugCheckErrors(null);
 		}
@@ -646,23 +618,9 @@ namespace OpenGL
 		public static void SamplerParameterIi<T>(uint sampler, SamplerParameterI pname, T param) where T : struct
 		{
 			Debug.Assert(Delegates.pglSamplerParameterIiv != null, "pglSamplerParameterIiv not implemented");
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(param);
-			try {
-				unsafe {
-					Delegates.pglSamplerParameterIiv(sampler, (int)pname, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refParam = __makeref(param);
-				IntPtr refParamPtr = *(IntPtr*)(&refParam);
-
-				Delegates.pglSamplerParameterIiv(sampler, (int)pname, (int*)refParamPtr.ToPointer());
+				Delegates.pglSamplerParameterIiv(sampler, (int)pname, (int*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref param));
 			}
-			#endif
 			LogCommand("glSamplerParameterIiv", null, sampler, pname, param			);
 			DebugCheckErrors(null);
 		}
@@ -742,23 +700,9 @@ namespace OpenGL
 		public static void SamplerParameterIui<T>(uint sampler, SamplerParameterI pname, T param) where T : struct
 		{
 			Debug.Assert(Delegates.pglSamplerParameterIuiv != null, "pglSamplerParameterIuiv not implemented");
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(param);
-			try {
-				unsafe {
-					Delegates.pglSamplerParameterIuiv(sampler, (int)pname, (uint*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refParam = __makeref(param);
-				IntPtr refParamPtr = *(IntPtr*)(&refParam);
-
-				Delegates.pglSamplerParameterIuiv(sampler, (int)pname, (uint*)refParamPtr.ToPointer());
+				Delegates.pglSamplerParameterIuiv(sampler, (int)pname, (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref param));
 			}
-			#endif
 			LogCommand("glSamplerParameterIuiv", null, sampler, pname, param			);
 			DebugCheckErrors(null);
 		}
@@ -877,23 +821,9 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetSamplerParameteriv != null, "pglGetSamplerParameteriv not implemented");
 			@params = default(T);
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(@params);
-			try {
-				unsafe {
-					Delegates.pglGetSamplerParameteriv(sampler, (int)pname, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refParams = __makeref(@params);
-				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
-
-				Delegates.pglGetSamplerParameteriv(sampler, (int)pname, (int*)refParamsPtr.ToPointer());
+				Delegates.pglGetSamplerParameteriv(sampler, (int)pname, (int*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref @params));
 			}
-			#endif
 			LogCommand("glGetSamplerParameteriv", null, sampler, pname, @params			);
 			DebugCheckErrors(null);
 		}
@@ -1020,23 +950,9 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetSamplerParameterIiv != null, "pglGetSamplerParameterIiv not implemented");
 			@params = default(T);
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(@params);
-			try {
-				unsafe {
-					Delegates.pglGetSamplerParameterIiv(sampler, (int)pname, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refParams = __makeref(@params);
-				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
-
-				Delegates.pglGetSamplerParameterIiv(sampler, (int)pname, (int*)refParamsPtr.ToPointer());
+				Delegates.pglGetSamplerParameterIiv(sampler, (int)pname, (int*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref @params));
 			}
-			#endif
 			LogCommand("glGetSamplerParameterIiv", null, sampler, pname, @params			);
 			DebugCheckErrors(null);
 		}
@@ -1155,23 +1071,9 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetSamplerParameterfv != null, "pglGetSamplerParameterfv not implemented");
 			@params = default(T);
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(@params);
-			try {
-				unsafe {
-					Delegates.pglGetSamplerParameterfv(sampler, (int)pname, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refParams = __makeref(@params);
-				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
-
-				Delegates.pglGetSamplerParameterfv(sampler, (int)pname, (float*)refParamsPtr.ToPointer());
+				Delegates.pglGetSamplerParameterfv(sampler, (int)pname, (float*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref @params));
 			}
-			#endif
 			LogCommand("glGetSamplerParameterfv", null, sampler, pname, @params			);
 			DebugCheckErrors(null);
 		}
@@ -1298,23 +1200,9 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetSamplerParameterIuiv != null, "pglGetSamplerParameterIuiv not implemented");
 			@params = default(T);
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(@params);
-			try {
-				unsafe {
-					Delegates.pglGetSamplerParameterIuiv(sampler, (int)pname, (uint*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refParams = __makeref(@params);
-				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
-
-				Delegates.pglGetSamplerParameterIuiv(sampler, (int)pname, (uint*)refParamsPtr.ToPointer());
+				Delegates.pglGetSamplerParameterIuiv(sampler, (int)pname, (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref @params));
 			}
-			#endif
 			LogCommand("glGetSamplerParameterIuiv", null, sampler, pname, @params			);
 			DebugCheckErrors(null);
 		}

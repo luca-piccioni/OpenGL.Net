@@ -687,23 +687,9 @@ namespace OpenGL
 		public static void LoadMatrixx<T>(T m) where T : struct
 		{
 			Debug.Assert(Delegates.pglLoadMatrixx != null, "pglLoadMatrixx not implemented");
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(m);
-			try {
-				unsafe {
-					Delegates.pglLoadMatrixx((IntPtr*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refM = __makeref(m);
-				IntPtr refMPtr = *(IntPtr*)(&refM);
-
-				Delegates.pglLoadMatrixx((IntPtr*)refMPtr.ToPointer());
+				Delegates.pglLoadMatrixx((IntPtr*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref m));
 			}
-			#endif
 			LogCommand("glLoadMatrixx", null, m			);
 			DebugCheckErrors(null);
 		}
@@ -801,23 +787,9 @@ namespace OpenGL
 		public static void MultMatrixx<T>(T m) where T : struct
 		{
 			Debug.Assert(Delegates.pglMultMatrixx != null, "pglMultMatrixx not implemented");
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(m);
-			try {
-				unsafe {
-					Delegates.pglMultMatrixx((IntPtr*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refM = __makeref(m);
-				IntPtr refMPtr = *(IntPtr*)(&refM);
-
-				Delegates.pglMultMatrixx((IntPtr*)refMPtr.ToPointer());
+				Delegates.pglMultMatrixx((IntPtr*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref m));
 			}
-			#endif
 			LogCommand("glMultMatrixx", null, m			);
 			DebugCheckErrors(null);
 		}

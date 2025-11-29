@@ -484,23 +484,9 @@ namespace OpenGL
 		public static void LoadMatrixxOES<T>(T m) where T : struct
 		{
 			Debug.Assert(Delegates.pglLoadMatrixxOES != null, "pglLoadMatrixxOES not implemented");
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(m);
-			try {
-				unsafe {
-					Delegates.pglLoadMatrixxOES((IntPtr*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refM = __makeref(m);
-				IntPtr refMPtr = *(IntPtr*)(&refM);
-
-				Delegates.pglLoadMatrixxOES((IntPtr*)refMPtr.ToPointer());
+				Delegates.pglLoadMatrixxOES((IntPtr*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref m));
 			}
-			#endif
 			LogCommand("glLoadMatrixxOES", null, m			);
 			DebugCheckErrors(null);
 		}
@@ -598,23 +584,9 @@ namespace OpenGL
 		public static void MultMatrixxOES<T>(T m) where T : struct
 		{
 			Debug.Assert(Delegates.pglMultMatrixxOES != null, "pglMultMatrixxOES not implemented");
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(m);
-			try {
-				unsafe {
-					Delegates.pglMultMatrixxOES((IntPtr*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refM = __makeref(m);
-				IntPtr refMPtr = *(IntPtr*)(&refM);
-
-				Delegates.pglMultMatrixxOES((IntPtr*)refMPtr.ToPointer());
+				Delegates.pglMultMatrixxOES((IntPtr*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref m));
 			}
-			#endif
 			LogCommand("glMultMatrixxOES", null, m			);
 			DebugCheckErrors(null);
 		}
@@ -1648,23 +1620,9 @@ namespace OpenGL
 		public static void LoadTransposeMatrixxOES<T>(T m) where T : struct
 		{
 			Debug.Assert(Delegates.pglLoadTransposeMatrixxOES != null, "pglLoadTransposeMatrixxOES not implemented");
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(m);
-			try {
-				unsafe {
-					Delegates.pglLoadTransposeMatrixxOES((IntPtr*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refM = __makeref(m);
-				IntPtr refMPtr = *(IntPtr*)(&refM);
-
-				Delegates.pglLoadTransposeMatrixxOES((IntPtr*)refMPtr.ToPointer());
+				Delegates.pglLoadTransposeMatrixxOES((IntPtr*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref m));
 			}
-			#endif
 			LogCommand("glLoadTransposeMatrixxOES", null, m			);
 			DebugCheckErrors(null);
 		}
@@ -1835,23 +1793,9 @@ namespace OpenGL
 		public static void MultTransposeMatrixxOES<T>(T m) where T : struct
 		{
 			Debug.Assert(Delegates.pglMultTransposeMatrixxOES != null, "pglMultTransposeMatrixxOES not implemented");
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(m);
-			try {
-				unsafe {
-					Delegates.pglMultTransposeMatrixxOES((IntPtr*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refM = __makeref(m);
-				IntPtr refMPtr = *(IntPtr*)(&refM);
-
-				Delegates.pglMultTransposeMatrixxOES((IntPtr*)refMPtr.ToPointer());
+				Delegates.pglMultTransposeMatrixxOES((IntPtr*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref m));
 			}
-			#endif
 			LogCommand("glMultTransposeMatrixxOES", null, m			);
 			DebugCheckErrors(null);
 		}

@@ -337,7 +337,7 @@ namespace BindingsGen
 		/// <summary>
 		/// Base path to construct correct file paths.
 		/// </summary>
-		public static readonly string BasePath = "../../..";
+		public static readonly string BasePath = "../../../..";
 
 		/// <summary>
 		/// The directory where the output files are placed.

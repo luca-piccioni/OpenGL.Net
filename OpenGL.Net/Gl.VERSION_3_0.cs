@@ -2430,23 +2430,9 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetBooleani_v != null, "pglGetBooleani_v not implemented");
 			data = default(T);
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(data);
-			try {
-				unsafe {
-					Delegates.pglGetBooleani_v((int)target, index, (byte*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refData = __makeref(data);
-				IntPtr refDataPtr = *(IntPtr*)(&refData);
-
-				Delegates.pglGetBooleani_v((int)target, index, (byte*)refDataPtr.ToPointer());
+				Delegates.pglGetBooleani_v((int)target, index, (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref data));
 			}
-			#endif
 			LogCommand("glGetBooleani_v", null, target, index, data			);
 			DebugCheckErrors(null);
 		}
@@ -2641,23 +2627,9 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetIntegeri_v != null, "pglGetIntegeri_v not implemented");
 			data = default(T);
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(data);
-			try {
-				unsafe {
-					Delegates.pglGetIntegeri_v((int)target, index, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refData = __makeref(data);
-				IntPtr refDataPtr = *(IntPtr*)(&refData);
-
-				Delegates.pglGetIntegeri_v((int)target, index, (int*)refDataPtr.ToPointer());
+				Delegates.pglGetIntegeri_v((int)target, index, (int*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref data));
 			}
-			#endif
 			LogCommand("glGetIntegeri_v", null, target, index, data			);
 			DebugCheckErrors(null);
 		}
@@ -3417,23 +3389,9 @@ namespace OpenGL
 		public static void VertexAttribI1i<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttribI1iv != null, "pglVertexAttribI1iv not implemented");
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(v);
-			try {
-				unsafe {
-					Delegates.pglVertexAttribI1iv(index, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refV = __makeref(v);
-				IntPtr refVPtr = *(IntPtr*)(&refV);
-
-				Delegates.pglVertexAttribI1iv(index, (int*)refVPtr.ToPointer());
+				Delegates.pglVertexAttribI1iv(index, (int*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref v));
 			}
-			#endif
 			LogCommand("glVertexAttribI1iv", null, index, v			);
 			DebugCheckErrors(null);
 		}
@@ -3502,23 +3460,9 @@ namespace OpenGL
 		public static void VertexAttribI2i<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttribI2iv != null, "pglVertexAttribI2iv not implemented");
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(v);
-			try {
-				unsafe {
-					Delegates.pglVertexAttribI2iv(index, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refV = __makeref(v);
-				IntPtr refVPtr = *(IntPtr*)(&refV);
-
-				Delegates.pglVertexAttribI2iv(index, (int*)refVPtr.ToPointer());
+				Delegates.pglVertexAttribI2iv(index, (int*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref v));
 			}
-			#endif
 			LogCommand("glVertexAttribI2iv", null, index, v			);
 			DebugCheckErrors(null);
 		}
@@ -3587,23 +3531,9 @@ namespace OpenGL
 		public static void VertexAttribI3i<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttribI3iv != null, "pglVertexAttribI3iv not implemented");
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(v);
-			try {
-				unsafe {
-					Delegates.pglVertexAttribI3iv(index, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refV = __makeref(v);
-				IntPtr refVPtr = *(IntPtr*)(&refV);
-
-				Delegates.pglVertexAttribI3iv(index, (int*)refVPtr.ToPointer());
+				Delegates.pglVertexAttribI3iv(index, (int*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref v));
 			}
-			#endif
 			LogCommand("glVertexAttribI3iv", null, index, v			);
 			DebugCheckErrors(null);
 		}
@@ -3681,23 +3611,9 @@ namespace OpenGL
 		public static void VertexAttribI4i<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttribI4iv != null, "pglVertexAttribI4iv not implemented");
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(v);
-			try {
-				unsafe {
-					Delegates.pglVertexAttribI4iv(index, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refV = __makeref(v);
-				IntPtr refVPtr = *(IntPtr*)(&refV);
-
-				Delegates.pglVertexAttribI4iv(index, (int*)refVPtr.ToPointer());
+				Delegates.pglVertexAttribI4iv(index, (int*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref v));
 			}
-			#endif
 			LogCommand("glVertexAttribI4iv", null, index, v			);
 			DebugCheckErrors(null);
 		}
@@ -3766,23 +3682,9 @@ namespace OpenGL
 		public static void VertexAttribI1ui<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttribI1uiv != null, "pglVertexAttribI1uiv not implemented");
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(v);
-			try {
-				unsafe {
-					Delegates.pglVertexAttribI1uiv(index, (uint*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refV = __makeref(v);
-				IntPtr refVPtr = *(IntPtr*)(&refV);
-
-				Delegates.pglVertexAttribI1uiv(index, (uint*)refVPtr.ToPointer());
+				Delegates.pglVertexAttribI1uiv(index, (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref v));
 			}
-			#endif
 			LogCommand("glVertexAttribI1uiv", null, index, v			);
 			DebugCheckErrors(null);
 		}
@@ -3851,23 +3753,9 @@ namespace OpenGL
 		public static void VertexAttribI2ui<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttribI2uiv != null, "pglVertexAttribI2uiv not implemented");
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(v);
-			try {
-				unsafe {
-					Delegates.pglVertexAttribI2uiv(index, (uint*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refV = __makeref(v);
-				IntPtr refVPtr = *(IntPtr*)(&refV);
-
-				Delegates.pglVertexAttribI2uiv(index, (uint*)refVPtr.ToPointer());
+				Delegates.pglVertexAttribI2uiv(index, (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref v));
 			}
-			#endif
 			LogCommand("glVertexAttribI2uiv", null, index, v			);
 			DebugCheckErrors(null);
 		}
@@ -3936,23 +3824,9 @@ namespace OpenGL
 		public static void VertexAttribI3ui<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttribI3uiv != null, "pglVertexAttribI3uiv not implemented");
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(v);
-			try {
-				unsafe {
-					Delegates.pglVertexAttribI3uiv(index, (uint*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refV = __makeref(v);
-				IntPtr refVPtr = *(IntPtr*)(&refV);
-
-				Delegates.pglVertexAttribI3uiv(index, (uint*)refVPtr.ToPointer());
+				Delegates.pglVertexAttribI3uiv(index, (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref v));
 			}
-			#endif
 			LogCommand("glVertexAttribI3uiv", null, index, v			);
 			DebugCheckErrors(null);
 		}
@@ -4030,23 +3904,9 @@ namespace OpenGL
 		public static void VertexAttribI4ui<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttribI4uiv != null, "pglVertexAttribI4uiv not implemented");
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(v);
-			try {
-				unsafe {
-					Delegates.pglVertexAttribI4uiv(index, (uint*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refV = __makeref(v);
-				IntPtr refVPtr = *(IntPtr*)(&refV);
-
-				Delegates.pglVertexAttribI4uiv(index, (uint*)refVPtr.ToPointer());
+				Delegates.pglVertexAttribI4uiv(index, (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref v));
 			}
-			#endif
 			LogCommand("glVertexAttribI4uiv", null, index, v			);
 			DebugCheckErrors(null);
 		}
@@ -4115,23 +3975,9 @@ namespace OpenGL
 		public static void VertexAttribI4b<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttribI4bv != null, "pglVertexAttribI4bv not implemented");
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(v);
-			try {
-				unsafe {
-					Delegates.pglVertexAttribI4bv(index, (sbyte*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refV = __makeref(v);
-				IntPtr refVPtr = *(IntPtr*)(&refV);
-
-				Delegates.pglVertexAttribI4bv(index, (sbyte*)refVPtr.ToPointer());
+				Delegates.pglVertexAttribI4bv(index, (sbyte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref v));
 			}
-			#endif
 			LogCommand("glVertexAttribI4bv", null, index, v			);
 			DebugCheckErrors(null);
 		}
@@ -4200,23 +4046,9 @@ namespace OpenGL
 		public static void VertexAttribI4s<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttribI4sv != null, "pglVertexAttribI4sv not implemented");
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(v);
-			try {
-				unsafe {
-					Delegates.pglVertexAttribI4sv(index, (short*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refV = __makeref(v);
-				IntPtr refVPtr = *(IntPtr*)(&refV);
-
-				Delegates.pglVertexAttribI4sv(index, (short*)refVPtr.ToPointer());
+				Delegates.pglVertexAttribI4sv(index, (short*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref v));
 			}
-			#endif
 			LogCommand("glVertexAttribI4sv", null, index, v			);
 			DebugCheckErrors(null);
 		}
@@ -4285,23 +4117,9 @@ namespace OpenGL
 		public static void VertexAttribI4ub<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttribI4ubv != null, "pglVertexAttribI4ubv not implemented");
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(v);
-			try {
-				unsafe {
-					Delegates.pglVertexAttribI4ubv(index, (byte*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refV = __makeref(v);
-				IntPtr refVPtr = *(IntPtr*)(&refV);
-
-				Delegates.pglVertexAttribI4ubv(index, (byte*)refVPtr.ToPointer());
+				Delegates.pglVertexAttribI4ubv(index, (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref v));
 			}
-			#endif
 			LogCommand("glVertexAttribI4ubv", null, index, v			);
 			DebugCheckErrors(null);
 		}
@@ -4370,23 +4188,9 @@ namespace OpenGL
 		public static void VertexAttribI4us<T>(uint index, T v) where T : struct
 		{
 			Debug.Assert(Delegates.pglVertexAttribI4usv != null, "pglVertexAttribI4usv not implemented");
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(v);
-			try {
-				unsafe {
-					Delegates.pglVertexAttribI4usv(index, (ushort*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refV = __makeref(v);
-				IntPtr refVPtr = *(IntPtr*)(&refV);
-
-				Delegates.pglVertexAttribI4usv(index, (ushort*)refVPtr.ToPointer());
+				Delegates.pglVertexAttribI4usv(index, (ushort*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref v));
 			}
-			#endif
 			LogCommand("glVertexAttribI4usv", null, index, v			);
 			DebugCheckErrors(null);
 		}
@@ -4467,23 +4271,9 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetUniformuiv != null, "pglGetUniformuiv not implemented");
 			@params = default(T);
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(@params);
-			try {
-				unsafe {
-					Delegates.pglGetUniformuiv(program, location, (uint*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refParams = __makeref(@params);
-				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
-
-				Delegates.pglGetUniformuiv(program, location, (uint*)refParamsPtr.ToPointer());
+				Delegates.pglGetUniformuiv(program, location, (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref @params));
 			}
-			#endif
 			LogCommand("glGetUniformuiv", null, program, location, @params			);
 			DebugCheckErrors(null);
 		}
@@ -4720,23 +4510,9 @@ namespace OpenGL
 		public static void Uniform1ui<T>(int location, int count, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglUniform1uiv != null, "pglUniform1uiv not implemented");
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(value);
-			try {
-				unsafe {
-					Delegates.pglUniform1uiv(location, count, (uint*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refValue = __makeref(value);
-				IntPtr refValuePtr = *(IntPtr*)(&refValue);
-
-				Delegates.pglUniform1uiv(location, count, (uint*)refValuePtr.ToPointer());
+				Delegates.pglUniform1uiv(location, count, (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref value));
 			}
-			#endif
 			LogCommand("glUniform1uiv", null, location, count, value			);
 			DebugCheckErrors(null);
 		}
@@ -4819,23 +4595,9 @@ namespace OpenGL
 		public static void Uniform2ui<T>(int location, int count, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglUniform2uiv != null, "pglUniform2uiv not implemented");
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(value);
-			try {
-				unsafe {
-					Delegates.pglUniform2uiv(location, count, (uint*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refValue = __makeref(value);
-				IntPtr refValuePtr = *(IntPtr*)(&refValue);
-
-				Delegates.pglUniform2uiv(location, count, (uint*)refValuePtr.ToPointer());
+				Delegates.pglUniform2uiv(location, count, (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref value));
 			}
-			#endif
 			LogCommand("glUniform2uiv", null, location, count, value			);
 			DebugCheckErrors(null);
 		}
@@ -4918,23 +4680,9 @@ namespace OpenGL
 		public static void Uniform3ui<T>(int location, int count, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglUniform3uiv != null, "pglUniform3uiv not implemented");
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(value);
-			try {
-				unsafe {
-					Delegates.pglUniform3uiv(location, count, (uint*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refValue = __makeref(value);
-				IntPtr refValuePtr = *(IntPtr*)(&refValue);
-
-				Delegates.pglUniform3uiv(location, count, (uint*)refValuePtr.ToPointer());
+				Delegates.pglUniform3uiv(location, count, (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref value));
 			}
-			#endif
 			LogCommand("glUniform3uiv", null, location, count, value			);
 			DebugCheckErrors(null);
 		}
@@ -5017,23 +4765,9 @@ namespace OpenGL
 		public static void Uniform4ui<T>(int location, int count, T value) where T : struct
 		{
 			Debug.Assert(Delegates.pglUniform4uiv != null, "pglUniform4uiv not implemented");
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(value);
-			try {
-				unsafe {
-					Delegates.pglUniform4uiv(location, count, (uint*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refValue = __makeref(value);
-				IntPtr refValuePtr = *(IntPtr*)(&refValue);
-
-				Delegates.pglUniform4uiv(location, count, (uint*)refValuePtr.ToPointer());
+				Delegates.pglUniform4uiv(location, count, (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref value));
 			}
-			#endif
 			LogCommand("glUniform4uiv", null, location, count, value			);
 			DebugCheckErrors(null);
 		}
@@ -5113,23 +4847,9 @@ namespace OpenGL
 		public static void TexParameterIi<T>(TextureTarget target, TextureParameterName pname, T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglTexParameterIiv != null, "pglTexParameterIiv not implemented");
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(@params);
-			try {
-				unsafe {
-					Delegates.pglTexParameterIiv((int)target, (int)pname, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refParams = __makeref(@params);
-				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
-
-				Delegates.pglTexParameterIiv((int)target, (int)pname, (int*)refParamsPtr.ToPointer());
+				Delegates.pglTexParameterIiv((int)target, (int)pname, (int*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref @params));
 			}
-			#endif
 			LogCommand("glTexParameterIiv", null, target, pname, @params			);
 			DebugCheckErrors(null);
 		}
@@ -5209,23 +4929,9 @@ namespace OpenGL
 		public static void TexParameterIui<T>(TextureTarget target, TextureParameterName pname, T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglTexParameterIuiv != null, "pglTexParameterIuiv not implemented");
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(@params);
-			try {
-				unsafe {
-					Delegates.pglTexParameterIuiv((int)target, (int)pname, (uint*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refParams = __makeref(@params);
-				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
-
-				Delegates.pglTexParameterIuiv((int)target, (int)pname, (uint*)refParamsPtr.ToPointer());
+				Delegates.pglTexParameterIuiv((int)target, (int)pname, (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref @params));
 			}
-			#endif
 			LogCommand("glTexParameterIuiv", null, target, pname, @params			);
 			DebugCheckErrors(null);
 		}
@@ -5380,23 +5086,9 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetTexParameterIiv != null, "pglGetTexParameterIiv not implemented");
 			@params = default(T);
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(@params);
-			try {
-				unsafe {
-					Delegates.pglGetTexParameterIiv((int)target, (int)pname, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refParams = __makeref(@params);
-				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
-
-				Delegates.pglGetTexParameterIiv((int)target, (int)pname, (int*)refParamsPtr.ToPointer());
+				Delegates.pglGetTexParameterIiv((int)target, (int)pname, (int*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref @params));
 			}
-			#endif
 			LogCommand("glGetTexParameterIiv", null, target, pname, @params			);
 			DebugCheckErrors(null);
 		}
@@ -5551,23 +5243,9 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetTexParameterIuiv != null, "pglGetTexParameterIuiv not implemented");
 			@params = default(T);
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(@params);
-			try {
-				unsafe {
-					Delegates.pglGetTexParameterIuiv((int)target, (int)pname, (uint*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refParams = __makeref(@params);
-				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
-
-				Delegates.pglGetTexParameterIuiv((int)target, (int)pname, (uint*)refParamsPtr.ToPointer());
+				Delegates.pglGetTexParameterIuiv((int)target, (int)pname, (uint*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref @params));
 			}
-			#endif
 			LogCommand("glGetTexParameterIuiv", null, target, pname, @params			);
 			DebugCheckErrors(null);
 		}
@@ -6003,23 +5681,9 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetRenderbufferParameteriv != null, "pglGetRenderbufferParameteriv not implemented");
 			@params = default(T);
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(@params);
-			try {
-				unsafe {
-					Delegates.pglGetRenderbufferParameteriv((int)target, (int)pname, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refParams = __makeref(@params);
-				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
-
-				Delegates.pglGetRenderbufferParameteriv((int)target, (int)pname, (int*)refParamsPtr.ToPointer());
+				Delegates.pglGetRenderbufferParameteriv((int)target, (int)pname, (int*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref @params));
 			}
-			#endif
 			LogCommand("glGetRenderbufferParameteriv", null, target, pname, @params			);
 			DebugCheckErrors(null);
 		}
@@ -6441,23 +6105,9 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetFramebufferAttachmentParameteriv != null, "pglGetFramebufferAttachmentParameteriv not implemented");
 			@params = default(T);
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(@params);
-			try {
-				unsafe {
-					Delegates.pglGetFramebufferAttachmentParameteriv((int)target, (int)attachment, (int)pname, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refParams = __makeref(@params);
-				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
-
-				Delegates.pglGetFramebufferAttachmentParameteriv((int)target, (int)attachment, (int)pname, (int*)refParamsPtr.ToPointer());
+				Delegates.pglGetFramebufferAttachmentParameteriv((int)target, (int)attachment, (int)pname, (int*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref @params));
 			}
-			#endif
 			LogCommand("glGetFramebufferAttachmentParameteriv", null, target, attachment, pname, @params			);
 			DebugCheckErrors(null);
 		}

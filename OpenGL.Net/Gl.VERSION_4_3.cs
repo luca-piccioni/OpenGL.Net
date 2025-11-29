@@ -2820,23 +2820,9 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetFramebufferParameteriv != null, "pglGetFramebufferParameteriv not implemented");
 			@params = default(T);
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(@params);
-			try {
-				unsafe {
-					Delegates.pglGetFramebufferParameteriv((int)target, (int)pname, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refParams = __makeref(@params);
-				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
-
-				Delegates.pglGetFramebufferParameteriv((int)target, (int)pname, (int*)refParamsPtr.ToPointer());
+				Delegates.pglGetFramebufferParameteriv((int)target, (int)pname, (int*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref @params));
 			}
-			#endif
 			LogCommand("glGetFramebufferParameteriv", null, target, pname, @params			);
 			DebugCheckErrors(null);
 		}

@@ -1242,23 +1242,9 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetBufferParameteriv != null, "pglGetBufferParameteriv not implemented");
 			data = default(T);
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(data);
-			try {
-				unsafe {
-					Delegates.pglGetBufferParameteriv((int)target, (int)value, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refParams = __makeref(data);
-				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
-
-				Delegates.pglGetBufferParameteriv((int)target, (int)value, (int*)refParamsPtr.ToPointer());
+				Delegates.pglGetBufferParameteriv((int)target, (int)value, (int*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref data));
 			}
-			#endif
 			LogCommand("glGetBufferParameteriv", null, target, value, data			);
 			DebugCheckErrors(null);
 		}

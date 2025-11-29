@@ -5703,23 +5703,9 @@ namespace OpenGL
 		public static void TexParameterf<T>(TextureTarget target, TextureParameterName pname, T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglTexParameterfv != null, "pglTexParameterfv not implemented");
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(@params);
-			try {
-				unsafe {
-					Delegates.pglTexParameterfv((int)target, (int)pname, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refParams = __makeref(@params);
-				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
-
-				Delegates.pglTexParameterfv((int)target, (int)pname, (float*)refParamsPtr.ToPointer());
+				Delegates.pglTexParameterfv((int)target, (int)pname, (float*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref @params));
 			}
-			#endif
 			LogCommand("glTexParameterfv", null, target, pname, @params			);
 			DebugCheckErrors(null);
 		}
@@ -5840,23 +5826,9 @@ namespace OpenGL
 		public static void TexParameteri<T>(TextureTarget target, TextureParameterName pname, T @params) where T : struct
 		{
 			Debug.Assert(Delegates.pglTexParameteriv != null, "pglTexParameteriv not implemented");
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(@params);
-			try {
-				unsafe {
-					Delegates.pglTexParameteriv((int)target, (int)pname, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refParams = __makeref(@params);
-				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
-
-				Delegates.pglTexParameteriv((int)target, (int)pname, (int*)refParamsPtr.ToPointer());
+				Delegates.pglTexParameteriv((int)target, (int)pname, (int*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref @params));
 			}
-			#endif
 			LogCommand("glTexParameteriv", null, target, pname, @params			);
 			DebugCheckErrors(null);
 		}
@@ -6754,23 +6726,9 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetBooleanv != null, "pglGetBooleanv not implemented");
 			data = default(T);
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(data);
-			try {
-				unsafe {
-					Delegates.pglGetBooleanv((int)pname, (byte*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refData = __makeref(data);
-				IntPtr refDataPtr = *(IntPtr*)(&refData);
-
-				Delegates.pglGetBooleanv((int)pname, (byte*)refDataPtr.ToPointer());
+				Delegates.pglGetBooleanv((int)pname, (byte*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref data));
 			}
-			#endif
 			LogCommand("glGetBooleanv", null, pname, data			);
 			DebugCheckErrors(null);
 		}
@@ -6905,23 +6863,9 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetDoublev != null, "pglGetDoublev not implemented");
 			data = default(T);
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(data);
-			try {
-				unsafe {
-					Delegates.pglGetDoublev((int)pname, (double*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refData = __makeref(data);
-				IntPtr refDataPtr = *(IntPtr*)(&refData);
-
-				Delegates.pglGetDoublev((int)pname, (double*)refDataPtr.ToPointer());
+				Delegates.pglGetDoublev((int)pname, (double*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref data));
 			}
-			#endif
 			LogCommand("glGetDoublev", null, pname, data			);
 			DebugCheckErrors(null);
 		}
@@ -7106,23 +7050,9 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetFloatv != null, "pglGetFloatv not implemented");
 			data = default(T);
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(data);
-			try {
-				unsafe {
-					Delegates.pglGetFloatv((int)pname, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refData = __makeref(data);
-				IntPtr refDataPtr = *(IntPtr*)(&refData);
-
-				Delegates.pglGetFloatv((int)pname, (float*)refDataPtr.ToPointer());
+				Delegates.pglGetFloatv((int)pname, (float*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref data));
 			}
-			#endif
 			LogCommand("glGetFloatv", null, pname, data			);
 			DebugCheckErrors(null);
 		}
@@ -7287,23 +7217,9 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetIntegerv != null, "pglGetIntegerv not implemented");
 			data = default(T);
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(data);
-			try {
-				unsafe {
-					Delegates.pglGetIntegerv((int)pname, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refData = __makeref(data);
-				IntPtr refDataPtr = *(IntPtr*)(&refData);
-
-				Delegates.pglGetIntegerv((int)pname, (int*)refDataPtr.ToPointer());
+				Delegates.pglGetIntegerv((int)pname, (int*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref data));
 			}
-			#endif
 			LogCommand("glGetIntegerv", null, pname, data			);
 			DebugCheckErrors(null);
 		}
@@ -7551,23 +7467,9 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetTexParameterfv != null, "pglGetTexParameterfv not implemented");
 			@params = default(T);
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(@params);
-			try {
-				unsafe {
-					Delegates.pglGetTexParameterfv((int)target, (int)pname, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refParams = __makeref(@params);
-				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
-
-				Delegates.pglGetTexParameterfv((int)target, (int)pname, (float*)refParamsPtr.ToPointer());
+				Delegates.pglGetTexParameterfv((int)target, (int)pname, (float*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref @params));
 			}
-			#endif
 			LogCommand("glGetTexParameterfv", null, target, pname, @params			);
 			DebugCheckErrors(null);
 		}
@@ -7718,23 +7620,9 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetTexParameteriv != null, "pglGetTexParameteriv not implemented");
 			@params = default(T);
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(@params);
-			try {
-				unsafe {
-					Delegates.pglGetTexParameteriv((int)target, (int)pname, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refParams = __makeref(@params);
-				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
-
-				Delegates.pglGetTexParameteriv((int)target, (int)pname, (int*)refParamsPtr.ToPointer());
+				Delegates.pglGetTexParameteriv((int)target, (int)pname, (int*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref @params));
 			}
-			#endif
 			LogCommand("glGetTexParameteriv", null, target, pname, @params			);
 			DebugCheckErrors(null);
 		}
@@ -7897,23 +7785,9 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetTexLevelParameterfv != null, "pglGetTexLevelParameterfv not implemented");
 			@params = default(T);
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(@params);
-			try {
-				unsafe {
-					Delegates.pglGetTexLevelParameterfv((int)target, level, (int)pname, (float*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refParams = __makeref(@params);
-				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
-
-				Delegates.pglGetTexLevelParameterfv((int)target, level, (int)pname, (float*)refParamsPtr.ToPointer());
+				Delegates.pglGetTexLevelParameterfv((int)target, level, (int)pname, (float*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref @params));
 			}
-			#endif
 			LogCommand("glGetTexLevelParameterfv", null, target, level, pname, @params			);
 			DebugCheckErrors(null);
 		}
@@ -8076,23 +7950,9 @@ namespace OpenGL
 		{
 			Debug.Assert(Delegates.pglGetTexLevelParameteriv != null, "pglGetTexLevelParameteriv not implemented");
 			@params = default(T);
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(@params);
-			try {
-				unsafe {
-					Delegates.pglGetTexLevelParameteriv((int)target, level, (int)pname, (int*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refParams = __makeref(@params);
-				IntPtr refParamsPtr = *(IntPtr*)(&refParams);
-
-				Delegates.pglGetTexLevelParameteriv((int)target, level, (int)pname, (int*)refParamsPtr.ToPointer());
+				Delegates.pglGetTexLevelParameteriv((int)target, level, (int)pname, (int*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref @params));
 			}
-			#endif
 			LogCommand("glGetTexLevelParameteriv", null, target, level, pname, @params			);
 			DebugCheckErrors(null);
 		}
@@ -14058,23 +13918,9 @@ namespace OpenGL
 		public static void LoadMatrixf<T>(T m) where T : struct
 		{
 			Debug.Assert(Delegates.pglLoadMatrixf != null, "pglLoadMatrixf not implemented");
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(m);
-			try {
-				unsafe {
-					Delegates.pglLoadMatrixf((float*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refM = __makeref(m);
-				IntPtr refMPtr = *(IntPtr*)(&refM);
-
-				Delegates.pglLoadMatrixf((float*)refMPtr.ToPointer());
+				Delegates.pglLoadMatrixf((float*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref m));
 			}
-			#endif
 			LogCommand("glLoadMatrixf", null, m			);
 			DebugCheckErrors(null);
 		}
@@ -14128,23 +13974,9 @@ namespace OpenGL
 		public static void LoadMatrixd<T>(T m) where T : struct
 		{
 			Debug.Assert(Delegates.pglLoadMatrixd != null, "pglLoadMatrixd not implemented");
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(m);
-			try {
-				unsafe {
-					Delegates.pglLoadMatrixd((double*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refM = __makeref(m);
-				IntPtr refMPtr = *(IntPtr*)(&refM);
-
-				Delegates.pglLoadMatrixd((double*)refMPtr.ToPointer());
+				Delegates.pglLoadMatrixd((double*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref m));
 			}
-			#endif
 			LogCommand("glLoadMatrixd", null, m			);
 			DebugCheckErrors(null);
 		}
@@ -14228,23 +14060,9 @@ namespace OpenGL
 		public static void MultMatrixf<T>(T m) where T : struct
 		{
 			Debug.Assert(Delegates.pglMultMatrixf != null, "pglMultMatrixf not implemented");
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(m);
-			try {
-				unsafe {
-					Delegates.pglMultMatrixf((float*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refM = __makeref(m);
-				IntPtr refMPtr = *(IntPtr*)(&refM);
-
-				Delegates.pglMultMatrixf((float*)refMPtr.ToPointer());
+				Delegates.pglMultMatrixf((float*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref m));
 			}
-			#endif
 			LogCommand("glMultMatrixf", null, m			);
 			DebugCheckErrors(null);
 		}
@@ -14298,23 +14116,9 @@ namespace OpenGL
 		public static void MultMatrixd<T>(T m) where T : struct
 		{
 			Debug.Assert(Delegates.pglMultMatrixd != null, "pglMultMatrixd not implemented");
-			#if NETCOREAPP1_1
-			GCHandle valueHandle = GCHandle.Alloc(m);
-			try {
-				unsafe {
-					Delegates.pglMultMatrixd((double*)valueHandle.AddrOfPinnedObject().ToPointer());
-				}
-			} finally {
-				valueHandle.Free();
-			}
-			#else
 			unsafe {
-				TypedReference refM = __makeref(m);
-				IntPtr refMPtr = *(IntPtr*)(&refM);
-
-				Delegates.pglMultMatrixd((double*)refMPtr.ToPointer());
+				Delegates.pglMultMatrixd((double*)System.Runtime.CompilerServices.Unsafe.AsPointer(ref m));
 			}
-			#endif
 			LogCommand("glMultMatrixd", null, m			);
 			DebugCheckErrors(null);
 		}

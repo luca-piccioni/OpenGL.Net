@@ -226,7 +226,7 @@ namespace BindingsGen.GLSpecs
 
 					continue;
 
-				} else if ((match = Regex.Match(statement, CommandExportRegex + @"(?<Return>.*) " + CommandCallConventionRegex + @"(?<Name>.*)\((?<Args>.*)\)" + CommandExitRegex)).Success) {
+				} else if (CommandExportRegex != null && (match = Regex.Match(statement, CommandExportRegex + @"(?<Return>.*) " + CommandCallConventionRegex + @"(?<Name>.*)\((?<Args>.*)\)" + CommandExitRegex)).Success) {
 
 					#region Command
 
