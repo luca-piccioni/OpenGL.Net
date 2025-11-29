@@ -1,0 +1,65 @@
+# .copilotignore for OpenGL.Net
+# Exclude Git metadata and submodules
+.git/
+.gitmodules
+**/.git/modules/
+
+# Build outputs
+**/bin/
+**/obj/
+**/Debug/
+**/Release/
+
+# Bindings generator outputs and packages
+BindingsGen/bin/
+BindingsGen/obj/
+nuget/
+*.nupkg
+packages.config
+
+# Generated OpenGL bindings (produced by BindingsGen)
+OpenGL.Net/Gl.*.cs
+OpenGL.Net/Gl.Enums.cs
+OpenGL.Net/Gl.Orphans.cs
+OpenGL.Net/Gl.Extensions.cs
+OpenGL.Net/Gl.Limits.cs
+OpenGL.Net/Gl.VERSION_*.cs
+OpenGL.Net/Gl.ES_VERSION_*.cs
+OpenGL.Net/Gl.Versions.cs
+OpenGL.Net/*/Gl.*.cs
+
+# Common auto-generated filenames
+**/*.generated.cs
+**/*.g.cs
+**/*.Designer.cs
+**/*Generated*
+
+# Logs, caches and OS files
+**/*.log
+**/*.cache
+Thumbs.db
+desktop.ini
+
+# Additional excludes to keep Copilot local index small
+# Exclude the large Khronos specs and reference pages
+GLSpecs/**
+RefPages/**
+# Exclude bindings generator build artifacts and source blobs
+BindingsGen/**
+# Exclude samples, wiki, nuget packages and other large doc/binary files
+Samples/**
+Wiki/**
+nuget/**
+# Common large file types not useful for code indexing
+**/*.pdf
+**/*.zip
+**/*.7z
+**/*.tar
+**/*.gz
+# Ensure nested generated bindings are ignored
+OpenGL.Net/**/Gl.*.cs
+OpenGL.Net/**/Gl.*.generated.cs
+# IDE, build and backup folders
+.vs/
+**/bin/
+**/obj/

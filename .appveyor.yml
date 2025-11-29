@@ -7,12 +7,11 @@ init:
   - ps: Write-Host "Setting version to '$env:TAG_VERSION'"
   - ps: Update-AppveyorBuild -Version "$env:TAG_VERSION"
 
+image: Visual Studio 2022
+
 environment:
   matrix:
-    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2022
-      SLN_PATH: OpenGL.Net.sln
-      SLN_BUILD_OPTS: /nologo /verbosity:quiet /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
-      PUBLISH_NUGET: true
+    - PUBLISH_NUGET: true
 
 pull_requests:
   do_not_increment_build_number: true
@@ -35,12 +34,11 @@ assembly_info:
   assembly_informational_version: "{version}"
 
 before_build:
-  - cmd: dotnet restore $SLN_PATH
-
+  - cmd: dotnet restore OpenGL.Net.sln
 build_script:
-  - cmd: msbuild $SLN_PATH $SLN_BUILD_OPTS /p:Configuration=Release /p:Platform="Any CPU"
+  - cmd: msbuild OpenGL.Net.sln /nologo /verbosity:quiet /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll" /p:Configuration=Release /p:Platform="Any CPU"
 after_build:
-  - cmd: dotnet pack $SLN_PATH $SLN_BUILD_OPTS /p:Configuration=Release /p:Platform="Any CPU"
+  - cmd: dotnet pack OpenGL.Net.sln /p:Configuration=Release /p:Platform="Any CPU"
 
 test: off
 
