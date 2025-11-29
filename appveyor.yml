@@ -36,7 +36,7 @@ assembly_info:
 before_build:
   - cmd: dotnet restore OpenGL.Net.sln
 build_script:
-  - cmd: msbuild OpenGL.Net.sln /nologo /verbosity:quiet /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll" /p:Configuration=Release /p:Platform="Any CPU"
+  - cmd: dotnet build OpenGL.Net.sln /p:Configuration=Release /p:Platform="Any CPU"
 after_build:
   - cmd: dotnet pack OpenGL.Net.sln /p:Configuration=Release /p:Platform="Any CPU"
 
