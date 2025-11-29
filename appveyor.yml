@@ -34,11 +34,11 @@ assembly_info:
   assembly_informational_version: "{version}"
 
 before_build:
-  - cmd: call "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat" && dotnet restore OpenGL.Net.sln
+  - cmd: dotnet restore OpenGL.Net.sln
 build_script:
-  - cmd: call "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat" && msbuild OpenGL.Net.sln /nologo /verbosity:quiet /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll" /p:Configuration=Release /p:Platform="Any CPU"
+  - cmd: msbuild OpenGL.Net.sln /nologo /verbosity:quiet /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll" /p:Configuration=Release /p:Platform="Any CPU"
 after_build:
-  - cmd: call "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat" && dotnet pack OpenGL.Net.sln /p:Configuration=Release /p:Platform="Any CPU"
+  - cmd: dotnet pack OpenGL.Net.sln /p:Configuration=Release /p:Platform="Any CPU"
 
 test: off
 
