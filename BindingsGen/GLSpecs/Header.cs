@@ -48,9 +48,9 @@ namespace BindingsGen.GLSpecs
 
 		#region Header Parsing
 
-		public string CommandExportRegex;
+		public string CommandExportRegex = null;
 
-		public string CommandCallConventionRegex;
+		public string CommandCallConventionRegex = null;
 
 		public string CommandExitRegex = string.Empty;
 

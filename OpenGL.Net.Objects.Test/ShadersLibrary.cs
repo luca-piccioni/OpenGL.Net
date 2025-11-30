@@ -102,11 +102,6 @@ namespace OpenGL.Objects.Test
 			/// </summary>
 			public readonly ShaderType ObjectType;
 
-			/// <summary>
-			/// Shader compiler parameters.
-			/// </summary>
-			public ShaderCompilerContext CompilerParams;
-
 			public override string ToString()
 			{
 				StringBuilder sb = new StringBuilder();

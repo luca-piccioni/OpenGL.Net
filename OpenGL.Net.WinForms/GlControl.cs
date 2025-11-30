@@ -1336,11 +1336,14 @@ namespace OpenGL
 	[RequiredByFeature("System.Windows.Forms Designer")]
 	public class KhronosVersionConverter : TypeConverter
 	{
+		/// <inheritdoc/>
 		public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)
 		{
 			return sourceType == typeof(string) || base.CanConvertFrom(context, sourceType);
 		}
 
+
+		/// <inheritdoc/>
 		public override object ConvertFrom(ITypeDescriptorContext context, System.Globalization.CultureInfo culture, object value)
 		{
 			if (ReferenceEquals(value, null))
@@ -1361,6 +1364,7 @@ namespace OpenGL
 			return base.ConvertFrom(context, culture, value);
 		}
 
+		/// <inheritdoc/>
 		public override bool CanConvertTo(ITypeDescriptorContext context, Type destinationType)
 		{
 			if (destinationType == typeof(string))
@@ -1372,6 +1376,7 @@ namespace OpenGL
 			return base.CanConvertTo(context, destinationType);
 		}
 
+		/// <inheritdoc/>
 		public override object ConvertTo(ITypeDescriptorContext context, System.Globalization.CultureInfo culture, object value, Type destinationType)
 		{
 			KhronosVersion version = value as KhronosVersion;
