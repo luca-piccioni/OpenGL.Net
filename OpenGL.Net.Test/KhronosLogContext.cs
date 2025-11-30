@@ -65,7 +65,7 @@ namespace OpenGL.Test
 			Assert.Throws<ArgumentNullException>(() => ctx = new KhronosLogContext(null));
 			Assert.DoesNotThrow(() => ctx = new KhronosLogContext(typeof(TestApi)));
 
-			Assert.AreEqual("0", ctx.GetEnumName(0));
+			Assert.AreEqual("NONE", ctx.GetEnumName(0));
 			Assert.AreEqual("ONE", ctx.GetEnumName(1));
 			Assert.AreEqual("TWO", ctx.GetEnumName(2));
 			Assert.IsNull(ctx.GetEnumName(-1));

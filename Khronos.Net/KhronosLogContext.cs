@@ -19,10 +19,6 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#if NETFRAMEWORK
-#define HAVE_SYSTEM_XML
-#endif
-
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -63,11 +59,9 @@ namespace Khronos
 			QueryLogContext(khronoApiType);
 
 			if (logMap == null) {
-#if HAVE_SYSTEM_XML
 				try {
 					_LogMap = KhronosLogMap.Load($"OpenGL.KhronosLogMap{khronoApiType.Name}.xml");
 				} catch { /* Fail-safe */ }
-#endif
 			} else
 				_LogMap = logMap;
 		}
@@ -109,8 +103,6 @@ namespace Khronos
 			Dictionary<long, string> enumNames = new Dictionary<long, string>();
 			Dictionary<string, Dictionary<long, string>> enumBitmasks = new Dictionary<string, Dictionary<long, string>>();
 
-#if HAVE_SYSTEM_XML
-
 			FieldInfo[] fieldInfos = khronoApiType.GetFields(BindingFlags.Public | BindingFlags.Static);
 
 			foreach (FieldInfo fieldInfo in fieldInfos) {
@@ -150,8 +142,6 @@ namespace Khronos
 					// ReSharper disable once EmptyGeneralCatchClause
 				} catch (Exception) { /* Fail-safe */ }
 			}
-
-#endif
 
 			// Componse LogContext
 			_EnumNames = enumNames;
