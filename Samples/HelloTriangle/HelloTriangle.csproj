@@ -7,7 +7,7 @@
     <RootNamespace>HelloTriangle</RootNamespace>
     <AssemblyName>HelloTriangle</AssemblyName>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <Platforms>AnyCPU;x86;x64</Platforms>
+    <Platforms>AnyCPU</Platforms>
     <RuntimeIdentifiers>win-x86;win-x64</RuntimeIdentifiers>
   </PropertyGroup>
 
