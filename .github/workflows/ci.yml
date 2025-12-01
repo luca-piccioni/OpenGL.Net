@@ -1,0 +1,75 @@
+name: CI Build
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        configuration: [Debug, Release]
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: |
+          6.0.x
+          7.0.x
+          8.0.x
+    
+    - name: Restore dependencies
+      run: dotnet restore OpenGL.Net.sln
+    
+    - name: Build
+      run: dotnet build OpenGL.Net.sln --configuration ${{ matrix.configuration }} --no-restore
+
+  build-linux:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        configuration: [Debug, Release]
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: |
+          6.0.x
+          7.0.x
+          8.0.x
+    
+    - name: Restore dependencies
+      run: dotnet restore OpenGL.Net.sln
+    
+    - name: Build
+      run: dotnet build OpenGL.Net.sln --configuration ${{ matrix.configuration }} --no-restore
+
+  build-macos:
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        configuration: [Debug, Release]
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: |
+          6.0.x
+          7.0.x
+          8.0.x
+    
+    - name: Restore dependencies
+      run: dotnet restore OpenGL.Net.sln
+    
+    - name: Build
+      run: dotnet build OpenGL.Net.sln --configuration ${{ matrix.configuration }} --no-restore
