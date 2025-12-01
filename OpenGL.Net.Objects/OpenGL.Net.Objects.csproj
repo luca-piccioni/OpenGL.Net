@@ -42,7 +42,7 @@
 	<Compile Include="FontFx.cs" />
 	<Compile Include="FontTextureArray2d.cs" />
 	<Compile Include="FontVertex.cs" />
-	<Compile Include="FrameBuffer.cs" />
+	<Compile Include="Framebuffer.cs" />
 	<Compile Include="GpuMemoryInfo.cs" />
 	<Compile Include="GraphicsContext.cs" />
 	<Compile Include="GraphicsContext.Draw.cs" />
