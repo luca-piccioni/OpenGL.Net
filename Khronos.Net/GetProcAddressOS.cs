@@ -306,6 +306,8 @@ namespace Khronos
 
 			public const int RTLD_NOW = 2;
 
+			public const int RTLD_NOLOAD = 4;
+
 #if NETCORE
 			[DllImport("libc")]
 			public static extern IntPtr dlopen(string filename, int flags);
@@ -387,10 +389,20 @@ namespace Khronos
 
 		internal static IntPtr GetLibraryHandle(string libraryPath, bool throws)
 		{
-			IntPtr libraryHandle;
+			IntPtr libraryHandle = IntPtr.Zero; // Initialize to IntPtr.Zero
 
 			if (_LibraryHandles.TryGetValue(libraryPath, out libraryHandle) == false) {
-				if ((libraryHandle = UnsafeNativeMethods.dlopen(libraryPath, UnsafeNativeMethods.RTLD_LAZY)) == IntPtr.Zero) {
+				// For libc, try RTLD_NOLOAD first since it's always loaded
+				if (libraryPath.StartsWith("libc")) {
+					libraryHandle = UnsafeNativeMethods.dlopen(libraryPath, UnsafeNativeMethods.RTLD_LAZY | UnsafeNativeMethods.RTLD_NOLOAD);
+				}
+				
+				// If RTLD_NOLOAD didn't work or not libc, try normal load
+				if (libraryHandle == IntPtr.Zero) {
+					libraryHandle = UnsafeNativeMethods.dlopen(libraryPath, UnsafeNativeMethods.RTLD_LAZY);
+				}
+				
+				if (libraryHandle == IntPtr.Zero) {
 					if (throws)
 						throw new InvalidOperationException($"unable to load library at {libraryPath}", new InvalidOperationException(UnsafeNativeMethods.dlerror()));
 				}

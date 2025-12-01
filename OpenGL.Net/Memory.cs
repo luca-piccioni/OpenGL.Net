@@ -243,10 +243,19 @@ namespace OpenGL
 						return (CopyDelegate)Marshal.GetDelegateForFunctionPointer(memoryCopyPtr, typeof(CopyDelegate));
 					return null;
 				case Platform.Id.Linux:
-					memoryCopyPtr = GetProcAddressOS.GetProcAddress("libc.so.6", "memcpy");
-					if (memoryCopyPtr != IntPtr.Zero)
-						return (CopyDelegate)Marshal.GetDelegateForFunctionPointer(memoryCopyPtr, typeof(CopyDelegate));
-					return null;
+				// Try multiple library name variations for cross-distribution compatibility
+				string[] libcVariants = { "libc.so.6", "libc.so", "libc" };
+				foreach (string libcName in libcVariants) {
+					try {
+						memoryCopyPtr = GetProcAddressOS.GetProcAddress(libcName, "memcpy");
+						if (memoryCopyPtr != IntPtr.Zero)
+							return (CopyDelegate)Marshal.GetDelegateForFunctionPointer(memoryCopyPtr, typeof(CopyDelegate));
+					} catch {
+						// Try next variant
+						continue;
+					}
+				}
+				return null;
 				default:
 					return null;
 			}
