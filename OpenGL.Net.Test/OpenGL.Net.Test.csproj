@@ -1,12 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net48</TargetFramework>
-
-    <DefineConstants>TRACE;NETFRAMEWORK;HAVE_SYSTEM_DRAWING;HAVE_NUMERICS</DefineConstants>
+    <TargetFrameworks>net48;net6.0;net7.0;net8.0</TargetFrameworks>
 
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 
+  </PropertyGroup>
+
+  <!-- Framework-specific constants -->
+  <PropertyGroup Condition="'$(TargetFramework)' == 'net48'">
+    <DefineConstants>TRACE;NETFRAMEWORK;HAVE_SYSTEM_DRAWING;HAVE_NUMERICS</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)' != 'net48'">
+    <DefineConstants>TRACE;NETCOREAPP;HAVE_SYSTEM_DRAWING;HAVE_NUMERICS</DefineConstants>
   </PropertyGroup>
 
   <PropertyGroup>
