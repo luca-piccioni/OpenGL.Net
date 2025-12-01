@@ -55,7 +55,7 @@ jobs:
       run: dotnet build OpenGL.Net.sln --configuration ${{ matrix.configuration }} --no-restore
 
     - name: Test
-      run: dotnet test OpenGL.Net.sln --configuration ${{ matrix.configuration }} --no-build --verbosity normal --framework net6.0 --framework net7.0 --framework net8.0
+      run: dotnet test OpenGL.Net.sln --configuration ${{ matrix.configuration }} --no-build --verbosity normal
 
   build-macos:
     runs-on: macos-latest
@@ -81,4 +81,4 @@ jobs:
       run: dotnet build OpenGL.Net.sln --configuration ${{ matrix.configuration }} --no-restore
 
     - name: Test
-      run: dotnet test OpenGL.Net.sln --configuration ${{ matrix.configuration }} --no-build --verbosity normal --framework net6.0 --framework net7.0 --framework net8.0
+      run: dotnet test OpenGL.Net.sln --configuration ${{ matrix.configuration }} --no-build --verbosity normal
