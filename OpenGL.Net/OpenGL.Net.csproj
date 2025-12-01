@@ -40,12 +40,12 @@ No graphical toolkit integration is included in this package. UI backends are su
   
   <ItemGroup>
 	<Compile Include="DeviceContext*.cs" />
-	<Compile Include="DevicePixelformat.cs" />
-	<Compile Include="DevicePixelformatCollection.cs" />
+	<Compile Include="DevicePixelFormat.cs" />
+	<Compile Include="DevicePixelFormatCollection.cs" />
 	<Compile Include="GetProcAddressGL.cs" />
 	<Compile Include="INativePBuffer.cs" />
 	<Compile Include="INativeWindow.cs" />
-	<Compile Include="KhronosAPI.cs" />
+	<Compile Include="KhronosApi.cs" />
 	<Compile Include="LimitAttribute.cs" />
 	<Compile Include="Memory.cs" />
 	<Compile Include="MemoryLock.cs" />
