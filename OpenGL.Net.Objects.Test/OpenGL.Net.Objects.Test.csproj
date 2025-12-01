@@ -6,7 +6,7 @@
     <RootNamespace>OpenGL.Objects.Test</RootNamespace>
     <AssemblyName>OpenGL.Net.Objects.Test</AssemblyName>
 
-    <DefineConstants>TRACE;NETFRAMEWORK;HAVE_SYSTEM_DRAWING;HAVE_NUMERICS</DefineConstants>
+    <DefineConstants>TRACE;HAVE_SYSTEM_DRAWING;HAVE_NUMERICS</DefineConstants>
 
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>

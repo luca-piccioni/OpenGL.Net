@@ -57,8 +57,8 @@ using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Runtime.InteropServices;
-#if NETFRAMEWORK
 using System.Runtime.Serialization;
+#if NETFRAMEWORK
 using System.Security.Permissions;
 #endif
 
@@ -67,15 +67,11 @@ namespace OpenGL
 	/// <summary>
 	/// HalfFloat floating-point number (16 bit).
 	/// </summary>
-#if NETFRAMEWORK
 	[Serializable]
-#endif
 	[StructLayout(LayoutKind.Sequential)]
 	[SuppressMessage("ReSharper", "CompareOfFloatsByEqualityOperator")]
 	public struct HalfFloat : IComparable<HalfFloat>, IFormattable, IEquatable<HalfFloat>
-#if NETFRAMEWORK
 		, ISerializable
-#endif
 	{
 		#region Constructors
 
@@ -188,8 +184,8 @@ namespace OpenGL
 
 			// Normalized number
 
-			exponent = exponent + (127 - 15);
-			mantissa = mantissa << 13;
+			exponent += (127 - 15);
+			mantissa <<= 13;
 
 			// Assemble S, E and M.
 
@@ -228,7 +224,7 @@ namespace OpenGL
 
 				// Add an explicit leading 1 to the significand.
 
-				mantissa = mantissa | 0x00800000;
+				mantissa |= 0x00800000;
 
 				// Round to M to the nearest (10+E)-bit value (with E between -10 and 0); in case of a tie, round to the nearest even value.
 				//
@@ -467,9 +463,7 @@ namespace OpenGL
 
 		#endregion
 
-#if NETFRAMEWORK
-
-		#region ISerializable Implementation
+#region ISerializable Implementation
 
 		/// <summary>
 		/// Constructor used by ISerializable to deserialize the object.
@@ -499,8 +493,6 @@ namespace OpenGL
 		}
 
 		#endregion
-
-#endif
 
 		#region IEquatable<HalfFloat> Implementation
 

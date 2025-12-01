@@ -20,9 +20,7 @@
 // SOFTWARE.
 
 using System;
-#if NETFRAMEWORK
 using System.Xml.Serialization;
-#endif
 
 namespace Khronos
 {
@@ -32,14 +30,10 @@ namespace Khronos
     [Flags]
 	public enum KhronosLogCommandParameterFlags
 	{
-#if NETFRAMEWORK
 		[XmlEnum("none")]
-#endif
 		None = 0x0000,
 
-#if NETFRAMEWORK
 		[XmlEnum("enum")]
-#endif
 		Enum = 0x0001,
 	}
 }

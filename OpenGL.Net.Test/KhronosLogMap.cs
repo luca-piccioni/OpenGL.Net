@@ -67,8 +67,6 @@ namespace OpenGL.Test
 			CollectionAssert.IsEmpty(m.Commands);
 		}
 
-#if NETFRAMEWORK
-
 		[Test]
 		public void KhronosLogMap_Load()
 		{
@@ -93,8 +91,6 @@ namespace OpenGL.Test
 
 			Assert.DoesNotThrow(() => KhronosLogMap.Save("KhronosLogMap_Save.xml", m));
 		}
-
-#endif
 
 		[Test]
 		public void KhronosLogMap_GetCommandParameterFlag()

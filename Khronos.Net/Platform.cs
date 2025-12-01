@@ -23,9 +23,7 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
-#if !NETFRAMEWORK
 using System.Runtime.InteropServices;
-#endif
 
 namespace Khronos
 {
@@ -90,86 +88,17 @@ namespace Khronos
 		private static Id GetCurrentPlatform()
 		{
 #if !MONODROID
-#if NETFRAMEWORK
-			// Framework platform
-			switch (Environment.OSVersion.Platform) {
-				case PlatformID.Win32NT:
-					return Id.WindowsNT;
-				case PlatformID.Unix:
-					// Android special case
-					if (Type.GetType("Android.OS.Build, Mono.Android.dll") != null)
-						return Id.Android;
-
-					// Other cases: Linux, MacOS
-					string unixName = DetectUnixKernel();
-
-					switch (unixName) {
-						case "Darwin":
-							return Id.MacOS;
-						default:
-							return Id.Linux;
-					}
-				case PlatformID.MacOSX:
-					return Id.MacOS;
-				default:
-					return Id.Unknown;
-			}
-#else
-			if      (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-				return (Id.WindowsNT);
+			if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+				return Id.WindowsNT;
 			else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
-				return (Id.Linux);
+				return Id.Linux;
 			else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
-				return (Id.MacOS);
+				return Id.MacOS;
 			else
-				return (Id.Unknown);
-#endif
+				return Id.Unknown;
 #else       // !MONODROID
-			return (Id.Android);
+			return Id.Android;
 #endif
-		}
-
-		/// <summary>
-		/// Executes "uname" which returns a string representing the name of the
-		/// underlying Unix kernel.
-		/// </summary>
-		/// <returns>
-		/// "Unix", "Linux", "Darwin" or null.
-		/// </returns>
-		/// <remarks>
-		/// Source code from "Mono: A Developer's Notebook"
-		/// </remarks>
-		private static string DetectUnixKernel()
-		{
-#if NETSTANDARD1_1 || NETSTANDARD1_4
-			// XXX
-#else
-			ProcessStartInfo startInfo = new ProcessStartInfo {
-				Arguments = "-s",
-				RedirectStandardOutput = true,
-				RedirectStandardError = true,
-				UseShellExecute = false
-			};
-
-			foreach (string unameprog in new[] { "/usr/bin/uname", "/bin/uname", "uname" }) {
-				// Avoid exception handling
-				if (File.Exists(unameprog) == false)
-					continue;
-
-				try {
-					startInfo.FileName = unameprog;
-					using (Process uname = Process.Start(startInfo)) {
-						if (uname != null)
-							return uname.StandardOutput.ReadLine()?.Trim();
-					}
-				} catch (FileNotFoundException) {
-					// The requested executable doesn't exist, try next one.
-				} catch (System.ComponentModel.Win32Exception) {
-					// Fail-safe
-				}
-			}
-#endif
-			return null;
 		}
 
 		/// <summary>

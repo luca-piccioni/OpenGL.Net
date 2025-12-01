@@ -21,9 +21,7 @@
 
 using System;
 using System.ComponentModel;
-#if NETFRAMEWORK
-using System.ComponentModel.Design.Serialization;
-#endif
+
 using System.Diagnostics;
 using System.Reflection;
 using System.Text;

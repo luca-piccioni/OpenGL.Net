@@ -40,9 +40,7 @@ namespace Khronos
 		/// <summary>
 		/// Commands.
 		/// </summary>
-#if NETFRAMEWORK
 		[XmlElement("command")]
-#endif
 		public Command[] Commands
 		{
 			get { return _Commands.Values.ToArray(); }
