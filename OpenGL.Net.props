@@ -20,4 +20,8 @@
       <PackagePath>\</PackagePath>
     </None>
   </ItemGroup>
+
+  <PropertyGroup>
+    <UseWSL>true</UseWSL>
+  </PropertyGroup>
 </Project>
