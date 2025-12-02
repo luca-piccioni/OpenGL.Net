@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net48</TargetFramework>
+    <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
 
     <RootNamespace>OpenGL.Objects.Test</RootNamespace>
     <AssemblyName>OpenGL.Net.Objects.Test</AssemblyName>
@@ -9,6 +9,8 @@
     <DefineConstants>TRACE;HAVE_SYSTEM_DRAWING;HAVE_NUMERICS</DefineConstants>
 
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+
+    <SuppressTfmSupportBuildWarnings>true</SuppressTfmSupportBuildWarnings>
   </PropertyGroup>
 
   <PropertyGroup>

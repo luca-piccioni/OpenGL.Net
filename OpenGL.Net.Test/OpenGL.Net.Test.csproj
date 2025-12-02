@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net48;net6.0;net7.0;net8.0</TargetFrameworks>
+    <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
 
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <DefineConstants>TRACE;HAVE_SYSTEM_DRAWING;HAVE_NUMERICS</DefineConstants>
@@ -20,11 +20,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <!-- Core benchmarking libraries -->
-    <PackageReference Include="BenchmarkDotNet" Version="0.10.13" />
-    <PackageReference Include="BenchmarkDotNet.Core" Version="0.10.13" />
-    <PackageReference Include="BenchmarkDotNet.Toolchains.Roslyn" Version="0.10.13" />
-
     <!-- Testing framework -->
     <PackageReference Include="NUnit" Version="3.14.0" />
     <PackageReference Include="NUnit3TestAdapter" Version="5.1.0" />
