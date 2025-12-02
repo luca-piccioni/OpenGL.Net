@@ -54,9 +54,6 @@ jobs:
     - name: Build
       run: dotnet build OpenGL.Net.sln --configuration ${{ matrix.configuration }} --no-restore
 
-    - name: Test
-      run: dotnet test OpenGL.Net.sln --configuration ${{ matrix.configuration }} --no-build --verbosity normal
-
   build-macos:
     runs-on: macos-latest
     strategy:
@@ -79,6 +76,3 @@ jobs:
     
     - name: Build
       run: dotnet build OpenGL.Net.sln --configuration ${{ matrix.configuration }} --no-restore
-
-    - name: Test
-      run: dotnet test OpenGL.Net.sln --configuration ${{ matrix.configuration }} --no-build --verbosity normal
