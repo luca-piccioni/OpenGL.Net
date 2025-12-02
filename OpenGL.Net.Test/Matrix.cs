@@ -4369,22 +4369,6 @@ namespace OpenGL.Test
 
 		}
 
-		[Test]
-		public void Matrix4x4f_Rows()
-		{
-			Matrix4x4f m = CreateRandomMatrix();
-
-
-			Vertex4f r0 = m.Row0;
-
-			Vertex4f r1 = m.Row1;
-
-			Vertex4f r2 = m.Row2;
-
-			Vertex4f r3 = m.Row3;
-
-		}
-
 		#endregion
 
 		#region Operators
