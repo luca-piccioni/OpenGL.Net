@@ -5,23 +5,7 @@
             "label": "Build",
             "type": "shell",
             "group": "build",
-            "windows": {
-                "command": "cmd.exe",
-                "args": [
-                    "/c",
-                    "dotnet build"
-                ],
-                "options": {
-                    "shell": {
-                        "executable": "cmd.exe",
-                        "args": [
-                            "/s",
-                            "/c"
-                        ]
-                    }
-                }
-            },
-            "problemMatcher": "$msCompile",
+            "command": "dotnet build",
             "presentation": {
                 "echo": true,
                 "reveal": "always",
@@ -29,10 +13,7 @@
                 "showReuseMessage": true,
                 "clear": false
             },
-            "detail": "Defaul build.",
-            "dependsOn": [
-                "Restore"
-            ]
+            "detail": "Default build."
         },
         {
             "label": "Generate APIs",
