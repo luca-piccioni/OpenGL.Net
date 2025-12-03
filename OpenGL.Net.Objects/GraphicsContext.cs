@@ -44,6 +44,8 @@
 #undef DISABLE_GL_ARB_program_interface_query
 // Symbol for disabling at compile-time features derived from GL_ARB_separate_shader_objects
 #define DISABLE_GL_ARB_separate_shader_objects
+// 
+#define DISABLE_GL_ARB_buffer_storage
 
 using System;
 using System.Collections.Generic;
@@ -256,10 +258,6 @@ namespace OpenGL.Objects
 #if DEBUG
 			_ConstructorStackTrace = Environment.StackTrace;
 #endif
-			// Store thread ID of the render context
-			_RenderContextThreadId = Thread.CurrentThread.ManagedThreadId;
-			// Store thread ID of the device context
-			_DeviceContextThreadId = Thread.CurrentThread.ManagedThreadId;
 
 			try {
 				// Store device context handle
@@ -352,12 +350,8 @@ namespace OpenGL.Objects
 #if DEBUG
 			_ConstructorStackTrace = Environment.StackTrace;
 #endif
-			// Store thread ID of the render context
-			_RenderContextThreadId = Thread.CurrentThread.ManagedThreadId;
-			// Store thread ID of the device context
-			_DeviceContextThreadId = Thread.CurrentThread.ManagedThreadId;
 
-			if ((sharedContext != null) && (sharedContext._RenderContextThreadId != _RenderContextThreadId))
+			if ((sharedContext != null) && (sharedContext._RenderContextThreadId != Thread.CurrentThread.ManagedThreadId))
 				throw new ArgumentException("shared context created from another thread", "sharedContext");
 
 			try {
@@ -574,6 +568,7 @@ namespace OpenGL.Objects
 						contextAttributes.AddRange(new int[] { Egl.CONTEXT_CLIENT_VERSION, 2 });
 						break;
 					case KhronosVersion.ApiGl:
+						break;
 					case KhronosVersion.ApiVg:
 					default:
 						throw new NotSupportedException(String.Format("API {0} not supported", version.Api));
@@ -628,8 +623,9 @@ namespace OpenGL.Objects
 			_ShaderIncludeLibrary = new ShaderIncludeLibrary();
 			_ShaderIncludeLibrary.IncRef();
 			_ShaderIncludeLibrary.Create(this);
-
+			
 			// Buffers for draw commands
+			
 			CreateDrawResources();
 
 			// StartAsyncResourceThread();
@@ -703,6 +699,9 @@ namespace OpenGL.Objects
 #endif
 #if DISABLE_GL_ARB_separate_shader_objects
 			Extensions.SeparateShaderObjects_ARB = false;
+#endif
+#if DISABLE_GL_ARB_buffer_storage
+			Extensions.BufferStorage_ARB = false;
 #endif
 		}
 
@@ -2147,17 +2146,26 @@ namespace OpenGL.Objects
 				lock (_RenderThreadsLock) {
 					_RenderThreads[threadId] = this;
 				}
+
+				// Store thread ID of the render context
+				_RenderContextThreadId = Thread.CurrentThread.ManagedThreadId;
+				// Store thread ID of the device context
+				_DeviceContextThreadId = Thread.CurrentThread.ManagedThreadId;
+
 			} else {
 				// Make this context uncurrent on device
 				bool res = deviceContext.MakeCurrent(IntPtr.Zero);
+
+				if (res == false)
+					throw new InvalidOperationException("context cannot be uncurrent because error " + Marshal.GetLastWin32Error());
 
 				// Reset current context on this thread (even on error)
 				lock (_RenderThreadsLock) {
 					_RenderThreads[threadId] = null;
 				}
 
-				if (res == false)
-					throw new InvalidOperationException("context cannot be uncurrent because error " + Marshal.GetLastWin32Error());
+				_RenderContextThreadId = 0;
+				_DeviceContextThreadId = 0;
 			}
 		}
 

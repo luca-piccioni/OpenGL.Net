@@ -3,7 +3,7 @@
 
 	<!-- Program Objects -->
 	<Objects>
-		<Object Path="OpenGL.Objects.Shaders.Standard.Vertex.glsl">
+		<Object Path="OpenGL.Shaders.Standard.Vertex.glsl">
 			<Symbols>
 				<Symbol>GLO_COLOR_PER_VERTEX</Symbol>
 				<Symbol>GLO_LIGHTING_PER_VERTEX</Symbol>
@@ -14,7 +14,7 @@
 			</Symbols>
 		</Object>
 
-		<Object Path="OpenGL.Objects.Shaders.Standard.Fragment.glsl">
+		<Object Path="OpenGL.Shaders.Standard.Fragment.glsl">
 			<Symbols>
 				<Symbol>GLO_TEXTURED</Symbol>
 				<Symbol>GLO_COLOR_PER_VERTEX</Symbol>
@@ -32,8 +32,8 @@
 
 		<!-- Standard -->
 		<Program Id="OpenGL.Standard">
-			<Object Path="OpenGL.Objects.Shaders.Standard.Vertex.glsl" Stage="VertexShader" />
-			<Object Path="OpenGL.Objects.Shaders.Standard.Fragment.glsl" Stage="FragmentShader" />
+			<Object Path="OpenGL.Shaders.Standard.Vertex.glsl" Stage="VertexShader" />
+			<Object Path="OpenGL.Shaders.Standard.Fragment.glsl" Stage="FragmentShader" />
 			<Attribute Name="glo_Position" Semantic="Position" Location="0" />
 			<Attribute Name="glo_Color" Semantic="Color" Location="1" />
       <Attribute Name="glo_Normal" Semantic="Normal" Location="2" />
@@ -49,8 +49,8 @@
 
 		<!-- Standard+OverrideDepth -->
 		<Program Id="OpenGL.Standard+OverrideDepth">
-			<Object Path="OpenGL.Objects.Shaders.Standard.Vertex.glsl" Stage="VertexShader" />
-			<Object Path="OpenGL.Objects.Shaders.Standard.Fragment.glsl" Stage="FragmentShader">
+			<Object Path="OpenGL.Shaders.Standard.Vertex.glsl" Stage="VertexShader" />
+			<Object Path="OpenGL.Shaders.Standard.Fragment.glsl" Stage="FragmentShader">
 				<Symbols>
 					<Symbol>GLO_OVERRIDE_FRAGMENT_DEPTH</Symbol>
 				</Symbols>
@@ -69,8 +69,8 @@
           <Symbol>GLO_GEOPROJECTION</Symbol>
         </Symbols>
       </Object>
-      <Object Path="OpenGL.Objects.Shaders.GeoProjection.GeoProjectVincenty.glsl" Stage="VertexShader" />
-      <Object Path="OpenGL.Objects.Shaders.Standard.Fragment.glsl" Stage="FragmentShader">
+      <Object Path="OpenGL.Shaders.GeoProjection.GeoProjectVincenty.glsl" Stage="VertexShader" />
+      <Object Path="OpenGL.Shaders.Standard.Fragment.glsl" Stage="FragmentShader">
         <Symbols>
           <Symbol>GLO_OVERRIDE_FRAGMENT_DEPTH</Symbol>
         </Symbols>
@@ -87,20 +87,20 @@
 
     <!-- Standard+VincentyProjectionHP+OverrideDepth -->
     <Program Id="OpenGL.Standard+VincentyProjectionHP+OverrideDepth">
-      <Object Path="OpenGL.Objects.Shaders.Standard.Vertex.glsl" Stage="VertexShader">
+      <Object Path="OpenGL.Shaders.Standard.Vertex.glsl" Stage="VertexShader">
         <Symbols>
           <Symbol>GLO_POSITION_HP</Symbol>
           <Symbol>GLO_GEOPROJECTION</Symbol>
           <Symbol>GLO_GEOPROJECTION_HP</Symbol>
         </Symbols>
       </Object>
-      <Object Path="OpenGL.Objects.Shaders.GeoProjection.GeoProjectVincenty.glsl" Stage="VertexShader">
+      <Object Path="OpenGL.Shaders.GeoProjection.GeoProjectVincenty.glsl" Stage="VertexShader">
         <Symbols>
           <Symbol>GLO_GEOPROJECTION_HP</Symbol>
         </Symbols>
       </Object>
-      <!--<Object Path="OpenGL.Objects.Shaders.MathImpl.glsl" Stage="VertexShader" />-->
-      <Object Path="OpenGL.Objects.Shaders.Standard.Fragment.glsl" Stage="FragmentShader">
+      <!--<Object Path="OpenGL.Shaders.MathImpl.glsl" Stage="VertexShader" />-->
+      <Object Path="OpenGL.Shaders.Standard.Fragment.glsl" Stage="FragmentShader">
         <Symbols>
           <Symbol>GLO_OVERRIDE_FRAGMENT_DEPTH</Symbol>
         </Symbols>
@@ -124,8 +124,8 @@
 
 		<!-- Standard+Color -->
 		<Program Id="OpenGL.Standard+Color">
-			<Object Path="OpenGL.Objects.Shaders.Standard.Vertex.glsl" Stage="VertexShader" />
-			<Object Path="OpenGL.Objects.Shaders.Standard.Fragment.glsl" Stage="FragmentShader">
+			<Object Path="OpenGL.Shaders.Standard.Vertex.glsl" Stage="VertexShader" />
+			<Object Path="OpenGL.Shaders.Standard.Fragment.glsl" Stage="FragmentShader">
 				<Symbols>
 					<Symbol>GLO_COLOR_PER_VERTEX</Symbol>
 				</Symbols>
@@ -138,12 +138,12 @@
 
     <!-- Standard+MVPInstanced+OverrideDepth -->
     <Program Id="OpenGL.Standard+MVPInstanced+OverrideDepth">
-      <Object Path="OpenGL.Objects.Shaders.Standard.Vertex.glsl" Stage="VertexShader">
+      <Object Path="OpenGL.Shaders.Standard.Vertex.glsl" Stage="VertexShader">
         <Symbols>
           <Symbol>GLO_MVP_INSTANCED</Symbol>
         </Symbols>
       </Object>
-      <Object Path="OpenGL.Objects.Shaders.Standard.Fragment.glsl" Stage="FragmentShader">
+      <Object Path="OpenGL.Shaders.Standard.Fragment.glsl" Stage="FragmentShader">
         <Symbols>
           <Symbol>GLO_OVERRIDE_FRAGMENT_DEPTH</Symbol>
         </Symbols>
@@ -154,13 +154,13 @@
 
     <!-- Standard+Color+MVPInstanced+OverrideDepthInstanced -->
     <Program Id="OpenGL.Standard+Color+MVPInstanced+OverrideDepthInstanced">
-      <Object Path="OpenGL.Objects.Shaders.Standard.Vertex.glsl" Stage="VertexShader">
+      <Object Path="OpenGL.Shaders.Standard.Vertex.glsl" Stage="VertexShader">
         <Symbols>
           <Symbol>GLO_MVP_INSTANCED</Symbol>
           <Symbol>GLO_COLOR_PER_VERTEX</Symbol>
         </Symbols>
       </Object>
-      <Object Path="OpenGL.Objects.Shaders.Standard.Fragment.glsl" Stage="FragmentShader">
+      <Object Path="OpenGL.Shaders.Standard.Fragment.glsl" Stage="FragmentShader">
         <Symbols>
           <Symbol>GLO_COLOR_PER_VERTEX</Symbol>
           <Symbol>GLO_OVERRIDE_FRAGMENT_DEPTH_INSTANCED</Symbol>
@@ -174,8 +174,8 @@
 
     <!-- Standard+Texture -->
     <Program Id="OpenGL.Standard+Texture">
-        <Object Path="OpenGL.Objects.Shaders.Standard.Vertex.glsl" Stage="VertexShader" />
-        <Object Path="OpenGL.Objects.Shaders.Standard.Fragment.glsl" Stage="FragmentShader" >
+        <Object Path="OpenGL.Shaders.Standard.Vertex.glsl" Stage="VertexShader" />
+        <Object Path="OpenGL.Shaders.Standard.Fragment.glsl" Stage="FragmentShader" >
             <Symbols>
                 <Symbol>GLO_TEXTURED</Symbol>
             </Symbols>
@@ -188,8 +188,8 @@
 
 	  <!-- Standard+PaletteTexture -->
 	  <Program Id="OpenGL.Standard+PaletteTexture">
-	    <Object Path="OpenGL.Objects.Shaders.Standard.Vertex.glsl" Stage="VertexShader" />
-	    <Object Path="OpenGL.Objects.Shaders.Standard.Fragment.glsl" Stage="FragmentShader" >
+	    <Object Path="OpenGL.Shaders.Standard.Vertex.glsl" Stage="VertexShader" />
+	    <Object Path="OpenGL.Shaders.Standard.Fragment.glsl" Stage="FragmentShader" >
 	      <Symbols>
 	        <Symbol>GLO_TEXTURED</Symbol>
 	        <Symbol>GLO_PALETTE_TEXTURE</Symbol>
@@ -203,17 +203,17 @@
 
 		<!-- Standard+LambertVertex -->
 		<Program Id="OpenGL.Standard+LambertVertex">
-			<Object Path="OpenGL.Objects.Shaders.Standard.Vertex.glsl" Stage="VertexShader">
+			<Object Path="OpenGL.Shaders.Standard.Vertex.glsl" Stage="VertexShader">
 				<Symbols>
 					<Symbol>GLO_LIGHTING_PER_VERTEX</Symbol>
 				</Symbols>
 			</Object>
-			<Object Path="OpenGL.Objects.Shaders.Light.LightMulti.glsl" Stage="VertexShader" />
-			<Object Path="OpenGL.Objects.Shaders.Light.LightDirectionalImpl.glsl" Stage="VertexShader" />
-			<Object Path="OpenGL.Objects.Shaders.Light.LightPointImpl.glsl" Stage="VertexShader" />
-			<Object Path="OpenGL.Objects.Shaders.Light.LightSpotImpl.glsl" Stage="VertexShader" />
-			<Object Path="OpenGL.Objects.Shaders.Light.ShadingLambert.glsl" Stage="VertexShader" />
-			<Object Path="OpenGL.Objects.Shaders.Standard.Fragment.glsl" Stage="FragmentShader">
+			<Object Path="OpenGL.Shaders.Light.LightMulti.glsl" Stage="VertexShader" />
+			<Object Path="OpenGL.Shaders.Light.LightDirectionalImpl.glsl" Stage="VertexShader" />
+			<Object Path="OpenGL.Shaders.Light.LightPointImpl.glsl" Stage="VertexShader" />
+			<Object Path="OpenGL.Shaders.Light.LightSpotImpl.glsl" Stage="VertexShader" />
+			<Object Path="OpenGL.Shaders.Light.ShadingLambert.glsl" Stage="VertexShader" />
+			<Object Path="OpenGL.Shaders.Standard.Fragment.glsl" Stage="FragmentShader">
 				<Symbols>
 					<Symbol>GLO_LIGHTING_PER_VERTEX</Symbol>
 				</Symbols>
@@ -231,21 +231,21 @@
 
 		<!-- Standard+PhongFragment+LightDirectional -->
 		<Program Id="OpenGL.Standard+PhongFragment+LightDirectional">
-			<Object Path="OpenGL.Objects.Shaders.Standard.Vertex.glsl" Stage="VertexShader">
+			<Object Path="OpenGL.Shaders.Standard.Vertex.glsl" Stage="VertexShader">
 				<Symbols>
 					<Symbol>GLO_LIGHTING_PER_FRAGMENT</Symbol>
 					<!-- +GLO_COLOR_PER_VERTEX -->
 				</Symbols>
 			</Object>
-			<Object Path="OpenGL.Objects.Shaders.Standard.Fragment.glsl" Stage="FragmentShader">
+			<Object Path="OpenGL.Shaders.Standard.Fragment.glsl" Stage="FragmentShader">
 				<Symbols>
 					<Symbol>GLO_LIGHTING_PER_FRAGMENT</Symbol>
 					<!-- +GLO_COLOR_PER_VERTEX -->
 				</Symbols>
 			</Object>
-			<Object Path="OpenGL.Objects.Shaders.Light.LightDirectional.glsl" Stage="FragmentShader" />
-			<Object Path="OpenGL.Objects.Shaders.Light.LightDirectionalImpl.glsl" Stage="FragmentShader" />
-			<Object Path="OpenGL.Objects.Shaders.Light.ShadingPhong.glsl" Stage="FragmentShader" />
+			<Object Path="OpenGL.Shaders.Light.LightDirectional.glsl" Stage="FragmentShader" />
+			<Object Path="OpenGL.Shaders.Light.LightDirectionalImpl.glsl" Stage="FragmentShader" />
+			<Object Path="OpenGL.Shaders.Light.ShadingPhong.glsl" Stage="FragmentShader" />
 
 			<Attribute Name="glo_Position" Semantic="Position" Location="0" />
 			<Attribute Name="glo_Color" Semantic="Color" Location="1" />
@@ -261,23 +261,23 @@
 
 		<!-- Standard+PhongFragment (Multiple Lights) -->
 		<Program Id="OpenGL.Standard+PhongFragment">
-			<Object Path="OpenGL.Objects.Shaders.Standard.Vertex.glsl" Stage="VertexShader">
+			<Object Path="OpenGL.Shaders.Standard.Vertex.glsl" Stage="VertexShader">
 				<Symbols>
 					<Symbol>GLO_LIGHTING_PER_FRAGMENT</Symbol>
 					<!-- +GLO_COLOR_PER_VERTEX -->
 				</Symbols>
 			</Object>
-			<Object Path="OpenGL.Objects.Shaders.Standard.Fragment.glsl" Stage="FragmentShader">
+			<Object Path="OpenGL.Shaders.Standard.Fragment.glsl" Stage="FragmentShader">
 				<Symbols>
 					<Symbol>GLO_LIGHTING_PER_FRAGMENT</Symbol>
 					<!-- +GLO_COLOR_PER_VERTEX -->
 				</Symbols>
 			</Object>
-			<Object Path="OpenGL.Objects.Shaders.Light.LightMulti.glsl" Stage="FragmentShader" />
-			<Object Path="OpenGL.Objects.Shaders.Light.LightDirectionalImpl.glsl" Stage="FragmentShader" />
-			<Object Path="OpenGL.Objects.Shaders.Light.LightPointImpl.glsl" Stage="FragmentShader" />
-			<Object Path="OpenGL.Objects.Shaders.Light.LightSpotImpl.glsl" Stage="FragmentShader" />
-			<Object Path="OpenGL.Objects.Shaders.Light.ShadingPhong.glsl" Stage="FragmentShader" />
+			<Object Path="OpenGL.Shaders.Light.LightMulti.glsl" Stage="FragmentShader" />
+			<Object Path="OpenGL.Shaders.Light.LightDirectionalImpl.glsl" Stage="FragmentShader" />
+			<Object Path="OpenGL.Shaders.Light.LightPointImpl.glsl" Stage="FragmentShader" />
+			<Object Path="OpenGL.Shaders.Light.LightSpotImpl.glsl" Stage="FragmentShader" />
+			<Object Path="OpenGL.Shaders.Light.ShadingPhong.glsl" Stage="FragmentShader" />
 
 			<Attribute Name="glo_Position" Semantic="Position" Location="0" />
 			<Attribute Name="glo_Color" Semantic="Color" Location="1" />

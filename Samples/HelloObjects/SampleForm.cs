@@ -51,44 +51,7 @@ namespace HelloObjects
 
 		private void CreateResources(GraphicsContext ctx)
 		{
-			// Program library
-			ShadersLibrary.Merge("HelloObjects.Shaders._ShadersLibrary.xml");
-
-			// // Mass buffer
-			// _MassBuffer = new ArrayBufferInterleaved<Mass>(BufferUsage.StaticDraw);
-			// _Context.LinkResource(_MassBuffer); 
-			// 
-			// // _MassBuffer.Immutable = false;
-			// _MassBuffer.Create(_Size);
-			// 
-			// // Map arrays
-			// _MassArrays = new VertexArrays();
-			// _Context.LinkResource(_MassArrays);
-			// 
-			// _MassArrays.SetArray(_MassBuffer, 0, VertexArraySemantic.Position);
-			// _MassArrays.SetElementArray(PrimitiveType.Points, 0, 1024);
-			// _MassArrays.Create(_Context);
-			// 
-			// // Programs
-			// _ComputeEnergy = _Context.CreateProgram("HelloObjects.MassForceCompute");
-			// _ComputePosition = _Context.CreateProgram("HelloObjects.MassPositionCompute");
-			// _DrawMass = _Context.CreateProgram("OpenGL.Standard");
-			// 
-			// // Initiailize mass buffer
-			// Random random = new Random();
-			// 
-			// _MassBuffer.Map(_Context, BufferAccess.WriteOnly);
-			// for (uint i = 0; i < _MassBuffer.ItemsCount; i++) {
-			// 	Mass mass;
-			// 
-			// 	mass.Position = new Vertex4f((float)random.NextDouble(), (float)random.NextDouble(), (float)random.NextDouble(), 1.0f) * 256.0f;
-			// 	mass.Velocity = new Vertex4f((float)random.NextDouble(), (float)random.NextDouble(), (float)random.NextDouble(), 1.0f) * 0.000f;
-			// 	mass.Force = new Vertex4f(0.0f, 0.0f, 0.0f, (float)Math.Abs(random.NextDouble() * 100000.0));
-			// 
-			// 	_MassBuffer.SetElement(mass, i);
-			// }
-			// 
-			// _MassBuffer.Unmap(_Context);
+			
 		}
 
 		#endregion

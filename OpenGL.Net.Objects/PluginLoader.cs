@@ -63,6 +63,8 @@ namespace OpenGL.Objects
 		/// </param>
 		protected PluginLoader(string pluginFactoryType, string environDir)
 		{
+			return;
+
 			// Register plugin placed in the current directory
 			foreach (T plugin in BatchLoadPlugins(Directory.GetCurrentDirectory(), pluginFactoryType))
 				if (plugin.CheckAvailability())

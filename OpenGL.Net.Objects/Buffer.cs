@@ -222,7 +222,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Size of the storage allocated for this buffer object, in bytes.
 		/// </summary>
-		public uint GpuBufferSize { get { return (_GpuBufferSize); } }
+		protected internal uint GpuBufferSize { get { return (_GpuBufferSize); } }
 
 		/// <summary>
 		/// Size of the storage allocated for this buffer object, in bytes.
@@ -533,14 +533,10 @@ namespace OpenGL.Objects
 			if (IsMapped == false)
 				throw new InvalidOperationException("not mapped");
 
-#if HAVE_UNSAFE
 			unsafe
 			{
 				Unsafe.Write<T>((byte*)MappedBuffer.ToPointer() + offset, value);
 			}
-#else
-			throw new NotImplementedException();
-#endif
 		}
 
 		/// <summary>
@@ -564,7 +560,6 @@ namespace OpenGL.Objects
 			if (IsMapped == false)
 				throw new InvalidOperationException("not mapped");
 
-#if HAVE_UNSAFE
 			unsafe
 			{
 				byte* ptr = (byte*)MappedBuffer.ToPointer() + offset;
@@ -573,9 +568,6 @@ namespace OpenGL.Objects
 				for (int i = 0; i < array.Length; i++, ptr += stride)
 					Unsafe.Write(ptr, array[i]);
 			}
-#else
-			throw new NotImplementedException();
-#endif
 		}
 
 		/// <summary>
@@ -599,14 +591,10 @@ namespace OpenGL.Objects
 			if (IsMapped == false)
 				throw new InvalidOperationException("not mapped");
 
-#if HAVE_UNSAFE
 			unsafe
 			{
 				return (Unsafe.Read<T>((byte*)MappedBuffer.ToPointer() + offset));
 			}
-#else
-			throw new NotImplementedException();
-#endif
 		}
 
 		#endregion

@@ -30,12 +30,6 @@
   </ItemGroup>
 
   <!-- Embedded resources (custom files, shaders, etc.) -->
-  <ItemGroup>
-    <EmbeddedResource Include="Shaders\Mass.glsl" />
-    <EmbeddedResource Include="Shaders\MassForceCompute.glsl" />
-    <EmbeddedResource Include="Shaders\MassPositionCompute.glsl" />
-    <EmbeddedResource Include="Shaders\_ShadersLibrary.xml" />
-  </ItemGroup>
 
   <!-- Content files with copy instructions -->
   <ItemGroup>

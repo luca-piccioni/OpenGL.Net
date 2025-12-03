@@ -583,7 +583,7 @@ namespace OpenGL.Objects
 				}
 
 				if (resourceStream == null)
-					throw new ArgumentException("resource path not found", "resourcePath");
+					throw new ArgumentException($"resource path {resourcePath} not found", "resourcePath");
 
 				return Load(resourceStream);
 			} finally {
