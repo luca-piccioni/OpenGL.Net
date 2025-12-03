@@ -209,13 +209,7 @@ namespace OpenGL
 					windowClass.cbSize = Marshal.SizeOf(typeof(WNDCLASSEX));
 					windowClass.style = (int)(UnsafeNativeMethods.CS_HREDRAW | UnsafeNativeMethods.CS_VREDRAW | UnsafeNativeMethods.CS_OWNDC);
 					windowClass.lpfnWndProc = Marshal.GetFunctionPointerForDelegate(_WindowsWndProc);
-#if   NETSTANDARD1_1 || NETSTANDARD1_4
-					windowClass.hInstance = UnsafeNativeMethods.GetModuleHandle(typeof(Gl).GetTypeInfo().Assembly.FullName); // XXX
-#elif NETSTANDARD2_0 || NETCORE
-					windowClass.hInstance = UnsafeNativeMethods.GetModuleHandle(typeof(Gl).GetTypeInfo().Assembly.Location);
-#else
-					windowClass.hInstance = Marshal.GetHINSTANCE(typeof(Gl).Module);
-#endif
+					windowClass.hInstance = UnsafeNativeMethods.GetModuleHandle(typeof(Gl).Assembly.Location);
 					windowClass.lpszClassName = defaultWindowClass;
 
 					if ((_ClassAtom = UnsafeNativeMethods.RegisterClassEx(ref windowClass)) == 0)
@@ -344,11 +338,9 @@ namespace OpenGL
 				}
 
 				if (_ClassAtom != 0) {
-#if NETSTANDARD1_1 || NETSTANDARD1_4 || NETSTANDARD2_0 || NETCORE
-					// XXX
-#else
-					UnsafeNativeMethods.UnregisterClass(_ClassAtom, Marshal.GetHINSTANCE(typeof(Gl).Module));
-#endif
+					var hInstance = UnsafeNativeMethods.GetModuleHandle(typeof(Gl).Assembly.Location);
+					if (hInstance != IntPtr.Zero)
+						UnsafeNativeMethods.UnregisterClass(_ClassAtom, hInstance);
 					_ClassAtom = 0;
 				}
 			}

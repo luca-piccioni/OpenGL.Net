@@ -107,18 +107,13 @@ namespace Khronos
 		/// <returns></returns>
 		protected static string GetAssemblyLocation()
 		{
-#if   NETSTANDARD1_1
-			string assemblyPath = null; // XXX
-#elif NETSTANDARD1_4 || NETCORE
-			string assemblyPath = Directory.GetCurrentDirectory();
-#else
-			string assemblyPath = Assembly.GetAssembly(typeof(KhronosApi)).Location;
+			string assemblyPath = Assembly.GetAssembly(typeof(KhronosApi))?.Location;
 
 			if (string.IsNullOrEmpty(assemblyPath) == false)
 				assemblyPath = Path.GetDirectoryName(assemblyPath);
 			else
 				assemblyPath = Directory.GetCurrentDirectory();
-#endif
+
 			return assemblyPath;
 		}
 
@@ -235,11 +230,7 @@ namespace Khronos
 
 				#region Check Requirement
 
-#if NETSTANDARD1_1 || NETSTANDARD1_4 || NETCORE
-				IEnumerable<Attribute> attrRequired = new List<Attribute>(function.GetCustomAttributes(typeof(RequiredByFeatureAttribute)));
-#else
-				IEnumerable<Attribute> attrRequired = Attribute.GetCustomAttributes(function, typeof(RequiredByFeatureAttribute));
-#endif
+				IEnumerable<Attribute> attrRequired = function.GetCustomAttributes(typeof(RequiredByFeatureAttribute));
 				// ReSharper disable once PossibleInvalidCastExceptionInForeachLoop
 				foreach (RequiredByFeatureAttribute attr in attrRequired) {
 					// Check for API support
@@ -263,11 +254,7 @@ namespace Khronos
 				if (requiredByFeature != null) {
 					// Note: indeed the feature could be supported; check whether it is removed; this is checked only if
 					// a non-extension feature is detected: extensions cannot remove commands
-#if NETSTANDARD1_1 || NETSTANDARD1_4 || NETCORE
-					Attribute[] attrRemoved = new List<Attribute>(function.GetCustomAttributes(typeof(RemovedByFeatureAttribute))).ToArray();
-#else
-					Attribute[] attrRemoved = Attribute.GetCustomAttributes(function, typeof(RemovedByFeatureAttribute));
-#endif
+					Attribute[] attrRemoved = function.GetCustomAttributes(typeof(RemovedByFeatureAttribute)).ToArray();
 					KhronosVersion maxRemovedVersion = null;
 
 					// ReSharper disable once PossibleInvalidCastExceptionInForeachLoop
@@ -371,11 +358,7 @@ namespace Khronos
 			Debug.Assert(function != null);
 			Debug.Assert(version != null);
 
-#if NETSTANDARD1_1 || NETSTANDARD1_4 || NETCORE
-			IEnumerable<Attribute> attrRequired = new List<Attribute>(function.GetCustomAttributes(typeof(RequiredByFeatureAttribute)));
-#else
-			IEnumerable<Attribute> attrRequired = Attribute.GetCustomAttributes(function, typeof(RequiredByFeatureAttribute));
-#endif
+			IEnumerable<Attribute> attrRequired = function.GetCustomAttributes(typeof(RequiredByFeatureAttribute));
 
 			KhronosVersion maxRequiredVersion = null;
 			bool isRequired = false, isRemoved = false;
@@ -396,11 +379,7 @@ namespace Khronos
 			if (isRequired) {
 				// Note: indeed the feature could be supported; check whether it is removed
 				
-#if NETSTANDARD1_1 || NETSTANDARD1_4 || NETCORE
-				IEnumerable<Attribute> attrRemoved = new List<Attribute>(function.GetCustomAttributes(typeof(RemovedByFeatureAttribute)));
-#else
-				IEnumerable<Attribute> attrRemoved = Attribute.GetCustomAttributes(function, typeof(RemovedByFeatureAttribute));
-#endif
+				IEnumerable<Attribute> attrRemoved = function.GetCustomAttributes(typeof(RemovedByFeatureAttribute));
 				KhronosVersion maxRemovedVersion = null;
 
 				// ReSharper disable once PossibleInvalidCastExceptionInForeachLoop
@@ -441,17 +420,10 @@ namespace Khronos
 		/// </returns>
 		private static DelegateList GetDelegateList(Type type)
 		{
-#if NETSTANDARD1_1 || NETSTANDARD1_4
-			TypeInfo delegatesClass = type.GetTypeInfo().GetDeclaredNestedType("Delegates");
-			Debug.Assert(delegatesClass != null);
-
-			return (new DelegateList(delegatesClass.DeclaredFields));
-#else
 			Type delegatesClass = type.GetNestedType("Delegates", BindingFlags.Static | BindingFlags.NonPublic);
 			Debug.Assert(delegatesClass != null);
 
 			return new DelegateList(delegatesClass.GetFields(BindingFlags.Static | BindingFlags.NonPublic));
-#endif
 		}
 
 		/// <summary>
@@ -487,13 +459,8 @@ namespace Khronos
 			/// </param>
 			public FunctionContext(Type type)
 			{
-#if NETSTANDARD1_1 || NETSTANDARD1_4
-				TypeInfo delegatesClass = type.GetTypeInfo().GetDeclaredNestedType("Delegates");
-				Debug.Assert(delegatesClass != null);
-#else
 				Type delegatesClass = type.GetNestedType("Delegates", BindingFlags.Static | BindingFlags.NonPublic);
 				Debug.Assert(delegatesClass != null);
-#endif
 				_DelegateType = delegatesClass;
 				Delegates = GetDelegateList(type);
 			}
@@ -512,27 +479,15 @@ namespace Khronos
 				if (functionName == null)
 					throw new ArgumentNullException(nameof(functionName));
 
-#if NETSTANDARD1_1 || NETSTANDARD1_4
-				FieldInfo functionField = _DelegateType.GetDeclaredField("p" + functionName);
-				Debug.Assert(functionField != null);
-#else
 				FieldInfo functionField = _DelegateType.GetField("p" + functionName, BindingFlags.Static | BindingFlags.NonPublic);
 				Debug.Assert(functionField != null);
-#endif
 				return functionField;
 			}
 
-#if NETSTANDARD1_1 || NETSTANDARD1_4
-			// <summary>
-			/// Type containing all delegates.
-			/// </summary>
-			private readonly TypeInfo _DelegateType;
-#else
 			/// <summary>
 			/// Type containing all delegates.
 			/// </summary>
 			private readonly Type _DelegateType;
-#endif
 
 			/// <summary>
 			/// The delegate fields list for the underlying type.
@@ -734,12 +689,8 @@ namespace Khronos
 			protected internal void SyncMembers(KhronosVersion version)
 			{
 				Type thisType = GetType();
-#if NETSTANDARD1_1 || NETSTANDARD1_4 || NETCORE
-				IEnumerable<FieldInfo> thisTypeFields = thisType.GetTypeInfo().DeclaredFields;
-#else
 				// Extensions boolean fields
 				IEnumerable<FieldInfo> thisTypeFields = thisType.GetFields(BindingFlags.Instance | BindingFlags.Public);
-#endif
 				foreach (FieldInfo fieldInfo in thisTypeFields) {
 					// Check boolean field (defensive)
 					// Debug.Assert(fieldInfo.FieldType == typeof(bool));
@@ -749,11 +700,7 @@ namespace Khronos
 					bool support = false;
 
 					// Support by extension
-#if NETSTANDARD1_1 || NETSTANDARD1_4 || NETCORE
 					IEnumerable<Attribute> extensionAttributes = fieldInfo.GetCustomAttributes(typeof(ExtensionAttribute));
-#else
-					IEnumerable<Attribute> extensionAttributes = Attribute.GetCustomAttributes(fieldInfo, typeof(ExtensionAttribute));
-#endif
 					// ReSharper disable once PossibleInvalidCastExceptionInForeachLoop
 					foreach (ExtensionAttribute extensionAttribute in extensionAttributes) {
 						if (!_ExtensionsRegistry.ContainsKey(extensionAttribute.ExtensionName))
@@ -767,11 +714,7 @@ namespace Khronos
 
 					// Support by version
 					if (version != null && support == false) {
-#if NETSTANDARD1_1 || NETSTANDARD1_4 || NETCORE
 						IEnumerable<Attribute> coreAttributes = fieldInfo.GetCustomAttributes(typeof(CoreExtensionAttribute));
-#else
-						IEnumerable<Attribute> coreAttributes = Attribute.GetCustomAttributes(fieldInfo, typeof(CoreExtensionAttribute));
-#endif
 						// ReSharper disable once PossibleInvalidCastExceptionInForeachLoop
 						foreach (CoreExtensionAttribute coreAttribute in coreAttributes) {
 							if (version.Api != coreAttribute.Version.Api || version < coreAttribute.Version)

@@ -189,17 +189,11 @@ namespace Khronos
 		/// <see cref="GetProcAddress(string, string)"/> method.
 		/// </param>
 		public void AddLibraryDirectory(string libraryDirPath)
-		{
-#if NETSTANDARD1_1 || NETSTANDARD1_4 || NETCOREAPP1_1
-			// Note: no support for library directories for the following targets:
-			// - .NET Standard 1.4 and below
-			// - .NET Core App 1.1
-#else
-			string path = Environment.GetEnvironmentVariable("PATH");
+	{
+		string path = Environment.GetEnvironmentVariable("PATH");
 
-			Environment.SetEnvironmentVariable("PATH", $"{path};{libraryDirPath}", EnvironmentVariableTarget.Process);
-#endif
-		}
+		Environment.SetEnvironmentVariable("PATH", $"{path};{libraryDirPath}", EnvironmentVariableTarget.Process);
+	}
 
 		/// <summary>
 		/// Get a function pointer from a library, specified by path.
@@ -308,19 +302,11 @@ namespace Khronos
 
 			public const int RTLD_NOLOAD = 4;
 
-#if NETCORE
-			[DllImport("libc")]
-			public static extern IntPtr dlopen(string filename, int flags);
+		[DllImport("libc")]
+		public static extern IntPtr dlopen(string filename, int flags);
 
-			[DllImport("libc")]
-			public static extern IntPtr dlsym(IntPtr handle, string symbol);
-#else
-			[DllImport("libc")]
-			public static extern IntPtr dlopen([MarshalAs(UnmanagedType.LPTStr)] string filename, int flags);
-
-			[DllImport("libc")]
-			public static extern IntPtr dlsym(IntPtr handle, [MarshalAs(UnmanagedType.LPTStr)] string symbol);
-#endif
+		[DllImport("libc")]
+		public static extern IntPtr dlsym(IntPtr handle, string symbol);
 			[DllImport("libc")]
 			public static extern string dlerror();
 		}

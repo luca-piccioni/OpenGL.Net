@@ -46,11 +46,7 @@ namespace OpenGL.CoreUI
 		{
 			_WindowsWndProc = WindowsWndProc;
 
-#if NETCORE
-			_HInstance = UnsafeNativeMethods.GetModuleHandle(typeof(Gl).GetTypeInfo().Assembly.Location);
-#else
-			_HInstance = Marshal.GetHINSTANCE(typeof(Gl).Module);
-#endif
+			_HInstance = UnsafeNativeMethods.GetModuleHandle(typeof(Gl).Assembly.Location);
 		}
 
 		#endregion

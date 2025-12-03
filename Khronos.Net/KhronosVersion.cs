@@ -694,13 +694,8 @@ namespace Khronos
 			if (ReferenceEquals(this, obj))
 				return true;
 
-#if NETSTANDARD1_1 || NETSTANDARD1_4 || NETCORE
-			if ((obj.GetType() != typeof(KhronosVersion)) && (obj.GetType().GetTypeInfo().IsSubclassOf(typeof(KhronosVersion)) == false))
-				return (false);
-#else
 			if (obj.GetType() != typeof(KhronosVersion) && obj.GetType().IsSubclassOf(typeof(KhronosVersion)) == false)
 				return false;
-#endif
 
 			return Equals((KhronosVersion)obj);
 		}

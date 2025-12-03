@@ -74,11 +74,7 @@ namespace OpenGL.Test
 
 			Khronos.KhronosApi.GetAddressDelegate getAddressDelegateValid = (path, function) =>
 				Marshal.GetFunctionPointerForDelegate(
-#if NETSTANDARD1_1 || NETSTANDARD1_4 || NETCORE
-					typeof(TestApi).GetMethod("NewList").CreateDelegate(typeof(TestApi.Delegates.glNewList), null)
-#else
 					Delegate.CreateDelegate(typeof(TestApi.Delegates.glNewList), typeof(TestApi).GetMethod("NewList", BindingFlags.NonPublic | BindingFlags.Static))
-#endif
 				);
 
 			// Empty path or zero pointer does not throw exceptions

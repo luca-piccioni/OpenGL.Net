@@ -32,7 +32,7 @@ namespace OpenGL.Test
 	/// <summary>
 	/// Abstract base test creating an OpenGL context used for testing.
 	/// </summary>
-#if !NETCORE && !MONODROID
+#if !MONODROID
 	[Apartment(ApartmentState.STA)]
 #endif
 	internal abstract class TestBaseGL : TestBaseDevice
