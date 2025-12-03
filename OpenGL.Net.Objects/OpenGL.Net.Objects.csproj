@@ -4,13 +4,16 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>OpenGL.Net.Objects</AssemblyName>
     <RootNamespace>OpenGL</RootNamespace>
-    <Authors>Luca Piccioni</Authors>
     <Product>OpenGL.Net</Product>
-    <Copyright>Copyright (C) Luca Piccioni 2015-2017</Copyright>
-    <Version>0.5.2</Version>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <AssemblyGuid>01314a39-ae2a-44f6-ba14-8c961583c75c</AssemblyGuid>
+    <Deterministic>false</Deterministic>
   </PropertyGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="OpenGL.Net.Objects.Test" />
+  </ItemGroup>
   
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>

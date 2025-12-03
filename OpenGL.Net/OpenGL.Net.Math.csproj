@@ -9,7 +9,7 @@
     <Copyright>Copyright (C) Luca Piccioni 2015-2017</Copyright>
     <Version>0.5.2</Version>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
 
     <!-- Disable SDK implicit items because this project uses explicit includes -->
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>

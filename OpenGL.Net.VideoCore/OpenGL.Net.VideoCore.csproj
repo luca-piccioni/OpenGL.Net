@@ -7,6 +7,8 @@
     <PackageId>OpenGL.Net.VideoCore</PackageId>
     <IsPackable>false</IsPackable>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <Description>Broadcom VideoCore IV for OpenGL.Net</Description>
+    <AssemblyGuid>53bddf50-1755-4a72-935e-a052fc28bcba</AssemblyGuid>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
@@ -26,11 +28,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Include="Bcm.cs" />
-    <Compile Include="VideoCoreWindow.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
+
 
   <ItemGroup>
     <ProjectReference Include="..\OpenGL.Net\OpenGL.Net.csproj" />

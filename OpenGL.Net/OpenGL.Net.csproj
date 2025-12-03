@@ -11,8 +11,15 @@
     <AssemblyName>OpenGL.Net</AssemblyName>
     <RootNamespace>OpenGL</RootNamespace>
     <Product>OpenGL.Net</Product>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <AssemblyGuid>7f6066fa-3136-45cb-a092-e91f0f0fc467</AssemblyGuid>
+    <Deterministic>false</Deterministic>
   </PropertyGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="OpenGL.Net.VideoCore" />
+    <InternalsVisibleTo Include="OpenGL.Net.Test" />
+  </ItemGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>

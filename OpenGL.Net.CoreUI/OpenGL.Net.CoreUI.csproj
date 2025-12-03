@@ -3,7 +3,9 @@
     <TargetFramework>net48</TargetFramework>
     <RootNamespace>OpenGL.CoreUI</RootNamespace>
     <AssemblyName>OpenGL.Net.CoreUI</AssemblyName>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <Product>OpenGL.Net.CoreUI</Product>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <AssemblyGuid>574716b9-f7d9-44c7-8e65-e5827ea031d0</AssemblyGuid>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <Platforms>AnyCPU</Platforms>

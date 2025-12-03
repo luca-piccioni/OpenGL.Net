@@ -1,10 +1,12 @@
 <Project>
   
   <PropertyGroup>
-    <Version>1.0.2-beta</Version>
     <Copyright>Copyright (C) Luca Piccioni 2015-2025</Copyright>
     <Authors>Luca Piccioni</Authors>
     <Company>OpenGL.Net</Company>
+    <Version>1.0.2-beta</Version>
+    <FileVersion>1.0.2</FileVersion>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(IsPackable)' != 'false'">
