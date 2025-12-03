@@ -76,3 +76,27 @@ jobs:
     
     - name: Build
       run: dotnet build OpenGL.Net.sln --configuration ${{ matrix.configuration }} --no-restore
+
+  deploy:
+    runs-on: windows-latest
+    needs: [build-windows, build-linux, build-macos]
+    if: startsWith(github.ref, 'refs/tags/')
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: |
+          6.0.x
+          7.0.x
+          8.0.x
+    
+    - name: Restore dependencies
+      run: dotnet restore OpenGL.Net.sln
+    
+    - name: Pack
+      run: dotnet pack OpenGL.Net.sln --configuration Release --no-restore --output nupkgs
+    
+    - name: Publish to NuGet
+      run: dotnet nuget push nupkgs\*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }} --skip-duplicate
