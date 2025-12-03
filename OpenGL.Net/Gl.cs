@@ -50,12 +50,11 @@ namespace OpenGL
 		/// </summary>
 		static Gl()
 		{
-#if !NETSTANDARD1_1
 			// Optional initialization
 			string envGlStaticInit = Environment.GetEnvironmentVariable("OPENGL_NET_GL_STATIC_INIT");
 			if (envGlStaticInit != null && envGlStaticInit == "NO")
 				return;
-#endif
+			
 			try {
 				Initialize();
 			} catch (NotSupportedException) {
@@ -71,12 +70,11 @@ namespace OpenGL
 			if (_Initialized)
 				return; // Already initialized
 			_Initialized = true;
-#if !NETSTANDARD1_1
 			// Optional initialization
 			string envGlInit = Environment.GetEnvironmentVariable("OPENGL_NET_INIT");
 			if (envGlInit != null && envGlInit == "NO")
 				return;
-#endif
+
 			// Environment options
 			LogComment("OpenGL.Net is initializing");
 
@@ -103,12 +101,10 @@ namespace OpenGL
 					// Note: on Linux without GLX
 					if (Platform.CurrentPlatformId == Platform.Id.Linux && Glx.IsAvailable == false)
 						Egl.IsRequired = true;
-#if !NETSTANDARD1_1
 					// Explict initialization
 					string envPlatform = Environment.GetEnvironmentVariable("OPENGL_NET_PLATFORM");
 					if (envPlatform != null && envPlatform == "EGL")
 						Egl.IsRequired = true;
-#endif
 				}
 #endif
 

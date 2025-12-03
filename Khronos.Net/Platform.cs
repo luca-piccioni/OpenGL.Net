@@ -124,11 +124,7 @@ namespace Khronos
 			if (monoRuntime != null) {
 				string runningVersion = "generic";
 				try {
-#if NETSTANDARD1_1 || NETSTANDARD1_4
-					MethodInfo getDisplayName = monoRuntime.GetTypeInfo().GetDeclaredMethod("GetDisplayName");
-#else
 					MethodInfo getDisplayName = monoRuntime.GetMethod("GetDisplayName", BindingFlags.Static | BindingFlags.NonPublic);
-#endif
 					if (getDisplayName != null)
 						runningVersion = getDisplayName.Invoke(null, new object[0]) as string;
 				} catch { /* Ignore */ }

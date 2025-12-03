@@ -40,10 +40,8 @@ namespace OpenGL
 		/// </summary>
 		static KhronosApi()
 		{
-#if !NETSTANDARD1_1
 			EnvDebug = Environment.GetEnvironmentVariable("OPENGL_NET_DEBUG") != null;
 			EnvExperimental = Environment.GetEnvironmentVariable("OPENGL_NET_EXPERIMENTAL") != null;
-#endif
 		}
 
 		#endregion

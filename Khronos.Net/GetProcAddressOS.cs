@@ -71,11 +71,8 @@ namespace Khronos
 		/// </summary>
 		static GetProcAddressOS()
 		{
-#if !NETSTANDARD1_1
 			string envOsLoader = Environment.GetEnvironmentVariable("OPENGL_NET_OSLOADER");
-#else
-			string envOsLoader = null;
-#endif
+			
 			switch (envOsLoader) {
 				case "EGL":
 					// Force using eglGetProcAddress

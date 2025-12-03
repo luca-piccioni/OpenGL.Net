@@ -48,12 +48,10 @@ namespace OpenGL
 		/// </summary>
 		static Egl()
 		{
-#if !NETSTANDARD1_1
 			// Optional initialization
 			string envEglStaticInit = Environment.GetEnvironmentVariable("OPENGL_NET_EGL_STATIC_INIT");
 			if (envEglStaticInit == null || envEglStaticInit == "NO")
 				return;
-#endif
 			// Do not automatically initialize Egl on Android & Debug configurations
 			Initialize();
 		}
@@ -93,13 +91,8 @@ namespace OpenGL
 			}
 
 			// Include ANGLE path, if any
-#if NETSTANDARD1_1
-			if (anglePath != null)
-				Khronos.GetProcAddressOS.AddLibraryDirectory(Path.Combine(assemblyPath, anglePath));
-#else
 			if (anglePath != null && Directory.Exists(anglePath))
 				Khronos.GetProcAddressOS.AddLibraryDirectory(Path.Combine(assemblyPath, anglePath));
-#endif
 
 			// Load procedures
 			BindAPI();

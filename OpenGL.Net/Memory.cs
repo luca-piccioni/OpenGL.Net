@@ -26,7 +26,6 @@
 using System;
 using System.Reflection;
 using System.Runtime.InteropServices;
-using System.Reflection.Emit;
 using System.Security;
 
 using Khronos;
@@ -83,25 +82,64 @@ namespace OpenGL
 		/// </summary>
 		private static Action<IntPtr, byte, uint> GenerateMemsetDelegate()
 		{
-#if NETSTANDARD1_1 || NETSTANDARD1_4 || NETSTANDARD2_0 || NETCOREAPP1_1
-			return (new Action<IntPtr, byte, uint>(delegate(IntPtr addr, byte value, uint count) { throw new NotImplementedException(); })); // XXX
-#else
-			DynamicMethod dynamicMethod = new DynamicMethod(
-				"Memset", MethodAttributes.Public | MethodAttributes.Static, CallingConventions.Standard,
-				null,
-				new [] { typeof(IntPtr), typeof(byte), typeof(uint) },
-				typeof(Memory), true
-			);
+			return MemsetManaged;
+		}
 
-			ILGenerator generator = dynamicMethod.GetILGenerator();
-			generator.Emit(OpCodes.Ldarg_0);
-			generator.Emit(OpCodes.Ldarg_1);
-			generator.Emit(OpCodes.Ldarg_2);
-			generator.Emit(OpCodes.Initblk);
-			generator.Emit(OpCodes.Ret);
-
-			return (Action<IntPtr, byte, uint>)dynamicMethod.CreateDelegate(typeof(Action<IntPtr, byte, uint>));
-#endif
+		/// <summary>
+		/// Managed implementation of memset operation.
+		/// </summary>
+		/// <param name="addr">The address to set.</param>
+		/// <param name="value">The value to set.</param>
+		/// <param name="count">The number of bytes to set.</param>
+		private static void MemsetManaged(IntPtr addr, byte value, uint count)
+		{
+			byte* ptr = (byte*)addr.ToPointer();
+			
+			// Optimize for common case of setting to zero
+			if (value == 0 && count >= 16) {
+				// Use larger chunks for better performance
+				if (IntPtr.Size == 8) {
+					// 64-bit: use ulong (8 bytes at a time)
+					ulong* ptr8 = (ulong*)ptr;
+					for (; count >= 8; count -= 8)
+						*ptr8++ = 0;
+					ptr = (byte*)ptr8;
+				} else {
+					// 32-bit: use uint (4 bytes at a time)
+					uint* ptr4 = (uint*)ptr;
+					for (; count >= 4; count -= 4)
+						*ptr4++ = 0;
+					ptr = (byte*)ptr4;
+				}
+			} else if (count >= 16) {
+				// For non-zero values, create a pattern
+				if (IntPtr.Size == 8) {
+					// Create 8-byte pattern
+					ulong pattern = value;
+					pattern |= pattern << 8;
+					pattern |= pattern << 16;
+					pattern |= pattern << 32;
+					
+					ulong* ptr8 = (ulong*)ptr;
+					for (; count >= 8; count -= 8)
+						*ptr8++ = pattern;
+					ptr = (byte*)ptr8;
+				} else {
+					// Create 4-byte pattern
+					uint pattern = value;
+					pattern |= pattern << 8;
+					pattern |= pattern << 16;
+					
+					uint* ptr4 = (uint*)ptr;
+					for (; count >= 4; count -= 4)
+						*ptr4++ = pattern;
+					ptr = (byte*)ptr4;
+				}
+			}
+			
+			// Set remaining bytes
+			for (; count > 0; count--)
+				*ptr++ = value;
 		}
 
 		/// <summary>
