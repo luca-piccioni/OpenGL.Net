@@ -131,5 +131,11 @@
   </ItemGroup>
 
   <Import Project="..\OpenGL.Net.props" />
+  <PropertyGroup>
+    <PackageReadmeFile>README.OpenGL.Net.Math.nuget.md</PackageReadmeFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="README.OpenGL.Net.Math.nuget.md" Pack="true" PackagePath="\"/>
+  </ItemGroup>
 
 </Project>

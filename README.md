@@ -98,52 +98,21 @@ Install-Package OpenGL.Net.Objects
 
 ## Getting Started
 
-### Basic Usage
-
-```csharp
-using OpenGL;
-
-// Initialize OpenGL
-Gl.Initialize();
-
-// Check OpenGL version
-Console.WriteLine($"OpenGL Version: {Gl.CurrentVersion}");
-
-// Use OpenGL functions
-Gl.ClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-Gl.Clear(ClearBufferMask.ColorBufferBit);
-```
-
-### With Windows Forms
-
-```csharp
-using OpenGL;
-using OpenGL.Net.WinForms;
-
-// Use the GlControl in your form
-var glControl = new GlControl();
-glControl.Render += (sender, e) =>
-{
-    Gl.Clear(ClearBufferMask.ColorBufferBit);
-    // Your rendering code here
-};
-```
-
 For complete examples, see the [Samples](https://github.com/luca-piccioni/OpenGL.Net/tree/master/Samples) directory, including the comprehensive [Hello Triangle](https://github.com/luca-piccioni/OpenGL.Net/blob/master/Samples/HelloTriangle/SampleForm.cs#L40) sample.
 
 ## Building from Source
 
 ### Prerequisites
 
-- **Windows**: Visual Studio 2022 (or Visual Studio 2017/2015 for older solution files)
-- **Linux/macOS**: Mono 4.5+ or .NET Core SDK
+- **Windows**: Visual Studio 2022/VS Code + .NET Core SDKs
+- **Linux/macOS**: VS Code + .NET Core SDKs
 
 ### Clone and Build
 
 ```bash
 git clone https://github.com/luca-piccioni/OpenGL.Net.git
 cd OpenGL.Net
-msbuild /p:Configuration=Release OpenGL.Net.sln
+dotnet build
 ```
 
 ## Documentation
@@ -156,18 +125,6 @@ msbuild /p:Configuration=Release OpenGL.Net.sln
 ## Acknowledgements
 
 OpenGL.Net is built with the help of many excellent tools and services:
-
-### CI/CD & Testing
-
-[<img src="https://github.com/luca-piccioni/OpenGL.Net/blob/master/Wiki/Supporter-AppVeyor.png" width="335" height="70">](https://www.appveyor.com/) [<img src="https://github.com/luca-piccioni/OpenGL.Net/blob/master/Wiki/Supporter-TravisCI.png" width="125" height="124">](https://travis-ci.org/) [<img src="https://files.readme.io/9d08c4c-back.png" width="125" height="125">](https://codecov.io/)
-
-### Development Tools
-
-[<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Visual_Studio_2017_logo_and_wordmark.svg/640px-Visual_Studio_2017_logo_and_wordmark.svg.png" width="640" height="108">](https://www.visualstudio.com/)
-
-[<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Xamarin_logo_and_wordmark.png/320px-Xamarin_logo_and_wordmark.png" width="320" height="87">](https://www.xamarin.com/)
-
-[<img src="https://github.com/luca-piccioni/OpenGL.Net/blob/master/Wiki/Supporter-Resharper.png" width="125" height="125">](https://www.jetbrains.com/resharper/) [<img src="https://raw.githubusercontent.com/nunit/resources/master/images/icon/nunit_256.png" width="125" height="125">](https://github.com/nunit/nunit)
 
 ## License
 

@@ -60,5 +60,11 @@
   </ItemGroup>
 
   <Import Project="..\OpenGL.Net.props" />
-
+  <PropertyGroup>
+    <PackageReadmeFile>README.nuget.md</PackageReadmeFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="README.nuget.md" Pack="true" PackagePath="\"/>
+  </ItemGroup>
+  
 </Project>

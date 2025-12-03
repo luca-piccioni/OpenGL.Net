@@ -147,6 +147,12 @@ No graphical toolkit integration is included in this package. UI backends are su
   <Import Project="..\Khronos.Net\Khronos.Net.projitems" Label="Shared" />
 
   <Import Project="..\OpenGL.Net.props" />
+  <PropertyGroup>
+    <PackageReadmeFile>README.OpenGL.Net.nuget.md</PackageReadmeFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="README.OpenGL.Net.nuget.md" Pack="true" PackagePath="\"/>
+  </ItemGroup>
 
   <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
 
