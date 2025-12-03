@@ -20,7 +20,7 @@
 // SOFTWARE.
 
 using System;
-using System.Runtime.InteropServices;
+using System.Runtime.CompilerServices;
 
 namespace OpenGL.Objects
 {
@@ -363,7 +363,7 @@ namespace OpenGL.Objects
 
 		protected T ReadFragment<T>(GraphicsContext ctx, ReadBufferMode rBuffer, uint x, uint y, PixelLayout pType) where T : struct
 		{
-			T fragment = default(T);
+			T fragment = default;
 
 			// Bind for reading
 			BindRead(ctx);
@@ -378,10 +378,7 @@ namespace OpenGL.Objects
 			PixelType rType = pType.ToPixelType();
 
 			unsafe {
-				TypedReference refValue = __makeref(fragment);
-				IntPtr refValuePtr = *(IntPtr*)(&refValue);
-
-				Gl.ReadPixels((int)x, (int)y, 1, 1, rFormat, rType, refValuePtr);
+				Gl.ReadPixels((int)x, (int)y, 1, 1, rFormat, rType, (IntPtr)Unsafe.AsPointer(ref fragment));
 			}
 
 			// Unbind from reading
