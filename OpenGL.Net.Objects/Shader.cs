@@ -193,7 +193,7 @@ namespace OpenGL.Objects
 		/// </exception>
 		public void LoadSource(Stream sourceStream)
 		{
-			_SourceStrings = LoadSourceLines(sourceStream);
+			LoadSource(LoadSourceLines(sourceStream));
 		}
 
 		/// <summary>
@@ -210,22 +210,37 @@ namespace OpenGL.Objects
 		/// </exception>
 		public void LoadSource(string resourcePath, string assemblyName = null)
 		{
-			_SourceStrings = LoadSourceLines(resourcePath, assemblyName);
+			LoadSource(LoadSourceLines(resourcePath, assemblyName));
 			_SourcePath = resourcePath;
 		}
 
 		/// <summary>
-		/// Load the shader source from a string.
+		/// Load the shader source from a string array.
 		/// </summary>
 		/// <param name="sourceStrings">
 		/// A <see cref="IEnumerator{String}"/> that specify the shader source strings.
 		/// </param>
+		/// <remarks>
+		/// Automatically adds '\n' at the end of each source string if not present.
+		/// </remarks>
 		public void LoadSource(IEnumerable<string> sourceStrings)
 		{
 			if (sourceStrings == null)
 				throw new ArgumentNullException("sourceStrings");
 
-			_SourceStrings = new List<string>(sourceStrings);
+			List<string> shaderSource = new List<string>();
+
+			foreach (string sourceString in sourceStrings) {
+				if (sourceString.EndsWith("\n") == false)
+					shaderSource.Add(sourceString + "\n");
+				else
+					shaderSource.Add(sourceString);
+			}
+
+			_SourceStrings = shaderSource;
+
+			// Each time _SourceStrings changes, reset compilation flag
+			_Compiled = false;
 		}
 
 		#endregion
@@ -264,22 +279,27 @@ namespace OpenGL.Objects
 			if (_SourceStrings == null)
 				throw new InvalidOperationException("no source loaded");
 
-			List<string> shaderSource = new List<string>(256);
-			string[] shaderSourceStrings = _SourceStrings.ToArray();
+			// Copy loaded sources: this list is extended as required
+			List<string> shaderSource = new List<string>(_SourceStrings);
 
-			// Append imposed header - Every source shall compile with this header
-			AppendHeader(ctx, cctx, shaderSource, cctx.ShaderVersion.VersionId);
+			EnsureVersionDirective(shaderSource, ctx, cctx);
+			EnsureCoreExtensions(shaderSource, ctx);
+
+			foreach (ShaderExtension shaderExtension in cctx.Extensions) {
+				// Do not include any #extension directive on extensions not supported by driver
+				if (ctx.Extensions.HasExtensions(shaderExtension.Name) == false)
+					continue;
+
+				EnsureExtension(shaderSource, shaderExtension.Name, shaderExtension.Behavior.ToString().ToLowerInvariant());
+			}
 
 			// Append required #define statments
 			if (cctx.Defines != null) {
 				foreach (string def in cctx.Defines) {
-					shaderSource.Add(String.Format("#define {0} 1\n", def));
+					EnsureDefine(shaderSource, def);
 					Log("  Symbol: {0}", def);
 				}
 			}
-
-			// Append specific source for composing shader essence
-			AppendSourceStrings(shaderSource, shaderSourceStrings);
 
 			// Remove comment lines
 			shaderSource = CleanSource(shaderSource);
@@ -340,117 +360,109 @@ namespace OpenGL.Objects
 		private static readonly Regex _RegexCCommentLine = new Regex(@"^\s*/\*(.|$)*\*/\s*$");
 
 		/// <summary>
-		/// Append default source header.
+		/// Ensure #version directive is specified in shader source. If it is already present, sources are unmodified.
 		/// </summary>
-		/// <param name="ctx">
-		/// A <see cref="GraphicsContext"/> used for the compilation process.
-		/// </param>
-		/// <param name="sourceLines">
-		/// A <see cref="List{String}"/> which represent the current shader object
-		/// source lines.
-		/// </param>
-		/// <param name="version">
-		/// A <see cref="Int32"/> representing the shader language version to use in generated shader.
-		/// </param>
-		protected void AppendHeader(GraphicsContext ctx, ShaderCompilerContext cctx, List<string> sourceLines, int version)
+		/// <param name="sourceLines">The shader sources.</param>
+		/// <param name="ctx">The graphics context.</param>
+		private void EnsureVersionDirective(List<string> sourceLines, GraphicsContext ctx, ShaderCompilerContext cctx)
 		{
-			if (ctx == null)
-				throw new ArgumentNullException("ctx");
-			if (cctx == null)
-				throw new ArgumentNullException("ctx");
-			if (sourceLines == null)
-				throw new ArgumentNullException("sourceLines");
-			
 			if (ctx.ShadingVersion.Api == KhronosVersion.ApiGlsl) {
-				// Prepend required shader version
+				int version = ctx.ShadingVersion.VersionId;
+
+				// Compiler context override
+				if (cctx.ShaderVersion != null)
+					version = cctx.ShaderVersion.VersionId;
+
+				string profile = null;
+
 				if (version >= 150) {
-					// Starting from GLSL 1.50, profiles are implemented
-				
 					if ((ctx.Flags & GraphicsContextFlags.ForwardCompatible) != 0)
-						sourceLines.Add(String.Format("#version {0} core\n", version));
+						profile = "core";
 					else
-						sourceLines.Add(String.Format("#version {0} compatibility\n", version));
-				} else {
-					sourceLines.Add(String.Format("#version {0}\n", version));
-				}
-			
-				// #extension
-				if (ctx.Extensions.ShadingLanguageInclude_ARB)
-					sourceLines.Add("#extension GL_ARB_shading_language_include : require\n");
-
-				if (ctx.Extensions.UniformBufferObject_ARB)
-					sourceLines.Add("#extension GL_ARB_uniform_buffer_object : enable\n");
-				else
-					sourceLines.Add("#define DISABLE_GL_ARB_uniform_buffer_object\n");
-
-				if (ObjectStage == ShaderType.GeometryShader && ctx.Extensions.GeometryShader4_ARB)
-					sourceLines.Add("#extension GL_ARB_geometry_shader4 : enable\n");
-
-				if (ctx.Extensions.ShaderDrawParameters_ARB)
-					sourceLines.Add("#extension GL_ARB_shader_draw_parameters : enable\n");
-
-				foreach (ShaderExtension shaderExtension in cctx.Extensions) {
-					// Do not include any #extension directive on extensions not supported by driver
-					if (ctx.Extensions.HasExtensions(shaderExtension.Name) == false)
-						continue;
-					sourceLines.Add(String.Format(
-						"#extension {0} : {1}\n", shaderExtension.Name, shaderExtension.Behavior.ToString().ToLowerInvariant())
-					);
+						profile = "compatibility";
 				}
 
-				// #pragma
-#if DEBUG
-				// Debug directives
-				sourceLines.Add("#pragma optimization(off)\n");
-				sourceLines.Add("#pragma debug(on)\n");
-#else
-				sourceLines.Add("#pragma optimization(on)\n");
-				sourceLines.Add("#pragma debug(off)\n");
-#endif
-			} else {
-				switch (ObjectStage) {
-					case ShaderType.FragmentShader:
-						sourceLines.Add("precision mediump float;\n");
-						break;
-				}
-				
+				EnsureVersionDirective(sourceLines, version, profile);
 			}
 		}
 
 		/// <summary>
-		/// Append a constant array of strings.
+		/// Ensure #extension directives required by OpenGL.Net.Objects are specified in shader source. If it is already present, sources are unmodified.
 		/// </summary>
-		/// <param name="sourceLines">
-		/// A <see cref="List{String}"/> representing the current shader source.
-		/// </param>
-		/// <param name="source">
-		/// An array of <see cref="String"/> which represents the source for be appended
-		/// at the end of the source <paramref name="sourceLines"/>.
-		/// </param>
-		/// <remarks>
-		/// This is a simple utility routine will appends an array of strings to a
-		/// source line list.
-		/// This routine automatically add the end-of-line character for each
-		/// string present in <paramref name="source"/>.
-		/// </remarks>
-		protected void AppendSourceStrings(List<string> sourceLines, IEnumerable<string> source)
+		/// <param name="sourceLines">The shader sources.</param>
+		/// <param name="ctx">The graphics context.</param>
+		private void EnsureCoreExtensions(List<string> sourceLines, GraphicsContext ctx)
 		{
-			if (sourceLines == null)
-				throw new ArgumentNullException("sourceLines");
-			if (source == null)
-				throw new ArgumentNullException("source");
+			if (ctx.Extensions.ShadingLanguageInclude_ARB)
+				EnsureExtension(sourceLines, "GL_ARB_shading_language_include", "require");
 
-			foreach (string line in source) {
+			if (ctx.Extensions.UniformBufferObject_ARB)
+				EnsureExtension(sourceLines, "GL_ARB_uniform_buffer_object", "enable");
 
-				// Ensure that no multi-line string is passed
+			if (ObjectStage == ShaderType.GeometryShader && ctx.Extensions.GeometryShader4_ARB)
+				EnsureExtension(sourceLines, "GL_ARB_geometry_shader4", "enable");
 
-				foreach (string subline in Regex.Split(line, @"\n")) {
-					if (subline.Length == 0)
-						continue;
+			if (ctx.Extensions.ShaderDrawParameters_ARB)
+				EnsureExtension(sourceLines, "GL_ARB_shader_draw_parameters", "enable");
+		}
 
-					sourceLines.Add(subline + "\n");
-				}
-			}
+		/// <summary>
+		/// Ensure #version directive is specified in shader source. If it is already present, sources are unmodified.
+		/// </summary>
+		/// <param name="sourceLines">The shader sources.</param>
+		/// <param name="version">GLSL version number.</param>
+		/// <param name="profile">GLSL version profile, if supported.</param>
+		private void EnsureVersionDirective(List<string> sourceLines, int version, string profile = null)
+		{
+			int versionDirectiveIndex = sourceLines.FindIndex((item) => item.StartsWith("#version"));
+
+			// Do not override
+			if (versionDirectiveIndex >= 0)
+				return;
+
+			if (profile != null)
+				sourceLines.Insert(0, $"#version {version} {profile}\n");
+			else
+				sourceLines.Insert(0, $"#version {version}\n");
+		}
+
+		/// <summary>
+		/// Ensure #extension directives are specified in shader source. If it is already present, sources are unmodified.
+		/// </summary>
+		/// <param name="sourceLines">The shader sources.</param>
+		/// <param name="extensionName">The name of the extension.</param>
+		/// <param name="behavior">The extension behavior.</param>
+		private void EnsureExtension(List<string> sourceLines, string extensionName, string behavior)
+		{
+			int extensionDirectiveIndex = sourceLines.FindIndex((item) => item.StartsWith("#extension " + extensionName));
+
+			// Do not override
+			if (extensionDirectiveIndex >= 0)
+				return;
+
+			int versionDirectiveIndex = Math.Max(0, sourceLines.FindIndex((item) => item.StartsWith("#version")));
+
+			// Insert after version directive, if any
+			sourceLines.Insert(versionDirectiveIndex + 1, $"#extension {extensionName} : {behavior}\n");
+		}
+
+		/// <summary>
+		/// Ensure #define directives are specified in shader source. If it is already present, sources are unmodified.
+		/// </summary>
+		/// <param name="sourceLines">The shader sources.</param>
+		/// <param name="extensionName">The name of the extension.</param>
+		private void EnsureDefine(List<string> sourceLines, string symbol)
+		{
+			int defineDirectiveIndex = sourceLines.FindIndex((item) => item.StartsWith("#define " + symbol));
+
+			// Do not override
+			if (defineDirectiveIndex >= 0)
+				return;
+
+			int versionDirectiveIndex = Math.Max(0, sourceLines.FindIndex((item) => item.StartsWith("#version")));
+
+			// Insert after version directive, if any
+			sourceLines.Insert(versionDirectiveIndex + 1, $"#define {symbol} 1\n");
 		}
 
 		/// <summary>
@@ -667,7 +679,6 @@ namespace OpenGL.Objects
 			// Set shader source
 			Gl.ShaderSource(ObjectName, source.ToArray());
 
-#if !MONODROID
 			if (ctx.Extensions.ShadingLanguageInclude_ARB) {
 				string[] includePaths = new string[cctx.Includes.Count];
 
@@ -679,10 +690,6 @@ namespace OpenGL.Objects
 				// Compile shader object (includes are already preprocessed)
 				Gl.CompileShader(ObjectName);
 			}
-#else
-			// Compile shader object (includes are already preprocessed)
-			Gl.CompileShader(ObjectName);
-#endif
 
 			// Check for compilation errors
 			int compilationStatus;
