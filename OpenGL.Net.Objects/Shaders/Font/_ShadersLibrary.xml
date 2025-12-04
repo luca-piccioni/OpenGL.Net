@@ -3,18 +3,18 @@
 
 	<!-- Program Objects -->
 	<Objects>
-		<Object Path="OpenGL.Shaders.Font.Vertex.FontPatch.glsl" TestStage="VertexShader" />
-		<Object Path="OpenGL.Shaders.Font.Fragment.FontPatch.glsl" TestStage="FragmentShader" />
-		<Object Path="OpenGL.Shaders.Font.Vertex.FontTextureArray.glsl" TestStage="VertexShader" />
-		<Object Path="OpenGL.Shaders.Font.Fragment.FontTextureArray.glsl" TestStage="FragmentShader" />
+		<Object Path="OpenGL.Objects.Shaders.Font.Vertex.FontPatch.glsl" TestStage="VertexShader" />
+		<Object Path="OpenGL.Objects.Shaders.Font.Fragment.FontPatch.glsl" TestStage="FragmentShader" />
+		<Object Path="OpenGL.Objects.Shaders.Font.Vertex.FontTextureArray.glsl" TestStage="VertexShader" />
+		<Object Path="OpenGL.Objects.Shaders.Font.Fragment.FontTextureArray.glsl" TestStage="FragmentShader" />
 	</Objects>
 
 	<Programs>
 
 		<!-- FontPatch -->
 		<Program Id="OpenGL.FontPatch">
-			<Object Path="OpenGL.Shaders.Font.Vertex.FontPatch.glsl" Stage="VertexShader" />
-			<Object Path="OpenGL.Shaders.Font.Fragment.FontPatch.glsl" Stage="FragmentShader" />
+			<Object Path="OpenGL.Objects.Shaders.Font.Vertex.FontPatch.glsl" Stage="VertexShader" />
+			<Object Path="OpenGL.Objects.Shaders.Font.Fragment.FontPatch.glsl" Stage="FragmentShader" />
 			
 			<Attribute Name="glo_Position" Semantic="Position" Location="0" />
 
@@ -26,8 +26,8 @@
     
     <!-- FontPatch+OverrideDepth -->
     <Program Id="OpenGL.FontPatch+OverrideDepth">
-      <Object Path="OpenGL.Shaders.Font.Vertex.FontPatch.glsl" Stage="VertexShader" />
-      <Object Path="OpenGL.Shaders.Font.Fragment.FontPatch.glsl" Stage="FragmentShader">
+      <Object Path="OpenGL.Objects.Shaders.Font.Vertex.FontPatch.glsl" Stage="VertexShader" />
+      <Object Path="OpenGL.Objects.Shaders.Font.Fragment.FontPatch.glsl" Stage="FragmentShader">
         <Symbols>
           <Symbol>GLO_OVERRIDE_FRAGMENT_DEPTH</Symbol>
         </Symbols>
@@ -44,8 +44,8 @@
 
     <!-- FontTextureArray+Instanced -->
     <Program Id="OpenGL.FontTextureArray">
-      <Object Path="OpenGL.Shaders.Font.Vertex.FontTextureArray.glsl" Stage="VertexShader" />
-      <Object Path="OpenGL.Shaders.Font.Fragment.FontTextureArray.glsl" Stage="FragmentShader" />
+      <Object Path="OpenGL.Objects.Shaders.Font.Vertex.FontTextureArray.glsl" Stage="VertexShader" />
+      <Object Path="OpenGL.Objects.Shaders.Font.Fragment.FontTextureArray.glsl" Stage="FragmentShader" />
 
       <Attribute Name="glo_Position" Semantic="Position" Location="0" />
 
@@ -55,8 +55,8 @@
 
     <!-- FontTextureArray+Instanced+OverrideDepth -->
     <Program Id="OpenGL.FontTextureArray+OverrideDepth">
-      <Object Path="OpenGL.Shaders.Font.Vertex.FontTextureArray.glsl" Stage="VertexShader" />
-      <Object Path="OpenGL.Shaders.Font.Fragment.FontTextureArray.glsl" Stage="FragmentShader">
+      <Object Path="OpenGL.Objects.Shaders.Font.Vertex.FontTextureArray.glsl" Stage="VertexShader" />
+      <Object Path="OpenGL.Objects.Shaders.Font.Fragment.FontTextureArray.glsl" Stage="FragmentShader">
         <Symbols>
           <Symbol>GLO_OVERRIDE_FRAGMENT_DEPTH</Symbol>
         </Symbols>
@@ -71,12 +71,12 @@
 
     <!-- FontTextureArray+Instanced -->
     <Program Id="OpenGL.FontTextureArray+Instanced">
-      <Object Path="OpenGL.Shaders.Font.Vertex.FontTextureArray.glsl" Stage="VertexShader">
+      <Object Path="OpenGL.Objects.Shaders.Font.Vertex.FontTextureArray.glsl" Stage="VertexShader">
         <Symbols>
           <Symbol>GLO_INSTANCED</Symbol>
         </Symbols>
       </Object>
-      <Object Path="OpenGL.Shaders.Font.Fragment.FontTextureArray.glsl" Stage="FragmentShader" />
+      <Object Path="OpenGL.Objects.Shaders.Font.Fragment.FontTextureArray.glsl" Stage="FragmentShader" />
 
       <Attribute Name="glo_Position" Semantic="Position" Location="0" />
 
@@ -85,12 +85,12 @@
 
     <!-- FontTextureArray+Instanced+OverrideDepth -->
     <Program Id="OpenGL.FontTextureArray+Instanced+OverrideDepth">
-      <Object Path="OpenGL.Shaders.Font.Vertex.FontTextureArray.glsl" Stage="VertexShader">
+      <Object Path="OpenGL.Objects.Shaders.Font.Vertex.FontTextureArray.glsl" Stage="VertexShader">
         <Symbols>
           <Symbol>GLO_INSTANCED</Symbol>
         </Symbols>
       </Object>
-      <Object Path="OpenGL.Shaders.Font.Fragment.FontTextureArray.glsl" Stage="FragmentShader">
+      <Object Path="OpenGL.Objects.Shaders.Font.Fragment.FontTextureArray.glsl" Stage="FragmentShader">
         <Symbols>
           <Symbol>GLO_OVERRIDE_FRAGMENT_DEPTH</Symbol>
         </Symbols>
@@ -104,12 +104,12 @@
 
 		<!-- FontTextureArray+InstancedArrays -->
 		<Program Id="OpenGL.FontTextureArray+InstancedArrays">
-			<Object Path="OpenGL.Shaders.Font.Vertex.FontTextureArray.glsl" Stage="VertexShader">
+			<Object Path="OpenGL.Objects.Shaders.Font.Vertex.FontTextureArray.glsl" Stage="VertexShader">
         <Symbols>
           <Symbol>GLO_INSTANCED_ARRAY</Symbol>
         </Symbols>
       </Object>
-			<Object Path="OpenGL.Shaders.Font.Fragment.FontTextureArray.glsl" Stage="FragmentShader" />
+			<Object Path="OpenGL.Objects.Shaders.Font.Fragment.FontTextureArray.glsl" Stage="FragmentShader" />
 			
 			<Attribute Name="glo_Position" Semantic="Position" Location="0" />
 
@@ -118,12 +118,12 @@
 
     <!-- FontTextureArray+InstancedArrays+OverrideDepth -->
     <Program Id="OpenGL.FontTextureArray+InstancedArrays+OverrideDepth">
-      <Object Path="OpenGL.Shaders.Font.Vertex.FontTextureArray.glsl" Stage="VertexShader">
+      <Object Path="OpenGL.Objects.Shaders.Font.Vertex.FontTextureArray.glsl" Stage="VertexShader">
         <Symbols>
           <Symbol>GLO_INSTANCED_ARRAY</Symbol>
         </Symbols>
       </Object>
-      <Object Path="OpenGL.Shaders.Font.Fragment.FontTextureArray.glsl" Stage="FragmentShader">
+      <Object Path="OpenGL.Objects.Shaders.Font.Fragment.FontTextureArray.glsl" Stage="FragmentShader">
         <Symbols>
           <Symbol>GLO_OVERRIDE_FRAGMENT_DEPTH</Symbol>
         </Symbols>

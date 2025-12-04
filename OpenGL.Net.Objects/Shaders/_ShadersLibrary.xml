@@ -4,22 +4,22 @@
 	<!-- Include sources -->
 	<Includes>
 		<Include Id="/OpenGL/Compatibility.glsl">
-			<Path>OpenGL.Shaders.Compatibility.glsl</Path>
+			<Path>OpenGL.Objects.Shaders.Compatibility.glsl</Path>
 		</Include>
     <Include Id="/OpenGL/Math.glsl">
-      <Path>OpenGL.Shaders.Math.glsl</Path>
+      <Path>OpenGL.Objects.Shaders.Math.glsl</Path>
     </Include>
 		<Include Id="/OpenGL/TransformState.glsl">
-			<Path>OpenGL.Shaders.TransformState.glsl</Path>
+			<Path>OpenGL.Objects.Shaders.TransformState.glsl</Path>
 		</Include>
 		<Include Id="/OpenGL/Viewport.glsl">
-			<Path>OpenGL.Shaders.Viewport.glsl</Path>
+			<Path>OpenGL.Objects.Shaders.Viewport.glsl</Path>
 		</Include>
 		<Include Id="/OpenGL/ClipDistance.glsl">
-			<Path>OpenGL.Shaders.ClipDistance.glsl</Path>
+			<Path>OpenGL.Objects.Shaders.ClipDistance.glsl</Path>
 		</Include>
 		<Include Id="/OpenGL/GeoProject.glsl">
-			<Path>OpenGL.Shaders.GeoProject.glsl</Path>
+			<Path>OpenGL.Objects.Shaders.GeoProject.glsl</Path>
 		</Include>
 	</Includes>
 	
@@ -28,16 +28,16 @@
 		
 		<!-- GeoProjection -->
 		
-		<Object Path="OpenGL.Shaders.GeoProjection.GeoProjectNone.glsl" TestStage="VertexShader" />
-		<Object Path="OpenGL.Shaders.GeoProjection.GeoProjectOrthographic.glsl" TestStage="VertexShader" />
-		<Object Path="OpenGL.Shaders.GeoProjection.GeoProjectGnomonic.glsl" TestStage="VertexShader" />
-		<Object Path="OpenGL.Shaders.GeoProjection.GeoProjectVincenty.glsl" TestStage="VertexShader" />
+		<Object Path="OpenGL.Objects.Shaders.GeoProjection.GeoProjectNone.glsl" TestStage="VertexShader" />
+		<Object Path="OpenGL.Objects.Shaders.GeoProjection.GeoProjectOrthographic.glsl" TestStage="VertexShader" />
+		<Object Path="OpenGL.Objects.Shaders.GeoProjection.GeoProjectGnomonic.glsl" TestStage="VertexShader" />
+		<Object Path="OpenGL.Objects.Shaders.GeoProjection.GeoProjectVincenty.glsl" TestStage="VertexShader" />
 		
 		<!-- Line -->
 
-		<Object Path="OpenGL.Shaders.Line.Vertex.glsl" TestStage="VertexShader" />
-		<Object Path="OpenGL.Shaders.Line.Geometry.glsl" TestStage="GeometryShader" />
-		<Object Path="OpenGL.Shaders.Line.Fragment.glsl" TestStage="FragmentShader">
+		<Object Path="OpenGL.Objects.Shaders.Line.Vertex.glsl" TestStage="VertexShader" />
+		<Object Path="OpenGL.Objects.Shaders.Line.Geometry.glsl" TestStage="GeometryShader" />
+		<Object Path="OpenGL.Objects.Shaders.Line.Fragment.glsl" TestStage="FragmentShader">
 			<Symbols>
 				<Symbol>GLO_COLOR_PER_VERTEX</Symbol>
 			</Symbols>
@@ -49,17 +49,17 @@
 
 		<!-- Line -->
 		<Program Id="OpenGL.Line">
-			<Object Path="OpenGL.Shaders.Line.Vertex.glsl" Stage="VertexShader" />
-			<Object Path="OpenGL.Shaders.Line.Geometry.glsl" Stage="GeometryShader" />
-			<Object Path="OpenGL.Shaders.Line.Fragment.glsl" Stage="FragmentShader" />
+			<Object Path="OpenGL.Objects.Shaders.Line.Vertex.glsl" Stage="VertexShader" />
+			<Object Path="OpenGL.Objects.Shaders.Line.Geometry.glsl" Stage="GeometryShader" />
+			<Object Path="OpenGL.Objects.Shaders.Line.Fragment.glsl" Stage="FragmentShader" />
 			<Attribute Name="glo_Position" Semantic="Position" />
 		</Program>
 
 		<!-- Line+Color -->
 		<Program Id="OpenGL.Line+Color">
-			<Object Path="OpenGL.Shaders.Line.Vertex.glsl" Stage="VertexShader" />
-			<Object Path="OpenGL.Shaders.Line.Geometry.glsl" Stage="GeometryShader" />
-			<Object Path="OpenGL.Shaders.Line.Fragment.glsl" Stage="FragmentShader" >
+			<Object Path="OpenGL.Objects.Shaders.Line.Vertex.glsl" Stage="VertexShader" />
+			<Object Path="OpenGL.Objects.Shaders.Line.Geometry.glsl" Stage="GeometryShader" />
+			<Object Path="OpenGL.Objects.Shaders.Line.Fragment.glsl" Stage="FragmentShader" >
 				<Symbols>
 					<Symbol>GLO_COLOR_PER_VERTEX</Symbol>
 				</Symbols>

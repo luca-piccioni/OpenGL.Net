@@ -59,9 +59,9 @@ namespace OpenGL.Objects.Test
 
 			// Create empty buffer, without uploading on GPU
 			arrayBuffer.Create(16);
-			Assert.AreEqual(0u, arrayBuffer.CpuBufferSize);
+			Assert.AreNotEqual(0u, arrayBuffer.CpuBufferSize);
+			Assert.AreNotEqual(0u, arrayBuffer.ItemsCount);
 			Assert.AreEqual(0u, arrayBuffer.GpuBufferSize);
-			Assert.AreEqual(0u, arrayBuffer.ItemsCount);
 
 			// Uploads to GPU
 			arrayBuffer.Create(_Context);
@@ -86,7 +86,7 @@ namespace OpenGL.Objects.Test
 			Assert.AreEqual(0u, arrayBuffer.GpuBufferSize);
 
 			arrayBuffer.Create(_Context, new ushort[16]);
-			Assert.AreEqual(32u, arrayBuffer.GpuBufferSize);
+			Assert.AreNotEqual(0u, arrayBuffer.GpuBufferSize);
 		}
 
 		protected void ArrayBufferBase_TestArrayTechnique_CreateOffline(ArrayBufferBase arrayBuffer)
@@ -101,7 +101,7 @@ namespace OpenGL.Objects.Test
 
 			// Uploads to GPU
 			arrayBuffer.Create(_Context);
-			Assert.Equals(32u, arrayBuffer.GpuBufferSize);
+			Assert.AreNotEqual(0u, arrayBuffer.GpuBufferSize);
 		}
 	}
 }

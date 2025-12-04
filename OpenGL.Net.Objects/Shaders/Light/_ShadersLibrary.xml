@@ -4,35 +4,35 @@
 	<!-- Include sources -->
 	<Includes>
 		<Include Id="/OpenGL/Light/MaterialState.glsl">
-			<Path>OpenGL.Shaders.Light.MaterialState.glsl</Path>
+			<Path>OpenGL.Objects.Shaders.Light.MaterialState.glsl</Path>
 		</Include>
 		<Include Id="/OpenGL/Light/LightState.glsl">
-			<Path>OpenGL.Shaders.Light.LightState.glsl</Path>
+			<Path>OpenGL.Objects.Shaders.Light.LightState.glsl</Path>
 		</Include>
 		<Include Id="/OpenGL/Light/ShadowState.glsl">
-			<Path>OpenGL.Shaders.Light.ShadowState.glsl</Path>
+			<Path>OpenGL.Objects.Shaders.Light.ShadowState.glsl</Path>
 		</Include>
 	</Includes>
 
 	<!-- Program Objects -->
 	<Objects>
 		<!-- Lights (Common Implementation) -->
-		<Object Path="OpenGL.Shaders.Light.LightDirectionalImpl.glsl" />
-		<Object Path="OpenGL.Shaders.Light.LightPointImpl.glsl" />
-		<Object Path="OpenGL.Shaders.Light.LightSpotImpl.glsl" />
+		<Object Path="OpenGL.Objects.Shaders.Light.LightDirectionalImpl.glsl" />
+		<Object Path="OpenGL.Objects.Shaders.Light.LightPointImpl.glsl" />
+		<Object Path="OpenGL.Objects.Shaders.Light.LightSpotImpl.glsl" />
 		<!-- Lights (Single) -->
-		<Object Path="OpenGL.Shaders.Light.LightDirectional.glsl" />
-		<Object Path="OpenGL.Shaders.Light.LightPoint.glsl" />
-		<Object Path="OpenGL.Shaders.Light.LightSpot.glsl" />
+		<Object Path="OpenGL.Objects.Shaders.Light.LightDirectional.glsl" />
+		<Object Path="OpenGL.Objects.Shaders.Light.LightPoint.glsl" />
+		<Object Path="OpenGL.Objects.Shaders.Light.LightSpot.glsl" />
 		<!-- Lights (Multiple) -->
-		<Object Path="OpenGL.Shaders.Light.LightMulti.glsl">
+		<Object Path="OpenGL.Objects.Shaders.Light.LightMulti.glsl">
 			<Symbols>
 				<Symbol>GLO_MAX_LIGHTS_COUNT</Symbol>
 			</Symbols>
 		</Object>
 		<!-- Shading models -->
-		<Object Path="OpenGL.Shaders.Light.ShadingLambert.glsl" />
-		<Object Path="OpenGL.Shaders.Light.ShadingPhong.glsl" />
+		<Object Path="OpenGL.Objects.Shaders.Light.ShadingLambert.glsl" />
+		<Object Path="OpenGL.Objects.Shaders.Light.ShadingPhong.glsl" />
 	</Objects>
 	
 </ShadersLibrary>

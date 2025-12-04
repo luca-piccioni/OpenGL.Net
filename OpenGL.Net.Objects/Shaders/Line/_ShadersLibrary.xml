@@ -4,14 +4,14 @@
   <!-- Include sources -->
   <Includes>
     <Include Id="/Geo/GeoProject.glsl">
-      <Path>OpenGL.Shaders.GeoProjection.GeoProject.glsl</Path>
+      <Path>OpenGL.Objects.Shaders.GeoProjection.GeoProject.glsl</Path>
     </Include>
   </Includes>
 
 	<!-- Program Objects -->
 	<Objects>
-		<Object Path="OpenGL.Shaders.Line.Vertex.glsl" />
-		<Object Path="OpenGL.Shaders.Line.Fragment.glsl">
+		<Object Path="OpenGL.Objects.Shaders.Line.Vertex.glsl" />
+		<Object Path="OpenGL.Objects.Shaders.Line.Fragment.glsl">
 			<Symbols>
 				<Symbol>GLO_COLOR_PER_VERTEX</Symbol>
 				<Symbol>GLO_OVERRIDE_FRAGMENT_DEPTH</Symbol>
@@ -23,9 +23,9 @@
 
 		<!-- Line -->
 		<Program Id="OpenGL.Line">
-			<Object Path="OpenGL.Shaders.Line.Vertex.glsl" Stage="VertexShader" />
-			<Object Path="OpenGL.Shaders.Line.Geometry.glsl" Stage="GeometryShader" />
-			<Object Path="OpenGL.Shaders.Line.Fragment.glsl" Stage="FragmentShader" />
+			<Object Path="OpenGL.Objects.Shaders.Line.Vertex.glsl" Stage="VertexShader" />
+			<Object Path="OpenGL.Objects.Shaders.Line.Geometry.glsl" Stage="GeometryShader" />
+			<Object Path="OpenGL.Objects.Shaders.Line.Fragment.glsl" Stage="FragmentShader" />
 			<Attribute Name="glo_Position" Semantic="Position" Location="0" />
 
 			<Uniform Name="glo_ModelViewProjection" Semantic="ModelViewProjection" />
@@ -34,9 +34,9 @@
 
     <!-- LineStipple -->
     <Program Id="OpenGL.LineStipple">
-      <Object Path="OpenGL.Shaders.Line.Vertex.glsl" Stage="VertexShader" />
-      <Object Path="OpenGL.Shaders.Line.Geometry.glsl" Stage="GeometryShader" />
-      <Object Path="OpenGL.Shaders.Line.Fragment.glsl" Stage="FragmentShader">
+      <Object Path="OpenGL.Objects.Shaders.Line.Vertex.glsl" Stage="VertexShader" />
+      <Object Path="OpenGL.Objects.Shaders.Line.Geometry.glsl" Stage="GeometryShader" />
+      <Object Path="OpenGL.Objects.Shaders.Line.Fragment.glsl" Stage="FragmentShader">
         <Symbols>
           <Symbol>GLO_LINE_STIPPLE</Symbol>
         </Symbols>
@@ -49,9 +49,9 @@
 
 		<!-- Line+OverrideDepth -->
 		<Program Id="OpenGL.Line+OverrideDepth">
-			<Object Path="OpenGL.Shaders.Line.Vertex.glsl" Stage="VertexShader" />
-			<Object Path="OpenGL.Shaders.Line.Geometry.glsl" Stage="GeometryShader" />
-			<Object Path="OpenGL.Shaders.Line.Fragment.glsl" Stage="FragmentShader">
+			<Object Path="OpenGL.Objects.Shaders.Line.Vertex.glsl" Stage="VertexShader" />
+			<Object Path="OpenGL.Objects.Shaders.Line.Geometry.glsl" Stage="GeometryShader" />
+			<Object Path="OpenGL.Objects.Shaders.Line.Fragment.glsl" Stage="FragmentShader">
 				<Symbols>
 					<Symbol>GLO_OVERRIDE_FRAGMENT_DEPTH</Symbol>
 				</Symbols>
@@ -64,9 +64,9 @@
 
     <!-- LineStipple -->
     <Program Id="OpenGL.LineStipple+OverrideDepth">
-      <Object Path="OpenGL.Shaders.Line.Vertex.glsl" Stage="VertexShader" />
-      <Object Path="OpenGL.Shaders.Line.Geometry.glsl" Stage="GeometryShader" />
-      <Object Path="OpenGL.Shaders.Line.Fragment.glsl" Stage="FragmentShader">
+      <Object Path="OpenGL.Objects.Shaders.Line.Vertex.glsl" Stage="VertexShader" />
+      <Object Path="OpenGL.Objects.Shaders.Line.Geometry.glsl" Stage="GeometryShader" />
+      <Object Path="OpenGL.Objects.Shaders.Line.Fragment.glsl" Stage="FragmentShader">
         <Symbols>
           <Symbol>GLO_LINE_STIPPLE</Symbol>
           <Symbol>GLO_OVERRIDE_FRAGMENT_DEPTH</Symbol>
@@ -80,13 +80,13 @@
 
     <!-- Line+MVPInstanced+OverrideDepthInstanced -->
     <Program Id="OpenGL.Line+MVPInstanced+OverrideDepth">
-      <Object Path="OpenGL.Shaders.Line.Vertex.glsl" Stage="VertexShader">
+      <Object Path="OpenGL.Objects.Shaders.Line.Vertex.glsl" Stage="VertexShader">
         <Symbols>
           <Symbol>GLO_PRIMITIVE_MVP</Symbol>
         </Symbols>
       </Object>
-      <Object Path="OpenGL.Shaders.Line.Geometry.glsl" Stage="GeometryShader" />
-      <Object Path="OpenGL.Shaders.Line.Fragment.glsl" Stage="FragmentShader">
+      <Object Path="OpenGL.Objects.Shaders.Line.Geometry.glsl" Stage="GeometryShader" />
+      <Object Path="OpenGL.Objects.Shaders.Line.Fragment.glsl" Stage="FragmentShader">
         <Symbols>
           <Symbol>GLO_OVERRIDE_FRAGMENT_DEPTH</Symbol>
         </Symbols>
@@ -100,13 +100,13 @@
     
     <!-- Line+MVPInstanced+OverrideDepthInstanced -->
     <Program Id="OpenGL.Line+MVPInstanced+OverrideDepthInstanced">
-      <Object Path="OpenGL.Shaders.Line.Vertex.glsl" Stage="VertexShader">
+      <Object Path="OpenGL.Objects.Shaders.Line.Vertex.glsl" Stage="VertexShader">
         <Symbols>
           <Symbol>GLO_PRIMITIVE_MVP</Symbol>
         </Symbols>
       </Object>
-      <Object Path="OpenGL.Shaders.Line.Geometry.glsl" Stage="GeometryShader" />
-      <Object Path="OpenGL.Shaders.Line.Fragment.glsl" Stage="FragmentShader">
+      <Object Path="OpenGL.Objects.Shaders.Line.Geometry.glsl" Stage="GeometryShader" />
+      <Object Path="OpenGL.Objects.Shaders.Line.Fragment.glsl" Stage="FragmentShader">
         <Symbols>
           <Symbol>GLO_OVERRIDE_FRAGMENT_DEPTH_INSTANCED</Symbol>
         </Symbols>
@@ -120,9 +120,9 @@
 
 		<!-- Line+Color -->
 		<Program Id="OpenGL.Line+Color">
-			<Object Path="OpenGL.Shaders.Standard.Vertex.glsl" Stage="VertexShader"/>
-			<Object Path="OpenGL.Shaders.Line.Geometry.glsl" Stage="GeometryShader" />
-			<Object Path="OpenGL.Shaders.Standard.Fragment.glsl" Stage="FragmentShader">
+			<Object Path="OpenGL.Objects.Shaders.Standard.Vertex.glsl" Stage="VertexShader"/>
+			<Object Path="OpenGL.Objects.Shaders.Line.Geometry.glsl" Stage="GeometryShader" />
+			<Object Path="OpenGL.Objects.Shaders.Standard.Fragment.glsl" Stage="FragmentShader">
 				<Symbols>
 					<Symbol>GLO_COLOR_PER_VERTEX</Symbol>
 				</Symbols>
@@ -135,13 +135,13 @@
 
     <!-- Line+Color+MVPInstanced+OverrideDepthInstanced -->
     <Program Id="OpenGL.Line+Color+MVPInstanced+OverrideDepthInstanced">
-      <Object Path="OpenGL.Shaders.Line.Vertex.glsl" Stage="VertexShader">
+      <Object Path="OpenGL.Objects.Shaders.Line.Vertex.glsl" Stage="VertexShader">
         <Symbols>
           <Symbol>GLO_PRIMITIVE_MVP</Symbol>
         </Symbols>
       </Object>
-      <Object Path="OpenGL.Shaders.Line.Geometry.glsl" Stage="GeometryShader" />
-      <Object Path="OpenGL.Shaders.Line.Fragment.glsl" Stage="FragmentShader">
+      <Object Path="OpenGL.Objects.Shaders.Line.Geometry.glsl" Stage="GeometryShader" />
+      <Object Path="OpenGL.Objects.Shaders.Line.Fragment.glsl" Stage="FragmentShader">
         <Symbols>
           <Symbol>GLO_COLOR_PER_VERTEX</Symbol>
           <Symbol>GLO_OVERRIDE_FRAGMENT_DEPTH_INSTANCED</Symbol>
@@ -160,9 +160,9 @@
           <Symbol>GLO_GEOPROJECTION</Symbol>
         </Symbols>
       </Object>
-      <Object Path="OpenGL.Shaders.GeoProjection.GeoProjectVincenty.glsl" Stage="VertexShader" />
-      <Object Path="OpenGL.Shaders.Line.Geometry.glsl" Stage="GeometryShader" />
-      <Object Path="OpenGL.Shaders.Line.Fragment.glsl" Stage="FragmentShader">
+      <Object Path="OpenGL.Objects.Shaders.GeoProjection.GeoProjectVincenty.glsl" Stage="VertexShader" />
+      <Object Path="OpenGL.Objects.Shaders.Line.Geometry.glsl" Stage="GeometryShader" />
+      <Object Path="OpenGL.Objects.Shaders.Line.Fragment.glsl" Stage="FragmentShader">
         <Symbols>
           <Symbol>GLO_OVERRIDE_FRAGMENT_DEPTH</Symbol>
         </Symbols>

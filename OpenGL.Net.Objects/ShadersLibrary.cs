@@ -43,14 +43,13 @@ namespace OpenGL.Objects
 		static ShadersLibrary()
 		{
 			// Load OpenGL.Objects shaders library
-			Merge("OpenGL.Shaders._ShadersLibrary.xml");
-			Merge("OpenGL.Shaders.Light._ShadersLibrary.xml");
-			Merge("OpenGL.Shaders.Line._ShadersLibrary.xml");
-			Merge("OpenGL.Shaders.Specialized._ShadersLibrary.xml");
-			Merge("OpenGL.Shaders.Standard._ShadersLibrary.xml");
-			Merge("OpenGL.Shaders.Shadow._ShadersLibrary.xml");
-			Merge("OpenGL.Shaders.Font._ShadersLibrary.xml");
-			Merge("OpenGL.Shaders.Skybox._ShadersLibrary.xml");
+			Merge("OpenGL.Objects.Shaders._ShadersLibrary.xml");
+			Merge("OpenGL.Objects.Shaders.Light._ShadersLibrary.xml");
+			Merge("OpenGL.Objects.Shaders.Line._ShadersLibrary.xml");
+			Merge("OpenGL.Objects.Shaders.Specialized._ShadersLibrary.xml");
+			Merge("OpenGL.Objects.Shaders.Standard._ShadersLibrary.xml");
+			Merge("OpenGL.Objects.Shaders.Shadow._ShadersLibrary.xml");
+			Merge("OpenGL.Objects.Shaders.Font._ShadersLibrary.xml");
 		}
 
 		#endregion

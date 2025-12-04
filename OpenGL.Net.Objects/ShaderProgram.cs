@@ -290,6 +290,12 @@ namespace OpenGL.Objects
 
 			#endregion
 
+			// Collect program information
+			ReflectInformation(ctx, cctx);
+		}
+
+		private void ReflectInformation(GraphicsContext ctx, ShaderCompilerContext cctx)
+		{
 			CollectActiveUniforms(ctx);
 			CollectActiveUniformBlocks(ctx);
 
@@ -328,10 +334,10 @@ namespace OpenGL.Objects
 				List<KeyValuePair<string, AttributeBinding>> attributeNames = new List<KeyValuePair<string, AttributeBinding>>(_AttributesMap);
 
 				// Make attribute list invariant respect the used driver (ease log comparation)
-				attributeNames.Sort(delegate(KeyValuePair<string, AttributeBinding> x, KeyValuePair<string, AttributeBinding> y) {
+				attributeNames.Sort(delegate (KeyValuePair<string, AttributeBinding> x, KeyValuePair<string, AttributeBinding> y) {
 					return (x.Value.Location.CompareTo(y.Value.Location));
 				});
-			
+
 				Log("Shader program active attributes:");
 				foreach (KeyValuePair<string, AttributeBinding> pair in attributeNames)
 					Log("\tAttribute {0} (Type: {1}, Location: {2})", pair.Key, pair.Value.Type, pair.Value.Location);
@@ -348,9 +354,9 @@ namespace OpenGL.Objects
 			}
 
 			#endregion
-			
+
 			#region Collect Feedback Varyings
-			
+
 			if ((_FeedbackVaryings != null) && (_FeedbackVaryings.Count > 0)) {
 				if (ctx.Extensions.TransformFeedback2_ARB || ctx.Extensions.TransformFeedback_EXT) {
 					// Map active feedback
@@ -372,7 +378,7 @@ namespace OpenGL.Objects
 					foreach (string feedbackVaryingName in _FeedbackVaryings) {
 						Gl.ActiveVaryingNV(ObjectName, feedbackVaryingName);
 					}
-					
+
 					// Map active feedback
 					int feebackVaryings, feebackVaryingsMaxLength;
 
@@ -1062,6 +1068,12 @@ namespace OpenGL.Objects
 				throw new NotSupportedException("get_program_binary not supported");
 
 			Gl.ProgramBinary(ObjectName, format, binary, binary.Length);
+
+			// Collect program information
+			ReflectInformation(ctx, _CompilationParams);
+
+			// Program already linked
+			_Linked = true;
 		}
 
 		public byte[] SaveBinary(GraphicsContext ctx, out int format)
@@ -1079,8 +1091,7 @@ namespace OpenGL.Objects
 
 			byte[] programCache = new byte[programCacheLength];
 
-			GCHandle programCacheBuffer = GCHandle.Alloc(programCache);
-
+			GCHandle programCacheBuffer = GCHandle.Alloc(programCache, GCHandleType.Pinned);
 			try {
 				Gl.GetProgramBinary(ObjectName, programCache.Length, out programCacheLength, out format, programCacheBuffer.AddrOfPinnedObject());
 			} finally {
