@@ -109,20 +109,13 @@ namespace OpenGL.Objects
 		#region Shading Language Version
 
 		/// <summary>
-		/// The shading language version used by compiler.
+		/// If defined, it overrides the shading language version used by compiler.
 		/// </summary>
-		/// <remarks>
-		/// If the property is set to null, the property will be defined as <see cref="GraphicsContext.CurrentGLSLVersion"/>. In this way the
-		/// value of this property will always specify a concrete GLSL version value.
-		/// </remarks>
 		[XmlElement("ShaderVersion")]
 		public KhronosVersion ShaderVersion
 		{
 			get { return (_ShaderVersion); }
-			set
-			{
-				_ShaderVersion = value == null ? Gl.CurrentShadingVersion : value;
-			}
+			set { _ShaderVersion = value; }
 		}
 
 		/// <summary>
@@ -248,23 +241,26 @@ namespace OpenGL.Objects
 		#region Equality Operators
 
 		/// <summary>
-		/// Test for equality two <see cref="ShaderCompilerContext"/> instances.
-		/// </summary>
-		/// <param name="a"></param>
-		/// <param name="b"></param>
-		/// <returns></returns>
-		public static bool operator ==(ShaderCompilerContext a, ShaderCompilerContext b)
-		{
-			if (ReferenceEquals(null, b))
-				return (false);
+	/// Test for equality two <see cref="ShaderCompilerContext"/> instances.
+	/// </summary>
+	/// <param name="a"></param>
+	/// <param name="b"></param>
+	/// <returns></returns>
+	public static bool operator ==(ShaderCompilerContext a, ShaderCompilerContext b)
+	{
+		// Handle null cases properly
+		if (ReferenceEquals(a, null) && ReferenceEquals(b, null))
+			return true;
+		if (ReferenceEquals(a, null) || ReferenceEquals(b, null))
+			return false;
 
-			return (a.Equals(b));
-		}
+		return a.Equals(b);
+	}
 
-		public static bool operator !=(ShaderCompilerContext a, ShaderCompilerContext b)
-		{
-			return (a.Equals(b));
-		}
+	public static bool operator !=(ShaderCompilerContext a, ShaderCompilerContext b)
+	{
+		return !(a == b);
+	}	
 
 		#endregion
 
