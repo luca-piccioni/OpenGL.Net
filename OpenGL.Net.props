@@ -6,7 +6,7 @@
     <Company>OpenGL.Net</Company>
     <Version>1.0.2-beta</Version>
     <FileVersion>1.0.2</FileVersion>
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(IsPackable)' != 'false'">
@@ -23,7 +23,8 @@
     </None>
   </ItemGroup>
 
-  <PropertyGroup>
-    <UseWSL>true</UseWSL>
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineConstants>$(DefineConstants);DEBUG;TRACE</DefineConstants>
   </PropertyGroup>
 </Project>

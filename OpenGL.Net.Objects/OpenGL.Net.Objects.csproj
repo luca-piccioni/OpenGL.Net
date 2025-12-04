@@ -3,26 +3,20 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>OpenGL.Net.Objects</AssemblyName>
-    <RootNamespace>OpenGL</RootNamespace>
-    <Product>OpenGL.Net</Product>
-    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
-    <AssemblyGuid>01314a39-ae2a-44f6-ba14-8c961583c75c</AssemblyGuid>
-    <Deterministic>false</Deterministic>
+	<AssemblyGuid>01314a39-ae2a-44f6-ba14-8c961583c75c</AssemblyGuid>
+	<AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <RootNamespace>OpenGL.Objects</RootNamespace>
+	<Product>OpenGL.Net.Objects</Product>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <ItemGroup>
     <InternalsVisibleTo Include="OpenGL.Net.Objects.Test" />
   </ItemGroup>
   
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-  </PropertyGroup>
-
   <ItemGroup>
 	<Compile Remove="**\*" />
 	<EmbeddedResource Remove="**\*" />
@@ -122,8 +116,12 @@
   </ItemGroup>
 	
   <ItemGroup>
-	<EmbeddedResource Include="Shaders\**\*.glsl" />
-	<EmbeddedResource Include="Shaders\**\*.xml" />
+	<EmbeddedResource Include="Shaders\**\*.glsl">
+		<LogicalName>OpenGL.Objects.$([System.String]::new('%(RelativeDir)').Replace('\', '.').Replace('/', '.'))%(FileName)%(Extension)</LogicalName>
+	</EmbeddedResource>
+	<EmbeddedResource Include="Shaders\**\*.xml">
+		<LogicalName>OpenGL.Objects.$([System.String]::new('%(RelativeDir)').Replace('\', '.').Replace('/', '.'))%(FileName)%(Extension)</LogicalName>
+	</EmbeddedResource>
   </ItemGroup>
   
   <ItemGroup>

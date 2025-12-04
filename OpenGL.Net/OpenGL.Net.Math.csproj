@@ -1,15 +1,17 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<Project>
+
+  <PropertyGroup>
+    <BaseIntermediateOutputPath>obj\OpenGL.Net.Math</BaseIntermediateOutputPath>
+  </PropertyGroup>
+  <Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk" />
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>OpenGL.Net.Math</AssemblyName>
+    <AssemblyGuid>48DCAD29-1D8E-4CB4-9C32-D859224D4AA8</AssemblyGuid>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <RootNamespace>OpenGL</RootNamespace>
-    <Authors>Luca Piccioni</Authors>
-    <Product>OpenGL.Net</Product>
-    <Copyright>Copyright (C) Luca Piccioni 2015-2017</Copyright>
-    <Version>0.5.2</Version>
-    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <Product>OpenGL.Net.Math</Product>
 
     <!-- Disable SDK implicit items because this project uses explicit includes -->
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
@@ -17,12 +19,7 @@
     <EnableDefaultNoneItems>false</EnableDefaultNoneItems>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <DefineConstants>$(DefineConstants);HAVE_SYSTEM_DRAWING</DefineConstants>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+  <PropertyGroup>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <DefineConstants>$(DefineConstants);HAVE_SYSTEM_DRAWING</DefineConstants>
   </PropertyGroup>
@@ -138,4 +135,5 @@
     <None Include="README.OpenGL.Net.Math.nuget.md" Pack="true" PackagePath="\"/>
   </ItemGroup>
 
+  <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
 </Project>

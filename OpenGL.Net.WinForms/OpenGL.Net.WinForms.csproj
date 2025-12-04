@@ -2,29 +2,13 @@
 
   <PropertyGroup>
     <TargetFrameworks>net48</TargetFrameworks>
-    <UseWindowsForms>true</UseWindowsForms>
-    <OutputType>Library</OutputType>
     <AssemblyName>OpenGL.Net.WinForms</AssemblyName>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <OutputType>Library</OutputType>
     <RootNamespace>OpenGL</RootNamespace>
 
-    <LangVersion>latest</LangVersion>
+    <UseWindowsForms>true</UseWindowsForms>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
-    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)'=='Release'">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <DefineConstants>TRACE</DefineConstants>
-    <DocumentationFile>bin\$(Configuration)\OpenGL.Net.WinForms.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

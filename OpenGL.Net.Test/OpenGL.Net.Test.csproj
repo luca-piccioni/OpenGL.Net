@@ -4,8 +4,8 @@
     <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
 
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <DefineConstants>TRACE;HAVE_SYSTEM_DRAWING;HAVE_NUMERICS</DefineConstants>
-
+    <DefineConstants>$(DefineConstants);TRACE;HAVE_SYSTEM_DRAWING;HAVE_NUMERICS</DefineConstants>
+    <SuppressTfmSupportBuildWarnings>true</SuppressTfmSupportBuildWarnings>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -20,6 +20,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.Drawing.Common" Version="9.0.9" />
+    
     <!-- Testing framework -->
     <PackageReference Include="NUnit" Version="3.14.0" />
     <PackageReference Include="NUnit3TestAdapter" Version="5.1.0" />
