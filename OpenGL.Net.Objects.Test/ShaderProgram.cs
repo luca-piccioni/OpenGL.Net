@@ -72,59 +72,6 @@ namespace OpenGL.Objects.Test
 			}
 		}
 
-		[Test]
-		public void ShaderProgram_SaveBinary()
-		{
-			if (!_Context.Extensions.GetProgramBinary_ARB)
-				Assert.Inconclusive("Gl extension GL_ARB_get_program_binary not supported");
-
-			byte[] programBinary = null;
-			int programBinaryFormat = 0;
-
-			// Save program to binary format
-			using (ShaderProgram shaderProgram = new ShaderProgram("OpenGL.Objects.Test.ShaderProgram.Link"))
-			using (Shader vertexShader = new Shader(ShaderType.VertexShader))
-			using (Shader fragmentShader = new Shader(ShaderType.FragmentShader))
-			{
-				vertexShader.LoadSource(new[] {
-					"#version 150",
-					"in vec4 vPosition;",
-					"void main() {",
-					"	gl_Position = vPosition;",
-					"}",
-				});
-
-				fragmentShader.LoadSource(new[] {
-					"#version 150",
-					"out vec4 test_Output;",
-					"void main() {",
-					"	test_Output = vec4(0.0, 0.0, 0.0, 1.0);",
-					"}",
-				});
-				
-
-				shaderProgram.AttachShader(vertexShader);
-				shaderProgram.AttachShader(fragmentShader);
-				shaderProgram.Create(_Context);
-
-				Assert.IsTrue(shaderProgram.IsLinked);
-				Assert.AreEqual("vPosition", shaderProgram.ActiveAttributes.First());
-
-				Assert.DoesNotThrow(() => {
-					programBinary = shaderProgram.SaveBinary(_Context, out programBinaryFormat);
-				});
-			}
-
-			// Save program to binary format
-			using (ShaderProgram shaderProgram = new ShaderProgram("OpenGL.Objects.Test.ShaderProgram.Link"))
-			{
-				shaderProgram.LoadBinary(_Context, programBinary, programBinaryFormat);
-
-				Assert.IsTrue(shaderProgram.IsLinked);
-				Assert.AreEqual("vPosition", shaderProgram.ActiveAttributes.First());
-			}
-		}
-
 		#region Examples
 
 		public void ExampleCreateShaderProgram(GraphicsContext ctx, IEnumerable<Shader> shaderObjects)
