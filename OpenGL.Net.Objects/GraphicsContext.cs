@@ -1668,10 +1668,8 @@ namespace OpenGL.Objects
 			ShaderProgram shaderProgram;
 			string cacheHash = ComputeLibraryHash(libraryProgram, compilerContext);
 
-			if (_ProgramCache.TryGetValue(cacheHash, out shaderProgram)) {
-				Debug.Assert(shaderProgram.Exists(this));
+			if (_ProgramCache.TryGetValue(cacheHash, out shaderProgram))
 				return shaderProgram;
-			}
 
 			// Create the program instance
 			shaderProgram = libraryProgram.Create(compilerContext);
