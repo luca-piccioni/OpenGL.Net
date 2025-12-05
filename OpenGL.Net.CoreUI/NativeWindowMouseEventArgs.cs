@@ -74,6 +74,7 @@ namespace OpenGL.CoreUI
 		{
 			Location = location;
 			Buttons = buttons;
+			WheelTicks = wheelTicks;
 		}
 
 		#endregion
