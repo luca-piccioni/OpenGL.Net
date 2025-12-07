@@ -72,6 +72,27 @@ jobs:
     - name: Build
       run: dotnet build OpenGL.Net.sln --configuration ${{ matrix.configuration }} --no-restore
 
+    - name: Test
+      run: dotnet test OpenGL.Net.sln --configuration ${{ matrix.configuration }} --no-build --verbosity normal --collect:"XPlat Code Coverage" --results-directory ./coverage
+    
+    - name: Upload coverage reports to Codecov
+      if: matrix.configuration == 'Debug'
+      uses: codecov/codecov-action@v4
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        files: ./coverage/**/coverage.cobertura.xml
+        flags: linux
+        name: linux-coverage
+        fail_ci_if_error: false
+    
+    - name: Upload coverage artifacts
+      if: matrix.configuration == 'Debug'
+      uses: actions/upload-artifact@v4
+      with:
+        name: coverage-report-linux-${{ matrix.configuration }}
+        path: ./coverage/**/coverage.cobertura.xml
+        retention-days: 30
+
   build-macos:
     runs-on: macos-latest
     strategy:
