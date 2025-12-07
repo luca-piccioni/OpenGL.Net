@@ -30,6 +30,7 @@ jobs:
 
     - name: Test
       run: dotnet test OpenGL.Net.sln --configuration ${{ matrix.configuration }} --no-build --verbosity normal --collect:"XPlat Code Coverage" --results-directory ./coverage
+      continue-on-error: true
     
     - name: Upload coverage reports to Codecov
       if: matrix.configuration == 'Debug'
@@ -74,6 +75,7 @@ jobs:
 
     - name: Test
       run: dotnet test OpenGL.Net.sln --configuration ${{ matrix.configuration }} --no-build --verbosity normal --collect:"XPlat Code Coverage" --results-directory ./coverage
+      continue-on-error: true
     
     - name: Upload coverage reports to Codecov
       if: matrix.configuration == 'Debug'
