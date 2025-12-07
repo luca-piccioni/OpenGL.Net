@@ -16,6 +16,20 @@
             "detail": "Default build."
         },
         {
+            "label": "Test",
+            "type": "shell",
+            "group": "build",
+            "command": "dotnet test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": true
+            },
+            "detail": "Run unit tests."
+        },
+        {
             "label": "Generate APIs",
             "type": "shell",
             "command": "${workspaceFolder}/BindingsGen/bin/Release/BindingsGen.exe",
