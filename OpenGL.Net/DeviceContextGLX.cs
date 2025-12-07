@@ -83,9 +83,9 @@ namespace OpenGL
 		public DeviceContextGLX(IntPtr display, IntPtr windowHandle)
 		{
 			if (display == IntPtr.Zero)
-				throw new ArgumentException("invalid X display", "display");
+				throw new ArgumentException("invalid X display", nameof(display));
 			if (windowHandle == IntPtr.Zero)
-				throw new ArgumentException("invalid X window", "windowHandle");
+				throw new ArgumentException("invalid X window", nameof(windowHandle));
 
 			_Display = display;
 			_WindowHandle = windowHandle;
@@ -854,7 +854,7 @@ namespace OpenGL
 		public override void ChoosePixelFormat(DevicePixelFormat pixelFormat)
 		{
 			if (pixelFormat == null)
-				throw new ArgumentNullException("pixelFormat");
+				throw new ArgumentNullException(nameof(pixelFormat));
 
 			int screen = Glx.XDefaultScreen(_Display);
 
@@ -936,7 +936,7 @@ namespace OpenGL
 		public override void SetPixelFormat(DevicePixelFormat pixelFormat)
 		{
 			if (pixelFormat == null)
-				throw new ArgumentNullException("pixelFormat");
+				throw new ArgumentNullException(nameof(pixelFormat));
 
 			_FBConfig = pixelFormat.XFbConfig;
 			_XVisualInfo = pixelFormat.XVisualInfo;

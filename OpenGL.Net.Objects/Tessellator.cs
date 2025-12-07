@@ -158,7 +158,7 @@ namespace OpenGL.Objects
 		public void AddContour(Vertex3d[] contourVertices, Vertex3d normal)
 		{
 			if (contourVertices == null)
-				throw new ArgumentNullException("contourVertices");
+				throw new ArgumentNullException(nameof(contourVertices));
 
 			MemoryLock countourLock = new MemoryLock(contourVertices);
 

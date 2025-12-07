@@ -64,7 +64,7 @@ namespace OpenGL.Objects
 		public void GetResult(GraphicsContext ctx, out int result)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			Gl.GetQueryObject(ObjectName, QueryObjectParameterName.QueryResult, out result);
 		}
@@ -72,7 +72,7 @@ namespace OpenGL.Objects
 		public void GetResult(GraphicsContext ctx, out uint result)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			Gl.GetQueryObject(ObjectName, QueryObjectParameterName.QueryResult, out result);
 		}
@@ -80,7 +80,7 @@ namespace OpenGL.Objects
 		public void GetResult(GraphicsContext ctx, out long result)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			if (ctx.Extensions.TimerQuery_ARB) {
 				Gl.GetQueryObject(ObjectName, QueryObjectParameterName.QueryResult, out result);
@@ -96,7 +96,7 @@ namespace OpenGL.Objects
 		public void GetResult(GraphicsContext ctx, out ulong result)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			if (ctx.Extensions.TimerQuery_ARB) {
 				Gl.GetQueryObject(ObjectName, QueryObjectParameterName.QueryResult, out result);
@@ -150,9 +150,9 @@ namespace OpenGL.Objects
 		public override bool Exists(GraphicsContext ctx)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 			if (ctx.IsCurrent == false)
-				throw new ArgumentException("not current", "ctx");
+				throw new ArgumentException("not current", nameof(ctx));
 
 			// Object name space test (and 'ctx' sanity checks)
 			if (base.Exists(ctx) == false)

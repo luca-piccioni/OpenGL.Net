@@ -42,7 +42,7 @@ namespace OpenGL.Objects
 		public void GetUniform(GraphicsContext ctx, string uniformName, out float v)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -76,7 +76,7 @@ namespace OpenGL.Objects
 		public void GetUniform(GraphicsContext ctx, string uniformName, out float x, out float y)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -114,7 +114,7 @@ namespace OpenGL.Objects
 		public void GetUniform(GraphicsContext ctx, string uniformName, out float x, out float y, out float z)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -156,7 +156,7 @@ namespace OpenGL.Objects
 		public void GetUniform(GraphicsContext ctx, string uniformName, out float x, out float y, out float z, out float w)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 			if (uniform == null || uniform.Location == -1)
@@ -194,7 +194,7 @@ namespace OpenGL.Objects
 		public void GetUniform(GraphicsContext ctx, string uniformName, out int v)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 
@@ -229,7 +229,7 @@ namespace OpenGL.Objects
 		public void GetUniform(GraphicsContext ctx, string uniformName, out int x, out int y)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 
@@ -268,7 +268,7 @@ namespace OpenGL.Objects
 		public void GetUniform(GraphicsContext ctx, string uniformName, out int x, out int y, out int z)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 
@@ -311,7 +311,7 @@ namespace OpenGL.Objects
 		public void GetUniform(GraphicsContext ctx, string uniformName, out int x, out int y, out int z, out int w)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 
@@ -350,7 +350,7 @@ namespace OpenGL.Objects
 		public void GetUniform(GraphicsContext ctx, string uniformName, out uint v)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 
@@ -385,7 +385,7 @@ namespace OpenGL.Objects
 		public void GetUniform(GraphicsContext ctx, string uniformName, out uint x, out uint y)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 
@@ -424,7 +424,7 @@ namespace OpenGL.Objects
 		public void GetUniform(GraphicsContext ctx, string uniformName, out uint x, out uint y, out uint z)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 
@@ -467,7 +467,7 @@ namespace OpenGL.Objects
 		public void GetUniform(GraphicsContext ctx, string uniformName, out uint x, out uint y, out uint z, out uint w)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 
@@ -506,7 +506,7 @@ namespace OpenGL.Objects
 		public void GetUniform(GraphicsContext ctx, string uniformName, out bool v)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 
@@ -541,7 +541,7 @@ namespace OpenGL.Objects
 		public void GetUniform(GraphicsContext ctx, string uniformName, out bool x, out bool y)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 
@@ -580,7 +580,7 @@ namespace OpenGL.Objects
 		public void GetUniform(GraphicsContext ctx, string uniformName, out bool x, out bool y, out bool z)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 
@@ -623,7 +623,7 @@ namespace OpenGL.Objects
 		public void GetUniform(GraphicsContext ctx, string uniformName, out bool x, out bool y, out bool z, out bool w)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 
@@ -664,7 +664,7 @@ namespace OpenGL.Objects
 		public void GetUniform(GraphicsContext ctx, string uniformName, out double v)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 
@@ -699,7 +699,7 @@ namespace OpenGL.Objects
 		public void GetUniform(GraphicsContext ctx, string uniformName, out double x, out double y)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 
@@ -738,7 +738,7 @@ namespace OpenGL.Objects
 		public void GetUniform(GraphicsContext ctx, string uniformName, out double x, out double y, out double z)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 
@@ -781,7 +781,7 @@ namespace OpenGL.Objects
 		public void GetUniform(GraphicsContext ctx, string uniformName, out double x, out double y, out double z, out double w)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 

@@ -135,7 +135,7 @@ namespace OpenGL.Objects.Scene
 		public bool IsClipped(IEnumerable<Planef> clippingPlanes, Matrix4x4f viewModel)
 		{
 			if (clippingPlanes == null)
-				throw new ArgumentNullException("clippingPlanes");
+				throw new ArgumentNullException(nameof(clippingPlanes));
 
 			Vertex3f[] boundVertices = new Vertex3f[8];
 			Vertex3f[] viewVertices = new Vertex3f[2];

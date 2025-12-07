@@ -143,12 +143,12 @@ namespace OpenGL.Objects.State
 		public override void Merge(IGraphicsState state)
 		{
 			if (state == null)
-				throw new ArgumentNullException("state");
+				throw new ArgumentNullException(nameof(state));
 
 			MultisampleState otherState = state as MultisampleState;
 
 			if (otherState == null)
-				throw new ArgumentException("not a DepthTestState", "state");
+				throw new ArgumentException("not a DepthTestState", nameof(state));
 
 			Enabled = otherState.Enabled;
 		}

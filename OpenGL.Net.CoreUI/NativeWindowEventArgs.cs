@@ -42,7 +42,7 @@ namespace OpenGL.CoreUI
 		internal NativeWindowEventArgs(DeviceContext deviceContext, IntPtr renderContext)
 		{
 			if (deviceContext == null)
-				throw new ArgumentNullException("deviceContext");
+				throw new ArgumentNullException(nameof(deviceContext));
 			if (renderContext == IntPtr.Zero)
 				throw new ArgumentException("renderContext");
 

@@ -120,9 +120,9 @@ namespace OpenGL.Objects.State
 		public static GraphicsStateSet GetCurrentStateSet(GraphicsContext ctx)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 			if (ctx.IsCurrent == false)
-				throw new ArgumentException("not current", "ctx");
+				throw new ArgumentException("not current", nameof(ctx));
 
 			GraphicsStateSet renderStateSet = new GraphicsStateSet();
 
@@ -156,7 +156,7 @@ namespace OpenGL.Objects.State
 		public void DefineState(IGraphicsState renderState)
 		{
 			if (renderState == null)
-				throw new ArgumentNullException("renderState");
+				throw new ArgumentNullException(nameof(renderState));
 			if (renderState.StateIndex >= _RenderStates.Length)
 				throw new ArgumentException(renderState.GetType() + " not registered", "renderState");
 
@@ -272,7 +272,7 @@ namespace OpenGL.Objects.State
 		public void Apply(GraphicsContext ctx, ShaderProgram program)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			// Apply known states
 			foreach (IGraphicsState state in _RenderStates) {
@@ -339,7 +339,7 @@ namespace OpenGL.Objects.State
 		public void Merge(GraphicsStateSet stateSet)
 		{
 			if (stateSet == null)
-				throw new ArgumentNullException("stateSet");
+				throw new ArgumentNullException(nameof(stateSet));
 
 			for (int i = 0; i < _RenderStates.Length; i++) {
 				IGraphicsState currentState = _RenderStates[i];

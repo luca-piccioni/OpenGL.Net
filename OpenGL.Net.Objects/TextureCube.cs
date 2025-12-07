@@ -191,13 +191,13 @@ namespace OpenGL.Objects
 			public ImageTechnique(TextureCube texture, PixelLayout pixelFormat, Image[] images)
 			{
 				if (images == null)
-					throw new ArgumentNullException("images");
+					throw new ArgumentNullException(nameof(images));
 				if (images.Length != 6)
-					throw new ArgumentException("images count mismatch", "images");
+					throw new ArgumentException("images count mismatch", nameof(images));
 				if (Array.TrueForAll(images, delegate(Image image) { return (image.Width == image.Height); }) == false)
-					throw new ArgumentException("not square images", "images");
+					throw new ArgumentException("not square images", nameof(images));
 				if (Array.TrueForAll(images, delegate(Image image) { return (image.Width == images[0].Width); }) == false)
-					throw new ArgumentException("images size mismatch", "images");
+					throw new ArgumentException("images size mismatch", nameof(images));
 
 				_TextureCube = texture;
 				_PixelFormat = pixelFormat;

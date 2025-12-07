@@ -45,7 +45,7 @@ namespace OpenGL.Objects.State
 		public ScissorTestState(GraphicsContext ctx)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			Enabled = Gl.IsEnabled(EnableCap.ScissorTest);
 		}
@@ -141,7 +141,7 @@ namespace OpenGL.Objects.State
 		public override void Apply(GraphicsContext ctx, ShaderProgram program)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			ScissorTestState currentState = (ScissorTestState)ctx.GetCurrentState(StateIndex);
 
@@ -190,12 +190,12 @@ namespace OpenGL.Objects.State
 		public override void Merge(IGraphicsState state)
 		{
 			if (state == null)
-				throw new ArgumentNullException("state");
+				throw new ArgumentNullException(nameof(state));
 
 			ScissorTestState otherState = state as ScissorTestState;
 
 			if (otherState == null)
-				throw new ArgumentException("not a ScissorTestState", "state");
+				throw new ArgumentException("not a ScissorTestState", nameof(state));
 
 			Enabled = otherState.Enabled;
 			X = otherState.X;

@@ -476,7 +476,7 @@ namespace OpenGL
 		public static Vertex2ub Min(params Vertex2ub[] v)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 
 			byte x = (byte)byte.MaxValue, y = (byte)byte.MaxValue;
 
@@ -503,7 +503,7 @@ namespace OpenGL
 		public unsafe static Vertex2ub Min(Vertex2ub* v, uint count)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 
 			byte x = (byte)byte.MaxValue, y = (byte)byte.MaxValue;
 
@@ -527,7 +527,7 @@ namespace OpenGL
 		public static Vertex2ub Max(params Vertex2ub[] v)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			byte x = (byte)byte.MinValue, y = (byte)byte.MinValue;
 
@@ -554,7 +554,7 @@ namespace OpenGL
 		public unsafe static Vertex2ub Max(Vertex2ub* v, uint count)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			byte x = (byte)byte.MinValue, y = (byte)byte.MinValue;
 
@@ -581,7 +581,7 @@ namespace OpenGL
 		public static void MinMax(Vertex2ub[] v, out Vertex2ub min, out Vertex2ub max)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			byte minx = (byte)byte.MaxValue, miny = (byte)byte.MaxValue;
 			byte maxx = (byte)byte.MinValue, maxy = (byte)byte.MinValue;
@@ -613,7 +613,7 @@ namespace OpenGL
 		public unsafe static void MinMax(Vertex2ub* v, uint count, out Vertex2ub min, out Vertex2ub max)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			byte minx = (byte)byte.MaxValue, miny = (byte)byte.MaxValue;
 			byte maxx = (byte)byte.MinValue, maxy = (byte)byte.MinValue;
@@ -1198,7 +1198,7 @@ namespace OpenGL
 		public static Vertex2b Min(params Vertex2b[] v)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 
 			sbyte x = (sbyte)sbyte.MaxValue, y = (sbyte)sbyte.MaxValue;
 
@@ -1225,7 +1225,7 @@ namespace OpenGL
 		public unsafe static Vertex2b Min(Vertex2b* v, uint count)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 
 			sbyte x = (sbyte)sbyte.MaxValue, y = (sbyte)sbyte.MaxValue;
 
@@ -1249,7 +1249,7 @@ namespace OpenGL
 		public static Vertex2b Max(params Vertex2b[] v)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			sbyte x = (sbyte)sbyte.MinValue, y = (sbyte)sbyte.MinValue;
 
@@ -1276,7 +1276,7 @@ namespace OpenGL
 		public unsafe static Vertex2b Max(Vertex2b* v, uint count)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			sbyte x = (sbyte)sbyte.MinValue, y = (sbyte)sbyte.MinValue;
 
@@ -1303,7 +1303,7 @@ namespace OpenGL
 		public static void MinMax(Vertex2b[] v, out Vertex2b min, out Vertex2b max)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			sbyte minx = (sbyte)sbyte.MaxValue, miny = (sbyte)sbyte.MaxValue;
 			sbyte maxx = (sbyte)sbyte.MinValue, maxy = (sbyte)sbyte.MinValue;
@@ -1335,7 +1335,7 @@ namespace OpenGL
 		public unsafe static void MinMax(Vertex2b* v, uint count, out Vertex2b min, out Vertex2b max)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			sbyte minx = (sbyte)sbyte.MaxValue, miny = (sbyte)sbyte.MaxValue;
 			sbyte maxx = (sbyte)sbyte.MinValue, maxy = (sbyte)sbyte.MinValue;
@@ -1905,7 +1905,7 @@ namespace OpenGL
 		public static Vertex2us Min(params Vertex2us[] v)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 
 			ushort x = (ushort)ushort.MaxValue, y = (ushort)ushort.MaxValue;
 
@@ -1932,7 +1932,7 @@ namespace OpenGL
 		public unsafe static Vertex2us Min(Vertex2us* v, uint count)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 
 			ushort x = (ushort)ushort.MaxValue, y = (ushort)ushort.MaxValue;
 
@@ -1956,7 +1956,7 @@ namespace OpenGL
 		public static Vertex2us Max(params Vertex2us[] v)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			ushort x = (ushort)ushort.MinValue, y = (ushort)ushort.MinValue;
 
@@ -1983,7 +1983,7 @@ namespace OpenGL
 		public unsafe static Vertex2us Max(Vertex2us* v, uint count)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			ushort x = (ushort)ushort.MinValue, y = (ushort)ushort.MinValue;
 
@@ -2010,7 +2010,7 @@ namespace OpenGL
 		public static void MinMax(Vertex2us[] v, out Vertex2us min, out Vertex2us max)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			ushort minx = (ushort)ushort.MaxValue, miny = (ushort)ushort.MaxValue;
 			ushort maxx = (ushort)ushort.MinValue, maxy = (ushort)ushort.MinValue;
@@ -2042,7 +2042,7 @@ namespace OpenGL
 		public unsafe static void MinMax(Vertex2us* v, uint count, out Vertex2us min, out Vertex2us max)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			ushort minx = (ushort)ushort.MaxValue, miny = (ushort)ushort.MaxValue;
 			ushort maxx = (ushort)ushort.MinValue, maxy = (ushort)ushort.MinValue;
@@ -2627,7 +2627,7 @@ namespace OpenGL
 		public static Vertex2s Min(params Vertex2s[] v)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 
 			short x = (short)short.MaxValue, y = (short)short.MaxValue;
 
@@ -2654,7 +2654,7 @@ namespace OpenGL
 		public unsafe static Vertex2s Min(Vertex2s* v, uint count)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 
 			short x = (short)short.MaxValue, y = (short)short.MaxValue;
 
@@ -2678,7 +2678,7 @@ namespace OpenGL
 		public static Vertex2s Max(params Vertex2s[] v)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			short x = (short)short.MinValue, y = (short)short.MinValue;
 
@@ -2705,7 +2705,7 @@ namespace OpenGL
 		public unsafe static Vertex2s Max(Vertex2s* v, uint count)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			short x = (short)short.MinValue, y = (short)short.MinValue;
 
@@ -2732,7 +2732,7 @@ namespace OpenGL
 		public static void MinMax(Vertex2s[] v, out Vertex2s min, out Vertex2s max)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			short minx = (short)short.MaxValue, miny = (short)short.MaxValue;
 			short maxx = (short)short.MinValue, maxy = (short)short.MinValue;
@@ -2764,7 +2764,7 @@ namespace OpenGL
 		public unsafe static void MinMax(Vertex2s* v, uint count, out Vertex2s min, out Vertex2s max)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			short minx = (short)short.MaxValue, miny = (short)short.MaxValue;
 			short maxx = (short)short.MinValue, maxy = (short)short.MinValue;
@@ -3334,7 +3334,7 @@ namespace OpenGL
 		public static Vertex2ui Min(params Vertex2ui[] v)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 
 			uint x = (uint)uint.MaxValue, y = (uint)uint.MaxValue;
 
@@ -3361,7 +3361,7 @@ namespace OpenGL
 		public unsafe static Vertex2ui Min(Vertex2ui* v, uint count)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 
 			uint x = (uint)uint.MaxValue, y = (uint)uint.MaxValue;
 
@@ -3385,7 +3385,7 @@ namespace OpenGL
 		public static Vertex2ui Max(params Vertex2ui[] v)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			uint x = (uint)uint.MinValue, y = (uint)uint.MinValue;
 
@@ -3412,7 +3412,7 @@ namespace OpenGL
 		public unsafe static Vertex2ui Max(Vertex2ui* v, uint count)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			uint x = (uint)uint.MinValue, y = (uint)uint.MinValue;
 
@@ -3439,7 +3439,7 @@ namespace OpenGL
 		public static void MinMax(Vertex2ui[] v, out Vertex2ui min, out Vertex2ui max)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			uint minx = (uint)uint.MaxValue, miny = (uint)uint.MaxValue;
 			uint maxx = (uint)uint.MinValue, maxy = (uint)uint.MinValue;
@@ -3471,7 +3471,7 @@ namespace OpenGL
 		public unsafe static void MinMax(Vertex2ui* v, uint count, out Vertex2ui min, out Vertex2ui max)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			uint minx = (uint)uint.MaxValue, miny = (uint)uint.MaxValue;
 			uint maxx = (uint)uint.MinValue, maxy = (uint)uint.MinValue;
@@ -4056,7 +4056,7 @@ namespace OpenGL
 		public static Vertex2i Min(params Vertex2i[] v)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 
 			int x = (int)int.MaxValue, y = (int)int.MaxValue;
 
@@ -4083,7 +4083,7 @@ namespace OpenGL
 		public unsafe static Vertex2i Min(Vertex2i* v, uint count)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 
 			int x = (int)int.MaxValue, y = (int)int.MaxValue;
 
@@ -4107,7 +4107,7 @@ namespace OpenGL
 		public static Vertex2i Max(params Vertex2i[] v)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			int x = (int)int.MinValue, y = (int)int.MinValue;
 
@@ -4134,7 +4134,7 @@ namespace OpenGL
 		public unsafe static Vertex2i Max(Vertex2i* v, uint count)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			int x = (int)int.MinValue, y = (int)int.MinValue;
 
@@ -4161,7 +4161,7 @@ namespace OpenGL
 		public static void MinMax(Vertex2i[] v, out Vertex2i min, out Vertex2i max)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			int minx = (int)int.MaxValue, miny = (int)int.MaxValue;
 			int maxx = (int)int.MinValue, maxy = (int)int.MinValue;
@@ -4193,7 +4193,7 @@ namespace OpenGL
 		public unsafe static void MinMax(Vertex2i* v, uint count, out Vertex2i min, out Vertex2i max)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			int minx = (int)int.MaxValue, miny = (int)int.MaxValue;
 			int maxx = (int)int.MinValue, maxy = (int)int.MinValue;
@@ -4776,7 +4776,7 @@ namespace OpenGL
 		public static Vertex2f Min(params Vertex2f[] v)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 
 			float x = (float)float.MaxValue, y = (float)float.MaxValue;
 
@@ -4803,7 +4803,7 @@ namespace OpenGL
 		public unsafe static Vertex2f Min(Vertex2f* v, uint count)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 
 			float x = (float)float.MaxValue, y = (float)float.MaxValue;
 
@@ -4827,7 +4827,7 @@ namespace OpenGL
 		public static Vertex2f Max(params Vertex2f[] v)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			float x = (float)float.MinValue, y = (float)float.MinValue;
 
@@ -4854,7 +4854,7 @@ namespace OpenGL
 		public unsafe static Vertex2f Max(Vertex2f* v, uint count)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			float x = (float)float.MinValue, y = (float)float.MinValue;
 
@@ -4881,7 +4881,7 @@ namespace OpenGL
 		public static void MinMax(Vertex2f[] v, out Vertex2f min, out Vertex2f max)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			float minx = (float)float.MaxValue, miny = (float)float.MaxValue;
 			float maxx = (float)float.MinValue, maxy = (float)float.MinValue;
@@ -4913,7 +4913,7 @@ namespace OpenGL
 		public unsafe static void MinMax(Vertex2f* v, uint count, out Vertex2f min, out Vertex2f max)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			float minx = (float)float.MaxValue, miny = (float)float.MaxValue;
 			float maxx = (float)float.MinValue, maxy = (float)float.MinValue;
@@ -5454,7 +5454,7 @@ namespace OpenGL
 		public static Vertex2d Min(params Vertex2d[] v)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 
 			double x = (double)double.MaxValue, y = (double)double.MaxValue;
 
@@ -5481,7 +5481,7 @@ namespace OpenGL
 		public unsafe static Vertex2d Min(Vertex2d* v, uint count)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 
 			double x = (double)double.MaxValue, y = (double)double.MaxValue;
 
@@ -5505,7 +5505,7 @@ namespace OpenGL
 		public static Vertex2d Max(params Vertex2d[] v)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			double x = (double)double.MinValue, y = (double)double.MinValue;
 
@@ -5532,7 +5532,7 @@ namespace OpenGL
 		public unsafe static Vertex2d Max(Vertex2d* v, uint count)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			double x = (double)double.MinValue, y = (double)double.MinValue;
 
@@ -5559,7 +5559,7 @@ namespace OpenGL
 		public static void MinMax(Vertex2d[] v, out Vertex2d min, out Vertex2d max)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			double minx = (double)double.MaxValue, miny = (double)double.MaxValue;
 			double maxx = (double)double.MinValue, maxy = (double)double.MinValue;
@@ -5591,7 +5591,7 @@ namespace OpenGL
 		public unsafe static void MinMax(Vertex2d* v, uint count, out Vertex2d min, out Vertex2d max)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			double minx = (double)double.MaxValue, miny = (double)double.MaxValue;
 			double maxx = (double)double.MinValue, maxy = (double)double.MinValue;
@@ -6132,7 +6132,7 @@ namespace OpenGL
 		public static Vertex2hf Min(params Vertex2hf[] v)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 
 			HalfFloat x = (HalfFloat)HalfFloat.MaxValue, y = (HalfFloat)HalfFloat.MaxValue;
 
@@ -6159,7 +6159,7 @@ namespace OpenGL
 		public unsafe static Vertex2hf Min(Vertex2hf* v, uint count)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 
 			HalfFloat x = (HalfFloat)HalfFloat.MaxValue, y = (HalfFloat)HalfFloat.MaxValue;
 
@@ -6183,7 +6183,7 @@ namespace OpenGL
 		public static Vertex2hf Max(params Vertex2hf[] v)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			HalfFloat x = (HalfFloat)HalfFloat.MinValue, y = (HalfFloat)HalfFloat.MinValue;
 
@@ -6210,7 +6210,7 @@ namespace OpenGL
 		public unsafe static Vertex2hf Max(Vertex2hf* v, uint count)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			HalfFloat x = (HalfFloat)HalfFloat.MinValue, y = (HalfFloat)HalfFloat.MinValue;
 
@@ -6237,7 +6237,7 @@ namespace OpenGL
 		public static void MinMax(Vertex2hf[] v, out Vertex2hf min, out Vertex2hf max)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			HalfFloat minx = (HalfFloat)HalfFloat.MaxValue, miny = (HalfFloat)HalfFloat.MaxValue;
 			HalfFloat maxx = (HalfFloat)HalfFloat.MinValue, maxy = (HalfFloat)HalfFloat.MinValue;
@@ -6269,7 +6269,7 @@ namespace OpenGL
 		public unsafe static void MinMax(Vertex2hf* v, uint count, out Vertex2hf min, out Vertex2hf max)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			HalfFloat minx = (HalfFloat)HalfFloat.MaxValue, miny = (HalfFloat)HalfFloat.MaxValue;
 			HalfFloat maxx = (HalfFloat)HalfFloat.MinValue, maxy = (HalfFloat)HalfFloat.MinValue;

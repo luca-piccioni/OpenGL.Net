@@ -111,7 +111,7 @@ namespace OpenGL.Objects
 		internal static List<string> LoadSourceLines(Stream sourceStream)
 		{
 			if (sourceStream == null)
-				throw new ArgumentNullException("sourceStream");
+				throw new ArgumentNullException(nameof(sourceStream));
 
 			List<string> shaderSourceLines = new List<string>();
 
@@ -146,7 +146,7 @@ namespace OpenGL.Objects
 		internal static List<string> LoadSourceLines(string resourcePath, string assemblyName)
 		{
 			if (resourcePath == null)
-				throw new ArgumentNullException("resourcePath");
+				throw new ArgumentNullException(nameof(resourcePath));
 
 			Assembly[] resourceAssemblies;
 
@@ -226,7 +226,7 @@ namespace OpenGL.Objects
 		public void LoadSource(IEnumerable<string> sourceStrings)
 		{
 			if (sourceStrings == null)
-				throw new ArgumentNullException("sourceStrings");
+				throw new ArgumentNullException(nameof(sourceStrings));
 
 			List<string> shaderSource = new List<string>();
 
@@ -272,9 +272,9 @@ namespace OpenGL.Objects
 		private List<string> GenerateSource(GraphicsContext ctx, ShaderCompilerContext cctx)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 			if (cctx == null)
-				throw new ArgumentNullException("cctx");
+				throw new ArgumentNullException(nameof(cctx));
 
 			if (_SourceStrings == null)
 				throw new InvalidOperationException("no source loaded");
@@ -565,7 +565,7 @@ namespace OpenGL.Objects
 		public virtual void Create(GraphicsContext ctx, ShaderCompilerContext cctx)
 		{
 			if (cctx == null)
-				throw new ArgumentNullException("cctx");
+				throw new ArgumentNullException(nameof(cctx));
 
 			// Cache compilation parameters (used by CreateObject)
 			_CompilationParams = cctx;
@@ -664,7 +664,7 @@ namespace OpenGL.Objects
 		protected override void CreateObject(GraphicsContext ctx)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 			if (_CompilationParams == null)
 				throw new InvalidOperationException("no compiler parameters");
 

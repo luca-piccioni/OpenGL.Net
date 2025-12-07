@@ -103,7 +103,7 @@ namespace OpenGL.Objects.Scene
 		protected override KeyValuePair<SceneGraphSorter, List<SceneObjectBatch>>[] Split(List<SceneObjectBatch> objects)
 		{
 			if (objects == null)
-				throw new ArgumentNullException("objects");
+				throw new ArgumentNullException(nameof(objects));
 
 			List<SceneObjectBatch> a = new List<SceneObjectBatch>();
 			List<SceneObjectBatch> b = new List<SceneObjectBatch>();
@@ -142,7 +142,7 @@ namespace OpenGL.Objects.Scene
 		public override List<SceneObjectBatch> Sort(List<SceneObjectBatch> objects)
 		{
 			if (objects == null)
-				throw new ArgumentNullException("objects");
+				throw new ArgumentNullException(nameof(objects));
 
 			objects.Sort(this);
 

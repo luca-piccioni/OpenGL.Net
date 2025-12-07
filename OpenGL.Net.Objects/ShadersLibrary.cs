@@ -201,7 +201,7 @@ namespace OpenGL.Objects
 		public Object GetObject(string objectId)
 		{
 			if (objectId == null)
-				throw new ArgumentNullException("programId");
+				throw new ArgumentNullException(nameof(objectId));
 
 			return (Objects.Find(delegate(Object item) { return (item.Path == objectId); }));
 		}
@@ -224,7 +224,7 @@ namespace OpenGL.Objects
 			internal ProgramTag(Program program)
 			{
 				if (program == null)
-					throw new ArgumentNullException("program");
+					throw new ArgumentNullException(nameof(program));
 
 				Id = program.Id;
 				CompilerContext = program.GetCompilerContext();
@@ -239,7 +239,7 @@ namespace OpenGL.Objects
 			internal ProgramTag(Program program, ShaderCompilerContext cctx) : this(program)
 			{
 				if (cctx == null)
-					throw new ArgumentNullException("cctx");
+					throw new ArgumentNullException(nameof(cctx));
 
 				CompilerContext.Merge(cctx);
 			}
@@ -355,7 +355,7 @@ namespace OpenGL.Objects
 				if (String.IsNullOrEmpty(Id))
 					throw new InvalidOperationException("invalid program identifier");
 				if (cctx == null)
-					throw new ArgumentNullException("cctx");
+					throw new ArgumentNullException(nameof(cctx));
 
 				ShaderProgram shaderProgram = new ShaderProgram(Id);
 
@@ -457,7 +457,7 @@ namespace OpenGL.Objects
 		public Program GetProgram(string programId)
 		{
 			if (programId == null)
-				throw new ArgumentNullException("programId");
+				throw new ArgumentNullException(nameof(programId));
 
 			return (Programs.Find(delegate(Program item) { return (item.Id == programId); }));
 		}
@@ -475,7 +475,7 @@ namespace OpenGL.Objects
 		{
 			Program libraryProgram = GetProgram(programId);
 			if (libraryProgram == null)
-				throw new ArgumentException("no program with such identifier", "programId");
+				throw new ArgumentException("no program with such identifier", nameof(programId));
 
 			return (new ProgramTag(libraryProgram));
 		}
@@ -497,7 +497,7 @@ namespace OpenGL.Objects
 		{
 			Program libraryProgram = GetProgram(programId);
 			if (libraryProgram == null)
-				throw new ArgumentException("no program with such identifier", "programId");
+				throw new ArgumentException("no program with such identifier", nameof(programId));
 
 			return (new ProgramTag(libraryProgram, cctx));
 		}
@@ -519,7 +519,7 @@ namespace OpenGL.Objects
 		{
 			Program libraryProgram = GetProgram(programId);
 			if (libraryProgram == null)
-				throw new ArgumentException("no program with such identifier", "programId");
+				throw new ArgumentException("no program with such identifier", nameof(programId));
 
 			return (new ProgramTag(libraryProgram, new ShaderCompilerContext(defines)));
 		}
@@ -540,7 +540,7 @@ namespace OpenGL.Objects
 		private static ShadersLibrary Load(Stream libraryStream)
 		{
 			if (libraryStream == null)
-				throw new ArgumentNullException("libraryStream");
+				throw new ArgumentNullException(nameof(libraryStream));
 
 			XmlSerializer xmlSerializer = new XmlSerializer(typeof(ShadersLibrary));
 
@@ -565,7 +565,7 @@ namespace OpenGL.Objects
 		private static ShadersLibrary Load(string resourcePath)
 		{
 			if (resourcePath == null)
-				throw new ArgumentNullException("resourcePath");
+				throw new ArgumentNullException(nameof(resourcePath));
 
 			Assembly[] resourceAssemblies = new Assembly[] {
 				Assembly.GetExecutingAssembly(),
@@ -609,7 +609,7 @@ namespace OpenGL.Objects
 		private static ShadersLibrary Load(string resourcePath, string assemblyString)
 		{
 			if (resourcePath == null)
-				throw new ArgumentNullException("resourcePath");
+				throw new ArgumentNullException(nameof(resourcePath));
 
 			Assembly resourceAssembly = Assembly.Load(assemblyString);
 			if (resourceAssembly == null)

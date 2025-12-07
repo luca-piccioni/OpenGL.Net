@@ -102,9 +102,9 @@ namespace OpenGL.Objects.State
 		private static object GetFieldUniformValue(object instance, MemberInfo memberInfo)
 		{
 			if (memberInfo == null)
-				throw new ArgumentNullException("memberInfo");
+				throw new ArgumentNullException(nameof(memberInfo));
 			if (memberInfo.MemberType != MemberTypes.Field)
-				throw new ArgumentException("not a field member", "memberInfo");
+				throw new ArgumentException("not a field member", nameof(memberInfo));
 
 			FieldInfo fieldInfo = (FieldInfo)memberInfo;
 
@@ -126,9 +126,9 @@ namespace OpenGL.Objects.State
 		private static object GetPropertyUniformValue(object instance, MemberInfo memberInfo)
 		{
 			if (memberInfo == null)
-				throw new ArgumentNullException("memberInfo");
+				throw new ArgumentNullException(nameof(memberInfo));
 			if (memberInfo.MemberType != MemberTypes.Property)
-				throw new ArgumentException("not a property member", "memberInfo");
+				throw new ArgumentException("not a property member", nameof(memberInfo));
 
 			PropertyInfo propertyInfo = (PropertyInfo)memberInfo;
 
@@ -147,7 +147,7 @@ namespace OpenGL.Objects.State
 			protected UniformStateMember(string uniformName)
 			{
 				if (uniformName == null)
-					throw new ArgumentNullException("uniformName");
+					throw new ArgumentNullException(nameof(uniformName));
 				UniformName = uniformName;
 			}
 
@@ -167,9 +167,9 @@ namespace OpenGL.Objects.State
 				this(uniformName)
 			{
 				if (memberInfo == null)
-					throw new ArgumentNullException("memberInfo");
+					throw new ArgumentNullException(nameof(memberInfo));
 				if (getUniformValueDelegate == null)
-					throw new ArgumentNullException("getUniformValueDelegate");
+					throw new ArgumentNullException(nameof(getUniformValueDelegate));
 
 				UniformName = uniformName;
 				_Member = memberInfo;
@@ -247,7 +247,7 @@ namespace OpenGL.Objects.State
 		private static void DetectTypeUniformProperties(Type shaderUniformStateType)
 		{
 			if (shaderUniformStateType == null)
-				throw new ArgumentNullException("shaderUniformStateType");
+				throw new ArgumentNullException(nameof(shaderUniformStateType));
 
 			if (_TypeUniformState.ContainsKey(shaderUniformStateType))
 				return;
@@ -304,7 +304,7 @@ namespace OpenGL.Objects.State
 		private static void CheckUniformType(Type uniformType)
 		{
 			if (uniformType == null)
-				throw new ArgumentNullException("uniformType");
+				throw new ArgumentNullException(nameof(uniformType));
 
 			if (uniformType.IsAbstract)
 				return;
@@ -342,7 +342,7 @@ namespace OpenGL.Objects.State
 		private void ApplyState(GraphicsContext ctx, ShaderProgram shaderProgram, string uniformScope)
 		{
 			if (shaderProgram == null)
-				throw new ArgumentNullException("shaderProgram");
+				throw new ArgumentNullException(nameof(shaderProgram));
 
 			GraphicsResource.CheckCurrentContext(ctx);
 
@@ -376,11 +376,11 @@ namespace OpenGL.Objects.State
 		private void ApplyState(GraphicsContext ctx, IShaderUniformContainer uniformContainer, string uniformScope, IEnumerable<UniformStateMember> uniforms, object instance)
 		{
 			if (uniformContainer == null)
-				throw new ArgumentNullException("shaderProgram");
+				throw new ArgumentNullException(nameof(uniformContainer));
 			if (uniforms == null)
-				throw new ArgumentNullException("uniforms");
+				throw new ArgumentNullException(nameof(uniforms));
 			if (instance == null)
-				throw new ArgumentNullException("instance");
+				throw new ArgumentNullException(nameof(instance));
 
 			foreach (UniformStateMember uniform in uniforms) {
 				// Set the program uniform
@@ -578,12 +578,12 @@ namespace OpenGL.Objects.State
 		public override void Merge(IGraphicsState state)
 		{
 			if (state == null)
-				throw new ArgumentNullException("state");
+				throw new ArgumentNullException(nameof(state));
 
 			ShaderUniformStateBase otherState = state as ShaderUniformStateBase;
 
 			if (otherState == null)
-				throw new ArgumentException("not a ShaderUniformState", "state");
+				throw new ArgumentException("not a ShaderUniformState", nameof(state));
 
 			throw new NotImplementedException();
 		}
@@ -657,7 +657,7 @@ namespace OpenGL.Objects.State
 		private ShaderUniformState(string stateId)
 		{
 			if (stateId == null)
-				throw new ArgumentNullException("stateId");
+				throw new ArgumentNullException(nameof(stateId));
 
 			_StateId = stateId;
 		}
@@ -680,7 +680,7 @@ namespace OpenGL.Objects.State
 			public UniformStateVariable(string uniformName, object value) : base(uniformName)
 			{
 				if (value == null)
-					throw new ArgumentNullException("value");
+					throw new ArgumentNullException(nameof(value));
 				UniformValue = value;
 			}
 
@@ -722,7 +722,7 @@ namespace OpenGL.Objects.State
 		public void SetUniformState(string uniformName, object value)
 		{
 			if (uniformName == null)
-				throw new ArgumentNullException("uniformName");
+				throw new ArgumentNullException(nameof(uniformName));
 
 			UniformStateMember uniformStateMember;
 

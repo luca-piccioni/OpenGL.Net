@@ -52,9 +52,9 @@ namespace OpenGL.Objects
 		public void SetVariantUniform(GraphicsContext ctx, string uniformName, object value)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 			if (value == null)
-				throw new ArgumentNullException("value");
+				throw new ArgumentNullException(nameof(value));
 
 			MethodInfo setUniformMethod;
 
@@ -221,7 +221,7 @@ namespace OpenGL.Objects
 		public void SetVariantUniform(GraphicsContext ctx, string uniformName, float x, float y, float z, float w)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 
@@ -492,7 +492,7 @@ namespace OpenGL.Objects
 		public void SetVariantUniform(GraphicsContext ctx, string uniformName, double x, double y, double z, double w)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 
@@ -622,7 +622,7 @@ namespace OpenGL.Objects
 		public void SetVariantUniform(GraphicsContext ctx, string uniformName, Matrix3x3f m)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 
@@ -655,7 +655,7 @@ namespace OpenGL.Objects
 		public void SetVariantUniform(GraphicsContext ctx, string uniformName, Matrix4x4f m)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 
@@ -692,7 +692,7 @@ namespace OpenGL.Objects
 		public void SetVariantUniform(GraphicsContext ctx, string uniformName, Matrix3x3d m)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 
@@ -725,7 +725,7 @@ namespace OpenGL.Objects
 		public void SetVariantUniform(GraphicsContext ctx, string uniformName, Matrix4x4d m)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			UniformBinding uniform = GetUniform(ctx, uniformName);
 

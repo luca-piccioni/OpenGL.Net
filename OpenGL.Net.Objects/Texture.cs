@@ -450,7 +450,7 @@ namespace OpenGL.Objects
 		protected void SetMipmap(PixelLayout pixelFormat, uint w, uint h, uint z, uint lod)
 		{
 			if (pixelFormat == PixelLayout.None)
-				throw new ArgumentException("invalid pixel format", "pixelFormat");
+				throw new ArgumentException("invalid pixel format", nameof(pixelFormat));
 
 			// Define mipmaps array
 			if (_Mipmaps == null) _Mipmaps = new Mipmap[0];
@@ -813,7 +813,7 @@ namespace OpenGL.Objects
 		protected void SetTechnique(Technique technique)
 		{
 			if (technique == null)
-				throw new ArgumentNullException("technique");
+				throw new ArgumentNullException(nameof(technique));
 
 			// Set technique
 			lock (_TechniquesLock) {

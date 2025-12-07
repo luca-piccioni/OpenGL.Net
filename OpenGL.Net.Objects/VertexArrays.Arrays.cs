@@ -107,7 +107,7 @@ namespace OpenGL.Objects
 			{
 				// XXX We should be able to setup buffers created later
 				// if (arrayBuffer != null && arrayBuffer.ItemsCount == 0)
-				// 	throw new ArgumentException("zero items", "arrayBuffer");
+				// 	throw new ArgumentException("zero items", nameof(arrayBuffer));
 				// if (arrayBuffer != null && sectionIndex >= arrayBuffer.ArraySectionsCount)
 				//	throw new ArgumentOutOfRangeException("out of bounds", "sectionIndex");
 

@@ -1167,7 +1167,7 @@ namespace OpenGL
 		private void SetDisplayablePixelFormat(DevicePixelFormat pixelFormat)
 		{
 			if (pixelFormat == null)
-				throw new ArgumentNullException("pixelFormat");
+				throw new ArgumentNullException(nameof(pixelFormat));
 
 			List<int> attribIList = new List<int>();
 			List<float> attribFList = new List<float>();

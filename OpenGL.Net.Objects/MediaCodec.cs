@@ -188,7 +188,7 @@ namespace OpenGL.Objects
 		public IEnumerable<string> GetFormatsFromUrl(string url)
 		{
 			if (url == null)
-				throw new ArgumentNullException("url");
+				throw new ArgumentNullException(nameof(url));
 			
 			List<string> mediaFormats = new List<string>();
 
@@ -239,7 +239,7 @@ namespace OpenGL.Objects
 		public string GetFormatFromExtension(string input)
 		{
 			if (input == null)
-				throw new ArgumentNullException("input");
+				throw new ArgumentNullException(nameof(input));
 
 			foreach (KeyValuePair<string, MediaFormatAttribute> pair in mCodecDescriptions) {
 				if (pair.Value.MatchPattern(input))
@@ -364,7 +364,7 @@ namespace OpenGL.Objects
 		protected void ExtractDescriptions(Type type)
 		{
 			if (type == null)
-				throw new ArgumentNullException("type");
+				throw new ArgumentNullException(nameof(type));
 
 			Dictionary<string, MediaFormatAttribute> formatDescriptions = new Dictionary<string, MediaFormatAttribute>();
 
@@ -429,9 +429,9 @@ namespace OpenGL.Objects
 		protected virtual List<TPlugin> FilterReadPlugins(List<TPlugin> plugins, TMediaCodecCriteria criteria)
 		{
 			if (plugins == null)
-				throw new ArgumentNullException("plugins");
+				throw new ArgumentNullException(nameof(plugins));
 			if (criteria == null)
-				throw new ArgumentNullException("criteria");
+				throw new ArgumentNullException(nameof(criteria));
 
 			// Criteria: PluginName
 			if (criteria.IsSet(PluginName)) {
@@ -461,7 +461,7 @@ namespace OpenGL.Objects
 		private List<TPlugin> FilterReadPlugins(List<TPlugin> plugins, string format)
 		{
 			if (plugins == null)
-				throw new ArgumentNullException("plugins");
+				throw new ArgumentNullException(nameof(plugins));
 
 			// Criteria: PluginName
 			plugins = plugins.FindAll(delegate(TPlugin obj) {
@@ -489,9 +489,9 @@ namespace OpenGL.Objects
 		protected virtual List<TPlugin> FilterWritePlugins(List<TPlugin> plugins, TMediaCodecCriteria criteria)
 		{
 			if (plugins == null)
-				throw new ArgumentNullException("plugins");
+				throw new ArgumentNullException(nameof(plugins));
 			if (criteria == null)
-				throw new ArgumentNullException("criteria");
+				throw new ArgumentNullException(nameof(criteria));
 
 			// Criteria: PluginName
 			if (criteria.IsSet(PluginName)) {
@@ -520,7 +520,7 @@ namespace OpenGL.Objects
 		private List<TPlugin> FilterWritePlugins(List<TPlugin> plugins, string format)
 		{
 			if (plugins == null)
-				throw new ArgumentNullException("plugins");
+				throw new ArgumentNullException(nameof(plugins));
 
 			plugins = plugins.FindAll(delegate(TPlugin obj) {
 				return (obj.IsWriteSupported(format));
@@ -545,7 +545,7 @@ namespace OpenGL.Objects
 		public TMediaInfo QueryInfo(string path)
 		{
 			if (path == null)
-				throw new ArgumentNullException("path");
+				throw new ArgumentNullException(nameof(path));
 
 			using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read)) {
 				return (QueryInfo(fs, CreateDefaultMediaCodecCriteria()));
@@ -567,9 +567,9 @@ namespace OpenGL.Objects
 		public TMediaInfo QueryInfo(string path, TMediaCodecCriteria criteria)
 		{
 			if (path == null)
-				throw new ArgumentNullException("path");
+				throw new ArgumentNullException(nameof(path));
 			if (criteria == null)
-				throw new ArgumentNullException("criteria");
+				throw new ArgumentNullException(nameof(criteria));
 
 			using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read)) {
 				return (QueryInfo(fs, criteria));
@@ -605,9 +605,9 @@ namespace OpenGL.Objects
 		public TMediaInfo QueryInfo(Uri uri, TMediaCodecCriteria criteria)
 		{
 			if (uri == null)
-				throw new ArgumentNullException("uri");
+				throw new ArgumentNullException(nameof(uri));
 			if (criteria == null)
-				throw new ArgumentNullException("criteria");
+				throw new ArgumentNullException(nameof(criteria));
 
 			string localPath = GetLocalUriPath(uri);
 
@@ -645,13 +645,13 @@ namespace OpenGL.Objects
 		public TMediaInfo QueryInfo(Stream stream, TMediaCodecCriteria criteria)
 		{
 			if (stream == null)
-				throw new ArgumentNullException("stream");
+				throw new ArgumentNullException(nameof(stream));
 			if (stream.CanRead == false)
 				throw new ArgumentException(String.Format("unable to read from stream"));
 			if (stream.CanSeek == false)
 				throw new ArgumentException(String.Format("stream is not seekable"));
 			if (criteria == null)
-				throw new ArgumentNullException("criteria");
+				throw new ArgumentNullException(nameof(criteria));
 
 			List<TPlugin> supportedPlugins = Plugins;
 
@@ -713,7 +713,7 @@ namespace OpenGL.Objects
 		public TMedia Load(string path, TMediaCodecCriteria criteria)
 		{
 			if (path == null)
-				throw new ArgumentNullException("uri");
+				throw new ArgumentNullException(nameof(path));
 
 			foreach (string format in GetFormatsFromUrl(path)) {
 				return (Load(path, format, criteria));
@@ -740,9 +740,9 @@ namespace OpenGL.Objects
 		public virtual TMedia Load(string path, string format, TMediaCodecCriteria criteria)
 		{
 			if (path == null)
-				throw new ArgumentNullException("uri");
+				throw new ArgumentNullException(nameof(path));
 			if (criteria == null)
-				throw new ArgumentNullException("criteria");
+				throw new ArgumentNullException(nameof(criteria));
 
 			List<TPlugin> supportedPlugins = GetLoadPlugins(format, criteria);
 			StringBuilder exceptionMessage = new StringBuilder();
@@ -816,9 +816,9 @@ namespace OpenGL.Objects
 		public virtual TMedia Load(Stream stream, string format, TMediaCodecCriteria criteria)
 		{
 			if (stream == null)
-				throw new ArgumentNullException("stream");
+				throw new ArgumentNullException(nameof(stream));
 			if (criteria == null)
-				throw new ArgumentNullException("criteria");
+				throw new ArgumentNullException(nameof(criteria));
 			if (stream.CanRead == false)
 				throw new ArgumentException("unable to read from stream");
 
@@ -894,9 +894,9 @@ namespace OpenGL.Objects
 		public void Save(string path, TMedia media, string format, TMediaCodecCriteria criteria)
 		{
 			if (path == null)
-				throw new ArgumentNullException("path");
+				throw new ArgumentNullException(nameof(path));
 			if (media == null)
-				throw new ArgumentNullException("media");
+				throw new ArgumentNullException(nameof(media));
 
 			string tempMediaPath = Path.GetTempFileName();
 			bool alreadyExisting = File.Exists(path);
@@ -945,9 +945,9 @@ namespace OpenGL.Objects
 		public void Save(Stream stream, TMedia media, string format, TMediaCodecCriteria criteria)
 		{
 			if (stream == null)
-				throw new ArgumentNullException("stream");
+				throw new ArgumentNullException(nameof(stream));
 			if (media == null)
-				throw new ArgumentNullException("media");
+				throw new ArgumentNullException(nameof(media));
 			if (stream.CanWrite == false)
 				throw new ArgumentException(String.Format("unable to write to stream"));
 			if (stream.CanSeek == false)
@@ -1008,7 +1008,7 @@ namespace OpenGL.Objects
 		private static string GetLocalUriPath(Uri uri)
 		{
 			if (uri == null)
-				throw new ArgumentNullException("uri");
+				throw new ArgumentNullException(nameof(uri));
 
 			string localPath;
 

@@ -2477,7 +2477,7 @@ namespace OpenGL
 			public XLock(IntPtr display)
 			{
 				if (display == IntPtr.Zero)
-					throw new ArgumentException("invalid", "display");
+					throw new ArgumentException("invalid", nameof(display));
 				_LockedDisplay = display;
 
 				if (DeviceContextGLX.IsMultithreadingInitialized)

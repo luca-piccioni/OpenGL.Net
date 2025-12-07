@@ -1624,7 +1624,7 @@ namespace OpenGL.Objects
 			Khronos.KhronosApi.LogComment($"Set uniform '{uniformName}' to {value} (as object)");
 
 			if (value == null)
-				throw new ArgumentNullException("value");
+				throw new ArgumentNullException(nameof(value));
 
 			Type valueType = value.GetType();
 

@@ -48,7 +48,7 @@ namespace OpenGL.Objects
 		public MediaFormatAttribute(string shortDescr)
 		{
 			if (shortDescr == null)
-				throw new ArgumentNullException("shortDescr");
+				throw new ArgumentNullException(nameof(shortDescr));
 
 			ShortDescription = shortDescr;
 		}

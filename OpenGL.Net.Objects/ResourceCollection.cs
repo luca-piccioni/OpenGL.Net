@@ -48,7 +48,7 @@ namespace OpenGL.Objects
 		public void AddRange(IEnumerable items)
 		{
 			if (items == null)
-				throw new ArgumentNullException("items");
+				throw new ArgumentNullException(nameof(items));
 
 			foreach (T item in items)
 				if (item != null)
@@ -67,7 +67,7 @@ namespace OpenGL.Objects
 		public void AddRange(IEnumerable<T> items)
 		{
 			if (items == null)
-				throw new ArgumentNullException("items");
+				throw new ArgumentNullException(nameof(items));
 
 			foreach (T item in items)
 				if (item != null)
@@ -103,7 +103,7 @@ namespace OpenGL.Objects
 			if (IsDisposed)
 				throw new ObjectDisposedException("ResourceCollection");
 			if (item == null)
-				throw new ArgumentNullException("item");
+				throw new ArgumentNullException(nameof(item));
 
 			// Reference the reasource
 			item.IncRef();

@@ -78,7 +78,7 @@ namespace OpenGL.Objects
 		{
 			try {
 				if (identifier == null)
-					throw new ArgumentNullException("identifier");
+					throw new ArgumentNullException(nameof(identifier));
 
 				// Store identifier
 				_Identifier = identifier;
@@ -222,9 +222,9 @@ namespace OpenGL.Objects
 		protected void LinkResource(IGraphicsResource graphicsResource)
 		{
 			if (graphicsResource == null)
-				throw new ArgumentNullException("graphicsResource");
+				throw new ArgumentNullException(nameof(graphicsResource));
 			if (ObjectNamespace != Guid.Empty && graphicsResource.ObjectNamespace != Guid.Empty && ObjectNamespace != graphicsResource.ObjectNamespace)
-				throw new ArgumentException("namespace mismatch", "graphicsResource");
+				throw new ArgumentException("namespace mismatch", nameof(graphicsResource));
 
 			// Reference resources
 			graphicsResource.IncRef();
@@ -244,9 +244,9 @@ namespace OpenGL.Objects
 		protected void UnlinkResource(IGraphicsResource graphicsResource)
 		{
 			if (graphicsResource == null)
-				throw new ArgumentNullException("graphicsResource");
+				throw new ArgumentNullException(nameof(graphicsResource));
 			if (ObjectNamespace != Guid.Empty && graphicsResource.ObjectNamespace != Guid.Empty && ObjectNamespace != graphicsResource.ObjectNamespace)
-				throw new ArgumentException("namespace mismatch", "graphicsResource");
+				throw new ArgumentException("namespace mismatch", nameof(graphicsResource));
 
 			// Unreference at disposition
 			bool res = _GpuResources.Remove(graphicsResource);
@@ -327,7 +327,7 @@ namespace OpenGL.Objects
 		protected internal static void CheckValidContext(GraphicsContext ctx)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 		}
 
 		/// <summary>
@@ -346,9 +346,9 @@ namespace OpenGL.Objects
 		protected internal static void CheckCurrentContext(GraphicsContext ctx)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 			if (ctx.IsCurrent == false)
-				throw new ArgumentException("not current", "ctx");
+				throw new ArgumentException("not current", nameof(ctx));
 		}
 
 		/// <summary>
@@ -392,7 +392,7 @@ namespace OpenGL.Objects
 		protected internal static void CheckThatExistence(GraphicsContext ctx, IGraphicsResource resource)
 		{
 			if (resource == null)
-				throw new ArgumentNullException("resource");
+				throw new ArgumentNullException(nameof(resource));
 			if (resource.Exists(ctx) == false)
 				throw new InvalidOperationException("not existing");
 		}

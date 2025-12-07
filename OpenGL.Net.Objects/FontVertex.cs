@@ -59,7 +59,7 @@ namespace OpenGL.Objects
 			public GlyphPolygons(char glyphChar, SizeF glyphSize, List<List<Vertex2f>> contours) : base(glyphChar, glyphSize)
 			{
 				if (contours == null)
-					throw new ArgumentNullException("contours");
+					throw new ArgumentNullException(nameof(contours));
 
 				_Contours = contours;
 			}

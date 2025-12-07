@@ -63,7 +63,7 @@ namespace OpenGL.Objects.Scene
 			: this(flags)
 		{
 			if (otherScene == null)
-				throw new ArgumentNullException("otherScene");
+				throw new ArgumentNullException(nameof(otherScene));
 
 			CurrentView = otherScene.CurrentView;
 			ProjectionMatrix = otherScene.ProjectionMatrix;

@@ -73,7 +73,7 @@ namespace OpenGL.Objects.State
 		public PolygonOffsetState(GraphicsContext ctx)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			Mode modes = Mode.None;
 
@@ -204,7 +204,7 @@ namespace OpenGL.Objects.State
 		public override void Apply(GraphicsContext ctx, ShaderProgram program)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			PolygonOffsetState currentState = (PolygonOffsetState)ctx.GetCurrentState(StateIndex);
 
@@ -288,12 +288,12 @@ namespace OpenGL.Objects.State
 		public override void Merge(IGraphicsState state)
 		{
 			if (state == null)
-				throw new ArgumentNullException("state");
+				throw new ArgumentNullException(nameof(state));
 
 			PolygonOffsetState otherState = state as PolygonOffsetState;
 
 			if (otherState == null)
-				throw new ArgumentException("not a PolygonOffsetState", "state");
+				throw new ArgumentException("not a PolygonOffsetState", nameof(state));
 
 			_Modes = otherState._Modes;
 			_Factor = otherState._Factor;

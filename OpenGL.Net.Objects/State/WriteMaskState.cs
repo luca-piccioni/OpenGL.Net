@@ -46,7 +46,7 @@ namespace OpenGL.Objects.State
 		public WriteMaskState(GraphicsContext ctx)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			
 			int[] colorMask = new int[4];
@@ -195,7 +195,7 @@ namespace OpenGL.Objects.State
 		public override void Apply(GraphicsContext ctx, ShaderProgram program)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			WriteMaskState currentState = (WriteMaskState)ctx.GetCurrentState(StateIndex);
 
@@ -263,12 +263,12 @@ namespace OpenGL.Objects.State
 		public override void Merge(IGraphicsState state)
 		{
 			if (state == null)
-				throw new ArgumentNullException("state");
+				throw new ArgumentNullException(nameof(state));
 
 			WriteMaskState otherState = state as WriteMaskState;
 
 			if (otherState == null)
-				throw new ArgumentException("not a WriteMaskState", "state");
+				throw new ArgumentException("not a WriteMaskState", nameof(state));
 
 			
 		}

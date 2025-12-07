@@ -378,12 +378,12 @@ namespace OpenGL.Objects.State
 		public override void Merge(IGraphicsState state)
 		{
 			if (state == null)
-				throw new ArgumentNullException("state");
+				throw new ArgumentNullException(nameof(state));
 
 			TransformState otherState = state as TransformState;
 
 			if (otherState == null)
-				throw new ArgumentException("not a TransformState", "state");
+				throw new ArgumentException("not a TransformState", nameof(state));
 		}
 
 		/// <summary>

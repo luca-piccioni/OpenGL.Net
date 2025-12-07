@@ -258,7 +258,7 @@ namespace OpenGL.Objects
 		public void Create(GraphicsContext ctx, uint width, PixelLayout format)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			// Define technique
 			Create(width, format);
@@ -457,9 +457,9 @@ namespace OpenGL.Objects
 			public ImageTechnique(Texture1d texture, uint level, PixelLayout pixelFormat, Image image)
 			{
 				if (image == null)
-					throw new ArgumentNullException("image");
+					throw new ArgumentNullException(nameof(image));
 				if (image.Height != 1)
-					throw new ArgumentException("height greater than 1", "image");
+					throw new ArgumentException("height greater than 1", nameof(image));
 
 				_Texture1d = texture;
 				_Level = level;
@@ -548,7 +548,7 @@ namespace OpenGL.Objects
 		public void Create(Image image)
 		{
 			if (image == null)
-				throw new ArgumentNullException("image");
+				throw new ArgumentNullException(nameof(image));
 
 			// Setup technique for creation
 			SetTechnique(new ImageTechnique(this, image.PixelLayout, image));
@@ -604,7 +604,7 @@ namespace OpenGL.Objects
 		public void Create(Bitmap bitmap)
 		{
 			if (bitmap == null)
-				throw new ArgumentNullException("bitmap");
+				throw new ArgumentNullException(nameof(bitmap));
 
 			// Create image from bitmap
 			Image image = CoreImagingImageCodecPlugin.LoadFromBitmap(bitmap, new ImageCodecCriteria());
@@ -648,13 +648,13 @@ namespace OpenGL.Objects
 		public void CreateFromResource(string resourcePath, string format)
 		{
 			if (resourcePath == null)
-				throw new ArgumentNullException("image");
+				throw new ArgumentNullException(nameof(resourcePath));
 			if (format == null)
-				throw new ArgumentNullException("format");
+				throw new ArgumentNullException(nameof(format));
 
 			using (Stream resourceStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resourcePath)) {
 				if (resourceStream == null)
-					throw new ArgumentException("no such resource", "resourcePath");
+					throw new ArgumentException("no such resource", nameof(resourcePath));
 				Image resourceImage = ImageCodec.Instance.Load(resourceStream, format);
 
 				// Setup technique for creation

@@ -1305,7 +1305,7 @@ namespace OpenGL
 		public GlControlEventArgs(DeviceContext deviceContext, IntPtr renderContext)
 		{
 			if (deviceContext == null)
-				throw new ArgumentNullException("deviceContext");
+				throw new ArgumentNullException(nameof(deviceContext));
 			if (renderContext == IntPtr.Zero)
 				throw new ArgumentException("renderContext");
 

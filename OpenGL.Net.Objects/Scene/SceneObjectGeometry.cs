@@ -70,7 +70,7 @@ namespace OpenGL.Objects.Scene
 		public SceneObjectGeometry(string id, VertexArrays vertexArray, ShaderProgram program) : base(id)
 		{
 			if (vertexArray == null)
-				throw new ArgumentNullException("vertexArray");
+				throw new ArgumentNullException(nameof(vertexArray));
 
 			_VertexArray = vertexArray;
 			_Program = program;
@@ -297,7 +297,7 @@ namespace OpenGL.Objects.Scene
 		private IEnumerable<SceneObjectBatch> GetGeometries(GraphicsStateSet currentState)
 		{
 			if (currentState == null)
-				throw new ArgumentNullException("currentState");
+				throw new ArgumentNullException(nameof(currentState));
 
 			if (_GeometryInstances.Count > 0) {
 				foreach (Geometry sceneObjectBatch in _GeometryInstances) {
@@ -425,9 +425,9 @@ namespace OpenGL.Objects.Scene
 		private static void SetBoundingVolumeState(IBoundingVolume boundingVolume, GraphicsStateSet volumeState)
 		{
 			if (boundingVolume == null)
-				throw new ArgumentNullException("boundingVolume");
+				throw new ArgumentNullException(nameof(boundingVolume));
 			if (volumeState == null)
-				throw new ArgumentNullException("volumeState");
+				throw new ArgumentNullException(nameof(volumeState));
 
 			if (boundingVolume.GetType() == typeof(BoundingBox)) {
 				SetBoundingVolumeState((BoundingBox)boundingVolume, volumeState);
@@ -466,7 +466,7 @@ namespace OpenGL.Objects.Scene
 		private static IBoundingVolume ComputeBoundingVolume(VertexArrays vertexArrayObject)
 		{
 			if (vertexArrayObject == null)
-				throw new ArgumentNullException("vertexArrayObject");
+				throw new ArgumentNullException(nameof(vertexArrayObject));
 
 			VertexArrays.IVertexArray vertexArray = vertexArrayObject.GetVertexArray(VertexArraySemantic.Position);
 			if (vertexArray == null)

@@ -135,7 +135,7 @@ namespace OpenGL.Objects.State
 		public override void Apply(GraphicsContext ctx, ShaderProgram program)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			StencilTestState currentState = (StencilTestState)ctx.GetCurrentState(StateIndex);
 
@@ -190,12 +190,12 @@ namespace OpenGL.Objects.State
 		public override void Merge(IGraphicsState state)
 		{
 			if (state == null)
-				throw new ArgumentNullException("state");
+				throw new ArgumentNullException(nameof(state));
 
 			StencilTestState otherState = state as StencilTestState;
 
 			if (otherState == null)
-				throw new ArgumentException("not a StencilTestState", "state");
+				throw new ArgumentException("not a StencilTestState", nameof(state));
 
 			Enabled = otherState.Enabled;
 		}

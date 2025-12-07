@@ -46,7 +46,7 @@ namespace OpenGL.Objects.State
 		public ClippingPlaneState(GraphicsContext ctx)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			for (int i = 0; i < Enabled.Length; i++)
 				Enabled[i] = Gl.IsEnabled(EnableCap.ClipPlane0 + i);
@@ -116,7 +116,7 @@ namespace OpenGL.Objects.State
 		public override void Apply(GraphicsContext ctx, ShaderProgram program)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			ClippingPlaneState currentState = (ClippingPlaneState)ctx.GetCurrentState(StateIndex);
 
@@ -131,7 +131,7 @@ namespace OpenGL.Objects.State
 		private void ApplyStateCore(GraphicsContext ctx, ShaderProgram program)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			for (int i = 0; i < Enabled.Length; i++)
 				if (Enabled[i]) Gl.Enable(EnableCap.ClipPlane0 + i); else Gl.Disable(EnableCap.ClipPlane0 + i);
@@ -152,7 +152,7 @@ namespace OpenGL.Objects.State
 		private void ApplyStateCore(GraphicsContext ctx, ShaderProgram program, ClippingPlaneState currentState)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			for (int i = 0; i < Enabled.Length; i++) {
 				if (Enabled[i] == currentState.Enabled[i])
@@ -193,12 +193,12 @@ namespace OpenGL.Objects.State
 		public override void Merge(IGraphicsState state)
 		{
 			if (state == null)
-				throw new ArgumentNullException("state");
+				throw new ArgumentNullException(nameof(state));
 
 			ClippingPlaneState otherState = state as ClippingPlaneState;
 
 			if (otherState == null)
-				throw new ArgumentException("not a ClippingPlaneState", "state");
+				throw new ArgumentException("not a ClippingPlaneState", nameof(state));
 
 			for (int i = 0; i < Enabled.Length; i++) {
 				Enabled[i] = otherState.Enabled[i];

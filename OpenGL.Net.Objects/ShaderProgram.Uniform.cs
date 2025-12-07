@@ -72,7 +72,7 @@ namespace OpenGL.Objects
 			public UniformBinding(uint index, string name, int location, ShaderUniformType type)
 			{
 				if (name == null)
-					throw new ArgumentNullException("name");
+					throw new ArgumentNullException(nameof(name));
 
 				Index = index;
 				Name = name;
@@ -83,7 +83,7 @@ namespace OpenGL.Objects
 			public UniformBinding(uint index, string name, int location, ShaderUniformType type, int blockIndex, int blockOffset, int blockArrayStride, int blockMatrixStride, bool blockMatrixRowMajor)
 			{
 				if (name == null)
-					throw new ArgumentNullException("name");
+					throw new ArgumentNullException(nameof(name));
 
 				Index = index;
 				Name = name;
@@ -499,7 +499,7 @@ namespace OpenGL.Objects
 		private UniformBinding GetUniform(GraphicsContext ctx, string uniformName)
 		{
 			if (uniformName == null)
-				throw new ArgumentNullException("uniformName");
+				throw new ArgumentNullException(nameof(uniformName));
 
 			UniformBinding uniformBinding;
 
@@ -524,7 +524,7 @@ namespace OpenGL.Objects
 		private UniformBinding GetUniformSemantic(string uniformSemantic)
 		{
 			if (uniformSemantic == null)
-				throw new ArgumentNullException("uniformName");
+				throw new ArgumentNullException(nameof(uniformSemantic));
 
 			UniformBinding uniformBinding;
 			string uniformName;
@@ -555,9 +555,9 @@ namespace OpenGL.Objects
 		private static void CheckUniformType(UniformBinding uniform, params int[] uniformRequestTypes)
 		{
 			if (uniform == null)
-				throw new ArgumentNullException("uniform");
+				throw new ArgumentNullException(nameof(uniform));
 			if (uniformRequestTypes == null)
-				throw new ArgumentNullException("uniformRequestTypes");
+				throw new ArgumentNullException(nameof(uniformRequestTypes));
 
 			/* ! Check: required uniform type shall correspond */
 			foreach (int uniformReqtype in uniformRequestTypes)

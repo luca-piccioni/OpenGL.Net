@@ -42,7 +42,7 @@ namespace OpenGL
 			internal void Query(DeviceContextWGL deviceContext)
 			{
 				if (deviceContext == null)
-					throw new ArgumentNullException("deviceContext");
+					throw new ArgumentNullException(nameof(deviceContext));
 
 				LogComment("Query WGL extensions.");
 

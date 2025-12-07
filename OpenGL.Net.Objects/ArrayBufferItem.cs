@@ -98,7 +98,7 @@ namespace OpenGL.Objects
 		public ArrayBufferItem(ArrayBufferItemAttribute attribute)
 		{
 			if (attribute == null)
-				throw new ArgumentNullException("attribute");
+				throw new ArgumentNullException(nameof(attribute));
 
 			ArrayType = attribute.ArrayBaseType.GetArrayBufferType(attribute.ArrayLength, attribute.ArrayRank);
 		}
@@ -167,7 +167,7 @@ namespace OpenGL.Objects
 		public static bool IsDataSupported(GraphicsContext ctx, VertexBaseType baseType)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			switch (baseType) {
 				case VertexBaseType.Half:
@@ -211,7 +211,7 @@ namespace OpenGL.Objects
 		public static ArrayBufferItemType GetArrayType(Type type)
 		{
 			if (type == null)
-				throw new ArgumentNullException("type");
+				throw new ArgumentNullException(nameof(type));
 
 			// Support .NET Framework types
 			// Support OpenGL.Net.Math types
@@ -310,7 +310,7 @@ namespace OpenGL.Objects
 					return (attribute.ArrayType);
 			}
 
-			throw new ArgumentException("not corresponding information", "type");
+			throw new ArgumentException("not corresponding information", nameof(type));
 		}
 
 		/// <summary>
@@ -321,7 +321,7 @@ namespace OpenGL.Objects
 		public static VertexBaseType GetArrayBaseType(Type type)
 		{
 			if (type == null)
-				throw new ArgumentNullException("type");
+				throw new ArgumentNullException(nameof(type));
 
 			if (type == typeof(Single))
 				return (VertexBaseType.Float);

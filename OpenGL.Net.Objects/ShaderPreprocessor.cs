@@ -62,9 +62,9 @@ namespace OpenGL.Objects
 		public static List<string> Process(List<string> shaderSource, ShaderCompilerContext cctx, ShaderIncludeLibrary includeLibrary, Stage stages)
 		{
 			if (shaderSource == null)
-				throw new ArgumentNullException("shaderSource");
+				throw new ArgumentNullException(nameof(shaderSource));
 			if (cctx == null)
-				throw new ArgumentNullException("cctx");
+				throw new ArgumentNullException(nameof(cctx));
 
 			List<string> processedSource = shaderSource;
 
@@ -118,11 +118,11 @@ namespace OpenGL.Objects
 		private static List<string> ProcessIncludes(List<string> shaderSource, ShaderCompilerContext cctx, ShaderIncludeLibrary includeLibrary)
 		{
 			if (includeLibrary == null)
-				throw new ArgumentNullException("includeLibrary");
+				throw new ArgumentNullException(nameof(includeLibrary));
 			if (cctx == null)
-				throw new ArgumentNullException("cctx");
+				throw new ArgumentNullException(nameof(cctx));
 			if (shaderSource == null)
-				throw new ArgumentNullException("sSource");
+				throw new ArgumentNullException(nameof(shaderSource));
 
 			IncludeProcessorContext ictx = new IncludeProcessorContext();
 
@@ -132,11 +132,11 @@ namespace OpenGL.Objects
 		private static List<string> ProcessIncludes(IEnumerable<string> shaderSource, ShaderCompilerContext cctx, ShaderIncludeLibrary includeLibrary, IncludeProcessorContext ictx)
 		{
 			if (includeLibrary == null)
-				throw new ArgumentNullException("includeLibrary");
+				throw new ArgumentNullException(nameof(includeLibrary));
 			if (cctx == null)
-				throw new ArgumentNullException("cctx");
+				throw new ArgumentNullException(nameof(cctx));
 			if (shaderSource == null)
-				throw new ArgumentNullException("shaderSource");
+				throw new ArgumentNullException(nameof(shaderSource));
 
 			List<string> processedSource = new List<string>();
 
@@ -217,7 +217,7 @@ namespace OpenGL.Objects
 		private static string ExtractIncludePath(string directive)
 		{
 			if (directive == null)
-				throw new ArgumentNullException("directive");
+				throw new ArgumentNullException(nameof(directive));
 
 			// Parse included path
 			string[] tokens = _RegexIncludePathSplit.Split(directive);
@@ -236,9 +236,9 @@ namespace OpenGL.Objects
 		private static string NormalizeIncludePath(string path)
 		{
 			if (path == null)
-				throw new ArgumentNullException("path");
+				throw new ArgumentNullException(nameof(path));
 			if (path.StartsWith("/") == false)
-				throw new ArgumentException("not rooted", "path");
+				throw new ArgumentException("not rooted", nameof(path));
 
 			List<string> iPathStack = new List<string>();
 			string[] tokens = path.Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
@@ -293,9 +293,9 @@ namespace OpenGL.Objects
 		private static List<string> ProcessConditionals(List<string> shaderSource, ShaderCompilerContext cctx)
 		{
 			if (shaderSource == null)
-				throw new ArgumentNullException("shaderSource");
+				throw new ArgumentNullException(nameof(shaderSource));
 			if (cctx == null)
-				throw new ArgumentNullException("cctx");
+				throw new ArgumentNullException(nameof(cctx));
 
 			ShaderPreprocessorParser expressionEvaluator = new ShaderPreprocessorParser();
 			List<string> processedSource = new List<string>();

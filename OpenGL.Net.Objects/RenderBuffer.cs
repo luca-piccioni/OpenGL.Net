@@ -51,9 +51,9 @@ namespace OpenGL.Objects
 		public RenderBuffer(Type type, PixelLayout internalFormat, uint w, uint h)
 		{
 			if (w >= Gl.CurrentLimits.MaxRenderbufferSize)
-				throw new ArgumentException("exceed maximum size", "w");
+				throw new ArgumentException("exceed maximum size", nameof(w));
 			if (h >= Gl.CurrentLimits.MaxRenderbufferSize)
-				throw new ArgumentException("exceed maximum size", "w");
+				throw new ArgumentException("exceed maximum size", nameof(w));
 
 			// Set buffer type
 			_Type = type;
@@ -192,9 +192,9 @@ namespace OpenGL.Objects
 		public override bool Exists(GraphicsContext ctx)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 			if (ctx.IsCurrent == false)
-				throw new ArgumentException("not current", "ctx");
+				throw new ArgumentException("not current", nameof(ctx));
 		
 			// Object name space test (and 'ctx' sanity checks)
 			if (base.Exists(ctx) == false)

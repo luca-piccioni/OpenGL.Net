@@ -114,7 +114,7 @@ namespace OpenGL.Objects
 		public bool HasTag(string id)
 		{
 			if (id == null)
-				throw new ArgumentNullException("id");
+				throw new ArgumentNullException(nameof(id));
 
 			return (_Tags.ContainsKey(id) && _Tags[id] != null);
 		}
@@ -131,7 +131,7 @@ namespace OpenGL.Objects
 		public void SetTag(string id, object value)
 		{
 			if (id == null)
-				throw new ArgumentNullException("id");
+				throw new ArgumentNullException(nameof(id));
 
 			MediaInfoTagAttribute infoTagAttribute;
 
@@ -228,7 +228,7 @@ namespace OpenGL.Objects
 		public MediaInfoTagAttribute(Type valueType)
 		{
 			if (valueType == null)
-				throw new ArgumentNullException("valueType");
+				throw new ArgumentNullException(nameof(valueType));
 
 			_TagType = valueType;
 		}

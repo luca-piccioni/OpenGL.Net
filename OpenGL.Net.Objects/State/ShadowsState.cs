@@ -85,9 +85,9 @@ namespace OpenGL.Objects.State
 			public ShadowMap2DContext(Texture2d shadowMap, Matrix4x4f mvp)
 			{
 				if (shadowMap == null)
-					throw new ArgumentNullException("shadowMap");
+					throw new ArgumentNullException(nameof(shadowMap));
 				if (mvp == null)
-					throw new ArgumentNullException("mvp");
+					throw new ArgumentNullException(nameof(mvp));
 
 				ShadowMap = shadowMap;
 				ModelViewProjectionBias = mvp;

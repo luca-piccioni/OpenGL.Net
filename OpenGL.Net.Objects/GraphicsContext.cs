@@ -251,7 +251,7 @@ namespace OpenGL.Objects
 		public GraphicsContext(DeviceContext deviceContext, IntPtr glContext)
 		{
 			if (deviceContext == null)
-				throw new ArgumentNullException("deviceContext");
+				throw new ArgumentNullException(nameof(deviceContext));
 			if (glContext == IntPtr.Zero)
 				throw new ArgumentException("glContext");
 
@@ -339,9 +339,9 @@ namespace OpenGL.Objects
 		public GraphicsContext(DeviceContext deviceContext, GraphicsContext sharedContext, KhronosVersion version, GraphicsContextFlags flags)
 		{
 			if (deviceContext == null)
-				throw new ArgumentNullException("deviceContext");
+				throw new ArgumentNullException(nameof(deviceContext));
 			if ((sharedContext != null) && (sharedContext._DeviceContext == null))
-				throw new ArgumentException("shared context disposed", "sharedContext");
+				throw new ArgumentException("shared context disposed", nameof(sharedContext));
 
 			// _SharedResourceLock must be shared with other sharing contextes
 			if (sharedContext != null)
@@ -352,7 +352,7 @@ namespace OpenGL.Objects
 #endif
 
 			if ((sharedContext != null) && (sharedContext._RenderContextThreadId != Thread.CurrentThread.ManagedThreadId))
-				throw new ArgumentException("shared context created from another thread", "sharedContext");
+				throw new ArgumentException("shared context created from another thread", nameof(sharedContext));
 
 			try {
 				// Store device context handle
@@ -637,7 +637,7 @@ namespace OpenGL.Objects
 		private void InitializeResources(GraphicsContext sharedContext)
 		{
 			if (sharedContext == null)
-				throw new ArgumentNullException("sharedContext");
+				throw new ArgumentNullException(nameof(sharedContext));
 
 			// Not sure if really necessary
 			_CurrentDeviceContext = sharedContext._CurrentDeviceContext;
@@ -817,7 +817,7 @@ namespace OpenGL.Objects
 		public static GraphicsContext GetDefaultContext(Guid objectNamespace)
 		{
 			if (objectNamespace == Guid.Empty)
-				throw new ArgumentNullException("objectNamespace");
+				throw new ArgumentNullException(nameof(objectNamespace));
 
 			List<GraphicsContext> namespaceContextes;
 
@@ -1101,9 +1101,9 @@ namespace OpenGL.Objects
 		private void DebugObjectLabel(ObjectIdentifier id, IGraphicsResource debugObject, string debugLabel)
 		{
 			if (debugObject == null)
-				throw new ArgumentNullException("debugObject");
+				throw new ArgumentNullException(nameof(debugObject));
 			if (debugLabel == null)
-				throw new ArgumentNullException("debugLabel");
+				throw new ArgumentNullException(nameof(debugLabel));
 
 			if (Extensions.Debug_KHR == false)
 				return;
@@ -1177,7 +1177,7 @@ namespace OpenGL.Objects
 		public void ActiveTexture(uint textureUnitIndex)
 		{
 			if (textureUnitIndex >= Gl.CurrentLimits.MaxCombinedTextureImageUnits)
-				throw new ArgumentNullException("textureUnitIndex");
+				throw new ArgumentNullException(nameof(textureUnitIndex));
 
 			if (textureUnitIndex == _ActiveTextureUnit)
 				return;
@@ -1382,7 +1382,7 @@ namespace OpenGL.Objects
 		public void Unbind(IBindingResource bindingResource)
 		{
 			if (bindingResource == null)
-				throw new ArgumentNullException("bindingResource");
+				throw new ArgumentNullException(nameof(bindingResource));
 
 #if ENABLE_LAZY_BINDING
 			int bindingTarget = bindingResource.GetBindingTarget(this);
@@ -1408,7 +1408,7 @@ namespace OpenGL.Objects
 		public void Bind(UniformBuffer uniformBufferObject)
 		{
 			if (uniformBufferObject == null)
-				throw new ArgumentNullException("uniformBufferObject");
+				throw new ArgumentNullException(nameof(uniformBufferObject));
 			if (uniformBufferObject.BindingIndex != InvalidBindingIndex)
 				return;     // Already bound
 
@@ -1454,7 +1454,7 @@ namespace OpenGL.Objects
 		public void Bind(IBindingIndexResource bindingIndexResource)
 		{
 			if (bindingIndexResource == null)
-				throw new ArgumentNullException("bindingIndexResource");
+				throw new ArgumentNullException(nameof(bindingIndexResource));
 
 			if (bindingIndexResource.BindingIndex != InvalidBindingIndex)
 				return;     // Already bound
@@ -1480,7 +1480,7 @@ namespace OpenGL.Objects
 		public void Bind(IBindingIndexResource bindingIndexResource, uint bindingIndex)
 		{
 			if (bindingIndexResource == null)
-				throw new ArgumentNullException("bindingIndexResource");
+				throw new ArgumentNullException(nameof(bindingIndexResource));
 
 			BufferTarget bindingTarget = bindingIndexResource.GetBindingTarget(this);
 			BindingIndexContext bindingContext;
@@ -1516,11 +1516,11 @@ namespace OpenGL.Objects
 			public void Bind(GraphicsContext ctx, IBindingIndexResource bindingIndexResource, uint bindingIndex)
 			{
 				if (bindingIndexResource == null)
-					throw new ArgumentNullException("bindingIndexResource");
+					throw new ArgumentNullException(nameof(bindingIndexResource));
 
 				BufferTarget bindingTarget = bindingIndexResource.GetBindingTarget(ctx);
 				if (bindingTarget != Target)
-					throw new ArgumentException("target mismatch", "bindingIndexResource");
+					throw new ArgumentException("target mismatch", nameof(bindingIndexResource));
 
 #if ENABLE_LAZY_BINDING_INDEX
 				IBindingIndexResource previousUniformBuffer = Bindings[bindingIndex];
@@ -1710,7 +1710,7 @@ namespace OpenGL.Objects
 		private static string ComputeLibraryHash(ShadersLibrary.Program libraryProgram, ShaderCompilerContext cctx)
 		{
 			if (libraryProgram == null)
-				throw new ArgumentNullException("libraryProgram");
+				throw new ArgumentNullException(nameof(libraryProgram));
 
 			byte[] hashBytes;
 
@@ -2053,9 +2053,9 @@ namespace OpenGL.Objects
 			if (resource == null)
 				throw new ArgumentException("resource");
 			if (resource.ObjectNamespace != ObjectNameSpace)
-				throw new ArgumentException("object namespace mismatch", "resource");
+				throw new ArgumentException("object namespace mismatch", nameof(resource));
 			if (resource.RefCount > 0)
-				throw new ArgumentException("resource referenced", "resource");
+				throw new ArgumentException("resource referenced", nameof(resource));
 
 			lock (_DisposingGpuResourcesLock) {
 				_DisposingGpuResources.Add(resource);
@@ -2127,7 +2127,7 @@ namespace OpenGL.Objects
 		public void MakeCurrent(DeviceContext deviceContext, bool flag)
 		{
 			if (deviceContext == null)
-				throw new ArgumentNullException("deviceContext");
+				throw new ArgumentNullException(nameof(deviceContext));
 			if (_DeviceContext == null)
 				throw new ObjectDisposedException("no context associated with this GraphicsContext");
 
@@ -2337,7 +2337,7 @@ namespace OpenGL.Objects
 		public void CreateAsync(IGraphicsResource graphicsResource)
 		{
 			if (graphicsResource == null)
-				throw new ArgumentNullException("graphicsResource");
+				throw new ArgumentNullException(nameof(graphicsResource));
 
 			lock (_ResourceQueueLock) {
 				_ResourceQueue.Add(graphicsResource);

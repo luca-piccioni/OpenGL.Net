@@ -414,9 +414,9 @@ namespace OpenGL.Objects
 		protected void CopyBuffer(GraphicsContext ctx, ReadBufferMode rBuffer, uint x, uint y, ref Texture texture, uint level)
 		{
 			if (texture == null)
-				throw new ArgumentNullException("texture");
+				throw new ArgumentNullException(nameof(texture));
 			if (texture.Exists(ctx) == false)
-				throw new ArgumentException("not exists", "texture");
+				throw new ArgumentException("not exists", nameof(texture));
 			if ((x + texture.Width > Width) || (y + texture.Height > Height))
 				throw new ArgumentException("specified region lies outside the GraphicsSurface");
 

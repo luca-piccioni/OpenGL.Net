@@ -93,7 +93,7 @@ namespace OpenGL.Objects
 		public ShaderCompilerContext(ShaderCompilerContext otherCompilerContext)
 		{
 			if (otherCompilerContext == null)
-				throw new ArgumentNullException("otherCompilerContext");
+				throw new ArgumentNullException(nameof(otherCompilerContext));
 
 			_ShaderVersion = otherCompilerContext._ShaderVersion;
 			_Define = new List<string>(otherCompilerContext._Define);
@@ -163,12 +163,12 @@ namespace OpenGL.Objects
 		public void SetIncludePaths(IEnumerable<string> paths)
 		{
 			if (paths == null)
-				throw new ArgumentNullException("paths");
+				throw new ArgumentNullException(nameof(paths));
 
 			_Includes.Clear();
 			foreach (string path in paths) {
 				if (String.IsNullOrEmpty(path) == true)
-					throw new ArgumentException("invalid path", "paths");
+					throw new ArgumentException("invalid path", nameof(paths));
 				_Includes.Add(path);
 			}
 		}
@@ -227,7 +227,7 @@ namespace OpenGL.Objects
 		public void Merge(ShaderCompilerContext cctx)
 		{
 			if (cctx == null)
-				throw new ArgumentNullException("cctx");
+				throw new ArgumentNullException(nameof(cctx));
 
 			foreach (string symbol in cctx.Defines) {
 				if (Defines.Contains(symbol) == false)

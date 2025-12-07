@@ -121,7 +121,7 @@ namespace OpenGL.Objects
 			public RenderBufferAttachment(RenderBuffer buffer)
 			{
 				if (buffer == null)
-					throw new ArgumentNullException("buffer");
+					throw new ArgumentNullException(nameof(buffer));
 
 				_Buffer = buffer;
 				_Buffer.IncRef();
@@ -251,7 +251,7 @@ namespace OpenGL.Objects
 			public TextureAttachment(Texture texture, uint textureLevel)
 			{
 				if (texture == null)
-					throw new ArgumentNullException("texture");
+					throw new ArgumentNullException(nameof(texture));
 
 				_Texture = texture;
 				_Texture.IncRef();
@@ -277,7 +277,7 @@ namespace OpenGL.Objects
 			protected TextureAttachment(Texture texture, uint textureLevel, TextureTarget textureTarget)
 			{
 				if (texture == null)
-					throw new ArgumentNullException("texture");
+					throw new ArgumentNullException(nameof(texture));
 
 				_Texture = texture;
 				_Texture.IncRef();
@@ -597,7 +597,7 @@ namespace OpenGL.Objects
 		public void AttachColor(GraphicsContext ctx, uint attachmentIndex, RenderBuffer buffer)
 		{
 			if (buffer == null)
-				throw new ArgumentNullException("buffer");
+				throw new ArgumentNullException(nameof(buffer));
 			if (buffer.BufferType != RenderBuffer.Type.Color)
 				throw new ArgumentException("buffer is not a color buffer type");
 
@@ -703,7 +703,7 @@ namespace OpenGL.Objects
 		private void AttachColor(GraphicsContext ctx, uint attachmentIndex, Attachment attachment)
 		{
 			if (attachment == null)
-				throw new ArgumentNullException("attachment");
+				throw new ArgumentNullException(nameof(attachment));
 			if (attachmentIndex >= Gl.CurrentLimits.MaxColorAttachments)
 				throw new ArgumentException(String.Format("attachment index {0} is greater than the maximum allowed", attachmentIndex), "attachmentIndex");
 
@@ -752,7 +752,7 @@ namespace OpenGL.Objects
 		public void AttachDepth(RenderBuffer buffer)
 		{
 			if (buffer == null)
-				throw new ArgumentNullException("buffer");
+				throw new ArgumentNullException(nameof(buffer));
 			if (buffer.BufferType != RenderBuffer.Type.Depth)
 				throw new ArgumentException("buffer is not a depth buffer type");
 
@@ -781,7 +781,7 @@ namespace OpenGL.Objects
 		private void AttachDepth(Attachment attachment)
 		{
 			if (attachment == null)
-				throw new ArgumentNullException("attachment");
+				throw new ArgumentNullException(nameof(attachment));
 
 			DetachDepth();
 
@@ -815,7 +815,7 @@ namespace OpenGL.Objects
 		public void AttachStencil(RenderBuffer buffer)
 		{
 			if (buffer == null)
-				throw new ArgumentNullException("buffer");
+				throw new ArgumentNullException(nameof(buffer));
 			if (buffer.BufferType != RenderBuffer.Type.Stencil)
 				throw new ArgumentException("buffer is not a stencil buffer type");
 
@@ -841,7 +841,7 @@ namespace OpenGL.Objects
 		private void AttachStencil(Attachment attachment)
 		{
 			if (attachment == null)
-				throw new ArgumentNullException("attachment");
+				throw new ArgumentNullException(nameof(attachment));
 
 			// Detach
 			DetachStencil();
@@ -870,7 +870,7 @@ namespace OpenGL.Objects
 		public void AttachDepthStencil(RenderBuffer buffer)
 		{
 			if (buffer == null)
-				throw new ArgumentNullException("buffer");
+				throw new ArgumentNullException(nameof(buffer));
 			if (buffer.BufferType != RenderBuffer.Type.DepthStencil)
 				throw new ArgumentException("buffer is not a depth stencil buffer type");
 
@@ -899,7 +899,7 @@ namespace OpenGL.Objects
 		private void AttachDepthStencil(Attachment attachment)
 		{
 			if (attachment == null)
-				throw new ArgumentNullException("attachment");
+				throw new ArgumentNullException(nameof(attachment));
 
 			DetachDepthStencil();
 

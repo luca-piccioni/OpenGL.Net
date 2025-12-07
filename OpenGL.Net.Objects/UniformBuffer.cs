@@ -80,7 +80,7 @@ namespace OpenGL.Objects
 		public void Create(uint dataSize)
 		{
 			if (dataSize == 0)
-				throw new ArgumentException("invalid", "itemsCount");
+				throw new ArgumentException("invalid", nameof(dataSize));
 
 			// Allocate buffer
 			CreateCpuBuffer(dataSize);
@@ -112,7 +112,7 @@ namespace OpenGL.Objects
 			CheckCurrentContext(ctx);
 
 			if (dataSize == 0)
-				throw new ArgumentException("invalid", "itemsCount");
+				throw new ArgumentException("invalid", nameof(dataSize));
 
 			// Object already existing: resize client buffer, if any
 			if (CpuBufferAddress != IntPtr.Zero)
@@ -172,7 +172,7 @@ namespace OpenGL.Objects
 			public void CheckType(params int[] uniformRequestTypes)
 			{
 				if (uniformRequestTypes == null)
-					throw new ArgumentNullException("uniformRequestTypes");
+					throw new ArgumentNullException(nameof(uniformRequestTypes));
 
 				/* ! Check: required uniform type shall correspond */
 				foreach (int uniformReqtype in uniformRequestTypes)
@@ -223,7 +223,7 @@ namespace OpenGL.Objects
 		private UniformSegment GetUniform(string uniformName)
 		{
 			if (uniformName == null)
-				throw new ArgumentNullException("uniformName");
+				throw new ArgumentNullException(nameof(uniformName));
 
 			UniformSegment uniformSegment;
 

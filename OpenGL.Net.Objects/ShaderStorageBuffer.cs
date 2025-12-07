@@ -77,7 +77,7 @@ namespace OpenGL.Objects
 		public void Create(uint dataSize)
 		{
 			if (dataSize == 0)
-				throw new ArgumentException("invalid", "itemsCount");
+				throw new ArgumentException("invalid", nameof(dataSize));
 
 			// Allocate buffer
 			CreateCpuBuffer(dataSize);
@@ -109,7 +109,7 @@ namespace OpenGL.Objects
 			CheckCurrentContext(ctx);
 
 			if (dataSize == 0)
-				throw new ArgumentException("invalid", "itemsCount");
+				throw new ArgumentException("invalid", nameof(dataSize));
 
 			// Object already existing: resize client buffer, if any
 			if (CpuBufferAddress != IntPtr.Zero)

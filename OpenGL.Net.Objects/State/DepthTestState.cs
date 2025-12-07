@@ -61,7 +61,7 @@ namespace OpenGL.Objects.State
 		public DepthTestState(GraphicsContext ctx)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			// Depth test enabled
 			_Enabled = Gl.IsEnabled(EnableCap.DepthTest);
@@ -161,7 +161,7 @@ namespace OpenGL.Objects.State
 		public override void Apply(GraphicsContext ctx, ShaderProgram program)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			DepthTestState currentState = (DepthTestState)ctx.GetCurrentState(StateIndex);
 
@@ -211,12 +211,12 @@ namespace OpenGL.Objects.State
 		public override void Merge(IGraphicsState state)
 		{
 			if (state == null)
-				throw new ArgumentNullException("state");
+				throw new ArgumentNullException(nameof(state));
 
 			DepthTestState otherState = state as DepthTestState;
 
 			if (otherState == null)
-				throw new ArgumentException("not a DepthTestState", "state");
+				throw new ArgumentException("not a DepthTestState", nameof(state));
 
 			_Enabled = otherState._Enabled;
 			_Function = otherState._Function;

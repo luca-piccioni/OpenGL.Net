@@ -494,7 +494,7 @@ namespace OpenGL
 		public static Vertex3ub Min(params Vertex3ub[] v)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 
 			byte x = (byte)byte.MaxValue, y = (byte)byte.MaxValue, z = (byte)byte.MaxValue;
 
@@ -522,7 +522,7 @@ namespace OpenGL
 		public unsafe static Vertex3ub Min(Vertex3ub* v, uint count)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 
 			byte x = (byte)byte.MaxValue, y = (byte)byte.MaxValue, z = (byte)byte.MaxValue;
 
@@ -547,7 +547,7 @@ namespace OpenGL
 		public static Vertex3ub Max(params Vertex3ub[] v)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			byte x = (byte)byte.MinValue, y = (byte)byte.MinValue, z = (byte)byte.MinValue;
 
@@ -575,7 +575,7 @@ namespace OpenGL
 		public unsafe static Vertex3ub Max(Vertex3ub* v, uint count)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			byte x = (byte)byte.MinValue, y = (byte)byte.MinValue, z = (byte)byte.MinValue;
 
@@ -603,7 +603,7 @@ namespace OpenGL
 		public static void MinMax(Vertex3ub[] v, out Vertex3ub min, out Vertex3ub max)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			byte minx = (byte)byte.MaxValue, miny = (byte)byte.MaxValue, minz = (byte)byte.MaxValue;
 			byte maxx = (byte)byte.MinValue, maxy = (byte)byte.MinValue, maxz = (byte)byte.MinValue;
@@ -635,7 +635,7 @@ namespace OpenGL
 		public unsafe static void MinMax(Vertex3ub* v, uint count, out Vertex3ub min, out Vertex3ub max)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			byte minx = (byte)byte.MaxValue, miny = (byte)byte.MaxValue, minz = (byte)byte.MaxValue;
 			byte maxx = (byte)byte.MinValue, maxy = (byte)byte.MinValue, maxz = (byte)byte.MinValue;
@@ -1264,7 +1264,7 @@ namespace OpenGL
 		public static Vertex3b Min(params Vertex3b[] v)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 
 			sbyte x = (sbyte)sbyte.MaxValue, y = (sbyte)sbyte.MaxValue, z = (sbyte)sbyte.MaxValue;
 
@@ -1292,7 +1292,7 @@ namespace OpenGL
 		public unsafe static Vertex3b Min(Vertex3b* v, uint count)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 
 			sbyte x = (sbyte)sbyte.MaxValue, y = (sbyte)sbyte.MaxValue, z = (sbyte)sbyte.MaxValue;
 
@@ -1317,7 +1317,7 @@ namespace OpenGL
 		public static Vertex3b Max(params Vertex3b[] v)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			sbyte x = (sbyte)sbyte.MinValue, y = (sbyte)sbyte.MinValue, z = (sbyte)sbyte.MinValue;
 
@@ -1345,7 +1345,7 @@ namespace OpenGL
 		public unsafe static Vertex3b Max(Vertex3b* v, uint count)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			sbyte x = (sbyte)sbyte.MinValue, y = (sbyte)sbyte.MinValue, z = (sbyte)sbyte.MinValue;
 
@@ -1373,7 +1373,7 @@ namespace OpenGL
 		public static void MinMax(Vertex3b[] v, out Vertex3b min, out Vertex3b max)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			sbyte minx = (sbyte)sbyte.MaxValue, miny = (sbyte)sbyte.MaxValue, minz = (sbyte)sbyte.MaxValue;
 			sbyte maxx = (sbyte)sbyte.MinValue, maxy = (sbyte)sbyte.MinValue, maxz = (sbyte)sbyte.MinValue;
@@ -1405,7 +1405,7 @@ namespace OpenGL
 		public unsafe static void MinMax(Vertex3b* v, uint count, out Vertex3b min, out Vertex3b max)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			sbyte minx = (sbyte)sbyte.MaxValue, miny = (sbyte)sbyte.MaxValue, minz = (sbyte)sbyte.MaxValue;
 			sbyte maxx = (sbyte)sbyte.MinValue, maxy = (sbyte)sbyte.MinValue, maxz = (sbyte)sbyte.MinValue;
@@ -2019,7 +2019,7 @@ namespace OpenGL
 		public static Vertex3us Min(params Vertex3us[] v)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 
 			ushort x = (ushort)ushort.MaxValue, y = (ushort)ushort.MaxValue, z = (ushort)ushort.MaxValue;
 
@@ -2047,7 +2047,7 @@ namespace OpenGL
 		public unsafe static Vertex3us Min(Vertex3us* v, uint count)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 
 			ushort x = (ushort)ushort.MaxValue, y = (ushort)ushort.MaxValue, z = (ushort)ushort.MaxValue;
 
@@ -2072,7 +2072,7 @@ namespace OpenGL
 		public static Vertex3us Max(params Vertex3us[] v)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			ushort x = (ushort)ushort.MinValue, y = (ushort)ushort.MinValue, z = (ushort)ushort.MinValue;
 
@@ -2100,7 +2100,7 @@ namespace OpenGL
 		public unsafe static Vertex3us Max(Vertex3us* v, uint count)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			ushort x = (ushort)ushort.MinValue, y = (ushort)ushort.MinValue, z = (ushort)ushort.MinValue;
 
@@ -2128,7 +2128,7 @@ namespace OpenGL
 		public static void MinMax(Vertex3us[] v, out Vertex3us min, out Vertex3us max)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			ushort minx = (ushort)ushort.MaxValue, miny = (ushort)ushort.MaxValue, minz = (ushort)ushort.MaxValue;
 			ushort maxx = (ushort)ushort.MinValue, maxy = (ushort)ushort.MinValue, maxz = (ushort)ushort.MinValue;
@@ -2160,7 +2160,7 @@ namespace OpenGL
 		public unsafe static void MinMax(Vertex3us* v, uint count, out Vertex3us min, out Vertex3us max)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			ushort minx = (ushort)ushort.MaxValue, miny = (ushort)ushort.MaxValue, minz = (ushort)ushort.MaxValue;
 			ushort maxx = (ushort)ushort.MinValue, maxy = (ushort)ushort.MinValue, maxz = (ushort)ushort.MinValue;
@@ -2789,7 +2789,7 @@ namespace OpenGL
 		public static Vertex3s Min(params Vertex3s[] v)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 
 			short x = (short)short.MaxValue, y = (short)short.MaxValue, z = (short)short.MaxValue;
 
@@ -2817,7 +2817,7 @@ namespace OpenGL
 		public unsafe static Vertex3s Min(Vertex3s* v, uint count)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 
 			short x = (short)short.MaxValue, y = (short)short.MaxValue, z = (short)short.MaxValue;
 
@@ -2842,7 +2842,7 @@ namespace OpenGL
 		public static Vertex3s Max(params Vertex3s[] v)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			short x = (short)short.MinValue, y = (short)short.MinValue, z = (short)short.MinValue;
 
@@ -2870,7 +2870,7 @@ namespace OpenGL
 		public unsafe static Vertex3s Max(Vertex3s* v, uint count)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			short x = (short)short.MinValue, y = (short)short.MinValue, z = (short)short.MinValue;
 
@@ -2898,7 +2898,7 @@ namespace OpenGL
 		public static void MinMax(Vertex3s[] v, out Vertex3s min, out Vertex3s max)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			short minx = (short)short.MaxValue, miny = (short)short.MaxValue, minz = (short)short.MaxValue;
 			short maxx = (short)short.MinValue, maxy = (short)short.MinValue, maxz = (short)short.MinValue;
@@ -2930,7 +2930,7 @@ namespace OpenGL
 		public unsafe static void MinMax(Vertex3s* v, uint count, out Vertex3s min, out Vertex3s max)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			short minx = (short)short.MaxValue, miny = (short)short.MaxValue, minz = (short)short.MaxValue;
 			short maxx = (short)short.MinValue, maxy = (short)short.MinValue, maxz = (short)short.MinValue;
@@ -3544,7 +3544,7 @@ namespace OpenGL
 		public static Vertex3ui Min(params Vertex3ui[] v)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 
 			uint x = (uint)uint.MaxValue, y = (uint)uint.MaxValue, z = (uint)uint.MaxValue;
 
@@ -3572,7 +3572,7 @@ namespace OpenGL
 		public unsafe static Vertex3ui Min(Vertex3ui* v, uint count)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 
 			uint x = (uint)uint.MaxValue, y = (uint)uint.MaxValue, z = (uint)uint.MaxValue;
 
@@ -3597,7 +3597,7 @@ namespace OpenGL
 		public static Vertex3ui Max(params Vertex3ui[] v)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			uint x = (uint)uint.MinValue, y = (uint)uint.MinValue, z = (uint)uint.MinValue;
 
@@ -3625,7 +3625,7 @@ namespace OpenGL
 		public unsafe static Vertex3ui Max(Vertex3ui* v, uint count)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			uint x = (uint)uint.MinValue, y = (uint)uint.MinValue, z = (uint)uint.MinValue;
 
@@ -3653,7 +3653,7 @@ namespace OpenGL
 		public static void MinMax(Vertex3ui[] v, out Vertex3ui min, out Vertex3ui max)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			uint minx = (uint)uint.MaxValue, miny = (uint)uint.MaxValue, minz = (uint)uint.MaxValue;
 			uint maxx = (uint)uint.MinValue, maxy = (uint)uint.MinValue, maxz = (uint)uint.MinValue;
@@ -3685,7 +3685,7 @@ namespace OpenGL
 		public unsafe static void MinMax(Vertex3ui* v, uint count, out Vertex3ui min, out Vertex3ui max)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			uint minx = (uint)uint.MaxValue, miny = (uint)uint.MaxValue, minz = (uint)uint.MaxValue;
 			uint maxx = (uint)uint.MinValue, maxy = (uint)uint.MinValue, maxz = (uint)uint.MinValue;
@@ -4314,7 +4314,7 @@ namespace OpenGL
 		public static Vertex3i Min(params Vertex3i[] v)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 
 			int x = (int)int.MaxValue, y = (int)int.MaxValue, z = (int)int.MaxValue;
 
@@ -4342,7 +4342,7 @@ namespace OpenGL
 		public unsafe static Vertex3i Min(Vertex3i* v, uint count)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 
 			int x = (int)int.MaxValue, y = (int)int.MaxValue, z = (int)int.MaxValue;
 
@@ -4367,7 +4367,7 @@ namespace OpenGL
 		public static Vertex3i Max(params Vertex3i[] v)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			int x = (int)int.MinValue, y = (int)int.MinValue, z = (int)int.MinValue;
 
@@ -4395,7 +4395,7 @@ namespace OpenGL
 		public unsafe static Vertex3i Max(Vertex3i* v, uint count)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			int x = (int)int.MinValue, y = (int)int.MinValue, z = (int)int.MinValue;
 
@@ -4423,7 +4423,7 @@ namespace OpenGL
 		public static void MinMax(Vertex3i[] v, out Vertex3i min, out Vertex3i max)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			int minx = (int)int.MaxValue, miny = (int)int.MaxValue, minz = (int)int.MaxValue;
 			int maxx = (int)int.MinValue, maxy = (int)int.MinValue, maxz = (int)int.MinValue;
@@ -4455,7 +4455,7 @@ namespace OpenGL
 		public unsafe static void MinMax(Vertex3i* v, uint count, out Vertex3i min, out Vertex3i max)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			int minx = (int)int.MaxValue, miny = (int)int.MaxValue, minz = (int)int.MaxValue;
 			int maxx = (int)int.MinValue, maxy = (int)int.MinValue, maxz = (int)int.MinValue;
@@ -5038,7 +5038,7 @@ namespace OpenGL
 		public static Vertex3f Min(params Vertex3f[] v)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 
 			float x = (float)float.MaxValue, y = (float)float.MaxValue, z = (float)float.MaxValue;
 
@@ -5066,7 +5066,7 @@ namespace OpenGL
 		public unsafe static Vertex3f Min(Vertex3f* v, uint count)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 
 			float x = (float)float.MaxValue, y = (float)float.MaxValue, z = (float)float.MaxValue;
 
@@ -5091,7 +5091,7 @@ namespace OpenGL
 		public static Vertex3f Max(params Vertex3f[] v)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			float x = (float)float.MinValue, y = (float)float.MinValue, z = (float)float.MinValue;
 
@@ -5119,7 +5119,7 @@ namespace OpenGL
 		public unsafe static Vertex3f Max(Vertex3f* v, uint count)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			float x = (float)float.MinValue, y = (float)float.MinValue, z = (float)float.MinValue;
 
@@ -5147,7 +5147,7 @@ namespace OpenGL
 		public static void MinMax(Vertex3f[] v, out Vertex3f min, out Vertex3f max)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			float minx = (float)float.MaxValue, miny = (float)float.MaxValue, minz = (float)float.MaxValue;
 			float maxx = (float)float.MinValue, maxy = (float)float.MinValue, maxz = (float)float.MinValue;
@@ -5179,7 +5179,7 @@ namespace OpenGL
 		public unsafe static void MinMax(Vertex3f* v, uint count, out Vertex3f min, out Vertex3f max)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			float minx = (float)float.MaxValue, miny = (float)float.MaxValue, minz = (float)float.MaxValue;
 			float maxx = (float)float.MinValue, maxy = (float)float.MinValue, maxz = (float)float.MinValue;
@@ -5762,7 +5762,7 @@ namespace OpenGL
 		public static Vertex3d Min(params Vertex3d[] v)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 
 			double x = (double)double.MaxValue, y = (double)double.MaxValue, z = (double)double.MaxValue;
 
@@ -5790,7 +5790,7 @@ namespace OpenGL
 		public unsafe static Vertex3d Min(Vertex3d* v, uint count)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 
 			double x = (double)double.MaxValue, y = (double)double.MaxValue, z = (double)double.MaxValue;
 
@@ -5815,7 +5815,7 @@ namespace OpenGL
 		public static Vertex3d Max(params Vertex3d[] v)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			double x = (double)double.MinValue, y = (double)double.MinValue, z = (double)double.MinValue;
 
@@ -5843,7 +5843,7 @@ namespace OpenGL
 		public unsafe static Vertex3d Max(Vertex3d* v, uint count)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			double x = (double)double.MinValue, y = (double)double.MinValue, z = (double)double.MinValue;
 
@@ -5871,7 +5871,7 @@ namespace OpenGL
 		public static void MinMax(Vertex3d[] v, out Vertex3d min, out Vertex3d max)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			double minx = (double)double.MaxValue, miny = (double)double.MaxValue, minz = (double)double.MaxValue;
 			double maxx = (double)double.MinValue, maxy = (double)double.MinValue, maxz = (double)double.MinValue;
@@ -5903,7 +5903,7 @@ namespace OpenGL
 		public unsafe static void MinMax(Vertex3d* v, uint count, out Vertex3d min, out Vertex3d max)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			double minx = (double)double.MaxValue, miny = (double)double.MaxValue, minz = (double)double.MaxValue;
 			double maxx = (double)double.MinValue, maxy = (double)double.MinValue, maxz = (double)double.MinValue;
@@ -6486,7 +6486,7 @@ namespace OpenGL
 		public static Vertex3hf Min(params Vertex3hf[] v)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 
 			HalfFloat x = (HalfFloat)HalfFloat.MaxValue, y = (HalfFloat)HalfFloat.MaxValue, z = (HalfFloat)HalfFloat.MaxValue;
 
@@ -6514,7 +6514,7 @@ namespace OpenGL
 		public unsafe static Vertex3hf Min(Vertex3hf* v, uint count)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 
 			HalfFloat x = (HalfFloat)HalfFloat.MaxValue, y = (HalfFloat)HalfFloat.MaxValue, z = (HalfFloat)HalfFloat.MaxValue;
 
@@ -6539,7 +6539,7 @@ namespace OpenGL
 		public static Vertex3hf Max(params Vertex3hf[] v)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			HalfFloat x = (HalfFloat)HalfFloat.MinValue, y = (HalfFloat)HalfFloat.MinValue, z = (HalfFloat)HalfFloat.MinValue;
 
@@ -6567,7 +6567,7 @@ namespace OpenGL
 		public unsafe static Vertex3hf Max(Vertex3hf* v, uint count)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			HalfFloat x = (HalfFloat)HalfFloat.MinValue, y = (HalfFloat)HalfFloat.MinValue, z = (HalfFloat)HalfFloat.MinValue;
 
@@ -6595,7 +6595,7 @@ namespace OpenGL
 		public static void MinMax(Vertex3hf[] v, out Vertex3hf min, out Vertex3hf max)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			HalfFloat minx = (HalfFloat)HalfFloat.MaxValue, miny = (HalfFloat)HalfFloat.MaxValue, minz = (HalfFloat)HalfFloat.MaxValue;
 			HalfFloat maxx = (HalfFloat)HalfFloat.MinValue, maxy = (HalfFloat)HalfFloat.MinValue, maxz = (HalfFloat)HalfFloat.MinValue;
@@ -6627,7 +6627,7 @@ namespace OpenGL
 		public unsafe static void MinMax(Vertex3hf* v, uint count, out Vertex3hf min, out Vertex3hf max)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			HalfFloat minx = (HalfFloat)HalfFloat.MaxValue, miny = (HalfFloat)HalfFloat.MaxValue, minz = (HalfFloat)HalfFloat.MaxValue;
 			HalfFloat maxx = (HalfFloat)HalfFloat.MinValue, maxy = (HalfFloat)HalfFloat.MinValue, maxz = (HalfFloat)HalfFloat.MinValue;

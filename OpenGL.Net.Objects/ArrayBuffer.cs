@@ -219,7 +219,7 @@ namespace OpenGL.Objects
 			// Array element item size cannot exceed ItemSize
 			uint arrayItemSize = arrayElementVertexType.GetItemSize();
 			if (arrayItemSize > ItemSize)
-				throw new ArgumentException("array element type too big", "array");
+				throw new InvalidOperationException("array element type too big");
 
 			T[] array = new T[arrayLength];
 
@@ -378,13 +378,13 @@ namespace OpenGL.Objects
 		public void Copy(ArrayBuffer buffer, uint[] indices, uint count, uint offset, uint stride)
 		{
 			if (buffer == null)
-				throw new ArgumentNullException("buffer");
+				throw new ArgumentNullException(nameof(buffer));
 			if (indices == null)
-				throw new ArgumentNullException("indices");
+				throw new ArgumentNullException(nameof(indices));
 			if (count == 0)
-				throw new ArgumentException("invalid", "count");
+				throw new ArgumentException("invalid", nameof(count));
 			if (stride == 0)
-				throw new ArgumentException("invalid", "stride");
+				throw new ArgumentException("invalid", nameof(stride));
 			if (offset + ((count - 1) * stride) > indices.Length)
 				throw new InvalidOperationException("indices out of bounds");
 			if (_ArrayType.GetVertexBaseType() != buffer._ArrayType.GetVertexBaseType())
@@ -444,13 +444,13 @@ namespace OpenGL.Objects
 		public void Copy(ArrayBuffer buffer, uint[] indices, uint[] vcount, uint offset, uint stride)
 		{
 			if (buffer == null)
-				throw new ArgumentNullException("buffer");
+				throw new ArgumentNullException(nameof(buffer));
 			if (indices == null)
-				throw new ArgumentNullException("indices");
+				throw new ArgumentNullException(nameof(indices));
 			if (vcount == null)
-				throw new ArgumentNullException("indices");
+				throw new ArgumentNullException(nameof(indices));
 			if (stride == 0)
-				throw new ArgumentException("invalid", "stride");
+				throw new ArgumentException("invalid", nameof(stride));
 			if (_ArrayType.GetVertexBaseType() != buffer._ArrayType.GetVertexBaseType())
 				throw new InvalidOperationException("base type mismatch");
 
@@ -463,7 +463,7 @@ namespace OpenGL.Objects
 			});
 
 			if ((minVertices < 3) && (maxVertices >= 3))
-				throw new ArgumentException("ambigous polygons set", "vcount");
+				throw new ArgumentException("ambigous polygons set", nameof(vcount));
 
 			uint totalVerticesCount = 0;
 
@@ -624,7 +624,7 @@ namespace OpenGL.Objects
 		public ArrayBuffer ConvertItemType(ArrayBufferItemType vertexArrayType)
 		{
 			if (_ArrayType.GetVertexBaseType() != vertexArrayType.GetVertexBaseType())
-				throw new ArgumentException("base type mismatch", "vertexArrayType");
+				throw new ArgumentException("base type mismatch", nameof(vertexArrayType));
 
 			uint componentsCount = CpuItemsCount * ArrayType.GetArrayLength() * ArrayType.GetArrayRank();
 			uint convComponentsCount = vertexArrayType.GetArrayLength() * vertexArrayType.GetArrayRank();

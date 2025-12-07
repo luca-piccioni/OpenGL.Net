@@ -90,7 +90,7 @@ namespace OpenGL.Objects.State
 		public CullFaceState(GraphicsContext ctx)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			int frontFace, cullFaceMode;
 
@@ -202,7 +202,7 @@ namespace OpenGL.Objects.State
 		public override void Apply(GraphicsContext ctx, ShaderProgram program)
 		{
 		if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			CullFaceState currentState = (CullFaceState)ctx.GetCurrentState(StateIndex);
 
@@ -217,7 +217,7 @@ namespace OpenGL.Objects.State
 		private void ApplyStateCore(GraphicsContext ctx, ShaderProgram program)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			// Front face determination
 			Gl.FrontFace(_FrontFaceMode);
@@ -236,7 +236,7 @@ namespace OpenGL.Objects.State
 		private void ApplyStateCore(GraphicsContext ctx, ShaderProgram program, CullFaceState currentState)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			// Front face determination
 			if (currentState.FrontFaceMode != FrontFaceMode)
@@ -266,12 +266,12 @@ namespace OpenGL.Objects.State
 		public override void Merge(IGraphicsState state)
 		{
 			if (state == null)
-				throw new ArgumentNullException("state");
+				throw new ArgumentNullException(nameof(state));
 
 			CullFaceState otherState = state as CullFaceState;
 
 			if (otherState == null)
-				throw new ArgumentException("not a CullFaceState", "state");
+				throw new ArgumentException("not a CullFaceState", nameof(state));
 
 			_FrontFaceMode = otherState._FrontFaceMode;
 			_Enabled = otherState._Enabled;

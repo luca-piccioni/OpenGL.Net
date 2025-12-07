@@ -249,7 +249,7 @@ namespace OpenGL.Objects
 				base(texture, target, pixelFormat, width, height, layers, 0)
 			{
 				if (levels == 0)
-					throw new ArgumentException("invalid value", "levels");
+					throw new ArgumentException("invalid value", nameof(levels));
 				_MipmapLevels = levels;
 			}
 
@@ -539,7 +539,7 @@ namespace OpenGL.Objects
 			public ImageUpdateTechnique(TextureArray2d texture, TextureTarget target, uint level, Image image, uint layer)
 			{
 				if (image == null)
-					throw new ArgumentNullException("images");
+					throw new ArgumentNullException(nameof(image));
 
 				_TextureArray2d = texture;
 				_Target = target;

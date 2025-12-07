@@ -46,7 +46,7 @@ namespace OpenGL.Objects
 		public ShaderExtension(string extensionName, ShaderExtensionBehavior behavior)
 		{
 			if (extensionName == null)
-				throw new ArgumentNullException("extensionName");
+				throw new ArgumentNullException(nameof(extensionName));
 			
 			Name = extensionName;
 			Behavior = behavior;

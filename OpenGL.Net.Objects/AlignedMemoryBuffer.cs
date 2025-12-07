@@ -52,9 +52,9 @@ namespace OpenGL.Objects
 		public AlignedMemoryBuffer(uint size, uint alignment)
 		{
 			if (size == 0)
-				throw new ArgumentException("invalid", "size");
+				throw new ArgumentException("invalid", nameof(size));
 			if ((alignment != 0) && (alignment != 4) && (alignment != 8) && (alignment != 16) && (alignment != 32))
-				throw new ArgumentException("invalid", "alignment");
+				throw new ArgumentException("invalid", nameof(alignment));
 
 			// Store alignment
 			_Alignment = alignment;
@@ -177,9 +177,9 @@ namespace OpenGL.Objects
 			if (IsDisposed)
 				throw new ObjectDisposedException("AlignedMemoryBuffer");
 			if (otherMemoryBuffer == null)
-				throw new ArgumentNullException("otherMemoryBuffer");
+				throw new ArgumentNullException(nameof(otherMemoryBuffer));
 			if (otherMemoryBuffer._UnmanagedBuffer == IntPtr.Zero)
-				throw new ArgumentException("disposed", "otherMemoryBuffer");
+				throw new ArgumentException("disposed", nameof(otherMemoryBuffer));
 			if (thisOffset + bytesCopied >= otherMemoryBuffer.Size - otherOffset)
 				throw new InvalidOperationException("copying out of bounds");
 

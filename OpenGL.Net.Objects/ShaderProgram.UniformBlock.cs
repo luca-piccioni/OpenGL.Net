@@ -54,7 +54,7 @@ namespace OpenGL.Objects
 			public UniformBlockBinding(ShaderProgram program, uint uniformBlockIndex)
 			{
 				if (program == null)
-					throw new ArgumentNullException("program");
+					throw new ArgumentNullException(nameof(program));
 
 				int[] uniformBlockParams;
 
@@ -169,7 +169,7 @@ namespace OpenGL.Objects
 		private UniformBlockBinding GetUniformBlock(string uniformBlockName)
 		{
 			if (uniformBlockName == null)
-				throw new ArgumentNullException("uniformBlockName");
+				throw new ArgumentNullException(nameof(uniformBlockName));
 
 			UniformBlockBinding uniformBlockBinding;
 
@@ -188,7 +188,7 @@ namespace OpenGL.Objects
 		private void CollectActiveUniformBlocks(GraphicsContext ctx)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			if (ctx.Extensions.UniformBufferObject_ARB == false)
 				return;
@@ -226,7 +226,7 @@ namespace OpenGL.Objects
 		{
 			UniformBlockBinding uniformBlockBinding = GetUniformBlock(uniformBlockName);
 			if (uniformBlockBinding == null)
-				throw new ArgumentException("no uniform block with such name", "uniformBlockName");
+				throw new ArgumentException("no uniform block with such name", nameof(uniformBlockName));
 
 			UniformBuffer uniformBuffer = new UniformBuffer(hint);
 
@@ -248,7 +248,7 @@ namespace OpenGL.Objects
 		{
 			UniformBlockBinding uniformBlockBinding = GetUniformBlock(uniformBlockName);
 			if (uniformBlockBinding == null)
-				throw new ArgumentException("no uniform block with such name", "uniformBlockName");
+				throw new ArgumentException("no uniform block with such name", nameof(uniformBlockName));
 
 			UniformBuffer uniformBuffer = new UniformBuffer(usageMask);
 
@@ -264,7 +264,7 @@ namespace OpenGL.Objects
 		{
 			UniformBlockBinding uniformBlockBinding = GetUniformBlock(uniformBlockName);
 			if (uniformBlockBinding == null)
-				throw new ArgumentException("no uniform block with such name", "uniformBlockName");
+				throw new ArgumentException("no uniform block with such name", nameof(uniformBlockName));
 
 			for (int i = 0; i < uniformBlockBinding.UniformIndices.Length; i++) {
 				uint uniformIndex = uniformBlockBinding.UniformIndices[i];
@@ -313,16 +313,16 @@ namespace OpenGL.Objects
 		public void SetUniformBlock(GraphicsContext ctx, string uniformBlockName, UniformBuffer uniformBuffer)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 			if (uniformBuffer == null)
-				throw new ArgumentNullException("uniformBuffer");
+				throw new ArgumentNullException(nameof(uniformBuffer));
 
 			// Select a binding point, if still invalid
 			ctx.Bind(uniformBuffer);
 
 			UniformBlockBinding uniformBlockBinding = GetUniformBlock(uniformBlockName);
 			if (uniformBlockBinding == null)
-				throw new ArgumentException("no uniform block with such name", "uniformBlockName");
+				throw new ArgumentException("no uniform block with such name", nameof(uniformBlockName));
 
 #if ENABLE_UNIFORM_BLOCK_CACHING
 			if (IsUniformBlockChanged(uniformBlockBinding.Index, uniformBuffer) == false)

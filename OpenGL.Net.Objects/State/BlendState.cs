@@ -177,7 +177,7 @@ namespace OpenGL.Objects.State
 		public BlendState(GraphicsContext ctx)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			int blendRgbEquation, blendAlphaEquation;
 			int blendRgbSrcFunct, blendAlphaSrcFunct;
@@ -551,12 +551,12 @@ namespace OpenGL.Objects.State
 		public override void Merge(IGraphicsState state)
 		{
 			if (state == null)
-				throw new ArgumentNullException("state");
+				throw new ArgumentNullException(nameof(state));
 
 			BlendState otherState = state as BlendState;
 
 			if (otherState == null)
-				throw new ArgumentException("not a BlendState", "state");
+				throw new ArgumentException("not a BlendState", nameof(state));
 
 			_Enabled = otherState._Enabled;
 			_RgbEquation = otherState._RgbEquation;

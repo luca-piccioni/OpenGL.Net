@@ -55,11 +55,11 @@ namespace OpenGL.Objects
 		public Image(PixelLayout format, uint width, uint height)
 		{
 			if (format == PixelLayout.None)
-				throw new ArgumentException("invalid", "format");
+				throw new ArgumentException("invalid", nameof(format));
 			if (width == 0)
-				throw new ArgumentException("invalid", "width");
+				throw new ArgumentException("invalid", nameof(width));
 			if (height == 0)
-				throw new ArgumentException("invalid", "height");
+				throw new ArgumentException("invalid", nameof(height));
 
 			// Allocate
 			Create(format, width, height);

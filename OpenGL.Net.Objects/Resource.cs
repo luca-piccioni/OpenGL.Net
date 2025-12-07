@@ -132,7 +132,7 @@ namespace OpenGL.Objects
 		protected void LinkResource(IResource resource)
 		{
 			if (resource == null)
-				throw new ArgumentNullException("resource");
+				throw new ArgumentNullException(nameof(resource));
 
 			// Reference resources
 			resource.IncRef();
@@ -153,7 +153,7 @@ namespace OpenGL.Objects
 		protected void UnlinkResource(IResource resource)
 		{
 			if (resource == null)
-				throw new ArgumentNullException("resource");
+				throw new ArgumentNullException(nameof(resource));
 
 			// Unreference at disposition
 			bool res = _Resources.Remove(resource);
@@ -249,7 +249,7 @@ namespace OpenGL.Objects
 		protected internal static void Log(string format, params object[] args)
 		{
 			if (format == null)
-				throw new ArgumentNullException("format");
+				throw new ArgumentNullException(nameof(format));
 
 			// Global flag
 			if (_ProcLogEnabled == false)

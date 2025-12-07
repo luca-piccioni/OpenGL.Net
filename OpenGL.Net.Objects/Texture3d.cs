@@ -310,7 +310,7 @@ namespace OpenGL.Objects
 		public void Create(GraphicsContext ctx, uint width, uint height, uint depth, PixelLayout format)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			// Define technique
 			Create(width, height, depth, format);
@@ -343,13 +343,13 @@ namespace OpenGL.Objects
 			public ImageTechnique(Texture3d texture, TextureTarget target, PixelLayout pixelFormat, Image[] images)
 			{
 				if (images == null)
-					throw new ArgumentNullException("images");
+					throw new ArgumentNullException(nameof(images));
 				if (images.Length == 0)
-					throw new ArgumentException("no images", "images");
+					throw new ArgumentException("no images", nameof(images));
 				if (!Array.TrueForAll(images, delegate(Image item) { return (item != null); }))
-					throw new ArgumentException("null item in image set", "images");
+					throw new ArgumentException("null item in image set", nameof(images));
 				if (!Array.TrueForAll(images, delegate(Image item) { return (item.Width == images[0].Width && item.Height == images[0].Height); }))
-					throw new ArgumentException("eterogeneous size in image set", "images");
+					throw new ArgumentException("eterogeneous size in image set", nameof(images));
 
 				_Texture3d = texture;
 				_Target = target;
@@ -447,13 +447,13 @@ namespace OpenGL.Objects
 		public void Create(Image[] images, PixelLayout format)
 		{
 			if (images == null)
-				throw new ArgumentNullException("images");
+				throw new ArgumentNullException(nameof(images));
 			if (images.Length == 0)
-				throw new ArgumentException("no images", "images");
+				throw new ArgumentException("no images", nameof(images));
 			if (!Array.TrueForAll(images, delegate(Image item) { return (item != null); }))
-				throw new ArgumentException("null item in image set", "images");
+				throw new ArgumentException("null item in image set", nameof(images));
 			if (!Array.TrueForAll(images, delegate(Image item) { return (item.Width == images[0].Width && item.Height == images[0].Height); }))
-				throw new ArgumentException("eterogeneous size in image set", "images");
+				throw new ArgumentException("eterogeneous size in image set", nameof(images));
 
 			// Setup technique for creation
 			SetTechnique(new ImageTechnique(this, TextureTarget, format, images));
@@ -494,7 +494,7 @@ namespace OpenGL.Objects
 		public void Create(GraphicsContext ctx, Image[] images, PixelLayout format)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			// Define technique
 			Create(images, format);

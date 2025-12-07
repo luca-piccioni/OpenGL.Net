@@ -111,7 +111,7 @@ namespace OpenGL.Objects.Scene
 		public virtual void Link(SceneObject sceneObject)
 		{
 			if (sceneObject == null)
-				throw new ArgumentNullException("sceneObject");
+				throw new ArgumentNullException(nameof(sceneObject));
 			if (sceneObject._ParentObject != null)
 				throw new ArgumentException("already in graph");
 
@@ -169,7 +169,7 @@ namespace OpenGL.Objects.Scene
 		public bool Unlink(Predicate<SceneObject> match, bool recurse)
 		{
 			if (match == null)
-				throw new ArgumentNullException("match");
+				throw new ArgumentNullException(nameof(match));
 
 			bool res = false;
 
@@ -270,7 +270,7 @@ namespace OpenGL.Objects.Scene
 			public TraverseContext(TraverseDelegate visit, TraverseDelegate pre, TraverseDelegate post)
 			{
 				if (visit == null)
-					throw new ArgumentNullException("visit");
+					throw new ArgumentNullException(nameof(visit));
 
 				Visit = visit;
 				PreContract = pre;
@@ -319,9 +319,9 @@ namespace OpenGL.Objects.Scene
 			CheckCurrentContext(ctx);
 
 			if (ctxScene == null)
-				throw new ArgumentNullException("ctxScene");
+				throw new ArgumentNullException(nameof(ctxScene));
 			if (traverseFunc == null)
-				throw new ArgumentNullException("traverseFunc");
+				throw new ArgumentNullException(nameof(traverseFunc));
 
 			traverseFunc.PreContract?.Invoke(ctx, ctxScene, this, data);
 			try {
@@ -339,7 +339,7 @@ namespace OpenGL.Objects.Scene
 		protected internal void TraverseUpwards(TraverseBaseDelegate traverseFunc)
 		{
 			if (traverseFunc == null)
-				throw new ArgumentNullException("traverseFunc");
+				throw new ArgumentNullException(nameof(traverseFunc));
 
 			// Visit this object till to root
 			for (SceneObject graphCursor = this; graphCursor != null; graphCursor = graphCursor._ParentObject) {
@@ -386,7 +386,7 @@ namespace OpenGL.Objects.Scene
 		public virtual List<SceneObject> FindChildren(Predicate<SceneObject> match, bool recurse)
 		{
 			if (match == null)
-				throw new ArgumentNullException("match");
+				throw new ArgumentNullException(nameof(match));
 
 			List<SceneObject> foundChildren = new List<SceneObject>();
 

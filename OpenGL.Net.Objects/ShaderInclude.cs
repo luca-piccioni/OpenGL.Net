@@ -51,11 +51,11 @@ namespace OpenGL.Objects
 		public ShaderInclude(string resourcePath)
 		{
 			if (resourcePath == null)
-				throw new ArgumentNullException("path");
+				throw new ArgumentNullException(nameof(resourcePath));
 			if (resourcePath.StartsWith("/") == false)
-				throw new ArgumentException("path not rooted", "path");
+				throw new ArgumentException("path not rooted", nameof(resourcePath));
 			if (resourcePath.EndsWith("/") == true)
-				throw new ArgumentException("path has a trailing slash", "path");
+				throw new ArgumentException("path has a trailing slash", nameof(resourcePath));
 			if (resourcePath.IndexOfAny(_InvalidPathChars) != -1)
 				throw new ArgumentException(String.Format("path {0} contains invalid characters", resourcePath), "path");
 
@@ -85,7 +85,7 @@ namespace OpenGL.Objects
 			this(path)
 		{
 			if (source == null)
-				throw new ArgumentNullException("source");
+				throw new ArgumentNullException(nameof(source));
 
 			// Store include source
 			_SourceStrings = new List<string>(source);
@@ -135,7 +135,7 @@ namespace OpenGL.Objects
 		public void LoadSource(IEnumerable<string> sourceStrings)
 		{
 			if (sourceStrings == null)
-				throw new ArgumentNullException("sourceStrings");
+				throw new ArgumentNullException(nameof(sourceStrings));
 
 			_SourceStrings = new List<string>(sourceStrings);
 		}
@@ -282,7 +282,7 @@ namespace OpenGL.Objects
 		public override void Delete(GraphicsContext ctx)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			// Base implementation
 			base.Delete(ctx);

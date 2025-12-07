@@ -60,7 +60,7 @@ namespace OpenGL.Objects
 			protected Element(Objects.VertexArrays vao, PrimitiveType mode)
 			{
 				if (vao == null)
-					throw new ArgumentNullException("vao");
+					throw new ArgumentNullException(nameof(vao));
 				_VertexArrayObject = vao;
 				ElementsMode = mode;
 			}
@@ -539,13 +539,13 @@ namespace OpenGL.Objects
 				base(vao, mode)
 			{
 				if (offsets == null)
-					throw new ArgumentNullException("offset");
+					throw new ArgumentNullException(nameof(offsets));
 				if (counts == null)
-					throw new ArgumentNullException("count");
+					throw new ArgumentNullException(nameof(counts));
 				if (offsets.Length == 0)
-					throw new ArgumentException("invalid size", "offset");
+					throw new ArgumentException("invalid size", nameof(offsets));
 				if (counts.Length != offsets.Length)
-					throw new ArgumentException("no mtaching length with offsets", "count");
+					throw new ArgumentException("no mtaching length with offsets", nameof(counts));
 
 				ArrayOffsets = offsets;
 				ArrayCounts = counts;
@@ -586,9 +586,9 @@ namespace OpenGL.Objects
 			public override void Draw(GraphicsContext ctx)
 			{
 				if (ctx == null)
-					throw new ArgumentNullException("ctx");
+					throw new ArgumentNullException(nameof(ctx));
 				if (ctx.IsCurrent == false)
-					throw new ArgumentException("not current", "ctx");
+					throw new ArgumentException("not current", nameof(ctx));
 
 				Gl.MultiDrawArrays(ElementsMode, ArrayOffsets, ArrayCounts, ArrayOffsets.Length);
 			}
@@ -659,7 +659,7 @@ namespace OpenGL.Objects
 				base(vao, mode, offset, count)
 			{
 				if (indices == null)
-					throw new ArgumentNullException("indices");
+					throw new ArgumentNullException(nameof(indices));
 
 				ArrayIndices = indices;
 				ArrayIndices.IncRef();
@@ -1144,7 +1144,7 @@ namespace OpenGL.Objects
 		public int SetElementArray(PrimitiveType mode, ElementBuffer bufferObject)
 		{
 			if (bufferObject == null)
-				throw new ArgumentNullException("bufferObject");
+				throw new ArgumentNullException(nameof(bufferObject));
 
 			// Store element array
 			_Elements.Add(new IndexedElement(this, mode, bufferObject));
@@ -1171,7 +1171,7 @@ namespace OpenGL.Objects
 		public int SetElementArray(PrimitiveType mode, ElementBuffer bufferObject, uint offset, uint count)
 		{
 			if (bufferObject == null)
-				throw new ArgumentNullException("bufferObject");
+				throw new ArgumentNullException(nameof(bufferObject));
 
 			// Store element array
 			_Elements.Add(new IndexedElement(this, mode, bufferObject, offset, count));
@@ -1206,7 +1206,7 @@ namespace OpenGL.Objects
 		public IElement CombineArrayElements(IEnumerable<IElement> multiElements)
 		{
 			if (multiElements == null)
-				throw new ArgumentNullException("multiElements");
+				throw new ArgumentNullException(nameof(multiElements));
 
 			List<int> multiOffsets = new List<int>();
 			List<int> multiCounts = new List<int>();
@@ -1216,14 +1216,14 @@ namespace OpenGL.Objects
 				ArrayElement arrayElement = (ArrayElement)element;
 
 				if (multiPrimitive.HasValue && (multiPrimitive.Value != arrayElement.ElementsMode))
-					throw new ArgumentException("multi-draw with multiple element modes", "multiElements");
+					throw new ArgumentException("multi-draw with multiple element modes", nameof(multiElements));
 				multiPrimitive = arrayElement.ElementsMode;
 				multiOffsets.Add((int)arrayElement.ElementOffset);
 				multiCounts.Add((int)arrayElement.ElementCount);
 			}
 
 			if (multiPrimitive.HasValue == false)
-				throw new ArgumentException("no items", "multiElements");
+				throw new ArgumentException("no items", nameof(multiElements));
 
 			return (new MultiArrayElement(this, multiPrimitive.Value, multiOffsets.ToArray(), multiCounts.ToArray()));
 		}

@@ -61,7 +61,7 @@ namespace OpenGL.Objects
 						RestartIndexKey = 0xFFFFFFFF;
 						break;
 					default:
-						throw new ArgumentException("type not supported", "elementType");
+						throw new ArgumentException("type not supported", nameof(elementType));
 				}
 			} catch {
 				// Avoid finalizer assertion failure (don't call dispose since it's virtual)
@@ -99,7 +99,7 @@ namespace OpenGL.Objects
 						RestartIndexKey = 0xFFFFFFFF;
 						break;
 					default:
-						throw new ArgumentException("type not supported", "elementType");
+						throw new ArgumentException("type not supported", nameof(elementType));
 				}
 			} catch {
 				// Avoid finalizer assertion failure (don't call dispose since it's virtual)
@@ -140,7 +140,7 @@ namespace OpenGL.Objects
 						RestartIndexKey = 0xFFFFFFFF;
 						break;
 					default:
-						throw new ArgumentException("type not supported", "elementType");
+						throw new ArgumentException("type not supported", nameof(elementType));
 				}
 			} catch {
 				// Avoid finalizer assertion failure (don't call dispose since it's virtual)
@@ -180,7 +180,7 @@ namespace OpenGL.Objects
 						RestartIndexKey = 0xFFFFFFFF;
 						break;
 					default:
-						throw new ArgumentException("type not supported", "elementType");
+						throw new ArgumentException("type not supported", nameof(elementType));
 				}
 			} catch {
 				// Avoid finalizer assertion failure (don't call dispose since it's virtual)
@@ -220,7 +220,7 @@ namespace OpenGL.Objects
 						RestartIndexKey = 0xFFFFFFFF;
 						break;
 					default:
-						throw new ArgumentException("type not supported", "elementType");
+						throw new ArgumentException("type not supported", nameof(elementType));
 				}
 			} catch {
 				// Avoid finalizer assertion failure (don't call dispose since it's virtual)
@@ -263,7 +263,7 @@ namespace OpenGL.Objects
 						RestartIndexKey = 0xFFFFFFFF;
 						break;
 					default:
-						throw new ArgumentException("type not supported", "elementType");
+						throw new ArgumentException("type not supported", nameof(elementType));
 				}
 			} catch {
 				// Avoid finalizer assertion failure (don't call dispose since it's virtual)
@@ -685,7 +685,7 @@ namespace OpenGL.Objects
 					case TypeCode.UInt32:
 						return (0xFFFFFFFF);
 					default:
-						throw new ArgumentException("type not supported", "elementType");
+						throw new InvalidOperationException("type not supported");
 				}
 			}
 		}

@@ -470,9 +470,9 @@ namespace OpenGL.Objects
 		public ImageInfo QueryInfo(Stream stream, ImageCodecCriteria criteria)
 		{
 			if (stream == null)
-				throw new ArgumentNullException("stream");
+				throw new ArgumentNullException(nameof(stream));
 			if (criteria == null)
-				throw new ArgumentNullException("criteria");
+				throw new ArgumentNullException(nameof(criteria));
 
 			ImageInfo info = new ImageInfo();
 			
@@ -532,9 +532,9 @@ namespace OpenGL.Objects
 		public Image Load(Stream stream, ImageCodecCriteria criteria)
 		{
 			if (stream == null)
-				throw new ArgumentNullException("stream");
+				throw new ArgumentNullException(nameof(stream));
 			if (criteria == null)
-				throw new ArgumentNullException("criteria");
+				throw new ArgumentNullException(nameof(criteria));
 
 			using (System.Drawing.Bitmap iBitmap = new System.Drawing.Bitmap(stream)) {
 				Image image;
@@ -598,9 +598,9 @@ namespace OpenGL.Objects
 		internal static Image LoadFromBitmap(Bitmap bitmap, ImageCodecCriteria criteria)
 		{
 			if (bitmap == null)
-				throw new ArgumentNullException("bitmap");
+				throw new ArgumentNullException(nameof(bitmap));
 			if (criteria == null)
-				throw new ArgumentNullException("criteria");
+				throw new ArgumentNullException(nameof(criteria));
 
 			PixelLayout pType, pConvType;
 
@@ -661,9 +661,9 @@ namespace OpenGL.Objects
 		private static void LoadBitmapByLockBits(Bitmap bitmap, Image image)
 		{
 			if (bitmap == null)
-				throw new ArgumentNullException("bitmap");
+				throw new ArgumentNullException(nameof(bitmap));
 			if (image == null)
-				throw new ArgumentNullException("image");
+				throw new ArgumentNullException(nameof(image));
 
 			System.Drawing.Imaging.BitmapData iBitmapData = null;
 			IntPtr imageData = image.ImageBuffer;
@@ -720,9 +720,9 @@ namespace OpenGL.Objects
 		private static void LoadBitmapByPixel(Bitmap bitmap, Image image)
 		{
 			if (bitmap == null)
-				throw new ArgumentNullException("bitmap");
+				throw new ArgumentNullException(nameof(bitmap));
 			if (image == null)
-				throw new ArgumentNullException("image");
+				throw new ArgumentNullException(nameof(image));
 
 			// FIXME Maybe this method is no more necessary
 			throw new NotImplementedException();
@@ -763,9 +763,9 @@ namespace OpenGL.Objects
 		private static void LoadBitmapByClone(Bitmap bitmap, Image image)
 		{
 			if (bitmap == null)
-				throw new ArgumentNullException("bitmap");
+				throw new ArgumentNullException(nameof(bitmap));
 			if (image == null)
-				throw new ArgumentNullException("image");
+				throw new ArgumentNullException(nameof(image));
 
 			System.Drawing.Imaging.PixelFormat iBitmapFormat;
 			int iBitmapFlags;

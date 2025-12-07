@@ -66,7 +66,7 @@ namespace OpenGL.Objects
 			public ArrayAttachment(ArrayBufferBase arrayBuffer, uint sectionIndex)
 			{
 				if (arrayBuffer == null)
-					throw new ArgumentNullException("arrayBuffer");
+					throw new ArgumentNullException(nameof(arrayBuffer));
 
 				ArrayBuffer = arrayBuffer;
 				ArrayBuffer.IncRef();
@@ -177,7 +177,7 @@ namespace OpenGL.Objects
 		public void End(GraphicsContext ctx)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 			
 			// Start queries
 			_PrimitivesGenerated.End(ctx);
@@ -295,7 +295,7 @@ namespace OpenGL.Objects
 		protected override bool RequiresName(GraphicsContext ctx)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 			
 			return (ctx.Extensions.TransformFeedback2_ARB || Gl.CurrentExtensions.TransformFeedback_EXT);
 		}
@@ -312,7 +312,7 @@ namespace OpenGL.Objects
 		protected override uint CreateName(GraphicsContext ctx)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 			
 			uint name;
 			
@@ -337,7 +337,7 @@ namespace OpenGL.Objects
 		protected override void DeleteName(GraphicsContext ctx, uint name)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 			
 			if (ctx.Extensions.TransformFeedback2_ARB) {
 				// Delete buffer object
@@ -355,7 +355,7 @@ namespace OpenGL.Objects
 		protected override void CreateObject(GraphicsContext ctx)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 			if (_AttachedArrays.Count == 0)
 				throw new InvalidOperationException("no feedback attachments");
 			

@@ -99,7 +99,7 @@ namespace OpenGL.Objects
 		protected void RegisterPlugin(T plug)
 		{
 			if (plug == null)
-				throw new ArgumentNullException("plug");
+				throw new ArgumentNullException(nameof(plug));
 
 			if (plug.CheckAvailability() == false)
 				return;
@@ -123,7 +123,7 @@ namespace OpenGL.Objects
 		protected void UnregisterPlugin(T plug)
 		{
 			if (plug == null)
-				throw new ArgumentNullException("plug");
+				throw new ArgumentNullException(nameof(plug));
 
 			bool removed = _Plugins.Remove(plug);
 			if (removed == false)
@@ -172,7 +172,7 @@ namespace OpenGL.Objects
 		protected IEnumerable<T> BatchLoadPlugins(string pluginDir, string pluginFactoryType)
 		{
 			if (pluginDir == null)
-				throw new ArgumentNullException("pluginDir");
+				throw new ArgumentNullException(nameof(pluginDir));
 
 			List<T> pluginList = new List<T>();
 
@@ -238,7 +238,7 @@ namespace OpenGL.Objects
 		protected T LoadPlugin(string pluginPath, string pluginFactoryType)
 		{
 			if (pluginPath == null)
-				throw new ArgumentNullException("pluginPath");
+				throw new ArgumentNullException(nameof(pluginPath));
 
 			string libraryName = Path.GetFileName(pluginPath);
 			bool invalidLibrary = false;
@@ -304,9 +304,9 @@ namespace OpenGL.Objects
 		protected virtual T LoadManagedPlugin(string pluginPath, string pluginFactoryType)
 		{
 			if (pluginPath == null)
-				throw new ArgumentNullException("pluginPath");
+				throw new ArgumentNullException(nameof(pluginPath));
 			if (pluginFactoryType == null)
-				throw new ArgumentNullException("pluginFactoryType");
+				throw new ArgumentNullException(nameof(pluginFactoryType));
 
 			Resource.Log("Loading managed plugin {0} from '{1}'.", Path.GetFileName(pluginPath), pluginFactoryType);
 
@@ -347,7 +347,7 @@ namespace OpenGL.Objects
 		protected virtual T LoadUnmanagedPlugin(string pluginPath)
 		{
 			if (pluginPath == null)
-				throw new ArgumentNullException("pluginPath");
+				throw new ArgumentNullException(nameof(pluginPath));
 
 			string unmanagedPluginName = typeof(T).Name.Substring(1);
 			Type unmanagedPluginType = Type.GetType(String.Format("OpenGL.{0}", unmanagedPluginName));

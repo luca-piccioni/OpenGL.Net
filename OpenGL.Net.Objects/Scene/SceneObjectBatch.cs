@@ -31,21 +31,21 @@ namespace OpenGL.Objects.Scene
 		internal SceneObjectBatch(VertexArrays vertexArray)
 		{
 			if (vertexArray == null)
-				throw new ArgumentNullException("vertexArray");
+				throw new ArgumentNullException(nameof(vertexArray));
 			VertexArray = vertexArray;
 		}
 
 		internal SceneObjectBatch(State.GraphicsStateSet state)
 		{
 			if (state == null)
-				throw new ArgumentNullException("state");
+				throw new ArgumentNullException(nameof(state));
 			State = state;
 		}
 
 		internal SceneObjectBatch(ShaderProgram program)
 		{
 			if (program == null)
-				throw new ArgumentNullException("program");
+				throw new ArgumentNullException(nameof(program));
 			Program = program;
 		}
 
@@ -60,9 +60,9 @@ namespace OpenGL.Objects.Scene
 		public SceneObjectBatch(VertexArrays vertexArray, State.GraphicsStateSet state, ShaderProgram program)
 		{
 			if (vertexArray == null)
-				throw new ArgumentNullException("vertexArray");
+				throw new ArgumentNullException(nameof(vertexArray));
 			if (state == null)
-				throw new ArgumentNullException("state");
+				throw new ArgumentNullException(nameof(state));
 
 			Program = program;      // It may be null to support fixed pipeline
 			VertexArray = vertexArray;

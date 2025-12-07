@@ -154,7 +154,7 @@ namespace OpenGL.Objects
 			CheckCurrentContext(ctx);
 
 			if (cctx == null)
-				throw new ArgumentNullException("cctx");
+				throw new ArgumentNullException(nameof(cctx));
 			
 			// Using a deep copy of the shader compiler context, since it will be modified by this ShaderProgram
 			// instance and the attached ShaderObject instances
@@ -469,7 +469,7 @@ namespace OpenGL.Objects
 					// Assume sampler type
 					return (1);
 				case ShaderUniformType.Unknown:
-					throw new ArgumentException("invalid type", "uniformType");
+					throw new ArgumentException("invalid type", nameof(uniformType));
 			}
 		}
 
@@ -579,9 +579,9 @@ namespace OpenGL.Objects
 		public void Create(GraphicsContext ctx, ShaderCompilerContext cctx)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 			if (cctx == null)
-				throw new ArgumentNullException("cctx");
+				throw new ArgumentNullException(nameof(cctx));
 
 			// Cache compilation parameters (used by CreateObject)
 			_CompilationParams = cctx;
@@ -684,7 +684,7 @@ namespace OpenGL.Objects
 		public void SetAttributeLocation(string attributeName, int location)
 		{
 			if (attributeName == null)
-				throw new ArgumentNullException("attributeName");
+				throw new ArgumentNullException(nameof(attributeName));
 
 			AttributeMetadata attributeMetadata;
 
@@ -710,7 +710,7 @@ namespace OpenGL.Objects
 		public int GetAttributeLocation(string attributeName)
 		{
 			if (attributeName == null)
-				throw new ArgumentNullException("attributeName");
+				throw new ArgumentNullException(nameof(attributeName));
 
 			// Extract array name
 			AttributeMetadata attributeMetadata;
@@ -738,9 +738,9 @@ namespace OpenGL.Objects
 		public void SetAttributeSemantic(string attributeName, string semantic)
 		{
 			if (attributeName == null)
-				throw new ArgumentNullException("attributeName");
+				throw new ArgumentNullException(nameof(attributeName));
 			if (semantic == null)
-				throw new ArgumentNullException("semantic");
+				throw new ArgumentNullException(nameof(semantic));
 
 			AttributeMetadata attributeMetadata;
 
@@ -766,7 +766,7 @@ namespace OpenGL.Objects
 		public string GetAttributeSemantic(string attributeName)
 		{
 			if (attributeName == null)
-				throw new ArgumentNullException("attributeName");
+				throw new ArgumentNullException(nameof(attributeName));
 
 			string semantic;
 
@@ -802,7 +802,7 @@ namespace OpenGL.Objects
 		public void ResetAttributeSemantic(string attributeName)
 		{
 			if (attributeName == null)
-				throw new ArgumentNullException("attributeName");
+				throw new ArgumentNullException(nameof(attributeName));
 
 			AttributeMetadata attributeMetadata;
 
@@ -860,9 +860,9 @@ namespace OpenGL.Objects
 		public void SetUniformSemantic(string uniformName, string semantic)
 		{
 			if (uniformName == null)
-				throw new ArgumentNullException("uniformName");
+				throw new ArgumentNullException(nameof(uniformName));
 			if (semantic == null)
-				throw new ArgumentNullException("semantic");
+				throw new ArgumentNullException(nameof(semantic));
 
 			_UniformSemantic[semantic] = uniformName;
 		}
@@ -880,7 +880,7 @@ namespace OpenGL.Objects
 		public void ResetUniformSemantic(string semantic)
 		{
 			if (semantic == null)
-				throw new ArgumentNullException("semantic");
+				throw new ArgumentNullException(nameof(semantic));
 
 			_UniformSemantic.Remove(semantic);
 		}
@@ -945,7 +945,7 @@ namespace OpenGL.Objects
 		public void AddFeedbackVarying(string varying)
 		{
 			if (varying == null)
-				throw new ArgumentNullException("varying");
+				throw new ArgumentNullException(nameof(varying));
 
 			_FeedbackVaryings.Add(varying);
 		}
@@ -1022,7 +1022,7 @@ namespace OpenGL.Objects
 		public void SetFragmentLocation(string fragmentOutputName, int location)
 		{
 			if (fragmentOutputName == null)
-				throw new ArgumentNullException("fragmentOutputName");
+				throw new ArgumentNullException(nameof(fragmentOutputName));
 			if (fragmentOutputName.StartsWith("gl_"))
 				throw new ArgumentException("reserved name");
 			if (IsLinked)
@@ -1039,7 +1039,7 @@ namespace OpenGL.Objects
 		public int GetFragmentLocation(string fragOutputName)
 		{
 			if (fragOutputName == null)
-				throw new ArgumentNullException("fragOutputName");
+				throw new ArgumentNullException(nameof(fragOutputName));
 			if (fragOutputName.StartsWith("gl"))
 				throw new ArgumentException("reserved name");
 
@@ -1063,7 +1063,7 @@ namespace OpenGL.Objects
 		public void LoadBinary(GraphicsContext ctx, byte[] binary, int format)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 			if (!ctx.Extensions.GetProgramBinary_ARB)
 				throw new NotSupportedException("get_program_binary not supported");
 
@@ -1079,7 +1079,7 @@ namespace OpenGL.Objects
 		public byte[] SaveBinary(GraphicsContext ctx, out int format)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 			if (!ctx.Extensions.GetProgramBinary_ARB)
 				throw new NotSupportedException("get_program_binary not supported");
 			if (!IsLinked)

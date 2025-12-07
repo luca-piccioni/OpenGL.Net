@@ -35,7 +35,7 @@ namespace OpenGL.Objects.Scene
 		public SceneGraphContext(SceneGraph sceneGraph)
 		{
 			if (sceneGraph == null)
-				throw new ArgumentNullException("sceneGraph");
+				throw new ArgumentNullException(nameof(sceneGraph));
 
 			Scene = sceneGraph;
 			ViewFrustumPlanes = Planef.GetFrustumPlanes(Scene.ProjectionMatrix);

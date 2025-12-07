@@ -181,7 +181,7 @@ namespace OpenGL.Objects
 			public Symbol(string name, string value)
 			{
 				if (name == null)
-					throw new ArgumentNullException("name");
+					throw new ArgumentNullException(nameof(name));
 				Name = name;
 				Value = value;
 			}
@@ -206,7 +206,7 @@ namespace OpenGL.Objects
 		public void Define(string statement)
 		{
 			if (statement == null)
-				throw new ArgumentNullException("statement");
+				throw new ArgumentNullException(nameof(statement));
 
 			Match match = _DefineStatementRegex.Match(statement);
 
@@ -236,7 +236,7 @@ namespace OpenGL.Objects
 		public void Define(string symbol, string value)
 		{
 			if (symbol == null)
-				throw new ArgumentNullException("symbol");
+				throw new ArgumentNullException(nameof(symbol));
 
 			Symbol expSymbol;
 
@@ -255,7 +255,7 @@ namespace OpenGL.Objects
 		public void Undef(string symbol)
 		{
 			if (symbol == null)
-				throw new ArgumentNullException("symbol");
+				throw new ArgumentNullException(nameof(symbol));
 
 			_Symbols.Remove(symbol);
 		}
@@ -272,7 +272,7 @@ namespace OpenGL.Objects
 		public bool IsDefined(string symbol)
 		{
 			if (symbol == null)
-				throw new ArgumentNullException("symbol");
+				throw new ArgumentNullException(nameof(symbol));
 
 			return (_Symbols.ContainsKey(symbol));
 		}
@@ -287,7 +287,7 @@ namespace OpenGL.Objects
 		public string GetSymbol(string symbol)
 		{
 			if (symbol == null)
-				throw new ArgumentNullException("symbol");
+				throw new ArgumentNullException(nameof(symbol));
 
 			Symbol expSymbol;
 
@@ -321,7 +321,7 @@ namespace OpenGL.Objects
 		public bool EvaluateExpression(string statement)
 		{
 			if (statement == null)
-				throw new ArgumentNullException("statement");
+				throw new ArgumentNullException(nameof(statement));
 
 			return (Parse(statement) != 0);
 		}

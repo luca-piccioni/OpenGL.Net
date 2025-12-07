@@ -128,7 +128,7 @@ namespace OpenGL.Objects.State
 		public override void Apply(GraphicsContext ctx, ShaderProgram sProgram)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 
 			// Set polygon mode
 			Gl.PolygonMode(TriangleFace.FrontAndBack, RasterMode);
@@ -143,12 +143,12 @@ namespace OpenGL.Objects.State
 		public override void Merge(IGraphicsState state)
 		{
 			if (state == null)
-				throw new ArgumentNullException("state");
+				throw new ArgumentNullException(nameof(state));
 
 			PolygonModeState otherState = state as PolygonModeState;
 
 			if (otherState == null)
-				throw new ArgumentException("not a PolygonModeState", "state");
+				throw new ArgumentException("not a PolygonModeState", nameof(state));
 
 			_RasterMode = otherState._RasterMode;
 		}

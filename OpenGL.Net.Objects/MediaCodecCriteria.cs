@@ -57,7 +57,7 @@ namespace OpenGL.Objects
 		public void Set(string criteriaName, object value)
 		{
 			if (criteriaName == null)
-				throw new ArgumentNullException("criteriaName");
+				throw new ArgumentNullException(nameof(criteriaName));
 
 			// Define or overwrite criteria value
 			_Criteria[criteriaName] = value;
@@ -75,7 +75,7 @@ namespace OpenGL.Objects
 		public void Reset(string criteriaName)
 		{
 			if (criteriaName == null)
-				throw new ArgumentNullException("criteriaName");
+				throw new ArgumentNullException(nameof(criteriaName));
 
 			_Criteria.Remove(criteriaName);
 		}
@@ -96,7 +96,7 @@ namespace OpenGL.Objects
 		public bool IsSet(string criteriaName)
 		{
 			if (criteriaName == null)
-				throw new ArgumentNullException("criteriaName");
+				throw new ArgumentNullException(nameof(criteriaName));
 
 			return (_Criteria.ContainsKey(criteriaName));
 		}
@@ -134,9 +134,9 @@ namespace OpenGL.Objects
 		public T Get<T>(string criteriaName)
 		{
 			if (criteriaName == null)
-				throw new ArgumentNullException("criteriaName");
+				throw new ArgumentNullException(nameof(criteriaName));
 			if (!IsSet(criteriaName))
-				throw new ArgumentException("not defined", "criteriaName");
+				throw new ArgumentException("not defined", nameof(criteriaName));
 
 			object criteriaObjectValue = _Criteria[criteriaName];
 
@@ -174,14 +174,14 @@ namespace OpenGL.Objects
 			get
 			{
 				if (criteriaName == null)
-					throw new ArgumentNullException("criteriaName");
+					throw new ArgumentNullException(nameof(criteriaName));
 
 				return (_Criteria[criteriaName]);
 			}
 			set
 			{
 				if (criteriaName == null)
-					throw new ArgumentNullException("criteriaName");
+					throw new ArgumentNullException(nameof(criteriaName));
 
 				_Criteria[criteriaName] = value;
 			}

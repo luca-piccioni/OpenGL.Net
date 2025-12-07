@@ -312,7 +312,7 @@ namespace OpenGL.Objects.Scene
 		{
 			CheckCurrentContext(ctx);
 			if (shadowGraph == null)
-				throw new ArgumentNullException("shadowGraph");
+				throw new ArgumentNullException(nameof(shadowGraph));
 
 			// Compute light matrix
 			Matrix4x4f viewMatrix = Matrix4x4f.LookAtDirection(LocalModelView.Value.Position, (Vertex3f)Direction, Vertex3f.UnitY); // LocalModel.Multiply(LightMatrix.GetInverseMatrix()).GetInverseMatrix();

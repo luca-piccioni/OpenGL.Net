@@ -60,7 +60,7 @@ namespace OpenGL.Objects.Scene
 			public ObjMaterial(string name)
 			{
 				if (name == null)
-					throw new ArgumentNullException("name");
+					throw new ArgumentNullException(nameof(name));
 
 				Name = name;
 			}
@@ -283,7 +283,7 @@ namespace OpenGL.Objects.Scene
 			public ObjGeometry(ObjMaterial objMaterial)
 			{
 				if (objMaterial == null)
-					throw new ArgumentNullException("objMaterial");
+					throw new ArgumentNullException(nameof(objMaterial));
 
 				Material = objMaterial;
 			}
@@ -305,7 +305,7 @@ namespace OpenGL.Objects.Scene
 			public VertexArrays CreateArrays(ObjContext objContext)
 			{
 				if (objContext == null)
-					throw new ArgumentNullException("objContext");
+					throw new ArgumentNullException(nameof(objContext));
 
 				VertexArrays vertexArray = new VertexArrays();
 				List<ObjFaceCoord> coords = new List<ObjFaceCoord>();
@@ -433,7 +433,7 @@ namespace OpenGL.Objects.Scene
 			public ObjGroup(string name)
 			{
 				if (name == null)
-					throw new ArgumentNullException("name");
+					throw new ArgumentNullException(nameof(name));
 
 				Name = name;
 			}
@@ -479,7 +479,7 @@ namespace OpenGL.Objects.Scene
 			public ObjContext(string path)
 			{
 				if (path == null)
-					throw new ArgumentNullException("path");
+					throw new ArgumentNullException(nameof(path));
 
 				Path = path;
 			}
@@ -581,7 +581,7 @@ namespace OpenGL.Objects.Scene
 		private static SceneObject ProcessOBJ(ObjContext objContext)
 		{
 			if (objContext == null)
-				throw new ArgumentNullException("objContext");
+				throw new ArgumentNullException(nameof(objContext));
 
 			SceneObjectGeometry sceneObject = new SceneObjectGeometry();
 
@@ -607,11 +607,11 @@ namespace OpenGL.Objects.Scene
 		private static void ParseMaterialLib(ObjContext objContext, string[] token)
 		{
 			if (objContext == null)
-				throw new ArgumentNullException("objContext");
+				throw new ArgumentNullException(nameof(objContext));
 			if (token == null)
-				throw new ArgumentNullException("token");
+				throw new ArgumentNullException(nameof(token));
 			if (token.Length != 1)
-				throw new ArgumentException("array too short", "token");
+				throw new ArgumentException("array too short", nameof(token));
 
 			string directoryPath = Path.GetDirectoryName(objContext.Path);
 			string materialLibPath = Path.Combine(directoryPath, token[0]);
@@ -624,11 +624,11 @@ namespace OpenGL.Objects.Scene
 		private static void ParseVertex(ObjContext objContext, string[] token)
 		{
 			if (objContext == null)
-				throw new ArgumentNullException("objContext");
+				throw new ArgumentNullException(nameof(objContext));
 			if (token == null)
-				throw new ArgumentNullException("token");
+				throw new ArgumentNullException(nameof(token));
 			if (token.Length < 3)
-				throw new ArgumentException("array too short", "token");
+				throw new ArgumentException("array too short", nameof(token));
 
 			float[] values = Array.ConvertAll(token, delegate(string item) {
 				return (Single.Parse(item, NumberFormatInfo.InvariantInfo));
@@ -640,11 +640,11 @@ namespace OpenGL.Objects.Scene
 		private static void ParseNormal(ObjContext objContext, string[] token)
 		{
 			if (objContext == null)
-				throw new ArgumentNullException("objContext");
+				throw new ArgumentNullException(nameof(objContext));
 			if (token == null)
-				throw new ArgumentNullException("token");
+				throw new ArgumentNullException(nameof(token));
 			if (token.Length != 3)
-				throw new ArgumentException("wrong array length", "token");
+				throw new ArgumentException("wrong array length", nameof(token));
 
 			float[] values = Array.ConvertAll(token, delegate(string item) {
 				return (Single.Parse(item, NumberFormatInfo.InvariantInfo));
@@ -656,11 +656,11 @@ namespace OpenGL.Objects.Scene
 		private static void ParseTexCoord(ObjContext objContext, string[] token)
 		{
 			if (objContext == null)
-				throw new ArgumentNullException("objContext");
+				throw new ArgumentNullException(nameof(objContext));
 			if (token == null)
-				throw new ArgumentNullException("token");
+				throw new ArgumentNullException(nameof(token));
 			if (token.Length < 2)
-				throw new ArgumentException("wrong array length", "token");
+				throw new ArgumentException("wrong array length", nameof(token));
 
 			float[] values = Array.ConvertAll(token, delegate(string item) {
 				return (Single.Parse(item, NumberFormatInfo.InvariantInfo));
@@ -672,11 +672,11 @@ namespace OpenGL.Objects.Scene
 		private static void ParseFace(ObjContext objContext, string[] token)
 		{
 			if (objContext == null)
-				throw new ArgumentNullException("objContext");
+				throw new ArgumentNullException(nameof(objContext));
 			if (token == null)
-				throw new ArgumentNullException("token");
+				throw new ArgumentNullException(nameof(token));
 			if (token.Length < 3)
-				throw new ArgumentException("wrong array length", "token");
+				throw new ArgumentException("wrong array length", nameof(token));
 
 			if (objContext.Groups.Count == 0)
 				throw new InvalidOperationException("no group");
@@ -865,7 +865,7 @@ namespace OpenGL.Objects.Scene
 			// assumed to be equal to r. The r g b values are normally in the range of 0.0 to 1.0. Values outside this range increase
 			// or decrease the relectivity accordingly.
 			if (commandTokens.Length != 3)
-				throw new ArgumentException("wrong array length", "token");
+				throw new ArgumentException("wrong array length", nameof(token));
 
 			float[] rgbValues = Array.ConvertAll(commandTokens, delegate(string item) {
 				return (Single.Parse(item, NumberFormatInfo.InvariantInfo));
@@ -1041,9 +1041,9 @@ namespace OpenGL.Objects.Scene
 		public SceneObjectInfo QueryInfo(Stream stream, SceneObjectCodecCriteria criteria)
 		{
 			if (stream == null)
-				throw new ArgumentNullException("stream");
+				throw new ArgumentNullException(nameof(stream));
 			if (criteria == null)
-				throw new ArgumentNullException("criteria");
+				throw new ArgumentNullException(nameof(criteria));
 
 			SceneObjectInfo info = new SceneObjectInfo();
 			
@@ -1090,9 +1090,9 @@ namespace OpenGL.Objects.Scene
 		public SceneObject Load(Stream stream, SceneObjectCodecCriteria criteria)
 		{
 			if (stream == null)
-				throw new ArgumentNullException("stream");
+				throw new ArgumentNullException(nameof(stream));
 			if (criteria == null)
-				throw new ArgumentNullException("criteria");
+				throw new ArgumentNullException(nameof(criteria));
 
 			// Load OBJ information
 			ObjContext objContext = LoadOBJ(stream, criteria);

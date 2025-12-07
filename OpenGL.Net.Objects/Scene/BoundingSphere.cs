@@ -40,7 +40,7 @@ namespace OpenGL.Objects.Scene
 		public BoundingSphere(float radius)
 		{
 			if (radius < 0.0f)
-				throw new ArgumentException("it must be positive", "radius");
+				throw new ArgumentException("it must be positive", nameof(radius));
 
 			_Radius = radius;
 		}

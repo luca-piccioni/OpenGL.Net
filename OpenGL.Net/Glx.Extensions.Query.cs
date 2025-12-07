@@ -41,7 +41,7 @@ namespace OpenGL
 			internal void Query(DeviceContextGLX deviceContext)
 			{
 				if (deviceContext == null)
-					throw new ArgumentNullException("deviceContext");
+					throw new ArgumentNullException(nameof(deviceContext));
 
 				LogComment("Query GLX extensions.");
 

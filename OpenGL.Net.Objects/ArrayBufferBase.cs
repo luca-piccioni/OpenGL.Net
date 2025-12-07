@@ -310,7 +310,7 @@ namespace OpenGL.Objects
 		public virtual void Create(uint itemsCount)
 		{
 			if (itemsCount == 0)
-				throw new ArgumentException("invalid", "itemsCount");
+				throw new ArgumentException("invalid", nameof(itemsCount));
 
 			// Allocate buffer
 			CreateCpuBuffer(itemsCount * ItemSize);
@@ -342,7 +342,7 @@ namespace OpenGL.Objects
 			CheckCurrentContext(ctx);
 
 			if (itemsCount == 0)
-				throw new ArgumentException("invalid", "itemsCount");
+				throw new ArgumentException("invalid", nameof(itemsCount));
 
 			// Object already existing: resize client buffer, if any
 			if (CpuBufferAddress != IntPtr.Zero)
@@ -389,7 +389,7 @@ namespace OpenGL.Objects
 		public virtual void Create(Array array, uint offset, uint count)
 		{
 			if (count == 0)
-				throw new ArgumentException("zero not allowed", "count");
+				throw new ArgumentException("zero not allowed", nameof(count));
 
 			// Array element item size cannot exceed ItemSize
 			uint arrayItemSize = CheckArrayItemSize(array);
@@ -503,7 +503,7 @@ namespace OpenGL.Objects
 			CheckCurrentContext(ctx);
 
 			if (count == 0)
-				throw new ArgumentException("zero not allowed", "count");
+				throw new ArgumentException("zero not allowed", nameof(count));
 
 			// Array element item size cannot exceed ItemSize
 			uint arrayItemSize = CheckArrayItemSize(array);
@@ -637,18 +637,18 @@ namespace OpenGL.Objects
 		private uint CheckArrayItemSize(Array array)
 		{
 			if (array == null)
-				throw new ArgumentNullException("array");
+				throw new ArgumentNullException(nameof(array));
 			if (array.Rank != 1)
 				throw new ArgumentException(String.Format("copying from array of rank {0} not supported", array.Rank));
 
 			Type arrayElementType = array.GetType().GetElementType();
 			if (arrayElementType == null || !arrayElementType.IsValueType)
-				throw new ArgumentException("invalid array element type", "array");
+				throw new ArgumentException("invalid array element type", nameof(array));
 
 			// Array element item size cannot exceed ItemSize
 			uint arrayItemSize = (uint)Marshal.SizeOf(arrayElementType);
 			if (arrayItemSize > ItemSize)
-				throw new ArgumentException("array element type too big", "array");
+				throw new ArgumentException("array element type too big", nameof(array));
 
 			return (arrayItemSize);
 		}
@@ -691,7 +691,7 @@ namespace OpenGL.Objects
 			CheckThisExistence(ctx);
 
 			if (count == 0)
-				throw new ArgumentException("zero not allowed", "count");
+				throw new ArgumentException("zero not allowed", nameof(count));
 			if (IsMapped)
 				throw new InvalidOperationException("mapped");
 
@@ -879,15 +879,15 @@ namespace OpenGL.Objects
 			uint srcIndex, uint srcCount)
 		{
 			if (dst == IntPtr.Zero)
-				throw new ArgumentException("invalid pointer", "dst");
+				throw new ArgumentException("invalid pointer", nameof(dst));
 			if (src == null)
-				throw new ArgumentNullException("src");
+				throw new ArgumentNullException(nameof(src));
 			if (srcItemSize > dstItemSize)
-				throw new ArgumentException("too large", "srcItemSize");
+				throw new ArgumentException("too large", nameof(srcItemSize));
 			if (src.Length < srcCount)
-				throw new ArgumentException("exceed array length", "srcCount");
+				throw new ArgumentException("exceed array length", nameof(srcCount));
 			if (src.Length < srcIndex + srcCount)
-				throw new ArgumentException("exceed array length", "srcOffset");
+				throw new ArgumentException("exceed array length", nameof(srcOffset));
 
 			if (srcStride == IntPtr.Zero)
 				srcStride = new IntPtr(srcItemSize);
@@ -1026,15 +1026,15 @@ namespace OpenGL.Objects
 			uint dstIndex, uint dstCount)
 		{
 			if (dst == null)
-				throw new ArgumentNullException("dst");
+				throw new ArgumentNullException(nameof(dst));
 			if (src == IntPtr.Zero)
-				throw new ArgumentException("invalid pointer", "src");
+				throw new ArgumentException("invalid pointer", nameof(src));
 			if (srcItemSize > dstItemSize)
-				throw new ArgumentException("too large", "dstItemSize");
+				throw new ArgumentException("too large", nameof(dstItemSize));
 			if (dst.Length < dstCount)
-				throw new ArgumentException("exceed array length", "dstCount");
+				throw new ArgumentException("exceed array length", nameof(dstCount));
 			if (dst.Length < dstIndex + dstCount)
-				throw new ArgumentException("exceed array length", "dstOffset");
+				throw new ArgumentException("exceed array length", nameof(dstOffset));
 
 			if (srcStride == IntPtr.Zero)
 				srcStride = new IntPtr(srcItemSize);

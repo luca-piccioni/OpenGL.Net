@@ -55,7 +55,7 @@ namespace OpenGL
 			public static Limits Query(KhronosVersion version, Extensions glExtensions)
 			{
 				if (glExtensions == null)
-					throw new ArgumentNullException("glExtensions");
+					throw new ArgumentNullException(nameof(glExtensions));
 
 				LogComment("Query OpenGL implementation limits.");
 

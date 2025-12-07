@@ -97,7 +97,7 @@ namespace OpenGL.Objects.State
 		public void Push(GraphicsStateSet mergedState)
 		{
 			if (mergedState == null)
-				throw new ArgumentNullException("mergedState");
+				throw new ArgumentNullException(nameof(mergedState));
 
 			// Push the current state onto the stack
 			Push();

@@ -53,7 +53,7 @@ namespace OpenGL.Objects.Scene
 		public void ManageObject(GraphicsContext ctx, SceneGraphContext ctxScene, SceneObject sceneObject)
 		{
 			if (sceneObject == null)
-				throw new ArgumentNullException("sceneObject");
+				throw new ArgumentNullException(nameof(sceneObject));
 
 			if (sceneObject.ObjectType == SceneObjectLightZone.ClassObjectType)
 				ManageObject(ctx, ctxScene, (SceneObjectLightZone)sceneObject);
@@ -64,7 +64,7 @@ namespace OpenGL.Objects.Scene
 		public void PostObject(GraphicsContext ctx, SceneGraphContext ctxScene, SceneObject sceneObject)
 		{
 			if (sceneObject == null)
-				throw new ArgumentNullException("sceneObject");
+				throw new ArgumentNullException(nameof(sceneObject));
 
 			if (sceneObject.ObjectType == SceneObjectLightZone.ClassObjectType)
 				PostObject(ctx, ctxScene, (SceneObjectLightZone)sceneObject);
@@ -73,7 +73,7 @@ namespace OpenGL.Objects.Scene
 		private void ManageObject(GraphicsContext ctx, SceneGraphContext ctxScene, SceneObjectLightZone sceneObject)
 		{
 			if (sceneObject == null)
-				throw new ArgumentNullException("sceneObject");
+				throw new ArgumentNullException(nameof(sceneObject));
 
 			if (_LightState.Count == 1)
 				ShadowLights.Clear();
@@ -85,7 +85,7 @@ namespace OpenGL.Objects.Scene
 		private void PostObject(GraphicsContext ctx, SceneGraphContext ctxScene, SceneObjectLightZone sceneObject)
 		{
 			if (sceneObject == null)
-				throw new ArgumentNullException("sceneObject");
+				throw new ArgumentNullException(nameof(sceneObject));
 
 			_LightState.Pop();
 			
@@ -95,7 +95,7 @@ namespace OpenGL.Objects.Scene
 		private void ManageObject(GraphicsContext ctx, SceneGraphContext ctxScene, SceneObjectLight sceneObject)
 		{
 			if (sceneObject == null)
-				throw new ArgumentNullException("sceneObject");
+				throw new ArgumentNullException(nameof(sceneObject));
 
 			State.LightsState.Light lightObject = sceneObject.ToLight(ctx, ctxScene);
 			
@@ -120,7 +120,7 @@ namespace OpenGL.Objects.Scene
 		public void GenerateShadowMaps(GraphicsContext ctx, SceneGraph sceneGraph)
 		{
 			if (sceneGraph == null)
-				throw new ArgumentNullException("sceneGraph");
+				throw new ArgumentNullException(nameof(sceneGraph));
 
 			// Push current viewport to be restore later
 			State.ViewportState currentViewport = new State.ViewportState(ctx);

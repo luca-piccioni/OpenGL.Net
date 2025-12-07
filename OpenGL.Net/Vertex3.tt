@@ -566,7 +566,7 @@ namespace OpenGL
 		public static <#= className #> Min(params <#= className #>[] v)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 
 			<#= baseType #> x = (<#= baseType #>)<#= baseType #>.MaxValue, y = (<#= baseType #>)<#= baseType #>.MaxValue, z = (<#= baseType #>)<#= baseType #>.MaxValue;
 
@@ -594,7 +594,7 @@ namespace OpenGL
 		public unsafe static <#= className #> Min(<#= className #>* v, uint count)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 
 			<#= baseType #> x = (<#= baseType #>)<#= baseType #>.MaxValue, y = (<#= baseType #>)<#= baseType #>.MaxValue, z = (<#= baseType #>)<#= baseType #>.MaxValue;
 
@@ -619,7 +619,7 @@ namespace OpenGL
 		public static <#= className #> Max(params <#= className #>[] v)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			<#= baseType #> x = (<#= baseType #>)<#= baseType #>.MinValue, y = (<#= baseType #>)<#= baseType #>.MinValue, z = (<#= baseType #>)<#= baseType #>.MinValue;
 
@@ -647,7 +647,7 @@ namespace OpenGL
 		public unsafe static <#= className #> Max(<#= className #>* v, uint count)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			<#= baseType #> x = (<#= baseType #>)<#= baseType #>.MinValue, y = (<#= baseType #>)<#= baseType #>.MinValue, z = (<#= baseType #>)<#= baseType #>.MinValue;
 
@@ -675,7 +675,7 @@ namespace OpenGL
 		public static void MinMax(<#= className #>[] v, out <#= className #> min, out <#= className #> max)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			<#= baseType #> minx = (<#= baseType #>)<#= baseType #>.MaxValue, miny = (<#= baseType #>)<#= baseType #>.MaxValue, minz = (<#= baseType #>)<#= baseType #>.MaxValue;
 			<#= baseType #> maxx = (<#= baseType #>)<#= baseType #>.MinValue, maxy = (<#= baseType #>)<#= baseType #>.MinValue, maxz = (<#= baseType #>)<#= baseType #>.MinValue;
@@ -707,7 +707,7 @@ namespace OpenGL
 		public unsafe static void MinMax(<#= className #>* v, uint count, out <#= className #> min, out <#= className #> max)
 		{
 			if (v == null)
-				throw new ArgumentNullException("v");
+				throw new ArgumentNullException(nameof(v));
 			
 			<#= baseType #> minx = (<#= baseType #>)<#= baseType #>.MaxValue, miny = (<#= baseType #>)<#= baseType #>.MaxValue, minz = (<#= baseType #>)<#= baseType #>.MaxValue;
 			<#= baseType #> maxx = (<#= baseType #>)<#= baseType #>.MinValue, maxy = (<#= baseType #>)<#= baseType #>.MinValue, maxz = (<#= baseType #>)<#= baseType #>.MinValue;

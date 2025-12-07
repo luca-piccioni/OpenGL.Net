@@ -363,9 +363,9 @@ namespace OpenGL.Objects
 		void IShaderUniformContainer.SetUniform(GraphicsContext ctx, string uniformName, object value)
 		{
 			if (ctx == null)
-				throw new ArgumentNullException("ctx");
+				throw new ArgumentNullException(nameof(ctx));
 			if (value == null)
-				throw new ArgumentNullException("value");
+				throw new ArgumentNullException(nameof(value));
 
 			Type valueType = value.GetType();
 

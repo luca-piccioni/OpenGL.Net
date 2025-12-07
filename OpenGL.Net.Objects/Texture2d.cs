@@ -278,7 +278,7 @@ namespace OpenGL.Objects
 				base(texture, target, 0, pixelFormat, width, height)
 			{
 				if (levels == 0)
-					throw new ArgumentException("invalid value", "levels");
+					throw new ArgumentException("invalid value", nameof(levels));
 				_MipmapLevels = levels;
 			}
 
@@ -904,7 +904,7 @@ namespace OpenGL.Objects
 			public ImageTechnique(Texture2d texture, TextureTarget target, uint level, PixelLayout pixelFormat, Image image)
 			{
 				if (image == null)
-					throw new ArgumentNullException("image");
+					throw new ArgumentNullException(nameof(image));
 
 				_Texture2d = texture;
 				_Target = target;
@@ -1005,7 +1005,7 @@ namespace OpenGL.Objects
 		public void Create(Image image)
 		{
 			if (image == null)
-				throw new ArgumentNullException("image");
+				throw new ArgumentNullException(nameof(image));
 
 			// Define storage, the uploads image
 			Create(image.Width, image.Height, image.PixelLayout);
@@ -1058,7 +1058,7 @@ namespace OpenGL.Objects
 		public void Create(Bitmap bitmap)
 		{
 			if (bitmap == null)
-				throw new ArgumentNullException("bitmap");
+				throw new ArgumentNullException(nameof(bitmap));
 
 			// Create image from bitmap
 			Image image = CoreImagingImageCodecPlugin.LoadFromBitmap(bitmap, new ImageCodecCriteria());
@@ -1113,7 +1113,7 @@ namespace OpenGL.Objects
 		public void Create(Image image, uint level)
 		{
 			if (image == null)
-				throw new ArgumentNullException("image");
+				throw new ArgumentNullException(nameof(image));
 
 			// Setup technique for creation
 			SetTechnique(new ImageTechnique(this, TextureTarget, level, image.PixelLayout, image));
@@ -1138,7 +1138,7 @@ namespace OpenGL.Objects
 		public void LoadAsync(string path)
 		{
 			if (path == null)
-				throw new ArgumentNullException("path");
+				throw new ArgumentNullException(nameof(path));
 
 			CancelLoadAsync();
 
