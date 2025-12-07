@@ -1,4 +1,4 @@
-[![CI Build](https://github.com/luca-piccioni/OpenGL.Net/workflows/CI%20Build/badge.svg)](https://github.com/luca-piccioni/OpenGL.Net/actions) [![nuget](https://img.shields.io/nuget/v/OpenGL.Net.svg?colorB=22CC22)](https://www.nuget.org/packages/OpenGL.Net/) [![NuGet](https://img.shields.io/nuget/dt/OpenGL.Net.svg?colorB=22CC22&label=nuget%20downloads)](https://www.nuget.org/packages/OpenGL.Net/) 
+[![CI Build](https://github.com/luca-piccioni/OpenGL.Net/workflows/CI%20Build/badge.svg)](https://github.com/luca-piccioni/OpenGL.Net/actions) [![codecov](https://codecov.io/gh/luca-piccioni/OpenGL.Net/graph/badge.svg?token=eIRrFCqFPo)](https://codecov.io/gh/luca-piccioni/OpenGL.Net) [![nuget](https://img.shields.io/nuget/v/OpenGL.Net.svg?colorB=22CC22)](https://www.nuget.org/packages/OpenGL.Net/) [![NuGet](https://img.shields.io/nuget/dt/OpenGL.Net.svg?colorB=22CC22&label=nuget%20downloads)](https://www.nuget.org/packages/OpenGL.Net/) 
 
 [![wiki](https://img.shields.io/badge/browse-the%20wiki-blue.svg)](https://github.com/luca-piccioni/OpenGL.Net/wiki)
 
