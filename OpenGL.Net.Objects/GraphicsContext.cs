@@ -379,7 +379,6 @@ namespace OpenGL.Objects
 						throw new NotSupportedException(String.Format("backend API {0} not supported", deviceContext.Version.Api));
 				}
 
-				Debug.Assert(_RenderContext != IntPtr.Zero);
 				if (_RenderContext == IntPtr.Zero)
 					throw new InvalidOperationException(String.Format("unable to create context {0}", version));
 
@@ -530,12 +529,12 @@ namespace OpenGL.Objects
 				contextAttributes.Add(Gl.NONE);
 
 				// Create rendering context
-				return (_DeviceContext.CreateContextAttrib(sharedContext, contextAttributes.ToArray()));
+				return _DeviceContext.CreateContextAttrib(sharedContext, contextAttributes.ToArray());
 			} else {
-				return (_DeviceContext.CreateContext(sharedContext));
+				return _DeviceContext.CreateContext(sharedContext);
 			}
 #else
-			return (_DeviceContext.CreateContext(sharedContext));
+			return _DeviceContext.CreateContext(sharedContext);
 #endif
 		}
 
@@ -599,19 +598,21 @@ namespace OpenGL.Objects
 			Resource.Log("Running on OpenGL {0}", _Version);
 
 			// Get the current OpenGL Shading Language implementation version
-			switch (_Version.Api) {
-				case KhronosVersion.ApiGl:
-					_ShadingVersion = KhronosVersion.Parse(Gl.GetString(StringName.ShadingLanguageVersion), KhronosVersion.ApiGlsl);
-					break;
-				case KhronosVersion.ApiGles2:
-					_ShadingVersion = KhronosVersion.Parse(Gl.GetString(StringName.ShadingLanguageVersion), KhronosVersion.ApiEssl);
-					break;
-				default:
-					// No Shading Language support
-					break;
-			}
+			if (Version >= Gl.Version_200 || Extensions.ShadingLanguage100_ARB) {
+                switch (_Version.Api) {
+					case KhronosVersion.ApiGl:
+						_ShadingVersion = KhronosVersion.Parse(Gl.GetString(StringName.ShadingLanguageVersion), KhronosVersion.ApiGlsl);
+						break;
+					case KhronosVersion.ApiGles2:
+						_ShadingVersion = KhronosVersion.Parse(Gl.GetString(StringName.ShadingLanguageVersion), KhronosVersion.ApiEssl);
+						break;
+					default:
+						// No Shading Language support
+						break;
+				}
 
-			Resource.Log("  Shading Language: {0}", _ShadingVersion.ToString() ?? "None");
+				Resource.Log("  Shading Language: {0}", _ShadingVersion.ToString() ?? "None");
+            }
 
 			// Reserved object name space
 			InitializeNamespace();
@@ -769,6 +770,9 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// The OpenGL Shading Language version implemented by this GraphicsContext.
 		/// </summary>
+		/// <remarks>
+		/// It is null if the OpenGL Shading Language is not supported by this GraphicsContext.
+		/// </remarks>
 		public KhronosVersion ShadingVersion { get { return _ShadingVersion; } }
 
 		/// <summary>
@@ -2518,8 +2522,6 @@ namespace OpenGL.Objects
 				}
 				TerminateNamespace();
 
-				if (_DeviceContextThreadId != Thread.CurrentThread.ManagedThreadId)
-					throw new InvalidOperationException("disposing on a different thread context");
 				_DeviceContext.DecRef();
 				_DeviceContext = null;
 

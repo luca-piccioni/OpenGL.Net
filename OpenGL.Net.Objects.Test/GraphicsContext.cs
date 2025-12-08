@@ -37,6 +37,9 @@ namespace OpenGL.Objects.Test
 				// Create a context manually
 				IntPtr glContext = deviceContext.CreateContext(IntPtr.Zero);
 
+				if (glContext == IntPtr.Zero)
+					Assert.Inconclusive("OpenGL not supported");
+
 				// Create a GraphicsContext on glContext
 				GraphicsContext graphicsContext = null;
 

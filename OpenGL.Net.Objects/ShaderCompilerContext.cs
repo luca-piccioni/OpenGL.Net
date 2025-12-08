@@ -76,6 +76,9 @@ namespace OpenGL.Objects
 		/// </param>
 		public ShaderCompilerContext(KhronosVersion version, params string[] defines)
 		{
+			if (version == null)
+				throw new ArgumentNullException(nameof(version));
+			
 			_ShaderVersion = version;
 
 			if (defines != null) {

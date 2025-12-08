@@ -35,6 +35,9 @@ namespace OpenGL.Objects.Test
 		[TestCaseSource(nameof(ProgramIds))]
 		public void ShadersLibrary_CompileProgram(string programId)
 		{
+			if (Gl.CurrentShadingVersion == null)
+				Assert.Inconclusive("GLSL not supported");
+				
 			ShadersLibrary.Program shaderProgramInfo = ShadersLibrary.Instance.GetProgram(programId);
 			Assert.IsNotNull(shaderProgramInfo);
 

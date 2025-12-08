@@ -32,6 +32,9 @@ namespace OpenGL.Objects.Test
 		[Test(Description = "Test ComputeProgram.SetUniformImage"), Category("Objects")]
 		public void ComputeProgram_SetUniformImage()
 		{
+			if (Gl.CurrentShadingVersion == null)
+				Assert.Inconclusive("GLSL not supported");
+				
 			const uint Size = 1024;
 
 			using (ShaderProgram computeProgram = new ShaderProgram("OpenGL.Objects.Test.ComputeProgram"))

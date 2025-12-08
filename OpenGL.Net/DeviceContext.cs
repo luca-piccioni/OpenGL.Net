@@ -75,7 +75,10 @@ namespace OpenGL
 					case Platform.Id.WindowsNT:
 						return new DeviceContextWGL.NativeWindow();
 					case Platform.Id.Linux:
-						return new DeviceContextGLX.NativeWindow();
+						if (Glx.IsAvailable)
+							return new DeviceContextGLX.NativeWindow();
+						else
+							throw new NotSupportedException("platform Linux not supported (missing libX11?)");
 					case Platform.Id.MacOS:
 						if (Glx.IsRequired)
 							return new DeviceContextGLX.NativeWindow();

@@ -34,6 +34,9 @@ namespace OpenGL.Objects.Test
 		[Test]
 		public void ShaderProgram_CreateSimple()
 		{
+			if (Gl.CurrentShadingVersion == null)
+				Assert.Inconclusive("GLSL not supported");
+			
 			using (ShaderProgram shaderProgram = new ShaderProgram("OpenGL.Objects.Test.ShaderProgram.Link"))
 			using (Shader vertexShader = new Shader(ShaderType.VertexShader))
 			using (Shader fragmentShader = new Shader(ShaderType.FragmentShader))

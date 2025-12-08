@@ -299,13 +299,13 @@ namespace Khronos
 
 			public const int RTLD_NOLOAD = 4;
 
-		[DllImport("libc")]
+		[DllImport("libdl.so.2")]
 		public static extern IntPtr dlopen(string filename, int flags);
 
-		[DllImport("libc")]
+		[DllImport("libdl.so.2")]
 		public static extern IntPtr dlsym(IntPtr handle, string symbol);
-			[DllImport("libc")]
-			public static extern string dlerror();
+		[DllImport("libdl.so.2")]
+		public static extern string dlerror();
 		}
 
 		#endregion

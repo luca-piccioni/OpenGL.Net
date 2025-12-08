@@ -36,6 +36,9 @@ namespace OpenGL.Objects.Test
 		[TestCaseSource("TestStatement_Conditional_Source")]
 		public void TestStatement_Conditional(string[] sourceLines)
 		{
+			if (Gl.CurrentShadingVersion == null)
+				Assert.Inconclusive("GLSL not supported");
+
 			using (ShaderIncludeLibrary shaderIncludeLibrary = new ShaderIncludeLibrary()) {
 				List<string> ppSource = ShaderPreprocessor.Process(new List<string>(sourceLines), new ShaderCompilerContext(), shaderIncludeLibrary, ShaderPreprocessor.Stage.All);
 

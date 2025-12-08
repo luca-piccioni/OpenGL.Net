@@ -359,7 +359,7 @@ namespace OpenGL
 		/// </summary>
 		public override IEnumerable<string> AvailableAPIs
 		{
-			get { return (GetAvailableApis()); }
+			get { return GetAvailableApis(); }
 		}
 
 		/// <summary>
@@ -377,7 +377,7 @@ namespace OpenGL
 				deviceApi.Add(KhronosVersion.ApiGles2);
 			}
 
-			return (deviceApi.ToArray());
+			return deviceApi.ToArray();
 		}
 
 		/// <summary>
@@ -403,10 +403,10 @@ namespace OpenGL
 					Glx.XVisualInfo xVisualInfo = _XVisualInfo != null ? _XVisualInfo : GetVisualInfoFromXWindow(_WindowHandle);
 
 					Debug.Assert(xVisualInfo != null, "SetPixelFormat not executed or undetected XVisualInfo");
-					return (Glx.CreateContext(Display, xVisualInfo, sharedContext, true));
+					return Glx.CreateContext(Display, xVisualInfo, sharedContext, true);
 				}
 			} else
-				return (CreateContextAttrib(sharedContext, new int[] { Gl.NONE }));
+				return CreateContextAttrib(sharedContext, new int[] { Gl.NONE });
 		}
 
 		/// <summary>
@@ -566,13 +566,13 @@ namespace OpenGL
 				adulteredAttribs.Add(Gl.NONE);
 
 				using (Glx.XLock displayLock = new Glx.XLock(Display)) {
-					Debug.Assert(_FBConfig != IntPtr.Zero, "SetPixelFormat not executed");
-					return (Glx.CreateContextAttribsARB(Display, _FBConfig, sharedContext, true, adulteredAttribs.ToArray()));
+					// Debug.Assert(_FBConfig != IntPtr.Zero, "SetPixelFormat not executed");
+					return Glx.CreateContextAttribsARB(Display, _FBConfig, sharedContext, true, adulteredAttribs.ToArray());
 				}
 			} else {
 				using (Glx.XLock displayLock = new Glx.XLock(Display)) {
-					Debug.Assert(_FBConfig != IntPtr.Zero, "SetPixelFormat not executed");
-					return (Glx.CreateContextAttribsARB(Display, _FBConfig, sharedContext, true, attribsList));
+					// Debug.Assert(_FBConfig != IntPtr.Zero, "SetPixelFormat not executed");
+					return Glx.CreateContextAttribsARB(Display, _FBConfig, sharedContext, true, attribsList);
 				}
 			}
 		}

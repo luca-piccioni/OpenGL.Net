@@ -5,7 +5,7 @@
             "label": "Build",
             "type": "shell",
             "group": "build",
-            "command": "dotnet build",
+            "command": "dotnet build -c ${input:buildConfiguration}",
             "presentation": {
                 "echo": true,
                 "reveal": "always",
@@ -19,7 +19,7 @@
             "label": "Test",
             "type": "shell",
             "group": "build",
-            "command": "dotnet test",
+            "command": "dotnet test -c ${input:buildConfiguration}",
             "presentation": {
                 "echo": true,
                 "reveal": "always",
@@ -32,9 +32,9 @@
         {
             "label": "Generate APIs",
             "type": "shell",
-            "command": "${workspaceFolder}/BindingsGen/bin/Release/BindingsGen.exe",
+            "command": "${workspaceFolder}/BindingsGen/bin/${input:buildConfiguration}/net48/BindingsGen.exe",
             "options": {
-                "cwd": "${workspaceFolder}/BindingsGen/bin/Release/"
+                "cwd": "${workspaceFolder}/BindingsGen/bin/${input:buildConfiguration}/net48/"
             },
             "group": "build",
             "dependsOn": [
