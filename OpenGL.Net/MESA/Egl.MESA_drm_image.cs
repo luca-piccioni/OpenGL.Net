@@ -110,7 +110,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -148,7 +148,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		internal static unsafe partial class Delegates

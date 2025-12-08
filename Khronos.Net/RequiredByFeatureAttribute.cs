@@ -90,7 +90,7 @@ namespace Khronos
 				throw new ArgumentNullException(nameof(api));
 
 			if (FeatureVersion != null)
-				return (false);
+				return false;
 
 			return (Regex.IsMatch(api, Api));
 		}
@@ -121,12 +121,12 @@ namespace Khronos
 				// API must match
 				// Note: no need or regex, since Api cannot be a pattern
 				if (version.Api != FeatureVersion.Api)
-					return (false);
+					return false;
 				// Profile must match, if defined
 				if (Profile != null && version.Profile != null && Regex.IsMatch(version.Profile, Profile) == false)
-					return (false);
+					return false;
 				// API version must be greater than or equal to the required version
-				return (version >= FeatureVersion);
+				return version >= FeatureVersion;
 			}
 
 			// No API version: indeed it is an API extension
@@ -134,11 +134,11 @@ namespace Khronos
 				// Check compatible API
 				// Note: regex is required since extensions can be implemented by multiple APIs
 				if (Regex.IsMatch(version.Api, Api) == false)
-					return (false);
+					return false;
 				// Last chance: extension name
 				return (extensions.HasExtensions(FeatureName));
 			} else
-				return (false);
+				return false;
 		}
 
 		#endregion

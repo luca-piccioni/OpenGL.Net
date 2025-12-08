@@ -55,7 +55,7 @@ namespace OpenGL
 			LogCommand("glCreateProgressFenceNVX", retValue			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>

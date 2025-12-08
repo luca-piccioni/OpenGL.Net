@@ -104,7 +104,7 @@ namespace OpenGL
 				LogCommand("glCreateSemaphoresNV", null, 1, "{ " + retValue + " }"				);
 			}
 			DebugCheckErrors(null);
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>

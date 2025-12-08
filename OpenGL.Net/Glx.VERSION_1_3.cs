@@ -616,7 +616,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(null);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -646,7 +646,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(null);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -680,7 +680,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(null);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -713,7 +713,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -746,7 +746,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -768,7 +768,7 @@ namespace OpenGL
 			LogCommand("glXGetVisualFromFBConfig", retValue, dpy, config			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -801,7 +801,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -852,7 +852,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -901,7 +901,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -980,7 +980,7 @@ namespace OpenGL
 			LogCommand("glXCreateNewContext", retValue, dpy, config, render_type, share_list, direct			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -1008,7 +1008,7 @@ namespace OpenGL
 			LogCommand("glXMakeContextCurrent", retValue, dpy, draw, read, ctx			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -1024,7 +1024,7 @@ namespace OpenGL
 			LogCommand("glXGetCurrentReadDrawable", retValue			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -1057,7 +1057,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>

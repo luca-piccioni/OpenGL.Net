@@ -61,7 +61,7 @@ namespace OpenGL
 			LogCommand("wglDelayBeforeSwapNV", retValue, hDC, seconds			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		internal static unsafe partial class Delegates

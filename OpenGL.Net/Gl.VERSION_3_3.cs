@@ -230,7 +230,7 @@ namespace OpenGL
 			LogCommand("glGetFragDataIndex", retValue, program, name			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -273,7 +273,7 @@ namespace OpenGL
 				LogCommand("glGenSamplers", null, 1, "{ " + retValue + " }"				);
 			}
 			DebugCheckErrors(null);
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -320,7 +320,7 @@ namespace OpenGL
 			LogCommand("glIsSampler", retValue, sampler			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>

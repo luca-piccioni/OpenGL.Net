@@ -116,7 +116,7 @@ namespace OpenGL
 			v.x = (byte)(v1.x + v2.x);
 			v.y = (byte)(v1.y + v2.y);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -138,7 +138,7 @@ namespace OpenGL
 			v.x = (byte)(v1.x - v2.x);
 			v.y = (byte)(v1.y - v2.y);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -160,7 +160,7 @@ namespace OpenGL
 			v.x = (byte)(v1.x * scalar);
 			v.y = (byte)(v1.y * scalar);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -182,7 +182,7 @@ namespace OpenGL
 			v.x = (byte)(v1.x * scalar);
 			v.y = (byte)(v1.y * scalar);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -204,7 +204,7 @@ namespace OpenGL
 			v.x = (byte)(v1.x / scalar);
 			v.y = (byte)(v1.y / scalar);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -226,7 +226,7 @@ namespace OpenGL
 			v.x = (byte)(v1.x / scalar);
 			v.y = (byte)(v1.y / scalar);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -267,7 +267,7 @@ namespace OpenGL
 			v.x = (byte)(v1.x * scalar);
 			v.y = (byte)(v1.y * scalar);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -289,7 +289,7 @@ namespace OpenGL
 			v.x = (byte)(v1.x / scalar);
 			v.y = (byte)(v1.y / scalar);
 
-			return (v);
+			return v;
 		}
 
 
@@ -333,7 +333,7 @@ namespace OpenGL
 		/// </returns>
 		public static bool operator <(Vertex2ub v1, Vertex2ub v2)
 		{
-			return (v1.x < v2.x && v1.y < v2.y);
+			return v1.x < v2.x && v1.y < v2.y;
 		}
 
 		/// <summary>
@@ -346,7 +346,7 @@ namespace OpenGL
 		/// </returns>
 		public static bool operator >(Vertex2ub v1, Vertex2ub v2)
 		{
-			return (v1.x > v2.x && v1.y > v2.y);
+			return v1.x > v2.x && v1.y > v2.y;
 		}
 
 		/// <summary>
@@ -359,7 +359,7 @@ namespace OpenGL
 		/// </returns>
 		public static bool operator <=(Vertex2ub v1, Vertex2ub v2)
 		{
-			return (v1.x <= v2.x && v1.y <= v2.y);
+			return v1.x <= v2.x && v1.y <= v2.y;
 		}
 
 		/// <summary>
@@ -372,7 +372,7 @@ namespace OpenGL
 		/// </returns>
 		public static bool operator >=(Vertex2ub v1, Vertex2ub v2)
 		{
-			return (v1.x >= v2.x && v1.y >= v2.y);
+			return v1.x >= v2.x && v1.y >= v2.y;
 		}
 
 		#endregion
@@ -421,7 +421,7 @@ namespace OpenGL
 		/// </returns>
 		public float Module()
 		{
-			return ((float)Math.Sqrt(ModuleSquared()));
+			return (float)Math.Sqrt(ModuleSquared());
 		}
 
 		/// <summary>
@@ -435,7 +435,7 @@ namespace OpenGL
 			float x2 = (float)(x * x);
 			float y2 = (float)(y * y);
 
-			return (x2 + y2);
+			return x2 + y2;
 		}
 
 		/// <summary>
@@ -460,7 +460,7 @@ namespace OpenGL
 
 				normalized.Normalize();
 
-				return (normalized);
+				return normalized;
 			}
 		}
 
@@ -680,7 +680,7 @@ namespace OpenGL
 		/// </returns>
 		public bool Equals(Vertex2ub other)
 		{
-			return (x == other.x && y == other.y);
+			return x == other.x && y == other.y;
 		}
 
 		/// <summary>
@@ -695,9 +695,9 @@ namespace OpenGL
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
-				return (false);
+				return false;
 			if (obj.GetType() != typeof(Vertex2ub))
-				return (false);
+				return false;
 			
 			return (Equals((Vertex2ub)obj));
 		}
@@ -838,7 +838,7 @@ namespace OpenGL
 			v.x = (sbyte)(v1.x + v2.x);
 			v.y = (sbyte)(v1.y + v2.y);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -860,7 +860,7 @@ namespace OpenGL
 			v.x = (sbyte)(v1.x - v2.x);
 			v.y = (sbyte)(v1.y - v2.y);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -882,7 +882,7 @@ namespace OpenGL
 			v.x = (sbyte)(v1.x * scalar);
 			v.y = (sbyte)(v1.y * scalar);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -904,7 +904,7 @@ namespace OpenGL
 			v.x = (sbyte)(v1.x * scalar);
 			v.y = (sbyte)(v1.y * scalar);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -926,7 +926,7 @@ namespace OpenGL
 			v.x = (sbyte)(v1.x / scalar);
 			v.y = (sbyte)(v1.y / scalar);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -948,7 +948,7 @@ namespace OpenGL
 			v.x = (sbyte)(v1.x / scalar);
 			v.y = (sbyte)(v1.y / scalar);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -989,7 +989,7 @@ namespace OpenGL
 			v.x = (sbyte)(v1.x * scalar);
 			v.y = (sbyte)(v1.y * scalar);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -1011,7 +1011,7 @@ namespace OpenGL
 			v.x = (sbyte)(v1.x / scalar);
 			v.y = (sbyte)(v1.y / scalar);
 
-			return (v);
+			return v;
 		}
 
 
@@ -1055,7 +1055,7 @@ namespace OpenGL
 		/// </returns>
 		public static bool operator <(Vertex2b v1, Vertex2b v2)
 		{
-			return (v1.x < v2.x && v1.y < v2.y);
+			return v1.x < v2.x && v1.y < v2.y;
 		}
 
 		/// <summary>
@@ -1068,7 +1068,7 @@ namespace OpenGL
 		/// </returns>
 		public static bool operator >(Vertex2b v1, Vertex2b v2)
 		{
-			return (v1.x > v2.x && v1.y > v2.y);
+			return v1.x > v2.x && v1.y > v2.y;
 		}
 
 		/// <summary>
@@ -1081,7 +1081,7 @@ namespace OpenGL
 		/// </returns>
 		public static bool operator <=(Vertex2b v1, Vertex2b v2)
 		{
-			return (v1.x <= v2.x && v1.y <= v2.y);
+			return v1.x <= v2.x && v1.y <= v2.y;
 		}
 
 		/// <summary>
@@ -1094,7 +1094,7 @@ namespace OpenGL
 		/// </returns>
 		public static bool operator >=(Vertex2b v1, Vertex2b v2)
 		{
-			return (v1.x >= v2.x && v1.y >= v2.y);
+			return v1.x >= v2.x && v1.y >= v2.y;
 		}
 
 		#endregion
@@ -1143,7 +1143,7 @@ namespace OpenGL
 		/// </returns>
 		public float Module()
 		{
-			return ((float)Math.Sqrt(ModuleSquared()));
+			return (float)Math.Sqrt(ModuleSquared());
 		}
 
 		/// <summary>
@@ -1157,7 +1157,7 @@ namespace OpenGL
 			float x2 = (float)(x * x);
 			float y2 = (float)(y * y);
 
-			return (x2 + y2);
+			return x2 + y2;
 		}
 
 		/// <summary>
@@ -1182,7 +1182,7 @@ namespace OpenGL
 
 				normalized.Normalize();
 
-				return (normalized);
+				return normalized;
 			}
 		}
 
@@ -1402,7 +1402,7 @@ namespace OpenGL
 		/// </returns>
 		public bool Equals(Vertex2b other)
 		{
-			return (x == other.x && y == other.y);
+			return x == other.x && y == other.y;
 		}
 
 		/// <summary>
@@ -1417,9 +1417,9 @@ namespace OpenGL
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
-				return (false);
+				return false;
 			if (obj.GetType() != typeof(Vertex2b))
-				return (false);
+				return false;
 			
 			return (Equals((Vertex2b)obj));
 		}
@@ -1545,7 +1545,7 @@ namespace OpenGL
 			v.x = (ushort)(v1.x + v2.x);
 			v.y = (ushort)(v1.y + v2.y);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -1567,7 +1567,7 @@ namespace OpenGL
 			v.x = (ushort)(v1.x - v2.x);
 			v.y = (ushort)(v1.y - v2.y);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -1589,7 +1589,7 @@ namespace OpenGL
 			v.x = (ushort)(v1.x * scalar);
 			v.y = (ushort)(v1.y * scalar);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -1611,7 +1611,7 @@ namespace OpenGL
 			v.x = (ushort)(v1.x * scalar);
 			v.y = (ushort)(v1.y * scalar);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -1633,7 +1633,7 @@ namespace OpenGL
 			v.x = (ushort)(v1.x / scalar);
 			v.y = (ushort)(v1.y / scalar);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -1655,7 +1655,7 @@ namespace OpenGL
 			v.x = (ushort)(v1.x / scalar);
 			v.y = (ushort)(v1.y / scalar);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -1696,7 +1696,7 @@ namespace OpenGL
 			v.x = (ushort)(v1.x * scalar);
 			v.y = (ushort)(v1.y * scalar);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -1718,7 +1718,7 @@ namespace OpenGL
 			v.x = (ushort)(v1.x / scalar);
 			v.y = (ushort)(v1.y / scalar);
 
-			return (v);
+			return v;
 		}
 
 
@@ -1762,7 +1762,7 @@ namespace OpenGL
 		/// </returns>
 		public static bool operator <(Vertex2us v1, Vertex2us v2)
 		{
-			return (v1.x < v2.x && v1.y < v2.y);
+			return v1.x < v2.x && v1.y < v2.y;
 		}
 
 		/// <summary>
@@ -1775,7 +1775,7 @@ namespace OpenGL
 		/// </returns>
 		public static bool operator >(Vertex2us v1, Vertex2us v2)
 		{
-			return (v1.x > v2.x && v1.y > v2.y);
+			return v1.x > v2.x && v1.y > v2.y;
 		}
 
 		/// <summary>
@@ -1788,7 +1788,7 @@ namespace OpenGL
 		/// </returns>
 		public static bool operator <=(Vertex2us v1, Vertex2us v2)
 		{
-			return (v1.x <= v2.x && v1.y <= v2.y);
+			return v1.x <= v2.x && v1.y <= v2.y;
 		}
 
 		/// <summary>
@@ -1801,7 +1801,7 @@ namespace OpenGL
 		/// </returns>
 		public static bool operator >=(Vertex2us v1, Vertex2us v2)
 		{
-			return (v1.x >= v2.x && v1.y >= v2.y);
+			return v1.x >= v2.x && v1.y >= v2.y;
 		}
 
 		#endregion
@@ -1850,7 +1850,7 @@ namespace OpenGL
 		/// </returns>
 		public float Module()
 		{
-			return ((float)Math.Sqrt(ModuleSquared()));
+			return (float)Math.Sqrt(ModuleSquared());
 		}
 
 		/// <summary>
@@ -1864,7 +1864,7 @@ namespace OpenGL
 			float x2 = (float)(x * x);
 			float y2 = (float)(y * y);
 
-			return (x2 + y2);
+			return x2 + y2;
 		}
 
 		/// <summary>
@@ -1889,7 +1889,7 @@ namespace OpenGL
 
 				normalized.Normalize();
 
-				return (normalized);
+				return normalized;
 			}
 		}
 
@@ -2109,7 +2109,7 @@ namespace OpenGL
 		/// </returns>
 		public bool Equals(Vertex2us other)
 		{
-			return (x == other.x && y == other.y);
+			return x == other.x && y == other.y;
 		}
 
 		/// <summary>
@@ -2124,9 +2124,9 @@ namespace OpenGL
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
-				return (false);
+				return false;
 			if (obj.GetType() != typeof(Vertex2us))
-				return (false);
+				return false;
 			
 			return (Equals((Vertex2us)obj));
 		}
@@ -2267,7 +2267,7 @@ namespace OpenGL
 			v.x = (short)(v1.x + v2.x);
 			v.y = (short)(v1.y + v2.y);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -2289,7 +2289,7 @@ namespace OpenGL
 			v.x = (short)(v1.x - v2.x);
 			v.y = (short)(v1.y - v2.y);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -2311,7 +2311,7 @@ namespace OpenGL
 			v.x = (short)(v1.x * scalar);
 			v.y = (short)(v1.y * scalar);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -2333,7 +2333,7 @@ namespace OpenGL
 			v.x = (short)(v1.x * scalar);
 			v.y = (short)(v1.y * scalar);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -2355,7 +2355,7 @@ namespace OpenGL
 			v.x = (short)(v1.x / scalar);
 			v.y = (short)(v1.y / scalar);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -2377,7 +2377,7 @@ namespace OpenGL
 			v.x = (short)(v1.x / scalar);
 			v.y = (short)(v1.y / scalar);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -2418,7 +2418,7 @@ namespace OpenGL
 			v.x = (short)(v1.x * scalar);
 			v.y = (short)(v1.y * scalar);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -2440,7 +2440,7 @@ namespace OpenGL
 			v.x = (short)(v1.x / scalar);
 			v.y = (short)(v1.y / scalar);
 
-			return (v);
+			return v;
 		}
 
 
@@ -2484,7 +2484,7 @@ namespace OpenGL
 		/// </returns>
 		public static bool operator <(Vertex2s v1, Vertex2s v2)
 		{
-			return (v1.x < v2.x && v1.y < v2.y);
+			return v1.x < v2.x && v1.y < v2.y;
 		}
 
 		/// <summary>
@@ -2497,7 +2497,7 @@ namespace OpenGL
 		/// </returns>
 		public static bool operator >(Vertex2s v1, Vertex2s v2)
 		{
-			return (v1.x > v2.x && v1.y > v2.y);
+			return v1.x > v2.x && v1.y > v2.y;
 		}
 
 		/// <summary>
@@ -2510,7 +2510,7 @@ namespace OpenGL
 		/// </returns>
 		public static bool operator <=(Vertex2s v1, Vertex2s v2)
 		{
-			return (v1.x <= v2.x && v1.y <= v2.y);
+			return v1.x <= v2.x && v1.y <= v2.y;
 		}
 
 		/// <summary>
@@ -2523,7 +2523,7 @@ namespace OpenGL
 		/// </returns>
 		public static bool operator >=(Vertex2s v1, Vertex2s v2)
 		{
-			return (v1.x >= v2.x && v1.y >= v2.y);
+			return v1.x >= v2.x && v1.y >= v2.y;
 		}
 
 		#endregion
@@ -2572,7 +2572,7 @@ namespace OpenGL
 		/// </returns>
 		public float Module()
 		{
-			return ((float)Math.Sqrt(ModuleSquared()));
+			return (float)Math.Sqrt(ModuleSquared());
 		}
 
 		/// <summary>
@@ -2586,7 +2586,7 @@ namespace OpenGL
 			float x2 = (float)(x * x);
 			float y2 = (float)(y * y);
 
-			return (x2 + y2);
+			return x2 + y2;
 		}
 
 		/// <summary>
@@ -2611,7 +2611,7 @@ namespace OpenGL
 
 				normalized.Normalize();
 
-				return (normalized);
+				return normalized;
 			}
 		}
 
@@ -2831,7 +2831,7 @@ namespace OpenGL
 		/// </returns>
 		public bool Equals(Vertex2s other)
 		{
-			return (x == other.x && y == other.y);
+			return x == other.x && y == other.y;
 		}
 
 		/// <summary>
@@ -2846,9 +2846,9 @@ namespace OpenGL
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
-				return (false);
+				return false;
 			if (obj.GetType() != typeof(Vertex2s))
-				return (false);
+				return false;
 			
 			return (Equals((Vertex2s)obj));
 		}
@@ -2974,7 +2974,7 @@ namespace OpenGL
 			v.x = (uint)(v1.x + v2.x);
 			v.y = (uint)(v1.y + v2.y);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -2996,7 +2996,7 @@ namespace OpenGL
 			v.x = (uint)(v1.x - v2.x);
 			v.y = (uint)(v1.y - v2.y);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -3018,7 +3018,7 @@ namespace OpenGL
 			v.x = (uint)(v1.x * scalar);
 			v.y = (uint)(v1.y * scalar);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -3040,7 +3040,7 @@ namespace OpenGL
 			v.x = (uint)(v1.x * scalar);
 			v.y = (uint)(v1.y * scalar);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -3062,7 +3062,7 @@ namespace OpenGL
 			v.x = (uint)(v1.x / scalar);
 			v.y = (uint)(v1.y / scalar);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -3084,7 +3084,7 @@ namespace OpenGL
 			v.x = (uint)(v1.x / scalar);
 			v.y = (uint)(v1.y / scalar);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -3125,7 +3125,7 @@ namespace OpenGL
 			v.x = (uint)(v1.x * scalar);
 			v.y = (uint)(v1.y * scalar);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -3147,7 +3147,7 @@ namespace OpenGL
 			v.x = (uint)(v1.x / scalar);
 			v.y = (uint)(v1.y / scalar);
 
-			return (v);
+			return v;
 		}
 
 
@@ -3191,7 +3191,7 @@ namespace OpenGL
 		/// </returns>
 		public static bool operator <(Vertex2ui v1, Vertex2ui v2)
 		{
-			return (v1.x < v2.x && v1.y < v2.y);
+			return v1.x < v2.x && v1.y < v2.y;
 		}
 
 		/// <summary>
@@ -3204,7 +3204,7 @@ namespace OpenGL
 		/// </returns>
 		public static bool operator >(Vertex2ui v1, Vertex2ui v2)
 		{
-			return (v1.x > v2.x && v1.y > v2.y);
+			return v1.x > v2.x && v1.y > v2.y;
 		}
 
 		/// <summary>
@@ -3217,7 +3217,7 @@ namespace OpenGL
 		/// </returns>
 		public static bool operator <=(Vertex2ui v1, Vertex2ui v2)
 		{
-			return (v1.x <= v2.x && v1.y <= v2.y);
+			return v1.x <= v2.x && v1.y <= v2.y;
 		}
 
 		/// <summary>
@@ -3230,7 +3230,7 @@ namespace OpenGL
 		/// </returns>
 		public static bool operator >=(Vertex2ui v1, Vertex2ui v2)
 		{
-			return (v1.x >= v2.x && v1.y >= v2.y);
+			return v1.x >= v2.x && v1.y >= v2.y;
 		}
 
 		#endregion
@@ -3279,7 +3279,7 @@ namespace OpenGL
 		/// </returns>
 		public float Module()
 		{
-			return ((float)Math.Sqrt(ModuleSquared()));
+			return (float)Math.Sqrt(ModuleSquared());
 		}
 
 		/// <summary>
@@ -3293,7 +3293,7 @@ namespace OpenGL
 			float x2 = (float)(x * x);
 			float y2 = (float)(y * y);
 
-			return (x2 + y2);
+			return x2 + y2;
 		}
 
 		/// <summary>
@@ -3318,7 +3318,7 @@ namespace OpenGL
 
 				normalized.Normalize();
 
-				return (normalized);
+				return normalized;
 			}
 		}
 
@@ -3538,7 +3538,7 @@ namespace OpenGL
 		/// </returns>
 		public bool Equals(Vertex2ui other)
 		{
-			return (x == other.x && y == other.y);
+			return x == other.x && y == other.y;
 		}
 
 		/// <summary>
@@ -3553,9 +3553,9 @@ namespace OpenGL
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
-				return (false);
+				return false;
 			if (obj.GetType() != typeof(Vertex2ui))
-				return (false);
+				return false;
 			
 			return (Equals((Vertex2ui)obj));
 		}
@@ -3696,7 +3696,7 @@ namespace OpenGL
 			v.x = (int)(v1.x + v2.x);
 			v.y = (int)(v1.y + v2.y);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -3718,7 +3718,7 @@ namespace OpenGL
 			v.x = (int)(v1.x - v2.x);
 			v.y = (int)(v1.y - v2.y);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -3740,7 +3740,7 @@ namespace OpenGL
 			v.x = (int)(v1.x * scalar);
 			v.y = (int)(v1.y * scalar);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -3762,7 +3762,7 @@ namespace OpenGL
 			v.x = (int)(v1.x * scalar);
 			v.y = (int)(v1.y * scalar);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -3784,7 +3784,7 @@ namespace OpenGL
 			v.x = (int)(v1.x / scalar);
 			v.y = (int)(v1.y / scalar);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -3806,7 +3806,7 @@ namespace OpenGL
 			v.x = (int)(v1.x / scalar);
 			v.y = (int)(v1.y / scalar);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -3847,7 +3847,7 @@ namespace OpenGL
 			v.x = (int)(v1.x * scalar);
 			v.y = (int)(v1.y * scalar);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -3869,7 +3869,7 @@ namespace OpenGL
 			v.x = (int)(v1.x / scalar);
 			v.y = (int)(v1.y / scalar);
 
-			return (v);
+			return v;
 		}
 
 
@@ -3913,7 +3913,7 @@ namespace OpenGL
 		/// </returns>
 		public static bool operator <(Vertex2i v1, Vertex2i v2)
 		{
-			return (v1.x < v2.x && v1.y < v2.y);
+			return v1.x < v2.x && v1.y < v2.y;
 		}
 
 		/// <summary>
@@ -3926,7 +3926,7 @@ namespace OpenGL
 		/// </returns>
 		public static bool operator >(Vertex2i v1, Vertex2i v2)
 		{
-			return (v1.x > v2.x && v1.y > v2.y);
+			return v1.x > v2.x && v1.y > v2.y;
 		}
 
 		/// <summary>
@@ -3939,7 +3939,7 @@ namespace OpenGL
 		/// </returns>
 		public static bool operator <=(Vertex2i v1, Vertex2i v2)
 		{
-			return (v1.x <= v2.x && v1.y <= v2.y);
+			return v1.x <= v2.x && v1.y <= v2.y;
 		}
 
 		/// <summary>
@@ -3952,7 +3952,7 @@ namespace OpenGL
 		/// </returns>
 		public static bool operator >=(Vertex2i v1, Vertex2i v2)
 		{
-			return (v1.x >= v2.x && v1.y >= v2.y);
+			return v1.x >= v2.x && v1.y >= v2.y;
 		}
 
 		#endregion
@@ -4001,7 +4001,7 @@ namespace OpenGL
 		/// </returns>
 		public float Module()
 		{
-			return ((float)Math.Sqrt(ModuleSquared()));
+			return (float)Math.Sqrt(ModuleSquared());
 		}
 
 		/// <summary>
@@ -4015,7 +4015,7 @@ namespace OpenGL
 			float x2 = (float)(x * x);
 			float y2 = (float)(y * y);
 
-			return (x2 + y2);
+			return x2 + y2;
 		}
 
 		/// <summary>
@@ -4040,7 +4040,7 @@ namespace OpenGL
 
 				normalized.Normalize();
 
-				return (normalized);
+				return normalized;
 			}
 		}
 
@@ -4260,7 +4260,7 @@ namespace OpenGL
 		/// </returns>
 		public bool Equals(Vertex2i other)
 		{
-			return (x == other.x && y == other.y);
+			return x == other.x && y == other.y;
 		}
 
 		/// <summary>
@@ -4275,9 +4275,9 @@ namespace OpenGL
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
-				return (false);
+				return false;
 			if (obj.GetType() != typeof(Vertex2i))
-				return (false);
+				return false;
 			
 			return (Equals((Vertex2i)obj));
 		}
@@ -4418,7 +4418,7 @@ namespace OpenGL
 			v.x = (float)(v1.x + v2.x);
 			v.y = (float)(v1.y + v2.y);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -4440,7 +4440,7 @@ namespace OpenGL
 			v.x = (float)(v1.x - v2.x);
 			v.y = (float)(v1.y - v2.y);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -4462,7 +4462,7 @@ namespace OpenGL
 			v.x = (float)(v1.x * scalar);
 			v.y = (float)(v1.y * scalar);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -4484,7 +4484,7 @@ namespace OpenGL
 			v.x = (float)(v1.x * scalar);
 			v.y = (float)(v1.y * scalar);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -4506,7 +4506,7 @@ namespace OpenGL
 			v.x = (float)(v1.x / scalar);
 			v.y = (float)(v1.y / scalar);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -4528,7 +4528,7 @@ namespace OpenGL
 			v.x = (float)(v1.x / scalar);
 			v.y = (float)(v1.y / scalar);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -4591,7 +4591,7 @@ namespace OpenGL
 		/// </returns>
 		public static bool operator <(Vertex2f v1, Vertex2f v2)
 		{
-			return (v1.x < v2.x && v1.y < v2.y);
+			return v1.x < v2.x && v1.y < v2.y;
 		}
 
 		/// <summary>
@@ -4604,7 +4604,7 @@ namespace OpenGL
 		/// </returns>
 		public static bool operator >(Vertex2f v1, Vertex2f v2)
 		{
-			return (v1.x > v2.x && v1.y > v2.y);
+			return v1.x > v2.x && v1.y > v2.y;
 		}
 
 		/// <summary>
@@ -4617,7 +4617,7 @@ namespace OpenGL
 		/// </returns>
 		public static bool operator <=(Vertex2f v1, Vertex2f v2)
 		{
-			return (v1.x <= v2.x && v1.y <= v2.y);
+			return v1.x <= v2.x && v1.y <= v2.y;
 		}
 
 		/// <summary>
@@ -4630,7 +4630,7 @@ namespace OpenGL
 		/// </returns>
 		public static bool operator >=(Vertex2f v1, Vertex2f v2)
 		{
-			return (v1.x >= v2.x && v1.y >= v2.y);
+			return v1.x >= v2.x && v1.y >= v2.y;
 		}
 
 		#endregion
@@ -4721,7 +4721,7 @@ namespace OpenGL
 		/// </returns>
 		public float Module()
 		{
-			return ((float)Math.Sqrt(ModuleSquared()));
+			return (float)Math.Sqrt(ModuleSquared());
 		}
 
 		/// <summary>
@@ -4735,7 +4735,7 @@ namespace OpenGL
 			float x2 = (float)(x * x);
 			float y2 = (float)(y * y);
 
-			return (x2 + y2);
+			return x2 + y2;
 		}
 
 		/// <summary>
@@ -4760,7 +4760,7 @@ namespace OpenGL
 
 				normalized.Normalize();
 
-				return (normalized);
+				return normalized;
 			}
 		}
 
@@ -4980,7 +4980,7 @@ namespace OpenGL
 		/// </returns>
 		public bool Equals(Vertex2f other)
 		{
-			return (x == other.x && y == other.y);
+			return x == other.x && y == other.y;
 		}
 
 		/// <summary>
@@ -4995,9 +4995,9 @@ namespace OpenGL
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
-				return (false);
+				return false;
 			if (obj.GetType() != typeof(Vertex2f))
-				return (false);
+				return false;
 			
 			return (Equals((Vertex2f)obj));
 		}
@@ -5138,7 +5138,7 @@ namespace OpenGL
 			v.x = (double)(v1.x + v2.x);
 			v.y = (double)(v1.y + v2.y);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -5160,7 +5160,7 @@ namespace OpenGL
 			v.x = (double)(v1.x - v2.x);
 			v.y = (double)(v1.y - v2.y);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -5182,7 +5182,7 @@ namespace OpenGL
 			v.x = (double)(v1.x * scalar);
 			v.y = (double)(v1.y * scalar);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -5204,7 +5204,7 @@ namespace OpenGL
 			v.x = (double)(v1.x * scalar);
 			v.y = (double)(v1.y * scalar);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -5226,7 +5226,7 @@ namespace OpenGL
 			v.x = (double)(v1.x / scalar);
 			v.y = (double)(v1.y / scalar);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -5248,7 +5248,7 @@ namespace OpenGL
 			v.x = (double)(v1.x / scalar);
 			v.y = (double)(v1.y / scalar);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -5311,7 +5311,7 @@ namespace OpenGL
 		/// </returns>
 		public static bool operator <(Vertex2d v1, Vertex2d v2)
 		{
-			return (v1.x < v2.x && v1.y < v2.y);
+			return v1.x < v2.x && v1.y < v2.y;
 		}
 
 		/// <summary>
@@ -5324,7 +5324,7 @@ namespace OpenGL
 		/// </returns>
 		public static bool operator >(Vertex2d v1, Vertex2d v2)
 		{
-			return (v1.x > v2.x && v1.y > v2.y);
+			return v1.x > v2.x && v1.y > v2.y;
 		}
 
 		/// <summary>
@@ -5337,7 +5337,7 @@ namespace OpenGL
 		/// </returns>
 		public static bool operator <=(Vertex2d v1, Vertex2d v2)
 		{
-			return (v1.x <= v2.x && v1.y <= v2.y);
+			return v1.x <= v2.x && v1.y <= v2.y;
 		}
 
 		/// <summary>
@@ -5350,7 +5350,7 @@ namespace OpenGL
 		/// </returns>
 		public static bool operator >=(Vertex2d v1, Vertex2d v2)
 		{
-			return (v1.x >= v2.x && v1.y >= v2.y);
+			return v1.x >= v2.x && v1.y >= v2.y;
 		}
 
 		#endregion
@@ -5399,7 +5399,7 @@ namespace OpenGL
 		/// </returns>
 		public float Module()
 		{
-			return ((float)Math.Sqrt(ModuleSquared()));
+			return (float)Math.Sqrt(ModuleSquared());
 		}
 
 		/// <summary>
@@ -5413,7 +5413,7 @@ namespace OpenGL
 			float x2 = (float)(x * x);
 			float y2 = (float)(y * y);
 
-			return (x2 + y2);
+			return x2 + y2;
 		}
 
 		/// <summary>
@@ -5438,7 +5438,7 @@ namespace OpenGL
 
 				normalized.Normalize();
 
-				return (normalized);
+				return normalized;
 			}
 		}
 
@@ -5658,7 +5658,7 @@ namespace OpenGL
 		/// </returns>
 		public bool Equals(Vertex2d other)
 		{
-			return (x == other.x && y == other.y);
+			return x == other.x && y == other.y;
 		}
 
 		/// <summary>
@@ -5673,9 +5673,9 @@ namespace OpenGL
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
-				return (false);
+				return false;
 			if (obj.GetType() != typeof(Vertex2d))
-				return (false);
+				return false;
 			
 			return (Equals((Vertex2d)obj));
 		}
@@ -5816,7 +5816,7 @@ namespace OpenGL
 			v.x = (HalfFloat)(v1.x + v2.x);
 			v.y = (HalfFloat)(v1.y + v2.y);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -5838,7 +5838,7 @@ namespace OpenGL
 			v.x = (HalfFloat)(v1.x - v2.x);
 			v.y = (HalfFloat)(v1.y - v2.y);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -5860,7 +5860,7 @@ namespace OpenGL
 			v.x = (HalfFloat)(v1.x * scalar);
 			v.y = (HalfFloat)(v1.y * scalar);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -5882,7 +5882,7 @@ namespace OpenGL
 			v.x = (HalfFloat)(v1.x * scalar);
 			v.y = (HalfFloat)(v1.y * scalar);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -5904,7 +5904,7 @@ namespace OpenGL
 			v.x = (HalfFloat)(v1.x / scalar);
 			v.y = (HalfFloat)(v1.y / scalar);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -5926,7 +5926,7 @@ namespace OpenGL
 			v.x = (HalfFloat)(v1.x / scalar);
 			v.y = (HalfFloat)(v1.y / scalar);
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -5989,7 +5989,7 @@ namespace OpenGL
 		/// </returns>
 		public static bool operator <(Vertex2hf v1, Vertex2hf v2)
 		{
-			return (v1.x < v2.x && v1.y < v2.y);
+			return v1.x < v2.x && v1.y < v2.y;
 		}
 
 		/// <summary>
@@ -6002,7 +6002,7 @@ namespace OpenGL
 		/// </returns>
 		public static bool operator >(Vertex2hf v1, Vertex2hf v2)
 		{
-			return (v1.x > v2.x && v1.y > v2.y);
+			return v1.x > v2.x && v1.y > v2.y;
 		}
 
 		/// <summary>
@@ -6015,7 +6015,7 @@ namespace OpenGL
 		/// </returns>
 		public static bool operator <=(Vertex2hf v1, Vertex2hf v2)
 		{
-			return (v1.x <= v2.x && v1.y <= v2.y);
+			return v1.x <= v2.x && v1.y <= v2.y;
 		}
 
 		/// <summary>
@@ -6028,7 +6028,7 @@ namespace OpenGL
 		/// </returns>
 		public static bool operator >=(Vertex2hf v1, Vertex2hf v2)
 		{
-			return (v1.x >= v2.x && v1.y >= v2.y);
+			return v1.x >= v2.x && v1.y >= v2.y;
 		}
 
 		#endregion
@@ -6077,7 +6077,7 @@ namespace OpenGL
 		/// </returns>
 		public float Module()
 		{
-			return ((float)Math.Sqrt(ModuleSquared()));
+			return (float)Math.Sqrt(ModuleSquared());
 		}
 
 		/// <summary>
@@ -6091,7 +6091,7 @@ namespace OpenGL
 			float x2 = (float)(x * x);
 			float y2 = (float)(y * y);
 
-			return (x2 + y2);
+			return x2 + y2;
 		}
 
 		/// <summary>
@@ -6116,7 +6116,7 @@ namespace OpenGL
 
 				normalized.Normalize();
 
-				return (normalized);
+				return normalized;
 			}
 		}
 
@@ -6336,7 +6336,7 @@ namespace OpenGL
 		/// </returns>
 		public bool Equals(Vertex2hf other)
 		{
-			return (x == other.x && y == other.y);
+			return x == other.x && y == other.y;
 		}
 
 		/// <summary>
@@ -6351,9 +6351,9 @@ namespace OpenGL
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
-				return (false);
+				return false;
 			if (obj.GetType() != typeof(Vertex2hf))
-				return (false);
+				return false;
 			
 			return (Equals((Vertex2hf)obj));
 		}

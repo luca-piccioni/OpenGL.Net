@@ -311,7 +311,7 @@ namespace OpenGL.Objects.State
 		[ShaderUniformState()]
 		public LightModelType LightModel
 		{
-			get { return (_LightModel); }
+			get { return _LightModel; }
 			set
 			{
 				_LightModel = value;
@@ -338,7 +338,7 @@ namespace OpenGL.Objects.State
 		/// The enabled lights count.
 		/// </summary>
 		[ShaderUniformState()]
-		private int LightsCount { get { return (Lights.Count); } }
+		private int LightsCount { get { return Lights.Count; } }
 
 		#endregion
 
@@ -352,17 +352,17 @@ namespace OpenGL.Objects.State
 		/// <summary>
 		/// The identifier of this GraphicsState.
 		/// </summary>
-		public override string StateIdentifier { get { return (StateId); } }
+		public override string StateIdentifier { get { return StateId; } }
 
 		/// <summary>
 		/// Unique index assigned to this GraphicsState.
 		/// </summary>
-		public static int StateSetIndex { get { return (_StateIndex); } }
+		public static int StateSetIndex { get { return _StateIndex; } }
 
 		/// <summary>
 		/// Unique index assigned to this GraphicsState.
 		/// </summary>
-		public override int StateIndex { get { return (_StateIndex); } }
+		public override int StateIndex { get { return _StateIndex; } }
 
 		/// <summary>
 		/// The index for this GraphicsState.
@@ -375,17 +375,17 @@ namespace OpenGL.Objects.State
 		/// <remarks>
 		/// It returns always true, since it supports also fixed pipeline.
 		/// </remarks>
-		public override bool IsContextBound { get { return (true); } }
+		public override bool IsContextBound { get { return true; } }
 
 		/// <summary>
 		/// Flag indicating whether the state can be applied on a <see cref="ShaderProgram"/>.
 		/// </summary>
-		public override bool IsProgramBound { get { return (true); } }
+		public override bool IsProgramBound { get { return true; } }
 
 		/// <summary>
 		/// The tag the identifies the uniform block.
 		/// </summary>
-		protected override string UniformBlockTag { get { return ("LightState"); } }
+		protected override string UniformBlockTag { get { return "LightState"; } }
 
 		/// <summary>
 		/// Apply this TransformState.
@@ -472,7 +472,7 @@ namespace OpenGL.Objects.State
 		public override IGraphicsState Push()
 		{
 			// Light state is deferred, indeed it cannot be merged
-			return (this);
+			return this;
 		}
 
 		/// <summary>
@@ -490,7 +490,7 @@ namespace OpenGL.Objects.State
 		/// <summary>
 		/// Get the uniform state associated with this instance.
 		/// </summary>
-		protected override Dictionary<string, UniformStateMember> UniformState { get { return (_UniformProperties); } }
+		protected override Dictionary<string, UniformStateMember> UniformState { get { return _UniformProperties; } }
 
 		/// <summary>
 		/// Represents the current <see cref="GraphicsState"/> for logging.
@@ -500,7 +500,7 @@ namespace OpenGL.Objects.State
 		/// </returns>
 		public override string ToString()
 		{
-			return (String.Empty);
+			return String.Empty;
 		}
 
 		/// <summary>

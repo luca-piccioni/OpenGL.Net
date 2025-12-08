@@ -107,7 +107,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -145,7 +145,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -173,7 +173,7 @@ namespace OpenGL
 			LogCommand("eglOutputLayerAttribEXT", retValue, dpy, layer, attribute, value			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -206,7 +206,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -259,7 +259,7 @@ namespace OpenGL
 			LogCommand("eglOutputPortAttribEXT", retValue, dpy, port, attribute, value			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -292,7 +292,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>

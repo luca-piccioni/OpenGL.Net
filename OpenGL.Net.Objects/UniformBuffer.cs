@@ -228,9 +228,9 @@ namespace OpenGL.Objects
 			UniformSegment uniformSegment;
 
 			if (_UniformSegments.TryGetValue(uniformName, out uniformSegment))
-				return (uniformSegment);
+				return uniformSegment;
 
-			return (null);
+			return null;
 		}
 
 		/// <summary>

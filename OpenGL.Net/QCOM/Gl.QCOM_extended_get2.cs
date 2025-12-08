@@ -108,7 +108,7 @@ namespace OpenGL
 			LogCommand("glExtIsProgramBinaryQCOM", retValue, program			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>

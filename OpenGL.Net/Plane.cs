@@ -403,7 +403,7 @@ namespace OpenGL
 		/// </returns>
 		public bool Equals(Planef other)
 		{
-			return (_A == other._A && _B == other._B && _C == other._C && _D == other._D);
+			return _A == other._A && _B == other._B && _C == other._C && _D == other._D;
 		}
 
 		/// <summary>
@@ -418,9 +418,9 @@ namespace OpenGL
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
-				return (false);
+				return false;
 			if (obj.GetType() != typeof(Planef))
-				return (false);
+				return false;
 			
 			return (Equals((Planef)obj));
 		}
@@ -803,7 +803,7 @@ namespace OpenGL
 		/// </returns>
 		public bool Equals(Planed other)
 		{
-			return (_A == other._A && _B == other._B && _C == other._C && _D == other._D);
+			return _A == other._A && _B == other._B && _C == other._C && _D == other._D;
 		}
 
 		/// <summary>
@@ -818,9 +818,9 @@ namespace OpenGL
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
-				return (false);
+				return false;
 			if (obj.GetType() != typeof(Planed))
-				return (false);
+				return false;
 			
 			return (Equals((Planed)obj));
 		}

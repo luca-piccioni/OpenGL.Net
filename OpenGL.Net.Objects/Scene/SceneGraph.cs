@@ -99,7 +99,7 @@ namespace OpenGL.Objects.Scene
 		/// </summary>
 		public SceneObjectCamera CurrentView
 		{
-			get { return (_CurrentView); }
+			get { return _CurrentView; }
 			set
 			{
 				_CurrentView = value;
@@ -133,7 +133,7 @@ namespace OpenGL.Objects.Scene
 		/// </summary>
 		public SceneObject SceneRoot
 		{
-			get { return (_SceneRoot); }
+			get { return _SceneRoot; }
 			set { SwapGpuResources(value, ref _SceneRoot); }
 		}
 
@@ -151,7 +151,7 @@ namespace OpenGL.Objects.Scene
 		/// </summary>
 		public SceneGraphFlags SceneFlags
 		{
-			get { return (_Flags); }
+			get { return _Flags; }
 		}
 
 		/// <summary>
@@ -217,7 +217,7 @@ namespace OpenGL.Objects.Scene
 			// Push and merge the graphics state
 			ctxScene.GraphicsStateStack.Push(sceneObject.ObjectState);
 
-			return (true);
+			return true;
 		}
 
 		/// <summary>
@@ -243,7 +243,7 @@ namespace OpenGL.Objects.Scene
 			if ((ctxScene.Scene.SceneFlags & SceneGraphFlags.Lighting) != 0)
 				ctxScene.Scene._LightManager.ManageObject(ctx, ctxScene, sceneObject);
 
-			return (true);
+			return true;
 		}
 
 		private static bool GraphDrawPostDelegate(GraphicsContext ctx, SceneGraphContext ctxScene, SceneObject sceneObject, object data)
@@ -257,7 +257,7 @@ namespace OpenGL.Objects.Scene
 			if ((ctxScene.Scene.SceneFlags & SceneGraphFlags.Lighting) != 0)
 				ctxScene.Scene._LightManager.PostObject(ctx, ctxScene, sceneObject);
 
-			return (true);
+			return true;
 		}
 
 		/// <summary>
@@ -297,7 +297,7 @@ namespace OpenGL.Objects.Scene
 			// Link
 			sorterBlend.SorterA = sorterProgram;
 
-			return (sorterBlend);
+			return sorterBlend;
 		}
 
 		private SceneGraphSorter _SorterRoot = CreateDefaultSorter();

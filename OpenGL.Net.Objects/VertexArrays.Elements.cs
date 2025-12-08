@@ -1108,7 +1108,7 @@ namespace OpenGL.Objects
 			// Store element array (entire buffer)
 			_Elements.Add(new ArrayElement(this, mode));
 
-			return (_Elements.Count - 1);
+			return _Elements.Count - 1;
 		}
 
 		/// <summary>
@@ -1128,7 +1128,7 @@ namespace OpenGL.Objects
 			// Store element array (entire buffer)
 			_Elements.Add(new ArrayElement(this, mode, offset, count));
 
-			return (_Elements.Count - 1);
+			return _Elements.Count - 1;
 		}
 
 		/// <summary>
@@ -1149,7 +1149,7 @@ namespace OpenGL.Objects
 			// Store element array
 			_Elements.Add(new IndexedElement(this, mode, bufferObject));
 
-			return (_Elements.Count - 1);
+			return _Elements.Count - 1;
 		}
 
 		/// <summary>
@@ -1176,7 +1176,7 @@ namespace OpenGL.Objects
 			// Store element array
 			_Elements.Add(new IndexedElement(this, mode, bufferObject, offset, count));
 
-			return (_Elements.Count - 1);
+			return _Elements.Count - 1;
 		}
 
 		/// <summary>
@@ -1189,7 +1189,7 @@ namespace OpenGL.Objects
 			if (index < 0 || index >= _Elements.Count)
 				throw new ArgumentOutOfRangeException("index");
 
-			return (_Elements[index]);
+			return _Elements[index];
 		}
 
 		/// <summary>
@@ -1231,7 +1231,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Determine the actual <see cref="Element"/> instances used for drawing.
 		/// </summary>
-		protected virtual ICollection<IElement> DrawElements { get { return (_Elements); } }
+		protected virtual ICollection<IElement> DrawElements { get { return _Elements; } }
 
 		/// <summary>
 		/// Collection of elements for drawing arrays.

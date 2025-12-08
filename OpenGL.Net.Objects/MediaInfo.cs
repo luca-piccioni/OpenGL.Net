@@ -101,7 +101,7 @@ namespace OpenGL.Objects
 		{
 			get {
 				foreach (KeyValuePair<string, object> pair in _Tags)
-					yield return (pair);
+					yield return pair;
 			}
 		}
 
@@ -236,7 +236,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// The type of the tag value.
 		/// </summary>
-		public Type TagType { get { return (_TagType); } }
+		public Type TagType { get { return _TagType; } }
 
 		/// <summary>
 		/// The default value of the tag.

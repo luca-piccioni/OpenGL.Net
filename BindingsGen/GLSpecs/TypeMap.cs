@@ -107,15 +107,15 @@ namespace BindingsGen.GLSpecs
 		/// </returns>
 		public string MapType(string type, bool @base)
 		{
-			Pair value = Map.Find(delegate(Pair item) { return (item.Name == type); });
+			Pair value = Map.Find(delegate(Pair item) { return item.Name == type; });
 
 			if (value != null) {
 				if (@base)
-					return (value.BaseType ?? value.Value);
+					return value.BaseType ?? value.Value;
 				else
-					return (value.Value);
+					return value.Value;
 			} else
-				return (type);
+				return type;
 		}
 
 		#endregion
@@ -139,8 +139,8 @@ namespace BindingsGen.GLSpecs
 		public static bool IsCsKeyword(string token)
 		{
 			foreach (string k in sCsKeywords)
-				if (k == token) return (true);
-			return (false);
+				if (k == token) return true;
+			return false;
 		}
 
 		/// <summary>

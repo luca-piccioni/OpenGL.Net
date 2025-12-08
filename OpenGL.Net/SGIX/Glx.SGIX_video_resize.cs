@@ -81,7 +81,7 @@ namespace OpenGL
 			LogCommand("glXBindChannelToWindowSGIX", retValue, display, screen, channel, window			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -118,7 +118,7 @@ namespace OpenGL
 			LogCommand("glXChannelRectSGIX", retValue, display, screen, channel, x, y, w, h			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -163,7 +163,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -208,7 +208,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -236,7 +236,7 @@ namespace OpenGL
 			LogCommand("glXChannelRectSyncSGIX", retValue, display, screen, channel, synctype			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		internal static unsafe partial class Delegates

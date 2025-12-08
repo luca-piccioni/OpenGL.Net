@@ -759,7 +759,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// The OpenGL version implemented by this GraphicsContext.
 		/// </summary>
-		public KhronosVersion Version { get { return (_Version); } }
+		public KhronosVersion Version { get { return _Version; } }
 
 		/// <summary>
 		/// The OpenGL version implemented by this GraphicsContext.
@@ -769,7 +769,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// The OpenGL Shading Language version implemented by this GraphicsContext.
 		/// </summary>
-		public KhronosVersion ShadingVersion { get { return (_ShadingVersion); } }
+		public KhronosVersion ShadingVersion { get { return _ShadingVersion; } }
 
 		/// <summary>
 		/// The OpenGL Shading Language version implemented by this GraphicsContext.
@@ -779,7 +779,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Flags used to create this GraphicsContext.
 		/// </summary>
-		public GraphicsContextFlags Flags { get { return (_ContextFlags); } }
+		public GraphicsContextFlags Flags { get { return _ContextFlags; } }
 
 		/// <summary>
 		/// The compatibility profile presence implemented by this GraphicsContext.
@@ -824,13 +824,13 @@ namespace OpenGL.Objects
 			if (_ContextByNamespace.TryGetValue(objectNamespace, out namespaceContextes) == false || namespaceContextes.Count == 0)
 				throw new ArgumentException("no context associated to namespace");
 
-			return (namespaceContextes[0]);
+			return namespaceContextes[0];
 		}
 
 		/// <summary>
 		/// GraphicsContext object namespace.
 		/// </summary>
-		public Guid ObjectNameSpace { get { return (_ObjectNameSpace); } }
+		public Guid ObjectNameSpace { get { return _ObjectNameSpace; } }
 
 		/// <summary>
 		/// Object namespace identifier.
@@ -1191,7 +1191,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Get the currently active texture unit index.
 		/// </summary>
-		public uint ActiveTextureUnit { get { return (_ActiveTextureUnit); } }
+		public uint ActiveTextureUnit { get { return _ActiveTextureUnit; } }
 
 		/// <summary>
 		/// Current active texture unit index.
@@ -2184,12 +2184,12 @@ namespace OpenGL.Objects
 
 					// Get context registered as current to the current thread
 					if (_RenderThreads.TryGetValue(threadId, out currentThreadContext) == false)
-						return (false);
+						return false;
 					// Test identification corrispodence
 					if (currentThreadContext != null)
-						return (currentThreadContext._RenderContextId == _RenderContextId);
+						return currentThreadContext._RenderContextId == _RenderContextId;
 					else
-						return (false);
+						return false;
 				}
 			}
 		}
@@ -2208,9 +2208,9 @@ namespace OpenGL.Objects
 				GraphicsContext currentThreadContext;
 
 				if (_RenderThreads.TryGetValue(threadId, out currentThreadContext) == false)
-					return (null);
+					return null;
 
-				return (currentThreadContext);
+				return currentThreadContext;
 			}
 		}
 
@@ -2248,7 +2248,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Get the underlying render context handle.
 		/// </summary>
-		public IntPtr Handle { get { return (_RenderContext); } }
+		public IntPtr Handle { get { return _RenderContext; } }
 
 		/// <summary>
 		/// Rendering context handle.
@@ -2455,7 +2455,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// 
 		/// </summary>
-		internal ShaderIncludeLibrary IncludeLibrary { get { return (_ShaderIncludeLibrary); } }
+		internal ShaderIncludeLibrary IncludeLibrary { get { return _ShaderIncludeLibrary; } }
 
 		/// <summary>
 		/// The shader include library used for compiling shaders.

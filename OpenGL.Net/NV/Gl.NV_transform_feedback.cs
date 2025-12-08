@@ -262,7 +262,7 @@ namespace OpenGL
 			LogCommand("glGetVaryingLocationNV", retValue, program, name			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>

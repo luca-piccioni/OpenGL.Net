@@ -169,7 +169,7 @@ namespace OpenGL.Objects
 			// Fix container format in MediaInformation
 			image.MediaInformation.ContainerFormat = format;
 
-			return (image);
+			return image;
 		}
 
 		/// <summary>

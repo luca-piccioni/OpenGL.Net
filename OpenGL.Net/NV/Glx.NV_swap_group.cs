@@ -64,7 +64,7 @@ namespace OpenGL
 			LogCommand("glXJoinSwapGroupNV", retValue, dpy, drawable, group			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -89,7 +89,7 @@ namespace OpenGL
 			LogCommand("glXBindSwapBarrierNV", retValue, dpy, group, barrier			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -123,7 +123,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -157,7 +157,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -187,7 +187,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -209,7 +209,7 @@ namespace OpenGL
 			LogCommand("glXResetFrameCountNV", retValue, dpy, screen			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		internal static unsafe partial class Delegates

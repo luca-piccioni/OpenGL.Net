@@ -80,7 +80,7 @@ namespace OpenGL.Objects.Scene
 				Vertex3f lightRotationAxis = Direction ^ -Vertex3f.UnitZ;
 				float lightRotationAngle = (float)Angle.ToDegrees(Math.Acos(-Vertex3f.UnitZ * Direction));
 
-				return ((Matrix4x4f)new Quaternion(lightRotationAxis, lightRotationAngle));
+				return (Matrix4x4f)new Quaternion(lightRotationAxis, lightRotationAngle);
 			}
 		}
 
@@ -93,7 +93,7 @@ namespace OpenGL.Objects.Scene
 		/// </summary>
 		public uint ShadowMapSize
 		{
-			get { return (_ShadowMapSize); }
+			get { return _ShadowMapSize; }
 			set
 			{
 				if (_ShadowMap != null)
@@ -112,7 +112,7 @@ namespace OpenGL.Objects.Scene
 		/// </summary>
 		public PixelLayout ShadowMapFormat
 		{
-			get { return (_ShadowMapFormat); }
+			get { return _ShadowMapFormat; }
 			set
 			{
 				if (_ShadowMap != null)
@@ -263,13 +263,13 @@ namespace OpenGL.Objects.Scene
 				light.ShadowMap2D = null;
 			}
 
-			return (light);
+			return light;
 		}
 
 		/// <summary>
 		/// The shadow map texture.
 		/// </summary>
-		protected override Texture ShadowTexture { get { return (_ShadowMap); } }
+		protected override Texture ShadowTexture { get { return _ShadowMap; } }
 
 		/// <summary>
 		/// Allocate resources required for shadow mapping.

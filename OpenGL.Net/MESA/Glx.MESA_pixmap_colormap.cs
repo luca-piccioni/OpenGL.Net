@@ -67,7 +67,7 @@ namespace OpenGL
 			LogCommand("glXCreateGLXPixmapMESA", retValue, dpy, visual, pixmap, cmap			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		internal static unsafe partial class Delegates

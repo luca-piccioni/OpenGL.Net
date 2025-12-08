@@ -78,7 +78,7 @@ namespace OpenGL
 			LogCommand("wglCreateImageBufferI3D", retValue, hDC, dwSize, uFlags			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -100,7 +100,7 @@ namespace OpenGL
 			LogCommand("wglDestroyImageBufferI3D", retValue, hDC, pAddress			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -138,7 +138,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -168,7 +168,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		internal static unsafe partial class Delegates

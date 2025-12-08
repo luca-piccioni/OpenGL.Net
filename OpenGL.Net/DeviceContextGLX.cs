@@ -110,7 +110,7 @@ namespace OpenGL
 			{
 				if (IsDisposed)
 					throw new ObjectDisposedException("XServerDeviceContext");
-				return (_Display);
+				return _Display;
 			}
 		}
 
@@ -229,7 +229,7 @@ namespace OpenGL
 			/// <summary>
 			/// Get the display handle associated this instance.
 			/// </summary>
-			IntPtr INativeWindow.Display { get { return (_Display); } }
+			IntPtr INativeWindow.Display { get { return _Display; } }
 
 			/// <summary>
 			/// The native window handle.
@@ -239,7 +239,7 @@ namespace OpenGL
 			/// <summary>
 			/// Get the native window handle.
 			/// </summary>
-			IntPtr INativeWindow.Handle { get { return (_GlxHandle); } }
+			IntPtr INativeWindow.Handle { get { return _GlxHandle; } }
 
 			/// <summary>
 			/// The native window handle.
@@ -298,7 +298,7 @@ namespace OpenGL
 		/// <value>
 		/// It returns <c>true</c> if this instance is X11 multithreading is initialized; otherwise, <c>false</c>.
 		/// </value>
-		internal static bool IsMultithreadingInitialized { get { return (_MultithreadingInitialized); } }
+		internal static bool IsMultithreadingInitialized { get { return _MultithreadingInitialized; } }
 		
 		/// <summary>
 		/// Flag indicating whether X11 multithreading is initialized.
@@ -349,7 +349,7 @@ namespace OpenGL
 				if (rContext == IntPtr.Zero)
 					throw new InvalidOperationException("unable to create context");
 
-				return (rContext);
+				return rContext;
 			}
 		}
 
@@ -430,7 +430,7 @@ namespace OpenGL
 			if (windowFBConfigId[0] == 0) {
 				KhronosApi.LogComment("Glx.QueryDrawable cannot query Glx.FBCONFIG_ID. Query manually.");
 
-				return (NativeWindow._InternalVisual);
+				return NativeWindow._InternalVisual;
 			}
 
 			unsafe {
@@ -451,7 +451,7 @@ namespace OpenGL
 				Glx.XFree((IntPtr)choosenConfigs);
 			}
 
-			return (xVisualInfo);
+			return xVisualInfo;
 		}
 
 		/// <summary>
@@ -526,9 +526,9 @@ namespace OpenGL
 					adulteredAttribs.RemoveAt(adulteredAttribs.Count - 1);
 
 				// Add required attributes
-				int majorVersionIndex = adulteredAttribs.FindIndex(delegate(int item) { return (item == Gl.MAJOR_VERSION); });
-				int minorVersionIndex = adulteredAttribs.FindIndex(delegate(int item) { return (item == Gl.MINOR_VERSION); });
-				int profileMaskIndex = adulteredAttribs.FindIndex(delegate(int item) { return (item == Gl.CONTEXT_PROFILE_MASK); });
+				int majorVersionIndex = adulteredAttribs.FindIndex(delegate(int item) { return item == Gl.MAJOR_VERSION; });
+				int minorVersionIndex = adulteredAttribs.FindIndex(delegate(int item) { return item == Gl.MINOR_VERSION; });
+				int profileMaskIndex = adulteredAttribs.FindIndex(delegate(int item) { return item == Gl.CONTEXT_PROFILE_MASK; });
 
 				if (majorVersionIndex < 0) {
 					adulteredAttribs.AddRange(new int[] { Gl.MAJOR_VERSION, api.Major });
@@ -622,7 +622,7 @@ namespace OpenGL
 				Glx.DestroyContext(Display, ctx);
 			}
 
-			return (true);
+			return true;
 		}
 
 		/// <summary>
@@ -654,14 +654,14 @@ namespace OpenGL
 			using (Glx.XLock displayLock = new Glx.XLock(Display)) {
 				if (Glx.Delegates.pglXSwapIntervalEXT != null) {
 					Glx.SwapIntervalEXT(Display, _WindowHandle, interval);
-					return (true);
+					return true;
 				} else if (Glx.Delegates.pglXSwapIntervalSGI != null)
 					return (Glx.SwapIntervalSGI(interval) == 0);
 				else
 					throw new InvalidOperationException("binding point SwapInterval{EXT|SGI} cannot be found");
 			}
 #else
-			return (false);
+			return false;
 #endif
 		}
 
@@ -693,7 +693,7 @@ namespace OpenGL
 					_DisplayErrors[Display] = null;
 			}
 
-			return (platformException);
+			return platformException;
 		}
 
 		/// <summary>
@@ -714,7 +714,7 @@ namespace OpenGL
 				_DisplayErrors[displayHandle] = new GlxException(displayHandle, ref error_event);
 			}
 
-			return (0);
+			return 0;
 		}
 
 		/// <summary>
@@ -841,7 +841,7 @@ namespace OpenGL
 					}
 				}
 
-				return (pFormats);
+				return pFormats;
 			}
 		}
 

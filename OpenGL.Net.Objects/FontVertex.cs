@@ -71,7 +71,7 @@ namespace OpenGL.Objects
 			/// <summary>
 			/// Contours defining the glyph geaometry.
 			/// </summary>
-			public ICollection<List<Vertex2f>> Contours { get { return (_Contours); } }
+			public ICollection<List<Vertex2f>> Contours { get { return _Contours; } }
 
 			/// <summary>
 			/// Contours defining the glyph geaometry.
@@ -161,7 +161,7 @@ namespace OpenGL.Objects
 				}
 			}
 
-			return (glyphs);
+			return glyphs;
 		}
 
 		#endregion

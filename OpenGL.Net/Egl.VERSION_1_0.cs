@@ -626,7 +626,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -651,7 +651,7 @@ namespace OpenGL
 			LogCommand("eglCopyBuffers", retValue, dpy, surface, target			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -687,7 +687,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -717,7 +717,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -750,7 +750,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -783,7 +783,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -805,7 +805,7 @@ namespace OpenGL
 			LogCommand("eglDestroyContext", retValue, dpy, ctx			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -827,7 +827,7 @@ namespace OpenGL
 			LogCommand("eglDestroySurface", retValue, dpy, surface			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -860,7 +860,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -893,7 +893,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -927,7 +927,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -961,7 +961,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -977,7 +977,7 @@ namespace OpenGL
 			LogCommand("eglGetCurrentDisplay", retValue			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -996,7 +996,7 @@ namespace OpenGL
 			LogCommand("eglGetCurrentSurface", retValue, readdraw			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -1014,7 +1014,7 @@ namespace OpenGL
 			retValue = Delegates.peglGetDisplay(display_id);
 			LogCommand("eglGetDisplay", retValue, display_id			);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -1029,7 +1029,7 @@ namespace OpenGL
 			retValue = Delegates.peglGetError();
 			LogCommand("eglGetError", retValue			);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -1048,7 +1048,7 @@ namespace OpenGL
 			LogCommand("eglGetProcAddress", retValue, procname			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -1079,7 +1079,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -1107,7 +1107,7 @@ namespace OpenGL
 			LogCommand("eglMakeCurrent", retValue, dpy, draw, read, ctx			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -1140,7 +1140,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -1195,7 +1195,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -1217,7 +1217,7 @@ namespace OpenGL
 			LogCommand("eglSwapBuffers", retValue, dpy, surface			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -1236,7 +1236,7 @@ namespace OpenGL
 			LogCommand("eglTerminate", retValue, dpy			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -1252,7 +1252,7 @@ namespace OpenGL
 			LogCommand("eglWaitGL", retValue			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -1271,7 +1271,7 @@ namespace OpenGL
 			LogCommand("eglWaitNative", retValue, engine			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		internal static unsafe partial class Delegates

@@ -85,7 +85,7 @@ namespace OpenGL
 			LogCommand("wglSetStereoEmitterState3DL", retValue, hDC, uState			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		internal static unsafe partial class Delegates

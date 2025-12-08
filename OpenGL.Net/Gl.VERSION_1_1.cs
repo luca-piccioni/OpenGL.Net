@@ -1742,7 +1742,7 @@ namespace OpenGL
 				LogCommand("glGenTextures", null, 1, "{ " + retValue + " }"				);
 			}
 			DebugCheckErrors(null);
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -1765,7 +1765,7 @@ namespace OpenGL
 			LogCommand("glIsTexture", retValue, texture			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -2239,7 +2239,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>

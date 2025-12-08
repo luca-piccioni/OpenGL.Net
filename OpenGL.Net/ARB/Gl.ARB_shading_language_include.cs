@@ -150,7 +150,7 @@ namespace OpenGL
 			LogCommand("glIsNamedStringARB", retValue, namelen, name			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>

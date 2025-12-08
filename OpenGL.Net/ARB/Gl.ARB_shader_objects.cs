@@ -153,7 +153,7 @@ namespace OpenGL
 			LogCommand("glGetHandleARB", retValue, pname			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>

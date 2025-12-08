@@ -159,7 +159,7 @@ namespace OpenGL.Test
 			}
 			
 
-			return (program);
+			return program;
 		}
 
 		private string GetShaderInfoLog(uint shader)

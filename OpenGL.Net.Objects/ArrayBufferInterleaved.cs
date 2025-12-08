@@ -109,7 +109,7 @@ namespace OpenGL.Objects
 				_TypeSections.Add(typeof(T), typeSections);
 			}
 
-			return (typeSections);
+			return typeSections;
 		}
 
 		private static readonly Dictionary<Type, List<InterleavedSectionBase>> _TypeSections = new Dictionary<Type, List<InterleavedSectionBase>>();
@@ -147,7 +147,7 @@ namespace OpenGL.Objects
 
 			public override IntPtr Pointer
 			{
-				get { return (_ParentArray.GpuBufferAddress); }
+				get { return _ParentArray.GpuBufferAddress; }
 			}
 		}
 
@@ -195,7 +195,7 @@ namespace OpenGL.Objects
 			// Copy from buffer data to array data
 			Memory.Copy(genericArray, CpuBufferAddress, CpuItemsCount * ItemSize);
 
-			return (genericArray);
+			return genericArray;
 		}
 
 		/// <summary>
@@ -225,7 +225,7 @@ namespace OpenGL.Objects
 				Unmap(ctx);
 			}
 
-			return (genericArray);
+			return genericArray;
 		}
 
 		#endregion

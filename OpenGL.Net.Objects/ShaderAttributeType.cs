@@ -235,7 +235,7 @@ namespace OpenGL.Objects
 				case ShaderAttributeType.Mat4x2:
 				case ShaderAttributeType.Mat4x3:
 				case ShaderAttributeType.Mat4x4:
-					return (VertexBaseType.Float);
+					return VertexBaseType.Float;
 #if !MONODROID
 				case ShaderAttributeType.Double:
 				case ShaderAttributeType.DoubleVec2:
@@ -250,18 +250,18 @@ namespace OpenGL.Objects
 				case ShaderAttributeType.DoubleMat4x2:
 				case ShaderAttributeType.DoubleMat4x3:
 				case ShaderAttributeType.DoubleMat4x4:
-					return (VertexBaseType.Double);
+					return VertexBaseType.Double;
 #endif
 				case ShaderAttributeType.Int:
 				case ShaderAttributeType.IntVec2:
 				case ShaderAttributeType.IntVec3:
 				case ShaderAttributeType.IntVec4:
-					return (VertexBaseType.Int);
+					return VertexBaseType.Int;
 				case ShaderAttributeType.UInt:
 				case ShaderAttributeType.UIntVec2:
 				case ShaderAttributeType.UIntVec3:
 				case ShaderAttributeType.UIntVec4:
-					return (VertexBaseType.UInt);
+					return VertexBaseType.UInt;
 				default:
 					throw new NotSupportedException("unsupported vertex array base type of " + vertexArrayType);
 			}
@@ -290,28 +290,28 @@ namespace OpenGL.Objects
 #endif
 				case ShaderAttributeType.Int:
 				case ShaderAttributeType.UInt:
-					return (1);
+					return 1;
 				case ShaderAttributeType.Vec2:
 #if !MONODROID
 				case ShaderAttributeType.DoubleVec2:
 #endif
 				case ShaderAttributeType.IntVec2:
 				case ShaderAttributeType.UIntVec2:
-					return (2);
+					return 2;
 				case ShaderAttributeType.Vec3:
 #if !MONODROID
 				case ShaderAttributeType.DoubleVec3:
 #endif
 				case ShaderAttributeType.IntVec3:
 				case ShaderAttributeType.UIntVec3:
-					return (3);
+					return 3;
 				case ShaderAttributeType.Vec4:
 #if !MONODROID
 				case ShaderAttributeType.DoubleVec4:
 #endif
 				case ShaderAttributeType.IntVec4:
 				case ShaderAttributeType.UIntVec4:
-					return (4);
+					return 4;
 				case ShaderAttributeType.Mat2x2:
 				case ShaderAttributeType.Mat2x3:
 				case ShaderAttributeType.Mat2x4:
@@ -320,7 +320,7 @@ namespace OpenGL.Objects
 				case ShaderAttributeType.DoubleMat2x3:
 				case ShaderAttributeType.DoubleMat2x4:
 #endif
-					return (2);
+					return 2;
 				case ShaderAttributeType.Mat3x2:
 				case ShaderAttributeType.Mat3x3:
 				case ShaderAttributeType.Mat3x4:
@@ -329,7 +329,7 @@ namespace OpenGL.Objects
 				case ShaderAttributeType.DoubleMat3x3:
 				case ShaderAttributeType.DoubleMat3x4:
 #endif
-					return (3);
+					return 3;
 				case ShaderAttributeType.Mat4x2:
 				case ShaderAttributeType.Mat4x3:
 				case ShaderAttributeType.Mat4x4:
@@ -338,7 +338,7 @@ namespace OpenGL.Objects
 				case ShaderAttributeType.DoubleMat4x3:
 				case ShaderAttributeType.DoubleMat4x4:
 #endif
-					return (4);
+					return 4;
 				default:
 					throw new NotSupportedException("unsupported vertex array length of " + shaderAttributeType);
 			}
@@ -366,7 +366,7 @@ namespace OpenGL.Objects
 				case ShaderAttributeType.DoubleMat3x2:
 				case ShaderAttributeType.DoubleMat4x2:
 #endif
-					return (2);
+					return 2;
 				case ShaderAttributeType.Mat2x3:
 				case ShaderAttributeType.Mat3x3:
 				case ShaderAttributeType.Mat4x3:
@@ -375,7 +375,7 @@ namespace OpenGL.Objects
 				case ShaderAttributeType.DoubleMat3x3:
 				case ShaderAttributeType.DoubleMat4x3:
 #endif
-					return (3);
+					return 3;
 				case ShaderAttributeType.Mat2x4:
 				case ShaderAttributeType.Mat3x4:
 				case ShaderAttributeType.Mat4x4:
@@ -384,7 +384,7 @@ namespace OpenGL.Objects
 				case ShaderAttributeType.DoubleMat3x4:
 				case ShaderAttributeType.DoubleMat4x4:
 #endif
-					return (4);
+					return 4;
 				case ShaderAttributeType.Float:
 #if !MONODROID
 				case ShaderAttributeType.Double:
@@ -409,7 +409,7 @@ namespace OpenGL.Objects
 #endif
 				case ShaderAttributeType.IntVec4:
 				case ShaderAttributeType.UIntVec4:
-					return (1);
+					return 1;
 				default:
 					throw new NotSupportedException("unsupported vertex array rank of " + shaderAttributeType);
 			}
@@ -426,7 +426,7 @@ namespace OpenGL.Objects
 		/// </returns>
 		public static bool IsArraySimpleType(this ShaderAttributeType vertexArrayType)
 		{
-			return ((vertexArrayType.GetArrayLength() == 1) && (vertexArrayType.GetArrayRank() == 1));
+			return (vertexArrayType.GetArrayLength() == 1) && (vertexArrayType.GetArrayRank() == 1);
 		}
 
 		/// <summary>
@@ -440,7 +440,7 @@ namespace OpenGL.Objects
 		/// </returns>
 		public static bool IsArrayVectorType(this ShaderAttributeType vertexArrayType)
 		{
-			return ((vertexArrayType.GetArrayLength() > 1) && (vertexArrayType.GetArrayRank() == 1));
+			return (vertexArrayType.GetArrayLength() > 1) && (vertexArrayType.GetArrayRank() == 1);
 		}
 
 		/// <summary>

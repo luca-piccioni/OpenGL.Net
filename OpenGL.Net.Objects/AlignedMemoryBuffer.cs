@@ -83,7 +83,7 @@ namespace OpenGL.Objects
 			{
 				if (IsDisposed)
 					throw new ObjectDisposedException("AlignedMemoryBuffer");
-				return (_AlignedBuffer);
+				return _AlignedBuffer;
 			}
 		}
 
@@ -103,7 +103,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// The size of the buffer, is basic machine units (bytes).
 		/// </summary>
-		public uint Size { get { return (_Size); } }
+		public uint Size { get { return _Size; } }
 
 		/// <summary>
 		/// Reallocate the memory size.
@@ -119,7 +119,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// The <see cref="AlignedBuffer"/> alignment.
 		/// </summary>
-		public uint Alignment { get { return (_Alignment); } }
+		public uint Alignment { get { return _Alignment; } }
 
 		/// <summary>
 		/// Unmanaged buffer.
@@ -206,7 +206,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Get whether this instance has been disposed.
 		/// </summary>
-		public bool IsDisposed { get { return (_Disposed); } }
+		public bool IsDisposed { get { return _Disposed; } }
 
 		/// <summary>
 		/// Performs application-defined tasks associated with freeing, releasing, or resetting managed/unmanaged resources.

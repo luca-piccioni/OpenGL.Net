@@ -79,7 +79,7 @@ namespace OpenGL
 			LogCommand("eglPostSubBufferNV", retValue, dpy, surface, x, y, width, height			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		internal static unsafe partial class Delegates

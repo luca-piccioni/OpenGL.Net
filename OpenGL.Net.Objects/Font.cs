@@ -51,8 +51,8 @@ namespace OpenGL.Objects
 			Style = fontStyle;
 
 			if (effects != null) {
-				_FxShadow = (FontFxShadow)Array.FindLast(effects, delegate(FontFx item) { return (item is FontFxShadow); });
-				_FxHalo = (FontFxHalo)Array.FindLast(effects, delegate(FontFx item) { return (item is FontFxHalo); });
+				_FxShadow = (FontFxShadow)Array.FindLast(effects, delegate(FontFx item) { return item is FontFxShadow; });
+				_FxHalo = (FontFxHalo)Array.FindLast(effects, delegate(FontFx item) { return item is FontFxHalo; });
 			}
 		}
 

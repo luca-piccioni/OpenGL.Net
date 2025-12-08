@@ -105,7 +105,7 @@ namespace OpenGL.Objects
 		/// </returns>
 		public string GetBriefDescription(string mediaFormat)
 		{
-			return (mCodecDescriptions[mediaFormat].ShortDescription);
+			return mCodecDescriptions[mediaFormat].ShortDescription;
 		}
 
 		/// <summary>
@@ -119,7 +119,7 @@ namespace OpenGL.Objects
 		/// </returns>
 		public string GetLongDescription(string mediaFormat)
 		{
-			return (mCodecDescriptions[mediaFormat].LongDescription);
+			return mCodecDescriptions[mediaFormat].LongDescription;
 		}
 
 		/// <summary>
@@ -143,7 +143,7 @@ namespace OpenGL.Objects
 					}
 				}
 
-				return (readFormats);
+				return readFormats;
 			}
 		}
 
@@ -168,7 +168,7 @@ namespace OpenGL.Objects
 					}
 				}
 
-				return (writeFormats);
+				return writeFormats;
 			}
 		}
 
@@ -199,7 +199,7 @@ namespace OpenGL.Objects
 					mediaFormats.Add(pair.Key);
 			}
 
-			return (mediaFormats);
+			return mediaFormats;
 		}
 
 		/// <summary>
@@ -243,10 +243,10 @@ namespace OpenGL.Objects
 
 			foreach (KeyValuePair<string, MediaFormatAttribute> pair in mCodecDescriptions) {
 				if (pair.Value.MatchPattern(input))
-					return (pair.Key);
+					return pair.Key;
 			}
 
-			return (null);
+			return null;
 		}
 
 		/// <summary>
@@ -440,7 +440,7 @@ namespace OpenGL.Objects
 				});
 			}
 
-			return (plugins);
+			return plugins;
 		}
 
 		/// <summary>
@@ -468,7 +468,7 @@ namespace OpenGL.Objects
 				return (obj.IsReadSupported(format));
 			});
 
-			return (plugins);
+			return plugins;
 		}
 
 		/// <summary>
@@ -500,7 +500,7 @@ namespace OpenGL.Objects
 				});
 			}
 
-			return (plugins);
+			return plugins;
 		}
 
 		/// <summary>
@@ -526,7 +526,7 @@ namespace OpenGL.Objects
 				return (obj.IsWriteSupported(format));
 			});
 
-			return (plugins);
+			return plugins;
 		}
 
 		#endregion
@@ -862,7 +862,7 @@ namespace OpenGL.Objects
 			if ((supportedPlugins == null) || (supportedPlugins.Count == 0))
 				throw new InvalidOperationException("no plugin available");
 
-			return (supportedPlugins);
+			return supportedPlugins;
 		}
 
 		#endregion
@@ -1027,7 +1027,7 @@ namespace OpenGL.Objects
 			} else
 				localPath = uri.LocalPath;
 
-			return (localPath);
+			return localPath;
 		}
 
 		#endregion
@@ -1066,7 +1066,7 @@ namespace OpenGL.Objects
 				ExtractDescriptions(plugin.GetType());
 			}
 				
-			return (plugin);
+			return plugin;
 		}
 
 		#endregion

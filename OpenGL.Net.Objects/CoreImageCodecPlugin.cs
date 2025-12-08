@@ -274,7 +274,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Plugin name.
 		/// </summary>
-		public string Name { get { return ("CoreImaging"); } }
+		public string Name { get { return "CoreImaging"; } }
 
 		/// <summary>
 		/// Determine whether this plugin is available for the current process.
@@ -286,7 +286,7 @@ namespace OpenGL.Objects
 		public bool CheckAvailability()
 		{
 			// This plugin is always available
-			return (true);
+			return true;
 		}
 
 		/// <summary>
@@ -318,7 +318,7 @@ namespace OpenGL.Objects
 						supportedFormats.Add(ImageFormat.Exif);
 				}
 
-				return (supportedFormats);
+				return supportedFormats;
 			}
 		}
 
@@ -338,14 +338,14 @@ namespace OpenGL.Objects
 			try {
 				ConvertImageFormat(format, out imagingFormat);
 			} catch (NotSupportedException) {
-				return (false);
+				return false;
 			}
 
 			int formatIndex = Array.FindIndex(ImageCodecInfo.GetImageDecoders(), 0, delegate(ImageCodecInfo item) {
-				return (item.FormatID == imagingFormat.Guid);
+				return item.FormatID == imagingFormat.Guid;
 			});
 
-			return (formatIndex >= 0);
+			return formatIndex >= 0;
 		}
 
 		/// <summary>
@@ -377,7 +377,7 @@ namespace OpenGL.Objects
 						supportedFormats.Add(ImageFormat.Exif);
 				}
 
-				return (supportedFormats);
+				return supportedFormats;
 			}
 		}
 
@@ -397,14 +397,14 @@ namespace OpenGL.Objects
 			try {
 				ConvertImageFormat(format, out imagingFormat);
 			} catch (NotSupportedException) {
-				return (false);
+				return false;
 			}
 
 			int formatIndex = Array.FindIndex(ImageCodecInfo.GetImageEncoders(), 0, delegate(ImageCodecInfo item) {
-				return (item.FormatID == imagingFormat.Guid);
+				return item.FormatID == imagingFormat.Guid;
 			});
 
-			return (formatIndex >= 0);
+			return formatIndex >= 0;
 		}
 
 		/// <summary>
@@ -426,7 +426,7 @@ namespace OpenGL.Objects
 		{
 			switch (format) {
 				default:
-					return (-1);
+					return -1;
 			}
 		}
 
@@ -489,7 +489,7 @@ namespace OpenGL.Objects
 				info.Height = (uint)iBitmap.Height;
 			}
 
-			return (info);
+			return info;
 		}
 
 		/// <summary>
@@ -576,7 +576,7 @@ namespace OpenGL.Objects
 						break;
 				}
 				
-				return (image);
+				return image;
 			}
 		}
 
@@ -639,7 +639,7 @@ namespace OpenGL.Objects
 					break;
 			}
 			
-			return (image);
+			return image;
 		}
 
 		/// <summary>
@@ -883,7 +883,7 @@ namespace OpenGL.Objects
 
 				// Save image with the specified format
 				ImageCodecInfo encoderInfo = Array.Find(ImageCodecInfo.GetImageEncoders(), delegate(ImageCodecInfo item) {
-					return (item.FormatID == bitmapFormat.Guid);
+					return item.FormatID == bitmapFormat.Guid;
 				});
 
 				EncoderParameters encoderParams = null;

@@ -69,7 +69,7 @@ namespace OpenGL
 			LogCommand("glGetTextureHandleARB", retValue, texture			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -92,7 +92,7 @@ namespace OpenGL
 			LogCommand("glGetTextureSamplerHandleARB", retValue, texture, sampler			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -153,7 +153,7 @@ namespace OpenGL
 			LogCommand("glGetImageHandleARB", retValue, texture, level, layered, layer, format			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -297,7 +297,7 @@ namespace OpenGL
 			LogCommand("glIsTextureHandleResidentARB", retValue, handle			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -316,7 +316,7 @@ namespace OpenGL
 			LogCommand("glIsImageHandleResidentARB", retValue, handle			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>

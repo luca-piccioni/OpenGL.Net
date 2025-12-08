@@ -98,12 +98,12 @@ namespace OpenGL
 		/// <summary>
 		/// Get the display handle associated this instance.
 		/// </summary>
-		public IntPtr Display { get { return (IntPtr.Zero); } }
+		public IntPtr Display { get { return IntPtr.Zero; } }
 		
 		/// <summary>
 		/// Get the native window handle.
 		/// </summary>
-		public IntPtr Handle { get { return (_NativeWindowLock.Address); } }
+		public IntPtr Handle { get { return _NativeWindowLock.Address; } }
 
 		/// <summary>
 		/// The structure expected by eglCreateWindowSurface function.

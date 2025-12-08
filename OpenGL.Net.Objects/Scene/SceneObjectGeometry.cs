@@ -93,7 +93,7 @@ namespace OpenGL.Objects.Scene
 		/// </summary>
 		public VertexArrays VertexArray
 		{
-			get { return (_VertexArray); }
+			get { return _VertexArray; }
 			set
 			{
 				SwapGpuResources(value, ref _VertexArray);
@@ -125,7 +125,7 @@ namespace OpenGL.Objects.Scene
 		/// </summary>
 		public ShaderProgram Program
 		{
-			get { return (_Program); }
+			get { return _Program; }
 			set { SwapGpuResources(value, ref _Program); }
 		}
 
@@ -237,7 +237,7 @@ namespace OpenGL.Objects.Scene
 			/// </summary>
 			public override VertexArrays VertexArray
 			{
-				get { return (base.VertexArray); }
+				get { return base.VertexArray; }
 				set
 				{
 					// Base implementation
@@ -470,7 +470,7 @@ namespace OpenGL.Objects.Scene
 
 			VertexArrays.IVertexArray vertexArray = vertexArrayObject.GetVertexArray(VertexArraySemantic.Position);
 			if (vertexArray == null)
-				return (null);
+				return null;
 
 			ArrayBufferBase positionArray = vertexArray.Array;
 			Type positionArrayType = positionArray.GetType();
@@ -488,7 +488,7 @@ namespace OpenGL.Objects.Scene
 
 				return (new BoundingBox(min, max));
 			} else
-				return (null);
+				return null;
 		}
 
 		/// <summary>
@@ -540,7 +540,7 @@ namespace OpenGL.Objects.Scene
 
 			bboxArray.SetElementArray(PrimitiveType.Lines);
 
-			return (bboxArray);
+			return bboxArray;
 		}
 
 		/// <summary>
@@ -560,12 +560,12 @@ namespace OpenGL.Objects.Scene
 		/// <summary>
 		/// Get the object type. Used for avoiding reflection.
 		/// </summary>
-		public override uint ObjectType { get { return (_ObjectType); } }
+		public override uint ObjectType { get { return _ObjectType; } }
 
 		/// <summary>
 		/// Get the object type of this SceneObject class.
 		/// </summary>
-		public static uint ClassObjectType { get { return (_ObjectType); } }
+		public static uint ClassObjectType { get { return _ObjectType; } }
 
 		/// <summary>
 		/// The object identifier for this class of SceneObject.
@@ -599,7 +599,7 @@ namespace OpenGL.Objects.Scene
 					geometries.AddRange(GetBoundingVolumes(ctxScene));
 			}
 
-			return (geometries);
+			return geometries;
 		}
 
 		/// <summary>

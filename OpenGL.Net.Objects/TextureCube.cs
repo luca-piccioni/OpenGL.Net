@@ -194,9 +194,9 @@ namespace OpenGL.Objects
 					throw new ArgumentNullException(nameof(images));
 				if (images.Length != 6)
 					throw new ArgumentException("images count mismatch", nameof(images));
-				if (Array.TrueForAll(images, delegate(Image image) { return (image.Width == image.Height); }) == false)
+				if (Array.TrueForAll(images, delegate(Image image) { return image.Width == image.Height; }) == false)
 					throw new ArgumentException("not square images", nameof(images));
-				if (Array.TrueForAll(images, delegate(Image image) { return (image.Width == images[0].Width); }) == false)
+				if (Array.TrueForAll(images, delegate(Image image) { return image.Width == images[0].Width; }) == false)
 					throw new ArgumentException("images size mismatch", nameof(images));
 
 				_TextureCube = texture;
@@ -283,7 +283,7 @@ namespace OpenGL.Objects
 
 				baseSize.z = 1;
 
-				return (baseSize);
+				return baseSize;
 			}
 		}
 
@@ -294,7 +294,7 @@ namespace OpenGL.Objects
 		/// In the case a this Texture is defined by multiple targets (i.e. cube map textures), this property
 		/// shall returns always 0.
 		/// </remarks>
-		public override TextureTarget TextureTarget { get { return (TextureTarget.TextureCubeMap); } }
+		public override TextureTarget TextureTarget { get { return TextureTarget.TextureCubeMap; } }
 
 		/// <summary>
 		/// Uniform sampler type for managing this Texture.
@@ -305,13 +305,13 @@ namespace OpenGL.Objects
 			{
 				if (PixelLayout.IsIntegerPixel()) {
 					if (PixelLayout.IsSignedIntegerPixel())
-						return (Gl.INT_SAMPLER_CUBE);
+						return Gl.INT_SAMPLER_CUBE;
 					if (PixelLayout.IsUnsignedIntegerPixel())
-						return (Gl.UNSIGNED_INT_SAMPLER_CUBE);
+						return Gl.UNSIGNED_INT_SAMPLER_CUBE;
 
 					throw new NotSupportedException(String.Format("integer pixel format {0} not supported", PixelLayout));
 				} else
-					return (Gl.SAMPLER_CUBE);
+					return Gl.SAMPLER_CUBE;
 			}
 		}
 

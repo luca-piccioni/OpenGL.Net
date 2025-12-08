@@ -93,17 +93,17 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Render buffer type.
 		/// </summary>
-		public Type BufferType { get { return (_Type); } }
+		public Type BufferType { get { return _Type; } }
 
 		/// <summary>
 		/// RenderBuffer width.
 		/// </summary>
-		public uint Width { get { return (_Width); } }
+		public uint Width { get { return _Width; } }
 
 		/// <summary>
 		/// RenderBuffer width.
 		/// </summary>
-		public uint Height { get { return (_Height); } }
+		public uint Height { get { return _Height; } }
 
 		/// <summary>
 		/// Render buffer type.
@@ -165,7 +165,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Render buffer object class.
 		/// </summary>
-		public override Guid ObjectClass { get { return (ThisObjectClass); } }
+		public override Guid ObjectClass { get { return ThisObjectClass; } }
 
 		/// <summary>
 		/// Determine whether this RenderBuffer really exists for a specific context.
@@ -198,7 +198,7 @@ namespace OpenGL.Objects
 		
 			// Object name space test (and 'ctx' sanity checks)
 			if (base.Exists(ctx) == false)
-				return (false);
+				return false;
 
 			return (Gl.IsRenderbuffer(ObjectName));
 		}

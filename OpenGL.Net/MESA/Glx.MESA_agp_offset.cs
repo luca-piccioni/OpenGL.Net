@@ -58,7 +58,7 @@ namespace OpenGL
 			LogCommand("glXGetAGPOffsetMESA", retValue, pointer			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		internal static unsafe partial class Delegates

@@ -76,7 +76,7 @@ namespace OpenGL
 				LogCommand("glGenQueriesEXT", null, 1, "{ " + retValue + " }"				);
 			}
 			DebugCheckErrors(null);
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -117,7 +117,7 @@ namespace OpenGL
 			LogCommand("glIsQueryEXT", retValue, id			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>

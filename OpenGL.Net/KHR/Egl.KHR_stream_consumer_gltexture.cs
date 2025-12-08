@@ -67,7 +67,7 @@ namespace OpenGL
 			LogCommand("eglStreamConsumerGLTextureExternalKHR", retValue, dpy, stream			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -89,7 +89,7 @@ namespace OpenGL
 			LogCommand("eglStreamConsumerAcquireKHR", retValue, dpy, stream			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -111,7 +111,7 @@ namespace OpenGL
 			LogCommand("eglStreamConsumerReleaseKHR", retValue, dpy, stream			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		internal static unsafe partial class Delegates

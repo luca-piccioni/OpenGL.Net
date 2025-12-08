@@ -68,7 +68,7 @@ namespace OpenGL.Objects.State
 		{
 			get
 			{
-				return (_StateSetStack.Last.Value);
+				return _StateSetStack.Last.Value;
 			}
 		}
 

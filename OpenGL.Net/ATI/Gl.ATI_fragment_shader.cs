@@ -695,7 +695,7 @@ namespace OpenGL
 			LogCommand("glGenFragmentShadersATI", retValue, range			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>

@@ -64,9 +64,9 @@ namespace BindingsGen.GLSpecs
 				string delegateType = GetReturnTypeCore(false);
 
 				if ((Group != null) && (Group == "String"))
-					return ("string");
+					return "string";
 
-				return (delegateType);
+				return delegateType;
 			}
 		}
 
@@ -77,9 +77,9 @@ namespace BindingsGen.GLSpecs
 				string delegateReturnType = GetReturnTypeCore(true);
 
 				if ((delegateReturnType == "string") || ((Group != null) && (Group == "String")))
-					return ("IntPtr");
+					return "IntPtr";
 
-				return (delegateReturnType);
+				return delegateReturnType;
 			}
 		}
 
@@ -97,7 +97,7 @@ namespace BindingsGen.GLSpecs
 			else
 				delegateReturnType = "IntPtr";
 
-			return (delegateReturnType);
+			return delegateReturnType;
 		}
 
 		#endregion
@@ -112,7 +112,7 @@ namespace BindingsGen.GLSpecs
 		/// </returns>
 		public override string ToString()
 		{
-			return (Name);
+			return Name;
 		}
 
 		#endregion

@@ -64,7 +64,7 @@ namespace OpenGL
 			LogCommand("glXDelayBeforeSwapNV", retValue, dpy, drawable, seconds			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		internal static unsafe partial class Delegates

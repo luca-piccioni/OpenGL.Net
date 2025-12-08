@@ -58,7 +58,7 @@ namespace OpenGL
 			LogCommand("glXSwapIntervalSGI", retValue, interval			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		internal static unsafe partial class Delegates

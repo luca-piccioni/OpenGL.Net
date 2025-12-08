@@ -25,7 +25,7 @@ namespace BindingsGen.GLSpecs
 			using (Stream sr = Assembly.GetExecutingAssembly().GetManifestResourceStream(path)) {
 				XmlSerializer serializer = new XmlSerializer(typeof(SpecTokensDictionary));
 
-				return ((SpecTokensDictionary)serializer.Deserialize(sr));
+				return (SpecTokensDictionary)serializer.Deserialize(sr);
 			}
 		}
 

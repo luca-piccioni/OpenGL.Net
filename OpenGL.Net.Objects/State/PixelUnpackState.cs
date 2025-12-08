@@ -230,7 +230,7 @@ namespace OpenGL.Objects.State
 		public override bool Equals(IGraphicsState other)
 		{
 			if (base.Equals(other) == false)
-				return (false);
+				return false;
 			Debug.Assert(other is PixelUnpackState);
 
 			PixelUnpackState otherState = (PixelUnpackState)other;
@@ -251,7 +251,7 @@ namespace OpenGL.Objects.State
 		/// </returns>
 		public override string ToString()
 		{
-			return ($"{StateIdentifier}: SwapBytes={SwapBytes} Alignment={Alignment}");
+			return $"{StateIdentifier}: SwapBytes={SwapBytes} Alignment={Alignment}";
 		}
 
 		#endregion

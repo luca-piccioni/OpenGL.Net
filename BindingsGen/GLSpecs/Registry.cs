@@ -47,7 +47,7 @@ namespace BindingsGen.GLSpecs
 		/// The <see cref="Groups"/> contains individual <see cref="EnumerantGroup"/> describing some of the group
 		/// annotations used for return and parameter types.
 		/// </summary>
-		public List<EnumerantGroup> Groups { get { return (_Groups); } }
+		public List<EnumerantGroup> Groups { get { return _Groups; } }
 
 		private readonly List<EnumerantGroup> _Groups = new List<EnumerantGroup>();
 
@@ -56,9 +56,9 @@ namespace BindingsGen.GLSpecs
 			EnumerantGroup enumerantGroup;
 
 			if (_EnumerantGroupRegistry.TryGetValue(name, out enumerantGroup) == false)
-				return (null);
+				return null;
 
-			return (enumerantGroup);
+			return enumerantGroup;
 		}
 
 		private readonly Dictionary<string, EnumerantGroup> _EnumerantGroupRegistry = new Dictionary<string, EnumerantGroup>();
@@ -89,7 +89,7 @@ namespace BindingsGen.GLSpecs
 				foreach (EnumerantBlock enumerantBlock in Enums)
 					enumerants.AddRange(enumerantBlock.Enums);
 
-				return (enumerants);
+				return enumerants;
 			}
 		}
 
@@ -98,9 +98,9 @@ namespace BindingsGen.GLSpecs
 			Enumerant enumerant;
 
 			if (_EnumerantRegistry.TryGetValue(name, out enumerant))
-				return (enumerant);
+				return enumerant;
 
-			return (null);
+			return null;
 		}
 
 		public Enumerant GetEnumerantNoCase(string name)
@@ -111,10 +111,10 @@ namespace BindingsGen.GLSpecs
 				string enumnocase = pair.Value.ImplementationName.ToLowerInvariant();
 
 				if (enumnocase == name)
-					return (pair.Value);
+					return pair.Value;
 			}
 
-			return (null);
+			return null;
 		}
 
 		private readonly Dictionary<string, Enumerant> _EnumerantRegistry = new Dictionary<string, Enumerant>();
@@ -138,7 +138,7 @@ namespace BindingsGen.GLSpecs
 				foreach (CommandBlock commandBlock in CommandBlocks)
 					commands.AddRange(commandBlock.Commands);
 
-				return (commands);
+				return commands;
 			}
 		}
 
@@ -147,9 +147,9 @@ namespace BindingsGen.GLSpecs
 			Command command;
 
 			if (_CommandRegistry.TryGetValue(name, out command) == false)
-				return (null);
+				return null;
 
-			return (command);
+			return command;
 		}
 
 		private readonly Dictionary<string, Command> _CommandRegistry = new Dictionary<string,Command>();
@@ -162,7 +162,7 @@ namespace BindingsGen.GLSpecs
 		/// It defines API feature interfaces (API versions, more or less). One item per feature set.
 		/// </summary>
 		[XmlElement("feature")]
-		public List<Feature> Features { get { return (_Features); } }
+		public List<Feature> Features { get { return _Features; } }
 
 		private readonly List<Feature> _Features = new List<Feature>();
 
@@ -171,7 +171,7 @@ namespace BindingsGen.GLSpecs
 		/// </summary>
 		[XmlArray("extensions")]
 		[XmlArrayItem("extension")]
-		public List<Extension> Extensions { get { return (_Extensions); } }
+		public List<Extension> Extensions { get { return _Extensions; } }
 
 		private readonly List<Extension> _Extensions = new List<Extension>();
 
@@ -229,13 +229,13 @@ namespace BindingsGen.GLSpecs
 		{
 			switch (api) {
 				case Khronos.KhronosVersion.ApiGl:
-					return (-1000);
+					return -1000;
 				case Khronos.KhronosVersion.ApiGles1:
-					return (-501);
+					return -501;
 				case Khronos.KhronosVersion.ApiGles2:
-					return (-500);
+					return -500;
 				default:
-					return (0);
+					return 0;
 			}
 		}
 
@@ -243,17 +243,17 @@ namespace BindingsGen.GLSpecs
 		{
 			switch (vendor) {
 				case "ARB":
-					return (-1000);
+					return -1000;
 				case "EXT":
-					return (-500);
+					return -500;
 				case "OES":
-					return (-1);
+					return -1;
 				//case "NV":
-				//	return (-2);
+				//	return -2;
 				//case "AMD":
-				//	return (-1);
+				//	return -1;
 				default:
-					return (0);
+					return 0;
 			}
 		}
 

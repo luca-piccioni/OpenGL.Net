@@ -2213,7 +2213,7 @@ namespace OpenGL
 			LogCommand("glGetSubroutineUniformLocation", retValue, program, shadertype, name			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -2240,7 +2240,7 @@ namespace OpenGL
 			LogCommand("glGetSubroutineIndex", retValue, program, shadertype, name			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -2641,7 +2641,7 @@ namespace OpenGL
 				LogCommand("glGenTransformFeedbacks", null, 1, "{ " + retValue + " }"				);
 			}
 			DebugCheckErrors(null);
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -2665,7 +2665,7 @@ namespace OpenGL
 			LogCommand("glIsTransformFeedback", retValue, id			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>

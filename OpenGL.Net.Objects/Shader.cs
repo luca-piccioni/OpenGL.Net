@@ -85,7 +85,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Shader object stage.
 		/// </summary>
-		public ShaderType ObjectStage { get { return (_Stage); } }
+		public ShaderType ObjectStage { get { return _Stage; } }
 
 		/// <summary>
 		/// Shader stage (synch with Gl constants).
@@ -125,7 +125,7 @@ namespace OpenGL.Objects
 				}
 			}
 
-			return (shaderSourceLines);
+			return shaderSourceLines;
 		}
 
 		/// <summary>
@@ -250,7 +250,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Get source path (actual or fictive, used for shader source identification).
 		/// </summary>
-		public string SourcePath { get { return (_SourcePath); } }
+		public string SourcePath { get { return _SourcePath; } }
 
 		/// <summary>
 		/// Get the actual source lines compiled for this Shader.
@@ -312,7 +312,7 @@ namespace OpenGL.Objects
 
 			shaderSource = CleanSource(shaderSource);
 
-			return (shaderSource);
+			return shaderSource;
 		}
 
 		/// <summary>
@@ -341,7 +341,7 @@ namespace OpenGL.Objects
 				cleanSource.Add(item);
 			}
 
-			return (cleanSource);
+			return cleanSource;
 		}
 
 		/// <summary>
@@ -500,7 +500,7 @@ namespace OpenGL.Objects
 		/// </summary>
 		public KhronosVersion RequiredMinVersion
 		{
-			get { return (_RequiredMinVersion); }
+			get { return _RequiredMinVersion; }
 			set {
 				if (_Compiled)
 					throw new InvalidOperationException("object already compiled");
@@ -530,7 +530,7 @@ namespace OpenGL.Objects
 			foreach (string logLine in compilerLogLines)
 				sb.AppendFormat("  {0}: {1}\n", _SourcePath, logLine);
 			
-			return (sb);
+			return sb;
 		}
 		
 		/// <summary>
@@ -585,7 +585,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Shader object class.
 		/// </summary>
-		public override Guid ObjectClass { get { return (ThisObjectClass); } }
+		public override Guid ObjectClass { get { return ThisObjectClass; } }
 
 		/// <summary>
 		/// Determine whether this ShaderObject really exists for a specific context.
@@ -613,7 +613,7 @@ namespace OpenGL.Objects
 		{
 			// Object name space test (and 'ctx' sanity checks)
 			if (base.Exists(ctx) == false)
-				return (false);
+				return false;
 
 			return (ctx.IsCurrent && Gl.IsShader(ObjectName));
 		}

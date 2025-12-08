@@ -54,7 +54,7 @@ namespace OpenGL.Objects.Scene
 					sorted.AddRange(pair.Value);
 			}
 
-			return (sorted);
+			return sorted;
 		}
 
 		/// <summary>
@@ -146,7 +146,7 @@ namespace OpenGL.Objects.Scene
 
 			objects.Sort(this);
 
-			return (objects);
+			return objects;
 		}
 
 		#endregion
@@ -160,7 +160,7 @@ namespace OpenGL.Objects.Scene
 		{
 			BlendState blendState = (BlendState)objectBatch.State[BlendState.StateSetIndex];
 
-			return (blendState == null || !blendState.Enabled);
+			return blendState == null || !blendState.Enabled;
 		}
 
 		#endregion

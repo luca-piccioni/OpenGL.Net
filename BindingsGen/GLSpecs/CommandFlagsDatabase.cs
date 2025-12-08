@@ -276,7 +276,7 @@ namespace BindingsGen.GLSpecs
 					commandFlags |= commandItem.Flags;
 			}
 
-			return (commandFlags);
+			return commandFlags;
 		}
 
 		public static string GetCommandImplementationName(Command command)
@@ -284,10 +284,10 @@ namespace BindingsGen.GLSpecs
 			foreach (CommandItem commandItem in _CommandFlagsDatabase.Commands) {
 				if (Regex.IsMatch(command.Prototype.Name, commandItem.Name))
 					if (commandItem.Rename != null)
-						return (commandItem.Rename);
+						return commandItem.Rename;
 			}
 
-			return (null);
+			return null;
 		}
 
 		public static string GetCommandVisibility(Command command)
@@ -297,14 +297,14 @@ namespace BindingsGen.GLSpecs
 					switch (commandItem.Visibility) {
 						case Visibility.Public:
 						default:
-							return ("public");
+							return "public";
 						case Visibility.Private:
-							return ("private");
+							return "private";
 					}
 				}
 			}
 
-			return ("public");
+			return "public";
 		}
 
 		public static string GetCommandArgumentAlternativeName(Command command, CommandParameter arg)
@@ -318,13 +318,13 @@ namespace BindingsGen.GLSpecs
 				if (Regex.IsMatch(command.Prototype.Name, commandItem.Name)) {
 					foreach (CommandItem.ParameterItem parameterItem in commandItem.Parameters) {
 						if (parameterItem.Id == arg.Name && parameterItem.Rename != null)
-							return (parameterItem.Rename);
+							return parameterItem.Rename;
 					}
 				}
 			}
 
 			// arg.Name
-			return (null);
+			return null;
 		}
 
 		public static string GetCommandArgumentAlternativeType(Command command, CommandParameter arg)
@@ -338,13 +338,13 @@ namespace BindingsGen.GLSpecs
 				if (Regex.IsMatch(command.Prototype.Name, commandItem.Name)) {
 					foreach (CommandItem.ParameterItem parameterItem in commandItem.Parameters) {
 						if (parameterItem.Id == arg.Name && parameterItem.Retype != null)
-							return (parameterItem.Retype);
+							return parameterItem.Retype;
 					}
 				}
 			}
 
 			// arg.Name
-			return (null);
+			return null;
 		}
 
 		public static string GetCommandArgumentModifier(Command command, CommandParameter arg)
@@ -360,15 +360,15 @@ namespace BindingsGen.GLSpecs
 						CommandItem.ParameterItem parameterItem = commandItem.Parameters[i];
 
 						if (parameterItem.Id != null && parameterItem.Id == arg.Name && parameterItem.Modifier != null)
-							return (parameterItem.Modifier);
+							return parameterItem.Modifier;
 						if (parameterItem.Index == arg.GetCommandIndex(command) && parameterItem.Modifier != null)
-							return (parameterItem.Modifier);
+							return parameterItem.Modifier;
 					}
 				}
 			}
 
 			// arg.Name
-			return (null);
+			return null;
 		}
 
 		public static CommandItem.ParameterItemFlags GetCommandParameterFlags(Command command, CommandParameter arg)
@@ -389,7 +389,7 @@ namespace BindingsGen.GLSpecs
 				}
 			}
 
-			return (parameterFlags);
+			return parameterFlags;
 		}
 
 		/// <summary>
@@ -428,27 +428,27 @@ namespace BindingsGen.GLSpecs
 
 		public static List<Limit> GetLimits()
 		{
-			return (_CommandFlagsDatabase.Limits);
+			return _CommandFlagsDatabase.Limits;
 		}
 
 		public static Limit GetLimit(string enumName)
 		{
 			foreach (Limit limit in _CommandFlagsDatabase.Limits) {
 				if (enumName == limit.Name)
-					return (limit);
+					return limit;
 			}
 
-			return (null);
+			return null;
 		}
 
 		public static bool IsExcludedLimit(string enumName)
 		{
 			foreach (Limit limit in _CommandFlagsDatabase.ExcludedLimits) {
 				if (Regex.IsMatch(enumName, limit.Name))
-					return (true);
+					return true;
 			}
 
-			return (false);
+			return false;
 		}
 
 		#endregion

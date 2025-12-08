@@ -74,7 +74,7 @@ namespace OpenGL
 				LogCommand("glGenQueryResourceTagNV", null, 1, "{ " + retValue + " }"				);
 			}
 			DebugCheckErrors(null);
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>

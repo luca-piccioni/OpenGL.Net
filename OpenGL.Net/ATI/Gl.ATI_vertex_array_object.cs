@@ -112,7 +112,7 @@ namespace OpenGL
 			LogCommand("glNewObjectBufferATI", retValue, size, pointer, usage			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -154,7 +154,7 @@ namespace OpenGL
 			LogCommand("glIsObjectBufferATI", retValue, buffer			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>

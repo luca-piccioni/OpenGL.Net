@@ -103,7 +103,7 @@ namespace OpenGL
 			LogCommand("glGetVkProcAddrNV", retValue, name			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>

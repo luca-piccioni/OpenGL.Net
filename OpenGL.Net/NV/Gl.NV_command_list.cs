@@ -188,7 +188,7 @@ namespace OpenGL
 				LogCommand("glCreateStatesNV", null, 1, "{ " + retValue + " }"				);
 			}
 			DebugCheckErrors(null);
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -227,7 +227,7 @@ namespace OpenGL
 			LogCommand("glIsStateNV", retValue, state			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -267,7 +267,7 @@ namespace OpenGL
 			LogCommand("glGetCommandHeaderNV", retValue, tokenID, size			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -286,7 +286,7 @@ namespace OpenGL
 			LogCommand("glGetStageIndexNV", retValue, shadertype			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -457,7 +457,7 @@ namespace OpenGL
 				LogCommand("glCreateCommandListsNV", null, 1, "{ " + retValue + " }"				);
 			}
 			DebugCheckErrors(null);
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -496,7 +496,7 @@ namespace OpenGL
 			LogCommand("glIsCommandListNV", retValue, list			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>

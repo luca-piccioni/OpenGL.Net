@@ -137,7 +137,7 @@ namespace OpenGL.Objects.Collections
 								hash ^= *srcPtr16;
 						}
 
-						return (hash);
+						return hash;
 					}
 				}
 			}

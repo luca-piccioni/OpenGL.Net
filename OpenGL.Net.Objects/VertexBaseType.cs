@@ -96,9 +96,9 @@ namespace OpenGL.Objects
 #if !MONODROID
 					case VertexBaseType.Double:
 #endif
-						return (true);
+						return true;
 					default:
-						return (false);
+						return false;
 				}
 		}
 
@@ -154,13 +154,13 @@ namespace OpenGL.Objects
 						case 1:
 							switch (length) {
 								case 1:
-									return (ArrayBufferItemType.Byte);
+									return ArrayBufferItemType.Byte;
 								case 2:
-									return (ArrayBufferItemType.Byte2);
+									return ArrayBufferItemType.Byte2;
 								case 3:
-									return (ArrayBufferItemType.Byte3);
+									return ArrayBufferItemType.Byte3;
 								case 4:
-									return (ArrayBufferItemType.Byte4);
+									return ArrayBufferItemType.Byte4;
 								default:
 									throw new NotSupportedException(String.Format("unsupported vertex array base type of Byte with rank {0} and length {1}", rank, length));
 							}
@@ -177,13 +177,13 @@ namespace OpenGL.Objects
 						case 1:
 							switch (length) {
 								case 1:
-									return (ArrayBufferItemType.UByte);
+									return ArrayBufferItemType.UByte;
 								case 2:
-									return (ArrayBufferItemType.UByte2);
+									return ArrayBufferItemType.UByte2;
 								case 3:
-									return (ArrayBufferItemType.UByte3);
+									return ArrayBufferItemType.UByte3;
 								case 4:
-									return (ArrayBufferItemType.UByte4);
+									return ArrayBufferItemType.UByte4;
 								default:
 									throw new NotSupportedException(String.Format("unsupported vertex array base type of UByte with rank {0} and length {1}", rank, length));
 							}
@@ -200,13 +200,13 @@ namespace OpenGL.Objects
 						case 1:
 							switch (length) {
 								case 1:
-									return (ArrayBufferItemType.Short);
+									return ArrayBufferItemType.Short;
 								case 2:
-									return (ArrayBufferItemType.Short2);
+									return ArrayBufferItemType.Short2;
 								case 3:
-									return (ArrayBufferItemType.Short3);
+									return ArrayBufferItemType.Short3;
 								case 4:
-									return (ArrayBufferItemType.Short4);
+									return ArrayBufferItemType.Short4;
 								default:
 									throw new NotSupportedException(String.Format("unsupported vertex array base type of Short with rank {0} and length {1}", rank, length));
 							}
@@ -223,13 +223,13 @@ namespace OpenGL.Objects
 						case 1:
 							switch (length) {
 								case 1:
-									return (ArrayBufferItemType.UShort);
+									return ArrayBufferItemType.UShort;
 								case 2:
-									return (ArrayBufferItemType.UShort2);
+									return ArrayBufferItemType.UShort2;
 								case 3:
-									return (ArrayBufferItemType.UShort3);
+									return ArrayBufferItemType.UShort3;
 								case 4:
-									return (ArrayBufferItemType.UShort4);
+									return ArrayBufferItemType.UShort4;
 								default:
 									throw new NotSupportedException(String.Format("unsupported vertex array base type of UShort with rank {0} and length {1}", rank, length));
 							}
@@ -246,13 +246,13 @@ namespace OpenGL.Objects
 						case 1:
 							switch (length) {
 								case 1:
-									return (ArrayBufferItemType.Int);
+									return ArrayBufferItemType.Int;
 								case 2:
-									return (ArrayBufferItemType.Int2);
+									return ArrayBufferItemType.Int2;
 								case 3:
-									return (ArrayBufferItemType.Int3);
+									return ArrayBufferItemType.Int3;
 								case 4:
-									return (ArrayBufferItemType.Int4);
+									return ArrayBufferItemType.Int4;
 								default:
 									throw new NotSupportedException(String.Format("unsupported vertex array base type of Int with rank {0} and length {1}", rank, length));
 							}
@@ -269,13 +269,13 @@ namespace OpenGL.Objects
 						case 1:
 							switch (length) {
 								case 1:
-									return (ArrayBufferItemType.UInt);
+									return ArrayBufferItemType.UInt;
 								case 2:
-									return (ArrayBufferItemType.UInt2);
+									return ArrayBufferItemType.UInt2;
 								case 3:
-									return (ArrayBufferItemType.UInt3);
+									return ArrayBufferItemType.UInt3;
 								case 4:
-									return (ArrayBufferItemType.UInt4);
+									return ArrayBufferItemType.UInt4;
 								default:
 									throw new NotSupportedException(String.Format("unsupported vertex array base type of UInt with rank {0} and length {1}", rank, length));
 							}
@@ -292,46 +292,46 @@ namespace OpenGL.Objects
 						case 1:
 							switch (length) {
 								case 1:
-									return (ArrayBufferItemType.Float);
+									return ArrayBufferItemType.Float;
 								case 2:
-									return (ArrayBufferItemType.Float2);
+									return ArrayBufferItemType.Float2;
 								case 3:
-									return (ArrayBufferItemType.Float3);
+									return ArrayBufferItemType.Float3;
 								case 4:
-									return (ArrayBufferItemType.Float4);
+									return ArrayBufferItemType.Float4;
 								default:
 									throw new NotSupportedException(String.Format("unsupported vertex array base type of Float with rank {0} and length {1}", rank, length));
 							}
 						case 2:
 							switch (length) {
 								case 2:
-									return (ArrayBufferItemType.Float2x2);
+									return ArrayBufferItemType.Float2x2;
 								case 3:
-									return (ArrayBufferItemType.Float2x3);
+									return ArrayBufferItemType.Float2x3;
 								case 4:
-									return (ArrayBufferItemType.Float2x4);
+									return ArrayBufferItemType.Float2x4;
 								default:
 									throw new NotSupportedException(String.Format("unsupported vertex array base type of Float with rank {0} and length {1}", rank, length));
 							}
 						case 3:
 							switch (length) {
 								case 2:
-									return (ArrayBufferItemType.Float3x2);
+									return ArrayBufferItemType.Float3x2;
 								case 3:
-									return (ArrayBufferItemType.Float3x3);
+									return ArrayBufferItemType.Float3x3;
 								case 4:
-									return (ArrayBufferItemType.Float3x4);
+									return ArrayBufferItemType.Float3x4;
 								default:
 									throw new NotSupportedException(String.Format("unsupported vertex array base type of Float with rank {0} and length {1}", rank, length));
 							}
 						case 4:
 							switch (length) {
 								case 2:
-									return (ArrayBufferItemType.Float4x2);
+									return ArrayBufferItemType.Float4x2;
 								case 3:
-									return (ArrayBufferItemType.Float4x3);
+									return ArrayBufferItemType.Float4x3;
 								case 4:
-									return (ArrayBufferItemType.Float4x4);
+									return ArrayBufferItemType.Float4x4;
 								default:
 									throw new NotSupportedException(String.Format("unsupported vertex array base type of Float with rank {0} and length {1}", rank, length));
 							}
@@ -350,46 +350,46 @@ namespace OpenGL.Objects
 						case 1:
 							switch (length) {
 								case 1:
-									return (ArrayBufferItemType.Double);
+									return ArrayBufferItemType.Double;
 								case 2:
-									return (ArrayBufferItemType.Double2);
+									return ArrayBufferItemType.Double2;
 								case 3:
-									return (ArrayBufferItemType.Double3);
+									return ArrayBufferItemType.Double3;
 								case 4:
-									return (ArrayBufferItemType.Double4);
+									return ArrayBufferItemType.Double4;
 								default:
 									throw new NotSupportedException(String.Format("unsupported vertex array base type of Double with rank {0} and length {1}", rank, length));
 							}
 						case 2:
 							switch (length) {
 								case 2:
-									return (ArrayBufferItemType.Double2x2);
+									return ArrayBufferItemType.Double2x2;
 								case 3:
-									return (ArrayBufferItemType.Double2x3);
+									return ArrayBufferItemType.Double2x3;
 								case 4:
-									return (ArrayBufferItemType.Double2x4);
+									return ArrayBufferItemType.Double2x4;
 								default:
 									throw new NotSupportedException(String.Format("unsupported vertex array base type of Double with rank {0} and length {1}", rank, length));
 							}
 						case 3:
 							switch (length) {
 								case 2:
-									return (ArrayBufferItemType.Double3x2);
+									return ArrayBufferItemType.Double3x2;
 								case 3:
-									return (ArrayBufferItemType.Double3x3);
+									return ArrayBufferItemType.Double3x3;
 								case 4:
-									return (ArrayBufferItemType.Double3x4);
+									return ArrayBufferItemType.Double3x4;
 								default:
 									throw new NotSupportedException(String.Format("unsupported vertex array base type of Double with rank {0} and length {1}", rank, length));
 							}
 						case 4:
 							switch (length) {
 								case 2:
-									return (ArrayBufferItemType.Double4x2);
+									return ArrayBufferItemType.Double4x2;
 								case 3:
-									return (ArrayBufferItemType.Double4x3);
+									return ArrayBufferItemType.Double4x3;
 								case 4:
-									return (ArrayBufferItemType.Double4x4);
+									return ArrayBufferItemType.Double4x4;
 								default:
 									throw new NotSupportedException(String.Format("unsupported vertex array base type of Double with rank {0} and length {1}", rank, length));
 							}
@@ -408,13 +408,13 @@ namespace OpenGL.Objects
 						case 1:
 							switch (length) {
 								case 1:
-									return (ArrayBufferItemType.Half);
+									return ArrayBufferItemType.Half;
 								case 2:
-									return (ArrayBufferItemType.Half2);
+									return ArrayBufferItemType.Half2;
 								case 3:
-									return (ArrayBufferItemType.Half3);
+									return ArrayBufferItemType.Half3;
 								case 4:
-									return (ArrayBufferItemType.Half4);
+									return ArrayBufferItemType.Half4;
 								default:
 									throw new NotSupportedException(String.Format("unsupported vertex array base type of Half with rank {0} and length {1}", rank, length));
 							}
@@ -443,18 +443,18 @@ namespace OpenGL.Objects
 			switch (vertexBaseType) {
 				case VertexBaseType.Byte:
 				case VertexBaseType.UByte:
-					return (1);
+					return 1;
 				case VertexBaseType.Short:
 				case VertexBaseType.UShort:
 				case VertexBaseType.Half:
-					return (2);
+					return 2;
 				case VertexBaseType.Float:
 				case VertexBaseType.Int:
 				case VertexBaseType.UInt:
-					return (4);
+					return 4;
 #if !MONODROID
 				case VertexBaseType.Double:
-					return (8);
+					return 8;
 #endif
 				default:
 					throw new NotSupportedException("base type not supported");

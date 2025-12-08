@@ -40,7 +40,7 @@ namespace OpenGL.Objects
 
 		#region Query Method
 
-		public QueryTarget Target { get { return (mTarget); } }
+		public QueryTarget Target { get { return mTarget; } }
 
 		public void Begin(GraphicsContext ctx)
 		{
@@ -58,7 +58,7 @@ namespace OpenGL.Objects
 
 			Gl.GetQueryObject(ObjectName, QueryObjectParameterName.QueryResultAvailable , out availability);
 
-			return (availability != 0);
+			return availability != 0;
 		}
 
 		public void GetResult(GraphicsContext ctx, out int result)
@@ -123,7 +123,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Buffer object class.
 		/// </summary>
-		public override Guid ObjectClass { get { return (ThisObjectClass); } }
+		public override Guid ObjectClass { get { return ThisObjectClass; } }
 
 		/// <summary>
 		/// Determine whether this BufferObject really exists for a specific context.
@@ -156,7 +156,7 @@ namespace OpenGL.Objects
 
 			// Object name space test (and 'ctx' sanity checks)
 			if (base.Exists(ctx) == false)
-				return (false);
+				return false;
 
 			return (Gl.IsQuery(ObjectName));
 		}

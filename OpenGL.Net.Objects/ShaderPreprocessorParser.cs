@@ -39,11 +39,11 @@ namespace OpenGL.Objects
 				if (_ConditionStack.Count > 0) {
 					foreach (ConditionalState conditionalState in _ConditionStack)
 						if (!conditionalState.Active)
-							return (false);
+							return false;
 
-					return (true);
+					return true;
 				} else
-					return (true);
+					return true;
 			}
 		}
 
@@ -124,9 +124,9 @@ namespace OpenGL.Objects
 			get
 			{
 				if (_ConditionStack.Count > 0) {
-					return (CurrentCondition.Directive);
+					return CurrentCondition.Directive;
 				} else
-					return (null);
+					return null;
 			}
 
 			set
@@ -142,7 +142,7 @@ namespace OpenGL.Objects
 				if (_ConditionStack.Count > 0) {
 					return (_ConditionStack.Peek());
 				} else
-					return (null);
+					return null;
 			}
 		}
 
@@ -294,7 +294,7 @@ namespace OpenGL.Objects
 			if (_Symbols.TryGetValue(symbol, out expSymbol)) {
 				if (expSymbol.Value == null)
 					throw new InvalidOperationException("undefined symbol '" + symbol + "'");
-				return (expSymbol.Value);
+				return expSymbol.Value;
 			}
 
 			throw new InvalidOperationException("unknown symbol '" + symbol + "'");

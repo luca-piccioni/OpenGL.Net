@@ -100,7 +100,7 @@ namespace OpenGL.Objects.Scene
 			// Fix container format in MediaInformation
 			image.MediaInformation.ContainerFormat = format;
 
-			return (image);
+			return image;
 		}
 
 		/// <summary>

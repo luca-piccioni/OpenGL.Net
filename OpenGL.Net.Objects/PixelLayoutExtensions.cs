@@ -441,7 +441,7 @@ namespace OpenGL.Objects
 				#region GRAYA Formats
 
 				//case PixelLayout.GRAYAF:
-				//	return (Gl.RG32F);
+				//	return Gl.RG32F;
 
 				#endregion
 
@@ -618,7 +618,7 @@ namespace OpenGL.Objects
                 #region GRAYA Formats
 
                 //case PixelLayout.GRAYAF:
-                //	return (Gl.RG32F);
+                //	return Gl.RG32F;
 
                 #endregion
 
@@ -922,7 +922,7 @@ namespace OpenGL.Objects
 				#region BGRA
 
 				//case PixelLayout.BGR30A2:           // Uses Gl.UNSIGNED_INT_2_10_10_10_REV as data type
-				//	return (PixelFormat.Rgba);
+				//	return PixelFormat.Rgba;
 				case PixelLayout.BGRA32:
 				case PixelLayout.BGRA64:
 				case PixelLayout.BGRAF:
@@ -1283,7 +1283,7 @@ namespace OpenGL.Objects
 				#region RGBA Data Types
 
 				//case PixelLayout.RGB30A2:
-				//	return (PixelType.UnsignedInt1010102);
+				//	return PixelType.UnsignedInt1010102;
 				case PixelLayout.RGBA32:
 					return PixelType.UnsignedByte;
 				case PixelLayout.RGBA64:
@@ -1321,7 +1321,7 @@ namespace OpenGL.Objects
 				#region BGRA Data Types
 
 				//case PixelLayout.BGR30A2:
-				//	return (PixelType.UnsignedInt2101010Rev);
+				//	return PixelType.UnsignedInt2101010Rev;
 				case PixelLayout.BGRA32:
 					return PixelType.UnsignedByte;
 				case PixelLayout.BGRA64:

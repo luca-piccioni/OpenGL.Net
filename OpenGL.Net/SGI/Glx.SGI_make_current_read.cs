@@ -67,7 +67,7 @@ namespace OpenGL
 			LogCommand("glXMakeCurrentReadSGI", retValue, dpy, draw, read, ctx			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -83,7 +83,7 @@ namespace OpenGL
 			LogCommand("glXGetCurrentReadDrawableSGI", retValue			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		internal static unsafe partial class Delegates

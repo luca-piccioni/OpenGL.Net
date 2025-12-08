@@ -128,9 +128,9 @@ namespace OpenGL.Objects
 						string[] stages = TestStage.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
 						foreach (string stage in stages)
-							yield return ((ShaderType)Enum.Parse(typeof(ShaderType), stage));
+							yield return (ShaderType)Enum.Parse(typeof(ShaderType), stage);
 					} else
-						yield return (Stage);
+						yield return Stage;
 				}
 			}
 
@@ -161,7 +161,7 @@ namespace OpenGL.Objects
 				// Load source
 				shaderObject.LoadSource(Path);
 
-				return (shaderObject);
+				return shaderObject;
 			}
 
 			/// <summary>
@@ -203,7 +203,7 @@ namespace OpenGL.Objects
 			if (objectId == null)
 				throw new ArgumentNullException(nameof(objectId));
 
-			return (Objects.Find(delegate(Object item) { return (item.Path == objectId); }));
+			return (Objects.Find(delegate(Object item) { return item.Path == objectId; }));
 		}
 
 		#endregion
@@ -387,7 +387,7 @@ namespace OpenGL.Objects
 
 				shaderProgram.Create(cctx);
 
-				return (shaderProgram);
+				return shaderProgram;
 			}
 
 			internal ShaderCompilerContext GetCompilerContext()
@@ -403,7 +403,7 @@ namespace OpenGL.Objects
 				// Shader extensions
 				shaderCompilerParams.Extensions.AddRange(Extensions);
 
-				return (shaderCompilerParams);
+				return shaderCompilerParams;
 			}
 
 			/// <summary>
@@ -459,7 +459,7 @@ namespace OpenGL.Objects
 			if (programId == null)
 				throw new ArgumentNullException(nameof(programId));
 
-			return (Programs.Find(delegate(Program item) { return (item.Id == programId); }));
+			return (Programs.Find(delegate(Program item) { return item.Id == programId; }));
 		}
 
 		/// <summary>
@@ -544,7 +544,7 @@ namespace OpenGL.Objects
 
 			XmlSerializer xmlSerializer = new XmlSerializer(typeof(ShadersLibrary));
 
-			return ((ShadersLibrary)xmlSerializer.Deserialize(libraryStream));
+			return (ShadersLibrary)xmlSerializer.Deserialize(libraryStream);
 		}
 
 		/// <summary>
@@ -640,7 +640,7 @@ namespace OpenGL.Objects
 		{
 			get
 			{
-				return (_ShadersLibrary);
+				return _ShadersLibrary;
 			}
 		}
 

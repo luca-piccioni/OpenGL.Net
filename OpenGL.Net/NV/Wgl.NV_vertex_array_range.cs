@@ -67,7 +67,7 @@ namespace OpenGL
 			LogCommand("wglAllocateMemoryNV", retValue, size, readfreq, writefreq, priority			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>

@@ -85,7 +85,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -140,7 +140,7 @@ namespace OpenGL
 				LogCommand("glGenTexturesEXT", null, 1, "{ " + retValue + " }"				);
 			}
 			DebugCheckErrors(null);
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -159,7 +159,7 @@ namespace OpenGL
 			LogCommand("glIsTextureEXT", retValue, texture			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		internal static unsafe partial class Delegates

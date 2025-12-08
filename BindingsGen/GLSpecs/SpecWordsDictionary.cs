@@ -44,7 +44,7 @@ namespace BindingsGen.GLSpecs
 			using (Stream sr = Assembly.GetExecutingAssembly().GetManifestResourceStream(path)) {
 				XmlSerializer serializer = new XmlSerializer(typeof(SpecWordsDictionary));
 
-				return ((SpecWordsDictionary)serializer.Deserialize(sr));
+				return (SpecWordsDictionary)serializer.Deserialize(sr);
 			}
 		}
 
@@ -114,7 +114,7 @@ namespace BindingsGen.GLSpecs
 			if (nameExtension != null)
 				specificationName += nameExtension;
 
-			return (specificationName);
+			return specificationName;
 		}
 	}
 }

@@ -86,7 +86,7 @@ namespace OpenGL
 				LogCommand("glGenFencesAPPLE", null, 1, "{ " + retValue + " }"				);
 			}
 			DebugCheckErrors(null);
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -140,7 +140,7 @@ namespace OpenGL
 			LogCommand("glIsFenceAPPLE", retValue, fence			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -159,7 +159,7 @@ namespace OpenGL
 			LogCommand("glTestFenceAPPLE", retValue, fence			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -196,7 +196,7 @@ namespace OpenGL
 			LogCommand("glTestObjectAPPLE", retValue, @object, name			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>

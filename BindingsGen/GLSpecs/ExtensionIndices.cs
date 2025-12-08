@@ -83,22 +83,22 @@ namespace BindingsGen.GLSpecs
 
 			if (Extension.IsArbVendor(extension)) {
 				if (sExtensionIndices.mIndicesMap.TryGetValue(extension, out index))
-					return (index);
+					return index;
 
 				Console.WriteLine("Extension {0} has automatically assigned the index {1}", extension, sUnknownExtensionIndex + 1);
 
 				sExtensionIndices.mIndicesMap.Add(extension, ++sUnknownExtensionIndex);
 
-				return (sUnknownExtensionIndex);
+				return sUnknownExtensionIndex;
 			} else {
 				if (sVendorExtensionIndices.mIndicesMap.TryGetValue(extension, out index))
-					return (index);
+					return index;
 
 				Console.WriteLine("Extension {0} has automatically assigned the index {1}", extension, sUnknownExtensionIndex + 1);
 
 				sVendorExtensionIndices.mIndicesMap.Add(extension, ++sUnknownExtensionIndex);
 
-				return (sUnknownExtensionIndex);
+				return sUnknownExtensionIndex;
 			}
 		}
 

@@ -64,12 +64,12 @@ namespace OpenGL.Objects.Scene
 		/// <summary>
 		/// Get the object type. Used for avoiding reflection.
 		/// </summary>
-		public override uint ObjectType { get { return (_ObjectType); } }
+		public override uint ObjectType { get { return _ObjectType; } }
 
 		/// <summary>
 		/// Get the object type of this SceneObject class.
 		/// </summary>
-		public static uint ClassObjectType { get { return (_ObjectType); } }
+		public static uint ClassObjectType { get { return _ObjectType; } }
 
 		/// <summary>
 		/// The object identifier for this class of SceneObject.

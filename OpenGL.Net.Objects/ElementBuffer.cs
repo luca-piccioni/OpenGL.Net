@@ -290,11 +290,11 @@ namespace OpenGL.Objects
 			{
 				switch (ElementsType) {
 					case DrawElementsType.UnsignedByte:
-						return (ArrayBufferItemType.UByte);
+						return ArrayBufferItemType.UByte;
 					case DrawElementsType.UnsignedShort:
-						return (ArrayBufferItemType.UShort);
+						return ArrayBufferItemType.UShort;
 					case DrawElementsType.UnsignedInt:
-						return (ArrayBufferItemType.UInt);
+						return ArrayBufferItemType.UInt;
 					default:
 						throw new NotSupportedException();
 				}
@@ -453,7 +453,7 @@ namespace OpenGL.Objects
 					throw new NotSupportedException(ElementsType + " not supported");
 			}
 
-			return (vIndex);
+			return vIndex;
 		}
 
 		#endregion
@@ -466,7 +466,7 @@ namespace OpenGL.Objects
 		/// <exception cref="NotImplementedException">
 		/// Exception always thrown.
 		/// </exception>
-		protected internal override uint ArraySectionsCount { get { return (1); } }
+		protected internal override uint ArraySectionsCount { get { return 1; } }
 
 		/// <summary>
 		/// Get the specified section information.
@@ -480,7 +480,7 @@ namespace OpenGL.Objects
 		/// <exception cref="NotImplementedException">
 		/// Exception always thrown.
 		/// </exception>
-		protected internal override IArraySection GetArraySection(uint index) { return (this); }
+		protected internal override IArraySection GetArraySection(uint index) { return this; }
 
 		/// <summary>
 		/// Convert the client buffer in a strongly-typed array.
@@ -498,7 +498,7 @@ namespace OpenGL.Objects
 			// Copy from buffer data to array data
 			Memory.Copy(genericArray, CpuBufferAddress, CpuItemsCount * ItemSize);
 
-			return (genericArray);
+			return genericArray;
 		}
 
 		/// <summary>
@@ -529,7 +529,7 @@ namespace OpenGL.Objects
 				Unmap(ctx);
 			}
 
-			return (genericArray);
+			return genericArray;
 		}
 
 		/// <summary>
@@ -586,23 +586,23 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Get whether the array elements should be meant normalized (fixed point precision values).
 		/// </summary>
-		bool IArraySection.Normalized { get { return (false); } }
+		bool IArraySection.Normalized { get { return false; } }
 
 		/// <summary>
 		/// Get the actual array buffer pointer. It could be <see cref="IntPtr.Zero"/> indicating an actual GPU
 		/// buffer reference.
 		/// </summary>
-		IntPtr IArraySection.Pointer { get { return (GpuBufferAddress); } }
+		IntPtr IArraySection.Pointer { get { return GpuBufferAddress; } }
 
 		/// <summary>
 		/// Offset of the first element of the array section, in bytes.
 		/// </summary>
-		IntPtr IArraySection.Offset { get { return (IntPtr.Zero); } }
+		IntPtr IArraySection.Offset { get { return IntPtr.Zero; } }
 
 		/// <summary>
 		/// Offset between two element of the array section, in bytes.
 		/// </summary>
-		IntPtr IArraySection.Stride { get { return (IntPtr.Zero); } }
+		IntPtr IArraySection.Stride { get { return IntPtr.Zero; } }
 
 		#endregion
 	}
@@ -679,11 +679,11 @@ namespace OpenGL.Objects
 			{
 				switch (Type.GetTypeCode(typeof(T))) {
 					case TypeCode.Byte:
-						return (0x000000FF);
+						return 0x000000FF;
 					case TypeCode.UInt16:
-						return (0x0000FFFF);
+						return 0x0000FFFF;
 					case TypeCode.UInt32:
-						return (0xFFFFFFFF);
+						return 0xFFFFFFFF;
 					default:
 						throw new InvalidOperationException("type not supported");
 				}

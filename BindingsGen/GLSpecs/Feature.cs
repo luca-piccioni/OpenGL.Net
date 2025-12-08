@@ -111,39 +111,39 @@ namespace BindingsGen.GLSpecs
 		/// </summary>
 		string IFeature.Name
 		{
-			get { return (Name); }
+			get { return Name; }
 		}
 
 		/// <summary>
 		/// Get the name of the API(s) supporting this IFeature.
 		/// </summary>
-		string IFeature.Api { get { return (Api); } }
+		string IFeature.Api { get { return Api; } }
 
 		/// <summary>
 		/// Get the name of the API profile supporting this IFeature.
 		/// </summary>
-		string IFeature.Profile { get { return (null); } }
+		string IFeature.Profile { get { return null; } }
 
 		/// <summary>
 		/// Zero or more <see cref="FeatureCommand"/>. Each item describes a set of interfaces that is required for this extension.
 		/// </summary>
-		IEnumerable<FeatureCommand> IFeature.Requirements { get { return (Requirements); } }
+		IEnumerable<FeatureCommand> IFeature.Requirements { get { return Requirements; } }
 
 		public bool Equals(IFeature other)
 		{
 			if (ReferenceEquals(this, other))
-				return (true);
+				return true;
 
 			IFeature thisFeature = (IFeature)this;
 
 			if (thisFeature.Name != other.Name)
-				return (false);
+				return false;
 			if (thisFeature.Api != other.Api)
-				return (false);
+				return false;
 			if (thisFeature.Profile != other.Profile)
-				return (false);
+				return false;
 
-			return (true);
+			return true;
 		}
 
 		#endregion
@@ -199,7 +199,7 @@ namespace BindingsGen.GLSpecs
 
 		public string Api
 		{
-			get { return (_Api ?? _Feature.Api); }
+			get { return _Api ?? _Feature.Api; }
 		}
 
 		private readonly string _Api;
@@ -215,39 +215,39 @@ namespace BindingsGen.GLSpecs
 		/// </summary>
 		string IFeature.Name
 		{
-			get { return (_Feature.Name); }
+			get { return _Feature.Name; }
 		}
 
 		/// <summary>
 		/// Get the name of the API(s) supporting this IFeature.
 		/// </summary>
-		string IFeature.Api { get { return (Api); } }
+		string IFeature.Api { get { return Api; } }
 
 		/// <summary>
 		/// Get the name of the API profile supporting this IFeature.
 		/// </summary>
-		string IFeature.Profile { get { return (Profile); } }
+		string IFeature.Profile { get { return Profile; } }
 
 		/// <summary>
 		/// Zero or more <see cref="FeatureCommand"/>. Each item describes a set of interfaces that is required for this extension.
 		/// </summary>
-		IEnumerable<FeatureCommand> IFeature.Requirements { get { return (_Feature.Requirements); } }
+		IEnumerable<FeatureCommand> IFeature.Requirements { get { return _Feature.Requirements; } }
 
 		public bool Equals(IFeature other)
 		{
 			if (ReferenceEquals(this, other))
-				return (true);
+				return true;
 
 			IFeature thisFeature = (IFeature)this;
 
 			if (thisFeature.Name != other.Name)
-				return (false);
+				return false;
 			if (thisFeature.Api != other.Api)
-				return (false);
+				return false;
 			if (thisFeature.Profile != other.Profile)
-				return (false);
+				return false;
 
-			return (true);
+			return true;
 		}
 
 		#endregion

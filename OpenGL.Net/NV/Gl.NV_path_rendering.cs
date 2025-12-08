@@ -1013,7 +1013,7 @@ namespace OpenGL
 			LogCommand("glGenPathsNV", retValue, range			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -1050,7 +1050,7 @@ namespace OpenGL
 			LogCommand("glIsPathNV", retValue, path			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -2658,7 +2658,7 @@ namespace OpenGL
 			LogCommand("glIsPointInFillPathNV", retValue, path, mask, x, y			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -2683,7 +2683,7 @@ namespace OpenGL
 			LogCommand("glIsPointInStrokePathNV", retValue, path, x, y			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -2708,7 +2708,7 @@ namespace OpenGL
 			LogCommand("glGetPathLengthNV", retValue, path, startSegment, numSegments			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -2760,7 +2760,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -3156,7 +3156,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -3228,7 +3228,7 @@ namespace OpenGL
 			LogCommand("glPathGlyphIndexArrayNV", retValue, firstPathName, fontTarget, fontName, fontStyle, firstGlyphIndex, numGlyphs, pathParameterTemplate, emScale			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -3309,7 +3309,7 @@ namespace OpenGL
 			LogCommand("glPathMemoryGlyphIndexArrayNV", retValue, firstPathName, fontTarget, fontSize, fontData, faceIndex, firstGlyphIndex, numGlyphs, pathParameterTemplate, emScale			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>

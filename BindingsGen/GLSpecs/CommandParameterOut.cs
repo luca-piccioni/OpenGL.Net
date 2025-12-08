@@ -66,7 +66,7 @@ namespace BindingsGen.GLSpecs
 		{
 			// Already "out" param?
 			if (param.GetImplementationTypeModifier(ctx, command) == "out")
-				return (false);
+				return false;
 
 			string implementationType = param.GetManagedImplementationType(command);
 
@@ -74,9 +74,9 @@ namespace BindingsGen.GLSpecs
 			// Type[] + OutParam -> out Type
 			// Type[] + OutParamLast -> out Type
 			if ((param.IsConstant == false) && implementationType.EndsWith("[]") && (param.Length != "1") && ((command.Flags & (CommandFlags.OutParam | CommandFlags.OutParamLast)) != 0))
-				return (true);
+				return true;
 
-			return (false);
+			return false;
 		}
 
 		#endregion

@@ -63,12 +63,12 @@ namespace OpenGL.Objects
 			get
 			{
 				if (_Mipmaps == null)
-					return (PixelLayout.None);
+					return PixelLayout.None;
 
 				if (_Mipmaps[MipmapMinLevel] == null)
 					throw new InvalidOperationException("undefined base level");
 
-				return (_Mipmaps[MipmapMinLevel].InternalFormat);
+				return _Mipmaps[MipmapMinLevel].InternalFormat;
 			}
 		}
 
@@ -81,9 +81,9 @@ namespace OpenGL.Objects
 			get
 			{
 				if (_Mipmaps == null)
-					return (Vertex3ui.Zero);
+					return Vertex3ui.Zero;
 				if (_Mipmaps[0] != null)
-					return (_Mipmaps[0].Size);
+					return _Mipmaps[0].Size;
 
 				for (int i = 0; i < _Mipmaps.Length; i++) {
 					if (_Mipmaps[i] == null)
@@ -92,7 +92,7 @@ namespace OpenGL.Objects
 					return (_Mipmaps[i].Size * (uint)Math.Pow(2.0, i));
 				}
 
-				return (Vertex3ui.Zero);
+				return Vertex3ui.Zero;
 			}
 		}
 
@@ -107,19 +107,19 @@ namespace OpenGL.Objects
 			get
 			{
 				if (_Mipmaps == null)
-					return (Vertex3ui.Zero);
+					return Vertex3ui.Zero;
 
 				if (_Mipmaps[MipmapMinLevel] == null)
 					throw new InvalidOperationException("undefined base level");
 
-				return (_Mipmaps[MipmapMinLevel].Size);
+				return _Mipmaps[MipmapMinLevel].Size;
 			}
 		}
 
 		/// <summary>
 		/// Texture width, in pixels, of the base level of the texture.
 		/// </summary>
-		public uint Width { get { return (Size.x); } }
+		public uint Width { get { return Size.x; } }
 
 		/// <summary>
 		/// Texture height, in pixels, of the base level of the texture.
@@ -127,7 +127,7 @@ namespace OpenGL.Objects
 		/// <remarks>
 		/// In case the Texture implementation does not have two or more dimension, it shall return 1.
 		/// </remarks>
-		public uint Height { get { return (Size.y); } }
+		public uint Height { get { return Size.y; } }
 
 		/// <summary>
 		/// Texture depth, in pixels, of the base level of the texture.
@@ -135,7 +135,7 @@ namespace OpenGL.Objects
 		/// <remarks>
 		/// In case the Texture implementation does not have three or more dimension, it shall return 1.
 		/// </remarks>
-		public uint Depth { get { return (Size.z); } }
+		public uint Depth { get { return Size.z; } }
 
 		#endregion
 
@@ -285,7 +285,7 @@ namespace OpenGL.Objects
 			// Download texture contents
 			Gl.GetTexImage(target, (int)level, pixelType.ToDataFormat(), pixelType.ToPixelType(), image.ImageBuffer);
 
-			return (image);
+			return image;
 		}
 #endif
 
@@ -332,7 +332,7 @@ namespace OpenGL.Objects
 		/// </returns>
 		public bool HasMipMapLevel(uint level)
 		{
-			return (_Mipmaps[level] != null);
+			return _Mipmaps[level] != null;
 		}
 
 		/// <summary>
@@ -343,7 +343,7 @@ namespace OpenGL.Objects
 			get
 			{
 				if (_Mipmaps == null)
-					return (false);
+					return false;
 
 				Debug.Assert(_Mipmaps.Length == MipmapLevels);
 
@@ -352,16 +352,16 @@ namespace OpenGL.Objects
 				for (uint i = MipmapMinLevel; i < MipmapMaxLevel; i++) {
 					// Mipmap level must be defined
 					if (_Mipmaps[i] == null)
-						return (false);
+						return false;
 					// Same internal format (compare with the base level)
 					if (_Mipmaps[i].InternalFormat != _Mipmaps[mipmapBaseLevel].InternalFormat)
-						return (false);
+						return false;
 					// The dimensions of the images follow the sequence described by GetMipmapSize
 					if (_Mipmaps[i].Size != GetMipmapSize(i))
-						return (false);
+						return false;
 				}
 
-				return (true);
+				return true;
 			}
 		}
 
@@ -426,7 +426,7 @@ namespace OpenGL.Objects
 			if (maxSize > 0)
 				return (1 + (uint)Math.Floor(Math.Log(maxSize, 2.0)));
 			else
-				return (0);
+				return 0;
 		}
 
 		/// <summary>
@@ -481,7 +481,7 @@ namespace OpenGL.Objects
 			mipmapSize.y = Math.Max(1, mipmapSize.y);
 			mipmapSize.z = Math.Max(1, mipmapSize.z);
 
-			return (mipmapSize);
+			return mipmapSize;
 		}
 
 		/// <summary>
@@ -651,7 +651,7 @@ namespace OpenGL.Objects
 		/// </summary>
 		public Sampler Sampler
 		{
-			get { return (_Sampler); }
+			get { return _Sampler; }
 			set { SwapGpuResources(value, ref _Sampler); }
 		}
 
@@ -726,22 +726,22 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Get or set the swizzle map for red component.
 		/// </summary>
-		public SwizzleValue SwizzleRed { get { return (_Swizzle[0]); } set { _Swizzle[0] = value; _SwizzleDirty = true; } }
+		public SwizzleValue SwizzleRed { get { return _Swizzle[0]; } set { _Swizzle[0] = value; _SwizzleDirty = true; } }
 
 		/// <summary>
 		/// Get or set the swizzle map for green component.
 		/// </summary>
-		public SwizzleValue SwizzleGreen { get { return (_Swizzle[1]); } set { _Swizzle[1] = value; _SwizzleDirty = true; } }
+		public SwizzleValue SwizzleGreen { get { return _Swizzle[1]; } set { _Swizzle[1] = value; _SwizzleDirty = true; } }
 
 		/// <summary>
 		/// Get or set the swizzle map for blue component.
 		/// </summary>
-		public SwizzleValue SwizzleBlue { get { return (_Swizzle[2]); } set { _Swizzle[2] = value; _SwizzleDirty = true; } }
+		public SwizzleValue SwizzleBlue { get { return _Swizzle[2]; } set { _Swizzle[2] = value; _SwizzleDirty = true; } }
 
 		/// <summary>
 		/// Get or set the swizzle map for alpha component.
 		/// </summary>
-		public SwizzleValue SwizzleAlpha { get { return (_Swizzle[3]); } set { _Swizzle[3] = value; _SwizzleDirty = true; } }
+		public SwizzleValue SwizzleAlpha { get { return _Swizzle[3]; } set { _Swizzle[3] = value; _SwizzleDirty = true; } }
 		
 		/// <summary>
 		/// Texture textel swizzle setup.
@@ -780,7 +780,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Get whether the Texture has data to be updated.
 		/// </summary>
-		public bool IsDirty { get { lock (_TechniquesLock) { return (_Techniques.Count > 0); } } }
+		public bool IsDirty { get { lock (_TechniquesLock) { return _Techniques.Count > 0; } } }
 
 		/// <summary>
 		/// Technique for creating Texture layer(s).
@@ -868,7 +868,7 @@ namespace OpenGL.Objects
 		/// </summary>
 		public bool Immutable
 		{
-			get { return (_Immutable); }
+			get { return _Immutable; }
 			set
 			{
 				if (ObjectName != InvalidObjectName)
@@ -905,34 +905,34 @@ namespace OpenGL.Objects
 		{
 			// Cannot lazy binding on textures if GL_EXT_texture_object is not supported
 			if (ctx.Extensions.TextureObject_EXT == false)
-				return (0);
+				return 0;
 
 			// All-in-one implementation for all targets
 			switch ((int)TextureTarget) {
 #if !MONODROID
 				case Gl.TEXTURE_1D:
-					return (Gl.TEXTURE_BINDING_1D);
+					return Gl.TEXTURE_BINDING_1D;
 #endif
 				case Gl.TEXTURE_2D:
-					return (Gl.TEXTURE_BINDING_2D);
+					return Gl.TEXTURE_BINDING_2D;
 				case Gl.TEXTURE_3D:
-					return (Gl.TEXTURE_BINDING_3D);
+					return Gl.TEXTURE_BINDING_3D;
 				case Gl.TEXTURE_CUBE_MAP:
-					return (Gl.TEXTURE_BINDING_CUBE_MAP);
+					return Gl.TEXTURE_BINDING_CUBE_MAP;
 #if !MONODROID
 				case Gl.TEXTURE_RECTANGLE:
-					return (Gl.TEXTURE_BINDING_RECTANGLE);
+					return Gl.TEXTURE_BINDING_RECTANGLE;
 				case Gl.TEXTURE_1D_ARRAY:
-					return (Gl.TEXTURE_BINDING_1D_ARRAY);
+					return Gl.TEXTURE_BINDING_1D_ARRAY;
 #endif
 				case Gl.TEXTURE_2D_ARRAY:
-					return (Gl.TEXTURE_BINDING_2D_ARRAY);
+					return Gl.TEXTURE_BINDING_2D_ARRAY;
 				case Gl.TEXTURE_CUBE_MAP_ARRAY:
-					return (Gl.TEXTURE_BINDING_CUBE_MAP_ARRAY);
+					return Gl.TEXTURE_BINDING_CUBE_MAP_ARRAY;
 				case Gl.TEXTURE_2D_MULTISAMPLE:
-					return (Gl.TEXTURE_BINDING_2D_MULTISAMPLE);
+					return Gl.TEXTURE_BINDING_2D_MULTISAMPLE;
 				case Gl.TEXTURE_2D_MULTISAMPLE_ARRAY:
-					return (Gl.TEXTURE_BINDING_2D_MULTISAMPLE_ARRAY);
+					return Gl.TEXTURE_BINDING_2D_MULTISAMPLE_ARRAY;
 
 				default:
 					throw new NotSupportedException(String.Format("texture target 0x{0:X2} not supported", (int)TextureTarget));
@@ -991,7 +991,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Texture object class.
 		/// </summary>
-		public override Guid ObjectClass { get { return (ThisObjectClass); } }
+		public override Guid ObjectClass { get { return ThisObjectClass; } }
 
 		/// <summary>
 		/// Determine whether this Texture really exists for a specific context.
@@ -1019,7 +1019,7 @@ namespace OpenGL.Objects
 		{
 			// Object name space test (and 'ctx' sanity checks)
 			if (base.Exists(ctx) == false)
-				return (false);
+				return false;
 
 			return (!ctx.Extensions.TextureObject_EXT || Gl.IsTexture(ObjectName));
 		}

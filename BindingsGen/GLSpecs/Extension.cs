@@ -81,7 +81,7 @@ namespace BindingsGen.GLSpecs
 			if (vendorMatch.Success == false)
 				throw new NotSupportedException();
 
-			return (vendorMatch.Groups["Vendor"].Value);
+			return vendorMatch.Groups["Vendor"].Value;
 		}
 
 		public static bool IsArbVendor(string extensionName)
@@ -89,9 +89,9 @@ namespace BindingsGen.GLSpecs
 			switch (Extension.GetVendor(extensionName)) {
 				case "ARB":
 				case "KHR":
-					return (true);
+					return true;
 				default:
-					return (false);
+					return false;
 			}
 		}
 
@@ -105,7 +105,7 @@ namespace BindingsGen.GLSpecs
 		string IFeature.Name
 		{
 			get {
-				return (Name);
+				return Name;
 			}
 		}
 
@@ -115,7 +115,7 @@ namespace BindingsGen.GLSpecs
 		string IFeature.Api
 		{
 			get {
-				return (Supported);
+				return Supported;
 			}
 		}
 
@@ -125,7 +125,7 @@ namespace BindingsGen.GLSpecs
 		string IFeature.Profile
 		{
 			get {
-				return (null);
+				return null;
 			}
 		}
 
@@ -135,25 +135,25 @@ namespace BindingsGen.GLSpecs
 		IEnumerable<FeatureCommand> IFeature.Requirements
 		{
 			get {
-				return (Requirements);
+				return Requirements;
 			}
 		}
 
 		public bool Equals(IFeature other)
 		{
 			if (ReferenceEquals(this, other))
-				return (true);
+				return true;
 
 			IFeature thisFeature = (IFeature)this;
 
 			if (thisFeature.Name != other.Name)
-				return (false);
+				return false;
 			if (thisFeature.Api != other.Api)
-				return (false);
+				return false;
 			if (thisFeature.Profile != other.Profile)
-				return (false);
+				return false;
 
-			return (true);
+			return true;
 		}
 
 		#endregion
@@ -210,7 +210,7 @@ namespace BindingsGen.GLSpecs
 		public string Api
 		{
 			get {
-				return (_Api ?? _Extension.Supported);
+				return _Api ?? _Extension.Supported;
 			}
 		}
 
@@ -228,7 +228,7 @@ namespace BindingsGen.GLSpecs
 		string IFeature.Name
 		{
 			get {
-				return (_Extension.Name);
+				return _Extension.Name;
 			}
 		}
 
@@ -238,7 +238,7 @@ namespace BindingsGen.GLSpecs
 		string IFeature.Api
 		{
 			get {
-				return (Api);
+				return Api;
 			}
 		}
 
@@ -248,7 +248,7 @@ namespace BindingsGen.GLSpecs
 		string IFeature.Profile
 		{
 			get {
-				return (Profile);
+				return Profile;
 			}
 		}
 
@@ -258,25 +258,25 @@ namespace BindingsGen.GLSpecs
 		IEnumerable<FeatureCommand> IFeature.Requirements
 		{
 			get {
-				return (_Extension.Requirements);
+				return _Extension.Requirements;
 			}
 		}
 
 		public bool Equals(IFeature other)
 		{
 			if (ReferenceEquals(this, other))
-				return (true);
+				return true;
 
 			IFeature thisFeature = (IFeature)this;
 
 			if (thisFeature.Name != other.Name)
-				return (false);
+				return false;
 			if (thisFeature.Api != other.Api)
-				return (false);
+				return false;
 			if (thisFeature.Profile != other.Profile)
-				return (false);
+				return false;
 
-			return (true);
+			return true;
 		}
 
 		#endregion

@@ -117,7 +117,7 @@ namespace BindingsGen.GLSpecs
             foreach (CommandParameter commandParameter in Parameters)
                 parameters.Add(new CommandParameter(commandParameter));
 
-            return (parameters);
+            return parameters;
         }
 
         private List<CommandParameter> GetStrongParameters(RegistryContext ctx)
@@ -127,7 +127,7 @@ namespace BindingsGen.GLSpecs
             foreach (CommandParameter commandParameter in Parameters)
                 parameters.Add(new CommandParameterStrong(commandParameter, ctx, this));
 
-            return (parameters);
+            return parameters;
         }
 
         private List<CommandParameter> GetPinnedParameters(RegistryContext ctx, bool strong)
@@ -137,7 +137,7 @@ namespace BindingsGen.GLSpecs
             foreach (CommandParameter commandParameter in Parameters)
                 parameters.Add(new CommandParameterPinned(commandParameter, ctx, this, strong));
 
-            return (parameters);
+            return parameters;
         }
 
         private List<CommandParameter> GetOutParameters(RegistryContext ctx, bool strong)
@@ -147,7 +147,7 @@ namespace BindingsGen.GLSpecs
             foreach (CommandParameter commandParameter in Parameters)
                 parameters.Add(new CommandParameterOut(commandParameter, ctx, this, strong));
 
-            return (parameters);
+            return parameters;
         }
 
         private List<CommandParameter> GetOutLastParameters(RegistryContext ctx)
@@ -157,7 +157,7 @@ namespace BindingsGen.GLSpecs
             parameters.RemoveAt(parameters.Count - 1);
             parameters.Add(new CommandParameterOut(Parameters[Parameters.Count - 1], ctx, this, false));
 
-            return (parameters);
+            return parameters;
         }
 
         private List<CommandParameter> GetArrayLengthParameters(RegistryContext ctx)
@@ -167,7 +167,7 @@ namespace BindingsGen.GLSpecs
             foreach (CommandParameter commandParameter in Parameters)
                 parameters.Add(new CommandParameterArrayLength(commandParameter, ctx, this));
 
-            return (parameters);
+            return parameters;
         }
 
         private List<CommandParameter> GetUnsafeParameters(RegistryContext ctx)
@@ -177,7 +177,7 @@ namespace BindingsGen.GLSpecs
             foreach (CommandParameter commandParameter in Parameters)
                 parameters.Add(new CommandParameterUnsafe(commandParameter, ctx, this));
 
-            return (parameters);
+            return parameters;
         }
 
         /// <summary>
@@ -217,7 +217,7 @@ namespace BindingsGen.GLSpecs
         /// </summary>
         private string ImportName
         {
-            get { return (Prototype.Name); }
+            get { return Prototype.Name; }
         }
 
         #endregion
@@ -229,7 +229,7 @@ namespace BindingsGen.GLSpecs
         /// </summary>
         private string DelegateName
         {
-            get { return ("p" + ImportName); }
+            get { return "p" + ImportName; }
         }
 
         /// <summary>
@@ -240,9 +240,9 @@ namespace BindingsGen.GLSpecs
             get
             {
                 if (Regex.IsMatch(Prototype.DelegateReturnType, @"(Gl|Glx|Wgl)\.\w+") == true)
-                    return ("IntPtr");
+                    return "IntPtr";
                 else
-                    return (Prototype.DelegateReturnType);
+                    return Prototype.DelegateReturnType;
             }
         }
 
@@ -351,7 +351,7 @@ namespace BindingsGen.GLSpecs
             if (implementationName.StartsWith(prefix))
                 implementationName = implementationName.Substring(prefix.Length);
 
-            return (implementationName);
+            return implementationName;
         }
 
         /// <summary>
@@ -371,7 +371,7 @@ namespace BindingsGen.GLSpecs
                 return (ctx.WordsDictionary.GetOverridableName(ctx, implementationName));
             }
             else
-                return (overridenName);
+                return overridenName;
         }
 
         /// <summary>
@@ -403,7 +403,7 @@ namespace BindingsGen.GLSpecs
                 }
             }
 
-            return (overridenName);
+            return overridenName;
         }
 
         /// <summary>
@@ -419,13 +419,13 @@ namespace BindingsGen.GLSpecs
         /// </param>
         private string GetImplementationReturnType(RegistryContext ctx)
         {
-            if ((Prototype.Group != null) && (ctx.Registry.Groups.FindIndex(delegate (EnumerantGroup item) { return (item.Name == Prototype.Group); }) >= 0))
+            if ((Prototype.Group != null) && (ctx.Registry.Groups.FindIndex(delegate (EnumerantGroup item) { return item.Name == Prototype.Group; }) >= 0))
             {
                 if (Prototype.Group != "Boolean")
-                    return (Prototype.Group);
+                    return Prototype.Group;
             }
 
-            return (Prototype.ImplementationReturnType);
+            return Prototype.ImplementationReturnType;
         }
 
         /// <summary>
@@ -445,13 +445,13 @@ namespace BindingsGen.GLSpecs
         {
             // Return type is a pointer
             if (GetImplementationReturnType(ctx).EndsWith("*"))
-                return (true);
+                return true;
 
             // At least one command parameter is a CommandParameterUnsafe
-            if (commandParams.Exists(delegate (CommandParameter item) { return (item is CommandParameterUnsafe); }))
-                return (true);
+            if (commandParams.Exists(delegate (CommandParameter item) { return item is CommandParameterUnsafe; }))
+                return true;
 
-            return (false);
+            return false;
         }
 
         /// <summary>
@@ -471,9 +471,9 @@ namespace BindingsGen.GLSpecs
         {
             foreach (CommandParameter param in commandParams)
                 if (param.IsFixed(ctx, this))
-                    return (true);
+                    return true;
 
-            return (false);
+            return false;
         }
 
         /// <summary>
@@ -493,9 +493,9 @@ namespace BindingsGen.GLSpecs
         {
             foreach (CommandParameter param in commandParams)
                 if (param.IsSafeMarshal(this))
-                    return (true);
+                    return true;
 
-            return (false);
+            return false;
         }
 
         /// <summary>
@@ -515,9 +515,9 @@ namespace BindingsGen.GLSpecs
         {
             foreach (CommandParameter param in commandParams)
                 if (param.IsPinned(ctx, this))
-                    return (true);
+                    return true;
 
-            return (false);
+            return false;
         }
 
         /// <summary>
@@ -646,7 +646,7 @@ namespace BindingsGen.GLSpecs
         /// </param>
         private void GenerateImplementation(SourceStreamWriter sw, RegistryContext ctx, List<CommandParameter> commandParams)
         {
-            bool isPinnedImplementation = commandParams.FindIndex(delegate (CommandParameter item) { return (item is CommandParameterPinned); }) >= 0;
+            bool isPinnedImplementation = commandParams.FindIndex(delegate (CommandParameter item) { return item is CommandParameterPinned; }) >= 0;
 
             if (!isPinnedImplementation)
                 GenerateImplementation_Default(sw, ctx, commandParams);
@@ -896,7 +896,7 @@ namespace BindingsGen.GLSpecs
             if (HasReturnValue)
             {
                 sw.WriteLine();
-                sw.WriteLine("return ({0});", GetReturnValueExpression(ctx));
+                sw.WriteLine("return {0};", GetReturnValueExpression(ctx));
             }
 
             sw.Unindent();
@@ -938,7 +938,7 @@ namespace BindingsGen.GLSpecs
 
             sw.WriteIdentation();
             if (HasReturnValue)
-                sw.Write("return (");
+                sw.Write("return ");
 
             sw.Write("{0}(", GetImplementationName(ctx));
 
@@ -958,8 +958,6 @@ namespace BindingsGen.GLSpecs
 
             sw.Write(")");
 
-            if (HasReturnValue)
-                sw.Write(")");
             sw.Write(";");
             sw.WriteLine();
 
@@ -1012,7 +1010,7 @@ namespace BindingsGen.GLSpecs
                 if (compatible)
                     arrayParameters.Add((CommandParameterArrayLength)item);
 
-                return (!compatible && !arrayLengthParam);
+                return !compatible && !arrayLengthParam;
             });
 
             Debug.Assert(arrayParameters.Count == 1);
@@ -1123,7 +1121,7 @@ namespace BindingsGen.GLSpecs
                 sw.WriteLine("DebugCheckErrors({0});", returnValue);
             }
 
-            sw.WriteLine("return ({0});", ReturnVariableName);
+            sw.WriteLine("return {0};", ReturnVariableName);
 
             sw.Unindent();
             sw.WriteLine("}");
@@ -1142,7 +1140,7 @@ namespace BindingsGen.GLSpecs
             else if (implementationName.EndsWith("s"))
                 implementationName = implementationName.Substring(0, implementationName.Length - 1);
 
-            return (implementationName + implementationExtension);
+            return implementationName + implementationExtension;
         }
 
         /// <summary>
@@ -1296,7 +1294,7 @@ namespace BindingsGen.GLSpecs
             if (HasReturnValue)
             {
                 sw.WriteLine();
-                sw.WriteLine("return ({0});", GetReturnValueExpression(ctx));
+                sw.WriteLine("return {0};", GetReturnValueExpression(ctx));
             }
 
             // Implementation block
@@ -1417,7 +1415,7 @@ namespace BindingsGen.GLSpecs
         /// </summary>
         private bool HasReturnValue
         {
-            get { return (Prototype.ImplementationReturnType != "void"); }
+            get { return Prototype.ImplementationReturnType != "void"; }
         }
 
         private string GetReturnValueExpression(RegistryContext ctx)
@@ -1451,9 +1449,9 @@ namespace BindingsGen.GLSpecs
             {
                 foreach (CommandParameter param in Parameters)
                     if (param.IsSafe == false)
-                        return (false);
+                        return false;
 
-                return (true);
+                return true;
             }
         }
 
@@ -1485,9 +1483,9 @@ namespace BindingsGen.GLSpecs
         internal bool IsGenImplementation(RegistryContext ctx)
         {
             if (GetImplementationReturnType(ctx) != "void")
-                return (false);
+                return false;
             if (!CommandParameterArrayLength.IsCompatible(ctx, this))
-                return (false);
+                return false;
 
             string implementationName = GetImplementationNameBase(ctx);
 
@@ -1510,9 +1508,9 @@ namespace BindingsGen.GLSpecs
 
             foreach (string ext in ctx.ExtensionsDictionary.Words)
                 if (name.EndsWith(ext))
-                    return (ext);
+                    return ext;
 
-            return (string.Empty);
+            return string.Empty;
         }
 
         #endregion
@@ -1562,14 +1560,14 @@ namespace BindingsGen.GLSpecs
                 List<FeatureCommand> requirementIndexes = feature.Requirements.FindAll(delegate (FeatureCommand item)
                 {
                     if (item.Api != null && !ctx.IsSupportedApi(item.Api))
-                        return (false);
+                        return false;
 
                     int enumIndex = item.Commands.FindIndex(delegate (FeatureCommand.Item subitem)
                     {
-                        return (subitem.Name == Prototype.Name);
+                        return subitem.Name == Prototype.Name;
                     });
 
-                    return (enumIndex != -1);
+                    return enumIndex != -1;
                 });
 
                 foreach (FeatureCommand featureCommand in requirementIndexes)
@@ -1590,18 +1588,18 @@ namespace BindingsGen.GLSpecs
                 List<FeatureCommand> requirementIndexes = extension.Requirements.FindAll(delegate (FeatureCommand item)
                 {
                     if (item.Api != null && !ctx.IsSupportedApi(item.Api))
-                        return (false);
+                        return false;
 
                     int enumIndex = item.Commands.FindIndex(delegate (FeatureCommand.Item subitem)
                     {
                         foreach (Command commandAlias in Aliases)
                             if (subitem.Name == commandAlias.Prototype.Name)
-                                return (true);
+                                return true;
 
-                        return (subitem.Name == Prototype.Name);
+                        return subitem.Name == Prototype.Name;
                     });
 
-                    return (enumIndex != -1);
+                    return enumIndex != -1;
                 });
 
                 foreach (FeatureCommand featureCommand in requirementIndexes)
@@ -1613,7 +1611,7 @@ namespace BindingsGen.GLSpecs
                 }
             }
 
-            return (features);
+            return features;
         }
 
         /// <summary>
@@ -1638,17 +1636,17 @@ namespace BindingsGen.GLSpecs
                 List<FeatureCommand> requirementIndexes = feature.Removals.FindAll(delegate (FeatureCommand item)
                 {
                     if (item.Api != null && !ctx.IsSupportedApi(item.Api))
-                        return (false);
+                        return false;
 
                     int enumIndex = item.Commands.FindIndex(delegate (FeatureCommand.Item subitem)
                     {
                         foreach (Command commandAlias in Aliases)
                             if (subitem.Name == commandAlias.Prototype.Name)
-                                return (true);
-                        return (subitem.Name == Prototype.Name);
+                                return true;
+                        return subitem.Name == Prototype.Name;
                     });
 
-                    return (enumIndex != -1);
+                    return enumIndex != -1;
                 });
 
                 foreach (FeatureCommand featureCommand in requirementIndexes)
@@ -1660,7 +1658,7 @@ namespace BindingsGen.GLSpecs
                 }
             }
 
-            return (features);
+            return features;
         }
 
         /// <summary>

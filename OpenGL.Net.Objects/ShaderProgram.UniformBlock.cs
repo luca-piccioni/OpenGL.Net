@@ -143,7 +143,7 @@ namespace OpenGL.Objects
 		/// </remarks>
 		public ICollection<string> ActiveUniformBlocks
 		{
-			get { return (_UniformBlockMap.Keys); }
+			get { return _UniformBlockMap.Keys; }
 		}
 
 		/// <summary>
@@ -174,9 +174,9 @@ namespace OpenGL.Objects
 			UniformBlockBinding uniformBlockBinding;
 
 			if (_UniformBlockMap.TryGetValue(uniformBlockName, out uniformBlockBinding))
-				return (uniformBlockBinding);
+				return uniformBlockBinding;
 
-			return (null);
+			return null;
 		}
 
 		/// <summary>
@@ -235,7 +235,7 @@ namespace OpenGL.Objects
 			// Map uniform names with 
 			MapUniformBlock(uniformBlockName, uniformBuffer);
 
-			return (uniformBuffer);
+			return uniformBuffer;
 		}
 
 		/// <summary>
@@ -257,7 +257,7 @@ namespace OpenGL.Objects
 			// Map uniform names with 
 			MapUniformBlock(uniformBlockName, uniformBuffer);
 
-			return (uniformBuffer);
+			return uniformBuffer;
 		}
 
 		private void MapUniformBlock(string uniformBlockName, UniformBuffer uniformBuffer)
@@ -375,9 +375,9 @@ namespace OpenGL.Objects
 			uint cachedBindingIndex;
 
 			if (_UniformBlocks.TryGetValue(index, out cachedBindingIndex) == false)
-				return (true);
+				return true;
 
-			return (cachedBindingIndex != uniformBuffer.BindingIndex);
+			return cachedBindingIndex != uniformBuffer.BindingIndex;
 		}
 
 		/// <summary>

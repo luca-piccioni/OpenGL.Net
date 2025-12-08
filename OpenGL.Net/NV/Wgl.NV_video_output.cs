@@ -147,7 +147,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -166,7 +166,7 @@ namespace OpenGL
 			LogCommand("wglReleaseVideoDeviceNV", retValue, hVideoDevice			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -191,7 +191,7 @@ namespace OpenGL
 			LogCommand("wglBindVideoImageNV", retValue, hVideoDevice, hPbuffer, iVideoBuffer			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -213,7 +213,7 @@ namespace OpenGL
 			LogCommand("wglReleaseVideoImageNV", retValue, hPbuffer, iVideoBuffer			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -246,7 +246,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -277,7 +277,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		internal static unsafe partial class Delegates

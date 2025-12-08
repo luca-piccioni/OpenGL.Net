@@ -179,7 +179,7 @@ namespace OpenGL.Objects
 
 			Inverse(v1, v2, out rng, out brg);
 
-			return (rng);
+			return rng;
 		}
 	}
 }

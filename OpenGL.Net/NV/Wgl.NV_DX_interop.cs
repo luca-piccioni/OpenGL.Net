@@ -82,7 +82,7 @@ namespace OpenGL
 			LogCommand("wglDXSetResourceShareHandleNV", retValue, dxObject, shareHandle			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -101,7 +101,7 @@ namespace OpenGL
 			LogCommand("wglDXOpenDeviceNV", retValue, dxDevice			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -120,7 +120,7 @@ namespace OpenGL
 			LogCommand("wglDXCloseDeviceNV", retValue, hDevice			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -151,7 +151,7 @@ namespace OpenGL
 			LogCommand("wglDXRegisterObjectNV", retValue, hDevice, dxObject, name, type, access			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -173,7 +173,7 @@ namespace OpenGL
 			LogCommand("wglDXUnregisterObjectNV", retValue, hDevice, hObject			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -195,7 +195,7 @@ namespace OpenGL
 			LogCommand("wglDXObjectAccessNV", retValue, hObject, access			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -225,7 +225,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -255,7 +255,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		internal static unsafe partial class Delegates

@@ -70,7 +70,7 @@ namespace OpenGL
 			LogCommand("glXSet3DfxModeMESA", retValue, mode			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		internal static unsafe partial class Delegates

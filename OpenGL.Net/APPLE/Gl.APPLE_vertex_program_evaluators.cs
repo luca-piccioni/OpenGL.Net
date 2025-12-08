@@ -157,7 +157,7 @@ namespace OpenGL
 			LogCommand("glIsVertexAttribEnabledAPPLE", retValue, index, pname			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>

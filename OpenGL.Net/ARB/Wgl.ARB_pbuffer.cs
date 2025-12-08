@@ -130,7 +130,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -149,7 +149,7 @@ namespace OpenGL
 			LogCommand("wglGetPbufferDCARB", retValue, hPbuffer			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -171,7 +171,7 @@ namespace OpenGL
 			LogCommand("wglReleasePbufferDCARB", retValue, hPbuffer, hDC			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -190,7 +190,7 @@ namespace OpenGL
 			LogCommand("wglDestroyPbufferARB", retValue, hPbuffer			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -220,7 +220,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		internal static unsafe partial class Delegates

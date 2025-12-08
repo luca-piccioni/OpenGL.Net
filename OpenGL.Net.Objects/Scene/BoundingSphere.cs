@@ -54,7 +54,7 @@ namespace OpenGL.Objects.Scene
 		/// </summary>
 		public float Radius
 		{
-			get { return (_Radius); }
+			get { return _Radius; }
 			set { _Radius = value; }
 		}
 
@@ -83,10 +83,10 @@ namespace OpenGL.Objects.Scene
 
 			foreach (Planef plane in clippingPlanes) {
 				if (plane.GetDistance(sphereOrigin) < _Radius)
-					return (true);
+					return true;
 			}
 
-			return (false);
+			return false;
 		}
 
 		/// <summary>

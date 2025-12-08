@@ -141,9 +141,9 @@ namespace OpenGL.Objects
 			get
 			{
 				if (_CpuBuffer != null && !_CpuBuffer.IsDisposed)
-					return (_CpuBuffer.AlignedBuffer);
+					return _CpuBuffer.AlignedBuffer;
 
-				return (_CpuBufferAddress);
+				return _CpuBufferAddress;
 			}
 			set { _CpuBufferAddress = value; }
 		}
@@ -164,7 +164,7 @@ namespace OpenGL.Objects
 		/// </summary>
 		public uint CpuBufferSize
 		{
-			get { return (_CpuBuffer != null ? _CpuBuffer.Size : 0); }
+			get { return _CpuBuffer != null ? _CpuBuffer.Size : 0; }
 			protected set { _CpuBufferSize = value; }
 		}
 
@@ -210,7 +210,7 @@ namespace OpenGL.Objects
 		/// </summary>
 		protected internal IntPtr GpuBufferAddress
 		{
-			get { return (_GpuBuffer != null ? _GpuBuffer.AlignedBuffer : IntPtr.Zero); }
+			get { return _GpuBuffer != null ? _GpuBuffer.AlignedBuffer : IntPtr.Zero; }
 		}
 
 		/// <summary>
@@ -222,7 +222,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Size of the storage allocated for this buffer object, in bytes.
 		/// </summary>
-		protected internal uint GpuBufferSize { get { return (_GpuBufferSize); } }
+		protected internal uint GpuBufferSize { get { return _GpuBufferSize; } }
 
 		/// <summary>
 		/// Size of the storage allocated for this buffer object, in bytes.
@@ -500,12 +500,12 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Check whether this Buffer data is mapped.
 		/// </summary>
-		public bool IsMapped { get { return (_MappedBuffer != IntPtr.Zero); } }
+		public bool IsMapped { get { return _MappedBuffer != IntPtr.Zero; } }
 
 		/// <summary>
 		/// Get the mapped buffer address.
 		/// </summary>
-		public IntPtr MappedBuffer { get { return (_MappedBuffer); } }
+		public IntPtr MappedBuffer { get { return _MappedBuffer; } }
 
 		/// <summary>
 		/// Mapped buffer.
@@ -606,7 +606,7 @@ namespace OpenGL.Objects
 		/// </summary>
 		public bool Immutable
 		{
-			get { return (_Immutable); }
+			get { return _Immutable; }
 			set
 			{
 				if (ObjectName != InvalidObjectName)
@@ -636,7 +636,7 @@ namespace OpenGL.Objects
 			if ((usageMask & BufferStorageMask.MapReadBit) != 0)
 				hint = BufferUsage.DynamicRead;
 
-			return (hint);
+			return hint;
 		}
 
 		/// <summary>
@@ -656,7 +656,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Buffer object class.
 		/// </summary>
-		public override Guid ObjectClass { get { return (ThisObjectClass); } }
+		public override Guid ObjectClass { get { return ThisObjectClass; } }
 
 		/// <summary>
 		/// Determine whether this Buffer really exists for a specific context.
@@ -684,7 +684,7 @@ namespace OpenGL.Objects
 		{
 			// Object name space test (and 'ctx' sanity checks)
 			if (base.Exists(ctx) == false)
-				return (false);
+				return false;
 
 			return (ctx.Extensions.VertexBufferObject_ARB || ctx.Version.IsCompatible(Gl.Version_200_ES) ? Gl.IsBuffer(ObjectName) : _GpuBuffer != null);
 		}
@@ -881,20 +881,20 @@ namespace OpenGL.Objects
 		{
 			// Cannot lazy binding on buffer objects if GL_ARB_vertex_array_object is not supported
 			if (!ctx.Extensions.VertexArrayObject_ARB && !ctx.Version.IsCompatible(Gl.Version_200_ES))
-				return (0);
+				return 0;
 				
 			// All-in-one implementation for all targets
 			switch (Target) {
 				case BufferTarget.ArrayBuffer:
-					return (Gl.ARRAY_BUFFER_BINDING);
+					return Gl.ARRAY_BUFFER_BINDING;
 				case BufferTarget.ElementArrayBuffer:
-					return (Gl.ELEMENT_ARRAY_BUFFER_BINDING);
+					return Gl.ELEMENT_ARRAY_BUFFER_BINDING;
 				case BufferTarget.TransformFeedbackBuffer:
-					return (Gl.TRANSFORM_FEEDBACK_BINDING);
+					return Gl.TRANSFORM_FEEDBACK_BINDING;
 				case BufferTarget.UniformBuffer:
-					return (Gl.UNIFORM_BUFFER);
+					return Gl.UNIFORM_BUFFER;
 				case BufferTarget.ShaderStorageBuffer:
-					return (Gl.SHADER_STORAGE_BUFFER_BINDING);
+					return Gl.SHADER_STORAGE_BUFFER_BINDING;
 
 				default:
 					throw new NotSupportedException(String.Format("buffer target {0} not supported", Target));

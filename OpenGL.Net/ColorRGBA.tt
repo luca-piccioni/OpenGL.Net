@@ -357,7 +357,7 @@ namespace OpenGL
 		/// <summary>
 		/// Get the PixelLayout correponding to this IColor.
 		/// </summary>
-		public PixelLayout PixelType { get { return (PixelLayout.<#= pixelType #>); } }
+		public PixelLayout PixelType { get { return PixelLayout.<#= pixelType #>; } }
 
 		/// <summary>
 		/// Get of set color components.

@@ -120,7 +120,7 @@ namespace OpenGL
 			LogCommand("glIsMemoryObjectEXT", retValue, memoryObject			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>

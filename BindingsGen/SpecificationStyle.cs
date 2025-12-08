@@ -214,7 +214,7 @@ namespace BindingsGen
 				return (sb.ToString());
 			}
 
-			return (token);
+			return token;
 		}
 
 		/// <summary>
@@ -228,9 +228,9 @@ namespace BindingsGen
 				throw new ArgumentNullException(nameof(token));
 
 			if (Char.IsDigit(token[0]))
-				return ("_" + token);
+				return "_" + token;
 			else
-				return (token);
+				return token;
 		}
 
 		public static string EnsureFirstLowerCase(string input)
@@ -238,7 +238,7 @@ namespace BindingsGen
 			if ((input.Length > 0) && Char.IsUpper(input[0]))
 				return (input.Substring(0, 1).ToLower() + input.Substring(1));
 			else
-				return (input);
+				return input;
 		}
 
 		public static string EnsureFirstUpperCase(string input)
@@ -246,7 +246,7 @@ namespace BindingsGen
 			if ((input.Length > 0) && Char.IsLower(input[0]))
 				return (input.Substring(0, 1).ToUpper() + input.Substring(1));
 			else
-				return (input);
+				return input;
 		}
 	}
 }

@@ -55,7 +55,7 @@ namespace OpenGL
 			LogCommand("glXGetCurrentDisplay", retValue			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		internal static unsafe partial class Delegates

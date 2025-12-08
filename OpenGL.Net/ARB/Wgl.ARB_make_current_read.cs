@@ -77,7 +77,7 @@ namespace OpenGL
 			LogCommand("wglMakeContextCurrentARB", retValue, hDrawDC, hReadDC, hglrc			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -93,7 +93,7 @@ namespace OpenGL
 			LogCommand("wglGetCurrentReadDCARB", retValue			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		internal static unsafe partial class Delegates

@@ -73,7 +73,7 @@ namespace OpenGL
 			/// </returns>
 			public Extensions Clone()
 			{
-				return ((Extensions)MemberwiseClone());
+				return (Extensions)MemberwiseClone();
 			}
 		}
 	}

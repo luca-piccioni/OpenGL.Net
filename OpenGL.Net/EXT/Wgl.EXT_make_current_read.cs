@@ -64,7 +64,7 @@ namespace OpenGL
 			LogCommand("wglMakeContextCurrentEXT", retValue, hDrawDC, hReadDC, hglrc			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -80,7 +80,7 @@ namespace OpenGL
 			LogCommand("wglGetCurrentReadDCEXT", retValue			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		internal static unsafe partial class Delegates

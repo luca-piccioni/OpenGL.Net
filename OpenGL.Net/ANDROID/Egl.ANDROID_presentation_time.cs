@@ -64,7 +64,7 @@ namespace OpenGL
 			LogCommand("eglPresentationTimeANDROID", retValue, dpy, surface, time			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		internal static unsafe partial class Delegates

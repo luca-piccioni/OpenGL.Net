@@ -73,7 +73,7 @@ namespace OpenGL.Objects
 			if ((stages & Stage.Conditionals) != 0)
 				processedSource = ProcessConditionals(processedSource, cctx);
 
-			return (processedSource);
+			return processedSource;
 		}
 
 		#endregion
@@ -211,7 +211,7 @@ namespace OpenGL.Objects
 					processedSource.Add(line);
 			}
 
-			return (processedSource);
+			return processedSource;
 		}
 
 		private static string ExtractIncludePath(string directive)
@@ -230,7 +230,7 @@ namespace OpenGL.Objects
 				throw new ArgumentException("include path contains double-quotes or angle-bracket character");
 
 			// Process path
-			return (tokens[1]);
+			return tokens[1];
 		}
 
 		private static string NormalizeIncludePath(string path)
@@ -383,7 +383,7 @@ namespace OpenGL.Objects
 				}
 			}
 
-			return (processedSource);
+			return processedSource;
 		}
 
 		/// <summary>

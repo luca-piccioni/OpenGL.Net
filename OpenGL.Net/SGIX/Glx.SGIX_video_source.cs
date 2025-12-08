@@ -73,7 +73,7 @@ namespace OpenGL
 			LogCommand("glXCreateGLXVideoSourceSGIX", retValue, display, screen, server, path, nodeClass, drainNode			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>

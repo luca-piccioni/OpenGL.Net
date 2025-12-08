@@ -35,21 +35,21 @@ namespace OpenGL.Objects
 		{
 			switch (semantic) {
 				case Position:
-					return (0);
+					return 0;
 				case Color:
-					return (1);
+					return 1;
 				case Normal:
-					return (2);
+					return 2;
 				case TexCoord:
-					return (3);
+					return 3;
 				case Tangent:
-					return (4);
+					return 4;
 				case Bitangent:
-					return (5);
+					return 5;
 				case ModelViewProjection:
 					return 12;
 				default:
-					return (ShaderProgram.AttributeBinding.InvalidLocation);
+					return ShaderProgram.AttributeBinding.InvalidLocation;
 			}
 		}
 

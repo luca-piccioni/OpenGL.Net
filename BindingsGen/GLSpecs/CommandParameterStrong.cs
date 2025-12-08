@@ -67,14 +67,14 @@ namespace BindingsGen.GLSpecs
 		{
 			// 'bool' parameters are in Boolean group: conditions below will pass
 			if (param.GetImplementationType(ctx, command) == "bool")
-				return (false);
+				return false;
 
 			// Unsafe parameters are not allowed, Group is a requirement
 			if (!param.IsSafe || param.Group == null)
-				return (false);
+				return false;
 
 			// Check actual existence of strongly typed enum
-			return (ctx.Registry.Groups.FindIndex(delegate (EnumerantGroup item) { return (item.Name == param.Group); }) >= 0);
+			return (ctx.Registry.Groups.FindIndex(delegate (EnumerantGroup item) { return item.Name == param.Group; }) >= 0);
 		}
 
 		#endregion

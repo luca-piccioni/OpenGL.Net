@@ -64,7 +64,7 @@ namespace OpenGL
 			LogCommand("eglStreamConsumerOutputEXT", retValue, dpy, stream, layer			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		internal static unsafe partial class Delegates

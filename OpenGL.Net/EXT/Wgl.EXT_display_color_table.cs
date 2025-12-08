@@ -58,7 +58,7 @@ namespace OpenGL
 			LogCommand("wglCreateDisplayColorTableEXT", retValue, id			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -85,7 +85,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -104,7 +104,7 @@ namespace OpenGL
 			LogCommand("wglBindDisplayColorTableEXT", retValue, id			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>

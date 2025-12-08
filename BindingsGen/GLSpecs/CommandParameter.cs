@@ -121,7 +121,7 @@ namespace BindingsGen.GLSpecs
 				if (TypeDecorators.Count > 0)
 					return (TypeDecorators[TypeDecorators.Count - 1].Trim());
 
-				return (null);
+				return null;
 			}
 		}
 
@@ -150,26 +150,26 @@ namespace BindingsGen.GLSpecs
 			{
 				// No length information
 				if (string.IsNullOrEmpty(Length))
-					return (CommandParameterLengthMode.None);
+					return CommandParameterLengthMode.None;
 
 				// Constant length?
 				uint constLength;
 				if (UInt32.TryParse(Length, out constLength))
-					return (CommandParameterLengthMode.Constant);
+					return CommandParameterLengthMode.Constant;
 
 				// Argument?
-				if (ParentCommand.Parameters.Exists(delegate(CommandParameter item) { return (item.Name == Length); }))
-					return (CommandParameterLengthMode.ArgumentReference);
+				if (ParentCommand.Parameters.Exists(delegate(CommandParameter item) { return item.Name == Length; }))
+					return CommandParameterLengthMode.ArgumentReference;
 
 				// Argument multiple?
 				Match argumentMultipleMatch = Regex.Match(Length, @"(?<Arg>\w[\w\d_]*)\*(\d+)");
 				if (argumentMultipleMatch.Success) {
 					string argumentMultipleName = argumentMultipleMatch.Groups["Arg"].Value;
-					if (ParentCommand.Parameters.Exists(delegate(CommandParameter item) { return (item.Name == argumentMultipleName); }))
-						return (CommandParameterLengthMode.ArgumentMultiple);
+					if (ParentCommand.Parameters.Exists(delegate(CommandParameter item) { return item.Name == argumentMultipleName; }))
+						return CommandParameterLengthMode.ArgumentMultiple;
 				}
 
-				return (CommandParameterLengthMode.Complex);
+				return CommandParameterLengthMode.Complex;
 			}
 		}
 
@@ -180,7 +180,7 @@ namespace BindingsGen.GLSpecs
 				uint constLength;
 
 				if (UInt32.TryParse(Length, out constLength))
-					return (constLength);
+					return constLength;
 
 				throw new InvalidOperationException("not a const-length constraint");
 			}
@@ -192,7 +192,7 @@ namespace BindingsGen.GLSpecs
 			{
 				Match argumentMultipleMatch = Regex.Match(Length, @"(?<Arg>\w[\w\d_]*)\*(?<Mul>\d+)");
 				if (argumentMultipleMatch.Success)
-					return (argumentMultipleMatch.Groups["Arg"].Value);
+					return argumentMultipleMatch.Groups["Arg"].Value;
 
 				throw new InvalidOperationException("not a multiple-length constraint");
 			}
@@ -227,9 +227,9 @@ namespace BindingsGen.GLSpecs
 				string importType = ImportType;
 
 				if (importType.EndsWith("*") || (importType == "IntPtr"))
-					return (false);
+					return false;
 
-				return (true);
+				return true;
 			}
 		}
 
@@ -239,9 +239,9 @@ namespace BindingsGen.GLSpecs
 		internal bool IsSafeMarshal(Command parentCommand)
 		{
 			if ((GetManagedImplementationType(parentCommand) == "IntPtr") && (GetImportType(parentCommand) != "IntPtr"))
-				return (true);
+				return true;
 
-			return (false);
+			return false;
 		}
 
 		/// <summary>
@@ -254,7 +254,7 @@ namespace BindingsGen.GLSpecs
 		{
 			string modifier = CommandFlagsDatabase.GetCommandArgumentModifier(parentCommand, this);
 			if (modifier == "ref" || modifier == "out")
-				return (false);
+				return false;
 
 			string implementationType = GetManagedImplementationType(parentCommand);
 			string importType = GetImportType(parentCommand);
@@ -262,9 +262,9 @@ namespace BindingsGen.GLSpecs
 			if (Regex.IsMatch(implementationType.ToLower(), @"(string|bool)\[\]"))
 				return (Regex.IsMatch(importType.ToLower(), @"(string|bool)\*"));
 			if (implementationType.EndsWith("[]"))
-				return (true);
+				return true;
 
-			return (false);
+			return false;
 		}
 
 		/// <summary>
@@ -275,7 +275,7 @@ namespace BindingsGen.GLSpecs
 		/// <returns></returns>
 		internal bool IsPinned(RegistryContext ctx, Command parentCommand)
 		{
-			return (Type == "object");
+			return Type == "object";
 		}
 
 		/// <summary>
@@ -309,25 +309,25 @@ namespace BindingsGen.GLSpecs
 			if ((modifier == "ref" || modifier == "out") && implementationType.EndsWith("[]"))
 				implementationType = modifier + " " + implementationType.Substring(0, implementationType.Length - 2);
 
-			return (implementationType);
+			return implementationType;
 		}
 
 		public string GetImplementationTypeModifier(RegistryContext ctx, Command parentCommand)
 		{
 			// Support ref argument
 			if (ModifierOverride != null)
-				return (ModifierOverride);
+				return ModifierOverride;
 
 			string implementationType = GetManagedImplementationType(parentCommand);
 
 			// Type[] + Length=1 -> out Type
 			if ((IsConstant == false) && implementationType.EndsWith("[]") && (Length == "1") && (parentCommand.IsGetImplementation(ctx)))
-				return ("out");
+				return "out";
 			// Type[] + Length=1 -> out Type
 			if ((IsConstant == false) && implementationType.EndsWith("[]") && (Length == "1") && ((parentCommand.Flags & CommandFlags.OutParam) != 0))
-				return ("out");
+				return "out";
 
-			return (null);
+			return null;
 		}
 
 		public string ModifierOverride;
@@ -345,7 +345,7 @@ namespace BindingsGen.GLSpecs
 			if ((IsConstant == false) && (implementationType.EndsWith("[]")) && ((implementationMod != "out") && (implementationMod != "ref")) && ((parentCommand.IsGetImplementation(ctx) || ((parentCommand.Flags & CommandFlags.OutParam) != 0))))
 				attribute = "[Out]";
 
-			return (attribute);
+			return attribute;
 		}
 
 		/// <summary>
@@ -370,7 +370,7 @@ namespace BindingsGen.GLSpecs
 			if (implementationType == "void[]")
 				implementationType = "IntPtr";
 
-			return (implementationType);
+			return implementationType;
 		}
 
 		/// <summary>
@@ -383,9 +383,9 @@ namespace BindingsGen.GLSpecs
 				if (ParentCommand != null) {
 					string alternativeName = CommandFlagsDatabase.GetCommandArgumentAlternativeName(ParentCommand, this);
 
-					return (alternativeName ?? Name);
+					return alternativeName ?? Name;
 				} else
-					return (Name);
+					return Name;
 			}
 		}
 
@@ -419,7 +419,7 @@ namespace BindingsGen.GLSpecs
 			if ((GetManagedImplementationType(parentCommand) == "IntPtr") && (GetImportType(parentCommand) != "IntPtr"))
 				delegateVarName = string.Format("{0}.ToPointer()", ImplementationName);
 
-			return (delegateVarName);
+			return delegateVarName;
 		}
 
 		#endregion
@@ -443,7 +443,7 @@ namespace BindingsGen.GLSpecs
 
 		public string GetDelegateTypeModifier(RegistryContext ctx, Command parentCommand)
 		{
-			return (null);
+			return null;
 		}
 
 		public string GetDelegateTypeAttributes(RegistryContext ctx, Command parentCommand)
@@ -465,7 +465,7 @@ namespace BindingsGen.GLSpecs
 				//	break;
 			}
 
-			return (attribute);
+			return attribute;
 		}
 
 		#endregion
@@ -485,7 +485,7 @@ namespace BindingsGen.GLSpecs
 			if (retype != null)
 				return (TypeMap.CsTypeMap.MapType(retype));
 
-			return (ImportType);
+			return ImportType;
 		}
 
 		private string SpecificationType
@@ -516,7 +516,7 @@ namespace BindingsGen.GLSpecs
 				else if (typeDecorator != null)
 					importType = typeDecorator;
 
-				return (importType);
+				return importType;
 			}
 		}
 
@@ -556,12 +556,12 @@ namespace BindingsGen.GLSpecs
 			get
 			{
 				if (TypeDecorators.FindIndex(delegate(string item) { return (item.Trim() == "const"); }) >= 0)
-					return (true);
+					return true;
 
 				if ((TypeDecorators.Count == 1) && (TypeDecorators[0].StartsWith("const")))
-					return (true);
+					return true;
 
-				return (false);
+				return false;
 			}
 		}
 
@@ -572,14 +572,14 @@ namespace BindingsGen.GLSpecs
                 CommandFlagsDatabase.CommandItem.ParameterItemFlags paramFlags = CommandFlagsDatabase.GetCommandParameterFlags(ParentCommand, this);
 
                 if ((paramFlags & CommandFlagsDatabase.CommandItem.ParameterItemFlags.LogAsEnum) != 0)
-                    return (true);
+                    return true;
                 
 				switch (Type) {
 					case "GLenum":
 					case "EGLenum":
-						return (true);
+						return true;
 					default:
-						return (false);
+						return false;
 				}
 			}
 		}
@@ -603,7 +603,7 @@ namespace BindingsGen.GLSpecs
 
 		#region ICommandParameter Implementation
 
-		public virtual bool IsImplicit(RegistryContext ctx, Command parentCommand) { return (false); }
+		public virtual bool IsImplicit(RegistryContext ctx, Command parentCommand) { return false; }
 
 		public virtual void WriteDebugAssertion(SourceStreamWriter sw, RegistryContext ctx, Command parentCommand)
 		{

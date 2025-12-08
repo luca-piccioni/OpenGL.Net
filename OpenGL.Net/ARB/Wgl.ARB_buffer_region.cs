@@ -92,7 +92,7 @@ namespace OpenGL
 			LogCommand("wglCreateBufferRegionARB", retValue, hDC, iLayerPlane, uType			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -138,7 +138,7 @@ namespace OpenGL
 			LogCommand("wglSaveBufferRegionARB", retValue, hRegion, x, y, width, height			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -175,7 +175,7 @@ namespace OpenGL
 			LogCommand("wglRestoreBufferRegionARB", retValue, hRegion, x, y, width, height, xSrc, ySrc			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		internal static unsafe partial class Delegates

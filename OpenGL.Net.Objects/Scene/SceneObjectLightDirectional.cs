@@ -80,7 +80,7 @@ namespace OpenGL.Objects.Scene
 			light.Direction = (normalMatrix * (Vertex3f)Direction).Normalized;
 			light.HalfVector = (Vertex3f.UnitZ + light.Direction).Normalized;
 
-			return (light);
+			return light;
 		}
 
 		#endregion

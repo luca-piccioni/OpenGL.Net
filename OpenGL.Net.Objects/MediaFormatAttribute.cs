@@ -98,16 +98,16 @@ namespace OpenGL.Objects
 					extensions = Regex.Escape(extensions);
 
 				if (Regex.IsMatch(input, String.Format(@".*\.({0})$", extensions), RegexOptions.IgnoreCase))
-					return (true);
+					return true;
 			}
 			// By media pattern
 			if (MediaPattern != null) {
 				if (Regex.IsMatch(input, MediaPattern))
-					return (true);
+					return true;
 			}
 
 			// Match everything if not file extensions and media pattern are not defined
-			return ((FileExtensions == null) && (MediaPattern == null));
+			return (FileExtensions == null) && (MediaPattern == null);
 		}
 	}
 }

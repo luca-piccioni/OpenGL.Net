@@ -60,7 +60,7 @@ namespace BindingsGen.GLSpecs
 		internal static new bool IsCompatible(RegistryContext ctx, Command parentCommand, CommandParameter param)
 		{
 			if (string.IsNullOrEmpty(param.Length) || !param.IsManagedArray(ctx, parentCommand))
-				return (false);
+				return false;
 
 			string sizeParamName;
 
@@ -72,15 +72,15 @@ namespace BindingsGen.GLSpecs
 					sizeParamName = param.LengthArgument;
 					break;
 				default:
-					return (false);
+					return false;
 			}
 
 			if (sizeParamName == null)
-				return (false);
-			if (parentCommand.Parameters.FindIndex(delegate (CommandParameter item) { return (item.Name == sizeParamName); }) < 0)
-				return (false);
+				return false;
+			if (parentCommand.Parameters.FindIndex(delegate (CommandParameter item) { return item.Name == sizeParamName; }) < 0)
+				return false;
 
-			return (true);
+			return true;
 		}
 
 		internal static bool IsArrayLengthParameter(CommandParameter param, RegistryContext ctx, Command parentCommand)
@@ -95,23 +95,23 @@ namespace BindingsGen.GLSpecs
 			List<CommandParameter> arrayParams = parentCommand.Parameters.FindAll(delegate(CommandParameter item) {
 				// - no len?
 				if (string.IsNullOrEmpty(item.Length))
-					return (false);
+					return false;
 
 				// - len="count"
 				if (item.Length == param.Name)
-					return (true);
+					return true;
 
 				// - len="count*3"
 				if (Regex.IsMatch(item.Length, param.Name + @"\*\d+"))
-					return (true);
+					return true;
 
-				return (false);
+				return false;
 			});
 
 			if (arrayParams.Count > 0)
-				return (arrayParams[0]);
+				return arrayParams[0];
 			else
-				return (null);
+				return null;
 		}
 
 		#endregion
@@ -121,9 +121,9 @@ namespace BindingsGen.GLSpecs
 		public override bool IsImplicit(RegistryContext ctx, Command parentCommand)
 		{
 			if (IsArrayLengthParameter(this, ctx, parentCommand))
-				return (true);
+				return true;
 
-			return (false);
+			return false;
 		}
 
 		public override void WriteDelegateParam(SourceStreamWriter sw, RegistryContext ctx, Command parentCommand)

@@ -69,7 +69,7 @@ namespace OpenGL
 		/// <summary>
 		/// Get the PixelLayout correponding to this IColor.
 		/// </summary>
-		public PixelLayout PixelType { get { return (PixelLayout.R8); } }
+		public PixelLayout PixelType { get { return PixelLayout.R8; } }
 
 		/// <summary>
 		/// Get of set color components.
@@ -147,7 +147,7 @@ namespace OpenGL
 		/// <summary>
 		/// Get the PixelLayout correponding to this IColor.
 		/// </summary>
-		public PixelLayout PixelType { get { return (PixelLayout.R16); } }
+		public PixelLayout PixelType { get { return PixelLayout.R16; } }
 
 		/// <summary>
 		/// Get of set color components.
@@ -225,7 +225,7 @@ namespace OpenGL
 		/// <summary>
 		/// Get the PixelLayout correponding to this IColor.
 		/// </summary>
-		public PixelLayout PixelType { get { return (PixelLayout.R32); } }
+		public PixelLayout PixelType { get { return PixelLayout.R32; } }
 
 		/// <summary>
 		/// Get of set color components.
@@ -303,7 +303,7 @@ namespace OpenGL
 		/// <summary>
 		/// Get the PixelLayout correponding to this IColor.
 		/// </summary>
-		public PixelLayout PixelType { get { return (PixelLayout.RF); } }
+		public PixelLayout PixelType { get { return PixelLayout.RF; } }
 
 		/// <summary>
 		/// Get of set color components.
@@ -323,7 +323,7 @@ namespace OpenGL
 			get
 			{
 				switch (c) {
-					case 0: return (r);
+					case 0: return r;
 					default:
 						throw new IndexOutOfRangeException();
 				}
@@ -381,7 +381,7 @@ namespace OpenGL
 		/// <summary>
 		/// Get the PixelLayout correponding to this IColor.
 		/// </summary>
-		public PixelLayout PixelType { get { return (PixelLayout.RD); } }
+		public PixelLayout PixelType { get { return PixelLayout.RD; } }
 
 		/// <summary>
 		/// Get of set color components.
@@ -459,7 +459,7 @@ namespace OpenGL
 		/// <summary>
 		/// Get the PixelLayout correponding to this IColor.
 		/// </summary>
-		public PixelLayout PixelType { get { return (PixelLayout.RHF); } }
+		public PixelLayout PixelType { get { return PixelLayout.RHF; } }
 
 		/// <summary>
 		/// Get of set color components.
@@ -479,7 +479,7 @@ namespace OpenGL
 			get
 			{
 				switch (c) {
-					case 0: return (r);
+					case 0: return r;
 					default:
 						throw new IndexOutOfRangeException();
 				}

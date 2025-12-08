@@ -105,7 +105,7 @@ namespace OpenGL.Objects.State
 			renderStateSet.DefineState(WriteMaskState.DefaultState);
 			renderStateSet.DefineState(StencilTestState.DefaultState);
 			// renderStateSet.DefineState(ScissorTestState.DefaultState);
-			return (renderStateSet);
+			return renderStateSet;
 		}
 
 		/// <summary>
@@ -140,7 +140,7 @@ namespace OpenGL.Objects.State
 			// renderStateSet.DefineState(new StencilTestState(ctx));
 			renderStateSet.DefineState(new ScissorTestState(ctx));
 
-			return (renderStateSet);
+			return renderStateSet;
 		}
 
 		#endregion
@@ -193,7 +193,7 @@ namespace OpenGL.Objects.State
 			if (stateIndex >= _RenderStates.Length)
 				throw new ArgumentOutOfRangeException("stateIndex");
 
-			return (_RenderStates[stateIndex] != null);
+			return _RenderStates[stateIndex] != null;
 		}
 
 		/// <summary>
@@ -208,9 +208,9 @@ namespace OpenGL.Objects.State
 				// Defensive
 				Debug.Assert(stateIndex < _RenderStates.Length);
 				if (stateIndex >= _RenderStates.Length)
-					return (null);
+					return null;
 
-				return (_RenderStates[stateIndex]);
+				return _RenderStates[stateIndex];
 			}
 			set
 			{
@@ -224,7 +224,7 @@ namespace OpenGL.Objects.State
 		/// <summary>
 		/// An enumerable of the states collected by this GraphicsStateSet.
 		/// </summary>
-		public IEnumerable<IGraphicsState> States { get { return (_RenderStates); } }
+		public IEnumerable<IGraphicsState> States { get { return _RenderStates; } }
 
 		/// <summary>
 		/// The set of GraphicsState.
@@ -305,7 +305,7 @@ namespace OpenGL.Objects.State
 				if (state != null)
 					clone.DefineState(state.Push());
 
-			return (clone);
+			return clone;
 		}
 
 		/// <summary>

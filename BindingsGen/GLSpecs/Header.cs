@@ -93,10 +93,10 @@ namespace BindingsGen.GLSpecs
 			
 			headerText = Regex.Replace(headerText, string.Format("{0}|{1}", inlineComment, blockComment), delegate (Match match) {
 				if (match.Value.StartsWith("/*"))
-					return (string.Empty);
+					return string.Empty;
 				if (match.Value.StartsWith("//"))
-					return (Environment.NewLine);
-				return (match.Value);
+					return Environment.NewLine;
+				return match.Value;
 			}, RegexOptions.Singleline);
 
 			// Extract C preprocessor #define directives
@@ -132,10 +132,10 @@ namespace BindingsGen.GLSpecs
 						_Enumerants.Add(enumerant);
 					}
 
-					return (string.Empty);
+					return string.Empty;
 				}
 					
-				return (match.Value);
+				return match.Value;
 			}, RegexOptions.Multiline);
 
 			// Remove no more necessary C preprocessor
@@ -275,7 +275,7 @@ namespace BindingsGen.GLSpecs
 				}
 			}
 
-			Feature headerFeature = _Features.Find(delegate(Feature item) { return (item.Name == headerFeatureName); });
+			Feature headerFeature = _Features.Find(delegate(Feature item) { return item.Name == headerFeatureName; });
 			if (headerFeature == null) {
 				headerFeature = new Feature();
 				headerFeature.Name = headerFeatureName;
@@ -323,7 +323,7 @@ namespace BindingsGen.GLSpecs
 					enumDefinition = enumDefinition.Replace(macroMatch.Value, replacement);
 			}
 
-			return (enumDefinition);
+			return enumDefinition;
 		}
 
 		private string ReplaceEnumConstants(string enumDefinition)
@@ -337,7 +337,7 @@ namespace BindingsGen.GLSpecs
 				}
 			}
 
-			return (enumDefinition);
+			return enumDefinition;
 		}
 
 		private static string ReplaceEnumMacro_VM_ENUM_BASE(string[] args)
@@ -374,21 +374,21 @@ namespace BindingsGen.GLSpecs
 
 		#region IRegistry Implementation
 
-		public List<Command> Commands { get { return (_Commands); } }
+		public List<Command> Commands { get { return _Commands; } }
 
 		private readonly List<Command> _Commands = new List<Command>();
 
-		public List<Enumerant> Enumerants { get { return (_Enumerants); } }
+		public List<Enumerant> Enumerants { get { return _Enumerants; } }
 
 		private readonly List<Enumerant> _Enumerants = new List<Enumerant>();
 
 		public List<Extension> Extensions { get { return (new List<Extension>()); } }
 
-		public List<Feature> Features { get { return (_Features); } }
+		public List<Feature> Features { get { return _Features; } }
 
 		private readonly List<Feature> _Features = new List<Feature>();
 
-		public List<EnumerantGroup> Groups { get { return (_Groups); } }
+		public List<EnumerantGroup> Groups { get { return _Groups; } }
 
 		private readonly List<EnumerantGroup> _Groups = new List<EnumerantGroup>();
 
@@ -399,12 +399,12 @@ namespace BindingsGen.GLSpecs
 
 		public Command GetCommand(string name)
 		{
-			return (_Commands.Find(delegate(Command item) { return (item.Prototype.Name == name); }));
+			return (_Commands.Find(delegate(Command item) { return item.Prototype.Name == name; }));
 		}
 
 		public Enumerant GetEnumerant(string name)
 		{
-			return (_Enumerants.Find(delegate(Enumerant item) { return (item.Name == name); }));
+			return (_Enumerants.Find(delegate(Enumerant item) { return item.Name == name; }));
 		}
 
 		public Enumerant GetEnumerantNoCase(string name)

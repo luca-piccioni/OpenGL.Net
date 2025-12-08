@@ -988,7 +988,7 @@ namespace OpenGL
 			LogCommand("glCreateShaderProgramv", retValue, type, count, strings			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -1014,7 +1014,7 @@ namespace OpenGL
 			LogCommand("glCreateShaderProgramv", retValue, type, strings.Length, strings			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -1100,7 +1100,7 @@ namespace OpenGL
 				LogCommand("glGenProgramPipelines", null, 1, "{ " + retValue + " }"				);
 			}
 			DebugCheckErrors(null);
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -1123,7 +1123,7 @@ namespace OpenGL
 			LogCommand("glIsProgramPipeline", retValue, pipeline			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>

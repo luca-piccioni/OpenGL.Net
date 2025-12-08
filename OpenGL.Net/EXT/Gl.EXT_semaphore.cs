@@ -207,7 +207,7 @@ namespace OpenGL
 				LogCommand("glGenSemaphoresEXT", null, 1, "{ " + retValue + " }"				);
 			}
 			DebugCheckErrors(null);
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -246,7 +246,7 @@ namespace OpenGL
 			LogCommand("glIsSemaphoreEXT", retValue, semaphore			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>

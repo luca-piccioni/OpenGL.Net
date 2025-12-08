@@ -81,7 +81,7 @@ namespace OpenGL
 		/// <summary>
 		/// Get the PixelLayout correponding to this IColor.
 		/// </summary>
-		public PixelLayout PixelType { get { return (PixelLayout.<#= pixelType #>); } }
+		public PixelLayout PixelType { get { return PixelLayout.<#= pixelType #>; } }
 
 		/// <summary>
 		/// Get of set color components.
@@ -101,7 +101,7 @@ namespace OpenGL
 			get
 			{
 				switch (c) {
-					case 0: return ((float)r   / <#= interfaceType #>.MaxValue);
+					case 0: return (float)r / <#= interfaceType #>.MaxValue;
 					default:
 						throw new IndexOutOfRangeException();
 				}
@@ -125,7 +125,7 @@ namespace OpenGL
 			get
 			{
 				switch (c) {
-					case 0: return (<#= explicitCastOnFloat #>r);
+					case 0: return <#= explicitCastOnFloat #>r;
 					default:
 						throw new IndexOutOfRangeException();
 				}

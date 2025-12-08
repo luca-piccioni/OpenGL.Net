@@ -90,7 +90,7 @@ namespace OpenGL.Objects.Scene
 		/// <returns></returns>
 		protected static uint NextObjectType()
 		{
-			return ((uint)System.Threading.Interlocked.Increment(ref _ObjectType));
+			return (uint)System.Threading.Interlocked.Increment(ref _ObjectType);
 		}
 
 		/// <summary>
@@ -184,7 +184,7 @@ namespace OpenGL.Objects.Scene
 					res |= sceneObject.Unlink(match, true);
 			}
 
-			return (res);
+			return res;
 		}
 
 		/// <summary>
@@ -397,7 +397,7 @@ namespace OpenGL.Objects.Scene
 					foundChildren.AddRange(sceneObject.FindChildren(match, true));
 			}
 
-			return (foundChildren);
+			return foundChildren;
 		}
 
 		/// <summary>
@@ -433,9 +433,9 @@ namespace OpenGL.Objects.Scene
 			List<SceneObject> foundChildren = FindChildren(match, recurse);
 
 			if (foundChildren.Count > 0)
-				return (foundChildren[0]);
+				return foundChildren[0];
 			else
-				return (null);
+				return null;
 		}
 
 		#endregion
@@ -447,7 +447,7 @@ namespace OpenGL.Objects.Scene
 			foreach (SceneObject child in _Children)
 				count += child.CountChildren();
 
-			return (count);
+			return count;
 		}
 
 		#region Local Model
@@ -514,7 +514,7 @@ namespace OpenGL.Objects.Scene
 				while (modelStack.Count > 0)
 					worldModel = worldModel * modelStack.Pop();
 
-				return (worldModel);
+				return worldModel;
 			}
 		}
 
@@ -527,7 +527,7 @@ namespace OpenGL.Objects.Scene
 		/// </summary>
 		public SceneObjectFlags ObjectFlags
 		{
-			get { return (_Flags); }
+			get { return _Flags; }
 			set { _Flags = value; }
 		}
 
@@ -573,7 +573,7 @@ namespace OpenGL.Objects.Scene
 		/// <returns></returns>
 		internal virtual IEnumerable<SceneObjectBatch> GetGeometries(GraphicsContext ctx, SceneGraphContext ctxScene)
 		{
-			return (null);
+			return null;
 		}
 
 		/// <summary>
@@ -590,7 +590,7 @@ namespace OpenGL.Objects.Scene
 		/// </summary>
 		public IBoundingVolume BoundingVolume
 		{
-			get { return (_BoundingVolume); }
+			get { return _BoundingVolume; }
 			set
 			{
 				_BoundingVolume = value;
@@ -660,7 +660,7 @@ namespace OpenGL.Objects.Scene
 			{
 				// Other information may be modified by external code
 
-				return (_SceneObjectInfo);
+				return _SceneObjectInfo;
 			}
 		}
 

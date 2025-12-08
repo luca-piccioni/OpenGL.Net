@@ -112,7 +112,7 @@ namespace OpenGL
 				LogCommand("glGenFencesNV", null, 1, "{ " + retValue + " }"				);
 			}
 			DebugCheckErrors(null);
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -131,7 +131,7 @@ namespace OpenGL
 			LogCommand("glIsFenceNV", retValue, fence			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -150,7 +150,7 @@ namespace OpenGL
 			LogCommand("glTestFenceNV", retValue, fence			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>

@@ -58,7 +58,7 @@ namespace OpenGL
 			LogCommand("glIsRenderbufferOES", retValue, renderbuffer			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -131,7 +131,7 @@ namespace OpenGL
 				LogCommand("glGenRenderbuffersOES", null, 1, "{ " + retValue + " }"				);
 			}
 			DebugCheckErrors(null);
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -200,7 +200,7 @@ namespace OpenGL
 			LogCommand("glIsFramebufferOES", retValue, framebuffer			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -273,7 +273,7 @@ namespace OpenGL
 				LogCommand("glGenFramebuffersOES", null, 1, "{ " + retValue + " }"				);
 			}
 			DebugCheckErrors(null);
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>

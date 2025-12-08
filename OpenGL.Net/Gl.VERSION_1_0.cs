@@ -7978,7 +7978,7 @@ namespace OpenGL
 			LogCommand("glIsEnabled", retValue, cap			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -8162,7 +8162,7 @@ namespace OpenGL
 			LogCommand("glGenLists", retValue, range			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -12194,7 +12194,7 @@ namespace OpenGL
 			LogCommand("glRenderMode", retValue, mode			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -13810,7 +13810,7 @@ namespace OpenGL
 			LogCommand("glIsList", retValue, list			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>

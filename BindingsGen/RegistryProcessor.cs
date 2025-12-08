@@ -546,7 +546,7 @@ namespace BindingsGen
 			}
 
 			foreach (CommandFlagsDatabase.Limit limit in CommandFlagsDatabase.GetLimits()) {
-				if (limitEnums.Exists(delegate(Enumerant item) { return (item.Name == limit.Name); }))
+				if (limitEnums.Exists(delegate(Enumerant item) { return item.Name == limit.Name; }))
 					continue;
 
 				Enumerant addedEnum = ctx.Registry.GetEnumerant(limit.Name);
@@ -796,7 +796,7 @@ namespace BindingsGen
 			List<KhronosLogMap.Command> logCommands = new List<KhronosLogMap.Command>();
 
 			foreach (Command command in _Registry.Commands) {
-				if (command.Parameters.Exists(delegate(CommandParameter item) { return (item.IsEnum); }) == false)
+				if (command.Parameters.Exists(delegate(CommandParameter item) { return item.IsEnum; }) == false)
 					continue;
 
 				KhronosLogMap.Command logCommand = new KhronosLogMap.Command();

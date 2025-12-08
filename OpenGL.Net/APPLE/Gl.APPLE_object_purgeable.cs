@@ -100,7 +100,7 @@ namespace OpenGL
 			LogCommand("glObjectPurgeableAPPLE", retValue, objectType, name, option			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -125,7 +125,7 @@ namespace OpenGL
 			LogCommand("glObjectUnpurgeableAPPLE", retValue, objectType, name, option			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>

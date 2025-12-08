@@ -70,7 +70,7 @@ namespace OpenGL
 			LogCommand("glImportSyncEXT", retValue, external_sync_type, external_sync, flags			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		internal static unsafe partial class Delegates

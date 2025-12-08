@@ -189,7 +189,7 @@ namespace OpenGL.Objects
 				charModel.Translate(glyph.GlyphSize.Width, 0.0f, 0.0f);
 			}
 
-			return (glyphsInstances);
+			return glyphsInstances;
 		}
 
 		/// <summary>

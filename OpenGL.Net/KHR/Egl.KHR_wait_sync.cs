@@ -64,7 +64,7 @@ namespace OpenGL
 			LogCommand("eglWaitSyncKHR", retValue, dpy, sync, flags			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		internal static unsafe partial class Delegates

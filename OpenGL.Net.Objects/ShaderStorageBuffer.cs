@@ -146,7 +146,7 @@ namespace OpenGL.Objects
 		/// </returns>
 		protected override bool RequiresName(GraphicsContext ctx)
 		{
-			return (true);
+			return true;
 		}
 
 		#endregion
@@ -161,7 +161,7 @@ namespace OpenGL.Objects
 		/// </param>
 		BufferTarget IBindingIndexResource.GetBindingTarget(GraphicsContext ctx)
 		{
-			return (BufferTarget.ShaderStorageBuffer);
+			return BufferTarget.ShaderStorageBuffer;
 		}
 
 		/// <summary>

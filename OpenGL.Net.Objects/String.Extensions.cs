@@ -33,7 +33,7 @@ namespace OpenGL.Objects
 			for (int i = 0; i < array.Length; i++)
 				unmanagedArray[i] = Marshal.StringToHGlobalAnsi(array[i]);
 
-			return (unmanagedArray);
+			return unmanagedArray;
 		}
 
 		public static void FreeHGlobal(this IntPtr[] array)

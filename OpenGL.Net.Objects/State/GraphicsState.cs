@@ -130,9 +130,9 @@ namespace OpenGL.Objects.State
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
-				return (false);
+				return false;
 			if (ReferenceEquals(this, obj))
-				return (true);
+				return true;
 
 			try {
 				return Equals((GraphicsState)obj);

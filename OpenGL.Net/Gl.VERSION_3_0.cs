@@ -2712,7 +2712,7 @@ namespace OpenGL
 			LogCommand("glIsEnabledi", retValue, cap, index			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -4324,7 +4324,7 @@ namespace OpenGL
 			LogCommand("glGetFragDataLocation", retValue, program, name			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -5423,7 +5423,7 @@ namespace OpenGL
 			LogCommand("glIsRenderbuffer", retValue, renderbuffer			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -5518,7 +5518,7 @@ namespace OpenGL
 				LogCommand("glGenRenderbuffers", null, 1, "{ " + retValue + " }"				);
 			}
 			DebugCheckErrors(null);
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -5709,7 +5709,7 @@ namespace OpenGL
 			LogCommand("glIsFramebuffer", retValue, framebuffer			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -5804,7 +5804,7 @@ namespace OpenGL
 				LogCommand("glGenFramebuffers", null, 1, "{ " + retValue + " }"				);
 			}
 			DebugCheckErrors(null);
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -6296,7 +6296,7 @@ namespace OpenGL
 			LogCommand("glMapBufferRange", retValue, target, offset, length, access			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -6417,7 +6417,7 @@ namespace OpenGL
 				LogCommand("glGenVertexArrays", null, 1, "{ " + retValue + " }"				);
 			}
 			DebugCheckErrors(null);
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -6442,7 +6442,7 @@ namespace OpenGL
 			LogCommand("glIsVertexArray", retValue, array			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		internal static unsafe partial class Delegates

@@ -67,14 +67,14 @@ namespace OpenGL
 		/// <summary>
 		/// Get whether EGL layer is avaialable.
 		/// </summary>
-		public static bool IsAvailable { get { return (Delegates.pbcm_host_init != null); } }
+		public static bool IsAvailable { get { return Delegates.pbcm_host_init != null; } }
 
 		/// <summary>
 		/// Get or set whether <see cref="DeviceContext"/> should create an EGL handles, if available.
 		/// </summary>
 		public static bool IsRequired
 		{
-			get { return (_IsRequired && IsAvailable); }
+			get { return _IsRequired && IsAvailable; }
 			set { _IsRequired = value; }
 		}
 
@@ -376,7 +376,7 @@ namespace OpenGL
 			retvalue = Delegates.pgraphics_get_display_size(display_number, out width, out height);
 			LogCommand("graphics_get_display_size", retvalue, display_number, width, height);
 
-			return (retvalue);
+			return retvalue;
 		}
 
 		public static DISPMANX_DISPLAY_HANDLE_T vc_dispmanx_display_open(UInt32 device)
@@ -387,7 +387,7 @@ namespace OpenGL
 			retvalue = Delegates.pvc_dispmanx_display_open(device);
 			LogCommand("vc_dispmanx_display_open", retvalue, device);
 
-			return (retvalue);
+			return retvalue;
 		}
 
 		public static int vc_dispmanx_display_close(DISPMANX_DISPLAY_HANDLE_T display)
@@ -398,7 +398,7 @@ namespace OpenGL
 			retvalue = Delegates.pvc_dispmanx_display_close(display);
 			LogCommand("vc_dispmanx_display_close", retvalue, display);
 
-			return (retvalue);
+			return retvalue;
 		}
 
 		public static DISPMANX_UPDATE_HANDLE_T vc_dispmanx_update_start(Int32 priority)
@@ -409,7 +409,7 @@ namespace OpenGL
 			retvalue = Delegates.pvc_dispmanx_update_start(priority);
 			LogCommand("vc_dispmanx_update_start", retvalue, priority);
 
-			return (retvalue);
+			return retvalue;
 		}
 
 		public static DISPMANX_ELEMENT_HANDLE_T vc_dispmanx_element_add(DISPMANX_UPDATE_HANDLE_T update, DISPMANX_DISPLAY_HANDLE_T display, Int32 layer, VC_RECT_T dest_rect, DISPMANX_RESOURCE_HANDLE_T src, VC_RECT_T src_rect, DISPMANX_PROTECTION_T protection, IntPtr alpha, IntPtr clamp, DISPMANX_TRANSFORM_T transform)
@@ -427,7 +427,7 @@ namespace OpenGL
 				src_rectHandle.Free();
 			}
 			
-			return (retvalue);
+			return retvalue;
 		}
 
 		public static int vc_dispmanx_element_remove(DISPMANX_UPDATE_HANDLE_T update, DISPMANX_ELEMENT_HANDLE_T element)
@@ -438,7 +438,7 @@ namespace OpenGL
 			retvalue = Delegates.pvc_dispmanx_element_remove(update, element);
 			LogCommand("vc_dispmanx_element_remove", retvalue, update, element);
 			
-			return (retvalue);
+			return retvalue;
 		}
 			
 		public static int vc_dispmanx_update_submit_sync(DISPMANX_UPDATE_HANDLE_T update)
@@ -449,7 +449,7 @@ namespace OpenGL
 			retvalue = Delegates.pvc_dispmanx_update_submit_sync(update);
 			LogCommand("vc_dispmanx_update_submit_sync", retvalue, update);
 
-			return (retvalue);
+			return retvalue;
 		}
 
 		internal static class UnsafeNativeMethods

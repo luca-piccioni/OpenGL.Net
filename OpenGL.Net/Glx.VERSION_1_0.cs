@@ -473,7 +473,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -503,7 +503,7 @@ namespace OpenGL
 			LogCommand("glXCreateContext", retValue, dpy, vis, shareList, direct			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -546,7 +546,7 @@ namespace OpenGL
 			LogCommand("glXMakeCurrent", retValue, dpy, drawable, ctx			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -613,7 +613,7 @@ namespace OpenGL
 			LogCommand("glXCreateGLXPixmap", retValue, dpy, visual, pixmap			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -662,7 +662,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -693,7 +693,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -715,7 +715,7 @@ namespace OpenGL
 			LogCommand("glXIsDirect", retValue, dpy, ctx			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -748,7 +748,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -764,7 +764,7 @@ namespace OpenGL
 			LogCommand("glXGetCurrentContext", retValue			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -780,7 +780,7 @@ namespace OpenGL
 			LogCommand("glXGetCurrentDrawable", retValue			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>

@@ -469,7 +469,7 @@ namespace OpenGL.Objects
 		{
 			get
 			{
-				return (_UniformMap.Keys);
+				return _UniformMap.Keys;
 			}
 		}
 
@@ -504,14 +504,14 @@ namespace OpenGL.Objects
 			UniformBinding uniformBinding;
 
 			if (_UniformMap.TryGetValue(uniformName, out uniformBinding))
-				return (uniformBinding);
+				return uniformBinding;
 
 			// Undiscovered uniform?
 			int uniformLocation = Gl.GetUniformLocation(ObjectName, uniformName);
             // Do not repeat GetUniformLocation
             _UniformMap.Add(uniformName, uniformBinding = new UniformBinding(uniformName, uniformLocation));
 
-			return (uniformBinding);
+			return uniformBinding;
 		}
 
 		/// <summary>
@@ -531,12 +531,12 @@ namespace OpenGL.Objects
 
 			// Known semantic overrides uniform name
 			if (_UniformSemantic.TryGetValue(uniformSemantic, out uniformName))
-				return (null);
+				return null;
 
 			if (_UniformMap.TryGetValue(uniformName, out uniformBinding))
-				return (uniformBinding);
+				return uniformBinding;
 
-			return (null);
+			return null;
 		}
 
 		/// <summary>

@@ -81,7 +81,7 @@ namespace OpenGL.Objects
 		/// <returns></returns>
 		public T this[int index]
 		{
-			get { return (mResources[index]); }
+			get { return mResources[index]; }
 			set { mResources[index] = value; }
 		}
 
@@ -186,7 +186,7 @@ namespace OpenGL.Objects
 			if (flag)
 				item.DecRef();
 
-			return (flag);
+			return flag;
 		}
 
 		/// <summary>
@@ -201,7 +201,7 @@ namespace OpenGL.Objects
 			{
 				if (IsDisposed)
 					throw new ObjectDisposedException("ResourceCollection");
-				return (mResources.Count);
+				return mResources.Count;
 			}
 		}
 
@@ -211,7 +211,7 @@ namespace OpenGL.Objects
 		/// <returns>
 		/// It returns true if this collection is read-only; otherwise, false.
 		/// </returns>
-		public bool IsReadOnly { get { return (false); } }
+		public bool IsReadOnly { get { return false; } }
 
 		/// <summary>
 		/// The collection of resources.
@@ -264,7 +264,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Get whether this instance has been disposed.
 		/// </summary>
-		public bool IsDisposed { get { return (mDisposed); } }
+		public bool IsDisposed { get { return mDisposed; } }
 
 		/// <summary>
 		/// Performs application-defined tasks associated with freeing, releasing, or resetting managed/unmanaged resources.

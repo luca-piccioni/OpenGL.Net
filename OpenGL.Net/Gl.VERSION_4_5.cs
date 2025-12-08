@@ -434,7 +434,7 @@ namespace OpenGL
 				LogCommand("glCreateTransformFeedbacks", null, 1, "{ " + retValue + " }"				);
 			}
 			DebugCheckErrors(null);
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -615,7 +615,7 @@ namespace OpenGL
 				LogCommand("glCreateBuffers", null, 1, "{ " + retValue + " }"				);
 			}
 			DebugCheckErrors(null);
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -970,7 +970,7 @@ namespace OpenGL
 			LogCommand("glMapNamedBuffer", retValue, buffer, access			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -999,7 +999,7 @@ namespace OpenGL
 			LogCommand("glMapNamedBufferRange", retValue, buffer, offset, length, access			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -1019,7 +1019,7 @@ namespace OpenGL
 			LogCommand("glUnmapNamedBuffer", retValue, buffer			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -1309,7 +1309,7 @@ namespace OpenGL
 				LogCommand("glCreateFramebuffers", null, 1, "{ " + retValue + " }"				);
 			}
 			DebugCheckErrors(null);
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -1983,7 +1983,7 @@ namespace OpenGL
 				LogCommand("glCreateRenderbuffers", null, 1, "{ " + retValue + " }"				);
 			}
 			DebugCheckErrors(null);
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -2208,7 +2208,7 @@ namespace OpenGL
 				LogCommand("glCreateTextures", null, target, 1, "{ " + retValue + " }"				);
 			}
 			DebugCheckErrors(null);
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -4349,7 +4349,7 @@ namespace OpenGL
 				LogCommand("glCreateVertexArrays", null, 1, "{ " + retValue + " }"				);
 			}
 			DebugCheckErrors(null);
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -4733,7 +4733,7 @@ namespace OpenGL
 				LogCommand("glCreateSamplers", null, 1, "{ " + retValue + " }"				);
 			}
 			DebugCheckErrors(null);
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -4770,7 +4770,7 @@ namespace OpenGL
 				LogCommand("glCreateProgramPipelines", null, 1, "{ " + retValue + " }"				);
 			}
 			DebugCheckErrors(null);
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -4840,7 +4840,7 @@ namespace OpenGL
 				LogCommand("glCreateQueries", null, target, 1, "{ " + retValue + " }"				);
 			}
 			DebugCheckErrors(null);
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>

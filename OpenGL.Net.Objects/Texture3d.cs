@@ -346,9 +346,9 @@ namespace OpenGL.Objects
 					throw new ArgumentNullException(nameof(images));
 				if (images.Length == 0)
 					throw new ArgumentException("no images", nameof(images));
-				if (!Array.TrueForAll(images, delegate(Image item) { return (item != null); }))
+				if (!Array.TrueForAll(images, delegate(Image item) { return item != null; }))
 					throw new ArgumentException("null item in image set", nameof(images));
-				if (!Array.TrueForAll(images, delegate(Image item) { return (item.Width == images[0].Width && item.Height == images[0].Height); }))
+				if (!Array.TrueForAll(images, delegate(Image item) { return item.Width == images[0].Width && item.Height == images[0].Height; }))
 					throw new ArgumentException("eterogeneous size in image set", nameof(images));
 
 				_Texture3d = texture;
@@ -450,9 +450,9 @@ namespace OpenGL.Objects
 				throw new ArgumentNullException(nameof(images));
 			if (images.Length == 0)
 				throw new ArgumentException("no images", nameof(images));
-			if (!Array.TrueForAll(images, delegate(Image item) { return (item != null); }))
+			if (!Array.TrueForAll(images, delegate(Image item) { return item != null; }))
 				throw new ArgumentException("null item in image set", nameof(images));
-			if (!Array.TrueForAll(images, delegate(Image item) { return (item.Width == images[0].Width && item.Height == images[0].Height); }))
+			if (!Array.TrueForAll(images, delegate(Image item) { return item.Width == images[0].Width && item.Height == images[0].Height; }))
 				throw new ArgumentException("eterogeneous size in image set", nameof(images));
 
 			// Setup technique for creation
@@ -515,7 +515,7 @@ namespace OpenGL.Objects
 		/// In the case a this Texture is defined by multiple targets (i.e. cube map textures), this property
 		/// shall returns always 0.
 		/// </remarks>
-		public override TextureTarget TextureTarget { get { return (TextureTarget.Texture3d); } }
+		public override TextureTarget TextureTarget { get { return TextureTarget.Texture3d; } }
 
 		/// <summary>
 		/// Uniform sampler type for managing this texture.
@@ -526,13 +526,13 @@ namespace OpenGL.Objects
 			{
 				if (PixelLayout.IsIntegerPixel()) {
 					if (PixelLayout.IsSignedIntegerPixel())
-						return (Gl.INT_SAMPLER_3D);
+						return Gl.INT_SAMPLER_3D;
 					if (PixelLayout.IsUnsignedIntegerPixel())
-						return (Gl.UNSIGNED_INT_SAMPLER_3D);
+						return Gl.UNSIGNED_INT_SAMPLER_3D;
 
 					throw new NotSupportedException(String.Format("integer pixel format {0} not supported", PixelLayout));
 				} else
-					return (Gl.SAMPLER_3D);
+					return Gl.SAMPLER_3D;
 			}
 		}
 

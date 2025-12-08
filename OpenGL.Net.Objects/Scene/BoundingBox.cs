@@ -82,17 +82,17 @@ namespace OpenGL.Objects.Scene
 
 		public Vertex3f MinPosition
 		{
-			get { return (_Bounds[0]); }
+			get { return _Bounds[0]; }
 			set { _Bounds[0] = value; }
 		}
 
 		public Vertex3f MaxPosition
 		{
-			get { return (_Bounds[1]); }
+			get { return _Bounds[1]; }
 			set { _Bounds[1] = value; }
 		}
 
-		public Vertex3f Size { get { return (MaxPosition - MinPosition); } }
+		public Vertex3f Size { get { return MaxPosition - MinPosition; } }
 
 		/// <summary>
 		/// Box vertices bounds.
@@ -161,10 +161,10 @@ namespace OpenGL.Objects.Scene
 					outsidePlane &= clipPlane.GetDistance(boundVertices[i]) < 0.0f;
 
 				if (outsidePlane)
-					return (true);
+					return true;
 			}
 
-			return (false);
+			return false;
 		}
 
 		#endregion

@@ -118,7 +118,7 @@ namespace OpenGL.Objects
 		/// </returns>
 		protected virtual bool RequiresName(GraphicsContext ctx)
 		{
-			return (true);
+			return true;
 		}
 
 		/// <summary>
@@ -180,7 +180,7 @@ namespace OpenGL.Objects
 				fakeObjectName = ++_ClientObjectNames[objectClass];
 			}
 
-			return (fakeObjectName);
+			return fakeObjectName;
 		}
 
 		/// <summary>
@@ -446,7 +446,7 @@ namespace OpenGL.Objects
 		/// <remarks>
 		/// This string is used to identify this GraphicsResource among a collection.
 		/// </remarks>
-		public string Identifier { get { return (_Identifier); } }
+		public string Identifier { get { return _Identifier; } }
 
 		/// <summary>
 		/// Object class.
@@ -465,7 +465,7 @@ namespace OpenGL.Objects
 		/// </summary>
 		public uint ObjectName
 		{
-			get { return (_Object); }
+			get { return _Object; }
 			protected set { _Object = value; }
 		}
 
@@ -476,7 +476,7 @@ namespace OpenGL.Objects
 		/// This property determine the correct association between this object and the render contextes used
 		/// for drawing.
 		/// </remarks>
-		public Guid ObjectNamespace { get { return (_ObjectNameSpace); } }
+		public Guid ObjectNamespace { get { return _ObjectNameSpace; } }
 
 		/// <summary>
 		/// Determine whether this GraphicsResource really exists.
@@ -508,15 +508,15 @@ namespace OpenGL.Objects
 
 			// Object not created
 			if (ObjectName == InvalidObjectName)
-				return (false);
+				return false;
 
 			// All GPU resources must exists
 			foreach (GraphicsResource gpuResource in _GpuResources)
 				if (gpuResource.Exists(ctx) == false)
-					return (false);
+					return false;
 
 			// Test only name space... specific test shall be executed by derived classes
-			return (ctx.ObjectNameSpace == _ObjectNameSpace);
+			return ctx.ObjectNameSpace == _ObjectNameSpace;
 		}
 
 		/// <summary>
@@ -753,7 +753,7 @@ namespace OpenGL.Objects
 		/// <returns>
 		/// This implementation returns always false.
 		/// </returns>
-		protected override bool RequiresName(GraphicsContext ctx) { return (false); }
+		protected override bool RequiresName(GraphicsContext ctx) { return false; }
 
 		/// <summary>
 		/// Buffer object class.
@@ -763,7 +763,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Buffer object class.
 		/// </summary>
-		public override Guid ObjectClass { get { return (ThisObjectClass); } }
+		public override Guid ObjectClass { get { return ThisObjectClass; } }
 
 		/// <summary>
 		/// Determine whether this IGraphicsResource is effectively shareable between sharing <see cref="GraphicsContext"/> instances.

@@ -67,7 +67,7 @@ namespace OpenGL
 			LogCommand("eglGetStreamFileDescriptorKHR", retValue, dpy, stream			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -89,7 +89,7 @@ namespace OpenGL
 			LogCommand("eglCreateStreamFromFileDescriptorKHR", retValue, dpy, file_descriptor			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		internal static unsafe partial class Delegates

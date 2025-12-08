@@ -61,7 +61,7 @@ namespace OpenGL
 		/// <summary>
 		/// Get whether OpenWF Composition layer is avaialable.
 		/// </summary>
-		public static bool IsAvailable { get { return (Delegates.pgluNewTess != null); } }
+		public static bool IsAvailable { get { return Delegates.pgluNewTess != null; } }
 
 		/// <summary>
 		/// Get the library name used for loading OpenGL functions.
@@ -73,7 +73,7 @@ namespace OpenGL
 		{
 			switch (Platform.CurrentPlatformId) {
 				default:
-					return (Library);
+					return Library;
 			}
 		}
 
@@ -1427,7 +1427,7 @@ namespace OpenGL
 			retValue = Delegates.pgluNewTess();
 			LogCommand("gluNewTess", retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>

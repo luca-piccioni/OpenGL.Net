@@ -704,19 +704,19 @@ namespace OpenGL
 		{
 
 			if (Math.Abs(_M00 - other._M00) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M01 - other._M01) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M10 - other._M10) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M11 - other._M11) > precision)
-				return (false);
+				return false;
 
 
-			return (true);
+			return true;
 		}
 
 		/// <summary>
@@ -746,9 +746,9 @@ namespace OpenGL
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
-				return (false);
+				return false;
 			if (obj.GetType() != typeof(Matrix2x2f))
-				return (false);
+				return false;
 			
 			return (Equals((Matrix2x2f)obj));
 		}
@@ -1305,25 +1305,25 @@ namespace OpenGL
 		{
 
 			if (Math.Abs(_M00 - other._M00) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M01 - other._M01) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M02 - other._M02) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M10 - other._M10) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M11 - other._M11) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M12 - other._M12) > precision)
-				return (false);
+				return false;
 
 
-			return (true);
+			return true;
 		}
 
 		/// <summary>
@@ -1353,9 +1353,9 @@ namespace OpenGL
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
-				return (false);
+				return false;
 			if (obj.GetType() != typeof(Matrix2x3f))
-				return (false);
+				return false;
 			
 			return (Equals((Matrix2x3f)obj));
 		}
@@ -1976,31 +1976,31 @@ namespace OpenGL
 		{
 
 			if (Math.Abs(_M00 - other._M00) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M01 - other._M01) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M02 - other._M02) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M03 - other._M03) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M10 - other._M10) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M11 - other._M11) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M12 - other._M12) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M13 - other._M13) > precision)
-				return (false);
+				return false;
 
 
-			return (true);
+			return true;
 		}
 
 		/// <summary>
@@ -2030,9 +2030,9 @@ namespace OpenGL
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
-				return (false);
+				return false;
 			if (obj.GetType() != typeof(Matrix2x4f))
-				return (false);
+				return false;
 			
 			return (Equals((Matrix2x4f)obj));
 		}
@@ -2615,25 +2615,25 @@ namespace OpenGL
 		{
 
 			if (Math.Abs(_M00 - other._M00) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M01 - other._M01) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M10 - other._M10) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M11 - other._M11) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M20 - other._M20) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M21 - other._M21) > precision)
-				return (false);
+				return false;
 
 
-			return (true);
+			return true;
 		}
 
 		/// <summary>
@@ -2663,9 +2663,9 @@ namespace OpenGL
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
-				return (false);
+				return false;
 			if (obj.GetType() != typeof(Matrix3x2f))
-				return (false);
+				return false;
 			
 			return (Equals((Matrix3x2f)obj));
 		}
@@ -3750,34 +3750,34 @@ namespace OpenGL
 		{
 
 			if (Math.Abs(_M00 - other._M00) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M01 - other._M01) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M02 - other._M02) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M10 - other._M10) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M11 - other._M11) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M12 - other._M12) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M20 - other._M20) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M21 - other._M21) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M22 - other._M22) > precision)
-				return (false);
+				return false;
 
 
-			return (true);
+			return true;
 		}
 
 		/// <summary>
@@ -3807,9 +3807,9 @@ namespace OpenGL
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
-				return (false);
+				return false;
 			if (obj.GetType() != typeof(Matrix3x3f))
-				return (false);
+				return false;
 			
 			return (Equals((Matrix3x3f)obj));
 		}
@@ -4566,43 +4566,43 @@ namespace OpenGL
 		{
 
 			if (Math.Abs(_M00 - other._M00) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M01 - other._M01) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M02 - other._M02) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M03 - other._M03) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M10 - other._M10) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M11 - other._M11) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M12 - other._M12) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M13 - other._M13) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M20 - other._M20) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M21 - other._M21) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M22 - other._M22) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M23 - other._M23) > precision)
-				return (false);
+				return false;
 
 
-			return (true);
+			return true;
 		}
 
 		/// <summary>
@@ -4632,9 +4632,9 @@ namespace OpenGL
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
-				return (false);
+				return false;
 			if (obj.GetType() != typeof(Matrix3x4f))
-				return (false);
+				return false;
 			
 			return (Equals((Matrix3x4f)obj));
 		}
@@ -5303,31 +5303,31 @@ namespace OpenGL
 		{
 
 			if (Math.Abs(_M00 - other._M00) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M01 - other._M01) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M10 - other._M10) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M11 - other._M11) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M20 - other._M20) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M21 - other._M21) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M30 - other._M30) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M31 - other._M31) > precision)
-				return (false);
+				return false;
 
 
-			return (true);
+			return true;
 		}
 
 		/// <summary>
@@ -5357,9 +5357,9 @@ namespace OpenGL
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
-				return (false);
+				return false;
 			if (obj.GetType() != typeof(Matrix4x2f))
-				return (false);
+				return false;
 			
 			return (Equals((Matrix4x2f)obj));
 		}
@@ -6132,43 +6132,43 @@ namespace OpenGL
 		{
 
 			if (Math.Abs(_M00 - other._M00) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M01 - other._M01) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M02 - other._M02) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M10 - other._M10) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M11 - other._M11) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M12 - other._M12) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M20 - other._M20) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M21 - other._M21) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M22 - other._M22) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M30 - other._M30) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M31 - other._M31) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M32 - other._M32) > precision)
-				return (false);
+				return false;
 
 
-			return (true);
+			return true;
 		}
 
 		/// <summary>
@@ -6198,9 +6198,9 @@ namespace OpenGL
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
-				return (false);
+				return false;
 			if (obj.GetType() != typeof(Matrix4x3f))
-				return (false);
+				return false;
 			
 			return (Equals((Matrix4x3f)obj));
 		}
@@ -7305,7 +7305,7 @@ namespace OpenGL
 		/// </summary>
 		public Vertex3f Position
 		{
-			get { return ((Vertex3f)new Vertex4f(_M30, _M31, _M32, _M33)); }
+			get { return (Vertex3f)new Vertex4f(_M30, _M31, _M32, _M33); }
 		}
 
 		/// <summary>
@@ -7810,7 +7810,7 @@ namespace OpenGL
 						}
 					}
 
-					return (inverse);
+					return inverse;
 				} else {
 #endif
 
@@ -7937,55 +7937,55 @@ namespace OpenGL
 		{
 
 			if (Math.Abs(_M00 - other._M00) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M01 - other._M01) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M02 - other._M02) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M03 - other._M03) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M10 - other._M10) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M11 - other._M11) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M12 - other._M12) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M13 - other._M13) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M20 - other._M20) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M21 - other._M21) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M22 - other._M22) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M23 - other._M23) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M30 - other._M30) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M31 - other._M31) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M32 - other._M32) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M33 - other._M33) > precision)
-				return (false);
+				return false;
 
 
-			return (true);
+			return true;
 		}
 
 		/// <summary>
@@ -8015,9 +8015,9 @@ namespace OpenGL
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
-				return (false);
+				return false;
 			if (obj.GetType() != typeof(Matrix4x4f))
-				return (false);
+				return false;
 			
 			return (Equals((Matrix4x4f)obj));
 		}
@@ -8752,19 +8752,19 @@ namespace OpenGL
 		{
 
 			if (Math.Abs(_M00 - other._M00) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M01 - other._M01) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M10 - other._M10) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M11 - other._M11) > precision)
-				return (false);
+				return false;
 
 
-			return (true);
+			return true;
 		}
 
 		/// <summary>
@@ -8794,9 +8794,9 @@ namespace OpenGL
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
-				return (false);
+				return false;
 			if (obj.GetType() != typeof(Matrix2x2d))
-				return (false);
+				return false;
 			
 			return (Equals((Matrix2x2d)obj));
 		}
@@ -9353,25 +9353,25 @@ namespace OpenGL
 		{
 
 			if (Math.Abs(_M00 - other._M00) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M01 - other._M01) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M02 - other._M02) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M10 - other._M10) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M11 - other._M11) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M12 - other._M12) > precision)
-				return (false);
+				return false;
 
 
-			return (true);
+			return true;
 		}
 
 		/// <summary>
@@ -9401,9 +9401,9 @@ namespace OpenGL
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
-				return (false);
+				return false;
 			if (obj.GetType() != typeof(Matrix2x3d))
-				return (false);
+				return false;
 			
 			return (Equals((Matrix2x3d)obj));
 		}
@@ -10024,31 +10024,31 @@ namespace OpenGL
 		{
 
 			if (Math.Abs(_M00 - other._M00) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M01 - other._M01) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M02 - other._M02) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M03 - other._M03) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M10 - other._M10) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M11 - other._M11) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M12 - other._M12) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M13 - other._M13) > precision)
-				return (false);
+				return false;
 
 
-			return (true);
+			return true;
 		}
 
 		/// <summary>
@@ -10078,9 +10078,9 @@ namespace OpenGL
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
-				return (false);
+				return false;
 			if (obj.GetType() != typeof(Matrix2x4d))
-				return (false);
+				return false;
 			
 			return (Equals((Matrix2x4d)obj));
 		}
@@ -10663,25 +10663,25 @@ namespace OpenGL
 		{
 
 			if (Math.Abs(_M00 - other._M00) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M01 - other._M01) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M10 - other._M10) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M11 - other._M11) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M20 - other._M20) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M21 - other._M21) > precision)
-				return (false);
+				return false;
 
 
-			return (true);
+			return true;
 		}
 
 		/// <summary>
@@ -10711,9 +10711,9 @@ namespace OpenGL
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
-				return (false);
+				return false;
 			if (obj.GetType() != typeof(Matrix3x2d))
-				return (false);
+				return false;
 			
 			return (Equals((Matrix3x2d)obj));
 		}
@@ -11798,34 +11798,34 @@ namespace OpenGL
 		{
 
 			if (Math.Abs(_M00 - other._M00) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M01 - other._M01) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M02 - other._M02) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M10 - other._M10) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M11 - other._M11) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M12 - other._M12) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M20 - other._M20) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M21 - other._M21) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M22 - other._M22) > precision)
-				return (false);
+				return false;
 
 
-			return (true);
+			return true;
 		}
 
 		/// <summary>
@@ -11855,9 +11855,9 @@ namespace OpenGL
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
-				return (false);
+				return false;
 			if (obj.GetType() != typeof(Matrix3x3d))
-				return (false);
+				return false;
 			
 			return (Equals((Matrix3x3d)obj));
 		}
@@ -12614,43 +12614,43 @@ namespace OpenGL
 		{
 
 			if (Math.Abs(_M00 - other._M00) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M01 - other._M01) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M02 - other._M02) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M03 - other._M03) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M10 - other._M10) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M11 - other._M11) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M12 - other._M12) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M13 - other._M13) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M20 - other._M20) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M21 - other._M21) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M22 - other._M22) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M23 - other._M23) > precision)
-				return (false);
+				return false;
 
 
-			return (true);
+			return true;
 		}
 
 		/// <summary>
@@ -12680,9 +12680,9 @@ namespace OpenGL
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
-				return (false);
+				return false;
 			if (obj.GetType() != typeof(Matrix3x4d))
-				return (false);
+				return false;
 			
 			return (Equals((Matrix3x4d)obj));
 		}
@@ -13351,31 +13351,31 @@ namespace OpenGL
 		{
 
 			if (Math.Abs(_M00 - other._M00) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M01 - other._M01) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M10 - other._M10) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M11 - other._M11) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M20 - other._M20) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M21 - other._M21) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M30 - other._M30) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M31 - other._M31) > precision)
-				return (false);
+				return false;
 
 
-			return (true);
+			return true;
 		}
 
 		/// <summary>
@@ -13405,9 +13405,9 @@ namespace OpenGL
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
-				return (false);
+				return false;
 			if (obj.GetType() != typeof(Matrix4x2d))
-				return (false);
+				return false;
 			
 			return (Equals((Matrix4x2d)obj));
 		}
@@ -14180,43 +14180,43 @@ namespace OpenGL
 		{
 
 			if (Math.Abs(_M00 - other._M00) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M01 - other._M01) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M02 - other._M02) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M10 - other._M10) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M11 - other._M11) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M12 - other._M12) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M20 - other._M20) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M21 - other._M21) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M22 - other._M22) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M30 - other._M30) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M31 - other._M31) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M32 - other._M32) > precision)
-				return (false);
+				return false;
 
 
-			return (true);
+			return true;
 		}
 
 		/// <summary>
@@ -14246,9 +14246,9 @@ namespace OpenGL
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
-				return (false);
+				return false;
 			if (obj.GetType() != typeof(Matrix4x3d))
-				return (false);
+				return false;
 			
 			return (Equals((Matrix4x3d)obj));
 		}
@@ -15341,7 +15341,7 @@ namespace OpenGL
 		/// </summary>
 		public Vertex3d Position
 		{
-			get { return ((Vertex3d)new Vertex4d(_M30, _M31, _M32, _M33)); }
+			get { return (Vertex3d)new Vertex4d(_M30, _M31, _M32, _M33); }
 		}
 
 		/// <summary>
@@ -15950,55 +15950,55 @@ namespace OpenGL
 		{
 
 			if (Math.Abs(_M00 - other._M00) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M01 - other._M01) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M02 - other._M02) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M03 - other._M03) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M10 - other._M10) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M11 - other._M11) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M12 - other._M12) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M13 - other._M13) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M20 - other._M20) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M21 - other._M21) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M22 - other._M22) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M23 - other._M23) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M30 - other._M30) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M31 - other._M31) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M32 - other._M32) > precision)
-				return (false);
+				return false;
 
 			if (Math.Abs(_M33 - other._M33) > precision)
-				return (false);
+				return false;
 
 
-			return (true);
+			return true;
 		}
 
 		/// <summary>
@@ -16028,9 +16028,9 @@ namespace OpenGL
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
-				return (false);
+				return false;
 			if (obj.GetType() != typeof(Matrix4x4d))
-				return (false);
+				return false;
 			
 			return (Equals((Matrix4x4d)obj));
 		}

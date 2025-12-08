@@ -120,10 +120,10 @@ namespace BindingsGen.GLSpecs
 
 			Enums.RemoveAll(delegate(Enumerant item) {
 				if (item.RequiredBy.Count == 0)
-					return (true);
+					return true;
 				if (item.Api != null && !ctx.IsSupportedApi(item.Api))
-					return (true);
-				return (false);
+					return true;
+				return false;
 			});
 		}
 

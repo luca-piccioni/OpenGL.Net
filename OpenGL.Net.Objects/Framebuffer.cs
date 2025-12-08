@@ -134,7 +134,7 @@ namespace OpenGL.Objects
 			/// <summary>
 			/// The attached <see cref="RenderBuffer"/>.
 			/// </summary>
-			public RenderBuffer Buffer { get { return (_Buffer); } }
+			public RenderBuffer Buffer { get { return _Buffer; } }
 
 			/// <summary>
 			/// The attached <see cref="RenderBuffer"/>.
@@ -193,12 +193,12 @@ namespace OpenGL.Objects
 			/// <summary>
 			/// The width of the attachment, in pixels.
 			/// </summary>
-			public override uint Width { get { return (Buffer.Width); } }
+			public override uint Width { get { return Buffer.Width; } }
 
 			/// <summary>
 			/// The height of the attachment, in pixels.
 			/// </summary>
-			public override uint Height { get { return (Buffer.Height); } }
+			public override uint Height { get { return Buffer.Height; } }
 
 			/// <summary>
 			/// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
@@ -292,7 +292,7 @@ namespace OpenGL.Objects
 			/// <summary>
 			/// The attached texture.
 			/// </summary>
-			public Texture Texture { get { return (_Texture); } }
+			public Texture Texture { get { return _Texture; } }
 
 			/// <summary>
 			/// The attached texture.
@@ -372,7 +372,7 @@ namespace OpenGL.Objects
 					for (uint lod = 0; lod < TextureLevel; lod++)
 						w = Math.Max(1, w / 2);
 
-					return (w);
+					return w;
 				}
 			}
 
@@ -388,7 +388,7 @@ namespace OpenGL.Objects
 					for (uint lod = 0; lod < TextureLevel; lod++)
 						h = Math.Max(1, h / 2);
 
-					return (h);
+					return h;
 				}
 			}
 
@@ -1032,7 +1032,7 @@ namespace OpenGL.Objects
 		/// </returns>
 		public override DeviceContext GetDeviceContext()
 		{
-			return (null);
+			return null;
 		}
 
 		/// <summary>
@@ -1059,7 +1059,7 @@ namespace OpenGL.Objects
 
 				// No double buffering and stereo buffering
 
-				return (bufferFormat);
+				return bufferFormat;
 			}
 		}
 
@@ -1211,7 +1211,7 @@ namespace OpenGL.Objects
 		/// <remarks>
 		/// This routine returns always 'false', since the framebuffer cannot be defined with a double buffer.
 		/// </remarks>
-		public override bool Swappable { get { return (false); } }
+		public override bool Swappable { get { return false; } }
 		
 		/// <summary>
 		/// Gets or sets the buffer swap interval desired on this surface.
@@ -1224,7 +1224,7 @@ namespace OpenGL.Objects
 		/// </exception>
 		public override int SwapInterval
 		{
-			get { return (0); }
+			get { return 0; }
 			set { throw new InvalidOperationException("framebuffer can set a swap interval"); }
 		}
 
@@ -1254,7 +1254,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// GraphicsResource object class.
 		/// </summary>
-		public override Guid ObjectClass { get { return (ThisObjectClass); } }
+		public override Guid ObjectClass { get { return ThisObjectClass; } }
 
 		/// <summary>
 		/// Determine whether this Framebuffer really exists for a specific context.
@@ -1282,7 +1282,7 @@ namespace OpenGL.Objects
 		{
 			// Object name space test (and 'ctx' sanity checks)
 			if (base.Exists(ctx) == false)
-				return (false);
+				return false;
 
 			return (Gl.IsFramebuffer(ObjectName));
 		}

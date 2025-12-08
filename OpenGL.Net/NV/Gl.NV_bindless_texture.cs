@@ -58,7 +58,7 @@ namespace OpenGL
 			LogCommand("glGetTextureHandleNV", retValue, texture			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -80,7 +80,7 @@ namespace OpenGL
 			LogCommand("glGetTextureSamplerHandleNV", retValue, texture, sampler			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -141,7 +141,7 @@ namespace OpenGL
 			LogCommand("glGetImageHandleNV", retValue, texture, level, layered, layer, format			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -281,7 +281,7 @@ namespace OpenGL
 			LogCommand("glIsTextureHandleResidentNV", retValue, handle			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -300,7 +300,7 @@ namespace OpenGL
 			LogCommand("glIsImageHandleResidentNV", retValue, handle			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		internal static unsafe partial class Delegates

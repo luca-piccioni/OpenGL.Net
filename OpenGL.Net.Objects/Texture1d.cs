@@ -680,7 +680,7 @@ namespace OpenGL.Objects
 				baseSize.y = 1;
 				baseSize.z = 1;
 
-				return (baseSize);
+				return baseSize;
 			}
 		}
 
@@ -691,12 +691,12 @@ namespace OpenGL.Objects
 		/// In the case a this Texture is defined by multiple targets (i.e. cube map textures), this property
 		/// shall returns always 0.
 		/// </remarks>
-		public override TextureTarget TextureTarget { get { return (TextureTarget.Texture1d); } }
+		public override TextureTarget TextureTarget { get { return TextureTarget.Texture1d; } }
 
 		/// <summary>
 		/// Uniform sampler type for managing this Texture.
 		/// </summary>
-		internal override int SamplerType { get { return (Gl.SAMPLER_1D); } }
+		internal override int SamplerType { get { return Gl.SAMPLER_1D; } }
 
 		#endregion
 	}

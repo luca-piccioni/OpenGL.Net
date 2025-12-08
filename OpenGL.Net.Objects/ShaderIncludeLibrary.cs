@@ -70,7 +70,7 @@ namespace OpenGL.Objects
 		
 		public ShaderInclude GetInclude(string path)
 		{
-			return (_IncludeFileSystem[path]);
+			return _IncludeFileSystem[path];
 		}
 		
 		/// <summary>
@@ -90,7 +90,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Shader include object class.
 		/// </summary>
-		public override Guid ObjectClass { get { return (ThisObjectClass); } }
+		public override Guid ObjectClass { get { return ThisObjectClass; } }
 		
 		/// <summary>
 		/// Determine whether this object requires a name bound to a context or not.
@@ -105,7 +105,7 @@ namespace OpenGL.Objects
 		/// </returns>
 		protected override bool RequiresName(GraphicsContext ctx)
 		{
-			return (false);
+			return false;
 		}
 
 		/// <summary>

@@ -55,7 +55,7 @@ namespace OpenGL
 			LogCommand("eglGetSystemTimeFrequencyNV", retValue			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -71,7 +71,7 @@ namespace OpenGL
 			LogCommand("eglGetSystemTimeNV", retValue			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		internal static unsafe partial class Delegates

@@ -757,7 +757,7 @@ namespace OpenGL
 			LogCommand("glGenVertexShadersEXT", retValue, range			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -974,7 +974,7 @@ namespace OpenGL
 			LogCommand("glGenSymbolsEXT", retValue, datatype, storagetype, range, components			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -1348,7 +1348,7 @@ namespace OpenGL
 			LogCommand("glBindLightParameterEXT", retValue, light, value			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -1370,7 +1370,7 @@ namespace OpenGL
 			LogCommand("glBindMaterialParameterEXT", retValue, face, value			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -1395,7 +1395,7 @@ namespace OpenGL
 			LogCommand("glBindTexGenParameterEXT", retValue, unit, coord, value			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -1417,7 +1417,7 @@ namespace OpenGL
 			LogCommand("glBindTextureUnitParameterEXT", retValue, unit, value			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -1436,7 +1436,7 @@ namespace OpenGL
 			LogCommand("glBindParameterEXT", retValue, value			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -1458,7 +1458,7 @@ namespace OpenGL
 			LogCommand("glIsVariantEnabledEXT", retValue, id, cap			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>

@@ -64,7 +64,7 @@ namespace BindingsGen.GLSpecs
 			bool bitmask = Enums.Exists(delegate(Enumerant item) {
 				Enumerant actualEnumerant = ctx.Registry.GetEnumerant(item.Name);
 
-				return (actualEnumerant == null || actualEnumerant.ParentEnumerantBlock.Type == "bitmask");
+				return actualEnumerant == null || actualEnumerant.ParentEnumerantBlock.Type == "bitmask";
 			});
 
 			// Collect group enumerants by their value

@@ -100,17 +100,17 @@ namespace OpenGL.Objects.State
 		/// <summary>
 		/// The identifier of this GraphicsState.
 		/// </summary>
-		public override string StateIdentifier { get { return (StateId); } }
+		public override string StateIdentifier { get { return StateId; } }
 
 		/// <summary>
 		/// Unique index assigned to this GraphicsState.
 		/// </summary>
-		public static int StateSetIndex { get { return (_StateIndex); } }
+		public static int StateSetIndex { get { return _StateIndex; } }
 
 		/// <summary>
 		/// Unique index assigned to this GraphicsState.
 		/// </summary>
-		public override int StateIndex { get { return (_StateIndex); } }
+		public override int StateIndex { get { return _StateIndex; } }
 
 		/// <summary>
 		/// The index for this GraphicsState.
@@ -123,12 +123,12 @@ namespace OpenGL.Objects.State
 		/// <remarks>
 		/// It returns always true, since it supports also fixed pipeline.
 		/// </remarks>
-		public override bool IsContextBound { get { return (false); } }
+		public override bool IsContextBound { get { return false; } }
 
 		/// <summary>
 		/// Flag indicating whether the state can be applied on a <see cref="ShaderProgram"/>.
 		/// </summary>
-		public override bool IsProgramBound { get { return (true); } }
+		public override bool IsProgramBound { get { return true; } }
 
 		/// <summary>
 		/// Apply this TransformState.
@@ -201,7 +201,7 @@ namespace OpenGL.Objects.State
 		/// <summary>
 		/// Get the uniform state associated with this instance.
 		/// </summary>
-		protected override Dictionary<string, UniformStateMember> UniformState { get { return (_UniformProperties); } }
+		protected override Dictionary<string, UniformStateMember> UniformState { get { return _UniformProperties; } }
 
 		/// <summary>
 		/// Represents the current <see cref="GraphicsState"/> for logging.
@@ -211,7 +211,7 @@ namespace OpenGL.Objects.State
 		/// </returns>
 		public override string ToString()
 		{
-			return (string.Empty);
+			return string.Empty;
 		}
 
 		/// <summary>

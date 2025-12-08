@@ -80,7 +80,7 @@ namespace OpenGL.Objects.Test
 		/// </summary>
 		protected virtual bool IsEsTest
 		{
-			get { return (false); }
+			get { return false; }
 		}
 
 		/// <summary>

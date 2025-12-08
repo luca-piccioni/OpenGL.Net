@@ -76,7 +76,7 @@ namespace OpenGL.Objects
 			/// Get or set the texture coordinate repeat multipliers.
 			/// </summary>
 			public Vertex2f Repeat {
-				get { return (_Repeat); }
+				get { return _Repeat; }
 				set { _Repeat = value; }
 			}
 

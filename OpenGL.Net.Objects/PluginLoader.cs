@@ -137,13 +137,13 @@ namespace OpenGL.Objects
 		/// <returns></returns>
 		public T GetPlugin(string name)
 		{
-			return (_Plugins.FindLast(delegate(T plugin) { return (plugin.Name == name); }));
+			return (_Plugins.FindLast(delegate(T plugin) { return plugin.Name == name; }));
 		}
 
 		/// <summary>
 		/// Loaded and available plugins.
 		/// </summary>
-		protected List<T> Plugins { get { return (_Plugins); } }
+		protected List<T> Plugins { get { return _Plugins; } }
 
 		/// <summary>
 		/// Loaded plugins.
@@ -183,21 +183,21 @@ namespace OpenGL.Objects
 
 			sharedLibraries = Array.FindAll(sharedLibraries, delegate(string item) {
 				if (item.EndsWith("OpenGL.Net.dll"))
-					return (false);
+					return false;
 				if (item.EndsWith("OpenGL.Hal.dll"))
-					return (false);
+					return false;
 				if (item.EndsWith("nunit.framework.dll"))
-					return (false);
+					return false;
 				if (item.EndsWith("log4net.dll"))
-					return (false);
+					return false;
 				if (item.EndsWith("gdal_csharp.dll"))
-					return (false);
+					return false;
 				if (item.EndsWith("ogr_csharp.dll"))
-					return (false);
+					return false;
 				if (item.EndsWith("osr_csharp.dll"))
-					return (false);
+					return false;
 
-				return (true);
+				return true;
 			});
 
 			foreach (string sharedLibrary in sharedLibraries) {
@@ -218,7 +218,7 @@ namespace OpenGL.Objects
 					break;
 			}
 
-			return (pluginList);
+			return pluginList;
 		}
 
 		/// <summary>
@@ -276,7 +276,7 @@ namespace OpenGL.Objects
 			if (invalidLibrary)
 				Resource.Log("Library '{0}' is not a plugin for {1}.", libraryName, pluginFactoryType);
 
-			return (null);
+			return null;
 		}
 
 		/// <summary>
@@ -332,7 +332,7 @@ namespace OpenGL.Objects
 
 				return ((T)plugInstance);
 			} else
-				return (null);
+				return null;
 		}
 
 		/// <summary>

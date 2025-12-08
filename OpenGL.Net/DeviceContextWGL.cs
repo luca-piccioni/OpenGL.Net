@@ -699,7 +699,7 @@ namespace OpenGL
 			if (ctx == IntPtr.Zero)
 				throw new WglException(Marshal.GetLastWin32Error());
 
-			return (ctx);
+			return ctx;
 		}
 
 		/// <summary>

@@ -111,7 +111,7 @@ namespace OpenGL
 		[DefaultValue(ProfileType.Compatibility)]
 		public ProfileType ContextProfile
 		{
-			get { return (_ProfileType); }
+			get { return _ProfileType; }
 			set { _ProfileType = value; }
 		}
 
@@ -155,7 +155,7 @@ namespace OpenGL
 		[DefaultValue(AttributePermission.EnabledInDebugger)]
 		public AttributePermission DebugContext
 		{
-			get { return (_DebugContextBit); }
+			get { return _DebugContextBit; }
 			set { _DebugContextBit = value; }
 		}
 
@@ -173,7 +173,7 @@ namespace OpenGL
 		[DefaultValue(AttributePermission.DonCare)]
 		public AttributePermission ForwardCompatibleContext
 		{
-			get { return (_ForwardCompatibleContextBit); }
+			get { return _ForwardCompatibleContextBit; }
 			set { _ForwardCompatibleContextBit = value; }
 		}
 
@@ -191,7 +191,7 @@ namespace OpenGL
 		[DefaultValue(AttributePermission.DonCare)]
 		public AttributePermission RobustContext
 		{
-			get { return (_RobustContextBit); }
+			get { return _RobustContextBit; }
 			set { _RobustContextBit = value; }
 		}
 
@@ -213,7 +213,7 @@ namespace OpenGL
 		[DefaultValue(24)]
 		public uint ColorBits
 		{
-			get { return (_ColorBits); }
+			get { return _ColorBits; }
 			set
 			{
 				_ColorBits = value;
@@ -236,7 +236,7 @@ namespace OpenGL
 		[DefaultValue(0)]
 		public uint DepthBits
 		{
-			get { return (_DepthBits); }
+			get { return _DepthBits; }
 			set
 			{
 				_DepthBits = value;
@@ -259,7 +259,7 @@ namespace OpenGL
 		[DefaultValue(0)]
 		public uint StencilBits
 		{
-			get { return (_StencilBits); }
+			get { return _StencilBits; }
 			set
 			{
 				_StencilBits = value;
@@ -282,7 +282,7 @@ namespace OpenGL
 		[DefaultValue(0)]
 		public uint MultisampleBits
 		{
-			get { return (_MultisampleBits); }
+			get { return _MultisampleBits; }
 			set
 			{
 				_MultisampleBits = value;
@@ -305,7 +305,7 @@ namespace OpenGL
 		[DefaultValue(true)]
 		public bool DoubleBuffer
 		{
-			get { return (_DoubleBuffer); }
+			get { return _DoubleBuffer; }
 			set
 			{
 				_DoubleBuffer = value;
@@ -332,7 +332,7 @@ namespace OpenGL
 		[DefaultValue(1)]
 		public int SwapInterval
 		{
-			get { return (_SwapInterval); }
+			get { return _SwapInterval; }
 			set { _SwapInterval = value; }
 		}
 
@@ -359,7 +359,7 @@ namespace OpenGL
 				controlReqFormat.MultisampleBits = (int)MultisampleBits;
 				controlReqFormat.DoubleBuffer = DoubleBuffer && (_ProfileType != ProfileType.Embedded);     // DB not yet managed using ANGLE
 
-				return (controlReqFormat);
+				return controlReqFormat;
 			}
 		}
 
@@ -407,7 +407,7 @@ namespace OpenGL
 		[DefaultValue(false)]
 		public bool Animation
 		{
-			get { return (_Animation); }
+			get { return _Animation; }
 			set
 			{
 				_Animation = value;
@@ -431,7 +431,7 @@ namespace OpenGL
 		[DefaultValue(0)]
 		public int AnimationTime
 		{
-			get { return (_AnimationTime); }
+			get { return _AnimationTime; }
 			set
 			{
 				_AnimationTime = value;
@@ -455,7 +455,7 @@ namespace OpenGL
 		[DefaultValue(true)]
 		public bool AnimationTimer
 		{
-			get { return (_AnimationTimerFlag); }
+			get { return _AnimationTimerFlag; }
 			set
 			{
 				_AnimationTimerFlag = value;
@@ -619,7 +619,7 @@ namespace OpenGL
 		[Browsable(false)]
 		public DeviceContext Device
 		{
-			get { return (_DeviceContext); }
+			get { return _DeviceContext; }
 		}
 
 		/// <summary>
@@ -710,7 +710,7 @@ namespace OpenGL
 		{
 			switch (Platform.CurrentPlatformId) {
 				case Platform.Id.WindowsNT:
-					return (IntPtr.Zero);
+					return IntPtr.Zero;
 				case Platform.Id.Linux:
 					Type xplatui = Type.GetType("System.Windows.Forms.XplatUIX11, System.Windows.Forms");
 					if (xplatui == null)
@@ -724,7 +724,7 @@ namespace OpenGL
 					// _Screen = (int)xplatui.GetField("ScreenNo", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic).GetValue(null);
 					// KhronosApi.LogComment("System.Windows.Forms.XplatUIX11.ScreenNo is {0}", _Screen);
 
-					return (display);
+					return display;
 				default:
 					throw new NotSupportedException("platform " + Platform.CurrentPlatformId + " not supported");
 			}
@@ -1019,7 +1019,7 @@ namespace OpenGL
 		[DefaultValue(ContextSharingOption.OwnContext)]
 		public ContextSharingOption ContextSharing
 		{
-			get { return (_ContextSharing); }
+			get { return _ContextSharing; }
 			set
 			{
 				if (_RenderContext != IntPtr.Zero)
@@ -1042,7 +1042,7 @@ namespace OpenGL
 		[DefaultValue(null)]
 		public string ContextSharingGroup
 		{
-			get { return (_ContextSharingGroup); }
+			get { return _ContextSharingGroup; }
 			set
 			{
 				if (_RenderContext != IntPtr.Zero)
@@ -1162,7 +1162,7 @@ namespace OpenGL
 						break;
 				}
 
-				return (createParams);
+				return createParams;
 			}
 		}
 

@@ -470,7 +470,7 @@ namespace OpenGL
 				LogCommand("glGenQueries", null, 1, "{ " + retValue + " }"				);
 			}
 			DebugCheckErrors(null);
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -517,7 +517,7 @@ namespace OpenGL
 			LogCommand("glIsQuery", retValue, id			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -857,7 +857,7 @@ namespace OpenGL
 				LogCommand("glGenBuffers", null, 1, "{ " + retValue + " }"				);
 			}
 			DebugCheckErrors(null);
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -881,7 +881,7 @@ namespace OpenGL
 			LogCommand("glIsBuffer", retValue, buffer			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -1093,7 +1093,7 @@ namespace OpenGL
 			LogCommand("glMapBuffer", retValue, target, access			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -1121,7 +1121,7 @@ namespace OpenGL
 			LogCommand("glUnmapBuffer", retValue, target			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>

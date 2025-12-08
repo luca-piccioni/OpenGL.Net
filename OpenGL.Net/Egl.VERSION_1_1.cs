@@ -218,7 +218,7 @@ namespace OpenGL
 			LogCommand("eglBindTexImage", retValue, dpy, surface, buffer			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -243,7 +243,7 @@ namespace OpenGL
 			LogCommand("eglReleaseTexImage", retValue, dpy, surface, buffer			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -271,7 +271,7 @@ namespace OpenGL
 			LogCommand("eglSurfaceAttrib", retValue, dpy, surface, attribute, value			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -294,7 +294,7 @@ namespace OpenGL
 			LogCommand("eglSwapInterval", retValue, dpy, interval			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		internal static unsafe partial class Delegates

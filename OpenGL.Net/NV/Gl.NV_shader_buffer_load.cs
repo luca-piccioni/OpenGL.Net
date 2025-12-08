@@ -109,7 +109,7 @@ namespace OpenGL
 			LogCommand("glIsBufferResidentNV", retValue, target			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -161,7 +161,7 @@ namespace OpenGL
 			LogCommand("glIsNamedBufferResidentNV", retValue, buffer			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>

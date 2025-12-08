@@ -64,7 +64,7 @@ namespace OpenGL
 			LogCommand("glGetProgramResourceLocationIndexEXT", retValue, program, programInterface, name			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		internal static unsafe partial class Delegates

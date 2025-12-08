@@ -282,7 +282,7 @@ namespace OpenGL
 				LogCommand("glGenPerfMonitorsAMD", null, 1, "{ " + retValue + " }"				);
 			}
 			DebugCheckErrors(null);
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>

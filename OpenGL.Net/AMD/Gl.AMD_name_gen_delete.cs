@@ -98,7 +98,7 @@ namespace OpenGL
 				LogCommand("glGenNamesAMD", null, identifier, 1, "{ " + retValue + " }"				);
 			}
 			DebugCheckErrors(null);
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -143,7 +143,7 @@ namespace OpenGL
 			LogCommand("glIsNameAMD", retValue, identifier, name			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		internal static unsafe partial class Delegates

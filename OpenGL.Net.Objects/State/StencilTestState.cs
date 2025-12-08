@@ -106,17 +106,17 @@ namespace OpenGL.Objects.State
 		/// <summary>
 		/// The identifier of this GraphicsState.
 		/// </summary>
-		public override string StateIdentifier { get { return (StateId); } }
+		public override string StateIdentifier { get { return StateId; } }
 
 		/// <summary>
 		/// Unique index assigned to this GraphicsState.
 		/// </summary>
-		public static int StateSetIndex { get { return (_StateIndex); } }
+		public static int StateSetIndex { get { return _StateIndex; } }
 
 		/// <summary>
 		/// Unique index assigned to this GraphicsState.
 		/// </summary>
-		public override int StateIndex { get { return (_StateIndex); } }
+		public override int StateIndex { get { return _StateIndex; } }
 
 		/// <summary>
 		/// The index for this GraphicsState.
@@ -220,15 +220,15 @@ namespace OpenGL.Objects.State
 		public override bool Equals(IGraphicsState other)
 		{
 			if (base.Equals(other) == false)
-				return (false);
+				return false;
 			Debug.Assert(other is StencilTestState);
 
 			StencilTestState otherState = (StencilTestState)other;
 
 			if (otherState.Enabled != Enabled)
-				return (false);
+				return false;
 
-			return (true);
+			return true;
 		}
 		
 		/// <summary>

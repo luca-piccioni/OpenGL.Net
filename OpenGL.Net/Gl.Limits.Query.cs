@@ -120,7 +120,7 @@ namespace OpenGL
 				// Note: in Release no error is checked, and there may be some error; do not let exit from here.
 				ClearErrors();
 
-				return (graphicsLimits);
+				return graphicsLimits;
 			}
 
 			#endregion

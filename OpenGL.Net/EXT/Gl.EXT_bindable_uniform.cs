@@ -118,7 +118,7 @@ namespace OpenGL
 			LogCommand("glGetUniformBufferSizeEXT", retValue, program, location			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -140,7 +140,7 @@ namespace OpenGL
 			LogCommand("glGetUniformOffsetEXT", retValue, program, location			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		internal static unsafe partial class Delegates

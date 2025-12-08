@@ -61,7 +61,7 @@ namespace OpenGL
 			LogCommand("glXReleaseBuffersMESA", retValue, dpy, drawable			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		internal static unsafe partial class Delegates

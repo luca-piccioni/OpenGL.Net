@@ -5047,7 +5047,7 @@ namespace OpenGL
 			LogCommand("glMapNamedBufferEXT", retValue, buffer, access			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -5066,7 +5066,7 @@ namespace OpenGL
 			LogCommand("glUnmapNamedBufferEXT", retValue, buffer			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -7925,7 +7925,7 @@ namespace OpenGL
 			LogCommand("glMapNamedBufferRangeEXT", retValue, buffer, offset, length, access			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>

@@ -147,7 +147,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Path used for including this ShaderInclude source string.
 		/// </summary>
-		public string IncludePath { get { return (_IncludePath); } }
+		public string IncludePath { get { return _IncludePath; } }
 
 		/// <summary>
 		/// Path used for including this ShaderInclude source string.
@@ -189,7 +189,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Shader include object class.
 		/// </summary>
-		public override Guid ObjectClass { get { return (ThisObjectClass); } }
+		public override Guid ObjectClass { get { return ThisObjectClass; } }
 
 		/// <summary>
 		/// Determine whether this BufferObject really exists for a specific context.
@@ -217,15 +217,15 @@ namespace OpenGL.Objects
 		{
 			// Base implementation
 			if (!base.Exists(ctx))
-				return (false);
+				return false;
 
 #if !MONODROID
 			if (ctx.Extensions.ShadingLanguageInclude_ARB == true)
 				return (Gl.IsNamedStringARB(IncludePath.Length, IncludePath));
 
-			return (true);
+			return true;
 #else
-			return (false);
+			return false;
 #endif
 		}
 
@@ -245,7 +245,7 @@ namespace OpenGL.Objects
 		/// </returns>
 		protected override bool RequiresName(GraphicsContext ctx)
 		{
-			return (false);
+			return false;
 		}
 		
 		/// <summary>

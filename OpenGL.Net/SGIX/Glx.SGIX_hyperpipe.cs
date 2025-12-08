@@ -132,7 +132,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(null);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -168,7 +168,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -198,7 +198,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -220,7 +220,7 @@ namespace OpenGL
 			LogCommand("glXDestroyHyperpipeConfigSGIX", retValue, dpy, hpId			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -242,7 +242,7 @@ namespace OpenGL
 			LogCommand("glXBindHyperpipeSGIX", retValue, dpy, hpId			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -276,7 +276,7 @@ namespace OpenGL
 			LogCommand("glXQueryHyperpipeBestAttribSGIX", retValue, dpy, timeSlice, attrib, size, attribList, returnAttribList			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -307,7 +307,7 @@ namespace OpenGL
 			LogCommand("glXHyperpipeAttribSGIX", retValue, dpy, timeSlice, attrib, size, attribList			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -338,7 +338,7 @@ namespace OpenGL
 			LogCommand("glXQueryHyperpipeAttribSGIX", retValue, dpy, timeSlice, attrib, size, returnAttribList			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		internal static unsafe partial class Delegates

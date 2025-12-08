@@ -61,7 +61,7 @@ namespace OpenGL
 			LogCommand("wglJoinSwapGroupNV", retValue, hDC, group			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -83,7 +83,7 @@ namespace OpenGL
 			LogCommand("wglBindSwapBarrierNV", retValue, group, barrier			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -114,7 +114,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -145,7 +145,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -172,7 +172,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -191,7 +191,7 @@ namespace OpenGL
 			LogCommand("wglResetFrameCountNV", retValue, hDC			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		internal static unsafe partial class Delegates

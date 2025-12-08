@@ -180,7 +180,7 @@ namespace OpenGL.Objects
 					shaderObject.Create(ctx, cctx);
 
 				// Do not re-attach the same shader object
-				if ((shadersObject != null) && Array.Exists(shadersObject, delegate (uint item) { return (item == shaderObject.ObjectName); }))
+				if ((shadersObject != null) && Array.Exists(shadersObject, delegate (uint item) { return item == shaderObject.ObjectName; }))
 					continue;
 
 				// Attach shader object
@@ -434,40 +434,40 @@ namespace OpenGL.Objects
 				case ShaderUniformType.Int:
 				case ShaderUniformType.UInt:
 				case ShaderUniformType.Bool:
-					return (1);
+					return 1;
 				case ShaderUniformType.Vec2:
 				case ShaderUniformType.IntVec2:
 				case ShaderUniformType.UIntVec2:
 				case ShaderUniformType.BoolVec2:
-					return (2);
+					return 2;
 				case ShaderUniformType.Vec3:
 				case ShaderUniformType.IntVec3:
 				case ShaderUniformType.UIntVec3:
 				case ShaderUniformType.BoolVec3:
-					return (3);
+					return 3;
 				case ShaderUniformType.Vec4:
 				case ShaderUniformType.IntVec4:
 				case ShaderUniformType.UIntVec4:
 				case ShaderUniformType.BoolVec4:
-					return (4);
+					return 4;
 				case ShaderUniformType.Mat2x2:
-					return (4);
+					return 4;
 				case ShaderUniformType.Mat3x3:
-					return (9);
+					return 9;
 				case ShaderUniformType.Mat4x4:
-					return (16);
+					return 16;
 				case ShaderUniformType.Mat2x3:
 				case ShaderUniformType.Mat3x2:
-					return (6);
+					return 6;
 				case ShaderUniformType.Mat2x4:
 				case ShaderUniformType.Mat4x2:
-					return (8);
+					return 8;
 				case ShaderUniformType.Mat3x4:
 				case ShaderUniformType.Mat4x3:
-					return (12);
+					return 12;
 				default:
 					// Assume sampler type
-					return (1);
+					return 1;
 				case ShaderUniformType.Unknown:
 					throw new ArgumentException("invalid type", nameof(uniformType));
 			}
@@ -478,7 +478,7 @@ namespace OpenGL.Objects
 		/// </summary>
 		public bool IsLinked
 		{
-			get { return (_Linked); }
+			get { return _Linked; }
 		}
 
 		/// <summary>
@@ -539,7 +539,7 @@ namespace OpenGL.Objects
 		/// </exception>
 		public ShaderCompilerContext CompilationParams
 		{
-			get { return (_CompilationParams); }
+			get { return _CompilationParams; }
 			set
 			{
 				if (IsLinked)
@@ -599,7 +599,7 @@ namespace OpenGL.Objects
 		public ICollection<string> ActiveAttributes
 		{
 			get {
-				return (_AttributesMap.Keys);
+				return _AttributesMap.Keys;
 			}
 		}
 
@@ -624,7 +624,7 @@ namespace OpenGL.Objects
 		/// <returns></returns>
 		internal AttributeBinding GetActiveAttribute(string attributeName)
 		{
-			return (_AttributesMap[attributeName]);
+			return _AttributesMap[attributeName];
 		}
 
 		/// <summary>
@@ -716,9 +716,9 @@ namespace OpenGL.Objects
 			AttributeMetadata attributeMetadata;
 
 			if (_AttributeMetadata.TryGetValue(attributeName, out attributeMetadata))
-				return (attributeMetadata.Location);
+				return attributeMetadata.Location;
 
-			return (-1);
+			return -1;
 		}
 
 		/// <summary>
@@ -779,14 +779,14 @@ namespace OpenGL.Objects
 
 			if (_AttributeMetadata.TryGetValue(attributeName, out attributeMetadata)) {
 				if (attributeMetadata.Semantic == null)
-					return (null);
+					return null;
 				if (arrayMatch.Success)
 					semantic = String.Format("{0}[{1}]", attributeMetadata.Semantic, arrayMatch.Groups["AttributeIndex"].Value);
 
-				return (attributeMetadata.Semantic);
+				return attributeMetadata.Semantic;
 			}
 
-			return (null);
+			return null;
 		}
 
 		/// <summary>
@@ -957,7 +957,7 @@ namespace OpenGL.Objects
 		{
 			get
 			{
-				return (_FeedbacksMap.Keys);
+				return _FeedbacksMap.Keys;
 			}
 		}
 
@@ -982,7 +982,7 @@ namespace OpenGL.Objects
 		/// <returns></returns>
 		internal FeedbackBinding GetActiveFeedback(string attributeName)
 		{
-			return (_FeedbacksMap[attributeName]);
+			return _FeedbacksMap[attributeName];
 		}
 
 		/// <summary>
@@ -1043,7 +1043,7 @@ namespace OpenGL.Objects
 			if (fragOutputName.StartsWith("gl"))
 				throw new ArgumentException("reserved name");
 
-			return (_FragLocations[fragOutputName]);
+			return _FragLocations[fragOutputName];
 		}
 
 		/// <summary>
@@ -1134,7 +1134,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Shader program object class.
 		/// </summary>
-		public override Guid ObjectClass { get { return (ThisObjectClass); } }
+		public override Guid ObjectClass { get { return ThisObjectClass; } }
 
 		/// <summary>
 		/// Determine whether this ShaderProgram really exists for a specific context.
@@ -1162,7 +1162,7 @@ namespace OpenGL.Objects
 		{
 			// Object name space test (and 'ctx' sanity checks)
 			if (base.Exists(ctx) == false)
-				return (false);
+				return false;
 
 			return (Gl.IsProgram(ObjectName));
 		}
@@ -1264,7 +1264,7 @@ namespace OpenGL.Objects
 		/// </param>
 		int IBindingResource.GetBindingTarget(GraphicsContext ctx)
 		{
-			return (Gl.CURRENT_PROGRAM);
+			return Gl.CURRENT_PROGRAM;
 		}
 
 		/// <summary>

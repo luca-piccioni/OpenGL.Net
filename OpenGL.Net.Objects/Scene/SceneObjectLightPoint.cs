@@ -77,7 +77,7 @@ namespace OpenGL.Objects.Scene
 			light.Position = (Vertex3f)(WorldModel * Vertex3f.Zero);
 			light.AttenuationFactors = AttenuationFactors;
 
-			return (light);
+			return light;
 		}
 
 		#endregion

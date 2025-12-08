@@ -139,7 +139,7 @@ namespace OpenGL.Objects
 		/// If texture target doesn't support mipmapping, this property shall return 1, if it is defined.
 		/// </para>
 		/// </remarks>
-		protected override uint MipmapLevels { get { return (1); } }
+		protected override uint MipmapLevels { get { return 1; } }
 
 		/// <summary>
 		/// Generate mipmaps for this Texture.
@@ -170,7 +170,7 @@ namespace OpenGL.Objects
 		/// In the case a this Texture is defined by multiple targets (i.e. cube map textures), this property
 		/// shall returns always 0.
 		/// </remarks>
-		public override TextureTarget TextureTarget { get { return (TextureTarget.TextureRectangle); } }
+		public override TextureTarget TextureTarget { get { return TextureTarget.TextureRectangle; } }
 
 
 		/// <summary>
@@ -183,14 +183,14 @@ namespace OpenGL.Objects
 #if !MONODROID
 				if (PixelLayout.IsIntegerPixel()) {
 					if (PixelLayout.IsSignedIntegerPixel())
-						return (Gl.INT_SAMPLER_2D_RECT);
+						return Gl.INT_SAMPLER_2D_RECT;
 					if (PixelLayout.IsUnsignedIntegerPixel())
-						return (Gl.UNSIGNED_INT_SAMPLER_2D_RECT);
+						return Gl.UNSIGNED_INT_SAMPLER_2D_RECT;
 
 					throw new NotSupportedException(String.Format("integer pixel format {0} not supported", PixelLayout));
 				} else
 #endif
-					return (Gl.SAMPLER_2D_RECT);
+					return Gl.SAMPLER_2D_RECT;
 			}
 		}
 

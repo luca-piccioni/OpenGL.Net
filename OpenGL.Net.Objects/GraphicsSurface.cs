@@ -85,7 +85,7 @@ namespace OpenGL.Objects
 		/// </summary>
 		public virtual uint Width
 		{
-			get { return (_Width); }
+			get { return _Width; }
 			protected internal set {
 				// Store surface width
 				_Width = value;
@@ -99,7 +99,7 @@ namespace OpenGL.Objects
 		/// </summary>
 		public virtual uint Height
 		{
-			get { return (_Height); }
+			get { return _Height; }
 			protected internal set {
 				// Store surface height
 				_Height = value;
@@ -358,7 +358,7 @@ namespace OpenGL.Objects
 			// Unbind from reading
 			UnbindRead(ctx);
 
-			return (image);
+			return image;
 		}
 
 		protected T ReadFragment<T>(GraphicsContext ctx, ReadBufferMode rBuffer, uint x, uint y, PixelLayout pType) where T : struct
@@ -450,12 +450,12 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// The width of the surface, in pixels.
 		/// </summary>
-		uint IGraphicsSurface.Width { get { return (_Width); } }
+		uint IGraphicsSurface.Width { get { return _Width; } }
 
 		/// <summary>
 		/// The width of the surface, in pixels.
 		/// </summary>
-		uint IGraphicsSurface.Height { get { return (_Height); } }
+		uint IGraphicsSurface.Height { get { return _Height; } }
 
 		#endregion
 	}

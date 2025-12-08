@@ -55,7 +55,7 @@ namespace OpenGL
 			LogCommand("glXGetSwapIntervalMESA", retValue			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -74,7 +74,7 @@ namespace OpenGL
 			LogCommand("glXSwapIntervalMESA", retValue, interval			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		internal static unsafe partial class Delegates

@@ -85,7 +85,7 @@ namespace OpenGL
 			LogCommand("eglDupNativeFenceFDANDROID", retValue, dpy, sync			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		internal static unsafe partial class Delegates

@@ -94,7 +94,7 @@ namespace BindingsGen
 			using (Stream sr = Assembly.GetExecutingAssembly().GetManifestResourceStream(path)) {
 				XmlSerializer serializer = new XmlSerializer(typeof(RegistryAssemblyConfiguration));
 
-				return ((RegistryAssemblyConfiguration)serializer.Deserialize(sr));
+				return (RegistryAssemblyConfiguration)serializer.Deserialize(sr);
 			}
 		}
 

@@ -1170,7 +1170,7 @@ namespace OpenGL
 			LogCommand("glCreateProgram", retValue			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -1193,7 +1193,7 @@ namespace OpenGL
 			LogCommand("glCreateShader", retValue, type			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -1442,7 +1442,7 @@ namespace OpenGL
 			LogCommand("glGetAttribLocation", retValue, program, name			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -1696,7 +1696,7 @@ namespace OpenGL
 			LogCommand("glGetUniformLocation", retValue, program, name			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -2128,7 +2128,7 @@ namespace OpenGL
 			LogCommand("glIsProgram", retValue, program			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -2150,7 +2150,7 @@ namespace OpenGL
 			LogCommand("glIsShader", retValue, shader			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>

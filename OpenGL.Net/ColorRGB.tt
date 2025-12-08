@@ -146,7 +146,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator ColorRGBA<#= colorSuffix #>(<#= className #> a)
 		{
-			return (new ColorRGBA<#= colorSuffix #>(a.r, a.g, a.b, <#= ones[i] #>));
+			return new ColorRGBA<#= colorSuffix #>(a.r, a.g, a.b, <#= ones[i] #>);
 		}
 <#		}
 		if (castSuffix != null) { #>
@@ -167,7 +167,7 @@ namespace OpenGL
 			v[1] = a.g;
 			v[2] = a.b;
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -181,7 +181,7 @@ namespace OpenGL
 		/// </returns>
 		public static implicit operator Vertex3<#= castSuffix #>(<#= className #> a)
 		{
-			return (new Vertex3<#= castSuffix #>(a.r, a.g, a.b));
+			return new Vertex3<#= castSuffix #>(a.r, a.g, a.b);
 		}
 <#		} #>
 
@@ -204,7 +204,7 @@ namespace OpenGL
 			c[1] = (float)a.G / Byte.MaxValue;
 			c[2] = (float)a.B / Byte.MaxValue;
 
-			return (c);
+			return c;
 		}
 
 #endif
@@ -283,7 +283,7 @@ namespace OpenGL
 		/// </summary>
 		public <#= interfaceType #> Red
 		{
-			get { return (r); }
+			get { return r; }
 			set { r = value; }
 		}
 
@@ -309,7 +309,7 @@ if (structMembersCount[i] == 1) {
 		/// </summary>
 		public <#= interfaceType #> Green
 		{
-			get { return (g); }
+			get { return g; }
 			set { g = value; }
 		}
 
@@ -336,7 +336,7 @@ if (structMembersCount[i] == 1) {
 		/// </summary>
 		public <#= interfaceType #> Blue
 		{
-			get { return (b); }
+			get { return b; }
 			set { b = value; }
 		}
 
@@ -348,7 +348,7 @@ if (structMembersCount[i] == 1) {
 		/// <summary>
 		/// Get the PixelLayout correponding to this IColor.
 		/// </summary>
-		public PixelLayout PixelType { get { return (PixelLayout.<#= pixelType #>); } }
+		public PixelLayout PixelType { get { return PixelLayout.<#= pixelType #>; } }
 
 		/// <summary>
 		/// Get of set color components.
@@ -368,9 +368,9 @@ if (structMembersCount[i] == 1) {
 			get
 			{
 				switch (c) {
-					case 0: return ((float)Red   / <#= interfaceType #>.MaxValue);
-					case 1: return ((float)Green / <#= interfaceType #>.MaxValue);
-					case 2: return ((float)Blue  / <#= interfaceType #>.MaxValue);
+					case 0: return (float)Red   / <#= interfaceType #>.MaxValue;
+					case 1: return (float)Green / <#= interfaceType #>.MaxValue;
+					case 2: return (float)Blue  / <#= interfaceType #>.MaxValue;
 					default:
 						throw new IndexOutOfRangeException();
 				}
@@ -396,9 +396,9 @@ if (structMembersCount[i] == 1) {
 			get
 			{
 				switch (c) {
-					case 0: return (<#= explicitCastOnFloat #>Red);
-					case 1: return (<#= explicitCastOnFloat #>Green);
-					case 2: return (<#= explicitCastOnFloat #>Blue);
+					case 0: return <#= explicitCastOnFloat #>Red;
+					case 1: return <#= explicitCastOnFloat #>Green;
+					case 2: return <#= explicitCastOnFloat #>Blue;
 					default:
 						throw new IndexOutOfRangeException();
 				}

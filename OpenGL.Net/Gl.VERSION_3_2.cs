@@ -1013,7 +1013,7 @@ namespace OpenGL
 			LogCommand("glFenceSync", retValue, condition, flags			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -1037,7 +1037,7 @@ namespace OpenGL
 			LogCommand("glIsSync", retValue, sync			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>

@@ -157,7 +157,7 @@ namespace OpenGL
 			LogCommand("eglSetStreamMetadataNV", retValue, dpy, stream, n, offset, size, data			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -194,7 +194,7 @@ namespace OpenGL
 			LogCommand("eglQueryStreamMetadataNV", retValue, dpy, stream, name, n, offset, size, data			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		internal static unsafe partial class Delegates

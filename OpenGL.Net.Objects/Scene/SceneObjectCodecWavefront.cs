@@ -159,15 +159,15 @@ namespace OpenGL.Objects.Scene
 					return false;
 
 				if (Name != other.Name)
-					return (false);
+					return false;
 				if (Ambient != other.Ambient)
-					return (false);
+					return false;
 				if (Diffuse != other.Diffuse)
-					return (false);
+					return false;
 				if (Specular != other.Specular)
-					return (false);
+					return false;
 
-				return (true);
+				return true;
 			}
 
 			#endregion
@@ -186,11 +186,11 @@ namespace OpenGL.Objects.Scene
 			public override bool Equals(object obj)
 			{
 				if (ReferenceEquals(null, obj))
-					return (false);
+					return false;
 
 				ObjMaterial otherObj = obj as ObjMaterial;
 				if (otherObj == null)
-					return (false);
+					return false;
 
 				return (Equals(otherObj));
 			}
@@ -226,11 +226,11 @@ namespace OpenGL.Objects.Scene
 
 			public int NormalIndex = Int32.MinValue;
 
-			public bool HasNormal { get { return (NormalIndex != Int32.MinValue); } }
+			public bool HasNormal { get { return NormalIndex != Int32.MinValue; } }
 
 			public int TexCoordIndex = Int32.MinValue;
 
-			public bool HasTexCoord { get { return (NormalIndex != Int32.MinValue); } }
+			public bool HasTexCoord { get { return NormalIndex != Int32.MinValue; } }
 		}
 
 		/// <summary>
@@ -240,9 +240,9 @@ namespace OpenGL.Objects.Scene
 		{
 			public readonly List<ObjFaceCoord> Coords = new List<ObjFaceCoord>();
 
-			public bool HasNormal { get { return (Coords.TrueForAll(delegate (ObjFaceCoord item) { return (item.HasNormal); })); } }
+			public bool HasNormal { get { return (Coords.TrueForAll(delegate (ObjFaceCoord item) { return item.HasNormal; })); } }
 
-			public bool HasTexCoord { get { return (Coords.TrueForAll(delegate (ObjFaceCoord item) { return (item.HasTexCoord); })); } }
+			public bool HasTexCoord { get { return (Coords.TrueForAll(delegate (ObjFaceCoord item) { return item.HasTexCoord; })); } }
 
 			public List<ObjFaceCoord> Triangulate()
 			{
@@ -269,7 +269,7 @@ namespace OpenGL.Objects.Scene
 						throw new NotSupportedException("polygons not supported");
 				}
 
-				return (tris);
+				return tris;
 			}
 		}
 
@@ -380,7 +380,7 @@ namespace OpenGL.Objects.Scene
 					vertexArray.GenerateTangents();
 				}
 
-				return (vertexArray);
+				return vertexArray;
 			}
 
 			public MaterialState CreateMaterialState()
@@ -407,7 +407,7 @@ namespace OpenGL.Objects.Scene
 					objMaterial.FrontMaterialNormalTexCoord = 0;
 				}
 
-				return (objMaterial);
+				return objMaterial;
 			}
 
 			public static ObjGeometry MergeGeometries(IEnumerable<ObjGeometry> geometries, ObjMaterial material)
@@ -417,7 +417,7 @@ namespace OpenGL.Objects.Scene
 				foreach (ObjGeometry item in geometries)
 					mergedGeometry.Faces.AddRange(item.Faces);
 
-				return (mergedGeometry);
+				return mergedGeometry;
 			}
 
 			#endregion
@@ -454,7 +454,7 @@ namespace OpenGL.Objects.Scene
 				while (geometries.Count > 0) {
 					ObjMaterial mergedMaterial = geometries[0].Material;
 					List<ObjGeometry> mergingGeometries = geometries.FindAll(delegate (ObjGeometry item) {
-						return (item.Material == mergedMaterial);
+						return item.Material == mergedMaterial;
 					});
 
 					merged.Add(ObjGeometry.MergeGeometries(mergingGeometries, mergedMaterial));
@@ -463,7 +463,7 @@ namespace OpenGL.Objects.Scene
 						geometries.Remove(item);
 				}
 
-				return (merged);
+				return merged;
 			}
 
 			#endregion
@@ -575,7 +575,7 @@ namespace OpenGL.Objects.Scene
 				}
 			}
 
-			return (objContext);
+			return objContext;
 		}
 
 		private static SceneObject ProcessOBJ(ObjContext objContext)
@@ -601,7 +601,7 @@ namespace OpenGL.Objects.Scene
 				}
 			}
 
-			return (sceneObject);
+			return sceneObject;
 		}
 
 		private static void ParseMaterialLib(ObjContext objContext, string[] token)
@@ -694,7 +694,7 @@ namespace OpenGL.Objects.Scene
 					if (String.IsNullOrEmpty(item) == false)
 						return (Int32.Parse(item, NumberFormatInfo.InvariantInfo));
 					else
-						return (Int32.MinValue);
+						return Int32.MinValue;
 				});
 
 				int indexVertex = indicesValues[0];
@@ -886,7 +886,7 @@ namespace OpenGL.Objects.Scene
 				texture.Create(textureImage);
 				texture.GenerateMipmaps();
 
-				return (texture);
+				return texture;
 			} catch (Exception exception) {
 				throw new InvalidOperationException(String.Format("unable to load texture {0}", textureFileName), exception);
 			}
@@ -907,7 +907,7 @@ namespace OpenGL.Objects.Scene
 		/// <summary>
 		/// Plugin name.
 		/// </summary>
-		public string Name { get { return ("Wavefront"); } }
+		public string Name { get { return "Wavefront"; } }
 
 		/// <summary>
 		/// Determine whether this plugin is available for the current process.
@@ -919,7 +919,7 @@ namespace OpenGL.Objects.Scene
 		public bool CheckAvailability()
 		{
 			// This plugin is always available
-			return (true);
+			return true;
 		}
 
 		/// <summary>
@@ -932,7 +932,7 @@ namespace OpenGL.Objects.Scene
 		{
 			get
 			{
-				return (new string[] { SceneObjectFormat.Wavefront });
+				return new string[] { SceneObjectFormat.Wavefront };
 			}
 		}
 
@@ -947,7 +947,7 @@ namespace OpenGL.Objects.Scene
 		/// </returns>
 		public bool IsReadSupported(string format)
 		{
-			return (format == SceneObjectFormat.Wavefront);
+			return format == SceneObjectFormat.Wavefront;
 		}
 
 		/// <summary>
@@ -960,7 +960,7 @@ namespace OpenGL.Objects.Scene
 		{
 			get
 			{
-				return (new string[0]);
+				return new string[0];
 			}
 		}
 
@@ -975,7 +975,7 @@ namespace OpenGL.Objects.Scene
 		/// </returns>
 		public bool IsWriteSupported(string format)
 		{
-			return (false);
+			return false;
 		}
 
 		/// <summary>
@@ -997,7 +997,7 @@ namespace OpenGL.Objects.Scene
 		{
 			switch (format) {
 				default:
-					return (-1);
+					return -1;
 			}
 		}
 
@@ -1047,7 +1047,7 @@ namespace OpenGL.Objects.Scene
 
 			SceneObjectInfo info = new SceneObjectInfo();
 			
-			return (info);
+			return info;
 		}
 
 		/// <summary>

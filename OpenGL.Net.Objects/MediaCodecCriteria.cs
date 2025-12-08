@@ -146,7 +146,7 @@ namespace OpenGL.Objects
 
 			// Support IConvertible values
 			if ((criteriaObjectValue is IConvertible) && (typeof(T).GetInterface("IConvertible") != null))
-				return ((T) Convert.ChangeType(criteriaObjectValue, typeof (T)));
+				return (T) Convert.ChangeType(criteriaObjectValue, typeof (T));
 
 			throw new ArgumentException(String.Format("not compatible with the type {0}", typeof(T).Name), "criteriaName");
 		}
@@ -176,7 +176,7 @@ namespace OpenGL.Objects
 				if (criteriaName == null)
 					throw new ArgumentNullException(nameof(criteriaName));
 
-				return (_Criteria[criteriaName]);
+				return _Criteria[criteriaName];
 			}
 			set
 			{

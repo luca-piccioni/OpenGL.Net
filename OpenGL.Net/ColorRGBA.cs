@@ -331,7 +331,7 @@ namespace OpenGL
 		/// <summary>
 		/// Get the PixelLayout correponding to this IColor.
 		/// </summary>
-		public PixelLayout PixelType { get { return (PixelLayout.RGBA32); } }
+		public PixelLayout PixelType { get { return PixelLayout.RGBA32; } }
 
 		/// <summary>
 		/// Get of set color components.
@@ -775,7 +775,7 @@ namespace OpenGL
 		/// <summary>
 		/// Get the PixelLayout correponding to this IColor.
 		/// </summary>
-		public PixelLayout PixelType { get { return (PixelLayout.RGBA64); } }
+		public PixelLayout PixelType { get { return PixelLayout.RGBA64; } }
 
 		/// <summary>
 		/// Get of set color components.
@@ -1219,7 +1219,7 @@ namespace OpenGL
 		/// <summary>
 		/// Get the PixelLayout correponding to this IColor.
 		/// </summary>
-		public PixelLayout PixelType { get { return (PixelLayout.RGBAF); } }
+		public PixelLayout PixelType { get { return PixelLayout.RGBAF; } }
 
 		/// <summary>
 		/// Get of set color components.
@@ -1663,7 +1663,7 @@ namespace OpenGL
 		/// <summary>
 		/// Get the PixelLayout correponding to this IColor.
 		/// </summary>
-		public PixelLayout PixelType { get { return (PixelLayout.RGBAHF); } }
+		public PixelLayout PixelType { get { return PixelLayout.RGBAHF; } }
 
 		/// <summary>
 		/// Get of set color components.

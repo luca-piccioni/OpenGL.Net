@@ -3357,7 +3357,7 @@ namespace OpenGL
 			LogCommand("glGetProgramResourceIndex", retValue, program, programInterface, name			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -3518,7 +3518,7 @@ namespace OpenGL
 			LogCommand("glGetProgramResourceLocation", retValue, program, programInterface, name			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -3545,7 +3545,7 @@ namespace OpenGL
 			LogCommand("glGetProgramResourceLocationIndex", retValue, program, programInterface, name			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -4092,7 +4092,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>

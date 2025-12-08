@@ -64,7 +64,7 @@ namespace OpenGL
 			LogCommand("glAcquireKeyedMutexWin32EXT", retValue, memory, key, timeout			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -86,7 +86,7 @@ namespace OpenGL
 			LogCommand("glReleaseKeyedMutexWin32EXT", retValue, memory, key			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		internal static unsafe partial class Delegates

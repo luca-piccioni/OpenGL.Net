@@ -212,15 +212,15 @@ namespace OpenGL.Objects
 		
 		public ulong PrimitivesGenerated
 		{
-			get { return (mPrimitivesGeneratedCached); }
+			get { return mPrimitivesGeneratedCached; }
 		}
 		
 		public ulong PrimitivesWritten
 		{
-			get { return (mPrimitivesWrittenCached); }
+			get { return mPrimitivesWrittenCached; }
 		}
 		
-		public bool Overflow { get { return (mPrimitivesWrittenCached != 0 && mPrimitivesGeneratedCached > mPrimitivesWrittenCached); } }
+		public bool Overflow { get { return mPrimitivesWrittenCached != 0 && mPrimitivesGeneratedCached > mPrimitivesWrittenCached; } }
 		
 		private Query _PrimitivesGenerated;
 		
@@ -248,7 +248,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Feedback buffer object class.
 		/// </summary>
-		public override Guid ObjectClass { get { return (ThisObjectClass); } }
+		public override Guid ObjectClass { get { return ThisObjectClass; } }
 
 		/// <summary>
 		/// Determine whether this FeedbackBufferObject really exists for a specific context.
@@ -276,7 +276,7 @@ namespace OpenGL.Objects
 		{
 			// Object name space test
 			if (base.Exists(ctx) == false)
-				return (false);
+				return false;
 
 			return (!ctx.Extensions.TransformFeedback2_ARB || Gl.IsTransformFeedback(ObjectName));
 		}
@@ -297,7 +297,7 @@ namespace OpenGL.Objects
 			if (ctx == null)
 				throw new ArgumentNullException(nameof(ctx));
 			
-			return (ctx.Extensions.TransformFeedback2_ARB || Gl.CurrentExtensions.TransformFeedback_EXT);
+			return ctx.Extensions.TransformFeedback2_ARB || Gl.CurrentExtensions.TransformFeedback_EXT;
 		}
 
 		/// <summary>
@@ -322,7 +322,7 @@ namespace OpenGL.Objects
 			} else
 				name = base.CreateName(ctx);
 			
-			return (name);
+			return name;
 		}
 
 		/// <summary>

@@ -114,7 +114,7 @@ namespace OpenGL.Objects
 		[XmlElement("ShaderVersion")]
 		public KhronosVersion ShaderVersion
 		{
-			get { return (_ShaderVersion); }
+			get { return _ShaderVersion; }
 			set { _ShaderVersion = value; }
 		}
 
@@ -133,7 +133,7 @@ namespace OpenGL.Objects
 		[XmlElement("PreprocessorSymbol")]
 		public List<string> Defines
 		{
-			get { return (_Define); }
+			get { return _Define; }
 			set
 			{
 				_Define.Clear();
@@ -209,7 +209,7 @@ namespace OpenGL.Objects
 		/// </summary>
 		public FeedbackBufferFormat FeedbackVaryingsFormat
 		{
-			get { return (_FeedbackVaryingsFormat); }
+			get { return _FeedbackVaryingsFormat; }
 			set { _FeedbackVaryingsFormat = value; }
 		}
 
@@ -278,33 +278,33 @@ namespace OpenGL.Objects
 		public bool Equals(ShaderCompilerContext other)
 		{
 			if (ReferenceEquals(null, other))
-				return (false);
+				return false;
 			if (ReferenceEquals(this, other))
-				return (true);
+				return true;
 
 			// Compare shading language version
 			if (ShaderVersion != other.ShaderVersion)
-				return (false);
+				return false;
 
 			// Compare preprocessor definitions (order independent)
 			if (Defines.Count != other.Defines.Count)
-				return (false);
+				return false;
 			foreach (string defineSymbol in Defines)
 				if (other.Defines.Contains(defineSymbol) == false)
-					return (false);
+					return false;
 
 			// Compare preprocessor includes (order dependent)
 			if (Includes.Count != other.Includes.Count)
-				return (false);
+				return false;
 			for (int i = 0; i < _Includes.Count; i++)
 				if (_Includes[i] != other._Includes[i])
-					return (false);
+					return false;
 
 			// Feedback varying format
 			if (_FeedbackVaryingsFormat != other._FeedbackVaryingsFormat)
-				return (false);
+				return false;
 
-			return (true);
+			return true;
 		}
 
 		#endregion
@@ -323,11 +323,11 @@ namespace OpenGL.Objects
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
-				return (false);
+				return false;
 			if (ReferenceEquals(this, obj))
-				return (true);
+				return true;
 			if ((obj.GetType() != typeof(ShaderCompilerContext)) && (obj.GetType().IsSubclassOf(typeof(ShaderCompilerContext)) == false))
-				return (false);
+				return false;
 
 			return (Equals((ShaderCompilerContext)obj));
 		}

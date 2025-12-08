@@ -121,7 +121,7 @@ namespace OpenGL.Objects.Scene
 		/// </summary>
 		public bool HasShadowMap
 		{
-			get { return (_HasShadowMap && ShadowTexture != null); }
+			get { return _HasShadowMap && ShadowTexture != null; }
 			set { _HasShadowMap = value; }
 		}
 
@@ -133,7 +133,7 @@ namespace OpenGL.Objects.Scene
 		/// <summary>
 		/// The shadow map texture.
 		/// </summary>
-		protected virtual Texture ShadowTexture { get { return (null); } }
+		protected virtual Texture ShadowTexture { get { return null; } }
 
 		/// <summary>
 		/// Allocate resources required for shadow mapping.
@@ -169,12 +169,12 @@ namespace OpenGL.Objects.Scene
 		/// <summary>
 		/// Get the object type. Used for avoiding reflection.
 		/// </summary>
-		public override uint ObjectType { get { return (_ObjectType); } }
+		public override uint ObjectType { get { return _ObjectType; } }
 
 		/// <summary>
 		/// Get the object type of this SceneObject class.
 		/// </summary>
-		public static uint ClassObjectType { get { return (_ObjectType); } }
+		public static uint ClassObjectType { get { return _ObjectType; } }
 
 		/// <summary>
 		/// The object identifier for this class of SceneObject.

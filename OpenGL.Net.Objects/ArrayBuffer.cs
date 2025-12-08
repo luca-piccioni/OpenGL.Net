@@ -163,7 +163,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// The array buffer object element type, on CPU side.
 		/// </summary>
-		public ArrayBufferItemType ArrayType { get { return (_ArrayType); } }
+		public ArrayBufferItemType ArrayType { get { return _ArrayType; } }
 
 		/// <summary>
 		/// The array buffer object element type.
@@ -226,7 +226,7 @@ namespace OpenGL.Objects
 			// Copy from buffer data to array data
 			CopyArray(array, arrayItemSize, CpuBufferAddress, ItemSize, 0, arrayLength);
 
-			return (array);
+			return array;
 		}
 
 		#endregion
@@ -600,7 +600,7 @@ namespace OpenGL.Objects
 		{
 			ArrayBufferItemType vertexArrayType = ArrayBufferItem.GetArrayType(typeof(T));
 
-			return ((ArrayBuffer<T>)ConvertItemType(vertexArrayType));
+			return (ArrayBuffer<T>)ConvertItemType(vertexArrayType);
 		}
 
 		/// <summary>
@@ -640,7 +640,7 @@ namespace OpenGL.Objects
 			// Memory is copied
 			Memory.Copy(arrayObject.CpuBufferAddress, CpuBufferAddress, CpuBufferSize);
 
-			return (arrayObject);
+			return arrayObject;
 		}
 
 		#endregion
@@ -650,7 +650,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Get the count of the array sections aggregated in this ArrayBufferObjectBase.
 		/// </summary>
-		protected internal override uint ArraySectionsCount { get { return (ItemsCount > 0 ? 1U : 0U); } }
+		protected internal override uint ArraySectionsCount { get { return ItemsCount > 0 ? 1U : 0U; } }
 
 		/// <summary>
 		/// Get the specified section information.
@@ -666,7 +666,7 @@ namespace OpenGL.Objects
 			if (index >= ArraySectionsCount)
 				throw new ArgumentOutOfRangeException("greater or equal to ArraySectionsCount", index, "index");
 
-			return (this);
+			return this;
 		}
 
 		/// <summary>
@@ -685,7 +685,7 @@ namespace OpenGL.Objects
 			// Copy from buffer data to array data
 			Memory.Copy(genericArray, CpuBufferAddress, CpuItemsCount * ItemSize);
 
-			return (genericArray);
+			return genericArray;
 		}
 
 		/// <summary>
@@ -715,7 +715,7 @@ namespace OpenGL.Objects
 				Unmap(ctx);
 			}
 
-			return (genericArray);
+			return genericArray;
 		}
 
 		#endregion
@@ -725,28 +725,28 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// The type of the elements of the array section.
 		/// </summary>
-		ArrayBufferItemType IArraySection.ItemType { get { return (ArrayType); } }
+		ArrayBufferItemType IArraySection.ItemType { get { return ArrayType; } }
 
 		/// <summary>
 		/// Get whether the array elements should be meant normalized (fixed point precision values).
 		/// </summary>
-		bool IArraySection.Normalized { get { return (false); } }
+		bool IArraySection.Normalized { get { return false; } }
 
 		/// <summary>
 		/// Get the actual array buffer pointer. It could be <see cref="IntPtr.Zero"/> indicating an actual GPU
 		/// buffer reference.
 		/// </summary>
-		IntPtr IArraySection.Pointer { get { return (GpuBufferAddress); } }
+		IntPtr IArraySection.Pointer { get { return GpuBufferAddress; } }
 
 		/// <summary>
 		/// Offset of the first element of the array section, in bytes.
 		/// </summary>
-		IntPtr IArraySection.Offset { get { return (IntPtr.Zero); } }
+		IntPtr IArraySection.Offset { get { return IntPtr.Zero; } }
 
 		/// <summary>
 		/// Offset between two element of the array section, in bytes.
 		/// </summary>
-		IntPtr IArraySection.Stride { get { return (IntPtr.Zero); } }
+		IntPtr IArraySection.Stride { get { return IntPtr.Zero; } }
 
 		#endregion
 	}

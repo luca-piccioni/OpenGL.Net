@@ -991,7 +991,7 @@ namespace OpenGL
 			LogCommand("glGetUniformBlockIndex", retValue, program, uniformBlockName			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>

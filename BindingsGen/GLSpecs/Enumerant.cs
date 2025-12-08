@@ -111,7 +111,7 @@ namespace BindingsGen.GLSpecs
 			if (vendorMatch.Success == false)
 				throw new NotSupportedException();
 
-			return (vendorMatch.Groups["Vendor"].Value);
+			return vendorMatch.Groups["Vendor"].Value;
 		}
 
 		public static bool IsArbVendor(string enumerantName)
@@ -119,9 +119,9 @@ namespace BindingsGen.GLSpecs
 			switch (Extension.GetVendor(enumerantName)) {
 				case "ARB":
 				case "KHR":
-					return (true);
+					return true;
 				default:
-					return (false);
+					return false;
 			}
 		}
 
@@ -146,7 +146,7 @@ namespace BindingsGen.GLSpecs
 		/// </summary>
 		public bool IsDeprecated
 		{
-			get { return (RemovedBy.Count > 0); }
+			get { return RemovedBy.Count > 0; }
 		}
 
 		#endregion
@@ -191,13 +191,13 @@ namespace BindingsGen.GLSpecs
 
 				int requirementIndex = feature.Requirements.FindIndex(delegate(FeatureCommand item) {
 					if (item.Api != null && !ctx.IsSupportedApi(item.Api))
-						return (false);
+						return false;
 
 					int enumIndex = item.Enums.FindIndex(delegate(FeatureCommand.Item subitem) {
-						return (subitem.Name == Name);
+						return subitem.Name == Name;
 					});
 
-					return (enumIndex != -1);
+					return enumIndex != -1;
 				});
 
 				if (requirementIndex != -1)
@@ -211,20 +211,20 @@ namespace BindingsGen.GLSpecs
 
 				int requirementIndex = extension.Requirements.FindIndex(delegate(FeatureCommand item) {
 					if (item.Api != null && !ctx.IsSupportedApi(item.Api))
-						return (false);
+						return false;
 
 					int enumIndex = item.Enums.FindIndex(delegate(FeatureCommand.Item subitem) {
-						return (subitem.Name == Name);
+						return subitem.Name == Name;
 					});
 
-					return (enumIndex != -1);
+					return enumIndex != -1;
 				});
 
 				if (requirementIndex != -1)
 					features.Add(extension);
 			}
 
-			return (features);
+			return features;
 		}
 
 		/// <summary>
@@ -247,20 +247,20 @@ namespace BindingsGen.GLSpecs
 
 				int requirementIndex = feature.Removals.FindIndex(delegate(FeatureCommand item) {
 					if (item.Api != null && !ctx.IsSupportedApi(item.Api))
-						return (false);
+						return false;
 
 					int enumIndex = item.Enums.FindIndex(delegate(FeatureCommand.Item subitem) {
-						return (subitem.Name == Name);
+						return subitem.Name == Name;
 					});
 
-					return (enumIndex != -1);
+					return enumIndex != -1;
 				});
 
 				if (requirementIndex != -1)
 					features.Add(feature);
 			}
 
-			return (features);
+			return features;
 		}
 
 		/// <summary>

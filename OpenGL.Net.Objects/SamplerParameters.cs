@@ -84,7 +84,7 @@ namespace OpenGL.Objects
 		/// </returns>
 		public SamplerParameters Clone()
 		{
-			return ((SamplerParameters)MemberwiseClone());
+			return (SamplerParameters)MemberwiseClone();
 		}
 
 		#endregion

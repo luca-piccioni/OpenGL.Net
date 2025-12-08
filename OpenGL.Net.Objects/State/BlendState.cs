@@ -256,62 +256,62 @@ namespace OpenGL.Objects.State
 		/// <summary>
 		/// Determine whether the blending is enabled.
 		/// </summary>
-		public bool Enabled { get { return (_Enabled); } set { _Enabled = value; } }
+		public bool Enabled { get { return _Enabled; } set { _Enabled = value; } }
 		
 		/// <summary>
 		/// Determine whether blending equation is separated for RGB and Alpha components.
 		/// </summary>
-		public bool EquationSeparated { get { return (_RgbEquation != _AlphaEquation); } }
+		public bool EquationSeparated { get { return _RgbEquation != _AlphaEquation; } }
 
 		/// <summary>
 		/// Blend equation for RGB components.
 		/// </summary>
-		public BlendEquationMode RgbEquation { get { return (_RgbEquation); } set { _RgbEquation = value; } }
+		public BlendEquationMode RgbEquation { get { return _RgbEquation; } set { _RgbEquation = value; } }
 
 		/// <summary>
 		/// Blend equation for alpha components.
 		/// </summary>
-		public BlendEquationMode AlphaEquation { get { return (_AlphaEquation); } set { _AlphaEquation = value; } }
+		public BlendEquationMode AlphaEquation { get { return _AlphaEquation; } set { _AlphaEquation = value; } }
 
 		/// <summary>
 		/// Determine whether blending function is separated for RGB and Alpha components.
 		/// </summary>
-		public bool FunctionSeparated { get { return ((_RgbSrcFactor != _AlphaSrcFactor) || (_RgbDstFactor != _AlphaDstFactor)); } }
+		public bool FunctionSeparated { get { return (_RgbSrcFactor != _AlphaSrcFactor) || (_RgbDstFactor != _AlphaDstFactor); } }
 
 		/// <summary>
 		/// Source blending factor.
 		/// </summary>
-		public BlendingFactor SrcFactor { get { return (_RgbSrcFactor); } set { _RgbSrcFactor = _AlphaSrcFactor = value; } }
+		public BlendingFactor SrcFactor { get { return _RgbSrcFactor; } set { _RgbSrcFactor = _AlphaSrcFactor = value; } }
 
 		/// <summary>
 		/// Destination blending factor.
 		/// </summary>
-		public BlendingFactor DstFactor { get { return (_RgbDstFactor); } set { _RgbDstFactor = _AlphaDstFactor = value; } }
+		public BlendingFactor DstFactor { get { return _RgbDstFactor; } set { _RgbDstFactor = _AlphaDstFactor = value; } }
 
 		/// <summary>
 		/// RGB source blending factor.
 		/// </summary>
-		public BlendingFactor RgbSrcFactor { get { return (_RgbSrcFactor); } set { _RgbSrcFactor = value; } }
+		public BlendingFactor RgbSrcFactor { get { return _RgbSrcFactor; } set { _RgbSrcFactor = value; } }
 
 		/// <summary>
 		/// RGB destination blending factor.
 		/// </summary>
-		public BlendingFactor RgbDstFactor { get { return (_RgbDstFactor); } set { _RgbDstFactor = value; } }
+		public BlendingFactor RgbDstFactor { get { return _RgbDstFactor; } set { _RgbDstFactor = value; } }
 
 		/// <summary>
 		/// Alpha source blending factor.
 		/// </summary>
-		public BlendingFactor AlphaSrcFactor { get { return (_AlphaSrcFactor); } set { _AlphaSrcFactor = value; } }
+		public BlendingFactor AlphaSrcFactor { get { return _AlphaSrcFactor; } set { _AlphaSrcFactor = value; } }
 
 		/// <summary>
 		/// Alpha destination blending factor.
 		/// </summary>
-		public BlendingFactor AlphaDstFactor { get { return (_AlphaDstFactor); } set { _AlphaDstFactor = value; } }
+		public BlendingFactor AlphaDstFactor { get { return _AlphaDstFactor; } set { _AlphaDstFactor = value; } }
 
 		/// <summary>
 		/// Constant blending color.
 		/// </summary>
-		public ColorRGBAF BlendColor { get { return (_BlendColor); } set { _BlendColor = value; } }
+		public ColorRGBAF BlendColor { get { return _BlendColor; } set { _BlendColor = value; } }
 
 		/// <summary>
 		/// Determine whether a blending function is supported.
@@ -323,12 +323,12 @@ namespace OpenGL.Objects.State
 			switch (equation) {
 				case BlendEquationMode.Min:
 				case BlendEquationMode.Max:
-					return (Gl.CurrentExtensions.BlendMinmax_EXT);				// XXX Use GraphicsContext
+					return Gl.CurrentExtensions.BlendMinmax_EXT;				// XXX Use GraphicsContext
 				case BlendEquationMode.FuncSubtract:
 				case BlendEquationMode.FuncReverseSubtract:
-					return (Gl.CurrentExtensions.BlendSubtract_EXT);			// XXX Use GraphicsContext
+					return Gl.CurrentExtensions.BlendSubtract_EXT;			// XXX Use GraphicsContext
 				default:
-					return (true);
+					return true;
 			}
 		}
 
@@ -344,9 +344,9 @@ namespace OpenGL.Objects.State
 				case BlendingFactor.OneMinusConstantColor:
 				case BlendingFactor.ConstantAlpha:
 				case BlendingFactor.OneMinusConstantAlpha:
-					return (Gl.CurrentExtensions.BlendColor_EXT);				// XXX Use GraphicsContext
+					return Gl.CurrentExtensions.BlendColor_EXT;				// XXX Use GraphicsContext
 				default:
-					return (true);
+					return true;
 			}
 		}
 
@@ -357,9 +357,9 @@ namespace OpenGL.Objects.State
 				case BlendingFactor.OneMinusConstantColor:
 				case BlendingFactor.ConstantAlpha:
 				case BlendingFactor.OneMinusConstantAlpha:
-					return (true);
+					return true;
 				default:
-					return (false);
+					return false;
 			}
 		}
 
@@ -433,17 +433,17 @@ namespace OpenGL.Objects.State
 		/// <summary>
 		/// The identifier of this GraphicsState.
 		/// </summary>
-		public override string StateIdentifier { get { return (StateId); } }
+		public override string StateIdentifier { get { return StateId; } }
 
 		/// <summary>
 		/// Unique index assigned to this GraphicsState.
 		/// </summary>
-		public static int StateSetIndex { get { return (_StateIndex); } }
+		public static int StateSetIndex { get { return _StateIndex; } }
 
 		/// <summary>
 		/// Unique index assigned to this GraphicsState.
 		/// </summary>
-		public override int StateIndex { get { return (_StateIndex); } }
+		public override int StateIndex { get { return _StateIndex; } }
 
 		/// <summary>
 		/// The index for this GraphicsState.
@@ -588,21 +588,21 @@ namespace OpenGL.Objects.State
 		public override bool Equals(IGraphicsState other)
 		{
 			if (base.Equals(other) == false)
-				return (false);
+				return false;
 			Debug.Assert(other is BlendState);
 
 			BlendState otherState = (BlendState) other;
 
 			if (otherState._Enabled != _Enabled)
-				return (false);
+				return false;
 			if ((otherState.RgbEquation != RgbEquation) || (otherState.AlphaEquation != AlphaEquation))
-				return (false);
+				return false;
 			if ((otherState.RgbSrcFactor != RgbSrcFactor) || (otherState.RgbDstFactor != RgbDstFactor))
-				return (false);
+				return false;
 			if ((otherState.AlphaSrcFactor != AlphaSrcFactor) || (otherState.AlphaDstFactor != AlphaDstFactor))
-				return (false);
+				return false;
 
-			return (true);
+			return true;
 		}
 		
 		/// <summary>

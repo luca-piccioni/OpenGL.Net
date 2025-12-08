@@ -58,7 +58,7 @@ namespace OpenGL
 			LogCommand("glMapObjectBufferATI", retValue, buffer			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>

@@ -136,7 +136,7 @@ namespace OpenGL.Objects
 		/// </summary>
 		public bool Normalized
 		{
-			get { return (_Normalized); }
+			get { return _Normalized; }
 			set { _Normalized = value; }
 		}
 
@@ -171,9 +171,9 @@ namespace OpenGL.Objects
 
 			switch (baseType) {
 				case VertexBaseType.Half:
-					return (ctx.Extensions.HalfFloatVertex_ARB);
+					return ctx.Extensions.HalfFloatVertex_ARB;
 				default:
-					return (true);
+					return true;
 			}
 		}
 
@@ -219,95 +219,95 @@ namespace OpenGL.Objects
 
 			// Single-Precision Floating-Point Types
 			if      (type == typeof(Single))
-				return (ArrayBufferItemType.Float);
+				return ArrayBufferItemType.Float;
 			else if (type == typeof(Vertex2f))
-				return (ArrayBufferItemType.Float2);
+				return ArrayBufferItemType.Float2;
 			else if (type == typeof(Vertex3f) || type == typeof(ColorRGBF))
-				return (ArrayBufferItemType.Float3);
+				return ArrayBufferItemType.Float3;
 			else if (type == typeof(Vertex4f) || type == typeof(ColorRGBAF))
-				return (ArrayBufferItemType.Float4);
+				return ArrayBufferItemType.Float4;
 
 			// Signed Integer Types
 
 			else if (type == typeof(Int16))
-				return (ArrayBufferItemType.Short);
+				return ArrayBufferItemType.Short;
 			else if (type == typeof(Vertex2s))
-				return (ArrayBufferItemType.Short2);
+				return ArrayBufferItemType.Short2;
 			else if (type == typeof(Vertex3s))
-				return (ArrayBufferItemType.Short3);
+				return ArrayBufferItemType.Short3;
 			else if (type == typeof(Vertex4s))
-				return (ArrayBufferItemType.Short4);
+				return ArrayBufferItemType.Short4;
 
 			else if (type == typeof(Int32))
-				return (ArrayBufferItemType.Int);
+				return ArrayBufferItemType.Int;
 			else if (type == typeof(Vertex2i))
-				return (ArrayBufferItemType.Int2);
+				return ArrayBufferItemType.Int2;
 			else if (type == typeof(Vertex3i))
-				return (ArrayBufferItemType.Int3);
+				return ArrayBufferItemType.Int3;
 			else if (type == typeof(Vertex4i))
-				return (ArrayBufferItemType.Int4);
+				return ArrayBufferItemType.Int4;
 
 			// Unsigned Integer Types
 
 			else if (type == typeof(UInt16))
-				return (ArrayBufferItemType.UShort);
+				return ArrayBufferItemType.UShort;
 			else if (type == typeof(Vertex2us))
-				return (ArrayBufferItemType.UShort2);
+				return ArrayBufferItemType.UShort2;
 			else if (type == typeof(Vertex3us))
-				return (ArrayBufferItemType.UShort3);
+				return ArrayBufferItemType.UShort3;
 			else if (type == typeof(Vertex4us))
-				return (ArrayBufferItemType.UShort4);
+				return ArrayBufferItemType.UShort4;
 
 			else if (type == typeof(UInt32))
-				return (ArrayBufferItemType.UInt);
+				return ArrayBufferItemType.UInt;
 			else if (type == typeof(Vertex2ui))
-				return (ArrayBufferItemType.UInt2);
+				return ArrayBufferItemType.UInt2;
 			else if (type == typeof(Vertex3ui) || type == typeof(ColorRGB96))
-				return (ArrayBufferItemType.UInt3);
+				return ArrayBufferItemType.UInt3;
 			else if (type == typeof(Vertex4ui))
-				return (ArrayBufferItemType.UInt4);
+				return ArrayBufferItemType.UInt4;
 
 			// Double-Precision Floating-Point Types
 
 			else if (type == typeof(double))
-				return (ArrayBufferItemType.Double);
+				return ArrayBufferItemType.Double;
 			else if (type == typeof(Vertex2d))
-				return (ArrayBufferItemType.Double2);
+				return ArrayBufferItemType.Double2;
 			else if (type == typeof(Vertex3d))
-				return (ArrayBufferItemType.Double3);
+				return ArrayBufferItemType.Double3;
 			else if (type == typeof(Vertex4d))
-				return (ArrayBufferItemType.Double4);
+				return ArrayBufferItemType.Double4;
 
 			// Half-Precision Floating-Point Types
 
 			else if (type == typeof(HalfFloat))
-				return (ArrayBufferItemType.Half);
+				return ArrayBufferItemType.Half;
 			else if (type == typeof(Vertex2hf))
-				return (ArrayBufferItemType.Half2);
+				return ArrayBufferItemType.Half2;
 			else if (type == typeof(Vertex3hf))
-				return (ArrayBufferItemType.Half3);
+				return ArrayBufferItemType.Half3;
 			else if (type == typeof(Vertex4hf))
-				return (ArrayBufferItemType.Half4);
+				return ArrayBufferItemType.Half4;
 
 			// Single-Precision Floating-Point Matrix Types
 
 			else if (type == typeof(Matrix4x4f))
-				return (ArrayBufferItemType.Float4x4);
+				return ArrayBufferItemType.Float4x4;
 
 			// Double-Precision Floating-Point Matrix Types
 
 			else if (type == typeof(Matrix4x4d))
-				return (ArrayBufferItemType.Double4x4);
+				return ArrayBufferItemType.Double4x4;
 
 			else if (type == typeof(SByte))
-				return (ArrayBufferItemType.Byte);
+				return ArrayBufferItemType.Byte;
 			else if (type == typeof(Byte))
-				return (ArrayBufferItemType.UByte);
+				return ArrayBufferItemType.UByte;
 
 			else {
 				ArrayBufferItemAttribute attribute = (ArrayBufferItemAttribute) Attribute.GetCustomAttribute(type, typeof(ArrayBufferItemAttribute));
 				if (attribute != null)
-					return (attribute.ArrayType);
+					return attribute.ArrayType;
 			}
 
 			throw new ArgumentException("not corresponding information", nameof(type));
@@ -324,25 +324,25 @@ namespace OpenGL.Objects
 				throw new ArgumentNullException(nameof(type));
 
 			if (type == typeof(Single))
-				return (VertexBaseType.Float);
+				return VertexBaseType.Float;
 			if (type == typeof(HalfFloat))
-				return (VertexBaseType.Half);
+				return VertexBaseType.Half;
 			if (type == typeof(Int32))
-				return (VertexBaseType.Int);
+				return VertexBaseType.Int;
 			if (type == typeof(UInt32))
-				return (VertexBaseType.UInt);
+				return VertexBaseType.UInt;
 			if (type == typeof(Int16))
-				return (VertexBaseType.Short);
+				return VertexBaseType.Short;
 			if (type == typeof(UInt16))
-				return (VertexBaseType.UShort);
+				return VertexBaseType.UShort;
 			if (type == typeof(Byte))
-				return (VertexBaseType.UByte);
+				return VertexBaseType.UByte;
 			if (type == typeof(SByte))
-				return (VertexBaseType.Byte);
+				return VertexBaseType.Byte;
 
 			ArrayBufferItemAttribute attribute = (ArrayBufferItemAttribute)Attribute.GetCustomAttribute(type, typeof(ArrayBufferItemAttribute));
 			if (attribute != null)
-				return (attribute.ArrayBaseType);
+				return attribute.ArrayBaseType;
 
 			throw new ArgumentException(String.Format("unable to match type {0}", type.Name));
 		}
@@ -373,17 +373,17 @@ namespace OpenGL.Objects
 				case ShaderAttributeType.Mat3x4:
 				case ShaderAttributeType.Mat4x2:
 				case ShaderAttributeType.Mat4x3:
-					return (VertexBaseType.Float);
+					return VertexBaseType.Float;
 				case ShaderAttributeType.Int:
 				case ShaderAttributeType.IntVec2:
 				case ShaderAttributeType.IntVec3:
 				case ShaderAttributeType.IntVec4:
-					return (VertexBaseType.Int);
+					return VertexBaseType.Int;
 				case ShaderAttributeType.UInt:
 				case ShaderAttributeType.UIntVec2:
 				case ShaderAttributeType.UIntVec3:
 				case ShaderAttributeType.UIntVec4:
-					return (VertexBaseType.UInt);
+					return VertexBaseType.UInt;
 #if !MONODROID
 				case ShaderAttributeType.Double:
 				case ShaderAttributeType.DoubleVec2:
@@ -398,7 +398,7 @@ namespace OpenGL.Objects
 				case ShaderAttributeType.DoubleMat3x4:
 				case ShaderAttributeType.DoubleMat4x2:
 				case ShaderAttributeType.DoubleMat4x3:
-					return (VertexBaseType.Double);
+					return VertexBaseType.Double;
 #endif
 				default:
 					throw new ArgumentException(String.Format("unrecognized shader attribute type {0}", shaderAttributeType));
@@ -426,9 +426,9 @@ namespace OpenGL.Objects
 		public static bool operator==(ArrayBufferItem left, ArrayBufferItem right)
 		{
 			if (ReferenceEquals(left, right))
-				return (true);
+				return true;
 			if (ReferenceEquals(left, null))
-				return (false);
+				return false;
 
 			return (left.Equals(right));
 		}
@@ -448,9 +448,9 @@ namespace OpenGL.Objects
 		public static bool operator!=(ArrayBufferItem left, ArrayBufferItem right)
 		{
 			if (ReferenceEquals(left, right))
-				return (false);
+				return false;
 			if (ReferenceEquals(left, null))
-				return (false);
+				return false;
 
 			return (!left.Equals(right));
 		}
@@ -474,13 +474,13 @@ namespace OpenGL.Objects
 				return false;
 			
 			if (BaseType != other.BaseType)
-				return (false);
+				return false;
 			if (ArrayLength != other.ArrayLength)
-				return (false);
+				return false;
 			if (Normalized != other.Normalized)
-				return (false);
+				return false;
 
-			return (true);
+			return true;
 		}
 
 		/// <summary>

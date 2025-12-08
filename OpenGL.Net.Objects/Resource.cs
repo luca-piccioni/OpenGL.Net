@@ -102,7 +102,7 @@ namespace OpenGL.Objects
 
 			envStackTrace = envStackTrace.Substring(lineStartIndex + 1);
 
-			return (envStackTrace);
+			return envStackTrace;
 		}
 
 		/// <summary>
@@ -229,7 +229,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Flag used for enabling/disabling procedure logging.
 		/// </summary>
-		public static bool LogEnabled { get { return (_ProcLogEnabled); } set { _ProcLogEnabled = value; } }
+		public static bool LogEnabled { get { return _ProcLogEnabled; } set { _ProcLogEnabled = value; } }
 
 		/// <summary>
 		/// Flag used for enabling/disabling procedure logging.
@@ -272,7 +272,7 @@ namespace OpenGL.Objects
 		/// <remarks>
 		/// The reference count shall be initially 0 on new instances.
 		/// </remarks>
-		public uint RefCount { get { return (_RefCount); } }
+		public uint RefCount { get { return _RefCount; } }
 
 		/// <summary>
 		/// Increment the shared IGraphicsResource reference count.
@@ -338,7 +338,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Get whether this instance has been disposed.
 		/// </summary>
-		public bool IsDisposed { get { return (_Disposed); } }
+		public bool IsDisposed { get { return _Disposed; } }
 
 		/// <summary>
 		/// Performs application-defined tasks associated with freeing, releasing, or resetting managed/unmanaged resources.

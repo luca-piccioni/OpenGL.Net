@@ -279,7 +279,7 @@ namespace OpenGL
 			LogCommand("eglBindAPI", retValue, api			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -295,7 +295,7 @@ namespace OpenGL
 			LogCommand("eglQueryAPI", retValue			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -332,7 +332,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -348,7 +348,7 @@ namespace OpenGL
 			LogCommand("eglReleaseThread", retValue			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -364,7 +364,7 @@ namespace OpenGL
 			LogCommand("eglWaitClient", retValue			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		internal static unsafe partial class Delegates

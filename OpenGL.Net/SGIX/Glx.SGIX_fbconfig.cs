@@ -72,7 +72,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -106,7 +106,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(null);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -131,7 +131,7 @@ namespace OpenGL
 			LogCommand("glXCreateGLXPixmapWithConfigSGIX", retValue, dpy, config, pixmap			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -162,7 +162,7 @@ namespace OpenGL
 			LogCommand("glXCreateContextWithConfigSGIX", retValue, dpy, config, render_type, share_list, direct			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -184,7 +184,7 @@ namespace OpenGL
 			LogCommand("glXGetVisualFromFBConfigSGIX", retValue, dpy, config			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -206,7 +206,7 @@ namespace OpenGL
 			LogCommand("glXGetFBConfigFromVisualSGIX", retValue, dpy, vis			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		internal static unsafe partial class Delegates

@@ -46,7 +46,7 @@ namespace BindingsGen.GLSpecs
 
 			requiredByFeature += ")]";
 
-			return (requiredByFeature);
+			return requiredByFeature;
 		}
 
 		/// <summary>
@@ -64,7 +64,7 @@ namespace BindingsGen.GLSpecs
 
 			removedByFeature += ")]";
 
-			return (removedByFeature);
+			return removedByFeature;
 		}
 
 		public static bool HasCommandAsRequirement(this IFeature feature, string commandName, string defaultAPI)
@@ -76,11 +76,11 @@ namespace BindingsGen.GLSpecs
 
 				foreach (FeatureCommand.Item featureItem in featureCommand.Commands) {
 					if (featureItem.Name == commandName)
-						return (true);
+						return true;
 				}
 			}
 
-			return (false);
+			return false;
 		}
 	}
 }

@@ -129,7 +129,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -148,7 +148,7 @@ namespace OpenGL
 			LogCommand("eglDestroySyncNV", retValue, sync			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -167,7 +167,7 @@ namespace OpenGL
 			LogCommand("eglFenceNV", retValue, sync			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -192,7 +192,7 @@ namespace OpenGL
 			LogCommand("eglClientWaitSyncNV", retValue, sync, flags, timeout			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -214,7 +214,7 @@ namespace OpenGL
 			LogCommand("eglSignalSyncNV", retValue, sync, mode			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -244,7 +244,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		internal static unsafe partial class Delegates

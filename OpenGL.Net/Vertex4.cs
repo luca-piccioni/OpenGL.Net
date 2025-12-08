@@ -681,25 +681,25 @@ namespace OpenGL
 			bool otherUndefined = Math.Abs(other.w) <= 0;
 
 			if (undefined != otherUndefined)
-				return (false);
+				return false;
 
 			if (undefined == false) {
 				if (Math.Abs(x / w - other.x / other.w) > precision)
-					return (false);
+					return false;
 				if (Math.Abs(y / w - other.y / other.w) > precision)
-					return (false);
+					return false;
 				if (Math.Abs(z / w - other.z / other.w) > precision)
-					return (false);
+					return false;
 			} else {
 				if (Math.Abs(x - other.x) > precision)
-					return (false);
+					return false;
 				if (Math.Abs(y - other.y) > precision)
-					return (false);
+					return false;
 				if (Math.Abs(z - other.z) > precision)
-					return (false);
+					return false;
 			}
 
-			return (true);
+			return true;
 		}
 
 		/// <summary>
@@ -717,12 +717,12 @@ namespace OpenGL
 			bool otherUndefined = Math.Abs(other.w) <= 0;
 
 			if (undefined != otherUndefined)
-				return (false);
+				return false;
 
 			if (undefined == false)
-				return (x / w == other.x / other.w && y / w == other.y / other.w && z / w == other.z / other.w);
+				return x / w == other.x / other.w && y / w == other.y / other.w && z / w == other.z / other.w;
 			else
-				return (x == other.x && y == other.y && z == other.z);
+				return x == other.x && y == other.y && z == other.z;
 		}
 
 		/// <summary>
@@ -737,9 +737,9 @@ namespace OpenGL
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
-				return (false);
+				return false;
 			if (obj.GetType() != typeof(Vertex4ub))
-				return (false);
+				return false;
 			
 			return (Equals((Vertex4ub)obj));
 		}
@@ -1443,25 +1443,25 @@ namespace OpenGL
 			bool otherUndefined = Math.Abs(other.w) <= 0;
 
 			if (undefined != otherUndefined)
-				return (false);
+				return false;
 
 			if (undefined == false) {
 				if (Math.Abs(x / w - other.x / other.w) > precision)
-					return (false);
+					return false;
 				if (Math.Abs(y / w - other.y / other.w) > precision)
-					return (false);
+					return false;
 				if (Math.Abs(z / w - other.z / other.w) > precision)
-					return (false);
+					return false;
 			} else {
 				if (Math.Abs(x - other.x) > precision)
-					return (false);
+					return false;
 				if (Math.Abs(y - other.y) > precision)
-					return (false);
+					return false;
 				if (Math.Abs(z - other.z) > precision)
-					return (false);
+					return false;
 			}
 
-			return (true);
+			return true;
 		}
 
 		/// <summary>
@@ -1479,12 +1479,12 @@ namespace OpenGL
 			bool otherUndefined = Math.Abs(other.w) <= 0;
 
 			if (undefined != otherUndefined)
-				return (false);
+				return false;
 
 			if (undefined == false)
-				return (x / w == other.x / other.w && y / w == other.y / other.w && z / w == other.z / other.w);
+				return x / w == other.x / other.w && y / w == other.y / other.w && z / w == other.z / other.w;
 			else
-				return (x == other.x && y == other.y && z == other.z);
+				return x == other.x && y == other.y && z == other.z;
 		}
 
 		/// <summary>
@@ -1499,9 +1499,9 @@ namespace OpenGL
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
-				return (false);
+				return false;
 			if (obj.GetType() != typeof(Vertex4b))
-				return (false);
+				return false;
 			
 			return (Equals((Vertex4b)obj));
 		}
@@ -2190,25 +2190,25 @@ namespace OpenGL
 			bool otherUndefined = Math.Abs(other.w) <= 0;
 
 			if (undefined != otherUndefined)
-				return (false);
+				return false;
 
 			if (undefined == false) {
 				if (Math.Abs(x / w - other.x / other.w) > precision)
-					return (false);
+					return false;
 				if (Math.Abs(y / w - other.y / other.w) > precision)
-					return (false);
+					return false;
 				if (Math.Abs(z / w - other.z / other.w) > precision)
-					return (false);
+					return false;
 			} else {
 				if (Math.Abs(x - other.x) > precision)
-					return (false);
+					return false;
 				if (Math.Abs(y - other.y) > precision)
-					return (false);
+					return false;
 				if (Math.Abs(z - other.z) > precision)
-					return (false);
+					return false;
 			}
 
-			return (true);
+			return true;
 		}
 
 		/// <summary>
@@ -2226,12 +2226,12 @@ namespace OpenGL
 			bool otherUndefined = Math.Abs(other.w) <= 0;
 
 			if (undefined != otherUndefined)
-				return (false);
+				return false;
 
 			if (undefined == false)
-				return (x / w == other.x / other.w && y / w == other.y / other.w && z / w == other.z / other.w);
+				return x / w == other.x / other.w && y / w == other.y / other.w && z / w == other.z / other.w;
 			else
-				return (x == other.x && y == other.y && z == other.z);
+				return x == other.x && y == other.y && z == other.z;
 		}
 
 		/// <summary>
@@ -2246,9 +2246,9 @@ namespace OpenGL
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
-				return (false);
+				return false;
 			if (obj.GetType() != typeof(Vertex4us))
-				return (false);
+				return false;
 			
 			return (Equals((Vertex4us)obj));
 		}
@@ -2952,25 +2952,25 @@ namespace OpenGL
 			bool otherUndefined = Math.Abs(other.w) <= 0;
 
 			if (undefined != otherUndefined)
-				return (false);
+				return false;
 
 			if (undefined == false) {
 				if (Math.Abs(x / w - other.x / other.w) > precision)
-					return (false);
+					return false;
 				if (Math.Abs(y / w - other.y / other.w) > precision)
-					return (false);
+					return false;
 				if (Math.Abs(z / w - other.z / other.w) > precision)
-					return (false);
+					return false;
 			} else {
 				if (Math.Abs(x - other.x) > precision)
-					return (false);
+					return false;
 				if (Math.Abs(y - other.y) > precision)
-					return (false);
+					return false;
 				if (Math.Abs(z - other.z) > precision)
-					return (false);
+					return false;
 			}
 
-			return (true);
+			return true;
 		}
 
 		/// <summary>
@@ -2988,12 +2988,12 @@ namespace OpenGL
 			bool otherUndefined = Math.Abs(other.w) <= 0;
 
 			if (undefined != otherUndefined)
-				return (false);
+				return false;
 
 			if (undefined == false)
-				return (x / w == other.x / other.w && y / w == other.y / other.w && z / w == other.z / other.w);
+				return x / w == other.x / other.w && y / w == other.y / other.w && z / w == other.z / other.w;
 			else
-				return (x == other.x && y == other.y && z == other.z);
+				return x == other.x && y == other.y && z == other.z;
 		}
 
 		/// <summary>
@@ -3008,9 +3008,9 @@ namespace OpenGL
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
-				return (false);
+				return false;
 			if (obj.GetType() != typeof(Vertex4s))
-				return (false);
+				return false;
 			
 			return (Equals((Vertex4s)obj));
 		}
@@ -3699,25 +3699,25 @@ namespace OpenGL
 			bool otherUndefined = Math.Abs(other.w) <= 0;
 
 			if (undefined != otherUndefined)
-				return (false);
+				return false;
 
 			if (undefined == false) {
 				if (Math.Abs(x / w - other.x / other.w) > precision)
-					return (false);
+					return false;
 				if (Math.Abs(y / w - other.y / other.w) > precision)
-					return (false);
+					return false;
 				if (Math.Abs(z / w - other.z / other.w) > precision)
-					return (false);
+					return false;
 			} else {
 				if (Math.Abs(x - other.x) > precision)
-					return (false);
+					return false;
 				if (Math.Abs(y - other.y) > precision)
-					return (false);
+					return false;
 				if (Math.Abs(z - other.z) > precision)
-					return (false);
+					return false;
 			}
 
-			return (true);
+			return true;
 		}
 
 		/// <summary>
@@ -3735,12 +3735,12 @@ namespace OpenGL
 			bool otherUndefined = Math.Abs(other.w) <= 0;
 
 			if (undefined != otherUndefined)
-				return (false);
+				return false;
 
 			if (undefined == false)
-				return (x / w == other.x / other.w && y / w == other.y / other.w && z / w == other.z / other.w);
+				return x / w == other.x / other.w && y / w == other.y / other.w && z / w == other.z / other.w;
 			else
-				return (x == other.x && y == other.y && z == other.z);
+				return x == other.x && y == other.y && z == other.z;
 		}
 
 		/// <summary>
@@ -3755,9 +3755,9 @@ namespace OpenGL
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
-				return (false);
+				return false;
 			if (obj.GetType() != typeof(Vertex4ui))
-				return (false);
+				return false;
 			
 			return (Equals((Vertex4ui)obj));
 		}
@@ -4461,25 +4461,25 @@ namespace OpenGL
 			bool otherUndefined = Math.Abs(other.w) <= 0;
 
 			if (undefined != otherUndefined)
-				return (false);
+				return false;
 
 			if (undefined == false) {
 				if (Math.Abs(x / w - other.x / other.w) > precision)
-					return (false);
+					return false;
 				if (Math.Abs(y / w - other.y / other.w) > precision)
-					return (false);
+					return false;
 				if (Math.Abs(z / w - other.z / other.w) > precision)
-					return (false);
+					return false;
 			} else {
 				if (Math.Abs(x - other.x) > precision)
-					return (false);
+					return false;
 				if (Math.Abs(y - other.y) > precision)
-					return (false);
+					return false;
 				if (Math.Abs(z - other.z) > precision)
-					return (false);
+					return false;
 			}
 
-			return (true);
+			return true;
 		}
 
 		/// <summary>
@@ -4497,12 +4497,12 @@ namespace OpenGL
 			bool otherUndefined = Math.Abs(other.w) <= 0;
 
 			if (undefined != otherUndefined)
-				return (false);
+				return false;
 
 			if (undefined == false)
-				return (x / w == other.x / other.w && y / w == other.y / other.w && z / w == other.z / other.w);
+				return x / w == other.x / other.w && y / w == other.y / other.w && z / w == other.z / other.w;
 			else
-				return (x == other.x && y == other.y && z == other.z);
+				return x == other.x && y == other.y && z == other.z;
 		}
 
 		/// <summary>
@@ -4517,9 +4517,9 @@ namespace OpenGL
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
-				return (false);
+				return false;
 			if (obj.GetType() != typeof(Vertex4i))
-				return (false);
+				return false;
 			
 			return (Equals((Vertex4i)obj));
 		}
@@ -5234,25 +5234,25 @@ namespace OpenGL
 			bool otherUndefined = Math.Abs(other.w) <= 0.0f;
 
 			if (undefined != otherUndefined)
-				return (false);
+				return false;
 
 			if (undefined == false) {
 				if (Math.Abs(x / w - other.x / other.w) > precision)
-					return (false);
+					return false;
 				if (Math.Abs(y / w - other.y / other.w) > precision)
-					return (false);
+					return false;
 				if (Math.Abs(z / w - other.z / other.w) > precision)
-					return (false);
+					return false;
 			} else {
 				if (Math.Abs(x - other.x) > precision)
-					return (false);
+					return false;
 				if (Math.Abs(y - other.y) > precision)
-					return (false);
+					return false;
 				if (Math.Abs(z - other.z) > precision)
-					return (false);
+					return false;
 			}
 
-			return (true);
+			return true;
 		}
 
 		/// <summary>
@@ -5270,12 +5270,12 @@ namespace OpenGL
 			bool otherUndefined = Math.Abs(other.w) <= 0.0f;
 
 			if (undefined != otherUndefined)
-				return (false);
+				return false;
 
 			if (undefined == false)
-				return (x / w == other.x / other.w && y / w == other.y / other.w && z / w == other.z / other.w);
+				return x / w == other.x / other.w && y / w == other.y / other.w && z / w == other.z / other.w;
 			else
-				return (x == other.x && y == other.y && z == other.z);
+				return x == other.x && y == other.y && z == other.z;
 		}
 
 		/// <summary>
@@ -5290,9 +5290,9 @@ namespace OpenGL
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
-				return (false);
+				return false;
 			if (obj.GetType() != typeof(Vertex4f))
-				return (false);
+				return false;
 			
 			return (Equals((Vertex4f)obj));
 		}
@@ -5965,25 +5965,25 @@ namespace OpenGL
 			bool otherUndefined = Math.Abs(other.w) <= 0.0;
 
 			if (undefined != otherUndefined)
-				return (false);
+				return false;
 
 			if (undefined == false) {
 				if (Math.Abs(x / w - other.x / other.w) > precision)
-					return (false);
+					return false;
 				if (Math.Abs(y / w - other.y / other.w) > precision)
-					return (false);
+					return false;
 				if (Math.Abs(z / w - other.z / other.w) > precision)
-					return (false);
+					return false;
 			} else {
 				if (Math.Abs(x - other.x) > precision)
-					return (false);
+					return false;
 				if (Math.Abs(y - other.y) > precision)
-					return (false);
+					return false;
 				if (Math.Abs(z - other.z) > precision)
-					return (false);
+					return false;
 			}
 
-			return (true);
+			return true;
 		}
 
 		/// <summary>
@@ -6001,12 +6001,12 @@ namespace OpenGL
 			bool otherUndefined = Math.Abs(other.w) <= 0.0;
 
 			if (undefined != otherUndefined)
-				return (false);
+				return false;
 
 			if (undefined == false)
-				return (x / w == other.x / other.w && y / w == other.y / other.w && z / w == other.z / other.w);
+				return x / w == other.x / other.w && y / w == other.y / other.w && z / w == other.z / other.w;
 			else
-				return (x == other.x && y == other.y && z == other.z);
+				return x == other.x && y == other.y && z == other.z;
 		}
 
 		/// <summary>
@@ -6021,9 +6021,9 @@ namespace OpenGL
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
-				return (false);
+				return false;
 			if (obj.GetType() != typeof(Vertex4d))
-				return (false);
+				return false;
 			
 			return (Equals((Vertex4d)obj));
 		}
@@ -6727,25 +6727,25 @@ namespace OpenGL
 			bool otherUndefined = Math.Abs(other.w) <= (HalfFloat)0.0f;
 
 			if (undefined != otherUndefined)
-				return (false);
+				return false;
 
 			if (undefined == false) {
 				if (Math.Abs(x / w - other.x / other.w) > precision)
-					return (false);
+					return false;
 				if (Math.Abs(y / w - other.y / other.w) > precision)
-					return (false);
+					return false;
 				if (Math.Abs(z / w - other.z / other.w) > precision)
-					return (false);
+					return false;
 			} else {
 				if (Math.Abs(x - other.x) > precision)
-					return (false);
+					return false;
 				if (Math.Abs(y - other.y) > precision)
-					return (false);
+					return false;
 				if (Math.Abs(z - other.z) > precision)
-					return (false);
+					return false;
 			}
 
-			return (true);
+			return true;
 		}
 
 		/// <summary>
@@ -6763,12 +6763,12 @@ namespace OpenGL
 			bool otherUndefined = Math.Abs(other.w) <= (HalfFloat)0.0f;
 
 			if (undefined != otherUndefined)
-				return (false);
+				return false;
 
 			if (undefined == false)
-				return (x / w == other.x / other.w && y / w == other.y / other.w && z / w == other.z / other.w);
+				return x / w == other.x / other.w && y / w == other.y / other.w && z / w == other.z / other.w;
 			else
-				return (x == other.x && y == other.y && z == other.z);
+				return x == other.x && y == other.y && z == other.z;
 		}
 
 		/// <summary>
@@ -6783,9 +6783,9 @@ namespace OpenGL
 		public override bool Equals(object obj)
 		{
 			if (ReferenceEquals(null, obj))
-				return (false);
+				return false;
 			if (obj.GetType() != typeof(Vertex4hf))
-				return (false);
+				return false;
 			
 			return (Equals((Vertex4hf)obj));
 		}

@@ -216,7 +216,7 @@ namespace OpenGL.Objects
 
 			Debug.Assert(_PixelPlanes != null);
 			Debug.Assert(_PixelPlanes.Length != 0);
-			Debug.Assert(Array.TrueForAll(_PixelPlanes, delegate(IntPtr pixelPlane) { return (pixelPlane != IntPtr.Zero); }));
+			Debug.Assert(Array.TrueForAll(_PixelPlanes, delegate(IntPtr pixelPlane) { return pixelPlane != IntPtr.Zero; }));
 		}
 
 		/// <summary>
@@ -224,7 +224,7 @@ namespace OpenGL.Objects
 		/// </summary>
 		public uint Width
 		{
-			get { return (_ImageInfo.Width); }
+			get { return _ImageInfo.Width; }
 			protected set { _ImageInfo.Width = value; }
 		}
 
@@ -233,7 +233,7 @@ namespace OpenGL.Objects
 		/// </summary>
 		public uint Height
 		{
-			get { return (_ImageInfo.Height); }
+			get { return _ImageInfo.Height; }
 			protected set { _ImageInfo.Height = value; }
 		}
 
@@ -424,7 +424,7 @@ namespace OpenGL.Objects
 
 				// Other information may be modified by external code
 
-				return (_ImageInfo);
+				return _ImageInfo;
 			}
 		}
 

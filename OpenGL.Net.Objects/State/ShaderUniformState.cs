@@ -241,7 +241,7 @@ namespace OpenGL.Objects.State
 			foreach (UniformStateMember uniformStateMember in uniformState)
 				uniformMembers.Add(uniformStateMember.UniformName, uniformStateMember);
 
-			return (uniformMembers);
+			return uniformMembers;
 		}
 
 		private static void DetectTypeUniformProperties(Type shaderUniformStateType)
@@ -450,13 +450,13 @@ namespace OpenGL.Objects.State
 		/// <summary>
 		/// The tag the identifies the uniform block.
 		/// </summary>
-		protected virtual string UniformBlockTag { get { return (null); } }
+		protected virtual string UniformBlockTag { get { return null; } }
 
 		/// <summary>
 		/// The buffer holding the uniform state. If the state is shared among multiple programs, the block layout must be
 		/// "shared", in order to grant the same uniform layout across all programs sharing the state.
 		/// </summary>
-		protected UniformBuffer UniformBuffer { get { return (_UniformBuffer); } }
+		protected UniformBuffer UniformBuffer { get { return _UniformBuffer; } }
 
 		/// <summary>
 		/// The buffer holding the uniform state. If the state is shared among multiple programs, the block layout must be
@@ -474,12 +474,12 @@ namespace OpenGL.Objects.State
 		/// <remarks>
 		/// It returns always false.
 		/// </remarks>
-		public override bool IsContextBound { get { return (false); } }
+		public override bool IsContextBound { get { return false; } }
 
 		/// <summary>
 		/// Flag indicating whether the state can be applied on a <see cref="ShaderProgram"/>.
 		/// </summary>
-		public override bool IsProgramBound { get { return (true); } }
+		public override bool IsProgramBound { get { return true; } }
 
 		/// <summary>
 		/// Create or update resources defined by this IGraphicsState, based on the associated <see cref="ShaderProgram"/>.
@@ -608,7 +608,7 @@ namespace OpenGL.Objects.State
 		public override bool Equals(IGraphicsState other)
 		{
 			if (base.Equals(other) == false)
-				return (false);
+				return false;
 
 			throw new NotImplementedException();
 		}
@@ -702,7 +702,7 @@ namespace OpenGL.Objects.State
 			/// The <see cref="Object"/> that specify the instance defining <paramref name="memberInfo"/>.
 			/// </param>
 			/// <returns></returns>
-			public override object GetUniformValue(object instance) { return (UniformValue); }
+			public override object GetUniformValue(object instance) { return UniformValue; }
 
 			/// <summary>
 			/// Get or set the uniform value.
@@ -754,7 +754,7 @@ namespace OpenGL.Objects.State
 		/// <summary>
 		/// Get the identifier of this ShaderUniformState.
 		/// </summary>
-		public override string StateIdentifier { get { return (_StateId); } }
+		public override string StateIdentifier { get { return _StateId; } }
 
 		/// <summary>
 		/// The identifier of this ShaderUniformState.
@@ -764,12 +764,12 @@ namespace OpenGL.Objects.State
 		/// <summary>
 		/// Unique index assigned to this GraphicsState.
 		/// </summary>
-		public static int StateSetIndex { get { return (_StateIndex); } }
+		public static int StateSetIndex { get { return _StateIndex; } }
 
 		/// <summary>
 		/// Unique index assigned to this GraphicsState.
 		/// </summary>
-		public override int StateIndex { get { return (_StateIndex); } }
+		public override int StateIndex { get { return _StateIndex; } }
 
 		/// <summary>
 		/// The index for this GraphicsState.
@@ -779,7 +779,7 @@ namespace OpenGL.Objects.State
 		/// <summary>
 		/// Get the uniform state associated with this instance.
 		/// </summary>
-		protected override Dictionary<string, UniformStateMember> UniformState { get { return (_UniformProperties); } }
+		protected override Dictionary<string, UniformStateMember> UniformState { get { return _UniformProperties; } }
 
 		/// <summary>
 		/// The uniform state of this TransformState.

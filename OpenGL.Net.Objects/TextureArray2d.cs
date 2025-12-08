@@ -884,7 +884,7 @@ namespace OpenGL.Objects
 		/// In the case a this Texture is defined by multiple targets (i.e. cube map textures), this property
 		/// shall returns always 0.
 		/// </remarks>
-		public override TextureTarget TextureTarget { get { return (TextureTarget.Texture2dArray); } }
+		public override TextureTarget TextureTarget { get { return TextureTarget.Texture2dArray; } }
 
 		/// <summary>
 		/// Uniform sampler type for managing this texture.
@@ -895,13 +895,13 @@ namespace OpenGL.Objects
 			{
 				if (PixelLayout.IsIntegerPixel()) {
 					if (PixelLayout.IsSignedIntegerPixel())
-						return (Gl.INT_SAMPLER_2D_ARRAY);
+						return Gl.INT_SAMPLER_2D_ARRAY;
 					if (PixelLayout.IsUnsignedIntegerPixel())
-						return (Gl.UNSIGNED_INT_SAMPLER_2D_ARRAY);
+						return Gl.UNSIGNED_INT_SAMPLER_2D_ARRAY;
 
 					throw new NotSupportedException(String.Format("integer pixel format {0} not supported", PixelLayout));
 				} else
-					return (Gl.SAMPLER_2D_ARRAY);
+					return Gl.SAMPLER_2D_ARRAY;
 			}
 		}
 

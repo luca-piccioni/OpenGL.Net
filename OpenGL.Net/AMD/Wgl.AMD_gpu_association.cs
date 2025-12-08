@@ -126,7 +126,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -157,7 +157,7 @@ namespace OpenGL
 			LogCommand("wglGetGPUInfoAMD", retValue, id, property, dataType, size, data			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -176,7 +176,7 @@ namespace OpenGL
 			LogCommand("wglGetContextGPUIDAMD", retValue, hglrc			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -195,7 +195,7 @@ namespace OpenGL
 			LogCommand("wglCreateAssociatedContextAMD", retValue, id			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -225,7 +225,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -244,7 +244,7 @@ namespace OpenGL
 			LogCommand("wglDeleteAssociatedContextAMD", retValue, hglrc			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -263,7 +263,7 @@ namespace OpenGL
 			LogCommand("wglMakeAssociatedContextCurrentAMD", retValue, hglrc			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -279,7 +279,7 @@ namespace OpenGL
 			LogCommand("wglGetCurrentAssociatedContextAMD", retValue			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>

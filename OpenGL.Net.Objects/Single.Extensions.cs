@@ -45,7 +45,7 @@ namespace OpenGL.Objects
 			for (int i = 0, j = 0; i < structArrayLength; i++, j += 4)
 				structArray[i] = new Vertex4f(array[j + 0], array[j + 1], array[j + 2], array[j + 3]);
 
-			return (structArray);
+			return structArray;
 		}
 
 		/// <summary>
@@ -65,7 +65,7 @@ namespace OpenGL.Objects
 			for (int i = 0, j = 0; i < structArrayLength; i++, j += 3)
 				structArray[i] = new Vertex3f(array[j + 0], array[j + 1], array[j + 2]);
 
-			return (structArray);
+			return structArray;
 		}
 
 		/// <summary>
@@ -85,7 +85,7 @@ namespace OpenGL.Objects
 			for (int i = 0, j = 0; i < structArrayLength; i++, j += 2)
 				structArray[i] = new Vertex2f(array[j + 0], array[j + 1]);
 
-			return (structArray);
+			return structArray;
 		}
 
 		/// <summary>
@@ -105,7 +105,7 @@ namespace OpenGL.Objects
 			for (int i = 0, j = 0; i < structArrayLength; i++, j += 4)
 				structArray[i] = new ColorRGBAF(array[j + 0], array[j + 1], array[j + 2], array[j + 3]);
 
-			return (structArray);
+			return structArray;
 		}
 
 		/// <summary>
@@ -125,7 +125,7 @@ namespace OpenGL.Objects
 			for (int i = 0, j = 0; i < structArrayLength; i++, j += 3)
 				structArray[i] = new ColorRGBF(array[j + 0], array[j + 1], array[j + 2]);
 
-			return (structArray);
+			return structArray;
 		}
 	}
 }

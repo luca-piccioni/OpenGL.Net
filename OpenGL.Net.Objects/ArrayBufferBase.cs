@@ -117,7 +117,7 @@ namespace OpenGL.Objects
 		/// </summary>
 		public uint ItemSize
 		{
-			get { return (_ItemSize); }
+			get { return _ItemSize; }
 			protected set
 			{
 				if (value == 0)
@@ -145,9 +145,9 @@ namespace OpenGL.Objects
 				uint gpuItemsCount = GpuItemsCount;
 
 				if (gpuItemsCount > 0)
-					return (gpuItemsCount);
+					return gpuItemsCount;
 
-				return (CpuItemsCount);
+				return CpuItemsCount;
 			}
 		}
 
@@ -157,7 +157,7 @@ namespace OpenGL.Objects
 		/// </summary>
 		public uint GpuItemsCount
 		{
-			get { return (GpuBufferSize / ItemSize); }
+			get { return GpuBufferSize / ItemSize; }
 		}
 
 		/// <summary>
@@ -166,7 +166,7 @@ namespace OpenGL.Objects
 		/// </summary>
 		public uint CpuItemsCount
 		{
-			get { return (CpuBufferSize / ItemSize); }
+			get { return CpuBufferSize / ItemSize; }
 		}
 
 		#endregion
@@ -650,7 +650,7 @@ namespace OpenGL.Objects
 			if (arrayItemSize > ItemSize)
 				throw new ArgumentException("array element type too big", nameof(array));
 
-			return (arrayItemSize);
+			return arrayItemSize;
 		}
 
 		#endregion
@@ -1224,7 +1224,7 @@ namespace OpenGL.Objects
 		{
 			CheckValidContext(ctx);
 
-			return (ctx.Extensions.VertexBufferObject_ARB);
+			return ctx.Extensions.VertexBufferObject_ARB;
 		}
 
 		#endregion

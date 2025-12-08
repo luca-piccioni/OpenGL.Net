@@ -98,7 +98,7 @@ namespace BindingsGen.GLSpecs
         {
             if (_IsPointer == true) {
                 // Never fix a pointer
-                return (false);
+                return false;
             } else
                 return (base.IsFixed(ctx, parentCommand));
         }

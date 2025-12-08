@@ -94,7 +94,7 @@ namespace OpenGL
 			LogCommand("glGetFramebufferPixelLocalStorageSizeEXT", retValue, target			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>

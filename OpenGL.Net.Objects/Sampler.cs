@@ -126,7 +126,7 @@ namespace OpenGL.Objects
 		/// <summary>
 		/// Texture object class.
 		/// </summary>
-		public override Guid ObjectClass { get { return (ThisObjectClass); } }
+		public override Guid ObjectClass { get { return ThisObjectClass; } }
 
 		/// <summary>
 		/// Determine whether this Texture really exists for a specific context.
@@ -154,7 +154,7 @@ namespace OpenGL.Objects
 		{
 			// Object name space test (and 'ctx' sanity checks)
 			if (base.Exists(ctx) == false)
-				return (false);
+				return false;
 
 			return (!ctx.Extensions.SamplerObjects_ARB || Gl.IsSampler(ObjectName));
 		}
@@ -175,7 +175,7 @@ namespace OpenGL.Objects
 		/// </returns>
 		protected override bool RequiresName(GraphicsContext ctx)
 		{
-			return (ctx.Extensions.SamplerObjects_ARB);
+			return ctx.Extensions.SamplerObjects_ARB;
 		}
 
 		/// <summary>

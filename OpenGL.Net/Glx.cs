@@ -53,7 +53,7 @@ namespace OpenGL
 		/// <summary>
 		/// OpenGL extension support.
 		/// </summary>
-		public static Extensions CurrentExtensions { get { return (_CurrentExtensions); } }
+		public static Extensions CurrentExtensions { get { return _CurrentExtensions; } }
 
 		/// <summary>
 		/// OpenGL extension support.
@@ -67,14 +67,14 @@ namespace OpenGL
 		/// <summary>
 		/// Get whether GLX layer is avaialable.
 		/// </summary>
-		public static bool IsAvailable { get { return (Delegates.pglXCreateContext != null); } }
+		public static bool IsAvailable { get { return Delegates.pglXCreateContext != null; } }
 
 		/// <summary>
 		/// Get or set whether <see cref="DeviceContextFactory"/> should create an GLX device context, if available.
 		/// </summary>
 		public static bool IsRequired
 		{
-			get { return (_IsRequired && IsAvailable); }
+			get { return _IsRequired && IsAvailable; }
 			set { _IsRequired = value; }
 		}
 
@@ -2832,7 +2832,7 @@ namespace OpenGL
 			retValue = UnsafeNativeMethods.XOpenDisplay(display);
 			LogCommand("XOpenDisplay", retValue, display);
 
-			return (retValue);
+			return retValue;
 		}
 
 
@@ -2843,7 +2843,7 @@ namespace OpenGL
 			retValue = UnsafeNativeMethods.XDefaultScreen(display);
 			LogCommand("XDefaultScreen", retValue, display);
 
-			return (retValue);
+			return retValue;
 		}
 
 		public static int XFree(IntPtr data)
@@ -2853,7 +2853,7 @@ namespace OpenGL
 			retValue = UnsafeNativeMethods.XFree(data);
 			LogCommand("XFree", retValue, data);
 
-			return (retValue);
+			return retValue;
 		}
 
 		public static IntPtr XCreateColormap(IntPtr display, IntPtr w, IntPtr visual, int alloc)
@@ -2863,7 +2863,7 @@ namespace OpenGL
 			retValue = UnsafeNativeMethods.XCreateColormap(display, w, visual, alloc);
 			LogCommand("XCreateColormap", retValue, display, w, visual, alloc);
 
-			return (retValue);
+			return retValue;
 		}
 
 		public static IntPtr XCreateWindow(IntPtr display, IntPtr parent, int x, int y, int width, int height, int border_width, int depth, int xclass, IntPtr visual, UIntPtr valuemask, ref XSetWindowAttributes attributes)
@@ -2873,7 +2873,7 @@ namespace OpenGL
 			retValue = UnsafeNativeMethods.XCreateWindow(display, parent, x, y, width, height, border_width, depth, xclass, visual, valuemask, ref attributes);
 			LogCommand("XCreateWindow", retValue, display, parent, x, y, width, height, border_width, depth, xclass, visual, valuemask, attributes);
 
-			return (retValue);
+			return retValue;
 		}
 
 		public static IntPtr XRootWindow(IntPtr display, int screen_number)
@@ -2883,7 +2883,7 @@ namespace OpenGL
 			retValue = UnsafeNativeMethods.XRootWindow(display, screen_number);
 			LogCommand("XRootWindow", retValue, display, screen_number);
 
-			return (retValue);
+			return retValue;
 		}
 
 		#endregion
@@ -2908,7 +2908,7 @@ namespace OpenGL
 			IntPtr retValue = ChooseVisualCore(dpy, screen, attribList);
 
 			if (retValue != IntPtr.Zero)
-				return ((XVisualInfo)Marshal.PtrToStructure(retValue, typeof(XVisualInfo)));
+				return (XVisualInfo)Marshal.PtrToStructure(retValue, typeof(XVisualInfo));
 			else
 				return (new XVisualInfo());
 		}
@@ -2939,7 +2939,7 @@ namespace OpenGL
 				retValue = CreateContext(dpy, visLock.Address, shareList, direct);
 			}
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -2963,7 +2963,7 @@ namespace OpenGL
 				retValue = CreateGLXPixmap(dpy, visLock.Address, pixmap);
 			}
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -2990,7 +2990,7 @@ namespace OpenGL
 				retValue = GetConfig(dpy, visLock.Address, attrib, value);
 			}
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -3015,7 +3015,7 @@ namespace OpenGL
                 XFree(retValue);
             }
 
-            return (visualInfo);
+            return visualInfo;
 		}
 
 		#endregion

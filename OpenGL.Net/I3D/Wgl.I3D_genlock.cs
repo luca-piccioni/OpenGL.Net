@@ -112,7 +112,7 @@ namespace OpenGL
 			LogCommand("wglEnableGenlockI3D", retValue, hDC			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -131,7 +131,7 @@ namespace OpenGL
 			LogCommand("wglDisableGenlockI3D", retValue, hDC			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -158,7 +158,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -180,7 +180,7 @@ namespace OpenGL
 			LogCommand("wglGenlockSourceI3D", retValue, hDC, uSource			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -207,7 +207,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -229,7 +229,7 @@ namespace OpenGL
 			LogCommand("wglGenlockSourceEdgeI3D", retValue, hDC, uEdge			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -256,7 +256,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -278,7 +278,7 @@ namespace OpenGL
 			LogCommand("wglGenlockSampleRateI3D", retValue, hDC, uRate			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -305,7 +305,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -327,7 +327,7 @@ namespace OpenGL
 			LogCommand("wglGenlockSourceDelayI3D", retValue, hDC, uDelay			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -354,7 +354,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -385,7 +385,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		internal static unsafe partial class Delegates

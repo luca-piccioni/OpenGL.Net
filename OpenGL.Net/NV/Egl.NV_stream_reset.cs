@@ -73,7 +73,7 @@ namespace OpenGL
 			LogCommand("eglResetStreamNV", retValue, dpy, stream			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		internal static unsafe partial class Delegates

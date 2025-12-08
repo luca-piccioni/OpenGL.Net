@@ -102,7 +102,7 @@ namespace OpenGL
 			c[1] = (float)a.G / Byte.MaxValue;
 			c[2] = (float)a.B / Byte.MaxValue;
 
-			return (c);
+			return c;
 		}
 
 #endif
@@ -195,7 +195,7 @@ namespace OpenGL
 		/// <summary>
 		/// Get the PixelLayout correponding to this IColor.
 		/// </summary>
-		public PixelLayout PixelType { get { return (PixelLayout.RGB8); } }
+		public PixelLayout PixelType { get { return PixelLayout.RGB8; } }
 
 		/// <summary>
 		/// Get of set color components.
@@ -308,7 +308,7 @@ namespace OpenGL
 			c[1] = (float)a.G / Byte.MaxValue;
 			c[2] = (float)a.B / Byte.MaxValue;
 
-			return (c);
+			return c;
 		}
 
 #endif
@@ -401,7 +401,7 @@ namespace OpenGL
 		/// <summary>
 		/// Get the PixelLayout correponding to this IColor.
 		/// </summary>
-		public PixelLayout PixelType { get { return (PixelLayout.RGB15); } }
+		public PixelLayout PixelType { get { return PixelLayout.RGB15; } }
 
 		/// <summary>
 		/// Get of set color components.
@@ -514,7 +514,7 @@ namespace OpenGL
 			c[1] = (float)a.G / Byte.MaxValue;
 			c[2] = (float)a.B / Byte.MaxValue;
 
-			return (c);
+			return c;
 		}
 
 #endif
@@ -607,7 +607,7 @@ namespace OpenGL
 		/// <summary>
 		/// Get the PixelLayout correponding to this IColor.
 		/// </summary>
-		public PixelLayout PixelType { get { return (PixelLayout.RGB16); } }
+		public PixelLayout PixelType { get { return PixelLayout.RGB16; } }
 
 		/// <summary>
 		/// Get of set color components.
@@ -739,7 +739,7 @@ namespace OpenGL
 			v[1] = a.g;
 			v[2] = a.b;
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -776,7 +776,7 @@ namespace OpenGL
 			c[1] = (float)a.G / Byte.MaxValue;
 			c[2] = (float)a.B / Byte.MaxValue;
 
-			return (c);
+			return c;
 		}
 
 #endif
@@ -837,7 +837,7 @@ namespace OpenGL
 		/// </summary>
 		public byte Red
 		{
-			get { return (r); }
+			get { return r; }
 			set { r = value; }
 		}
 
@@ -847,7 +847,7 @@ namespace OpenGL
 		/// </summary>
 		public byte Green
 		{
-			get { return (g); }
+			get { return g; }
 			set { g = value; }
 		}
 
@@ -857,7 +857,7 @@ namespace OpenGL
 		/// </summary>
 		public byte Blue
 		{
-			get { return (b); }
+			get { return b; }
 			set { b = value; }
 		}
 
@@ -869,7 +869,7 @@ namespace OpenGL
 		/// <summary>
 		/// Get the PixelLayout correponding to this IColor.
 		/// </summary>
-		public PixelLayout PixelType { get { return (PixelLayout.RGB24); } }
+		public PixelLayout PixelType { get { return PixelLayout.RGB24; } }
 
 		/// <summary>
 		/// Get of set color components.
@@ -1001,7 +1001,7 @@ namespace OpenGL
 			v[1] = a.g;
 			v[2] = a.b;
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -1038,7 +1038,7 @@ namespace OpenGL
 			c[1] = (float)a.G / Byte.MaxValue;
 			c[2] = (float)a.B / Byte.MaxValue;
 
-			return (c);
+			return c;
 		}
 
 #endif
@@ -1099,7 +1099,7 @@ namespace OpenGL
 		/// </summary>
 		public ushort Red
 		{
-			get { return (r); }
+			get { return r; }
 			set { r = value; }
 		}
 
@@ -1109,7 +1109,7 @@ namespace OpenGL
 		/// </summary>
 		public ushort Green
 		{
-			get { return (g); }
+			get { return g; }
 			set { g = value; }
 		}
 
@@ -1119,7 +1119,7 @@ namespace OpenGL
 		/// </summary>
 		public ushort Blue
 		{
-			get { return (b); }
+			get { return b; }
 			set { b = value; }
 		}
 
@@ -1131,7 +1131,7 @@ namespace OpenGL
 		/// <summary>
 		/// Get the PixelLayout correponding to this IColor.
 		/// </summary>
-		public PixelLayout PixelType { get { return (PixelLayout.RGB48); } }
+		public PixelLayout PixelType { get { return PixelLayout.RGB48; } }
 
 		/// <summary>
 		/// Get of set color components.
@@ -1249,7 +1249,7 @@ namespace OpenGL
 			v[1] = a.g;
 			v[2] = a.b;
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -1286,7 +1286,7 @@ namespace OpenGL
 			c[1] = (float)a.G / Byte.MaxValue;
 			c[2] = (float)a.B / Byte.MaxValue;
 
-			return (c);
+			return c;
 		}
 
 #endif
@@ -1347,7 +1347,7 @@ namespace OpenGL
 		/// </summary>
 		public uint Red
 		{
-			get { return (r); }
+			get { return r; }
 			set { r = value; }
 		}
 
@@ -1357,7 +1357,7 @@ namespace OpenGL
 		/// </summary>
 		public uint Green
 		{
-			get { return (g); }
+			get { return g; }
 			set { g = value; }
 		}
 
@@ -1367,7 +1367,7 @@ namespace OpenGL
 		/// </summary>
 		public uint Blue
 		{
-			get { return (b); }
+			get { return b; }
 			set { b = value; }
 		}
 
@@ -1379,7 +1379,7 @@ namespace OpenGL
 		/// <summary>
 		/// Get the PixelLayout correponding to this IColor.
 		/// </summary>
-		public PixelLayout PixelType { get { return (PixelLayout.RGB96); } }
+		public PixelLayout PixelType { get { return PixelLayout.RGB96; } }
 
 		/// <summary>
 		/// Get of set color components.
@@ -1511,7 +1511,7 @@ namespace OpenGL
 			v[1] = a.g;
 			v[2] = a.b;
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -1548,7 +1548,7 @@ namespace OpenGL
 			c[1] = (float)a.G / Byte.MaxValue;
 			c[2] = (float)a.B / Byte.MaxValue;
 
-			return (c);
+			return c;
 		}
 
 #endif
@@ -1609,7 +1609,7 @@ namespace OpenGL
 		/// </summary>
 		public float Red
 		{
-			get { return (r); }
+			get { return r; }
 			set { r = value; }
 		}
 
@@ -1619,7 +1619,7 @@ namespace OpenGL
 		/// </summary>
 		public float Green
 		{
-			get { return (g); }
+			get { return g; }
 			set { g = value; }
 		}
 
@@ -1629,7 +1629,7 @@ namespace OpenGL
 		/// </summary>
 		public float Blue
 		{
-			get { return (b); }
+			get { return b; }
 			set { b = value; }
 		}
 
@@ -1641,7 +1641,7 @@ namespace OpenGL
 		/// <summary>
 		/// Get the PixelLayout correponding to this IColor.
 		/// </summary>
-		public PixelLayout PixelType { get { return (PixelLayout.RGBF); } }
+		public PixelLayout PixelType { get { return PixelLayout.RGBF; } }
 
 		/// <summary>
 		/// Get of set color components.
@@ -1661,9 +1661,9 @@ namespace OpenGL
 			get
 			{
 				switch (c) {
-					case 0: return (Red);
-					case 1: return (Green);
-					case 2: return (Blue);
+					case 0: return Red;
+					case 1: return Green;
+					case 2: return Blue;
 					default:
 						throw new IndexOutOfRangeException();
 				}
@@ -1759,7 +1759,7 @@ namespace OpenGL
 			v[1] = a.g;
 			v[2] = a.b;
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -1796,7 +1796,7 @@ namespace OpenGL
 			c[1] = (float)a.G / Byte.MaxValue;
 			c[2] = (float)a.B / Byte.MaxValue;
 
-			return (c);
+			return c;
 		}
 
 #endif
@@ -1857,7 +1857,7 @@ namespace OpenGL
 		/// </summary>
 		public double Red
 		{
-			get { return (r); }
+			get { return r; }
 			set { r = value; }
 		}
 
@@ -1867,7 +1867,7 @@ namespace OpenGL
 		/// </summary>
 		public double Green
 		{
-			get { return (g); }
+			get { return g; }
 			set { g = value; }
 		}
 
@@ -1877,7 +1877,7 @@ namespace OpenGL
 		/// </summary>
 		public double Blue
 		{
-			get { return (b); }
+			get { return b; }
 			set { b = value; }
 		}
 
@@ -1889,7 +1889,7 @@ namespace OpenGL
 		/// <summary>
 		/// Get the PixelLayout correponding to this IColor.
 		/// </summary>
-		public PixelLayout PixelType { get { return (PixelLayout.RGBD); } }
+		public PixelLayout PixelType { get { return PixelLayout.RGBD; } }
 
 		/// <summary>
 		/// Get of set color components.
@@ -2021,7 +2021,7 @@ namespace OpenGL
 			v[1] = a.g;
 			v[2] = a.b;
 
-			return (v);
+			return v;
 		}
 
 		/// <summary>
@@ -2058,7 +2058,7 @@ namespace OpenGL
 			c[1] = (float)a.G / Byte.MaxValue;
 			c[2] = (float)a.B / Byte.MaxValue;
 
-			return (c);
+			return c;
 		}
 
 #endif
@@ -2074,7 +2074,7 @@ namespace OpenGL
 		/// </summary>
 		public HalfFloat Red
 		{
-			get { return (r); }
+			get { return r; }
 			set { r = value; }
 		}
 
@@ -2084,7 +2084,7 @@ namespace OpenGL
 		/// </summary>
 		public HalfFloat Green
 		{
-			get { return (g); }
+			get { return g; }
 			set { g = value; }
 		}
 
@@ -2094,7 +2094,7 @@ namespace OpenGL
 		/// </summary>
 		public HalfFloat Blue
 		{
-			get { return (b); }
+			get { return b; }
 			set { b = value; }
 		}
 
@@ -2106,7 +2106,7 @@ namespace OpenGL
 		/// <summary>
 		/// Get the PixelLayout correponding to this IColor.
 		/// </summary>
-		public PixelLayout PixelType { get { return (PixelLayout.RGBHF); } }
+		public PixelLayout PixelType { get { return PixelLayout.RGBHF; } }
 
 		/// <summary>
 		/// Get of set color components.
@@ -2126,9 +2126,9 @@ namespace OpenGL
 			get
 			{
 				switch (c) {
-					case 0: return (Red);
-					case 1: return (Green);
-					case 2: return (Blue);
+					case 0: return Red;
+					case 1: return Green;
+					case 2: return Blue;
 					default:
 						throw new IndexOutOfRangeException();
 				}

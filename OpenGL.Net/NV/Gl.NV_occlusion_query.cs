@@ -98,7 +98,7 @@ namespace OpenGL
 				LogCommand("glGenOcclusionQueriesNV", null, 1, "{ " + retValue + " }"				);
 			}
 			DebugCheckErrors(null);
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -137,7 +137,7 @@ namespace OpenGL
 			LogCommand("glIsOcclusionQueryNV", retValue, id			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>

@@ -51,8 +51,8 @@ namespace BindingsGen.GLSpecs
 			// Remove enumerants not required by anyone
 			Commands.RemoveAll(delegate(Command item) {
 				if (item.RequiredBy.Count == 0)
-					return (true);
-				return (false);
+					return true;
+				return false;
 			});
 		}
 

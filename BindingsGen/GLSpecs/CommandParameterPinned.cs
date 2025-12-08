@@ -69,17 +69,17 @@ namespace BindingsGen.GLSpecs
 				case "gl":
 					break;
 				default:
-					return (false);
+					return false;
 			}
 
 			if (param.GetImplementationType(ctx, command) != "IntPtr")
-				return (false);
+				return false;
 			if (Regex.IsMatch(param.Name, "offset"))
-				return (false);
+				return false;
 			if (param.IsConstant || command.IsGetImplementation(ctx))
-				return (true);
+				return true;
 
-			return (false);
+			return false;
 		}
 
 		#endregion

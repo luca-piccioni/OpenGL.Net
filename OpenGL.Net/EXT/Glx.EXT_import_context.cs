@@ -61,7 +61,7 @@ namespace OpenGL
 			LogCommand("glXGetCurrentDisplayEXT", retValue			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -95,7 +95,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -114,7 +114,7 @@ namespace OpenGL
 			LogCommand("glXGetContextIDEXT", retValue, context			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -136,7 +136,7 @@ namespace OpenGL
 			LogCommand("glXImportContextEXT", retValue, dpy, contextID			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>

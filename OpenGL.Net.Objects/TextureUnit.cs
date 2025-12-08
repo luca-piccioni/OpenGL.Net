@@ -142,7 +142,7 @@ namespace OpenGL.Objects
 				if (_Texture != null && _Texture.IsAlive)
 					currTexture = (Texture)_Texture.Target;
 
-				return (currTexture);
+				return currTexture;
 			}
 		}
 
@@ -211,7 +211,7 @@ namespace OpenGL.Objects
 				if (_Sampler != null && _Sampler.IsAlive)
 					currSampler = (Sampler)_Sampler.Target;
 
-				return (currSampler);
+				return currSampler;
 			}
 		}
 

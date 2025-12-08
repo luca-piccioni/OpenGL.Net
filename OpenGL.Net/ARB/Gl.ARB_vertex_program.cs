@@ -650,7 +650,7 @@ namespace OpenGL
 				LogCommand("glGenProgramsARB", null, 1, "{ " + retValue + " }"				);
 			}
 			DebugCheckErrors(null);
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -1092,7 +1092,7 @@ namespace OpenGL
 			LogCommand("glIsProgramARB", retValue, program			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		internal static unsafe partial class Delegates

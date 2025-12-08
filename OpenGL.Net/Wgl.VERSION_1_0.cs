@@ -293,7 +293,7 @@ namespace OpenGL
 			LogCommand("wglCopyContext", retValue, hglrcSrc, hglrcDst, mask			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -312,7 +312,7 @@ namespace OpenGL
 			LogCommand("wglCreateContext", retValue, hDc			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -334,7 +334,7 @@ namespace OpenGL
 			LogCommand("wglCreateLayerContext", retValue, hDc, level			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -353,7 +353,7 @@ namespace OpenGL
 			LogCommand("wglDeleteContext", retValue, oldContext			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -389,7 +389,7 @@ namespace OpenGL
 			}
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -405,7 +405,7 @@ namespace OpenGL
 			LogCommand("wglGetCurrentContext", retValue			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -421,7 +421,7 @@ namespace OpenGL
 			LogCommand("wglGetCurrentDC", retValue			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -452,7 +452,7 @@ namespace OpenGL
 			LogCommand("wglGetLayerPaletteEntries", retValue, hdc, iLayerPlane, iStart, cEntries, pcr			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -471,7 +471,7 @@ namespace OpenGL
 			LogCommand("wglGetProcAddress", retValue, lpszProc			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -492,7 +492,7 @@ namespace OpenGL
 			retValue = Delegates.pwglMakeCurrent(hDc, newContext);
 			LogCommand("wglMakeCurrent", retValue, hDc, newContext			);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -517,7 +517,7 @@ namespace OpenGL
 			LogCommand("wglRealizeLayerPalette", retValue, hdc, iLayerPlane, bRealize			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -548,7 +548,7 @@ namespace OpenGL
 			LogCommand("wglSetLayerPaletteEntries", retValue, hdc, iLayerPlane, iStart, cEntries, pcr			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -570,7 +570,7 @@ namespace OpenGL
 			LogCommand("wglShareLists", retValue, hrcSrvShare, hrcSrvSource			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -592,7 +592,7 @@ namespace OpenGL
 			LogCommand("wglSwapLayerBuffers", retValue, hdc, fuFlags			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -620,7 +620,7 @@ namespace OpenGL
 			LogCommand("wglUseFontBitmaps", retValue, hDC, first, count, listBase			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -648,7 +648,7 @@ namespace OpenGL
 			LogCommand("wglUseFontBitmapsA", retValue, hDC, first, count, listBase			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -676,7 +676,7 @@ namespace OpenGL
 			LogCommand("wglUseFontBitmapsW", retValue, hDC, first, count, listBase			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -716,7 +716,7 @@ namespace OpenGL
 			LogCommand("wglUseFontOutlines", retValue, hDC, first, count, listBase, deviation, extrusion, format, lpgmf			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -756,7 +756,7 @@ namespace OpenGL
 			LogCommand("wglUseFontOutlinesA", retValue, hDC, first, count, listBase, deviation, extrusion, format, lpgmf			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		/// <summary>
@@ -796,7 +796,7 @@ namespace OpenGL
 			LogCommand("wglUseFontOutlinesW", retValue, hDC, first, count, listBase, deviation, extrusion, format, lpgmf			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		internal static unsafe partial class Delegates

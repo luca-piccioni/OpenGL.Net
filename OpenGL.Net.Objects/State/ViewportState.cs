@@ -191,12 +191,12 @@ namespace OpenGL.Objects.State
 		public override bool Equals(IGraphicsState other)
 		{
 			if (base.Equals(other) == false)
-				return (false);
+				return false;
 			Debug.Assert(other is ViewportState);
 
 			ViewportState otherState = (ViewportState)other;
 
-			return (true);
+			return true;
 		}
 
 		#endregion

@@ -76,7 +76,7 @@ namespace OpenGL
 			LogCommand("glCreateSyncFromCLeventARB", retValue, context, @event, flags			);
 			DebugCheckErrors(retValue);
 
-			return (retValue);
+			return retValue;
 		}
 
 		internal static unsafe partial class Delegates
