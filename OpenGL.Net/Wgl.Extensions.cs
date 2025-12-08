@@ -338,6 +338,12 @@ namespace OpenGL
 			public bool Multisample_3DFX;
 
 			/// <summary>
+			/// Support for extension WGL_NV_vertex_array_range.
+			/// </summary>
+			[Extension("WGL_NV_vertex_array_range")]
+			public bool VertexArrayRange_NV;
+
+			/// <summary>
 			/// Support for extension WGL_NV_multisample_coverage.
 			/// </summary>
 			[Extension("WGL_NV_multisample_coverage")]
@@ -348,12 +354,6 @@ namespace OpenGL
 			/// </summary>
 			[Extension("WGL_ATI_render_texture_rectangle")]
 			public bool RenderTextureRectangle_ATI;
-
-			/// <summary>
-			/// Support for extension WGL_NV_vertex_array_range.
-			/// </summary>
-			[Extension("WGL_NV_vertex_array_range")]
-			public bool VertexArrayRange_NV;
 
 			/// <summary>
 			/// Support for extension WGL_EXT_colorspace.

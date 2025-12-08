@@ -1088,7 +1088,7 @@ namespace OpenGL
 			LogCommand("glClientWaitSync", (SyncStatus)retValue, sync, flags, timeout			);
 			DebugCheckErrors(retValue);
 
-			return ((SyncStatus)retValue);
+			return (SyncStatus)retValue;
 		}
 
 		/// <summary>

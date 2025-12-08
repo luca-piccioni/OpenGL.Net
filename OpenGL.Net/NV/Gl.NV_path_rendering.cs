@@ -3185,7 +3185,7 @@ namespace OpenGL
 		{
 			GCHandle pin_fontName = GCHandle.Alloc(fontName, GCHandleType.Pinned);
 			try {
-				return (PathGlyphIndexRangeNV(fontTarget, pin_fontName.AddrOfPinnedObject(), fontStyle, pathParameterTemplate, emScale, baseAndCount));
+				return PathGlyphIndexRangeNV(fontTarget, pin_fontName.AddrOfPinnedObject(), fontStyle, pathParameterTemplate, emScale, baseAndCount);
 			} finally {
 				pin_fontName.Free();
 			}
@@ -3263,7 +3263,7 @@ namespace OpenGL
 		{
 			GCHandle pin_fontName = GCHandle.Alloc(fontName, GCHandleType.Pinned);
 			try {
-				return (PathGlyphIndexArrayNV(firstPathName, fontTarget, pin_fontName.AddrOfPinnedObject(), fontStyle, firstGlyphIndex, numGlyphs, pathParameterTemplate, emScale));
+				return PathGlyphIndexArrayNV(firstPathName, fontTarget, pin_fontName.AddrOfPinnedObject(), fontStyle, firstGlyphIndex, numGlyphs, pathParameterTemplate, emScale);
 			} finally {
 				pin_fontName.Free();
 			}
@@ -3347,7 +3347,7 @@ namespace OpenGL
 		{
 			GCHandle pin_fontData = GCHandle.Alloc(fontData, GCHandleType.Pinned);
 			try {
-				return (PathMemoryGlyphIndexArrayNV(firstPathName, fontTarget, fontSize, pin_fontData.AddrOfPinnedObject(), faceIndex, firstGlyphIndex, numGlyphs, pathParameterTemplate, emScale));
+				return PathMemoryGlyphIndexArrayNV(firstPathName, fontTarget, fontSize, pin_fontData.AddrOfPinnedObject(), faceIndex, firstGlyphIndex, numGlyphs, pathParameterTemplate, emScale);
 			} finally {
 				pin_fontData.Free();
 			}

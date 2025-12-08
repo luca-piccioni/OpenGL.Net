@@ -231,7 +231,7 @@ namespace OpenGL
 			LogCommand("eglQueryOutputLayerStringEXT", PtrToString(retValue), dpy, layer, name			);
 			DebugCheckErrors(retValue);
 
-			return (PtrToString(retValue));
+			return PtrToString(retValue);
 		}
 
 		/// <summary>
@@ -317,7 +317,7 @@ namespace OpenGL
 			LogCommand("eglQueryOutputPortStringEXT", PtrToString(retValue), dpy, port, name			);
 			DebugCheckErrors(retValue);
 
-			return (PtrToString(retValue));
+			return PtrToString(retValue);
 		}
 
 		internal static unsafe partial class Delegates

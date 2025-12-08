@@ -55,7 +55,7 @@ namespace OpenGL
 			LogCommand("glGetGraphicsResetStatusARB", (GraphicsResetStatus)retValue			);
 			DebugCheckErrors(retValue);
 
-			return ((GraphicsResetStatus)retValue);
+			return (GraphicsResetStatus)retValue;
 		}
 
 		/// <summary>

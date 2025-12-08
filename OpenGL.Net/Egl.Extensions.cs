@@ -294,6 +294,12 @@ namespace OpenGL
 			public bool CreateNativeClientBuffer_ANDROID;
 
 			/// <summary>
+			/// Support for extension EGL_TIZEN_image_native_buffer.
+			/// </summary>
+			[Extension("EGL_TIZEN_image_native_buffer")]
+			public bool ImageNativeBuffer_TIZEN;
+
+			/// <summary>
 			/// Support for extension EGL_NV_system_time.
 			/// </summary>
 			[Extension("EGL_NV_system_time")]
@@ -504,10 +510,10 @@ namespace OpenGL
 			public bool DrmImage_MESA;
 
 			/// <summary>
-			/// Support for extension EGL_TIZEN_image_native_buffer.
+			/// Support for extension EGL_ANDROID_framebuffer_target.
 			/// </summary>
-			[Extension("EGL_TIZEN_image_native_buffer")]
-			public bool ImageNativeBuffer_TIZEN;
+			[Extension("EGL_ANDROID_framebuffer_target")]
+			public bool FramebufferTarget_ANDROID;
 
 			/// <summary>
 			/// Support for extension EGL_IMG_image_plane_attribs.
@@ -532,12 +538,6 @@ namespace OpenGL
 			/// </summary>
 			[Extension("EGL_HI_clientpixmap")]
 			public bool Clientpixmap_HI;
-
-			/// <summary>
-			/// Support for extension EGL_ANDROID_framebuffer_target.
-			/// </summary>
-			[Extension("EGL_ANDROID_framebuffer_target")]
-			public bool FramebufferTarget_ANDROID;
 
 			/// <summary>
 			/// Support for extension EGL_ANDROID_front_buffer_auto_refresh.
@@ -612,6 +612,12 @@ namespace OpenGL
 			public bool PixmapMultisampleDiscard_ARM;
 
 			/// <summary>
+			/// Support for extension EGL_EXT_output_drm.
+			/// </summary>
+			[Extension("EGL_EXT_output_drm")]
+			public bool OutputDrm_EXT;
+
+			/// <summary>
 			/// Support for extension EGL_EXT_output_base.
 			/// </summary>
 			[Extension("EGL_EXT_output_base")]
@@ -624,10 +630,10 @@ namespace OpenGL
 			public bool MultiviewWindow_EXT;
 
 			/// <summary>
-			/// Support for extension EGL_EXT_yuv_surface.
+			/// Support for extension EGL_EXT_image_dma_buf_import_modifiers.
 			/// </summary>
-			[Extension("EGL_EXT_yuv_surface")]
-			public bool YuvSurface_EXT;
+			[Extension("EGL_EXT_image_dma_buf_import_modifiers")]
+			public bool ImageDmaBufImportModifiers_EXT;
 
 			/// <summary>
 			/// Support for extension EGL_EXT_image_dma_buf_import.
@@ -702,16 +708,10 @@ namespace OpenGL
 			public bool BufferAge_EXT;
 
 			/// <summary>
-			/// Support for extension EGL_EXT_image_dma_buf_import_modifiers.
+			/// Support for extension EGL_EXT_yuv_surface.
 			/// </summary>
-			[Extension("EGL_EXT_image_dma_buf_import_modifiers")]
-			public bool ImageDmaBufImportModifiers_EXT;
-
-			/// <summary>
-			/// Support for extension EGL_EXT_output_drm.
-			/// </summary>
-			[Extension("EGL_EXT_output_drm")]
-			public bool OutputDrm_EXT;
+			[Extension("EGL_EXT_yuv_surface")]
+			public bool YuvSurface_EXT;
 
 			/// <summary>
 			/// Support for extension EGL_EXT_output_openwf.

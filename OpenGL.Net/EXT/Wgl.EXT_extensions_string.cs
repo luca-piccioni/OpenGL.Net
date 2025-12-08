@@ -55,7 +55,7 @@ namespace OpenGL
 			LogCommand("wglGetExtensionsStringEXT", PtrToString(retValue)			);
 			DebugCheckErrors(retValue);
 
-			return (PtrToString(retValue));
+			return PtrToString(retValue);
 		}
 
 		internal static unsafe partial class Delegates

@@ -6783,7 +6783,7 @@ namespace OpenGL
 			LogCommand("glCheckNamedFramebufferStatusEXT", (FramebufferStatus)retValue, framebuffer, target			);
 			DebugCheckErrors(retValue);
 
-			return ((FramebufferStatus)retValue);
+			return (FramebufferStatus)retValue;
 		}
 
 		/// <summary>

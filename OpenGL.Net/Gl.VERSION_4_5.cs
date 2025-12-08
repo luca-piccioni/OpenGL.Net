@@ -1732,7 +1732,7 @@ namespace OpenGL
 			LogCommand("glCheckNamedFramebufferStatus", (FramebufferStatus)retValue, framebuffer, target			);
 			DebugCheckErrors(retValue);
 
-			return ((FramebufferStatus)retValue);
+			return (FramebufferStatus)retValue;
 		}
 
 		/// <summary>
@@ -5197,7 +5197,7 @@ namespace OpenGL
 			LogCommand("glGetGraphicsResetStatus", (GraphicsResetStatus)retValue			);
 			DebugCheckErrors(retValue);
 
-			return ((GraphicsResetStatus)retValue);
+			return (GraphicsResetStatus)retValue;
 		}
 
 		/// <summary>

@@ -292,7 +292,7 @@ namespace OpenGL
 			LogCommand("glCheckFramebufferStatusOES", (FramebufferStatus)retValue, target			);
 			DebugCheckErrors(retValue);
 
-			return ((FramebufferStatus)retValue);
+			return (FramebufferStatus)retValue;
 		}
 
 		/// <summary>

@@ -6887,7 +6887,7 @@ namespace OpenGL
 			retValue = Delegates.pglGetError();
 			LogCommand("glGetError", (ErrorCode)retValue			);
 
-			return ((ErrorCode)retValue);
+			return (ErrorCode)retValue;
 		}
 
 		/// <summary>
@@ -7246,7 +7246,7 @@ namespace OpenGL
 			LogCommand("glGetString", PtrToString(retValue), name			);
 			DebugCheckErrors(retValue);
 
-			return (PtrToString(retValue));
+			return PtrToString(retValue);
 		}
 
 		/// <summary>

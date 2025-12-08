@@ -1162,7 +1162,7 @@ namespace OpenGL
 			LogCommand("eglQueryString", PtrToString(retValue), dpy, name			);
 			DebugCheckErrors(retValue);
 
-			return (PtrToString(retValue));
+			return PtrToString(retValue);
 		}
 
 		/// <summary>

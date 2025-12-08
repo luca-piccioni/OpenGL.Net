@@ -79,7 +79,7 @@ namespace OpenGL
 			LogCommand("glXQueryExtensionsString", PtrToString(retValue), dpy, screen			);
 			DebugCheckErrors(retValue);
 
-			return (PtrToString(retValue));
+			return PtrToString(retValue);
 		}
 
 		/// <summary>
@@ -104,7 +104,7 @@ namespace OpenGL
 			LogCommand("glXQueryServerString", PtrToString(retValue), dpy, screen, name			);
 			DebugCheckErrors(retValue);
 
-			return (PtrToString(retValue));
+			return PtrToString(retValue);
 		}
 
 		/// <summary>
@@ -126,7 +126,7 @@ namespace OpenGL
 			LogCommand("glXGetClientString", PtrToString(retValue), dpy, name			);
 			DebugCheckErrors(retValue);
 
-			return (PtrToString(retValue));
+			return PtrToString(retValue);
 		}
 
 		internal static unsafe partial class Delegates

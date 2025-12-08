@@ -101,7 +101,7 @@ namespace OpenGL
 		{
 			GCHandle pin_vdpSurface = GCHandle.Alloc(vdpSurface, GCHandleType.Pinned);
 			try {
-				return (VDPAURegisterVideoSurfaceNV(pin_vdpSurface.AddrOfPinnedObject(), target, numTextureNames, textureNames, isFrameStructure));
+				return VDPAURegisterVideoSurfaceNV(pin_vdpSurface.AddrOfPinnedObject(), target, numTextureNames, textureNames, isFrameStructure);
 			} finally {
 				pin_vdpSurface.Free();
 			}

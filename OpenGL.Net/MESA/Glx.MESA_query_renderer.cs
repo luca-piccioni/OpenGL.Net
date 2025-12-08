@@ -157,7 +157,7 @@ namespace OpenGL
 			LogCommand("glXQueryCurrentRendererStringMESA", PtrToString(retValue), attribute			);
 			DebugCheckErrors(retValue);
 
-			return (PtrToString(retValue));
+			return PtrToString(retValue);
 		}
 
 		/// <summary>
@@ -221,7 +221,7 @@ namespace OpenGL
 			LogCommand("glXQueryRendererStringMESA", PtrToString(retValue), dpy, screen, renderer, attribute			);
 			DebugCheckErrors(retValue);
 
-			return (PtrToString(retValue));
+			return PtrToString(retValue);
 		}
 
 		internal static unsafe partial class Delegates

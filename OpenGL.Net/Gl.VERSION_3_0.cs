@@ -5399,7 +5399,7 @@ namespace OpenGL
 			LogCommand("glGetStringi", PtrToString(retValue), name, index			);
 			DebugCheckErrors(retValue);
 
-			return (PtrToString(retValue));
+			return PtrToString(retValue);
 		}
 
 		/// <summary>
@@ -5830,7 +5830,7 @@ namespace OpenGL
 			LogCommand("glCheckFramebufferStatus", (FramebufferStatus)retValue, target			);
 			DebugCheckErrors(retValue);
 
-			return ((FramebufferStatus)retValue);
+			return (FramebufferStatus)retValue;
 		}
 
 		/// <summary>

@@ -114,7 +114,7 @@ namespace OpenGL
 			LogCommand("eglQueryDeviceStringEXT", PtrToString(retValue), device, name			);
 			DebugCheckErrors(retValue);
 
-			return (PtrToString(retValue));
+			return PtrToString(retValue);
 		}
 
 		/// <summary>

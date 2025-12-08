@@ -132,7 +132,7 @@ namespace OpenGL
 		{
 			GCHandle pin_pointer = GCHandle.Alloc(pointer, GCHandleType.Pinned);
 			try {
-				return (NewObjectBufferATI(size, pin_pointer.AddrOfPinnedObject(), usage));
+				return NewObjectBufferATI(size, pin_pointer.AddrOfPinnedObject(), usage);
 			} finally {
 				pin_pointer.Free();
 			}
